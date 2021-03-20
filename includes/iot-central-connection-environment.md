@@ -9,10 +9,10 @@ ms.date: 11/03/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: a3c85a7c76115ff72e5042788ad83fd31f601c9c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96122682"
 ---
 Desafie as variáveis ambientais para configurar a amostra. O seguinte corte mostra como definir as variáveis ambientais na solicitação de comando do Windows. Se estiver a usar uma **casca de bata,** substitua os `set` comandos por `export` comandos:

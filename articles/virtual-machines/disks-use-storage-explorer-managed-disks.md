@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9dfce7b76eed5bfc9f4979c0e3041b6c65c28422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88749372"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Use o Azure Storage Explorer para gerir discos geridos a Azure
@@ -33,7 +33,7 @@ Se o seu Explorador de Armazenamento não estiver ligado ao Azure, não poderá 
 
     ![Clique no ícone plug-in](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon.png)
 
-1. **Selecione Adicionar uma Conta Azure**e, em seguida, clique em **Seguinte**.
+1. **Selecione Adicionar uma Conta Azure** e, em seguida, clique em **Seguinte**.
 
     ![Adicionar uma Conta do Azure](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure.png)
 

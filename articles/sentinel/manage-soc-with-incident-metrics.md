@@ -1,5 +1,5 @@
 ---
-title: Gerencie melhor o seu SOC com métricas de incidentes em Azure Sentinel Microsoft Docs
+title: Gerencie melhor o seu SOC com métricas de incidentes em Azure Sentinel | Microsoft Docs
 description: Utilize informações do ecrã e do livro de métricas de incidentes do Azure Sentinel para o ajudar a gerir o seu Centro de Operações de Segurança (SOC).
 services: sentinel
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660734"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Gerir melhor o SOC com métricas de incidentes
@@ -92,7 +92,7 @@ Pode utilizar o modelo para criar os seus próprios livros personalizados adapta
 
 [!INCLUDE [SecurityIncidents schema](../../includes/sentinel-schema-security-incident.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

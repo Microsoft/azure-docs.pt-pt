@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7b75c9dc874a41d4221c55a8b00dd12d943e80fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87542947"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Monitorização das infraestruturas do Azure   
@@ -32,7 +32,7 @@ As configurações de base necessárias para os serviços baseados no Azure são
 ## <a name="vulnerability-management"></a>Gestão de vulnerabilidades
 A gestão de atualizações de segurança ajuda a proteger os sistemas de vulnerabilidades conhecidas. O Azure utiliza sistemas de implementação integrados para gerir a distribuição e instalação de atualizações de segurança para o software da Microsoft. O Azure também é capaz de recorrer aos recursos do Microsoft Security Response Center (MSRC). O MSRC identifica, monitoriza, responde e resolve incidentes de segurança e vulnerabilidades na nuvem 24 horas por dia, todos os dias do ano.
 
-## <a name="vulnerability-scanning"></a>Digitalização de vulnerabilidades
+## <a name="vulnerability-scanning"></a>Análise de vulnerabilidades
 A verificação de vulnerabilidades é realizada em sistemas operativos de servidores, bases de dados e dispositivos de rede. As análises de vulnerabilidade são realizadas trimestralmente no mínimo. A Azure contrata com avaliadores independentes para realizar testes de penetração da fronteira de Azure. Os exercícios da equipa vermelha também são realizados rotineiramente e os resultados são usados para fazer melhorias de segurança.
 
 ## <a name="protective-monitoring"></a>Monitorização protetora

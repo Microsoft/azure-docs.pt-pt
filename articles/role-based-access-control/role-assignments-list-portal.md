@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556175"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Liste atribuições de funções Azure usando o portal Azure

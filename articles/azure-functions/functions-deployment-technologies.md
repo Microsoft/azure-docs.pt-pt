@@ -5,10 +5,10 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943629"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
@@ -214,7 +214,7 @@ Se precisar de mais controlo sobre esta transição, deve utilizar slots de impl
 
 Quando implementar a sua aplicação de função para Azure, pode implementar para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre slots de implementação, consulte a documentação das [ranhuras de implantação de funções Azure](functions-deployment-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de função:
 

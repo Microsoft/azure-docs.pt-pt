@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directory B2C políticas personalizadas Microsoft Docs
+title: Azure Ative Directory B2C políticas personalizadas | Microsoft Docs
 description: Saiba mais sobre as políticas personalizadas do Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -12,17 +12,17 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 043cf83d804803e1b5b47d3ac51bbccaa06e4e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87116417"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-As políticas personalizadas são ficheiros de configuração que definem o comportamento do seu inquilino Azure Ative Directory B2C (Azure AD B2C). Os fluxos de utilizador são predefinidos no portal Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidade para completar muitas tarefas diferentes.
+As políticas personalizadas são ficheiros de configuração que definem o comportamento do inquilino do Azure Active Directory B2C (AAD B2C). Os fluxos de utilizador estão predefinidos no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um programador de identidades para concluir várias tarefas diferentes.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparar fluxos de utilizadores e políticas personalizadas
 

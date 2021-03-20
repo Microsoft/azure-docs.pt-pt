@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com DocuSign Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com docuSign | Microsoft Docs'
 description: Saiba como configurar um único sign-on (SSO) entre o Azure Ative Directory e o DocuSign.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454699"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Azure Ative Directory integração única (SSO) com DocuSign
@@ -127,10 +127,10 @@ Nesta secção, irá criar um utilizador de teste chamado B.Simon no portal Azur
 
 Nesta secção, você concederá acesso a B.Simon ao DocuSign para que este utilizador possa usar a assinatura única do Azure.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **DocuSign**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-1. **Selecione Adicionar utilizador**e, em seguida, na caixa de diálogo de atribuição de **adicionar,** selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador** e, em seguida, na caixa de diálogo de atribuição de **adicionar,** selecione **Utilizadores e grupos**.
 1. Na caixa de diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista **de Utilizadores** e, em seguida, prima o botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. Na caixa de diálogo **'Adicionar Atribuição',** selecione o botão **'Atribuir'.**
@@ -204,7 +204,7 @@ Nesta secção, você concederá acesso a B.Simon ao DocuSign para que este util
 
        ![Certificados de Fornecedor de Identidade/Certificado de Adição][58]
 
-    k. Na secção **Fornecedores de Identidade,** selecione **AÇÕES**e, em seguida, selecione **Pontos de Final**.
+    k. Na secção **Fornecedores de Identidade,** selecione **AÇÕES** e, em seguida, selecione **Pontos de Final**.
 
        ![Fornecedores de Identidade/Pontos Finais][59]
 
@@ -212,11 +212,11 @@ Nesta secção, você concederá acesso a B.Simon ao DocuSign para que este util
 
        ![Ver PONTOS finais SAML 2.0][60]
        
-       1. Copie o **URL do emitente do fornecedor de serviços**e, em seguida, cole-o na caixa **de identificador** na secção **de configuração SAML Básica** no portal Azure.
+       1. Copie o **URL do emitente do fornecedor de serviços** e, em seguida, cole-o na caixa **de identificador** na secção **de configuração SAML Básica** no portal Azure.
        
-       1. Copie o **URL do Serviço de Apoio ao Consumidor de Afirmação do Fornecedor**de Serviços de Serviço , e, em seguida, cole-o na caixa **URL de resposta** na secção **de configuração SAML Básica** no portal Azure.
+       1. Copie o **URL do Serviço de Apoio ao Consumidor de Afirmação do Fornecedor** de Serviços de Serviço , e, em seguida, cole-o na caixa **URL de resposta** na secção **de configuração SAML Básica** no portal Azure.
        
-       1. Copie o **URL de login do fornecedor de serviços**e, em seguida, cole-o na caixa de URL sign **on** na secção **de configuração SAML básica** no portal Azure. No final do URL de Login do Fornecedor de **Serviços** obterá o valor IDPID.
+       1. Copie o **URL de login do fornecedor de serviços** e, em seguida, cole-o na caixa de URL sign **on** na secção **de configuração SAML básica** no portal Azure. No final do URL de Login do Fornecedor de **Serviços** obterá o valor IDPID.
 
        1. Selecione **Fechar**.
 

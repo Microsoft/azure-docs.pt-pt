@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260294"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -30,14 +30,14 @@ Esta API suporta a plataforma Service Fabric; não se destina a ser usado direta
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --task-id [Obrigatório] | A identificação da tarefa de reparação. |
 | -versão | O número atual da versão da tarefa de reparação. Se não for zero, o pedido só será bem sucedido se este valor corresponder à versão atual da tarefa de reparação. Se zero, então não é feita nenhuma verificação de versão. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -52,14 +52,14 @@ Esta API suporta a plataforma Service Fabric; não se destina a ser usado direta
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --task-id [Obrigatório] | A identificação da tarefa de reparação completa a eliminar. |
 | -versão | O número atual da versão da tarefa de reparação. Se não for zero, o pedido só será bem sucedido se este valor corresponder à versão atual da tarefa de reparação. Se zero, então não é feita nenhuma verificação de versão. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -74,7 +74,7 @@ Esta API suporta a plataforma Service Fabric; não se destina a ser usado direta
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --executor-filtro | O nome do executor de reparações cujas tarefas reclamadas devem ser incluídas na lista. |
 | --estado-filtro | Um pouco de OR dos seguintes valores, especificando quais estados de tarefa devem ser incluídos na lista de resultados. <ul><li>1 - Criado</li><li>2 - Reclamado</li><li>4 - Preparação</li><li>8 - Aprovado</li><li>16 - Execução</li><li>32 - Restaurar</li><li>64 - Concluído</li></ul>
@@ -82,7 +82,7 @@ Esta API suporta a plataforma Service Fabric; não se destina a ser usado direta
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

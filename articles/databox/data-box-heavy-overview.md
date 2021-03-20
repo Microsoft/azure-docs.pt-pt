@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 2f1f01a8cfa25c222848e7cc5c86dc3532eba348
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80437780"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>O que é o Azure Data Box Heavy?
@@ -59,7 +59,7 @@ Data Box Heavy é projetado para mover quantidades massivas de dados para Azure 
 
 O dispositivo Data Box Heavy tem as seguintes funcionalidades nesta versão.
 
-| Especificações                                          | Descrição              |
+| Especificações                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | ~ 500 libras. <br>Dispositivo sobre rodas de bloqueio para transporte|
 | Dimensões                                              | Largura: 26 polegadas Altura: 28 polegadas comprimento: 48 polegadas |

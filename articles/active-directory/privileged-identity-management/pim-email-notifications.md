@@ -1,5 +1,5 @@
 ---
-title: Notificações por e-mail em PIM - Azure Ative Directory Microsoft Docs
+title: Notificações de e-mail em PIM - Azure Ative Directory | Microsoft Docs
 description: Descreve notificações de e-mail na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394735"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações de e-mail em PIM
@@ -48,7 +48,7 @@ Gestão de Identidade Privilegiada envia e-mails quando ocorrem os seguintes eve
 
 Quem recebe estes e-mails para funções Ad Azure depende do seu papel, do evento e da definição de notificações:
 
-| Utilizador | A ativação de funções está pendente de aprovação | O pedido de ativação de funções está concluído | PIM está ativado |
+| User | A ativação de funções está pendente de aprovação | O pedido de ativação de funções está concluído | PIM está ativado |
 | --- | --- | --- | --- |
 | Administrador privilegiado</br>(Ativado/Elegível) | Yes</br>(apenas se não forem especificados aprovadores explícitos) | Sim* | Yes |
 | Administrador de Segurança</br>(Ativado/Elegível) | No | Sim* | Yes |

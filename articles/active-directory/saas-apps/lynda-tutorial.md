@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Lynda.com Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Lynda.com | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Lynda.com.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 0f7b7e353254d0e3cf93e4919eaa77342777f6f9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Tutorial: Integração do Diretório Ativo Azure com Lynda.com

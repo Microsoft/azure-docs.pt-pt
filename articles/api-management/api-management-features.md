@@ -1,5 +1,5 @@
 ---
-title: Comparação baseada em recursos dos escalões de Gestão da API da Azure Microsoft Docs
+title: Comparação baseada em recursos dos níveis de Gestão da API Azure | Microsoft Docs
 description: Compare os níveis de Gestão da API com base nas funcionalidades que oferecem. Consulte uma tabela que resume as principais funcionalidades disponíveis em cada nível de preços.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
 ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077852"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos escalões de Gestão API da Azure

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar 8x8 para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar 8x8 para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desa provisionamento automaticamente de contas de utilizador do Azure AD para 8x8.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558866"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configurar 8x8 para o provisionamento automático do utilizador
@@ -127,8 +127,8 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |name.familyName|String||
    |phoneNumbers[type eq "mobile"].value|String|Número de contato pessoal|
    |phoneNumbers[type eq "work"].value|String|Número de contato pessoal|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia||
-   |urn:ietf:params:scim:schemas:extensão:8x8:1.1:User:site|Cadeia|Não pode ser atualizado após a criação do utilizador|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+   |urn:ietf:params:scim:schemas:extensão:8x8:1.1:User:site|String|Não pode ser atualizado após a criação do utilizador|
    |região|String|Não mapeado por padrão|
    |timezone|String|Não mapeado por padrão|
 

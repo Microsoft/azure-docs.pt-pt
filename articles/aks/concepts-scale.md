@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94686043"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
@@ -86,11 +86,11 @@ A sua aplicação não requer modificação para usar nós virtuais. As implemen
 
 Os nós virtuais são implantados numa sub-rede adicional na mesma rede virtual que o seu cluster AKS. Esta configuração de rede virtual permite que o tráfego entre ACI e AKS seja seguro. Como um cluster AKS, um caso ACI é um recurso de computação segura e lógica que é isolado de outros utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com aplicações de escala, siga primeiro o [quickstart para criar um cluster AKS com o Azure CLI][aks-quickstart]. Em seguida, pode começar a escalar as aplicações manualmente ou automaticamente no seu cluster AKS:
 
-- Cápsulas ou [nóns][aks-manually-scale-pods] de escala manual [nodes][aks-manually-scale-nodes]
+- Cápsulas ou [nóns][aks-manually-scale-pods] de escala manual [][aks-manually-scale-nodes]
 - Use o [autoscaler da cápsula horizontal][aks-hpa]
 - Utilize o [autoescalador][aks-cluster-autoscaler] de cluster
 

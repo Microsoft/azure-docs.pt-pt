@@ -1,5 +1,5 @@
 ---
-title: Como definir ou editar políticas de Gestão API da Azure Microsoft Docs
+title: Como definir ou editar políticas de gestão da API Azure | Microsoft Docs
 description: Saiba como definir ou editar políticas de Gestão API da Azure. Estas políticas são documentos XML que descrevem uma sequência de declarações de entrada e saída.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: a737fada3e019029967bc752aaa0dedc354fa880
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92078328"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar as políticas de Gestão de API do Azure
@@ -136,4 +136,4 @@ Consulte os seguintes tópicos relacionados:
 
 + [Transformar APIs](transform-api.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](./policy-reference.md)
++ [Exemplos de Políticas](./policy-reference.md)

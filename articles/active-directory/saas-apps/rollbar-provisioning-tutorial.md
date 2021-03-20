@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a Barra roll para o provisionamento automático do utilizador com o Azure Ative Directory / Microsoft Docs'
+title: 'Tutorial: Configurar a Barra de Rolo para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desaprovisionamento de contas de utilizador ao Rollbar.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 79076db9de4122c19fcb03bbfc938214097e19f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181599"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Tutorial: Configurar a Barra de Rolo para o fornecimento automático de utilizadores

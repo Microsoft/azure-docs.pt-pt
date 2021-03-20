@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas NFSv4.1 Problemas de volume kerberos para ficheiros Azure NetApp Microsoft Docs
+title: Problemas de resolução de problemas NFSv4.1 Problemas de volume Kerberos para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve mensagens de erro e resoluções que podem ajudá-lo a resolver problemas problemas de problemas de volume NFSv4.1 Kerberos para ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/12/2021
 ms.author: b-juche
 ms.openlocfilehash: 638607da02b1db4842cdc04f86a4fed1860c243f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98134318"
 ---
 # <a name="troubleshoot-nfsv41-kerberos-volume-issues"></a>Problemas de resolução NFSv4.1 Problemas de volume Kerberos 
@@ -40,4 +40,4 @@ Este artigo descreve resoluções para as condições de erro que pode ter ao cr
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-* [Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp](configure-kerberos-encryption.md)
+* [Configurar a encriptação NFSv4.1 Kerberos para o Azure NetApp Files](configure-kerberos-encryption.md)

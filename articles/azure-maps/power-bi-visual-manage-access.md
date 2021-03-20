@@ -1,5 +1,5 @@
 ---
-title: Gerencie o visual Azure Maps Power BI dentro da sua organização Microsoft Azure Maps
+title: Gerencie o visual Azure Maps Power BI dentro da sua organização | Microsoft Azure Maps
 description: Neste artigo, você vai aprender a gerir o microsoft Azure Maps Power BI visual dentro da sua organização.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 2f7372d522c02eb86f1cc6470cefa9cb299605a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261849"
 ---
 # <a name="manage-the-azure-maps-visual-within-your-organization"></a>Gerencie o visual Azure Maps dentro da sua organização
@@ -22,7 +22,7 @@ O Power BI fornece a capacidade para os designers e administradores de inquilino
 
 ### <a name="designer-options"></a>Opções para designers
 
-No Power BI Desktop, os designers podem desativar o visual do Azure Maps no separador de segurança. Selecione **File** &gt; **Opções de Ficheiros e definições** e, em seguida, selecione **as** &gt; **funcionalidades de pré-visualização**de opções . Quando desativado, o Azure Maps não será carregado por defeito.  
+No Power BI Desktop, os designers podem desativar o visual do Azure Maps no separador de segurança. Selecione  &gt; **Opções de Ficheiros e definições** e, em seguida, selecione **as** &gt; **funcionalidades de pré-visualização** de opções . Quando desativado, o Azure Maps não será carregado por defeito.  
   
 ![Painel de opções de power BI mostrando opções de pré-visualização para o Azure Maps visual](media/power-bi-visual/preview-options-panel.png)
 

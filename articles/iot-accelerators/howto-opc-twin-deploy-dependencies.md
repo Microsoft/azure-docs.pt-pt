@@ -1,5 +1,5 @@
 ---
-title: Como implantar as dependências de nuvem gémea da OPC em Azure Microsoft Docs
+title: Como implantar as dependências de nuvem gémea OPC em Azure | Microsoft Docs
 description: Este artigo descreve como implementar as dependências do OPC Twin Azure necessárias para fazer o desenvolvimento local e depuração.
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 42024fc506de7befed7c44ebcc410756b6f43a35
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92078991"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantação de dependências para o desenvolvimento local

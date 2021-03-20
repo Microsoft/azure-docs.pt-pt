@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 659f86a107e4b08db4ec5195635ea32d2260d677
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87071462"
 ---
 # <a name="configure-tls-in-azure-database-for-postgresql---hyperscale-citus"></a>Configure TLS na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
@@ -26,7 +26,7 @@ Os parâmetros TLS `ssl` variam `sslmode` em função das capacidades do conecto
 Algumas estruturas de aplicação não permitem o TLS por padrão para ligações PostgreSQL. No entanto, sem uma ligação segura, uma aplicação não pode ligar-se a um nó coordenador de Hiperescala (Citus). Consulte a documentação da sua aplicação para saber como ativar as ligações TLS.
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Aplicações que requerem verificação de certificados para conectividade TLS
-Em alguns casos, os pedidos requerem um arquivo de certificado local gerado a partir de um ficheiro de certificado fidedigno da Autoridade de Certificados (CA) para se conectar de forma segura. O certificado de ligação a uma Base de Dados Azure para PostgreSQL - Hiperescala (Citus) está localizado em https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem . Faça o download do ficheiro de certificado e guarde-o para a sua localização preferida.
+Em alguns casos, os pedidos requerem um arquivo de certificado local gerado a partir de um ficheiro de certificado fidedigno da Autoridade de Certificados (CA) (.cer) para se conectarem de forma segura. O certificado de ligação a uma Base de Dados Azure para PostgreSQL - Hiperescala (Citus) está localizado em https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem . Faça o download do ficheiro de certificado e guarde-o para a sua localização preferida.
 
 > [!NOTE]
 >

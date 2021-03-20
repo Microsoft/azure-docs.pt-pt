@@ -1,5 +1,5 @@
 ---
-title: Condições de jogo no motor standard para Azure CDN / Microsoft Docs
+title: Condições de jogo no motor de regras standard para Azure CDN | Microsoft Docs
 description: Documentação de referência para as condições de correspondência no motor de regras padrão para a Rede de Entrega de Conteúdos Azure (Azure CDN).
 services: cdn
 author: asudbring
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81259936"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de jogo no motor de regras standard para Azure CDN
@@ -112,7 +112,7 @@ Não jogo IP | Endereço IP (separado pelo espaço)
   - **IPv6 exemplo**: *1:2:3:4:5:6:7:8 10:20:30:40:60:70:80* corresponde a qualquer pedido que chegam de qualquer endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP base seguido de um corte dianteiro e o tamanho do prefixo. Por exemplo:
   - **IPv4 exemplo:** *5.5.5.64/26* corresponde a quaisquer pedidos que cheguem dos endereços 5.5.5.64 até 5.5.5.127.
-  - **IPv6 exemplo**: *1:2:3:/48* corresponde a qualquer pedido que chegue de endereços 1:2:3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:01:2:3:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff.ff:
+  - **IPv6 exemplo**: *1:2:3:/48* corresponde a qualquer pedido que chegue de endereços 1:2:3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:01:2:3:ff:ff:ff:ff:ff:ff.ff:
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -170,7 +170,7 @@ Operador | URL do Pedido | Transformação de caso
 
 #### <a name="key-information"></a>Informações-chave
 
-- Quando utilizar esta condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: * https://www \<yourdomain\> . . com*.
+- Quando utilizar esta condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: *https://www \<yourdomain\> . . com*.
 
 ### <a name="url-file-extension"></a>Extensão de ficheiro URL
 
@@ -225,9 +225,9 @@ Para as regras que aceitam valores da lista de operadores padrão, os seguintes 
 - Contains 
 - Começa com 
 - Termina com 
-- Menor do que
+- Menor que
 - Menos ou igual
-- Maior do que
+- Maior que
 - Maior do que ou igual
 - Nem qualquer
 - Não contém

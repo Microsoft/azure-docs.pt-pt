@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82137591"
 ---
 # <a name="liveness-probe"></a>Sonda de vida
@@ -34,7 +34,7 @@ Pode especificar apenas uma sonda de vida por recipiente e pode controlar o seu 
 
 * `successThreshold`: Ao falhar, para que a sonda seja considerada bem sucedida, tem de correr com sucesso por este valor. O valor suportado é **int**. O predefinido é 1 e o mínimo é 1.
 
-Pode haver, no máximo, uma sonda para um contentor a qualquer momento. Se a sonda não terminar no tempo definido no **tempo limiteS, aguarde**e conte o tempo para o **failesThreshold**. 
+Pode haver, no máximo, uma sonda para um contentor a qualquer momento. Se a sonda não terminar no tempo definido no **tempo limiteS, aguarde** e conte o tempo para o **failesThreshold**. 
 
 Além disso, o Service Fabric irá levantar os [seguintes relatórios de saúde][health-introduction-link] da sonda sobre **o Serviço de Serviços Desarrumados:**
 
@@ -43,7 +43,7 @@ Além disso, o Service Fabric irá levantar os [seguintes relatórios de saúde]
 * `Error`: Falha **da sondaInsuse**  ==   **falha,** antes do recomeçar do recipiente.
 
 * `Warning`: 
-    * A sonda falha e **falha o**número de  <  **falhas.** Este relatório de saúde permanece até **que o FailureCount** atinja o valor definido no **insucessoThreshold** ou **sucessoThreshold**.
+    * A sonda falha e **falha o** número de  <  **falhas.** Este relatório de saúde permanece até **que o FailureCount** atinja o valor definido no **insucessoThreshold** ou **sucessoThreshold**.
     * Sobre o sucesso após o fracasso, o aviso permanece mas com sucessos consecutivos atualizados.
 
 ## <a name="specifying-a-liveness-probe"></a>Especificando uma sonda de vida

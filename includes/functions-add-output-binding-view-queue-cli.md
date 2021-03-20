@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90606560"
 ---
 Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) ou no  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Também pode ver a fila no CLI Azure, conforme descrito nos seguintes passos:
 
-1. Abra alocal.setting.jsdo projeto de função * no* ficheiro e copie o valor da cadeia de ligação. Numa janela de terminal ou comando, executar o seguinte comando para criar uma variável ambiental `AZURE_STORAGE_CONNECTION_STRING` chamada, colando a sua cadeia de ligação específica no lugar de  `<MY_CONNECTION_STRING>` . (Esta variável ambiental significa que não precisa de fornecer a cadeia de ligação a cada comando subsequente utilizando o `--connection-string` argumento.)
+1. Abra alocal.setting.jsdo projeto de função *no* ficheiro e copie o valor da cadeia de ligação. Numa janela de terminal ou comando, executar o seguinte comando para criar uma variável ambiental `AZURE_STORAGE_CONNECTION_STRING` chamada, colando a sua cadeia de ligação específica no lugar de  `<MY_CONNECTION_STRING>` . (Esta variável ambiental significa que não precisa de fornecer a cadeia de ligação a cada comando subsequente utilizando o `--connection-string` argumento.)
 
     # <a name="bash"></a>[festa](#tab/bash)
     

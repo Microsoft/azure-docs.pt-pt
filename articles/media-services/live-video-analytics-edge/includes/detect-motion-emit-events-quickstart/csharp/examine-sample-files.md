@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 1e3ba4b39baa045f35c232fa97c14bc78d8de5ca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88691114"
 ---
 1. No Código do Estúdio Visual, vá ao *src/edge*. Você verá o ficheiro *.env* e alguns ficheiros de modelo de implementação.
@@ -13,7 +13,7 @@ ms.locfileid: "88691114"
 
     * ***c2d-console-app.csproj*** - O ficheiro do projeto para Visual Studio Code.
     * ***operations.jsem*** - Uma lista das operações que quer que o programa seja executado.
-    * ***Program.cs*** - O código do programa de amostra. Este código:
+    * ***Programa.cs*** - O código do programa de amostra. Este código:
     
       * Carrega as definições da aplicação.
       * Invoca métodos diretos que são expostos pelo Live Video Analytics no módulo IoT Edge. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](../../../direct-methods.md)

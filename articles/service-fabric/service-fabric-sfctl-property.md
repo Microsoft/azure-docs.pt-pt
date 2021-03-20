@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260318"
 ---
 # <a name="sfctl-property"></a>sfctl property
@@ -31,7 +31,7 @@ Elimina a propriedade de Tecido de Serviço especificado sob um nome próprio. U
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome-id [Obrigatório] | O nome de Tecido de Serviço, sem o \: esquema URI de tecido. |
 | --nome de propriedade [Obrigatório] | Especifica o nome da propriedade para obter. |
@@ -39,7 +39,7 @@ Elimina a propriedade de Tecido de Serviço especificado sob um nome próprio. U
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -54,7 +54,7 @@ Obtém a propriedade de Tecido de Serviço especificado com um nome próprio. Is
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome-id [Obrigatório] | O nome de Tecido de Serviço, sem o \: esquema URI de tecido. |
 | --nome de propriedade [Obrigatório] | Especifica o nome da propriedade para obter. |
@@ -62,7 +62,7 @@ Obtém a propriedade de Tecido de Serviço especificado com um nome próprio. Is
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -77,7 +77,7 @@ Um nome de Tecido de Serviço pode ter uma ou mais propriedades nomeadas que arm
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome-id [Obrigatório] | O nome de Tecido de Serviço, sem o \: esquema URI de tecido. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificado por URL. |
@@ -86,7 +86,7 @@ Um nome de Tecido de Serviço pode ter uma ou mais propriedades nomeadas que arm
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -101,7 +101,7 @@ Cria ou atualiza a propriedade de Tecido de Serviço especificado sob um nome pr
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome-id [Obrigatório] | O nome de Tecido de Serviço, sem o \: esquema URI de tecido. |
 | --nome de propriedade [Obrigatório] | O nome da propriedade Service Fabric. |
@@ -111,7 +111,7 @@ Cria ou atualiza a propriedade de Tecido de Serviço especificado sob um nome pr
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

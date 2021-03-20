@@ -9,10 +9,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c141cd96877fd140b858d0aaed9197f2de80eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89005739"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurar e utilizar afinidade de serviço no Tecido de Serviço
@@ -23,7 +23,7 @@ Digamos que está a trazer uma app maior, ou que não foi desenhada com microser
 Eventualmente poderá descobrir que a aplicação está a ter alguns problemas. As questões geralmente se enquadram numa destas categorias:
 
 1. Alguns componentes X na aplicação monolítica tinham uma dependência indocumentada do componente Y, e você acabou de transformar esses componentes em serviços separados. Como estes serviços estão agora a funcionar em diferentes nós no aglomerado, estão avariados.
-2. Estes componentes comunicam através (tubos de nome local / memória partilhada / ficheiros em disco) e precisam mesmo de ser capazes de escrever a um recurso local partilhado por razões de desempenho neste momento. Essa dependência difícil é removida mais tarde, talvez.
+2. Estes componentes comunicam através (tubos de nome local | ficheiros de memória partilhada | no disco) e precisam realmente de ser capazes de escrever a um recurso local partilhado por razões de desempenho neste momento. Essa dependência difícil é removida mais tarde, talvez.
 3. Está tudo bem, mas acontece que estes dois componentes são na verdade sensíveis ao chato/desempenho. Quando os mudaram para serviços separados, o desempenho global da aplicação afundou ou a latência aumentou. Como resultado, a aplicação global não está a corresponder às expectativas.
 
 Nestes casos, não queremos perder o nosso trabalho de refactor, e não queremos voltar ao monólito. A última condição pode até ser desejável como uma simples otimização. No entanto, até que possamos redesenhar os componentes para funcionar naturalmente como serviços (ou até que possamos resolver as expectativas de desempenho de outra forma) vamos precisar de algum sentido de localidade.

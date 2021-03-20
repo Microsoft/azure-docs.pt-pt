@@ -1,5 +1,5 @@
 ---
-title: Faça upload de ficheiros para o armazenamento do Azure Blob utilizando o AzCopy v10 Microsoft Docs
+title: Faça upload de ficheiros para o armazenamento do Azure Blob utilizando a AzCopy v10 | Microsoft Docs
 description: Este artigo contém uma coleção de comandos de exemplo AzCopy que o ajudam a enviar ficheiros para o armazenamento de Azure Blob.
 author: normesta
 ms.service: storage
@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358763"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Faça upload de ficheiros para o armazenamento do Azure Blob utilizando o AzCopy v10
@@ -166,7 +166,7 @@ Os exemplos a seguir mostram como utilizar a `--blob-tags` opção.
 
 |    |     |
 |--------|-----------|
-| **Faça upload de um ficheiro** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Carregar um ficheiro** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
 | **Faça upload de um diretório** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
 | **Carregar conteúdos de diretório** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
 
@@ -177,7 +177,7 @@ Os exemplos a seguir mostram como utilizar a `--blob-tags` opção.
 
 Pode ajustar a sua operação de upload utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 
-|Cenário|Sinalizador|
+|Scenario|Sinalizador|
 |---|---|
 |Carregue os ficheiros como Blobs de Acréscimo ou Blobs de Páginas.|**--blob-type** = \[ \|Apendb BlockBlob PageBlob \|\]|
 |Carregue para uma camada de acesso específica (como a camada de arquivo).|**--bloco-blob-tier** = \[ Nenhum \| Arquivo Quente \| Cool \|\]|

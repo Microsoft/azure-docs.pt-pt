@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Maxient Conduct Manager Software / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Maxient Conduct Manager Software | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Maxient Conduct Manager Software.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b57b3fbb338774eb8d66fc4d3c0c817e19aff4c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458205"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Maxient Conduct Manager Software
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, você concederá acesso a todas as contas para autenticar usando o sistema Azure para o Software Maxient Conduct Manager.  É importante notar que este passo é **necessário** para que o Maxient funcione corretamente.  A Maxient aproveita o seu sistema Azure AD para *autenticar* os utilizadores. A *autorização* dos utilizadores é realizada dentro do sistema Maxient para a função específica que estão a tentar desempenhar. Maxient não usa atributos do seu diretório para tomar essas decisões.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Maxient Conduct Manager Software**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

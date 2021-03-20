@@ -1,5 +1,5 @@
 ---
-title: Azure Analysis Services escala-out / Microsoft Docs
+title: Azure Analysis Services escala-out| Microsoft Docs
 description: Replicar servidores de Serviços de Análise Azure com escala. As consultas ao cliente podem então ser distribuídas entre réplicas de consulta múltiplas numa piscina de consultas de escala.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019443"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
@@ -46,7 +46,7 @@ Ao executar uma operação de escala subsequente, por exemplo, aumentando o núm
 
 * A sincronização é permitida mesmo quando não há réplicas na piscina de consultas. Se estiver a escalonar de zero para uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute primeiro a sincronização sem réplicas no pool de consultas e, em seguida, dimensione. Sincronizar antes de escalonar evita a hidratação redundante das réplicas recém-adicionadas.
 
-* Ao eliminar uma base de dados de modelos do servidor primário, não é automaticamente eliminado de réplicas no pool de consultas. Tem de efetuar uma operação de sincronização utilizando o comando [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell que remove o ficheiro/s dessa base de dados a partir do local de armazenamento de bolhas partilhadas da réplica e, em seguida, elimina a base de dados do modelo nas réplicas no pool de consultas. Para determinar se existe uma base de dados de modelos em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que **o servidor de processamento separa da definição do pool de consulta** é sim . **Yes** Em seguida, utilize SSMS para ligar ao servidor primário utilizando o `:rw` qualificador para ver se a base de dados existe. Em seguida, ligue-se a réplicas na piscina de consulta conectando-se sem o `:rw` qualificador para ver se a mesma base de dados também existe. Se a base de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
+* Ao eliminar uma base de dados de modelos do servidor primário, não é automaticamente eliminado de réplicas no pool de consultas. Tem de efetuar uma operação de sincronização utilizando o comando [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell que remove o ficheiro/s dessa base de dados a partir do local de armazenamento de bolhas partilhadas da réplica e, em seguida, elimina a base de dados do modelo nas réplicas no pool de consultas. Para determinar se existe uma base de dados de modelos em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que **o servidor de processamento separa da definição do pool de consulta** é sim .  Em seguida, utilize SSMS para ligar ao servidor primário utilizando o `:rw` qualificador para ver se a base de dados existe. Em seguida, ligue-se a réplicas na piscina de consulta conectando-se sem o `:rw` qualificador para ver se a mesma base de dados também existe. Se a base de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
 
 * Ao renomear uma base de dados no servidor primário, há um passo adicional necessário para garantir que a base de dados está corretamente sincronizada com quaisquer réplicas. Após renomear, efetue uma sincronização utilizando o comando [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando o `-Database` parâmetro com o nome da base de dados antiga. Esta sincronização remove a base de dados e ficheiros com o nome antigo de quaisquer réplicas. Em seguida, efetue outra sincronização especificando o `-Database` parâmetro com o novo nome da base de dados. A segunda sincronização copia a base de dados recém-nomeada para o segundo conjunto de ficheiros e hidrata quaisquer réplicas. Estas sincronizações não podem ser realizadas utilizando o comando do modelo Synchronize no portal.
 

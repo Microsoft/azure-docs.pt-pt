@@ -16,10 +16,10 @@ ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: feab48f32396bcc89621433930c9a9f4689d8286
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97355448"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Tutorial: Configurar manualmente um grupo de disponibilidade (SQL Server em VMs Azure)
@@ -496,7 +496,7 @@ O endereço IP WSFC também precisa estar no equilibrador de carga.
 A próxima coisa a fazer é configurar um ouvinte de grupo de disponibilidade no cluster de failover.
 
 > [!NOTE]
-> Este tutorial mostra como criar um único ouvinte, com um endereço IP ILB. Para criar um ou mais ouvintes utilizando um ou mais endereços IP, consulte [Criar o ouvinte do grupo de disponibilidade e o balanceador de carga ! Azure.](availability-group-listener-powershell-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Este tutorial mostra como criar um único ouvinte, com um endereço IP ILB. Para criar um ou mais ouvintes utilizando um ou mais endereços IP, consulte [Criar o ouvinte do grupo de disponibilidade e o equilibrador de carga | Azure.](availability-group-listener-powershell-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
@@ -507,7 +507,7 @@ No SQL Server Management Studio, desemote a porta do ouvinte.
 
 1. Lance o SQL Server Management Studio e ligue-se à réplica primária.
 
-1. Navegue para grupos de disponibilidade **AlwaysOn High**  >  **Availability.**  >  
+1. Navegue para grupos de disponibilidade **de disponibilidade de disponibilidade AlwaysOn High**  >  **Availability.**  >  
 
 1. Deve agora ver o nome do ouvinte que criou no Failover Cluster Manager. Clique com o botão direito no nome do ouvinte e selecione **Propriedades**.
 

@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 1e60799878cc30b729344c03df36a4c5e4f4a199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90904220"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>Descubra e registe os seus serviços cloud de primavera
@@ -27,7 +27,7 @@ Para obter informações sobre como configurar o registo de serviço para uma ap
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registe a sua aplicação usando o Registo de Serviços de Nuvem de primavera
 
 Antes da sua aplicação poder gerir o registo e descoberta do serviço usando o Registo de Serviços da Nuvem de primavera, várias dependências devem ser incluídas no ficheiro *pom.xml* da aplicação.
-Inclua dependências para *o* seu *cliente depom.xml* *spring-cloud-starter-azure-spring-cloud-client*
+Inclua dependências para *o* seu *cliente depom.xml* 
 
 ```xml
     <dependency>

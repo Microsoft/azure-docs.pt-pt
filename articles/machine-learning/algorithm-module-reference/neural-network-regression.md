@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890355"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão da rede neural
@@ -72,7 +72,7 @@ As redes neuronais podem ser extensivamente personalizadas. Esta secção descre
   
 5.  Para **a taxa de aprendizagem,** escreva um valor que defina o passo dado em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo converjam mais rapidamente, mas pode ultrapassar o minima local.
 
-6.  Para **o número de iterações de aprendizagem, especifique**o número máximo de vezes que o algoritmo processa os casos de treino.
+6.  Para **o número de iterações de aprendizagem, especifique** o número máximo de vezes que o algoritmo processa os casos de treino.
 
 
 8.  Para **o momento,** escreva um valor a aplicar durante a aprendizagem como um peso sobre nós de iterações anteriores.
@@ -98,7 +98,7 @@ As redes neuronais podem ser extensivamente personalizadas. Esta secção descre
    
 14. Envie o oleoduto.  
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 

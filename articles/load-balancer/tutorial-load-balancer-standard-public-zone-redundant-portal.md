@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 4e07285eca0fd10b73b386fcf139cdad5b94ddc2
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696409"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
@@ -53,7 +53,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao criar um novo IP público durante a criação do balanceador de carga, é automaticamente configurado como uma versão de SKU Standard e tem também com redundância entre zonas automaticamente.
 
-1. No lado superior esquerdo do ecrã, clique em **Criar um equilibrador** de carga de  >  **rede de** recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, clique em **Criar um equilibrador** de carga de  >  **rede de** recursos  >  .
 2. No separador **Básico da** página **'Criar balanceador** de carga', introduzir ou selecionar as seguintes informações, aceitar as predefinições para as definições restantes e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
@@ -61,7 +61,7 @@ O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e digitar *MyResourceGroupLBAZ* na caixa de texto.|
     | Name                   | *myLoadBalancer*                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard**.                          |
     | Endereço IP público | Selecione **Criar novo**. |

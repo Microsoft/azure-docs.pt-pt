@@ -4,10 +4,10 @@ description: Aprenda a montar um volume gitRepo para clonar um repositório git 
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 5f361b0bbd4a02f754e47c8321a664af05036601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260713"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monte um volume gitRepo em Instâncias de Contentores Azure
@@ -26,8 +26,8 @@ Ao montar um volume *gitRepo,* pode definir três propriedades para configurar o
 | Propriedade | Necessário | Descrição |
 | -------- | -------- | ----------- |
 | `repository` | Sim | A URL completa, incluindo `http://` ou `https://` , do repositório git a ser clonado.|
-| `directory` | Não | Diretório no qual o repositório deve ser clonado. O caminho não deve conter ou começar com `..` " "  Se especificar " `.` ", o repositório é clonado no diretório do volume. Caso contrário, o repositório de Git é clonado numa subdiretória do nome próprio dentro do diretório de volume. |
-| `revision` | Não | O haxixe compromete-se com a revisão a ser clonado. Se não for especificado, a `HEAD` revisão é clonada. |
+| `directory` | No | Diretório no qual o repositório deve ser clonado. O caminho não deve conter ou começar com `..` " "  Se especificar " `.` ", o repositório é clonado no diretório do volume. Caso contrário, o repositório de Git é clonado numa subdiretória do nome próprio dentro do diretório de volume. |
+| `revision` | No | O haxixe compromete-se com a revisão a ser clonado. Se não for especificado, a `HEAD` revisão é clonada. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Monte gitRepo volume: Azure CLI
 

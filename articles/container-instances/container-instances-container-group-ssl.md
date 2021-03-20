@@ -4,10 +4,10 @@ description: Criar um ponto final SSL ou TLS para um grupo de contentores que fu
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558084"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Ativar um ponto final TLS num recipiente de sidecar
@@ -241,5 +241,5 @@ Enquanto este artigo utiliza o Nginx no sidecar, pode utilizar outro fornecedor 
 Se colocar o seu grupo de contentores numa [rede virtual Azure,](container-instances-vnet.md)pode considerar outras opções para ativar um ponto final TLS para uma instância de recipiente de backend, incluindo:
 
 * [Proxies de Funções Azure](../azure-functions/functions-proxies.md)
-* [Gestão AZURE API](../api-management/api-management-key-concepts.md)
+* [API Management do Azure](../api-management/api-management-key-concepts.md)
 * [Azure Application Gateway](../application-gateway/overview.md) - consulte um [modelo de implementação de](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)amostras .

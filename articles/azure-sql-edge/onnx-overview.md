@@ -10,10 +10,10 @@ author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
 ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392066"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine learning e IA com ONNX em SQL Edge
@@ -28,7 +28,7 @@ Para inferir modelos de machine learning em Azure SQL Edge, primeiro terá de ob
 
 Para obter um modelo no formato ONNX:
 
-- **Model Building Services** : Serviços como a [funcionalidade automatizada de Machine Learning em Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) e suporte [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) exportando diretamente o modelo treinado no formato ONNX.
+- **Model Building Services**: Serviços como a [funcionalidade automatizada de Machine Learning em Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) e suporte [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) exportando diretamente o modelo treinado no formato ONNX.
 
 - [**Converter e/ou exportar modelos existentes**](https://github.com/onnx/tutorials#converting-to-onnx-format): Vários quadros de formação (por exemplo, [PyTorch,](https://pytorch.org/docs/stable/onnx.html)Chainer e Caffe2) suportam a funcionalidade de exportação nativa para o ONNX, o que lhe permite guardar o seu modelo treinado para uma versão específica do formato ONNX. Para estruturas que não suportam a exportação nativa, existem pacotes instalados onnx conversíveis autónomos que permitem converter modelos treinados de diferentes estruturas de aprendizagem automática para o formato ONNX.
 

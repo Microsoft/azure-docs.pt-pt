@@ -6,10 +6,10 @@ ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47, references_regions
 ms.openlocfilehash: 9083ff7d8f65c68ce8d173973a4eda650ac355aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212910"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Crie uma definição OpenAPI para uma API sem servidor usando a Azure API Management
@@ -41,7 +41,7 @@ Este tutorial utiliza uma função desencadeada HTTP que leva dois parâmetros:
 
 A função calcula então quanto uma reparação vai custar, e quanto receita a turbina poderia fazer num período de 24 horas. Para criar a função HTTP desencadeada no [portal Azure:](https://portal.azure.com)
 
-1. A partir do menu esquerdo da aplicação funções, selecione **Funções**e, em seguida, **selecione Adicionar** no menu superior.
+1. A partir do menu esquerdo da aplicação funções, selecione **Funções** e, em seguida, **selecione Adicionar** no menu superior.
 
 1. Na janela **Nova Função,** selecione **'Despoletá-lo'.**
 
@@ -49,12 +49,12 @@ A função calcula então quanto uma reparação vai custar, e quanto receita a 
 
 1. Escolha **a Função** a partir da lista de abandono **[do nível](functions-bindings-http-webhook-trigger.md#http-auth)** de autorização e, em seguida, selecione **Criar Função**.
 
-    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Criar função HTTP para OpenAPI&quot;:::
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Criar função HTTP para OpenAPI":::
 
-1. Selecione **Code + Test**e, em seguida, selecione **run.csx** da lista de drop-down. Substitua o conteúdo do ficheiro de script run.csx C# pelo seguinte código e, em seguida, escolha **Guardar**:
+1. Selecione **Code + Test** e, em seguida, selecione **run.csx** da lista de drop-down. Substitua o conteúdo do ficheiro de script run.csx C# pelo seguinte código e, em seguida, escolha **Guardar**:
 
     ```csharp
-    #r &quot;Newtonsoft.Json"
+    #r "Newtonsoft.Json"
     
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
@@ -106,7 +106,7 @@ A função calcula então quanto uma reparação vai custar, e quanto receita a 
 
     Este código de função devolve uma mensagem `Yes` de ou para indicar se uma `No` reparação de emergência é rentável. Também devolve a oportunidade de receita que a turbina representa e o custo para fixar a turbina.
 
-1. Para testar a função, selecione **Teste**, selecione o separador **Entrada,** introduza a seguinte entrada para o **Corpo**e, em seguida, selecione **Executar**:
+1. Para testar a função, selecione **Teste**, selecione o separador **Entrada,** introduza a seguinte entrada para o **Corpo** e, em seguida, selecione **Executar**:
 
     ```json
     {
@@ -115,12 +115,7 @@ A função calcula então quanto uma reparação vai custar, e quanto receita a 
     }
     ```
 
-    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Criar função HTTP para OpenAPI&quot;:::
-
-1. Selecione **Code + Test**e, em seguida, selecione **run.csx** da lista de drop-down. Substitua o conteúdo do ficheiro de script run.csx C# pelo seguinte código e, em seguida, escolha **Guardar**:
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Testar a função no portal do Azure":::
 
     A seguinte saída é devolvida no **separador Saída:**
 
@@ -136,12 +131,7 @@ Para gerar a definição OpenAPI:
 
 1. Selecione a aplicação de função, escolha **API Management** a partir do menu esquerdo e, em seguida, selecione **Criar novo** em **Gestão de API.**
 
-    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Criar função HTTP para OpenAPI&quot;:::
-
-1. Selecione **Code + Test**e, em seguida, selecione **run.csx** da lista de drop-down. Substitua o conteúdo do ficheiro de script run.csx C# pelo seguinte código e, em seguida, escolha **Guardar**:
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Escolha a gestão da API":::
 
 
 1. Utilize as definições de Gestão da API conforme especificado no quadro seguinte:
@@ -168,12 +158,7 @@ Para gerar a definição OpenAPI:
 
 1. Na página **'Criar a partir da aplicação de funções',** aceite as predefinições e, em seguida, selecione **Criar**.
 
-    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Criar função HTTP para OpenAPI&quot;:::
-
-1. Selecione **Code + Test**e, em seguida, selecione **run.csx** da lista de drop-down. Substitua o conteúdo do ficheiro de script run.csx C# pelo seguinte código e, em seguida, escolha **Guardar**:
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Criar a partir de App de Função":::
 
     Azure cria a API para a função.
 
@@ -192,14 +177,9 @@ Antes de utilizar a definição OpenAPI, deverá verificar se a API funciona.
     }
     ```
 
-1. Selecione **Enviar**e, em seguida, ver a **resposta HTTP**.
+1. Selecione **Enviar** e, em seguida, ver a **resposta HTTP**.
 
-    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Criar função HTTP para OpenAPI&quot;:::
-
-1. Selecione **Code + Test**e, em seguida, selecione **run.csx** da lista de drop-down. Substitua o conteúdo do ficheiro de script run.csx C# pelo seguinte código e, em seguida, escolha **Guardar**:
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Função de teste API":::
 
 ## <a name="download-the-openapi-definition"></a>Descarregue a definição OpenAPI
 

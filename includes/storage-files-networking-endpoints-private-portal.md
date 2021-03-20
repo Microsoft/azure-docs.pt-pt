@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 09723030f0da0252120f66f36347cad2e3a3546a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93376153"
 ---
 Navegue para a conta de armazenamento para a qual gostaria de criar um ponto final privado. Na tabela de conteúdos para a conta de armazenamento, selecione **ligações de ponto final privados** e, em seguida, **+ ponto final privado** para criar um novo ponto final privado. 
@@ -25,7 +25,7 @@ Na lâmina **Basics,** selecione o grupo de recursos, nome e região pretendidos
 
 ![Uma imagem da secção Basics na secção de ponto final privado create](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-1.png)
 
-Na lâmina **de recurso,** selecione o botão de rádio **para Ligar a um recurso Azure no meu diretório**. Sob **o tipo de recurso,** selecione **Microsoft.Storage/storageAcounts** para o tipo de recurso. O campo **De recursos** é a conta de armazenamento com a partilha de ficheiros Azure a que deseja ligar. O sub-recurso-alvo é **ficheiro** , uma vez que este é para Ficheiros Azure.
+Na lâmina **de recurso,** selecione o botão de rádio **para Ligar a um recurso Azure no meu diretório**. Sob **o tipo de recurso,** selecione **Microsoft.Storage/storageAcounts** para o tipo de recurso. O campo **De recursos** é a conta de armazenamento com a partilha de ficheiros Azure a que deseja ligar. O sub-recurso-alvo é **ficheiro**, uma vez que este é para Ficheiros Azure.
 
 A lâmina **de configuração** permite-lhe selecionar a rede virtual específica e a sub-rede a que gostaria de adicionar o seu ponto final privado. Tem de selecionar uma sub-rede distinta da sub-rede que adicionou o seu ponto de terminação de serviço a cima. A lâmina de configuração também contém as informações para criar/atualizar a zona privada de DNS. Recomendamos a utilização da `privatelink.file.core.windows.net` zona padrão.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com Deputado / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Vice-| Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Adjunto.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 3061a4f0b6a41e5057436e15cabd2db0cbec5c00
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Diretório Ativo Azure com o Adjunto
@@ -148,7 +148,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<your-subdomain>.<region>.deputy.com`
 
     >[!NOTE]
-    > O sufixo da região adjunta é opcional, ou deve usar um destes: au ! na / eu [como ] a [af ] a [ent-au ] ent-na [ ent-eu ] ent-as [ ent-as ] ent-la - ent-af ! ent-an
+    > O sufixo da região adjunta é opcional, ou deve usar um destes: au | na | eu |como |la |af |an |ent-au |ent-na-|ent-eu |ent-as | ent-la | ent-af | ent-an
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de apoio ao Cliente Adjunto](https://www.deputy.com/call-centers-customer-support-scheduling-software) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -218,7 +218,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Delegado.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Delegado**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Delegado**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
