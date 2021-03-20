@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890290"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selecione colunas no módulo dataset
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
-Utilize este módulo para escolher um subconjunto de colunas para utilizar em operações a jusante. O módulo não remove fisicamente as colunas do conjunto de dados de origem; em vez disso, cria um subconjunto de colunas, tal como uma visão ou *projeção*de bases de *dados.*
+Utilize este módulo para escolher um subconjunto de colunas para utilizar em operações a jusante. O módulo não remove fisicamente as colunas do conjunto de dados de origem; em vez disso, cria um subconjunto de colunas, tal como uma visão ou *projeção* de bases de *dados.*
 
 Este módulo é útil quando é necessário limitar as colunas disponíveis para uma operação a jusante, ou se pretende reduzir o tamanho do conjunto de dados removendo colunas não necessárias.
 
@@ -62,7 +62,7 @@ Existem múltiplas opções no módulo para escolher colunas pelo nome:
     Se o seu conjunto de dados for amplo, poderá ser mais fácil utilizar índices ou listas de nomes geradas, em vez de selecionar colunas individualmente. Assumindo que preparou a lista com antecedência:
 
     1. Clique na opção **COM REGRAS.** 
-    2. Selecione **Não colunas**, selecione  **Incluir**e, em seguida, clique no interior da caixa de texto com o ponto de exclamação vermelho. 
+    2. Selecione **Não colunas**, selecione  **Incluir** e, em seguida, clique no interior da caixa de texto com o ponto de exclamação vermelho. 
     3. Cole ou digite uma lista separada por vírgula de nomes de colunas previamente validados. Não é possível guardar o módulo se alguma coluna tiver um nome inválido, por isso certifique-se de verificar previamente os nomes.
     
     Também pode utilizar este método para especificar uma lista de colunas utilizando os seus valores de índice. 

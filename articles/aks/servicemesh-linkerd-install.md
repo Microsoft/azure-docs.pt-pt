@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: d5b2ec220bbf14a79247ed2c78a0e84f4717fae3
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94684241"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalar Linkerd no Serviço Azure Kubernetes (AKS)
@@ -33,7 +33,7 @@ Neste artigo, vai aprender a:
 > * Aceda ao Painel de Instrumentos
 > * Desinstalar Linkerd da AKS
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com o RBAC de Kubernetes habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart].
 
@@ -255,7 +255,7 @@ Por último, retire o plano de controlo da seguinte forma:
 linkerd install --ignore-cluster | kubectl delete -f -
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar mais opções de instalação e configuração para Linkerd, consulte as seguintes orientações oficiais do Linkerd:
 

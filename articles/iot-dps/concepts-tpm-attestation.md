@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 12860629d78391ed271306daba29a51aeb326c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90531598"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
@@ -25,7 +25,7 @@ Este artigo só é relevante para dispositivos que utilizem TPM 2.0 com suporte 
 
 Os SDKs do dispositivo de fornecimento de dispositivos tratam tudo o que é descrito neste artigo para si. Não é necessário implementar algo adicional se estiver a utilizar os SDKs nos seus dispositivos. Este artigo ajuda-o a compreender conceptualmente o que se passa com o seu chip de segurança TPM quando o seu dispositivo fornece e porque é tão seguro.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os TPMs usam algo chamado chave de endosso (EK) como a raiz segura da confiança. O EK é exclusivo do TPM e mudá-lo essencialmente transforma o dispositivo num novo.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366195"
 ---
 # <a name="conditional-access-block-access"></a>Acesso Condicional: Acesso ao bloco
@@ -43,7 +43,7 @@ As seguintes medidas ajudarão a criar políticas de Acesso Condicional para blo
 A primeira política bloqueia o acesso a todas as aplicações, com exceção das aplicações da Microsoft 365, caso não se afirmem numa localização fidedigna.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**.
@@ -54,13 +54,13 @@ A primeira política bloqueia o acesso a todas as aplicações, com exceção da
    1. Em **Incluir**, selecione **Todas as aplicações em nuvem**.
    1. Under **Exclude**, selecione **Office 365**, selecione **Select**, em seguida, selecione **Fazer**.
 1. Em **Condições:**
-   1. Em Localização **de Condições**  >  **Location**.
+   1. Em Localização **de Condições**  >  .
       1. Definir **Configurar** para **Sim**
       1. Em **Incluir**, selecione **Qualquer local**.
       1. Em **'Excluir'** selecione **Todas as localizações fidedignas**.
       1. Selecione **Concluído**.
-   1. Sob **as aplicações do Cliente (Preview)**, desconfigure para **Sim**, e selecione **Feito**, em seguida, **Feito**. **Configure**
-1. Sob **controlos de acesso**  >  **Grant**, selecione **o acesso ao Bloco**e, em seguida, selecione **Select**.
+   1. Sob **as aplicações do Cliente (Preview)**, desconfigure para **Sim**, e selecione **Feito**, em seguida, **Feito**. 
+1. Sob **controlos de acesso**  >  **Grant**, selecione **o acesso ao Bloco** e, em seguida, selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política **apenas para reportar**.
 1. Selecione **Criar** para criar para ativar a sua política.
 
@@ -72,7 +72,7 @@ Uma segunda política é criada abaixo para exigir a autenticação de vários f
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
    1. Selecione **Concluído**.
-1. No **âmbito das aplicações ou ações cloud**  >  **Inclua**, **selecione selecione apps**, escolha Office **365**, e selecione , em seguida, **Feito**. **Select**
+1. No **âmbito das aplicações ou ações cloud**  >  **Inclua**, **selecione selecione apps**, escolha Office **365**, e selecione , em seguida, **Feito**. 
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Grant access**.
    1. **Selecione Exigir a autenticação de vários fatores** e **exigir que o dispositivo seja marcado como compatível** **Selecione**.
    1. Certifique-se de que é selecionado **todos os controlos selecionados.**

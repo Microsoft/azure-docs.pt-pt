@@ -111,6 +111,8 @@
           href: speech-synthesis-markup.md
         - name: Sintetizar a voz com a API de Áudio Longo
           href: long-audio-api.md
+        - name: Obtenha dados viseme para sincronização labial
+          href: how-to-speech-synthesis-viseme.md
     - name: Personalização
       items:
         - name: Portal de Voz Personalizada

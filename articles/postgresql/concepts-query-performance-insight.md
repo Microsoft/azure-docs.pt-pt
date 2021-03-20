@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710265"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
@@ -20,7 +20,7 @@ ms.locfileid: "91710265"
 A Consulta Performance Insight ajuda-o a identificar rapidamente quais são as suas consultas de execução mais longas, como mudam ao longo do tempo e o que as esperas estão a afetá-las.
 
 ## <a name="permissions"></a>Permissões
-As permissões **Proprietário**ou **Contribuidor** necessárias para ver o texto das consultas no Query Performance Insight. O **Leitor** pode ver gráficos e tabelas, mas não o texto da consulta.
+As permissões **Proprietário** ou **Contribuidor** necessárias para ver o texto das consultas no Query Performance Insight. O **Leitor** pode ver gráficos e tabelas, mas não o texto da consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para que o Insight de Desempenho de Consulta funcione, os dados devem existir na [Loja de Consultas](concepts-query-store.md).
@@ -40,7 +40,7 @@ A tabela abaixo da tabela dá mais detalhes sobre as consultas de longa duraçã
 
 Selecione o separador **Estatísticas de Espera** para ver as visualizações correspondentes sobre esperas no servidor.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de insight de desempenho de consulta longas consultas":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consulta Performance Insight aguarda estatísticas":::
 
 ## <a name="considerations"></a>Considerações
 * O Insight de Desempenho da Consulta não está disponível para [réplicas de leitura](concepts-read-replicas.md).

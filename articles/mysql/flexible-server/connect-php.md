@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545111"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Quickstart: Utilize PHP para ligar e consultar dados na Base de Dados Azure para o MySQL - Servidor Flexível
@@ -28,9 +28,9 @@ Este guia de início rápido utiliza os recursos criados em qualquer um desTes g
 - [Criar uma base de dados Azure para o MySQL Flexible Server utilizando o Azure CLI](./quickstart-create-server-cli.md)
 
 ## <a name="preparing-your-client-workstation"></a>Preparar a estação de trabalho do seu cliente
-1. Se criou o seu servidor flexível com *acesso privado (VNet Integration)* , terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la ao VNet criado com o seu servidor flexível. Consulte a [Criação e gestão da Base de Dados Azure para a rede virtual MySQL Flexible Server utilizando o Azure CLI](./how-to-manage-virtual-network-cli.md).
+1. Se criou o seu servidor flexível com *acesso privado (VNet Integration)*, terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la ao VNet criado com o seu servidor flexível. Consulte a [Criação e gestão da Base de Dados Azure para a rede virtual MySQL Flexible Server utilizando o Azure CLI](./how-to-manage-virtual-network-cli.md).
 
-2. Se criou o seu servidor flexível com *acesso público (endereços IP autorizados)* , pode adicionar o seu endereço IP local à lista de regras de firewall no seu servidor. Consulte para [criar e gerir a Base de Dados Azure para as regras de firewall do Servidor Flexível MySQL utilizando o Azure CLI](./how-to-manage-firewall-cli.md).
+2. Se criou o seu servidor flexível com *acesso público (endereços IP autorizados)*, pode adicionar o seu endereço IP local à lista de regras de firewall no seu servidor. Consulte para [criar e gerir a Base de Dados Azure para as regras de firewall do Servidor Flexível MySQL utilizando o Azure CLI](./how-to-manage-firewall-cli.md).
 
 ### <a name="install-php"></a>Instalar o PHP
 
@@ -58,7 +58,7 @@ Obtenha as informações de ligação necessárias para ligar à Base de Dados A
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, procure o servidor que criou (como o **mydemoserver).**
 3. Selecione o nome do servidor.
-4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor** . Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
+4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
 
 ## <a name="connecting-to-flexible-server-using-tlsssl-in-php"></a>Ligação ao servidor flexível utilizando TLS/SSL em PHP
@@ -76,7 +76,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 
 ## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
 
-Utilize o seguinte código para se ligar e crie uma tabela com a instrução SQL **CREATE TABLE** .
+Utilize o seguinte código para se ligar e crie uma tabela com a instrução SQL **CREATE TABLE**.
 
 O código utiliza a classe da **extensão MySQL melhorada** (mysqli) incluída em PHP. O código chama os métodos [mysqli_init](https://secure.php.net/manual/mysqli.init.php) e [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) para se ligar ao MySQL. Em seguida, chama o método [mysqli_query](https://secure.php.net/manual/mysqli.query.php) para executar a consulta. Em seguida, chama o método [mysqli_close](https://secure.php.net/manual/mysqli.close.php) para fechar a ligação.
 
@@ -116,7 +116,7 @@ mysqli_close($conn);
 
 ## <a name="insert-data"></a>Inserir dados
 
-Utilize o código seguinte para se ligar e inserir dados com uma instrução SQL **INSERT** .
+Utilize o código seguinte para se ligar e inserir dados com uma instrução SQL **INSERT**.
 
 O código utiliza a classe da **extensão MySQL melhorada** (mysqli) incluída em PHP. O código utiliza o método [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) para criar uma instrução de introdução preparada e, em seguida, une os parâmetros de cada valor introduzido na coluna através do método [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). O código executa a instrução através do método [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) e, depois, fecha a instrução através do método [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -154,7 +154,7 @@ mysqli_close($conn);
 
 ## <a name="read-data"></a>Ler dados
 
-Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **SELECT** .  O código utiliza a classe da **extensão MySQL melhorada** (mysqli) incluída em PHP. O código utiliza o método [mysqli_query](https://secure.php.net/manual/mysqli.query.php) para executar a consulta sql e o método [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) para obter os registos daí resultantes.
+Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **SELECT**.  O código utiliza a classe da **extensão MySQL melhorada** (mysqli) incluída em PHP. O código utiliza o método [mysqli_query](https://secure.php.net/manual/mysqli.query.php) para executar a consulta sql e o método [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) para obter os registos daí resultantes.
 
 Substitua os parâmetros host, username, password e db_name pelos seus próprios valores.
 
@@ -186,7 +186,7 @@ mysqli_close($conn);
 
 ## <a name="update-data"></a>Atualizar dados
 
-Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE** .
+Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE**.
 
 O código utiliza a classe da **extensão MySQL melhorada** (mysqli) incluída em PHP. O código utiliza o método [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) para criar uma instrução de atualização preparada e, em seguida, une os parâmetros de cada valor introduzido na coluna através do método [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). O código executa a instrução através do método [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) e, depois, fecha a instrução através do método [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -224,7 +224,7 @@ mysqli_close($conn);
 
 
 ## <a name="delete-data"></a>Eliminar dados
-Utilize o código seguinte para se ligar e ler os dados com a instrução SQL **DELETE** .
+Utilize o código seguinte para se ligar e ler os dados com a instrução SQL **DELETE**.
 
 O código utiliza a classe da **extensão MySQL melhorada** (mysqli) incluída em PHP. O código utiliza o método [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) para criar uma instrução de eliminação preparada e, em seguida, une os parâmetros da cláusula «onde» na instrução através do método [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). O código executa a instrução através do método [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) e, depois, fecha a instrução através do método [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 

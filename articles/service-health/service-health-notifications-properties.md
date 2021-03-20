@@ -4,10 +4,10 @@ description: As notificações de saúde do serviço permitem-lhe visualizar men
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86529017"
 ---
 # <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Utilize o portal Azure para ver notificações de saúde do serviço
@@ -24,7 +24,7 @@ Existem várias classes de notificações de saúde de serviço:
 
 Cada notificação de saúde do serviço inclui detalhes sobre o âmbito e impacto dos seus recursos. Os detalhes incluem:
 
-Nome da propriedade | Descrição
+Nome da propriedade | Description
 -------- | -----------
 canais | Um dos seguintes valores: **Administração** ou **Operação**.
 correlationId | Normalmente um GUID no formato de corda. Eventos que pertencem à mesma ação geralmente partilham a mesma correlação.
@@ -37,7 +37,7 @@ subStatus | Normalmente, o código de estado HTTP da chamada REST correspondente
 eventTimestamp | Timetamp quando o evento foi gerado pelo serviço Azure processando o pedido correspondente ao evento.
 submissãoTimestamp | Timetamp quando o evento ficou disponível para consulta.
 subscriptionId | A assinatura Azure em que este evento foi registado.
-status | String descrevendo o estado da operação. Alguns valores comuns são: **Iniciado,** Em **Progresso,** **Bem sucedido,** **Falhado,** **Ativo**e **Resolvido.**
+status | String descrevendo o estado da operação. Alguns valores comuns são: **Iniciado,** Em **Progresso,** **Bem sucedido,** **Falhado,** **Ativo** e **Resolvido.**
 operationName | O nome da operação.
 categoria | Esta propriedade é sempre **ServiceHealth.**
 resourceId | O ID de recursos do recurso impactado.
@@ -48,7 +48,7 @@ Propriedades.trackingId | O incidente com o qual este evento está associado. Us
 Propriedades.ImpactedServs | Uma bolha JSON em fuga que descreve os serviços e regiões afetados pelo incidente. O imóvel inclui uma lista de serviços, cada um dos quais tem um Nome de **Serviço,** e uma lista de regiões com impacto, cada uma das quais tem um **Nome Regional.**
 Propriedades.defaultLanguageTitle | A comunicação em inglês.
 Propriedades.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto simples.
-Propriedades.palco | Os valores possíveis para **Incidente**, e **Segurança** são **Ativos,** **Resolvidos** ou **RCA**. Para **ActionRequired** ou **Informational** o único valor é **Ative.** Para **manutenção** são: **Ativos,** **Planeados, InProgress, Cancelados,** **Reagendados,** **Resolvidos**ou **Concluídos.** **Planned** **Canceled**
+Propriedades.palco | Os valores possíveis para **Incidente**, e **Segurança** são **Ativos,** **Resolvidos** ou **RCA**. Para **ActionRequired** ou **Informational** o único valor é **Ative.** Para **manutenção** são: **Ativos,** **Planeados, InProgress, Cancelados,** **Reagendados,** **Resolvidos** ou **Concluídos.**  
 Propriedades.communicationId | A comunicação com a qual este evento está associado.
 
 ### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações sobre o nível de saúde do serviço

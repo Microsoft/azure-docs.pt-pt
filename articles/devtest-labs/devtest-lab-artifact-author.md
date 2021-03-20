@@ -1,13 +1,13 @@
 ---
-title: Crie artefactos personalizados para a sua máquina virtual DevTest Labs Microsoft Docs
+title: Crie artefactos personalizados para a sua máquina virtual DevTest Labs | Microsoft Docs
 description: Aprenda a criar artefactos para usar com a Azure DevTest Labs para implementar e configurar aplicações depois de providenciar uma máquina virtual.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270687"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Crie artefactos personalizados para a sua máquina virtual DevTest Labs
@@ -18,7 +18,7 @@ Veja o seguinte vídeo para uma visão geral dos passos descritos neste artigo:
 >
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode utilizar *artefactos* para implantar e configurar a sua aplicação depois de ter previsto um VM. Um artefacto consiste num ficheiro de definição de artefactos e outros ficheiros de script que são armazenados numa pasta num repositório de Git. Os ficheiros de definição de artefactos consistem em JSON e expressões que pode utilizar para especificar o que pretende instalar num VM. Por exemplo, pode definir o nome de um artefacto, um comando a executar, e parâmetros que estão disponíveis quando o comando é executado. Pode consultar outros ficheiros de script dentro do ficheiro de definição de artefactos pelo nome.
 
 ## <a name="artifact-definition-file-format"></a>Formato de ficheiro de definição de artefacto
@@ -44,15 +44,15 @@ O exemplo a seguir mostra as secções que compõem a estrutura básica de um fi
   }
 ```
 
-| Nome do elemento | Necessário? | Descrição |
+| Nome do elemento | Necessário? | Description |
 | --- | --- | --- |
-| $schema |Não |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudá-lo a testar a validade do ficheiro de definição. |
-| título |Sim |O nome do artefacto exposto no laboratório. |
-| descrição |Sim |Descrição do artefacto exibido no laboratório. |
-| iconUri |Não |URI do ícone exibido no laboratório. |
-| targetOsType |Sim |Sistema operativo do VM onde o artefacto está instalado. As opções suportadas são Windows e Linux. |
-| parâmetros |Não |Valores fornecidos quando o comando de instalação do artefacto é executado numa máquina. Isto ajuda-o a personalizar o seu artefacto. |
-| runCommand |Sim |O comando de instalação de artefactos que é executado num VM. |
+| $schema |No |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudá-lo a testar a validade do ficheiro de definição. |
+| título |Yes |O nome do artefacto exposto no laboratório. |
+| descrição |Yes |Descrição do artefacto exibido no laboratório. |
+| iconUri |No |URI do ícone exibido no laboratório. |
+| targetOsType |Yes |Sistema operativo do VM onde o artefacto está instalado. As opções suportadas são Windows e Linux. |
+| parâmetros |No |Valores fornecidos quando o comando de instalação do artefacto é executado numa máquina. Isto ajuda-o a personalizar o seu artefacto. |
+| runCommand |Yes |O comando de instalação de artefactos que é executado num VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros dos artefactos
 Na secção de parâmetros do ficheiro de definição, especifique quais os valores que um utilizador pode inserir quando instala um artefacto. Pode consultar estes valores no comando de instalação de artefactos.
@@ -69,11 +69,11 @@ Para definir parâmetros, utilize a seguinte estrutura:
   }
 ```
 
-| Nome do elemento | Necessário? | Descrição |
+| Nome do elemento | Necessário? | Description |
 | --- | --- | --- |
-| tipo |Sim |Tipo de valor do parâmetro. Consulte a seguinte lista para os tipos permitidos. |
-| displayName |Sim |Nome do parâmetro que é apresentado a um utilizador em laboratório. |
-| descrição |Sim |Descrição do parâmetro que é apresentado no laboratório. |
+| tipo |Yes |Tipo de valor do parâmetro. Consulte a seguinte lista para os tipos permitidos. |
+| displayName |Yes |Nome do parâmetro que é apresentado a um utilizador em laboratório. |
+| descrição |Yes |Descrição do parâmetro que é apresentado no laboratório. |
 
 Os tipos permitidos são:
 
@@ -83,7 +83,7 @@ Os tipos permitidos são:
 * matriz (qualquer matriz JSON válida)
 
 ## <a name="secrets-as-secure-strings"></a>Segredos como cordas seguras
-Declare segredos como cordas seguras. Aqui está a sintaxe para declarar um parâmetro de corda seguro dentro `parameters` da secção doartifactfile.js** em** arquivo:
+Declare segredos como cordas seguras. Aqui está a sintaxe para declarar um parâmetro de corda seguro dentro `parameters` da secção doartifactfile.js **em** arquivo:
 
 ```json
 

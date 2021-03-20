@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f92625131a35dc91c860923ec6523c189830f65
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552155"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587853"
 ---
 # <a name="securing-service-principals"></a>Assegurar os principais de serviços
 
-Um diretor de [serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) Azure Ative (Azure AD) é a representação local de um objeto de aplicação num único inquilino ou diretório.  ‎It functions as the identity of the application instance. Os diretores de serviço definem quem pode aceder à aplicação e quais os recursos a que a aplicação pode aceder. Um principal serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único. O inquilino assegura a inscrição do diretor de serviço e o acesso aos recursos.  
+Um diretor de [serviço](../develop/app-objects-and-service-principals.md) Azure Ative (Azure AD) é a representação local de um objeto de aplicação num único inquilino ou diretório.  ‎It functions as the identity of the application instance. Os diretores de serviço definem quem pode aceder à aplicação e quais os recursos a que a aplicação pode aceder. Um principal serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único. O inquilino assegura a inscrição do diretor de serviço e o acesso aos recursos.  
 
 ### <a name="tenant-service-principal-relationships"></a>Relações principais de serviço de inquilino
 Um pedido de inquilino único tem apenas um principiante de serviço no seu inquilino de casa. Uma aplicação web de vários inquilinos ou API requer um principal serviço em cada inquilino. Um principal serviço é criado quando um utilizador desse inquilino consentiu com a utilização da aplicação ou da API. Este consentimento cria uma relação entre a aplicação multi-inquilino e os seus principais serviços associados.
@@ -39,7 +39,7 @@ Uma determinada instância de aplicação tem duas propriedades distintas: o App
 
 O ApplicationID representa a aplicação global e é o mesmo para todos os casos de candidatura entre inquilinos. O ObjectID é um valor único para um objeto de aplicação e representa o principal de serviço. Tal como acontece com utilizadores, grupos e outros recursos, o ObjectID ajuda a identificar de forma única uma instância de aplicação em Azure AD.
 
-Para obter informações mais detalhadas sobre este tema, consulte [a relação principal de aplicação e serviço.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+Para obter informações mais detalhadas sobre este tema, consulte [a relação principal de aplicação e serviço.](../develop/app-objects-and-service-principals.md)
 
 Também pode criar uma aplicação e o seu principal objeto de serviço (ObjectID) num inquilino usando Azure PowerShell, Azure CLI, Microsoft Graph, o portal Azure, e outras ferramentas. 
 
@@ -63,7 +63,7 @@ Os certificados são mais seguros: use certificados de cliente, se possível. Ao
 
 * senhas 
 
-Para obter mais informações sobre o Cofre da Chave Azure e como usá-lo para certificação e gestão secreta, consulte [About Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) e Atribuir uma política de acesso ao Cofre de Chaves utilizando o portal [Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
+Para obter mais informações sobre o Cofre da Chave Azure e como usá-lo para certificação e gestão secreta, consulte [About Azure Key Vault](../../key-vault/general/overview.md) e Atribuir uma política de acesso ao Cofre de Chaves utilizando o portal [Azure](../../key-vault/general/assign-access-policy-portal.md). 
 
  ### <a name="challenges-and-mitigations"></a>Desafios e mitigações
 A tabela a seguir apresenta mitigações aos desafios que poderá encontrar ao utilizar os princípios de serviço.
@@ -89,7 +89,7 @@ Com o PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-Para mais informações consulte [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal)
+Para mais informações consulte [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## <a name="assess-service-principal-security"></a>Avaliar a segurança principal do serviço
 
@@ -105,7 +105,7 @@ Não é possível gerir a inscrição dos diretores de serviço com acesso condi
 | O papel padrão do Azure RBAC é o Contribuinte. |Avaliar as necessidades e aplicar o papel com o mínimo possível de permissões para satisfazer essa necessidade.|
 
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Passar de uma conta de utilizador para um principal de serviço  
-‎If you are using an Azure user account as a service principal, evaluate if you can move to a [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) or a service principal. Se não puder utilizar uma identidade gerida, fornece um principal de serviço que tenha permissões e âmbito suficientes para executar as tarefas necessárias. Pode criar um principal de serviço [registando uma aplicação,](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)ou com [o PowerShell.](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)
+‎If you are using an Azure user account as a service principal, evaluate if you can move to a [Managed Identity](../../app-service/overview-managed-identity.md?tabs=dotnet) or a service principal. Se não puder utilizar uma identidade gerida, fornece um principal de serviço que tenha permissões e âmbito suficientes para executar as tarefas necessárias. Pode criar um principal de serviço [registando uma aplicação,](../develop/howto-create-service-principal-portal.md)ou com [o PowerShell.](../develop/howto-authenticate-service-principal-powershell.md)
 
 When using Microsoft Graph, check the documentation of the specific API, [like in this example](/powershell/azure/create-azure-service-principal-azureps), ‎and make sure the permission type for application is showing as supported.
 
@@ -115,7 +115,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Criar um principal de serviço](../develop/howto-create-service-principal-portal.md)
 
- [Iniciar inscrições principais do serviço](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [Iniciar inscrições principais do serviço](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **Para saber mais sobre a segurança de contas de serviço:**
 

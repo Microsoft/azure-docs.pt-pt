@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92543819"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor Único da Base de Dados do Azure para MySQL

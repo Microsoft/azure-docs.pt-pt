@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: d2f12a6982886eeaa375151c5b8a73acc573aab9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545366"
 ---
 # <a name="429001-throttlingexception"></a>429001 ThrottlingException
@@ -21,7 +21,7 @@ Este artigo descreve as causas e soluções para **erros de ThrottlingException 
 
 ## <a name="symptoms"></a>Sintomas
 
-Os seus pedidos ao IoT Hub falham com o erro **429001 ThrottlingException** .
+Os seus pedidos ao IoT Hub falham com o erro **429001 ThrottlingException**.
 
 ## <a name="cause"></a>Causa
 

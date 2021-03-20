@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b71e5b1a8ba5f3ee8f883c71a7221e01d4af4fb6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102559363"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597713"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
@@ -91,7 +91,8 @@ Pode ativar VMs para os VMs iniciar/parar durante o período de folga utilizando
 | Microsoft.Autorização/permissões/ler |Subscrição|
 | Microsoft.Autorização/funAsignments/read | Subscrição |
 | Microsoft.Authorization/roleAssignments/write | Subscrição |
-| Microsoft.Autorização/funAsignments/delete | Subscrição || Microsoft.Automation/automationContões/ligações/leitura | Grupo de Recursos |
+| Microsoft.Autorização/funAsignments/delete | Subscrição |
+| Microsoft.Automation/automationContões/ligações/leitura | Grupo de Recursos |
 | Microsoft.Automation/automationAs contas/certificados/leitura | Grupo de Recursos |
 | Microsoft.Automation/automationAs contas/escrita | Grupo de Recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de Recursos |
@@ -167,7 +168,7 @@ Não ative todos os horários, porque fazê-lo pode criar ações de horário so
 |Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de bordo com um parâmetro de `Stop` todos os dias na hora especificada. Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis. Ativar o horário relacionado **Programado-StartVM**.|
 |Scheduled_StartVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro com um valor de parâmetro de `Start` cada dia na hora especificada. Inicia automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis. Ativar o horário relacionado **Agendado-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), todas as sextas-feiras | Executa o **Sequenced_StopStop_Parent** runbook com um valor de parâmetro de `Stop` todas as sextas-feiras no momento especificado. Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetas e variáveis de ativos, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenciado-StartVM**.|
-|Sequenced-StartVM | 13:00 PM (UTC), todas as segundas-feiras | Executa o **SequencedStopStart_Parent** livro com um valor de parâmetro de `Start` todas as segundas-feiras na hora especificada. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre os valores da etiqueta e os ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenciado-StopVM**.
+|Sequenced-StartVM | 13:00 PM (UTC), todas as segundas-feiras | Executa o **SequencedStopStart_Parent** livro com um valor de parâmetro de `Start` todas as segundas-feiras na hora especificada. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre os valores da etiqueta e os ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenciado-StopVM**.|
 
 ## <a name="use-the-feature-with-classic-vms"></a>Use a funcionalidade com VMs clássicos
 

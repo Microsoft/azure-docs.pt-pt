@@ -1,5 +1,5 @@
 ---
-title: Comece a usar PIM - Azure Ative Directory Microsoft Docs
+title: Comece a usar PIM - Azure Ative Directory | Microsoft Docs
 description: Saiba como ativar e começar a utilizar a Azure AD Privileged Identity Management (PIM) no portal Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90600726"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
@@ -67,7 +67,7 @@ Assim que a Gestão de Identidade Privilegiada estiver configurada, poderá apre
 
 ![Janela de navegação em Gestão de Identidade Privilegiada mostrando tarefas e opções de gestão](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Tarefa + Gerir | Descrição |
+| Tarefa + Gerir | Description |
 | --- | --- |
 | **Os meus papéis**  | Apresenta uma lista de funções elegíveis e ativas atribuídas a si. Este é o local onde pode ativar quaisquer funções elegíveis atribuídas. |
 | **Os meus pedidos** | Apresenta os seus pedidos pendentes para ativar atribuições de funções elegíveis. |
@@ -86,7 +86,7 @@ Para facilitar a abertura da Gestão de Identidade Privilegiada, adicione um azu
 
     ![Gestão de Identidade Privilegiada Azure AD em todos os serviços](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Selecione o **arranque rápido**da Gestão de Identidade Privilegiada .
+1. Selecione o **arranque rápido** da Gestão de Identidade Privilegiada .
 
 1. Selecione **a lâmina pin para o painel de instrumentos** para fixar a página de arranque **rápida** da Gestão de Identidade Privilegiada no painel de instrumentos.
 

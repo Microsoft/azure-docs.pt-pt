@@ -1,5 +1,5 @@
 ---
-title: Opções de transferência de dados Azure para pequenos conjuntos de dados com largura de banda de rede baixa a moderada Microsoft Docs
+title: Opções de transferência de dados Azure para pequenos conjuntos de dados com largura de banda de rede baixa a moderada| Microsoft Docs
 description: Saiba como escolher uma solução Azure para transferência de dados quando tiver largura de banda de rede baixa a moderada no seu ambiente e planeia transferir pequenos conjuntos de dados.
 services: storage
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023232"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Data transfer for small datasets with low to moderate network bandwidth (Transferência de dados para conjuntos de dados pequenos com pouca largura de banda de rede ou com largura de banda moderada)
@@ -49,16 +49,16 @@ As opções recomendadas neste cenário são:
 
 A tabela seguinte resume as diferenças entre as principais capacidades.
 
-| Funcionalidade | Explorador do Storage do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | Azure Storage REST APIs ou SDKs |
+| Funcionalidade | Explorador de Armazenamento do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | Azure Storage REST APIs ou SDKs |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilidade | Transferir e instalar <br>Ferramenta autónoma | Ferramentas de exploração baseadas na Web no portal Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
-| Interface gráfica | Sim | Sim | Não | Não |
+| Interface gráfica | Yes | Yes | No | No |
 | Plataformas apoiadas | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
 | Operações de armazenamento permitidas blob<br>para bolhas e pastas | Carregar<br>Download<br>Gerir | Carregar<br>Download<br>Gerir |Carregar<br>Download<br>Gerir | Sim, personalizável |
-| Armazenamento permitido do Data Lake Gen1<br>operações para ficheiros e pastas | Carregar<br>Download<br>Gerir | Não |Carregar<br>Download<br>Gerir                   | Não |
+| Armazenamento permitido do Data Lake Gen1<br>operações para ficheiros e pastas | Carregar<br>Download<br>Gerir | No |Carregar<br>Download<br>Gerir                   | No |
 | Operações permitidas de armazenamento de ficheiros<br>para ficheiros e diretórios | Carregar<br>Download<br>Gerir | Carregar<br>Download<br>Gerir   |Carregar<br>Download<br>Gerir | Sim, personalizável |
-| Operações permitidas de armazenamento de mesa<br>para tabelas |Gerir | Não |Suporte de mesa em AzCopy v7 |Sim, personalizável|
-| Armazenamento permitido da fila | Gerir | Não  |Não | Sim, é personalizável|
+| Operações permitidas de armazenamento de mesa<br>para tabelas |Gerir | No |Suporte de mesa em AzCopy v7 |Sim, personalizável|
+| Armazenamento permitido da fila | Gerir | No  |No | Sim, é personalizável|
 
 
 ## <a name="next-steps"></a>Passos seguintes

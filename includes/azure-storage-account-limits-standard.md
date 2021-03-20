@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96027046"
 ---
 A tabela seguinte descreve os limites predefinidos para as contas de armazenamento de blob de uso geral da Azure v1, v2, Blob e block blob. O limite *de entrada* refere-se a todos os dados enviados para uma conta de armazenamento. O limite *de saída* refere-se a todos os dados recebidos de uma conta de armazenamento.
@@ -26,7 +26,7 @@ A tabela seguinte descreve os limites predefinidos para as contas de armazenamen
 | Capacidade máxima da conta de armazenamento | 5 PiB <sup>1</sup>|
 | Número máximo de recipientes blob, blobs, ações de ficheiros, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
 | Taxa máxima de pedido<sup>1</sup> por conta de armazenamento | 20.000 pedidos por segundo |
-| Entrada máxima<sup>1</sup> por conta de armazenamento (EUA, regiões da Europa) | 10 Gbps |
+| Entrada máxima<sup>1</sup> por conta de armazenamento (EUA, regiões da Europa) | 10 Gbps |
 | Entrada máxima<sup>1</sup> por conta de armazenamento (regiões que não os EUA e a Europa) | 5 Gbps se ra-GRS/GRS estiver ativado, 10 Gbps para LRS/ZRS<sup>2</sup> |
 | Saída máxima para as contas de armazenamento v2 e Blob (todas as regiões) | 50 Gbps |
 | Saída máxima para contas de armazenamento v1 para fins gerais (regiões dos EUA) | 20 Gbps se ra-GRS/GRS estiver ativado, 30 Gbps para LRS/ZRS<sup>2</sup> |

@@ -1,5 +1,5 @@
 ---
-title: Experimente uma solução para gerir os meus dispositivos IoT industriais - Azure ! Microsoft Docs
+title: Experimente uma solução para gerir os meus dispositivos IoT industriais - Azure | Microsoft Docs
 description: Neste início rápido, vai implementar o acelerador de soluções de Fábrica Ligada de IoT do Azure e iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "62127468"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início Rápido: Experimentar uma solução com base na cloud para gerir os meus dispositivos IoT industriais
@@ -139,7 +139,7 @@ Para analisar mais aprofundadamente os dados do alarme, clique no gráfico no pa
 
 Estes alarmes são gerados por regras que estão especificadas num ficheiro de configuração do acelerador da solução. Estas regras podem gerar alarmes quando os valores do OEE ou do KPI ou dos valores dos nóns de UA OPC ultrapassam um limiar. Pode definir este valor de limiar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser explorar ainda mais, deixe o acelerador de soluções de Fábrica Ligada implementado.
 

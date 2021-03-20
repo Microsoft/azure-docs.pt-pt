@@ -8,10 +8,10 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94684037"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utilize lançamentos inteligentes de encaminhamento e canário com istio no Serviço Azure Kubernetes (AKS)
@@ -28,7 +28,7 @@ Neste artigo, vai aprender a:
 > * Lançar uma versão canária da aplicação
 > * Finalizar o lançamento
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 > [!NOTE]
 > Este cenário foi testado contra a versão `1.3.2` Istio.
@@ -439,7 +439,7 @@ A saída de exemplo a seguir mostra que todos os componentes da aplicação de v
 namespace "voting" deleted
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode explorar cenários adicionais usando o [exemplo da Aplicação Istio Bookinfo][istio-bookinfo-example].
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar exemplo de Gestão API da Azure utilizando o PowerShell Microsoft Docs
+title: Quickstart - Criar exemplo de Gestão API Azure utilizando | PowerShell Microsoft Docs
 description: Crie um novo exemplo de Gestão API da Azure utilizando a Azure PowerShell.
 services: api-management
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 09/14/2020
 ms.author: apimpm
 ms.openlocfilehash: eb2c42d26a85a07518a018ba5b8817f13d3cd17f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90707066"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-powershell"></a>Quickstart: Criar uma nova instância de serviço AZure API Management utilizando o PowerShell
@@ -102,7 +102,7 @@ ResourceGroupName                     : myResourceGroup
 
 Depois de o seu serviço de gestão API ser implementado, está pronto para usá-lo. Comece com o tutorial para [importar e publicar a sua primeira API.](import-and-publish.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados.
 

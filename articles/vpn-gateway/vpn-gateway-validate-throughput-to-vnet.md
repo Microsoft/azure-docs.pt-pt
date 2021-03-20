@@ -11,10 +11,10 @@ ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660938"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>How to validate VPN throughput to a virtual network (Como validar o débito da VPN para uma rede virtual)
@@ -225,7 +225,7 @@ Em particular, a análise dos vestígios de captura de pacotes (Wireshark/Networ
 
 Mesmo que a produção global avaliada com os passos anteriores (iPERF/NTTTCP/etc.) fosse boa, pode experimentar uma resolução lenta de ficheiros quando utilizar o Windows Explorer, ou arrastar e cair através de uma sessão de PDR. Este problema deve-se normalmente a um ou ambos os seguintes fatores:
 
-* As aplicações de cópia de ficheiros, tais como o Windows Explorer e o RDP, não utilizam vários fios ao copiar ficheiros. Para um melhor desempenho, utilize uma aplicação de cópia de ficheiros com vários fios, como [a Richcopy,](/previous-versions/technet-magazine/dd547088(v=msdn.10)) para copiar ficheiros utilizando 16 ou 32 fios. Para alterar o número de fio para cópia de ficheiro em Richcopy, clique em opções **de Cópia de Ação** Cópia de  >  **Copy options**  >  **ficheiros**.
+* As aplicações de cópia de ficheiros, tais como o Windows Explorer e o RDP, não utilizam vários fios ao copiar ficheiros. Para um melhor desempenho, utilize uma aplicação de cópia de ficheiros com vários fios, como [a Richcopy,](/previous-versions/technet-magazine/dd547088(v=msdn.10)) para copiar ficheiros utilizando 16 ou 32 fios. Para alterar o número de fio para cópia de ficheiro em Richcopy, clique em opções **de Cópia de Ação** Cópia de  >    >  **ficheiros**.
 
    ![Problemas de cópia de ficheiros lentos](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -261,8 +261,8 @@ Se notar um pico elevado de latência em qualquer um dos saltos antes de entrar 
 
 Se um grande pico de latência incomum for notado a partir de lúpulo dentro de "msn.net", contacte o apoio dos Estados-Membros para mais investigações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações ou ajuda, confira o seguinte link:
 
-* [Suporte à Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+* [Suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

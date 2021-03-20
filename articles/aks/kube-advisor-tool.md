@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
 ms.openlocfilehash: 7730146f30487eb5d20f0d3138e9e5ba799daa99
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94681521"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar a existência de melhores práticas do Kubernetes no seu cluster
@@ -67,7 +67,7 @@ kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa
 
 Se estiver a executar a ferramenta contra um cluster que não esteja ativado por NCC de Kubernetes, não é necessária nenhuma limpeza.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Problemas de resolução de problemas com o Serviço Azure Kubernetes](troubleshooting.md)
 

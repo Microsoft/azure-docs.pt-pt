@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359820"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
@@ -42,8 +42,8 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
     - Verifique se a função de desenvolvedor de aplicações é atribuída ao utilizador. Caso contrário, utilize um utilizador com esta permissão ou contacte um [administrador para ativar a permissão](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Se a função de desenvolvedor de aplicações não puder ser atribuída, certifique-se de que o registo da bandeira das **aplicações** é definido como **verdadeiro** para o utilizador criar uma identidade. Para ativar estas permissões:
-    - Inicie sessão no Portal do Azure.
-    - Aceda às definições do Utilizador **do Diretório Ativo Azure**  >  **User settings**.
+    - Inicie sessão no portal do Azure.
+    - Aceda às definições do Utilizador **do Diretório Ativo Azure**  >  .
     - Nos **registos da App,** **os utilizadores podem registar aplicações,** selecione **Sim.**
 
       ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
@@ -53,7 +53,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 
 ## <a name="download-the-template"></a>Transferir o modelo
 
-1. No cofre, vá para preparar a **fonte de infraestrutura.**  >  **Source**
+1. No cofre, vá para preparar a **fonte de infraestrutura.**  >  
 2. Em **Preparar origem**, selecione **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** é apresentado no **Tipo de servidor**.
 4. Descarregue o modelo OVA para o servidor de configuração.
@@ -79,7 +79,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 8. Em **Pronto para concluir**:
 
     * Para configurar o VM com as definições predefinidos, selecione **Ligar a ligar após a colocação**  >  **Terminar**.
-    * Para adicionar uma interface de rede adicional, **limpe a energia após a implementação**e, em seguida, selecione **Terminar**. Por predefinição, o modelo do servidor de configuração é implementado com um único NIC. Pode adicionar mais NICs após a implementação.
+    * Para adicionar uma interface de rede adicional, **limpe a energia após a implementação** e, em seguida, selecione **Terminar**. Por predefinição, o modelo do servidor de configuração é implementado com um único NIC. Pode adicionar mais NICs após a implementação.
 
 > [!IMPORTANT]
 > Não altere as configurações de recursos, tais como memória, núcleos e restrição de CPU, ou modifique ou elimine serviços ou ficheiros instalados no servidor de configuração após a implementação. Estes tipos de alterações afetam o registo do servidor de configuração com os serviços Azure e o desempenho do servidor de configuração.
@@ -121,9 +121,9 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 
 4. Na **Instalação de software de terceiros:**
 
-    |Cenário   |Passos a seguir  |
+    |Scenario   |Passos a seguir  |
     |---------|---------|
-    |Posso descarregar e instalar o MySQL manualmente?     |  Sim. Descarregue a aplicação MySQL, coloque-a na pasta **C:\Temp\ASRSetup**e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **Descarregar e instalar,** o portal diz *que já está instalado.* Pode passar ao próximo passo.       |
+    |Posso descarregar e instalar o MySQL manualmente?     |  Sim. Descarregue a aplicação MySQL, coloque-a na pasta **C:\Temp\ASRSetup** e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **Descarregar e instalar,** o portal diz *que já está instalado.* Pode passar ao próximo passo.       |
     |Posso evitar o download do MySQL online?     |   Sim. Coloque a aplicação do instalador MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **Descarregar e instalar,** e o portal utiliza o instalador que adicionou para instalar a aplicação. Após o fim da instalação, proceda ao passo seguinte.    |
     |Quero descarregar e instalar o MySQL através da Recuperação do Site Azure.    |  Aceite o contrato de licença e selecione **Baixar e instalar.** Após o fim da instalação, proceda ao passo seguinte.       |
 
@@ -132,7 +132,7 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 7. Introduza as credenciais que o servidor de configuração irá utilizar para ligar ao servidor VMware. O Site Recovery utiliza estas credenciais para detetar automaticamente as VMs VMware que estão disponíveis para replicação. **Selecione**  >  **Adicionar Continuar**. As credenciais aqui inscritas são guardadas localmente.
 8. Nas **credenciais de máquina virtual configurar,** insira o nome de utilizador e a palavra-passe das máquinas virtuais para instalar automaticamente o serviço de mobilidade durante a replicação. Para as máquinas **Windows,** a conta necessita de privilégios de administrador local nas máquinas que pretende replicar. Para **Linux,** forneça detalhes para a conta raiz.
 9. Selecione **Finalizar configuração** para concluir o registo.
-10. Após o início do registo, abra o portal Azure e verifique se o servidor de configuração e o servidor VMware estão listados nos **Servidores**de Configuração da Infraestrutura de  >  **Manage**  >  **Recuperação do Cofre**do Cofre  >  **Configuration Servers**de Recuperação do Cofre .
+10. Após o início do registo, abra o portal Azure e verifique se o servidor de configuração e o servidor VMware estão listados nos **Servidores** de Configuração da Infraestrutura de  >    >  **Recuperação do Cofre** do Cofre  >  de Recuperação do Cofre .
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
@@ -154,10 +154,10 @@ Consulte o nosso [artigo de resolução de problemas](vmware-azure-troubleshoot-
 
 * Posso utilizar o VM onde o servidor de configuração está instalado para diferentes finalidades?
 
-    Não. Utilize o VM para o único fim do servidor de configuração. Certifique-se de que segue todas as especificações mencionadas nos [Pré-requisitos](#prerequisites) para uma gestão eficiente da recuperação de desastres.
+    N.º Utilize o VM para o único fim do servidor de configuração. Certifique-se de que segue todas as especificações mencionadas nos [Pré-requisitos](#prerequisites) para uma gestão eficiente da recuperação de desastres.
 * Posso trocar o cofre já registado no servidor de configuração com um cofre recém-criado?
 
-    Não. Depois de um cofre ser registado no servidor de configuração, não pode ser alterado.
+    N.º Depois de um cofre ser registado no servidor de configuração, não pode ser alterado.
 * Posso usar o mesmo servidor de configuração para proteger máquinas físicas e virtuais?
 
     Sim. O mesmo servidor de configuração pode ser usado para replicar máquinas físicas e virtuais. No entanto, a máquina física só pode ser ressartada para um VMware VM.
@@ -172,17 +172,17 @@ Consulte o nosso [artigo de resolução de problemas](vmware-azure-troubleshoot-
     Para descarregar a palavra-passe, consulte [Gerir o servidor de configuração para obter a recuperação de desastres VMware VM](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 * Posso mudar a frase?
 
-    Não. Não altere a palavra-passe do servidor de configuração. Uma mudança na palavra-passe quebra a replicação de máquinas protegidas e leva a um estado crítico de saúde.
+    N.º Não altere a palavra-passe do servidor de configuração. Uma mudança na palavra-passe quebra a replicação de máquinas protegidas e leva a um estado crítico de saúde.
 * Onde posso baixar as chaves de registo do cofre?
 
-    No **Cofre de Serviços de Recuperação**, selecione **Gerir**  >  servidores de configuração da**infraestrutura de**  >  **recuperação do local**. Em **Servers**, selecione Baixar a **chave de registo** para descarregar o ficheiro de credenciais do cofre.
+    No **Cofre de Serviços de Recuperação**, selecione **Gerir**  >  servidores de configuração da **infraestrutura de**  >  **recuperação do local**. Em **Servers**, selecione Baixar a **chave de registo** para descarregar o ficheiro de credenciais do cofre.
 * Posso clonar um servidor de configuração existente e usá-lo para orquestração de replicação?
 
-    Não. A utilização de um componente do servidor de configuração clonado não é suportada. A clonagem de um servidor de processo de escala também é um cenário não suportado. Os componentes de recuperação do local de clonagem afetam as replicações em curso.
+    N.º A utilização de um componente do servidor de configuração clonado não é suportada. A clonagem de um servidor de processo de escala também é um cenário não suportado. Os componentes de recuperação do local de clonagem afetam as replicações em curso.
 
 * Posso alterar o IP de um servidor de configuração?
 
-    Não. Não altere o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs estáticos e não IPs DHCP.
+    N.º Não altere o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs estáticos e não IPs DHCP.
 * Posso configurar um servidor de configuração no Azure?
 
     Configurar um servidor de configuração num ambiente no local com uma linha de visão direta com v-Center e para minimizar as latências de transferência de dados. Pode realizar cópias de segurança programadas do servidor de configuração para [fins de falha](vmware-azure-manage-configuration-server.md#failback-requirements).

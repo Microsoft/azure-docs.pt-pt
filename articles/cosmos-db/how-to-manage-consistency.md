@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333482"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
@@ -67,7 +67,7 @@ Os clientes podem substituir o nível de consistência predefinido que está def
 > [!TIP]
 > A consistência só pode ser **descontraída** ao nível do pedido. Para passar de uma consistência mais fraca para uma consistência mais forte, atualize a consistência padrão para a conta Cosmos.
 
-### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>SDK .NET
+### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>.NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -153,7 +153,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>SDK Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Python SDK
 
 ```python
 # Override consistency at the client level
@@ -168,7 +168,7 @@ Um dos níveis de consistência no Azure Cosmos DB é a consistência *da sessã
 
 Para gerir os tokens de sessão manualmente, obtenha o sinal da sessão da resposta e desacorda-os por pedido. Se não precisar de gerir os tokens de sessão manualmente, não precisa de usar estas amostras. O SDK acompanha automaticamente os tokens de sessão. Se não definir o token da sessão manualmente, por padrão, o SDK utiliza o token de sessão mais recente.
 
-### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>SDK .NET
+### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>.NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -265,7 +265,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>SDK Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Python SDK
 
 ```python
 // Get the session token from the last response headers

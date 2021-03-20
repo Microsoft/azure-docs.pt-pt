@@ -1,5 +1,5 @@
 ---
-title: Governação da Identidade - Diretório Ativo Azure / Microsoft Docs
+title: Governação da Identidade - Diretório Ativo Azure | Microsoft Docs
 description: O Azure Ative Directory Identity Governance permite-lhe equilibrar a necessidade de segurança e produtividade dos colaboradores da sua organização com os processos e visibilidade certos.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92362455"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
@@ -74,7 +74,7 @@ Historicamente, o acesso privilegiado tem sido descrito por outros fornecedores 
 
 Além das funcionalidades acima enumeradas, as funcionalidades adicionais da AZURE AD frequentemente utilizadas para fornecer cenários de governação de identidade incluem:
 
-| Funcionalidade | Cenário |Funcionalidade
+| Funcionalidade | Scenario |Funcionalidade
 | ------- | --------------------- |-----|
 |Ciclo de vida identitário (empregados)|Os administradores podem permitir o fornecimento de conta de utilizador a partir de Workday ou SuccessFactors cloud HR, ou no local HR.|[fornecimento de utilizadores de RH em nuvem para Azure AD](../app-provisioning/plan-cloud-hr-provision.md)|
 |Ciclo de vida identitário (convidados)|Os administradores podem permitir o acesso de um cliente de autosserviço a bordo de outro inquilino AD AZure, federação direta, Código de Uma Hora (OTP) ou contas do Google.  Os utilizadores convidados são automaticamente aprovisionados e desprovisionados sujeitos às políticas de ciclo de vida.|[Gestão de direitos](entitlement-management-overview.md) utilizando [B2B](../external-identities/what-is-b2b.md)|

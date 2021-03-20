@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e139954e6550e33edb75d01ab9dbec0bba543ea6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548258"
 ---
 Depois de o recurso **Peering** ser implementado com sucesso, pode vê-lo seguindo estes passos.
@@ -37,14 +37,14 @@ Depois de o recurso **Peering** ser implementado com sucesso, pode vê-lo seguin
     > [!div class="mx-imgBorder"]
     > ![Informação ASN de recurso de esprevação](../media/setup-direct-get-asninfo.png)
 
-1. À esquerda, selecione **Connections** . No topo do ecrã, vê-se um resumo das ligações entre a ASN e a Microsoft, através de diferentes instalações dentro do metrô. Também pode aceder ao resumo das ligações a partir da página **'Vista Geral',** selecionando **Ligações** no painel central, como mostrado.
+1. À esquerda, selecione **Connections**. No topo do ecrã, vê-se um resumo das ligações entre a ASN e a Microsoft, através de diferentes instalações dentro do metrô. Também pode aceder ao resumo das ligações a partir da página **'Vista Geral',** selecionando **Ligações** no painel central, como mostrado.
 
     > [!div class="mx-imgBorder"]
     > ![Conexões de recursos de espreitar](../media/setup-exchange-get-connectionssummary.png)
 
     * **O Estado de Ligação** corresponde ao estado da configuração da ligação de pares. Os estados apresentados neste campo seguem o diagrama de estado mostrado no [Persigoramento do Perspetivo.](../walkthrough-exchange-all.md)
     * **O Estado da Sessão do IPv4** e o **Estado da Sessão do IPv6** correspondem aos estados da sessão do IPv4 e do IPv6 BGP, respectivamente.  
-    * Quando seleciona uma linha na parte superior do ecrã, a secção **'Ligação'** na parte inferior mostra detalhes para cada ligação. Selecione as setas para expandir **a configuração,** **o endereço IPv4** e **o endereço IPv6** .
+    * Quando seleciona uma linha na parte superior do ecrã, a secção **'Ligação'** na parte inferior mostra detalhes para cada ligação. Selecione as setas para expandir **a configuração,** **o endereço IPv4** e **o endereço IPv6**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot que realça uma seta que expande uma secção.](../media/setup-exchange-get-connectionsipv4.png)

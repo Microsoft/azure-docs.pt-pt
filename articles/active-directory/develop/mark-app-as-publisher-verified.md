@@ -1,5 +1,5 @@
 ---
-title: Marque uma app como editor verificado - Plataforma de identidade da Microsoft Rio Azure
+title: Marque uma aplicação como editor verificado - Plataforma de identidade da Microsoft | Rio Azure
 description: Descreve como marcar uma aplicação como editor verificado. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta da Microsoft Partner Network que concluiu o processo de verificação e associou esta conta MPN ao seu registo de candidatura.
 services: active-directory
 author: rwike77
@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92363458"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marcar a sua aplicação como verificada pelo publicador
@@ -66,7 +66,7 @@ Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-ov
 
 1. Aguarde o processo, isto pode demorar alguns minutos. 
 
-1. Se a verificação tiver sido bem sucedida, a janela de verificação do editor fechar-se-á, devolvendo-o à lâmina de marcação. Você verá um crachá azul verificado ao lado do seu nome de **exibição da Editora**verificada . 
+1. Se a verificação tiver sido bem sucedida, a janela de verificação do editor fechar-se-á, devolvendo-o à lâmina de marcação. Você verá um crachá azul verificado ao lado do seu nome de **exibição da Editora** verificada . 
 
 1. Os utilizadores que forem solicitados a consentirem com a sua app começarão a ver o crachá logo após o processo ter passado pelo processo com sucesso, embora possa demorar algum tempo para que este se reproduza em todo o sistema. 
 

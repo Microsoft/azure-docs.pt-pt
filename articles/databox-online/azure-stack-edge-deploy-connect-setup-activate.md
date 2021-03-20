@@ -1,5 +1,5 @@
 ---
-title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge Pro no portal Azure Microsoft Docs
+title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge Pro no portal Azure | Microsoft Docs
 description: Tutorial para implementar Azure Stack Edge Pro instrui-o a ligar, configurar e ativar o seu dispositivo físico.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91743340"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Tutorial: Conecte-se, instale e ative o Azure Stack Edge Pro 
@@ -40,7 +40,7 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge Pro, certifi
 
 1. Configure o adaptador Ethernet no seu computador para ligar ao dispositivo Azure Stack Edge Pro com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
 
-2. Ligue o computador ao PORTO 1 no seu dispositivo. Utilize a seguinte ilustração para identificar a PORTA 1 no seu dispositivo.
+2. Ligue o computador à PORTA 1 no dispositivo. Utilize a seguinte ilustração para identificar a PORTA 1 no dispositivo.
 
     ![Painel posterior de um dispositivo ligado por cabo](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
@@ -59,17 +59,17 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge Pro, certifi
     ![Página de entrada do dispositivo Azure Stack Edge Pro](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. A pedido, altere a palavra-passe do administrador do dispositivo.  
-    A nova palavra-passe deve conter entre 8 e 16 caracteres. Deve conter três dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais.
+    A nova palavra-passe tem de ter entre 8 e 16 carateres. Tem de incluir três dos seguintes carateres: maiúsculas, minúsculas, números e carateres especiais.
 
 Está agora no painel do seu dispositivo.
 
 ## <a name="set-up-and-activate-the-physical-device"></a>Configurar e ativar o dispositivo físico
  
-O seu painel de instrumentos exibe as várias definições necessárias para configurar e registar o dispositivo físico com o serviço Azure Stack Edge. O **nome do dispositivo,** **as definições de rede,** **as definições de procuração web**e as **definições de tempo** são opcionais. As únicas definições necessárias são **as definições cloud**.
+O seu painel de instrumentos exibe as várias definições necessárias para configurar e registar o dispositivo físico com o serviço Azure Stack Edge. O **nome do dispositivo,** **as definições de rede,** **as definições de procuração web** e as **definições de tempo** são opcionais. As únicas definições necessárias são **as definições cloud**.
    
 ![Página local de UI "Dashboard"](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
-1. No painel esquerdo, selecione **o nome do dispositivo**e, em seguida, introduza um nome amigável para o seu dispositivo.  
+1. No painel esquerdo, selecione **o nome do dispositivo** e, em seguida, introduza um nome amigável para o seu dispositivo.  
     O nome amigável deve conter de 1 a 15 caracteres e ter letras, números e hífens.
 
     ![Página local de ui "nome do dispositivo"](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-2.png)
@@ -88,7 +88,7 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
      >[!NOTE] 
      > Recomendamos que não alterne o endereço IP local da interface de rede de estático para DCHP, a menos que tenha outro endereço IP para se ligar ao dispositivo. Se estiver a utilizar uma interface de rede e alternar para DHCP, não haverá forma de determinar o endereço DHCP. Se quiser alterar para um endereço DHCP, aguarde até que o dispositivo tenha sido registado com o serviço e, em seguida, altere. Em seguida, pode visualizar os IPs de todos os adaptadores nas propriedades do **Dispositivo** no portal Azure para o seu serviço.
 
-3. (Opcional) No painel esquerdo, selecione **as definições de procuração web**e, em seguida, configufique o seu servidor de procuração web. Embora a configuração de procuração web seja opcional, se utilizar um representante web, pode configugá-la apenas nesta página.
+3. (Opcional) No painel esquerdo, selecione **as definições de procuração web** e, em seguida, configufique o seu servidor de procuração web. Embora a configuração de procuração web seja opcional, se utilizar um representante web, pode configugá-la apenas nesta página.
    
    ![Página local de UI "Web proxy settings"](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
@@ -96,7 +96,7 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
    
    a. Na caixa **DE URL de procuração web,** introduza o URL neste formato: `http://host-IP address or FQDN:Port number` . Os URLs HTTPS não são suportados.
 
-   b. Em **Autenticação**, **selecione Nenhum** ou **NTLM**. Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge Pro, recomendamos que detenda a autenticação de procuração web a **Nenhum**. **A NTLM** não é suportada.
+   b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**. Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge Pro, recomendamos que detenda a autenticação de procuração web a **Nenhum**. **A NTLM** não é suportada.
 
    c. Se estiver a utilizar a autenticação, insira um nome de utilizador e uma palavra-passe.
 
@@ -107,7 +107,7 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
    > Os proxies que tentam intercetar e ler todo o tráfego (e, em seguida, voltam a assinar tudo com a sua própria certificação) não são compatíveis, pois o certificado do proxy não é fidedigno.
    > Os proxies tipicamente transparentes funcionam bem com o Azure Stack Edge Pro.
 
-4. (Opcional) No painel esquerdo, selecione definições de tempo e, em seguida, configufique o **fuso**horário e os servidores NTP primários e secundários para o seu dispositivo.  
+4. (Opcional) No painel esquerdo, selecione definições de tempo e, em seguida, configufique o **fuso** horário e os servidores NTP primários e secundários para o seu dispositivo.  
     Os servidores NTP são necessários porque o seu dispositivo deve sincronizar o tempo para que possa autenticar com os seus fornecedores de serviços na nuvem.
        
     Na página **'Definições',** faça o seguinte:
@@ -131,7 +131,7 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
 
     ![Página local de ui "definições de armazenamento"](./media/azure-stack-edge-deploy-connect-setup-activate/storage-settings.png)
 
-6. No painel esquerdo, selecione **as definições cloud**e, em seguida, ative o seu dispositivo com o serviço Azure Stack Edge no portal Azure.
+6. No painel esquerdo, selecione **as definições cloud** e, em seguida, ative o seu dispositivo com o serviço Azure Stack Edge no portal Azure.
     
     1. Na caixa **de chave ativação,** introduza a tecla de ativação que obteve na [Obter a chave de ativação](azure-stack-edge-deploy-prep.md#get-the-activation-key) para Azure Stack Edge Pro.
     2. Selecione **Aplicar**.

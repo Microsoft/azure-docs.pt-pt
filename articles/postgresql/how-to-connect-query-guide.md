@@ -8,19 +8,19 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546556"
 ---
-# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Conecte e consulta visão geral para base de dados Azure para PostgreSQL- Servidor Único
+# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Descrição geral da ligação e consulta da Base de Dados do Azure para PostgreSQL – Servidor Único
 
 O documento que se segue inclui links para exemplos que mostram como conectar e consultar a Base de Dados Azure para o Servidor Único Pós-SQL. Este guia também inclui recomendações e extensão TLS que pode usar para ligar ao servidor em idiomas suportados abaixo.
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Descrição |
+| Início Rápido | Description |
 |---|---|
 |[Pgadmin](https://www.pgadmin.org/)|Pode utilizar a pgadmin para se ligar ao servidor e simplifica a criação, manutenção e utilização de objetos de base de dados.|
 |[psql em Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|Este artigo mostra como executar [**o psql**](https://www.postgresql.org/docs/current/static/app-psql.html) em [Azure Cloud Shell](../cloud-shell/overview.md) para ligar ao seu servidor e, em seguida, executar declarações para consultar, inserir, atualizar e apagar dados na base de dados. Você pode executar **psql** se instalado no seu ambiente de desenvolvimento|

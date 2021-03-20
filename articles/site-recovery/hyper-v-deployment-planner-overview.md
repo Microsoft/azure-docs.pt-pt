@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: e4f1931aab056306ac5e9f9e9ef402ca26ec2d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86528949"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Planejador de Implementação de Recuperação do Local Azure para a recuperação de desastres hiper-V para Azure
@@ -72,7 +72,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 |**Categorias** | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para um site secundário**|**VMware para um site secundário**
 --|--|--|--|--|--
-Cenários suportados |Sim|Sim|Não|Sim*|Não
+Cenários suportados |Yes|Yes|No|Sim*|No
 Versão suportada | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração suportada|vCenter, ESXi| Cluster Hyper-V, anfitrião Hyper-V|ND|Cluster Hyper-V, anfitrião Hyper-V|ND|
 Número de servidores para os quais podem ser criados perfis por instância de execução do Planeador de Implementações do Azure Site Recovery |Único (é possível criar um perfil de cada vez de VMs pertencentes a um vCenter Server ou um servidor ESXi)|Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND |Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND
@@ -82,7 +82,7 @@ Número de servidores para os quais podem ser criados perfis por instância de e
 ## <a name="prerequisites"></a>Pré-requisitos
 A ferramenta tem três fases principais para Hyper-V: obter a lista de VMs, criação de perfis e geração de relatórios. Também existe uma quarta opção para calcular apenas o débito. Os requisitos para o servidor no qual as diferentes fases têm de ser executadas são apresentados na tabela seguinte:
 
-| Requisito do servidor | Descrição |
+| Requisito do servidor | Description |
 |---|---|
 |Obter lista de VMs, criação de perfis e medição de débito |<ul><li>Sistema operativo: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet ao Azure (*.blob.core.windows.net) a partir deste servidor, porta 443<br>Isto é opcional. Pode optar por fornecer a largura de banda disponível durante a Geração do Relatório manualmente.]</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>A VM a partir da qual está a executar a ferramenta Planeador de Implementações do Azure Site Recovery tem de ser adicionada à lista TrustedHosts de todos os servidores Hyper-V.</li><li>Todos os servidores Hyper-V a serem perfilados devem ser adicionados à lista TrustedHosts do VM do cliente de onde a ferramenta está a ser executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada a partir de privilégios de administrador do PowerShell ou da consola da linha de comandos no cliente</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |

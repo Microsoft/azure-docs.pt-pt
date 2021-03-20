@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703686"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587649"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -167,6 +167,18 @@ A saída do comando deve exibir a tecla {SID}{DBNAME}, com o utilizador apresent
 
 >[!NOTE]
 > Certifique-se de que tem um conjunto único de ficheiros SSFS em `/usr/sap/{SID}/home/.hdb/` . Deve haver apenas uma pasta neste caminho.
+
+Aqui está um resumo dos passos necessários para completar a execução do script pré-registo.
+
+|Quem?  |De  |O que correr  |Comentários  |
+|---------|---------|---------|---------|
+|```<sid>```adm (OS)     |  HANA OS       |   Leia tutorial e baixe o script de pré-registo      |   Leia os [pré-requisitos acima](#prerequisites)    Descarregue o script de pré-registo a partir [daqui](https://aka.ms/scriptforpermsonhana)  |
+|```<sid>```adm (OS) e utilizador do SISTEMA (HANA)    |      HANA OS   |   Executar comando de conjunto de hdbuserstore      |   por exemplo, nome de anfitrião do sistema de configuração hdbuserstore>:3 ```<Instance#>``` 13 ```<password>``` **SISTEMA Nota:**  Certifique-se de que utiliza o nome de hospedeiro em vez de endereço IP ou FQDN      |
+|```<sid>```adm (OS)    |   HANA OS      |  Executar o comando da Lista de Hdbuserstore       |   Verifique se o resultado inclui a loja predefinido como abaixo: ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
+|Raiz (OS)     |   HANA OS        |    Executar script de pré-registo de Backup Azure HANA      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```adm (OS)    |  HANA OS       |   Executar o comando da Lista de Hdbuserstore      |    Verifique se o resultado inclui novas linhas como abaixo:  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+
+Depois de executar o script de pré-registo com sucesso e verificação, você pode então proceder para verificar [os requisitos de conectividade](#set-up-network-connectivity) e, em seguida, [configurar backup](#discover-the-databases) do cofre de serviços de recuperação
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 

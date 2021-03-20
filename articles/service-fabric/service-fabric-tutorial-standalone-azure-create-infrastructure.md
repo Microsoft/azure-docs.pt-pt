@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90561845"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura VM Azure para acolher um cluster de tecido de serviço
@@ -41,7 +41,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure.  Se ainda nã
 
 4. Altere o tipo **de imagem** para o Centro **de Dados do Windows Server 2016**. 
  
-5. Alterar o **tamanho** da instância para **DS2 v2 padrão**. Desabine o **nome de utilizador** e a **palavra-passe**do administrador, observando o que são.
+5. Alterar o **tamanho** da instância para **DS2 v2 padrão**. Desabine o **nome de utilizador** e a **palavra-passe** do administrador, observando o que são.
 
 6. Deixar as **Regras do Porto de Entrada** bloqueadas por enquanto; vamos configurá-los na próxima secção.
 
@@ -95,7 +95,7 @@ Lance mais **duas Máquinas Virtuais**, tendo a certeza de manter as mesmas defi
 
 7. Repita este processo para as suas outras instâncias, observando novamente os endereços IP privados.
 
-## <a name="verify-your-settings"></a>Verifique as suas definições
+## <a name="verify-your-settings"></a>Verificar as definições
 
 1. Para validar a conectividade básica, ligue-se a um dos VMs utilizando RDP.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 295897be03a7dd8e397e8202ff1cf10e6d59cdfb
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19ead7fe063992e95588641f7fd739081cf54a2f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753866"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578418"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app que chama APIs web - adquira um token
 
@@ -33,6 +33,20 @@ ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+```JavaScript
+const tokenRequest = {
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
+};
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 No MSAL Python, o ficheiro de configuração parece este corte de código:
@@ -41,12 +55,6 @@ No MSAL Python, o ficheiro de configuração parece este corte de código:
 {
     "scope": ["https://graph.microsoft.com/.default"],
 }
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
-final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
 ---
@@ -95,30 +103,6 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 ### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient usa a cache de ficha de aplicação
 
 Em MSAL.NET, `AcquireTokenForClient` utiliza a cache simbólica de aplicação. (Todos os outros métodos AcquireToken *XX* utilizam a cache de ficha do utilizador.) Não ligue `AcquireTokenSilent` antes de `AcquireTokenForClient` ligar, porque `AcquireTokenSilent` utiliza o cache de ficha de *utilizador.* `AcquireTokenForClient` verifica a própria cache simbólica da *aplicação* e atualiza-a.
-
-# <a name="python"></a>[Python](#tab/python)
-
-```Python
-# The pattern to acquire a token looks like this.
-result = None
-
-# First, the code looks up a token from the cache.
-# Because we're looking for a token for the current app, not for a user,
-# use None for the account parameter.
-result = app.acquire_token_silent(config["scope"], account=None)
-
-if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
-    result = app.acquire_token_for_client(scopes=config["scope"])
-
-if "access_token" in result:
-    # Call a protected API with the access token.
-    print(result["token_type"])
-else:
-    print(result.get("error"))
-    print(result.get("error_description"))
-    print(result.get("correlation_id"))  # You might need this when reporting a bug.
-```
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -169,6 +153,43 @@ private static IAuthenticationResult acquireToken() throws Exception {
  }
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+O código abaixo ilustra a aquisição simbólica numa aplicação confidencial de cliente msal node:
+
+```JavaScript
+try {
+    const authResponse = await cca.acquireTokenByClientCredential(tokenRequest);
+    console.log(authResponse.accessToken) // display access token
+} catch (error) {
+    console.log(error);
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+# The pattern to acquire a token looks like this.
+result = None
+
+# First, the code looks up a token from the cache.
+# Because we're looking for a token for the current app, not for a user,
+# use None for the account parameter.
+result = app.acquire_token_silent(config["scope"], account=None)
+
+if not result:
+    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token.
+    print(result["token_type"])
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You might need this when reporting a bug.
+```
+
 ---
 
 ### <a name="protocol"></a>Protocolo
@@ -204,7 +225,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Para obter mais informações, consulte a documentação do protocolo: [plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Usou o âmbito de recurso/.predefinido?
 
@@ -235,18 +256,22 @@ Se você ligar para a sua própria API web e não puder adicionar uma permissão
 
 Para mais detalhes, consulte [as permissões de aplicações expositoras (funções de aplicações)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) e, em particular, [Garantindo que a Azure AD emite fichas para a sua API web apenas permitiu clientes.](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=dotnet).
 
-# <a name="python"></a>[Python](#tab/python)
-
-Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=python).
-
 # <a name="java"></a>[Java](#tab/java)
 
 Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=nodejs).
+
+# <a name="python"></a>[Python](#tab/python)
+
+Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=python).
 
 ---

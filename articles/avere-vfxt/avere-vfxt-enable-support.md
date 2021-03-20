@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 93b99aa624a21d9312297e4279b1dcf053c79ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272733"
 ---
 # <a name="enable-support-uploads"></a>Ativar carregamentos de suporte
@@ -29,7 +29,7 @@ Siga estes passos do Painel de Controlo de Avere para ativar o suporte. (Ler [Ac
 1. Na página de configuração de suporte, abra a secção **Informação** do Cliente clicando no triângulo à esquerda.
 1. Clique no botão **de informação de upload de Revalidate.**
 1. Desa parte para o nome de suporte do cluster no **Nome do Cluster Único.** Certifique-se de que este nome identifica exclusivamente o seu cluster para apoiar o pessoal.
-1. Consulte as caixas para **monitorização de estatísticas,** **upload de informações gerais**e **upload de informações de colisão**.
+1. Consulte as caixas para **monitorização de estatísticas,** **upload de informações gerais** e **upload de informações de colisão**.
 1. Clique **em Submeter.**
 
    ![Screenshot contendo secção de informações completas do cliente da página de definições de suporte](media/avere-vfxt-support-info.png)

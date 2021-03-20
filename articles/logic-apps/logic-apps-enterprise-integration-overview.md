@@ -9,10 +9,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
 ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86536407"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluções de integração empresarial B2B com apps Azure Logic e Pacote de Integração Empresarial

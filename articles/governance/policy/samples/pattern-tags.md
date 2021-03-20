@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece exemplos de como adicionar 
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 3016fc7889f68fd13e993c67ca645a4af055c651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88545561"
 ---
 # <a name="azure-policy-pattern-tags"></a>Padrão de política azul: tags
@@ -32,7 +32,7 @@ Nesta amostra, **o modo** é definido para _All_ uma vez que visa um grupo de re
 :::code language="json" source="~/policy-templates/patterns/pattern-tags-1.json" range="26-36" highlight="7-8":::
 
 Nesta parte da definição de política, `concat` combina o parâmetro de **tagName** parametrizado e o `tags['name']` formato para dizer ao **campo** para avaliar essa etiqueta para o **parâmetro tagValue**.
-Como **não** é utilizado, se **as tags \[ tagName \] ** não forem iguais ao **tagValue,** o efeito **de modificação** é desencadeado.
+Como **não** é utilizado, se **as tags \[ tagName \]** não forem iguais ao **tagValue,** o efeito **de modificação** é desencadeado.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-tags-1.json" range="43-47" highlight="3-4":::
 

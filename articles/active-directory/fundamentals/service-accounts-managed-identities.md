@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032372"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587836"
 ---
 # <a name="securing-managed-identities"></a>Assegurar identidades geridas
 
@@ -50,11 +50,11 @@ O Azure tem um avião de controlo e um avião de dados. No plano de controlo, cr
 
 Uma vez que o sistema alvo aceite o símbolo para a autenticação, pode suportar diferentes mecanismos de autorização para o seu plano de controlo e plano de dados.
 
-Todas as operações do avião de controlo da Azure são geridas pelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) e utilizam [o Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview). No plano de dados, cada sistema alvo tem o seu próprio mecanismo de autorização. O Azure Storage suporta o Azure RBAC no plano de dados. Por exemplo, as aplicações que utilizam o Azure App Services podem ler dados do Azure Storage, e as aplicações que usam o Serviço Azure Kubernetes podem ler segredos armazenados no Cofre da Chave Azure.
+Todas as operações do avião de controlo da Azure são geridas pelo [Azure Resource Manager](../../azure-resource-manager/management/overview.md) e utilizam [o Azure Role Based Access Control](../../role-based-access-control/overview.md). No plano de dados, cada sistema alvo tem o seu próprio mecanismo de autorização. O Azure Storage suporta o Azure RBAC no plano de dados. Por exemplo, as aplicações que utilizam o Azure App Services podem ler dados do Azure Storage, e as aplicações que usam o Serviço Azure Kubernetes podem ler segredos armazenados no Cofre da Chave Azure.
 
-Para obter mais informações sobre os aviões de controlo e dados, consulte [as operações do avião de controlo e do plano de dados - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
+Para obter mais informações sobre os aviões de controlo e dados, consulte [as operações do avião de controlo e do plano de dados - Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
-Todos os serviços da Azure acabarão por suportar identidades geridas. Para mais informações, consulte [Serviços que suportem identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+Todos os serviços da Azure acabarão por suportar identidades geridas. Para mais informações, consulte [Serviços que suportem identidades geridas para recursos Azure.](../managed-identities-azure-resources/services-support-managed-identities.md)
 
 ##  
 
@@ -116,7 +116,7 @@ Pode avaliar a segurança das identidades geridas das seguintes formas:
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Certifique-se de que sabe a que recursos a identidade gerida está a aceder.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell)
+* [Certifique-se de que sabe a que recursos a identidade gerida está a aceder.](../../role-based-access-control/role-assignments-list-powershell.md)
 
 ## <a name="move-to-managed-identities"></a>Mover-se para identidades geridas
 
@@ -126,11 +126,11 @@ Se estiver a utilizar um titular de serviço ou uma conta de utilizador Azure AD
 
 **Para obter informações sobre a criação de identidades geridas, consulte:** 
 
-[Criar uma identidade gerida atribuída pelo utilizador.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 
+[Criar uma identidade gerida atribuída pelo utilizador.](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 
 
-[Ativar um sistema atribuído identidade gerida durante a criação de recursos](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Ativar um sistema atribuído identidade gerida durante a criação de recursos](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Permitir a identidade gerida atribuída pelo sistema num recurso existente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Permitir a identidade gerida atribuída pelo sistema num recurso existente](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Para obter mais informações sobre contas de serviço consulte:**
 
@@ -146,4 +146,3 @@ Se estiver a utilizar um titular de serviço ou uma conta de utilizador Azure AD
 
  
 
- 

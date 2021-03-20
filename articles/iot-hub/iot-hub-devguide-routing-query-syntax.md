@@ -1,5 +1,5 @@
 ---
-title: Consulta sobre encaminhamento de mensagens Azure IoT Hub / Microsoft Docs
+title: Consulta sobre o encaminhamento de mensagens Azure IoT Hub | Microsoft Docs
 description: Conheça a linguagem de encaminhamento de mensagens IoT Hub que pode usar para aplicar consultas ricas em mensagens para receber os dados que lhe interessam.
 author: ash2017
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92547712"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do encaminhamento de mensagens do Hub IoT
@@ -53,7 +53,7 @@ O IoT Hub define um [formato comum](iot-hub-devguide-messages-construct.md) para
 
 As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensagens. 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | conteúdoType | string | O utilizador especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, este valor deve ser definido aplicação/JSON. |
 | contentEncoding | string | O utilizador especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o conteúdoType estiver definido para aplicação/JSON. |
@@ -62,7 +62,7 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 | dt-dataschema | string |  Este valor é definido pelo hub IoT em mensagens dispositivo-a-nuvem. Contém o iD do modelo do dispositivo na ligação do dispositivo. Para consultar, use `$dt-dataschema` . |
 | dt-sujeito | string | O nome do componente que está a enviar as mensagens dispositivo-a-nuvem. Para consultar, use `$dt-subject` . |
 
-Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Além das propriedades acima na tabela anterior, pode ainda consultar **a ligaçãoDeviceId,** **connectionModuleId** .
+Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Além das propriedades acima na tabela anterior, pode ainda consultar **a ligaçãoDeviceId,** **connectionModuleId**.
 
 ### <a name="application-properties"></a>Propriedades da aplicação
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Isto mostra como lidar com a codificação do corpo em javascript. Se quiser ver uma amostra em C#, descarregue as [amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. O ficheiro de Program.cs da solução Visual Studio *SimulatedDevice* mostra como codificar e enviar mensagens para um Hub IoT. Esta é a mesma amostra utilizada para testar o encaminhamento de mensagens, como explicado no [tutorial de encaminhamento de mensagens](tutorial-routing.md). Na parte inferior da Program.cs, também tem um método para ler num dos ficheiros codificados, descodificá-lo e escrevê-lo de volta como ASCII para que possa lê-lo. 
+> Isto mostra como lidar com a codificação do corpo em javascript. Se quiser ver uma amostra em C#, descarregue as [amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. O ficheiro *Dedóvico* de .cs de Conceção do Estúdio Visual mostra como codificar e enviar mensagens para um Hub IoT. Esta é a mesma amostra utilizada para testar o encaminhamento de mensagens, como explicado no [tutorial de encaminhamento de mensagens](tutorial-routing.md). Na parte inferior do Programa.cs, também tem um método para ler num dos ficheiros codificados, descodificá-lo e escrevê-lo de volta como ASCII para que possa lê-lo. 
 
 
 ### <a name="query-expressions"></a>Expressões de consulta

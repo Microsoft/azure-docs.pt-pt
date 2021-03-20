@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333261"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelação de dados em Azure Cosmos DB

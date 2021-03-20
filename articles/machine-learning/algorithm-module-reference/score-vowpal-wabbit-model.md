@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
 ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898406"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Score Vowpal Wabbit Model
@@ -50,7 +50,7 @@ Este módulo fornece a versão mais recente da estrutura Vowpal Wabbit, versão 
 
 9. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 

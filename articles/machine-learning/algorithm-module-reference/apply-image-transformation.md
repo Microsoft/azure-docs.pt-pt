@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898906"
 ---
 # <a name="apply-image-transformation"></a>Aplicar a Transformação da Imagem 
@@ -47,20 +47,20 @@ Este artigo descreve como usar o módulo de transformação de imagem aplicar no
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Nome | Intervalo | Tipo | Predefinição                   | Descrição                              |
+| Name | Intervalo | Tipo | Predefinição                   | Description                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Modo | Qualquer   | Modo | (Exigir que o utilizador especifique) | Para que fim usa a transformação de entrada. Deve excluir operações de transformação 'Random' em inferência, mas mantê-las em treino |
 
 ### <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome                       | Tipo                    | Descrição                       |
+| Nome                       | Tipo                    | Description                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Transformação de imagem de entrada | Diretório de Transformação | Transformação de imagem de entrada        |
 | Diretório de imagem de entrada      | ImageDirectory          | Diretório de imagem a ser transformado |
 
 ### <a name="outputs"></a>Saídas  
 
-| Nome                   | Tipo           | Descrição            |
+| Nome                   | Tipo           | Description            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 

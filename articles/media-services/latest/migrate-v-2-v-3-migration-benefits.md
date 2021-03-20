@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698846"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598393"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passo 1 - Compreender os benefícios da migração para a API V3 dos Serviços de Comunicação Social
 
@@ -58,8 +58,8 @@ Houve melhorias significativas nos Serviços de Comunicação social com a V3.
 |**Proteção de conteúdos** ||
 | Proteção de [conteúdos](content-key-policy-concept.md)   suporta funcionalidades multi-chave. | Os clientes podem agora utilizar várias chaves de encriptação de conteúdo nos seus localizadores de streaming. |
 | **Monitorização** | |
-| Suporte de notificação [Azure EventGrid](reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em funcionalidades. Existem mais tipos de notificações, suporte SDK mais amplo para receber as notificações na sua própria aplicação, e mais serviços Azure existentes que podem atuar como manipuladores de eventos. |
-| [Apoio e integração do Azure Monitor no portal Azure](monitor-events-portal-how-to.md) | Isto permite que os clientes visualizem o uso da quota de conta dos Media Services, estatísticas em tempo real de pontos finais de streaming, e ingerir e arquivar estatísticas para eventos ao vivo. Os clientes podem agora definir alertas e executar as ações necessárias com base em dados métricos em tempo real. |
+| Suporte de notificação [Azure EventGrid](monitoring/reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em funcionalidades. Existem mais tipos de notificações, suporte SDK mais amplo para receber as notificações na sua própria aplicação, e mais serviços Azure existentes que podem atuar como manipuladores de eventos. |
+| [Apoio e integração do Azure Monitor no portal Azure](monitoring/monitor-events-portal-how-to.md) | Isto permite que os clientes visualizem o uso da quota de conta dos Media Services, estatísticas em tempo real de pontos finais de streaming, e ingerir e arquivar estatísticas para eventos ao vivo. Os clientes podem agora definir alertas e executar as ações necessárias com base em dados métricos em tempo real. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

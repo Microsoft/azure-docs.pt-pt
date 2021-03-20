@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333584"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implementar O Serviço de Aplicações Azure Cosmos DB e Azure app com uma aplicação web do GitHub usando um modelo de gestor de recursos Azure
@@ -78,7 +78,7 @@ Em seguida, abra a conta Azure Cosmos no portal. A imagem que se segue mostra o 
 
 Em seguida, navegue para o Azure App Service no grupo de recursos. Clique no separador Configuração para ver as Definições de Aplicação para o Serviço de Aplicações. As Definições de Aplicação contêm a conta DB cosmos e os valores-chave primários necessários para ligar ao Cosmos DB, bem como os nomes da base de dados e dos contentores que foram transmitidos a partir da implementação do modelo.
 
-:::image type="content" source="./media/create-website/application-settings.png" alt-text="Definições de aplicação":::
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Definições de Aplicação":::
 
 ### <a name="view-web-app-in-deployment-center"></a>Ver aplicativo web no Centro de Implementação
 

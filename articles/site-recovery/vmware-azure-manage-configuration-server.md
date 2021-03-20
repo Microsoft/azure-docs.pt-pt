@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 2f1edc14efdeaf70bf4c2acc0e31e1517753ed3e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546352"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação após desastre dos servidores físicos/VM VMware
@@ -29,17 +29,17 @@ A licença fornecida com o modelo OVF é uma licença de avaliação válida por
 Pode aceder ao servidor de configuração da seguinte forma:
 
 * Inicie o sismo no VM no qual está implantado e inicie o Gestor de Configuração do **Site Azure** a partir do atalho do ambiente de trabalho.
-* Em alternativa, pode aceder ao servidor de configuração remotamente a partir de https:// *ConfigurationServerName* /:44315/. Inscreva-se com credenciais de administrador.
+* Em alternativa, pode aceder ao servidor de configuração remotamente a partir de https://*ConfigurationServerName*/:44315/. Inscreva-se com credenciais de administrador.
 
 ## <a name="modify-vmware-server-settings"></a>Modificar as definições do servidor VMware
 
-1. Para associar um servidor VMware diferente ao servidor de configuração, após [o início de súd](#access-configuration-server)inserção, **selecione Adicionar vCenter Server/vSphere ESXi servidor** .
-2. Introduza os detalhes e, em seguida, selecione **OK** .
+1. Para associar um servidor VMware diferente ao servidor de configuração, após [o início de súd](#access-configuration-server)inserção, **selecione Adicionar vCenter Server/vSphere ESXi servidor**.
+2. Introduza os detalhes e, em seguida, selecione **OK**.
 
 ## <a name="modify-credentials-for-automatic-discovery"></a>Modificar credenciais para descoberta automática
 
-1. Para atualizar as credenciais utilizadas para ligar ao servidor VMware para a descoberta automática de VMware VMs, após [o início de sessão,](#access-configuration-server)escolha a conta e clique em **Editar** .
-2. Introduza as novas credenciais e, em seguida, selecione **OK** .
+1. Para atualizar as credenciais utilizadas para ligar ao servidor VMware para a descoberta automática de VMware VMs, após [o início de sessão,](#access-configuration-server)escolha a conta e clique em **Editar**.
+2. Introduza as novas credenciais e, em seguida, selecione **OK**.
 
     ![Modificar o VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
@@ -55,7 +55,7 @@ Modifique as credenciais utilizadas para instalar automaticamente o Serviço de 
 
 1. Após [o s-in- Iniciar sinsucione,](#access-configuration-server) **selecione Gerir as credenciais de máquina virtual**
 2. Escolha a conta que deseja modificar e clique em **Editar**
-3. Introduza as novas credenciais e, em seguida, selecione **OK** .
+3. Introduza as novas credenciais e, em seguida, selecione **OK**.
 
     ![Modificar credenciais do Serviço de Mobilidade](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -63,27 +63,27 @@ Também pode modificar credenciais através de CSPSConfigtool.exe.
 
 1. Inicie sessão no servidor de configuração e lance CSPSConfigtool.exe
 2. Escolha a conta que deseja modificar e clique em **Editar**
-3. Insira as novas credenciais e clique **em Ok** .
+3. Insira as novas credenciais e clique **em Ok**.
 
 ## <a name="add-credentials-for-mobility-service-installation"></a>Adicionar credenciais para instalação de serviço de mobilidade
 
 Se não tiver adição de credenciais durante a implementação do servidor de configuração OVF,
 
-1. Após [o iniciar s-in](#access-configuration-server), selecione **Gerir as credenciais de máquina virtual** .
-2. Clique em **Adicionar credenciais de máquina virtual** .
+1. Após [o iniciar s-in](#access-configuration-server), selecione **Gerir as credenciais de máquina virtual**.
+2. Clique em **Adicionar credenciais de máquina virtual**.
     ![Screenshot mostra Gerir o painel de credenciais de máquina virtual com o link de credenciais de máquina virtual Add.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
-3. Introduza as novas credenciais e clique em **Adicionar** .
+3. Introduza as novas credenciais e clique em **Adicionar**.
 
 Também pode adicionar credenciais através de CSPSConfigtool.exe.
 
 1. Inicie sessão no servidor de configuração e lance CSPSConfigtool.exe
-2. Clique em **Adicionar,** insira as novas credenciais e clique em **Ok** .
+2. Clique em **Adicionar,** insira as novas credenciais e clique em **Ok**.
 
 ## <a name="modify-proxy-settings"></a>Modificar as definições de procuração
 
 Modifique as definições de procuração utilizadas pela máquina do servidor de configuração para acesso à Internet ao Azure. Se tiver uma máquina de servidor de processo para além do servidor de processo predefinido que está a ser acionado na máquina do servidor de configuração, modifique as definições em ambas as máquinas.
 
-1. Após [iniciar sção no](#access-configuration-server) servidor de configuração, **selecione Gerir a conectividade** .
+1. Após [iniciar sção no](#access-configuration-server) servidor de configuração, **selecione Gerir a conectividade**.
 2. Atualize os valores de procuração. Em seguida, **selecione Guardar** para atualizar as definições.
 
 ## <a name="add-a-network-adapter"></a>Adicione um adaptador de rede
@@ -99,7 +99,7 @@ O servidor de configuração tem um servidor web incorporado, que orquestra ativ
 
 ### <a name="check-expiry"></a>Verifique a expiração
 
-A data de validade aparece na **saúde do Servidor de Configuração** . Para implementações de servidores de configuração antes de maio de 2016, a expiração do certificado foi fixada para um ano. Se tiver um certificado que vai expirar, ocorre o seguinte:
+A data de validade aparece na **saúde do Servidor de Configuração**. Para implementações de servidores de configuração antes de maio de 2016, a expiração do certificado foi fixada para um ano. Se tiver um certificado que vai expirar, ocorre o seguinte:
 
 - Quando a data de validade é de dois meses ou menos, o serviço começa a enviar notificações no portal e por e-mail (se subscrever as notificações de Recuperação do Site).
 - Um banner de notificação aparece na página de recursos do cofre. Para mais informações, selecione o banner.
@@ -114,7 +114,7 @@ A data de validade aparece na **saúde do Servidor de Configuração** . Para im
 
 ### <a name="if-certificates-have-already-expired"></a>Se os certificados já expirarem
 
-1. Após a expiração, os certificados **não podem ser renovados a partir do portal Azure** . Antes de prosseguir, certifique-se de que todos os servidores de processos de escala de componentes, servidores-alvo principais e agentes de mobilidade em todas as máquinas protegidas estão nas versões mais recentes e estão em estado de ligação.
+1. Após a expiração, os certificados **não podem ser renovados a partir do portal Azure**. Antes de prosseguir, certifique-se de que todos os servidores de processos de escala de componentes, servidores-alvo principais e agentes de mobilidade em todas as máquinas protegidas estão nas versões mais recentes e estão em estado de ligação.
 2. **Siga este procedimento apenas se os certificados já expirarem.** Iniciar sessão no servidor de configuração, navegar para unidade C > Desemprovação de > DeResínio do Site > casa > svsystems > e execute a ferramenta executora "RenewCerts" como administrador.
 3. Uma janela de execução PowerShell aparece e despoleta a renovação de certificados. Esta ação pode demorar até 15 minutos. Não feche a janela até à conclusão da renovação.
 
@@ -126,11 +126,11 @@ Pode voltar a registar o servidor de configuração no mesmo cofre, se for neces
 
 
 1. No cofre, **abra** os  >  servidores de configuração **da infraestrutura de**  >  **recuperação do** local .
-2. Em **Servers** , selecione Baixar a **chave de registo** para descarregar o ficheiro de credenciais do cofre.
+2. Em **Servers**, selecione Baixar a **chave de registo** para descarregar o ficheiro de credenciais do cofre.
 3. Inscreva-se na máquina do servidor de configuração.
-4. Em **%ProgramData%\ASR\home\home\svsystems\bin,** abra **cspsconfigtool.exe** .
+4. Em **%ProgramData%\ASR\home\home\svsystems\bin,** abra **cspsconfigtool.exe**.
 5. No **separador Registo** do Cofre, selecione **Browse** e localize o ficheiro de credenciais do cofre que descarregou.
-6. Se necessário, forneça detalhes do servidor proxy. Em seguida, selecione **Registar** .
+6. Se necessário, forneça detalhes do servidor proxy. Em seguida, selecione **Registar**.
 7. Abra uma janela de comando powerShell de administração e executar o seguinte comando:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -178,7 +178,7 @@ As ligações para atualizações de rollups para atualização para todas as ve
 
 Atualize o servidor da seguinte forma:
 
-1. No cofre, vá para **gerir servidores de**  >  configuração da **infraestrutura de**  >  **recuperação do local** .
+1. No cofre, vá para **gerir servidores de**  >  configuração da **infraestrutura de**  >  **recuperação do local**.
 2. Se houver uma atualização disponível, aparece um link na coluna > versão do **agente.**
     ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Descarregue o ficheiro do instalador de atualização para o servidor de configuração.
@@ -212,7 +212,7 @@ Executar o ficheiro de instalação da seguinte forma:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Tipo | Descrição| Valores|
+|Nome do Parâmetro| Tipo | Description| Valores|
 |-|-|-|-|
 | /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
@@ -256,8 +256,8 @@ ProxyPassword="Password"
 1. [Desative a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todos os VMs no servidor de configuração.
 2. [Desassociem](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [eliminem](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de replicação do servidor de configuração.
 3. [Elimine](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores/vSphere do vCenter que estejam associados ao servidor de configuração.
-4. No cofre, abra os servidores de configuração **da infraestrutura** do local  >  **Configuration Servers** .
-5. Selecione o servidor de configuração que pretende remover. Em seguida, na página **Detalhes,** selecione **Delete** .
+4. No cofre, abra os servidores de configuração **da infraestrutura** do local  >  .
+5. Selecione o servidor de configuração que pretende remover. Em seguida, na página **Detalhes,** selecione **Delete**.
 
     ![Eliminar servidor de configuração](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
 
@@ -293,14 +293,14 @@ Pode eliminar opcionalmente o servidor de configuração utilizando o PowerShell
 
 1. Inscreva-se no servidor de configuração e, em seguida, abra uma janela de pedido de comando como administrador.
 2. Para alterar o diretório para a pasta do caixote do lixo, execute o cd de comando **%ProgramData%\ASR\home\svsystems\bin**
-3. Para gerar o ficheiro de palavras-passe, execute **genpassphrase.exe -v > mobSvc.passphrase** .
-4. A sua palavra-passe será armazenada no ficheiro localizado em **%ProgramData%\ASR\home\home\svsystems\bin\MobSvc.passphrase** .
+3. Para gerar o ficheiro de palavras-passe, execute **genpassphrase.exe -v > mobSvc.passphrase**.
+4. A sua palavra-passe será armazenada no ficheiro localizado em **%ProgramData%\ASR\home\home\svsystems\bin\MobSvc.passphrase**.
 
 ## <a name="refresh-configuration-server"></a>Atualizar servidor de configuração
 
 1. No portal Azure, navegue para **serviços de recuperação Vault**  >  **Manage**  >  **Site Recovery Infrastructure** for  >  **VMware & Physical Machines** Configuration  >  **Servers**
 2. Clique no servidor de configuração que deseja atualizar.
-3. Na lâmina com detalhes do servidor de configuração escolhido, clique em **Mais**  >  **Refresh Server** .
+3. Na lâmina com detalhes do servidor de configuração escolhido, clique em **Mais**  >  **Refresh Server**.
 4. Monitorize o progresso do trabalho no âmbito dos **trabalhos** de recuperação do local  >  **de**  >  **recuperação do local de monitorização dos serviços de recuperação de cofres.**
 
 ## <a name="failback-requirements"></a>Requisitos de reativação pós-falha

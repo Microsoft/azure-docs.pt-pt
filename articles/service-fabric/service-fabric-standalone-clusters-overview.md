@@ -4,10 +4,10 @@ description: Os clusters de tecido de serviço funcionam no Windows Server e lin
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94684003"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Visão geral dos clusters autónomos de tecido de serviço
@@ -54,7 +54,7 @@ A aplicação exige mudanças ao longo do tempo. Poderá ser necessário aumenta
 
 Para mais informações, leia [os aglomerados autónomos de escala.](service-fabric-cluster-scaling-standalone.md)
 
-## <a name="upgrading"></a>Modernização
+## <a name="upgrading"></a>Atualizar
 
 Um aglomerado autónomo é um recurso que possui inteiramente. Você é responsável por remendar o so subjacente e iniciar upgrades de tecido. Pode configurar o seu cluster para receber atualizações automáticas de tempo de execução, quando a Microsoft lançar uma nova versão, ou optar por selecionar uma versão de tempo de execução suportada que pretenda. Além das atualizações de tecidos, também pode corrigir o SISTEMA e atualizar a configuração do cluster, como certificados ou portas de aplicação. 
 
@@ -68,7 +68,7 @@ Para mais informações, leia [a atualização de agrupamentos autónomos.](serv
 * Windows Server 2016 
 * Windows Server 2019
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre [a fixação,](service-fabric-cluster-security.md) [dimensionamento](service-fabric-cluster-scaling-standalone.md)e [modernização de](service-fabric-cluster-upgrade-standalone.md) aglomerados autónomos.
 

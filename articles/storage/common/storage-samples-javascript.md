@@ -1,5 +1,5 @@
 ---
-title: Amostras de Armazenamento Azure usando JavaScript Microsoft Docs
+title: Amostras de armazenamento Azure usando javaScript | Microsoft Docs
 description: Ver, descarregar e executar código de amostra e aplicações para Azure Storage. Descubra a obtenção de amostras para bolhas, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento JavaScript/Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
 ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359752"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 JavaScript
@@ -91,7 +91,7 @@ As tabelas seguintes fornecem uma visão geral do repositório de amostras e dos
    :::column-end:::
 :::row-end:::
 
-### <a name="blob"></a>Blob
+### <a name="blob"></a>Blobs
 
 :::row:::
    :::column span="":::
@@ -379,7 +379,7 @@ As tabelas seguintes fornecem uma visão geral do repositório de amostras e dos
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Assinatura de acesso compartilhado (SAS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87)
+      [Assinatura de Acesso Partilhado (SAS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87)
    :::column-end:::
    :::column span="":::
       [Tabela ACL](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L255)
