@@ -12,10 +12,10 @@ ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97669164"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de sugestão de iD numa política personalizada do Azure Ative Directory B2C
@@ -34,7 +34,7 @@ Com id_token_hint, o emitente simbólico (uma app de partes dependentes ou um fo
 
 O id_token_hint deve ser um símbolo JWT válido. A tabela que se segue lista as reclamações que são obrigatórias. Reclamações adicionais são opcionais.
 
-| Name | Afirmação | Valor de exemplo | Descrição |
+| Name | Afirmação | Valor de exemplo | Description |
 | ---- | ----- | ------------- | ----------- |
 | Audiência | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica o destinatário pretendido do token. O público é uma corda arbitrária definida pelo emitente simbólico. Azure AD B2C valida este valor, e rejeita o token se não corresponder.  |
 | Emissor | `iss` |`https://localhost` | Identifica o serviço de fichas de segurança (emitente simbólico). O emitente é um URI arbitrário definido pelo emitente simbólico. Azure AD B2C valida este valor, e rejeita o token se não corresponder.  |

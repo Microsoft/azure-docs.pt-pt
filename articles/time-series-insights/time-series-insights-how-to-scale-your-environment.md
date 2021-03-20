@@ -1,5 +1,5 @@
 ---
-title: Como escalar o seu ambiente - Azure Time Series Insights / Microsoft Docs
+title: Como escalar o seu ambiente - Azure Time Series Insights| Microsoft Docs
 description: Aprenda a escalar o seu ambiente Azure Time Series Insights utilizando o portal Azure.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0dadf523c5d17ffb91f4fefa71b52d1d1855c978
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570215"
 ---
 # <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Como escalar o seu ambiente Azure Time Series Insights Gen1
@@ -41,7 +41,7 @@ No entanto, não é permitida a alteração do nível de preços SKU. Por exempl
 
    [![Configure a sua capacidade de Insights da Série de Tempo Azure](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
-1. Ajuste o slider **de capacidade** para selecionar a capacidade que satisfaz os requisitos para as suas taxas de entrada e capacidade de armazenamento. Note a **taxa de Entrada,** capacidade de **armazenamento**e atualização de **custos estimadas** dinamicamente para mostrar o impacto da mudança.
+1. Ajuste o slider **de capacidade** para selecionar a capacidade que satisfaz os requisitos para as suas taxas de entrada e capacidade de armazenamento. Note a **taxa de Entrada,** capacidade de **armazenamento** e atualização de **custos estimadas** dinamicamente para mostrar o impacto da mudança.
 
    [![Configure o seu ambiente usando o slider de capacidade](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 

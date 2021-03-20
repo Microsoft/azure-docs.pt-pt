@@ -9,10 +9,10 @@ ms.date: 12/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b283add6cff1400cc3141f4fba3f0f3939ee34aa
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97665110"
 ---
 |  | **Ponto a Local** | **Site-a-Site** | **ExpressRoute** |

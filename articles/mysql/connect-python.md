@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
 ms.openlocfilehash: 8aa0ea4b1e01cc7363f49d5897695c7c237b339b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94535593"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para o MySQL
@@ -178,7 +178,7 @@ Utilize o código seguinte para se ligar e remover os dados com uma instrução 
   print("Deleted",cursor.rowcount,"row(s) of data.")
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
 

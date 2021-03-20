@@ -1,5 +1,5 @@
 ---
-title: Excluir uma organização AZure AD (inquilino) - Azure Ative Directory / Microsoft Docs
+title: Excluir uma organização AD Azure (inquilino) - Azure Ative Directory | Microsoft Docs
 description: Explica como preparar uma organização AZure AD (inquilino) para a eliminação, incluindo organizações de self-service
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861035"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar um inquilino no Azure Ative Directory

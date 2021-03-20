@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029911"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98600127"
 ---
 # <a name="what-are-security-defaults"></a>O que são falhas de segurança?
 
@@ -76,7 +76,7 @@ Tendemos a pensar que as contas do administrador são as únicas contas que prec
 
 Após estes agressores terem acesso, podem solicitar acesso a informações privilegiadas em nome do titular da conta original. Podem até descarregar todo o diretório para realizar um ataque de phishing a toda a sua organização. 
 
-Um método comum para melhorar a proteção para todos os utilizadores é exigir uma forma mais forte de verificação de conta, como a Autenticação Multi-Factor, para todos. Depois de os utilizadores completarem o registo de autenticação multi-factor, serão solicitados para autenticação adicional sempre que necessário. Esta funcionalidade protege todas as aplicações registadas com Azure AD, incluindo aplicações SaaS.
+Um método comum para melhorar a proteção para todos os utilizadores é exigir uma forma mais forte de verificação de conta, como a Autenticação Multi-Factor, para todos. Depois de os utilizadores completarem o registo de autenticação multi-factor, serão solicitados para autenticação adicional sempre que necessário. Os utilizadores serão solicitados principalmente quando autenticarem usando um novo dispositivo ou aplicação, ou quando realizam funções e tarefas críticas. Esta funcionalidade protege todas as aplicações registadas com Azure AD, incluindo aplicações SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
 
@@ -128,14 +128,14 @@ Estes predefinidos de segurança gratuitos permitem o registo e utilização da 
 | Código de verificação a partir de aplicativo móvel ou token de hardware | X** | X |
 | Mensagem de texto para telefone |   | X |
 | Chamada para telefone |   | X |
-| Palavras-passe da aplicação |   | X**_ |
+| Palavras-passe da aplicação |   | X*** |
 
-- _* Os utilizadores podem utilizar códigos de verificação a partir da aplicação Microsoft Authenticator, mas só podem registar-se através da opção de notificação.
-- **_ As palavras-passe da aplicação só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se forem ativadas por administradores.
+- ** Os utilizadores podem utilizar códigos de verificação a partir da aplicação Microsoft Authenticator, mas só podem registar-se através da opção de notificação.
+- As palavras-passe da aplicação só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se forem ativadas por administradores.
 
 ### <a name="disabled-mfa-status"></a>Estado de MFA desativado
 
-Se a sua organização for um utilizador anterior da autenticação multi-factor Azure AD baseada no utilizador, não fique alarmado por não ver os utilizadores num estado _ *Ativado** ou **forçado** se olhar para a página de estado multi-factor Auth. **Desativado** é o estado adequado para os utilizadores que estão a utilizar falhas de segurança ou autenticação multi-factor Azure AD baseada em acesso condicional.
+Se a sua organização for um utilizador anterior da autenticação multi-factor Azure AD baseada no utilizador, não fique alarmado por não ver os utilizadores num estado **ativado** ou **forçado** se olhar para a página de estado multi-factor Auth. **Desativado** é o estado adequado para os utilizadores que estão a utilizar falhas de segurança ou autenticação multi-factor Azure AD baseada em acesso condicional.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 

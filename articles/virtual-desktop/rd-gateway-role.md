@@ -7,10 +7,10 @@ ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99220824"
 ---
 # <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Implementar a função RD Gateway no Windows Virtual Desktop (pré-visualização)

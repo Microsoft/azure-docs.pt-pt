@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215778"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Reescrever URL com Gateway de Aplicação Azure - Portal Azure (Pré-visualização)
@@ -37,7 +37,7 @@ No exemplo abaixo sempre que o URL de pedido contém */artigo,* o caminho URL e 
 
 `contoso.com/article/123/fabrikam` -> `contoso.com/article.aspx?id=123&title=fabrikam`
 
-1. Selecione **Todos os recursos**e, em seguida, selecione o seu gateway de aplicações.
+1. Selecione **Todos os recursos** e, em seguida, selecione o seu gateway de aplicações.
 
 2. **Selecione Reescreve** no painel esquerdo.
 
@@ -53,19 +53,19 @@ No exemplo abaixo sempre que o URL de pedido contém */artigo,* o caminho URL e 
     
     c. Selecione **Seguinte**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Adicione conjunto de reescrita":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Associar-se a uma regra":::
 
 5. Criar uma regra de reescrita:
 
     a. Selecione **Adicionar regra de reescrita**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Adicione conjunto de reescrita":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Screenshot que realça Adicionar regra de reescrita.":::
     
     b. Introduza um nome para a regra de reescrita na caixa **de nome de regra de reescrita.** Introduza um número na caixa **de sequência de regras.**
 
 6. Neste exemplo, vamos reescrever o caminho do URL e a cadeia de consulta de URL apenas quando o caminho *contiver /artigo*. Para isso, adicione uma condição para avaliar se o caminho URL contém */artigo*
 
-    a. **Selecione Adicione a condição** e, em seguida, selecione a caixa que contém as instruções para expandi-la. **If**
+    a. **Selecione Adicione a condição** e, em seguida, selecione a caixa que contém as instruções para expandi-la. 
     
     b. Uma vez que neste exemplo queremos verificar o padrão */artigo* no caminho URL, no **Tipo de variável para verificar** lista, selecione a **variável servidor**.
     
@@ -81,7 +81,7 @@ No exemplo abaixo sempre que o URL de pedido contém */artigo,* o caminho URL e 
 
     exemplo, Selecione **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Adicione conjunto de reescrita":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
 
  
 
@@ -93,7 +93,7 @@ No exemplo abaixo sempre que o URL de pedido contém */artigo,* o caminho URL e 
 
    c. Em **Componentes**, selecione **ambos o caminho URL e cadeia de consulta URL**
 
-   d. No valor do **caminho URL,** insira o novo valor do caminho. Neste exemplo, vamos usar **/article.aspx** 
+   d. No valor do **caminho URL,** insira o novo valor do caminho. Neste exemplo, vamos usar **/artigo.aspx** 
 
    e. No valor da **cadeia de consulta de URL,** insira o novo valor da cadeia de consulta URL. Neste exemplo, usaremos **id={var_uri_path_1}&título={var_uri_path_2}**
     
@@ -101,13 +101,13 @@ No exemplo abaixo sempre que o URL de pedido contém */artigo,* o caminho URL e 
     
    f. Selecione **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Adicione conjunto de reescrita":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Ação":::
 
 8. Clique em **Criar** para criar o conjunto de reescrita.
 
 9. Verifique se o novo conjunto de reescrita aparece na lista de conjuntos de reescrita
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Adicione conjunto de reescrita":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Adicionar regra de reescrita":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Verifique a reescrita de URL através de registos de acesso
 

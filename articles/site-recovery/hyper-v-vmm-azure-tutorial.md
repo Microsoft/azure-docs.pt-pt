@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
 ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89442825"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação após desastre de VMs Hyper-V no local em clouds VMM para o Azure
@@ -37,11 +37,11 @@ Este tutorial pressupõe que já completou os seguintes tutoriais:
 ## <a name="select-a-replication-goal"></a>Selecionar um objetivo de replicação
 
 1. No portal Azure, vá aos **cofres dos Serviços de Recuperação** e selecione o cofre **ContosoVMVault** que foi criado no tutorial [prepare Azure.](tutorial-prepare-azure.md#create-a-recovery-services-vault)
-1. A partir **de Como Começar,** selecione Infraestrutura de **Preparação de Recuperação de Sítio**e  >  **Prepare Infrastructure** configurar as seguintes definições:
-    1. **Objetivo de proteção**  >  **Onde estão as suas máquinas?** **On-premises**
-    1. **Onde pretende replicar as suas máquinas?** **To Azure**
-    1. **As suas máquinas estão virtualizadas?** **Yes, with Hyper-V**
-    1. **Está a utilizar o System Center VMM para gerir os seus anfitriões Hiper-V?** **Yes**
+1. A partir **de Como Começar,** selecione Infraestrutura de **Preparação de Recuperação de Sítio** e  >   configurar as seguintes definições:
+    1. **Objetivo de proteção**  >  **Onde estão as suas máquinas?** 
+    1. **Onde pretende replicar as suas máquinas?** 
+    1. **As suas máquinas estão virtualizadas?** 
+    1. **Está a utilizar o System Center VMM para gerir os seus anfitriões Hiper-V?** 
 1. Selecione **OK**.
 
    ![Objetivo da replicação](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -49,7 +49,7 @@ Este tutorial pressupõe que já completou os seguintes tutoriais:
 ## <a name="confirm-deployment-planning"></a>Confirmar o planeamento da implementação
 
 1. No **planeamento de implementação**, se estiver a planear uma grande implantação, descarregue o Deployment Planner para Hyper-V a partir do link na página. [Saiba mais](hyper-v-deployment-planner-overview.md) sobre o planeamento de implantação do Hyper-V.
-1. Para este tutorial, não precisamos do Planejador de Implantação. Em **Já concluiu o planeamento de implantação?** **I will do it later** **OK**
+1. Para este tutorial, não precisamos do Planejador de Implantação. Em **Já concluiu o planeamento de implantação?**  
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
@@ -67,7 +67,7 @@ Ao configurar o ambiente de origem, instale o Fornecedor de Recuperação do Sí
 
 1. No assistente de configuração do fornecedor de recuperação do site Azure, **o Microsoft Update**. Opte por utilizar o Microsoft Update para verificar as atualizações do Fornecedor.
 1. **Instalação**. Aceite o local de instalação predefinido para o Fornecedor e **selecione Instalar.**
-1. Após a instalação, no Microsoft Azure Site Recovery Wizard selecione **Definições de Cofre**, **Procurar**e no **ficheiro Key**, selecione o ficheiro da chave do cofre que descarregou.
+1. Após a instalação, no Microsoft Azure Site Recovery Wizard selecione **Definições de Cofre**, **Procurar** e no **ficheiro Key**, selecione o ficheiro da chave do cofre que descarregou.
 1. Especificar a subscrição de Recuperação do Local Azure e o nome do cofre **(ContosoVMVault).** Especifique um nome amigável para o servidor VMM, para identificá-lo no cofre.
 1. **Definições de procuração**. Selecione **Connect diretamente para Azure Site Recovery sem um proxy**.
 1. Aceite a localização padrão para o certificado que é usado para encriptar dados. Os dados encriptados serão desencriptados quando falhar.
@@ -94,7 +94,7 @@ No Assistente de Configuração dos Serviços de Recuperação do Microsoft Azur
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 
-1. Selecione Preparar o alvo **da infraestrutura**  >  **Target**.
+1. Selecione Preparar o alvo **da infraestrutura**  >  .
 1. Selecione a subscrição e o grupo de recursos **(ContosoRG**) no qual os VMs Azure serão criados após o failover.
 1. Selecione o modelo de implementação **do Gestor de Recursos.**
 
@@ -112,7 +112,7 @@ A Recuperação do Site verifica se há uma ou mais contas e redes de armazename
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
 
-1. **Selecione Preparar**  >  **definições de replicação de**infraestrutura  >  **+Criar e associar**.
+1. **Selecione Preparar**  >  **definições de replicação de** infraestrutura  >  **+Criar e associar**.
 1. Na **política de criar e associar,** especifique um nome de política. Estamos a usar **a Política de ContosoReplication.**
 1. Aceite as definições predefinidos e selecione **OK**:
    - **A frequência de cópia** indica que, após a replicação inicial, os dados delta serão replicados a cada cinco minutos.

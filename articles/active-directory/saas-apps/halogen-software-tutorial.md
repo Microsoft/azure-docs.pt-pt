@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
 ms.openlocfilehash: edb94e8e1b4e814bfac4a1a2a90c5ec71bc48c77
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101653056"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com Saba TalentSpace

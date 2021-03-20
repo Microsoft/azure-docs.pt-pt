@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130073"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Como criar uma oferta SaaS no mercado comercial
@@ -26,30 +26,30 @@ Se ainda não o fez, leia [a oferta do Plano SaaS para o mercado comercial.](pla
 ## <a name="create-a-new-saas-offer"></a>Criar uma nova oferta SaaS
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
-1. No **separador Visão** Geral, selecione **+ Software de oferta nova** como  >  **serviço** .
+1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+1. No **separador Visão** Geral, selecione **+ Software de oferta nova** como  >  **serviço**.
 
    :::image type="content" source="media/new-offer-saas.png" alt-text="Ilustra o menu de navegação à esquerda e a nova lista de ofertas.":::
 
-1. Na nova caixa de diálogo de **oferta,** insira um **ID de oferta** . Este ID é visível no URL da listagem de mercado comercial e nos modelos Azure Resource Manager, se aplicável. Por exemplo, se introduzir **a oferta de teste-1** nesta caixa, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+1. Na nova caixa de diálogo de **oferta,** insira um **ID de oferta**. Este ID é visível no URL da listagem de mercado comercial e nos modelos Azure Resource Manager, se aplicável. Por exemplo, se introduzir **a oferta de teste-1** nesta caixa, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
    + Cada oferta na sua conta deve ter uma identificação única de oferta.
    + Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres.
-   + O ID da oferta não pode ser alterado depois de selecionar **Criar** .
+   + O ID da oferta não pode ser alterado depois de selecionar **Criar**.
 
 1. Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
    + Este nome não é visível no mercado comercial e é diferente do nome da oferta e outros valores mostrados aos clientes.
-   + O pseudónimo da oferta não pode ser alterado depois de selecionar **Criar** .
-1. Para gerar a oferta e continuar, **selecione Criar** .
+   + O pseudónimo da oferta não pode ser alterado depois de selecionar **Criar**.
+1. Para gerar a oferta e continuar, **selecione Criar**.
 
 ## <a name="configure-your-saas-offer-setup-details"></a>Configure os detalhes de configuração da sua oferta SaaS
 
-No separador **Configuração 'Oferta',** nos detalhes da **Configuração,** escolherá se vende a sua oferta através da Microsoft ou gere as suas transações de forma independente. As ofertas vendidas através da Microsoft são referidas como _ofertas transacionáveis_ , o que significa que a Microsoft facilita a troca de dinheiro por uma licença de software em nome da editora. Para obter mais informações sobre estas opções, consulte [as opções de listagem](plan-saas-offer.md#listing-options) e determine a sua [opção de publicação.](determine-your-listing-type.md)
+No separador **Configuração 'Oferta',** nos detalhes da **Configuração,** escolherá se vende a sua oferta através da Microsoft ou gere as suas transações de forma independente. As ofertas vendidas através da Microsoft são referidas como _ofertas transacionáveis_, o que significa que a Microsoft facilita a troca de dinheiro por uma licença de software em nome da editora. Para obter mais informações sobre estas opções, consulte [as opções de listagem](plan-saas-offer.md#listing-options) e determine a sua [opção de publicação.](determine-your-listing-type.md)
 
-1. Para vender através da Microsoft e fazer-nos facilitar transações para si, selecione **Sim** . Continue a [ativar uma unidade de teste](#enable-a-test-drive-optional).
+1. Para vender através da Microsoft e fazer-nos facilitar transações para si, selecione **Sim**. Continue a [ativar uma unidade de teste](#enable-a-test-drive-optional).
 
 1. Para listar a sua oferta através do mercado comercial e processar transações de forma independente, selecione **Nº,** e, em seguida, faça uma das seguintes:
-   + Para fornecer uma subscrição gratuita para a sua oferta, **selecione Get it now (Grátis)** . Em seguida, na caixa **URL da Oferta** que aparece, introduza o URL (a começar por *http* ou https ) onde os *clientes* podem obter um ensaio através [da autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](azure-ad-saas.md). Por exemplo, `https://contoso.com/saas-app`.
+   + Para fornecer uma subscrição gratuita para a sua oferta, **selecione Get it now (Grátis)**. Em seguida, na caixa **URL da Oferta** que aparece, introduza o URL (a começar por *http* ou https ) onde os *clientes* podem obter um ensaio através [da autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](azure-ad-saas.md). Por exemplo, `https://contoso.com/saas-app`.
    + Para fornecer um teste gratuito de 30 dias, selecione **Teste Gratuito,** e depois na caixa **de URL trial** que aparece, insira o URL (a partir de *http* ou https ) onde os *clientes* podem aceder ao seu teste gratuito através [de autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](azure-ad-saas.md). Por exemplo, `https://contoso.com/trial/saas-app`.
    + Para que potenciais clientes o contactem para adquirir a sua oferta, selecione **Contacte-me.**
 
@@ -61,7 +61,7 @@ Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais cliente
 > Um test drive é diferente de um teste gratuito. Pode oferecer um test drive, teste gratuito, ou ambos. Ambos fornecem aos clientes a sua solução para um período de tempo fixo. Mas, um test drive também inclui uma visita prática e auto-guiada às principais características e benefícios do seu produto sendo demonstrados num cenário de implementação real.
 
 **Para ativar uma unidade de teste**
-1.  No **test drive** , selecione a caixa de **verificação de acionamento de teste.**
+1.  No **test drive**, selecione a caixa de **verificação de acionamento de teste.**
 1.  Selecione o tipo de unidade de teste da lista que aparece.
 
 ### <a name="configure-lead-management"></a>Configurar a gestão de oportunidades potenciais
@@ -84,7 +84,7 @@ Ligue o seu sistema de gestão de relacionamento com o cliente (CRM) com a sua o
    - [Configure a sua oferta de envio leva à Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. Para validar a configuração fornecida, selecione o link **Validate.**
-1. Para fechar a caixa de diálogo, selecione **OK** .
+1. Para fechar a caixa de diálogo, selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

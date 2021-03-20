@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - métodos de encaminhamento de tráfego / Microsoft Docs
+title: Azure Front Door - métodos de encaminhamento de tráfego | Microsoft Docs
 description: Este artigo ajuda-o a entender os diferentes métodos de encaminhamento de tráfego usados pela Porta da Frente
 services: front-door
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 2bc056620ff964747dfd83e7525cb5bfd2eb8e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449143"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de encaminhamento da porta da frente
@@ -24,10 +24,10 @@ A Azure Front Door suporta diferentes tipos de métodos de encaminhamento de tr�
 
 Existem quatro métodos de encaminhamento de tráfego disponíveis na Porta da Frente:
 
-* ** [Latência:](#latency)** O encaminhamento baseado em latência garante que os pedidos são enviados para os apoios de latência mais baixos aceitáveis dentro de um intervalo de sensibilidade. Basicamente, os seus pedidos de utilizador são enviados para o conjunto "mais próximo" de backends no que diz respeito à latência da rede.
-* ** [Prioridade:](#priority)** Pode atribuir prioridades aos seus backends quando quiser configurar um backend primário para servir todo o tráfego. O backend secundário pode ser uma cópia de segurança caso o backend primário fique indisponível.
-* ** [Ponderado:](#weighted)** Pode atribuir pesos aos seus backends quando quiser distribuir o tráfego por um conjunto de backends. Quer queira distribuir uniformemente ou de acordo com os coeficientes de peso.
-* ** [Afinidade da Sessão:](#affinity)** Pode configurar a afinidade da sessão para os anfitriões ou domínios frontend para garantir que os pedidos do mesmo utilizador final são enviados para o mesmo backend.
+* **[Latência:](#latency)** O encaminhamento baseado em latência garante que os pedidos são enviados para os apoios de latência mais baixos aceitáveis dentro de um intervalo de sensibilidade. Basicamente, os seus pedidos de utilizador são enviados para o conjunto "mais próximo" de backends no que diz respeito à latência da rede.
+* **[Prioridade:](#priority)** Pode atribuir prioridades aos seus backends quando quiser configurar um backend primário para servir todo o tráfego. O backend secundário pode ser uma cópia de segurança caso o backend primário fique indisponível.
+* **[Ponderado:](#weighted)** Pode atribuir pesos aos seus backends quando quiser distribuir o tráfego por um conjunto de backends. Quer queira distribuir uniformemente ou de acordo com os coeficientes de peso.
+* **[Afinidade da Sessão:](#affinity)** Pode configurar a afinidade da sessão para os anfitriões ou domínios frontend para garantir que os pedidos do mesmo utilizador final são enviados para o mesmo backend.
 
 Todas as configurações do Front Door incluem a monitorização do estado de funcionamento dos back-ends e a ativação pós-falha global, instantânea e automatizada. Para obter mais informações, consulte [o Monitor de Backend front door](front-door-health-probes.md). A porta da frente pode funcionar com base num único método de encaminhamento. Mas, dependendo das necessidades da sua aplicação, também pode combinar vários métodos de encaminhamento para construir uma topologia de encaminhamento ideal.
 
@@ -65,7 +65,7 @@ Com a lista de backends disponíveis que têm uma sensibilidade de latência ace
 
 O método ponderado permite alguns cenários úteis:
 
-* **Atualização gradual**da aplicação : Dá uma percentagem de tráfego para encaminhar para um novo backend, e gradualmente aumentar o tráfego ao longo do tempo para trazê-lo a par com outros backends.
+* **Atualização gradual** da aplicação : Dá uma percentagem de tráfego para encaminhar para um novo backend, e gradualmente aumentar o tráfego ao longo do tempo para trazê-lo a par com outros backends.
 * **Migração de aplicações para Azure**: Crie uma piscina de backend com backends Azure e externos. Ajuste o peso dos backends para preferir os novos backends. Você pode gradualmente configurar isto começando com ter os novos backends desativados, em seguida, atribuindo-lhes os pesos mais baixos, aumentando-o lentamente para níveis onde eles tomam a maioria do tráfego. Em seguida, finalmente desativando os backends menos preferidos e retirando-os da piscina.  
 * **Rebentamento de nuvens para capacidade adicional**: Expanda rapidamente uma implantação no local para a nuvem colocando-a atrás da Porta da Frente. Quando precisar de uma capacidade extra na nuvem, pode adicionar ou ativar mais backends e especificar qual a parte do tráfego que vai para cada backend.
 

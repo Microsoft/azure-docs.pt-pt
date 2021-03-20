@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217529"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicione armazenamento em back-end e configuure o espaço de nome virtual
@@ -56,7 +56,7 @@ Depois de adicionar um ficheiro central, pode atualizar as suas definições na 
 
 ## <a name="add-a-core-filer"></a>Adicione um ficheiro de núcleo
 
-Defina um ficheiro central clicando no botão **Criar** na página **Core Filer**  >  **'Ficheiros's 'Gestão de Ficheiros's'.**
+Defina um ficheiro central clicando no botão **Criar** na página   >  **'Ficheiros's 'Gestão de Ficheiros's'.**
 
 ![Clicar no botão de criar acima da lista de ficheiros principais na página 'Gerir ficheiros's](media/fxt-cluster-config/create-core-filer-button.png)
 
@@ -80,7 +80,7 @@ As subtascos incluem:
 
   ![Informações de ficheiros de núcleo de nuvem no assistente do Novo Ficheiro Core](media/fxt-cluster-config/new-core-filer-cloud3.png)
   
-  Se já adicionou credenciais de acesso à nuvem para este cluster, elas aparecem na lista. Atualize e adicione **Cluster**credenciais na página  >  **de definições de Credenciais de Nuvem** de Cluster.
+  Se já adicionou credenciais de acesso à nuvem para este cluster, elas aparecem na lista. Atualize e adicione credenciais na página  >  **de definições de Credenciais de Nuvem** de Cluster.
 
 Depois de preencher todas as definições necessárias no assistente, clique no botão **Add Filer** para submeter a alteração.
 

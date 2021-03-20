@@ -9,10 +9,10 @@ ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97665196"
 ---
 ## <a name="create-a-hyperscale-citus-server-group"></a>Criar um grupo do servidor Hyperscale (Citus)

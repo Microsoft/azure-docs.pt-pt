@@ -9,16 +9,16 @@ ms.topic: sample
 ms.custom: sample, mvc, devx-track-azurecli
 ms.date: 5/6/2019
 ms.openlocfilehash: f317734b7020002add710eb9d661028e8df34087
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91707647"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Amostras de CLI Azure para Base de Dados Azure para PostgreSQL - Servidor Único
 A tabela seguinte inclui ligações para exemplos de script da CLI do Azure para a Base de Dados do Azure para PostgreSQL.
 
-| Ligação de amostras | Descrição |
+| Ligação de amostras | Description |
 |---|---|
 |**Criar um servidor**||
 | [Criar uma regra de servidor e de firewall](scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Script da CLI do Azure que cria um servidor da Base de Dados do Azure para PostgreSQL e configura uma regra de firewall ao nível do servidor. |

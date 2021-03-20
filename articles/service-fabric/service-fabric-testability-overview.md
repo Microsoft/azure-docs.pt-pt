@@ -4,10 +4,10 @@ description: Este artigo descreve o Serviço de Análise de Falhas no Tecido de 
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.openlocfilehash: 4e879b0b39d58f115b4661d47cf2ae564ba14e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531382"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introdução ao Serviço de Análise de Falhas
@@ -60,7 +60,7 @@ Embora simular uma falha no mundo real de forma consistente seja difícil de com
 1. O quórum de escrita diminui devido à queda das réplicas (devido a um pacote de código ou nó a descer).
 1. O quórum de escrita não pode voltar porque os dados das réplicas são perdidos (devido à corrupção do disco ou à reimaging da máquina).
 
-Estas falhas correlacionadas acontecem no mundo real, mas não tão frequentemente como falhas individuais. A capacidade de testar estes cenários antes de acontecerem na produção é fundamental. Mais importante ainda é a capacidade de simular estes cenários com cargas de trabalho de produção em circunstâncias controladas (a meio do dia com todos os engenheiros no convés). Isso é muito melhor do que ter isso acontecer pela primeira vez em produção às 2:00 da manhã.
+Estas falhas correlacionadas acontecem no mundo real, mas não tão frequentemente como falhas individuais. A capacidade de testar estes cenários antes de acontecerem na produção é fundamental. Mais importante ainda é a capacidade de simular estes cenários com cargas de trabalho de produção em circunstâncias controladas (a meio do dia com todos os engenheiros no convés). Isso é muito melhor do que tê-lo acontecer pela primeira vez em produção às 2:00 A.M.
 
 ### <a name="unified-experience-across-different-environments"></a>Experiência unificada em diferentes ambientes
 A prática tem sido tradicionalmente criar três conjuntos diferentes de experiências, uma para o ambiente de desenvolvimento, uma para testes e outra para produção. O modelo era:

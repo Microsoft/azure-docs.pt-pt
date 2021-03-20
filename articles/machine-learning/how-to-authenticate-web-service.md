@@ -12,10 +12,10 @@ ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 5bd938fce347d439c2acb4e3fcace04d5b27d770
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94447778"
 ---
 # <a name="configure-authentication-for-models-deployed-as-web-services"></a>Configure a autenticação para modelos implementados como serviços web
@@ -24,8 +24,8 @@ O Azure Machine Learning permite-lhe implementar os seus modelos de aprendizagem
 
 As implementações do modelo criadas pela Azure Machine Learning podem ser configuradas para utilizar um de dois métodos de autenticação:
 
-* **baseado em teclas** : Uma tecla estática é usada para autenticar o serviço web.
-* **Baseado em símbolos** : Um símbolo temporário deve ser obtido a partir do espaço de trabalho Azure Machine Learning (utilizando o Azure Ative Directory) e utilizado para autenticar o serviço web. Este token expira após um período de tempo, e deve ser atualizado para continuar a trabalhar com o serviço web.
+* **baseado em teclas**: Uma tecla estática é usada para autenticar o serviço web.
+* **Baseado em símbolos**: Um símbolo temporário deve ser obtido a partir do espaço de trabalho Azure Machine Learning (utilizando o Azure Ative Directory) e utilizado para autenticar o serviço web. Este token expira após um período de tempo, e deve ser atualizado para continuar a trabalhar com o serviço web.
 
     > [!NOTE]
     > A autenticação baseada em token só está disponível quando é implantada no Serviço Azure Kubernetes.

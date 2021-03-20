@@ -9,10 +9,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 019e6e738ea312b7e6a16c44354c7dcd54e24f2f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93331901"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único usando Azure CLI 
@@ -121,7 +121,7 @@ O resultado está no formato JSON. Aponte o **administratorLogin** e o **fullyQu
 ```
 
 ## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Ligar à Base de Dados do Azure para PostgreSQL com psql
-Se o seu computador cliente tiver o PostgreSQL instalado, pode utilizar uma instância local de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) ou o Azure Cloud Console para ligar a um servidor PostgreSQL do Azure. Agora, vamos utilizar o utilitário da linha de comandos psql para ligar à Base de Dados do Azure para o servidor PostgreSQL.
+Se o seu computador cliente tiver PostgreSQL instalado, pode utilizar uma instância local de [psql,](https://www.postgresql.org/docs/9.6/static/app-psql.html)ou a Consola Azure Cloud para se ligar a um servidor Azure PostgreSQL. Agora, vamos utilizar o utilitário da linha de comandos psql para ligar à Base de Dados do Azure para o servidor PostgreSQL.
 
 1. Execute o comando psql seguinte para ligar a uma Base de Dados do Azure para PostgreSQL:
    ```

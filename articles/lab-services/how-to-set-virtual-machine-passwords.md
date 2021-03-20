@@ -1,13 +1,13 @@
 ---
-title: Definir palavras-passe para VMs nos Serviços de Laboratório Azure Microsoft Docs
+title: Definir palavras-passe para VMs em Azure Lab Services | Microsoft Docs
 description: Saiba como definir e redefinir palavras-passe para máquinas virtuais (VMs) em laboratórios da Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434231"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 

@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.date: 01/12/2021
 ms.author: jeedes
 ms.openlocfilehash: aa5e3e88ceb957728799f27482de7477ba6b7b48
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98621251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO para a Bitbucket por resolução GmbH
 
 Neste tutorial, você aprenderá a integrar SAML SSO para Bitbucket por resolução GmbH com Azure Ative Directory (Azure AD). Quando integrar o SSO SAML para bitbucket por resolução GmbH com Azure AD, pode:
 
-* Control em Azure AD que tem acesso a SSO da Bitbucket por resolução GmbH.
+* Control em Azure AD que tem acesso a SSO SSO SSO da Bitbucket por resolução GmbH.
 * Permita que os seus utilizadores sejam automaticamente inscritos no SSO SSO da Bitbucket por resolução gmbH com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: Bilhete de suporte de registo ou caixa aberta para Caixa de Dados Azure / Microsoft Docs
+title: Registre o bilhete de suporte ou caixa aberta para Azure Data Box | Microsoft Docs
 description: Saiba como registar o pedido de suporte para problemas relacionados com a caixa de dados ou as encomendas de disco de caixa de dados.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: d0c45626016049424c8028eea7ffbd7f281e9012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91744156"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um bilhete de apoio para Azure Data Box
@@ -30,7 +30,7 @@ Execute os seguintes passos para criar um pedido de apoio:
 
     ![Novo pedido de suporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
 
-2. No **novo pedido de apoio,** selecione **Basics**. No Básico, faça os **seguintes**passos:
+2. No **novo pedido de apoio,** selecione **Basics**. No Básico, faça os **seguintes** passos:
 
     1. A partir da lista de dropdown **do tipo Demissão,** selecione **Técnico**.
     2. Escolha a sua **Subscrição**.
@@ -44,7 +44,7 @@ Execute os seguintes passos para criar um pedido de apoio:
 
     1. Escolha a **Severidade** como **C - Impacto mínimo.** O suporte irá atualizá-lo se necessário.
     2. Selecione o **tipo de problema** na lista de dropdown.
-    3. Com base no tipo de problema selecionado, escolha uma **categoria**correspondente.
+    3. Com base no tipo de problema selecionado, escolha uma **categoria** correspondente.
     4. Fornecer um **título** para a edição e mais **detalhes.**
     5. Forneça a data e hora de início para o problema.
     6. No upload do **Ficheiro,** clique no ícone da pasta para navegar em quaisquer outros ficheiros que pretenda carregar.

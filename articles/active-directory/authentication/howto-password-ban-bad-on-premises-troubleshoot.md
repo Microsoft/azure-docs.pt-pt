@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2bbc1c555824d4c632c5bf85a9cd0aa83087fc8
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101648730"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Resolução de problemas: Proteção de senha azure AD
@@ -328,7 +328,7 @@ O Test-AzureADPasswordProtectionDCAgentHealth cmdlet suporta vários testes de s
 
 Os seguintes testes podem ser executados individualmente e não aceitar. Uma breve descrição
 
-|Teste de saúde do agente de DC|Descrição|
+|Teste de saúde do agente de DC|Description|
 | --- | :---: |
 |-Verificar PassewordFilterDll|Verifica se o dll do filtro de senha está atualmente carregado e é capaz de ligar para o serviço de agente DC|
 |-Verificar RegistosEsististas|Verifica se a floresta está atualmente registada|

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011443"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Mudar o caminho de um blob do caminho predefinido
@@ -25,7 +25,7 @@ Certifique-se de que tem uma definição de emprego corretamente configurada no 
 
 Para criar uma função Azure, execute os seguintes passos:
 
-1. Aceda ao [portal do Azure](https://portal.azure.com/).
+1. Aceda ao [Portal do Azure](https://portal.azure.com/).
 
 2. Clique em **+ Criar um recurso**. Na caixa **'Procurar',** **digite App function** e prima **Enter**. Selecione e clique na **aplicação Função** na lista de aplicações apresentadas.
 

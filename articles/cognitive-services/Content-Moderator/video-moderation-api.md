@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853537"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analisar conteúdo de vídeo para material censurável em C #
@@ -41,7 +41,7 @@ Navegue para a sua nova subscrição AMS no portal Azure e selecione **o acesso 
 
 Na secção de **aplicações AD Azure,** selecione **Create New** e nomeie o seu novo registo de aplicações AZure AD (por exemplo, "VideoModADApp"). Clique **em Guardar** e aguarde alguns minutos enquanto a aplicação está configurada. Em seguida, deverá ver o seu novo registo de aplicações na secção de **aplicações AD AZure** da página.
 
-Selecione o registo da sua aplicação e clique no botão **de aplicação Gerir** abaixo. Note o valor no campo ID da **aplicação;** Vai precisar disto mais tarde. Selecione **As Teclas de Definições**  >  **Keys** e introduza uma descrição para uma nova chave (como "VideoModKey"). Clique **em Guardar** e, em seguida, note o novo valor da chave. Copie esta corda e guarde-a em algum lugar seguro.
+Selecione o registo da sua aplicação e clique no botão **de aplicação Gerir** abaixo. Note o valor no campo ID da **aplicação;** Vai precisar disto mais tarde. Selecione **As Teclas de Definições**  >  e introduza uma descrição para uma nova chave (como "VideoModKey"). Clique **em Guardar** e, em seguida, note o novo valor da chave. Copie esta corda e guarde-a em algum lugar seguro.
 
 Para uma passagem mais completa do processo acima, consulte começar com a [autenticação AD AZure.](../../media-services/previous/media-services-portal-get-started-with-aad.md)
 
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Configurar referências de recursos
 
-Adicione os seguintes campos estáticos à classe **Program** em _Program.cs_. Estes campos possuem as informações necessárias para a ligação à sua subscrição AMS. Preencha-os com os valores que tem nos degraus acima. Note que `CLIENT_ID` é o valor de ID da aplicação AD da **aplicação** AD Azure, e `CLIENT_SECRET` é o valor do "VideoModKey" que criou para essa aplicação.
+Adicione os seguintes campos estáticos à classe **Programa** no _Programa.cs_. Estes campos possuem as informações necessárias para a ligação à sua subscrição AMS. Preencha-os com os valores que tem nos degraus acima. Note que `CLIENT_ID` é o valor de ID da aplicação AD da **aplicação** AD Azure, e `CLIENT_SECRET` é o valor do "VideoModKey" que criou para essa aplicação.
 
 ```csharp
 // declare constants and globals

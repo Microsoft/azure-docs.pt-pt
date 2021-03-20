@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb9d8edd24dcc8809f2b207a4db80653b0e140e4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014041"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics divisória de saída de bolha personalizada
@@ -78,7 +78,7 @@ Os padrões de trajetória personalizados do DateTime permitem especificar um fo
 
 Os seguintes tokens especificadores de formato podem ser usados sozinhos ou em combinação para obter formatos datatime personalizados:
 
-|Especificador de formato   |Descrição   |Resultados no horário de exemplo 2018-01-02T10:06:08|
+|Especificador de formato   |Description   |Resultados no horário de exemplo 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datatime:yyyy}|O ano como um número de quatro dígitos|2018|
 |{datatime:MM}|Mês de 01 a 12|01|
@@ -136,6 +136,6 @@ Quando inicia o trabalho, uma estrutura de pasta baseada no padrão do caminho �
 
 ![Saída de blob de stream Analytics com padrão de caminho personalizado](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-output-folder-structure.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Picturepark Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Picturepark | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Picturepark.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 8a00cf11edfea2e732a18a392d465525b38ea45f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Diretório Ativo Azure com o Picturepark
@@ -137,11 +137,11 @@ Para configurar o Azure AD com o Picturepark, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Picturepark como administrador.
 
-2. Na barra de ferramentas no topo, clique em **ferramentas administrativas**e, em seguida, clique em **Consola de Gestão**.
+2. Na barra de ferramentas no topo, clique em **ferramentas administrativas** e, em seguida, clique em **Consola de Gestão**.
    
     ![Consola de Gestão](./media/picturepark-tutorial/ic795062.png "Consola de Gestão")
 
-3. Clique **em Autenticação**e, em seguida, clique em **Fornecedores de Identidade**.
+3. Clique **em Autenticação** e, em seguida, clique em **Fornecedores de Identidade**.
    
     ![Autenticação](./media/picturepark-tutorial/ic795063.png "Autenticação")
 
@@ -193,7 +193,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Picturepark.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Picturepark**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Picturepark**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -223,7 +223,7 @@ Para permitir que os utilizadores de Azure AD assinem no Picturepark, devem ser 
 
 1. Inscreva-se no seu inquilino **do Picturepark.**
 
-1. Na barra de ferramentas no topo, clique em **ferramentas administrativas**e, em seguida, clique em **Utilizadores**.
+1. Na barra de ferramentas no topo, clique em **ferramentas administrativas** e, em seguida, clique em **Utilizadores**.
    
     ![Utilizadores](./media/picturepark-tutorial/ic795067.png "Utilizadores")
 

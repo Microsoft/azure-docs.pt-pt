@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
 ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097318"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Ligação de saída RabbitMQ para visão geral das funções do Azure
@@ -273,8 +273,8 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome** | n/a | O nome da variável que representa a fila no código de função. |
 |**nome de fila**|**Nome da fila**| Nome da fila para enviar mensagens. |
 |**nome hospedeiro**|**Nome anfitrião**|(ignorado se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
-|**nome de utilizador**|**Nome de utilizador**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém o nome de utilizador para aceder à fila. Por exemplo: UserNameSetting: "< UserNameFromSettings >"|
-|**palavra-passe**|**Palavra-passe**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém a palavra-passe para aceder à fila. Por exemplo: UserNameSetting: "< UserNameFromSettings >"|
+|**nome de utilizador**|**Nome de utilizador**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém o nome de utilizador para aceder à fila. Ex. UserNameSetting: "< UserNameFromSettings >"|
+|**palavra-passe**|**Palavra-passe**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém a palavra-passe para aceder à fila. Ex. UserNameSetting: "< UserNameFromSettings >"|
 |**conexãoStringSetting**|**ConexãoStringSetting**|O nome da definição da aplicação que contém a cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que se especificar diretamente o fio de ligação e não através de uma definição de aplicação no local.settings.jsligado, o gatilho não funcionará. (Ex: Em *function.jssobre:* connectionStringSetting: "rabbitMQConnection" <br> Em *local.settings.jsem*: "rabbitMQConnection" : "< ActualConnectionstring >")|
 |**porto**|**Porta**|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Predefinições a 0 que aponta para a definição padrão da porta do cliente rabbitmq: 5672.|
 

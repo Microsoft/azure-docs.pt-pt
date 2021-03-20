@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026476"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos do fluxo do NSG do Observador de Rede do Azure com ferramentas open-source
@@ -25,7 +25,7 @@ Os registos de fluxo do Grupo de Segurança de Rede fornecem informações que p
 
 Estes registos de fluxo podem ser difíceis de analisar manualmente e obter insights de. No entanto, existem várias ferramentas de código aberto que podem ajudar a visualizar estes dados. Este artigo fornecerá uma solução para visualizar estes troncos usando a Pilha Elástica, que lhe permitirá indexar e visualizar rapidamente os seus registos de fluxo num dashboard kibana.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Neste artigo, vamos criar uma solução que lhe permitirá visualizar os registos de fluxo do Grupo de Segurança de Rede utilizando a Pilha Elástica.  Um plugin de entrada logstash obtém os registos de fluxo diretamente da bolha de armazenamento configurada para conter os registos de fluxo. Em seguida, usando a Pilha Elástica, os registos de fluxo serão indexados e usados para criar um dashboard Kibana para visualizar a informação.
 
@@ -243,7 +243,7 @@ Utilizando a barra de consulta na parte superior do painel de instrumentos, pode
 
 Ao combinar os registos de fluxo do Grupo de Segurança de Rede com a Pilha Elástica, criámos uma forma poderosa e personalizável de visualizar o tráfego da nossa rede. Estes dashboards permitem-lhe obter e partilhar rapidamente informações sobre o tráfego da sua rede, bem como filtrar e investigar quaisquer anomalias potenciais. Usando Kibana, você pode personalizar estes dashboards e criar visualizações específicas para atender a quaisquer necessidades de segurança, auditoria e conformidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como visualizar os seus registos de fluxo NSG com Power BI visitando [registos de fluxos NSG do Visualize com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

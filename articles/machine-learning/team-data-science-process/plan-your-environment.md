@@ -1,5 +1,5 @@
 ---
-title: Identificar cenários e planear o processo de análise - Processo de Ciência de Dados de Equipa Aprendizagem de Máquinas Azure
+title: Identificar cenários e planear o processo de análise - Processo de Ciência de Dados de Equipa | Aprendizagem de Máquinas Azure
 description: Identificar cenários e planear o processamento avançado de dados de análise, considerando uma série de questões-chave.
 services: machine-learning
 author: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ffe1a4b9b32223cc57c6a6399fdc074a9d51d714
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322403"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planear o processamento de dados de análises avançadas
@@ -94,7 +94,7 @@ Estas questões são fundamentais para planear os seus ambientes de armazenament
 
 ### <a name="how-is-your-data-formatted"></a>Como é que os seus dados são formatados?
 
-* Ficheiros planos separados por vírgula (CSV) ou separados por separados por separados por separados por separados por separados por separados por separados por separados por separados por aba (TSV)
+* Ficheiros planos separados por vírgula (CSV) ou separados por separados por aba (TSV)
 * Comprimido ou descomprimido
 * Bolhas de Azure
 * Mesas de Colmeia Hadoop

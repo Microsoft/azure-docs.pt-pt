@@ -1,5 +1,5 @@
 ---
-title: Instalar atualização 0.5 em StorSimple Virtual Array / Microsoft Docs
+title: Instale a atualização 0.5 em StorSimple Virtual Array | Microsoft Docs
 description: Descreve como utilizar o UI web StorSimple Virtual Array para aplicar o Update 0.5 utilizando o portal Azure e o método de correção em calor.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
 ms.openlocfilehash: 5723e8d9fc7b0a72393dda1b225ca073a6474a0a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534318"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Instale atualização 0.5 no seu StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este artigo descreve os passos necessários para instalar o Update 0.5 no seu StorSimple Virtual Array através da UI web local e através do portal Azure. Tem de aplicar atualizações de software ou hotfixes para manter o seu StorSimple Virtual Array atualizado.
 
@@ -67,7 +67,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
    
     ![Catálogo de pesquisa](./media/storsimple-virtual-array-install-update-05/download1.png)
 
-4. Clique **em Baixar**. 
+4. Clique em **Transferir**. 
 
 5. Você deve ver dois ficheiros para descarregar, um *.msu* e um ficheiro *.cab.* Descarregue cada um desses ficheiros para uma pasta. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
 
@@ -90,7 +90,7 @@ Utilize este método para instalar atualizações num dispositivo em execução 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou o hotfix
 
-1. Na UI web local, **Maintenance** aceda à  >  **Atualização de Software de** Manutenção .
+1. Na UI web local, aceda à  >  **Atualização de Software de** Manutenção .
    
     ![A screenshot mostra a atualização de Software selecionada a partir do menu Manutenção.](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -106,7 +106,7 @@ Utilize este método para instalar atualizações num dispositivo em execução 
    
     ![A screenshot mostra uma mensagem de sucesso para a atualização.](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo se atualizou, na UI web local, vá à **Maintenance**  >  **Atualização de Software** de Manutenção . A versão do software visualizada deve ser **10.0.0.0.0.10290.0** para a atualização 0.5.
+5. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo se atualizou, na UI web local, vá à   >  **Atualização de Software** de Manutenção . A versão do software visualizada deve ser **10.0.0.0.0.10290.0** para a atualização 0.5.
    
    > [!NOTE]
    > Reportamos as versões de software de uma forma ligeiramente diferente na UI web local e no portal Azure. Por exemplo, o web UI local reporta **10.0.0.0.0.10290** e o portal Azure reporta **10.0.10290.0** para a mesma versão.

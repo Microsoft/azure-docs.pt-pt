@@ -8,10 +8,10 @@ ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014616"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Quickstart: Criar um trabalho Azure Stream Analytics em Visual Studio Code (pré-visualização)
@@ -43,7 +43,7 @@ Este quickstart mostra-lhe como criar e executar um trabalho Azure Stream Analyt
 
 1. Selecione o ícone **Azure** na barra de atividades do Código do Estúdio Visual. Em **Stream Analytics** na barra lateral, selecione Iniciar **súm em Azure**.
 
-   ![Inscreva-se no Azure em Código de Estúdio Visual](./media/quick-create-visual-studio-code/azure-sign-in.png)
+   ![Iniciar sessão no Azure no Visual Studio Code](./media/quick-create-visual-studio-code/azure-sign-in.png)
 
 2. Quando estiver assinado, o nome da sua conta Azure aparece na barra de estado no canto inferior esquerdo da janela Visual Studio Code.
 
@@ -65,7 +65,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
    |---------|---------|---------|
    |Subscrição  | \<Your subscription\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Grupo de Recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
-   |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu hub IoT. Utilize o local mais próximo dos seus utilizadores. |
+   |Region  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu hub IoT. Utilize o local mais próximo dos seus utilizadores. |
    |Nome do hub IoT  | MyASAIotHub  |   Selecione um nome para o seu hub IoT.   |
 
    ![Criar um hub IoT](./media/quick-create-visual-studio-code/create-iot-hub.png)
@@ -170,7 +170,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
    |Definição|Valor sugerido|Descrição|
    |-------|---------------|-----------|
-   |Nome|Input|Insira um nome para identificar a entrada do trabalho.|
+   |Nome|Entrada|Insira um nome para identificar a entrada do trabalho.|
    |IotHubNamespace|MyASAIotHub|Escolha ou insira o nome do seu hub IoT. Os nomes dos hubs IoT são automaticamente detetados se forem criados na mesma subscrição.|
    |SharedAccessPolicyName|iothubowner| |
 
@@ -269,7 +269,7 @@ Se planeias usar o trabalho no futuro, podes detê-lo e reiniciá-lo mais tarde.
 
 2. Na página do grupo de recursos, selecione **Eliminar**. Introduza o nome do recurso para eliminar na caixa de texto e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, implementou um simples trabalho stream Analytics usando o Código de Estúdio Visual. Também pode implementar trabalhos stream Analytics utilizando o [portal Azure,](stream-analytics-quick-create-portal.md) [PowerShell](stream-analytics-quick-create-powershell.md)e [Visual Studio](stream-analytics-quick-create-vs.md).
 

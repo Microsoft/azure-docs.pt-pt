@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Mozy Enterprise Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Mozy Enterprise | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Mozy Enterprise.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 97294bdd088f50a46786c3568f4230706f750c4c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a Mozy Enterprise
@@ -210,7 +210,7 @@ Para permitir que os utilizadores de Azure AD acedam à Mozy Enterprise, eles de
 
 1. Faça login no seu inquilino **da Mozy Enterprise.**
 
-2. Clique **nos Utilizadores**e, em seguida, clique em **Adicionar Novo Utilizador**.
+2. Clique **nos Utilizadores** e, em seguida, clique em **Adicionar Novo Utilizador**.
    
     ![Utilizadores](./media/mozy-enterprise-tutorial/ic777317.png "Utilizadores")
    

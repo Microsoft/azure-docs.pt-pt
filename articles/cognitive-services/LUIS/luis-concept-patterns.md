@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025964"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Os padrões melhoram a precisão da previsão
@@ -70,7 +70,7 @@ Aprenda as [melhores práticas.](luis-concept-best-practices.md)
 
 Aprenda a sintaxe padrão a partir da referência de [sintaxe de padrão](reference-pattern-syntax.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre padrões:
 

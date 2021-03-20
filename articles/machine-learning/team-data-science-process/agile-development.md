@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89440291"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento ágil de projetos de ciência de dados
@@ -35,7 +35,7 @@ A seguinte figura ilustra um típico planeamento de sprint, codificação e flux
 
 ##  <a name="work-item-types"></a><a name='Terminology-1'></a>Tipos de artigos de trabalho
 
-No quadro de planeamento de sprint TDSP, existem quatro tipos de *artigos* de trabalho frequentemente *utilizados: Funcionalidades, Histórias de Utilizador,* *Tarefas*e *Bugs.* *Features* O atraso para todos os itens de trabalho está ao nível do projeto, não ao nível do repositório de Git. 
+No quadro de planeamento de sprint TDSP, existem quatro tipos de *artigos* de trabalho frequentemente *utilizados: Funcionalidades, Histórias de Utilizador,* *Tarefas* e *Bugs.*  O atraso para todos os itens de trabalho está ao nível do projeto, não ao nível do repositório de Git. 
 
 Aqui estão as definições para os tipos de artigos de trabalho:
 
@@ -136,13 +136,13 @@ Os cientistas de dados podem sentir-se mais confortáveis usando um modelo ágil
    
    ![Criar processo herdado a partir de Ágil](./media/agile-development/10-settings.png) 
    
-1. No **processo De criar herdado a partir do diálogo Agile,** insira o nome *AgileDataScienceProcess*e selecione **Criar o processo**.
+1. No **processo De criar herdado a partir do diálogo Agile,** insira o nome *AgileDataScienceProcess* e selecione **Criar o processo**.
    
    ![Criar processo agileDataScienceProcess](./media/agile-development/11-agileds.png)
    
 1. Em **todos os processos,** selecione o novo **AgileDataScienceProcess**. 
    
-1. No separador **'Tipos de artigos** de trabalho', desative **a Epic**, **Feature**, **User Story**e **Task** selecionando o **...** ao lado de cada item e, em seguida, selecionando **Desativar**. 
+1. No separador **'Tipos de artigos** de trabalho', desative **a Epic**, **Feature**, **User Story** e **Task** selecionando o **...** ao lado de cada item e, em seguida, selecionando **Desativar**. 
    
    ![Desativar tipos de artigos de trabalho](./media/agile-development/12-disable.png)
    
@@ -150,7 +150,7 @@ Os cientistas de dados podem sentir-se mais confortáveis usando um modelo ágil
    
 1. Na caixa de diálogo **de nível de atraso editar:**
    1. Under **Name**, substitua **a Epic** por *Projetos TDSP.* 
-   1. Nos **tipos de artigos de trabalho neste nível de atraso**, selecione Novo tipo de item de **trabalho,** introduza *o Projeto TDSP*e selecione **Adicionar**. 
+   1. Nos **tipos de artigos de trabalho neste nível de atraso**, selecione Novo tipo de item de **trabalho,** introduza *o Projeto TDSP* e selecione **Adicionar**. 
    1. Sob **o tipo de artigo de trabalho predefinido,** desça e selecione O Projeto **TDSP**. 
    1. Selecione **Guardar**.
    
@@ -179,7 +179,7 @@ Pode utilizar o modelo de processo de ciência de dados para criar projetos TDSP
    
 1. No novo diálogo do **projeto,** dê um nome ao seu projeto e, em seguida, selecione **Advanced**. 
    
-1. No **processo de item do trabalho,** desça e selecione **AgileDataScienceProcess**e, em seguida, selecione **Criar**.
+1. No **processo de item do trabalho,** desça e selecione **AgileDataScienceProcess** e, em seguida, selecione **Criar**.
    
    ![Criar um projeto TDSP](./media/agile-development/15-newproject.png)
    

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305936"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados da equipa em ação - Usando um cluster de hadoop Azure HDInsight num conjunto de dados de 1-TB
@@ -50,11 +50,11 @@ Faltam valores nas colunas numéricas e categóricas neste conjunto de dados. É
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
 Dois problemas de previsão da amostra são abordados nesta passagem:
 
-1. **Classificação binária** : Prevê se um utilizador clicou num suplemento:
+1. **Classificação binária**: Prevê se um utilizador clicou num suplemento:
 
    * Classe 0: Sem Clique
    * Classe 1: Clique
-2. **Regressão** : Prevê a probabilidade de um clique de anúncio a partir das funcionalidades do utilizador.
+2. **Regressão**: Prevê a probabilidade de um clique de anúncio a partir das funcionalidades do utilizador.
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Configurar um cluster HDInsight Hadoop para a ciência dos dados
 > [!NOTE]
@@ -83,7 +83,7 @@ Os dados residem num local de [armazenamento de bolhas Azure:](../../storage/blo
    1. A sub-dobradeira *raw/count/* contém os primeiros 21 dias de dados - do dia \_ 00 ao dia \_ 20
    2. A sub-dobradeira *raw/train/* consiste num único dia de dados, dia \_ 21
    3. A sub-dobradeira *em bruto/teste/* consiste em dois dias de dados, dia \_ 22 e dia \_ 23
-2. Os dados do gzip cru também estão disponíveis na pasta principal *em bruto/* como day_NN.gz, onde o NN vai de 00 a 23.
+2. Os dados do gzip bruto também estão disponíveis na pasta principal *em bruto/* como day_NN.gz, onde o NN vai de 00 a 23.
 
 Uma abordagem alternativa ao acesso, exploração e modelação destes dados que não requer quaisquer downloads locais é explicado mais tarde nesta passagem quando criamos tabelas de Hive.
 
@@ -99,7 +99,7 @@ Aqui está o que um primeiro login típico para o headnode cluster parece:
 Agora está configurado e pronto para começar a primeira parte da passagem: exploração de dados usando a Hive e preparando os dados para o Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Criar base de dados e tabelas de Colmeias
-Para criar tabelas de Colmeia para o nosso conjunto de dados Criteo, abra a * Linha de *_Comando Hadoop_* _ no ambiente de trabalho do nó de cabeça, e insira o diretório da Colmeia inserindo o comando
+Para criar tabelas de Colmeia para o nosso conjunto de dados Criteo, abra a Linha de ***Comando Hadoop*** no ambiente de trabalho do nó de cabeça e insira o diretório da Colmeia inserindo o comando
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Depois da Colmeia REPL aparecer com um sinal de "colmeia >", basta cortar e cola
 
 O seguinte código cria uma base de dados "criteo" e gera então quatro tabelas:
 
-_ uma *tabela para gerar contagens* construídas nos dias \_ 00 até dia \_ 20,
+* uma *tabela para gerar contagens* construídas nos dias \_ 00 até dia \_ 20,
 * uma *tabela para uso como o conjunto de dados do comboio* construído no dia \_ 21, e
 * duas *tabelas para utilização como conjuntos de dados de teste construídos* no dia \_ 22 e \_ dia 23, respectivamente.
 
@@ -161,7 +161,7 @@ Todas estas tabelas são externas para que possa indicar as suas localizações 
 
 **Existem duas formas de executar qualquer consulta de Colmeia:**
 
-* **Utilizando a linha de comando Hive REPL** : A primeira é emitir um comando "colmeia" e copiar e colar uma consulta na linha de comando Hive REPL:
+* **Utilizando a linha de comando Hive REPL**: A primeira é emitir um comando "colmeia" e copiar e colar uma consulta na linha de comando Hive REPL:
 
   ```console
   cd %hive_home%\bin
@@ -169,7 +169,7 @@ Todas estas tabelas são externas para que possa indicar as suas localizações 
   ```
 
      Agora, na linha de comando da REPL, cortar e colar a consulta executa-a.
-* **Guardar consultas para um ficheiro e executar o comando** : A segunda é guardar as consultas para um ficheiro '.hql' [(amostra&#95;colmeia&#95;criar&#95;base de dados criteo&#95;&#95;e&#95;tabelas.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) e, em seguida, emitir o seguinte comando para executar a consulta:
+* **Guardar consultas para um ficheiro e executar o comando**: A segunda é guardar as consultas para um ficheiro '.hql'[(amostra&#95;colmeia&#95;criar&#95;base de dados criteo&#95;&#95;e&#95;tabelas.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) e, em seguida, emitir o seguinte comando para executar a consulta:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -492,7 +492,7 @@ O nosso processo de construção de modelos em Azure Machine Learning segue este
 Agora está pronto para construir modelos no estúdio Azure Machine Learning. Os nossos dados recolhidos são guardados como tabelas de Colmeia no cluster. Utilize o módulo de **dados de importação de aprendizagem de máquinas** Azure para ler estes dados. As credenciais para aceder à conta de armazenamento deste cluster são fornecidas no que se segue.
 
 ### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Passo 1: Obtenha dados das tabelas da Colmeia para o Azure Machine Learning utilizando o módulo de dados de importação e selecione-os para uma experiência de aprendizagem automática
-Comece por selecionar uma experiência em branco **+NEW**  ->  **EXPERIMENT**  ->  **EXPERIMENT.** Em seguida, a partir da caixa **de pesquisa** na parte superior esquerda, procure por "Dados de Importação". Arraste e deixe cair o módulo **de Dados de Importação** na tela de experiência (a parte central do ecrã) para utilizar o módulo para acesso a dados.
+Comece por selecionar uma experiência em branco **+NEW**  ->    ->  **EXPERIMENT.** Em seguida, a partir da caixa **de pesquisa** na parte superior esquerda, procure por "Dados de Importação". Arraste e deixe cair o módulo **de Dados de Importação** na tela de experiência (a parte central do ecrã) para utilizar o módulo para acesso a dados.
 
 Isto é o que os **Dados de Importação** parecem ao obter dados da tabela Hive:
 
@@ -502,13 +502,13 @@ Para o módulo **Dados de Importação,** os valores dos parâmetros fornecidos 
 
 1. Escolha "Consulta de colmeia" para **Fonte de Dados**
 2. Na caixa de consulta de **base de dados da Hive,** basta um simples SELECT * FROM <o nome da \_ base de \_ dados.o nome da sua \_ mesa> - é \_ suficiente.
-3. **Hcatalog servidor URI** : Se o seu cluster é "abc", então isto é simplesmente: https: \/ /abc.azurehdinsight.net
-4. **Nome da conta do utilizador Hadoop** : O nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO o nome de utilizador do Acesso Remoto!)
-5. **Palavra-passe da conta de utilizador Hadoop** : A palavra-passe para o nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO a palavra-passe de Acesso Remoto!)
-6. **Localização dos dados de saída** : Escolha "Azure"
-7. **Nome da conta de Armazenamento Azure** : A conta de armazenamento associada ao cluster
-8. **Chave da conta de armazenamento Azure** : A chave da conta de armazenamento associada ao cluster.
-9. **Nome do recipiente azul** : Se o nome do cluster for "abc", então isto é simplesmente "abc", normalmente.
+3. **Hcatalog servidor URI**: Se o seu cluster é "abc", então isto é simplesmente: https: \/ /abc.azurehdinsight.net
+4. **Nome da conta do utilizador Hadoop**: O nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO o nome de utilizador do Acesso Remoto!)
+5. **Palavra-passe da conta de utilizador Hadoop**: A palavra-passe para o nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO a palavra-passe de Acesso Remoto!)
+6. **Localização dos dados de saída**: Escolha "Azure"
+7. **Nome da conta de Armazenamento Azure**: A conta de armazenamento associada ao cluster
+8. **Chave da conta de armazenamento Azure**: A chave da conta de armazenamento associada ao cluster.
+9. **Nome do recipiente azul**: Se o nome do cluster for "abc", então isto é simplesmente "abc", normalmente.
 
 Assim que os **Dados de Importação** terminarem de obter dados (vê o tique-taque verde no Módulo), guarde estes dados como um Conjunto de Dados (com um nome à sua escolha). O que isto parece:
 

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 7e68e9f8caad7d7e4bc44bc4e1e55150a78b4a98
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026408"
 ---
 # <a name="pick-initial-size-for-hyperscale-citus-server-group"></a>Escolha o tamanho inicial para o grupo de servidor Hyperscale (Citus)
@@ -29,9 +29,9 @@ O nó coordenador não requer tanto RAM como os trabalhadores, mas não há como
 
 Total de vCores: quando os dados de trabalho se enquadram na RAM, pode esperar uma melhoria linear do desempenho em Hyperscale (Citus) proporcional ao número de núcleos de trabalhadores. Para determinar o número certo de vCores para as suas necessidades, considere a latência atual para consultas na sua base de dados de nó único e a latência necessária em Hyperscale (Citus). Divida a latência atual pela latência desejada e arredonde o resultado.
 
-RAM de trabalho: o melhor caso seria proporcionar memória suficiente para que a maioria do conjunto de trabalho se encaixe na memória. O tipo de consultas que a sua aplicação utiliza afeta os requisitos de memória. Pode executar EXPLAIN ANALYZE numa consulta para determinar a quantidade de memória necessária. Lembre-se que vCores e RAM são dimensionados em conjunto como descrito no artigo de opções de [configuração Hyperscale (Citus).](concepts-hyperscale-configuration-options.md)
+RAM de trabalho: o melhor caso seria proporcionar memória suficiente para que a maioria do conjunto de trabalho se encaixe na memória. O tipo de consultas que a aplicação utiliza afeta os requisitos de memória. Pode executar EXPLAIN ANALYZE numa consulta para determinar a quantidade de memória necessária. Lembre-se que vCores e RAM são dimensionados em conjunto como descrito no artigo de opções de [configuração Hyperscale (Citus).](concepts-hyperscale-configuration-options.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Dimensionar um grupo de servidores](howto-hyperscale-scale-grow.md)
 - Saiba mais sobre [as opções](concepts-hyperscale-configuration-options.md)de desempenho do grupo do servidor .

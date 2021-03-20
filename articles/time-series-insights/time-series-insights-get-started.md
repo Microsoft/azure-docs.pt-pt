@@ -1,5 +1,5 @@
 ---
-title: Criar um ambiente - Azure Time Series Insights / Microsoft Docs
+title: Criar um ambiente - Azure Time Series Insights | Microsoft Docs
 description: Aprenda a usar o portal Azure para criar um novo ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95023331"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Criar um novo ambiente Azure Time Series Insights Gen1 no portal Azure
@@ -66,7 +66,7 @@ Siga estes passos para criar um ambiente:
 
 1. **(Opcional)** Selecione o **ícone pino** no canto superior direito para aceder facilmente ao ambiente Azure Time Series Insights no futuro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Defina políticas de acesso](./concepts-access-policies.md) a dados para proteger o seu ambiente.
 

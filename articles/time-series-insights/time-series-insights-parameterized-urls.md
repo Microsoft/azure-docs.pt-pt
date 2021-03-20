@@ -1,5 +1,5 @@
 ---
-title: Partilhe vistas personalizadas com URLs parametrizados - Azure Time Series Insights / Microsoft Docs
+title: Partilhe vistas personalizadas com URLs parametrizados - Azure Time Series Insights | Microsoft Docs
 description: Aprenda a criar URLs parametrizados para partilhar facilmente visualizações personalizadas do Explorer em Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91665332"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
@@ -69,7 +69,7 @@ Os valores aceites correspondem ao menu de **tempo insights** explorer da Série
 
 O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica termos predicados que aparecerão numa vista Azure Time Series Insights:
 
-| Parâmetro | Artigo URL | Descrição |
+| Parâmetro | Artigo URL | Description |
 | --- | --- | --- |
 | **nome** | `\<string>` | É o nome do *termo*. |
 | **splitBy** | `\<string>` | É o nome da coluna pela qual *dividir*. |
@@ -86,7 +86,7 @@ O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica ter
 * `timeBucketUnit=<Unit>&timeBucketSize=<integer>`Permite-lhe ajustar o deslizador de intervalos para proporcionar uma visão mais granular ou mais suave e agregada do gráfico.  
 * O `timezoneOffset=<integer>` parâmetro permite-lhe definir o timezone para que o gráfico seja visto como uma compensação para UTC.
 
-| Pares(s) | Descrição |
+| Pares(s) | Description |
 | --- | --- |
 | `multiChartStack=false` | `true` é ativado por padrão assim passar `false` para empilhar. |
 | `multiChartStack=false&multiChartSameScale=true` | O empilhamento tem de estar ativado para utilizar a mesma escala de eixo Y entre termos.  É `false` por padrão, por isso a passagem `true` permite esta funcionalidade. |
@@ -110,7 +110,7 @@ Utilize as definições de séries hortemporais de exemplo para:
 
 * A iD do ambiente
 * Os últimos 60 minutos de dados
-* Os termos **(F1PressureID,** **F2TempStation**e **F3VibrationPL**) que compõem os parâmetros opcionais
+* Os termos **(F1PressureID,** **F2TempStation** e **F3VibrationPL**) que compõem os parâmetros opcionais
 
 Pode construir o seguinte URL parametrizado para uma vista:
 

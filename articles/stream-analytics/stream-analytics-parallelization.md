@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9149413d070bbb5eb8d0f8d0c99fe5ff705bcefb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012330"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Paralelização de consulta de alavancagem em Azure Stream Analytics
@@ -32,7 +32,7 @@ Toda a entrada Azure Stream Analytics pode tirar partido da partição:
 ### <a name="outputs"></a>Saídas
 
 Quando trabalha com o Stream Analytics, pode aproveitar a partilha nas saídas:
--   Armazenamento do Azure Data Lake
+-   Azure Data Lake Storage
 -   Funções do Azure
 -   Tabela do Azure
 -   Armazenamento de bolhas (pode definir a chave de partição explicitamente)
@@ -316,7 +316,7 @@ Utilize o painel métrica no seu trabalho Azure Stream Analytics para identifica
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

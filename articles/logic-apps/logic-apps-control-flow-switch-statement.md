@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89657450"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar declarações de switch que executam ações de fluxo de trabalho com base em valores específicos em Azure Logic Apps
@@ -110,7 +110,7 @@ Agora que criou uma aplicação lógica usando uma declaração de comutação, 
 }
 ```
 
-| Etiqueta | Descrição |
+| Etiqueta | Description |
 |-------|-------------|
 | `"Switch"`         | O nome da declaração do switch, que pode renomear para a legibilidade |
 | `"type": "Switch"` | Especifica que a ação é uma declaração de comutação |

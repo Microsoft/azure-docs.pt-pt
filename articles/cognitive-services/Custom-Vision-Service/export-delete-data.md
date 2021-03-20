@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: fe17fa4349085be47201974b418493fe8d912ece
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90527399"
 ---
 # <a name="view-or-delete-user-data-in-custom-vision"></a>Ver ou apagar dados do utilizador em Visão Personalizada
@@ -32,6 +32,6 @@ Para saber como visualizar e eliminar dados do utilizador em Visão Personalizad
 | Detalhes do desempenho da iteração | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Lista de iterações | [GetIterations](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
 | Projetos e detalhes do projeto | [Obter Projetos](https://go.microsoft.com/fwlink/?linkid=865446) e [Obter](https://go.microsoft.com/fwlink/?linkid=865446) | [ExcluirProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Etiquetas de imagem | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) e [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
+| Tags de imagens | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) e [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Imagens | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornece uri para download de imagem) e [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornece uri para download de imagem) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Iterações exportadas | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Suprimido após a eliminação da conta |

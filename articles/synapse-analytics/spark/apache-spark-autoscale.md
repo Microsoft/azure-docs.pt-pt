@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
 ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93313637"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automática Piscinas Apache Spark Azure Synapse
 
-A funcionalidade De Escala Automática da piscina Apache Spark for Azure Synapse Analytics escala automaticamente o número de nós num caso de cluster para cima e para baixo. Durante a criação de uma nova piscina Apache Spark para Azure Synapse Analytics, um número mínimo e máximo de nós pode ser definido quando a Autoscale é selecionada. Em seguida, a autoescala os requisitos de recursos da carga e dimensiona o número de nós para cima ou para baixo. Não há nenhum custo adicional para esta funcionalidade.
+A funcionalidade de Dimensionamento Automático do conjunto do Apache Spark para o Azure Synapse Analytics aumenta e reduz verticalmente de forma automática o número de nós numa instância de cluster. Durante a criação de um novo conjunto do Apache Spark para o Azure Synapse Analytics, pode ser definido um número mínimo e máximo de nós ao selecionar o Dimensionamento automático. O Dimensionamento Automático monitoriza os requisitos de recursos da carga e aumenta e reduz verticalmente o número de nós. Não existe nenhum encargo adicional para esta funcionalidade.
 
 ## <a name="metrics-monitoring"></a>Monitorização de métricas
 
 A autoescala continuamente a instância Spark e recolhe as seguintes métricas:
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |---|---|
 |CPU total pendente|O número total de núcleos necessários para iniciar a execução de todos os nós pendentes.|
 |Memória Total Pendente|A memória total (em MB) necessária para iniciar a execução de todos os nós pendentes.|

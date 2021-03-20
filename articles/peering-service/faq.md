@@ -11,10 +11,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 95ce90dbbf47ffe527fe6f25704d9cd28b834ea9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026700"
 ---
 # <a name="peering-service-faq"></a>Serviço de Observação FAQ
@@ -48,7 +48,7 @@ A. Os parceiros que se registaram no Microsoft Peering Service estão a trabalha
 
 A. Azure ExpressRoute é uma ligação privada e dedicada a partir de um ou vários locais de clientes. Embora o Peering Service ofereça conectividade pública otimizada e não suporte qualquer conectividade privada, também oferece conectividade otimizada para fugas de internet locais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o Serviço de Peering, consulte [a visão geral do Serviço de Peering](about.md).
 - Para encontrar um prestador de serviços, consulte [parceiros e locais do Serviço de Observação.](location-partners.md)

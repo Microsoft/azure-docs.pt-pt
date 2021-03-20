@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654869"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Habilidade cognitiva de tradução de texto
@@ -38,7 +38,7 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas | Descrição |
+| Entradas | Description |
 |---------------------|-------------|
 | códigoToLanguageCode | (Obrigatório) O código linguístico para traduzir documentos em documentos que não especificam explicitamente a linguagem. <br/> Consulte [a lista completa de línguas suportadas.](../cognitive-services/translator/language-support.md) |
 | defaultFromLanguageCode | (Opcional) O código linguístico para traduzir documentos de documentos que não especificam explicitamente o da língua.  Se o Código de Identificação Padrão não for especificado, a deteção automática da linguagem fornecida pela API de Texto do Tradutor será utilizada para determinar a partir da idioma. <br/> Consulte [a lista completa de línguas suportadas.](../cognitive-services/translator/language-support.md) |
@@ -46,7 +46,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada     | Descrição |
+| Nome de entrada     | Description |
 |--------------------|-------------|
 | texto | O texto a ser traduzido.|
 | toLanguageCode    | Uma cadeia que indique a língua para a que o texto deve ser traduzido. Se esta entrada não for especificada, o Código de Liga Padrão será utilizado para traduzir o texto. <br/>Ver [lista completa de línguas apoiadas](../cognitive-services/translator/language-support.md)|
@@ -54,7 +54,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída    | Descrição |
+| Nome de saída    | Description |
 |--------------------|-------------|
 | traduzidoText | O resultado da sequência da tradução de texto do Código de Liga traduzido para o Código de Honra traduzido.|
 | traduzidoToLanguageCode  | Uma cadeia indicando o código de linguagem para o que o texto foi traduzido. Útil se estiver a traduzir para várias línguas e quiser ser capaz de acompanhar qual o texto que é a língua.|

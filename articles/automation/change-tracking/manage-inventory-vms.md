@@ -1,5 +1,5 @@
 ---
-title: Gerir a coleção de inventário da Azure Automation a partir de VMs Microsoft Docs
+title: Gerir a coleção de inventários da Azure Automation a partir de VMs | Microsoft Docs
 description: Este artigo diz como gerir a recolha de inventário de VMs.
 services: automation
 ms.subservice: change-inventory-management
@@ -7,10 +7,10 @@ keywords: inventário, automatização,alteração, controlo
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2acf22ba76acdfa6152ef8966f4000aa325a9e91
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92209907"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gerir a recolha de inventário a partir de VMs
@@ -54,7 +54,7 @@ Quando a implementação estiver concluída, a barra de estado desaparece. O sis
 Por predefinição, o software, os serviços do Windows e os daemons Linux estão configurados para a recolha. Para recolher o registo do Windows e o inventário de ficheiros, configure as definições de recolha do inventário.
 
 1. Na página 'Inventário', clique em **Editar Definições** no topo da página.
-2. Para adicionar uma nova definição de recolha, aceda à categoria de definição que pretende adicionar selecionando o **separador Registo**do Windows, **Windows Files**ou **Ficheiros Linux.**
+2. Para adicionar uma nova definição de recolha, aceda à categoria de definição que pretende adicionar selecionando o **separador Registo** do Windows, **Windows Files** ou **Ficheiros Linux.**
 3. Selecione a categoria adequada e clique em **Adicionar** no topo da página.
 
 As seguintes secções fornecem informações sobre cada imóvel que podem ser configurados para as várias categorias.
@@ -114,7 +114,7 @@ Se pretender criar um novo grupo de máquinas, clique **em + Crie um grupo de m�
 
 Para remover o seu VM da gestão de Change Tracking e Inventário:
 
-1. No painel esquerdo do portal Azure, selecione **Log Analytics**e, em seguida, selecione o espaço de trabalho que utilizou ao ativar o seu VM para change tracking and inventory.
+1. No painel esquerdo do portal Azure, selecione **Log Analytics** e, em seguida, selecione o espaço de trabalho que utilizou ao ativar o seu VM para change tracking and inventory.
 2. Na página **'Registar Analytics',** abra o menu **Recursos.**
 3. Selecione **máquinas virtuais** em **fontes de dados do espaço de trabalho.**
 4. Na lista, selecione o VM que pretende desligar. A máquina tem uma marca de verificação verde ao lado **deste espaço de trabalho** na coluna **OMS Connection.**

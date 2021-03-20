@@ -13,10 +13,10 @@ ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
 ms.openlocfilehash: 82c3dd4ce7f5e7e9f3d5a226bfe65e27eca2d3d4
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100103248"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registo no portal do Azure para aplicações personalizadas

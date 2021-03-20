@@ -13,10 +13,10 @@ ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
 ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98599788"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ para bases de dados ClearDB MySql com Serviço de Aplicações Azure
@@ -48,7 +48,7 @@ Isto depende do tipo de subscrição que está a utilizar. Aqui estão alguns ti
 A opção de base de dados padrão é Titan, que é $3,50. Não mostramos o custo durante a criação da base de dados, e pode por engano comprar uma base de dados que não pretendia. Estamos a tentar encontrar uma maneira de melhorar a experiência, mas até lá tem de verificar todos os seus níveis de preços selecionados para aplicações web e base de dados antes de clicar em **Criar** e iniciar a implementação dos recursos.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Estou a executar o MySQL na minha própria máquina virtual Azure. Posso ligar o meu aplicativo Azure à minha base de dados?
-Yes. Pode ligar a sua aplicação web à sua base de dados desde que o seu VM Azure tenha dado acesso remoto à sua aplicação web. Para obter mais informações, consulte [instalar o MySQL numa máquina virtual.](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Sim. Pode ligar a sua aplicação web à sua base de dados desde que o seu VM Azure tenha dado acesso remoto à sua aplicação web. Para obter mais informações, consulte [instalar o MySQL numa máquina virtual.](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Em que países/regiões são apoiados os clusters MySQL premium Da ClearDB?
 Os clusters MySQL Premium Da ClearDB estão disponíveis em todas as regiões do Azure em todo o mundo, com exceção da Índia, Austrália, Brasil Sul e China.
@@ -75,7 +75,7 @@ Se criou uma base de dados ClearDB em clássico, não poderá ver a sua base de 
 Contacte [o suporte da ClearDB](https://www.cleardb.com/developers/help/support) para quaisquer questões relacionadas com a base de dados. Esteja preparado para fornecer-lhes as informações de subscrição do Azure.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Posso criar utilizadores adicionais para a minha solução de cluster de base de dados ClearDB MySQL?
-Não. Não é possível criar utilizadores adicionais, mas pode criar bases de dados adicionais no seu cluster de base de dados ClearDB.  
+N.º Não é possível criar utilizadores adicionais, mas pode criar bases de dados adicionais no seu cluster de base de dados ClearDB.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>As bases de dados básicas/pro podem ser atualizadas no local semelhantes aos planos planetários de hoje no portal ClearDB?
 Sim, as bases de dados de séries básicas podem ser atualizadas no local (Basic 60 a Basic 500). A série Pro pode ser atualizada no local (Pro 125 através pro 1000) exceto no Pro 60. Não apoiamos atualmente a atualização da base de dados Pro 60. 

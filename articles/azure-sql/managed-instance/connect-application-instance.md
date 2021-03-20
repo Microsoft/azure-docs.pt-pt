@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
 ms.openlocfilehash: 3106ec1a45b307207624e5cd077a222acccc83d1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692832"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligar a aplicação ao Azure SQL Managed Instance
@@ -139,7 +139,7 @@ Para resolver problemas de conectividade, reveja o seguinte:
 
 - Se estiver a utilizar a rede virtual para ligar uma aplicação hospedada do Azure App Service e a rede virtual SQL Managed Instance tiver uma gama de endereços IP público, certifique-se de que as definições de aplicação hospedadas permitem que o tráfego de saída seja encaminhado para redes IP públicas. Siga as instruções de [integração regional da rede virtual.](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 
-## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias de motoristas e ferramentas
+## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias dos controladores e ferramentas
 
 Recomenda-se as seguintes versões mínimas das ferramentas e dos condutores se pretender ligar-se à SQL Managed Instance:
 
