@@ -8,10 +8,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339551"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Criar alertas para a Azure Cosmos DB usando o Azure Monitor
@@ -65,7 +65,7 @@ Esta secção mostra como criar um alerta quando recebe um código de estado HTT
 
    * Na **lógica alerta,** desa um **limite** para **estático**. O limiar estático utiliza um valor limiar definido pelo utilizador para avaliar a regra, enquanto os limiares dinâmicos utilizam algoritmos de aprendizagem automática incorporados para aprender continuamente o padrão de comportamento métrico e calcular os limiares automaticamente.
 
-   * Coloque o **operador** em **Maior do que** , o tipo de **agregação** para **total** , e o **valor limiar** para **100**. Com esta lógica, se o seu cliente vê mais de 100 pedidos que têm um código de estado 429, o alerta é desencadeado. Também pode configurar o tipo de agregação, granularidade agregação e a frequência de avaliação com base na sua exigência.
+   * Coloque o **operador** em **Maior do que**, o tipo de **agregação** para **total**, e o **valor limiar** para **100**. Com esta lógica, se o seu cliente vê mais de 100 pedidos que têm um código de estado 429, o alerta é desencadeado. Também pode configurar o tipo de agregação, granularidade agregação e a frequência de avaliação com base na sua exigência.
 
    * Depois de preencher o formulário, selecione **Fazer**. A imagem que se segue mostra os detalhes da lógica de alerta:
 

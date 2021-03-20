@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ca8df21e0221d364f75eaeb26f0b2961d7e0b08
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: dcd58e966da7ca596a14ca1b2839cbeb6399a855
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204470"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576463"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem, uma característica opcional do Azure File Sync, diminui a quantidade de armazenamento local necessária mantendo o desempenho de um servidor de ficheiros no local.
@@ -39,7 +39,7 @@ Com a política de **data,** os ficheiros cool são hierárquicos para a nuvem s
 Para obter mais exemplos sobre como a política de data e a política de espaço livre de volume funcionam em conjunto, consulte [as políticas de tiering de nuvem de sincronização de ficheiros Azure.](storage-sync-choose-cloud-tiering-policies.md)
 
 ### <a name="windows-server-data-deduplication"></a>Deduplica de dados do Windows Server
-A desduplicação de dados é suportada em volumes que tenham o tiering de nuvem ativado a partir do Windows Server 2016. Para mais detalhes, consulte [o Planeamento para uma implementação do Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
+A desduplicação de dados é suportada em volumes que tenham o tiering de nuvem ativado a partir do Windows Server 2016. Para mais detalhes, consulte [o Planeamento para uma implementação do Azure File Sync](./storage-sync-files-planning.md#data-deduplication).
 
 ### <a name="cloud-tiering-heatmap"></a>Mapa de calor de camadas de nuvem
 O Azure File Sync monitoriza o acesso ao ficheiro (ler e escrever operações) ao longo do tempo e, com base na frequência e no acesso recente, atribui uma pontuação de calor a cada ficheiro. Utiliza estas pontuações para construir um "mapa de calor" do seu espaço de identificação em cada ponto final do servidor. Este mapa de calor é uma lista de todos os ficheiros sincronizados num local com nivelamento de nuvem ativado, ordenado pela sua pontuação de calor. Os ficheiros frequentemente acedidos que foram recentemente abertos são considerados quentes, enquanto ficheiros que mal foram tocados e que não foram acedidos há algum tempo são considerados fixes. 
@@ -109,4 +109,3 @@ Também é possível que um ficheiro seja parcialmente hierarquizado (ou parcial
 ## <a name="next-steps"></a>Passos seguintes
 * [Escolha as políticas de tiering de nuvem de sincronização de ficheiros Azure](storage-sync-choose-cloud-tiering-policies.md)
 * [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-

@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675702"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Perguntas frequentes sobre o Centro de Educação
@@ -54,7 +54,7 @@ O Azure for Students fornece acesso a todos os produtos Azure que se destinam ex
 
 ### <a name="can-i-apply-any-of-my-100-credit-toward-azure-marketplace-offers"></a>Posso aplicar algum dos meus 100 dólares de crédito para as ofertas do Azure Marketplace?
 
-Não. Não pode aplicar o seu crédito às ofertas do Azure Marketplace. No entanto, muitos parceiros do Azure Marketplace oferecem testes gratuitos ou planos de nível livre para as suas soluções.
+N.º Não pode aplicar o seu crédito às ofertas do Azure Marketplace. No entanto, muitos parceiros do Azure Marketplace oferecem testes gratuitos ou planos de nível livre para as suas soluções.
 
 ## <a name="azure-for-students-starter"></a>Azure for Students Starter
 
@@ -232,7 +232,7 @@ Uma vez aprovado, poderá iniciar sôms no [portal Visual Studio](https://my.vis
 
 ### <a name="does-microsoft-azure-dev-tools-for-teaching-include-microsoft-office"></a>As ferramentas de dev do Microsoft Azure Dev incluem o Microsoft Office?
 
-Não. O foco da Microsoft Azure Dev Tools for Teaching é fornecer aos departamentos, docentes e alunos as ferramentas necessárias para expandir especificamente o seu estudo de desenvolvimento e teste de software. Por isso, fornecemos tecnologias como Windows Server, Visual Studio .NET, SQL Server e Platform SDK.
+N.º O foco da Microsoft Azure Dev Tools for Teaching é fornecer aos departamentos, docentes e alunos as ferramentas necessárias para expandir especificamente o seu estudo de desenvolvimento e teste de software. Por isso, fornecemos tecnologias como Windows Server, Visual Studio .NET, SQL Server e Platform SDK.
 
 ### <a name="does-azure-dev-tools-for-teaching-include-azure-credit"></a>As ferramentas Azure Dev para o ensino incluem o Crédito Azure?
 
@@ -240,7 +240,7 @@ Não, a sua subscrição microsoft Azure Dev Tools for Teaching não inclui o cr
 
 ### <a name="do-students-need-an-office-365-or-active-directory-account-to-access-azure-dev-tools-for-teaching"></a>Os alunos precisam de uma conta do Office 365 ou do Ative Directory para aceder às Ferramentas de Ensino do Azure Dev?
 
-Não. Os estudantes não precisam de uma conta do Escritório 365. Se os alunos tiverem acesso à sua conta Ative Directory, usam as mesmas credenciais para iniciar scontabilidade no software.
+N.º Os estudantes não precisam de uma conta do Escritório 365. Se os alunos tiverem acesso à sua conta Ative Directory, usam as mesmas credenciais para iniciar scontabilidade no software.
 
 Se os estudantes não utilizarem o Ative Directory, devem criar uma [Conta Microsoft](https://account.microsoft.com/account) (se ainda não tiverem uma) utilizando o mesmo endereço de e-mail que os fornece.
 
@@ -282,7 +282,7 @@ Se não receber estes e-mails de lembrete e estiver preocupado que a sua subscri
 
 Em alternativa, vá ao [Azure Dev Tools for Teaching - Renovar a página](https://portal.azureforeducation.microsoft.com/)e complete o processo de renovação.
 
-Para verificar a data de validade da sua subscrição, aceda ao [portal Azure Dev Tools for Teaching Management](https://azureforeducation.microsoft.com/account/Subscriptions)e consulte as **Assinaturas** .
+Para verificar a data de validade da sua subscrição, aceda ao [portal Azure Dev Tools for Teaching Management](https://azureforeducation.microsoft.com/account/Subscriptions)e consulte as **Assinaturas**.
 
 ### <a name="what-if-i-need-more-help"></a>E se eu precisar de mais ajuda?
 

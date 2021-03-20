@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 1c8ccc1e1ee8c8c1b1a1e27443d27b2140a91649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84465018"
 ---
 Para criar um ponto final privado para a sua conta de armazenamento, primeiro precisa de obter uma referência à sua conta de armazenamento e à sub-rede de rede virtual à qual pretende adicionar o ponto final privado. `<storage-account-resource-group-name>`Substitua, , , , e `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>` `<vnet-subnet-name>` abaixo:

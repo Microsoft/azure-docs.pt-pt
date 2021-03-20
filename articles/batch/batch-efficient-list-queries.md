@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88933519"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar os recursos do Batch de forma eficiente
@@ -53,9 +53,9 @@ Neste cenário de exemplo, se houver milhares de tarefas no trabalho, os resulta
 
 ## <a name="filter-select-and-expand"></a>Filtrar, selecionar e expandir
 
-As APIs [de Lote .NET](/dotnet/api/microsoft.azure.batch) e [Lote REST](/rest/api/batchservice/) fornecem a capacidade de reduzir tanto o número de itens que são devolvidos numa lista, como a quantidade de informação que é devolvida para cada um. Fá-lo especificando **o filtro,** **selecione**e **expanda as cordas** ao executar consultas de lista.
+As APIs [de Lote .NET](/dotnet/api/microsoft.azure.batch) e [Lote REST](/rest/api/batchservice/) fornecem a capacidade de reduzir tanto o número de itens que são devolvidos numa lista, como a quantidade de informação que é devolvida para cada um. Fá-lo especificando **o filtro,** **selecione** e **expanda as cordas** ao executar consultas de lista.
 
-### <a name="filter"></a>Filtrar
+### <a name="filter"></a>Filtro
 
 A corda do filtro é uma expressão que reduz o número de itens que são devolvidos. Por exemplo, pode listar apenas as tarefas de execução para um trabalho, ou listar apenas nós de computação que estejam prontos para executar tarefas.
 

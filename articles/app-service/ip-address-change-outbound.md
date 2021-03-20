@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74671671"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Como se preparar para uma mudança de endereço IP de saída
@@ -35,7 +35,7 @@ Os novos endereços IP de saída são apresentados no portal antes de produzirem
 
 1.  Se a aplicação for uma aplicação de função, consulte [endereços IP de saída de aplicações da Função.](../azure-functions/ip-addresses.md#find-outbound-ip-addresses)
 
-4.  No cabeçalho **Definições,** clique em **Propriedades** na navegação à esquerda e encontre os **endereços IP de saída com**a etiqueta .
+4.  No cabeçalho **Definições,** clique em **Propriedades** na navegação à esquerda e encontre os **endereços IP de saída com** a etiqueta .
 
 5. Copie os endereços IP e adicione-os ao seu manuseamento especial do tráfego de saída, como um filtro ou uma lista permitida. Não elimine os endereços IP existentes na lista.
 

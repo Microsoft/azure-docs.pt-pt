@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936134"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemplo: Criar uma habilidade personalizada usando Python
@@ -44,7 +44,7 @@ O modelo do projeto das Funções do Azure no Visual Studio Code cria um projeto
 
 1. No Código do Estúdio Visual, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Create new project...` .
 
-1. Escolha um local de diretório para o seu espaço de trabalho do projeto e escolha **Select**.
+1. Selecione uma localização do diretório para a área de trabalho do seu projeto e escolha **Selecionar**.
 
     > [!NOTE]
     > Estes passos foram concebidos para serem concluídos fora de um espaço de trabalho. Por esta razão, não selecione uma pasta de projeto que faça parte de um espaço de trabalho.

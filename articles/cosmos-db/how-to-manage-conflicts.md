@@ -9,10 +9,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339347"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerir políticas de resolução de conflitos em Azure Cosmos DB
@@ -24,7 +24,7 @@ Com as gravações multi-regiões, quando vários clientes escrevem para o mesmo
 
 Estas amostras mostram como criar um contentor com uma política de resolução de conflitos de última hora. O caminho padrão para as últimas vitórias é o campo de tempos ou a `_ts` propriedade. Para a API SQL, este também pode ser definido para um caminho definido pelo utilizador com um tipo numérico. Num conflito, o maior valor vence. Se o caminho não estiver definido ou for inválido, é inválido. `_ts` Os conflitos resolvidos com esta política não aparecem na ração de conflitos. Esta política pode ser utilizada por todas as APIs.
 
-### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK .NET
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -114,7 +114,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>SDK Python
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
 
 ```python
 udp_collection = {
@@ -136,10 +136,10 @@ Estes exemplos mostram como configurar um contentor com uma política de resolu�
 
 Os procedimentos personalizados de resolução de conflitos devem ser implementados utilizando a assinatura de função abaixo mostrada. O nome da função não necessita de corresponder ao nome utilizado ao registar o procedimento armazenado com o recipiente, mas sim simplifica o nome. Aqui está uma descrição dos parâmetros que devem ser implementados para este procedimento armazenado.
 
-- **incomingItem** : O item que está a ser inserido ou atualizado no compromisso que está a gerar os conflitos. É nulo para apagar operações.
-- **existingItem** : O item atualmente comprometido. Este valor não é nulo numa atualização e nulo para uma inserção ou eliminação.
-- **isTombstone** : Boolean indicando se o incomingItem está em conflito com um item previamente eliminado. Quando verdadeiro, o existingItem também é nulo.
-- **conflituosaItems** : Matriz da versão comprometida de todos os itens no recipiente que estão em conflito com a entradaItem em ID ou quaisquer outras propriedades de índice únicas.
+- **incomingItem**: O item que está a ser inserido ou atualizado no compromisso que está a gerar os conflitos. É nulo para apagar operações.
+- **existingItem**: O item atualmente comprometido. Este valor não é nulo numa atualização e nulo para uma inserção ou eliminação.
+- **isTombstone**: Boolean indicando se o incomingItem está em conflito com um item previamente eliminado. Quando verdadeiro, o existingItem também é nulo.
+- **conflituosaItems**: Matriz da versão comprometida de todos os itens no recipiente que estão em conflito com a entradaItem em ID ou quaisquer outras propriedades de índice únicas.
 
 > [!IMPORTANT]
 > Tal como em qualquer procedimento armazenado, um procedimento personalizado de resolução de conflitos pode aceder a quaisquer dados com a mesma chave de partição e pode executar qualquer inserção, atualização ou eliminação de operação para resolver conflitos.
@@ -200,7 +200,7 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>SDK .NET
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -309,7 +309,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 Após a criação do seu recipiente, deve criar o `resolver` procedimento armazenado.
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>SDK Python
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
 ```python
 udp_collection = {
@@ -329,7 +329,7 @@ Após a criação do seu recipiente, deve criar o `resolver` procedimento armaze
 
 Estes exemplos mostram como configurar um contentor com uma política de resolução de conflitos personalizada. Estes conflitos aparecem na ração de conflitos.
 
-### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>SDK .NET
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -416,7 +416,7 @@ const {
 });
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>SDK Python
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>Python SDK
 
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
@@ -433,7 +433,7 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 Estes exemplos mostram como ler a partir do feed de conflitos de um contentor. Os conflitos só aparecem no feed de conflitos se não forem resolvidos automaticamente ou se usarem uma política de conflitos personalizada.
 
-### <a name="net-sdk"></a><a id="read-from-conflict-feed-dotnet"></a>SDK .NET
+### <a name="net-sdk"></a><a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -500,7 +500,7 @@ const container = client
 const { result: conflicts } = await container.conflicts.readAll().toArray();
 ```
 
-### <a name="python"></a><a id="read-from-conflict-feed-python"></a>Pitão
+### <a name="python"></a><a id="read-from-conflict-feed-python"></a>Python
 
 ```python
 conflicts_iterator = iter(client.ReadConflicts(self.manual_collection_link))

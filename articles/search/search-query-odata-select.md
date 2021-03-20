@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919663"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select sintaxe na pesquisa cognitiva do Azure
 
- Pode utilizar o [parâmetro OData **$select** ](query-odata-filter-orderby-syntax.md) para escolher quais os campos a incluir nos resultados de pesquisa da Azure Cognitive Search. Este artigo descreve a sintaxe de **$select** em detalhe. Para obter informações mais gerais sobre como utilizar **$select** ao apresentar resultados de pesquisa, consulte [Como trabalhar com os resultados da pesquisa na Azure Cognitive Search](search-pagination-page-layout.md).
+ Pode utilizar o [parâmetro OData **$select**](query-odata-filter-orderby-syntax.md) para escolher quais os campos a incluir nos resultados de pesquisa da Azure Cognitive Search. Este artigo descreve a sintaxe de **$select** em detalhe. Para obter informações mais gerais sobre como utilizar **$select** ao apresentar resultados de pesquisa, consulte [Como trabalhar com os resultados da pesquisa na Azure Cognitive Search](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Syntax
 
-O **parâmetro $select** determina quais os campos para cada documento que são devolvidos no conjunto de resultados de consulta. O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para o parâmetro **$select:**
+O **parâmetro $select** determina quais os campos para cada documento que são devolvidos no conjunto de resultados de consulta. O seguinte EBNF [(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para o parâmetro **$select:**
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

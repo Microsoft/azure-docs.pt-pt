@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/16/2020
 ms.openlocfilehash: 18322afbdca94b12ef142f6e37c4d2a22170436b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97592668"
 ---
 # <a name="data-flows-in-azure-synapse-analytics"></a>Fluxos de dados em Azure Synapse Analytics
@@ -55,7 +55,7 @@ O primeiro separador no painel de configuração de cada transformação contém
 
 ![Separador de definições de origem](media/data-flow/source-1.png)
 
-#### <a name="optimize"></a>Otimizar
+#### <a name="optimize"></a>Otimização
 
 O **separador Otimize** contém configurações para configurar esquemas de partição. Para saber mais sobre como otimizar os fluxos de dados, consulte o guia de desempenho do [fluxo de dados de mapeamento.](../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 

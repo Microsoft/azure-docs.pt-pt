@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com SendSafely Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com SendSafely | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o SendSafely.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: jeedes
 ms.openlocfilehash: c43756e7526a260f238ed6e9d0c1f253041b05e7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674406"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sendsafely"></a>Tutorial: Azure Ative Directory integração única (SSO) com SendSafely
@@ -50,15 +50,15 @@ Para configurar a integração do SendSafely no AD Azure, é necessário adicion
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **digite SendSafely** na caixa de pesquisa.
 1. Selecione **SendSafely** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-sendsafely"></a>Configurar e testar Azure AD único sinal de inscrição para SendSafely
 
-Configure e teste Azure AD SSO com SendSafely usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no SendSafely.
+Configure e teste Azure AD SSO com SendSafely usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no SendSafely.
 
 Para configurar e testar o Azure AD SSO com o SendSafely, complete os seguintes blocos de construção:
 
@@ -73,8 +73,8 @@ Para configurar e testar o Azure AD SSO com o SendSafely, complete os seguintes 
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **SendSafely,** encontre a secção **Gerir** e selecione **um único sinal de sação** .
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **SendSafely,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -106,21 +106,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, concedendo acesso ao SendSafely.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de aplicações, selecione **SendSafely** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **SendSafely**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

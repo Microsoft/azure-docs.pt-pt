@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67235412"
 ---
 Agora que os seus pontos finais e rotas de mensagens estão configuradas, pode visualizar a sua configuração no portal. Inscreva-se no [portal Azure](https://portal.azure.com) e vá para **grupos de recursos.** Em seguida, selecione o seu grupo de recursos e, em seguida, selecione o seu hub (o nome do hub começa `ContosoTestHub` neste tutorial). Vê-se o painel do IoT Hub.

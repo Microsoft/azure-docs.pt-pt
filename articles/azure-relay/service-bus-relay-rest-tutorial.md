@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 0620f55650d0e4da0cd7a616649df952f3017455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922332"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutorial: Tutorial de Relé WCF Azure
@@ -54,12 +54,12 @@ A principal diferença entre um contrato wcf e um contrato de estilo REST é a a
 1. Inicie o Microsoft Visual Studio como administrador. Para tal, clique com o botão direito no ícone do programa Visual Studio e selecione **Executar como administrador**.
 1. No Visual Studio, **selecione Criar um novo projeto.**
 1. In **Create a new project**, escolha a App consola **(.NET Framework)** para C# e selecione **Next**.
-1. Nomeie o projeto *ImageListener*. Utilize a **localização predefinitiva**e, em seguida, selecione **Criar**.
+1. Nomeie o projeto *ImageListener*. Utilize a **localização predefinitiva** e, em seguida, selecione **Criar**.
 
-   Para um projeto C#, o Visual Studio cria um ficheiro *Program.cs.* Esta classe contém método `Main()` vazio, necessário para que um projeto de aplicação de consola seja criado corretamente.
+   Para um projeto C#, o Visual Studio cria um ficheiro *.cs Programa.* Esta classe contém método `Main()` vazio, necessário para que um projeto de aplicação de consola seja criado corretamente.
 
 1. No **Solution Explorer,** clique com o botão direito no projeto **ImageListener** e, em seguida, **selecione Gerir pacotes NuGet**.
-1. **Selecione Procurar**e, em seguida, procurar e escolher **WindowsAzure.ServiceBus**. Selecione **Instalar**e aceite os termos de utilização.
+1. **Selecione Procurar** e, em seguida, procurar e escolher **WindowsAzure.ServiceBus**. Selecione **Instalar** e aceite os termos de utilização.
 
     Este passo adiciona referências a Service Bus e *System.ServiceModel.dll*. Este pacote adiciona automaticamente referências às bibliotecas do Service Bus e ao WCF `System.ServiceModel` .
 
@@ -68,7 +68,7 @@ A principal diferença entre um contrato wcf e um contrato de estilo REST é a a
 
 Em seguida, faça as seguintes alterações de código ao projeto:
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro *Program.cs.*
+1. Adicione as `using` seguintes declarações no topo do ficheiro *.cs Programa.*
 
     ```csharp
     using System.ServiceModel;
@@ -196,11 +196,11 @@ Tal como nos passos anteriores, há pouca diferença entre a implementação de 
 
     Como mencionado anteriormente, este espaço de nome não é um espaço tradicional de nome. Faz parte da arquitetura do WCF que identifica o contrato. Para mais informações, consulte os [Nomes do Contrato de Dados.](/dotnet/framework/wcf/feature-details/data-contract-names/)
 
-1. Adicione uma imagem *.jpg* ao seu projeto. Este ficheiro é uma imagem que o serviço exibe no navegador recetor.
+1. Adicione uma *imagem .jpg* ao seu projeto. Este ficheiro é uma imagem que o serviço exibe no navegador recetor.
 
    1. Clique com o botão direito no seu projeto e **selecione Adicionar**.
    1. Em **seguida, selecione o item existente**.
-   1. Utilize **adicionar o item existente** para navegar para um .jpg apropriado e, em seguida, selecione **Adicionar**. Ao adicionar o ficheiro, selecione **Todos os Ficheiros** da lista de drop-down ao lado **do nome 'Ficheiro'.**
+   1. Utilize **adicionar o item existente** para navegar por um .jpg apropriado e, em seguida, selecione **Adicionar**. Ao adicionar o ficheiro, selecione **Todos os Ficheiros** da lista de drop-down ao lado **do nome 'Ficheiro'.**
 
    O resto deste tutorial assume que o nome da imagem é *image.jpg*. Se tiver um ficheiro diferente, deve mudar o nome da imagem ou alterar o seu código para compensar.
 
@@ -248,15 +248,15 @@ Tal como nos passos anteriores, há pouca diferença entre a implementação de 
     }
     ```
 
-    Esta implementação utiliza `MemoryStream` para recuperar a imagem e prepará-la para o streaming para o navegador. Inicia a posição de stream a zero, declara o conteúdo do fluxo como *.jpg,* e transmite a informação.
+    Esta implementação utiliza `MemoryStream` para recuperar a imagem e prepará-la para o streaming para o navegador. Inicia a posição de stream a zero, declara o conteúdo do stream como um *.jpg*, e transmite a informação.
 
 1. Selecione **a**  >  **solução build build**.
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Para definir a configuração para executar o serviço Web no Service Bus
 
-1. No **Solution Explorer,** clique duas ** vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
+1. No **Solution Explorer,** clique duas **vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
 
-    O * ficheiroApp.config* inclui o nome de serviço, ponto final e encadernação. O ponto final é a localização que a Azure Relay expõe para clientes e anfitriões comunicarem entre si. A ligação é o tipo de protocolo que é usado para comunicar. A principal diferença aqui é que o ponto final de serviço configurado refere-se a uma ligação [WebHttpRelayBinding.](/dotnet/api/microsoft.servicebus.webhttprelaybinding)
+    O *ficheiroApp.config* inclui o nome de serviço, ponto final e encadernação. O ponto final é a localização que a Azure Relay expõe para clientes e anfitriões comunicarem entre si. A ligação é o tipo de protocolo que é usado para comunicar. A principal diferença aqui é que o ponto final de serviço configurado refere-se a uma ligação [WebHttpRelayBinding.](/dotnet/api/microsoft.servicebus.webhttprelaybinding)
 
 1. O elemento XML `<system.serviceModel>` é um elemento de WCF que define um ou vários serviços. Aqui, é usado para definir o nome de serviço e ponto final. Na parte inferior do `<system.serviceModel>` elemento, mas ainda `<system.serviceModel>` dentro, adicione um `<bindings>` elemento que tenha o seguinte conteúdo:
 
@@ -391,7 +391,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-O exemplo a seguir mostra o * ficheiroApp.config* associado ao serviço.
+O exemplo a seguir mostra o *ficheiroApp.config* associado ao serviço.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -542,7 +542,7 @@ O anfitrião do serviço é o objeto de WCF que cria uma instância na aplicaç�
 
 ### <a name="example-of-the-service-contract-and-implementation"></a>Exemplo do contrato de prestação de serviços e implementação
 
-O exemplo seguinte inclui o contrato de serviço e de implementação dos passos anteriores no tutorial e aloja o serviço numa aplicação de consola. Compilar o seguinte código numImageListener.exede * nome *executável .
+O exemplo seguinte inclui o contrato de serviço e de implementação dos passos anteriores no tutorial e aloja o serviço numa aplicação de consola. Compilar o seguinte código numImageListener.exede *nome* executável .
 
 ```csharp
 using System;

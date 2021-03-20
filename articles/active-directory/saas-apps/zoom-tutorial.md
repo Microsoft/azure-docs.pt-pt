@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/11/2020
 ms.author: jeedes
 ms.openlocfilehash: d105c83ba3db9502cf83f943dec6fcbfd5640d07
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735635"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Azure Ative Directory integração única (SSO) com Zoom
@@ -185,6 +185,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Zoom nas Minhas Apps, este irá redirecionar para ZOOM Sign-on URL. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado O Azure AD Zoom, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

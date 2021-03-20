@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368167"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
@@ -27,7 +27,7 @@ ms.locfileid: "92368167"
 
 A API REST do Azure Scheduler expõe e utiliza estas entidades principais ou recursos:
 
-| Entidade | Descrição |
+| Entidade | Description |
 |--------|-------------|
 | **Tarefa** | Define uma única ação periódica, com estratégias de execução simples ou complexas. As ações podem incluir pedidos HTTP, da fila do Armazenamento, da fila do Service Bus ou do tópico do Service Bus. | 
 | **Coleção de tarefas** | Contém um grupo de tarefas e mantém as definições, quotas e limitações que são partilhadas pelas tarefas na coleção. Enquanto proprietário da subscrição do Azure, pode criar coleções de tarefas e agrupar as tarefas com base nos limites da sua utilização ou aplicação. Uma coleção de tarefas tem estes atributos: <p>- Está restringida a uma região. <br>- Permite-lhe impor quotas para poder restringir a utilização de todas as tarefas numa coleção. <br>- As quotas incluem MaxJobs e MaxRecurrence. | 
@@ -249,14 +249,14 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 | Propriedade | Necessário | Valor | Descrição | 
 |----------|----------|-------|-------------| 
 | **frequência** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
-| **interval** | No | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
+| **intervalo** | No | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
 | **agendar** | No | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
 | **horas** | No | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
 | **minutos** | No | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
 | **months** | No | 1 a 12 | Um matriz com os meses marca quando a tarefa será executada | 
 | **monthDays** | No | Varia | Um matriz com os dias do mês marca quando a tarefa será executada | 
 | **weekDays** | No | “Segunda-feira”, “Terça-feira”, “Quarta-feira”, “Quinta-feira”, “Sexta-feira”, “Sábado”, “Domingo” | Um matriz com os dias da semana marca quando a tarefa será executada | 
-| **contar** | No | <*nenhuma*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
+| **count** | No | <*nenhuma*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
 | **endTime** | No | <*nenhuma*> | A data e hora para quando parar a periodicidade. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
 ||||
 

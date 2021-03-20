@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com Azure AD SAML Toolkit / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com Azure AD SAML Toolkit | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Azure AD SAML Toolkit.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 26618382223a87f779f95452000a39126f37efbb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675424"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Azure AD SAML Toolkit
@@ -48,14 +48,14 @@ Para configurar a integração do Azure AD SAML Toolkit em Azure AD, é necessá
 
 1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **digite Azure AD SAML Toolkit** na caixa de pesquisa.
 1. Selecione **Azure AD SAML Toolkit** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-azure-ad-saml-toolkit"></a>Configure e teste Azure AD SSO para Azure AD SAML Toolkit
 
-Configure e teste Azure AD SSO com Azure AD SAML Toolkit usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Azure AD SAML Toolkit.
+Configure e teste Azure AD SSO com Azure AD SAML Toolkit usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Azure AD SAML Toolkit.
 
 Para configurar e testar o Azure AD SSO com o Azure AD SAML Toolkit, execute os seguintes passos:
 
@@ -70,8 +70,8 @@ Para configurar e testar o Azure AD SSO com o Azure AD SAML Toolkit, execute os 
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No portal Azure, na página de integração da aplicação **Azure AD SAML,** encontre a secção **Gerir** e selecione **um único sinal de saúde** .
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No portal Azure, na página de integração da aplicação **Azure AD SAML,** encontre a secção **Gerir** e selecione **um único sinal de saúde**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -94,21 +94,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso ao Azure AD SAML Toolkit.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de aplicações, selecione **Azure AD SAML Toolkit** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Azure AD SAML Toolkit**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
@@ -116,15 +116,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
 ## <a name="configure-azure-ad-saml-toolkit-sso"></a>Configurar a azure ad SAML Toolkit SSO
 
-1. Abra uma nova janela do navegador web, se não tiver registado no site do Azure AD SAML Toolkit, primeiro registe-se clicando no **Registo** . Se já se registou, inscreva-se no site da empresa Azure AD SAML Toolkit utilizando o sinal registado em credenciais.
+1. Abra uma nova janela do navegador web, se não tiver registado no site do Azure AD SAML Toolkit, primeiro registe-se clicando no **Registo**. Se já se registou, inscreva-se no site da empresa Azure AD SAML Toolkit utilizando o sinal registado em credenciais.
 
     ![Registo de kit de ferramentas Azure Ad SAML](./media/saml-toolkit-tutorial/register.png)
 
-1. Clique na **Configuração SAML** .
+1. Clique na **Configuração SAML**.
 
     ![Configuração SAML de kit de ferramentas Azure Ad SAML](./media/saml-toolkit-tutorial/saml-configure.png)
 
-1. Clique em **Criar** .
+1. Clique em **Criar**.
 
     ![Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
 
@@ -140,7 +140,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     1. Clique **em Escolher Ficheiro** e faça o upload do ficheiro Certificado **(Raw)** que descarregou a partir do portal Azure.
 
-    1. Clique em **Criar** .
+    1. Clique em **Criar**.
 
     1. Copiar valores de URL, IDENTIFIER e URL ACS na página de configuração SSO do SAML Toolkit e colar em caixas de texto respeitadas na **secção de Configuração BÁSICA SAML** no portal Azure.
 

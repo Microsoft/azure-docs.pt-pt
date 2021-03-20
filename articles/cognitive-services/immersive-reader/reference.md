@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metang
 ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636532"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência SDK do leitor imersivo JavaScript (v1.1)
@@ -46,7 +46,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | `token` | cadeia (de carateres) | O sinal de autenticação AD Azure. Consulte [como criar um recurso de leitor imersivo](./how-to-create-immersive-reader.md) para mais detalhes. |
-| `subdomain` | cadeia | O subdomínio personalizado do seu recurso Immersive Reader em Azure. Consulte [como criar um recurso de leitor imersivo](./how-to-create-immersive-reader.md) para mais detalhes. |
+| `subdomain` | string | O subdomínio personalizado do seu recurso Immersive Reader em Azure. Consulte [como criar um recurso de leitor imersivo](./how-to-create-immersive-reader.md) para mais detalhes. |
 | `content` | [Conteúdo](#content) | Um objeto que contenha o conteúdo a ser mostrado no Leitor Imersivo. |
 | `options` | [Opções](#options) | Opções para configurar certos comportamentos do Leitor Imersivo. Opcional. |
 
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>renderAmetões De Botões
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | `options` | [renderAs opções de Botões](#renderbuttons-options) | Opções para configurar certos comportamentos da função renderbuttons. Opcional. |
 
@@ -131,7 +131,7 @@ Opções para a prestação dos botões Imersivos Reader.
 
 #### <a name="renderbuttons-options-parameters"></a>renderButtons Parâmetros de opções
 
-| Definição | Tipo | Descrição |
+| Definição | Tipo | Description |
 | ------- | ---- | ----------- |
 | elementos | HTMLDivElement[] | Elementos para tornar os botões Imersivos do Leitor dentro |
 
@@ -156,7 +156,7 @@ Contém a resposta da chamada para `ImmersiveReader.launchAsync` . Note que uma 
 
 #### <a name="launchresponse-parameters"></a>Lançar Parâmetros de Resposta
 
-| Definição | Tipo | Descrição |
+| Definição | Tipo | Description |
 | ------- | ---- | ----------- |
 | contentor | HTMLDivElement | Elemento HTML que contém o iframe imivemero reader. |
 | sessionId | String | Identificador globalmente único para esta sessão, usado para depurar. |
@@ -174,14 +174,14 @@ Contém informações sobre um erro.
 
 #### <a name="error-parameters"></a>Parâmetros de erro
 
-| Definição | Tipo | Descrição |
+| Definição | Tipo | Description |
 | ------- | ---- | ----------- |
 | code | String | Um de um conjunto de códigos de erro. Ver [códigos de erro](#error-codes). |
 | message | String | Representação legível pelo erro. |
 
 #### <a name="error-codes"></a>Códigos de erro
 
-| Código | Descrição |
+| Código | Description |
 | ---- | ----------- |
 | BadArgument | O argumento fornecido é inválido, ver `message` parâmetro do [Erro](#error). |
 | Tempo Limite | O Leitor Imersivo não conseguiu carregar dentro do intervalo especificado. |
@@ -205,7 +205,7 @@ Contém o conteúdo a ser mostrado no Leitor Imersivo.
 
 #### <a name="content-parameters"></a>Parâmetros de conteúdo
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | título | String | Texto do título mostrado no topo do Leitor Imersivo (opcional) |
 | pedaços | [Pedaço[]](#chunk) | Matriz de pedaços |
@@ -240,11 +240,11 @@ Um único pedaço de dados, que será passado para o conteúdo do Leitor Imersiv
 
 #### <a name="chunk-parameters"></a>Parâmetros de pedaços
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | conteúdo | String | A cadeia que contém o conteúdo enviado ao Leitor Imersivo. |
 | Lang | String | Linguagem do texto, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. A linguagem será detetada automaticamente se não for especificada. Veja [Supported Languages](#supported-languages) (Idiomas Suportados). |
-| mímicaType | cadeia | Texto simples, MathML, HTML & os formatos Microsoft Word DOCX são suportados. Consulte [os tipos de MIME suportados](#supported-mime-types) para obter mais detalhes. |
+| mímicaType | string | Texto simples, MathML, HTML & os formatos Microsoft Word DOCX são suportados. Consulte [os tipos de MIME suportados](#supported-mime-types) para obter mais detalhes. |
 
 ##### `content`
 ```Parameters
@@ -269,12 +269,12 @@ Default value: "text/plain"
 
 #### <a name="supported-mime-types"></a>Tipos de MIME suportados
 
-| Tipo de MIME | Descrição |
+| Tipo de MIME | Description |
 | --------- | ----------- |
 | texto/planície | Texto simples. |
 | text/html | Conteúdo HTML. [Saiba mais](#html-support)|
 | aplicação/mathml+xml | Linguagem de marcação matemática (MathML). [Saiba mais](./how-to/display-math.md).
-| ument de aplicação/vnd.openxmlformats-officedocument.wordprocessingml.doc | Documento de formato Microsoft Word .docx.
+| ument de aplicação/vnd.openxmlformats-officedocument.wordprocessingml.doc | Documento de formato .docx Microsoft Word.
 
 
 <br>
@@ -305,7 +305,7 @@ Contém propriedades que configuram certos comportamentos do Leitor Imersivo.
 
 #### <a name="options-parameters"></a>Parâmetros de opções
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | uiLang | String | Idioma da UI, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. Predefinições no idioma do navegador se não for especificado. |
 | tempo limite | Número | Duração (em milissegundos) antes [do lançamentoAsync](#launchasync) falha com um erro de tempo limite (por defeito é 15000 ms). Este intervalo aplica-se apenas ao lançamento inicial da página Reader, onde o sucesso é observado quando a página Reader abre e o girador começa. Não deve ser necessário um ajuste do tempo limite. |
@@ -390,7 +390,7 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>Parâmetros de ReadAloudOptions
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | voz | String | Voz, "Feminino" ou "Macho". Note que nem todas as línguas apoiam ambos os sexos. |
 | velocidade | Número | Velocidade de reprodução, deve ser entre 0,5 e 2,5, inclusive. |
@@ -429,7 +429,7 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>Parâmetros de Opções de Tradução
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | language | String | Define a língua de tradução, o valor está no formato iETF BCP 47 imposição de tag, por exemplo, fr-FR, es-MX, zh-Hans-CN. É necessário ativar automaticamente a tradução de palavras ou documentos. |
 | autoEnableDocumentTranslation | Booleano | Traduza automaticamente todo o documento. |
@@ -457,7 +457,7 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>Parâmetros displayOptions
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | textSize | Número | Define o tamanho do texto escolhido. |
 | aumentar O espaçamento | Booleano | Define se o espaçamento do texto é alternado dentro ou fora. |
@@ -487,11 +487,11 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**As definições listadas abaixo são apenas para fins informativos** . O Leitor Imersivo armazena as suas definições, ou preferências do utilizador, em cookies. Esta opção *cookiePolicy* **desativa** o uso de cookies por padrão para cumprir as leis de Conformidade com cookies da UE. Caso pretenda voltar a ativar os cookies e restaurar a funcionalidade padrão para as preferências do utilizador do Leitor Imersivo, terá de garantir que o seu website ou aplicação obtém o consentimento adequado do utilizador para ativar os cookies. Em seguida, para reecamar os cookies no Leitor Imersivo, tem de definir explicitamente a opção *cookiePolicy* para *CookiePolicy.Enable* ao lançar o Leitor Imersivo. A tabela abaixo descreve quais as configurações que o Leitor Imersivo armazena no seu cookie quando a opção *cookiePolicy* está ativada.
+**As definições listadas abaixo são apenas para fins informativos**. O Leitor Imersivo armazena as suas definições, ou preferências do utilizador, em cookies. Esta opção *cookiePolicy* **desativa** o uso de cookies por padrão para cumprir as leis de Conformidade com cookies da UE. Caso pretenda voltar a ativar os cookies e restaurar a funcionalidade padrão para as preferências do utilizador do Leitor Imersivo, terá de garantir que o seu website ou aplicação obtém o consentimento adequado do utilizador para ativar os cookies. Em seguida, para reecamar os cookies no Leitor Imersivo, tem de definir explicitamente a opção *cookiePolicy* para *CookiePolicy.Enable* ao lançar o Leitor Imersivo. A tabela abaixo descreve quais as configurações que o Leitor Imersivo armazena no seu cookie quando a opção *cookiePolicy* está ativada.
 
 #### <a name="settings-parameters"></a>Parâmetros de definição
 
-| Definição | Tipo | Descrição |
+| Definição | Tipo | Description |
 | ------- | ---- | ----------- |
 | textSize | Número | Define o tamanho do texto escolhido. |
 | fonteFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |

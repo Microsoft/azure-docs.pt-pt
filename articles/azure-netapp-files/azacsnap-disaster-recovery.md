@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730875"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Recuperação de desastres utilizando a ferramenta Azure Application Consistent Snapshot (pré-visualização)
@@ -282,7 +282,7 @@ Se estiver a executar cópias de segurança baseadas em instantâneos no site DR
 > [!IMPORTANT]
 > Executar a `azacsnap -c backup` lata criar instantâneos de armazenamento no site DR, estes não são automaticamente replicados para outro site.  Trabalhe com a Microsoft Operations para entender melhor a devolução de quaisquer ficheiros ou dados ao site de produção original.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Obtenha detalhes instantâneos](azacsnap-cmd-ref-details.md)
 - [Pegue uma cópia de segurança.](azacsnap-cmd-ref-backup.md)

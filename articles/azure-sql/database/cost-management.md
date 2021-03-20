@@ -8,10 +8,10 @@ ms.service: sql-database
 ms.topic: how-to
 ms.date: 01/15/2021
 ms.openlocfilehash: 56cf30d89460df8ac50d258bd8b29cf4e7236690
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734635"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Planear e gerir os custos da Base de Dados Azure SQL
@@ -113,7 +113,7 @@ O Azure SQL Database também permite aumentar ou reduzir os recursos para contro
 Poupe dinheiro comprometendo-se a uma reserva de recursos computacional por um a três anos. Para mais informações, consulte [Economize custos para recursos com capacidade reservada.](reserved-capacity-overview.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como otimizar o seu investimento em nuvem com a Azure Cost Management.](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - Saiba mais sobre gestão de custos com [a análise de custos.](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

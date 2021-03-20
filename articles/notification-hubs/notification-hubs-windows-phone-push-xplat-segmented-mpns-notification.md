@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push para telefones Windows específicos usando hubs de notificação Azure Microsoft Docs
+title: Envie notificações push para telefones Windows específicos usando os Hubs de Notificação Azure | Microsoft Docs
 description: Neste tutorial, vai aprender a utilizar os Hubs de Notificação do Azure para enviar notificações push para dispositivos Windows Phone 8 ou Windows Phone 8.1 específicos (não todos) registados com o back-end da aplicação.
 services: notification-hubs
 documentationcenter: windows
@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 67700ec643a27f8ae5c581fe9de8e3295a1925e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998242"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para telefones windows específicos usando hubs de notificação Azure
@@ -252,7 +252,7 @@ Estes passos efetuam o registo através do hub de notificação no arranque medi
 > [!NOTE]
 > Tendo em conta que o URI do canal atribuído pelo Serviço de Notificações Push da Microsoft (MPNS) pode ser alterado em qualquer altura, deve registar-se para receber notificações com frequência a fim de evitar falhas de notificação. Este exemplo efetua o registo para receber notificações sempre que a aplicação é iniciada. Relativamente às aplicações executadas com frequência, ou seja, mais do que uma vez por dia, pode provavelmente ignorar o registo de modo a preservar a largura de banda caso tenha passado menos de um dia desde o registo anterior.
 
-1. Abra o ficheiro App.xaml.cs e adicione o `async` modificador ao `Application_Launching` método e substitua o código de registo dos Centros de Notificação que adicionou no [Iniciar com os Centros de Notificação] com o seguinte código:
+1. Abra o ficheiro app.xaml.cs e adicione o `async` modificador ao `Application_Launching` método e substitua o código de registo de Centros de Notificação que adicionou no [Iniciar com os Centros de Notificação] com o seguinte código:
 
     ```csharp
     private async void Application_Launching(object sender, LaunchingEventArgs e)
@@ -268,7 +268,7 @@ Estes passos efetuam o registo através do hub de notificação no arranque medi
     ```
 
     Este código garante que, sempre que a aplicação é iniciada, as categorias são recuperadas a partir do armazenamento local e o registo das mesmas é solicitado.
-2. No MainPage.xaml.cs ficheiro do projeto, adicione o seguinte código que implementa o `OnNavigatedTo` método:
+2. No ficheiro de projeto MainPage.xaml.cs, adicione o seguinte código que implementa o `OnNavigatedTo` método:
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)

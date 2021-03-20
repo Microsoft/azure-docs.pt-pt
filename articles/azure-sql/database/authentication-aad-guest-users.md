@@ -10,10 +10,10 @@ ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
 ms.openlocfilehash: 7a4d9fb9f803a497e84fa189d9a89c2d9097bb70
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675054"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Criar utilizadores convidados do Azure AD e definir como administrador do Azure AD
@@ -23,7 +23,7 @@ ms.locfileid: "92675054"
 > [!NOTE]
 > Este artigo está em **pré-visualização pública.**
 
-Os utilizadores convidados em Azure Ative Directory (Azure AD) são utilizadores que foram importados para o atual AD Azure de outros Diretórios Azure Ative, ou fora dele. Por exemplo, os utilizadores convidados podem incluir utilizadores de outros Diretórios Azure Ative, ou de contas como *\@ outlook.com* , *\@ hotmail.com* , *\@ live.com* , ou *\@ gmail.com* . Este artigo irá demonstrar como criar um utilizador convidado AZure AD, e definir esse utilizador como um administrador AD Azure para o servidor lógico Azure SQL, sem precisar de ter esse utilizador convidado a fazer parte de um grupo dentro do Azure AD.
+Os utilizadores convidados em Azure Ative Directory (Azure AD) são utilizadores que foram importados para o atual AD Azure de outros Diretórios Azure Ative, ou fora dele. Por exemplo, os utilizadores convidados podem incluir utilizadores de outros Diretórios Azure Ative, ou de contas como *\@ outlook.com*, *\@ hotmail.com*, *\@ live.com*, ou *\@ gmail.com*. Este artigo irá demonstrar como criar um utilizador convidado AZure AD, e definir esse utilizador como um administrador AD Azure para o servidor lógico Azure SQL, sem precisar de ter esse utilizador convidado a fazer parte de um grupo dentro do Azure AD.
 
 ## <a name="feature-description"></a>Descrição da funcionalidade
 
@@ -59,7 +59,7 @@ Siga estes passos para criar um utilizador de base de dados utilizando um utiliz
     SELECT * FROM sys.database_principals
     ```
 
-1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA** . Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
+1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA**. Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
 
 ### <a name="create-guest-user-in-sql-managed-instance"></a>Criar o utilizador convidado em SQL Managed Instance
 
@@ -90,7 +90,7 @@ Siga estes passos para criar um utilizador de base de dados utilizando um utiliz
 
 1. Deve agora existir um utilizador de base de dados criado para o utilizador convidado `user1@gmail.com` .
 
-1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA** . Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
+1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA**. Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
 
 ## <a name="setting-a-guest-user-as-an-azure-ad-admin"></a>Definição de um utilizador convidado como administrador AD Azure
 
@@ -116,7 +116,7 @@ Siga estes passos para definir um utilizador convidado Azure AD como administrad
 
 1. Certifique-se de que o utilizador convidado (por exemplo, `user1@gmail.com` ) já está adicionado ao seu AD Azure.
 
-1. Vá ao [portal Azure](https://portal.azure.com)e vá ao seu recurso **Azure Ative Directory.** Under **Manage** , vá ao painel **de Utilizadores.** Selecione o seu utilizador convidado e grave o `Object ID` . 
+1. Vá ao [portal Azure](https://portal.azure.com)e vá ao seu recurso **Azure Ative Directory.** Under **Manage**, vá ao painel **de Utilizadores.** Selecione o seu utilizador convidado e grave o `Object ID` . 
 
 1. Executar o seguinte comando PowerShell para adicionar o utilizador convidado como administrador AD Azure para a sua SQL Managed Instance:
 
@@ -133,7 +133,7 @@ Siga estes passos para definir um utilizador convidado Azure AD como administrad
 
 ## <a name="limitations"></a>Limitações
 
-Existe uma limitação no portal Azure que impede a seleção de um utilizador convidado Azure AD como administrador AD Azure para Azure Managed Instance. Para contas de hóspedes fora do seu AD Azure como *\@ outlook.com* , *\@ hotmail.com* , *\@ live.com* , ou *\@ gmail.com* , o seletor de administração AD mostra estas contas, mas estão acinzentadas e não podem ser selecionadas. Utilize os [comandos PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) acima listados para definir a administração AD Azure. Em alternativa, um grupo AD Azure contendo o utilizador convidado pode ser definido como o administrador AD AZure para a Sql Managed Instance.
+Existe uma limitação no portal Azure que impede a seleção de um utilizador convidado Azure AD como administrador AD Azure para Azure Managed Instance. Para contas de hóspedes fora do seu AD Azure como *\@ outlook.com*, *\@ hotmail.com*, *\@ live.com*, ou *\@ gmail.com*, o seletor de administração AD mostra estas contas, mas estão acinzentadas e não podem ser selecionadas. Utilize os [comandos PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) acima listados para definir a administração AD Azure. Em alternativa, um grupo AD Azure contendo o utilizador convidado pode ser definido como o administrador AD AZure para a Sql Managed Instance.
 
 Esta funcionalidade será ativada para SQL Managed Instance antes da Disponibilidade Geral desta funcionalidade.
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2ec67669edeb52af1044c97c984eb6ba36fd1a0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918216"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579642"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação web no Azure Ative Directory B2C
 
@@ -80,7 +80,7 @@ Para registar uma aplicação web no seu inquilino Azure AD B2C, pode utilizar a
 
 ## <a name="create-a-client-secret"></a>Criar um segredo de cliente
 
-Para uma aplicação web, você precisa criar um segredo de aplicação. Este segredo será usado pela sua aplicação para trocar um código de autorização para um token de acesso.
+Para uma aplicação web, você precisa criar um segredo de aplicação. O segredo do cliente também é conhecido como *uma senha de aplicação.* O segredo será usado pela sua aplicação para trocar um código de autorização para um token de acesso.
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
@@ -89,7 +89,7 @@ Para uma aplicação web, você precisa criar um segredo de aplicação. Este se
 1. Selecione **Novo segredo do cliente**.
 1. Insira uma descrição para o segredo do cliente na caixa **Descrição.** Por exemplo, *o segredo de clientes1*.
 1. Em **Expira**, selecione uma duração para a qual o segredo é válido e, em seguida, selecione **Adicionar**.
-1. Registar o **valor** do segredo. Utiliza este valor como segredo de aplicação no código da sua aplicação.
+1. Grave o **valor** secreto para uso no código de aplicação do seu cliente. Este valor secreto nunca mais é exibido depois de deixar esta página. Utiliza este valor como segredo de aplicação no código da sua aplicação.
 
 #### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
 
@@ -99,6 +99,9 @@ Para uma aplicação web, você precisa criar um segredo de aplicação. Este se
 
 * * *
 
+> [!NOTE]
+> Por razões de segurança, pode revirar o segredo da aplicação periodicamente, ou imediatamente em caso de emergência. Qualquer aplicação que se integre com o Azure AD B2C deve estar preparada para lidar com um evento secreto de capotamento, não importa a frequência com que possa ocorrer. Pode definir dois segredos de aplicação, permitindo que a sua aplicação continue a usar o antigo segredo durante um evento de rotação secreta de aplicações. Para adicionar outro segredo de cliente, repita os passos nesta secção. 
+
 ## <a name="enable-id-token-implicit-grant"></a>Permitir concessão implícita de id simbólico
 
 A característica determinante da subvenção implícita é que os tokens, como o ID e os tokens de acesso, são devolvidos diretamente do Azure AD B2C à aplicação. Para aplicações web, como ASP.NET aplicações web Core [https://jwt.ms](https://jwt.ms) e, que solicitam um token de ID diretamente do ponto final de autorização, ativar o fluxo de subvenção implícita no registo da aplicação.
@@ -107,7 +110,7 @@ A característica determinante da subvenção implícita é que os tokens, como 
 1. Sob a concessão implícita, selecione as caixas de verificação **de fichas de acesso** e **id.**
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a:
 

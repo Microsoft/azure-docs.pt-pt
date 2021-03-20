@@ -1,5 +1,5 @@
 ---
-title: Ligar dados da AI Vectra Detect ao Azure Sentinel Microsoft Docs
+title: Ligue os dados de Deteção de AI Vectra ao Azure Sentinel| Microsoft Docs
 description: Saiba como ligar os dados de deteção de AI Vectra ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
 ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87038227"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Ligue a AI Vectra Detect a Azure Sentinel
 
 > [!IMPORTANT]
 > O conector de dados AI Vectra Detect em Azure Sentinel encontra-se atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como ligar o seu aparelho [AI Vectra Detect](https://www.vectra.ai/product/cognito-detect) ao Azure Sentinel. O conector de dados AI Vectra Detect permite-lhe facilmente trazer os seus dados de AI Vectra Detect para o Azure Sentinel, para que possa vê-lo em livros de trabalho, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a investigação.
 

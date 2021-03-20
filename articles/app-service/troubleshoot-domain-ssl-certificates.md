@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97607614"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Domínio de resolução de problemas e problemas de certificadoS TLS/SSL no Serviço de Aplicações Azure
@@ -201,8 +201,8 @@ O certificado de Serviço de Aplicações requer verificação de domínio antes
 #### <a name="solution"></a>Solução
 Verifique manualmente o seu domínio adicionando um registo TXT:
 
-1. Vá ao fornecedor do Serviço de Nome de Domínio (DNS) que acolhe o seu nome de domínio.
-1. Adicione um registo TXT para o seu domínio que utiliza o valor do token de domínio que é mostrado no portal Azure. 
+1. Aceda ao fornecedor do Serviço de Nomes de Domínio (DNS) que aloja o nome de domínio.
+1. Adicione um registo TXT para o domínio que utiliza o valor do token de domínio apresentado no portal do Azure. 
 
 Aguarde alguns minutos para que a propagação do DNS possa ser executada e, em seguida, selecione o botão **Refresh** para ativar a verificação. 
 
@@ -305,7 +305,7 @@ Quando compra um domínio, não é cobrado por um período de cinco dias, durant
 
 **Posso utilizar o domínio em outra aplicação do Azure App Service na minha subscrição?**
 
-Yes. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
+Sim. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
 
 **Posso transferir um domínio de uma subscrição para outra subscrição?**
 

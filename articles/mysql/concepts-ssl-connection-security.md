@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 6fb0b6f38869192e89bb849950e8822a157b23c8
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 1b272755652d018a0d5364e4d67c783774c68da8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241944"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655245"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Conectividade SSL/TLS na Base de Dados Azure para o MySQL
 
@@ -32,7 +32,7 @@ Por predefinição, o serviço de base de dados deve ser configurado para exigir
 
 Ao providenciar uma nova Base de Dados Azure para o servidor MySQL através do portal Azure e CLI, a aplicação das ligações SSL é ativada por padrão. 
 
-As cadeias de ligação para várias linguagens de programação são mostradas no portal Azure. Essas cadeias de ligação incluem os parâmetros SSL necessários para ligar à sua base de dados. No portal Azure, selecione o seu servidor. No título **Definições,** selecione as **cordas de ligação** . O parâmetro SSL varia em base no conector, por exemplo "ssl=true" ou "sslmode=requir" ou "sslmode=required" e outras variações.
+As cadeias de ligação para várias linguagens de programação são mostradas no portal Azure. Essas cadeias de ligação incluem os parâmetros SSL necessários para ligar à sua base de dados. No portal Azure, selecione o seu servidor. No título **Definições,** selecione as **cordas de ligação**. O parâmetro SSL varia em base no conector, por exemplo "ssl=true" ou "sslmode=requir" ou "sslmode=required" e outras variações.
 
 Em alguns casos, os pedidos requerem um ficheiro de certificado local gerado a partir de um ficheiro de certificado fidedigno da Autoridade de Certificados (CA) para se conectarem de forma segura. Atualmente, os clientes só podem **utilizar** o certificado predefinido para se ligarem a uma Base de Dados Azure para o servidor MySQL que está localizado em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
 
@@ -63,7 +63,7 @@ Por exemplo, definir o valor da versão mínima de definição de TLS para TLS 1
 >
 > Uma vez executada uma versão TLS mínima, não pode desativar a aplicação mínima da versão.
 
-Para saber como definir a definição de TLS para a sua Base de Dados Azure para o MySQL, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
+A definição mínima de versão TLS não requer qualquer reinício do servidor pode ser definida enquanto o servidor estiver online. Para saber como definir a definição de TLS para a sua Base de Dados Azure para o MySQL, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
 
 ## <a name="cipher-support-by-azure-database-for-mysql-single-server"></a>Suporte cifra por Azure Database para mySQL Single servidor
 

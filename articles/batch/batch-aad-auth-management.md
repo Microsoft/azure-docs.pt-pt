@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: ff49d5e88df7c56ed4dee0685f09e45eb372aa5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930218"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gestão de lotes com Diretório Ativo
@@ -39,7 +39,7 @@ Em seguida, terá de delegar o acesso à sua candidatura à API do Gestor de Rec
 
 Siga os passos abaixo no portal do Azure:
 
-1. No painel de navegação à esquerda do portal Azure, escolha **Todos os serviços,** clique em **Registos de Aplicações**e clique em **Adicionar**.
+1. No painel de navegação à esquerda do portal Azure, escolha **Todos os serviços,** clique em **Registos de Aplicações** e clique em **Adicionar**.
 2. Procure o nome da sua aplicação na lista de registos de aplicações:
 
     ![Procure o nome da sua candidatura](./media/batch-aad-auth-management/search-app-registration.png)
@@ -47,7 +47,7 @@ Siga os passos abaixo no portal do Azure:
 3. Mostrar a lâmina **de definições.** Na secção **de Acesso API,** selecione **permissões necessárias**.
 4. Clique **em Adicionar** para adicionar uma nova permissão necessária.
 5. No passo 1, insira a API de Gestão de **Serviços do Windows Azure,** selecione a API da lista de resultados e clique no botão **Select.**
-6. No passo 2, selecione a caixa de verificação ao lado do **modelo de implementação clássica do Access Azure como utilizadores**da organização e clique no botão **Select.**
+6. No passo 2, selecione a caixa de verificação ao lado do **modelo de implementação clássica do Access Azure como utilizadores** da organização e clique no botão **Select.**
 7. Clique no botão **'Fazer'.**
 
 A lâmina **de permissões necessárias** mostra agora que as permissões à sua aplicação são concedidas tanto às APIs do ADAL como do Gestor de Recursos. As permissões são concedidas à ADAL por padrão quando regista a sua aplicação pela primeira vez com a Azure AD.

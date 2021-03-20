@@ -1,5 +1,5 @@
 ---
-title: Escreva código para rastrear pedidos com a Azure Application Insights Microsoft Docs
+title: Escreva código para rastrear pedidos com a Azure Application Insights | Microsoft Docs
 description: Escreva código para rastrear pedidos com Insights de Aplicação para que possa obter perfis para os seus pedidos.
 ms.topic: conceptual
 author: cweining
@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: aaa1d6df9faa20b1a561bfccdfea682af7645c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930252"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Escreva código para rastrear pedidos com Insights de Aplicação

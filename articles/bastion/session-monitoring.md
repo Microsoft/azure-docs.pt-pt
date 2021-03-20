@@ -1,5 +1,5 @@
 ---
-title: Azure Bastion sessão de monitorização e gestão Microsoft Docs
+title: Azure Bastion sessão de monitorização e gestão | Microsoft Docs
 description: Neste artigo, aprenda a selecionar uma sessão em curso e desconectar ou eliminá-la.
 services: bastion
 author: charwen
@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: charwen
 ms.openlocfilehash: beb4f8fc5b9e22bc3e2bdd4732c8321dfcd70780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980722"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitorização e gestão de sessão para Azure Bastion
 
-Uma vez que o serviço Bastion é aloque e implementado na sua rede virtual, pode usá-lo para ligar perfeitamente a qualquer VM nesta rede virtual. À medida que os utilizadores se conectam a cargas de trabalho, o Azure Bastion pode ser usado para monitorizar as sessões remotas e tomar ações de gestão rápida. A monitorização da sessão de Azure Bastion permite-lhe ver a que utilizadores estão ligados aos quais os VMs. Mostra o IP de que o utilizador ligou, quanto tempo esteve ligado e quando se ligou. A experiência de gestão da sessão permite-lhe selecionar uma sessão em curso e desligar a força ou apagar uma sessão de forma a desligar o utilizador da sessão em curso.
+Uma vez que o serviço Bastion é aloque e implementado na sua rede virtual, pode usá-lo para ligar perfeitamente a qualquer VM nesta rede virtual. À medida que os utilizadores se conectam a cargas de trabalho, o Azure Bastion pode ser usado para monitorizar as sessões remotas e tomar ações de gestão rápida. A monitorização de sessões do Azure Bastion permite-lhe ver que utilizadores estão ligados a que VMs. Mostra o IP de que o utilizador ligou, quanto tempo esteve ligado e quando se ligou. A experiência de gestão da sessão permite-lhe selecionar uma sessão em curso e desligar a força ou apagar uma sessão de forma a desligar o utilizador da sessão em curso.
 
 ## <a name="monitor-remote-sessions"></a><a name="monitor"></a>Monitorize sessões remotas
 

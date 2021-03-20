@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674824"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector da Oracle Database
@@ -52,7 +52,7 @@ Este artigo mostra-lhe como utilizar o conector Oracle Database numa aplicação
 ## <a name="add-the-connector"></a>Adicione o conector
 
 > [!IMPORTANT]
-> Este conector não tem gatilhos. Só tem ações. Assim, quando criar a sua aplicação lógica, adicione outro gatilho para iniciar a sua aplicação lógica, como **Agenda - Recorrência,** ou **Pedido / Resposta - Resposta** . 
+> Este conector não tem gatilhos. Só tem ações. Assim, quando criar a sua aplicação lógica, adicione outro gatilho para iniciar a sua aplicação lógica, como **Agenda - Recorrência,** ou **Pedido / Resposta - Resposta**. 
 
 1. No [portal Azure,](https://portal.azure.com)crie uma aplicação lógica em branco.
 
@@ -60,16 +60,16 @@ Este artigo mostra-lhe como utilizar o conector Oracle Database numa aplicação
 
     ![Uma caixa de diálogo tem uma caixa para procurar todos os gatilhos. Há também um único gatilho mostrado, "Pedido/Pedido de Resposta", com um botão de seleção.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Selecione **Guardar** . Quando se guarda, um URL de pedido é gerado automaticamente. 
+3. Selecione **Guardar**. Quando se guarda, um URL de pedido é gerado automaticamente. 
 
-4. Selecione **Novo passo** e selecione **Adicionar uma ação** . Digite `oracle` para ver as ações disponíveis: 
+4. Selecione **Novo passo** e selecione **Adicionar uma ação**. Digite `oracle` para ver as ações disponíveis: 
 
     ![Uma caixa de pesquisa contém "oráculo". A pesquisa produz um sucesso com o rótulo "Oracle Database". Há uma página com separador, um separador que mostra "TRIGGERS (0)", outro mostrando "AÇÕES (6)". Seis ações estão listadas. A primeira delas é "Get row Preview".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Esta é também a forma mais rápida de ver os gatilhos e ações disponíveis para qualquer conector. Digite parte do nome do conector, tal como `oracle` . O designer lista quaisquer gatilhos e ações. 
 
-5. Selecione uma das ações, como **Oracle Database - Get row** . Selecione **Connect via gateway de dados no local.** Introduza o nome do servidor Oracle, método de autenticação, nome de utilizador, senha e selecione o gateway:
+5. Selecione uma das ações, como **Oracle Database - Get row**. Selecione **Connect via gateway de dados no local.** Introduza o nome do servidor Oracle, método de autenticação, nome de utilizador, senha e selecione o gateway:
 
     ![A caixa de diálogo é intitulada "Oracle Database - Get row". Há uma caixa, verificada, com a etiqueta "Connect via on-in data gateway". Abaixo estão as outras cinco caixas de texto.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -83,7 +83,7 @@ Este artigo mostra-lhe como utilizar o conector Oracle Database numa aplicação
 
     ![Há duas caixas de diálogo. O endereço "Enviar uma caixa de e-mail" tem caixas para especificar o endereço "Corpo", "Assunto" e "To" do e-mail. A caixa de diálogo "Adicionar conteúdo dinâmico" proporciona uma pesquisa de conteúdo dinâmico a partir das aplicações e serviços do fluxo.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Guarde** a sua aplicação lógica e, em seguida, selecione **Executar** . Feche o designer, e olhe para a história das corridas para o estado. Se falhar, selecione a linha de mensagem falhada. O designer abre e mostra-lhe qual passo falhou, e também mostra a informação de erro. Se for bem sucedido, deverá receber um e-mail com a informação que adicionou.
+8. **Guarde** a sua aplicação lógica e, em seguida, selecione **Executar**. Feche o designer, e olhe para a história das corridas para o estado. Se falhar, selecione a linha de mensagem falhada. O designer abre e mostra-lhe qual passo falhou, e também mostra a informação de erro. Se for bem sucedido, deverá receber um e-mail com a informação que adicionou.
 
 
 ### <a name="workflow-ideas"></a>Ideias de fluxo de trabalho
@@ -98,23 +98,23 @@ Este artigo mostra-lhe como utilizar o conector Oracle Database numa aplicação
 
 ## <a name="common-errors"></a>Erros comuns
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erro** : Não consigo chegar ao Portal
+#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: Não consigo chegar ao Portal
 
-**Causa** : O portal de dados no local não é capaz de se ligar à nuvem. 
+**Causa**: O portal de dados no local não é capaz de se ligar à nuvem. 
 
-**Mitigação** : Certifique-se de que o seu portal está a funcionar na máquina onde o instalou e que pode ligar-se à internet.  Recomendamos que não instale o portal num computador que possa estar desligado ou adormecido. Também pode reiniciar o serviço de gateway de dados no local (PBIEgwService).
+**Mitigação**: Certifique-se de que o seu portal está a funcionar na máquina onde o instalou e que pode ligar-se à internet.  Recomendamos que não instale o portal num computador que possa estar desligado ou adormecido. Também pode reiniciar o serviço de gateway de dados no local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro** : O fornecedor que está a ser utilizado é precedido: 'System.Data.OracleClient requer a versão de software do cliente da Oracle 8.1.7 ou maior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) a instalação do fornecedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: O fornecedor que está a ser utilizado é precedido: 'System.Data.OracleClient requer a versão de software do cliente da Oracle 8.1.7 ou maior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) a instalação do fornecedor oficial.
 
-**Causa** : O cliente Oracle SDK não está instalado na máquina onde o portal de dados no local está em funcionamento.  
+**Causa**: O cliente Oracle SDK não está instalado na máquina onde o portal de dados no local está em funcionamento.  
 
-**Resolução** : Descarregue e instale o Cliente Oracle SDK no mesmo computador que o portal de dados no local.
+**Resolução**: Descarregue e instale o Cliente Oracle SDK no mesmo computador que o portal de dados no local.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro** : Tabela '[Tablename]' não define quaisquer colunas-chave
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro**: Tabela '[Tablename]' não define quaisquer colunas-chave
 
-**Causa** : A tabela não tem nenhuma chave primária.  
+**Causa**: A tabela não tem nenhuma chave primária.  
 
-**Resolução** : O conector Oracle Database exige a utilização de uma tabela com uma coluna-chave primária.
+**Resolução**: O conector Oracle Database exige a utilização de uma tabela com uma coluna-chave primária.
  
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

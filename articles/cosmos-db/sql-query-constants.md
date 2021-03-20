@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339211"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL constantes de consulta  
@@ -25,7 +25,7 @@ ms.locfileid: "93339211"
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
 |**Null**|Valor único: **nulo**|  
-|**Rio Boolean**|Valores: **falso,** **verdadeiro**.|  
+|**Booleano**|Valores: **falso,** **verdadeiro**.|  
 |**Number**|Um número de ponto flutuante de dupla precisão, padrão IEEE 754.|  
 |**String**|Uma sequência de caracteres Unicode zero ou mais. As cordas devem ser fechadas em ações simples ou duplas.|  
 |**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
@@ -115,7 +115,7 @@ ms.locfileid: "93339211"
 |\f|forma de alimentação|U+000C|  
 |\n|alimentação de linha|U+000A|  
 |\r| símbolo de retorno|U+000D|  
-|\t| tabulação|U+0009|  
+|\t|separador|U+0009|  
 |\uXXXX|Um caracteres Unicode definido por 4 dígitos hexadémicos.|U+XXXX|  
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736683"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599175"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o Serviço Cognitivo de Análise de Texto
 
@@ -190,7 +190,7 @@ Agora, irá utilizar esta coluna para gerar uma nuvem de palavras. Para começar
 > [!NOTE]
 > Porquê utilizar expressões-chave extraídas para gerar um balão de palavras em vez do texto completo de todos os comentários? As expressões-chave dão-nos as palavras *importantes* dos comentários dos clientes, não apenas as palavras *mais comuns*. Além disso, o dimensionamento das palavras no balão resultante não é distorcido pela utilização frequente de uma determinada palavra num número relativamente pequeno de comentários.
 
-Se ainda não tiver o elemento visual Word Cloud instado, instale-o. No painel Visualizations, no lado direito da área de trabalho, clique nas reticências (**...**) e escolha **Import From Store** (Importar do Arquivo). Em seguida, procure “cloud” e clique no botão **Add** (Adicionar), junto ao elemento visual Word Cloud. O Power BI instala o elemento visual Word Cloud (Nuvem de Palavras) e indica-lhe que foi instalado com êxito.
+Se ainda não tiver o elemento visual Word Cloud instado, instale-o. No painel visualizações à direita do espaço de trabalho, clique nos três pontos **(...**) e escolha **Import From Market**. Se a palavra "nuvem" não estiver entre as ferramentas de visualização apresentadas na lista, pode procurar "cloud" e clicar no botão **Adicionar** ao lado do visual Word Cloud. O Power BI instala o elemento visual Word Cloud (Nuvem de Palavras) e indica-lhe que foi instalado com êxito.
 
 ![[adicionar um elemento visual]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Primeiro, clique no ícone Word Cloud, no painel Visualizations (Visualizações
 
 É apresentado um relatório novo na área de trabalho. Arraste o campo `keyphrases` do painel Fields (Campos) para o campo Category (Categoria), no painel Visualizations (Visualizações). O balão de palavras aparece dentro do relatório.
 
-Agora, mude para a página Formato do painel Visualizations (Visualizações). Na categoria Stop Words (Parar Palavras), ative **Default Stop Words** (Palavras de Paragem Predefinidas) para eliminar palavras pequenas e comuns, como “de”, no balão. 
+Agora, mude para a página Formato do painel Visualizations (Visualizações). Na categoria Stop Words (Parar Palavras), ative **Default Stop Words** (Palavras de Paragem Predefinidas) para eliminar palavras pequenas e comuns, como “de”, no balão. No entanto, como estamos a visualizar frases-chave, podem não conter palavras de stop.
 
 ![[ativar palavras de paragem predefinidas]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ A função Sentiment Analysis, abaixo, devolve uma classificação que indica at
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 Eis duas versões de uma função Language Detection. O primeiro método retorna o código ISO do idioma (por exemplo, `en` para inglês), enquanto o segundo devolve o nome "amigável" (por exemplo, `English`). Poderá reparar que apenas a última linha do corpo difere entre ambas as versões.
@@ -249,8 +248,7 @@ Eis duas versões de uma função Language Detection. O primeiro método retorna
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Por fim, segue-se uma variação da função Key Phrases já apresentada que devolve as expressões como um objeto de lista em vez de uma cadeia única de expressões separadas por vírgulas. 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 60381c7d8c452277b53e1af67ae7fc85349521c8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735678"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Tutorial: Azure Ative Directy integração única de sign-on (SSO) com a NUVEM SAP para o Cliente
@@ -191,6 +191,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 * Pode utilizar as minhas apps do Microsoft. Quando clicar na Nuvem SAP para azulejo do cliente nas Minhas Apps, este irá redirecionar para a Nuvem SAP para URL de inscrição do cliente. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurada a Nuvem SAP para Cliente, pode impor controlos de sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

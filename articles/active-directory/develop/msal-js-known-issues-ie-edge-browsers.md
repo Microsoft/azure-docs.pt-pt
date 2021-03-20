@@ -1,5 +1,5 @@
 ---
-title: Problemas no Internet Explorer & Microsoft Edge (MSAL.js) Rio Azure
+title: Problemas no Internet Explorer & | Microsoft Edge (MSAL.js) Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba sobre problemas de know quando utilizar a Biblioteca de Autenticação do Microsoft para JavaScript (MSAL.js) com os navegadores Internet Explorer e Microsoft Edge.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83772085"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conhecidos nos navegadores Internet Explorer e Microsoft Edge (MSAL.js)
@@ -28,7 +28,7 @@ Tivemos vários relatos de problemas com autenticação no IE e Microsoft Edge (
 ### <a name="cause"></a>Causa
 A causa para a maior parte destas questões é a seguinte. O armazenamento da sessão e o armazenamento local são divididos por zonas de segurança no navegador Microsoft Edge. Nesta versão específica do Microsoft Edge, quando a aplicação é redirecionada para zonas, o armazenamento da sessão e o armazenamento local são limpos. Especificamente, o armazenamento da sessão é limpo na navegação regular do navegador, e tanto a sessão como o armazenamento local são limpos no modo InPrivate do navegador. MSAL.js salva determinado estado no armazenamento da sessão e depende de verificar este estado durante os fluxos de autenticação. Quando o armazenamento da sessão é limpo, este estado é perdido e, portanto, resulta em experiências quebradas.
 
-### <a name="issues"></a>Problemas
+### <a name="issues"></a>Questões
 
 - **Loops de redirecionamento infinito e recargas de página durante a autenticação**. Quando os utilizadores iniciam sessão na aplicação no Microsoft Edge, são redirecionados para trás a partir da página de login da AAD e ficam presos num loop de redireccionamento infinito, resultando em recargas de página repetidas. Isto é geralmente acompanhado por um `invalid_state` erro no armazenamento da sessão.
 
@@ -51,7 +51,7 @@ Use soluções alternativas abaixo.
 #### <a name="other-workarounds"></a>Outras soluções alternativas
 Certifique-se de testar que o seu problema ocorre apenas na versão específica do navegador Microsoft Edge e funciona nos outros navegadores antes de adotar estas soluções alternativas.  
 1. Como um primeiro passo para contornar estes problemas, certifique-se de que o domínio da aplicação e quaisquer outros sites envolvidos nos redirecionamentos do fluxo de autenticação são adicionados como sites fidedignos nas definições de segurança do navegador, para que pertençam à mesma zona de segurança.
-Para o fazer, siga estes passos:
+Para tal, siga estes passos:
     - Abra o **Internet Explorer** e clique nas **definições** (ícone de engrenagem) no canto superior direito
     - Selecione **Opções de Internet**
     - Selecione o separador **Segurança**

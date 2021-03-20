@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: e2fc174147b99b7b952c6d10084cfc969dacf5a6
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949144"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o armazenamento de blob da caixa de dados Azure através de APIs REST  
@@ -92,7 +92,7 @@ Utilize o portal Azure para descarregar o certificado.
 
 1. Inicie sessão no portal do Azure.
 2. Aceda à sua encomenda de Caixa de Dados e navegue para os **detalhes do Dispositivo General >**.
-3. Sob **as credenciais do Dispositivo,** aceda ao acesso da **API** ao dispositivo. Clique **em Baixar**. Esta ação descarrega um ficheiro de certificado ** \<your order name> .cer.** **Guarde** este ficheiro. Irá instalar este certificado no cliente ou no computador anfitrião que utilizará para ligar ao dispositivo.
+3. Sob **as credenciais do Dispositivo,** aceda ao acesso da **API** ao dispositivo. Clique em **Transferir**. Esta ação descarrega um ficheiro de certificado **\<your order name> .cer.** **Guarde** este ficheiro. Irá instalar este certificado no cliente ou no computador anfitrião que utilizará para ligar ao dispositivo.
 
     ![Certificado de descarregamento no portal Azure](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
@@ -116,11 +116,11 @@ Siga estes passos para importar o `.cer` ficheiro para a loja raiz de um cliente
 #### <a name="use-windows-server-ui"></a>Use o Servidor do Windows UI
 
 1.  Clique com o botão direito no `.cer` ficheiro e selecione **o certificado de instalação.** Esta ação inicia o Certificado De Importação De Feiticeiro.
-2.  Para **localizar a Loja**, selecione Máquina **Local**e, em seguida, clique em **Seguinte**.
+2.  Para **localizar a Loja**, selecione Máquina **Local** e, em seguida, clique em **Seguinte**.
 
     ![Certificado de importação utilizando PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.  Selecione **Coloque todos os certificados na seguinte loja**e, em seguida, clique em **procurar**. Navegue até à loja de raiz do seu anfitrião remoto e, em seguida, clique em **Seguinte**.
+3.  Selecione **Coloque todos os certificados na seguinte loja** e, em seguida, clique em **procurar**. Navegue até à loja de raiz do seu anfitrião remoto e, em seguida, clique em **Seguinte**.
 
     ![Certificado de importação utilizando PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 

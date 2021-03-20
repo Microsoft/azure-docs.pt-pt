@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 série limites do sistema Microsoft Docs
+title: StorSimple 8000 série limites | Microsoft Docs
 description: Descreve os limites do sistema e os tamanhos recomendados para os componentes e ligações da série StorSimple 8000.
 services: storsimple
 documentationcenter: NA
@@ -16,17 +16,17 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f2d9542082ddf7ecf1d1e7361b0ecdb14c5ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68963376"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quais são os limites do sistema de série StorSimple 8000?
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A StorSimple fornece armazenamento escalável e flexível para o seu datacenter. No entanto, existem alguns limites que deve ter em mente à medida que planeia, implementa e opera a sua solução StorSimple. A tabela que se segue descreve estes limites e fornece algumas recomendações para que possa tirar o máximo partido da sua solução StorSimple.
 

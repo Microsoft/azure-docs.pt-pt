@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91262999"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Faça backup de um servidor de troca para Azure com O Azure Backup Server
@@ -28,7 +28,7 @@ Para instalar o agente de proteção MABS no servidor Exchange, siga estes passo
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção para o servidor Exchange
 
-1. Na consola de administrador MABS, selecione **Proteção**e, em seguida, selecione **Novo** na fita da ferramenta para abrir o assistente **do Grupo criar novas proteções.**
+1. Na consola de administrador MABS, selecione **Proteção** e, em seguida, selecione **Novo** na fita da ferramenta para abrir o assistente **do Grupo criar novas proteções.**
 2. No ecrã **de boas-vindas** do assistente, selecione **Seguinte**.
 3. No ecrã **do tipo de grupo de proteção Select,** selecione **Servidores** e selecione **Seguinte**.
 4. Selecione a base de dados do servidor Exchange que pretende proteger e selecione **Next**.
@@ -58,20 +58,20 @@ Para instalar o agente de proteção MABS no servidor Exchange, siga estes passo
    >
    >
 8. Selecione **Seguinte**.
-9. Selecione a base de dados para **cópia de cópia**e, em seguida, selecione **Seguinte**.
+9. Selecione a base de dados para **cópia de cópia** e, em seguida, selecione **Seguinte**.
 
    > [!NOTE]
    > Se não selecionar "Cópia de segurança completa" para pelo menos uma cópia da DAG de uma base de dados, os registos não serão truncados.
    >
    >
-10. Configure os objetivos para **o backup de curto prazo**e, em seguida, selecione **Next**.
+10. Configure os objetivos para **o backup de curto prazo** e, em seguida, selecione **Next**.
 11. Reveja o espaço disponível do disco e, em seguida, selecione **Next**.
 12. Selecione a hora em que o MABS Server criará a replicação inicial e, em seguida, selecione **Seguinte**.
 13. Selecione as opções de verificação de consistência e, em seguida, selecione **Seguinte**.
 14. Escolha a base de dados que pretende fazer até Azure e, em seguida, selecione **Next**. Por exemplo:
 
     ![Especificar dados de proteção on-line](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Defina o horário para **Azure Backup**e, em seguida, selecione **Next**. Por exemplo:
+15. Defina o horário para **Azure Backup** e, em seguida, selecione **Next**. Por exemplo:
 
     ![Especificar o horário de backup on-line](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -79,7 +79,7 @@ Para instalar o agente de proteção MABS no servidor Exchange, siga estes passo
     > Nota Os pontos de recuperação online baseiam-se em pontos de recuperação expressos. Por isso, deve agendar o ponto de recuperação on-line após o tempo especificado para o ponto de recuperação total expresso.
     >
     >
-16. Configure a política de retenção para **Azure Backup**e, em seguida, selecione **Next**.
+16. Configure a política de retenção para **Azure Backup** e, em seguida, selecione **Next**.
 17. Escolha uma opção de replicação on-line e selecione **Next**.
 
     Se tiver uma grande base de dados, pode demorar muito tempo até que a cópia de segurança inicial seja criada por toda a rede. Para evitar este problema, pode criar uma cópia de segurança offline.  

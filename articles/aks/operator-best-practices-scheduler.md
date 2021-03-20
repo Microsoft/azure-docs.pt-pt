@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 087c1d2efc93b8460a3683a4e66916d73fd4e885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87015685"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades básicas de programador no Serviço Azure Kubernetes (AKS)

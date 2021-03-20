@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 9904fb8c2142816196a1939a16445318bdb245d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91262319"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-docker-cli"></a>Quickstart: Implementar uma instância de contentor em Azure utilizando o Docker CLI
@@ -91,7 +91,7 @@ listening on port 80
 ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar o recipiente, corra `docker rm` para removê-lo. Este comando para e elimina a instância do recipiente Azure.
 

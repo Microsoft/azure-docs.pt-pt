@@ -1,5 +1,5 @@
 ---
-title: Como fazer uma chamada de Twilio (.NET) Microsoft Docs
+title: Como fazer uma ligação de Twilio (.NET) | Microsoft Docs
 description: Saiba como fazer uma chamada com o serviço Twilio API em Azure. Amostras de código escritas em .NET.
 services: ''
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.date: 05/04/2016
 ms.author: mimckitt
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 22e0a19c0e2f5b29b35ebf43a3f250959c9b636d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95521126"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Como fazer uma chamada telefónica usando Twilio em um papel web em Azure
@@ -158,7 +158,7 @@ Este código foi fornecido para mostrar-lhe a funcionalidade básica usando Twil
 * Leia as Diretrizes de Segurança Twilio em [https://www.twilio.com/docs/security][twilio_docs_security] .
 * Saiba mais sobre twilio [https://www.twilio.com/docs][twilio_docs] em.
 
-## <a name="see-also"></a><a name="seealso"></a>Veja também
+## <a name="see-also"></a><a name="seealso"></a>Ver também
 * [Como utilizar twilio para capacidades de voz e SMS do Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

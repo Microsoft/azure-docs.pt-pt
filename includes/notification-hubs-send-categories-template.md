@@ -9,10 +9,10 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: bfd5d42d83046c9c5b0bc3a78fabec08da5da646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96028349"
 ---
 Nesta secção, irá enviar notícias de última hora como notificações de modelo etiquetadas a partir da aplicação de consola .NET.
@@ -31,7 +31,7 @@ Nesta secção, irá enviar notícias de última hora como notificações de mod
 
    Esta ação adiciona uma referência ao Azure Notification Hubs SDK utilizando o pacote [Microsoft.Azure.NotificationHubs.]
 
-1. Abra o ficheiro *Program.cs* e adicione a seguinte `using` declaração:
+1. Abra o ficheiro *.cs Programa* e adicione a seguinte `using` declaração:
 
    ```csharp
    using Microsoft.Azure.NotificationHubs;

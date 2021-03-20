@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84434365"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
@@ -46,7 +46,7 @@ Para atualizar, utilize os seguintes passos:
 
 Para que a atualização tenha sucesso, a pasta do terceiro partido não deve ser renomeada.
 
-Para resolver o problema.
+Para resolver o problema,
 
 1. Inicie o Editor de Registo (regedit.exe) e abra a filial HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
 1. Inspecione o valor da `Build_Version` chave. Se estiver definido para a versão mais recente, reduza o número da versão. Por exemplo, se a versão mais recente for 9.22. \* e o `Build_Version` conjunto de chave para esse valor, em seguida, reduzi-lo para 9.21. . . \* .
@@ -74,7 +74,7 @@ Ao atualizar o Microsoft Azure Site Recovery Provider (DRA), a instalação Mast
 Isto pode dever-se ao valor nulo de um parâmetro na Chave de Registo. Para resolver a questão -
 
 1. Inicie o Editor de Registo (regedit.exe) e abra a filial HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
-1. Inspecione o valor da chave 'InstalarDirectório'.Se for nulo, adicione o valor atual do diretório de instalação.
-1. Da mesma forma, abra a filial HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\5 produtos instalados no Editor de Registos.
+1. Inspecione o valor da chave 'InstalarDirectório'. Se for nulo, adicione o valor atual do diretório de instalação.
+1. Da mesma forma, abra a filial HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 no Editor de Registos.
 1. Inspecione o valor da chave 'InstalarDirectório' e adicione o valor atual do diretório de instalação.
 1. Re-executar o instalador de configuração unificado.

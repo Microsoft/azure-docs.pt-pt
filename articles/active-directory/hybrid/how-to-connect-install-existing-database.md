@@ -1,5 +1,5 @@
 ---
-title: Instale o Azure AD Connect utilizando uma base de dados ADSync existente Microsoft Docs
+title: Instale o Azure AD Connect utilizando uma base de dados ADSync existente | Microsoft Docs
 description: Este tópico descreve como usar uma base de dados ADSync existente.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91265396"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect com uma base de dados ADSync existente

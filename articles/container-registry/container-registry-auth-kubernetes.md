@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84309820"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Retire imagens de um registo de contentores Azure para um cluster Kubernetes

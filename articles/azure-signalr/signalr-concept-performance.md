@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74157660"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guia de desempenho do Azure SignalR Service
@@ -31,7 +31,7 @@ Neste guia, vamos introduzir os fatores que afetam o desempenho da aplicação s
 
 *Modo serverless*: Um modo no qual o Serviço Azure SignalR aceita apenas ligações ao cliente. Não é permitida qualquer ligação ao servidor.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Serviço Azure SignalR define sete níveis Standard para diferentes capacidades de desempenho. Este guia responde às seguintes perguntas:
 
@@ -365,14 +365,14 @@ O Serviço Azure SignalR fornece a mesma capacidade de desempenho para ASP.NET S
 
 O teste de desempenho utiliza aplicações web Azure do Plano de [Serviço Padrão S3](https://azure.microsoft.com/pricing/details/app-service/windows/) para ASP.NET SignalR.
 
-A tabela seguinte dá a contagem de aplicações web sugeridas para ASP.NET **eco**SignalR .
+A tabela seguinte dá a contagem de aplicações web sugeridas para ASP.NET **eco** SignalR .
 
 |   Eco           | Unidade1 | Unidade2 | Unidade5 | Unidade10 | Unidade20 | Unidade50 | Unidade100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Ligações      | 1,000 | 2.000 | 5000 | 10,000 | 20 000 | 50 000 | 100.000 |
 | Contagem de servidores de aplicativos | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
-A tabela seguinte dá a contagem de aplicações web sugeridas para ASP.NET **transmissão**SignalR .
+A tabela seguinte dá a contagem de aplicações web sugeridas para ASP.NET **transmissão** SignalR .
 
 |  Difusão       | Unidade1 | Unidade2 | Unidade5 | Unidade10 | Unidade20 | Unidade50 | Unidade100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|

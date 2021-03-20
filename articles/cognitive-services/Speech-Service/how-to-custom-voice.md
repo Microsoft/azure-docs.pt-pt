@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 45f4ca6349c14f21ce48a1fcf34b7fc8998dd278
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99af0ee46e2827ac8a5749d58bb19cf85f96aa46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733521"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577466"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
@@ -69,7 +69,9 @@ Para criar o seu primeiro projeto, selecione o **separador Texto-a-Voz/Voz Perso
 
 ## <a name="how-to-migrate-to-custom-neural-voice"></a>Como migrar para a Voz Neural Personalizada
 
-Se estiver a utilizar a voz personalizada não neural (ou padrão), considere migrar para a Voz Neural Personalizada imediatamente após os passos abaixo. Mudar-se para a Custom Neural Voice irá ajudá-lo a desenvolver vozes mais realistas para interfaces de conversação ainda mais naturais e permitirá que os seus clientes e utilizadores finais beneficiem da mais recente tecnologia Text-to-Speech, de forma responsável. 
+O nível de formação padrão/não-neural (adaptável, paramétrico estatístico, concacentivo) da Custom Voice está a ser depreciado. O anúncio foi enviado a todas as assinaturas do Discurso existentes antes de 2/28/2021. Durante o período de depreciação (3/1/2021 - 2/29/2024), os utilizadores de nível padrão existentes podem continuar a utilizar os seus modelos não-neurais criados. Todos os novos utilizadores/novos recursos de fala devem passar para o nível neural/Voz Neural Personalizada. Após 2/29/2024, todas as vozes personalizadas standard/não-neural deixarão de ser suportadas. 
+
+Se estiver a utilizar uma voz personalizada não neural/padrão, migra para a Voz Neural Personalizada imediatamente após os passos abaixo. Mudar-se para a Custom Neural Voice irá ajudá-lo a desenvolver vozes mais realistas para interfaces de conversação ainda mais naturais e permitirá que os seus clientes e utilizadores finais beneficiem da mais recente tecnologia Text-to-Speech, de forma responsável. 
 
 1. Saiba mais sobre a nossa [política sobre o acesso ao limite](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) e aplique [aqui.](https://aka.ms/customneural) Note que o acesso ao serviço De Voz Neural Personalizado está sujeito à discrição exclusiva da Microsoft com base nos nossos critérios de elegibilidade. Os clientes só podem ter acesso à tecnologia após a revisão da sua aplicação e comprometeram-se a usá-la em alinhamento com os [nossos princípios de IA responsável](https://microsoft.com/ai/responsible-ai) e o [código de conduta.](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 
 2. Uma vez aprovada a sua candidatura, será-lhe fornecido o acesso à função de treino "neural". Certifique-se de que inicia sessão no [portal Voz Personalizada](https://speech.microsoft.com/customvoice) utilizando a mesma subscrição Azure que fornece na sua aplicação. 

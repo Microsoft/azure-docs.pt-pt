@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67184181"
 ---
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 Um VM com um único NIC é criado e ligado a uma rede virtual. O VM requer três endereços IP *privados* diferentes e dois endereços IP *públicos.* Os endereços IP são atribuídos às seguintes configurações IP:
 
 * **IPConfig-1:** Atribui um endereço IP *estático* privado e um endereço IP público *estático.*

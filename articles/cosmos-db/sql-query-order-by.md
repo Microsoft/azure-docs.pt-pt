@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93338307"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>ENCOMENDA POR cláusula em Azure Cosmos DB
@@ -221,7 +221,7 @@ Os resultados são:
 > [!Note]
 > Apenas a versão .NET SDK 3.4.0 ou posteriormente suporta ORDER BY com tipos mistos. Portanto, se quiser ordenar por uma combinação de valores indefinidos e definidos, deve utilizar esta versão (ou mais tarde).
 
-Não é possível controlar a ordem que diferentes tipos aparecem nos resultados. No exemplo acima, mostrámos como os valores indefinidos eram classificados antes dos valores das cordas. Se, por exemplo, quisesse mais controlo sobre a ordem de valores indefinidos, poderia atribuir a quaisquer propriedades indefinidas um valor de cadeia de "aaaaaaaaaaaaaaaaaaaaa" ou "zzzzzzzz" para garantir que eram em primeiro ou último lugar.
+Não é possível controlar a ordem que diferentes tipos aparecem nos resultados. No exemplo acima, mostrámos como os valores indefinidos eram classificados antes dos valores das cordas. Se, por exemplo, quisesse mais controlo sobre a ordem de valores indefinidos, poderia atribuir a quaisquer propriedades indefinidas um valor de cadeia de "aaaaaaaa" ou "zzzzzzzz" para garantir que eram em primeiro ou último lugar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

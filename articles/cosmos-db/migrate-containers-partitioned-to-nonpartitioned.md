@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334094"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar recipientes não divididos para recipientes divididos
@@ -20,7 +20,7 @@ ms.locfileid: "93334094"
 
 A Azure Cosmos DB suporta a criação de recipientes sem uma chave de partição. Atualmente pode criar recipientes não divididos utilizando Azure CLI e Azure Cosmos DB SDKs (.Net, Java, NodeJs) que têm uma versão inferior ou igual a 2,x. Não é possível criar recipientes não divididos utilizando o portal Azure. No entanto, estes recipientes não divididos não são elásticos e têm uma capacidade de armazenamento fixa de 20 GB e limite de produção de 10K RU/s.
 
-Os recipientes não divididos são legados e deve migrar os recipientes não divididos existentes para recipientes divididos para dimensionar o armazenamento e a produção. A Azure Cosmos DB fornece um mecanismo definido para migrar os seus recipientes não divididos para recipientes divididos. Este documento explica como todos os recipientes não divididos existentes são migrados automaticamente para recipientes divididos. Só pode tirar partido da funcionalidade de migração automática se estiver a utilizar a versão V3 de SDKs em todos os idiomas.
+Os contentores não particionados são herdados e deve migrar os contentores não particionados existentes para contentores particionados para dimensionar o armazenamento e o débito. O Azure Cosmos DB proporciona um mecanismo definido pelo sistema para migrar os contentores não particionados para contentores particionados. Este documento explica como todos os contentores não particionados existentes são migrados automaticamente para os contentores particionados. Só poderá tirar partido do recurso de migração automática se estiver a utilizar a versão V3 do SDK em todos os idiomas.
 
 > [!NOTE]
 > Atualmente, não é possível migrar as contas da Azure Cosmos DB MongoDB e da API gremlin utilizando os passos descritos neste documento.

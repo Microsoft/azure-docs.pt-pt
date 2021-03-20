@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88797671"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Crie uma chave de segurança como o seu método de verificação
@@ -65,11 +65,11 @@ Tem de criar a sua chave de segurança e dar-lhe um PIN único antes de poder in
 
 1. Vá à página **'O Meu Perfil'** https://myaccount.microsoft.com e inscreva-se se ainda não o fez.
 
-2. Selecione **Informação de Segurança**, selecione **Adicionar método**e, em seguida, selecione **a tecla** de segurança a partir da lista de down-down do **método.**
+2. Selecione **Informação de Segurança**, selecione **Adicionar método** e, em seguida, selecione **a tecla** de segurança a partir da lista de down-down do **método.**
 
     ![Adicione caixa de método, com chave de segurança selecionada](media/security-info/security-info-security-key-add-method.png)
 
-3. **Selecione Adicionar**e, em seguida, selecione o tipo de chave de segurança que tem, **dispositivo USB** ou **dispositivo NFC**.
+3. **Selecione Adicionar** e, em seguida, selecione o tipo de chave de segurança que tem, **dispositivo USB** ou **dispositivo NFC**.
 
     ![Escolha se tem uma chave de segurança USB ou NFC](media/security-info/security-info-security-key-choose-type.png)
 
@@ -82,7 +82,7 @@ Tem de criar a sua chave de segurança e dar-lhe um PIN único antes de poder in
 
     Uma nova caixa parece ajudar a ajudá-lo a configurar o seu novo método de entrada.
 
-5. Na **configuração** da sua nova caixa de método de entrada, selecione **Seguinte**e, em seguida, :
+5. Na **configuração** da sua nova caixa de método de entrada, selecione **Seguinte** e, em seguida, :
 
     - Se a sua chave de segurança for um dispositivo USB, insira a sua chave de segurança na porta USB do seu dispositivo.
 
@@ -134,7 +134,7 @@ Se pretender eliminar todas as informações da conta armazenadas na sua chave d
 
 #### <a name="to-reset-your-security-key"></a>Para redefinir a sua chave de segurança
 
-1. Abra a aplicação De Definições do Windows, selecione **Contas**, selecione **opções de iniciar sposição,** selecione **Chave de Segurança**e, em seguida, selecione **Gerir**.
+1. Abra a aplicação De Definições do Windows, selecione **Contas**, selecione **opções de iniciar sposição,** selecione **Chave de Segurança** e, em seguida, selecione **Gerir**.
 
 2. Insira a sua chave de segurança na porta USB ou toque no leitor NFC para verificar a sua identidade.
 
@@ -148,7 +148,7 @@ Pode criar um novo PIN de chave de segurança para a sua chave de segurança.
 
 #### <a name="to-create-a-new-security-key-pin"></a>Para criar um novo PIN chave de segurança
 
-1. Abra a aplicação De Definições do Windows, selecione **Contas**, selecione **opções de iniciar sposição,** selecione **Chave de Segurança**e, em seguida, selecione **Gerir**.
+1. Abra a aplicação De Definições do Windows, selecione **Contas**, selecione **opções de iniciar sposição,** selecione **Chave de Segurança** e, em seguida, selecione **Gerir**.
 
 2. Insira a sua chave de segurança na porta USB ou toque no leitor NFC para verificar a sua identidade.
 3. **Selecione Adicione** na área **PIN da chave de segurança,** escreva e confirme o seu novo PIN da chave de segurança e, em seguida, selecione **OK**.
@@ -162,7 +162,7 @@ Para registar uma chave de segurança, deve ter pelo menos um método adicional 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre métodos de verificação sem palavras-passe, a [leitura do Azure AD da Microsoft inicia a pré-visualização pública das teclas de segurança FIDO2, permitindo o blog de login sem palavras-passe](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) ou leia o [que é a app microsoft Authenticator?](user-help-auth-app-overview.md) [Windows Hello overview](https://www.microsoft.com/windows/windows-hello)
+- Para obter mais informações sobre métodos de verificação sem palavras-passe, a [leitura do Azure AD da Microsoft inicia a pré-visualização pública das teclas de segurança FIDO2, permitindo o blog de login sem palavras-passe](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) ou leia o [que é a app microsoft Authenticator?](user-help-auth-app-overview.md) [](https://www.microsoft.com/windows/windows-hello)
 
 - Para obter informações mais detalhadas sobre [as chaves de segurança compatíveis com a Microsoft](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

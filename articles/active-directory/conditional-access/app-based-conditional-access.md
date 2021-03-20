@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 122cc6a2be17cb35e77b638a60fc5fa4f035c0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91266144"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicativos de cliente aprovados para acesso a aplicativos na nuvem com Acesso Condicional
@@ -41,7 +41,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 **Passo 1: Política para clientes modernos de autenticação moderna baseados em Android e iOS que exigem a utilização de uma aplicação de cliente aprovada ao aceder ao Exchange Online.**
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -60,7 +60,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 
 **Passo 2: Configurar uma política de acesso condicional Azure AD para troca online com ActiveSync (EAS)**
 
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -88,7 +88,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 **Passo 1: Política para clientes modernos de autenticação moderna baseados em Android e iOS que exigem a utilização de uma aplicação de cliente aprovada ao aceder ao Exchange Online e SharePoint Online.**
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -107,7 +107,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 
 **Passo 2: Política de clientes Dom ActiveSync que exigem a utilização de uma aplicação de cliente aprovada.**
 
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -132,4 +132,4 @@ Reveja o artigo [Como criar e atribuir políticas de proteção de aplicações]
 
 [Componentes de acesso condicional](concept-conditional-access-policies.md)
 
-[Políticas de Acesso Condicional comuns](concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)

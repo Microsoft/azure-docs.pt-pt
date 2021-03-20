@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74454702"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Empurre uma imagem de recipiente atualizada para um registo de contentores geo-replicados para implementações regionais de aplicações web

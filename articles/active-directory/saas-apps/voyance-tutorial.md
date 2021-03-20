@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Voyance Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Voyance | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Voyance.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 51034fb5da5c8fd69ab3bb2b770a9bc88b90488b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Tutorial: Integração do Diretório Ativo Azure com a Voyance
@@ -51,7 +51,7 @@ Para configurar a integração do Voyance no AD Azure, precisa adicionar Voyance
 
 **Para adicionar Voyance da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -63,13 +63,13 @@ Para configurar a integração do Voyance no AD Azure, precisa adicionar Voyance
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Voyance** , selecione **Voyance** do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, digite **Voyance**, selecione **Voyance** do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
 
      ![Voyance na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Voyance com base em um utilizador de teste chamado **Britta Simon** .
+Nesta secção, você configura e testa Azure AD single sign-on com Voyance com base em um utilizador de teste chamado **Britta Simon**.
 Para um único sinal de sessão a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Voyance.
 
 Para configurar e testar o Azure AD com um único sinal de acesso com Voyance, é necessário completar os seguintes blocos de construção:
@@ -87,7 +87,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD um único sinal de inscrição com Voyance, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Voyance,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Voyance,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD um único sinal de inscrição com Voyance, execute o
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino Voyance como administrador.
 
-2. Vá para o canto superior direito da barra de navegação e clique no **Perfil** .
+2. Vá para o canto superior direito da barra de navegação e clique no **Perfil**.
     
     ![Configurar Sign-On única na App Side Acme University](./media/voyance-tutorial/tutorial_voyance_001.png) 
 
@@ -154,19 +154,19 @@ Para configurar o Azure AD um único sinal de inscrição com Voyance, execute o
 
     ![Configurar Sign-On única no lado da aplicação SAML v2](./media/voyance-tutorial/tutorial-voyance-005.png)
     
-    a. Selecione **Ativado** .
+    a. Selecione **Ativado**.
     
-    b. Colar **URL de login** , que copiou do portal Azure para a caixa de texto **URL de login IdP.**
+    b. Colar **URL de login**, que copiou do portal Azure para a caixa de texto **URL de login IdP.**
 
     c. Abra o certificado codificado Base64 descarregado no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **IdP Cert.**
     
-    d. Clique em **Guardar** .
+    d. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -178,27 +178,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Voyance.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Voyance** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Voyance**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Voyance** .
+2. Na lista de candidaturas, selecione **Voyance**.
 
     ![O link Voyance na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
