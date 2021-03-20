@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2030469262baf406635fd170af384e154fec6ae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89401117"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre as portas de rede virtuais redundantes em zonas de disponibilidade do Azure
@@ -63,7 +63,7 @@ Quando criar um endereço IP público utilizando o IP SKU público **standard** 
 
 Quando cria um endereço IP público utilizando o IP SKU do público **básico,** o gateway é implantado como uma porta de entrada regional e não tem qualquer zona-redundância incorporada no gateway.
 
-## <a name="faq"></a><a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a><a name="faq"></a>FAQ
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará quando eu implementar estes novos SKUs?
 

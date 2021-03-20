@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752265"
 ---
 # <a name="add-assessment-tools"></a>Adicionar ferramentas de avaliação
@@ -41,7 +41,7 @@ Este artigo descreve como adicionar ferramentas de avaliação em [Azure Migrate
     
          ![Botão para adicionar ferramentas de avaliação adicionais](./media/how-to-assess/add-assessment-tool.png)
 
-    - Se criou um projeto utilizando uma opção diferente e ainda não tiver ferramentas de avaliação, em ferramentas de avaliação **de servidores,**  >  **Assessment tools** **selecione Clique aqui**.
+    - Se criou um projeto utilizando uma opção diferente e ainda não tiver ferramentas de avaliação, em ferramentas de avaliação **de servidores,**  >   **selecione Clique aqui**.
 
         ![Botão para adicionar a primeira ferramenta de avaliação](./media/how-to-assess/no-assessment-tool.png)
 
@@ -57,7 +57,7 @@ Este artigo descreve como adicionar ferramentas de avaliação em [Azure Migrate
 
     - Se criou um projeto Azure Migrate utilizando a opção **de base de dados Avaliar e migrar** no portal, a ferramenta de Avaliação de Bases de Dados é automaticamente adicionada ao projeto. Para adicionar ferramentas de avaliação adicionais, em **Bases de Dados,** junto a **ferramentas de Avaliação,** selecione **Adicionar mais ferramentas**.
 
-    - Se criou um projeto utilizando uma opção diferente e ainda não tiver ferramentas de avaliação de bases de dados, em ferramentas de avaliação **de bases de dados,**  >  **Assessment tools** **selecione Clique aqui**.
+    - Se criou um projeto utilizando uma opção diferente e ainda não tiver ferramentas de avaliação de bases de dados, em ferramentas de avaliação **de bases de dados,**  >   **selecione Clique aqui**.
 
 2. Nas ferramentas **Azure Migrate**  >  **Add,** selecione as ferramentas que pretende adicionar. Em seguida, **selecione Adicionar a ferramenta**.
 
@@ -69,7 +69,7 @@ Este artigo descreve como adicionar ferramentas de avaliação em [Azure Migrate
 Se criou um projeto Azure Migrate utilizando a opção **Explore mais**  >  **WebApps** no portal, a ferramenta de Avaliação de Aplicações Web é automaticamente adicionada ao projeto. 
 
 
-1. Se a ferramenta de avaliação de aplicações web não estiver no projeto, em ferramentas de avaliação **de aplicações web,**  >  **Assessment tools** **selecione Clique aqui**.
+1. Se a ferramenta de avaliação de aplicações web não estiver no projeto, em ferramentas de avaliação **de aplicações web,**  >   **selecione Clique aqui**.
     
     ![Adicionar ferramentas de avaliação de aplicativos web](./media/how-to-assess/no-web-app-assessment-tool.png)
 

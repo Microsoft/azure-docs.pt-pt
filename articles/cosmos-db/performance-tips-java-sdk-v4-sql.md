@@ -10,10 +10,10 @@ ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: 8aad9df4720c833a74659b5cd36b7f5aafdf9b60
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97631844"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Sugestões de desempenho para o SDK Java v4 do Azure Cosmos DB
@@ -150,15 +150,15 @@ Por padrão, os pedidos de DB do modo direto cosmos são feitos através de TCP 
 
 No Azure Cosmos DB Java SDK v4, o modo Direct é a melhor escolha para melhorar o desempenho da base de dados com a maioria das cargas de trabalho. 
 
-* ***Visão geral do modo direto** _
+* ***Visão geral do modo Direto***
 
 :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
 
-A arquitetura do lado do cliente utilizada no modo Direct permite uma utilização previsível da rede e acesso multiplexed às réplicas DB do Azure Cosmos. O diagrama acima mostra como o modo direto encaminha os pedidos do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo direto atribui até 10 _ *Canais** do lado cliente por réplica DB. Um Canal é uma ligação TCP precedida por um tampão de pedido, que é de 30 pedidos de profundidade. Os canais pertencentes a uma réplica são dinamicamente atribuídos conforme necessário pelo **Ponto de Serviço** da réplica. Quando o utilizador emite um pedido em modo direto, o **TransportClient** encaminha o pedido para o ponto final de serviço adequado com base na chave de partição. Os pedidos de buffers **de fila de pedidos** antes do ponto de final de serviço.
+A arquitetura do lado do cliente utilizada no modo Direct permite uma utilização previsível da rede e acesso multiplexed às réplicas DB do Azure Cosmos. O diagrama acima mostra como o modo direto encaminha os pedidos do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo direto aloca até 10 **canais** no lado cliente por réplica DB. Um Canal é uma ligação TCP precedida por um tampão de pedido, que é de 30 pedidos de profundidade. Os canais pertencentes a uma réplica são dinamicamente atribuídos conforme necessário pelo **Ponto de Serviço** da réplica. Quando o utilizador emite um pedido em modo direto, o **TransportClient** encaminha o pedido para o ponto final de serviço adequado com base na chave de partição. Os pedidos de buffers **de fila de pedidos** antes do ponto de final de serviço.
 
-* ***Opções de configuração para modo direto** _
+* ***Opções de configuração para modo direto***
 
-Se o comportamento não padrão do modo direto for desejado, crie uma instância _DirectConnectionConfig* e personalize as suas propriedades, em seguida, passe a instância de propriedade personalizada para o método *directMode()* no construtor de clientes Azure Cosmos DB.
+Se o comportamento não padrão do modo direct é desejado, crie uma instância *DirectConnectionConfig* e personalize as suas propriedades, em seguida, passe a instância de propriedade personalizada para o método *condutor direto()* no construtor de clientes Azure Cosmos DB.
 
 Estas definições de configuração controlam o comportamento da arquitetura subjacente do modo Direto discutida acima.
 
@@ -176,19 +176,19 @@ Como primeiro passo, utilize as seguintes definições de configuração recomen
 
 Azure Cosmos DB Java SDK v4 suporta consultas paralelas, que permitem consultar uma coleção dividida em paralelo. Para obter mais informações, consulte amostras de [código relacionadas](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) com o trabalho com a Azure Cosmos DB Java SDK v4. Consultas paralelas são projetadas para melhorar a latência da consulta e a produção sobre a sua contraparte em série.
 
-* ***Conjunto de afinaçãoMaxDegreeOfParallelismo \:** _
+* ***Conjunto de afinaçãoMaxDegreeOfParallelismo\:***
     
 Consultas paralelas funcionam consultando várias divisórias em paralelo. No entanto, os dados de uma recolha individual dividida são recolhidos em série no que diz respeito à consulta. Assim, utilize o setMaxDegreeOfParallelism para definir o número de divisórias que têm a maior probabilidade de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode utilizar o setMaxDegreeOfParallelism para definir um número elevado, e o sistema escolhe o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau máximo de paralelismo.
 
 É importante notar que as consultas paralelas produzem os melhores benefícios se os dados forem distribuídos uniformemente em todas as divisórias no que diz respeito à consulta. Se a recolha dividida for dividida de modo a que a maioria ou a maioria dos dados devolvidos por uma consulta se concentre em algumas divisórias (uma partição no pior dos casos), então o desempenho da consulta seria engarrafado por essas divisórias.
 
-_ ***Conjunto de \: afinaçãoMaxBufferedItemCount** _
+* ***Conjunto de afinaçãoMaxBufferedItemCount\:***
     
 A consulta paralela é projetada para pré-obter resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A pré-obtenção ajuda na melhoria geral da latência de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-recedidos. Definir o conjuntoMaxBufferedItemCount para o número esperado de resultados devolvidos (ou um número mais alto) permite que a consulta receba o máximo benefício da pré-obtenção.
 
 A pré-rebusção funciona da mesma forma, independentemente do MaxDegreeOfParallelismo, e há um único tampão para os dados de todas as divisórias.
 
-_ **Escale a sua carga de trabalho ao cliente**
+* **Dimensione a sua carga de trabalho do cliente**
 
 Se estiver a testar em níveis de produção elevados, a aplicação do cliente pode tornar-se o estrangulamento devido à tampa da máquina no CPU ou à utilização da rede. Se chegar a este ponto, pode continuar a empurrar ainda mais a conta DB da Azure Cosmos, escalando as aplicações do seu cliente em vários servidores.
 
@@ -233,11 +233,11 @@ Para mais informações sobre Azure Cosmos DB Java SDK v4, consulte o [diretóri
 
 Por uma variedade de razões, pode querer ou precisar de adicionar o registo de madeira num fio que está a gerar uma elevada produção de pedido. Se o seu objetivo é saturar totalmente a produção aprovisionada de um contentor com pedidos gerados por este fio, as otimizações de registo podem melhorar consideravelmente o desempenho.
 
-* ***Configure um madeir de assíon** _
+* ***Configure um madeir de assíon***
 
 A latência de um madeiriro sincronizado necessariamente fatores no cálculo geral da latência do seu fio gerador de pedidos. Recomenda-se que um madeireiro de assíduo, como [log4j2,](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) se dissolva a sobrecarga de registo dos seus fios de aplicação de alto desempenho.
 
-_ ***Desativar o registo da netty** _
+* ***Desativar a exploração madeireira da Netty***
 
 O registo da biblioteca Netty é falador e precisa de ser desligado (o sinal de supressão na configuração pode não ser suficiente) para evitar custos adicionais de CPU. Se não estiver em modo de depuração, desative completamente a marcação de registo da Netty. Por isso, se estiver a utilizar o log4j para remover os custos adicionais do CPU incorridos pela ``org.apache.log4j.Category.callAppenders()`` netty adicione a seguinte linha à sua base de código:
 
@@ -245,7 +245,7 @@ O registo da biblioteca Netty é falador e precisa de ser desligado (o sinal de 
 org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
 ```
 
- _ **Os ficheiros OS Abrem limite de recursos**
+ * **Sistema de recursos abertos do SISTEMA**
  
 Alguns sistemas Linux (como o Red Hat) têm um limite superior no número de ficheiros abertos e, por isso, o número total de ligações. Executar o seguinte para ver os limites atuais:
 
@@ -361,7 +361,7 @@ Se tiver mais de um cliente a operar cumulativamente acima da taxa de pedido, a 
 
 Embora o comportamento de relemisão automatizado ajude a melhorar a resiliência e a usabilidade para a maioria das aplicações, pode estar em desacordo ao fazer referenciais de desempenho, especialmente ao medir a latência. A latência observada pelo cliente aumentará se a experiência atingir o acelerador do servidor e fizer com que o cliente SDK volte a tentar silenciosamente. Para evitar picos de latência durante as experiências de desempenho, meça a carga devolvida por cada operação e certifique-se de que os pedidos estão a funcionar abaixo da taxa de pedido reservada. Para mais informações, consulte [unidades request](request-units.md).
 
-* **Design para documentos menores para maior produção**
+* **Conceba tendo em vista documentos mais pequenos para um maior débito**
 
 A taxa de pedido (custo de processamento do pedido) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações para pequenos documentos. Idealmente, arquiteta a sua aplicação e fluxos de trabalho para que o seu tamanho de artigo seja ~1KB, ou ordem ou magnitude semelhante. Para aplicações sensíveis à latência, devem ser evitados grandes itens - os documentos multi-MB irão abrandar a sua aplicação.
 

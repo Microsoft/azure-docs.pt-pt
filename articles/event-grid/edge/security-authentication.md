@@ -1,5 +1,5 @@
 ---
-title: Segurança e autenticação - Azure Event Grid IoT Edge / Microsoft Docs
+title: Segurança e autenticação - Azure Event Grid IoT Edge | Microsoft Docs
 description: Segurança e autenticação em Grade de Eventos na IoT Edge.
 author: VidyaKukke
 manager: rajarv
@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171385"
 ---
 # <a name="security-and-authentication"></a>Segurança e autenticação
@@ -37,7 +37,7 @@ O módulo De Grelha de Eventos acolhe pontos finais HTTP e HTTPS. Cada módulo I
 
 Por predefinição, apenas é permitida a comunicação HTTPS. Pode anular este comportamento através  **inbound__serverAuth__tlsPolicy** configuração. A tabela seguinte capta os possíveis valores deste imóvel.
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ---------------- | ------------ |
 | Estrito | Predefinição. Permite apenas HTTPS
 | Ativado | Permite http e HTTPS
@@ -56,22 +56,22 @@ Por predefinição, o módulo 'Grade de Evento' está configurado para aceitar a
 
 ### <a name="certificate-based-client-authentication"></a>Autenticação de clientes com base em certificados
 
-A autenticação baseada em certificados é por predefinição. Pode optar por desativar a autenticação baseada em certificados através do **inbound__clientAuth__clientCert__enabled**de propriedade. A tabela a seguir capta os possíveis valores.
+A autenticação baseada em certificados é por predefinição. Pode optar por desativar a autenticação baseada em certificados através do **inbound__clientAuth__clientCert__enabled** de propriedade. A tabela a seguir capta os possíveis valores.
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ----------------  | ------------ |
 | true | Predefinição. Requer todos os pedidos no módulo 'Grade de Eventos' para apresentar um certificado de cliente. Além disso, terá de configurar **inbound__clientAuth__clientCert__source**.
 | false | Não obrigue um cliente a apresentar o certificado.
 
 A tabela seguinte capta os possíveis valores para **inbound__clientAuth__clientCert__source**
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ---------------- | ------------ |
 | IoT Edge | Predefinição. Utiliza o Trustbundle IoT Edge para validar todos os certificados de cliente.
 
 Se um cliente apresentar um auto-assinado, por padrão, o módulo 'Grade de Eventos' rejeitará tais pedidos. Pode optar por permitir certificados de cliente auto-assinados através **de inbound__clientAuth__clientCert__allowUnknownCA** propriedade. A tabela a seguir capta os possíveis valores.
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ----------------  | ------------|
 | true | Predefinição. Permite que os certificados auto-assinados sejam apresentados com sucesso.
 | false | Falhará os pedidos se forem apresentados certificados auto-assinados.
@@ -85,7 +85,7 @@ Além da autenticação baseada em certificados, o módulo De Grelha de Eventos 
 
 A configuração para controlar a autenticação baseada em chaves SAS é **inbound__clientAuth__sasKeys__enabled**.
 
-| Valores possíveis | Descrição  |
+| Valores possíveis | Description  |
 | ----------------  | ------------ |
 | true | Permite a autenticação baseada em chaves SAS. Requer **inbound__clientAuth__sasKeys__key1** ou **inbound__clientAuth__sasKeys__key2**
 | false | Predefinição. A autenticação baseada em chave SAS está desativada.
@@ -103,14 +103,14 @@ Cada módulo IoT Edge é atribuído um Certificado de Identidade pelo daemon de 
 
 A configuração para controlar a autenticação do cliente de saída é **outbound__clientAuth__clientCert__enabled**.
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ----------------  | ------------ |
 | true | Predefinição. Requer que todos os pedidos de saída do módulo Event Grid apresentem um certificado. Precisa de configurar **outbound__clientAuth__clientCert__source.**
 | false | Não requer que o módulo De Grelha de Eventos apresente o seu certificado.
 
 A configuração que controla a fonte do certificado é **outbound__clientAuth__clientCert__source**.
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ---------------- | ------------ |
 | IoT Edge | Predefinição. Utiliza o certificado de identidade do módulo configurado pelo daemon de segurança IoT Edge.
 
@@ -120,21 +120,21 @@ Um dos tipos de destino para um assinante da Grelha de Eventos é "Webhook". Por
 
 A configuração para controlar a política de destino webhook **outbound__webhook__httpsOnly**.
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ----------------  | ------------ |
 | true | Predefinição. Permite apenas assinantes com ponto final HTTPS.
 | false | Permite aos assinantes o ponto final HTTP ou HTTPS.
 
 Por predefinição, o módulo 'Grade de Evento' validará o certificado de servidor do assinante. Pode saltar a validação sobressaíndo **outbound__webhook__skipServerCertValidation**. Os valores possíveis são:
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ----------------  | ------------ |
 | true | Não valide o certificado de servidor do assinante.
 | false | Predefinição. Validar o certificado de servidor do assinante.
 
 Se o certificado do assinante for auto-assinado, então por defeito o módulo De Grelha de Eventos rejeitará tais subscritores. Para permitir o certificado auto-assinado, pode anular **outbound__webhook__allowUnknownCA**. A tabela seguinte capta os valores possíveis.
 
-| Valores possíveis | Descrição |
+| Valores possíveis | Description |
 | ----------------  | ------------ |
 | true | Predefinição. Permite que os certificados auto-assinados sejam apresentados com sucesso.
 | false | Falhará os pedidos se forem apresentados certificados auto-assinados.

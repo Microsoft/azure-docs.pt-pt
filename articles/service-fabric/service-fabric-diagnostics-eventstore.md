@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
 ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91354824"
 ---
 # <a name="eventstore-overview"></a>Visão geral da loja de eventos
@@ -17,7 +17,7 @@ ms.locfileid: "91354824"
 >[!NOTE]
 >A partir da versão 6.4 do Tecido de Serviço. as APIs da EventStore só estão disponíveis para clusters Windows em execução apenas no Azure. Estamos a trabalhar na deposição desta funcionalidade ao Linux, bem como aos nossos clusters autónomos.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Introduzido na versão 6.2, o serviço EventStore é uma opção de monitorização em Tecido de Serviço. A EventStore fornece uma forma de entender o estado do seu cluster ou cargas de trabalho num dado momento.
 O EventStore é um serviço stateful Service Fabric que mantém eventos do cluster. O evento é exposto através do Service Fabric Explorer, REST e APIs. O EventStore consulta o cluster diretamente para obter dados de diagnóstico em qualquer entidade do seu cluster e deve ser usado para ajudar:

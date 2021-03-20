@@ -4,10 +4,10 @@ description: Descreve como um dono de conta de laboratório pode definir informa
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 17456f61352b1e26a33c042b27faa2d3aa44d73a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85445088"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Configurar informações de suporte (dono de conta de laboratório nos Serviços Azure Lab)
@@ -22,7 +22,7 @@ As informações de apoio incluem:
 
 ## <a name="specify-support-information"></a>Especifique informações de suporte
 1. Inscreva-se no [portal Azure](https://portal.azure.com).
-2. Na barra de pesquisa, insira **os Serviços de Laboratório**e selecione **Serviços de Laboratório** nos resultados da pesquisa. 
+2. Na barra de pesquisa, insira **os Serviços de Laboratório** e selecione **Serviços de Laboratório** nos resultados da pesquisa. 
 3. Selecione a sua conta de laboratório na lista de contas de laboratório. 
 4. Mude para a página **de suporte interno,** faça os seguintes passos:
     1. Introduza o **URL de suporte**. 

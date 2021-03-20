@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81391832"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefacto de definição de função personalizada em aplicações geridas azure
@@ -20,7 +20,7 @@ Este artigo fornece uma visão geral do artefacto de definição de função per
 
 ## <a name="custom-role-definition-artifact"></a>Artefacto de definição de função personalizada
 
-Tens de nomear o artefacto de definição de papel personalizado customRoleDefinition.jsligado. Coloque-o ao mesmo nível que createUiDefinition.jse mainTemplate.jsno pacote .zip que cria uma definição de aplicação gerida. Para aprender a criar o pacote .zip e publicar uma definição de aplicação gerida, consulte [Publicar uma definição de aplicação gerida.](publish-service-catalog-app.md)
+Tens de nomear o artefacto de definição de papel personalizado customRoleDefinition.jsligado. Coloque-o ao mesmo nível que createUiDefinition.jse mainTemplate.jsno pacote de .zip que cria uma definição de aplicação gerida. Para aprender a criar o pacote .zip e publicar uma definição de aplicação gerida, consulte [publicar uma definição de aplicação gerida.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Esquema de definição de função personalizada
 
@@ -63,7 +63,7 @@ Um papel é composto por a `$.properties.roleName` ou `id` um:
 > [!NOTE]
 > Pode usar o `id` ou `roleName` o campo. Só é necessário um. Estes campos são utilizados para procurar a definição de papel que deve ser aplicada. Se ambos forem fornecidos, o `id` campo será utilizado.
 
-|Propriedade|Necessário?|Descrição|
+|Propriedade|Necessário?|Description|
 |---------|---------|---------|
-|ID|Sim|A identificação do papel incorporado. Pode utilizar o ID completo ou apenas o GUID.|
-|papelName|Sim|O nome do papel incorporado.|
+|ID|Yes|A identificação do papel incorporado. Pode utilizar o ID completo ou apenas o GUID.|
+|papelName|Yes|O nome do papel incorporado.|

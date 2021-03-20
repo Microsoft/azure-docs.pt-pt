@@ -1,5 +1,5 @@
 ---
-title: Compreenda o suporte amQP do Hub Azure IoT / Microsoft Docs
+title: Compreenda o suporte amqp do Hub Azure IoT | Microsoft Docs
 description: Guia do desenvolvedor - suporte para dispositivos que se liguem aos pontos finais virados para dispositivos IoT Hub e virados para o serviço utilizando o Protocolo AMQP. Inclui informações sobre suporte AMQP incorporado no dispositivo Azure IoT SDKs.
 author: robinsh
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730760"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunique com o seu hub IoT utilizando o Protocolo AMQP
@@ -68,7 +68,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 
 Para saber mais sobre a troca de mensagens nuvem-para-dispositivo entre o serviço e o hub IoT e entre o dispositivo e o hub IoT, consulte [Enviar mensagens nuvem-a-dispositivo do seu hub IoT](iot-hub-devguide-messages-c2d.md). O cliente de serviço utiliza dois links para enviar mensagens e receber feedback para mensagens previamente enviadas a partir de dispositivos, conforme descrito na tabela seguinte:
 
-| Criado por | Tipo de ligação | Caminho de ligação | Descrição |
+| Criado por | Tipo de ligação | Caminho de ligação | Description |
 |------------|-----------|-----------|-------------|
 | Serviço | Ligação remetente | `/messages/devicebound` | As mensagens cloud-to-device que se destinam a dispositivos são enviadas para este link pelo serviço. As mensagens enviadas através deste link têm a sua `To` propriedade definida para o caminho de ligação do recetor do dispositivo alvo, `/devices/<deviceID>/messages/devicebound` . |
 | Serviço | Ligação do recetor | `/messages/serviceBound/feedback` | Conclusão, rejeição e abandono de mensagens de feedback que vêm de dispositivos recebidos neste link por serviço. Para obter mais informações sobre mensagens de feedback, consulte [Enviar mensagens cloud-to-device a partir de um hub IoT](./iot-hub-devguide-messages-c2d.md#message-feedback). |
@@ -129,7 +129,7 @@ for msg in batch:
         print('unknown message:', msg.properties.content_type)
 ```
 
-Como mostrado no código anterior, uma mensagem de feedback nuvem-a-dispositivo tem um tipo de *aplicação/vnd.microsoft.iothub.feedback.jsde*conteúdo ligado . Pode utilizar as propriedades no corpo JSON da mensagem para inferir o estado de entrega da mensagem original:
+Como mostrado no código anterior, uma mensagem de feedback nuvem-a-dispositivo tem um tipo de *aplicação/vnd.microsoft.iothub.feedback.jsde* conteúdo ligado . Pode utilizar as propriedades no corpo JSON da mensagem para inferir o estado de entrega da mensagem original:
 
 * A chave `statusCode` no corpo de feedback tem um dos seguintes valores: *Sucesso,* *Expirado,* *DeliveryCountExceeded,* *Rejeitado,* ou *Purgado*.
 
@@ -262,7 +262,7 @@ send_client = uamqp.SendClient(uri, debug=True)
 
 Os seguintes caminhos de ligação são suportados como operações do dispositivo:
 
-| Criado por | Tipo de ligação | Caminho de ligação | Descrição |
+| Criado por | Tipo de ligação | Caminho de ligação | Description |
 |------------|-----------|-----------|-------------|
 | Dispositivos | Ligação do recetor | `/devices/<deviceID>/messages/devicebound` | As mensagens cloud-to-device que se destinam a dispositivos são recebidas nesta ligação por cada dispositivo de destino. |
 | Dispositivos | Ligação remetente | `/devices/<deviceID>/messages/events` | As mensagens dispositivo-nuvem que são enviadas a partir de um dispositivo são enviadas por este link. |

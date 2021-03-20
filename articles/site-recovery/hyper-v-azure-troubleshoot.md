@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
 ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96750807"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de replicação e ativação pós-falha do Hyper-V para o Azure
@@ -94,7 +94,7 @@ As limitações da largura de banda da rede podem ter impacto na replicação. P
 
 2. Clique **em Ver Saúde de Replicação** para ver os detalhes:
 
-    - Se a replicação for interrompida, clique com o botão direito na replicação do Currículo **de Replicação** de VM >  >  **Resume replication**.
+    - Se a replicação for interrompida, clique com o botão direito na replicação do Currículo **de Replicação** de VM >  >  .
     - Se um VM num hospedeiro Hiper-V configurado na Recuperação do Local migra para um hospedeiro Hiper-V diferente no mesmo cluster, ou para uma máquina autónoma, a replicação para o VM não é impactada. Verifique se o novo anfitrião Hyper-V cumpre todos os pré-requisitos e está configurado na Recuperação do Local.
 
 ## <a name="app-consistent-snapshot-issues"></a>Problemas de instantâneo consistentes com aplicativos
@@ -103,7 +103,7 @@ Um instantâneo consistente com aplicações é uma imagem pontual dos dados da 
 
 ### <a name="vss-failing-inside-the-vm"></a>VSS falhando dentro do VM
 
-1. Verifique se a versão mais recente dos serviços de Integração está instalada e em execução.  Verifique se existe uma atualização executando o seguinte comando a partir de uma solicitação elevada de PowerShell no anfitrião Hyper-V: **get-vm / select Name, State, IntegrationServicesState**.
+1. Verifique se a versão mais recente dos serviços de Integração está instalada e em execução.  Verifique se existe uma atualização executando o seguinte comando a partir de uma solicitação elevada de PowerShell no anfitrião Hyper-V: **get-vm | select Name, State, IntegrationServicesState**.
 2. Verifique se os serviços vss estão funcionando e saudáveis:
    - Para verificar os serviços, inscreva-se no VM do hóspede. Em seguida, abra um pedido de comando administrativo, e executar os seguintes comandos para verificar se todos os escritores vss estão saudáveis.
        - **Escritores da lista vssadmin**
@@ -121,7 +121,7 @@ Um instantâneo consistente com aplicações é uma imagem pontual dos dados da 
     ![Disco dinâmico](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. Verifique se não tem um disco iSCSI ligado ao VM. Tal não é suportado.
-5. Verifique se o serviço de cópia de segurança está ativado. Verifique se está ativado nos Serviços de Integração **de Definições Hiper-V**  >  **Integration Services**.
+5. Verifique se o serviço de cópia de segurança está ativado. Verifique se está ativado nos Serviços de Integração **de Definições Hiper-V**  >  .
 6. Certifique-se de que não existem conflitos com apps que tiram fotos vss. Se várias aplicações estiverem a tentar tirar fotos vss ao mesmo tempo, podem ocorrer conflitos. Por exemplo, se uma aplicação de Backup estiver a tirar fotografias do VSS quando a Recuperação do Site é agendada pela sua política de replicação para tirar uma fotografia.   
 7. Verifique se o VM está a passar por uma alta taxa de churn:
     - Pode medir a taxa diária de alteração de dados para os VMs do hóspede, utilizando contadores de desempenho no anfitrião Hyper-V. Para medir a taxa de alteração de dados, ative o contador seguinte. Agregar uma amostra deste valor através dos discos VM durante 5-15 minutos, para obter o churn VM.

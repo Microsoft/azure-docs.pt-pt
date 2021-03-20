@@ -1,5 +1,5 @@
 ---
-title: Compare O Hub Azure IoT com o Azure Event Hubs Microsoft Docs
+title: Compare o Azure IoT Hub com o Azure Event Hubs | Microsoft Docs
 description: Uma comparação entre os serviços IoT Hub e Event Hubs Azure destacando diferenças funcionais e casos de utilização. A comparação inclui protocolos suportados, gestão de dispositivos, monitorização e uploads de ficheiros.
 author: kgremban
 manager: philmea
@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
 ms.openlocfilehash: 56bb179c50862f09f1b789c359db97976017bbb5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142759"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Dispositivos IoT de ligação ao Azure: Hub IoT e Centros de Eventos

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94951133"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como rolar certificados de dispositivo X.509
@@ -192,7 +192,7 @@ Uma vez que o certificado seja enrolado tanto no dispositivo como no Serviço de
 
 Uma forma fácil de reprovisionar os dispositivos é programar o dispositivo para entrar em contacto com o serviço de fornecimento para passar pelo fluxo de provisionamento se o dispositivo receber um erro "não autorizado" de tentar ligar-se ao hub IoT.
 
-Outra forma é que tanto os antigos como os novos certificados sejam válidos para uma breve sobreposição, e use o hub IoT para enviar um comando aos dispositivos para que eles se re-registem através do serviço de fornecimento para atualizar as suas informações de conexão IoT Hub. Como cada dispositivo pode processar comandos de forma diferente, terá de programar o seu dispositivo para saber o que fazer quando o comando é invocado. Existem várias formas de comandar o seu dispositivo através do IoT Hub, e recomendamos a utilização de [métodos ou trabalhos diretos](../iot-hub/iot-hub-devguide-direct-methods.md) para iniciar o processo. [jobs](../iot-hub/iot-hub-devguide-jobs.md)
+Outra forma é que tanto os antigos como os novos certificados sejam válidos para uma breve sobreposição, e use o hub IoT para enviar um comando aos dispositivos para que eles se re-registem através do serviço de fornecimento para atualizar as suas informações de conexão IoT Hub. Como cada dispositivo pode processar comandos de forma diferente, terá de programar o seu dispositivo para saber o que fazer quando o comando é invocado. Existem várias formas de comandar o seu dispositivo através do IoT Hub, e recomendamos a utilização de [métodos ou trabalhos diretos](../iot-hub/iot-hub-devguide-direct-methods.md) para iniciar o processo. [](../iot-hub/iot-hub-devguide-jobs.md)
 
 Uma vez concluída a reprovisionamento, os dispositivos poderão ligar-se ao IoT Hub utilizando os seus novos certificados.
 

@@ -1,13 +1,13 @@
 ---
-title: Sobre a Azure DevTest Labs Microsoft Docs
+title: Sobre a Azure DevTest Labs | Microsoft Docs
 description: Saiba como a DevTest Labs pode facilitar a criação, gestão e monitorização de máquinas virtuais Azure
 ms.topic: article
 ms.date: 06/20/2020
 ms.openlocfilehash: b7e6493e5fb1c99dfa7962ed464dca3ebc6b0c7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480206"
 ---
 # <a name="about-azure-devtest-labs"></a>Saiba mais sobre o Azure DevTest Labs

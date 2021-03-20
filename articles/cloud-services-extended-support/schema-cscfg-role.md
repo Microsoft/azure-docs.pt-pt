@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 2567f5bb817a34f6274d5e265a266d67a9c81413
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744702"
 ---
 # <a name="azure-cloud-services-extended-support-config-role-schema"></a>Azure Cloud Services (suporte alargado) config esquema de função
@@ -53,5 +53,5 @@ A tabela seguinte descreve os elementos da criança do `Role` elemento.
 | Definição   | Opcional. Especifica um nome e valor de definição numa coleção de configurações para uma função. O nome de definição é definido por uma cadeia para o `name` atributo e o valor de definição é definido por uma cadeia para o `value` atributo.|
 | Certificado | Opcional. Especifica o nome, impressão digital e algoritmo de um certificado de serviço que deve ser associado com o papel. O nome do certificado é definido por uma cadeia para o `name` atributo. A impressão digital do certificado é definida por uma série de números hexadémicos que não contêm espaços para o `thumbprint` atributo. Os números hexadecimais devem ser representados com os dígitos e caracteres alfa maiúsculas. O algoritmo de certificado é definido por uma cadeia para o `thumbprintAlgorithm` atributo.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 [Sistema de configuração do Serviço de Nuvem (suporte alargado) .](schema-cscfg-file.md)

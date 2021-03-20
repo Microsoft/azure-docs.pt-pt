@@ -10,13 +10,13 @@ ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
 ms.openlocfilehash: ee9d137973bfa4eeb28bc6526437e76e781f3199
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172271"
 ---
-# <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Ligue-se ao Azure Data Explorer usando Apache Spark para Azure Synapse Analytics
+# <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Ligar ao Azure Data Explorer com o Apache Spark do Azure Synapse Analytics
 
 Este artigo descreve como aceder a uma base de dados do Azure Data Explorer do Synapse Studio com Apache Spark para Azure Synapse Analytics.
 

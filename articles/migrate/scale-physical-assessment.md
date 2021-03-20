@@ -1,5 +1,5 @@
 ---
-title: Avaliar um grande número de servidores físicos para a migração para Azure com a Azure Migrate Microsoft Docs
+title: Avaliar um grande número de servidores físicos para a migração para Azure com Azure Migrate | Microsoft Docs
 description: Descreve como avaliar um grande número de servidores físicos para migração para Azure usando o serviço Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/19/2020
 ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753693"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar um grande número de servidores físicos para a migração para Azure

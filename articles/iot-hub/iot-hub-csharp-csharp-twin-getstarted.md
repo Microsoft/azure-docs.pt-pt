@@ -1,5 +1,5 @@
 ---
-title: Começa com os gémeos Azure IoT Hub (.NET/.NET) Microsoft Docs
+title: Começa com os gémeos Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Como usar gémeos de dispositivo Azure IoT Hub para adicionar tags e, em seguida, usar uma consulta IoT Hub. Utiliza o dispositivo Azure IoT SDK para .NET para implementar a aplicação de dispositivo simulado e o serviço Azure IoT SDK para .NET para implementar uma aplicação de serviço que adiciona as tags e executa a consulta IoT Hub.
 author: robinsh
 manager: philmea
@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89013763"
 ---
 # <a name="get-started-with-device-twins-net"></a>Começar com os gémeos do dispositivo (.NET)
@@ -39,7 +39,7 @@ Neste tutorial, cria-se estas aplicações de consola .NET:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -71,7 +71,7 @@ Nesta secção, cria-se uma aplicação de consola .NET, utilizando C#, que adic
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
     ```csharp  
     using Microsoft.Azure.Devices;
@@ -141,7 +141,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que se conecta ao seu hu
 
 1. No Estúdio Visual, selecione **File**  >  **New**  >  **Project**. In **Create new project**, escolha App Consola **(.NET Framework)** e, em seguida, selecione **Next**.
 
-1. Em **Configurar o seu novo projeto**, nomeie o projeto **ReportConnectivity.** Para **solução**, escolha **Adicionar à solução**e, em seguida, selecione **Criar**.
+1. Em **Configurar o seu novo projeto**, nomeie o projeto **ReportConnectivity.** Para **solução**, escolha **Adicionar à solução** e, em seguida, selecione **Criar**.
 
 1. No Solution Explorer, clique com o botão direito no projeto **ReportConnectivity** e, em seguida, **selecione Gerir Pacotes NuGet**.
 
@@ -149,7 +149,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que se conecta ao seu hu
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
     ```csharp  
     using Microsoft.Azure.Devices.Client;
@@ -232,9 +232,9 @@ Nesta secção, cria-se uma aplicação de consola .NET que se conecta ao seu hu
 
 1. No Solution Explorer, clique com o botão direito na sua solução e selecione **set StartUp Projects**.
 
-1. No **Common Properties**Startup  >  **Project,** selecione **Vários projetos de startups.** Para **ReportConnectivity**, selecione **Start** as **the Action**. Selecione **OK** para guardar as alterações.  
+1. No **Common Properties** Startup  >  **Project,** selecione **Vários projetos de startups.** Para **ReportConnectivity**, selecione **Start** as **the Action**. Selecione **OK** para guardar as alterações.  
 
-1. Executar esta aplicação clicando à direita no projeto **ReportConnectivity** e selecionando **Debug**, em seguida, **Inicie uma nova instância**. Você deve ver a app recebendo a informação gémea e, em seguida, enviando conectividade como uma ***propriedade relatada***.
+1. Executar esta aplicação clicando à direita no projeto **ReportConnectivity** e selecionando **Debug**, em seguida, **Inicie uma nova instância**. Você deve ver a app recebendo a informação gémea e, em seguida, enviando conectividade como uma **_propriedade relatada_**.
 
     ![Executar aplicativo de dispositivo para reportar conectividade](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 

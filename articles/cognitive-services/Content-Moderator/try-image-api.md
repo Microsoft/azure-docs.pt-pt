@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912944"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Imagens moderadas da consola API
@@ -40,7 +40,7 @@ Antes de poder testar a API na consola online, precisa da sua chave de subscriç
 
 4. Na caixa **corporal Request,** utilize a imagem da amostra predefinida ou especifique uma imagem para digitalizar. Pode submeter a imagem em si como dados binários de bits ou especificar um URL acessível ao público para uma imagem. 
 
-   Para este exemplo, utilize o caminho previsto na caixa **corporal Request** e, em seguida, selecione **Enviar** . 
+   Para este exemplo, utilize o caminho previsto na caixa **corporal Request** e, em seguida, selecione **Enviar**. 
 
    ![Tente imagem - Avalie o corpo do pedido da consola](images/try-image-api-2.PNG)
 
@@ -48,9 +48,9 @@ Antes de poder testar a API na consola online, precisa da sua chave de subscriç
 
    ![Experimente imagem - Avalie a imagem da amostra da consola](images/sample-image.jpg) 
 
-5. Selecione **Send** (Enviar).
+5. Selecione **Enviar**.
 
-6. A API devolve uma pontuação de probabilidade para cada classificação. Também devolve a determinação de se a imagem satisfaz as condições ( **verdadeiras** ou **falsas).** 
+6. A API devolve uma pontuação de probabilidade para cada classificação. Também devolve a determinação de se a imagem satisfaz as condições (**verdadeiras** ou **falsas).** 
 
    ![Tente imagem - Avalie a pontuação da probabilidade da consola e a determinação da condição](images/try-image-api-3.PNG)
 
@@ -58,7 +58,7 @@ Antes de poder testar a API na consola online, precisa da sua chave de subscriç
 
 Pode utilizar a API de Moderação de Imagem para localizar rostos numa imagem. Esta opção pode ser útil quando tem preocupações de privacidade e pretende evitar que um rosto específico seja publicado na sua plataforma. 
 
-1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **Find Faces** . 
+1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **Find Faces**. 
 
    A página **Image - Find Faces** abre.
 
@@ -74,7 +74,7 @@ Pode utilizar a API de Moderação de Imagem para localizar rostos numa imagem. 
 
    ![Experimente imagem - Encontre o pedido de amostra de Faces](images/try-image-api-face-request.png)
 
-4. Selecione **Send** (Enviar). Neste exemplo, a API encontra duas faces e devolve as suas coordenadas na imagem.
+4. Selecione **Enviar**. Neste exemplo, a API encontra duas faces e devolve as suas coordenadas na imagem.
 
    ![Experimente imagem - Encontre rostos amostra Resposta caixa de conteúdo](images/try-image-api-face-response.png)
 
@@ -82,7 +82,7 @@ Pode utilizar a API de Moderação de Imagem para localizar rostos numa imagem. 
 
 Pode utilizar a capacidade de OCR do Moderador de Conteúdo para detetar texto em imagens.
 
-1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **OCR** . 
+1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **OCR**. 
 
    A **página Imagem - OCR** abre.
 
@@ -96,7 +96,7 @@ Pode utilizar a capacidade de OCR do Moderador de Conteúdo para detetar texto e
 
 4. Na caixa **de corpo Request,** utilize a imagem de amostra predefinido. Esta é a mesma imagem que é usada na secção anterior.
 
-5. Selecione **Send** (Enviar). O texto extraído é apresentado em JSON:
+5. Selecione **Enviar**. O texto extraído é apresentado em JSON:
 
    ![Imagem - Caixa de conteúdo de resposta à amostra de OCR](images/try-image-api-ocr.PNG)
 

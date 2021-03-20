@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91397220"
 ---
 # <a name="vpn-gateway-design"></a>Design VPN Gateway
@@ -77,7 +77,7 @@ Poderá utilizar o VNet peering para criar a ligação, desde que a rede virtual
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (ligação privada)
 
-O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, tais como Microsoft Azure, Microsoft 365 e CRM Online. A conectividade pode ser a partir de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto, ou uma ligação cruzada virtual através de um provedor de conectividade em uma instalação de coinstalação.
+O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, tais como Microsoft Azure, Microsoft 365 e CRM Online. A conectividade pode ser a partir de uma rede any-to-any (VPN IP), uma rede Ethernet ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa instalação de colocalização.
 
 As ligações do ExpressRoute não passam para a Internet pública. Tal permite que as ligações do ExpressRoute ofereçam mais fiabilidade, velocidades superiores, latências inferiores e uma maior segurança do que as ligações típicas através da Internet.
 

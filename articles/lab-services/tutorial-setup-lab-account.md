@@ -4,10 +4,10 @@ description: Aprenda a criar uma conta de laboratório com a Azure Lab Services,
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: fba4dbc5386407bd796606d86a5b7bdc7c10fd61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85445071"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configurar uma conta de laboratório com o Azure Lab Services
@@ -42,7 +42,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta
     6. Reveja o resumo e **selecione Criar**. 
 
         ![Rever + criar -> Criar](./media/tutorial-setup-lab-account/create-button.png)    
-5. Quando a implementação estiver concluída, expanda **os próximos passos**e selecione **Ir para o recurso**. 
+5. Quando a implementação estiver concluída, expanda **os próximos passos** e selecione **Ir para o recurso**. 
 
     ![Ir para a página da conta do laboratório](./media/tutorial-setup-lab-account/go-to-lab-account.png)
 6. Confirme que vê a página **da Conta de Laboratório.** 

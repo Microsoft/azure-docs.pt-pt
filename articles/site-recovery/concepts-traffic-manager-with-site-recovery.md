@@ -1,5 +1,5 @@
 ---
-title: Gestor de Tráfego Azure com Recuperação do Local Azure / Microsoft Docs
+title: Gestor de tráfego Azure com | de recuperação do site Azure Microsoft Docs
 description: Descreve como usar o Gestor de Tráfego Azure com recuperação do local de Azure para recuperação de desastres e migração
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86134956"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestor de Tráfego do Azure com o Azure Site Recovery
@@ -44,7 +44,7 @@ Num evento de desastre, a Empresa A pode desencadear uma [falha](site-recovery-f
 
 Dependendo dos requisitos do negócio, **a Empresa A** pode escolher uma frequência de sondagem mais alta ou mais baixa para [alternar](../traffic-manager/traffic-manager-monitoring.md) entre as instalações para Azure num evento de desastre, e garantir o mínimo de tempo de inatividade para os utilizadores.
 
-Quando o desastre é contido, **a Empresa A** pode falhar de Azure para o seu ambiente no local[(VMware](vmware-azure-failback.md) ou [Hyper-V](hyper-v-azure-failback.md)) usando a recuperação do local de Azure. Agora, quando o Gestor de Tráfego deteta que o ponto final **principal** está novamente saudável, utiliza automaticamente o ponto final **principal** nas suas respostas dns.
+Quando o desastre é contido, **a Empresa A** pode falhar de Azure para o seu ambiente no local [(VMware](vmware-azure-failback.md) ou [Hyper-V](hyper-v-azure-failback.md)) usando a recuperação do local de Azure. Agora, quando o Gestor de Tráfego deteta que o ponto final **principal** está novamente saudável, utiliza automaticamente o ponto final **principal** nas suas respostas dns.
 
 ## <a name="on-premises-to-azure-migration"></a>No local para a migração de Azure
 

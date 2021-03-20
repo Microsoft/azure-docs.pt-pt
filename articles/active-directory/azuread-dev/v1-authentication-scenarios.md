@@ -1,5 +1,5 @@
 ---
-title: Azure AD para programadores (v1.0) Rio Azure
+title: Azure AD para desenvolvedores (v1.0) | Rio Azure
 description: Aprenda básicos de autenticação para Azure AD para desenvolvedores (v1.0) como o modelo de aplicação, API, provisionamento e os cenários de autenticação mais comuns.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154734"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
@@ -119,7 +119,7 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 
 É fornecida uma breve descrição de cada tipo de afirmação emitida pelo Azure AD na tabela abaixo. Para obter informações mais detalhadas, consulte os [tokens de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) e [fichas de identificação emitidas](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) pela Azure AD.
 
-| Afirmação | Descrição |
+| Afirmação | Description |
 | --- | --- |
 | ID da Aplicação | Identifica a aplicação que está a utilizar o token. |
 | Audiência | Identifica o recurso de destinatário a que se destina o token. |
@@ -132,8 +132,8 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 | Emitido às | Regista a hora a que o token foi emitido, muitas vezes utilizado para atualização do token. |
 | Emissor | Identifica o STS que emitiu o token, bem como o inquilino do Azure AD. |
 | Apelido | Fornece o apelido do utilizador conforme definido no Azure AD. |
-| Nome | Fornece um valor legível por humanos que identifica o requerente do token. |
-| ID de objeto | Contém um identificador exclusivo imutável do requerente no Azure AD. |
+| Name | Fornece um valor legível por humanos que identifica o requerente do token. |
+| ID do Objeto | Contém um identificador exclusivo imutável do requerente no Azure AD. |
 | Funções | Contém os nomes amigáveis das Funções de Aplicação do Azure AD concedidas ao utilizador. |
 | Âmbito | Indica as permissões concedidas à aplicação cliente. |
 | Assunto | Indica o principal sobre o qual o token declara informações. |

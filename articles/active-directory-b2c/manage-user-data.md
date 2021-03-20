@@ -1,5 +1,5 @@
 ---
-title: Gerir os dados dos utilizadores no Azure Ative Directory B2C ; Microsoft Docs
+title: Gerir os dados dos utilizadores no Azure Ative Directory B2C | Microsoft Docs
 description: Saiba como eliminar ou exportar dados de utilizadores em Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d9bdf7258296b82e65e03f6b8af8021b9a7be0f0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94952476"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerir os dados dos utilizadores no Azure Ative Directory B2C

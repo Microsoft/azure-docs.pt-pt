@@ -4,10 +4,10 @@ description: Configurar definições de diagnóstico de log analytics para todos
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92171531"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurar configurações de diagnóstico de abóbada em escala
@@ -22,7 +22,7 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 * A política pode ser aplicada de uma só vez a todos os cofres dos Serviços de Recuperação numa determinada subscrição (ou a um grupo de recursos dentro da subscrição). O utilizador que atribui a apólice precisa de ter o acesso **do Proprietário** à subscrição à qual a apólice é atribuída.
 
-* O espaço de trabalho de LA, conforme especificado pelo utilizador (para o qual os dados de diagnóstico serão enviados) pode estar numa subscrição diferente dos cofres aos quais a política é atribuída. O utilizador precisa de **ter**o leitor, **o contribuinte,** ou o **proprietário** acesso à subscrição na qual existe o espaço de trabalho de LA especificado.
+* O espaço de trabalho de LA, conforme especificado pelo utilizador (para o qual os dados de diagnóstico serão enviados) pode estar numa subscrição diferente dos cofres aos quais a política é atribuída. O utilizador precisa de **ter** o leitor, **o contribuinte,** ou o **proprietário** acesso à subscrição na qual existe o espaço de trabalho de LA especificado.
 
 * O âmbito do Grupo de Gestão não é atualmente suportado.
 
@@ -50,7 +50,7 @@ Para atribuir a política para cofres no âmbito exigido, siga os passos abaixo:
 
     ![Básicos de atribuição de políticas](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
-7. Nos parâmetros , introduza as **seguintes**informações:
+7. Nos parâmetros , introduza as **seguintes** informações:
 
     * **Nome do Perfil** - O nome que será atribuído às definições de diagnóstico criadas pela política.
     * **Log Analytics Workspace** - O espaço de trabalho do Log Analytics ao qual deve ser associada a definição de diagnóstico. Os dados de diagnóstico de todos os cofres no âmbito da atribuição de política serão empurrados para o espaço de trabalho especificado de LA.

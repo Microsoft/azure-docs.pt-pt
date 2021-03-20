@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: tisande
 ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011410"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junta-se ao Azure Cosmos DB
@@ -256,7 +256,7 @@ Os resultados são:
 
 Se a sua consulta tiver um JOIN e filtros, pode reescrever parte da consulta como [subconsejo para](sql-query-subquery.md#optimize-join-expressions) melhorar o desempenho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)

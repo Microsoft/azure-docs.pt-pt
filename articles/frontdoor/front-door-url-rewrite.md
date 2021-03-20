@@ -1,5 +1,5 @@
 ---
-title: Porta frontal Azure - URL Rewrite / Microsoft Docs
+title: Porta frontal Azure - URL Reescreve | Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure faz a REescrita de URL para as suas rotas, se configurada.
 services: front-door
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91445486"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Reescrita de URLs (caminho de reencaminhamento personalizado)
@@ -36,7 +36,7 @@ Considere uma regra de encaminhamento com a seguinte combinação de anfitriões
 |            | /foo/\*     |
 |            | /foo/bar/\* |
 
-A primeira coluna da tabela abaixo mostra exemplos de pedidos de entrada e a segunda coluna mostra qual seria a rota de correspondência "mais específica".  As terceiras colunas da tabela são exemplos de caminhos de **encaminhamento personalizados**configurados.
+A primeira coluna da tabela abaixo mostra exemplos de pedidos de entrada e a segunda coluna mostra qual seria a rota de correspondência "mais específica".  As terceiras colunas da tabela são exemplos de caminhos de **encaminhamento personalizados** configurados.
 
 Por exemplo, se lermos através da segunda fila, está a dizer que para pedido de entrada `www.contoso.com/sub` , se o caminho de encaminhamento personalizado fosse , `/` então o caminho reencaminhado seria `/sub` . Se o caminho de encaminhamento personalizado `/fwd/` fosse, então o caminho reencaminhado seria `/fwd/sub` . E assim por diante, para as colunas restantes. As partes **enfatizadas** dos caminhos abaixo representam as porções que fazem parte do jogo wildcard.
 

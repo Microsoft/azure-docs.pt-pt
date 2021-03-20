@@ -1,14 +1,14 @@
 ---
-title: Bibliotecas de gestão - Azure Event Hubs / Microsoft Docs
+title: Bibliotecas de gestão - Azure Event Hubs| Microsoft Docs
 description: Este artigo fornece informações sobre a biblioteca que pode utilizar para gerir espaços de nomes e entidades do Azure Event Hubs a partir de .NET.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 74392fbf0b2c0b81898410af8027a4f13fc52b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89014001"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gestão dos Hubs de Eventos

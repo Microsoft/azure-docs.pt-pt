@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
 ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86131996"
 ---
 # <a name="fail-over--vmware-vms"></a>Falha em VMware VMs
@@ -44,7 +44,7 @@ Antes de executar um failover, verifique as propriedades VM para se certificar d
 
 Verifique as propriedades da seguinte forma:
 
-1. Em **Itens Protegidos,** selecione **Itens Replicados**e, em seguida, selecione o VM que pretende verificar.
+1. Em **Itens Protegidos,** selecione **Itens Replicados** e, em seguida, selecione o VM que pretende verificar.
 
 2. No painel **Item replicado**, existe um resumo das informações, do estado de funcionamento e dos pontos de recuperação mais recentes disponíveis da VM. Selecione **Propriedades** para ver mais detalhes.
 

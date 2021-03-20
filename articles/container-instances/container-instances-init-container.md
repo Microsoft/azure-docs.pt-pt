@@ -4,10 +4,10 @@ description: Execute recipientes init em Instâncias de Contentores Azure para e
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85954286"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Executar um recipiente init para tarefas de configuração em um grupo de contentores
@@ -39,7 +39,7 @@ Comece por copiar o seguinte JSON num novo ficheiro chamado `azuredeploy.json` .
 * O contentor *init1* executa a imagem da [caixa ocupada](https://hub.docker.com/_/busybox) do Docker Hub. Dorme durante 60 segundos e depois escreve uma linha de comando para um ficheiro num [volume deDir vazio](container-instances-volume-emptydir.md).
 * Ambos os recipientes de aplicação executam a imagem do recipiente da `aci-wordcount` Microsoft:
     * O contentor *da aldeia* executa a aplicação wordcount na sua configuração padrão, contando frequências de palavras na peça de Shakespeare *Hamlet*.
-    * O contentor da aplicação *Juliet* lê a corda da linha de comando do volume emptDir para executar a aplicação wordcount em vez de *Romeu e Julieta*de Shakespeare.
+    * O contentor da aplicação *Juliet* lê a corda da linha de comando do volume emptDir para executar a aplicação wordcount em vez de *Romeu e Julieta* de Shakespeare.
 
 Para obter mais informações e exemplos utilizando a `aci-wordcount` imagem, consulte [variáveis de ambiente definidos em instâncias de recipientes](container-instances-environment-variables.md).
 
@@ -213,7 +213,7 @@ Resultado:
 
 Os recipientes init ajudam-no a executar tarefas de configuração e inicialização para os seus recipientes de aplicação. Para obter mais informações sobre a execução de recipientes baseados em tarefas, consulte [executar tarefas contentorizadas com políticas de reinício](container-instances-restart-policy.md).
 
-Azure Container Instances fornece outras opções para modificar o comportamento dos recipientes de aplicação. Alguns exemplos:
+Azure Container Instances fornece outras opções para modificar o comportamento dos recipientes de aplicação. Os exemplos incluem:
 
 * [Definir variáveis ambientais em instâncias de contentores](container-instances-environment-variables.md)
 * [Definir a linha de comando numa instância de contentor para anular a operação da linha de comando predefinido](container-instances-start-command.md)

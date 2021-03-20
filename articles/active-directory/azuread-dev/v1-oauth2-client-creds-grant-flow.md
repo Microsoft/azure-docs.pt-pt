@@ -1,5 +1,5 @@
 ---
-title: Azure AD Service to Service Auth using OAuth2.0 / Microsoft Docs
+title: Serviço AD AD Azure para serviço Auth usando OAuth2.0 | Microsoft Docs
 description: Este artigo descreve como usar mensagens HTTP para implementar o serviço de autenticação de serviço utilizando o fluxo de concessão de credenciais de cliente OAuth2.0.
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85551713"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Serviço para chamadas de serviço usando credenciais de cliente (segredo ou certificado partilhado)
@@ -52,11 +52,11 @@ Existem dois casos dependendo se o pedido do cliente opta por ser protegido por 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: Pedido de acesso a um sinal com um segredo partilhado
 Ao utilizar um segredo partilhado, um pedido de sinal de acesso de serviço contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | grant_type |obrigatório |Especifica o tipo de subvenção solicitado. Num fluxo de concessão de credenciais de cliente, o valor deve ser **client_credentials**. |
 | client_id |obrigatório |Especifica o id do cliente Azure AD do serviço web de chamadas. Para encontrar o ID do cliente da aplicação de chamada, no [portal Azure,](https://portal.azure.com)clique em **Azure Ative Directory,** clique nas **inscrições da App,** clique na aplicação. O client_id é o *ID da aplicação* |
-| client_secret |obrigatório |Introduza uma chave registada para o serviço web de chamadas ou aplicação Daemon em Azure AD. Para criar uma chave, no portal Azure, clique em **Azure Ative Directory**, clique nos **registos de Aplicações,** clique na aplicação, clique em **Definições,** clique em **Chaves**e adicione uma Chave.  URL codificar este segredo ao for-lhe fornecido. |
+| client_secret |obrigatório |Introduza uma chave registada para o serviço web de chamadas ou aplicação Daemon em Azure AD. Para criar uma chave, no portal Azure, clique em **Azure Ative Directory**, clique nos **registos de Aplicações,** clique na aplicação, clique em **Definições,** clique em **Chaves** e adicione uma Chave.  URL codificar este segredo ao for-lhe fornecido. |
 | recurso |obrigatório |Introduza a App ID URI do serviço web recetor. Para encontrar a App ID URI, no portal Azure, clique em **Azure Ative Directory,** clique nos **registos da App,** clique na aplicação de serviço e, em seguida, clique em **Definições** e **Propriedades**. |
 
 #### <a name="example"></a>Exemplo
@@ -73,7 +73,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Pedido de token de acesso com certificado
 Um pedido de sinal de acesso de serviço ao serviço com um certificado contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | grant_type |obrigatório |Especifica o tipo de resposta solicitado. Num fluxo de concessão de credenciais de cliente, o valor deve ser **client_credentials**. |
 | client_id |obrigatório |Especifica o id do cliente Azure AD do serviço web de chamadas. Para encontrar o ID do cliente da aplicação de chamada, no [portal Azure,](https://portal.azure.com)clique em **Azure Ative Directory,** clique nas **inscrições da App,** clique na aplicação. O client_id é o *ID da aplicação* |

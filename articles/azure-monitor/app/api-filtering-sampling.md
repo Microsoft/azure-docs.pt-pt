@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98927744"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrar e pré-processar telemetria no SDK Application Insights
@@ -282,7 +282,7 @@ Em ApplicationInsights.config:
 </ApplicationInsights>
 ```
 
-Em alternativa, pode instantaneamente o inicializador em código, por exemplo, em Global.aspx.cs:
+Em alternativa, pode instantaneamente o inicializador em código, por exemplo, na Global.aspx.cs:
 
 ```csharp
 protected void Application_Start()
@@ -550,7 +550,7 @@ Qual é a diferença entre processadores de telemetria e inicializadores de tele
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 * [Eventos de pesquisa e registos](./diagnostic-search.md)
 * [amostragem](./sampling.md)
 * [Resolução de problemas](../faq.md)

@@ -1,5 +1,5 @@
 ---
-title: Visão geral da segurança no Azure Data Lake Storage Gen1 Microsoft Docs
+title: Visão geral da segurança em Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Conheça as capacidades de segurança da Azure Data Lake Storage Gen1, incluindo autenticação, autorização, isolamento de rede, proteção de dados e auditoria.
 services: data-lake-store
 author: twooley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92146294"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança em Azure Data Lake Storage Gen1
@@ -99,7 +99,7 @@ Para cumprir os regulamentos, uma organização pode exigir pistas de auditoria 
 
 Para pistas de auditoria de gestão de contas, veja e escolha as colunas que pretende registar. Também pode exportar registos de atividades para o Azure Storage.
 
-![Diário de atividades](./media/data-lake-store-security-overview/activity-logs.png "Registo de atividades")
+![Registo de atividades](./media/data-lake-store-security-overview/activity-logs.png "Registo de atividades")
 
 Para obter mais informações sobre o trabalho com registos de atividades, consulte [os registos de atividades para auditar ações de recursos.](../azure-resource-manager/management/view-activity-logs.md)
 

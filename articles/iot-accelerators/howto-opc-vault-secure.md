@@ -1,5 +1,5 @@
 ---
-title: Garantir a comunicação de dispositivos OPC UA com OPC Vault - Azure / Microsoft Docs
+title: Garantir a comunicação de dispositivos OPC UA com OPC Vault - Azure | Microsoft Docs
 description: Como registar aplicações OPC UA e como emitir certificados de inscrição assinados para os seus dispositivos OPC UA com OPC Vault.
 author: mregen
 ms.author: mregen
@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: a1b7564988c8a4d63a37b53d18ed3a7359e65d72
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92926415"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Utilize o serviço de gestão de certificados OPC Vault
@@ -53,7 +53,7 @@ Proteja o seu pedido de UA OPC através da emissão de um certificado assinado c
 
 #### <a name="request-a-new-certificate-with-a-new-keypair"></a>Solicite um novo certificado com um novo keypair
 
-1. Ir para **aplicações** .
+1. Ir para **aplicações**.
 3. Selecione **Novo Pedido** para uma aplicação listada.
 
    ![Screenshot do novo certificado de pedido](media/howto-opc-vault-secure/request-new-certificate.png "Pedido novo certificado")
@@ -71,14 +71,14 @@ Proteja o seu pedido de UA OPC através da emissão de um certificado assinado c
    ![Screenshot de Visualização Dados de Pedido de Certificado, com mensagem de aprovação na parte inferior](media/howto-opc-vault-secure/view-key-pair.png "Ver Par de Chaves")
 
 7. A chave privada resultante (PFX ou PEM) e certificado (DER) podem ser descarregados a partir daqui no formato selecionado como descarregamento de ficheiro binário. Uma versão codificada base64 também está disponível, por exemplo, para copiar e colar o certificado a uma linha de comando ou entrada de texto. 
-8. Depois de a tecla privada ser descarregada e armazenada de forma segura, pode selecionar **a Chave Privada Delete** . O certificado com a chave pública permanece disponível para utilização futura.
+8. Depois de a tecla privada ser descarregada e armazenada de forma segura, pode selecionar **a Chave Privada Delete**. O certificado com a chave pública permanece disponível para utilização futura.
 9. Devido à utilização de um certificado assinado pela AC, a Lista de Revogação de Certificados e Certificados (CRL) também deve ser descarregada aqui.
 
 Agora depende do dispositivo OPC UA como aplicar o novo par de chaves. Normalmente, o certificado ca e o CRL são copiados para uma `trusted` pasta, enquanto as chaves públicas e privadas do certificado de pedido são aplicadas a uma `own` pasta na loja de certificados. Alguns dispositivos podem já suportar o impulso do servidor para atualizações de certificados. Consulte a documentação do seu dispositivo OPC UA.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>Solicito um novo certificado com uma RSE 
 
-1. Ir para **aplicações** .
+1. Ir para **aplicações**.
 3. Selecione **Novo Pedido** para uma aplicação listada.
 
    ![Screenshot do novo certificado de pedido](media/howto-opc-vault-secure/request-new-certificate.png "Pedido novo certificado")
@@ -87,7 +87,7 @@ Agora depende do dispositivo OPC UA como aplicar o novo par de chaves. Normalmen
 
    ![Screenshot de Gerar um novo Certificado](media/howto-opc-vault-secure/generate-new-certificate.png "Gerar novo certificado")
 
-4. Carrefique a CSR selecionando um ficheiro local ou colando uma RSE codificada de base64 no formulário. **Selecione Gerar Novo Certificado** .
+4. Carrefique a CSR selecionando um ficheiro local ou colando uma RSE codificada de base64 no formulário. **Selecione Gerar Novo Certificado**.
 
    ![Screenshot de Ver Dados de Pedido de Certificado](media/howto-opc-vault-secure/approve-reject-csr.png "Aprovar CSR")
 
@@ -96,7 +96,7 @@ Agora depende do dispositivo OPC UA como aplicar o novo par de chaves. Normalmen
    ![Screenshot que mostra os detalhes do pedido de certificado de visualização e inclui uma mensagem de aprovação na parte inferior.](media/howto-opc-vault-secure/view-cert-csr.png "Ver Certificado")
 
 6. O certificado resultante (DER) pode ser descarregado a partir daqui como ficheiro binário. Uma versão codificada base64 também está disponível, por exemplo, para copiar e colar o certificado a uma linha de comando ou entrada de texto. 
-10. Depois de o certificado ser descarregado e armazenado de forma segura, pode selecionar **o Certificado de Eliminação** .
+10. Depois de o certificado ser descarregado e armazenado de forma segura, pode selecionar **o Certificado de Eliminação**.
 11. Devido à utilização de um certificado assinado pela AC, o certificado de CA e o CRL também devem ser descarregados aqui.
 
 Agora depende do dispositivo OPC UA como aplicar o novo certificado. Normalmente, o certificado ca e o CRL são copiados para uma `trusted` pasta, enquanto o certificado de inscrição é aplicado a uma `own` pasta na loja de certificados. Alguns dispositivos podem já suportar o impulso do servidor para atualizações de certificados. Consulte a documentação do seu dispositivo OPC UA.

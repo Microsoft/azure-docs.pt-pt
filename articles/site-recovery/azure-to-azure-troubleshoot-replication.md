@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96007363"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Resolução de problemas na recuperação de desastres da Azure VM
@@ -126,7 +126,7 @@ No exemplo anterior, **2147754994** é o código de erro que lhe diz sobre a fal
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>O escritor VSS não está instalado - Erro 2147221164
 
-**Como corrigir**: Para gerar a etiqueta de consistência da aplicação, a Azure Site Recovery utiliza o Serviço de Cópia De Sombra de Volume (VSS). A Recuperação do Site instala um Fornecedor VSS para o seu funcionamento para obter instantâneos de consistência da aplicação. A Azure Site Recovery instala este VsS Provider como um serviço. Se o VSS Provider não estiver instalado, a criação de instantâneo de consistência da aplicação falha. Mostra o **erro ID 0x80040154 Classe não registada**. Consulte o artigo para a [resolução de problemas de instalação do escritor VSS](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
+**Como corrigir**: Para gerar a etiqueta de consistência da aplicação, a Azure Site Recovery utiliza o Serviço de Cópia De Sombra de Volume (VSS). A Recuperação do Site instala um Fornecedor VSS para o seu funcionamento para obter instantâneos de consistência da aplicação. A Azure Site Recovery instala este VsS Provider como um serviço. Se o VSS Provider não estiver instalado, a criação de instantâneo de consistência da aplicação falha. Mostra o **erro de identificação 0x80040154 Classe não registada**. Consulte o artigo para a [resolução de problemas de instalação do escritor VSS](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>O escritor vss está desativado - Erro 2147943458
 

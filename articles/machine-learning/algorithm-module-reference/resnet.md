@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421214"
 ---
 # <a name="resnet"></a>ResNet
@@ -34,9 +34,9 @@ Consulte [este artigo](https://pytorch.org/docs/stable/torchvision/models.html?h
 
 1.  Adicione o módulo **ResNet** ao seu oleoduto no designer.  
 
-2.  Para **o nome do modelo** , especifique o nome de uma determinada estrutura resNet e pode selecionar a partir de resnet suportada: 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'resnet152', 'resnext50 \_ 32x4d', 'resnext101 \_ 32x8d', 'wide_resnet50 \_ 2', 'wide_resnet101 \_ 2'.
+2.  Para **o nome do modelo**, especifique o nome de uma determinada estrutura resNet e pode selecionar a partir de resnet suportada: 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'resnet152', 'resnext50 \_ 32x4d', 'resnext101 \_ 32x8d', 'wide_resnet50 \_ 2', 'wide_resnet101 \_ 2'.
 
-3.  Para **pré-treinado** , especifique se deve utilizar um modelo pré-treinado no ImageNet. Se selecionado, pode afinar o modelo com base no modelo pré-treinado selecionado; se desescolhido, pode treinar do zero.
+3.  Para **pré-treinado**, especifique se deve utilizar um modelo pré-treinado no ImageNet. Se selecionado, pode afinar o modelo com base no modelo pré-treinado selecionado; se desescolhido, pode treinar do zero.
 
 4.  Ligue a saída do módulo **DenseNet,** o módulo de conjunto de dados de imagem de treino e validação ao [Modelo De Pytorch de Comboio.](train-pytorch-model.md) 
 

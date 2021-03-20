@@ -1,5 +1,5 @@
 ---
-title: Porta frontal Azure - Segurança da camada de aplicação / Microsoft Docs
+title: Porta frontal Azure - segurança da camada de aplicação | Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure permite proteger e proteger os backends da sua aplicação
 services: frontdoor
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89399944"
 ---
 # <a name="application-layer-security-with-front-door"></a>Segurança da camada de aplicação com porta da frente

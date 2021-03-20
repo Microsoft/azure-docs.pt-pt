@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: 304ad51bc40c8165c2dc11bb70287491e3d6dfb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91444032"
 ---
 # <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Ligue o Excel a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância, e crie um relatório
@@ -76,7 +76,7 @@ Para guardar permanentemente os dados de ligação, pode criar um ficheiro .odc 
 
 1. Na barra de menus no topo da página, selecione o separador **Dados** e, em seguida, selecione **As Ligações Existentes** para lançar a caixa de diálogo **de ligações existentes.**
    1. **Selecione Procurar mais para** abrir a caixa de diálogo **'Origem de Dados' Select.**
-   2. Selecione o ficheiro **+NewSqlServerConnection.odc** e, em seguida, selecione **Abrir** para abrir o **Assistente de Ligação**de Dados .
+   2. Selecione o ficheiro **+NewSqlServerConnection.odc** e, em seguida, selecione **Abrir** para abrir o **Assistente de Ligação** de Dados .
 
       ![Caixa de diálogo de nova ligação](./media/connect-excel/new-connection.png)
 
@@ -87,7 +87,7 @@ Para guardar permanentemente os dados de ligação, pode criar um ficheiro .odc 
 
       ![Assistente de Ligação de Dados](./media/connect-excel/data-connection-wizard.png)
 
-3. Selecione a localização do seu ficheiro, o **Nome do Ficheiro**e o Nome **Amigável** no ecrã seguinte do Assistente de Ligação de Dados. Também pode optar por guardar a palavra-passe no ficheiro, embora isso possa potencialmente expor os seus dados a um acesso indesejado. **Selecione Terminar** quando estiver pronto.
+3. Selecione a localização do seu ficheiro, o **Nome do Ficheiro** e o Nome **Amigável** no ecrã seguinte do Assistente de Ligação de Dados. Também pode optar por guardar a palavra-passe no ficheiro, embora isso possa potencialmente expor os seus dados a um acesso indesejado. **Selecione Terminar** quando estiver pronto.
 
     ![Guardar a ligação de dados](./media/connect-excel/save-data-connection.png)
 

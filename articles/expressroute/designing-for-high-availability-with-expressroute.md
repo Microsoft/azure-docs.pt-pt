@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: duau
 ms.openlocfilehash: 3602c3944e8731263fbb55f024c276783950329f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202366"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projetar para alta disponibilidade com ExpressRoute
@@ -26,7 +26,7 @@ O ExpressRoute foi concebido para uma elevada disponibilidade para fornecer cone
 
 A seguinte figura ilustra a forma recomendada de se ligar utilizando um circuito ExpressRoute para maximizar a disponibilidade de um circuito ExpressRoute.
 
- [![11]][1]
+ [![11]][]
 
 Para uma elevada disponibilidade, é essencial manter a redundância do circuito ExpressRoute em toda a rede de ponta a ponta. Por outras palavras, precisa de manter a redundância dentro da sua rede de serviços e não deve comprometer a redundância dentro da sua rede de prestadores de serviços. Manter o despedimento no mínimo implica evitar um único ponto de falhas na rede. Ter energia e arrefecimento redundantes para os dispositivos de rede melhorará ainda mais a elevada disponibilidade.
 

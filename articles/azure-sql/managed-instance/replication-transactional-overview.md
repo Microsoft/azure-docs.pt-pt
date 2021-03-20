@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
 ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225348"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com Azure SQL Gestded Instance (Preview)
@@ -26,7 +26,7 @@ A replicação transacional é uma característica do Azure SQL Managed Instance
 
 A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Pode utilizar a replicação transacional para impulsionar as alterações efetuadas numa Instância Gerida Azure SQL para:
 
@@ -45,10 +45,10 @@ Os componentes-chave na replicação transacional são o **Editor,** **Distribui
 
 | Função | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| **Publisher** | Não | Sim |
-| **Distribuidor** | Não | Sim|
-| **Puxe o assinante** | Não | Sim|
-| **Empurre o assinante**| Sim | Sim|
+| **Publisher** | No | Yes |
+| **Distribuidor** | No | Yes|
+| **Puxe o assinante** | No | Yes|
+| **Empurre o assinante**| Yes | Yes|
 | &nbsp; | &nbsp; | &nbsp; |
 
 A **Editora** publica alterações feitas em algumas tabelas (artigos) enviando as atualizações para o Distribuidor. O editor pode ser um Azure SQL Managed Instance ou uma instância sql Server.
@@ -74,12 +74,12 @@ Existem diferentes [tipos de replicação:](/sql/relational-databases/replicatio
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim |
-| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
-| [**Fusão de replicação**](/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
-| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas updatable**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes |
+| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
+| [**Fusão de replicação**](/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Assinaturas updatable**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Matriz de Apoio

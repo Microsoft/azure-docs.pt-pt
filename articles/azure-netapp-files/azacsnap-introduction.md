@@ -1,5 +1,5 @@
 ---
-title: O que é a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp / Microsoft Docs
+title: O que é a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp | Microsoft Docs
 description: Fornece uma introdução para a ferramenta Azure Application Consistent Snapshot que pode utilizar com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632825"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>O que é a ferramenta Azure Application Consistent Snapshot (pré-visualização)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 2fd96c47e98a6f8a66a5fda555304c4448d772e0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
@@ -461,7 +461,7 @@ Configura um servidor AAA do Diretório Ativo no Access Policy Manager (APM) par
 * **Passo 2:** Definir SPN (na Conta delegação APM)
 
     **Exemplo:**
-    * setspn –Um **anfitrião/big-ipuser.superdemo.live** big-ipuser
+    * setspn -Um **hospedeiro/big-ipuser.superdemo.live** grande ipuser
 
 * **Passo 3:** Delegação SPN (para a Conta de Serviço de Aplicações) Configurar a delegação adequada para a Conta delegação F5.
     No exemplo a seguir, a conta da delegação APM está a ser configurada para o KCD para FRP-App1.superdemo. aplicativo ao vivo.

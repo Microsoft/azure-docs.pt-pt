@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d465419dfe36fd5dd67abdef22a6f54fba69a98e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89267467"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Utilizar a identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Azure Data Lake Store
@@ -49,12 +49,12 @@ No Data Lake Store, crie uma nova pasta e conceda à identidade gerida atribuíd
 3. Selecione **Data Explorer** na barra de comandos.
 4. A pasta raiz da instância do Data Lake Store fica selecionada. Selecione **Acesso** na barra de comandos.
 5. Selecione **Adicionar**.  Na caixa **Selecionar**, introduza o nome da sua VM – por exemplo, **DevTestVM**. Selecione a sua VM nos resultados da pesquisa e clique em **Selecionar**.
-6. Clique **em Selecionar Permissões**.  Selecione **Ler** e **Executar**, adicione a **Esta pasta**e adicione como **Apenas uma permissão de acesso**. Selecione **OK**.  A permissão deve ser adicionada com êxito.
+6. Clique **em Selecionar Permissões**.  Selecione **Ler** e **Executar**, adicione a **Esta pasta** e adicione como **Apenas uma permissão de acesso**. Selecione **OK**.  A permissão deve ser adicionada com êxito.
 7. Feche o painel **Acesso**.
 8. Neste tutorial, vai criar uma nova pasta. Selecione **Nova Pasta** na barra de comandos e dê um nome à pasta, por exemplo **TestFolder**.  Selecione **OK**.
 9. Selecione a pasta que criou e, em seguida, selecione **Acesso** na barra de comandos.
 10. Como no passo 5, selecione **Adicionar**. Na caixa **Selecionar**, introduza o nome da sua VM. Selecione a sua VM nos resultados da pesquisa e clique em **Selecionar**.
-11. Como no passo 6, selecione **Selecionar Permissões**. Selecione **Ler**, **Escrever** e **Executar**, adicione a **Esta pasta**e adicione como **Uma entrada de permissão de acesso e uma entrada de permissão predefinida**. Selecione **OK**.  A permissão deve ser adicionada com êxito.
+11. Como no passo 6, selecione **Selecionar Permissões**. Selecione **Ler**, **Escrever** e **Executar**, adicione a **Esta pasta** e adicione como **Uma entrada de permissão de acesso e uma entrada de permissão predefinida**. Selecione **OK**.  A permissão deve ser adicionada com êxito.
 
 As identidades geridas para recursos do Azure podem agora realizar todas as operações nos ficheiros da pasta que criou. Para obter mais informações sobre como gerir o acesso ao Data Lake Store, veja [Controlo de Acesso no Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 

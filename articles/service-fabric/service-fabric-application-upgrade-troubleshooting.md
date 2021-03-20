@@ -4,10 +4,10 @@ description: Este artigo aborda algumas questões comuns em torno da atualizaç�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009352"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Resolver problemas da atualização da aplicação
@@ -212,7 +212,7 @@ O tempo para uma atualização ser concluída depende dos controlos de saúde e 
 
 Aqui está uma atualização rápida sobre como os intervalos interagem com os tempos de upgrade:
 
-As atualizações para um domínio de upgrade não podem ser concluídas mais rapidamente do que a HealthCheckStableDuration *HealthCheckWaitDuration*  +  *HealthCheckStableDuration*.
+As atualizações para um domínio de upgrade não podem ser concluídas mais rapidamente do que a HealthCheckStableDuration   +  *HealthCheckStableDuration*.
 
 A falha de atualização não pode ocorrer mais rapidamente do que *o HealthCheckWaitDuration*  +  *HealthCheckRetryTimeout*.
 

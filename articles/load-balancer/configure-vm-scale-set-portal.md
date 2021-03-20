@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91439522"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente usando o portal Azure
@@ -36,7 +36,7 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
 > [!NOTE]
 > Os passos seguintes pressupõem que uma rede virtual chamada **myVNet** e um equilibrador de carga Azure chamado **myLoadBalancer** foi previamente implantado.
 
-1. No lado superior esquerdo do ecrã, clique em **Criar um**conjunto de escala de máquina virtual compute de recurso ou procurar a balança de máquina  >  **Compute**  >  **Virtual machine scale set** **virtual definida** na pesquisa do mercado.
+1. No lado superior esquerdo do ecrã, clique em **Criar um** conjunto de escala de máquina virtual compute de recurso ou procurar a balança de máquina  >    >   **virtual definida** na pesquisa do mercado.
 
 2. Selecione **Criar**.
 
@@ -64,13 +64,13 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
 
     :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="A screenshot mostra o separador de escala de máquina virtual Create Basics." border="true":::
 
-4. Selecione o **separador 'Rede'.**
+4. Selecione o separador **Rede**.
 
 5. Introduza ou selecione estas informações no **separador Networking:**
 
      Definição                           | Valor                                                    |
     |-----------------------------------|----------------------------------------------------------|
-    | **Configuração de rede virtual** |                                                          |
+    | **Configuração da Rede Virtual** |                                                          |
     | Rede virtual                   | Selecione **myVNet** ou a sua rede virtual existente.      |
     | **Balanceamento de carga**                |                                                          |
     | Use um equilibrador de carga               | Selecione **Sim**                                           |
@@ -79,7 +79,7 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
     | Selecione um equilibrador de carga            | Selecione **myLoadBalancer** ou o seu balanceador de carga existente |
     | Selecione uma piscina de backend             | Selecione **myBackendPool** ou o pool de backend existente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="A screenshot mostra o separador de escala de máquina virtual Create Basics." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="A screenshot mostra o separador de rede de escala de máquina virtual Create." border="true":::
 
 6. Selecione o **separador Gestão.**
 
@@ -93,5 +93,5 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
 
 Neste artigo, implementou uma balança de máquina virtual definida com um Balançador de Carga Azure existente.  Para saber mais sobre conjuntos de balanças de máquinas virtuais e balanceador de carga, consulte:
 
-- [O que é o Balanceador de Carga do Azure?](load-balancer-overview.md)
+- [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?)
 - [O que são os conjuntos de dimensionamento de máquinas virtuais?](../virtual-machine-scale-sets/overview.md)

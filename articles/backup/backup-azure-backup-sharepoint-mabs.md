@@ -4,10 +4,10 @@ description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89375402"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Apoiar uma quinta sharePoint para Azure com MABS
@@ -114,17 +114,17 @@ Após a criação do grupo de proteção, ocorre a replicação inicial e o MABS
 
 ### <a name="set-up-monitoring-notifications"></a>Configurar as notificações de monitorização
 
-1. Na consola de administrador MABS, selecione Opções **de Ação de**  >  **Action**  >  **Monitorização**.
+1. Na consola de administrador MABS, selecione Opções **de Ação de**  >    >  **Monitorização**.
 
 2. Selecione **SMTP Server**, digite o nome do servidor, porta e endereço de e-mail a partir do qual serão enviadas notificações. O endereço tem de ser válido.
 
 3. No **servidor SMTP autenticado,** digite um nome de utilizador e uma palavra-passe. O nome de utilizador e a palavra-passe devem ser o nome da conta de domínio da pessoa cujo endereço "From" é descrito no passo anterior. Caso contrário, a entrega da notificação falha.
 
-4. Para testar as definições do servidor SMTP, selecione **Enviar E-mail**de Teste, digite o endereço de e-mail onde pretende que o MABS envie a mensagem de teste e, em seguida, selecione **OK**. Selecione **Opções**  >  **Notificações** e selecione os tipos de alertas sobre os destinatários que querem ser notificados. Nos **Destinatários** digita o endereço de e-mail de cada destinatário a quem pretende que o MABS envie cópias das notificações.
+4. Para testar as definições do servidor SMTP, selecione **Enviar E-mail** de Teste, digite o endereço de e-mail onde pretende que o MABS envie a mensagem de teste e, em seguida, selecione **OK**. Selecione **Opções**  >  **Notificações** e selecione os tipos de alertas sobre os destinatários que querem ser notificados. Nos **Destinatários** digita o endereço de e-mail de cada destinatário a quem pretende que o MABS envie cópias das notificações.
 
 ### <a name="publish-operations-manager-alerts"></a>Publicar alertas do Operations Manager
 
-1. Na consola de administrador MABS, selecione **Opções de Ação de Monitorização**  >  **Action**  >  **Options**  >  **Alert Publishing**  >  **Ative Alerts**
+1. Na consola de administrador MABS, selecione **Opções de Ação de Monitorização**  >    >    >  **Alert Publishing**  >  **Ative Alerts**
 
 2. Depois de **ativar a Publishing alert,** todos os alertas MABS existentes que possam necessitar de uma ação do utilizador são publicados no registo de **eventos MABS Alerts.** O agente Gestor de Operações que está instalado no servidor MABS publica estes alertas ao Gestor de Operações e continua a atualizar a consola à medida que são gerados novos alertas.
 
@@ -143,7 +143,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
 
     ![MABS SharePoint Protection6](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection7.png)
 4. Selecione o ponto de recuperação apropriado a partir dos resultados da pesquisa, clique com o botão direito do item e, em seguida, selecione **Recuperar**.
-5. Também pode navegar por vários pontos de recuperação e selecionar uma base de dados ou um item para recuperar. Selecione **data > tempo de recuperação**e, em seguida, selecione a base de dados > ponto de **recuperação > ponto de recuperação > > ponto de recuperação do SharePoint**correto .
+5. Também pode navegar por vários pontos de recuperação e selecionar uma base de dados ou um item para recuperar. Selecione **data > tempo de recuperação** e, em seguida, selecione a base de dados > ponto de **recuperação > ponto de recuperação > > ponto de recuperação do SharePoint** correto .
 
     ![MABS SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
 6. Clique com o botão direito no item e, em seguida, **selecione Recuperar** para abrir o Assistente **de Recuperação**. Selecione **Seguinte**.
@@ -170,7 +170,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
     O MABS anexa a base de dados de conteúdos que está a hospedar o item SharePoint à instância temporária do SQL Server. A partir da base de dados de conteúdos, recupera o item e coloca-o na localização do ficheiro de paragem no MABS. O item recuperado que está no local de preparação precisa agora de ser exportado para o local de paragem na fazenda SharePoint.
 
     ![Localização de encenação2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. **Selecione Especificar as opções de recuperação**e aplicar definições de segurança na fazenda SharePoint ou aplicar as definições de segurança do ponto de recuperação. Selecione **Seguinte**.
+10. **Selecione Especificar as opções de recuperação** e aplicar definições de segurança na fazenda SharePoint ou aplicar as definições de segurança do ponto de recuperação. Selecione **Seguinte**.
 
     ![Opções de Recuperação](./media/backup-azure-backup-sharepoint/recovery-options.png)
 

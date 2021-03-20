@@ -1,5 +1,5 @@
 ---
-title: Planear e gerir os custos da Azure Cosmos DB
+title: Planear e gerir os custos do Azure Cosmos DB
 description: Aprenda a planear e gerir os custos para a Azure Cosmos DB utilizando a análise de custos no portal Azure.
 author: SnehaGunda
 ms.author: sngun
@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.openlocfilehash: 2bea2324817986654de6689a2be15d0cbf999b38
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602142"
 ---
-# <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planear e gerir os custos da Azure Cosmos DB
+# <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planear e gerir os custos do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Este artigo descreve como pode planear e gerir custos para a Azure Cosmos DB. Em primeiro lugar, utiliza a calculadora de capacidade de DB da Azure Cosmos para estimar o seu custo de carga de trabalho antes de criar quaisquer recursos. Mais tarde, pode rever o custo estimado e começar a criar os seus recursos.
@@ -83,7 +83,7 @@ Quando utiliza a análise de custos, pode ver os custos do Azure Cosmos DB em gr
 
 Para ver os custos da Azure Cosmos DB na análise de custos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Abra o âmbito no portal Azure e selecione **análise de custos** no menu. Por exemplo, vá a **Subscrições,** selecione uma subscrição da lista e, em seguida, selecione  **análise de custos** no menu. Selecione **Scope** para mudar para um âmbito diferente na análise de custos.
 
@@ -112,7 +112,7 @@ Veja os seguintes artigos para saber mais sobre como os preços funcionam na Azu
 * [Modelo de preços no Azure Cosmos DB](how-pricing-works.md)
 * [Otimizar o débito aprovisionado no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo das consultas no Azure Cosmos DB](./optimize-cost-reads-writes.md)
-* [Otimizar o custo de armazenamento em Azure Cosmos DB](optimize-cost-storage.md)
+* [Otimizar o custo de armazenamento no Azure Cosmos DB](optimize-cost-storage.md)
 * Saiba [como otimizar o seu investimento em nuvem com a Azure Cost Management.](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * Saiba mais sobre gestão de custos com [a análise de custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * Saiba como [evitar custos inesperados.](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
