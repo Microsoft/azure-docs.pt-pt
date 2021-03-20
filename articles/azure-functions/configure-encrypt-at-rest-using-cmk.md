@@ -4,10 +4,10 @@ description: Criptografe os dados da sua aplicação no Azure Storage e implemen
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92108036"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Criptografe os dados da sua aplicação em repouso utilizando as teclas geridas pelo cliente

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4fc92146d6f076287fe37f64734bb07e8250792b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882217"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar o StorSimple com as opções de transferência de dados do Azure File Sync e do Data Box Edge 
@@ -30,14 +30,14 @@ Este documento fornece uma visão geral das opções para transferência de dado
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |**Descrição geral**     |Armazenamento híbrido hierárquico e arquivo|Armazenamento geral de servidor de ficheiros com tiering de nuvem e sincronização de vários locais.  |Solução de armazenamento para pré-processar dados e enviá-lo em rede para Azure.        |
 |**Cenários**    |Servidor de ficheiros, arquivo, alvo de backup |Servidor de ficheiros, arquivo (multi-site)   |Transferência de dados, pré-processamento de dados, incluindo inferição de ML, IoT, arquivo    |
-|**Computação Edge** |Não disponível |Não disponível |Suporta recipientes de funcionamento usando Azure IoT Edge    |
+|**Cálculo de borda** |Não disponível |Não disponível |Suporta recipientes de funcionamento usando Azure IoT Edge    |
 |**Fator de forma**  |Dispositivo físico   |Agente instalado no Windows Server |Dispositivo físico   |
 |**Hardware**     |Dispositivo físico fornecido pela Microsoft como parte do serviço | Cliente fornecido |Dispositivo físico fornecido pela Microsoft como parte do serviço  |
 |**Formato de dados**  |Formato personalizado   |Ficheiros         |Blobs ou Ficheiros    |
 |**Suporte de protocolo** |iSCSI          |SMB, NFS    | SMB ou NFS      |
 |**Preços**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) e [Azure Data Box Gateway](../databox-gateway/data-box-gateway-overview.md)
 - Saiba mais sobre [o Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md)

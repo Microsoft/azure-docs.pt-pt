@@ -1,5 +1,5 @@
 ---
-title: Criar um centro de notificação Azure utilizando o portal Azure Microsoft Docs
+title: Crie um centro de notificação Azure utilizando o portal Azure | Microsoft Docs
 description: Neste tutorial, aprende-se a criar um centro de notificação Azure utilizando o portal Azure.
 services: notification-hubs
 author: sethmanheim
@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92426554"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Quickstart: Criar um centro de notificação Azure no portal Azure

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
 ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98186027"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
@@ -103,7 +103,7 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 ### <a name="system-health-events"></a>Eventos de saúde do sistema
 
-| Nome do Evento | Descrição|
+| Nome do Evento | Description|
 |------|---------|
 |archon_exit    |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
 |archon_error   |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
@@ -158,7 +158,7 @@ Para otimizar os registos enviados para um ponto final remoto, como o Azure Blob
 
 ### <a name="configure-the-log-level"></a>Configure o nível de registo
 
-A configuração do nível de registo permite-lhe controlar a verbosidade dos registos gerados. Os níveis de registo suportados são: `none` `verbose` , e `info` `warning` `error` . O nível verboso de registo predefinido para os nós e plataforma é `info` . 
+A configuração do nível de registo permite-lhe controlar a verbosidade dos registos gerados. Os níveis de registo suportados são: `none` , , , e `verbose` `info` `warning` `error` . O nível verboso de registo predefinido para os nós e plataforma é `info` . 
 
 Os níveis de registo podem ser modificados globalmente, definindo a `ARCHON_LOG_LEVEL` variável ambiental para um dos valores permitidos.
 Também pode ser definido através do documento IoT Edge Module Twin, quer a nível global, para todas as competências implementadas, quer para todas as habilidades específicas, definindo os valores para `platformLogLevel` e `nodeLogLevel` como mostrado abaixo.
@@ -216,9 +216,9 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 
 
 1. Vá à página do portal IoT Hub, selecione **Dispositivos edge** e, em seguida, selecione o seu dispositivo e o seu módulo de diagnóstico. 
-2. Vá à página de detalhes do módulo e clique no separador método *_* _ método._*
+2. Vá à página de detalhes do módulo e clique no ***separador método direto.***
 3. Digite `getRTCVLogs` no Nome do Método e uma cadeia de formato json na carga útil. Pode `{}` entrar, que é uma carga vazia. 
-4. Desa estacadem a ligação e o método, e clique em _*Invoke Method**.
+4. Desa estaca de ligação e de tempo de método, e clique em **Invocar Método**.
 5. Selecione o seu recipiente-alvo e construa uma corda de json de carga útil utilizando os parâmetros descritos na secção **de sintaxe de registo.** Clique **em Invocar Método** para realizar o pedido.
 
 >[!NOTE]
@@ -232,7 +232,7 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 
 A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
-| Palavra-chave | Descrição | Valor Predefinido |
+| Palavra-chave | Description | Valor Predefinido |
 |--|--|--|
 | StartTime | Troncos desejados começam na hora de início, em milissegundos UTC. | `-1`, o início do tempo de funcionação do contentor. Quando `[-1.-1]` é usado como um intervalo de tempo, a API retorna os registos da última hora.|
 | EndTime | Os troncos desejados terminam o tempo, em milissegundos UTC. | `-1`, a hora atual. Quando `[-1.-1]` o intervalo de tempo é utilizado, a API retorna os registos da última hora. |
@@ -243,9 +243,9 @@ A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
 A tabela seguinte lista os atributos na resposta de consulta.
 
-| Palavra-chave | Descrição|
+| Palavra-chave | Description|
 |--|--|
-|DoPost| Verdadeiro  ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente** _. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_*_.|
+|DoPost| Verdadeiro  ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente** _. Quando opta por fazer o upload de registos, a api devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_**.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|
 |Filtros de Valor| Filtros de palavras-chave aplicados nos registos. |
 |TimeStamp| Tempo de início da execução do método. |
@@ -298,7 +298,7 @@ A tabela seguinte lista os atributos na resposta de consulta.
 }
 ```
 
-Verifique as linhas, horas e tamanhos do log, se essas definições parecerem boas substituem o _*_DoPost_*_ `true` e que empurrarão os registos com os mesmos filtros para destinos. 
+Verifique as linhas, horas e tamanhos do log, se essas definições parecerem boas substituem o ***DoPost*** `true` e que empurrarão os registos com os mesmos filtros para destinos. 
 
 Pode exportar registos do Azure Blob Storage quando resolver problemas. 
 
@@ -316,7 +316,7 @@ A secção seguinte é fornecida para ajudar na depuração e verificação do e
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Aceda ao Ponto Final da API da Kubernetes. 
 
-1. Na UI local do seu dispositivo, aceda à página _ *Dispositivos** 
+1. Na UI local do seu dispositivo, aceda à página **dispositivos.** 
 2. Nos **pontos finais do dispositivo,** copie o ponto final de serviço da API da Kubernetes. Este ponto final é uma cadeia no seguinte formato: `https://compute..[device-IP-address]` .
 3. Salve a corda do ponto final. Usará isto mais tarde ao configurar `kubectl` para aceder ao cluster Kubernetes.
 

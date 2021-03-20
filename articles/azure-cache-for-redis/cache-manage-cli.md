@@ -8,10 +8,10 @@ ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537699"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Como criar e gerir a Cache Azure para Redis usando o CLI clássico do Azure
@@ -37,7 +37,7 @@ Para criar e gerir a Cache Azure para instâncias Redis usando O CLI clássico d
 ## <a name="azure-cache-for-redis-properties"></a>Cache Azure para propriedades redis
 As seguintes propriedades são usadas ao criar e atualizar a Cache Azure para instâncias Redis.
 
-| Propriedade | Comutador | Descrição |
+| Propriedade | Comutador | Description |
 | --- | --- | --- |
 | name |-n, -- nome |Nome da Cache Azure para Redis. |
 | grupo de recursos |-g, --grupo de recursos |Nome do Grupo de Recursos. |
@@ -45,8 +45,8 @@ As seguintes propriedades são usadas ao criar e atualizar a Cache Azure para in
 | size |-z, --tamanho |Tamanho da Cache Azure para Redis. Valores válidos: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, -sku |Redis SKU. Deve ser um dos seguintes: [Básico, Standard, Premium] |
 | EnableNonSslPort |-e, ---enable-non-ssl-porta |EnableNonSslPort propriedade do Azure Cache para Redis. Adicione esta bandeira se quiser ativar a porta não-TLS/SSL para a sua cache |
-| Configuração redis |-c, --redis-configuração |Configuração Redis. Introduza uma cadeia de chaves e valores de configuração formatadas por JSON aqui. Formato:"{"""""""""}" |
-| Configuração redis |-f, --redis-configuração-arquivo |Configuração Redis. Introduza o caminho de um ficheiro contendo teclas e valores de configuração aqui. Formato para a entrada do ficheiro: {""""""""""} |
+| Configuração redis |-c, --redis-configuração |Configuração Redis. Introduza uma cadeia de chaves e valores de configuração formatadas por JSON aqui. Formato:"{"""""""}" |
+| Configuração redis |-f, --redis-configuração-arquivo |Configuração Redis. Introduza o caminho de um ficheiro contendo teclas e valores de configuração aqui. Formato para a entrada do ficheiro: {"""} |
 | Contagem de Fragmentos |-r, --shard-count |Número de Fragmentos para criar numa Cache de Cluster Premium com clustering. |
 | Rede Virtual |-v, --rede virtual |Ao hospedar a sua cache num VNET, especifica o ID de recurso ARM exato da rede virtual para implantar a Cache Azure para Redis. Formato de exemplo: /subscrições/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo chave |-t, --tipo chave |Tipo de chave para renovar. Valores válidos: [Primário, Secundário] |

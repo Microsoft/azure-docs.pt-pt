@@ -1,5 +1,5 @@
 ---
-title: Atribuir funções Azure AD aos utilizadores - Azure Ative Directory / Microsoft Docs
+title: Atribuir funções AZURE AD aos utilizadores - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory.
 services: active-directory
 author: ajburnle
@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370938"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory
@@ -65,9 +65,9 @@ Se precisar de remover a atribuição de funções de um utilizador, também pod
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>Para remover uma atribuição de função de um utilizador
 
-1. Selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, procure e selecione o utilizador removendo a atribuição de funções. Por exemplo, _Alain Caronte._
+1. Selecione **Azure Ative Directory**, selecione **Utilizadores** e, em seguida, procure e selecione o utilizador removendo a atribuição de funções. Por exemplo, _Alain Caronte._
 
-2. Selecione **funções atribuídas**, selecione **administrador de aplicação**e, em seguida, selecione **Remover a designação**.
+2. Selecione **funções atribuídas**, selecione **administrador de aplicação** e, em seguida, selecione **Remover a designação**.
 
     ![Página de funções atribuídas, mostrando o papel selecionado e a opção de remoção](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 

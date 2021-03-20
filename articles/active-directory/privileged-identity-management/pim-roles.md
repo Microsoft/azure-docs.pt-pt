@@ -1,5 +1,5 @@
 ---
-title: Funções que não pode gerir em Gestão de Identidade Privilegiada - Diretório Ativo Azure Microsoft Docs
+title: Funções que não pode gerir em Gestão de Identidade Privilegiada - Azure Ative Directory | Microsoft Docs
 description: Descreve as funções que não pode gerir na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c72587c5486ed61215fd20c215a1dd194f4b7bc4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372417"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que não pode gerir na Gestão de Identidade Privilegiada

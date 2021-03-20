@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02544489816f5711ca6e599c2bce03737c747934
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92106625"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados Azure
@@ -35,10 +35,10 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
     ![Registar origens de dados](./media/data-lake-store-with-data-catalog/register-data-source.png "Registar origens de dados")
 1. Na página seguinte, clique em **Aplicação de Lançamento.** Isto irá descarregar o ficheiro manifesto de aplicação no seu computador. Clique duas vezes no ficheiro manifesto para iniciar a aplicação.
-1. Na página Welcome, clique **em Iniciar s-screva**e insira as suas credenciais.
+1. Na página Welcome, clique **em Iniciar s-screva** e insira as suas credenciais.
 
     ![Ecrã de Boas-Vindas](./media/data-lake-store-with-data-catalog/welcome.screen.png "Ecrã de Boas-Vindas")
-1. Na página Select a Data Source, selecione **Azure Data Lake Store**e, em seguida, clique em **Seguinte**.
+1. Na página Select a Data Source, selecione **Azure Data Lake Store** e, em seguida, clique em **Seguinte**.
 
     ![Selecionar origem de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecionar origem de dados")
 1. Na página seguinte, forneça o nome da conta Gen1 de armazenamento de dados que pretende registar no Catálogo de Dados. Deixe as outras opções como padrão e, em seguida, clique em **Connect**.
@@ -53,7 +53,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
     c. A caixa **de Objetos a registar** lista os ficheiros e pastas que pretende registar no Catálogo de Dados do Azure.
 
     ![Screenshot do Microsoft Azure Data Catalog - Caixa de diálogo de conta de loja.](./media/data-lake-store-with-data-catalog/view-data-structure.png "Ver estrutura de dados")
-1. Para este tutorial, deve registar todos os ficheiros no diretório. Para isso, clique no botão![(mover objetos)](./media/data-lake-store-with-data-catalog/move-objects.png "Mover objetos")para mover todos os ficheiros para **Objects para serem registados.**
+1. Para este tutorial, deve registar todos os ficheiros no diretório. Para isso, clique no botão ![(mover objetos)](./media/data-lake-store-with-data-catalog/move-objects.png "Mover objetos")para mover todos os ficheiros para **Objects para serem registados.**
 
     Como os dados serão registados num catálogo de dados a nível da organização, é uma abordagem recomendada para adicionar alguns metadados que pode usar mais tarde para localizar rapidamente os dados. Por exemplo, pode adicionar um endereço de e-mail para o titular dos dados (por exemplo, um que está a carregar os dados) ou adicionar uma etiqueta para identificar os dados. A captura do ecrã abaixo mostra uma etiqueta que adiciona aos dados.
 

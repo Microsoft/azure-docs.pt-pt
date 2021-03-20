@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sincronização: Tarefas operacionais e considerações Microsoft Docs'
+title: 'Azure AD Connect sync: Tarefas operacionais e considerações | Microsoft Docs'
 description: Este tópico descreve tarefas operacionais para a sincronização Azure AD Connect e como se preparar para o funcionamento deste componente.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090130"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de encenação e recuperação de desastres
@@ -56,7 +56,7 @@ Para aplicar este método, siga estes passos:
 5. [Comutação do servidor ativo](#switch-active-server)
 
 #### <a name="prepare"></a>Preparação
-1. Instale O Azure AD Connect, selecione **modo de preparação**e desescolte a **sincronização** inicial na última página do assistente de instalação. Este modo permite-lhe executar o motor de sincronização manualmente.
+1. Instale O Azure AD Connect, selecione **modo de preparação** e desescolte a **sincronização** inicial na última página do assistente de instalação. Este modo permite-lhe executar o motor de sincronização manualmente.
    ![A screenshot mostra a página Ready to configure na caixa de diálogo Azure AD Connect.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Iniciar súmis/iniciar súmis e a partir do menu inicial **selecione Serviço de Sincronização**.
 
@@ -64,10 +64,10 @@ Para aplicar este método, siga estes passos:
 Se tiver feito alterações personalizadas no servidor primário e quiser comparar a configuração com o servidor de paragem, utilize o documento de [configuração AD Connect Azure](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importação e Sincronização
-1. Selecione **Conectores**e selecione o primeiro Conector com o tipo **Serviços de Domínio do Diretório Ativo**. Clique **em Executar,** selecione **Full import**, e **OK**. Faça estes passos para todos os Conectores deste tipo.
+1. Selecione **Conectores** e selecione o primeiro Conector com o tipo **Serviços de Domínio do Diretório Ativo**. Clique **em Executar,** selecione **Full import**, e **OK**. Faça estes passos para todos os Conectores deste tipo.
 2. Selecione o Conector com o tipo **Azure Ative Directory (Microsoft)**. Clique **em Executar,** selecione **Full import**, e **OK**.
-3. Certifique-se de que o separador Conectores ainda está selecionado. Para cada Conector com **serviços de domínio de diretório ativo**tipo , clique em **Executar,** selecione **Delta Synchronization**, e **OK**.
-4. Selecione o Conector com o tipo **Azure Ative Directory (Microsoft)**. Clique **em Executar,** selecione **Delta Synchronization**e **OK**.
+3. Certifique-se de que o separador Conectores ainda está selecionado. Para cada Conector com **serviços de domínio de diretório ativo** tipo , clique em **Executar,** selecione **Delta Synchronization**, e **OK**.
+4. Selecione o Conector com o tipo **Azure Ative Directory (Microsoft)**. Clique **em Executar,** selecione **Delta Synchronization** e **OK**.
 
 Já encenou alterações de exportação para Azure AD e no local AD (se estiver a utilizar a implementação híbrida exchange). Os próximos passos permitem-lhe inspecionar o que está prestes a mudar antes de iniciar a exportação para os diretórios.
 
@@ -151,9 +151,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency

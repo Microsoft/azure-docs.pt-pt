@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545077"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Criar e gerir a Base de Dados Azure para o MySQL - Regras de firewall do servidor flexível utilizando o Azure CLI
@@ -25,7 +25,7 @@ O Servidor Flexível da Base de Dados do Azure para MySQL suporta dois tipos de 
 - Acesso público (endereços IP permitidos)
 - Acesso privado (Integração de VNet)
 
-Neste artigo, vamos focar-nos na criação do servidor MySQL com **acesso público (endereços IP autorizados)** usando O Azure CLI e forneceremos uma visão geral sobre os comandos Azure CLI que pode utilizar para criar, atualizar, excluir, listar e mostrar regras de firewall após a criação do servidor. Com *acesso público (endereços IP autorizados)* , as ligações ao servidor MySQL estão restritas apenas a endereços IP permitidos. Os endereços IP do cliente devem ser permitidos nas regras de firewall. Para saber mais sobre o assunto, consulte o [acesso do Público (endereços IP autorizados)](./concepts-networking.md#public-access-allowed-ip-addresses). As regras de firewall podem ser definidas no momento da criação do servidor (recomendado), mas também podem ser adicionadas mais tarde.
+Neste artigo, vamos focar-nos na criação do servidor MySQL com **acesso público (endereços IP autorizados)** usando O Azure CLI e forneceremos uma visão geral sobre os comandos Azure CLI que pode utilizar para criar, atualizar, excluir, listar e mostrar regras de firewall após a criação do servidor. Com *acesso público (endereços IP autorizados)*, as ligações ao servidor MySQL estão restritas apenas a endereços IP permitidos. Os endereços IP do cliente devem ser permitidos nas regras de firewall. Para saber mais sobre o assunto, consulte o [acesso do Público (endereços IP autorizados)](./concepts-networking.md#public-access-allowed-ip-addresses). As regras de firewall podem ser definidas no momento da criação do servidor (recomendado), mas também podem ser adicionadas mais tarde.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -89,11 +89,11 @@ Consulte a [documentação de referência](/cli/azure/mysql/flexible-server) do 
 O comando **az mysql de regra de firewall do servidor flexível** é usado a partir do CLI Azure para criar, eliminar, listar, mostrar e atualizar as regras de firewall.
 
 Comandos:
-- **criar** : Criar uma regra de firewall de servidor flexível.
-- **lista** : Listar as regras flexíveis de firewall do servidor.
-- **atualização** : Atualize uma regra de firewall flexível do servidor.
-- **show** : Mostrar os detalhes de uma regra de firewall do servidor flexível.
-- **eliminar** : Elimine uma regra de firewall flexível do servidor.
+- **criar**: Criar uma regra de firewall de servidor flexível.
+- **lista**: Listar as regras flexíveis de firewall do servidor.
+- **atualização**: Atualize uma regra de firewall flexível do servidor.
+- **show**: Mostrar os detalhes de uma regra de firewall do servidor flexível.
+- **eliminar**: Elimine uma regra de firewall flexível do servidor.
 
 Consulte a [documentação de referência](/cli/azure/mysql/flexible-server) do Azure CLI para a lista completa de parâmetros CLI configuráveis. Por exemplo, nos comandos abaixo pode especificar opcionalmente o grupo de recursos.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com HRworks Single Sign-On [ Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com HRworks Single Sign-On | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o HRworks Single Sign-On.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
 ms.openlocfilehash: d6b23213d9d986c62a227b3e182a22896d128222
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com HRworks Single Sign-On
@@ -106,7 +106,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso a HRworks Single Sign-On.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **HRworks Single Sign-On**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -132,7 +132,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
 1. Se pretender configurar o HRworks Single Sign-On manualmente, abra manualmente uma nova janela do navegador web e inscreva-se no seu site da empresa HRworks Single Sign-On como administrador e execute os seguintes passos:
 
-1. Clique em **Básicos**de Segurança De  >  **Basics**  >  **Segurança**  >  **Único Sign-on** a partir do lado esquerdo da barra de menu e execute os seguintes passos:
+1. Clique em **Básicos** de Segurança De  >    >  **Segurança**  >  **Único Sign-on** a partir do lado esquerdo da barra de menu e execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
@@ -154,7 +154,7 @@ Para ativar os utilizadores Azure AD, inscreva-se no HRworks Single Sign-On, dev
 
 1. Inscreva-se na HRworks Single Sign-On como Administrador.
 
-1. Clique em Pessoas **de Administrador**  >  **Persons**  >  **Persons**  >  **Pessoas Nova pessoa** do lado esquerdo da barra de menu.
+1. Clique em Pessoas **de Administrador**  >    >    >  **Pessoas Nova pessoa** do lado esquerdo da barra de menu.
 
      ![Screenshot mostra screenshot mostra página de trabalho de H R com Pessoas e Nova pessoa selecionada.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 

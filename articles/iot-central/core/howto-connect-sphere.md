@@ -1,5 +1,5 @@
 ---
-title: Ligue um dispositivo Azure Sphere no Azure IoT Central Microsoft Docs
+title: Ligue um dispositivo Azure Sphere na Azure IoT Central | Microsoft Docs
 description: Saiba como ligar um dispositivo Azure Sphere (DevKit) a uma aplicação Azure IoT Central.
 services: iot-central
 ms.service: iot-central
@@ -9,10 +9,10 @@ author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
 ms.openlocfilehash: 770f6e56a669ab2d9b425a7a2879eeef5d37377b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123428"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo do Azure Sphere à aplicação do Azure IoT Central
@@ -53,7 +53,7 @@ Para criar um dispositivo Azure Sphere na IoT Central:
 
 1. No modelo do dispositivo, edite a vista chamada **Visão Geral** para mostrar **temperatura** e **pressão de botão**.
 
-1. Selecione o **tipo de visualização do dispositivo de edição e da nuvem** para adicionar outra vista que mostre o LED de estado **de**leitura/escrita . Arraste a propriedade **Status LED** para o retângulo vazio e pontilhado no lado direito do formulário. Selecione **Guardar**.
+1. Selecione o **tipo de visualização do dispositivo de edição e da nuvem** para adicionar outra vista que mostre o LED de estado **de** leitura/escrita . Arraste a propriedade **Status LED** para o retângulo vazio e pontilhado no lado direito do formulário. Selecione **Guardar**.
 
 ## <a name="prepare-the-device"></a>Prepare o dispositivo
 
@@ -67,7 +67,7 @@ Para permitir que a amostra se conecte à IoT Central, deve [configurar uma apli
 
 Quando o dispositivo está ligado à IoT Central, pode ver a telemetria no painel de instrumentos.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Modelo de dispositivo para Azure Sphere DevKit":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Painel de instrumentos para Azure Sphere DevKit":::
 
 ## <a name="create-a-simulated-device"></a>Criar um dispositivo simulado
 
@@ -77,7 +77,7 @@ Para criar um dispositivo simulado:
 
 - **Selecione dispositivos > esfera Azure IoT**
 - Selecione **+ Novo**.
-- Introduza um **ID de dispositivo** único e um nome de **dispositivo**amigável .
+- Introduza um **ID de dispositivo** único e um nome de **dispositivo** amigável .
 - Ativar a **definição simulada.**
 - Selecione **Criar**.
 

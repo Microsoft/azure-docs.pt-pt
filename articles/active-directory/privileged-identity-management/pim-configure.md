@@ -1,5 +1,5 @@
 ---
-title: O que é Gestão de Identidade Privilegiada? - Azure AD . Microsoft Docs
+title: O que é Gestão de Identidade Privilegiada? - Azure AD | Microsoft Docs
 description: Fornece uma visão geral da Azure AD Gestão de Identidade Privilegiada (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370190"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
@@ -47,7 +47,7 @@ A Gestão de Identidade Privilegiada fornece ativação de funções baseadas no
 
 ## <a name="what-can-i-do-with-it"></a>O que posso fazer com isto?
 
-Assim que configurar a Gestão de Identidade Privilegiada, verá as opções **de Tarefas,** **Gestão**e **Atividade** no menu de navegação à esquerda. Como administrador, você escolherá entre opções como gerir **funções Azure AD,** gerir funções **de recursos Azure** ou grupos de acesso privilegiados. Quando escolhe o que quer gerir, vê o conjunto de opções apropriado para essa opção.
+Assim que configurar a Gestão de Identidade Privilegiada, verá as opções **de Tarefas,** **Gestão** e **Atividade** no menu de navegação à esquerda. Como administrador, você escolherá entre opções como gerir **funções Azure AD,** gerir funções **de recursos Azure** ou grupos de acesso privilegiados. Quando escolhe o que quer gerir, vê o conjunto de opções apropriado para essa opção.
 
 ![Screenshot da Gestão de Identidade Privilegiada no portal Azure](./media/pim-configure/pim-quickstart.png)
 
@@ -83,7 +83,7 @@ O Privileged Identity Management suporta os seguintes cenários:
 
 Para melhor compreender a Gestão de Identidade Privilegiada e a sua documentação, deverá rever os seguintes termos.
 
-| Termo ou conceito | Categoria de atribuição de funções | Descrição |
+| Termo ou conceito | Categoria de atribuição de funções | Description |
 | --- | --- | --- |
 | elegível | Tipo | Uma atribuição de funções que requer que um utilizador execute uma ou mais ações para usar o papel. Se um utilizador tiver sido elegível para um papel, isso significa que pode ativar o papel quando precisa de executar tarefas privilegiadas. Não há diferença no acesso dado a alguém com uma função permanente contra uma função elegível. A única diferença é que algumas pessoas não precisam sempre desse acesso. |
 | active | Tipo | Uma tarefa que não requer que um utilizador execute qualquer ação para usar o papel. Os utilizadores atribuídos como ativos têm os privilégios atribuídos ao papel. |

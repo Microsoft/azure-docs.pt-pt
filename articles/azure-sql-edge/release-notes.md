@@ -11,10 +11,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
 ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98696384"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
@@ -40,7 +40,7 @@ Motor SQL constrói 15.0.2000.1554
 
 Motor SQL constrói 15.0.2000.1553
 
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 
 - Permitir Date_Bucket expressões definidas em colunas computadas.
 
@@ -55,7 +55,7 @@ Motor SQL constrói 15.0.2000.1553
 
 Motor SQL constrói 15.0.2000.1552
 
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 - Imagens de contentores baseadas em Ubuntu 18.04 
 - Suporte `IGNORE NULL` e `RESPECT NULL` sintaxe com `LAST_VALUE()` e `FIRST_VALUE()` funções 
 - Melhorias de fiabilidade para PREVISÃO com ONNX
@@ -89,7 +89,7 @@ Motor SQL constrói 15.0.2000.1552
 
 ## <a name="ctp-23"></a>CTP 2.3
 Motor SQL constrói 15.0.2000.1549
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 - Suporte para origens personalizadas na função Date_Bucket() 
 - Suporte para ficheiros BACPAC como parte da implantação do SQL
 - Suporte à limpeza com base na política de retenção de dados:      
@@ -107,7 +107,7 @@ Motor SQL constrói 15.0.2000.1549
 
 ## <a name="ctp-22"></a>CTP 2.2
 Motor SQL constrói 15.0.2000.1546
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 - Suporte para recipientes não-raiz 
 - Suporte para a recolha de dados de utilização e diagnóstico 
 - Atualizações de streaming T-SQL:
@@ -129,7 +129,7 @@ Motor SQL constrói 15.0.2000.1545
 
 ## <a name="ctp-20"></a>CTP 2.0 
 Motor SQL constrói 15.0.2000.1401
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 -   Nome do produto atualizado para *Azure SQL Edge*
 -  Date_Bucket função:
     - Suporte para tipos de data, hora e data
@@ -153,7 +153,7 @@ Pode solicitar apoio na [página de suporte.](https://ms.portal.azure.com/#blade
 
 ## <a name="ctp-15"></a>CTP 1.5
 Motor SQL constrói 15.0.2000.1331
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 - Date_Bucket função:
     - Suporte para o tipo DateTimeOffset
 - PREVER com os modelos ONNX:
@@ -161,7 +161,7 @@ Motor SQL constrói 15.0.2000.1331
  
 ## <a name="ctp-14"></a>CTP 1.4
 Motor SQL constrói 15.0.2000.1247
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 -   PREVER com os modelos ONNX:
     - Suporte VARCHAR
     - Migração para onNX versão runtime 1.0 
@@ -175,7 +175,7 @@ Motor SQL constrói 15.0.2000.1247
  
 ## <a name="ctp-13"></a>CTP 1.3
 Motor SQL constrói 15.0.2000.1147
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Novidades?
 - Implantação do portal Azure IoT: 
     - Suporte para implantação de imagens AMD64 e ARM
     - Apoio à criação de emprego em streaming

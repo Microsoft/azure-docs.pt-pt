@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dea88bf93000422ce1d832be4a0f60474ff27938
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629789"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início rápido: criar e gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
@@ -32,9 +32,9 @@ Não pode utilizar o Explorador de Armazenamento para criar novos recursos. Para
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Ligar o Explorador de Armazenamento aos recursos do Azure
 Ao iniciar o Explorador de Armazenamento, surge a janela **Explorador de Armazenamento do Microsoft Azure - Ligar**. O Explorador de Armazenamento proporciona várias formas de ligar a contas de armazenamento: 
 
-- **Inicie sessão com a sua conta do Azure** : pode iniciar sessão com as credenciais de utilizador para a sua organização ou a sua conta Microsoft. 
-- **Ligar a uma conta de armazenamento específica com uma cadeia de ligação ou um token SAS** : uma cadeia de ligação é uma cadeia especial que contém um nome de conta de armazenamento e o token de SAS/chave da conta de armazenamento. Com o token, o Explorador de Armazenamento acede diretamente à conta de armazenamento (em vez de simplesmente ver todas as contas de armazenamento numa conta do Azure). Para saber mais sobre as cadeias de ligação, veja [Configure Azure storage connection strings](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Configurar cadeias de ligação do Armazenamento do Azure).
-- **Ligar a uma conta de armazenamento específica com o nome e a chave da mesma** : utilize o nome e a chave da conta de armazenamento da sua conta de armazenamento para ligar ao armazenamento do Azure.
+- **Inicie sessão com a sua conta do Azure**: pode iniciar sessão com as credenciais de utilizador para a sua organização ou a sua conta Microsoft. 
+- **Ligar a uma conta de armazenamento específica com uma cadeia de ligação ou um token SAS**: uma cadeia de ligação é uma cadeia especial que contém um nome de conta de armazenamento e o token de SAS/chave da conta de armazenamento. Com o token, o Explorador de Armazenamento acede diretamente à conta de armazenamento (em vez de simplesmente ver todas as contas de armazenamento numa conta do Azure). Para saber mais sobre as cadeias de ligação, veja [Configure Azure storage connection strings](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Configurar cadeias de ligação do Armazenamento do Azure).
+- **Ligar a uma conta de armazenamento específica com o nome e a chave da mesma**: utilize o nome e a chave da conta de armazenamento da sua conta de armazenamento para ligar ao armazenamento do Azure.
 
 Para efeitos deste início rápido, inicie sessão com a sua conta do Azure. Selecione **Adicionar uma Conta do Azure** e selecione **Iniciar sessão**. Siga os avisos para iniciar sessão na conta do Azure.
 
@@ -71,7 +71,7 @@ Pode carregar um ficheiro a partir do seu computador local para o diretório nov
 
 1. No menu superior, selecione **Carregar**. Isto dá-lhe a opção de carregar uma pasta ou um ficheiro.
 2. Selecione **Carregar Ficheiro** e, em seguida, selecione um ficheiro para carregar a partir do seu computador local.
-3. Em **Carregar para um diretório** , introduza *myDirectory* e, em seguida, selecione **Carregar**. 
+3. Em **Carregar para um diretório**, introduza *myDirectory* e, em seguida, selecione **Carregar**. 
 
 Quando tiver terminado, o ficheiro é apresentado na lista no painel *myDirectory*.
 

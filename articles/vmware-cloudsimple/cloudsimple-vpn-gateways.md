@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e013bb96990a8f3a0ef7d3a58529b200919e276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88140637"
 ---
 # <a name="vpn-gateways-overview"></a>Visão geral das portas da VPN
@@ -52,7 +52,7 @@ Uma ligação VPN local-a-local utiliza os seguintes parâmetros criptográficos
 | Algoritmo de haxixe| SHA 256 | SHA 256 | SHA 1 |
 | Grupo Diffie Hellman (Grupo DH) | 2 | 2 | 2 |
 | Tempo de Vida | 28 800 segundos | 28 800 segundos | 28 800 segundos |
-| Tamanho dos dados | 4GB | 4GB | 4GB |
+| Tamanho dos Dados | 4GB | 4GB | 4GB |
 
 #### <a name="phase-2-proposals"></a>Propostas da fase 2
 
@@ -62,7 +62,7 @@ Uma ligação VPN local-a-local utiliza os seguintes parâmetros criptográficos
 | Algoritmo de haxixe| SHA 256 | SHA 256 | SHA 1 |
 | Grupo perfeito de sigilo para a frente (Grupo PFS) | Nenhum | Nenhum | Nenhum |
 | Tempo de Vida | 1.800 segundos | 1.800 segundos | 1.800 segundos |
-| Tamanho dos dados | 4GB | 4GB | 4GB |
+| Tamanho dos Dados | 4GB | 4GB | 4GB |
 
 
 > [!IMPORTANT]

@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
 ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572216"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato de registo de auditoria de base de dados SQL
@@ -38,11 +38,11 @@ Por exemplo, para a base de dados `Database1` sobre o seguinte é um caminho vá
 
 ### <a name="event-hub"></a>Hub de Eventos
 
-Os eventos de auditoria são escritos para o namespace e centro de eventos que foi definido durante a configuração de auditoria, e são capturados no corpo de eventos [Apache Avro](https://avro.apache.org/) e armazenados usando formatação JSON com codificação UTF-8. Para ler os registos de auditoria, pode utilizar [Ferramentas Avro](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processam este formato.
+Os eventos de auditoria são escritos no espaço de nomes e no hub de eventos que foi definido durante a configuração da auditoria e são capturados no corpo dos eventos do [Apache Avro](https://avro.apache.org/) e armazenados com a formatação JSON e codificação UTF-8. Para ler os registos de auditoria, pode utilizar as [Ferramentas Avro](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processem este formato.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Os eventos de auditoria são escritos para log analytics espaço de trabalho definido durante a configuração de auditoria, para a `AzureDiagnostics` tabela com a categoria `SQLSecurityAuditEvents` . Para obter informações úteis adicionais sobre o idioma e comandos de pesquisa do Log Analytics, consulte [a referência de pesquisa do Log Analytics](../../azure-monitor/logs/log-query-overview.md).
+Os eventos de auditoria são escritos na área de trabalho do Log Analytics definida durante a configuração da auditoria, na tabela `AzureDiagnostics` com a categoria `SQLSecurityAuditEvents`. Para obter informações úteis adicionais sobre os comandos e a linguagem de pesquisa do Log Analytics, veja [Referência de pesquisa do Log Analytics](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Campos de registo de auditoria
 

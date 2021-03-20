@@ -1,5 +1,5 @@
 ---
-title: Gestão automática de dispositivos em escala com Azure IoT Hub (CLI) Microsoft Docs
+title: Gestão automática de dispositivos em escala com Azure IoT Hub (CLI) | Microsoft Docs
 description: Utilize configurações automáticas do Azure IoT Hub para gerir vários dispositivos ou módulos IoT
 author: robinsh
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545417"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestão automática de módulos e dispositivos IoT com a CLI do Azure
@@ -63,7 +63,7 @@ Antes de criar uma configuração, tem de especificar quais os dispositivos ou m
 
 ## <a name="define-the-target-content-and-metrics"></a>Definir o conteúdo e métricas-alvo
 
-O conteúdo alvo e as consultas métricas são especificados como documentos JSON que descrevem as propriedades duplas ou módulos do dispositivo para definir e reportar propriedades para medir.  Para criar uma configuração automática utilizando o Azure CLI, guarde o conteúdo e métricas-alvo localmente como ficheiros .txt. Utilize os caminhos de ficheiro numa secção posterior quando executar o comando para aplicar a configuração no seu dispositivo.
+O conteúdo alvo e as consultas métricas são especificados como documentos JSON que descrevem as propriedades duplas ou módulos do dispositivo para definir e reportar propriedades para medir.  Para criar uma configuração automática utilizando o Azure CLI, guarde o conteúdo e métricas-alvo localmente como .txt ficheiros. Utilize os caminhos de ficheiro numa secção posterior quando executar o comando para aplicar a configuração no seu dispositivo.
 
 Aqui está uma amostra básica de conteúdo alvo para uma configuração automática do dispositivo:
 

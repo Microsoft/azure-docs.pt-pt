@@ -8,10 +8,10 @@ ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: lizross
 ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88010128"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Configurar o Gestor de Configuração de Pontos Finais da Microsoft
@@ -36,8 +36,8 @@ Para receber atualizações:
 3. Selecione o Ponto de **Atualização** do Software no menu suspenso.
 4. Selecione o separador **Products** (Produtos).
 5. Selecione a caixa de verificação que diz **Windows Server, versão 1903 e mais tarde**.
-6. Vá à **Biblioteca de Software**  >  **Overview**Software  >  **Updates**Todas as  >  **atualizações de software** e selecione **Synchronize Software Updates**.
-7. Verifique o ficheiro wsyncmgr.log em **Ficheiros de Programa**  >  **Microsoft Configuration Manager**  >  **Logs** para se certificar de que as alterações foram guardadas. Pode levar alguns minutos para sincronizar as atualizações.
+6. Vá à **Biblioteca de Software**  >  **Overview** Software  >  **Updates** Todas as  >  **atualizações de software** e selecione **Synchronize Software Updates**.
+7. Verifique o ficheiro .log wsyncmgr nos Registos do Gestor de Configuração do **Programa de Ficheiros** do Microsoft  >    >   para se certificar de que as alterações foram guardadas. Pode levar alguns minutos para sincronizar as atualizações.
 
 ## <a name="create-a-query-based-collection"></a>Criar uma coleção baseada em consultas
 
@@ -46,7 +46,7 @@ Para criar uma coleção de máquinas virtuais multi-sessão do Windows 10 Enter
 Para criar uma coleção:
 
 1. Selecione **Ativos e Conformidade**.
-2. Vá a Recolhas de Dispositivos **de Visão Geral**e clique com o  >  **Device Collections** botão direito As coleções de **dispositivos** e selecione **Create Device Collection** a partir do menu suspenso.
+2. Vá a Recolhas de Dispositivos **de Visão Geral** e clique com o  >   botão direito As coleções de **dispositivos** e selecione **Create Device Collection** a partir do menu suspenso.
 3. No separador **Geral** do menu que abre, insira um nome que descreva a sua coleção no campo **Nome.** No campo **Comentário,** pode dar informações adicionais que descrevam o que é a coleção. Em **Limiting Collection**, defina quais as máquinas que está a incluir na consulta de recolha.
 4. No separador Regras de **Adesão,** adicione uma regra para a sua consulta selecionando **a Regra de Adicionar,** selecionando a **Regra de Consulta**.
 5. In **Query Rule Properties,** insira um nome para a sua regra e, em seguida, defina os parâmetros da regra selecionando a Declaração de Consulta de **Edição**.
@@ -62,4 +62,4 @@ Para criar uma coleção:
     ```
 
 8. Selecione **OK** para criar a coleção.
-9. Para verificar se criou a coleção com sucesso, vá às Coleções de Dispositivos de Visão Geral **de Ativos e**  >  **Overview**  >  **Device Collections**Conformidade.
+9. Para verificar se criou a coleção com sucesso, vá às Coleções de Dispositivos de Visão Geral **de Ativos e**  >    >  Conformidade.

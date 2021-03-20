@@ -1,5 +1,5 @@
 ---
-title: Compreensão da faturação do Azure CDN ! Microsoft Docs
+title: Compreender a faturação da Azure CDN | Microsoft Docs
 description: Conheça a estrutura de faturação dos conteúdos hospedados pela Azure Content Delivery Network, incluindo regiões de faturação, taxas de entrega e gestão de custos.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018686"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Compreender a faturação da CDN do Azure
@@ -90,7 +90,7 @@ Cada vez que um CDN POP precisa de preencher a sua cache, faz um pedido à orige
 ## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Que serviços de origem são elegíveis para transferência gratuita de dados com a Azure CDN da Microsoft? 
 Se utilizar um dos seguintes serviços Azure como origem CDN, não será cobrado da transferência de Dados da Origem para os PoPs do CDN. 
 
-- Storage do Azure
+- Armazenamento do Azure
 - Serviços de Multimédia do Azure
 - Máquinas Virtuais do Microsoft Azure
 - Rede Virtual
@@ -107,7 +107,7 @@ Se utilizar um dos seguintes serviços Azure como origem CDN, não será cobrado
 - Serviço de Aplicações Azure
 - Funções do Azure
 - Azure Data Factory
-- Gestão de API do Azure
+- API Management do Azure
 - Azure Batch 
 - Azure Data Explorer
 - HDInsight

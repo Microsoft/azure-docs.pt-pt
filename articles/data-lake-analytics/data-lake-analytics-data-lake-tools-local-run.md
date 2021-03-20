@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018992"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Executar scripts U-SQL na sua máquina local
@@ -72,7 +72,7 @@ Um projeto U-SQL gere o ambiente de execução local isolado através de uma ref
 
 Um projeto U-SQL cria uma pasta de raiz de dados local e cria dados para uma conta **de projeto local.** Uma pasta de raiz de dados temporária é limpa e recriada no âmbito do diretório de funcionamento do projeto U-SQL sempre que acontece uma reconstrução e uma execução local. Todas as fontes de dados configuradas pelo projeto U-SQL são copiadas para esta pasta temporária de raiz de dados local antes do funcionação do trabalho local. 
 
-Pode configurar a pasta raiz das suas fontes de dados. Clique à direita **no projeto U-SQL**  >  **Property**  >  **Property Test Data Source**. Quando executa um script U-SQL numa conta **de projeto local,** todos os ficheiros e sub-dobradizações na pasta **De Dados de Teste** são copiados para a pasta de raiz de dados locais temporários. Os ficheiros nas sub-dobradeiras estão incluídos. Após a execução de um trabalho local, os resultados de produção também podem ser encontrados sob a pasta temporária de raiz de dados locais no diretório de trabalho do projeto. Toda esta saída é apagada e limpa quando o projeto é reconstruído e limpo. 
+Pode configurar a pasta raiz das suas fontes de dados. Clique à direita **no projeto U-SQL**  >    >  **Property Test Data Source**. Quando executa um script U-SQL numa conta **de projeto local,** todos os ficheiros e sub-dobradizações na pasta **De Dados de Teste** são copiados para a pasta de raiz de dados locais temporários. Os ficheiros nas sub-dobradeiras estão incluídos. Após a execução de um trabalho local, os resultados de produção também podem ser encontrados sob a pasta temporária de raiz de dados locais no diretório de trabalho do projeto. Toda esta saída é apagada e limpa quando o projeto é reconstruído e limpo. 
 
 ![Configure a fonte de dados de teste de um projeto](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 

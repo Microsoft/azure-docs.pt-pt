@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/14/2020
 ms.author: inhenkel
 ms.openlocfilehash: da3edfe1f21245c23a75f5ea991f79f55f016129
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98690472"
 ---
 <!-- Migration guide next steps -->

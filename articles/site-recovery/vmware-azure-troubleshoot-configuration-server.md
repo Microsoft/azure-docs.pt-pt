@@ -1,5 +1,5 @@
 ---
-title: Problemas de resolução de problemas com o servidor de configuração durante a recuperação de desastres de VMware VMs e servidores físicos para a Azure usando a Recuperação do Site Azure ! Microsoft Docs
+title: Problemas de resolução de problemas com o servidor de configuração durante a recuperação de desastres de VMware VMs e servidores físicos para Azure, utilizando o Azure Site Recovery | Microsoft Docs
 description: Este artigo fornece informações de resolução de problemas para a implementação do servidor de configuração para a recuperação de desastres de VMware VMs e servidores físicos para a Azure, utilizando a Recuperação do Site Azure.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371958"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
@@ -22,7 +22,7 @@ Este artigo ajuda-o a resolver problemas quando implementa e gere o servidor de 
 
 A máquina de origem regista-se com o servidor de configuração quando instala o agente de mobilidade. Pode depurar quaisquer falhas durante este passo seguindo estas orientações:
 
-1. Abra o ficheiro C:\ProgramData\ASR\home\home\svsystems\var\configurator_register_host_static_info.log. (A pasta ProgramData pode ser uma pasta escondida. Se não vir a pasta ProgramData, no Explorador de Ficheiros, no separador **Ver,** na secção **Mostrar/ocultar,** selecione a caixa de verificação **de itens Ocultos.)** Falhas podem ser causadas por vários problemas.
+1. Abra o ficheiro C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log ficheiro. (A pasta ProgramData pode ser uma pasta escondida. Se não vir a pasta ProgramData, no Explorador de Ficheiros, no separador **Ver,** na secção **Mostrar/ocultar,** selecione a caixa de verificação **de itens Ocultos.)** Falhas podem ser causadas por vários problemas.
 
 2. Procurar a cadeia **Não É Encontrado o Endereço IP Válido**. Se a corda for encontrada:
    1. Verifique se o ID do anfitrião solicitado é o mesmo que o ID do anfitrião da máquina de origem.
@@ -34,7 +34,7 @@ A máquina de origem regista-se com o servidor de configuração quando instala 
 3. Se o fio **Não For encontrado Endereço IP Válido** encontrado, procure a cadeia **Reason=>NU**. Este erro ocorre se a máquina de origem utilizar um anfitrião vazio para registar-se com o servidor de configuração. Se a corda for encontrada:
     - Depois de resolver os problemas, siga as diretrizes no [Registo da máquina de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para voltar a tentar o registo manualmente.
 
-4. Se o string **Reason=>NUNão** não for encontrado, na máquina de origem, abra o ficheiro C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log. (A pasta ProgramData pode ser uma pasta escondida. Se não vir a pasta ProgramData, no Explorador de Ficheiros, no separador **Ver,** na secção **Mostrar/ocultar,** selecione a caixa de verificação **de itens Ocultos.)** Falhas podem ser causadas por vários problemas. 
+4. Se o string **Reason=>NUNão** não for encontrado, na máquina de origem, abra o ficheiro C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log ficheiro. (A pasta ProgramData pode ser uma pasta escondida. Se não vir a pasta ProgramData, no Explorador de Ficheiros, no separador **Ver,** na secção **Mostrar/ocultar,** selecione a caixa de verificação **de itens Ocultos.)** Falhas podem ser causadas por vários problemas. 
 
 5. Procure o **pedido do post de cordas: (7) - Não consegui ligar-se ao servidor**. Se a corda for encontrada:
     1. Resolva os problemas de rede entre a máquina de origem e o servidor de configuração. Verifique se o servidor de configuração é acessível a partir da máquina de origem utilizando ferramentas de rede como ping, traceroute ou um navegador web. Certifique-se de que a máquina de origem pode chegar ao servidor de configuração através da porta 443.

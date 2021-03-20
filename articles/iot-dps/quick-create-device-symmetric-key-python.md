@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92426381"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Quickstart: Provision a um dispositivo Python com chaves simétricas
@@ -49,7 +49,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
-3. Navegue para o `azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios` diretório onde está localizado o ficheiro da amostra, _provision_symmetric_key.py._
+3. Navegue até ao `azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios` diretório onde se encontra o ficheiro da amostra, _provision_symmetric_key.py,_.
    
    ```console
    cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
@@ -126,7 +126,7 @@ O código de provisionamento entrará em contacto com a instância DPS com base 
     set PROVISIONING_SYMMETRIC_KEY=sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
     ```
 
-4. Executar o código de amostra python em _provision_symmetric_key.py_.
+4. Executar o código de amostra de pitão em _provision_symmetric_key.py_.
 
     ```console
     D:\azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios>python provision_symmetric_key.py

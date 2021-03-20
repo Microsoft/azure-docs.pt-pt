@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368269"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar tarefas do Azure Scheduler para o Azure Logic Apps
@@ -33,7 +33,7 @@ Este artigo mostra como pode agendar empregos únicos e recorrentes criando flux
 
 * Definir horários que suportam fusos horários e ajuste automaticamente ao horário de verão (DST).
 
-Para saber mais, veja [o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+Para saber mais, veja [o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) [](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -1,5 +1,5 @@
 ---
-title: Desenvolver para Arquivos Azure com C++ Microsoft Docs
+title: Desenvolver para Ficheiros Azure com | C++ Microsoft Docs
 description: Saiba como desenvolver aplicações e serviços C++ que utilizem ficheiros Azure para armazenar dados de ficheiros.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629704"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolver para Ficheiros Azure com C++
@@ -369,5 +369,5 @@ Para saber mais sobre o Storage do Azure, explore estes recursos:
 
 * [Biblioteca de Clientes do Storage para C++](https://github.com/Azure/azure-storage-cpp)
 * [Amostras de serviço de ficheiros de armazenamento Azure em C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Explorador de Armazenamento do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Explorador do Storage do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentação de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)

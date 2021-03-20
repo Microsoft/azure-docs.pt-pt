@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: f97840a05115bf5659a6f7579b72786e890051a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92429394"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>Quickstart: Provision a um dispositivo chave simétrico utilizando C #
@@ -98,7 +98,7 @@ O código de provisionamento entrará em contacto com a instância DPS com base 
     cd provisioning\Samples\device\SymmetricKeySample
     ```
 
-3. Na pasta *SymmetricKeySample,* abra *Program.cs* num editor de texto e encontre as linhas de código que definem as `individualEnrollmentPrimaryKey` cordas e as `individualEnrollmentSecondaryKey` cordas. Atualize essas linhas de código da seguinte forma para que as variáveis ambientais sejam utilizadas em vez de codificar duramente as teclas.
+3. Na pasta *SymmetricKeySample,* abra o *Programa.cs* num editor de texto e encontre as linhas de código que definem as `individualEnrollmentPrimaryKey` e as `individualEnrollmentSecondaryKey` cordas. Atualize essas linhas de código da seguinte forma para que as variáveis ambientais sejam utilizadas em vez de codificar duramente as teclas.
  
     ```csharp
         //These are the two keys that belong to your individual enrollment. 
@@ -119,7 +119,7 @@ O código de provisionamento entrará em contacto com a instância DPS com base 
         private static string registrationId = Environment.GetEnvironmentVariable("PROVISIONING_REGISTRATION_ID");;
     ```
 
-    Guarde as alterações para *Program.cs*.
+    Guarde as alterações ao *Programa.cs*.
 
 3. No seu comando, adicione as variáveis ambientais para o ID Scope, ID de registo, chaves simétricas primárias e secundárias que copiou da inscrição individual na secção anterior.  
 

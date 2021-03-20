@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629602"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Como configurar a oferta de máquinas virtuais
@@ -55,8 +55,8 @@ Insira o endereço web (URL) da política de privacidade da sua organização. C
 
 Forneça documentos online suplementares sobre a sua oferta. Para adicionar um link, **selecione Adicionar um link** e completar os seguintes campos:
 
-- **Nome** : Os clientes verão o nome na página de detalhes.
-- **Link** : Introduza um endereço web que permite aos clientes visualizar o seu documento online.
+- **Nome**: Os clientes verão o nome na página de detalhes.
+- **Link**: Introduza um endereço web que permite aos clientes visualizar o seu documento online.
 
 ## <a name="customer-support-links"></a>Links de apoio ao cliente
 
@@ -71,7 +71,7 @@ Forneça o **Nome,** **E-mail** e **Telefone** para os parceiros da Microsoft ut
 
 ## <a name="engineering-contact"></a>Contacto de engenharia
 
-Forneça o **Nome** , **E-mail** e **Telefone** para a Microsoft para usar quando houver problemas com a sua oferta, incluindo problemas com certificação. Esta informação não está listada no Azure Marketplace.
+Forneça o **Nome**, **E-mail** e **Telefone** para a Microsoft para usar quando houver problemas com a sua oferta, incluindo problemas com certificação. Esta informação não está listada no Azure Marketplace.
 
 ## <a name="cloud-solution-provider-program-contact"></a>Contacto do Programa fornecedor de soluções de nuvem
 

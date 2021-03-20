@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de referência ao Azure Maps Power BI visual ! Microsoft Azure Maps
+title: Adicione uma camada de referência ao Azure Maps Power BI | Microsoft Azure Maps
 description: Neste artigo, você aprenderá a usar a camada de referência no Microsoft Azure Maps visual para Power BI.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261948"
 ---
 # <a name="add-a-reference-layer"></a>Adicionar uma camada de referência

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994864"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação ponto-a-local azure
@@ -178,7 +178,7 @@ Extraia o pacote de configuração do cliente VPN e encontre o ficheiro .cer. Pa
 
 Quando tenta guardar as alterações para o gateway VPN no portal Azure, recebe a seguinte mensagem de erro:
 
-**Não conseguiu salvar o nome de gateway de gateway de rede virtual &lt; *gateway name* &gt; . Os dados relativos ao &lt; *certificado de identificação são* &gt; inválidos.**
+**Não conseguiu salvar o nome de gateway de gateway de rede virtual &lt;  &gt; . Os dados relativos ao &lt; *certificado de identificação são* &gt; inválidos.**
 
 ### <a name="cause"></a>Causa 
 
@@ -215,7 +215,7 @@ e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
 
 Quando tenta guardar as alterações para o gateway VPN no portal Azure, recebe a seguinte mensagem de erro: 
 
-**Não conseguiu salvar o nome de gateway de gateway de rede virtual &lt; *gateway name* &gt; . O nome do certificado de recurso &lt; *que tenta carregar* é &gt; inválido**.
+**Não conseguiu salvar o nome de gateway de gateway de rede virtual &lt;  &gt; . O nome do certificado de recurso &lt; *que tenta carregar* é &gt; inválido**.
 
 ### <a name="cause"></a>Causa
 

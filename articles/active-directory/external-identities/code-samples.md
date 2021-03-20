@@ -13,10 +13,10 @@ ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcf6e7a4fb5e76dddba6162bbabfdc5abc806a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87905942"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
@@ -26,7 +26,7 @@ Pode convidar utilizadores externos em massa para uma organização a partir dos
 
 1. Preparar o ficheiro .CSV – crie um novo ficheiro CSV e dê-lhe o nome convites.csv. Neste exemplo, o ficheiro é guardado em C:\data e contém as seguintes informações:
 
-   Nome                  |  InvitedUserEmailAddress
+   Name                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
    Gmail B2B Invitee     | b2binvitee@gmail.com
    Outlook B2B invitee   | b2binvitee@outlook.com
@@ -80,7 +80,7 @@ namespace SampleInviteApp
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
 
         /// <summary>
-        ///  Authentication endpoint to get token.
+        ///  Authentication endpoint to get token.
         /// </summary>
         static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
 

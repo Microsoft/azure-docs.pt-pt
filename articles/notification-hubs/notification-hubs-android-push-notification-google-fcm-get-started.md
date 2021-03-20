@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push para Android usando Azure Notification Hubs e Firebase SDK versão 0.6 / Microsoft Docs
+title: Envie notificações push para Android usando Azure Notification Hubs e Firebase SDK versão 0.6 | Microsoft Docs
 description: Neste tutorial, aprende a usar os Hubs de Notificação Azure e as Mensagens Cloud do Google Firebase para enviar notificações push para dispositivos Android (versão 0.6).
 services: notification-hubs
 documentationcenter: android
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92428373"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Tutorial: Enviar notificações push para dispositivos Android usando a versão 0.6 da Firebase SDK
@@ -56,8 +56,8 @@ Completar este tutorial é um pré-requisito para fazer todos os outros tutoriai
 ## <a name="create-an-android-studio-project"></a>Criar um projeto do Android Studio
 
 1. Lançamento Do Android Studio.
-2. Selecione **'Ficheiro',** aponte para **Novo**e, em seguida, selecione **Novo Projeto**. 
-2. Na página Escolha a **página do projeto,** selecione **Atividade Vazia**e, em seguida, selecione **Seguinte**. 
+2. Selecione **'Ficheiro',** aponte para **Novo** e, em seguida, selecione **Novo Projeto**. 
+2. Na página Escolha a **página do projeto,** selecione **Atividade Vazia** e, em seguida, selecione **Seguinte**. 
 3. Na página **Configure** o seu projeto, tome os seguintes passos: 
     1. Introduza um nome para a aplicação.
     2. Especifique um local para guardar os ficheiros do projeto. 
@@ -405,7 +405,7 @@ O seu centro está agora configurado para trabalhar com mensagens cloud firebase
     }
     ```
 
-9. O `ToastNotify` método utiliza o comando *"Olá, mundo"* `TextView` para comunicar o estado e as notificações de forma permanente na aplicação. No seu layout **res**  >  **layout**  >  **activity_main.xml** layout, adicione o seguinte ID para esse controlo.
+9. O `ToastNotify` método utiliza o comando *"Olá, mundo"* `TextView` para comunicar o estado e as notificações de forma permanente na aplicação. No seu layout **res**  >    >  **activity_main.xml** layout, adicione o seguinte ID para esse controlo.
 
     ```java
     android:id="@+id/text_hello"
@@ -542,7 +542,7 @@ Pode enviar notificações push a partir do [portal Azure,] tomando os seguintes
 
 1. No portal Azure, na página 'Centro de Notificação' para o seu hub, selecione **Enviar** na secção **resolução de problemas.**
 3. Para **Plataformas**, selecione **Android**.
-4. Selecione **Send** (Enviar).  Ainda não vai ver uma notificação no dispositivo Android porque ainda não executou a aplicação móvel no mesmo. Depois de executar a aplicação móvel, selecione novamente o botão **Enviar** para ver a mensagem de notificação.
+4. Selecione **Enviar**.  Ainda não vai ver uma notificação no dispositivo Android porque ainda não executou a aplicação móvel no mesmo. Depois de executar a aplicação móvel, selecione novamente o botão **Enviar** para ver a mensagem de notificação.
 5. Veja o resultado da operação na lista na parte inferior.
 
     ![Notification Hubs do Azure – Teste de Envio](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)

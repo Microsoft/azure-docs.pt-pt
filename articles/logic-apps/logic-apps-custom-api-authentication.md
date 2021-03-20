@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95993182"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança das chamadas para APIs personalizadas das Azure Logic Apps
@@ -199,11 +199,11 @@ Abra a definição da sua aplicação lógica na vista de código, vá à defini
 
 | Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
-| inquilino | Sim | O GUID para o inquilino AD AZure | 
-| público | Sim | O GUID para o recurso-alvo a que pretende aceder, que é o ID do cliente a partir da identidade da aplicação para a sua aplicação web ou app API | 
-| clientId | Sim | O GUID para o cliente que solicita acesso, que é o ID do cliente a partir da identidade da aplicação para a sua aplicação lógica | 
-| segredo | Sim | A chave ou senha da identidade da aplicação para o cliente que está solicitando o token de acesso | 
-| tipo | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth` . | 
+| inquilino | Yes | O GUID para o inquilino AD AZure | 
+| público | Yes | O GUID para o recurso-alvo a que pretende aceder, que é o ID do cliente a partir da identidade da aplicação para a sua aplicação web ou app API | 
+| clientId | Yes | O GUID para o cliente que solicita acesso, que é o ID do cliente a partir da identidade da aplicação para a sua aplicação lógica | 
+| segredo | Yes | A chave ou senha da identidade da aplicação para o cliente que está solicitando o token de acesso | 
+| tipo | Yes | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth` . | 
 |||| 
 
 Por exemplo:
@@ -251,8 +251,8 @@ Na secção **de Autorização,** inclua estas propriedades:
 | Propriedade | Necessário | Descrição |
 | -------- | -------- | ----------- |
 | `type` | Sim | O tipo de autenticação. Para os certificados de cliente TLS/SSL, o valor deve ser `ClientCertificate` . |
-| `password` | Não | A senha de acesso ao certificado de cliente (ficheiro PFX) |
-| `pfx` | Sim | O conteúdo codificado de base64 do certificado de cliente (ficheiro PFX) |
+| `password` | No | A senha de acesso ao certificado de cliente (ficheiro PFX) |
+| `pfx` | Yes | O conteúdo codificado de base64 do certificado de cliente (ficheiro PFX) |
 ||||
 
 <a name="basic"></a>
@@ -273,9 +273,9 @@ Na secção **de Autorização,** inclua estas propriedades:
 
 | Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
-| tipo | Sim | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor deve `Basic` ser. | 
-| nome de utilizador | Sim | O nome de utilizador que pretende utilizar para autenticação | 
-| palavra-passe | Sim | A palavra-passe que pretende usar para autenticação | 
+| tipo | Yes | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor deve `Basic` ser. | 
+| nome de utilizador | Yes | O nome de utilizador que pretende utilizar para autenticação | 
+| palavra-passe | Yes | A palavra-passe que pretende usar para autenticação | 
 |||| 
 
 <a name="azure-ad-code"></a>

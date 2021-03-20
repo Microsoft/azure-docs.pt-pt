@@ -1,5 +1,5 @@
 ---
-title: Próximas alterações às regras de ingestão e achatamento em Azure Time Series Insights Gen2 Microsoft Docs
+title: Próximas alterações às regras de ingestão e achatamento em Azure Time Series Insights Gen2 | Microsoft Docs
 description: Alterações na regra da ingestão
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
 ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995238"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Próximas alterações ao Achatamento de JSON e fuga às regras para novos ambientes

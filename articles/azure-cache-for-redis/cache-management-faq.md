@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537665"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Cache Azure para redis gestão FAQs
 Este artigo fornece respostas a perguntas comuns sobre como gerir a Cache Azure para Redis.
 
-## <a name="common-questions-and-answers"></a>Perguntas comuns e respostas
+## <a name="common-questions-and-answers"></a>Perguntas e respostas comuns
 Esta secção abrange as seguintes PERGUNTAS Frequentes:
 
 * [Quando devo ativar a porta não-TLS/SSL para a ligação ao Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
@@ -142,7 +142,7 @@ Como configurar este cenário:
     ```
 
     > [!NOTE]
-    > O valor especificado por este método é uma configuração global, afetando toda a AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e quiser definir *minWorkerThreads* e *minIoThreads* a 50 por CPU durante o tempo de funcionação, utilizará **ThreadPool.SetMinThreads (200, 200)** .
+    > O valor especificado por este método é uma configuração global, afetando toda a AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e quiser definir *minWorkerThreads* e *minIoThreads* a 50 por CPU durante o tempo de funcionação, utilizará **ThreadPool.SetMinThreads (200, 200)**.
 
 * Também é possível especificar a definição de fios mínimos utilizando a [definição de configuração *minIoThreads* ou *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) sob o `<processModel>` elemento de configuração em `Machine.config` , normalmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **A definição do número de fios mínimos desta forma não é geralmente recomendada, porque é uma definição de todo o sistema.**
 

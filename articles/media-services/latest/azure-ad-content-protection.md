@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92427203"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
@@ -155,7 +155,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
 1. Selecione **as inscrições** da App no menu.
 1. Clique **+ Novo Registo.**
 1. Nomeie a aplicação *LicenseDeliveryResource2* (onde 2 indica pontos finais AAD v2).
-1. Selecione **Contas apenas neste diretório organizacional ([o*nome do seu inquilino]* apenas - Inquilino Único)**. Se quiser permitir o acesso a vários inquilinos, selecione uma das outras opções multitenantes.
+1. Selecione **Contas apenas neste diretório organizacional ([o *nome do seu inquilino]* apenas - Inquilino Único)**. Se quiser permitir o acesso a vários inquilinos, selecione uma das outras opções multitenantes.
 1. O **Redirect URI** é opcional e pode ser alterado mais tarde.
 1. Clique em **Registar**. A vista de registos da App aparecerá.
 1. Selecione **Manifesto** no menu. A vista manifesto aparecerá.
@@ -182,7 +182,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
 1. Selecione **as inscrições** da App no menu.
 1. Clique **+ Novo Registo.**
 1. Dê ao cliente um nome, por exemplo, *AMS AAD Content Protection*.
-1. Selecione **Contas apenas neste diretório organizacional ([o*nome do seu inquilino]* apenas - Inquilino Único)**. Se quiser permitir o acesso a vários inquilinos, selecione uma das outras opções multitenantes.
+1. Selecione **Contas apenas neste diretório organizacional ([o *nome do seu inquilino]* apenas - Inquilino Único)**. Se quiser permitir o acesso a vários inquilinos, selecione uma das outras opções multitenantes.
 1. O **Redirect URI** é opcional e pode ser alterado mais tarde.
 1. Clique em **Registar**.
 1. Selecione **permissões API** do menu.
