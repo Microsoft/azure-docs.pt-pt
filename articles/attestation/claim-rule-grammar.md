@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91285423"
 ---
 # <a name="claim-and-claim-rules"></a>Regras de reclamação e reivindicação
@@ -79,7 +79,7 @@ Seguem-se os operadores que podem ser utilizados para verificar as condições:
 | Tipo de valor | Operações Apoiadas |
 |--|--|
 | Número inteiro | == (iguais), \! = (não igual), <= (inferior ou igual), < (menos que), >= (maior ou igual), > (maior do que) |
-| Cadeia | == (igual), \! = (não igual) |
+| String | == (igual), \! = (não igual) |
 | Booleano | == (igual), \! = (não igual) |
 
 Lista de avaliação das condições:
@@ -90,7 +90,7 @@ Lista de avaliação das condições:
 
 O conjunto de ações que são permitidas numa política são descritos abaixo.
 
-| Verbo de ação | Descrição | Secções políticas às quais estas se aplicam |
+| Verbo de ação | Description | Secções políticas às quais estas se aplicam |
 |--|--|--|
 | () | O conjunto de reclamações recebidas pode ser utilizado para calcular **as regras de emissão**. Não aceita qualquer reivindicação como parâmetro | **regras de autorização** |
 | negar() | O conjunto de reclamações recebidas não deve ser utilizado para calcular **as regras de emissão** Não aceita qualquer reclamação como parâmetro | **regras de autorização** |

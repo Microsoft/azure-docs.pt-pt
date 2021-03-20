@@ -1,5 +1,5 @@
 ---
-title: Cenários adicionais de licenciamento baseados em grupo - Azure AD / Microsoft Docs
+title: Cenários adicionais de licenciamento baseados em grupo - Azure AD | Microsoft Docs
 description: Mais cenários para licenciamento baseado em grupo do Azure Ative Directory
 services: active-directory
 keywords: Licenciamento do Azure AD
@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546680"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e questões conhecidas usando grupos para gerir o licenciamento no Azure Ative Directory
@@ -28,7 +28,7 @@ Utilize as seguintes informações e exemplos para obter uma compreensão mais a
 
 ## <a name="usage-location"></a>Localização de utilização
 
-Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença poder ser atribuída a um utilizador, o administrador tem de especificar a propriedade **de localização de Utilização** no utilizador. No [portal Azure,](https://portal.azure.com)pode especificar a localização de utilização nas **User** &gt; **Profile** &gt; **Definições** de Perfil do Utilizador .
+Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença poder ser atribuída a um utilizador, o administrador tem de especificar a propriedade **de localização de Utilização** no utilizador. No [portal Azure,](https://portal.azure.com)pode especificar a localização de utilização nas  &gt;  &gt; **Definições** de Perfil do Utilizador .
 
 Para a atribuição de licença de grupo, quaisquer utilizadores sem localização de utilização especificada herdam a localização do diretório. Se tiver utilizadores em vários locais, certifique-se de que reflete isso corretamente nos recursos dos seus utilizadores antes de adicionar utilizadores a grupos com licenças.
 

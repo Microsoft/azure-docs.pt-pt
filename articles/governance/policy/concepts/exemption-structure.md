@@ -4,10 +4,10 @@ description: Descreve a definição de isenção de política utilizada pela Azu
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950181"
 ---
 # <a name="azure-policy-exemption-structure"></a>Estrutura de isenção de política Azure
@@ -88,7 +88,7 @@ Utiliza o nome e **a descrição** **do displayName** para identificar a isenç�
 
 ## <a name="metadata"></a>Metadados
 
-A propriedade **metadados** permite criar qualquer propriedade infantil necessária para armazenar informações relevantes. No exemplo acima, os imóveis **solicitados Por**exemplo, **aprovados,** aprovados Em **E,** e **ticketRef** contém valores de cliente para fornecer informações sobre quem solicitou a isenção, quem a aprovou e quando, e um bilhete de rastreio interno para o pedido. Estas propriedades **de metadados** são exemplos, mas não são necessárias e **os metadados** não se limitam a estas propriedades infantis.
+A propriedade **metadados** permite criar qualquer propriedade infantil necessária para armazenar informações relevantes. No exemplo acima, os imóveis **solicitados Por** exemplo, **aprovados,** aprovados Em **E,** e **ticketRef** contém valores de cliente para fornecer informações sobre quem solicitou a isenção, quem a aprovou e quando, e um bilhete de rastreio interno para o pedido. Estas propriedades **de metadados** são exemplos, mas não são necessárias e **os metadados** não se limitam a estas propriedades infantis.
 
 ## <a name="policy-assignment-id"></a>ID de atribuição de políticas
 

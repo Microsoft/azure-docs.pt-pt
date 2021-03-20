@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure PowerShell - Calcular o tamanho total da faturação de um recipiente blob / Microsoft Docs
+title: Amostra de script Azure PowerShell - Calcular o tamanho total da faturação de um recipiente blob | Microsoft Docs
 description: Calcular o tamanho total de um recipiente no armazenamento Azure Blob para efeitos de faturação.
 services: storage
 author: fhryo-msft
@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 12/29/2020
 ms.author: fryu
 ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97809569"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total da faturação de um recipiente de bolhas

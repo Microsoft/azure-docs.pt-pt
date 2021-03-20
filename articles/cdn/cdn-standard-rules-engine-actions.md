@@ -1,5 +1,5 @@
 ---
-title: Ações no Standard regras motor para Azure CDN / Microsoft Docs
+title: Ações no motor de regras standard para Azure CDN | Microsoft Docs
 description: Documentação de referência para ações no motor de regras standard para a Rede de Entrega de Conteúdos Azure (Azure CDN).
 services: cdn
 author: asudbring
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87760129"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Ações no motor standard para Azure CDN
@@ -30,7 +30,7 @@ Utilize esta ação para substituir o valor do tempo de vida (TTL) do ponto fina
 
 #### <a name="required-fields"></a>Campos necessários
 
-Comportamento da cache |  Descrição              
+Comportamento da cache |  Description              
 ---------------|----------------
 Cache de bypass | Quando esta opção é selecionada e a regra coincide, o conteúdo não está em cache.
 Substituição | Quando esta opção é selecionada e a regra coincide, o valor TTL devolvido da sua origem é substituído com o valor especificado na ação. Este comportamento só será aplicado se a resposta for cacheable. Para o cabeçalho de resposta de controlo de cache com valores "sem cache", "privado", "não armazenar", a ação não será aplicável.
@@ -48,7 +48,7 @@ Utilize esta ação para modificar a chave cache com base em cadeias de consulta
 
 #### <a name="required-fields"></a>Campos necessários
 
-Comportamento | Descrição
+Comportamento | Description
 ---------|------------
 Incluir | Quando esta opção é selecionada e a regra coincide, as cadeias de consulta especificadas nos parâmetros são incluídas quando a tecla de cache é gerada. 
 Colocar em cache todos os URLs exclusivos | Quando esta opção é selecionada e a regra coincide, cada URL único tem a sua própria chave cache. 
@@ -63,9 +63,9 @@ Utilize esta ação para modificar os cabeçalhos que estão presentes nos pedid
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
 
 ### <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -75,9 +75,9 @@ Utilize esta ação para modificar cabeçalhos que estão presentes nas resposta
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor** especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor** especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | String
 
 ### <a name="url-redirect"></a>Redirecionamento de URL
 

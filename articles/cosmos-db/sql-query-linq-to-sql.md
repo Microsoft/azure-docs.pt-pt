@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: tisande
 ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96545388"
 ---
 # <a name="linq-to-sql-translation"></a>Tradução LINQ para SQL
@@ -88,8 +88,8 @@ O fornecedor LINQ incluído com o SQL .NET SDK suporta os seguintes operadores:
 - **Count**, **Sum**, **Min,** **Max,** e **Average** [Async,](sql-query-aggregate-functions.md)e seus equivalentes async **CountAsync**, **SumAsync,** **MinAsync,** **MaxAsync,** e **AverageAsync.**
 - **CompareTo**: Traduz para comparações de alcance. Normalmente usados para cordas, uma vez que não são comparáveis em .NET.
 - **Saltar** e **Tomar**: Traduz para [OFFSET e LIMIT](sql-query-offset-limit.md) para limitar os resultados de uma consulta e fazer paginação.
-- **Funções matemáticas**: Suporta a tradução de .NET , , , , , , , , , , , , , , `Abs` `Acos` , e `Asin` `Atan` para `Ceiling` `Cos` `Exp` as `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` [funções matemáticas incorporadas equivalentes](sql-query-mathematical-functions.md).
-- **Funções de corda**: Suporta a tradução de .NET , , , , , , , `Concat` , , , , `Contains` , , `Count` e para `EndsWith` as `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` funções de cordas [incorporadas equivalentes](sql-query-string-functions.md).
+- **Funções matemáticas**: Suporta a tradução de .NET `Abs` , , , `Acos` `Asin` `Atan` e para `Ceiling` `Cos` `Exp` as `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` [funções matemáticas incorporadas equivalentes](sql-query-mathematical-functions.md).
+- **Funções de corda**: Suporta a tradução de .NET `Concat` , , , , `Contains` , , , , `Count` , e `EndsWith` para `IndexOf` as `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` funções de cordas [incorporadas equivalentes](sql-query-string-functions.md).
 - **Funções de matriz**: Suporta a tradução de .NET `Concat` , e para as `Contains` `Count` [funções equivalentes de matriz incorporada .](sql-query-array-functions.md)
 - **Funções de Extensão Geoespacial**: Suporta a tradução a partir de métodos de `Distance` `IsValid` `IsValidDetailed` canhoto, e `Within` para as [funções geoespaciais incorporadas equivalentes](sql-query-geospatial-query.md).
 - **Função-Definição de função Função:** Suporta a tradução do método do encaixe `UserDefinedFunctionProvider.Invoke` para a [função definida pelo utilizador](sql-query-udfs.md)correspondente .

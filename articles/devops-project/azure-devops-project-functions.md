@@ -10,10 +10,10 @@ ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355479"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Implementar para funções Azure com devOps Starter
@@ -26,7 +26,7 @@ DevOps Starter também:
 
 * Cria e configura um gasoduto de libertação em Azure DevOps para CI/CD
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 >* Utilize o DevOps Starter para implementar uma aplicação ASP.NET para a Função Azure
@@ -49,11 +49,11 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Selecione **.NET**e, em seguida, selecione **Seguinte**. Em **Escolha uma estrutura de aplicação,** selecione **ASP.NET** e clique em **Seguinte**.
+1. Selecione **.NET** e, em seguida, selecione **Seguinte**. Em **Escolha uma estrutura de aplicação,** selecione **ASP.NET** e clique em **Seguinte**.
 
 1. Selecione **a App de Função** e, em seguida, selecione **Seguinte**.
 
@@ -113,7 +113,7 @@ O DevOps Starter configura automaticamente um pipeline CI/CD na sua organizaçã
 
 O DevOps Starter cria e configura automaticamente os passos necessários para implementar da sua organização Azure DevOps para a sua subscrição Azure. Estes passos incluem configurar uma ligação de serviço Azure para autenticar Azure DevOps para a sua subscrição Azure. A automatização também cria um gasoduto de libertação, que fornece o CD ao Azure. Para saber mais sobre o oleoduto de lançamento, faça o seguinte:
 
-1. Navegue até aos **Oleodutos ! Lançamentos**.
+1. Navegue até ao **pipelines | Lançamentos**.
 
 1. Clique em **Editar.**
 
@@ -136,17 +136,17 @@ O DevOps Starter cria e configura automaticamente os passos necessários para im
 
 Está agora pronto para colaborar com uma equipa na sua aplicação utilizando um processo CI/CD que implementa automaticamente o seu mais recente trabalho na sua Função Azure. Cada mudança para o git repo inicia uma construção em Azure DevOps, e um oleoduto de CD executa uma implantação para Azure. Siga o procedimento nesta secção ou use outra técnica para comprometer alterações no seu repo. Por exemplo, pode clonar o repo Git na sua ferramenta preferida ou IDE e, em seguida, empurrar alterações para este repo.
 
-1. No menu Azure DevOps, selecione **Repos Ficheiros,** e depois ir para o seu repo.
+1. No menu Azure DevOps, selecione **Repos | Ficheiros,** e depois ir para o seu repo.
 
 1. O repositório já contém código chamado **SampleFunctionApp** com base no idioma de aplicação que escolheu no processo de criação. Abra o ficheiro **Application/SampleFunctionApp/Function1.cs.**
 
-1. **Selecione Editar**e, em seguida, faça uma alteração para a **linha número 31** . Por exemplo, pode atualizá-lo para **Hello lá! Bem-vindo às Funções Azure usando DevOps Starter**
+1. **Selecione Editar** e, em seguida, faça uma alteração para a **linha número 31** . Por exemplo, pode atualizá-lo para **Hello lá! Bem-vindo às Funções Azure usando DevOps Starter**
 
-1. No topo direito, **selecione Commit**e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança.
+1. No topo direito, **selecione Commit** e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança.
 
 1. Abra o ficheiro **Application/SampleFunctionApp.Test/Function1TestRunner.cs.** 
 
-1. **Selecione Editar**e, em seguida, faça uma alteração para a **linha número 21**. Por exemplo, pode atualizá-lo para **Hello lá! Bem-vindo às Funções Azure utilizando o Azure DevOps Starter**.
+1. **Selecione Editar** e, em seguida, faça uma alteração para a **linha número 21**. Por exemplo, pode atualizá-lo para **Hello lá! Bem-vindo às Funções Azure utilizando o Azure DevOps Starter**.
 
      Após alguns momentos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
 

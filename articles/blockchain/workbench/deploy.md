@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87077024"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementar pré-visualização da bancada de trabalho Azure Blockchain
@@ -128,11 +128,11 @@ Uma vez concluída a implantação da Bancada Blockchain, um novo grupo de recur
 1. No painel de navegação à esquerda, selecione **grupos de recursos**.
 1. Escolha o nome do grupo de recursos especificado ao implementar a bancada blockchain Workbench.
 1. Selecione o título da coluna **TYPE** para classificar a lista alfabeticamente por tipo.
-1. Existem dois recursos com o serviço **de aplicações**tipo. Selecione o recurso do serviço de **aplicações** tipo *sem* o sufixo "-api".
+1. Existem dois recursos com o serviço **de aplicações** tipo. Selecione o recurso do serviço de **aplicações** tipo *sem* o sufixo "-api".
 
     ![Lista de serviços de aplicações](media/deploy/resource-group-list.png)
 
-1. No Resumo do **Serviço**de Aplicações, copie o valor **URL,** que representa o URL web para a sua bancada de trabalho blockchain implantada.
+1. No Resumo do **Serviço** de Aplicações, copie o valor **URL,** que representa o URL web para a sua bancada de trabalho blockchain implantada.
 
     ![Essencial do serviço de aplicações](media/deploy/app-service.png)
 
@@ -182,7 +182,7 @@ A implementação da Blockchain Workbench requer o registo de uma aplicação AD
 1. Selecione a sua conta no canto superior direito e mude para o inquilino AD Azure desejado. O inquilino deve ser o inquilino da subscrição da subscrição onde a Azure Blockchain Workbench está implantada e você tem permissões suficientes para registar pedidos.
 1. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **registos de Aplicações**  >  **Novo registo**.
 
-    ![Registo da aplicação](media/deploy/app-registration.png)
+    ![Registo de aplicações](media/deploy/app-registration.png)
 
 1. Forneça um **nome** de exibição e escolha **contas apenas neste diretório organizacional.**
 

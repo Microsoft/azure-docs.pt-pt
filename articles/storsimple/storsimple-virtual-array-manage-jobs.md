@@ -1,5 +1,5 @@
 ---
-title: Ver e gerir os trabalhos da StorSimple Virtual Array Microsoft Docs
+title: Ver e gerir os trabalhos da StorSimple Virtual Array | Microsoft Docs
 description: Descreve a página de serviço storSimple Device Manager Jobs e como usá-lo para rastrear trabalhos recentes e atuais para o StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95992991"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para visualizar postos de trabalho para o StorSimple Virtual Array

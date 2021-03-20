@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a configurar o Microsoft Azure Backup Server 
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332819"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Apoiar o SQL Server na Azure Stack
@@ -78,7 +78,7 @@ A gestão da base de dados do SQL Server para a Azure e a recuperação do Azure
 
 6. No ecrã **'Especificar Short-Term** Objetivos', inclua as entradas necessárias para criar pontos de backup para o disco e selecione **Next**.
 
-    No exemplo, a **gama de retenção** é **de 5 dias,** **a frequência de sincronização** é uma vez a cada **15 minutos**, que é a frequência de reserva. **O Express Full Backup** está programado para **as 20h00**.
+    No exemplo, a **gama de retenção** é **de 5 dias,** **a frequência de sincronização** é uma vez a cada **15 minutos**, que é a frequência de reserva. **O Express Full Backup** está programado para **as 20:00 P.M**.
 
     ![Objetivos de curto prazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 
@@ -127,10 +127,10 @@ A gestão da base de dados do SQL Server para a Azure e a recuperação do Azure
     Neste exemplo:
 
     * As cópias de segurança são tomadas uma vez por dia às 12:00 e 20:00 (parte inferior do ecrã) e são mantidas durante 180 dias.
-    * O reforço no sábado às 12:00. é retido por 104 semanas
-    * O reforço no sábado passado às 12:00. é retido por 60 meses
-    * O reforço no último sábado de março às 12:00. é mantido por 10 anos
-13. Selecione **Next** e selecione a opção adequada para transferir a cópia de cópia de cópia de cópia de cópia inicial para Azure. Pode escolher **automaticamente sobre a rede**
+    * O reforço no sábado às 12:00 p.M. é retido por 104 semanas
+    * O reforço no sábado passado às 12:00 p.M. é retido por 60 meses
+    * O reforço no último sábado de março às 12:00 p.M. é mantido por 10 anos
+13. Selecione **Next** e selecione a opção adequada para transferir a cópia de cópia inicial para Azure. Pode escolher **automaticamente sobre a rede**
 
 14. Assim que rever os detalhes da política no ecrã **Resumo,** selecione **Criar grupo** para completar o fluxo de trabalho. Pode selecionar **Close** e monitorizar o progresso do trabalho no espaço de trabalho de monitorização.
 

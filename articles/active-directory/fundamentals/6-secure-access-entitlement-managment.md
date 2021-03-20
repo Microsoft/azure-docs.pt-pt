@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98725183"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Gerir o acesso externo com a Gestão de Direitos 
@@ -62,10 +62,10 @@ Pode aceder a pacotes de acesso através do [Portal Azure AD My Access](../gover
 * Membro ou utilizadores convidados já no seu inquilino
 
 ### <a name="approvals"></a>Aprovações   
-Os pacotes de acesso podem incluir aprovação obrigatória para acesso. **Implementar sempre processos de aprovação para utilizadores externos.** As aprovações podem ser uma aprovação única ou em várias fases. As aprovações são determinadas por políticas. Se os utilizadores internos e externos precisarem de aceder ao mesmo pacote, é provável que crie diferentes políticas de acesso para diferentes categorias de organizações conectadas e para utilizadores internos.
+‎Access packages can include mandatory approval for access. **Implementar sempre processos de aprovação para utilizadores externos.** As aprovações podem ser uma aprovação única ou em várias fases. As aprovações são determinadas por políticas. Se os utilizadores internos e externos precisarem de aceder ao mesmo pacote, é provável que crie diferentes políticas de acesso para diferentes categorias de organizações conectadas e para utilizadores internos.
 
 ### <a name="expiration"></a>Expiração  
-Os pacotes de acesso podem incluir uma data de validade. A expiração pode ser definida para um dia específico ou dar ao utilizador um número específico de dias de acesso. Quando o pacote de acesso expirar e o utilizador não tiver outro acesso, o objeto de utilizador convidado B2B que representa o utilizador pode ser eliminado ou bloqueado da sua assinatura. Recomendamos que imponha a expiração dos pacotes de acesso para utilizadores externos. Nem todos os pacotes de acesso têm expirações. Para aqueles que não o fizerem, certifique-se de que realiza avaliações de acesso.
+‎Access packages can include an expiration date. A expiração pode ser definida para um dia específico ou dar ao utilizador um número específico de dias de acesso. Quando o pacote de acesso expirar e o utilizador não tiver outro acesso, o objeto de utilizador convidado B2B que representa o utilizador pode ser eliminado ou bloqueado da sua assinatura. Recomendamos que imponha a expiração dos pacotes de acesso para utilizadores externos. Nem todos os pacotes de acesso têm expirações. Para aqueles que não o fizerem, certifique-se de que realiza avaliações de acesso.
 
 ### <a name="access-reviews"></a>Revisões de acesso
 
@@ -124,7 +124,7 @@ Estas definições aplicam-se apenas aos utilizadores que estavam a bordo atrav�
 
 ![Screenshot de configurar um catálogo.](media/secure-external-access/6-catalog-management.png)
 
-**[Impor a caducidade dos pacotes de acesso](../governance/entitlement-management-access-package-lifecycle-policy.md) aos quais os utilizadores externos têm acesso.**
+**‎[Enforce expiration of access packages](../governance/entitlement-management-access-package-lifecycle-policy.md) to which external users have access.**
 
 
 ![Screenshot de configurar a expiração do pacote de acesso.](media/secure-external-access/6-access-package-expiration.png)
@@ -149,7 +149,7 @@ Estas definições aplicam-se apenas aos utilizadores que estavam a bordo atrav�
 
 Para obter mais informações, consulte [Regule o acesso a utilizadores externos na Gestão de Direitos AD Azure](../governance/entitlement-management-external-users.md) 
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

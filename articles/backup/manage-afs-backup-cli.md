@@ -4,10 +4,10 @@ description: Saiba como utilizar o Azure CLI para gerir e monitorizar as ações
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566457"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gerir cópias de segurança de partilha de ficheiros Azure com o Azure CLI
@@ -17,10 +17,10 @@ O Azure CLI proporciona uma experiência de linha de comando para a gestão dos 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que já tem uma partilha de ficheiros Azure apoiada pela [Azure Backup](./backup-overview.md). Se não tiver um, consulte [ações de ficheiros Back up Azure com o CLI](backup-afs-cli.md) para configurar a cópia de segurança para as suas ações de ficheiro. Para este artigo, utiliza os seguintes recursos:
-   -  **Grupo de recursos** : *azurefiles*
-   -  **RecoveryServicesVault** : *azurefilesvault*
-   -  **Conta de Armazenamento** : *afsaccount*
-   -  **Partilha de Ficheiros** : *azurefiles*
+   -  **Grupo de recursos**: *azurefiles*
+   -  **RecoveryServicesVault**: *azurefilesvault*
+   -  **Conta de Armazenamento**: *afsaccount*
+   -  **Partilha de Ficheiros**: *azurefiles*
   
   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
    - Este tutorial requer a versão 2.0.18 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
@@ -96,9 +96,9 @@ Pode modificar uma política de backup para alterar a frequência de backup ou o
 
 Para alterar a política, defina os seguintes parâmetros:
 
-* **--nome do contentor** : o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
-* **--nome** : O nome da partilha de ficheiros para a qual pretende alterar a política. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](/cli/azure/backup/item#az-backup-item-list)
-* **--nome de política** : O nome da política de backup que pretende definir para a sua parte do ficheiro. Você pode usar [a lista de políticas de backup az](/cli/azure/backup/policy#az-backup-policy-list) para ver todas as políticas para o seu cofre.
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
+* **--nome**: O nome da partilha de ficheiros para a qual pretende alterar a política. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](/cli/azure/backup/item#az-backup-item-list)
+* **--nome de política**: O nome da política de backup que pretende definir para a sua parte do ficheiro. Você pode usar [a lista de políticas de backup az](/cli/azure/backup/policy#az-backup-policy-list) para ver todas as políticas para o seu cofre.
 
 O exemplo a seguir define a política de backup *do agendamento2* para a partilha de ficheiros *azurefiles* presente na conta de armazenamento *afsaccount.*
 
@@ -134,8 +134,8 @@ Pode haver um custo associado a deixar os pontos de recuperação armazenados, p
 
 Para parar a proteção da partilha de ficheiros, defina os seguintes parâmetros:
 
-* **--nome do contentor** : o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
-* **--nome do item** : o nome da partilha de ficheiros para a qual pretende parar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](/cli/azure/backup/item#az-backup-item-list)
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
+* **--nome do item**: o nome da partilha de ficheiros para a qual pretende parar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](/cli/azure/backup/item#az-backup-item-list)
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Parar a proteção e reter pontos de recuperação
 
@@ -189,9 +189,9 @@ Se parasse a proteção de uma partilha de ficheiros Azure, mas mantivesse ponto
 
 Para retomar a proteção da partilha de ficheiros, defina os seguintes parâmetros:
 
-* **--nome do contentor** : o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
-* **--nome do item** : o nome da partilha de ficheiros para a qual pretende retomar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](/cli/azure/backup/item#az-backup-item-list)
-* **--nome de política** : O nome da política de backup para a qual pretende retomar a proteção para a partilha de ficheiros.
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte do ficheiro. Para recuperar o **nome** ou **o nome amigável** do seu recipiente, utilize o comando da lista de [contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
+* **--nome do item**: o nome da partilha de ficheiros para a qual pretende retomar a proteção. Para recuperar o **nome** ou **o nome amigável** do seu item de reserva, utilize o comando da lista de produtos de reserva [az.](/cli/azure/backup/item#az-backup-item-list)
+* **--nome de política**: O nome da política de backup para a qual pretende retomar a proteção para a partilha de ficheiros.
 
 O exemplo a seguir utiliza o cmdlet de [proteção de backup az](/cli/azure/backup/protection#az-backup-protection-resume) para retomar a proteção para a partilha *de ficheiros azurefiles* utilizando a política de backup do *agenda1.*
 

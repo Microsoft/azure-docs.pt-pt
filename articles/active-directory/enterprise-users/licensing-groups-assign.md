@@ -1,5 +1,5 @@
 ---
-title: Atribuir licenças a um grupo - Azure Ative Directory Microsoft Docs
+title: Atribuir licenças a um grupo - Azure Ative Directory | Microsoft Docs
 description: Como atribuir licenças aos utilizadores através do licenciamento do grupo Azure Ative Directory
 services: active-directory
 keywords: Licenciamento do Azure AD
@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c1a6957d347681f1c7dd9979429fffb153ccb39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546612"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores por membro do grupo no Azure Ative Directory
@@ -47,7 +47,7 @@ Neste exemplo, a organização Azure AD contém um grupo de segurança chamado *
 
 1. Selecione um utilizador ou grupo e, em seguida, use o botão **Selecione** na parte inferior da página para confirmar a sua seleção.
 
-1. Na página de **licença 'Atribuir',** clique nas **opções de Atribuição,** que exibe todos os planos de serviço incluídos nos dois produtos que selecionamos anteriormente. Encontre **a Yammer Enterprise** e desligue-a para desativar esse serviço da licença de produto. **Off** Confirme clicando **OK** na parte inferior das **opções de Licença**.
+1. Na página de **licença 'Atribuir',** clique nas **opções de Atribuição,** que exibe todos os planos de serviço incluídos nos dois produtos que selecionamos anteriormente. Encontre **a Yammer Enterprise** e desligue-a para desativar esse serviço da licença de produto.  Confirme clicando **OK** na parte inferior das **opções de Licença**.
 
    ![selecionar planos de serviço para licenças](./media/licensing-groups-assign/assignment-options.png)
   

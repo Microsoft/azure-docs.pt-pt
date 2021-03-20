@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340860"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos sub-22 sql para Azure Cosmos DB
@@ -25,16 +25,16 @@ Este artigo descreve subqueries SQL e seus casos de uso comum em Azure Cosmos DB
 
 Existem dois tipos principais de subqueries:
 
-* **Correlacionado** : Uma subconserção que faz referências a valores da consulta exterior. A subquery é avaliada uma vez para cada linha que a consulta exterior processa.
+* **Correlacionado**: Uma subconserção que faz referências a valores da consulta exterior. A subquery é avaliada uma vez para cada linha que a consulta exterior processa.
 * **Não correlacionado:** uma subquery que é independente da consulta exterior. Pode ser executado por si só sem depender da consulta exterior.
 
 > [!NOTE]
 > AZure Cosmos DB suporta apenas subqueries correlacionados.
 
 Os subqueries podem ser classificados com base no número de linhas e colunas que retornam. Existem três tipos:
-* **Tabela** : Devolve várias linhas e várias colunas.
-* **Multi-valor** : Devolve várias linhas e uma única coluna.
-* **Scalar** : Devolve uma única linha e uma única coluna.
+* **Tabela**: Devolve várias linhas e várias colunas.
+* **Multi-valor**: Devolve várias linhas e uma única coluna.
+* **Scalar**: Devolve uma única linha e uma única coluna.
 
 As consultas SQL em Azure Cosmos DB devolvem sempre uma única coluna (seja um valor simples ou um documento complexo). Portanto, apenas subqueries multi-valor e scalar são aplicáveis em Azure Cosmos DB. Pode utilizar um subquery de vários valores apenas na cláusula FROM como expressão relacional. Pode utilizar um sublote escala como expressão escalar na cláusula SELECT ou WHERE, ou como expressão relacional na cláusula FROM.
 
@@ -126,7 +126,7 @@ Muitas vezes é necessário fazer referência a dados estáticos que raramente m
 
 Por exemplo, considere este conjunto de dados de referência:
 
-| **Unidade** | **Name**            | **Multiplicador** | **Unidade base** |
+| **Unidade** | **Nome**            | **Multiplicador** | **Unidade base** |
 | -------- | ------------------- | -------------- | ------------- |
 | ng       | Nanograma            | 1.00E-09       | Grama          |
 | μg       | Micrograma           | 1.00E-06       | Grama          |
@@ -353,7 +353,7 @@ WHERE count_mg > 20
 
 ## <a name="exists-expression"></a>Expressão existente
 
-Azure Cosmos DB suporta expressões existem. Este é um subquery scalar agregado incorporado na API API API AZure Cosmos DB SQL. EXISTE é uma expressão booleana que toma uma expressão de subquery e retorna verdadeira se o subquery retorna alguma linha. Caso contrário, declara-se falso.
+Azure Cosmos DB suporta expressões existem. Este é um subquery scalar agregado incorporado na API AZure Cosmos DB SQL. EXISTE é uma expressão booleana que toma uma expressão de subquery e retorna verdadeira se o subquery retorna alguma linha. Caso contrário, declara-se falso.
 
 Como o AZure Cosmos DB SQL API não diferencia entre expressões booleanas e quaisquer outras expressões escalares, pode utilizar existe tanto nas cláusulas SELECT como WHERE. Isto é diferente do T-SQL, onde uma expressão booleana (por exemplo, EXISTE, ENTRE e IN) é restrita ao filtro.
 

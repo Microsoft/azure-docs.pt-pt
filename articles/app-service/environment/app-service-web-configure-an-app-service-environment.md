@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962592"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurar um Ambiente de Serviço de Aplicações v1
@@ -20,7 +20,7 @@ ms.locfileid: "88962592"
 > Este artigo é sobre o App Service Environment v1.  Existe uma versão mais recente do App Service Environment que é mais fácil de usar e funciona em infraestruturas mais poderosas. Para saber mais sobre a nova versão comece com a [Introdução ao Ambiente de Serviço de Aplicações.](intro.md)
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A um nível elevado, um Azure App Service Environment é composto por vários componentes principais:
 
 * Computação de recursos que estão em execução no serviço de acolhimento do App Service Environment
@@ -154,7 +154,7 @@ Para utilizar a operação de balança na lâmina ASE, arraste o slider para a q
 
 ![UI escala][6]
 
-Para utilizar as capacidades manuais ou de autoescalação num conjunto de recursos **específicos,** vá às Piscinas  >  **frontais de**trabalho de pool,  /  **Worker Pools** conforme apropriado. Então abra a piscina que quer mudar. Ir para **a escala de definições**para  >  **fora** ou **para as definições**  >  **escalam -** A **lâmina Scale out** permite controlar a quantidade de casos. **O Scale Up** permite controlar o tamanho do recurso.  
+Para utilizar as capacidades manuais ou de autoescalação num conjunto de recursos **específicos,** vá às Piscinas  >  **frontais de** trabalho de pool,  /   conforme apropriado. Então abra a piscina que quer mudar. Ir para **a escala de definições** para  >  **fora** ou **para as definições**  >  **escalam -** A **lâmina Scale out** permite controlar a quantidade de casos. **O Scale Up** permite controlar o tamanho do recurso.  
 
 ![Definições de escala UI][7]
 

@@ -4,10 +4,10 @@ description: Saiba como apagar e exportar dados pessoais do serviço Azure DevLa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483521"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou eliminar dados pessoais da Azure DevTest Labs
@@ -151,7 +151,7 @@ Agora vamos olhar mais de perto os dados exportados. Como mencionado anteriormen
 
 O **virtualmachines.csv** contém as seguintes colunas de dados:
 
-| Nome da coluna | Descrição |
+| Nome da coluna | Description |
 | ----------- | ----------- | 
 | SubscriptionId | O identificador de assinatura em que o laboratório existe. |
 | LabUId | Identificador GUID único para o laboratório. |
@@ -160,7 +160,7 @@ O **virtualmachines.csv** contém as seguintes colunas de dados:
 | ResourceGroupName | Nome do grupo de recursos que contém o VM | 
 | ResourceId | ID de recursos totalmente qualificado para o VM. |
 | ResourceUId | GUID para o VM |
-| Nome | Nome da máquina virtual. |
+| Name | Nome da máquina virtual. |
 | CreatedTime | A data-data em que o VM foi criado. |
 | DeletedDate | A data-data em que o VM foi apagado. Se está vazio, a eliminação ainda não ocorreu. |
 | ResourceOwner | Dono do VM. Se o valor estiver vazio, então ou é um VM reclamado ou criado por um diretor de serviço. |
@@ -179,7 +179,7 @@ O **virtualmachines.csv** contém as seguintes colunas de dados:
 
 As colunas de dados contidas na **disks.csv** estão listadas abaixo:
 
-| Nome da coluna | Descrição | 
+| Nome da coluna | Description | 
 | ----------- | ----------- | 
 | SubscriptionId | ID da assinatura que contém o laboratório |
 | LabUId | GUID para o laboratório |
@@ -188,7 +188,7 @@ As colunas de dados contidas na **disks.csv** estão listadas abaixo:
 | ResourceGroupName | Nome do grupo de recursos que contém o laboratório | 
 | ResourceId | ID de recursos totalmente qualificado para o VM. |
 | ResourceUId | GUID para o VM |
- |Nome | O nome do disco anexo |
+ |Name | O nome do disco anexo |
 | CreatedTime |A data e a hora em que o disco de dados foi criado. |
 | DeletedDate | A data e a hora em que o disco de dados foi eliminado. |
 | Estatísticas de Recursos | Estado do recurso. Ativo, se o recurso existir. Inativo, quando apagado. |

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76905297"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Criar esquemas para rastrear mensagens X12 em Azure Logic Apps
@@ -55,7 +55,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens X12 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens X12 |
@@ -64,17 +64,17 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | receptorQualifier | Sim | String | Receber qualificação de parceiro |
 | receptorIdentifier | Sim | String | Receber identificador de parceiro |
 | agreementName | Não | String | Nome do acordo X12 para o qual as mensagens são resolvidas |
-| direção | Sim | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
+| direção | Yes | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
 | interchangeControlNumber | Não | String | Número de controlo de intercâmbio |
 | funcionalGroupControlNumber | Não | String | Número de controlo funcional |
 | transactionSetControlNumber | Não | String | Número de controlo definido por transação |
 | CorrelationMessageId | Não | String | ID de mensagem de correlação, que é uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
 | mensagemType | Não | String | Conjunto de transações ou tipo de documento |
-| isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
-| isTechnicalAcknowledgmentExpected | Sim | Booleano | Se o reconhecimento técnico está configurado no acordo X12 |
-| isFunctionalAcknowledgmentExpected | Sim | Booleano | Se o reconhecimento funcional está configurado no acordo X12 |
-| needAk2LoopForValidMesages | Sim | Booleano | Se o loop AK2 é necessário para uma mensagem válida |
-| segmentosConse | Não | Número inteiro | Número de segmentos no conjunto de transações X12 |
+| isMessageFailed | Yes | Booleano | Se a mensagem X12 falhou |
+| isTechnicalAcknowledgmentExpected | Yes | Booleano | Se o reconhecimento técnico está configurado no acordo X12 |
+| isFunctionalAcknowledgmentExpected | Yes | Booleano | Se o reconhecimento funcional está configurado no acordo X12 |
+| needAk2LoopForValidMesages | Yes | Booleano | Se o loop AK2 é necessário para uma mensagem válida |
+| segmentosConse | No | Número inteiro | Número de segmentos no conjunto de transações X12 |
 |||||
 
 ## <a name="x12-transaction-set-acknowledgment-tracking-schema"></a>X12 conjunto de transação reconhecimento de localização esquema
@@ -111,7 +111,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens X12 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens X12 |
@@ -120,7 +120,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | receptorQualifier | Sim | String | Receber qualificação de parceiro |
 | receptorIdentifier | Sim | String | Receber identificador de parceiro |
 | agreementName | Não | String | Nome do acordo X12 para o qual as mensagens são resolvidas |
-| direção | Sim | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
+| direção | Yes | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
 | interchangeControlNumber | Não | String | Número de controlo de intercâmbio do reconhecimento funcional. O valor só se encontra para o lado do envio onde é recebido reconhecimento funcional para as mensagens enviadas ao parceiro. |
 | funcionalGroupControlNumber | Não | String | Número funcional de controlo do grupo do reconhecimento funcional. O valor povoa apenas para o lado de envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro |
 | isaSegment | Não | String | Segmento ISA da mensagem. O valor povoa apenas para o lado de envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro |
@@ -129,11 +129,11 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | respondendoFunctionalGroupId | Não | String | O ID funcional respondendo, que mapeia para AK101 no reconhecimento |
 | resposta do combate ao controlo de controlo de transportes | Não | String | O número de controlo do conjunto de transações de resposta |
 | respondendoTransactionSetId | Não | String | O ID do conjunto de transações respondendo, que mapeia para AK201 no reconhecimento |
-| statusCode | Sim | Booleano | Código de estado de reconhecimento definido por transação |
-| segmentosConse | Sim | Enumeração | Código de estado de reconhecimento com estes valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
-| processamentoStatus | Sim | Enumeração | Estado de processamento do reconhecimento com estes valores permitidos: `Received` `Generated` , e `Sent` |
+| statusCode | Yes | Booleano | Código de estado de reconhecimento definido por transação |
+| segmentosConse | Yes | Enumeração | Código de estado de reconhecimento com estes valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
+| processamentoStatus | Yes | Enumeração | Estado de processamento do reconhecimento com estes valores permitidos: `Received` `Generated` , e `Sent` |
 | CorrelationMessageId | Não | String | ID de mensagem de correlação, que é uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
-| isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
+| isMessageFailed | Yes | Booleano | Se a mensagem X12 falhou |
 | ak2Segment | Não | String | Reconhecimento de uma transação definida dentro do grupo funcional recebido |
 | ak3Segment | Não | String | Reporta erros num segmento de dados |
 | ak5Segment | Não | String | Relatórios se o conjunto de transações identificado no segmento AK2 é aceite ou rejeitado, e porquê |
@@ -169,7 +169,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens X12 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens X12 |
@@ -178,11 +178,11 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | receptorQualifier | Sim | String | Receber qualificação de parceiro |
 | receptorIdentifier | Sim | String | Receber identificador de parceiro |
 | agreementName | Não | String | Nome do acordo X12 para o qual as mensagens são resolvidas |
-| direção | Sim | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
+| direção | Yes | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
 | interchangeControlNumber | Não | String | Número de controlo de intercâmbio |
 | isaSegment | Não | String | Segmento isa de mensagem |
 | isTechnicalAcknowledgmentExpected | Booleano | Se o reconhecimento técnico está configurado no acordo X12  |
-| isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
+| isMessageFailed | Yes | Booleano | Se a mensagem X12 falhou |
 | isa09 | Não | String | Data de troca de documentos X12 |
 | isa10 | Não | String | Tempo de troca de documentos X12 |
 | isa11 | Não | String | Identificador de normas de controlo de intercâmbio X12 |
@@ -220,7 +220,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens X12 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens X12 |
@@ -229,13 +229,13 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | receptorQualifier | Sim | String | Receber qualificação de parceiro |
 | receptorIdentifier | Sim | String | Receber identificador de parceiro |
 | agreementName | Não | String | Nome do acordo X12 para o qual as mensagens são resolvidas |
-| direção | Sim | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
+| direção | Yes | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
 | interchangeControlNumber | Não | String | Número de controlo de intercâmbio do reconhecimento técnico recebido dos parceiros |
 | isaSegment | Não | String | Segmento ISA para o reconhecimento técnico que é recebido dos parceiros |
 | respondendo InterchangeControlNumber | Não | String | Número de controlo de intercâmbio para o reconhecimento técnico que é recebido dos parceiros |
-| isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
-| statusCode | Sim | Enumeração | Código de estado de reconhecimento de intercâmbio com estes valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
-| processamentoStatus | Sim | Enumeração | Estatuto de reconhecimento com estes valores permitidos: `Received` `Generated` , e `Sent` |
+| isMessageFailed | Yes | Booleano | Se a mensagem X12 falhou |
+| statusCode | Yes | Enumeração | Código de estado de reconhecimento de intercâmbio com estes valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
+| processamentoStatus | Yes | Enumeração | Estatuto de reconhecimento com estes valores permitidos: `Received` `Generated` , e `Sent` |
 | ta102 | Não | String | Data de intercâmbio |
 | ta103 | Não | String | Tempo de troca |
 | ta105 | Não | String | Código de nota de intercâmbio |
@@ -273,7 +273,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens X12 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens X12 |
@@ -282,13 +282,13 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | receptorQualifier | Sim | String | Receber qualificação de parceiro |
 | receptorIdentifier | Sim | String | Receber identificador de parceiro |
 | agreementName | Não | String | O nome do acordo X12 para o qual as mensagens são resolvidas |
-| direção | Sim | Enumeração | Direção do fluxo de mensagem, ou receber ou enviar |
+| direção | Yes | Enumeração | Direção do fluxo de mensagem, ou receber ou enviar |
 | interchangeControlNumber | Não | String | Número de controlo de intercâmbio |
 | funcionalGroupControlNumber | Não | String | Número de controlo funcional |
 | gsSegment | Não | String | Segmento GS de mensagem |
-| isTechnicalAcknowledgmentExpected | Sim | Booleano | Se o reconhecimento técnico está configurado no acordo X12 |
-| isFunctionalAcknowledgmentExpected | Sim | Booleano | Se o reconhecimento funcional está configurado no acordo X12 |
-| isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
+| isTechnicalAcknowledgmentExpected | Yes | Booleano | Se o reconhecimento técnico está configurado no acordo X12 |
+| isFunctionalAcknowledgmentExpected | Yes | Booleano | Se o reconhecimento funcional está configurado no acordo X12 |
+| isMessageFailed | Yes | Booleano | Se a mensagem X12 falhou |
 | gs01 | Não | String | Código de identificador funcional |
 | gs02 | Não | String | Código do remetente de aplicações |
 | gs03 | Não | String | Código do recetor de aplicações |
@@ -329,7 +329,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens X12 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens X12 |
@@ -338,7 +338,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | receptorQualifier | Sim | String | Receber qualificação de parceiro |
 | receptorIdentifier | Sim | String | Receber identificador de parceiro |
 | agreementName | Não | String | Nome do acordo X12 para o qual as mensagens são resolvidas |
-| direção | Sim | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
+| direção | Yes | Enumeração | Direção do fluxo de mensagem, que é `receive` ou `send` |
 | interchangeControlNumber | Não | String | Número de controlo de intercâmbio, que povoa para o lado de envio quando um reconhecimento técnico é recebido de parceiros |
 | funcionalGroupControlNumber | Não | String | Número funcional de controlo do grupo do reconhecimento técnico, que povoa para o lado de envio quando um reconhecimento técnico é recebido de parceiros |
 | isaSegment | Não | String | O mesmo que o número de controlo de intercâmbio, mas povoado apenas em casos específicos |
@@ -346,8 +346,8 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | resposta functionalGroupControlNumber | Não | String | Número de controlo do grupo funcional original |
 | respondendoFunctionalGroupId | Não | String | Mapas para AK101 no ID funcional de reconhecimento |
 | isMessageFailed | Booleano | Se a mensagem X12 falhou |
-| statusCode | Sim | Enumeração | Código de estado de reconhecimento com estes valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
-| processamentoStatus | Sim | Enumeração | Estado de processamento do reconhecimento com estes valores permitidos: `Received` `Generated` , e `Sent` |
+| statusCode | Yes | Enumeração | Código de estado de reconhecimento com estes valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
+| processamentoStatus | Yes | Enumeração | Estado de processamento do reconhecimento com estes valores permitidos: `Received` `Generated` , e `Sent` |
 | ak903 | Não | String | Número de conjuntos de transações recebidos |
 | ak904 | Não | String | Número de conjuntos de transações aceites no grupo funcional identificado |
 | ak9Segment | Não | String | Se o grupo funcional identificado no segmento AK1 é aceite ou rejeitado, e porquê |

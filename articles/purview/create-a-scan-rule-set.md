@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de regras de digitalização
+title: Criar um conjunto de regras de análise
 description: Crie uma regra de digitalização definida no Azure Purview para digitalizar rapidamente fontes de dados na sua organização.
 author: chandrakavya
 ms.author: kchandra
@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 9662652a6a40285ad382857975ec0dd04b8ba8be
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96554743"
 ---
-# <a name="create-a-scan-rule-set"></a>Criar um conjunto de regras de digitalização
+# <a name="create-a-scan-rule-set"></a>Criar um conjunto de regras de análise
 
 Num catálogo Azure Purview, pode criar conjuntos de regras de digitalização para lhe permitir digitalizar rapidamente fontes de dados na sua organização.
 

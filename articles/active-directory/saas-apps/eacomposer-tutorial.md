@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a EAComposer Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com eAComposer | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o EAComposer.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
 ms.openlocfilehash: ab7263cd2b4988a83d8eae67264705dd09f28456
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180955"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eacomposer"></a>Tutorial: Azure Ative Directory integração única (SSO) com eAComposer

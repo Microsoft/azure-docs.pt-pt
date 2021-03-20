@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: cherylmc
 ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880530"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configure uma ligação VPN site-to-site sobre o espreitamento privado ExpressRoute
@@ -109,6 +109,6 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 1. Da sua firewall, ping o IP privado que você anotou no passo 2. Deve ser acessível sobre o olho privado ExpressRoute.
 1. Utilize este IP privado como IP remoto na sua firewall no local para estabelecer o túnel Site-To-Site sobre o espreitamento privado ExpressRoute.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o VPN Gateway, veja [o que é VPN Gateway?](vpn-gateway-about-vpngateways.md)

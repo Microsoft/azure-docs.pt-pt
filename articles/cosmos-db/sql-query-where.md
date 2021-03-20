@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 5620a9fb95fb52a487095afd75d5f30c82a8bce1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341473"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>CLÁUSULA ONDE em Azure Cosmos DB
@@ -107,10 +107,10 @@ Também pode utilizar os operadores não ,-, ~, e NÃO em consultas, como mostra
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON que contém a propriedade `isRegistered` com valor igual a `true` . Qualquer outro valor, como, por exemplo, , `false` , ou , exclui o item do `null` `Undefined` `<number>` `<string>` `<object>` `<array>` resultado. Além disso, pode utilizar a `IS_DEFINED` função de verificação de tipo para consultar com base na presença ou ausência de uma determinada propriedade JSON. Por exemplo, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` devolve qualquer item JSON que não tenha um valor para `isRegistered` .
+Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON que contém a propriedade `isRegistered` com valor igual a `true` . Qualquer outro valor, como, por exemplo, `false` ou , exclui o item do `null` `Undefined` `<number>` `<string>` `<object>` `<array>` resultado. Além disso, pode utilizar a `IS_DEFINED` função de verificação de tipo para consultar com base na presença ou ausência de uma determinada propriedade JSON. Por exemplo, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` devolve qualquer item JSON que não tenha um valor para `isRegistered` .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [IN palavra-chave](sql-query-keywords.md#in)
-- [Cláusula FROM](sql-query-from.md)
+- [A partir da cláusula](sql-query-from.md)

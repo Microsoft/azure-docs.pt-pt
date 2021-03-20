@@ -1,5 +1,5 @@
 ---
-title: Ver e gerir postos de trabalho para a série StorSimple 8000 Microsoft Docs
+title: Ver e gerir postos de trabalho para a série StorSimple 8000 | Microsoft Docs
 description: Descreve o serviço StorSimple Device Manager Jobs e como usá-lo para rastrear trabalhos de backup recentes, atuais e programados.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949433"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir postos de trabalho (atualização 3 e posterior)
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição Geral
 A lâmina **Jobs** fornece um único portal central para visualização e gestão de trabalhos que foram iniciados em dispositivos ligados ao seu serviço StorSimple Device Manager. Pode ver trabalhos programados, em execução, concluídos, cancelados e falhados para vários dispositivos. Os resultados são apresentados em formato tabular.
 
 ![Lâmina de emprego](./media/storsimple-8000-manage-jobs-u2/jobs1.png)

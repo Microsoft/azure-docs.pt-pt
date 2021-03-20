@@ -1,14 +1,14 @@
 ---
-title: Alerta sobre problemas nos Serviços Azure Cloud utilizando a integração do Azure Diagnostics com a Azure Application Insights Microsoft Docs
+title: Alerta sobre problemas nos Serviços Azure Cloud utilizando a integração do Azure Diagnostics com a Azure Application Insights | Microsoft Docs
 description: Monitorize para problemas como falhas de startups, falhas e ciclos de reciclagem de papéis em Azure Cloud Services com Azure Application Insights
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87309295"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos Serviços Azure Cloud usando a integração de diagnósticos Azure com Azure Application Insights
@@ -80,18 +80,18 @@ EventLogs
 
 ## <a name="create-an-alert"></a>Criar um alerta
 
-No menu de navegação dentro do seu recurso Application Insights, vá a **Alertas**e, em seguida, selecione **Nova Regra de Alerta**.
+No menu de navegação dentro do seu recurso Application Insights, vá a **Alertas** e, em seguida, selecione **Nova Regra de Alerta**.
 
 ![Screenshot da regra criar](./media/proactive-cloud-services/001.png)
 
-Na janela **regra 'Criar',** na secção **Defina o estado de alerta,** clique em **Adicionar critérios**e, em seguida, selecione **pesquisa de registo personalizado**.
+Na janela **regra 'Criar',** na secção **Defina o estado de alerta,** clique em **Adicionar critérios** e, em seguida, selecione **pesquisa de registo personalizado**.
 
 ![Screenshot de definir critérios de condição para alerta](./media/proactive-cloud-services/002.png)
 
 Na caixa **de consulta de pesquisa,** cole a consulta combinada que preparou no passo anterior.
 
 Em seguida, continue para a caixa **Threshold,** e definir o seu valor para 0. Pode alterar opcionalmente os **campos** **de Period** e Frequência .
-Clique em **Done** (Concluído).
+Clique em **Concluído**.
 
 ![Screenshot da consulta lógica de sinal de configuração](./media/proactive-cloud-services/003.png)
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85554923"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos associados ao Azure AD
@@ -29,7 +29,7 @@ Normalmente, as organizações com uma pegada no local dependem de métodos de i
 
 Se o seu ambiente tiver uma infraestrutura do AD no local e também quiser tirar partido das capacidades que o Azure Active Directory oferece, pode implementar dispositivos híbridos associados ao Azure AD. Estes dispositivos são dispositivos que se juntam ao seu Ative Directory no local e registados no seu Diretório Ativo Azure.
 
-| Híbrido Azure AD Join | Descrição |
+| Híbrido Azure AD Join | Description |
 | --- | --- |
 | **Definição** | Juntou-se aos locais AD e AZure AD exigindo que a conta organizacional se inscreva no dispositivo |
 | **Público primário** | Adequado para organizações híbridas com infraestruturas AD existentes no local |

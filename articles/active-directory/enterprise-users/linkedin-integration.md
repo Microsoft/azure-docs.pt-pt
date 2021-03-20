@@ -1,5 +1,5 @@
 ---
-title: Consentimento de administração para ligações à conta linkedIn - Azure AD / Microsoft Docs
+title: Consentimento de administração para ligações de conta LinkedIn - Azure AD | Microsoft Docs
 description: Explica como ativar ou desativar as ligações de conta de integração do LinkedIn em aplicações da Microsoft no Azure Ative Directory
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ffa937f91af7078b28331a655f99397d3821def
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96545898"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar ligações de conta LinkedIn no Azure Ative Directory
@@ -91,7 +91,7 @@ Para utilizar o grupo a partir do segundo passo como grupo selecionado nas liga�
 1. Descarregue os [ficheiros de modelo administrativo do Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 1. Extraia os ficheiros **ADMX** e copie-os para a sua loja central.
 1. Abra a Gestão de Políticas de Grupo.
-1. Criar um objeto de política de grupo com a seguinte definição: Modelos administrativos **de configuração** do utilizador  >  **Administrative Templates**  >  **Microsoft Office 2016**  >  **Funcionalidades do**  >  **LinkedIn em aplicações do Office**.
+1. Criar um objeto de política de grupo com a seguinte definição: Modelos administrativos **de configuração** do utilizador  >    >  **Microsoft Office 2016**  >  **Funcionalidades do**  >  **LinkedIn em aplicações do Office**.
 1. Selecione **Ativado** ou **Desativado**.
   
    Estado | Efeito

@@ -1,5 +1,5 @@
 ---
-title: Criar O SERVIDOR SQL numa máquina virtual do Windows no portal Azure Microsoft Docs
+title: Crie o SQL Server numa máquina virtual Windows no portal Azure | Microsoft Docs
 description: Este tutorial mostra como criar uma máquina virtual Windows com SQL Server 2017 no portal Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 335a63faa440e057c282f992b67b301289a7a4bb
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97356978"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Quickstart: Criar SQL Server 2017 numa máquina virtual Windows no portal Azure

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Avaliação Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | avaliados Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Appraisd.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 79db0a7bb769d6138bfeeb4e765621a1cffb4d14
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92457865"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutorial: Integrar avaliação com diretório ativo Azure
@@ -150,7 +150,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B. Sim
 
 Nesta secção, você permitirá a B. Simon usar a Azure um único sinal, permitindo o acesso à Avaliação.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **'Avaliação'.**
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -176,7 +176,7 @@ Para permitir que os utilizadores Azure AD inscrevam-se na Avaliação, devem se
 
     ![A screenshot mostra as opções de Definições onde pode selecionar o centro de administração.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Na barra de ferramentas no topo da página, clique em **Pessoas**e, em seguida, navegue para **Adicionar um novo utilizador**.
+3. Na barra de ferramentas no topo da página, clique em **Pessoas** e, em seguida, navegue para **Adicionar um novo utilizador**.
 
     ![O Screenshot mostra a página de Avaliação com Pessoas e Adicione um novo utilizador chamado.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Otimizar o rendimento da rede VM Microsoft Docs
+title: Otimizar a produção de rede VM | Microsoft Docs
 description: Otimizar a produção de rede para o Microsoft Azure Windows e Linux VMs, incluindo grandes distribuições como Ubuntu, CentOS e Red Hat.
 services: virtual-network
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
 ms.openlocfilehash: bb9235f4d1190bf7f71ddc007f09c9666c353234
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98216806"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a produção de rede para máquinas virtuais Azure

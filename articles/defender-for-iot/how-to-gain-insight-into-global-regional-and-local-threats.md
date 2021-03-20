@@ -1,5 +1,5 @@
 ---
-title: Obtenha informação sobre ameaças globais, regionais e locais
+title: Obter informações sobre ameaças globais, regionais e locais
 description: Obtenha informações sobre ameaças globais, regionais e locais usando o mapa do site na consola de gestão no local.
 author: shhazam-ms
 manager: rkarlin
@@ -8,13 +8,13 @@ ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: cde55f3c2a875c593c07ea05427f8075d8599196
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97843548"
 ---
-# <a name="gain-insight-into-global-regional-and-local-threats"></a>Obtenha informação sobre ameaças globais, regionais e locais
+# <a name="gain-insight-into-global-regional-and-local-threats"></a>Obter informações sobre ameaças globais, regionais e locais
 
 O mapa do site na consola de gestão no local ajuda-o a obter uma cobertura de segurança completa dividindo a sua rede em segmentos geográficos e lógicos que refletem a sua topologia de negócios:
 

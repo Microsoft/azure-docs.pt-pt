@@ -1,5 +1,5 @@
 ---
-title: Lâmina de resumo do serviço StorSimple Virtual Array Microsoft Docs
+title: StorSimple Folha de serviço virtual array | Microsoft Docs
 description: Descreve a lâmina de resumo de serviço para StorSimple Device Manager e explica como usá-la para monitorizar a saúde do seu StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 31220a8f8b012e08d46195b60a26be9cfc261be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514524"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utilize a lâmina de resumo de serviço para o Gestor de Dispositivos StorSimple ligado ao StorSimple Virtual Array
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A lâmina de resumo de serviço para o StorSimple Device Manager fornece uma visão sumária das Matrizes Virtuais StorSimple (também conhecidas como dispositivos virtuais storSimple no local ou dispositivos virtuais) que estão ligadas ao seu serviço, realçando aqueles que precisam da atenção de um administrador de sistema. Este tutorial introduz a lâmina de resumo do serviço, explica o conteúdo e a função e descreve as tarefas que pode executar a partir desta lâmina.
 
 ![Painel de serviço](./media/storsimple-virtual-array-service-summary/service-blade.png)

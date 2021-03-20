@@ -7,10 +7,10 @@ author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
 ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97109351"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Encontre iD do inquilino, ID de objeto e detalhes da associação de parceiros
@@ -24,7 +24,7 @@ Se precisar de obter imagens destes itens em Azure Cloud Shell para usar para de
 
 ## <a name="find-tenant-id"></a>Encontre o ID do inquilino
 
-1. Aceda ao [portal do Azure](https://ms.portal.azure.com/).
+1. Aceda ao [Portal do Azure](https://ms.portal.azure.com/).
 2. Selecione **Azure Active Directory**.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="O ícone do Diretório Ativo Azure no portal Azure.":::
@@ -70,7 +70,7 @@ Se precisar de obter imagens destes itens em Azure Cloud Shell para usar para de
 
 Esta secção descreve como encontrar inquilino, objeto e associação de identificação parceira para fins de depuragem.
 
-1. Aceda ao [portal do Azure](https://ms.portal.azure.com/).
+1. Aceda ao [Portal do Azure](https://ms.portal.azure.com/).
 2. Abra o Azure Cloud Shell selecionando o ícone PowerShell no canto superior direito.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell-1.png" alt-text="Ícone PowerShell no topo direito do ecrã.":::

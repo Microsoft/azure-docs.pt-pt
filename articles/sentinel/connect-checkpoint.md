@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do Check Point ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados do Ponto de Verificação ao Azure Sentinel| Microsoft Docs
 description: Configure o seu aparelho Check Point para encaminhar mensagens Syslog em formato CEF para o seu espaço de trabalho Azure Sentinel através do agente Syslog.
 services: sentinel
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85566050"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Ligue o Ponto de Verificação ao Sentinela Azure
