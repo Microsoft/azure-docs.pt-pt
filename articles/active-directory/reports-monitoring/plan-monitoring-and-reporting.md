@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577756"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
@@ -101,11 +101,11 @@ O reporte e monitorização são usados para satisfazer os requisitos do seu neg
 
 |Área |Description |
 |-|-|
-|Retenção| **Retenção de registos superiores a 30 dias**. Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de Azure AD por mais de 30 dias. |
-|Análise| **Os registos têm de ser pesmáveis.** Os registos armazenados devem ser pescêjáveis com ferramentas analíticas. |
+|Retenção| **Retenção de registos superiores a 30 dias**. ‎Due to legal or business requirements it is required to store audit logs and sign in logs of Azure AD longer than 30 days. |
+|Análise| **Os registos têm de ser pesmáveis.** ‎The stored logs need to be searchable with analytic tools. |
 | Informações Operacionais| **Insights para várias equipas.** A necessidade de dar acesso a diferentes utilizadores para obter insights operacionais, tais como utilização de aplicações, assinar erros, uso de self-service, tendências, etc. |
 | Insights de Segurança| **Insights para várias equipas.** A necessidade de dar acesso a diferentes utilizadores para obter insights operacionais, tais como utilização de aplicações, assinar erros, auto-atendimento, tendências, etc. |
-| Integração nos sistemas SIEM      | **Integração SIEM.** A necessidade de integrar e transmitir o sinal AZure AD em registos e registos de auditoria aos sistemas SIEM existentes. |
+| Integração nos sistemas SIEM      | **Integração SIEM.** ‎The need to integrate and stream Azure AD sign in logs and audit logs to existing SIEM systems. |
 
 ### <a name="choose-a-monitoring-solution-architecture"></a>Escolha uma arquitetura de solução de monitorização
 

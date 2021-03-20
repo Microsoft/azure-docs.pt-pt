@@ -7,10 +7,10 @@ ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77671397"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Modernização do Debugger Snapshot
@@ -25,7 +25,7 @@ Para fornecer a melhor segurança possível para os seus dados, a Microsoft est�
 
 Se ativou o depurador Snapshot utilizando a extensão do site, pode atualizar utilizando o seguinte procedimento:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Navegue para o seu recurso que tem Insights de Aplicação e depuração Snapshot ativados. Por exemplo, para uma Web App, navegue para o recurso Serviço de Aplicações:
 
    ![Screenshot de recurso individual do Serviço de Aplicações chamado DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)

@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043658"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Encaminhamento de porta de configuração em Azure Load Balancer usando o portal
@@ -48,15 +48,15 @@ Para todos os passos neste tutorial, inscreva-se no portal Azure em [https://por
 
 Em primeiro lugar, crie um balanceador de carga standard público que possa equilibrar a carga de tráfego sobre VMs. Um equilibrador de carga Standard suporta apenas um endereço IP público standard. Quando cria um balanceador de carga Standard, também cria um novo endereço IP público Standard, que é configurado como a extremidade frontal do balançador de carga e nomeado **LoadBalancerFrontEnd** por padrão. 
 
-1. No lado superior esquerdo do ecrã, clique em **Criar um equilibrador**de carga de  >  **rede de**recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, clique em **Criar um equilibrador** de carga de  >  **rede de** recursos  >  .
 2. No separador **Básico da** página **'Criar balanceador** de carga', introduzir ou selecionar as seguintes informações, aceitar as predefinições para as definições restantes e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e digitar *MyResourceGroupLB* na caixa de texto.|
-    | Nome                   | *myLoadBalancer*                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Name                   | *myLoadBalancer*                                   |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
@@ -99,7 +99,7 @@ Nesta secção, deverá substituir os seguintes parâmetros nos passos pelas inf
    - **Palavra-passe**: *Digite Azure1234567*. 
      Retipe a palavra-passe no campo **de palavra-passe Confirmar.**
    
-1. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**. 
+1. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**. 
    
    Certifique-se de que estão selecionados:
    - **Rede virtual**: **MyVNet**
@@ -109,21 +109,21 @@ Nesta secção, deverá substituir os seguintes parâmetros nos passos pelas inf
    
 1. No **âmbito do Grupo de Segurança da Rede,** selecione **Advanced** para criar um novo grupo de segurança de rede (NSG), um tipo de firewall. 
    1. No campo de grupo de segurança de **rede Configure,** selecione **Criar novo**. 
-   1. Digite *MyNetworkSecurityGroup*e selecione **OK**. 
+   1. Digite *MyNetworkSecurityGroup* e selecione **OK**. 
    
    >[!NOTE]
    >Observe que, por padrão, o NSG já tem uma regra de entrada para abrir a porta 3389, a porta de ambiente de trabalho remoto (RDP).
    
 1. Adicione o VM a uma piscina de fundo de compensação de carga que cria:
    
-   1. Em **EQUILÍBRIO DE CARGA**Coloque esta máquina virtual  >  **atrás de uma solução de equilíbrio de carga existente?** **Yes** 
+   1. Em **EQUILÍBRIO DE CARGA** Coloque esta máquina virtual  >  **atrás de uma solução de equilíbrio de carga existente?**  
    1. Para **opções de equilíbrio de carga,** desça e selecione **o balançador de carga Azure**. 
    1. Para **selecionar um equilibrador de carga,** desça e selecione **MyLoadBalancer**. 
-   1. Em **Selecione uma piscina de backend**, selecione **Criar novo,** em seguida, *digite MyBackendPool*e selecione **Criar**. 
+   1. Em **Selecione uma piscina de backend**, selecione **Criar novo,** em seguida, *digite MyBackendPool* e selecione **Criar**. 
    
    ![Criar uma rede virtual](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
    
-1. Selecione o separador **Gestão** ou selecione **'Gestão**  >  **Seguinte'.** Em **Monitorização**, desemisse os **diagnósticos** **da**Bota .
+1. Selecione o separador **Gestão** ou selecione **'Gestão**  >  **Seguinte'.** Em **Monitorização**, desemisse os **diagnósticos** **da** Bota .
    
 1. Selecione **Rever + criar**.
    
@@ -233,7 +233,7 @@ Criar uma regra de tradução de endereço de rede de entrada de balançador de 
 
 1. Selecione **todos os recursos** no menu à esquerda e, em seguida, selecione **MyLoadBalancer** na lista de recursos.
    
-1. Em **Definições**, selecione **as regras DE ENTRADA**e, em seguida, selecione **Adicionar**. 
+1. Em **Definições**, selecione **as regras DE ENTRADA** e, em seguida, selecione **Adicionar**. 
    
 1. Na página de **regra NAT de entrada** adicionar, digite ou selecione os seguintes valores:
    
@@ -260,7 +260,7 @@ Ligue a cada VM com Desktop Remoto (RDP).
 
 1. No portal, selecione **Todos os recursos** no menu esquerdo. Na lista de recursos, selecione cada VM no grupo de recursos **MyResourceGroupLB.**
    
-1. Na página **'Vista Geral',** selecione **Connect**e, em seguida, selecione **Download RDP file**. 
+1. Na página **'Vista Geral',** selecione **Connect** e, em seguida, selecione **Download RDP file**. 
    
 1. Abra o ficheiro RDP que descarregou e selecione **Connect**.
    
@@ -333,7 +333,7 @@ Com o encaminhamento da porta, pode fazer um ambiente de trabalho remoto para um
 
 A ligação RDP é bem sucedida, uma vez que a regra NAT de entrada **MyNATRuleVM2** direciona o tráfego da porta frontal 4222 do balançador de carga para a porta 3389 do MyVM2 (a porta RDP).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar o equilibrador de carga e todos os recursos relacionados quando já não precisar deles, abra o grupo de recursos **MyResourceGroupLB** e selecione **Delete resource group**.
 

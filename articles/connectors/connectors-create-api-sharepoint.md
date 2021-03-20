@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: c72330792e508361830c1bf391f85eefe78bdd1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87283984"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorizar e gerir recursos do SharePoint com o Azure Logic Apps
@@ -68,7 +68,7 @@ Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logi
    Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. 
    Escolha o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação**.
 
-1. Quando for solicitado a iniciar sedutar, forneça as informações necessárias de ligação. Se estiver a utilizar o SharePoint Server, **certifique-se de**que seleciona Connect via gateway de dados no local . Quando tiver terminado, escolha **Create** (Criar).
+1. Quando for solicitado a iniciar sedutar, forneça as informações necessárias de ligação. Se estiver a utilizar o SharePoint Server, **certifique-se de** que seleciona Connect via gateway de dados no local . Quando tiver terminado, escolha **Create** (Criar).
 
 1. Forneça os detalhes necessários para o seu gatilho ou ação selecionado e continue a construir o fluxo de trabalho da sua aplicação lógica.
 

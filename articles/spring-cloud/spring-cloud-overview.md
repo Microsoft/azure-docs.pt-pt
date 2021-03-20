@@ -8,10 +8,10 @@ ms.date: 12/02/2020
 ms.author: brendm
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: b7f5d4206140bf2101c10b1cd4ac46d80bdd3342
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881708"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?
@@ -52,7 +52,7 @@ Esta documentação inclui secções que explicam como começar e alavancar os s
     * [Iniciar a sua primeira aplicação](spring-cloud-quickstart.md)
     * [Fornecimento de um serviço Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
     * [Configurar o servidor de configuração]()
-    * [Criar e implementar aplicações](spring-cloud-quickstart-deploy-apps.md)
+    * [Construir e implementar aplicativos](spring-cloud-quickstart-deploy-apps.md)
     * [Use métricas de troncos e rastreio](spring-cloud-quickstart-logs-metrics-tracing.md)
 * Procedimentos
     * [Desenvolver:](spring-cloud-tutorial-prepare-app-deployment.md)Preparar uma aplicação java spring existente para implantação na Nuvem de primavera de Azure. Quando configurado corretamente, o Azure Spring Cloud fornece serviços robustos para monitorizar, escalar e atualizar aplicações Java Spring Cloud.
@@ -66,7 +66,7 @@ Esta documentação inclui secções que explicam como começar e alavancar os s
     * [Resolução de problemas](spring-cloud-howto-self-diagnose-solve.md): Os diagnósticos Azure Spring Cloud proporcionam uma experiência interativa para ajudar a resolver aplicações. Não é necessária qualquer configuração. Quando encontra problemas, o diagnóstico Azure Spring Cloud identifica problemas e guia-o para informações que ajudam a resolver problemas e resolver problemas.
     * [Migrar](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): Como migrar uma aplicação de Mola Cloud ou uma aplicação de Boot spring existente para funcionar na Azure Spring Cloud.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, complete o [quickstart da Cloud da primavera](spring-cloud-quickstart.md)
 

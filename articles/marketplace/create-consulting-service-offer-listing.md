@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: 2476d60cacc9690c24d7d3d2f7e21f04c6811500
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754510"
 ---
 # <a name="how-to-configure-your-consulting-service-offer-listing-details"></a>Como configurar a sua oferta de serviço de consultoria
@@ -29,11 +29,11 @@ Na página de **listagem da Oferta,** forneça as informações descritas abaixo
 1.  A caixa **Nome** está pré-preenchida com o nome que inseriu anteriormente na caixa de diálogo **de nova oferta,** mas pode alterá-la a qualquer momento. Este nome aparecerá como o título da sua listagem de oferta na loja online.
 
     > [!IMPORTANT]
-    > O nome da oferta deve estar no formato *Nome: Duração + tipo* . Para mais informações, consulte os detalhes da listagem de [ofertas.](./plan-consulting-service-offer.md#offer-listing-details)
+    > O nome da oferta deve estar no formato *Nome: Duração + tipo*. Para mais informações, consulte os detalhes da listagem de [ofertas.](./plan-consulting-service-offer.md#offer-listing-details)
 
 2. Na caixa **de resumo de resultados da Pesquisa,** descreva o propósito ou objetivo da sua oferta em 200 caracteres ou menos.
 3. No campo **Descrição,** descreva a sua oferta de serviço de consultoria. Pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 2.000 caracteres de texto nesta caixa, incluindo tags e espaços HTML. Para obter informações sobre formatação HTML, consulte [as tags HTML suportadas nas descrições da oferta](./supported-html-tags.md).
-4. Tem a opção de introduzir até três **palavras-chave de pesquisa** . Estas palavras-chave ajudarão os clientes a encontrar a sua oferta na loja online. Não precisa incluir o nome e descrição da oferta.
+4. Tem a opção de introduzir até três **palavras-chave de pesquisa**. Estas palavras-chave ajudarão os clientes a encontrar a sua oferta na loja online. Não precisa incluir o nome e descrição da oferta.
 5. Insira a duração esperada do seu serviço de consultoria nas listas de espera **de duração.** A duração selecionada deve corresponder à duração mencionada no nome da oferta.
 
 ## <a name="contact-information"></a>Informações de contacto
@@ -71,12 +71,12 @@ Adicione pelo menos uma e até cinco imagens que demonstrem a sua oferta. Todas 
 
 Pode adicionar links ao YouTube ou vídeos Vimeo que demonstrem a sua oferta. Estes vídeos são mostrados aos clientes juntamente com a sua oferta. Deve introduzir uma imagem miniatura do vídeo, dimensionada para 1280 x 720 pixels em tamanho e em . Formato PNG. Adicione um máximo de quatro vídeos por oferta.
 
-1.  Em **Vídeos** , selecione o link **de vídeo Add.**
+1.  Em **Vídeos**, selecione o link **de vídeo Add.**
 2.  Nas caixas que aparecem, introduza o nome e o link para o seu vídeo.
 3.  Arraste e largue um . Ficheiro PNG (1280 x 720 pixels) na caixa de miniatura cinzenta.
 4.  Para adicionar outro vídeo, repita os passos 1 a 3.
 
-**Selecione Guardar o rascunho** antes de continuar para o separador seguinte: Preços e **disponibilidade** .
+**Selecione Guardar o rascunho** antes de continuar para o separador seguinte: Preços e **disponibilidade**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

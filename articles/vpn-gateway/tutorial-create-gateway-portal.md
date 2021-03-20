@@ -7,10 +7,10 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
 ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880563"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutorial: Criar e gerir uma porta de entrada VPN usando o portal Azure
@@ -98,7 +98,7 @@ Se não continuar a utilizar esta aplicação ou ir ao próximo tutorial, elimin
 
 1. Introduza o seu grupo de recursos para **TYPE THE RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que tenha uma porta VPN, pode configurar ligações. Os artigos abaixo irão ajudá-lo a criar algumas das configurações mais comuns:
 

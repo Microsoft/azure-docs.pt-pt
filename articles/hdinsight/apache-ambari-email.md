@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946969"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configurar notificações de email apache Ambari em Azure HDInsight
@@ -60,7 +60,7 @@ Neste tutorial, ficará a saber como:
     |Nome|Forneça um nome para a notificação.|
     |Grupos|Configurar como desejado.|
     |Gravidade|Configurar como desejado.|
-    |Descrição|Opcional.|
+    |Description|Opcional.|
     |Método|Deixe no **EMAIL**.|
     |E-mail para|Forneça e-mails para receber notificações separadas por uma vírgula.|
     |Servidor SMTP|`smtp.sendgrid.net`|
@@ -78,7 +78,7 @@ Neste tutorial, ficará a saber como:
 
 1. A partir da janela **'Notificações de Alerta de Gestão',** selecione **Fechar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a configurar notificações de e-mail apache Ambari usando a SendGrid. Use o seguinte para saber mais sobre Apache Ambari:
 

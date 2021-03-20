@@ -1,5 +1,5 @@
 ---
-title: Reveja o acesso às funções de recursos da Azure na PIM - Azure AD ! Microsoft Docs
+title: Reveja o acesso às funções de recursos da Azure em PIM - Azure AD | Microsoft Docs
 description: Saiba como rever o acesso às funções de recursos Azure em Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8091890d174ae68f012a6ec24685a0e705100f8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743682"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Reveja o acesso às funções de recursos da Azure na Gestão de Identidade Privilegiada

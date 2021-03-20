@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: a45efd90043ecb4d457db7ed39651f1a9b5bbd4d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98890612"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Bridge do IoT Plug and Play
@@ -144,7 +144,7 @@ Você pode baixar uma versão pré-construída da ponte com adaptadores suportad
 
 Também pode baixar e ver o código fonte da [ponte IoT Plug e Play no GitHub](https://github.com/Azure/iot-plug-and-play-bridge).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma visão geral da arquitetura da IoT Plug and Play bridge, os próximos passos são para saber mais sobre:
 

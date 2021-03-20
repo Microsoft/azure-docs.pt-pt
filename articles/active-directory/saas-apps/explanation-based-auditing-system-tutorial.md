@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Explanation-Based Sistema de Auditoria Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com Explanation-Based Sistema de Auditoria | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Explanation-Based Auditing System.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d63b1fa82400d95b18c6dbd7f37ec321f72b3a7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Tutorial: Integração do Diretório Ativo Azure com Explanation-Based Sistema de Auditoria
@@ -142,7 +142,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite que Britta Simon utilize o Azure como único sinal, permitindo o acesso ao Sistema de Auditoria Explanation-Based.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **o Sistema de Auditoria Baseado em Explicações**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **o Sistema de Auditoria Baseado em Explicações**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

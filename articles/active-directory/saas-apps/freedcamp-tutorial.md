@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Freedcamp Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a | da Freedcamp Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Freedcamp.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 19378251408d55868ed844a5505ae48ece55dc3b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92451500"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Tutorial: Integrar Freedcamp com diretório ativo Azure
@@ -140,7 +140,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
 
 Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo acesso ao Freedcamp.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Freedcamp**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

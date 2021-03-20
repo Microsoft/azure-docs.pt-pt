@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320566"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: Modelo de dados de Insights de Aplicação
@@ -17,7 +17,7 @@ Um item de telemetria de pedido (in [Application Insights)](./app-insights-overv
 
 A telemetria solicite suporte o modelo de extensibilidade padrão utilizando o costume `properties` e `measurements` .
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 O nome do pedido representa o caminho de código tomado para processar o pedido. Baixo valor cardinalício para permitir um melhor agrupamento de pedidos. Para pedidos HTTP representa o método HTTP e o modelo de caminho URL como `GET /values/{id}` sem o `id` valor real.
 
@@ -53,7 +53,7 @@ Resultado de um pedido de execução. Código de estado HTTP para pedidos HTTP. 
 
 Comprimento máximo: 1024 caracteres
 
-## <a name="success"></a>Success
+## <a name="success"></a>Com êxito
 
 Indicação de chamada bem sucedida ou mal sucedida. Este campo é obrigatório. Quando não for explicitamente definido `false` - um pedido é considerado como um sucesso. Desagre este valor para `false` se a operação foi interrompida por exceção ou código de resultado de erro devolvido.
 

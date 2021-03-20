@@ -1,5 +1,5 @@
 ---
-title: Introdução ao próximo salto no Azure Network Watcher Microsoft Docs
+title: Introdução ao próximo salto no Azure Network Watcher | Microsoft Docs
 description: Este artigo fornece uma visão geral da próxima capacidade de lúpulo do Observador de Rede.
 services: network-watcher
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 33c22b5b68b6677e8cf271dc185007316ec44500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76844063"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Use o próximo salto para diagnosticar problemas de encaminhamento de máquinas virtuais

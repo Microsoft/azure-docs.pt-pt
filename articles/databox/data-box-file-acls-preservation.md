@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: alkohli
 ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950317"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Preservação de ACLs, atributos e timetamps com Caixa de Dados Azure
@@ -68,7 +68,7 @@ Os ACLs contêm descritores de segurança com as seguintes propriedades: ACLs, P
 A transferência de ACLs é ativada por padrão. É melhor desativar esta definição na UI web local na sua Caixa de Dados. Para obter mais informações, consulte [a UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada.](./data-box-local-web-ui-admin.md)
 
 > [!NOTE]
-> Os ficheiros com ACLs que contenham fios de acesso condicional (ACE) não são copiados. Trata-se de um problema conhecido. Para contornar isto, copie estes ficheiros para os Ficheiros Azure partilhe manualmente montando a partilha e, em seguida, utilizando uma ferramenta de cópia que suporte a cópia de ACLs.
+> Os ficheiros com ACLs que contenham fios de acesso condicional (ACE) não são copiados. Este é um problema conhecido. Para contornar isto, copie estes ficheiros para os Ficheiros Azure partilhe manualmente montando a partilha e, em seguida, utilizando uma ferramenta de cópia que suporte a cópia de ACLs.
 
 ## <a name="copying-data-and-metadata"></a>Copiar dados e metadados
 

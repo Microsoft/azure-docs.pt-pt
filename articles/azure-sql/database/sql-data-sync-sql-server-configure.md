@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
 ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882234"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
@@ -138,7 +138,7 @@ Na secção **Base de Dados** dos Membros, adicione opcionalmente uma base de da
         ![Introduza as credenciais da chave do agente e do servidor](./media/sql-data-sync-sql-server-configure/datasync-preview-agent-enterkey.png)
 
         > [!NOTE]
-        > Se obter um erro de firewall, crie uma regra de firewall no Azure para permitir a entrada de tráfego a partir do computador SQL Server. Pode criar a regra manualmente no portal ou no SQL Server Management Studio (SSMS). Em SSMS, ligue-se à base de dados do hub em Azure, introduzindo o seu nome como <hub_database_name>.database.windows.net.
+        > Se obter um erro de firewall, crie uma regra de firewall no Azure para permitir a entrada de tráfego a partir do computador SQL Server. Pode criar a regra manualmente no portal ou no SQL Server Management Studio (SSMS). Em SSMS, ligue-se à base de dados do hub em Azure introduzindo o seu nome como <hub_database_name>.database.windows.net.
 
     1. Selecione **Registar-se** para registar uma base de dados do SQL Server com o agente. Abre-se a caixa de diálogo **de configuração do servidor SQL.**
 
@@ -237,7 +237,7 @@ Para perguntas frequentes sobre o agente cliente, consulte [o Agente FAQ.](sql-d
 
 Sim, tem de aprovar manualmente o ponto final privado gerido pelo serviço, na página de ligações de ponto final privado do portal Azure durante a implementação do grupo de sincronização ou utilizando o PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns! Criou um grupo de sincronização que inclui uma instância sql database e uma base de dados SQL Server.
 

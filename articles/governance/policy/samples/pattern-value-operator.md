@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como usar o o
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 8392c69ff3d63ff4ecad2a26d5d914b4766147b8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072888"
 ---
 # <a name="azure-policy-pattern-the-value-operator"></a>Padrão de política Azure: o operador de valor
@@ -15,7 +15,7 @@ ms.locfileid: "92072888"
 O operador de [valor](../concepts/definition-structure.md#value) avalia [parâmetros,](../concepts/definition-structure.md#parameters) [funções de modelo suportadas,](../concepts/definition-structure.md#policy-functions)ou literais a um valor fornecido para uma determinada [condição](../concepts/definition-structure.md#conditions).
 
 > [!WARNING]
-> Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação**implícita. Para obter mais informações, consulte [evitar falhas no modelo](../concepts/definition-structure.md#avoiding-template-failures).
+> Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação** implícita. Para obter mais informações, consulte [evitar falhas no modelo](../concepts/definition-structure.md#avoiding-template-failures).
 
 ## <a name="sample-policy-definition"></a>Definição de política de amostra
 

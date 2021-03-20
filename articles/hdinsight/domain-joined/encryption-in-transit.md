@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: fb3761ce7839cb4450997da094646b6604aeb895
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946848"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Encriptação IPSec em trânsito para Azure HDInsight
@@ -44,7 +44,7 @@ A encriptação em trânsito é ativada usando a `isEncryptionInTransitEnabled` 
 
 Pode [descarregar um modelo de amostra e um ficheiro de parâmetros.](https://github.com/Azure-Samples/hdinsight-enterprise-security) Antes de utilizar o modelo e o corte de código Azure CLI abaixo, substitua os seguintes espaços reservados pelos seus valores corretos:
 
-| Marcador de posição | Descrição |
+| Marcador de posição | Description |
 |---|---|
 | `<SUBSCRIPTION_ID>` | O ID da sua assinatura Azure |
 | `<RESOURCE_GROUP>` | O grupo de recursos onde pretende a criação da nova conta de cluster e armazenamento. |
@@ -73,7 +73,7 @@ az deployment group create --name HDInsightEnterpriseSecDeployment \
     --parameters parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da segurança da empresa em Azure HDInsight](hdinsight-security-overview.md)
 * [Sincronizar os utilizadores do Azure Ative Directory para um cluster HDInsight](../disk-encryption.md).

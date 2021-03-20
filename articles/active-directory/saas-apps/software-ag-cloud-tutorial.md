@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.author: jeedes
 ms.openlocfilehash: c2a2446da0e1ccf1b3dab88fe898b179291ddaba
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98726148"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com Software AG Cloud
@@ -153,6 +153,6 @@ Nesta secção, testa a configuração de inscrição única AZure AD com a segu
 
 Assumindo que o Microsoft Azure está configurado como fornecedor na Cloud Software AG, navegue `www.softwareag.cloud` e clique no botão de Login e introduza o nome ambiente. No ecrã seguinte, clique no link "Iniciar sessão <IDP NAME> com" e introduza as credenciais. Uma vez autenticado, você será iniciado e levado para a página inicial da Cloud Do Software AG.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado software AG Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

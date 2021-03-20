@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: 91e3cd0b99825fd72eb342ce7a8555b046455538
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87063371"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.ManagedIdentity.IdentitySelector UI elemento
@@ -69,7 +69,7 @@ As identidades selecionadas são apresentadas na tabela. O utilizador pode adici
 
 ## <a name="remarks"></a>Observações
 
-- Utilize **defaultValue.systemAssignedIdentity** para definir um valor inicial para o controlo de opções de identidade atribuídas pelo sistema. O valor **predefinido**está desligado . São permitidos os seguintes valores:
+- Utilize **defaultValue.systemAssignedIdentity** para definir um valor inicial para o controlo de opções de identidade atribuídas pelo sistema. O valor **predefinido** está desligado . São permitidos os seguintes valores:
   - **Em** – Uma identidade atribuída ao sistema é atribuída ao recurso.
   - **Off** – Um sistema atribuído à identidade não é atribuído ao recurso.
   - **OnOnly** – Uma identidade atribuída ao sistema é atribuída ao recurso. Os utilizadores não podem editar este valor durante a implementação.

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e2a1f38918b2ea6af8a334b6648a463753f5c7b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91295214"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Tutorial: Gerir grupos de aplicações para o Windows Virtual Desktop (clássico)
@@ -46,7 +46,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    Get-RdsAppGroup <tenantname> <hostpoolname>
    ```
 
-3. Execute o cmdlet seguinte para obter uma lista de aplicações de menu **Iniciar** na imagem da máquina virtual da piscina anfitriã. Anote os valores para **FilePath,** **IconPath,** **IconIndex**e outras informações importantes para a aplicação que pretende publicar.
+3. Execute o cmdlet seguinte para obter uma lista de aplicações de menu **Iniciar** na imagem da máquina virtual da piscina anfitriã. Anote os valores para **FilePath,** **IconPath,** **IconIndex** e outras informações importantes para a aplicação que pretende publicar.
 
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592639"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
@@ -54,7 +54,7 @@ Se os dados de origem alterarem, pode atualizar o conjunto de dados e adicionar 
 
 1. Selecione o módulo para abrir o painel direito.
 
-1. Selecione **Data source** , e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
+1. Selecione **Data source**, e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
     Se escolher a datastore, pode selecionar as datas-lojas existentes que já se registaram no seu espaço de trabalho Azure Machine Learning ou criar uma nova loja de dados. Em seguida, defina o caminho dos dados para importar na datastore. Pode navegar facilmente no caminho clicando **No Screenshot do caminho de navegação** mostra a ![ ligação do caminho de Navegação que abre a caixa de diálogo de seleção path.](media/module/import-data-path.png)
 

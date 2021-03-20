@@ -1,5 +1,5 @@
 ---
-title: Acesso multi-protocolo no Azure Data Lake Storage Microsoft Docs
+title: Acesso multi-protocolo a Azure Data Lake Storage | Microsoft Docs
 description: Utilize APIs Blob e aplicações que usam APIs Blob com Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,10 +9,10 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77914863"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Acesso multi-protocolo no Azure Data Lake Storage
@@ -40,7 +40,7 @@ As APIs blob e as APIs de armazenamento de dados podem operar nos mesmos dados e
 
 As ferramentas e aplicações existentes que utilizam a API Blob ganham estes benefícios automaticamente. Os desenvolvedores não terão que modificá-los. Data Lake Storage Gen2 aplica consistentemente diretório e ACLs de nível de arquivo, independentemente do protocolo que as ferramentas e aplicações usam para aceder aos dados. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Funcionalidades de Armazenamento blob disponíveis no Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
 - [Serviços Azure que suportam Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

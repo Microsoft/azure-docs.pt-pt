@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75979368"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas em Azure Logic Apps com Enterprise Integration Pack
@@ -93,7 +93,7 @@ Para adicionar esquemas maiores, pode fazer o upload do seu esquema para um reci
 
 1. Abra o Explorador de Armazenamento Azure. Na janela Explorer, expanda a subscrição do Azure se não for já expandida.
 
-1. Expandir **contas de armazenamento** > { a sua conta de*armazenamento*} > **Blob Containers**. Selecione o seu recipiente blob.
+1. Expandir **contas de armazenamento** > { a sua conta de *armazenamento*} > **Blob Containers**. Selecione o seu recipiente blob.
 
 1. No menu de atalho do seu recipiente blob, selecione **Definir o Nível de Acesso Público**.
 
@@ -161,7 +161,7 @@ Para atualizar um esquema existente, tem de carregar um novo ficheiro de esquema
 1. Na **página** geral da sua conta de integração, em **Componentes,** selecione o azulejo **De Schemas.**
 
 1. Depois de a página **de Schemas** abrir, selecione o seu esquema. 
-   Para baixar e editar primeiro o esquema, escolha **Baixar**e guardar o esquema.
+   Para baixar e editar primeiro o esquema, escolha **Baixar** e guardar o esquema.
 
 1. Quando estiver pronto para carregar o esquema atualizado, na página **Schemas,** selecione o esquema que pretende atualizar e escolha **Update**.
 

@@ -4,10 +4,10 @@ description: Uma visão geral dos cofres de reserva.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92091292"
 ---
 # <a name="backup-vaults-overview"></a>Visão geral dos cofres de reserva
@@ -96,7 +96,7 @@ Depois de completar estes passos, pode continuar a apagar o cofre.
 
 Quando não houver mais itens no cofre, **selecione Delete** no painel de abóbada. Verá uma mensagem de confirmação perguntando se deseja apagar o cofre.
 
-![Apagar cofre](./media/backup-vault-overview/delete-vault.png)
+![Eliminar cofre](./media/backup-vault-overview/delete-vault.png)
 
 1. Selecione **Sim** para verificar se deseja apagar o cofre. O cofre está apagado. O portal regressa ao menu de serviço **Novo.**
 

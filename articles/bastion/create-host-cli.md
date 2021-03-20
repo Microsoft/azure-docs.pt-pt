@@ -1,5 +1,5 @@
 ---
-title: Criar um hospedeiro bastonário usando O Azure CLI Bastião Azure
+title: Crie um hospedeiro bastonário utilizando o Azure CLI | Bastião Azure
 description: Neste artigo, aprenda a criar e apagar um anfitrião de Bastião
 services: bastion
 author: cherylmc
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
 ms.openlocfilehash: e4f0a3ea85fa479826fe9e666df2b18f8dba7ce3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92079127"
 ---
-# <a name="create-an-azure-bastion-host-using-azure-cli"></a>Criar um anfitrião Azure Bastion usando Azure CLI
+# <a name="create-an-azure-bastion-host-using-azure-cli"></a>Criar um anfitrião do Azure Bastion com a CLI do Azure
 
 Este artigo mostra-lhe como criar um anfitrião Azure Bastion usando Azure CLI. Uma vez que fornece o serviço Azure Bastion na sua rede virtual, a experiência PDR/SSH sem costura está disponível para todos os VMs na mesma rede virtual. A implementação do Azure Bastion é por rede virtual, não por subscrição/conta ou máquina virtual.
 
@@ -39,7 +39,7 @@ Esta secção ajuda-o a criar um novo recurso Azure Bastion utilizando o Azure C
    az network vnet create --resource-group MyResourceGroup --name MyVnet --address-prefix 10.0.0.0/16 --subnet-name AzureBastionSubnet --subnet-prefix 10.0.0.0/24 --location northeurope
    ```
 
-2. Crie um endereço IP público para Azure Bastion. O IP público é o endereço IP público do recurso Bastião no qual o PDR/SSH será acedido (sobre a porta 443). O endereço IP público deve estar na mesma região que o recurso Bastion que está a criar.
+2. Crie um endereço IP público para o Azure Bastion. O IP público é o endereço IP público do recurso Bastião no qual o PDR/SSH será acedido (sobre a porta 443). O endereço IP público deve estar na mesma região que o recurso Bastion que está a criar.
 
    ```azurecli-interactive
    az network public-ip create --resource-group MyResourceGroup --name MyIp --sku Standard --location northeurope

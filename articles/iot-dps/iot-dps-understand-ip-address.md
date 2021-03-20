@@ -1,5 +1,5 @@
 ---
-title: Compreender o endereço IP do seu serviço de provisionamento de dispositivos IoT (DPS) Microsoft Docs
+title: Compreender o endereço IP do seu serviço de fornecimento de dispositivos IoT (DPS) | Microsoft Docs
 description: Compreenda como consultar o seu endereço IoT Device Provisioning Service (DPS) e as suas propriedades. O endereço IP da sua instância DPS pode ser alterado em certos cenários, tais como recuperação de desastres ou falha regional.
 author: wesmc7777
 ms.author: wesmc
@@ -8,10 +8,10 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79284931"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>Endereços IP DPS do Hub IoT

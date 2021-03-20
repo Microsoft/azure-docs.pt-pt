@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97830705"
 ---
 # <a name="get-service-access-tokens"></a>Obter tokens de acesso ao serviço
@@ -43,7 +43,7 @@ Substitua *a contaId* e *contaKey* pelos seus respetivos dados.
 
 | Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 200 | AccessToken: string | Success |
+| 200 | AccessToken: string | Com êxito |
 
 | Cabeçalho | Objetivo |
 |--------|:------|

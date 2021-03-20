@@ -1,5 +1,5 @@
 ---
-title: Apoio ao Azure Ative Directory B2C Microsoft Docs
+title: Suporte para Azure Ative Directory B2C | Microsoft Docs
 description: Como arquivar pedidos de suporte para Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78183725"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Ative Directy B2C: Pedidos de suporte de ficheiros
@@ -35,9 +35,9 @@ Pode arquivar pedidos de suporte para O Diretório Ativo B2C (Azure AD B2C) no p
 1. Na lâmina **Basics,** utilize estes detalhes e clique em **Seguinte**.
 
     * **O tipo de emissão** é **Técnico.**
-    * Escolha a **subscrição**adequada.
+    * Escolha a **subscrição** adequada.
     * **O serviço** é **Diretório Ativo.**
-    * Escolha o **plano de suporte**apropriado. Se não tiver um, pode inscrever-se para um [aqui.](https://azure.microsoft.com/support/plans/)
+    * Escolha o **plano de suporte** apropriado. Se não tiver um, pode inscrever-se para um [aqui.](https://azure.microsoft.com/support/plans/)
 
      ![Página básica com o próximo botão realçado no portal Azure](./media/support-options/support-basics.png)
 
@@ -45,7 +45,7 @@ Pode arquivar pedidos de suporte para O Diretório Ativo B2C (Azure AD B2C) no p
 
     * Escolha o nível de **Severidade** apropriado.
     * **O tipo de problema** é **B2C.**
-    * Escolha a **categoria**adequada .
+    * Escolha a **categoria** adequada .
     * Descreva o seu problema no campo **Detalhes.** Forneça detalhes como o nome do inquilino B2C, descrição do problema, mensagens de erro, IDs de correlação (se disponível) e assim por diante.
     * No campo do **quadro de tempo,** forneça a data e a hora (incluindo o fuso horário) de que ocorreu o problema.
     * No **upload do Ficheiro**, faça upload de todas as imagens e ficheiros que possa ajudar a resolver o problema.

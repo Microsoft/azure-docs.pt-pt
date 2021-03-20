@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o PageDNA Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o PageDNA | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o PageDNA.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95993929"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Diretório Ativo Azure com o PageDNA
@@ -142,7 +142,7 @@ Para configurar um único sinal no lado do PageDNA, envie o Certificado descarre
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Utilizadores do Diretório Ativo Azure**    >  **Users**  >  **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Utilizadores do Diretório Ativo Azure**    >    >  **Todos os utilizadores**.
 
     ![As opções dos Utilizadores e "Todos os utilizadores"](common/users.png)
 

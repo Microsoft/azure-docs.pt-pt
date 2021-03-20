@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Coda Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com Coda | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Coda.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.author: jeedes
 ms.openlocfilehash: c78744538991e337b226e49a053807ef8174d507
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455736"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Tutorial: Azure Ative Directory integração única (SSO) com Coda
@@ -134,7 +134,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Coda.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Coda**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -156,7 +156,7 @@ Para completar a configuração, introduzirá valores do Azure Ative Directory n
 1. Em **Autenticação com SSO (SAML)**, selecione a opção **Configure SAML.**
 1. Definir **o Fornecedor SAML** para **o Azure Ative Directory**.
 1. No **URL de Login do Fornecedor de Identidade,** cole o URL de **Login** da consola Azure.
-1. No **Emitente fornecedor de**identidade, cole o **identificador Azure AD** da consola Azure.
+1. No **Emitente fornecedor de** identidade, cole o **identificador Azure AD** da consola Azure.
 1. No **Certificado Público do Fornecedor de Identidade**, selecione a opção **'Certificado de Carregamento'** e selecione o ficheiro de certificado que descarregou anteriormente.
 1. Selecione **Guardar**.
 

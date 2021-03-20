@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747215"
 ---
 # <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Configurar o reset do TCP e o tempo limite de marcha lenta para o balançador de carga Azure
@@ -37,27 +37,27 @@ As secções seguintes descrevem como alterar o tempo limite de marcha lenta e a
 
 Para definir o tempo limite de marcha lenta e o reset tcp para um equilibrador de carga, edite a regra equilibrada de carga. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No menu da esquerda, selecione **Grupos de Recursos.**
 
-3. Selecione o grupo de recursos para o seu equilibrador de carga. Neste exemplo, o grupo de recursos é nomeado **myResourceGroup** .
+3. Selecione o grupo de recursos para o seu equilibrador de carga. Neste exemplo, o grupo de recursos é nomeado **myResourceGroup**.
 
-4. Selecione o seu balanceador de carga. Neste exemplo, o balanceador de carga chama-se **myLoadBalancer** .
+4. Selecione o seu balanceador de carga. Neste exemplo, o balanceador de carga chama-se **myLoadBalancer**.
 
-5. Em **Definições** , selecione **regras de equilíbrio de carga** .
+5. Em **Definições**, selecione **regras de equilíbrio de carga**.
 
      :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Editar as regras do balançador de carga." border="true":::
 
-6. Selecione a sua regra de equilíbrio de carga. Neste exemplo, a regra de equilíbrio de carga chama-se **myLBrule** .
+6. Selecione a sua regra de equilíbrio de carga. Neste exemplo, a regra de equilíbrio de carga chama-se **myLBrule**.
 
 7. Na regra de equilíbrio de carga, mova o slider no **intervalo de tempo de marcha lenta (minutos)** para o seu valor de tempo limite.  
 
-8. No **reset TCP** , selecione **Ativado** .
+8. No **reset TCP**, selecione **Ativado**.
 
-   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Editar as regras do balançador de carga." border="true":::
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Desative o tempo limite e reset tcp." border="true":::
 
-9. Selecione **Guardar** .
+9. Selecione **Guardar**.
 
 # <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com CloudPassage Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com CloudPassage | Microsoft Docs'
 description: Saiba como configurar um único sinal de insuflação entre o Azure Ative Directory e o CloudPassage.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.openlocfilehash: b720f7e49fc0679de5c3f430122bab05d5b706f8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455775"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>Tutorial: Azure Ative Directy integração única (SSO) com CloudPassage
@@ -126,7 +126,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao CloudPassage.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **CloudPassage**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -144,7 +144,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela de navegador diferente, inscreva-se no site da empresa CloudPassage como administrador.
 
-1. No menu em cima, clique em **Definições**e, em seguida, clique em **Administração do Site**. 
+1. No menu em cima, clique em **Definições** e, em seguida, clique em **Administração do Site**. 
    
     ![A screenshot mostra o site CloudPassage com a Administração do Site selecionada.][12]
 
@@ -176,7 +176,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in CloudPassage
 
 1. Iniciar s-on no site da empresa **CloudPassage** como administrador. 
 
-1. Na barra de ferramentas na parte superior, clique em **Definições**e, em seguida, clique em **Administração do Site**. 
+1. Na barra de ferramentas na parte superior, clique em **Definições** e, em seguida, clique em **Administração do Site**. 
    
     ![A screenshot mostra cloudPassage com a Administração do Site selecionada.][22] 
 

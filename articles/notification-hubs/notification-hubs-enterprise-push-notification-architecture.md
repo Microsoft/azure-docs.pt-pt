@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89003631"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
@@ -233,11 +233,11 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
 
     f. Selecione o seu perfil de publicação e crie um novo Azure WebSite se já não existir, que acolhe este WebJob e uma vez que tenha o WebSite **então Publique**.
 
-    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Screenshot mostrando o fluxo de trabalho para criar um site em Azure.&quot;:::
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Screenshot mostrando o fluxo de trabalho para criar um site em Azure.":::
     Screenshot da caixa de diálogo Web Publish com a opção Microsoft Azure Websites selecionada, uma seta verde apontando para a caixa de diálogo do site Select existente com a nova opção delineada a vermelho, e uma seta verde apontando para o site Create na caixa de diálogo Microsoft Azure com o nome do Site e Criar opções delineadas a vermelho.
     :::image-end:::
 
-    exemplo, Configure o trabalho para ser &quot;Executado continuamente" para que quando iniciar sessão no [portal Azure] veja algo como o seguinte:
+    exemplo, Configure o trabalho para ser "Executado continuamente" para que quando iniciar sessão no [portal Azure] veja algo como o seguinte:
 
     ![Screenshot do Portal Azure com os trabalhos web de backend da empresa apresentados e os valores de Nome, Agenda e Logs delineados a vermelho.][4]
 

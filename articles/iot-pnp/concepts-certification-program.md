@@ -1,5 +1,5 @@
 ---
-title: Programa Azure Certified Device / Microsoft Docs
+title: Programa de dispositivos certificados Azure | Microsoft Docs
 description: Compreenda o programa Azure Certified Device.
 author: koichih
 ms.author: koichih
@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 1fcfc7a9e632e5db1fb809dba7a938c8641c9ddc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92048105"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>O que é o programa Azure Certified Device?
@@ -94,7 +94,7 @@ Para certificar um dispositivo no programa Azure Certified Device, complete os s
 Para cada dispositivo que pretende certificar, utilize os formulários no portal de certificação para registar detalhes sobre o hardware do dispositivo, instruções de configuração e material de marketing:
 
 - **Informações do dispositivo:** Recolhe informações sobre o dispositivo, como o seu nome, descrição, detalhes do hardware e sistema operativo.
-- **Envie um guia em**PDF : Um documento PDF que um cliente pode usar para utilizar rapidamente o seu produto. [Os modelos de amostra](https://aka.ms/GSTemplate) estão disponíveis.
+- **Envie um guia em** PDF : Um documento PDF que um cliente pode usar para utilizar rapidamente o seu produto. [Os modelos de amostra](https://aka.ms/GSTemplate) estão disponíveis.
 - **Detalhes de marketing:** Forneça informações de marketing prontas para o cliente para o seu dispositivo, como uma informação de imagem e distribuidor.
 - **Certificações adicionais da indústria:** Uma secção opcional que lhe permite fornecer informações sobre quaisquer outras certificações que o dispositivo tenha.
 
