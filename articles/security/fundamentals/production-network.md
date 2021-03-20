@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 724c2ee2d74ca9cab11280e92faac71c2cb2218e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87543814"
 ---
 # <a name="the-azure-production-network"></a>A rede de produção Azure
@@ -60,7 +60,7 @@ O Azure implementa firewalls de software baseados em hospedeiros dentro da rede 
 São programadas duas categorias de regras:
 
 - **Máquina config ou regras de infraestrutura**: Por defeito, todas as comunicações estão bloqueadas. Existem exceções que permitem a um VM enviar e receber informações do Protocolo de Configuração dinâmica do Anfitrião (DHCP) e informações sobre DNS, e enviar tráfego para a internet "pública" de saída para outros VMs dentro do cluster FC e servidor de ativação de OS. Uma vez que a lista permitida pelos VM de destinos de saída não inclui sub-redes de router Azure e outras propriedades da Microsoft, as regras funcionam como uma camada de defesa para eles.
-- **Regras de ficheiro de configuração de**papel : Define os ACLs de entrada com base no modelo de serviço dos inquilinos. Por exemplo, se um inquilino tiver uma extremidade frontal web na porta 80 em um determinado VM, a porta 80 é aberta para todos os endereços IP. Se o VM tiver um papel de trabalhador a desempenhar, o papel do trabalhador é aberto apenas ao VM dentro do mesmo inquilino.
+- **Regras de ficheiro de configuração de** papel : Define os ACLs de entrada com base no modelo de serviço dos inquilinos. Por exemplo, se um inquilino tiver uma extremidade frontal web na porta 80 em um determinado VM, a porta 80 é aberta para todos os endereços IP. Se o VM tiver um papel de trabalhador a desempenhar, o papel do trabalhador é aberto apenas ao VM dentro do mesmo inquilino.
 
 **Firewall de anfitrião nativo**: Azure Service Fabric e Azure Storage funcionam num SISTEMA nativo, que não tem hipervisor e, portanto, o Windows Firewall está configurado com os dois conjuntos de regras anteriores.
 

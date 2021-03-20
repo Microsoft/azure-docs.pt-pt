@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89291556"
 ---
 # <a name="filters"></a>Filtros
@@ -78,7 +78,7 @@ As condições de propriedade da faixa de filtro descrevem tipos de faixas, valo
 |---|---|
 |**Bitrate**|Utilize o bitrate da pista para filtrar.<br/><br/>O valor recomendado é uma gama de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora possa utilizar um valor bitrate específico, como 250000 (bits por segundo), esta abordagem não é recomendada, uma vez que os bitrates exatos podem oscilar de um Ativo para outro.|
 |**FourCC**|Utilize o valor FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato codecs, conforme especificado no [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, os seguintes códigos são suportados: <br/>Para Vídeo: "avc1", "hev1", "hvc1"<br/>Para Áudio: "mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas num Ativo, obtenha e examine o ficheiro manifesto.|
-|**Idioma**|Utilize o idioma da faixa para filtrar.<br/><br/>O valor é a etiqueta de um idioma que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
+|**Linguagem**|Utilize o idioma da faixa para filtrar.<br/><br/>O valor é a etiqueta de um idioma que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
 |**Nome**|Utilize o nome da faixa para filtragem.|
 |**Tipo**|Utilize o tipo de faixa para filtragem.<br/><br/>São permitidos os seguintes valores: "vídeo", "áudio" ou "texto".|
 
@@ -152,7 +152,7 @@ Veja os exemplos seguintes:
  
 **Os localizadores de streaming** não são updatable enquanto os filtros podem ser atualizados. 
 
-Não é aconselhável atualizar a definição de filtros associados a um **localizador de streaming**ativamente publicado , especialmente quando o CDN está ativado. Os servidores de streaming e os CDNs podem ter caches internos que podem resultar na devolvição de dados em cache. 
+Não é aconselhável atualizar a definição de filtros associados a um **localizador de streaming** ativamente publicado , especialmente quando o CDN está ativado. Os servidores de streaming e os CDNs podem ter caches internos que podem resultar na devolvição de dados em cache. 
 
 Se a definição do filtro tiver de ser alterada, considere criar um novo filtro e adicioná-lo ao URL **do localizador de streaming** ou publicar um novo **Localizador de Streaming** que faz referência direta ao filtro.
 

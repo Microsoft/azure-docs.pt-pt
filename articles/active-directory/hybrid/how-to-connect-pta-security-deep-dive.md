@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directory Pass-through Authentication security deep dive Microsoft Docs
+title: Azure Ative Directory Pass-through Authentication security deep mergulho| Microsoft Docs
 description: Este artigo descreve como o Azure Ative Directory (Azure AD) A Authentication Pass-through protege as suas contas no local
 services: active-directory
 keywords: Autenticação pass-through Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280150"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Ative Directory Pass-through Authentication security deep mergulho
@@ -72,7 +72,7 @@ As seguintes secções discutem estas fases em detalhe.
 
 ### <a name="authentication-agent-installation"></a>Instalação do Agente de Autenticação
 
-Apenas os administradores globais podem instalar um Agente de Autenticação (utilizando o Azure AD Connect ou autónomo) num servidor no local. A instalação adiciona duas novas entradas à lista de Programas e Funcionalidades do **Painel de**  >  **Programs**  >  **Programs and Features** Controlo:
+Apenas os administradores globais podem instalar um Agente de Autenticação (utilizando o Azure AD Connect ou autónomo) num servidor no local. A instalação adiciona duas novas entradas à lista de Programas e Funcionalidades do **Painel de**  >    >   Controlo:
 - A própria aplicação do Agente de Autenticação. Esta aplicação é executado com privilégios [NetworkService.](/windows/win32/services/networkservice-account)
 - A aplicação Updater que é usada para atualizar automaticamente o Agente de Autenticação. Esta aplicação é de 5000 em privilégios [do Sistema Local.](/windows/win32/services/localsystem-account)
 

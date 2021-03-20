@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728242"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
@@ -142,7 +142,7 @@ O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. Neste
 As definições específicas, tais como [userWriteback no Azure AD Connect,](./how-to-connect-preview.md#user-writeback) não são suportadas. Por favor, desative as definições. 
 
 ## <a name="faq"></a>FAQ
-**Q.** O que acontece se a execução da **Correção de Aplicação** falhar?  
+**P.** O que acontece se a execução da **Correção de Aplicação** falhar?  
 **A.** Se a execução falhar, é possível que o Azure AD Connect esteja a executar um erro de exportação. Refresque a página do portal e redama depois da próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
 
 

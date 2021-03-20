@@ -1,5 +1,5 @@
 ---
-title: Mensagens nuvem-para-dispositivo com Azure IoT Hub (Python) Microsoft Docs
+title: Mensagens em nuvem para dispositivo com Azure IoT Hub (Python) | Microsoft Docs
 description: Como enviar mensagens nuvem-para-dispositivo para um dispositivo a partir de um hub Azure IoT usando os SDKs Azure IoT para Python. Modifica uma aplicação de dispositivo simulada para receber mensagens nuvem-a-dispositivo e modifica uma aplicação de back-end para enviar as mensagens cloud-to-device.
 author: robinsh
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 04/09/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: ad6399a4713520ca0550d143cf3f19f87d55337c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87876806"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envie mensagens nuvem-para-dispositivo com IoT Hub (Python)

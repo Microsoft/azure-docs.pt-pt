@@ -1,5 +1,5 @@
 ---
-title: Soluções e Formação para O Azure Ative Directory B2C Microsoft Docs
+title: Soluções e Formação para O Diretório Ativo B2C | Microsoft Docs
 description: Este artigo dá-lhe links para informações de solução e formação que podem ajudá-lo a entender e usar o Azure Ative Directory B2C para soluções de negócio de ponta a ponta.
 services: active-directory-b2c
 author: msmimart
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 9e00c872bb2794cdd8eb2560392ce058ae41b257
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78186731"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluções e Formação para O Diretório Ativo B2C

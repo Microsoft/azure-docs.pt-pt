@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
 ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594288"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
@@ -52,7 +52,7 @@ Crie o seu grupo de failover e adicione-lhe a sua única base de dados utilizand
 
 1. Na página **do Grupo Failover,** introduza ou selecione os valores necessários e, em seguida, selecione **Criar**.
 
-   - **Bases de dados dentro do grupo** : Escolha a base de dados que pretende adicionar ao seu grupo de failover. A adição da base de dados ao grupo de failover iniciará automaticamente o processo de geo-replicação.
+   - **Bases de dados dentro do grupo**: Escolha a base de dados que pretende adicionar ao seu grupo de failover. A adição da base de dados ao grupo de failover iniciará automaticamente o processo de geo-replicação.
 
    ![Adicione a Base de Dados SQL ao grupo de failover](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
 
@@ -514,7 +514,7 @@ Criar ligações entre os dois gateways utilizando o portal Azure.
     1. Selecione a subscrição na lista pendente.
     1. Selecione o grupo de recursos para a sua instância gerida no drop-down.
     1. Selecione a localização da sua primeira instância gerida a partir do drop-down.
-1. No separador **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK** :
+1. No separador **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK**:
     1. Escolha o portal de rede primário para o **primeiro gateway de rede virtual,** como `Primary-Gateway` .  
     1. Escolha o portal de rede secundária para o **segundo gateway de rede virtual,** como `Secondary-Gateway` .
     1. Selecione a caixa de verificação ao lado **de Estabelecer conectividade bidirecional**.
@@ -566,7 +566,7 @@ Crie o grupo de failover para as suas Ocorrências Geridas SQL utilizando o port
 
 1. Selecione **Azure SQL** no menu esquerdo do [portal Azure](https://portal.azure.com). Se **o Azure SQL** não estiver na lista, selecione **Todos os serviços,** escreva Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para o favorito e adicione-a como um item na navegação à esquerda.
 1. Selecione a instância gerida primária que pretende adicionar ao grupo de failover.  
-1. Em **Definições** , navegue para **grupos de failover de exemplo** e, em seguida, escolha adicionar **grupo** para abrir a página do **Grupo Desabrosado de Exemplo.**
+1. Em **Definições**, navegue para **grupos de failover de exemplo** e, em seguida, escolha adicionar **grupo** para abrir a página do **Grupo Desabrosado de Exemplo.**
 
    ![Adicione um grupo de failover](./media/auto-failover-group-configure/add-failover-group.png)
 

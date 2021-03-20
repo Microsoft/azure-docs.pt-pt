@@ -4,10 +4,10 @@ description: Saiba como atualizar o agente Microsoft Azure Recovery Services (MA
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: a1ee26db962781643e9599069282647658301bac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89181481"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Atualize o agente microsoft Azure Recovery Services (MARS)
@@ -73,7 +73,7 @@ Depois de identificar os servidores que necessitam de uma atualização do agent
 
 1. Selecione **Seguinte**.
 
-1. Selecione **Upgrade**.
+1. Selecione **Atualizar**.
 
     ![Instalação do Agente de Serviços de Recuperação do Microsoft Azure](./media/upgrade-mars-agent/upgrade-installation.png)
 

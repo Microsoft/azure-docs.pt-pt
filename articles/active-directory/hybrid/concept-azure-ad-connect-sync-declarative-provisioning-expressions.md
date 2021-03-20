@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Declarative Provisioning Expressions / Microsoft Docs'
+title: 'Azure AD Connect: Expressões declarativas de provisionamento | Microsoft Docs'
 description: Explica as expressões declarativas.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280218"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect sync: Understanding Declarative Provisioning Expressions
@@ -74,7 +74,7 @@ Podem ser utilizados os seguintes operadores:
 * **Comparação:**<, <= <>, =, >, >=
 * **Matemática:**+, - \* -
 * **Corda**: & (concatenato)
-* **Lógico**: &&  e, [ / (ou)
+* **Lógica**: && (e), || (ou)
 * **Ordem de avaliação**: ( )
 
 Os operadores são avaliados da esquerda para a direita e têm a mesma prioridade de avaliação. Ou seja, o \* (multiplicador) não é avaliado antes - (subtração). 2 \* (5+3) não é o mesmo que 2 \* 5+3. Os suportes ( ) são utilizados para alterar a ordem de avaliação quando a ordem de avaliação da esquerda para a direita não é apropriada.

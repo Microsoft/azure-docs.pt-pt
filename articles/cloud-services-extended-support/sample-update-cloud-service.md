@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: fcb92ec3aa8f360107f0e7220415c57344c6d83a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881473"
 ---
 # <a name="update-an-azure-cloud-service-extended-support"></a>Atualizar um Serviço Cloud do Azure (suporte alargado)
@@ -70,6 +70,6 @@ $cloudService.Configuration = $configuration
 $cloudService | Update-AzCloudService
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os Serviços de Nuvem Azure (suporte alargado), consulte [a visão geral dos Serviços Azure Cloud (suporte alargado).](overview.md)
 - Visite o [repositório](https://github.com/Azure-Samples/cloud-services-extended-support) de amostras cloud services (suporte alargado)

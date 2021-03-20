@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800045"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderado com listas de prazos personalizados na consola API
@@ -44,7 +44,7 @@ Antes de poder testar a API na consola online, precisa da sua chave de subscriç
 
 Depois de fazer alterações numa lista de termos, tem de atualizar o seu índice para que as alterações sejam incluídas em futuras análises. Este passo é semelhante ao modo como um motor de busca no seu ambiente de trabalho (se ativado) ou um motor de pesquisa web atualiza continuamente o seu índice para incluir novos ficheiros ou páginas.
 
-1. Na [referência API de Gestão de Listas de Prazos,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)no menu esquerdo, selecione **Listas de Prazos**e, em seguida, selecione **Índice de Procura de Atualização**. 
+1. Na [referência API de Gestão de Listas de Prazos,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)no menu esquerdo, selecione **Listas de Prazos** e, em seguida, selecione **Índice de Procura de Atualização**. 
 
    As **Listas de Prazos - A página do Índice de Procura de Atualização** abre.
 
@@ -91,7 +91,7 @@ Depois de fazer alterações numa lista de termos, tem de atualizar o seu índic
 
    Adicione metadados de lista como pares de valor-chave, e não termos reais.
  
-6. Selecione **Send** (Enviar). A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de mandatos.
+6. Selecione **Enviar**. A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de mandatos.
 
    ![Listas de Prazos - Criar caixa de conteúdo de resposta à consola mostra o ID da lista](images/try-terms-list-create-2.png)
  
@@ -113,7 +113,7 @@ Depois de fazer alterações numa lista de termos, tem de atualizar o seu índic
 
     O **Termo - Obter todos os termos** a consola API abre.
 
-11. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Send** (Enviar).
+11. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Enviar**.
 
 12. Na caixa de **conteúdo 'Resposta',** verifique os termos introduzidos.
 
@@ -155,7 +155,7 @@ Este exemplo elimina um único termo.
 
 Pode editar o nome e descrição de uma lista e adicionar itens de metadados.
 
-1. Na [referência API de Gestão de Listas de Prazos,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)no menu esquerdo, selecione **Listas de Prazos**e, em seguida, selecione **'Detalhes de Actualização'.** 
+1. Na [referência API de Gestão de Listas de Prazos,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)no menu esquerdo, selecione **Listas de Prazos** e, em seguida, selecione **'Detalhes de Actualização'.** 
 
    Listas de Prazos - A página **de detalhes de atualização** abre.
 

@@ -1,5 +1,5 @@
 ---
-title: Como delegar o registo do utilizador e a subscrição do produto
+title: Como delegar o registo de utilizador e a subscrição do produto
 description: Saiba como delegar o registo do utilizador e a subscrição de produto a terceiros na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341846"
 ---
-# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registo do utilizador e a subscrição do produto
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registo de utilizador e a subscrição do produto
 
 A delegação permite-lhe utilizar o seu website existente para lidar com o sinal de desenvolvimento/inscrição e subscrição de produtos, em oposição à utilização da funcionalidade incorporada no portal do desenvolvedor. Permite que o seu website possua os dados do utilizador e realize a validação destes passos de forma personalizada.
 
@@ -52,18 +52,18 @@ Agora precisa de criar o ponto final da **delegação.** Tem de realizar uma sé
    
     Parâmetros de consulta para o caso de inscrição/inscrição:
    
-   * **operação** : identifica que tipo de pedido de delegação é - só pode ser **SignIn** neste caso
-   * **returnUrl** : o URL da página onde o utilizador clicou num link de sinal ou inscrição
+   * **operação**: identifica que tipo de pedido de delegação é - só pode ser **SignIn** neste caso
+   * **returnUrl**: o URL da página onde o utilizador clicou num link de sinal ou inscrição
    * **sal:** uma corda de sal especial usada para calcular um haxixe de segurança
-   * **sig** : um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
+   * **sig**: um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
 2. Verifique se o pedido vem da Azure API Management (opcional, mas altamente recomendado para a segurança)
    
    * Calcular um hash HMAC-SHA512 de uma cadeia com base nos parâmetros de consulta **de retornoUrl** e **sal** [(código de exemplo fornecido abaixo):]
      
-     > HMAC( **sal** + '\n' + **returnUrl** )
+     > HMAC(**sal** + '\n' + **returnUrl**)
 
    * Compare o haxixe acima computado com o valor do parâmetro de consulta **sig.** Se as duas hashes corresponderem, passe para o passo seguinte, caso contrário, negue o pedido.
-3. Verifique se está a receber um pedido de inscrição/inscrição: o parâmetro de consulta de **operação** será definido como " **SignIn** ".
+3. Verifique se está a receber um pedido de inscrição/inscrição: o parâmetro de consulta de **operação** será definido como "**SignIn**".
 4. Apresentar ao utilizador com UI para iniciar súm na súm nal ou inscrever-se
 5. Se o utilizador estiver a inscrever-se, tem de criar uma conta correspondente para eles na Gestão da API. [Criar um utilizador] com a API Management REST API. Ao fazê-lo, certifique-se de que define o ID do utilizador ao mesmo valor que na sua loja de utilizadores ou a um ID que possa acompanhar.
 6. Quando o utilizador é autenticado com sucesso:
@@ -84,10 +84,10 @@ Além da operação **SignIn,** pode ainda efetuar a gestão da conta seguindo o
 
 Deve passar os seguintes parâmetros de consulta para operações de gestão de conta.
 
-* **funcionamento** : identifica o tipo de pedido de delegação (ChangePassword, ChangeProfile ou CloseAccount)
-* **userId** : o ID do utilizador da conta a gerir
+* **funcionamento**: identifica o tipo de pedido de delegação (ChangePassword, ChangeProfile ou CloseAccount)
+* **userId**: o ID do utilizador da conta a gerir
 * **sal:** uma corda de sal especial usada para calcular um haxixe de segurança
-* **sig** : um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
+* **sig**: um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegando a subscrição do produto
 
@@ -103,33 +103,33 @@ Em seguida, certifique-se de que o ponto final da delegação faz as seguintes a
 
 1. Receber um pedido no seguinte formulário:
    
-   > *http: \/ /www.yourwebsite.com/apimdelegation?operation={operation}&produtoD={produto para subscrever a}&userId={user making request}&salt={string}&sig={string}*
+   > *http: \/ /www.yourwebsite.com/apimdelegation?operation={operation}&produtoId={produto para subscrever a}&userId={user solicitação}&sal={string}&sig={string}*
    >
    
     Parâmetros de consulta para o caso da subscrição do produto:
    
-   * **funcionamento** : identifica o tipo de pedido de delegação. Para pedidos de subscrição de produtos, as opções válidas são:
+   * **funcionamento**: identifica o tipo de pedido de delegação. Para pedidos de subscrição de produtos, as opções válidas são:
      * "Subscrever": um pedido de subscrição do utilizador a um determinado produto com ID fornecido (ver abaixo)
      * "Cancelar a subscrição": um pedido para cancelar a subscrição de um utilizador de um produto
      * "Renovar": um pedido de renovação de uma subscrição (por exemplo, que pode estar a expirar)
-   * **productId** : on *Subscribe* - o ID do produto que o utilizador solicitou para subscrever
-   * **subscriçãoId** : em *Cancelar* e *Renovar* - o ID da subscrição do produto
-   * **userId** : on *Subscribe* - o ID do utilizador o pedido é feito para
+   * **productId**: on *Subscribe* - o ID do produto que o utilizador solicitou para subscrever
+   * **subscriçãoId**: em *Cancelar* e *Renovar* - o ID da subscrição do produto
+   * **userId**: on *Subscribe* - o ID do utilizador o pedido é feito para
    * **sal:** uma corda de sal especial usada para calcular um haxixe de segurança
-   * **sig** : um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
+   * **sig**: um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
 
 2. Verifique se o pedido vem da Azure API Management (opcional, mas altamente recomendado para a segurança)
    
    * Computação de um HMAC-SHA512 de uma cadeia baseada no **produtoId,** **userId** e parâmetros de consulta de **sal:**
      
-     > HMAC( **sal** + '\n' + **produtoId** + '\n' + **userId** )
+     > HMAC(**sal** + '\n' + **produtoId** + '\n' + **userId**)
      > 
      > 
    * Compare o haxixe acima computado com o valor do parâmetro de consulta **sig.** Se as duas hashes corresponderem, passe para o passo seguinte, caso contrário, negue o pedido.
 3. Processar a subscrição do produto com base no tipo de operação solicitada em **funcionamento** - por exemplo, faturação, outras questões, etc.
 4. Ao subscrever com sucesso o utilizador ao produto do seu lado, subscreva o utilizador no produto API [Management, ligando para a API REST para subscrições.]
 
-## <a name="example-code"></a><a name="delegate-example-code"> </a> Código exemplo
+## <a name="example-code"></a><a name="delegate-example-code"></a> Código exemplo
 
 Estas amostras de código mostram como:
 

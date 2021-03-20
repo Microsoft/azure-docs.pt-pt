@@ -5,10 +5,10 @@ ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89180580"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
@@ -75,7 +75,7 @@ Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é conf
 
 1. No menu do painel de instrumentos do cofre, selecione **Backup** para abrir o menu backup.
 
-1. No menu Objetivo da Cópia de Segurança, no menu pendente **Where is your workload running** (Onde está a ser executada a sua carga de trabalho), escolha o *Azure*. A partir do **Que pretende fazer backup** drop-down, escolha máquina *Virtual*e selecione **Backup**.
+1. No menu Objetivo da Cópia de Segurança, no menu pendente **Where is your workload running** (Onde está a ser executada a sua carga de trabalho), escolha o *Azure*. A partir do **Que pretende fazer backup** drop-down, escolha máquina *Virtual* e selecione **Backup**.
 
     Estas ações preparam o cofre dos Serviços de Recuperação para interagir com uma máquina virtual. Os cofres dos Serviços de Recuperação têm uma política predefinida que cria um ponto de restauro por dia e retém-nos durante 30 dias.
 
@@ -132,7 +132,7 @@ Para executar um trabalho de cópia de segurança a pedido:
 
     ![Tarefa de cópia de segurança acionada](./media/tutorial-backup-vm-at-scale/initial-backup-context-menu.png)
 
-1. Na lista **de Itens de Cópia de Segurança,** selecione as elipses... para abrir o menu Contexto. **...**
+1. Na lista **de Itens de Cópia de Segurança,** selecione as elipses... para abrir o menu Contexto. 
 
 1. No menu Contexto, selecione **Backup Now** (Criar Cópia de Segurança Agora).
 

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
 ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91317264"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>Crie a sua primeira função durável no PowerShell
@@ -132,7 +132,7 @@ Tem agora uma aplicação Durable Functions que pode ser executada localmente e 
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. É solicitado que instale estas ferramentas na primeira vez que inicia uma aplicação de função a partir do Código do Estúdio Visual.
 
-1. Para testar a sua função, desaponte um ponto de rutura no `Hello` código de função de atividade *(Olá/run.ps1). * Prima F5 ou selecione `Debug: Start Debugging` a partir da paleta de comando para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+1. Para testar a sua função, desaponte um ponto de rutura no `Hello` código de função de atividade *(Olá/run.ps1).* Prima F5 ou selecione `Debug: Start Debugging` a partir da paleta de comando para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
 
     > [!NOTE]
     > Consulte os [Diagnósticos de Funções Duradouras](durable-functions-diagnostics.md#debugging) para obter mais informações sobre a depuração.
@@ -196,15 +196,15 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na sua 
 
 1. Escolha o ícone Azure na barra de Atividade, em seguida, na área **Azure: Funções,** escolha o **botão Implementar para funcionar...** botão.
 
-    ![Publique o seu projeto na Azure](../../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Publicar o projeto no Azure](../../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
-1. Fornecer as seguintes informações nas instruções:
+1. Forneça as seguintes informações nos pedidos:
 
     + **Selecione pasta**: Escolha uma pasta do seu espaço de trabalho ou navegue para uma que contenha a sua aplicação de função. Não verá isto se já tiver uma aplicação de função válida aberta.
 
     + **Selecione subscrição**: Escolha a subscrição para usar. Não verá isto se tiver apenas uma assinatura.
 
-    + **Selecione App de função em Azure**: Escolha `+ Create new Function App` . (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
+    + **Selecione Aplicação de Funções no Azure**: Selecione `+ Create new Function App`. (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
       
     + **Introduza um nome globalmente único para a aplicação de função**: Escreva um nome que seja válido num caminho URL. O nome que digita é validado para se certificar de que é único em Funções Azure. 
 

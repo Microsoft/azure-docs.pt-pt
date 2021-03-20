@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1085b70df67a3f16a7f7f8c5ae85c9ab271b62ac
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754530"
 ---
 # <a name="microsoftstoragestorageblobselector-ui-element"></a>Microsoft.Storage.StorageBlobSelector UI elemento
@@ -24,19 +24,19 @@ O utilizador é apresentado com a opção de procurar por bolhas de armazenament
 
 Depois de selecionar **Browse,** o utilizador pode selecionar uma conta de armazenamento.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft.StorageBlobSelector - navegue":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft.StorageBlobSelector - selecione armazenamento":::
 
 O utilizador vê os recipientes na conta de armazenamento e pode selecionar um.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft.StorageBlobSelector - navegue":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft.StorageBlobSelector - selecione recipiente":::
 
 A partir do recipiente, o utilizador pode selecionar um ficheiro.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft.StorageBlobSelector - navegue":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft.Storage.StorageBlobSelector - ficheiro":::
 
 O controlo é atualizado para exibir o nome do ficheiro selecionado.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft.StorageBlobSelector - navegue":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft.StorageBlobSelector - mostrar ficheiro selecionado":::
 
 ## <a name="schema"></a>Esquema
 

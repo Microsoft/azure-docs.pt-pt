@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar iProva para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar iProva para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desprovisionamento de contas de utilizadores para o iProva.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: dbaea9d4aaea982165c96af00f75524b15fa3015
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96178135"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: Configurar iProva para fornecimento automático de utilizadores

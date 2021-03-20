@@ -1,5 +1,5 @@
 ---
-title: Modelo de custos para ficheiros Azure NetApp / Microsoft Docs
+title: Modelo de custos para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve o modelo de custos para a Azure NetApp Files para gerir as despesas do serviço.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91325611"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de custo para os Azure NetApp Files 

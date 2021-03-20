@@ -1,5 +1,5 @@
 ---
-title: Configure uma VPN ponto-a-local (P2S) no Linux para utilização com Ficheiros Azure / Microsoft Docs
+title: Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure | Microsoft Docs
 description: Como configurar uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629279"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure

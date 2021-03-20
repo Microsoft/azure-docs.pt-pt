@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86027448"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalize modelos de aprendizagem automática construídos por faíscas
@@ -545,7 +545,7 @@ Reforço da Região de ÁrvoreFileLoc: GradientBoostingTreeRegression_2016-05-03
 A Spark fornece um mecanismo para submeter remotamente trabalhos de lote ou consultas interativas através de uma interface REST com um componente chamado Livy. A Livy está ativada por padrão no seu cluster HDInsight Spark. Para obter mais informações sobre a Livy, consulte: [Submeta os trabalhos de faísca remotamente utilizando a Livy.](../../hdinsight/spark/apache-spark-livy-rest-interface.md) 
 
 Pode usar livy para submeter remotamente um trabalho que obtém um ficheiro que é armazenado numa bolha Azure e, em seguida, escreve os resultados para outra bolha. Para isso, você carrega o script Python de  
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) para a bolha do aglomerado de faíscas. Pode utilizar uma ferramenta como **o Microsoft Azure Storage Explorer** ou a **AzCopy** para copiar o script para a bolha do cluster. No nosso caso, enviamos o guião para ***wasb:///example/python/ConsumeGBNYCReg.py.***   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) para a bolha do aglomerado de faíscas. Pode utilizar uma ferramenta como **o Microsoft Azure Storage Explorer** ou a **AzCopy** para copiar o script para a bolha do cluster. No nosso caso, enviamos o guião para **_wasb:///example/python/ConsumeGBNYCReg.py._**   
 
 > [!NOTE]
 > As chaves de acesso de que necessita podem ser encontradas no portal para a conta de armazenamento associada ao cluster Spark. 
@@ -601,7 +601,7 @@ Também pode adicionar este código Python às [Funções Azure](https://azure.m
 
 Se preferir uma experiência de cliente livre de código, utilize as [Apps Azure Logic](https://azure.microsoft.com/documentation/services/app-service/logic/) para invocar a pontuação do lote Spark, definindo uma ação HTTP no **Logic Apps Designer** e definindo os seus parâmetros. 
 
-* A partir do portal Azure, crie uma nova App Lógica selecionando **+New**  ->  **Web + Mobile**Logic  ->  **App**. 
+* A partir do portal Azure, crie uma nova App Lógica selecionando **+New**  ->  **Web + Mobile** Logic  ->  **App**. 
 * Para apresentar o **Logic Apps Designer,** insira o nome da Aplicação Lógica e plano de serviço de aplicações.
 * Selecione uma ação HTTP e introduza os parâmetros indicados na seguinte figura:
 

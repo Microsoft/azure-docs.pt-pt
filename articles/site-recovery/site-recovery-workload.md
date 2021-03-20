@@ -4,17 +4,17 @@ description: Descreve as cargas de trabalho que podem ser protegidas com a recup
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80062828"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>Acerca da recuperação após desastre de aplicações no local
 
 Este artigo descreve cargas de trabalho e aplicações no local que pode proteger para recuperação de desastres com o serviço [de Recuperação do Local Azure.](site-recovery-overview.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As organizações precisam de uma estratégia de continuidade do negócio e recuperação de desastres (BCDR) para manter as cargas de trabalho e os dados seguros e disponíveis durante o tempo de inatividade planeado e não planeado. E, recuperar para condições de trabalho regulares.
 
@@ -40,17 +40,17 @@ A Recuperação de Sites pode replicar qualquer aplicação em execução numa m
 
 | **Carga de trabalho** |**Replicar VMs do Azure para o Azure** |**Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMware VMs para Azure** |
 | --- | --- | --- | --- | --- |---|
-| Active Directory, DNS |Sim |Sim |Sim |Sim |Sim|
-| Web Apps (IIS, SQL) |Sim |Sim |Sim |Sim |Sim|
-| System Center Operations Manager |Sim |Sim |Sim |Sim |Sim|
-| SharePoint |Sim |Sim |Sim |Sim |Sim|
+| Active Directory, DNS |Yes |Yes |Yes |Yes |Yes|
+| Web Apps (IIS, SQL) |Yes |Yes |Yes |Yes |Yes|
+| System Center Operations Manager |Yes |Yes |Yes |Yes |Yes|
+| SharePoint |Yes |Yes |Yes |Yes |Yes|
 | SAP<br/><br/>Replicar site SAP para o Azure de não cluster |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft)|
-| Exchange (não DAG) |Sim |Sim |Sim |Sim |Sim|
-| Ambiente de Trabalho Remoto/VDI |Sim |Sim |Sim |Sim |Sim|
+| Exchange (não DAG) |Yes |Yes |Yes |Yes |Yes|
+| Ambiente de Trabalho Remoto/VDI |Yes |Yes |Yes |Yes |Yes|
 | Linux (sistema operativo e aplicações) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft)|
-| Dynamics AX |Sim |Sim |Sim |Sim |Sim|
-| Servidor de Ficheiros do Windows |Sim |Sim |Sim |Sim |Sim|
-| Citrix XenApp e XenDesktop |Sim|N/D |Sim |N/D |Sim |
+| Dynamics AX |Yes |Yes |Yes |Yes |Yes|
+| Servidor de Ficheiros do Windows |Yes |Yes |Yes |Yes |Yes|
+| Citrix XenApp e XenDesktop |Yes|N/D |Sim |N/D |Sim |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replicar o Active Directory e o DNS
 
@@ -108,9 +108,9 @@ A tabela a seguir mostra as opções de replicação:
 
 | **RDS** |**Replicar VMs do Azure para o Azure** | **Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMware VMs para Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Ambiente de Trabalho Virtual Agrupado (não gerido)** |Não|Sim |Não |Sim |Não |Sim |Não |
-| **Ambiente de Trabalho Virtual Agrupado (gerido e sem UDP)** |Não|Sim |Não |Sim |Não |Sim |Não |
-| **Aplicações remotas e sessões de Ambiente de Trabalho (sem UDP)** |Sim|Sim |Sim |Sim |Sim |Sim |Sim |
+| **Ambiente de Trabalho Virtual Agrupado (não gerido)** |No|Yes |No |Yes |No |Yes |No |
+| **Ambiente de Trabalho Virtual Agrupado (gerido e sem UDP)** |No|Yes |No |Yes |No |Yes |No |
+| **Aplicações remotas e sessões de Ambiente de Trabalho (sem UDP)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
 
 [Saiba mais](/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure) sobre a recuperação de desastres para RDS.
 

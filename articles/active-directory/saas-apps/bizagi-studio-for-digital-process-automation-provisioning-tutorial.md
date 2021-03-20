@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
 ms.openlocfilehash: 72e021f47bb8db4dedf0e434d0d94bb2118a4c00
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728170"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: Configure Bizagi Studio para automatização de processos digitais para fornecimento automático de utilizadores

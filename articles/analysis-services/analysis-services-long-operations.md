@@ -1,5 +1,5 @@
 ---
-title: Boas práticas para operações de longa duração nos Serviços de Análise Azure Microsoft Docs
+title: Melhores práticas para operações de longa duração nos Serviços de Análise Azure | Microsoft Docs
 description: Este artigo descreve as melhores práticas para operações de longa duração.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 4e069effae0cb7f834b2c3dac696d05304d841a7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92014839"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Melhores práticas para operações de execução prolongada
@@ -49,5 +49,5 @@ Ao utilizar réplicas de consulta apenas de leitura, enquanto as atualizações 
 
 [Atualização assíncrona com a API REST](analysis-services-async-refresh.md)  
 [Escalamento horizontal do Azure Analysis Services](analysis-services-scale-out.md)  
-[Serviços de Análise alta disponibilidade](analysis-services-bcdr.md)  
+[Elevada disponibilidade do Analysis Services](analysis-services-bcdr.md)  
 [Redação de orientação para os serviços da Azure](/azure/architecture/best-practices/retry-service-specific)

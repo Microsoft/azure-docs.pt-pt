@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: jeedes
 ms.openlocfilehash: d52ea8d6af84568f9dd458aefdecd36d3b36457d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98727350"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lablog"></a>Tutorial: Azure Ative Directory integração única (SSO) com LabLog
@@ -128,7 +128,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     a. Na caixa de texto ID da **Entidade,** cole o valor **identificador Azure AD** que copiou do portal Azure.
 
-    b. Na caixa de texto **URL do SSO** , cole o valor URL de **login** que copiou a partir do portal Azure.
+    b. Na caixa de texto **URL do SSO SSO SSO,** cole o valor URL de **login** que copiou a partir do portal Azure.
 
     c. Abra o Certificado descarregado **(Base64)** do portal Azure para o Bloco de Notas e cole o conteúdo na caixa de texto **do Certificado Público.**
 
@@ -150,6 +150,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo LabLog nas Minhas Apps, este será redirecionado para o URL de inscrição labLog. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado o LabLog, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

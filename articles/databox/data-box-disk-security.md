@@ -1,5 +1,5 @@
 ---
-title: Funcionalidades de segurança do Disco da Caixa de Dados do Microsoft Azure Microsoft Docs em dados
+title: As funcionalidades de segurança do disco da Caixa de Dados do Microsoft Azure | Microsoft Docs em dados
 description: Descreve funcionalidades de segurança implementadas para O Disco de Caixa de Dados Azure, uma solução em nuvem que lhe permite transferir grandes quantidades de dados para o Azure
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79117290"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Segurança e proteção de dados da caixa de dados Azure

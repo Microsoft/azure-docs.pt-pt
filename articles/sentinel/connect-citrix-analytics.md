@@ -1,5 +1,5 @@
 ---
-title: Ligue a Citrix Analytics (Segurança) a Azure Sentinel. Microsoft Docs
+title: Ligue a Citrix Analytics (Segurança) a Azure Sentinel| Microsoft Docs
 description: Saiba como ligar a Citrix Analytics (Segurança) ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588387"
 ---
 # <a name="connect-citrix-analytics-security"></a>Ligar a Citrix Analytics (Segurança) 

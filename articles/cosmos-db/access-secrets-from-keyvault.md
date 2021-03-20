@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359330"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger as chaves do Azure Cosmos com o Azure Key Vault 
@@ -61,7 +61,7 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
 
 1. Crie uma aplicação web Azure ou pode descarregar a aplicação a partir do [repositório GitHub.](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo) É uma aplicação MVC simples.  
 
-2. Desaperte a aplicação descarregada e abra o ficheiro **HomeController.cs.** Atualize o ID secreto na seguinte linha:
+2. Desaperte a aplicação descarregada e abra o ficheiro **homeController.cs.** Atualize o ID secreto na seguinte linha:
 
    `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 

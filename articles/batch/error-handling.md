@@ -4,10 +4,10 @@ description: Saiba mais sobre o manuseamento de erros nos fluxos de trabalho do 
 ms.topic: article
 ms.date: 05/15/2020
 ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85964282"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Manipulação e deteção de erros em Azure Batch
@@ -84,7 +84,7 @@ Se precisar de restringir ou desativar o acesso RDP ou SSH para computação de 
 
 Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cliente ou o serviço Batch podem examinar os metadados das tarefas com falhas para identificar um nó a funcionar incorretamente. Cada nó num conjunto recebe um ID exclusivo e o nó no qual é executada uma tarefa está incluído nos metadados da tarefa. Depois de ter identificado um nó de problema, pode tomar várias medidas no mesmo:
 
-- **Reinicie o nó** [REST](/rest/api/batchservice/computenode/reboot)  |  [(REST.NET))](/dotnet/api/microsoft.azure.batch.computenode.reboot)
+- **Reinicie o nó** [](/rest/api/batchservice/computenode/reboot)  |  [(REST.NET))](/dotnet/api/microsoft.azure.batch.computenode.reboot)
 
     Reiniciar o nó pode, por vezes, limpar problemas latentes, como processos bloqueados ou falhados. Se a sua piscina utilizar uma tarefa inicial ou o seu trabalho utilizar uma tarefa de preparação de trabalho, elas são executadas quando o nó recomeça.
 - **Recriar imagem do nó** ([REST](/rest/api/batchservice/computenode/reimage) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reimage))

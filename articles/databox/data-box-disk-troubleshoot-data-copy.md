@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Disk problemas de resolução de problemas de cópia de dados Microsoft Docs
+title: Problemas de resolução de problemas da caixa de dados do Azure, problemas| Microsoft Docs
 description: Descreve como resolver problemas vistos durante a cópia de dados no Disco de Caixa de Dados Azure utilizando registos.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d977fe0b7459af35f678e77681d3b27c31431cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85849179"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Problemas de cópia de dados de resolução de problemas no disco da caixa de dados do Azure

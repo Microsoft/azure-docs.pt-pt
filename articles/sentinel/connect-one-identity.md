@@ -1,5 +1,5 @@
 ---
-title: Ligue uma salvaguarda de identidade a Azure Sentinel. Microsoft Docs
+title: Ligue uma salvaguarda de identidade a Azure Sentinel| Microsoft Docs
 description: Saiba como ligar uma salvaguarda de identidade ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588149"
 ---
 # <a name="connect-one-identity-safeguard"></a>Ligar uma salvaguarda de identidade
@@ -31,7 +31,7 @@ O conector de dados one Identity Safeguard melhora o conector padrão do Formato
 
 ## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Ligue o Sentinela Azure a uma salvaguarda de identidade
 
-1. No portal Azure, navegue nos conectores de dados **do Azure Sentinel**  >  **Data connectors** e, em seguida, selecione o conector One **Identity Safeguard.**
+1. No portal Azure, navegue nos conectores de dados **do Azure Sentinel**  >   e, em seguida, selecione o conector One **Identity Safeguard.**
 
 2. Selecione **Abrir a página do conector**.
 

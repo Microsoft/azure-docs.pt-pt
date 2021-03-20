@@ -9,10 +9,10 @@ ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880915"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: use Video Indexer com App lógica e automatização de energia
@@ -130,7 +130,7 @@ O artigo também mostra como indexar um vídeo automaticamente copiando-o para o
 
 Depois de terminar este tutorial, sinta-se à vontade para manter esta solução Logic App ou Power Automamate em funcionamento se precisar. No entanto, se não quiser manter isto em funcionamento e não quiser ser cobrado, desligue ambos os fluxos se estiver a utilizar o Power Automamate. Desative ambos os fluxos se estiver a utilizar as Aplicações Lógicas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial mostrou apenas um exemplo de conectores de indexante de vídeo. Pode utilizar os conectores do Indexador de Vídeo para qualquer chamada de API fornecida pelo Video Indexer. Por exemplo: carregar e recuperar insights, traduzir os resultados, obter widgets incorporados e até personalizar os seus modelos. Além disso, pode optar por desencadear essas ações com base em diferentes fontes, como atualizações para repositórios de ficheiros ou e-mails enviados. Em seguida, pode optar por ter a atualização de resultados para a nossa infraestrutura ou aplicação relevante ou gerar qualquer número de itens de ação.  
 

@@ -1,5 +1,5 @@
 ---
-title: Modelos de API na Azure API Management / Microsoft Docs
+title: Modelos de API em Azure API Management | Microsoft Docs
 description: Saiba como personalizar o conteúdo das páginas API no portal de desenvolvimento na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87851719"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na Gestão API da Azure
@@ -34,7 +34,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
     -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
-    -   [Objetivo C](#ObjectiveC)  
+    -   [Objective C](#ObjectiveC)  
     -   [PHP](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
@@ -90,7 +90,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |`apis`|Recolha de entidades [sumárias da API.](api-management-template-data-model-reference.md#APISummary)|As APIs visíveis para o utilizador atual.|  
   
@@ -657,7 +657,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
   
 -   [JavaScript](#JavaScript)  
   
--   [Objetivo C](#ObjectiveC)  
+-   [Objective C](#ObjectiveC)  
   
 -   [PHP](#PHP)  
   

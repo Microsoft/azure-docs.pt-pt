@@ -1,5 +1,5 @@
 ---
-title: Começa com os gémeos Azure IoT Hub (Python) Microsoft Docs
+title: Começa com os gémeos Azure IoT Hub (Python) | Microsoft Docs
 description: Como usar gémeos de dispositivo Azure IoT Hub para adicionar tags e, em seguida, usar uma consulta IoT Hub. Você usa os SDKs Azure IoT para Python para implementar a aplicação de dispositivo simulado e uma aplicação de serviço que adiciona as tags e executa a consulta IoT Hub.
 author: robinsh
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87875477"
 ---
 # <a name="get-started-with-device-twins-python"></a>Começar com os gémeos do dispositivo (Python)
@@ -34,7 +34,7 @@ No final deste tutorial, terás duas aplicações para consolas Python:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

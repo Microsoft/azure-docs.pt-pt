@@ -1,5 +1,5 @@
 ---
-title: Segurança da infraestrutura Azure Microsoft Docs
+title: Segurança da infraestrutura Azure | Microsoft Docs
 description: Saiba como a Microsoft funciona para proteger os datacenters do Azure. Os datacenters são geridos, monitorizados e administrados pelo pessoal de operações da Microsoft.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
 ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87543933"
 ---
 # <a name="azure-infrastructure-security"></a>Segurança da infraestrutura Azure

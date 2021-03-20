@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 15a878eb863b71a4519e75def2598f013152dfb7
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97881638"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Como utilizar Azure.Search.Documents numa aplicação C# .NET
@@ -288,8 +288,8 @@ Exatamente um campo no seu índice deve servir como a chave do documento `IsKey 
 | Tipo de campo | Descrição e utilização |
 |------------|-----------------------|
 | [`SearchField`](/dotnet/api/azure.search.documents.indexes.models.searchfield) | Classe base, com a maioria das propriedades definidas para nulo, exceto `Name` o que é necessário, e que `AnalyzerName` incumprimentos para Lucene padrão. |
-| [`SimpleField`](/dotnet/api/azure.search.documents.indexes.models.simplefield) | Modelo de ajudante. Pode ser qualquer tipo de dados, é sempre não pesmável (é ignorado para consultas completas de pesquisa de texto), e é recuperável (não está escondido). Outros atributos estão desligados por padrão, mas podem ser ativados. Pode utilizar um `SimpleField` para identificação de documentos ou campos utilizados apenas em filtros, facetas ou perfis de pontuação. Em caso afirmativo, certifique-se de aplicar quaisquer atributos necessários para o cenário, como `IsKey = true` para um documento ID. Para mais informações, consulte [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) no código fonte. |
-| [`SearchableField`](/dotnet/api/azure.search.documents.indexes.models.searchablefield) | Modelo de ajudante. Deve ser uma corda, e é sempre pescaizável e recuperável. Outros atributos estão desligados por padrão, mas podem ser ativados. Como este tipo de campo é pesjável, suporta sinónimos e o complemento completo das propriedades do analisador. Para mais informações, consulte a [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) no código fonte. |
+| [`SimpleField`](/dotnet/api/azure.search.documents.indexes.models.simplefield) | Modelo de ajudante. Pode ser qualquer tipo de dados, é sempre não pesmável (é ignorado para consultas completas de pesquisa de texto), e é recuperável (não está escondido). Outros atributos estão desligados por padrão, mas podem ser ativados. Pode utilizar um `SimpleField` para identificação de documentos ou campos utilizados apenas em filtros, facetas ou perfis de pontuação. Em caso afirmativo, certifique-se de aplicar quaisquer atributos necessários para o cenário, como `IsKey = true` para um documento ID. Para mais informações, consulte [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) em código fonte. |
+| [`SearchableField`](/dotnet/api/azure.search.documents.indexes.models.searchablefield) | Modelo de ajudante. Deve ser uma corda, e é sempre pescaizável e recuperável. Outros atributos estão desligados por padrão, mas podem ser ativados. Como este tipo de campo é pesjável, suporta sinónimos e o complemento completo das propriedades do analisador. Para mais informações, consulte o [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) em código fonte. |
 
 Quer utilize a `SearchField` API básica ou qualquer um dos modelos auxiliares, tem de ativar explicitamente os atributos de filtro, faceta e classificação. Por exemplo, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)e [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) devem ser explicitamente atribuídos, como mostrado na amostra acima.
 

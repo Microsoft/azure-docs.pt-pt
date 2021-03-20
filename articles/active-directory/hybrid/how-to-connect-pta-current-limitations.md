@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Autenticação pass-through - Limitações atuais / Microsoft Docs'
+title: 'Azure AD Connect: Authentication Pass-through - Limitações atuais | Microsoft Docs'
 description: Este artigo descreve as limitações atuais do Azure Ative Directory (Azure AD) Authentication Pass-through
 services: active-directory
 keywords: Autenticação pass-through Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280201"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação pass-through do Diretório Ativo Azure: Limitações atuais

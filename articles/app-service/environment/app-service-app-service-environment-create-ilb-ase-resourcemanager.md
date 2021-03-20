@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85833558"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como Criar um ASE do ILB Utilizando Modelos do Azure Resource Manager
@@ -22,7 +22,7 @@ ms.locfileid: "85833558"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os Ambientes de Serviço de Aplicações podem ser criados com um endereço interno de rede virtual em vez de um VIP público.  Este endereço interno é fornecido por um componente Azure chamado o equilibrador interno de carga (ILB).  Um ILB ASE pode ser criado usando o portal Azure.  Também pode ser criado usando a automatização através de modelos Azure Resource Manager.  Este artigo percorre os passos e sintaxe necessários para criar um ILB ASE com modelos de Gestor de Recursos Azure.
 
 Existem três etapas envolvidas na automatização da criação de um ILB ASE:

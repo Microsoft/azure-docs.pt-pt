@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94f4d17596936dd9d0ebbdae3c351cac9ed2a570
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89299869"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início Rápido: Configurar localizações com nome no Azure Active Directory
@@ -43,7 +43,7 @@ Para concluir este guia de início rápido, precisa de:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No painel esquerdo, selecione **Azure Ative Directory**e, em seguida, selecione **Acesso Condicional** a partir da secção **Segurança.**
+2. No painel esquerdo, selecione **Azure Ative Directory** e, em seguida, selecione **Acesso Condicional** a partir da secção **Segurança.**
 
     ![Separador de acesso condicional](./media/quickstart-configure-named-locations/entrypoint.png)
 

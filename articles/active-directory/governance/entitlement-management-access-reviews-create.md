@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798516"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Criar uma revisão de acesso de um pacote de acesso na gestão de direitos Azure AD
@@ -42,7 +42,7 @@ Pode ativar comentários de acesso ao [criar um novo pacote de acesso](entitleme
 
 1. Abra o **separador Lifecycle** para um pacote de acesso e desloque-se até ao **Access Reviews**.
 
-1. Mover as **avaliações de acesso requere** para **alternar**para Sim .
+1. Mover as **avaliações de acesso requere** para **alternar** para Sim .
 
     ![Adicione a revisão de acesso](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 

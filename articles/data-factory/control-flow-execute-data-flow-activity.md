@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.author: makromer
 ms.date: 01/03/2021
 ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383386"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure
@@ -175,7 +175,7 @@ Para obter o número de linhas lidas de uma fonte chamada "fonte1" que foi usada
 Ver atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar atividade de gasoduto](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
 - [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)

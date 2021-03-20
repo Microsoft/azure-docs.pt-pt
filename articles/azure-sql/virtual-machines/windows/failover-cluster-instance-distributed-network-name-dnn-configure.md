@@ -16,10 +16,10 @@ ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358321"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configure um DNN para a ocorrência de cluster de failover

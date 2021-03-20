@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945407"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Use data lake storage Gen1 com clusters Azure HDInsight
@@ -296,7 +296,7 @@ Invoke-AzResourceAction `
     -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a usar Azure Data Lake Storage Gen1 compatível com HDFS com HDInsight. Este armazenamento permite-lhe construir soluções de aquisição de dados adaptáveis, a longo prazo, arquivando soluções de aquisição de dados. E use o HDInsight para desbloquear a informação dentro dos dados estruturados e não estruturados armazenados.
 

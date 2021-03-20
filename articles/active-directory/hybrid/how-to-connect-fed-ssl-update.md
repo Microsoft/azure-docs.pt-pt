@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Atualize o certificado TLS/SSL para uma quinta AD FS Microsoft Docs
+title: Azure AD Connect - Atualize o certificado TLS/SSL para uma exploração AD FS | Microsoft Docs
 description: Este documento detalha os passos para atualizar o certificado TLS/SSL de uma exploração AD FS utilizando o Azure AD Connect.
 services: active-directory
 manager: daveba
@@ -17,15 +17,15 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279912"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado TLS/SSL para uma exploração de Serviços da Federação de Diretórios Ativos (AD FS)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo descreve como pode utilizar o Azure AD Connect para atualizar o certificado TLS/SSL para uma exploração de Serviços da Federação de Diretórios Ativos (AD FS). Pode utilizar a ferramenta Azure AD Connect para atualizar facilmente o certificado TLS/SSL para a exploração AD FS, mesmo que o método de entrada do utilizador selecionado não seja AD FS.
 
 Pode executar toda a operação de atualização do certificado TLS/SSL para a fazenda AD FS em todos os servidores da Federação e aplicação web Proxy (WAP) em três passos simples:
@@ -39,7 +39,7 @@ Pode executar toda a operação de atualização do certificado TLS/SSL para a f
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **AD FS Farm**: Certifique-se de que a sua quinta AD FS é baseada no Windows Server 2012 ou mais tarde.
-* **Ligação AD AD:** Certifique-se de que a versão do Azure AD Connect é 1.1.553.0 ou superior. Utilizará o **certificado AD FS SSL de atualização**de tarefas .
+* **Ligação AD AD:** Certifique-se de que a versão do Azure AD Connect é 1.1.553.0 ou superior. Utilizará o **certificado AD FS SSL de atualização** de tarefas .
 
 ![Atualizar tarefa TLS](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Agendar empregos com Azure IoT Hub (Python) Microsoft Docs
+title: Agendar empregos com Azure IoT Hub (Python) | Microsoft Docs
 description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto em vários dispositivos. Você usa os SDKs Azure IoT para Python para implementar as aplicações de dispositivos simulados e uma aplicação de serviço para executar o trabalho.
 author: robinsh
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
 ms.openlocfilehash: 733e3be21a1a1305b5c7947de1ae54ddce5e0d2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87876687"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Horários e trabalhos de transmissão (Python)
@@ -58,7 +58,7 @@ No final deste tutorial, você tem duas aplicações Python:
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

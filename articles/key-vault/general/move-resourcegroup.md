@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault movendo um cofre para um grupo de recursos diferentes Microsoft Docs
+title: Azure Key Vault movendo um cofre para um grupo de recursos diferente | Microsoft Docs
 description: Orientação para mover um cofre chave para um grupo de recursos diferente.
 services: key-vault
 author: ShaneBala-keyvault
@@ -12,15 +12,15 @@ ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
 ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92042387"
 ---
-# <a name="moving-an-azure-key-vault-across-resource-groups"></a>Movendo um cofre de chaves Azure através de grupos de recursos
+# <a name="moving-an-azure-key-vault-across-resource-groups"></a>Mover um Azure Key Vault entre grupos de recursos
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Mover um cofre chave através de grupos de recursos é uma função de cofre de chaves suportada. Mover um cofre chave entre grupos de recursos não afetará a firewall do cofre ou as configurações da política de acesso. As aplicações ligadas e os principais de serviço devem continuar a funcionar como pretendido.
 
@@ -49,6 +49,6 @@ Certifique-se de que vai à página da Política Azure no portal Azure e veja as
 5. Selecione "Mover-se para outro grupo de recursos" a partir das opções de dropdown
 6. Selecione o grupo de recursos onde pretende mover o cofre de chaves
 7. Reconheça o aviso sobre os recursos em movimento
-8. Selecione "OK"
+8. Selecione "OK".
 
 O Key Vault irá agora avaliar a validade do movimento de recursos e alertá-lo de quaisquer erros. Se não forem encontrados erros, o movimento de recursos será concluído. 

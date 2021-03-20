@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89320261"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configure o 'Stay signed in?' solicitação para contas AD AZure
@@ -33,22 +33,27 @@ O diagrama seguinte mostra o fluxo de entrada do utilizador para um inquilino ge
 ## <a name="configure-kmsi"></a>Configurar KMSI
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
-1. Selecione **Azure Ative Directory**, selecione **Marca da Empresa**e, em seguida, selecione **Configure**.
+1. Selecione **Azure Ative Directory**, selecione **Marca da Empresa** e, em seguida, selecione **Configure**.
 1. Na secção **Definições Avançadas,** encontre **a opção 'Mostrar' para permanecer assinada na** definição.
 
    Esta definição permite-lhe escolher se os seus utilizadores permanecem inscritos no AZure AD até que eles assinem explicitamente.
    * Se escolher **Não,** a opção **Stay in?**
    * Se escolher **Sim,** a opção **Stay in?**
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Diagrama mostrando o fluxo de entrada do utilizador para um inquilino gerido vs. federado":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Screenshot mostra a opção Show para permanecer assinado na definição":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>Problemas de resolução de problemas
 
 Se um utilizador não agir no **registo de permanência assinado?**
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Diagrama mostrando o fluxo de entrada do utilizador para um inquilino gerido vs. federado" quando o utilizador estava a iniciar a sessão.
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Mostra a estadia assinada? rápido":::
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Diagrama mostrando o fluxo de entrada do utilizador para um inquilino gerido vs. federado":::
+Os detalhes sobre o erro de inscrição são os seguintes e realçados no exemplo.
+
+* **Iniciar em código de erro:** 50140
+* **Razão de avaria**: Este erro ocorreu devido à interrupção "Mantenha-me assinado" quando o utilizador estava a iniciar a sessão.
+
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Exemplo de entrada de registo de login com o manter-me assinado em interrupção":::
 
 Pode impedir que os utilizadores vejam a interrupção definindo **a opção 'Mostrar' para permanecerem assinados na** definição de **Nº** nas definições avançadas de marca. Isto desativa a solicitação KMSI para todos os utilizadores do seu diretório AD Azure.
 

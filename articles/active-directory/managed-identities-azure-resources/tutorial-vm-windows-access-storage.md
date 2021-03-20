@@ -1,5 +1,5 @@
 ---
-title: Access Azure Storage utilizando uma identidade gerida atribuída ao sistema Windows VM Microsoft Docs
+title: Aceda a Azure Storage utilizando uma identidade gerida atribuída ao sistema Windows VM | Microsoft Docs
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89263183"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Armazenamento do Azure
@@ -94,7 +94,7 @@ Esta secção mostra como conceder o acesso ao seu VM a um recipiente de armazen
 
     ![Atribuir permissões](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="access-data"></a>Aceder a dados 
+## <a name="access-data"></a>Aceder a dados 
 
 O Armazenamento do Azure suporta nativamente Autenticação do Azure AD, para poder aceitar diretamente tokens de acesso obtidos através de uma identidade gerida. Isto faz parte da integração do Armazenamento do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
 

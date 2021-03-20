@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89147655"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Use o Azure Advisor com o Windows Virtual Desktop
@@ -32,7 +32,7 @@ Tudo o que precisa para começar é uma conta Azure no portal Azure. Primeiro, a
 
 Quando abrir o Azure Advisor, verá cinco categorias:
 
-- Cost
+- Custo
 - Segurança
 - Fiabilidade
 - Excelência Operacional

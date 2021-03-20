@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Saúde e Privacidade do Utilizador ! Microsoft Docs
+title: Azure AD Connect Health e User Privacy | Microsoft Docs
 description: Este documento descreve a privacidade do utilizador com a Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89182365"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do utilizador e Azure AD Connect Health 

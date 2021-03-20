@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push para Android usando Azure Notification Hubs e Google Cloud Messaging Microsoft Docs
+title: Envie notificações push para Android usando Azure Notification Hubs e Google Cloud Messaging | Microsoft Docs
 description: Neste tutorial, irá aprender a utilizar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações push para dispositivos Android.
 services: notification-hubs
 documentationcenter: android
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 8c97710202a448c613ab685932cb335bbaed4953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87832659"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Enviar notificações push para dispositivos Android utilizando hubs de notificação do Azure e mensagens Google Cloud (depreciadas)
@@ -30,7 +30,7 @@ ms.locfileid: "87832659"
 > [!WARNING]
 > A partir de 10 de abril de 2018, a Google depreifou o Google Cloud Messaging (GCM). O servidor GCM e as APIs do cliente são depreciadas e serão removidas logo a 29 de maio de 2019. Para obter mais informações, consulte [GCM e FCM Perguntas Frequentes.](https://developers.google.com/cloud-messaging/faq)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação com Android.
 Vai criar uma aplicação Android em branco para receber notificações push através do Google Cloud Messaging (GCM).
@@ -504,7 +504,7 @@ Além disso, certifique-se de que adicionou a sua conta Google ao seu emulador d
 
 Normalmente, enviaria notificações através de um servidor de backend. Em alguns casos, poderia querer enviar notificações push diretamente a partir da aplicação de cliente. Esta secção explica como enviar notificações do cliente utilizando a [API REST do Notification Hub do Azure](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
-1. No Android Studio Project View, expanda **o**layout principal de res da App  >  **SRC.**  >  **main**  >  **res**  >  **layout** Abra o `activity_main.xml` ficheiro de esquema e clique no separador **Texto** para atualizar o conteúdo de texto do ficheiro. Atualize-o com o código abaixo, que adiciona novos `Button` e comandos `EditText` para o envio de mensagens de notificação push para o Notification Hub. Adicione este código na parte inferior, imediatamente antes de `</RelativeLayout>`.
+1. No Android Studio Project View, expanda **o** layout principal de res da App  >  **SRC.**  >    >    >   Abra o `activity_main.xml` ficheiro de esquema e clique no separador **Texto** para atualizar o conteúdo de texto do ficheiro. Atualize-o com o código abaixo, que adiciona novos `Button` e comandos `EditText` para o envio de mensagens de notificação push para o Notification Hub. Adicione este código na parte inferior, imediatamente antes de `</RelativeLayout>`.
 
     ```xml
     <Button
@@ -526,7 +526,7 @@ Normalmente, enviaria notificações através de um servidor de backend. Em algu
     android:hint="@string/notification_message_hint" />
     ```
 
-2. No Android Studio Project View, expanda **os**  >  principais**src**  >  **main**  >  **valores de res da**App SRC.  >  **values** Abra o ficheiro `strings.xml` e adicione os valores de cadeia que são referenciados pelo novo `Button` e pelos comandos `EditText`. Adicione as seguintes linhas na parte inferior do ficheiro, imediatamente antes de `</resources>`.
+2. No Android Studio Project View, expanda **os**  >  principais  >    >  **valores de res da** App SRC.  >   Abra o ficheiro `strings.xml` e adicione os valores de cadeia que são referenciados pelo novo `Button` e pelos comandos `EditText`. Adicione as seguintes linhas na parte inferior do ficheiro, imediatamente antes de `</resources>`.
 
     ```xml
     <string name="send_button">Send Notification</string>

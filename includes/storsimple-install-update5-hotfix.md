@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cbc7c82803115f71db233be94d62a857ba050b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050402"
 ---
 #### <a name="to-download-hotfixes"></a>Para transferir correções
@@ -26,7 +26,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
    
     ![Catálogo de pesquisa](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. Clique **em Baixar**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique nos ficheiros para descarregar para a localização e pasta especificadas. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
+4. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique nos ficheiros para descarregar para a localização e pasta especificadas. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
 5. Procure quaisquer hotfixes adicionais listados na tabela acima **(4037266),** e descarregue os ficheiros correspondentes para as pastas específicas listadas na tabela anterior.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ Para instalar as atualizações de firmware do disco, siga as instruções abaix
     ```
 
 3. Monitorize o progresso da instalação com o comando `Get-HcsUpdateStatus`. A atualização está completa quando o `RunInProgress` é alterado para `False`.
-4. Após a instalação estar concluída, o controlador em que a correção do modo de manutenção foi instalada reinicia. Inicie sessão como opção 1, **faça login com acesso total**e verifique a versão do firmware do disco. Escreva:
+4. Após a instalação estar concluída, o controlador em que a correção do modo de manutenção foi instalada reinicia. Inicie sessão como opção 1, **faça login com acesso total** e verifique a versão do firmware do disco. Escreva:
    
    `Get-HcsFirmwareVersion`
    

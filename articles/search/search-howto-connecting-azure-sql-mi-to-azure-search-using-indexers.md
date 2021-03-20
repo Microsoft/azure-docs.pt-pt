@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89294259"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configure uma ligação de um indexante de pesquisa cognitiva Azure para SQL Gerenciada Instância
@@ -25,7 +25,7 @@ Crie uma sql Managed Instance com a opção **de ponto final público Enable** s
    ![Permitir o ponto final público](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Permitir o ponto final público")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Ativar o ponto final público da Instância Gerida Azure SQL
-Também pode ativar o ponto final público numa ocorrência gerida pelo SQL existente na rede virtual **de segurança**  >  **Virtual network**  >  **Public endpoint**  >  **Ative**.
+Também pode ativar o ponto final público numa ocorrência gerida pelo SQL existente na rede virtual **de segurança**  >    >    >  **Ative**.
 
    ![Permitir o ponto final público utilizando o VNET de instância gerida](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Permitir o ponto final público")
 

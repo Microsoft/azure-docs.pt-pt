@@ -16,10 +16,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97357981"
 ---
 # <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>Configure Azure Load Balancer para a instância de cluster de failover VNN
@@ -138,8 +138,8 @@ A tabela a seguir descreve os valores que precisa de atualizar:
 
 |**Valor**|**Descrição**|
 |---------|---------|
-|`Cluster Network Name`| O nome do Cluster failover do servidor do Windows para a rede. Nas Redes **de Gestores de Cluster Failover,**  >  clique à direita na rede e selecione **Propriedades.** O valor correto está no **nome** no separador **Geral.**|
-|`SQL Server FCI/AG listener IP Address Resource Name`|O nome de recurso para o endereço IP do SQL Server FCI ou do ouvinte AG. Em **Funções de Gestor de Cluster Failover**  >  , sob a função SQL Server FCI, em Nome **do Servidor,** clique com o botão direito no recurso de endereço IP e selecione **Propriedades**. O valor correto está no **nome** no separador **Geral.**|
+|`Cluster Network Name`| O nome do Cluster failover do servidor do Windows para a rede. Nas Redes **de Gestores de Cluster Failover,**  >  clique à direita na rede e selecione **Propriedades.** Poderá encontrar o valor correto em **Nome** no separador **Geral**.|
+|`SQL Server FCI/AG listener IP Address Resource Name`|O nome de recurso para o endereço IP do SQL Server FCI ou do ouvinte AG. Em **Funções de Gestor de Cluster Failover**  >  , sob a função SQL Server FCI, em Nome **do Servidor,** clique com o botão direito no recurso de endereço IP e selecione **Propriedades**. Poderá encontrar o valor correto em **Nome** no separador **Geral**.|
 |`ILBIP`|O endereço IP do esquilibrador interno de carga (ILB). Este endereço está configurado no portal Azure como o endereço frontal do ILB. Este é também o endereço IP do SQL Server FCI. Pode encontrá-lo no **Failover Cluster Manager** na mesma página de propriedades onde localiza o `<SQL Server FCI/AG listener IP Address Resource Name>` .|
 |`nnnnn`|A porta da sonda que configuraste na sonda de saúde do equilibrador de carga. Qualquer porta TCP não utilizada é válida.|
 |"SubnetMask"| A máscara de sub-rede para o parâmetro do cluster. Deve ser o endereço de emissão IP da TCP: `255.255.255.255` .| 

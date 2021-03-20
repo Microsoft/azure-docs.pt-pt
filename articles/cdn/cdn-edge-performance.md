@@ -1,5 +1,5 @@
 ---
-title: Analise o desempenho do nó de borda no Azure CDN Microsoft Docs
+title: Analise o desempenho do nó de borda em Azure CDN | Microsoft Docs
 description: Analise o desempenho do nó de borda no Microsoft Azure CDN. Edge Performance Analytics fornece tráfego de informação granular e utilização de largura de banda para o CDN.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778653"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
@@ -55,7 +55,7 @@ Este painel é composto por:
     ![Botão de gestão da lâmina de perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gestão cdn abre.
-2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique no **Dashboard** .
+2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique no **Dashboard**.
    
     É apresentado o painel de análise do nó de borda.
 
@@ -143,7 +143,7 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
     ![Botão de gestão da lâmina de perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gestão cdn abre.
-2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique em **HTTP Large Object** .
+2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique em **HTTP Large Object**.
    
     É apresentado o ecrã de relatórios de análise de nó de borda.
 
@@ -171,7 +171,7 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
 | Agente utilizador |Contém um gráfico de barras que mostra os 10 principais agentes de utilizador para solicitar o seu conteúdo através do nosso CDN. Normalmente, um agente de utilizadores é um navegador web, leitor de mídia ou um navegador de telemóvel. As estatísticas dos 100 principais agentes utilizadores são apresentadas diretamente abaixo deste gráfico. |
 | Remetentes |Contém um gráfico de barras que mostra os 10 principais remetentes aos conteúdos acedidos através do nosso CDN. Normalmente, um remetente é o URL da página web ou recurso que se liga ao seu conteúdo. Informações detalhadas são fornecidas abaixo do gráfico para os 100 melhores remetentes. |
 | Tipos de compressão |Contém um gráfico de donuts que decompõe os ativos solicitados se foram comprimidos pelos nossos servidores de borda. A percentagem de ativos comprimidos é decompoda pelo tipo de compressão utilizada. Informações detalhadas são fornecidas abaixo do gráfico para cada tipo e estado de compressão. |
-| Tipos de Ficheiros |Contém um gráfico de barras que exibe os 10 melhores tipos de ficheiros que foram solicitados através do nosso CDN para a sua conta. Para efeitos deste relatório, um tipo de ficheiro é definido pela extensão do nome do ficheiro do ativo e pelo tipo de mídia da Internet (por exemplo, .html \[ text/html \] , .htm \[ text/html \] , .aspx \[ text/html \] , etc.). Informações detalhadas são fornecidas abaixo do gráfico para os 100 melhores tipos de ficheiros. |
+| Tipos de Ficheiros |Contém um gráfico de barras que exibe os 10 melhores tipos de ficheiros que foram solicitados através do nosso CDN para a sua conta. Para efeitos deste relatório, um tipo de ficheiro é definido pela extensão do nome do ficheiro do ativo e pelo tipo de mídia da Internet (por exemplo, .html \[ texto/html \] , .htm \[ texto/html, \] .aspx \[ texto/html, \] etc.). Informações detalhadas são fornecidas abaixo do gráfico para os 100 melhores tipos de ficheiros. |
 | Ficheiros Únicos |Contém um gráfico que traça o número total de ativos únicos que foram solicitados num determinado dia durante um determinado período de tempo. |
 | Resumo token Auth |Contém um gráfico de tartes que fornece uma visão geral rápida sobre se os ativos solicitados foram protegidos por Token-Based Autenticação. Os ativos protegidos são apresentados na tabela de acordo com os resultados da sua tentativa de autenticação. |
 | Token Auth Negar Detalhes |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que foram negados devido à Token-Based Autenticação. |

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89289176"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Ligue uma loja de conhecimento com o Power BI
@@ -43,7 +43,7 @@ Clique em **Obter O Modelo DE BI de Potência** na página Adicionar **habilidad
 
 1. Iniciar Power BI Desktop e clicar **Em Obter dados**.
 
-1. Na janela **Obter Dados,** selecione **Azure**e, em seguida, selecione **Azure Table Storage**.
+1. Na janela **Obter Dados,** selecione **Azure** e, em seguida, selecione **Azure Table Storage**.
 
 1. Clique em **Ligar**.
 
@@ -63,7 +63,7 @@ Clique em **Obter O Modelo DE BI de Potência** na página Adicionar **habilidad
 
    ![Consulta de energia aberta](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Consulta de energia aberta")
 
-1. Selecione *hotelReviewsSsDocument*e, em seguida, remova as colunas *PartitionKey,* *RowKey*e *Timestamp.* 
+1. Selecione *hotelReviewsSsDocument* e, em seguida, remova as colunas *PartitionKey,* *RowKey* e *Timestamp.* 
    ![Editar tabelas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Editar tabelas")
 
 1. Clique no ícone com setas opostas no lado superior direito da tabela para expandir o *Conteúdo*. Quando a lista de colunas aparecer, selecione todas as colunas e, em seguida, desmarcar colunas que começam com 'metadados'. Clique **em OK** para mostrar as colunas selecionadas.
@@ -77,7 +77,7 @@ Clique em **Obter O Modelo DE BI de Potência** na página Adicionar **habilidad
 
    ![Alterar tipos de dados](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Alterar tipos de dados")
 
-1. Selecione *hotelReviewsSsPages*e, em seguida, repita os passos 9 e 10 para eliminar as colunas e expandir o *Conteúdo*.
+1. Selecione *hotelReviewsSsPages* e, em seguida, repita os passos 9 e 10 para eliminar as colunas e expandir o *Conteúdo*.
 1. Alterar o tipo de dados *para Conteúdo.SentimentScore* para **Número Decimal**.
 1. Selecione *hotelReviewsSsKeyPhrases* e repita os passos 9 e 10 para eliminar as colunas e expandir o *Conteúdo*. Não existem modificações do tipo de dados para esta tabela.
 

@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-js
 ms.date: 04/30/2020
 ms.openlocfilehash: 621e3e1cef39e34656c094a39d218d5d5866fa26
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91309086"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Quickstart: Implementar uma instância de contentor em Azure usando um modelo ARM
@@ -83,11 +83,11 @@ Utilize o portal Azure ou uma ferramenta como o [Azure CLI](container-instances-
 
 Ver os registos de uma instância de contentor é útil quando estiver a resolver problemas no contentor ou na aplicação nele executada.
 
-Para visualizar os registos do contentor, em **Definições,** selecione **Containers**  >  **Registos de Contentores**. Deverá ver o pedido HTTP GET gerado quando visualizou a aplicação no seu browser.
+Para visualizar os registos do contentor, em **Definições,** selecione   >  **Registos de Contentores**. Deverá ver o pedido HTTP GET gerado quando visualizou a aplicação no seu browser.
 
 ![Registos de contentor no portal do Azure](media/container-instances-quickstart-template/aci-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar o recipiente, na página **'Visão Geral'** para a instância do recipiente, selecione **Delete**. Quando lhe for perguntado, confirme a eliminação.
 

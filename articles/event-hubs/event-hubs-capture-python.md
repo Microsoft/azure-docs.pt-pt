@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como escrever código Python para capturar d
 ms.topic: quickstart
 ms.date: 01/04/2021
 ms.openlocfilehash: acc2ce04add5fd837e9edc789e9616a9f04fb4b9
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97883202"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Capture os dados do Event Hubs no Azure Storage e leia-os utilizando python (azure-eventhub)
@@ -36,7 +36,7 @@ Neste início rápido, irá:
 - Um espaço de nomes e centro de eventos do Event Hubs ativo.
 [Crie um espaço de nomes de Event Hubs e um centro de eventos no espaço de nomes.](event-hubs-create.md) Grave o nome do espaço de nomes do Event Hubs, o nome do centro de eventos e a chave de acesso primária para o espaço de nome. Para obter a chave de acesso, consulte [obter uma cadeia de conexão Event Hubs](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). O nome-chave predefinido é *RootManageSharedAccessKey*. Para este arranque rápido, só precisas da chave primária. Não precisas da corda de ligação.  
 - Uma conta de armazenamento Azure, um recipiente blob na conta de armazenamento e um fio de ligação à conta de armazenamento. Se não tiver estes itens, faça o seguinte:  
-    1. [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
+    1. [Criar uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Criar um contentor de blobs na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 

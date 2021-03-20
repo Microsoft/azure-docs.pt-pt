@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Conceitos de design / Microsoft Docs'
+title: 'Azure AD Connect: Conceitos de design | Microsoft Docs'
 description: Este tópico detalha certas áreas de design de implementação
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279657"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
@@ -45,7 +45,7 @@ O valor do atributo deve seguir as seguintes regras:
 
 * Menos de 60 caracteres de comprimento
   * Os caracteres que não são a-z, A-Z ou 0-9 são codificados e contados como 3 caracteres
-* Não contêm um carácter especial: &#92;! $ % & * + = = ? ^ &#96; { } ~ < > . : , [ ] " \@ _
+* Não contêm um carácter especial: &#92;! $ % & * + = = ? ^ &#96; { } | ~ < > . : , [ ] " \@ _
 * Deve ser globalmente único
 * Deve ser uma corda, inteiro, ou binário
 * Não deve basear-se no nome do utilizador porque estes podem mudar
@@ -62,7 +62,7 @@ Se você tem várias florestas e não move os utilizadores entre florestas e dom
 
 Se deslocar os utilizadores entre florestas e domínios, então tem de encontrar um atributo que não mude ou possa ser movido com os utilizadores durante o movimento. Uma abordagem recomendada é introduzir um atributo sintético. Um atributo que poderia conter algo que se parecesse com um GUID seria adequado. Durante a criação de objetos, é criado e carimbado um novo GUID no utilizador. Uma regra de sincronização personalizada pode ser criada no servidor do motor de sincronização para criar este valor com base no **objectGUID** e atualizar o atributo selecionado em ADDS. Ao mover o objeto, certifique-se de copiar também o conteúdo deste valor.
 
-Outra solução é escolher um atributo existente que sabe que não muda. Os atributos geralmente usados incluem **o employeeID.** Se considerar um atributo que contenha letras, certifique-se de que não há hipótese de o caso (maiúscula vs. minúscula) poder alterar para o valor do atributo. Os maus atributos que não devem ser utilizados incluem esses atributos com o nome do utilizador. Num casamento ou divórcio, espera-se que o nome mude, o que não é permitido para este atributo. Esta é também uma das razões pelas quais atributos como **userPrincipalName**, **mail**e **targetAddress** nem sequer são possíveis de selecionar no assistente de instalação Azure AD Connect. Esses atributos também contêm o " \@ " " personagem, que não é permitido na fonteAnchor.
+Outra solução é escolher um atributo existente que sabe que não muda. Os atributos geralmente usados incluem **o employeeID.** Se considerar um atributo que contenha letras, certifique-se de que não há hipótese de o caso (maiúscula vs. minúscula) poder alterar para o valor do atributo. Os maus atributos que não devem ser utilizados incluem esses atributos com o nome do utilizador. Num casamento ou divórcio, espera-se que o nome mude, o que não é permitido para este atributo. Esta é também uma das razões pelas quais atributos como **userPrincipalName**, **mail** e **targetAddress** nem sequer são possíveis de selecionar no assistente de instalação Azure AD Connect. Esses atributos também contêm o " \@ " " personagem, que não é permitido na fonteAnchor.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>Alterar o atributo SourceAnchor
 O valor do atributo sourceAnchor não pode ser alterado após o objeto ter sido criado em Azure AD e a identidade ser sincronizada.
