@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90938867"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauro pontual de um Servidor Flexível
@@ -30,7 +30,7 @@ Para completar este guia, precisa:
 
 Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia de segurança mais antiga existente.
 
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
 
 2.  Clique **na visão geral** do painel esquerdo e clique em **Restaurar**
    
@@ -40,7 +40,7 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 
 4.  Selecione **o ponto de restauro mais antigo** e forneça um novo nome de servidor no campo Restaurar para novo **servidor.** A primeira hora de tempo a que pode restaurar é exibida. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Restaurar a visão geral":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="O tempo de restauro mais antigo":::
 
 5.  Clique em **OK**.
 
@@ -50,7 +50,7 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 
 Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia de segurança mais antiga existente.
 
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
 
 2.  A partir da página geral, clique em **Restaurar**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restaurar a visão geral":::
@@ -61,7 +61,7 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 
 5.  Selecione data e hora e forneça um novo nome de servidor no campo **Restaurar para novo servidor.** 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Restaurar a visão geral":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Tempo de restauração personalizado":::
  
 6.  Clique em **OK**.
 
@@ -70,5 +70,5 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 ## <a name="next-steps"></a>Passos seguintes
 
 -   Conheça a [continuidade do negócio](./concepts-business-continuity.md)
--   Saiba mais sobre [zona redundante alta disponibilidade](./concepts-high-availability.md)
+-   Saiba mais sobre [zona redundante alta disponibilidade](./concepts-high-availability.md)
 -   Saiba mais [sobre backup e recuperação](./concepts-backup-restore.md)

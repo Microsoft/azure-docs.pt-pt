@@ -1,5 +1,5 @@
 ---
-title: Alterar tipo de autenticação subdomínio utilizando PowerShell e Graph - Azure Ative Directory / Microsoft Docs
+title: Alterar o tipo de autenticação de subdomínio utilizando PowerShell e Graph - Azure Ative Directory | Microsoft Docs
 description: Alterar as definições de autenticação de subdomínio predefinidos herdadas das definições de domínio raiz no Azure Ative Directory.
 services: active-directory
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 734e6824f13e62ad080500eff18c4892e1f76807
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95503666"
 ---
 # <a name="change-subdomain-authentication-type-in-azure-active-directory"></a>Alterar o tipo de autenticação subdomínio no Diretório Ativo Azure

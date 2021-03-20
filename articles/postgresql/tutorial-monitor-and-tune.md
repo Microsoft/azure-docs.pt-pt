@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336984"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitor e tune Azure Database for PostgreSQL - Single Server
@@ -27,7 +27,7 @@ A Base de Dados do Azure para PostgreSQL possui recursos que o ajudam a compreen
 Precisa de um servidor da Base de Dados do Azure para PostgreSQL com a versão 9.6 ou 10 do PostgreSQL. Pode seguir os passos no [Tutorial de criação](tutorial-design-database-using-azure-portal.md) para criar um servidor.
 
 > [!IMPORTANT]
-> O **Arquivo de Consultas** , o **Query Performance Insight** e as **Recomendações de Desempenho** estão em Pré-visualização Pública.
+> O **Arquivo de Consultas**, o **Query Performance Insight** e as **Recomendações de Desempenho** estão em Pré-visualização Pública.
 
 ## <a name="enabling-data-collection"></a>Ativar a recolha de dados
 O [Arquivo de Consultas](concepts-query-store.md) captura um histórico das consultas e das estatísticas de espera no seu servidor e armazena-o na base de dados **azure_sys** do servidor. É uma funcionalidade opcional. Para a ativar:
@@ -36,7 +36,7 @@ O [Arquivo de Consultas](concepts-query-store.md) captura um histórico das cons
 
 2. Selecione o servidor da Base de Dados do Azure para PostgreSQL.
 
-3. Selecione **Parâmetros do servidor** , na secção **Definições** do menu esquerdo.
+3. Selecione **Parâmetros do servidor**, na secção **Definições** do menu esquerdo.
 
 4. Defina **pg_qs.query_capture_mode** como **PRINCIPAIS** para começar a recolher dados de desempenho da consulta. Defina **pgms_wait_sampling.query_capture_mode** como **TUDO** para começar a recolher de estatísticas de espera. Guarde.
    
@@ -83,7 +83,7 @@ A funcionalidade [Recomendações de Desempenho](concepts-performance-recommenda
 
 4. A janela **Recomendações de Desempenho** mostrará uma lista de recomendações se for detetada alguma. 
 
-5. As recomendações mostrarão informações sobre a **Base de Dados** , a **Tabela** , a **Coluna** e o **Tamanho do Índice** relevantes.
+5. As recomendações mostrarão informações sobre a **Base de Dados**, a **Tabela**, a **Coluna** e o **Tamanho do Índice** relevantes.
 
    :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Resultado das Recomendações de Desempenho":::
 

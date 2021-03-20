@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 680e22974aa85ae2d179f0b927a44b3471b4939d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87102135"
 ---
 # <a name="what-is-azure-dev-tools-for-teaching"></a>O que é o Azure Dev Tools for Teaching?
@@ -26,7 +26,7 @@ Como administrador da subscrição Azure Dev Tools for Teaching, poderá:
 
 ## <a name="program-details"></a>Detalhes do programa
 
-Desenhamos ferramentas Azure Dev para ensino para instrução focada no STEM. Qualquer currículo de curso focado em ciência, tecnologia, engenharia ou matemática é elegível para usar ferramentas de ensino Azure Dev para ajudar os professores a ensinar e os alunos aprenderem de forma mais eficaz. 
+Desenvolvemos o Azure Dev Tools for Teaching para ensino orientado para STEM. Qualquer programa curricular de curso orientado para ciência, tecnologia, engenharia ou matemática é elegível para utilizar o Azure Dev Tools for Teaching para ajudar os professores a ensinar e os estudantes a aprender mais eficazmente. 
 
 A sua subscrição Microsoft Azure Dev Tools for Teaching fornece-lhe acesso a determinadas ferramentas de desenvolvimento de software. Estas ferramentas estão disponíveis para descarregar gratuitamente. Se for um docente matriculado num curso aprovado, pode instalar o software Azure Dev Tools para ensino no seu computador pessoal para uso não comercial.
 

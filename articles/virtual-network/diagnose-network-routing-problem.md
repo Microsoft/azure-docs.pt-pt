@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar um problema de encaminhamento de máquina virtual Azure / Microsoft Docs
+title: Diagnosticar um problema de encaminhamento de máquina virtual Azure | Microsoft Docs
 description: Aprenda a diagnosticar um problema de encaminhamento de máquinas virtuais visualizando as rotas eficazes para uma máquina virtual.
 services: virtual-network
 documentationcenter: na
@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84705054"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de encaminhamento de máquinas virtuais
 
 Neste artigo, aprende-se a diagnosticar um problema de encaminhamento visualizando as rotas que são eficazes para uma interface de rede numa máquina virtual (VM). O Azure cria várias rotas predefinidas para cada sub-rede de rede virtual. Pode sobrepor as rotas padrão da Azure definindo rotas numa tabela de rotas e, em seguida, associando a tabela de rotas a uma sub-rede. A combinação de rotas que cria, as rotas padrão do Azure e quaisquer rotas propagadas a partir da sua rede no local através de um gateway Azure VPN (se a sua rede virtual estiver ligada à sua rede no local) através do protocolo gateway fronteiriço (BGP), são as rotas eficazes para todas as interfaces de rede numa sub-rede. Se não estiver familiarizado com conceitos de rede virtual, interface de rede ou encaminhamento, consulte [a visão geral da rede virtual,](virtual-networks-overview.md) [a interface da rede](virtual-network-network-interface.md)e a [visão geral do encaminhamento](virtual-networks-udr-overview.md).
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Tenta-se ligar-se a um VM, mas a ligação falha. Para determinar por que não consegue ligar-se ao VM, pode visualizar as rotas eficazes para uma interface de rede utilizando o [portal](#diagnose-using-azure-portal)Azure , [PowerShell](#diagnose-using-powershell)ou o [Azure CLI](#diagnose-using-azure-cli).
 
@@ -36,7 +36,7 @@ Os passos que se seguem assumem que tem um VM existente para ver as rotas efetiv
 
 1. Inicie sessão no [portal](https://portal.azure.com) Azure com uma conta Azure que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 2. No topo do portal Azure, insira o nome de um VM que está no estado de execução, na caixa de pesquisa. Quando o nome do VM aparecer nos resultados da pesquisa, selecione-o.
-3. Em **Definições** à esquerda, **selecione Networking**e navegue para o recurso de interface de rede selecionando o seu nome.
+3. Em **Definições** à esquerda, **selecione Networking** e navegue para o recurso de interface de rede selecionando o seu nome.
      ![Ver interfaces de rede](./media/diagnose-network-routing-problem/view-nics.png)
 4. À esquerda, selecione **Rotas Eficazes**. As rotas eficazes para uma interface de rede chamada **myVMNic1** são mostradas, na seguinte imagem: ![ Ver rotas eficazes](./media/diagnose-network-routing-problem/view-effective-routes.png)
 

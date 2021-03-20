@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082612"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planeador de implementações do Azure Site Recovery para recuperação após desastre do Hyper-V no Azure
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Directory|(Opcional) O UNC ou caminho de diretório local para armazenar os dados de criação de perfis gerados durante a criação. Se não for especificado um nome, será utilizado como diretório predefinido o diretório com o nome ProfiledData no caminho atual.|
 |-Password|(Opcional) A palavra-passe para ligar ao anfitrião Hyper-V. Se não o especificar como um parâmetro, ser-lhe-á solicitado quando executar o comando.|
 |-StorageAccountName|(Opcional) O nome da conta de armazenamento utilizada para encontrar o débito alcançável para a replicação de dados no local para o Azure. Para calcular o débito, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
-|-StorageAccountKey|(Opcional) A chave que é utilizada para aceder à conta de armazenamento. Aceda ao portal Azure > **o**  >  *nome da conta de armazenamento*  >  **Configurações teclas**de acesso Chaves de  >  **acesso**  >  **1** (ou a chave de acesso primária para uma conta de armazenamento clássica).|
+|-StorageAccountKey|(Opcional) A chave que é utilizada para aceder à conta de armazenamento. Aceda ao portal Azure > **o**  >  *nome da conta de armazenamento*  >  **Configurações teclas** de acesso Chaves de  >  **acesso**  >  **1** (ou a chave de acesso primária para uma conta de armazenamento clássica).|
 |-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando a sua região alvo é ou O Governo dos EUA Azure ou Azure China 21Vianet.|
 
 Recomendamos que crie perfis para VMs por mais que 7 dias. Se o volume de alterações mudar mensalmente, recomendamos que crie os perfis durante a semana em que constatar o volume de alterações máximo. A melhor forma consiste em criar perfis para 31 dias, de modo a obter a melhor recomendação. 
@@ -157,7 +157,7 @@ Quando são transmitidos o nome e a chave da conta de armazenamento, a ferrament
 A Azure Site Recovery não suporta VMs que tenham iSCSI e discos de passagem. A ferramenta não consegue detetar e perfilar iSCSI e discos de passagem que estão ligados a VMs.
 
 ## <a name="generate-a-report"></a>Gerar um relatório
-A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório. Resume todas as recomendações de implementação. O nome do relatório é DeploymentPlannerReport_*identificador numérico exclusivo*.xlsm, que é colocado no diretório especificado.
+A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório. Resume todas as recomendações de implementação. O nome do relatório é DeploymentPlannerReport_ *identificador numérico exclusivo*.xlsm, que é colocado no diretório especificado.
 
 Depois de concluída a criação de perfis, pode executar a ferramenta no modo de geração de relatórios. 
 
@@ -281,7 +281,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Virtualization|O tipo de virtualização (VMware ou Hyper-V).|
 |-Directory|(Opcional) O caminho UNC ou o caminho do diretório local onde são armazenados os dados da criação de perfis (ficheiros gerados durante a criação de perfis). Estes dados são necessários para gerar o relatório. Se não for especificado um nome, será utilizado como diretório predefinido o diretório com o nome ProfiledData no caminho atual.|
 | -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
-| -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal Azure > **o**  >  *nome da conta de armazenamento*  >  **Definições**  >  **de Teclas**de acesso  >  **1**.|
+| -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal Azure > **o**  >  *nome da conta de armazenamento*  >  **Definições**  >  **de Teclas** de acesso  >  **1**.|
 | -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** o ficheiro VMList.txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando a região de Azure alvo é ou O Governo dos EUA Azure ou Azure China 21Vianet.|
 
@@ -292,7 +292,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 ### <a name="throughput-considerations"></a>Considerações de débito
 
-A ferramenta cria vários ficheiros asrvhdfile*número*.vhd (em que o *número* corresponde ao número de ficheiros) de 64 MB no diretório especificado. Para encontrar o débito, a ferramenta carrega os ficheiros para a conta de armazenamento. Depois de o débito ser medido, elimina todos os ficheiros da conta de armazenamento e do servidor local. Se a ferramenta for terminada por qualquer motivo enquanto está a calcular o débito, não elimina os ficheiros da conta de armazenamento nem do servidor local. Tem de eliminá-los manualmente.
+A ferramenta cria vários ficheiros asrvhdfile *número*.vhd (em que o *número* corresponde ao número de ficheiros) de 64 MB no diretório especificado. Para encontrar o débito, a ferramenta carrega os ficheiros para a conta de armazenamento. Depois de o débito ser medido, elimina todos os ficheiros da conta de armazenamento e do servidor local. Se a ferramenta for terminada por qualquer motivo enquanto está a calcular o débito, não elimina os ficheiros da conta de armazenamento nem do servidor local. Tem de eliminá-los manualmente.
 
 O débito é medido num ponto no tempo especificado. É o débito máximo que o Azure Site Recovery pode alcançar durante a replicação, se todos os outros fatores permanecerem os mesmos. Por exemplo, se uma aplicação começar a consumir mais largura de banda na mesma rede, o débito real varia durante a replicação. O resultado do débito medido é diferente se a operação GetThroughput for executada quando as VMs protegidas têm elevadas alterações a dados. 
 

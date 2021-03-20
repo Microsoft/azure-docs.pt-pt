@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 1542bba53b51ffdf2129953a81e5d13975ade434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90939247"
 ---
 # <a name="scale-operations-in-flexible-server"></a>Operações de escala em Servidor Flexível
@@ -35,7 +35,7 @@ Para completar este guia, precisa:
 
 Siga estes passos para escolher o nível de cálculo.
  
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
 
 2.  Clique **em Compute+storage**.
 
@@ -43,18 +43,18 @@ Siga estes passos para escolher o nível de cálculo.
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="visão compute+armazenamento":::
 
 4.  Pode escolher a classe computacional entre níveis de limpeza, finalidade geral e memória otimizados.
-   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="visão compute+armazenamento":::
+   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="lista de níveis de cálculo":::
 
 
 5.  Se estiver bem com os vCores padrão e os tamanhos de memória, pode saltar o passo seguinte.
 
 6.  Se quiser alterar o número de vCores, pode clicar no drop-down do tamanho do **Compute** e clicar no número desejado de vCores/Memória da lista.
     
-    - Nível computável burstable: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="visão compute+armazenamento":::
+    - Nível computável burstable: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="cálculo rebentado":::
 
-    - Nível de cálculo para fins gerais: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="visão compute+armazenamento":::
+    - Nível de cálculo para fins gerais: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="cálculo de fim geral":::
 
-    - Nível de computação otimizado da :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="visão compute+armazenamento":::
+    - Nível de computação otimizado da :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="memória: computação otimizada da memória":::
 
 7.  Clique em **Guardar**. 
 8.  Verá uma mensagem de confirmação. Clique **em OK** se quiser prosseguir. 
@@ -65,17 +65,17 @@ Siga estes passos para escolher o nível de cálculo.
 
 Siga estes passos para aumentar o seu tamanho de armazenamento.
 
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível para o qual pretende aumentar o tamanho do armazenamento.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível para o qual pretende aumentar o tamanho do armazenamento.
 2.  Clique **em Compute+storage**.
 
 3.  É apresentada uma página com as definições atuais.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="visão compute+armazenamento":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="clique em compute+armazenamento":::
 4.  O **tamanho do armazenamento de** campo em GiB com uma barra de diapositivos é mostrado com o tamanho atual.
 
 5.  Deslize a barra para o tamanho desejado. É indicado o número de PIOS correspondente. O IOPS depende do nível e tamanho do cálculo. A informação sobre os custos também é mostrada. 
 
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="visão compute+armazenamento":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="escala de armazenamento para cima":::
 
 6.  Se for bom com o tamanho do armazenamento, clique em **Guardar**. 
 7.  Verá uma mensagem de confirmação. Clique **em OK** se quiser prosseguir. 

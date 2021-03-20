@@ -4,10 +4,10 @@ description: Referência para a carga útil JSON para pedidos de webhook num reg
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74455971"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência webhook do registo de contentores Azure
@@ -36,7 +36,7 @@ Webhook desencadeado quando uma imagem de recipiente é empurrada para um reposi
 
 ### <a name="push-event-payload"></a>Empurrar carga útil do evento
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
@@ -46,7 +46,7 @@ Webhook desencadeado quando uma imagem de recipiente é empurrada para um reposi
 
 ### <a name="target"></a><a name="target"></a>alvo
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. O mesmo que o campo De Comprimento.|
@@ -57,7 +57,7 @@ Webhook desencadeado quando uma imagem de recipiente é empurrada para um reposi
 
 ### <a name="request"></a><a name="request"></a>pedido
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |------------------|----------|-----------|
 |`id`|String|A identificação do pedido que iniciou o evento.|
 |`host`|String|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
@@ -100,7 +100,7 @@ Webhook desencadeado quando um gráfico helm é empurrado para um repositório.
 
 ### <a name="chart-push-event-payload"></a>Carga útil do evento push de gráfico
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
@@ -109,7 +109,7 @@ Webhook desencadeado quando um gráfico helm é empurrado para um repositório.
 
 ### <a name="target"></a><a name="helm_target"></a>alvo
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
@@ -150,7 +150,7 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 
 ### <a name="delete-event-payload"></a>Eliminar carga útil do evento
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
@@ -160,7 +160,7 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 
 ### <a name="target"></a><a name="delete_target"></a> alvo
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`digest`|String|A digestão do conteúdo, tal como definido pela Especificação API HTTP do Registo V2.|
@@ -168,7 +168,7 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 
 ### <a name="request"></a><a name="delete_request"></a> pedido
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |------------------|----------|-----------|
 |`id`|String|A identificação do pedido que iniciou o evento.|
 |`host`|String|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
@@ -212,7 +212,7 @@ Webhook desencadeado quando um gráfico de Helm ou repositório é eliminado.
 
 ### <a name="chart-delete-event-payload"></a>Gráfico eliminar carga útil do evento
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |-------------|----------|-----------|
 |`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
@@ -221,7 +221,7 @@ Webhook desencadeado quando um gráfico de Helm ou repositório é eliminado.
 
 ### <a name="target"></a><a name="chart_delete_target"></a> alvo
 
-|Elemento|Tipo|Descrição|
+|Elemento|Tipo|Description|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|

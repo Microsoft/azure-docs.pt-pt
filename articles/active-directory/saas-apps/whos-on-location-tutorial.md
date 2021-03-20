@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com WhosOnLocation Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a WhosOnLocation | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o WhosOnLocation.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
 ms.openlocfilehash: d0e5134da9083e97b3977b05d601c2cfba25f5d4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636685"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosonlocation"></a>Tutorial: Azure Ative Directory integração única (SSO) com WhosOnLocation
@@ -49,15 +49,15 @@ Para configurar a integração da WhosOnLocation no AD Azure, precisa adicionar 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **digite WhosOnLocation** na caixa de pesquisa.
 1. Selecione **WhosOnLocation** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-whosonlocation"></a>Configurar e testar Azure AD SSO para WhosOnLocation
 
-Configure e teste Azure AD SSO com WhosOnLocation usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em WhosOnLocation.
+Configure e teste Azure AD SSO com WhosOnLocation usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em WhosOnLocation.
 
 Para configurar e testar a Azure AD SSO com a WhosOnLocation, complete os seguintes blocos de construção:
 
@@ -72,8 +72,8 @@ Para configurar e testar a Azure AD SSO com a WhosOnLocation, complete os seguin
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **WhosOnLocation,** encontre a secção **Gerir** e selecione **um único sinal de saúde** .
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **WhosOnLocation,** encontre a secção **Gerir** e selecione **um único sinal de saúde**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -101,21 +101,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a WhosOnLocation.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de candidaturas, selecione **WhosOnLocation** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **WhosOnLocation**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -131,11 +131,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela de navegador diferente, inscreva-se no site da empresa WhosOnLocation como administrador.
 
-2. Clique na Conta **Ferramentas.**  ->  **Account**
+2. Clique na Conta **Ferramentas.**  ->  
 
     ![Screenshot mostra conta selecionada do menu Ferramentas no site WhosOnLocation.](./media/WhosOnLocation-tutorial/config1.png)
 
-3. No navegador do lado esquerdo, selecione **Acesso ao Funcionário** .
+3. No navegador do lado esquerdo, selecione **Acesso ao Funcionário**.
 
     ![A screenshot mostra o Acesso do Colaborador selecionado a partir do Perfil de Conta.](./media/WhosOnLocation-tutorial/config2.png)
 
@@ -143,7 +143,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![A screenshot mostra o separador De Acesso de Employess onde pode introduzir dados do utilizador.](./media/WhosOnLocation-tutorial/config3.png)
 
-    a. Altere **o sign-on único com SAML** para **Sim** .
+    a. Altere **o sign-on único com SAML** para **Sim**.
 
     b. Na caixa de texto URL do **Emitente,** cole o valor **de ID** da Entidade que copiou a partir do portal Azure.
 
@@ -151,7 +151,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     d. Abra o Certificado descarregado **(Base64)** do portal Azure para o Bloco de Notas e cole o conteúdo na caixa de texto **do Certificado.**
 
-    e. Clique na **Configuração Save SAML** .
+    e. Clique na **Configuração Save SAML**.
 
 ### <a name="create-whosonlocation-test-user"></a>Criar utilizador de teste WhosOnLocation
 

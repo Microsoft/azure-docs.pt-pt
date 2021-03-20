@@ -4,10 +4,10 @@ description: Obtenha informações da sua nuvem privada Azure VMware Solution pa
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542410"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Abrir um pedido de suporte para uma implementação ou falha de provisionamento da Azure VMware Solution
@@ -84,7 +84,7 @@ Talvez estejas a tentar escalar ou espreitar uma nuvem privada existente com o c
 Para copiar o ID ExpressRoute:
 
 1. No portal Azure, selecione a sua nuvem privada.
-1. No menu esquerdo, em **Manage** , selecione **Conectividade**. 
+1. No menu esquerdo, em **Manage**, selecione **Conectividade**. 
 1. No painel direito, selecione o **separador ExpressRoute.**
 1. Selecione o ícone de cópia para **ExpressRoute ID** e guarde o valor a utilizar no seu pedido de suporte.
  
@@ -112,11 +112,11 @@ Para criar um pedido de suporte para uma implementação ou falha de provisionam
 
 1. Insira ou selecione as informações necessárias:
 
-   1. No separador **Básico** :
+   1. No separador **Básico**:
 
-      1. Para **o tipo de problema** , selecione **Problemas de Configuração e Configuração**.
+      1. Para **o tipo de problema**, selecione **Problemas de Configuração e Configuração**.
 
-      1. Para **o subtipo de problemas** , selecione **Provision a private cloud**.
+      1. Para **o subtipo de problemas**, selecione **Provision a private cloud**.
 
    1. No separador **Detalhes:**
 

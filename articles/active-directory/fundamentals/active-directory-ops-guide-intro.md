@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: c815256e60e5ca6582220d247d587a4488c4a55a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74535317"
 ---
 # <a name="azure-active-directory-operations-reference-guide"></a>Guia de referência de operações do Azure Ative Directory
@@ -36,7 +36,7 @@ Algumas recomendações aqui podem não ser aplicáveis ao ambiente de todos os 
 
 Cada secção deste guia de referência recomenda atribuir às partes interessadas que planeiem e implementem tarefas-chave com sucesso. O quadro que se segue descreve a lista de todas as partes interessadas neste guia:
 
-| Interveniente | Descrição |
+| Interveniente | Description |
 | :- | :- |
 | Equipa de Operações do IAM | Esta equipa gere a gestão das operações diárias do sistema de Gestão de Identidade e Acesso |
 | Equipa de Produtividade | Esta equipa detém e gere as aplicações de produtividade, tais como e-mail, partilha de ficheiros e colaboração, mensagens instantâneas e conferências. |

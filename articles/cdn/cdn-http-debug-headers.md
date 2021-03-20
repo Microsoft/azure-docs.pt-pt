@@ -1,5 +1,5 @@
 ---
-title: Cabeçalhos X-EC-Debug HTTP para motor de regras do Azure CDN Microsoft Docs
+title: Cabeçalhos X-EC-Debug HTTP para Azure CDN regras motor | Microsoft Docs
 description: O cabeçalho de pedido de cache X-EC-Debug fornece informações adicionais sobre a política de cache que é aplicada ao ativo solicitado. Estes cabeçalhos são específicos de Verizon.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343025"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos X-EC-Debug HTTP para motor de regras Azure CDN
@@ -54,7 +54,7 @@ Podem ser solicitados cabeçalhos de resposta de cache de depurg, incluindo o se
 ## <a name="cache-status-code-information"></a>Informações sobre o código de estado da cache
 O cabeçalho de resposta X-EC-Debug pode identificar um servidor e como lidou com a resposta através das seguintes diretivas:
 
-Cabeçalho | Descrição
+Cabeçalho | Description
 -------|------------
 X-EC-Debug: x-ec-cache | Este cabeçalho é relatado sempre que o conteúdo é encaminhado através do CDN. Identifica o servidor POP que cumpriu o pedido.
 X-EC-Debug: x-ec-cache-remote | Este cabeçalho só é relatado quando o conteúdo solicitado foi cached em um servidor de escudo de origem ou um servidor de gateway ADN.
@@ -122,7 +122,7 @@ Esta cache-key física começa com um corte duplo para a frente (//) seguido pel
 
 Por padrão, as plataformas HTTP são configuradas para utilizar *cache padrão*, o que significa que as cadeias de consulta são ignoradas pelo mecanismo de cache. Este tipo de configuração impede que a chave de cache inclua dados de cadeia de consulta.
 
-Se uma cadeia de consulta for gravada na chave de cache, é convertida para o seu equivalente de haxixe e depois inserida entre o nome do ativo solicitado e a sua extensão de ficheiro (por exemplo, &lt; valor de haxixe do ativo &gt; .html).
+Se uma cadeia de consulta for gravada na chave de cache, é convertida para o seu equivalente de haxixe e depois inserida entre o nome do ativo solicitado e a sua extensão de ficheiro (por exemplo, &lt; o valor de haxixe do ativo &gt; .html).
 
 ### <a name="response-header-format"></a>Formato do cabeçalho de resposta
 
@@ -163,7 +163,7 @@ Os termos utilizados na sintaxe do cabeçalho de resposta acima são definidos d
 
 - RTTimePeriod: Converte o valor TTL restante (isto é, RTSeconds) para o equivalente aproximado de uma unidade maior (por exemplo, dias).
 
-- ExpiraSSegundos: Indica o número de segundos restantes antes da data/hora especificada no `Expires` cabeçalho de resposta. Se o `Expires` cabeçalho de resposta não foi incluído na resposta, então o valor deste termo *não*é nenhum .
+- ExpiraSSegundos: Indica o número de segundos restantes antes da data/hora especificada no `Expires` cabeçalho de resposta. Se o `Expires` cabeçalho de resposta não foi incluído na resposta, então o valor deste termo *não* é nenhum .
 
 ### <a name="sample-response-header"></a>Cabeçalho de resposta da amostra
 

@@ -1,5 +1,5 @@
 ---
-title: Adicionar manualmente uma conta à app - Azure Ative Directory Microsoft Docs
+title: Adicione manualmente uma conta à aplicação - Azure Ative Directory | Microsoft Docs
 description: Como adicionar manualmente as suas contas à aplicação Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
 author: curtand
@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 3838234f9f65fcf91f8de33e3d7196aa13f2b903
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83741726"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar manualmente uma conta à app

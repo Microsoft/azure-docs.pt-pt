@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84699129"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembale, suporte de cremalheira e cabo o seu dispositivo StorSimple 8100
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O microsoft Azure StorSimple 8100 é um único recinto, um dispositivo montado na cremalheira. Este tutorial explica como desempacotar, montar e cabo o hardware do dispositivo StorSimple 8100 antes de configurar e implantar o dispositivo StorSimple.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Desembale o seu dispositivo StorSimple 8100
@@ -184,7 +184,7 @@ Para suportar este controlador redundante falha, é necessário por cabo a rede 
    
     **Parte de trás do dispositivo mostrando portas de dados**
    
-   | Etiqueta | Descrição |
+   | Etiqueta | Description |
    | --- | --- |
    |   0,1,4,5 |1 Interfaces de rede GbE |
    |   2,3 |10 interfaces de rede GbE |
@@ -195,7 +195,7 @@ Para suportar este controlador redundante falha, é necessário por cabo a rede 
 
     **Cabo de rede para o seu dispositivo**
 
-   |Etiqueta | Descrição |
+   |Etiqueta | Description |
    |----- | ----------- |
    | A    | LAN com acesso à Internet |
    | B    | Controlador 0 |

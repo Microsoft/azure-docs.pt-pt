@@ -1,5 +1,5 @@
 ---
-title: Capacidade de apoio - Azure Dedicado HSM / Microsoft Docs
+title: Suporte - Azure Dedicado HSM | Microsoft Docs
 description: Opções de apoio e áreas de responsabilidade para a Azure Dedicado HSM em diferentes cenários
 services: dedicated-hsm
 author: johndaw
@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "70881019"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Suporte dedicado ao HSM Azure
@@ -96,5 +96,5 @@ Recomenda-se que conceitos-chave como alta disponibilidade e segurança sejam be
 * [Arquitetura de Implantação](deployment-architecture.md)
 * [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 

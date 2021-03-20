@@ -1,7 +1,7 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 titleSuffix: Azure
-description: ficheiro de inclusão
+description: incluir ficheiro
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 5/22/2020
 ms.author: derekol
 ms.openlocfilehash: e2804c8f9b1af89ac0ea86ec14136df66d900060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83846179"
 ---
-1. **Selecione Criar um recurso**Ver  >  **tudo.**
+1. **Selecione Criar um recurso** Ver  >  **tudo.**
 
     > [!div class="mx-imgBorder"]
     > ![Pesquisar Peering](../media/setup-seeall.png)

@@ -1,21 +1,21 @@
 ---
-title: Análise de sentimento no Twitter em tempo real com Azure Stream Analytics
-description: Este artigo descreve como usar stream Analytics para análise de sentimento no Twitter em tempo real. Orientação passo a passo da geração de eventos para dados num dashboard ao vivo.
+title: Análise de mídia social com Azure Stream Analytics
+description: Este artigo descreve como usar o Stream Analytics para análise de redes sociais usando a API cliente do Twitter. Orientação passo a passo da geração de eventos para dados num dashboard ao vivo.
 services: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.openlocfilehash: 6a461ad906f7611c8a13e2ee495f4d2f62fedd53
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: e2369e8f4349a3b4a83c1729c6414d319dd8419e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734848"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589672"
 ---
-# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Azure Stream Analytics
+# <a name="social-media-analysis-with-azure-stream-analytics"></a>Análise de mídia social com Azure Stream Analytics
 
 Este artigo ensina-lhe como construir uma solução de análise de sentimento nas redes sociais, trazendo eventos do Twitter em tempo real para a Azure Event Hubs. Escreve uma consulta Azure Stream Analytics para analisar os dados e armazenar os resultados para posterior utilização ou criar um dashboard [Power BI](https://powerbi.com/) para fornecer informações em tempo real.
 
@@ -231,7 +231,7 @@ Uma entrada de trabalho, consulta e saída são especificados. Está pronto para
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

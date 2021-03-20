@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Vidyard Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Vidyard | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Vidyard.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4176c92d48b67b9f9207f22ebd8939b5ec1437ee
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integração do Diretório Ativo Azure com a Vidyard
@@ -51,7 +51,7 @@ Para configurar a integração da Vidyard no Azure AD, é necessário adicionar 
 
 **Para adicionar Vidyard da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -69,7 +69,7 @@ Para configurar a integração da Vidyard no Azure AD, é necessário adicionar 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Vidyard com base em um utilizador de teste chamado **Britta Simon** .
+Nesta secção, você configura e testa Azure AD single sign-on com Vidyard com base em um utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Vidyard.
 
 Para configurar e testar o Azure AD com a Vidyard, tem de completar os seguintes blocos de construção:
@@ -87,7 +87,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com a Vidyard, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Vidyard,** selecione **Single sign-on** .
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Vidyard,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD com a Vidyard, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Vidyard Software como administrador.
 
-2. A partir do painel Vidyard, selecione **Security do Grupo**  >  **Security**
+2. A partir do painel Vidyard, selecione **Security do Grupo**  >  
 
     ![A screenshot mostra segurança selecionada do Grupo no site do Software Vidyard.](./media/vidyard-tutorial/configure1.png)
 
@@ -158,7 +158,7 @@ Para configurar o Azure AD com a Vidyard, execute os seguintes passos:
 
     f. Na caixa de texto **URL DO PONTO FINAL SAML,** cole o valor do URL de **Login** copiado do portal Azure.
 
-    exemplo, Clique em **Confirmar** .
+    exemplo, Clique em **Confirmar**.
 
 5. A partir do sinal único no separador, selecione **Atribuir** ao lado de um perfil existente
 
@@ -171,7 +171,7 @@ Para configurar o Azure AD com a Vidyard, execute os seguintes passos:
 
     ![A screenshot mostra atribuir a configuração SAML às organizações onde pode selecionar o seu grupo.](./media/vidyard-tutorial/configure5.png)
 
-7. Pode ver os grupos designados nos **grupos atualmente designados.** Selecione uma função para o grupo de acordo com a sua organização e clique em **Confirmar** .
+7. Pode ver os grupos designados nos **grupos atualmente designados.** Selecione uma função para o grupo de acordo com a sua organização e clique em **Confirmar**.
 
     ![A screenshot mostra atribuir a configuração SAML às organizações onde pode selecionar uma função.](./media/vidyard-tutorial/configure6.png)
 
@@ -182,7 +182,7 @@ Para configurar o Azure AD com a Vidyard, execute os seguintes passos:
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -194,27 +194,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Vidyard.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Vidyard** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Vidyard**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Vidyard** .
+2. Na lista de candidaturas, selecione **Vidyard**.
 
     ![O link Vidyard na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

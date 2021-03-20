@@ -27,6 +27,8 @@
       href: tutorial-connect-virtual-networks-portal.md
     - name: Criar e validar um NAT gateway
       href: tutorial-create-nat-gateway-portal.md
+    - name: Integrar o equilibrador de carga pública NAT Gateway
+      href: tutorial-nat-gateway-load-balancer-public-portal.md
 - name: Amostras
   items:
     - name: CLI do Azure

@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/06/2020
 ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91826986"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Quickstart: Criar um registo de contentores geo-replicado utilizando um modelo ARM
@@ -61,11 +61,11 @@ Mais amostras de modelo de registo de contentores Azure podem ser encontradas na
 
         :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="Propriedades do modelo":::
 
-1. Selecione **Rever + Criar**e, em seguida, rever os termos e condições. Se estiver de acordo, **selecione Criar**.
+1. Selecione **Rever + Criar** e, em seguida, rever os termos e condições. Se estiver de acordo, **selecione Criar**.
 
 1. Após a criação do registo com sucesso, recebe uma notificação:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propriedades do modelo":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notificação do portal":::
 
  O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, pode utilizar o Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -77,17 +77,17 @@ Utilize o portal Azure ou uma ferramenta como o Azure CLI para rever as propried
 
 1. Na página **'Vista Geral',** note o **servidor de Login** do registo. Use este URI quando usar o Docker para marcar e empurrar imagens para o seu registo. Para obter informações, consulte [a sua primeira imagem utilizando o Docker CLI](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Propriedades do modelo":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Visão geral do registo":::
 
 1. Na página **replicações,** confirme as localizações da réplica doméstica e a réplica adicionada através do modelo. Se desejar, adicione mais réplicas nesta página.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propriedades do modelo":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replicações de registo":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar deles, elimine o grupo de recursos, o registo e a réplica do registo. Para tal, vá ao portal Azure, selecione o grupo de recursos que contém o registo e, em seguida, **selecione Delete resource group**.
 
-:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Propriedades do modelo":::
+:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Eliminar grupo de recursos":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

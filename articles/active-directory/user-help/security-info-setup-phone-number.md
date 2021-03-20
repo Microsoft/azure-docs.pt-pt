@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 7500b6b146a627dcdebacd9d2e2c7c61bc43c105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83744457"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurar um número de telefone como o seu método de verificação
@@ -65,7 +65,7 @@ Dependendo das configurações da sua organização, poderá utilizar chamadas t
 
     ![Adicionar caixa de métodos, com telefone selecionado](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. Na página **'Telefone',** digite o número de telefone do seu dispositivo móvel, escolha **Ligue-me**e, em seguida, selecione **Seguinte**.
+4. Na página **'Telefone',** digite o número de telefone do seu dispositivo móvel, escolha **Ligue-me** e, em seguida, selecione **Seguinte**.
 
     ![Adicione o número de telefone e escolha chamadas telefónicas](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
@@ -102,11 +102,11 @@ Se pretender que as chamadas telefónicas sejam o método predefinido utilizado 
 
     ![Alterar link para o método de inscrição predefinido](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecione **Telefone - ligue*_(your_phone_number_*)** da lista de métodos disponíveis e, em seguida, selecione **Confirmar**.
+2. Selecione **Telefone - ligue *_(your_phone_number_*)** da lista de métodos disponíveis e, em seguida, selecione **Confirmar**.
 
     ![Escolha o método para o padrão de inscrição](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    O método predefinido utilizado para alterações de inscrição no **Telefone - chamada*_(your_phone_number_*)**.
+    O método predefinido utilizado para alterações de inscrição no **Telefone - chamada *_(your_phone_number_*)**.
 
 ## <a name="additional-security-info-methods"></a>Métodos adicionais de informação de segurança
 

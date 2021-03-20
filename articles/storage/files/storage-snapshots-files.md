@@ -1,5 +1,5 @@
 ---
-title: Visão geral das fotos de partilha para Ficheiros Azure / Microsoft Docs
+title: Visão geral das fotos de partilha para Azure Files | Microsoft Docs
 description: Um instantâneo de partilha é uma versão apenas de leitura de uma partilha de Ficheiros Azure que é tirada num ponto do tempo, como uma forma de apoiar a partilha.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84235606"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de partilha de instantâneos de ficheiros do Azure

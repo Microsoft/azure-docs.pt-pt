@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: e9bb516d498d989b97f1069af9a9f4cb673ea96d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74892673"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Ver e editar informações do Video Indexer
@@ -39,7 +39,7 @@ Este tópico mostra-lhe como visualizar e editar as perceções do Video Indexer
 
 [Use as ideias profundas dos seus vídeos](use-editor-create-project.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)
 

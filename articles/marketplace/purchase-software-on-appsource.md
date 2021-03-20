@@ -1,6 +1,6 @@
 ---
 title: Como comprar software no Microsoft AppSource
-description: Passos para alguém comprar software no AppSource Mercado Azure.
+description: Passos para um comprar software no | AppSource Mercado Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
 ms.openlocfilehash: bfdae8de4c1a460844b09f82048e1e1d6abdb2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708038"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como adquirir software no Microsoft AppSource
@@ -65,4 +65,4 @@ Para produtos empresariais, [contacte aqui.](/office365/admin/contact-support-fo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Documentação do cliente do mercado da Microsoft](/marketplace/)
+- [Documentação de cliente do marketplace Microsoft](/marketplace/)

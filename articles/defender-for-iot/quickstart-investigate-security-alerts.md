@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90947340"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Quickstart: Investigar alertas de segurança
@@ -42,14 +42,14 @@ A lista de alerta de segurança IoT Hub apresenta todos os alertas de segurança
 
 A abertura de cada alerta agregado apresenta a descrição detalhada do alerta, as etapas de reparação, o ID do dispositivo para cada dispositivo que desencadeou um alerta, bem como a gravidade do alerta e o acesso direto à investigação utilizando o Log Analytics. 
 
-1. Selecione e abra qualquer alerta de segurança da lista de alertas de segurança do **hub IoT.**  >  **Security**  >  **Alerts** 
-1. Reveja a **descrição**do alerta , **gravidade,** **origem da deteção,** detalhes do **dispositivo** de todos os dispositivos que emitiram este alerta durante o período de agregação.
-:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investigue novos alertas de segurança IoT usando a nova bandeira de alerta"::: 
+1. Selecione e abra qualquer alerta de segurança da lista de alertas de segurança do **hub IoT.**  >    >   
+1. Reveja a **descrição** do alerta , **gravidade,** **origem da deteção,** detalhes do **dispositivo** de todos os dispositivos que emitiram este alerta durante o período de agregação.
+:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Aprofundar e rever os detalhes de cada dispositivo em um alerta agregado "::: 
 1. Depois de rever as especificidades do alerta, utilize as instruções **de remediação manual** para ajudar a remediar e/ou resolver o problema que causou o alerta. 
-:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Investigue novos alertas de segurança IoT usando a nova bandeira de alerta":::
+:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Siga as medidas de reparação manual para ajudar a resolver ou remediar os alertas de segurança do dispositivo":::
 
 1. Se for necessária uma investigação mais aprofundada, **investigue os alertas no Log Analytics** utilizando o link. 
-:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Investigue novos alertas de segurança IoT usando a nova bandeira de alerta":::
+:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Para investigar mais aprofundadamente um alerta, use a investigação usando o link de análise de registo fornecido no ecrã":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

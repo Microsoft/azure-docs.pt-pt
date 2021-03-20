@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777297"
 ---
 # <a name="personalizer-terminology"></a>Terminologia personalizada
@@ -39,9 +39,9 @@ O personalizador é configurado a partir do [portal Azure](https://portal.azure.
 
 * **Exploração**: configurar a percentagem de chamadas rank a usar para exploração
 
-* **Frequência de atualização**do modelo : Com que frequência o modelo é retreinado.
+* **Frequência de atualização** do modelo : Com que frequência o modelo é retreinado.
 
-* **Retenção de**dados : Quantos dias de dados podem armazenar. Isto pode ter impacto em avaliações offline, que são usadas para melhorar o seu ciclo de aprendizagem.
+* **Retenção de** dados : Quantos dias de dados podem armazenar. Isto pode ter impacto em avaliações offline, que são usadas para melhorar o seu ciclo de aprendizagem.
 
 ## <a name="use-rank-and-reward-apis"></a>Use APIs de classificação e recompensa
 
@@ -80,7 +80,7 @@ O personalizador é configurado a partir do [portal Azure](https://portal.azure.
 
 * **Avaliação**: Uma avaliação offline determina a melhor política de aprendizagem para o seu loop com base nos dados da sua aplicação.
 
-* **Política de Aprendizagem**: Como o Personaler treina um modelo em cada evento será determinado por alguns parâmetros que afetam o funcionamento do algoritmo de aprendizagem automática. Um novo ciclo de aprendizagem começa com uma Política de **Aprendizagem**predefinido, que pode produzir um desempenho moderado. Ao executar [Avaliações,](concepts-offline-evaluation.md)o Personalizer cria novas políticas de aprendizagem especificamente otimizadas para os casos de utilização do seu loop. O personalizador irá realizar-se significativamente melhor com políticas otimizadas para cada ciclo específico, gerado durante a Avaliação. A política de aprendizagem é nomeada _definições de aprendizagem_ no **Modelo e configurações de aprendizagem** para o recurso Personalizer no portal Azure.
+* **Política de Aprendizagem**: Como o Personaler treina um modelo em cada evento será determinado por alguns parâmetros que afetam o funcionamento do algoritmo de aprendizagem automática. Um novo ciclo de aprendizagem começa com uma Política de **Aprendizagem** predefinido, que pode produzir um desempenho moderado. Ao executar [Avaliações,](concepts-offline-evaluation.md)o Personalizer cria novas políticas de aprendizagem especificamente otimizadas para os casos de utilização do seu loop. O personalizador irá realizar-se significativamente melhor com políticas otimizadas para cada ciclo específico, gerado durante a Avaliação. A política de aprendizagem é nomeada _definições de aprendizagem_ no **Modelo e configurações de aprendizagem** para o recurso Personalizer no portal Azure.
 
 ### <a name="apprentice-mode-evaluations"></a>Avaliações do modo de aprendiz
 

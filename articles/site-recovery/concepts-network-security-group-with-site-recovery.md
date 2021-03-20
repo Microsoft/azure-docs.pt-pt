@@ -1,5 +1,5 @@
 ---
-title: Grupos de Segurança de Rede com Recuperação do Site Azure Microsoft Docs
+title: Grupos de segurança de rede com | de recuperação do site Azure Microsoft Docs
 description: Descreve como usar grupos de segurança de rede com recuperação do site Azure para recuperação de desastres e migração
 author: Harsha-CS
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92367979"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Grupos de Segurança de Rede com o Azure Site Recovery

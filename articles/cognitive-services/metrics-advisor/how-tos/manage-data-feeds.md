@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
 ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184727"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Como: Gerir os feeds de dados
@@ -37,7 +37,7 @@ Para parar ou reativar um feed de dados:
 
 1. Na página da lista de feed de dados, clique na operação que pretende realizar no feed de dados.
 
-2. Na página de dados, clique no botão **''' ''' ''' ''' ''' ''' '''**
+2. Na página de dados, clique no botão **''' ''' '''**
 
 Para eliminar um feed de dados: 
 
@@ -89,7 +89,7 @@ Existem várias configurações avançadas opcionais ao criar um novo feed de da
     | :------------ | :--------------- |
     | Diariamente, Personalizado (>= 1 dia), semanal, mensal     | 30 minutos          |
     | Hora, Costume (< 1 dia)      | 10 minutos |
-    | Anual | 1 dia          |
+    | Anualmente | 1 dia          |
  
 ### <a name="fill-gap-when-detecting"></a>Preencher lacuna ao detetar: 
 

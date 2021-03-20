@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920549"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
@@ -27,7 +27,7 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes no se
 * [min](#min)
 * [gama](#range)
 * [saltar](#skip)
-* [take](#take)
+* [tomar](#take)
 * [união](#union)
 
 Para obter uma série de valores de cordas delimitados por um valor, consulte [split](template-functions-string.md#split).
@@ -42,9 +42,9 @@ Converte o valor numa matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| converterToArray |Sim |int, string, matriz ou objeto |O valor para converter para uma matriz. |
+| converterToArray |Yes |int, string, matriz ou objeto |O valor para converter para uma matriz. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -129,10 +129,10 @@ Combina várias matrizes e devolve a matriz concatenated, ou combina múltiplos 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou corda |A primeira matriz ou corda para a concatenação. |
-| argumentos adicionais |Não |matriz ou corda |Matrizes adicionais ou cordas em ordem sequencial para a concatenação. |
+| arg1 |Yes |matriz ou corda |A primeira matriz ou corda para a concatenação. |
+| argumentos adicionais |No |matriz ou corda |Matrizes adicionais ou cordas em ordem sequencial para a concatenação. |
 
 Esta função pode assumir qualquer número de argumentos, e pode aceitar cordas ou matrizes para os parâmetros. No entanto, não é possível fornecer tanto matrizes como cordas para parâmetros. As matrizes só são concatenadas com outras matrizes.
 
@@ -252,10 +252,10 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma cor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| contentor |Sim |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
-| itemToFind |Sim |corda ou int |O valor a encontrar. |
+| contentor |Yes |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
+| itemToFind |Yes |corda ou int |O valor a encontrar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -364,9 +364,9 @@ Cria uma matriz a partir dos parâmetros. A `createArray` função não é supor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| args |Não |String, Inteiro, Array ou Objeto |Os valores na matriz. |
+| args |No |String, Inteiro, Array ou Objeto |Os valores na matriz. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -448,9 +448,9 @@ Determina se uma matriz, objeto ou corda está vazia.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |matriz, objeto ou corda |O valor para verificar se está vazio. |
+| itemToTest |Yes |matriz, objeto ou corda |O valor para verificar se está vazio. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -529,9 +529,9 @@ Devolve o primeiro elemento da matriz, ou primeiro carácter da corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou corda |O valor para recuperar o primeiro elemento ou caráter. |
+| arg1 |Yes |matriz ou corda |O valor para recuperar o primeiro elemento ou caráter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -598,11 +598,11 @@ Devolve uma única matriz ou objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou objeto |O primeiro valor a ser usado para encontrar elementos comuns. |
-| arg2 |Sim |matriz ou objeto |O segundo valor a ser usado para encontrar elementos comuns. |
-| argumentos adicionais |Não |matriz ou objeto |Valores adicionais a utilizar para encontrar elementos comuns. |
+| arg1 |Yes |matriz ou objeto |O primeiro valor a ser usado para encontrar elementos comuns. |
+| arg2 |Yes |matriz ou objeto |O segundo valor a ser usado para encontrar elementos comuns. |
+| argumentos adicionais |No |matriz ou objeto |Valores adicionais a utilizar para encontrar elementos comuns. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -706,9 +706,9 @@ Devolve o último elemento da matriz, ou último carácter da corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou corda |O valor para recuperar o último elemento ou caráter. |
+| arg1 |Yes |matriz ou corda |O valor para recuperar o último elemento ou caráter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -775,9 +775,9 @@ Devolve o número de elementos numa matriz, caracteres numa cadeia ou propriedad
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
+| arg1 |Yes |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -899,9 +899,9 @@ Devolve o valor máximo de uma matriz de inteiros ou de uma lista de inteiros se
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor máximo. |
+| arg1 |Yes |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor máximo. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -969,9 +969,9 @@ Devolve o valor mínimo de uma matriz de inteiros ou de uma lista de inteiros se
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor mínimo. |
+| arg1 |Yes |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor mínimo. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1039,10 +1039,10 @@ Cria uma variedade de inteiros a partir de um inteiro inicial e contendo uma sé
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| startIndex |Sim |int |O primeiro inteiro na matriz. A soma do startIndex e da contagem não deve ser superior a 2147483647. |
-| count |Sim |int |O número de inteiros na matriz. Deve ser inteiro não negativo até 10.000. |
+| startIndex |Yes |int |O primeiro inteiro na matriz. A soma do startIndex e da contagem não deve ser superior a 2147483647. |
+| count |Yes |int |O número de inteiros na matriz. Deve ser inteiro não negativo até 10.000. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1103,10 +1103,10 @@ Retorna uma matriz com todos os elementos após o número especificado na matriz
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou corda |A matriz ou corda para usar para saltar. |
-| numberToSkip |Sim |int |O número de elementos ou caracteres a saltar. Se este valor for 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou da corda, é devolvida uma matriz ou corda vazia. |
+| originalValue |Yes |matriz ou corda |A matriz ou corda para usar para saltar. |
+| numberToSkip |Yes |int |O número de elementos ou caracteres a saltar. Se este valor for 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou da corda, é devolvida uma matriz ou corda vazia. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1191,10 +1191,10 @@ Devolve uma matriz com o número especificado de elementos desde o início da ma
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou corda |A matriz ou corda para tirar os elementos. |
-| numberToTake |Sim |int |O número de elementos ou caracteres a tomar. Se este valor for 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da matriz ou corda dada, todos os elementos da matriz ou da corda são devolvidos. |
+| originalValue |Yes |matriz ou corda |A matriz ou corda para tirar os elementos. |
+| numberToTake |Yes |int |O número de elementos ou caracteres a tomar. Se este valor for 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da matriz ou corda dada, todos os elementos da matriz ou da corda são devolvidos. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1279,11 +1279,11 @@ Devolve uma única matriz ou objeto com todos os elementos dos parâmetros. Os v
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou objeto |O primeiro valor a utilizar para unir elementos. |
-| arg2 |Sim |matriz ou objeto |O segundo valor a utilizar para unir elementos. |
-| argumentos adicionais |Não |matriz ou objeto |Valores adicionais a utilizar para unir elementos. |
+| arg1 |Yes |matriz ou objeto |O primeiro valor a utilizar para unir elementos. |
+| arg2 |Yes |matriz ou objeto |O segundo valor a utilizar para unir elementos. |
+| argumentos adicionais |No |matriz ou objeto |Valores adicionais a utilizar para unir elementos. |
 
 ### <a name="return-value"></a>Valor devolvido
 

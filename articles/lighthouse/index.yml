@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 01/26/2021
-  ms.openlocfilehash: 08c6275a9202f8d52e4e3f72f18822633cd113bc
-  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+  ms.openlocfilehash: dae3705f71362cf1ca6ee8005c2c864533b3fbd0
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/27/2021
-  ms.locfileid: "98881776"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104590284"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -85,15 +85,11 @@ landingContent:
       url: ./how-to/manage-sentinel-workspaces.md
     - text: Utilizar os Registos do Azure Monitor
       url: ./how-to/monitor-at-scale.md
-    - text: Monitorizar alterações de delegação
-      url: ./how-to/monitor-delegation-changes.md
     - text: Implementar o Azure Policy
       url: ./how-to/policy-at-scale.md
-    - text: Implementar uma política que pode ser corrigida
-      url: ./how-to/deploy-policy-remediation.md
     - text: Gerir máquinas virtuais híbridas com o Azure Arc
       url: ./how-to/manage-hybrid-infrastructure-arc.md
-    - text: Gerir projetos de migração
+    - text: Gerir projetos da Azure Migrate
       url: ./how-to/migration-at-scale.md
 - title: Referência – SDKs
   linkLists:

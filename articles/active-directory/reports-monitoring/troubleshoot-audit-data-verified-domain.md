@@ -1,5 +1,5 @@
 ---
-title: Resolução de dados de auditoria de resolução de problemas da alteração verificada do domínio ! Microsoft Docs
+title: Os dados de auditoria de resolução de problemas da alteração verificada do domínio | Microsoft Docs
 description: Fornece-lhe informações que aparecerão nos registos de atividade do Azure Ative Directory quando alterar um domínio verificado pelos utilizadores.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87117437"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>Resolução de problemas: Dados de auditoria sobre a alteração verificada do domínio 

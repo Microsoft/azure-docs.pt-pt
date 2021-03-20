@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84692525"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gerir vMware vCenter Server
@@ -26,7 +26,7 @@ Os pré-requisitos para vCenter Servers e VMs durante a recuperação de VMware 
 Quando configurar a recuperação de desastres para VMware VMware no local, a Recuperação do Site precisa de acesso ao anfitrião vCenter Server/vSphere. O servidor de processo de recuperação do site pode então descobrir automaticamente VMs, e falhá-los se necessário. Por predefinição, o servidor de processo é executado no servidor de configuração de recuperação do site. Adicione uma conta para o servidor de configuração para ligar ao vCenter Server/vSphere anfitrião da seguinte forma:
 
 1. Inscreva-se no servidor de configuração.
-1. Abra a ferramenta do servidor de configuração_ (cspsconfigtool.exe) _utilizando o atalho desktop.
+1. Abra a ferramenta do servidor de configuração _(cspsconfigtool.exe)_ utilizando o atalho desktop.
 1. No **separador 'Gerir' conta,** clique em **Adicionar Conta.**
 
    ![conta de adição](./media/vmware-azure-manage-vcenter/addaccount.png)
@@ -60,7 +60,7 @@ Quando configurar a recuperação de desastres para VMware VMware no local, adic
 Se necessário, pode modificar as credenciais utilizadas para ligar ao vCenter Server/vSphere anfitrião da seguinte forma:
 
 1. Inscreva-se no servidor de configuração.
-1. Abra a ferramenta do servidor de configuração_ (cspsconfigtool.exe) _utilizando o atalho desktop.
+1. Abra a ferramenta do servidor de configuração _(cspsconfigtool.exe)_ utilizando o atalho desktop.
 1. Clique em **Adicionar Conta** no **separador 'Gerir'**
 
    ![conta de adição](./media/vmware-azure-manage-vcenter/addaccount.png)
@@ -69,7 +69,7 @@ Se necessário, pode modificar as credenciais utilizadas para ligar ao vCenter S
 1. No cofre > Configuração **de Infraestrutura de Recuperação do**  >  **Local,** abra o servidor de configuração.
 1. Em **Detalhes**, clique **em Refresh Server**.
 1. Depois de terminar o trabalho do Servidor Refresh, selecione o servidor vCenter.
-1. Em **Resumo**, selecione a conta recém-adicionada na **conta de anfitrião vCenter/vSphere**e clique em **Guardar**.
+1. Em **Resumo**, selecione a conta recém-adicionada na **conta de anfitrião vCenter/vSphere** e clique em **Guardar**.
 
    ![modificar conta](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
@@ -85,7 +85,7 @@ Se necessário, pode modificar as credenciais utilizadas para ligar ao vCenter S
 
 Pode modificar o endereço IP do servidor vCenter ou as portas utilizadas para a comunicação entre o servidor e a Recuperação do Site. Por predefinição, a Recuperação do Site acede ao servidor/vSphere do vCenter host informações através da porta 443.
 
-1. No cofre > servidores de configuração **da infraestrutura de**  >  **recuperação**do local, clique no servidor de configurações ao qual é adicionado o servidor vCenter.
+1. No cofre > servidores de configuração **da infraestrutura de**  >  **recuperação** do local, clique no servidor de configurações ao qual é adicionado o servidor vCenter.
 1. Nos **servidores vCenter,** clique no servidor vCenter que pretende modificar.
 1. Em **Resumo,** atualize o endereço IP e a porta e guarde as alterações.
 
@@ -97,7 +97,7 @@ Pode modificar o endereço IP do servidor vCenter ou as portas utilizadas para a
 
 Se pretender migrar todos os VMs para utilizar um novo servidor vCenter, basta atualizar o endereço IP atribuído ao servidor vCenter. Não adicione outra conta VMware, uma vez que isso pode levar a entradas duplicadas. Atualize o endereço da seguinte forma:
 
-1. No cofre > servidores de configuração **da infraestrutura de**  >  **recuperação**do local, clique no servidor de configurações ao qual é adicionado o servidor vCenter.
+1. No cofre > servidores de configuração **da infraestrutura de**  >  **recuperação** do local, clique no servidor de configurações ao qual é adicionado o servidor vCenter.
 1. Na secção **servidor do vCenter,** clique no servidor vCenter a partir do que pretende migrar.
 1. Em **Resumo,** atualize o endereço IP para o do novo servidor vCenter e guarde as alterações.
 1. Assim que o endereço IP é atualizado, a Recuperação do Site começa a receber informações de descoberta de VM do novo servidor vCenter. Isto não afeta as atividades de replicação em curso.

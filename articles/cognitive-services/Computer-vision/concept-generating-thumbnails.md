@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68945222"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Gerando miniaturas inteligentes com visão de computador
@@ -24,8 +24,8 @@ Uma miniatura é uma representação de tamanho reduzido de uma imagem. As minia
 
 O algoritmo de geração de miniaturas da Visão Computacional funciona da seguinte forma:
 
-1. Remova os elementos distraídos da imagem e identifique a _área de interesse_da área da imagem em que aparece &mdash; o(s) objeto principal.
-1. Corte a imagem com base na _área de interesse_identificada.
+1. Remova os elementos distraídos da imagem e identifique a _área de interesse_ da área da imagem em que aparece &mdash; o(s) objeto principal.
+1. Corte a imagem com base na _área de interesse_ identificada.
 1. Altere o rácio de aspeto para se ajustar às dimensões das miniaturas do alvo.
 
 ## <a name="area-of-interest"></a>Área de interesse

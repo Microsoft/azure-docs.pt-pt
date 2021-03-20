@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
 ms.openlocfilehash: bfe5dc00ba0255520c04ea85157f0b8bdc71b590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84050227"
 ---
 # <a name="building-scalable-cloud-databases"></a>Criar bases de dados de nuvem escaláveis
@@ -51,7 +51,7 @@ Para baixar:
 
 A escala de aplicações utilizando *o sharding* apresenta desafios tanto para o desenvolvedor como para o administrador. A biblioteca de clientes simplifica as tarefas de gestão fornecendo ferramentas que permitem que tanto os desenvolvedores como os administradores gerem bases de dados em escala. Num exemplo típico, há muitas bases de dados, conhecidas como "fragmentos", para gerir. Os clientes estão co-localizados na mesma base de dados, e há uma base de dados por cliente (um esquema de inquilino único). A biblioteca do cliente inclui estas funcionalidades:
 
-- **Gestão de mapas de**fragmentos : É criada uma base de dados especial chamada "shard map manager". A gestão do mapa de fragmentos é a capacidade de uma aplicação para gerir metadados sobre os seus fragmentos. Os desenvolvedores podem usar esta funcionalidade para registar bases de dados como fragmentos, descrever mapeamentos de chaves de fragmentos individuais ou intervalos chave para essas bases de dados, e manter estes metadados à medida que o número e a composição das bases de dados evolui para refletir as mudanças de capacidade. Sem a biblioteca de clientes Elastic Database, você precisaria de passar muito tempo escrevendo o código de gestão ao implementar o sharding. Para mais detalhes, consulte [a gestão do mapa Shard.](elastic-scale-shard-map-management.md)
+- **Gestão de mapas de** fragmentos : É criada uma base de dados especial chamada "shard map manager". A gestão do mapa de fragmentos é a capacidade de uma aplicação para gerir metadados sobre os seus fragmentos. Os desenvolvedores podem usar esta funcionalidade para registar bases de dados como fragmentos, descrever mapeamentos de chaves de fragmentos individuais ou intervalos chave para essas bases de dados, e manter estes metadados à medida que o número e a composição das bases de dados evolui para refletir as mudanças de capacidade. Sem a biblioteca de clientes Elastic Database, você precisaria de passar muito tempo escrevendo o código de gestão ao implementar o sharding. Para mais detalhes, consulte [a gestão do mapa Shard.](elastic-scale-shard-map-management.md)
 
 - **Encaminhamento dependente de dados**: Imagine um pedido que entre na aplicação. Com base no valor chave de fragmentos do pedido, a aplicação precisa determinar a base de dados correta com base no valor chave. Em seguida, abre uma ligação à base de dados para processar o pedido. O encaminhamento dependente de dados proporciona a capacidade de abrir ligações com uma única chamada fácil no mapa de fragmentos da aplicação. O encaminhamento dependente de dados foi outra área do código de infraestrutura que está agora coberta pela funcionalidade na biblioteca de clientes Elastic Database. Para mais informações, consulte [o encaminhamento dependente de Dados](elastic-scale-data-dependent-routing.md).
 - **Consultas multi-fragmentos (MSQ)**: Consulta multi-fragmentos funciona quando um pedido envolve vários (ou todos) fragmentos. Uma consulta multi-fragmentos executa o mesmo código T-SQL em todos os fragmentos ou um conjunto de fragmentos. Os resultados dos fragmentos participantes são fundidos num conjunto de resultados globais utilizando a semântica UNION ALL. A funcionalidade exposta através da biblioteca do cliente lida com muitas tarefas, incluindo: gestão de ligações, gestão de fios, manuseamento de falhas e processamento de resultados intermédios. MSQ pode consultar até centenas de fragmentos. Para mais detalhes, consulte [a consulta multi-fragmentos.](elastic-scale-multishard-querying.md)
@@ -62,7 +62,7 @@ Em geral, os clientes que usam ferramentas Elastic Database podem esperar obter 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Biblioteca de clientes Elastic Database[(Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - para **descarregar** a biblioteca.
+- Biblioteca de clientes Elastic Database [(Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - para **descarregar** a biblioteca.
 
 - [Começa com ferramentas elásticas de base de dados](elastic-scale-get-started.md) - para experimentar a app de **amostras** que demonstra as funções do cliente.
 
