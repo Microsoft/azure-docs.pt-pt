@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fff569c586548d84ed55018764363ad7f05e526d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86257092"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -47,7 +47,7 @@ Irá desencadear uma chamada para a API OnDataLossAsync da partição.  Esta API
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --modo de perda de dados [Obrigatório] | Este enum é passado para a API StartDataLoss para indicar que tipo de perda de dados induzir. |
 | --operation-id [Obrigatório] | Um GUID que identifica uma chamada desta API.  Isto é passado para a API GetProgress correspondente. |
@@ -57,7 +57,7 @@ Irá desencadear uma chamada para a API OnDataLossAsync da partição.  Esta API
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -72,7 +72,7 @@ Obtém-se o progresso de uma operação de perda de dados iniciada com o StartDa
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --operation-id [Obrigatório] | Um GUID que identifica uma chamada desta API.  Isto é passado para a API GetProgress correspondente. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -81,7 +81,7 @@ Obtém-se o progresso de uma operação de perda de dados iniciada com o StartDa
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -96,7 +96,7 @@ Use EventosHealthStateFilter para filtrar a recolha de eventos de saúde relatad
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --eventos-saúde-estado-filtro | Permite filtrar a recolha de objetos HealthEvent devolvidos com base no estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são usados para avaliar o estado de saúde agregado. Se não for especificado, todas as entradas são devolvidas. Os valores do Estado são enumeração baseada em bandeiras, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando o operador bitwise 'OR'. Por exemplo, Se o valor fornecido for 6, todos os eventos com o valor healthState de OK (2) e Aviso (4) são devolvidos.  <br> - Padrão - Valor predefinido. Corresponde a qualquer Estado da Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do HealthState. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtro que combine com a entrada com o valor HealthState Ok. O valor é 2.  <br> - Aviso - Filtro que corresponda à entrada com o valor healthState Warning. O valor é 4.  <br> - Erro - Filtrar a entrada com o Erro de Valor HealthState. O valor é 8.  <br> - Tudo - Filtrar que corresponda à entrada com qualquer valor HealthState. O valor é 65535. |
@@ -106,7 +106,7 @@ Use EventosHealthStateFilter para filtrar a recolha de eventos de saúde relatad
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -121,14 +121,14 @@ Obtém a informação sobre a partição especificada. A resposta inclui o ID de
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -143,7 +143,7 @@ A resposta inclui o ID de partição, informações do esquema de partição, ch
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificado por URL. |
@@ -151,7 +151,7 @@ A resposta inclui o ID de partição, informações do esquema de partição, ch
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -166,14 +166,14 @@ Devolve informações sobre a carga de uma partição especificada. A resposta i
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -188,14 +188,14 @@ Reinicia a carga atual de uma divisória de tecido de serviço à carga predefin
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -210,7 +210,7 @@ Esta API é útil para uma situação temporária de perda de quórum no seu ser
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --operation-id [Obrigatório] | Um GUID que identifica uma chamada desta API.  Isto é passado para a API GetProgress correspondente. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -221,7 +221,7 @@ Esta API é útil para uma situação temporária de perda de quórum no seu ser
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -236,7 +236,7 @@ Inicia-se o progresso de uma operação de perda de quórum com startQuorumLoss,
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --operation-id [Obrigatório] | Um GUID que identifica uma chamada desta API.  Isto é passado para a API GetProgress correspondente. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -245,7 +245,7 @@ Inicia-se o progresso de uma operação de perda de quórum com startQuorumLoss,
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -260,14 +260,14 @@ Esta operação só deve ser efetuada se se souber que as réplicas que estão e
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -282,13 +282,13 @@ Esta operação só deve ser efetuada se se souber que as réplicas que estão e
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -303,7 +303,7 @@ Relatórios de estado de saúde da partição de tecido de serviço especificado
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --saúde-propriedade [Necessária] | A propriedade da informação de saúde. <br><br> Uma entidade pode ter relatórios de saúde para diferentes propriedades. A propriedade é uma corda e não uma enumeração fixa para permitir ao repórter flexibilidade para categorizar a condição do estado que desencadeia o relatório. Por exemplo, um repórter com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que possa reportar a propriedade "AvailableDisk" nesse nó. O mesmo repórter pode monitorizar a conectividade do nó, para que possa reportar uma propriedade "Conectividade" no mesmo nó. Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para o nó especificado. Juntamente com o SourceId, a propriedade identifica exclusivamente a informação de saúde. |
 | --estado de saúde [Obrigatório] | Os valores possíveis incluem \: 'Inválido', 'Ok', 'Aviso', 'Erro', 'Desconhecido'. |
@@ -318,7 +318,7 @@ Relatórios de estado de saúde da partição de tecido de serviço especificado
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -333,7 +333,7 @@ Esta API é útil para testar o failover. Se for utilizado para direcionar uma d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --operation-id [Obrigatório] | Um GUID que identifica uma chamada desta API.  Isto é passado para a API GetProgress correspondente. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -343,7 +343,7 @@ Esta API é útil para testar o failover. Se for utilizado para direcionar uma d
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -358,7 +358,7 @@ Obtém-se o progresso de uma PartitionRestart iniciada com startPartitionRestart
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --operation-id [Obrigatório] | Um GUID que identifica uma chamada desta API.  Isto é passado para a API GetProgress correspondente. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -367,7 +367,7 @@ Obtém-se o progresso de uma PartitionRestart iniciada com startPartitionRestart
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -382,14 +382,14 @@ Obtém o nome do serviço para a partição especificada. Um erro de 404 é devo
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

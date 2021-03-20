@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: aab856b1e1d2d991cc4964d061a990dbedbeddb7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98876516"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planeie um modelo de solução para uma oferta de aplicação Azure
@@ -23,7 +23,7 @@ O tipo de plano de modelo de solução requer um [modelo de Gestor de Recursos A
 
 ## <a name="solution-template-requirements"></a>Requisitos do modelo de solução
 
-| Requirements | Detalhes |
+| Requisitos | Detalhes |
 | ------------ | ------------- |
 | Faturação e medição | Os planos de modelo de solução não são transacionáveis, mas podem ser usados para implementar ofertas de VM pagas que são faturadas através do mercado comercial da Microsoft. Os recursos que o modelo ARM da solução implementa são configurados na subscrição Azure do cliente. As máquinas virtuais pay-as-you-go são transacionadas com o cliente através da Microsoft e faturadas através da subscrição Azure do cliente. <br><br> Para a faturação da sua própria licença (BYOL), embora a Microsoft faça contas de custos de infraestrutura que são incorridos na subscrição do cliente, transaciona diretamente as suas taxas de licenciamento de software com o cliente. |
 | Disco rígido virtual compatível com Azure (VHD) | Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, consulte:<ul><li>[Criar um ativo técnico Azure VM](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para VHDs windows)</li><li>[Distribuição linux endossada em Azure](../virtual-machines/linux/endorsed-distros.md) (para Linux VHDs).</li></ul> |
@@ -74,6 +74,6 @@ Para planos de modelo de solução, também pode optar por esconder o plano do A
 
 Para mais informações, consulte [ofertas privadas no mercado comercial da Microsoft.](private-offers.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como criar uma oferta de aplicação Azure no mercado comercial](create-new-azure-apps-offer.md)

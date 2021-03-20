@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 3ed1ecca686471e052f07e945738ad1a49e68464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260307"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
@@ -35,7 +35,7 @@ Obtém os detalhes da réplica implantados num nó de Tecido de Serviço. A info
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome de nó [Obrigatório] | O nome do nó. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -44,7 +44,7 @@ Obtém os detalhes da réplica implantados num nó de Tecido de Serviço. A info
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -59,7 +59,7 @@ Obtém a lista que contém as informações sobre réplicas implantadas num nó 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -69,7 +69,7 @@ Obtém a lista que contém as informações sobre réplicas implantadas num nó 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -84,7 +84,7 @@ Obtém a saúde de uma réplica de tecido de serviço. Use EventosHealthStateFil
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --replica-id [Obrigatório] | O identificador da réplica. |
@@ -93,7 +93,7 @@ Obtém a saúde de uma réplica de tecido de serviço. Use EventosHealthStateFil
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -108,7 +108,7 @@ A resposta inclui o ID, função, estado, saúde, nome do nó, uptime, e outros 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --replica-id [Obrigatório] | O identificador da réplica. |
@@ -116,7 +116,7 @@ A resposta inclui o ID, função, estado, saúde, nome do nó, uptime, e outros 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -131,7 +131,7 @@ O ponto final getReplicas devolve informações sobre as réplicas da partição
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --partição-id [Obrigatório] | A identidade da partição. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificado por URL. |
@@ -139,7 +139,7 @@ O ponto final getReplicas devolve informações sobre as réplicas da partição
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -154,7 +154,7 @@ Esta API simula uma falha de réplica de tecido de serviço removendo uma répli
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome de nó [Obrigatório] | O nome do nó. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -164,7 +164,7 @@ Esta API simula uma falha de réplica de tecido de serviço removendo uma répli
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -179,7 +179,7 @@ Relatórios de estado de saúde da réplica de tecido de serviço especificado. 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --saúde-propriedade [Necessária] | A propriedade da informação de saúde. <br><br> Uma entidade pode ter relatórios de saúde para diferentes propriedades. A propriedade é uma corda e não uma enumeração fixa para permitir ao repórter flexibilidade para categorizar a condição do estado que desencadeia o relatório. Por exemplo, um repórter com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que possa reportar a propriedade "AvailableDisk" nesse nó. O mesmo repórter pode monitorizar a conectividade do nó, para que possa reportar uma propriedade "Conectividade" no mesmo nó. Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para o nó especificado. Juntamente com o SourceId, a propriedade identifica exclusivamente a informação de saúde. |
 | --estado de saúde [Obrigatório] | Os valores possíveis incluem \: 'Inválido', 'Ok', 'Aviso', 'Erro', 'Desconhecido'. |
@@ -196,7 +196,7 @@ Relatórios de estado de saúde da réplica de tecido de serviço especificado. 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -211,7 +211,7 @@ Reinicia uma réplica de serviço de um serviço persistido que funciona num nó
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome de nó [Obrigatório] | O nome do nó. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -220,7 +220,7 @@ Reinicia uma réplica de serviço de um serviço persistido que funciona num nó
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 3bc97a932e622838315f717cc7b036a559787805
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97369162"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Visão geral do Azure Security Benchmark (V2)
@@ -28,7 +28,7 @@ Este benchmark faz parte de um conjunto de orientações holísticas de seguran�
  O Azure Security Benchmark foca-se em áreas de controlo centradas na nuvem. Estes controlos são consistentes com referências de segurança bem conhecidas, como as descritas pelo Center for Internet Security (CIS) Controls Version 7.1 e National Institute of Standards and Technology (NIST) SP 800-53.
 Os seguintes controlos estão incluídos no Benchmark de Segurança Azure:
 
-| Domínios de controlo ASB | Descrição 
+| Domínios de controlo ASB | Description 
 |--|--|
 | [Segurança &nbsp; da rede &nbsp; (NS)](security-controls-v2-network-security.md) | A Segurança da Rede cobre controlos para proteger e proteger redes Azure, incluindo a segurança de redes virtuais, o estabelecimento de ligações privadas, a prevenção e mitigação de ataques externos e a segurança de DNS. |
 | [Gestão de Identidade &nbsp; &nbsp; (IM)](security-controls-v2-identity-management.md) | A Gestão de Identidade abrange controlos para estabelecer uma identidade segura e controlos de acesso utilizando o Azure Ative Directory, incluindo a utilização de autenticações únicas, autenticações fortes, identidades geridas (e princípios de serviço) para aplicações, acesso condicional e monitorização de anomalias de conta. |

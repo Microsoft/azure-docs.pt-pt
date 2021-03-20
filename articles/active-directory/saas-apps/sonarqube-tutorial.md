@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Sonarqube Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a Sonarqube | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Sonarqube.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: jeedes
 ms.openlocfilehash: f756e738989775bf9c06b44a03f002c14f42e3ac
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182357"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Sonarqube

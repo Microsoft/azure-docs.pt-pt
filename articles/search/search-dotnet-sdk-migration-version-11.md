@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df8841cb2dcac6335b09a5e7715f42c508c69e76
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99536820"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Upgrade para Azure Cognitive Search .NET SDK versão 11

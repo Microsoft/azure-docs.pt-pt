@@ -4,10 +4,10 @@ description: Aprenda a configurar o seu ambiente Azure para utilização com o p
 ms.date: 02/05/2021
 ms.topic: how-to
 ms.openlocfilehash: b43a33f4bac92903bd07454041d11850f217d480
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100558722"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar o seu ambiente para um Operador Blueprint

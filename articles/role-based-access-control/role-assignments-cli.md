@@ -11,10 +11,10 @@ ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.openlocfilehash: ee356f32b6799c6182ec1c9e061a35271a4bbc23
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556967"
 ---
 # <a name="assign-azure-roles-using-azure-cli"></a>Atribuir funções Azure usando Azure CLI

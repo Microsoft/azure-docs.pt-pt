@@ -1,5 +1,5 @@
 ---
-title: Variáveis HTTP para motor de regras do Azure CDN / Microsoft Docs
+title: Variáveis HTTP para Azure CDN regras motor | Microsoft Docs
 description: Saiba mais sobre variáveis HTTP, que lhe permitem obter metadados de pedido e resposta HTTP para algumas funcionalidades do motor de regras. Utilize metadados para alterar um pedido/resposta.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
 ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192669"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para motor de regras Azure CDN
@@ -34,7 +34,7 @@ As variáveis HTTP fornecem os meios através dos quais pode recuperar metadados
 A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é devolvido quando os metadados GEO (por exemplo, código postal) não estão disponíveis para um pedido específico.
 
 
-| Nome | Variável | Descrição | Valor da amostra |
+| Name | Variável | Descrição | Valor da amostra |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Solicitador) | %{geo_asnum} | Indica o número de AS do solicitador. <br /><br />**Precado:** %{virt_dst_asnum}. <br />Esta variável foi depreciada a favor de %{geo_asnum}. Embora uma regra que usa esta variável prevadida continue a funcionar, você deve atualizá-la para usar a nova variável. | AS15133 |
 | Cidade (Solicitador) | %{geo_city} | Indica a cidade do solicitador. | Los Angeles |
@@ -92,7 +92,7 @@ Um delimiter pode ser especificado após uma variável HTTP para obter qualquer 
 
 Os delimiters são descritos na tabela seguinte.
 
-| Delimitador | Descrição |
+| Delimitador | Description |
 | --------- | ----------- |
 | := | Indica que um valor predefinido será atribuído à variável quando for: <br />- Desaparecido <br />- Pronto para NU. |
 | :+ | Indica que um valor predefinido será atribuído à variável quando lhe foi atribuído um valor. |
@@ -187,7 +187,7 @@ Neste cenário de amostra, a variável *request_uri* é definida para:
 
 A tabela a seguir demonstra como funciona esta sintaxe.
 
-| Sintaxe da amostra | Results | Descrição |
+| Sintaxe da amostra | Resultados | Description |
 | ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Como a variável começa com o padrão, foi substituída. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Como a variável não termina com o padrão, não houve mudança.|
@@ -229,13 +229,13 @@ Informações-chave:
 - O caso de um espaço reservado para padrão (por exemplo, $1) pode ser modificado através das seguintes bandeiras:
      - U: Maiúscula o valor expandido.
 
-         Sintaxe da amostra:
+         Sintaxe de exemplo:
 
          `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$U2.$3:80}`
 
      - L: Minúscula o valor expandido.
 
-         Sintaxe da amostra:
+         Sintaxe de exemplo:
 
          `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$L2.$3:80}`
 

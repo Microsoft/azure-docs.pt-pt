@@ -1,5 +1,5 @@
 ---
-title: Geometrias GeoJSON estendidas Microsoft Azure Maps
+title: Geometrias geojson estendidas | Microsoft Azure Maps
 description: Saiba como o Azure Maps estende a especificação GeoJSON para incluir formas geométricas adicionais. Veja exemplos que configuram círculos e retângulos para uso nos mapas.
 author: sataneja
 ms.author: sataneja
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 87a5dec2582796c6703bfb37b76e26e53a1192c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895788"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrias geoJSON estendidas

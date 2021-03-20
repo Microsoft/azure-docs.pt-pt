@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89421540"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>Quickstart: Analise o vídeo ao vivo usando o seu próprio modelo gRPC
@@ -43,7 +43,7 @@ Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para ana
 [!INCLUDE [review sample video](includes/analyze-live-video-your-grpc-model-quickstart/python/review-sample-video.md)]
 ::: zone-end
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [overview](includes/analyze-live-video-your-grpc-model-quickstart/csharp/overview.md)]
@@ -73,7 +73,7 @@ Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para ana
 [!INCLUDE [interpret results](includes/analyze-live-video-your-grpc-model-quickstart/python/interpret-results.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende tentar outros quickstarts, mantenha os recursos que criou. Caso contrário, vá ao portal Azure, vá aos seus grupos de recursos, selecione o grupo de recursos onde executou este quickstart e elimine todos os recursos.
 

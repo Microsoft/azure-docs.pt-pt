@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88205973"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de acionadores e de enlaces das Funções do Azure
@@ -53,7 +53,7 @@ Para visualizar e editar os conteúdos de *function.jsno* portal Azure, clique n
 
 ## <a name="c-script-example"></a>Exemplo de script C#
 
-Aqui está o código de script C# que funciona com este gatilho e ligação. Note que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order` ; este nome é necessário porque o valor da propriedade emfunction.js`name` * em* é `order` 
+Aqui está o código de script C# que funciona com este gatilho e ligação. Note que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order` ; este nome é necessário porque o valor da propriedade emfunction.js`name` *em* é `order` 
 
 ```cs
 #r "Newtonsoft.Json"

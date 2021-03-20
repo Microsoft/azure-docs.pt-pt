@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: db4e27c0972a93d870d0a6565f1bd3212146df62
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582734"
 ---
 Se iniciar um arranque num ambiente não-DHCP, siga estes passos para implantar a máquina virtual para o seu Data Box Gateway.

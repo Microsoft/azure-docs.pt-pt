@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793369"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de clientes de base de dados elástica com Dapper
@@ -23,7 +23,7 @@ ms.locfileid: "92793369"
 
 Este documento destina-se a programadores que dependem da Dapper para construir aplicações, mas também querem abraçar [ferramentas de base de dados elásticas](elastic-scale-introduction.md) para criar aplicações que implementem o sharding para escalar o seu nível de dados.  Este documento ilustra as alterações nas aplicações baseadas em Dapper que são necessárias para integrar com ferramentas de base de dados elásticas. O nosso foco é compor a gestão elástica de fragmentos de base de dados e o encaminhamento dependente de dados com o Dapper. 
 
-**Código de amostra** : [Ferramentas elásticas de base de dados para Azure SQL Database - Integração da Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Código de amostra**: [Ferramentas elásticas de base de dados para Azure SQL Database - Integração da Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 A integração **da Dapper** e **da dapperExtensions** com a biblioteca de clientes de base de dados elástica para a Base de Dados Azure SQL é fácil. As suas aplicações podem utilizar o encaminhamento dependente de dados alterando a criação e abertura de novos objetos [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) para utilizar a chamada [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) da biblioteca do [cliente](/previous-versions/azure/dn765902(v=azure.100)). Isto limita as alterações na sua aplicação apenas onde novas ligações são criadas e abertas. 
 
@@ -39,7 +39,7 @@ Outro benefício da Dapper e também da DapperExtensions é que a aplicação co
 Para obter as assembléias Dapper, consulte [a rede da dapper dot.](https://www.nuget.org/packages/Dapper/) Para as extensões Dapper, consulte [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Uma olhada rápida na biblioteca de clientes de base de dados elástica
-Com a biblioteca de clientes de base de dados elástica, define as divisórias dos dados da sua aplicação chamadas *shardlets,* mapeia-as para bases de dados e identifica-as através *de chaves de caco.* Pode ter todas as bases de dados que precisar e distribuir os seus fragmentos por estas bases de dados. O mapeamento dos valores-chave de fragmentos nas bases de dados é armazenado por um mapa de fragmentos fornecido pelas APIs da biblioteca. Esta capacidade chama-se **gestão de mapas de fragmentos.** O mapa de fragmentos também serve como corretor de ligações de base de dados para pedidos que carregam uma chave de fragmentos. Esta capacidade é referida como **encaminhamento dependente de dados** .
+Com a biblioteca de clientes de base de dados elástica, define as divisórias dos dados da sua aplicação chamadas *shardlets,* mapeia-as para bases de dados e identifica-as através *de chaves de caco.* Pode ter todas as bases de dados que precisar e distribuir os seus fragmentos por estas bases de dados. O mapeamento dos valores-chave de fragmentos nas bases de dados é armazenado por um mapa de fragmentos fornecido pelas APIs da biblioteca. Esta capacidade chama-se **gestão de mapas de fragmentos.** O mapa de fragmentos também serve como corretor de ligações de base de dados para pedidos que carregam uma chave de fragmentos. Esta capacidade é referida como **encaminhamento dependente de dados**.
 
 ![Mapas de fragmentos e encaminhamento dependente de dados][1]
 
@@ -50,11 +50,11 @@ Em vez de utilizar a forma tradicional de criar ligações para o Dapper, é nec
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para a integração da Dapper
 Ao trabalhar com a biblioteca de clientes de base de dados elástica e as APIs da Dapper, pretende reter as seguintes propriedades:
 
-* **Escala** : Queremos adicionar ou remover bases de dados do nível de dados da aplicação de fragmentos, conforme necessário para as exigências de capacidade da aplicação. 
-* **Consistência** : Uma vez que a aplicação é dimensionada utilizando o fragmento, é necessário efetuar o encaminhamento dependente de dados. Queremos usar as capacidades de encaminhamento dependentes de dados da biblioteca para o fazer. Em particular, pretende manter as garantias de validação e consistência fornecidas por ligações que são intermediadas através do gestor de mapas de fragmentos, de forma a evitar corrupção ou resultados de consulta erradas. Isto garante que as ligações a um determinado fragmento são rejeitadas ou paradas se (por exemplo) o fragmento for atualmente movido para um fragmento diferente utilizando APIs split/merge.
-* **Apeamento de objetos** : Queremos manter a conveniência dos mapeamentos fornecidos pela Dapper para traduzir entre classes na aplicação e as estruturas de base de dados subjacentes. 
+* **Escala**: Queremos adicionar ou remover bases de dados do nível de dados da aplicação de fragmentos, conforme necessário para as exigências de capacidade da aplicação. 
+* **Consistência**: Uma vez que a aplicação é dimensionada utilizando o fragmento, é necessário efetuar o encaminhamento dependente de dados. Queremos usar as capacidades de encaminhamento dependentes de dados da biblioteca para o fazer. Em particular, pretende manter as garantias de validação e consistência fornecidas por ligações que são intermediadas através do gestor de mapas de fragmentos, de forma a evitar corrupção ou resultados de consulta erradas. Isto garante que as ligações a um determinado fragmento são rejeitadas ou paradas se (por exemplo) o fragmento for atualmente movido para um fragmento diferente utilizando APIs split/merge.
+* **Apeamento de objetos**: Queremos manter a conveniência dos mapeamentos fornecidos pela Dapper para traduzir entre classes na aplicação e as estruturas de base de dados subjacentes. 
 
-A secção seguinte fornece orientações para estes requisitos para aplicações baseadas em **Dapper** e **DapperExtensions** .
+A secção seguinte fornece orientações para estes requisitos para aplicações baseadas em **Dapper** e **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Orientação técnica
 ### <a name="data-dependent-routing-with-dapper"></a>Encaminhamento dependente de dados com Dapper

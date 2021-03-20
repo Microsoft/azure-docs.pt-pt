@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376841"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de dados na Azure Data Factory (versão 1)
@@ -27,7 +27,7 @@ Este artigo descreve quais são os conjuntos de dados, como são definidos no fo
 > [!NOTE]
 > Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure](data-factory-introduction.md) para uma visão geral. Se não tiver experiência prática na criação de fábricas de dados, poderá obter uma melhor compreensão lendo o tutorial de transformação de [dados](data-factory-build-your-first-pipeline.md) e o tutorial de [movimento de dados.](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de uma base de dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para a Azure Synapse Analytics, além das quais são construídas soluções de reporte de informação de business intelligence (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades na Azure Data Factory.](data-factory-create-pipelines.md)
 
 Uma atividade pode tomar zero ou mais **conjuntos de dados de** entrada , e produzir um ou mais conjuntos de dados de saída. Um conjunto de dados de entrada representa a entrada para uma atividade no pipeline, e um conjunto de dados de saída representa a saída para a atividade. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados Azure Blob especifica o recipiente blob e a pasta no armazenamento blob a partir do qual o pipeline deve ler os dados.

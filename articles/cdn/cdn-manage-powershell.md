@@ -1,5 +1,5 @@
 ---
-title: Gerir a Azure CDN com a PowerShell Microsoft Docs
+title: Gerir a Azure CDN com | PowerShell Microsoft Docs
 description: Utilize este tutorial para aprender a usar o PowerShell para gerir aspetos dos perfis e pontos finais da rede de entrega de conteúdos Azure.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
 ms.openlocfilehash: b5fa1cedf4cc5e87d11dc4b5c453d9cb2a307c3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192658"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gerir a Azure CDN com a PowerShell

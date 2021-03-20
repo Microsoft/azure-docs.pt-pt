@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98872405"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configure uma ligação de gateway VNet-to-VNet VPN utilizando o portal Azure
@@ -208,7 +208,7 @@ Veja os detalhes das FAQ para obter informações adicionais sobre ligações VN
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre como pode limitar o tráfego de rede a recursos numa rede virtual, consulte [a Segurança da Rede.](../virtual-network/network-security-groups-overview.md)
 

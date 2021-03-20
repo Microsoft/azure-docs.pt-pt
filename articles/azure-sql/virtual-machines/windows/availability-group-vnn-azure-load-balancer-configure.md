@@ -1,5 +1,5 @@
 ---
-title: Configurar o balanceador de carga para o serviço de escuta VNN do AG
+title: Equilibrador de carga configurar para ouvinte AG VNN
 description: Aprenda a configurar um Azure Load Balancer para encaminhar o tráfego para o nome de rede virtual (VNN) para o seu grupo de disponibilidade com SQL Server em VMs Azure para alta disponibilidade e recuperação de desastres (HADR).
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,13 +16,13 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2d89759438cb625a0e220af10ab6b287096f6390
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359885"
 ---
-# <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurar o balanceador de carga para o serviço de escuta VNN do AG
+# <a name="configure-load-balancer-for-ag-vnn-listener"></a>Equilibrador de carga configurar para ouvinte AG VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Nas Máquinas Virtuais Azure, os clusters usam um equilibrador de carga para conter um endereço IP que precisa de estar num nó de cluster de cada vez. Nesta solução, o equilibrador de carga detém o endereço IP para o ouvinte de rede virtual (VNN) para o grupo de disponibilidade Always On (AG). 
@@ -139,8 +139,8 @@ A tabela a seguir descreve os valores que precisa de atualizar:
 
 |**Valor**|**Descrição**|
 |---------|---------|
-|`Cluster Network Name`| O nome do Cluster failover do servidor do Windows para a rede. Nas Redes **de Gestores de Cluster Failover,**  >  clique à direita na rede e selecione **Propriedades.** O valor correto está no **nome** no separador **Geral.**|
-|`AG listener IP Address Resource Name`|O nome de recurso para o endereço IP do SQL Server FCI ou do ouvinte AG. Em **Funções de Gestor de Cluster Failover**  >  , sob a função SQL Server FCI, em Nome **do Servidor,** clique com o botão direito no recurso de endereço IP e selecione **Propriedades**. O valor correto está no **nome** no separador **Geral.**|
+|`Cluster Network Name`| O nome do Cluster failover do servidor do Windows para a rede. Nas Redes **de Gestores de Cluster Failover,**  >  clique à direita na rede e selecione **Propriedades.** Poderá encontrar o valor correto em **Nome** no separador **Geral**.|
+|`AG listener IP Address Resource Name`|O nome de recurso para o endereço IP do SQL Server FCI ou do ouvinte AG. Em **Funções de Gestor de Cluster Failover**  >  , sob a função SQL Server FCI, em Nome **do Servidor,** clique com o botão direito no recurso de endereço IP e selecione **Propriedades**. Poderá encontrar o valor correto em **Nome** no separador **Geral**.|
 |`ILBIP`|O endereço IP do esquilibrador interno de carga (ILB). Este endereço está configurado no portal Azure como o endereço frontal do ILB. Este é também o endereço IP do SQL Server FCI. Pode encontrá-lo no **Failover Cluster Manager** na mesma página de propriedades onde localiza o `<AG listener IP Address Resource Name>` .|
 |`nnnnn`|A porta da sonda que configuraste na sonda de saúde do equilibrador de carga. Qualquer porta TCP não utilizada é válida.|
 |"SubnetMask"| A máscara de sub-rede para o parâmetro do cluster. Deve ser o endereço de emissão IP da TCP: `255.255.255.255` .| 

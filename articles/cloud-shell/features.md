@@ -1,5 +1,5 @@
 ---
-title: Características da Azure Cloud Shell Microsoft Docs
+title: Azure Cloud Shell apresenta | Microsoft Docs
 description: Visão geral das funcionalidades em Azure Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89470158"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Possui ferramentas & para Azure Cloud Shell
@@ -69,7 +69,7 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |Nome   |
+|Categoria   |Name   |
 |---|---|
 |Ferramentas Linux            |bash<br> zsh<br> sh<br> tmux<br> cavar<br>               |
 |Ferramentas do Azure            |[CLI clássico de Azure E](https://github.com/Azure/azure-cli) [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](../storage/common/storage-use-azcopy-v10.md)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](../service-fabric/service-fabric-cli.md)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -82,10 +82,10 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-|Idioma   |Versão   |
+|Linguagem   |Versão   |
 |---|---|
 |.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
-|Ir         |1.9        |
+|Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |

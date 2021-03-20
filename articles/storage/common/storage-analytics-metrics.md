@@ -10,10 +10,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
 ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101714736"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas Azure Storage Analytics (clássico)

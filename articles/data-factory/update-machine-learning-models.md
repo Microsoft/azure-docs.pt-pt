@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: ef89ecef34a7c5afb94547181f449b0fc393e67c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377572"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Atualizar modelos Azure Machine Learning Studio (clássico) utilizando a atividade de Update Resource
@@ -20,7 +20,7 @@ ms.locfileid: "100377572"
 
 Este artigo complementa o principal artigo de integração do Azure Machine Learning Factory - Azure Machine Learning Studio (clássico): [Criar oleodutos preditivos utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory.](transform-data-using-machine-learning.md) Se ainda não o fez, reveja o artigo principal antes de ler este artigo.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Como parte do processo de operacionalização dos modelos Azure Machine Learning Studio (clássicos), o seu modelo é treinado e guardado. Em seguida, usa-o para criar um serviço Web preditivo. O serviço Web pode então ser consumido em sites, dashboards e aplicações móveis.
 
 Os modelos que cria usando o Azure Machine Learning Studio (clássico) normalmente não são estáticos. À medida que novos dados se tornam disponíveis ou quando o consumidor da API tem os seus próprios dados, o modelo precisa de ser retreinado. 

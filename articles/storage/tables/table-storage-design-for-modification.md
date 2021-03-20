@@ -1,5 +1,5 @@
 ---
-title: Design Azure Table armazenamento para modificação de dados / Microsoft Docs
+title: Design Azure Table armazenamento para modificação de dados | Microsoft Docs
 description: Tabelas de conceção para modificação de dados no armazenamento da tabela Azure. Otimize as operações de inserção, atualização e exclusão. Garantir consistência nas suas entidades armazenadas.
 services: storage
 ms.service: storage
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 25785bc4b945f469e67f2a71eb6676940e091d56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88236765"
 ---
 # <a name="design-for-data-modification"></a>Design da modificação de dados

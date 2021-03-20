@@ -9,10 +9,10 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
 ms.openlocfilehash: 6bbf5f3a0a7d32425f80687de10444ee0819b9df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660462"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorizar e dimensionar um único servidor PostgreSQL com a CLI do Azure
@@ -44,7 +44,7 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Liste o valor métrico dos recursos. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a Azure Database para computação e armazenamento pósgresQL](../concepts-pricing-tiers.md)
 - Experimente scripts adicionais: [Amostras da CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - Saiba mais sobre o [Azure CLI](/cli/azure)

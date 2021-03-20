@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o LockPath Keylight Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o LockPath Keylight | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o LockPath Keylight.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 81949736603d22cac779d08d14bd6db65065d730
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Diretório Ativo Azure com o LockPath Keylight
@@ -131,7 +131,7 @@ Para configurar o Azure AD com a chave de chaves LockPath, execute os seguintes 
 
     a. Iniciar s-in na sua conta LockPath Keylight como administrador.
 
-    b. No menu em cima, clique em **Pessoa**e selecione **Keylight Setup**.
+    b. No menu em cima, clique em **Pessoa** e selecione **Keylight Setup**.
 
     ![Screenshot que mostra o ícone "Pessoa" selecionado e "Keylight Setup" selecionado a partir do drop-down.](./media/keylight-tutorial/401.png)
 
@@ -203,7 +203,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao LockPath Keylight.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **LockPath Keylight**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **LockPath Keylight**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

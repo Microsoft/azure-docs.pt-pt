@@ -8,15 +8,15 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.openlocfilehash: 94b765cbcbdd81505b08052845207ee1d93a28d9
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101667803"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Perguntas frequentes (FAQ) sobre Azure Purview
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Muitas organizações carecem de uma compreensão holística dos seus dados. É um desafio entender que dados existem, onde os dados estão localizados, e como encontrar e aceder a dados relevantes. Os dados carecem de contexto como a linhagem, classificação e metadados abrangentes, dificultando aos utilizadores empresariais a procura dos dados certos e a utilização adequada desses dados. Como resultado, apenas uma pequena fração de dados recolhidos é usada para informar as decisões empresariais. Por último, é inconsistente identificar questões de segurança dos dados e proteger dados sensíveis. Requer tempo e esforço contínuos, especialmente mantendo a agilidade dos dados.
 

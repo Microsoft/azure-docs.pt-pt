@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Ziflow Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Ziflow | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Ziflow.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e10ca98e0c9257187288d02483ed81915a7b321d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92894747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Diretório Ativo Azure com o Ziflow
@@ -49,7 +49,7 @@ Para configurar a integração do Ziflow no Azure AD, é necessário adicionar Z
 
 **Para adicionar Ziflow da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -67,7 +67,7 @@ Para configurar a integração do Ziflow no Azure AD, é necessário adicionar Z
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sinal de entrada com Ziflow com base num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com um único sinal de entrada com Ziflow com base num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Ziflow.
 
 Para configurar e testar o Azure AD com um único sinal de acesso com ziflow, você precisa completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com ziflow, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Ziflow,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Ziflow,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com ziflow, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se no Ziflow como Administrador de Segurança.
 
-2. Clique no Avatar no canto superior direito e, em seguida, clique em **Gerir a conta** .
+2. Clique no Avatar no canto superior direito e, em seguida, clique em **Gerir a conta**.
 
     ![Gerir a configuração do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
 
@@ -138,11 +138,11 @@ Para configurar o Azure AD com ziflow, execute os seguintes passos:
 
     ![Single de configuração ziflow](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
-    a. Selecione **Tipo** como **SAML2.0** .
+    a. Selecione **Tipo** como **SAML2.0**.
 
     b. Na caixa de texto **do Sign In URL,** cole o valor do URL de **login,** que copiou a partir do portal Azure.
 
-    c. Faça o upload do certificado codificado base-64 que descarregou do portal Azure para o **Certificado de Assinatura X509** .
+    c. Faça o upload do certificado codificado base-64 que descarregou do portal Azure para o **Certificado de Assinatura X509**.
 
     d. Na caixa de texto **url sign out,** cole o valor do **URL logout,** que copiou a partir do portal Azure.
 
@@ -152,7 +152,7 @@ Para configurar o Azure AD com ziflow, execute os seguintes passos:
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -164,27 +164,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Ziflow.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Ziflow** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Ziflow**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Ziflow** .
+2. Na lista de candidaturas, selecione **Ziflow**.
 
     ![O link Ziflow na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -210,7 +210,7 @@ Para obter uma conta de utilizador, execute os seguintes passos:
 
     ![Pessoas de configuração ziflow](./media/ziflow-tutorial/tutorial_ziflow_people.png)
 
-3. Clique **em Adicionar** e, em seguida, clique em Adicionar **utilizador** .
+3. Clique **em Adicionar** e, em seguida, clique em Adicionar **utilizador**.
 
     ![A screenshot mostra a opção de utilizador Adicionar selecionada.](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 

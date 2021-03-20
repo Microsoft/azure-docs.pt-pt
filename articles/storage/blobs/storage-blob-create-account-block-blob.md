@@ -1,5 +1,5 @@
 ---
-title: Criar uma conta de armazenamento de blob bloco - Azure Storage / Microsoft Docs
+title: Criar uma conta de armazenamento de blob de bloco - Azure Storage | Microsoft Docs
 description: Mostra como criar uma conta Azure BlockBlobStorage com características de desempenho premium.
 author: tamram
 services: storage
@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997091"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta BlockBlobStorage

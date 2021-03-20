@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
 ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575895"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implementar uma aplicação de serviços fiáveis no Service Fabric em .NET

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
 ms.openlocfilehash: ab5dedf6718dad4f16fde59d905e2e59be5c495f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944467"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conecte-se ao Apache Beeline no HDInsight ou instale-o localmente
@@ -159,7 +159,7 @@ Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la loc
 
 1. Teste a sua ligação. Utilize o formato de ligação a partir de [pontos finais públicos ou privados,](#over-public-or-private-endpoints)acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Por exemplo, utilizando o cliente Beeline com a Colmeia Apache, consulte [Use Apache Beeline com Apache Hive](apache-hadoop-use-hive-beeline.md)
 * Para obter informações mais gerais sobre a Colmeia em HDInsight, consulte [Use Apache Hive com Apache Hadoop em HDInsight](hdinsight-use-hive.md)

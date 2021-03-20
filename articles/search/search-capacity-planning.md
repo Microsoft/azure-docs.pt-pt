@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99537226"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimativa e gestão da capacidade de um serviço de Pesquisa Cognitiva Azure

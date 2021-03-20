@@ -1,5 +1,5 @@
 ---
-title: Criar um Hub IoT utilizando o Azure CLI Microsoft Docs
+title: Crie um hub IoT utilizando a Azure CLI | Microsoft Docs
 description: Aprenda a usar os comandos Azure CLI para criar um grupo de recursos e, em seguida, criar um hub IoT no grupo de recursos. Também aprenda a remover o centro.
 author: robinsh
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659935"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um hub IoT utilizando o Azure CLI
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como criar um hub IoT usando Azure CLI.
 
 ## <a name="create-an-iot-hub"></a>Criar um Hub IoT
 
-Utilize o CLI Azure para criar um grupo de recursos e, em seguida, adicione um hub IoT.
+Utilize a CLI do Azure para criar um grupo de recursos e, em seguida, adicione um hub IoT.
 
 1. Quando se cria um hub IoT, deve criá-lo num grupo de recursos. Utilize um grupo de recursos existente ou execute o comando [ para criar um grupo de recursos](/cli/azure/resource):
     
@@ -42,7 +42,7 @@ Utilize o CLI Azure para criar um grupo de recursos e, em seguida, adicione um h
    > ```
    >
 
-2. Executar o seguinte [comando para criar um hub IoT](/cli/azure/iot/hub#az-iot-hub-create) no seu grupo de recursos, usando um nome globalmente único para o seu hub IoT:
+2. Execute o seguinte [comando para criar um hub IoT](/cli/azure/iot/hub#az-iot-hub-create) no grupo de recursos, com um nome globalmente exclusivo para o seu hub IoT:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -71,7 +71,7 @@ Para [eliminar um grupo de recursos](/cli/azure/group#az-group-delete) e todos o
 az group delete --name {your resource group name}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a utilização de um hub IoT, consulte os seguintes artigos:
 

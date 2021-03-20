@@ -8,10 +8,10 @@ ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374988"
 ---
 # <a name="smb-multichannel-performance"></a>Desempenho SMB Multicanal

@@ -1,5 +1,5 @@
 ---
-title: Ler e escrever dados espaciais Microsoft Azure Maps
+title: Ler e escrever dados espaciais | Microsoft Azure Maps
 description: Saiba ler e escrever dados utilizando o módulo Spatial IO, fornecido pela Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 133674e6764e12742f5b238946e943d9b5011cd2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891334"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e escrever dados espaciais
@@ -37,11 +37,11 @@ Estas próximas secções delineiam todas as diferentes ferramentas para ler e e
 
 A `atlas.io.read` função é a principal função usada para ler formatos comuns de dados espaciais tais como KML, GPX, GeoRSS, GeoJSON e CSV com dados espaciais. Esta função também pode ler versões comprimidas destes formatos, como um ficheiro zip ou um ficheiro KMZ. O formato de ficheiro KMZ é uma versão comprimido de KML que também pode incluir ativos como imagens. Em alternativa, a função de leitura pode ter um URL que aponta para um ficheiro em qualquer um destes formatos. Os URLs devem ser hospedados num ponto final ativado pelo CORS, ou deve ser prestado um serviço de procuração nas opções de leitura. O serviço proxy é usado para carregar recursos em domínios que não estão habilitados com CORS. A função de leitura retorna a promessa de adicionar os ícones de imagem ao mapa, e processa os dados assíncronamente para minimizar o impacto no fio de UI.
 
-Ao ler um ficheiro comprimido, seja como um fecho ou um KMZ, será desapertado e digitalizado para o primeiro ficheiro válido. Por exemplo, doc.kml, ou um ficheiro com outra extensão válida, tais como: .kml, .xml, geojson, .json, .csv, .tsv, ou .txt. Em seguida, as imagens referenciadas nos ficheiros KML e GeoRSS são pré-carregadas para garantir que estão acessíveis. Os dados de imagem inacessíveis podem carregar uma imagem alternativa de recuo ou serão removidos dos estilos. As imagens extraídas de ficheiros KMZ serão convertidas em URIs de dados.
+Ao ler um ficheiro comprimido, seja como um fecho ou um KMZ, será desapertado e digitalizado para o primeiro ficheiro válido. Por exemplo, doc.kml, ou um ficheiro com outra extensão válida, tais como: .kml, .xml, geojson, .json, .csv, .tsv ou .txt. Em seguida, as imagens referenciadas nos ficheiros KML e GeoRSS são pré-carregadas para garantir que estão acessíveis. Os dados de imagem inacessíveis podem carregar uma imagem alternativa de recuo ou serão removidos dos estilos. As imagens extraídas de ficheiros KMZ serão convertidas em URIs de dados.
 
 O resultado da função de leitura é um `SpatialDataSet` objeto. Este objeto estende a classe GeoJSON FeatureCollection. Pode facilmente ser passado para um `DataSource` as-é para tornar as suas características num mapa. O `SpatialDataSet` não só contém informações sobre as características, como também pode incluir sobreposições de terra KML, métricas de processamento e outros detalhes, tal como descritos no quadro seguinte.
 
-| Nome da propriedade | Tipo | Descrição | 
+| Nome da propriedade | Tipo | Description | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Caixa de limitação de todos os dados do conjunto de dados. |
 | `features` | `Feature[]` | GeoJSON possui dentro do conjunto de dados. |

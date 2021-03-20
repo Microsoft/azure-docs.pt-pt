@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Administrador de Acesso Privado Zscaler Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o administrador de acesso privado Zscaler | Microsoft Docs'
 description: Saiba como configurar um único sinal de acesso entre o Azure Ative Directory e o Administrador de Acesso Privado Zscaler.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 803f5c25429b33e6d1af130196d38e125b410eb4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: Integração do Diretório Ativo Azure com o Administrador de Acesso Privado Zscaler
@@ -52,7 +52,7 @@ Para configurar a integração do Administrador de Acesso Privado Zscaler em Azu
 
 **Para adicionar o Administrador de Acesso Privado Zscaler da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -64,13 +64,13 @@ Para configurar a integração do Administrador de Acesso Privado Zscaler em Azu
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, tipo **Zscaler Private Access Administrator** , selecione **Zscaler Private Access Administrator** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, tipo **Zscaler Private Access Administrator**, selecione **Zscaler Private Access Administrator** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Administrador de Acesso Privado Zscaler na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sinal de acesso privado com o Zscaler Private Access Administrator baseado num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com um único sinal de acesso privado com o Zscaler Private Access Administrator baseado num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de acesso ao trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Zscaler Private Access Administrator.
 
 Para configurar e testar o Azure AD com o administrador de acesso privado Zscaler, é necessário completar os seguintes blocos de construção:
@@ -88,7 +88,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o administrador de acesso privado Zscaler, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zscaler Private Access Administrator,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zscaler Private Access Administrator,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com o administrador de acesso privado Zscaler, execut
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/sso`
 
-    c. Clique **em Definir URLs adicionais** .
+    c. Clique **em Definir URLs adicionais**.
 
     d. Na caixa de texto **do Estado de Retransmissão,** digite um URL: `idpadminsso`
 
@@ -139,11 +139,11 @@ Para configurar o Azure AD com o administrador de acesso privado Zscaler, execut
 
 1. Numa janela diferente do navegador web, assine o Administrador de Acesso Privado Zscaler como Administrador.
 
-2. No topo, clique em **Administração** e navegue para a secção **AUTENTICAÇÃO** clique na **configuração IdP** .
+2. No topo, clique em **Administração** e navegue para a secção **AUTENTICAÇÃO** clique na **configuração IdP**.
 
     ![Administrador de Acesso Privado Zscaler administrador](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-3. No canto superior direito, clique em **Adicionar Configuração IdP** . 
+3. No canto superior direito, clique em **Adicionar Configuração IdP**. 
 
     ![Administrador de acesso privado Zscaler addidp](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
@@ -157,17 +157,17 @@ Para configurar o Azure AD com o administrador de acesso privado Zscaler, execut
 
     ![Administrador de Acesso Privado Zscaler idpconfig](./media/zscalerprivateaccessadministrator-tutorial/idpconfig.png)
 
-    c. Selecione **single sign on** como **administrador** .
+    c. Selecione **single sign on** como **administrador**.
 
     d. Selecione o seu domínio no campo **Domínios.**
     
-    e. Clique em **Guardar** .
+    e. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -179,27 +179,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao Administrador de Acesso Privado Zscaler.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **O Administrador de Acesso Privado Zscaler** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **O Administrador de Acesso Privado Zscaler**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Zscaler Private Access Administrator** .
+2. Na lista de candidaturas, selecione **Zscaler Private Access Administrator**.
 
     ![O link Zscaler Private Access Administrator na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -221,7 +221,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Administrador de A
 
 1. Inscreva-se no site da sua empresa Zscaler Private Access Administrator como administrador.
 
-2. No topo, clique em **Administração** e navegue para a secção **AUTENTICAÇÃO** clique na **configuração IdP** .
+2. No topo, clique em **Administração** e navegue para a secção **AUTENTICAÇÃO** clique na **configuração IdP**.
 
     ![Administrador de Acesso Privado Zscaler administrador](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
@@ -243,7 +243,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Administrador de A
 
     c. Na caixa de texto **'Confirmar palavra-passe',** digite a palavra-passe.
 
-    d. Selecione **Função** como **Administrador de Acesso Privado Zscaler** .
+    d. Selecione **Função** como **Administrador de Acesso Privado Zscaler**.
 
     e. Na caixa de sms **do Email,** insira o e-mail do utilizador como BrittaSimon@contoso.com .
 
@@ -251,7 +251,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Administrador de A
 
     exemplo, Na caixa de texto **timezone,** selecione o Timezone.
 
-    h. Clique em **Guardar** .
+    h. Clique em **Guardar**.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

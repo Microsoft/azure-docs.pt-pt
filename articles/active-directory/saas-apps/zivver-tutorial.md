@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o ZIVVER Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | ZIVVER Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ZIVVER.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: d500270d579558a88cc4e5127ee7946b58bddda1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92894745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Tutorial: Integração do Diretório Ativo Azure com o ZIVVER
@@ -49,7 +49,7 @@ Para configurar a integração do ZIVVER no AD Azure, é necessário adicionar Z
 
 **Para adicionar ZIVVER da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -67,7 +67,7 @@ Para configurar a integração do ZIVVER no AD Azure, é necessário adicionar Z
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sinal de sinalização com ZIVVER com base num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com um único sinal de sinalização com ZIVVER com base num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no ZIVVER.
 
 Para configurar e testar o Azure AD com um único sinal de acesso com ZIVVER, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com um único sinal de inscrição com o ZIVVER, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **ZIVVER,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **ZIVVER,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Para configurar o Azure AD com um único sinal de inscrição com o ZIVVER, exec
 
     Na caixa de texto **identifier,** digite um URL:  `https://app.zivver.com/SAML/Zivver`
 
-5. A aplicação ZIVVER espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname** . A aplicação ZIVVER espera que **o identificador** de nomes seja mapeado com **o user.mail,** pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
+5. A aplicação ZIVVER espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname**. A aplicação ZIVVER espera que **o identificador** de nomes seja mapeado com **o user.mail,** pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
     ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
@@ -126,11 +126,11 @@ Para configurar o Azure AD com um único sinal de inscrição com o ZIVVER, exec
 
     c. Deixe o **Espaço Namespace** em branco.
 
-    d. Selecione Fonte como **Atributo** .
+    d. Selecione Fonte como **Atributo**.
 
     e. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
 
-    f. Clique em **Guardar** .
+    f. Clique em **Guardar**.
 
 7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML da Federação** e clique em **Copiar** o url de **metadados** da Federação de Aplicações a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
@@ -152,21 +152,21 @@ Para configurar o Azure AD com um único sinal de inscrição com o ZIVVER, exec
 
 2. Clique no ícone **de definições** da Organização na parte inferior esquerda da janela do seu navegador.
 
-3. Vá para **single sign-on** .
+3. Vá para **single sign-on**.
 
 4. Abra o ficheiro XML dos Metadados da Federação que descarregou a partir do portal Azure.
 
 5. Na caixa de texto **URL de metadados do Fornecedor de Identidade,** cole o **URL de metadados da Federação de Aplicações** que tenha guardado anteriormente a partir do portal Azure.
 
-6. Verifique a caixa de verificação **Ligue sSO** .
+6. Verifique a caixa de verificação **Ligue sSO**.
 
-7. Clique **em SAVE** .
+7. Clique **em SAVE**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -178,27 +178,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao ZIVVER.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **ZIVVER** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **ZIVVER**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **ZIVVER** .
+2. Na lista de candidaturas, selecione **ZIVVER**.
 
     ![A ligação ZIVVER na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

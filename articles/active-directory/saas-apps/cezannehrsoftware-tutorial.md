@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Cezanne HR Software Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Cezanne HR Software | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Software Rh cezanne.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 0aa0dab7b512c85fbbdf374c962e6ee8e1c7d616
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456295"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Ative Directory com o Software RH cezanne
@@ -251,15 +251,15 @@ Para permitir que os utilizadores de Azure AD acedam ao Software Rh cezanne, dev
 
 5. Navegue para **o separador 'Sign-on' único** e selecione **Adicionar Novo** na área dos **identificadores SAML 2.0.**
 
-    ![A screenshot mostra o separador Single Sign-On onde pode selecionar Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilizador")
+    ![A screenshot mostra o separador Single Sign-On onde pode selecionar Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "User")
 
 6. Escolha o seu Fornecedor de Identidade para o **Fornecedor de Identidade** e na caixa de texto do User **Identifier,** insira o endereço de e-mail da conta Britta Simon.
 
-    ![A screenshot mostra os identificadores SAML 2.0 onde pode selecionar o seu Fornecedor de Identidade e Identificador de Utilizador.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilizador")
+    ![A screenshot mostra os identificadores SAML 2.0 onde pode selecionar o seu Fornecedor de Identidade e Identificador de Utilizador.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "User")
 
 7. Clique no botão **Guardar.**
 
-    ![A screenshot mostra o botão Guardar para as Definições do Utilizador.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilizador")
+    ![A screenshot mostra o botão Guardar para as Definições do Utilizador.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "User")
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

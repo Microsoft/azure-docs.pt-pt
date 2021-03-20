@@ -1,5 +1,5 @@
 ---
-title: Mostrar os resultados da pesquisa num mapa Microsoft Azure Maps
+title: Mostrar os resultados da pesquisa num mapa | Microsoft Azure Maps
 description: Neste artigo, você vai aprender a executar um pedido de pesquisa usando o Microsoft Azure Maps Web SDK e exibir os resultados no mapa.
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 647a8fc25f27ef7f441ed7459ecd543d4f35581e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895278"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar os resultados da pesquisa no mapa

@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 02/09/2021
 ms.author: cherylmc
 ms.openlocfilehash: 9778942dc24a81c839e14e095a755a280a17d9c9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379136"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Criar um Gateway de VPN e adicionar uma ligação Site a Site com o PowerShell

@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895771"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
@@ -24,10 +24,10 @@ Depois de criar uma conta Azure Maps, é criada uma identificação de cliente e
 
 Depois de criar uma conta Azure Maps, as teclas primárias e secundárias são geradas. Recomendamos que utilize uma chave primária como chave de subscrição quando [utilizar a autenticação da Chave Partilhada para ligar para OZure Maps](./azure-maps-authentication.md#shared-key-authentication). Pode utilizar uma chave secundária em cenários como alterações de teclas rolantes. Para mais informações, consulte [autenticação no Azure Maps.](./azure-maps-authentication.md)
 
-Pode ver os seus dados de autenticação no portal Azure. Ali, na sua conta, no menu **Definições,** selecione **Autenticação** .
+Pode ver os seus dados de autenticação no portal Azure. Ali, na sua conta, no menu **Definições,** selecione **Autenticação**.
 
 > [!div class="mx-imgBorder"]
-> ![Detalhes da autenticação](./media/how-to-manage-authentication/how-to-view-auth.png)
+> ![Detalhes de autenticação](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 ## <a name="discover-category-and-scenario"></a>Descubra a categoria e o cenário
 
@@ -43,7 +43,7 @@ A tabela que se segue descreve cenários comuns de autenticação e autorizaçã
 > [!IMPORTANT]
 > A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) com o controlo de acesso baseado em funções Azure (Azure RBAC) para aplicações de produção.
 
-| Cenário                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
+| Scenario                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
 | [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Chave Partilhada     | N/D           | Médio             | Alto               |
 | [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Baixo                | Médio             |
@@ -56,14 +56,14 @@ Os links na tabela levam-no a informações detalhadas de configuração para ca
 
 ## <a name="view-role-definitions"></a>Ver definições de funções
 
-Para ver as funções Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)** . Selecione **Roles** , e, em seguida, procure por papéis que comecem com *Azure Maps* . Estas funções do Azure Maps são as funções a que podes conceder acesso.
+Para ver as funções Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## <a name="view-role-assignments"></a>Ver atribuições de funções
 
-Para ver utilizadores e apps a quem foi concedido acesso ao Azure Maps, aceda ao **Access Control (IAM)** . Lá, selecione **atribuições de funções** e, em seguida, filtrar por **Azure Maps** .
+Para ver utilizadores e apps a quem foi concedido acesso ao Azure Maps, aceda ao **Access Control (IAM)**. Lá, selecione **atribuições de funções** e, em seguida, filtrar por **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
 > ![Ver utilizadores e apps a quem foi concedido acesso](./media/how-to-manage-authentication/how-to-view-amrbac.png)

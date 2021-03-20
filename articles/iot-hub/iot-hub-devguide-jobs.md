@@ -1,5 +1,5 @@
 ---
-title: Compreenda os empregos do Azure IoT Hub Microsoft Docs
+title: Compreenda os empregos do Azure IoT Hub | Microsoft Docs
 description: Developer guide - agendar trabalhos para executar em vários dispositivos ligados ao seu hub IoT. Os trabalhos podem atualizar tags e propriedades desejadas e invocar métodos diretos em vários dispositivos.
 author: robinsh
 manager: philmea
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730114"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
-O Azure IoT Hub permite uma série de blocos de construção como [propriedades gémeas do dispositivo e etiquetas e métodos diretos.](iot-hub-devguide-device-twins.md) [direct methods](iot-hub-devguide-direct-methods.md) Normalmente, as aplicações back-end permitem aos administradores e operadores de dispositivos atualizar e interagir com dispositivos IoT a granel e a uma hora programada. Os trabalhos executam duas atualizações e métodos diretos contra um conjunto de dispositivos numa hora programada. Por exemplo, um operador usaria uma aplicação back-end que inicia e rastreia um trabalho para reiniciar um conjunto de dispositivos no edifício 43 e no piso 3 de cada vez que não seria perturbador para as operações do edifício.
+O Azure IoT Hub permite uma série de blocos de construção como [propriedades gémeas do dispositivo e etiquetas e métodos diretos.](iot-hub-devguide-device-twins.md) [](iot-hub-devguide-direct-methods.md) Normalmente, as aplicações back-end permitem aos administradores e operadores de dispositivos atualizar e interagir com dispositivos IoT a granel e a uma hora programada. Os trabalhos executam duas atualizações e métodos diretos contra um conjunto de dispositivos numa hora programada. Por exemplo, um operador usaria uma aplicação back-end que inicia e rastreia um trabalho para reiniciar um conjunto de dispositivos no edifício 43 e no piso 3 de cada vez que não seria perturbador para as operações do edifício.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Laboratórios de Molho - Mobile e Web Testing / Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com Laboratórios de Molho - Mobile and Web Testing | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Sauce Labs - Mobile and Web Testing.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 087e2d7f2db8f27378b54675095e97256d6aae9b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Azure Ative Directory com Laboratórios de Molho - Mobile e Web Testing
@@ -50,7 +50,7 @@ Para configurar a integração de Laboratórios de Molho - Testes Móveis e Web 
 
 **Para adicionar Laboratórios de Molho - Testes Móveis e Web da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -68,7 +68,7 @@ Para configurar a integração de Laboratórios de Molho - Testes Móveis e Web 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Sauce Labs - Mobile and Web Testing com base em um utilizador de teste chamado **Britta Simon** .
+Nesta secção, você configura e testa Azure AD single sign-on com Sauce Labs - Mobile and Web Testing com base em um utilizador de teste chamado **Britta Simon**.
 Para um único sign-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Laboratórios de Molho - Testes Móveis e Web.
 
 Para configurar e testar o único sinal de Azure AD com Laboratórios de Molho - Testes Móveis e Web, você precisa completar os seguintes blocos de construção:
@@ -86,7 +86,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD single sign-on com Sauce Labs - Mobile and Web Testing, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de **aplicações de testes móveis e web,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração de **aplicações de testes móveis e web,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -140,13 +140,13 @@ Para configurar o Azure AD single sign-on com Sauce Labs - Mobile and Web Testin
 
     b. Selecione a caixa **de verificação DE PROVISIONING DE VEZ EM TEMPO.**
 
-    c. Clique em **Guardar** .
+    c. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -158,28 +158,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **nome de utilizador**`brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use a Azure single sign-on, concedendo acesso a Sauce Labs - Mobile e Web Testing.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **Laboratórios de Molho - Testes Móveis e Web** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Laboratórios de Molho - Testes Móveis e Web**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Sauce Labs - Mobile and Web Testing** .
+2. Na lista de aplicações, selecione **Sauce Labs - Mobile and Web Testing**.
 
     ![The Sauce Labs - Ligação de Testes Móveis e Web na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

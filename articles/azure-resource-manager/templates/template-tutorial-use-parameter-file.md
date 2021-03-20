@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368431"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Use ficheiros de parâmetros para implementar o seu modelo ARM
@@ -59,7 +59,7 @@ Utilize o Azure CLI ou o Azure PowerShell para implantar o gabarito.
 
 Como um teste final do seu modelo, vamos criar dois novos grupos de recursos. Um para o ambiente dev e outro para o ambiente de produção.
 
-Para as variáveis do modelo e dos parâmetros, `{path-to-the-template-file}` substitua, , e os `{path-to-azuredeploy.parameters.dev.json}` `{path-to-azuredeploy.parameters.prod.json}` aparelhos encaracolados `{}` com o seu modelo e caminhos de arquivo de parâmetros.
+Para as variáveis do modelo e dos parâmetros, `{path-to-the-template-file}` substitua, , , , e os `{path-to-azuredeploy.parameters.dev.json}` `{path-to-azuredeploy.parameters.prod.json}` aparelhos encaracolados `{}` com o seu modelo e caminhos de arquivo de parâmetros.
 
 Primeiro, vamos para o ambiente dev.
 

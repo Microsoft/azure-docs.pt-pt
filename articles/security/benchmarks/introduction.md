@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 32aa64a9343a8e3c62af4322b3320b28ce805064
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97369196"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução de referência de segurança Azure
@@ -48,7 +48,7 @@ Os termos "controle", "benchmark" e "linha de base" são usados frequentemente n
 
 | Termo | Descrição | Exemplo |
 |--|--|--|
-| Controlo | Um controlo é uma descrição de alto nível de uma característica ou atividade que precisa de ser abordada e não é específica de uma tecnologia ou implementação. | A Proteção de Dados é um dos controlos de segurança. Este controlo contém ações específicas que devem ser endereçadas para ajudar a garantir a proteção dos dados. |
+| Controlar | Um controlo é uma descrição de alto nível de uma característica ou atividade que precisa de ser abordada e não é específica de uma tecnologia ou implementação. | A Proteção de Dados é um dos controlos de segurança. Este controlo contém ações específicas que devem ser endereçadas para ajudar a garantir a proteção dos dados. |
 | Referência | Um benchmark contém recomendações de segurança para uma tecnologia específica, como a Azure. As recomendações são categorizadas pelo controlo a que pertencem. | O Azure Security Benchmark compreende as recomendações de segurança específicas da plataforma Azure |
 | Linha de base | Uma linha de base é a implementação do benchmark no serviço Azure individual. Cada organização decide a recomendação de referência e as configurações correspondentes são necessárias no âmbito de implementação do Azure. | A empresa Contoso procura ativar as funcionalidades de segurança Azure SQL seguindo a configuração recomendada na linha de base de segurança Azure SQL.
 

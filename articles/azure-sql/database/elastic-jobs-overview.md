@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792179"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Criar, configurar e gerir trabalhos elásticos (pré-visualização)
@@ -50,11 +50,11 @@ As tarefas utilizam [credenciais com âmbito de base de dados](/sql/t-sql/statem
 
 A configuração das credenciais corretas para executar uma tarefa pode ser um pouco confusa, por isso, tenha em consideração os seguintes pontos:
 
-- As credenciais com âmbito de base de dados têm de ser criadas na *Base de dados da tarefa* .
+- As credenciais com âmbito de base de dados têm de ser criadas na *Base de dados da tarefa*.
 - **Todas as bases de dados-alvo devem ter um login com [permissões suficientes](/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com sucesso** `jobuser` (no diagrama abaixo).
 - As credenciais podem ser reutilizadas através de trabalhos, e as palavras-passe credenciais são encriptadas e protegidas de utilizadores que tenham acesso apenas a objetos de trabalho.
 
-A imagem seguinte tem como objetivo ajudar a compreender e a configurar as credenciais de tarefa corretas. **Lembre-se de criar o utilizador em todas as bases de dados (todas as *dbs de utilizador de destino* ) onde a tarefa tenha de ser executada** .
+A imagem seguinte tem como objetivo ajudar a compreender e a configurar as credenciais de tarefa corretas. **Lembre-se de criar o utilizador em todas as bases de dados (todas as *dbs de utilizador de destino*) onde a tarefa tenha de ser executada**.
 
 ![Credenciais de Tarefas Elásticas](./media/elastic-jobs-overview/job-credentials.png)
 

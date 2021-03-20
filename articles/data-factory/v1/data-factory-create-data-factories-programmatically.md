@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1b7f5d1ad671b6d97bd6597386c714b026c02232
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376858"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados Azure utilizando a Azure Data Factory .NET SDK
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Pode criar, monitorizar e gerir fábricas de dados Azure programáticamente utilizando data factory .NET SDK. Este artigo contém uma passagem que pode seguir para criar uma aplicação de consola .NET que cria e monitoriza uma fábrica de dados. 
 
 > [!NOTE]
@@ -135,7 +135,7 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A ativ
     </configuration>
     ```
 5. No ficheiro App.Config, atualizar os valores para **&lt; ID &gt; de aplicação,** **&lt; password, &gt;** **&lt; ID &gt; de assinatura** e **&lt; ID &gt; do inquilino** com os seus próprios valores.
-6. Adicione as **seguintes declarações** ao ficheiro **Program.cs** no projeto.
+6. Adicione o seguinte **usando** declarações ao ficheiro **.cs Programa** no projeto.
 
     ```csharp
     using System.Configuration;

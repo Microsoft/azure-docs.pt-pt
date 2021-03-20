@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
 ms.openlocfilehash: d6ba14a8838d71397a8c2348a03b1d760b3cd739
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660445"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Ativar e transferir registos de consulta lenta do servidor de um servidor da Base de Dados do Azure para PostgreSQL com a CLI do Azure
@@ -43,7 +43,7 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az postgres server-logs download](/cli/azure/postgres/server-logs) | Descarregue ficheiros de registo. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
 - Experimente scripts adicionais: [Amostras da CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - [Configurar e aceder a registos do servidor no portal do Azure](../howto-configure-server-logs-in-portal.md)
