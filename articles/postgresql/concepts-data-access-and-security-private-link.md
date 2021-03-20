@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881066"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para a base de dados Azure para servidor PostgreSQL-Single
@@ -124,7 +124,7 @@ Quando esta definição é definida apenas ligações *SIM* através de pontos f
 
 Para saber como configurar o Acesso à **Rede Pública de Negação** para o seu servidor Single PostgreSQL do portal Azure, consulte como configurar o [Acesso à Rede Pública de Negação](howto-deny-public-network-access.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a Base de Dados Azure para funcionalidades de segurança de servidores postgresQL, consulte os seguintes artigos:
 

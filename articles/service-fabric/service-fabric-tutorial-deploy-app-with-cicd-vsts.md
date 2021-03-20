@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: a26cfaca466e01b154c65b27895f3004f6320e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326342"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação com CI/CD num cluster do Service Fabric
@@ -83,7 +83,7 @@ Um pipeline de versão do Azure Pipelines descreve um fluxo de trabalho que impl
 
 Abra um browser e navegue até ao novo projeto em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Selecione o **separador Pipelines** e, em seguida, **Constrói**e, em seguida, clique em **Novo Pipeline**.
+Selecione o **separador Pipelines** e, em seguida, **Constrói** e, em seguida, clique em **Novo Pipeline**.
 
 ![Novo Pipeline][new-pipeline]
 
@@ -107,7 +107,7 @@ As compilações também são acionadas após push ou dar entrada. Para verifica
 
 ### <a name="create-a-release-pipeline"></a>Criar um pipeline de versão
 
-Selecione o **separador Pipelines** e, em seguida, **desbloqueia**e, em seguida, **+ Novo gasoduto**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione o **separador Pipelines** e, em seguida, **desbloqueia** e, em seguida, **+ Novo gasoduto**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 
@@ -131,7 +131,7 @@ Ative um acionador de implementação contínua para que uma versão seja criada
 
 ![Ativar o acionador][enable-trigger]
 
-Selecione **+**  ->  **Desbloqueie criar um desbloqueio**  ->  **Create** para criar manualmente um desbloqueio. Pode monitorizar o progresso da versão no separador **Versões**.
+Selecione **+**  ->  **Desbloqueie criar um desbloqueio**  ->   para criar manualmente um desbloqueio. Pode monitorizar o progresso da versão no separador **Versões**.
 
 Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3".
 

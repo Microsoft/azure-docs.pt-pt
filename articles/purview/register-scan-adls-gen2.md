@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882404"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Registar e digitalizar Azure Data Lake Storage Gen2
@@ -130,7 +130,7 @@ No ecrã **'Azure Data Lake Storage Gen2' (Azure Data Lake Storage Gen2),** faç
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

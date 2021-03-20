@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079137"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Quickstart: Criar um Azure Firewall e grupos IP - modelo ARM
@@ -76,11 +76,11 @@ No portal Azure, reveja os recursos implantados, especialmente as regras de fire
 
 :::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="Grupos IP.":::
 
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Grupos IP.":::
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Regras de rede.":::
 
 Para saber mais sobre a sintaxe JSON e propriedades para uma firewall em um modelo, consulte [a referência do modelo Microsoft.Network azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 

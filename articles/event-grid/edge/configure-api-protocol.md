@@ -1,5 +1,5 @@
 ---
-title: Configure protocolos API - Azure Event Grid IoT Edge / Microsoft Docs
+title: Configure protocolos API - Azure Event Grid IoT Edge | Microsoft Docs
 description: Saiba mais sobre as possíveis configurações de protocolo de um módulo de Grade de Eventos.
 author: VidyaKukke
 manager: rajarv
@@ -8,17 +8,17 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: a9cf6088201ffeaed76d99a9b211e5bcd1ea139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91322585"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Configure protocolos API de grelha de eventos
 
 Este guia dá exemplos das possíveis configurações de protocolo de um módulo de Grade de Eventos. O módulo Event Grid expõe a API para as suas operações de gestão e tempo de execução. A tabela seguinte captura os protocolos e portas.
 
-| Protocolo | Porta | Descrição |
+| Protocolo | Porta | Description |
 | ---------------- | ------------ | ------------ |
 | HTTP | 5888 | Desligado por defeito. Útil apenas durante os testes. Não é adequado para cargas de trabalho de produção.
 | HTTPS | 4438 | Predefinição

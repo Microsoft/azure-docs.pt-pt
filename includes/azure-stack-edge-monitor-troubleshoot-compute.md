@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89272138"
 ---
 Num dispositivo Azure Stack Edge que tem a função de computação configurada, pode resolver problemas ou monitorizar o dispositivo utilizando dois conjuntos diferentes de comandos.
@@ -36,7 +36,7 @@ Commands:
 
 A tabela a seguir tem uma breve descrição dos comandos disponíveis `iotedge` para:
 
-|command  |Descrição |
+|command  |Description |
 |---------|---------|
 |`check`     | Realizar verificações automatizadas para problemas comuns de configuração e conectividade       |
 |`list`     | Listar módulos         |
@@ -72,7 +72,7 @@ Commands:
 ```
 A tabela a seguir tem uma breve descrição dos comandos disponíveis `dkrdbe` para:
 
-|command  |Descrição |
+|command  |Description |
 |---------|---------|
 |`image`     | Gerir imagens. Para remover imagens não utilizadas, utilize: `dkrdbe image prune -a -f`       |
 |`images`     | Listar imagens         |

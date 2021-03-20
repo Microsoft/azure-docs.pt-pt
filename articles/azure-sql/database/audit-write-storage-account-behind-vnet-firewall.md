@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348258"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria a uma conta de armazenamento por trás do VNet e firewall
@@ -123,7 +123,7 @@ Para configurar a Auditoria SQL para escrever eventos numa conta de armazenament
    > [!NOTE]
    > Só os membros com privilégio proprietário podem realizar este passo. Para vários papéis embutidos em Azure, consulte as [funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
-3. Configure a [política de auditoria do blob do servidor,](/rest/api/sql/server%20auditing%20settings/createorupdate)sem especificar um *armazenamentoAccountAccessKey* :
+3. Configure a [política de auditoria do blob do servidor,](/rest/api/sql/server%20auditing%20settings/createorupdate)sem especificar um *armazenamentoAccountAccessKey*:
 
    Pedido de amostra
 
@@ -159,7 +159,7 @@ Pode configurar a auditoria para escrever eventos de base de dados numa conta de
 > [!NOTE]
 > A amostra ligada encontra-se num repositório público externo e é fornecida "como está", sem garantia, e não é suportada sob qualquer programa/serviço de suporte da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.](scripts/vnet-service-endpoint-rule-powershell-create.md)
 * [Regras de Rede Virtual: Operações com APIs REST](/rest/api/sql/virtualnetworkrules)

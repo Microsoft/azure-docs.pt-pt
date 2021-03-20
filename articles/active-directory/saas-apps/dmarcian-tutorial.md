@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com dmarcian Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | dmarcian Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o dmarcian.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 4a5ea47352bfbe86fe194821da0b6bf10818caf9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454733"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Tutorial: Integrar dmarcian com Diretório Ativo Azure
@@ -166,7 +166,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao dmarcian.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **dmarcian**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

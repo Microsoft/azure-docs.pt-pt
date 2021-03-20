@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com Dossier Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com dossier | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Dossier.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: ff5da4b87589889172a9518fd67486fe14451630
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: Integração do Diretório Ativo Azure com Dossier
@@ -24,7 +24,7 @@ Neste tutorial, aprende-se a integrar o Dossier com o Azure Ative Directory (Azu
 Integrar o Dossier com a Azure AD proporciona-lhe os seguintes benefícios:
 
 * Você pode controlar em Azure AD que tem acesso ao Dossier.
-* You can enable your users to be automatically signed-in to Dossier (Single Sign-On) with their Azure AD accounts.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Dossier (SÚM's Single) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
 Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).

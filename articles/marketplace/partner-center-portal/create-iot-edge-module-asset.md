@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93346779"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare os seus ativos técnicos do módulo IoT Edge
@@ -141,6 +141,6 @@ A sua oferta também será recertificada se a atualizar, como por exemplo adicio
 
 Para fazer o upload do seu módulo IoT Edge para o Azure Marketplace, primeiro tem de o hospedar num [Registo de Contentores Azure](https://azure.microsoft.com/services/container-registry/) (ACR). O módulo deve incluir todas as etiquetas que pretende publicar, incluindo as etiquetas de imagem que são referenciadas por uma etiqueta manifesto. Para obter mais informações, consulte o tutorial [Criar um registo de contentores Azure e empurrar uma imagem do recipiente](../../container-instances/container-instances-tutorial-prepare-acr.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma oferta de módulo do IoT Edge](azure-iot-edge-module-creation.md)

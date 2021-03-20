@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar um servidor de Serviços de Análise no portal Azure Microsoft Docs
+title: Quickstart - Criar um servidor de Serviços de Análise no portal Azure | Microsoft Docs
 description: Este quickstart descreve como criar uma instância do servidor Azure Analysis Services utilizando o portal Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230785"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor - Portal
@@ -30,7 +30,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 
 ## <a name="create-a-server"></a>Criar um servidor
 
-1. Clique **+ Crie um recurso**  >  **Serviços de**Análise de Análise de  >  **Recursos.**
+1. Clique **+ Crie um recurso**  >  **Serviços de** Análise de Análise de  >  **Recursos.**
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -47,7 +47,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 
 Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou, navegue para **todos os**  >  **serviços de análise para** ver se o seu servidor está pronto. Os servidores suportam modelos tabulares nos níveis de compatibilidade 1200 e mais elevados. O nível de compatibilidade do modelo é especificado no Visual Studio ou SSMS.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar, elimine o seu servidor. Na **Descrição Geral** do servidor, clique em **Eliminar**. 
 
@@ -58,4 +58,4 @@ Quando já não precisar, elimine o seu servidor. Na **Descrição Geral** do se
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)   
+> [Quickstart: Configurar a firewall do servidor – Portal](analysis-services-qs-firewall.md)   

@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
 ms.openlocfilehash: 8b391438d8d6605e7ef493a6552af634db840ad5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555158"
 ---
 # <a name="understand-business-glossary-features-in-azure-purview"></a>Compreenda as características glossários de negócios em Azure Purview
 
 Este artigo fornece uma visão geral da característica glossária de negócios em Azure Purview. 
 
-## <a name="business-glossary"></a>Glossário de negócios
+## <a name="business-glossary"></a>Glossário comercial
 
 Um glossário fornece vocabulário para utilizadores de negócios.  Consiste em termos de negócio que podem estar relacionados uns com os outros e permite que sejam categorizados para que possam ser entendidos em diferentes contextos. Estes termos podem então ser mapeados para ativos como uma base de dados, tabelas, colunas, etc. Isto ajuda na abstração do jargão técnico associado aos repositórios de dados e permite que o utilizador do negócio descubra e trabalhe com dados no vocabulário que lhes é mais familiar.
 
@@ -33,7 +33,7 @@ O mesmo termo também pode implicar múltiplos objetos de negócio. É important
 ## <a name="custom-attributes"></a>Atributos personalizados
 
 A Azure Purview suporta oito atributos fora da caixa para qualquer termo glossário de negócios:
-- Nome
+- Name
 - Definição
 - Administradores de dados
 - Especialistas em dados

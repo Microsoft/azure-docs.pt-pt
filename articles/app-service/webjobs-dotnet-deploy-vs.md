@@ -9,10 +9,10 @@ ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89226034"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desenvolver e implementar WebJobs usando o Visual Studio
@@ -71,7 +71,7 @@ Tem duas opções:
 
 #### <a name="enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> Ativar a implementação automática do WebJobs com um projeto web
 
-1. Clique com o botão direito no projeto web no **Solution Explorer**e, em seguida, selecione **Add**  >  **Existing Project como Azure WebJob**.
+1. Clique com o botão direito no projeto web no **Solution Explorer** e, em seguida, selecione **Add**  >  **Existing Project como Azure WebJob**.
    
     ![Projeto existente como Azure WebJob](./media/webjobs-dotnet-deploy-vs/eawj.png)
    
@@ -82,7 +82,7 @@ Tem duas opções:
 3. Complete a caixa de diálogo [Add Azure WebJob](#configure) e, em seguida, selecione **OK**. 
 
 #### <a name="enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> Ativar a implementação do WebJobs sem um projeto web
-1. Clique com o botão direito no projeto de aplicação da consola no **Solution Explorer**e, em seguida, selecione Publicar **como Azure WebJob**. 
+1. Clique com o botão direito no projeto de aplicação da consola no **Solution Explorer** e, em seguida, selecione Publicar **como Azure WebJob**. 
    
     ![Publicar como Azure WebJob](./media/webjobs-dotnet-deploy-vs/paw.png)
    
@@ -102,7 +102,7 @@ Para criar um novo projeto ativado pelo WebJobs, utilize o modelo de projeto de 
     Crie um projeto configurado para implementar automaticamente como WebJob quando implementar um projeto web na mesma solução. Utilize esta opção quando pretender executar o seu WebJob na mesma aplicação web em que executou a aplicação web relacionada.
 
 > [!NOTE]
-> O modelo de novo projeto WebJobs instala automaticamente pacotes NuGet e inclui código em *Program.cs* para o [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se não quiser utilizar o WebJobs SDK, remova ou altere a `host.RunAndBlock` declaração em *Program.cs*.
+> O modelo de novo projeto WebJobs instala automaticamente pacotes NuGet e inclui código no *Programa.cs* para o [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se não quiser utilizar o WebJobs SDK, remova ou altere a `host.RunAndBlock` declaração no *Programa.cs*.
 > 
 > 
 
@@ -112,7 +112,7 @@ Para criar um novo projeto ativado pelo WebJobs, utilize o modelo de projeto de 
 2. Siga as instruções anteriores para [tornar o projeto de aplicação de consola um projeto independente webJobs](#convertnolink).
 
 #### <a name="use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> Use o modelo de novo projeto WebJobs para um WebJob ligado a um projeto web
-1. Clique com o botão direito no projeto web no **Solution Explorer**e, em seguida, selecione **Add**  >  **New Azure WebJob Project**.
+1. Clique com o botão direito no projeto web no **Solution Explorer** e, em seguida, selecione **Add**  >  **New Azure WebJob Project**.
    
     ![Entrada do menu do Novo Azure WebJob Project](./media/webjobs-dotnet-deploy-vs/nawj.png)
    
@@ -157,7 +157,7 @@ Quando liga um projeto ativado pela WebJobs a um projeto web, o Visual Studio ar
 Pode editar este ficheiro diretamente no Visual Studio, com o IntelliSense. O esquema de ficheiros é armazenado em [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) .
 
 ### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>Implementar um projeto WebJobs
-Um projeto WebJobs que você ligou a um projeto web implementa-se automaticamente com o projeto web. Para obter informações sobre a implementação do projeto web, consulte **como orientar**Implementar a  >  **aplicação** na navegação à esquerda.
+Um projeto WebJobs que você ligou a um projeto web implementa-se automaticamente com o projeto web. Para obter informações sobre a implementação do projeto web, consulte **como orientar** Implementar a  >  **aplicação** na navegação à esquerda.
 
 Para implementar um projeto WebJobs por si só, clique com o botão direito no **Solution Explorer** e selecione **Publicar como Azure WebJob**. 
 
@@ -233,7 +233,7 @@ Se ativar **Always on in** Azure, pode utilizar o Visual Studio para alterar o W
 
 1. No separador **Publicar,** escolha **Editar.** 
 
-1. Na caixa de diálogo **de definições** de perfis, escolha **Continua para** **WebJob Type**e, em seguida, escolha **Guardar**.
+1. Na caixa de diálogo **de definições** de perfis, escolha **Continua para** **WebJob Type** e, em seguida, escolha **Guardar**.
 
     ![Publique caixa de diálogo de Definições para um WebJob](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
 

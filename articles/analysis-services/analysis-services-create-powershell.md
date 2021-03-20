@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar Serviços de Análise Azure utilizando serviços de análise powerShell Azure / Microsoft Docs
+title: Quickstart - Criar serviços de análise Azure utilizando serviços de análise powerShell Azure | Microsoft Docs
 description: Este quickstart descreve como criar um servidor Azure Analysis Services usando PowerShell
 author: minewiskan
 ms.service: azure-analysis-services
@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions , devx-track-azurepowershell
 ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89229349"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Início Rápido: Criar um servidor - PowerShell
@@ -59,7 +59,7 @@ Crie um novo servidor utilizando o comando [New-AzAnalysisServicesServer.](/powe
 New-AzAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode remover o servidor da sua subscrição utilizando o comando [Remove-AzAnalysisServicesServer.](/powershell/module/az.analysisservices/new-azanalysisservicesserver) Se continuar com outros guias de início rápido e tutoriais nesta coleção, não remova o servidor. O exemplo seguinte remove o servidor que criou no passo anterior.
 
@@ -73,4 +73,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure com o PowerShell. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)      
+> [Quickstart: Configurar a firewall do servidor – Portal](analysis-services-qs-firewall.md)      

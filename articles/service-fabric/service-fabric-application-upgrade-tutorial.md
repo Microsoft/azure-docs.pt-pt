@@ -4,10 +4,10 @@ description: Este artigo percorre a experiência de implementar uma aplicação 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996241"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização de aplicativo de tecido de serviço usando o Estúdio Visual
@@ -32,7 +32,7 @@ Selecionar **a Publish** traz um pop-up e pode definir o perfil **Target** para 
 
 Agora pode clicar em **Publicar** na caixa de diálogo. Pode utilizar [o Service Fabric Explorer para visualizar o cluster e a aplicação.](service-fabric-visualizing-your-cluster.md) A aplicação Objetos Visuais tem um serviço web ao que pode recorrer digitando `http://localhost:8081/visualobjects/` na barra de endereços do seu navegador.  Deve ver 10 objetos visuais flutuantes a moverem-se no ecrã.
 
-**NOTA:** Se implementar para `Cloud.xml` o perfil (Azure Service Fabric), a aplicação deve então estar disponível em **http://{ServiceFabricName}.{ Região}.cloudapp.azure.com:8081/visualobjects/**. Certifique-se de que tem `8081/TCP` configurado no Balanceador de Carga (encontre o Balanceador de Carga no mesmo grupo de recursos que a instância de Tecido de Serviço).
+**NOTA:** Se implementar no `Cloud.xml` perfil (Azure Service Fabric), a aplicação deve então estar disponível em **http://{ServiceFabricName}.{ Região}.cloudapp.azure.com:8081/visualobjects/**. Certifique-se de que tem `8081/TCP` configurado no Balanceador de Carga (encontre o Balanceador de Carga no mesmo grupo de recursos que a instância de Tecido de Serviço).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passo 2: Atualizar a amostra de Objetos Visuais
 Pode notar que com a versão que foi implantada no passo 1, os objetos visuais não giram. Vamos atualizar esta aplicação para uma em que os objetos visuais também giram.

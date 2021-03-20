@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800153"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderado com listas de imagens personalizadas na consola API
@@ -42,7 +42,7 @@ Antes de poder testar a API na consola online, precisa da sua chave de subscriç
 
 Depois de fazer alterações numa lista de imagens, tem de atualizar o seu índice para que as alterações sejam incluídas em futuras análises. Este passo é semelhante ao modo como um motor de busca no seu ambiente de trabalho (se ativado) ou um motor de pesquisa web atualiza continuamente o seu índice para incluir novos ficheiros ou páginas.
 
-1. Na [referência API de Gestão de Listas de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)no menu esquerdo, selecione **Listas de Imagem**e, em seguida, selecione **Índice de Procura de Atualização**.
+1. Na [referência API de Gestão de Listas de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)no menu esquerdo, selecione **Listas de Imagem** e, em seguida, selecione **Índice de Procura de Atualização**.
 
    As **Listas de Imagens - A página do Índice de Pesquisa de Atualização** abre.
 
@@ -91,11 +91,11 @@ Depois de fazer alterações numa lista de imagens, tem de atualizar o seu índi
 
    Adicione metadados de lista como pares de valor-chave, e não as imagens reais.
  
-7. Selecione **Send** (Enviar). A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de imagem.
+7. Selecione **Enviar**. A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de imagem.
 
    ![Listas de imagens - Criar caixa de conteúdo de resposta a consolas mostra o ID da lista](images/try-terms-list-create-2.png)
  
-8. Em seguida, adicione imagens à MyList. No menu esquerdo, selecione **Imagem**e, em seguida, selecione **Add Image**.
+8. Em seguida, adicione imagens à MyList. No menu esquerdo, selecione **Imagem** e, em seguida, selecione **Add Image**.
 
    A página **Image - Add Image** abre. 
 
@@ -107,11 +107,11 @@ Depois de fazer alterações numa lista de imagens, tem de atualizar o seu índi
  
 10. Na caixa **listId,** introduza o ID da lista que gerou e, em seguida, introduza o URL da imagem que pretende adicionar. Introduza a sua chave de subscrição e, em seguida, selecione **Enviar**.
 
-11. Para verificar se a imagem foi adicionada à lista, no menu esquerdo, selecione **Imagem**e, em seguida, selecione **Get All Image Ids**.
+11. Para verificar se a imagem foi adicionada à lista, no menu esquerdo, selecione **Imagem** e, em seguida, selecione **Get All Image Ids**.
 
     A **consola API image - Get All Image Ids** API abre.
   
-12. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Send** (Enviar).
+12. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Enviar**.
 
     ![Imagem - Obter todas as imagens Ids consola Caixa de conteúdo de resposta lista as imagens que inseriu](images/try-image-list-create-11.png)
  
@@ -127,7 +127,7 @@ Excluir uma imagem ou uma lista é simples. Pode utilizar a API para fazer as se
 
 Este exemplo elimina uma única imagem:
 
-1. Na [referência API de Gestão de Listas de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)no menu esquerdo, selecione **Imagem**e, em seguida, selecione **Delete**. 
+1. Na [referência API de Gestão de Listas de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)no menu esquerdo, selecione **Imagem** e, em seguida, selecione **Delete**. 
 
    A **página imagem - Apagar** abre.
 
@@ -149,7 +149,7 @@ No nosso exemplo, o ID da lista é **58953,** o valor para **ContentSource.** O 
 
 Pode editar o nome e descrição de uma lista e adicionar itens de metadados.
 
-1. Na [referência API de Gestão de Listas de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)no menu esquerdo, selecione **Listas de Imagem**e, em seguida, selecione **'Detalhes de Actualização'.** 
+1. Na [referência API de Gestão de Listas de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)no menu esquerdo, selecione **Listas de Imagem** e, em seguida, selecione **'Detalhes de Actualização'.** 
 
    As **Listas de Imagens - Página de Detalhes de Atualização** abre.
 

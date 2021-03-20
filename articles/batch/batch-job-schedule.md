@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/20/2020
 ms.custom: seodec18
 ms.openlocfilehash: 7da3c78e00f5d7e41a5396603cf4885a50cb6e5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89146356"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Agendar trabalhos para eficiência
@@ -56,7 +56,7 @@ Na parte inferior do formulário básico, você especificará a piscina em que d
 
 **Tempo do relógio da parede máxima**: Desa esta medida de tempo máxima para que o trabalho possa funcionar. Se não estiver completo dentro do prazo, o Batch termina o trabalho. Se não definir isto, não há prazo para o trabalho.
 
-**Contagem máxima de re-padrão**de tarefa : Especifique o número de vezes que uma tarefa pode ser novamente julgada até um máximo de quatro vezes. Isto não é o mesmo que o número de retrós assim que uma chamada da API pode ter.
+**Contagem máxima de re-padrão** de tarefa : Especifique o número de vezes que uma tarefa pode ser novamente julgada até um máximo de quatro vezes. Isto não é o mesmo que o número de retrós assim que uma chamada da API pode ter.
 
 **Quando todas as tarefas estiverem concluídas:** O padrão não é ação.
 

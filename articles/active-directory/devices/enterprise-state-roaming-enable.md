@@ -13,10 +13,10 @@ ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89268609"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
@@ -56,7 +56,7 @@ O valor país/região é definido como parte do processo de criação de diretó
 Siga estes passos para ver um relatório de estado de sincronização do dispositivo por utilizador.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com/).
-1. Selecione **Utilizadores de Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. Selecione **Utilizadores de Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione o utilizador e, em seguida, selecione **Dispositivos**.
 1. Em **'Mostrar'** **(200 euros), selecione dispositivos sincronizando as definições e os dados da aplicação** para mostrar o estado de sincronização.
   

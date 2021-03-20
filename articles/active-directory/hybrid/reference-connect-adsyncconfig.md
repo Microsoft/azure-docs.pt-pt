@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADSyncConfig PowerShell Reference / Microsoft Docs'
+title: 'Azure AD Connect: ADSyncConfig PowerShell Reference | Microsoft Docs'
 description: Este documento fornece informações de referência para o módulo ADSyncConfig.psm1 PowerShell.
 author: billmath
 manager: daveba
@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85850976"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell Reference
@@ -1085,7 +1085,7 @@ As permissões de aperto envolvem os seguintes passos:
 Queremos manter as permissões por defeito intactas quando se trata de SELF.
 3. Atribua estas permissões específicas:
 
-   | Tipo | Nome | Access | Aplica-se A |
+   | Tipo | Name | Access | Aplica-se A |
    |------|------|--------|------------|
    | Permitir | SISTEMA | Controlo Total | Este objeto |
    | Permitir | Administradores da Empresa | Controlo Total | Este objeto |

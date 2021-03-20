@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880713"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Níveis de desempenho do armazenamento dos blobs de blocos
@@ -78,7 +78,7 @@ Para saber mais, consulte [Gerir o ciclo de vida de armazenamento Azure Blob](st
 
 Não é possível mover dados que são armazenados numa conta de armazenamento de blocos premium entre camadas quentes, frias e de arquivo. No entanto, pode copiar bolhas de uma conta de armazenamento de blob de bloco para o nível de acesso quente numa conta *diferente.* Para copiar dados para uma conta diferente, utilize o [Bloco de Put From URL](/rest/api/storageservices/put-block-from-url) API ou [AzCopy v10](../common/storage-use-azcopy-v10.md). O **Bloco de Colocação da API url** copia sincronizadamente os dados no servidor. A chamada só termina depois de todos os dados terem sido transferidos da localização original do servidor para a localização do destino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avalie o calor, o frio e o arquivo nas contas de armazenamento GPv2 e Blob.
 

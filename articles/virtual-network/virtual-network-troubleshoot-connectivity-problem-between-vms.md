@@ -1,5 +1,5 @@
 ---
-title: Problemas de conectividade de resolução de problemas entre VMs Azure Microsoft Docs
+title: Problemas de conectividade de resolução de problemas entre os VMs do Azure | Microsoft Docs
 description: Aprenda a resolver problemas e resolva os problemas de conectividade que poderá experimentar entre os VMs Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98219203"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Troubleshooting connectivity problems between Azure VMs (Resolver problemas de conectividade entre VMs do Azure)

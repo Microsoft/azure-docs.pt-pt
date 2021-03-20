@@ -1,5 +1,5 @@
 ---
-title: Privacidade do Utilizador e Azure AD Single Sign-On [ Microsoft Docs
+title: Privacidade do utilizador e Azure AD Single Sign-On | Microsoft Docs
 description: Este artigo trata do cumprimento do Azure Ative Directory (Azure AD) Seamless SSO e do RGPD.
 services: active-directory
 keywords: o que é Azure AD Connect, RGPD, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89278603"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do Utilizar e Início de Sessão Simples no Azure AD
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 
 A Azure AD Seamless SSO cria o seguinte tipo de registo, que pode conter Dados Pessoais: 
@@ -43,7 +43,7 @@ Recomendamos vivamente a segunda opção, uma vez que é mais fácil de implemen
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Eliminar ficheiros de registo de registo de rastreio Azure AD Connect
 
-Verifique o conteúdo da pasta **%ProgramData%\AADConnect** e elimine o conteúdo do registo de vestígios **(trace-.log \* ** files) desta pasta no prazo de 48 horas após a instalação ou atualização do Azure AD Connect ou modificar a configuração SSO sem emenda, uma vez que esta ação pode criar dados cobertos pelo RGPD.
+Verifique o conteúdo da pasta **%ProgramData%\AADConnect** e elimine o conteúdo do registo de vestígios **(ficheiros \* trace-.log)** desta pasta no prazo de 48 horas após a instalação ou atualização do Azure AD Connect ou modificar a configuração SSO sem emenda, uma vez que esta ação pode criar dados cobertos pelo RGPD.
 
 >[!IMPORTANT]
 >Não elimine o ficheiro **PersistedState.xml** nesta pasta, uma vez que este ficheiro é utilizado para manter o estado da instalação anterior do Azure AD Connect e é utilizado quando uma instalação de upgrade é feita. Este ficheiro nunca conterá quaisquer dados sobre uma pessoa e nunca deverá ser eliminado.

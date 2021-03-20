@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
 ms.openlocfilehash: 19b4c8466e88159839ce1f43a5ba282b1bb3ec9e
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94636933"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – descrição geral
@@ -75,7 +75,7 @@ Vamos investigar cada um em detalhe.
 |Geo-esgrima|AZure Cosmos DB assegura a governação de dados para regiões soberanas (por exemplo, Alemanha, China, EUA Gov).|
 |Instalações protegidas|Os dados em Azure Cosmos DB são armazenados em SSDs nos centros de dados protegidos do Azure.<br><br>Saiba mais nos [datacenters globais da Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |Encriptação HTTPS/SSL/TLS|Todas as ligações com o suporte DB da Azure Cosmos HTTPS. AZure Cosmos DB também suporta TLS 1.2.<br>É possível impor um mínimo de versão TLS lado do servidor. Para tal, [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com) contacte.|
-|Encriptação inativa|Todos os dados armazenados no Azure Cosmos DB estão encriptados em repouso. Saiba mais em [Azure Cosmos DB encriptação em repouso](./database-encryption-at-rest.md)|
+|Encriptação de dados inativos|Todos os dados armazenados no Azure Cosmos DB estão encriptados em repouso. Saiba mais em [Azure Cosmos DB encriptação em repouso](./database-encryption-at-rest.md)|
 |Servidores remendados|Como uma base de dados gerida, a Azure Cosmos DB elimina a necessidade de gerir e corrigir servidores, o que é feito por si, automaticamente.|
 |Contas administrativas com senhas fortes|É difícil acreditar que precisamos mesmo de mencionar este requisito, mas ao contrário de alguns dos nossos concorrentes, é impossível ter uma conta administrativa sem senha no Azure Cosmos DB.<br><br> A segurança através da autenticação baseada em segredo TLS e HMAC é cozida por padrão.|
 |Certificações de segurança e proteção de dados| Para obter a lista de certificações mais atualizada, consulte o site geral de conformidade do [Azure,](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) bem como o mais recente [Documento de Conformidade Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) com todas as certificações (pesquisa por Cosmos). Para uma leitura mais focada, confira o post de 25 de abril de 2018 [Azure #CosmosDB: Seguro, privado, conforme que inclui SOCS 1/2 Tipo 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High, entre muitos outros.

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.openlocfilehash: a8326249b48e98eccecb5f0c4953add26e167560
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594118"
 ---
 # <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>Use o PowerShell para adicionar uma piscina elástica a um grupo de failover

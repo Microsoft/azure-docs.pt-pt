@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurecli
 ms.openlocfilehash: 3442c3b6023edcde97aabcb13e91120ba6811027
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91323078"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Criar um membro blockchain do Azure Blockchain Service usando O Azure CLI
@@ -85,7 +85,7 @@ az blockchain member create \
 | Parâmetro | Descrição |
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde são criados os recursos do Serviço Azure Blockchain. Utilize o grupo de recursos que criou na secção anterior.
-| **name** | Um nome único que identifica o seu membro blockchain do Azure Blockchain Service. O nome é usado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`.
+| **nome** | Um nome único que identifica o seu membro blockchain do Azure Blockchain Service. O nome é usado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`.
 | **localização** | Região de Azure onde o membro blockchain é criado. Por exemplo, `westus2`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure. As funcionalidades podem não estar disponíveis em algumas regiões. O Azure Blockchain Data Manager está disponível nas seguintes regiões de Azure: Leste dos EUA e Europa Ocidental.
 | **palavra-passe** | A palavra-passe para o nó de transação padrão do membro. Utilize a palavra-passe para autenticação básica ao ligar-se ao ponto final público do nó de transação padrão do membro blockchain.
 | **protocolo** | Protocolo blockchain. Atualmente, o protocolo *Qurum* é suportado.
@@ -95,7 +95,7 @@ az blockchain member create \
 
 Leva cerca de 10 minutos para criar o membro blockchain e recursos de apoio.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode utilizar o membro blockchain que criou para o próximo quickstart ou tutorial. Quando já não é necessário, pode eliminar os recursos eliminando o `myResourceGroup` grupo de recursos que criou para o arranque rápido.
 

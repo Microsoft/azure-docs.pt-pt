@@ -12,10 +12,10 @@ ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 12b9639342e2e35b9229aa15bb9cfb4695427606
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97881196"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de senha única numa política personalizada Azure AD B2C
@@ -53,7 +53,7 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| identifier | Yes | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| identificador | Yes | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **transmissão inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha de uma única vez.
 
@@ -119,7 +119,7 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| identifier | Yes | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| identificador | Yes | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 | otpToVerificar | Yes | O código de verificação fornecido pelo utilizador. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **transmissão inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha de uma única vez.

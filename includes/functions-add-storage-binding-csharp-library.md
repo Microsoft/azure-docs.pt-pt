@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: glenga
 ms.openlocfilehash: 5e1a2622df0038141dd5cb05237f93d5e33e0bfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78190925"
 ---
 Num projeto de biblioteca de classes C', as ligações são definidas como atributos de ligação no método de função. A *function.jsno* ficheiro exigido por Funções é então gerada automaticamente com base nestes atributos.
 
-Abra o ficheiro *HttpExample.cs* do projeto e adicione o seguinte parâmetro à definição do `Run` método:
+Abra o ficheiro de projeto *httpExample.cs* e adicione o seguinte parâmetro à definição do `Run` método:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 

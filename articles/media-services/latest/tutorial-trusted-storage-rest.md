@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
 ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100590657"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>Tutorial: Armazenamento fidedigno dos Media Services
@@ -31,7 +31,7 @@ Os Serviços de Mídia podem aceder automaticamente à sua conta de armazenament
 
 No entanto, se pretender utilizar o controlo de acesso à rede para proteger a sua conta de armazenamento e permitir o armazenamento fidedigno, é necessária a autenticação [de Identidades Geridas.](concept-managed-identities.md) Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 > [!IMPORTANT]
 > Utilize a API 2020-05-01 para todos os pedidos aos Serviços de Comunicação Social.

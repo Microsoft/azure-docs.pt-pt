@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Cinode para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar cinode para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desa provisionamento automaticamente de contas de utilizador de Azure AD a Cinode.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: Zhchia
 ms.openlocfilehash: dbed4eaabda34c1f35c21b8fe69db72c07f6d03f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180137"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Tutorial: Configure Cinode para o fornecimento automático de utilizadores

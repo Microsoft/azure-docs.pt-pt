@@ -1,5 +1,5 @@
 ---
-title: Renovar o grupo de proprietários de atribuições de membros em Gestão de Identidade Privilegiada - AZure AD ! Microsoft Docs
+title: Renovar o proprietário do grupo caducado de atribuições de membros em Gestão de Identidade Privilegiada - Azure AD | Microsoft Docs
 description: Saiba como estender ou renovar atribuições de grupos atribuíveis em Azure AD Gestão de Identidade Privilegiada (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cfbb0be22dee4550050d6af10314f3a3bb1f583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87505994"
 ---
 # <a name="extend-or-renew-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Alargar ou renovar atribuições de grupos de acesso privilegiado (pré-visualização) em Gestão de Identidade Privilegiada

@@ -4,10 +4,10 @@ description: Este artigo fornece orientações sobre como desenvolver e implemen
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881657"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Como guiar – Desenvolver e implementar um servidor de inferência gRPC
@@ -148,7 +148,7 @@ Para entender os detalhes de como o servidor gRPC é desenvolvido, vamos ver a n
 1. Lançar VSCode e navegar para a pasta /src/edge/modules/grpcExtension.
 1. Vamos fazer uma rápida passagem pelos ficheiros:
 
-    1. **Program.cs:** este é o ponto de entrada da aplicação. É responsável pela inicialização e gestão do servidor gRPC, que funcionará como anfitrião. Na nossa amostra, a porta para ouvir as mensagens gRPC recebidas de um cliente gRPC (como live video analytics) é especificada pelo elemento de configuração grpcBindings no AppConfig.jsligado.
+    1. **Programa.cs:** este é o ponto de entrada da aplicação. É responsável pela inicialização e gestão do servidor gRPC, que funcionará como anfitrião. Na nossa amostra, a porta para ouvir as mensagens gRPC recebidas de um cliente gRPC (como live video analytics) é especificada pelo elemento de configuração grpcBindings no AppConfig.jsligado.
     
         ```json    
         {
@@ -207,7 +207,7 @@ Agora que configuramos e iniciaisizamos as ligações da porta do servidor gRPC,
     IEnumerable<Inference> ProcessImage(List<Image> images) 
     ```
 
-    Uma vez adicionada a nova classe, terá de atualizar o MediaGraphExtensionService.cs para que ele instantaneamente a sua classe e invoque o método ProcessImage nele para executar a sua lógica de processamento. 
+    Depois de adicionar a nova classe, terá de atualizar o Serviço de Aplicação mediagraphdes.cs para que ele instantaneamente a sua classe e invoque o método ProcessImage nele para executar a sua lógica de processamento. 
 
 ## <a name="connect-with-live-video-analytics-module"></a>Conecte-se com o módulo de análise de vídeo ao vivo
 
@@ -228,7 +228,7 @@ Agora que criou o seu módulo de extensão gRPC, vamos agora criar e implementar
 
     * c2d-console-app.csproj - O ficheiro do projeto para Visual Studio Code.
     * operations.jsem - Uma lista das operações que quer que o programa seja executado.
-    * Program.cs - O código do programa de amostra. Este código:
+    * Programa.cs - O código do programa de amostra. Este código:
 
         * Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](direct-methods.md)
@@ -306,6 +306,6 @@ Nesta fase, iniciou-se a implantação de módulos de borda para o seu dispositi
 
 :::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/devices.png" alt-text="Um novo módulo foi implantado chamado LvaExtension":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Acompanhe o **Prepare-se para monitorizar os passos mencionados** no vídeo ao vivo da [Análise com o seu modelo](use-your-model-quickstart.md) para executar a amostra e interpretar os resultados. Confira também as nossas topologias gRPC da amostra: [gRPCExtension,](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json) [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension, e [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).

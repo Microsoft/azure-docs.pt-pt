@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: tisande
 ms.openlocfilehash: c0d953c8d99582f63744d51b505852b5c44bc409
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555415"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funções agregadas em Azure Cosmos DB
@@ -66,10 +66,10 @@ Os resultados são:
 
 ## <a name="remarks"></a>Observações
 
-Estas funções agregadas do sistema beneficiarão de um [índice de intervalo.](index-policy.md#includeexclude-strategy) Se espera fazer um `AVG` , , , , ou em um `COUNT` `MAX` `MIN` `SUM` imóvel, deve [incluir o caminho relevante na política de indexação.](index-policy.md#includeexclude-strategy)
+Estas funções agregadas do sistema beneficiarão de um [índice de intervalo.](index-policy.md#includeexclude-strategy) Se espera fazer um `AVG` , , ou em um `COUNT` `MAX` `MIN` `SUM` imóvel, deve [incluir o caminho relevante na política de indexação.](index-policy.md#includeexclude-strategy)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
-- [Funções de sistema](sql-query-system-functions.md)
+- [Funções do sistema](sql-query-system-functions.md)
 - [Funções definidas pelo utilizador](sql-query-udfs.md)

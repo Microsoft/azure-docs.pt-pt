@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995986"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
@@ -142,7 +142,7 @@ Pode obter a lista de todas as Atividades de Auditoria utilizando a API do gráf
 O filtro **Status** permite filtrar com base no estado de uma operação de auditoria. O estatuto pode ser um dos seguintes:
 
 - Todos
-- Success
+- Com êxito
 - Falha
 
 O filtro **Target** permite-lhe procurar um alvo específico através do início do nome ou nome principal do utilizador (UPN). O nome-alvo e a UPN são sensíveis a casos. 
@@ -154,7 +154,7 @@ Os valores possíveis são:
 
 - 7 dias
 - 24 horas
-- Personalizar
+- Personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
@@ -191,7 +191,7 @@ Com os relatórios de auditoria baseados em utilizadores e grupos, poderá obter
 
 Se pretender rever apenas os dados de auditoria que estão relacionados com os utilizadores, pode encontrar uma visão filtrada nos **registos** de Auditoria na secção de **Monitorização** do **separador Utilizadores.** Este ponto de entrada tem **a Gestão do Utilizador** como categoria pré-selecionado.
 
-![Utilizador](./media/concept-audit-logs/users.png "Utilizador")
+![Utilizador](./media/concept-audit-logs/users.png "User")
 
 Se pretender rever apenas os dados de auditoria que estão relacionados com grupos, pode encontrar uma visão filtrada nos **registos** de auditoria na secção de **Monitorização** do separador **Grupos.** Este ponto de entrada tem **a GroupManagement** como categoria pré-selecionado.
 

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99593167"
 ---
 # <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Como configurar programáticamente a sincronização em nuvem usando a API do Ms Graph

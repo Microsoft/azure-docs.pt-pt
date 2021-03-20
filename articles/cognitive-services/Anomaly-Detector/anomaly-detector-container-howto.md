@@ -13,10 +13,10 @@ ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor, streaming, algoritmos
 ms.openlocfilehash: 70e5950f6577ce2cca2f28be070f3ba372d46a7e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97862302"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instale e execute os recipientes Docker para a API do Detetor de Anomalias 

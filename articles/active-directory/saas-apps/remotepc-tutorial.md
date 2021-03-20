@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com RemotePC Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com remotePC | Microsoft Docs'
 description: Saiba como configurar um único sinal de acesso entre o Azure Ative Directory e o RemotePC.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 2eccf94f6ae34de027c652dafab81744f924f963
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181650"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-remotepc"></a>Tutorial: Azure Ative Directy integração única (SSO) com RemotePC

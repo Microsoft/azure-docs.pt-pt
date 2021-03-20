@@ -8,10 +8,10 @@ ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882387"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
@@ -119,7 +119,7 @@ A melhor forma de medir os requisitos de desempenho da sua aplicação é utiliz
 
 Os contadores PerfMon estão disponíveis para processador, memória e cada disco lógico e disco físico do seu servidor. Quando utiliza discos de armazenamento premium com um VM, os contadores de disco físico são para cada disco de armazenamento premium, e os contadores de disco lógicos são para cada volume criado nos discos de armazenamento premium. Tem de capturar os valores dos discos que acolhem a carga de trabalho da sua aplicação. Se houver um mapeamento entre discos lógicos e físicos, pode consultar os contadores de discos físicos; caso contrário, consulte os contadores de disco lógicos. No Linux, o comando do iostat gera um relatório de utilização de CPU e disco. O relatório de utilização do disco fornece estatísticas por dispositivo físico ou partição. Se tiver um servidor de base de dados com os seus dados e registos em discos separados, recolha estes dados para ambos os discos. Abaixo a tabela descreve contadores para discos, processadores e memória:
 
-| Contador | Descrição | PerfMon | Iostat |
+| Contador | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS ou Transações por segundo** |Número de pedidos de E/S emitidos para o disco de armazenamento por segundo. |Leituras/seg de disco <br> Escritas/seg de disco |tps <br> r/s <br> c/s |
 | **Leituras e escritos de disco** |% das operações de Leitura e Escrita realizadas no disco. |% Tempo de leitura do disco <br> % Tempo de escrita do disco |r/s <br> c/s |
@@ -155,7 +155,7 @@ Para obter mais informações sobre os tamanhos VM e sobre o IOPS, produção e 
 | **Tamanho do disco** |Utilize um tamanho de disco que ofereça IOPS superior ao seu requisito de aplicação. |Utilize um tamanho de disco com limite de potência superior ao seu requisito de aplicação. |Utilize um tamanho de disco que ofereça limites de escala superiores aos requisitos da sua aplicação. |
 | **Limites de escala de VM e disco** |O limite de IOPS do tamanho VM escolhido deve ser maior do que o total de IOPS impulsionado por discos de armazenamento ligados a ele. |O limite de produção do tamanho VM escolhido deve ser maior do que o total de Produção impulsionado por discos de armazenamento premium ligados a ele. |Os limites de escala do tamanho VM escolhidos devem ser superiores aos limites de escala totais dos discos de armazenamento premium anexados. |
 | **Caching de disco** |Ativar a Cache ReadOnly em discos de armazenamento premium com leia operações pesadas para obter IOPS de leitura mais alta. | &nbsp; |Ativar a Cache ReadOnly em discos de armazenamento premium com operações pesadas prontas para obter latências de leitura muito baixas. |
-| **Striping de disco** |Use vários discos e encoste-os juntos para obter um limite combinado de IOPS e De saída. O limite combinado por VM deve ser superior aos limites combinados dos discos premium anexados. | &nbsp; | &nbsp; |
+| **Repartição de Discos** |Use vários discos e encoste-os juntos para obter um limite combinado de IOPS e De saída. O limite combinado por VM deve ser superior aos limites combinados dos discos premium anexados. | &nbsp; | &nbsp; |
 | **Tamanho das riscas** |Tamanho de listra menor para padrão IO pequeno aleatório visto em aplicações OLTP. Por exemplo, utilize o tamanho das riscas de 64 KB para a aplicação OLTP do servidor SQL. |Tamanho de listra maior para padrão de IO grande sequencial visto nas aplicações data Warehouse. Por exemplo, utilize o tamanho de listras KB de 256 KB para a aplicação de armazém de dados do sql server. | &nbsp; |
 | **Multithreading** |Utilize multi-leituras para empurrar um maior número de pedidos para o Armazenamento Premium que levará a iops e produção mais elevados. Por exemplo, no SQL Server definir um valor MAXDOP elevado para alocar mais CPUs ao SQL Server. | &nbsp; | &nbsp; |
 | **Profundidade da fila** |Maior profundidade de fila produz IOPS mais elevados. |Maior profundidade de fila produz maior produção. |Menor profundidade de fila produz latências mais baixas. |
@@ -376,7 +376,7 @@ Para um volume listrado, mantenha uma profundidade de fila suficientemente alta 
 
 As disposições de Armazenamento Azure Premium especificaram o número de IOPS e Depute dependendo dos tamanhos de VM e dos tamanhos do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Produção acima destes limites do que o VM ou o disco podem manusear, o Premium Storage irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor produção ou iops mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente excedendo o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, sempre fornecendo recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos de VM e tamanhos de disco acima. O benchmarking é a melhor maneira de descobrir quais os recursos necessários para hospedar a sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se procura comparar o seu disco, consulte os nossos artigos sobre o benchmarking de um disco:
 

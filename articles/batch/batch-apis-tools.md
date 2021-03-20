@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
 ms.openlocfilehash: 502eb08631223215933b75dca882c12c02d17bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89146407"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
@@ -41,7 +41,7 @@ Considerando que a [API de gestão](/rest/api/batchmanagement/pool/delete)  do l
 
 As suas aplicações e serviços podem emitir chamadas diretas de API REST ou utilizar uma ou mais das bibliotecas de cliente seguintes para executar e gerir as cargas de trabalho do Azure Batch.
 
-| API | Referência da API | Download | Tutorial | Exemplos de código | Mais informações |
+| API | Referência da API | Download | Tutorial | Exemplos de código | Saiba mais |
 | --- | --- | --- | --- | --- | --- |
 | **REST do Batch** |[Azure REST API - Docs](/rest/api/batchservice/) |N/D |- |- | [Versões suportadas](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **.NET do Batch** |[Azure SDK para .NET - Docs](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Notas de versão](https://aka.ms/batch-net-dataplane-changelog) |

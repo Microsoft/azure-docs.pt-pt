@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050299"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Implementar módulo de borda IoT da grelha de eventos
@@ -35,7 +35,7 @@ Existem várias formas de implantar módulos para um dispositivo IoT Edge e todo
 
 ### <a name="configure-a-deployment-manifest"></a>Configure um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais os módulos a implementar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir o documento JSON manualmente.  Tem três etapas: **Adicionar módulos,** **especificar rotas**e **revisão.**
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implementar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir o documento JSON manualmente.  Tem três etapas: **Adicionar módulos,** **especificar rotas** e **revisão.**
 
 ### <a name="add-modules"></a>Adicionar módulos
 
@@ -67,7 +67,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
     }
 ```
 
- 1. Clicar em **Guardar**
+ 1. Clique em **Guardar**
  1. Clique **ao lado** para continuar na secção de rotas
 
     > [!NOTE]

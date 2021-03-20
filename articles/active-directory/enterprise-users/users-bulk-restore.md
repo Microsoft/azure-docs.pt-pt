@@ -1,5 +1,5 @@
 ---
-title: A granel restaura os utilizadores eliminados no portal Azure Ative Directory Microsoft Docs
+title: Restaurar a granel os utilizadores eliminados no portal Azure Ative Directory | Microsoft Docs
 description: Restaurar os utilizadores eliminados a granel no centro de administração Azure AD em Azure Ative Directory
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571509"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurar a granel utilizadores eliminados no Azure Ative Directory
@@ -62,7 +62,7 @@ As linhas de um modelo de CSV descarregado são as seguintes:
 1. Quando o seu ficheiro passar a validação, **selecione Enviar** por terminação da operação a granel Azure que restaura os utilizadores.
 1. Quando a operação de restauro terminar, verá uma notificação de que a operação a granel foi bem sucedida.
 
-Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Em Massa.** O ficheiro contém a razão de cada erro.
+Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Em Massa.** O ficheiro contém o motivo de cada erro.
 
 ## <a name="check-status"></a>Verificar o estado
 

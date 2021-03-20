@@ -1,5 +1,5 @@
 ---
-title: Design de identidade híbrida - requisitos de resposta a incidentes Azure / Microsoft Docs
+title: Design de identidade híbrida - requisitos de resposta a incidentes Azure | Microsoft Docs
 description: Determinar capacidades de monitorização e reporte da solução de identidade híbrida que pode ser alavancada pela TI para tomar medidas para identificar e mitigar uma ameaça potencial
 documentationcenter: ''
 services: active-directory
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c68be4e46693621f77cb25dd8f34f8e0b7d75dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89278416"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de resposta a incidentes para a sua solução de identidade híbrida

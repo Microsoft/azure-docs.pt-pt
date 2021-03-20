@@ -5,10 +5,10 @@ ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 1/4/2021
 ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97860976"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>O que é a pré-visualização da Infraestruturas BareMetal no Azure?
@@ -77,7 +77,7 @@ Os casos BareMetal baseados no tipo SKU específico vêm com armazenamento NFS p
 >[!NOTE]
 >O armazenamento utilizado para o BareMetal cumpre os requisitos [da Publicação 140-2 da Federal Information Processing Standard (FIPS) que](/microsoft-365/compliance/offering-fips-140-2) oferecem encriptação em repouso por padrão. Os dados são armazenados de forma segura nos discos.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 A arquitetura dos serviços de rede Azure é um componente fundamental para uma implementação bem sucedida de cargas de trabalho especializadas em instâncias BareMetal. É provável que nem todos os sistemas de TI já estejam localizados em Azure. O Azure oferece-lhe tecnologia de rede para fazer com que o Azure pareça um centro de dados virtual para as suas implementações de software no local. A funcionalidade da rede Azure necessária para as instâncias BareMetal é:
 
 - As redes virtuais Azure estão ligadas ao circuito ExpressRoute que se conecta aos seus ativos de rede no local.

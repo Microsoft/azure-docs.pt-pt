@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Understanding Declarative Provisioning / Microsoft Docs'
+title: 'Azure AD Connect: Compreensão declarativa | Microsoft Docs'
 description: Explica o modelo de configuração declarativo de provisionamento no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313625"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect sync: Understanding Declarative Provisioning
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo chama-se Provisionamento Declarativo e permite-lhe fazer uma alteração de configuração com facilidade. Muitas coisas descritas neste tópico são avançadas e não são necessárias para a maioria dos cenários do cliente.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O provisionamento declarativo é processar objetos vindos de um diretório ligado à fonte e determina como o objeto e os atributos devem ser transformados de uma fonte para um alvo. Um objeto é processado num gasoduto de sincronização e o gasoduto é o mesmo para regras de entrada e saída. Uma regra de entrada é de um espaço de conector para o metaverso e uma regra de saída é do metaverso para um espaço de conector.
 
 ![Diagrama que mostra um exemplo de pipeline de sincronização.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
@@ -53,7 +53,7 @@ O âmbito desta imagem deve ser lido como (departamento = IT AND country = Dinam
 
 O módulo de âmbito suporta as seguintes operações.
 
-| Operação | Descrição |
+| Operação | Description |
 | --- | --- |
 | IGUAL, NOTAQUAL |Uma cadeia compara que avalia se o valor é igual ao valor no atributo. Para obter atributos multi-valorizados, consulte ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Uma cadeia compara que avalia se o valor é inferior ao valor no atributo. |
@@ -92,7 +92,7 @@ Um objeto metaverso permanece enquanto houver uma regra de sincronização no â
 Quando um objeto metaverso é eliminado, todos os objetos associados a uma regra de sincronização de saída marcada para **a disposição** estão marcados para uma eliminação.
 
 ## <a name="transformations"></a>Transformações
-As transformações são usadas para definir como os atributos devem fluir da fonte para o alvo. Os fluxos podem ter um dos **seguintes tipos**de fluxo : Direto, Constante ou Expressão. Um fluxo direto, flui um valor de atributo como-é sem transformações adicionais. Um valor constante define o valor especificado. Uma expressão usa a linguagem de expressão declarativa para expressar como deve ser a transformação. Os detalhes para a linguagem de expressão podem ser encontrados no [tópico declarativo declarativo da linguagem de expressão.](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+As transformações são usadas para definir como os atributos devem fluir da fonte para o alvo. Os fluxos podem ter um dos **seguintes tipos** de fluxo : Direto, Constante ou Expressão. Um fluxo direto, flui um valor de atributo como-é sem transformações adicionais. Um valor constante define o valor especificado. Uma expressão usa a linguagem de expressão declarativa para expressar como deve ser a transformação. Os detalhes para a linguagem de expressão podem ser encontrados no [tópico declarativo declarativo da linguagem de expressão.](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 
 ![Provisão ou aderião](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 

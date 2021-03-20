@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única (SSO) com Nitro Productivity Suite / Microsoft Docs'
+title: 'Tutorial: Integração única de sign-on (SSO) do Azure Ative Directory com a Nitro Productivity Suite | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Nitro Productivity Suite.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 3280c97e735e68aa36f018a8de59964ade9567b7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181922"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nitro Productivity Suite
@@ -123,7 +123,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9c734ff03b1cf277c7e0967d8b76b1941434f414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050456"
 ---
 Neste procedimento, irá:
@@ -20,8 +20,8 @@ Neste procedimento, irá:
 
 #### <a name="to-prepare-to-run-the-maintainer"></a>Para preparar para executar o Keeper
 1. No servidor frontal da Web, abra o SharePoint 2013 Management Shell como administrador.
-2. Navegar para a *unidade de arranque*da pasta :\Ficheiros programam ficheiros\Microsoft SQL Remote Blob Storage 10.50\Manutenção\.
-3. Mude o nome **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** para **web.config. **
+2. Navegar para a *unidade de arranque* da pasta :\Ficheiros programam ficheiros\Microsoft SQL Remote Blob Storage 10.50\Manutenção\.
+3. Mude o nome **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** para **web.config.**
 4. Use `aspnet_regiis -pdf connectionStrings` para desencriptar o ficheiro web.config.
 5. No ficheiro de web.config desencriptado, sob o `connectionStrings` nó, adicione a cadeia de ligação para a sua instância do servidor SQL e o nome da base de dados de conteúdos. Veja o seguinte exemplo.
    
@@ -38,7 +38,7 @@ Neste procedimento, irá:
 
     `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 
-2. No servidor frontal da Web, sob **Administração Central,** edite as **Definições Gerais da Aplicação Web** para a base de dados de conteúdo desejada para desativar temporariamente o Caixote do Lixo. Esta ação também esvaziará o Caixote do Lixo para quaisquer coleções relacionadas com o site. Para isso, **Central Administration**clique em  ->  Aplicações Web**de Gestão de Aplicações de Gestão de Aplicações da**Administração Central  ->  **(Gerir aplicações web)**  ->  **SharePoint - 80**  ->  **Configurações gerais de aplicação**. Deslole o **estado do recipiente de reciclagem** . **OFF**
+2. No servidor frontal da Web, sob **Administração Central,** edite as **Definições Gerais da Aplicação Web** para a base de dados de conteúdo desejada para desativar temporariamente o Caixote do Lixo. Esta ação também esvaziará o Caixote do Lixo para quaisquer coleções relacionadas com o site. Para isso, clique em  ->  Aplicações Web **de Gestão de Aplicações de Gestão de Aplicações da** Administração Central  ->  **(Gerir aplicações web)**  ->  **SharePoint - 80**  ->  **Configurações gerais de aplicação**. Deslole o **estado do recipiente de reciclagem** . 
    
     ![Configurações gerais da aplicação web](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
@@ -62,5 +62,5 @@ Neste procedimento, irá:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. No servidor frontal da Web, na **Administração Central,** edite as **Definições Gerais** da Aplicação Web para a base de dados de conteúdo desejada para reativar o Caixote do Lixo. Para isso, **Central Administration**clique em  ->  Aplicações Web**de Gestão de Aplicações de Gestão de Aplicações da**Administração Central  ->  **(Gerir aplicações web)**  ->  **SharePoint - 80**  ->  **Configurações gerais de aplicação**. Deslois para o conjunto DO DEPÓSITO DE **Reciclagem**.
+2. No servidor frontal da Web, na **Administração Central,** edite as **Definições Gerais** da Aplicação Web para a base de dados de conteúdo desejada para reativar o Caixote do Lixo. Para isso, clique em  ->  Aplicações Web **de Gestão de Aplicações de Gestão de Aplicações da** Administração Central  ->  **(Gerir aplicações web)**  ->  **SharePoint - 80**  ->  **Configurações gerais de aplicação**. Deslois para o conjunto DO DEPÓSITO DE **Reciclagem**.
 

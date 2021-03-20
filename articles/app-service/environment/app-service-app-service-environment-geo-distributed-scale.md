@@ -8,14 +8,14 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18, references_regions
 ms.openlocfilehash: 004b32118521f72c5b59ad7bab2d4e41244b85c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85833609"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -41,8 +41,8 @@ Antes de construir uma pegada de aplicação distribuída, ajuda a ter algumas i
 * **Domínio personalizado para a aplicação:**  Qual é o nome de domínio personalizado que os clientes usarão para aceder à app?  Para a aplicação da amostra, o nome de domínio personalizado é `www.scalableasedemo.com` .
 * **Domínio do Gestor de Tráfego:** Escolha um nome de domínio ao criar um [perfil de Gestor de Tráfego Azure][AzureTrafficManagerProfile].  Este nome será combinado com o *sufixo trafficmanager.net* para registar uma entrada de domínio que é gerida pelo Traffic Manager.  Para a aplicação da amostra, o nome escolhido é *escalável-ase-demo*.  Como resultado, o nome de domínio completo que é gerido pelo Traffic Manager é *scalable-ase-demo.trafficmanager.net*.
 * **Estratégia para escalar a pegada da aplicação:**  A pegada da aplicação será distribuída por vários Ambientes de Serviço de Aplicações numa única região?  Várias regiões?  Uma mistura de ambas as abordagens?  Baseie a decisão nas expectativas de onde o tráfego de clientes será originário, e quão bem o resto de uma aplicação suporta infraestruturas back-end pode escalar.  Por exemplo, com uma aplicação 100% apátrida, uma aplicação pode ser massivamente dimensionada usando uma combinação de muitos Ambientes de Serviço de Aplicações em cada região de Azure, multiplicada por Ambientes de Serviço de Aplicações implantados em muitas regiões do Azure.  Com mais de 15 regiões globais de Azure disponíveis para escolher, os clientes podem realmente construir uma pegada de aplicação de hiperescala em todo o mundo.  Para a aplicação de amostras que é usada para este artigo, três Ambientes de Serviço de Aplicações foram criados numa única região de Azure (South Central US).
-* **Convenção de nomeação para os Ambientes de Serviço de Aplicações:**  Cada Ambiente de Serviço de Aplicações requer um nome único.  Além de um ou dois Ambientes de Serviço de Aplicações, é útil ter uma convenção de nomeação para ajudar a identificar cada Ambiente de Serviço de Aplicações.  Para a aplicação da amostra, foi utilizada uma simples convenção de nomeação.  Os nomes dos três Ambientes de Serviço de Aplicações são *fe1ase,* *fe2ase*e *fe3ase.*
-* **Convenção de nomeação para as aplicações:**  Uma vez que serão implementados vários casos da aplicação, é necessário um nome para cada instância da aplicação implementada.  Uma característica pouco conhecida mas conveniente de Ambientes de Serviço de Aplicações é que o mesmo nome de aplicação pode ser usado em vários Ambientes de Serviço de Aplicações.  Uma vez que cada App Service Environment tem um sufixo de domínio único, os desenvolvedores podem optar por reutilizar exatamente o mesmo nome de aplicação em cada ambiente.  Por exemplo, um programador poderia ter aplicações nomeadas da seguinte forma:  *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  No entanto, para a aplicação da amostra, cada instância de aplicação também tem um nome único.  Os nomes de instâncias de aplicações utilizados são *webfrontend1,* *webfrontend2*e *webfrontend3*.
+* **Convenção de nomeação para os Ambientes de Serviço de Aplicações:**  Cada Ambiente de Serviço de Aplicações requer um nome único.  Além de um ou dois Ambientes de Serviço de Aplicações, é útil ter uma convenção de nomeação para ajudar a identificar cada Ambiente de Serviço de Aplicações.  Para a aplicação da amostra, foi utilizada uma simples convenção de nomeação.  Os nomes dos três Ambientes de Serviço de Aplicações são *fe1ase,* *fe2ase* e *fe3ase.*
+* **Convenção de nomeação para as aplicações:**  Uma vez que serão implementados vários casos da aplicação, é necessário um nome para cada instância da aplicação implementada.  Uma característica pouco conhecida mas conveniente de Ambientes de Serviço de Aplicações é que o mesmo nome de aplicação pode ser usado em vários Ambientes de Serviço de Aplicações.  Uma vez que cada App Service Environment tem um sufixo de domínio único, os desenvolvedores podem optar por reutilizar exatamente o mesmo nome de aplicação em cada ambiente.  Por exemplo, um programador poderia ter aplicações nomeadas da seguinte forma:  *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  No entanto, para a aplicação da amostra, cada instância de aplicação também tem um nome único.  Os nomes de instâncias de aplicações utilizados são *webfrontend1,* *webfrontend2* e *webfrontend3*.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Configuração do Perfil do Gestor de Tráfego
 Uma vez implementadas múltiplas instâncias de uma aplicação em vários Ambientes de Serviço de Aplicações, as instâncias individuais da aplicação podem ser registadas com o Traffic Manager.  Para a aplicação da amostra, é necessário um perfil de Gestor de Tráfego para *scalable-ase-demo.trafficmanager.net* que possa encaminhar os clientes para qualquer uma das seguintes instâncias de aplicações implementadas:

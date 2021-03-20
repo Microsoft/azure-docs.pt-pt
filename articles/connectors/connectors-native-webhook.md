@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
 ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89227904"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho automatizados baseados em eventos utilizando webhooks HTTP em Azure Logic Apps
@@ -74,12 +74,12 @@ Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e 
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Assinatura - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
-   | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
-   | **Subscrever - Corpo** | Não | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
-   | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final alvo |
-   | **Cancelar a subscrição - URI** | Não | O URL a utilizar para não subscrever a partir do ponto final alvo |
-   | **Cancelar a subscrição - Corpo** | Não | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, o gatilho inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
+   | **Assinatura - Método** | Yes | O método a utilizar ao subscrever o ponto final do alvo |
+   | **Inscreva-se - URI** | Yes | O URL a utilizar para subscrever o ponto final do alvo |
+   | **Subscrever - Corpo** | No | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
+   | **Cancelar a subscrição - Método** | No | O método a utilizar ao cancelar a subscrição do ponto final alvo |
+   | **Cancelar a subscrição - URI** | No | O URL a utilizar para não subscrever a partir do ponto final alvo |
+   | **Cancelar a subscrição - Corpo** | No | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, o gatilho inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
    ||||
 
 1. Para adicionar outras propriedades do gatilho, abra a nova lista **de parâmetros** Adicionar.
@@ -120,12 +120,12 @@ Esta ação incorporada chama o ponto final de subscrição no serviço alvo e r
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Assinatura - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
-   | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
-   | **Subscrever - Corpo** | Não | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
-   | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final alvo |
-   | **Cancelar a subscrição - URI** | Não | O URL a utilizar para não subscrever a partir do ponto final alvo |
-   | **Cancelar a subscrição - Corpo** | Não | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, a ação inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
+   | **Assinatura - Método** | Yes | O método a utilizar ao subscrever o ponto final do alvo |
+   | **Inscreva-se - URI** | Yes | O URL a utilizar para subscrever o ponto final do alvo |
+   | **Subscrever - Corpo** | No | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
+   | **Cancelar a subscrição - Método** | No | O método a utilizar ao cancelar a subscrição do ponto final alvo |
+   | **Cancelar a subscrição - URI** | No | O URL a utilizar para não subscrever a partir do ponto final alvo |
+   | **Cancelar a subscrição - Corpo** | No | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, a ação inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
    ||||
 
 1. Para adicionar outras propriedades de ação, abra a nova lista **de parâmetros Adicionar.**
@@ -142,7 +142,7 @@ Esta ação incorporada chama o ponto final de subscrição no serviço alvo e r
 
 Aqui está mais informações sobre as saídas de um gatilho ou ação http Webhook, que devolve esta informação:
 
-| Nome da propriedade | Tipo | Descrição |
+| Nome da propriedade | Tipo | Description |
 |---------------|------|-------------|
 | cabeçalhos | objeto | Os cabeçalhos do pedido |
 | body | objeto | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
@@ -156,7 +156,7 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação http Webh
 | 400 | Mau pedido |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não encontrado |
+| 404 | Não Encontrado |
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 

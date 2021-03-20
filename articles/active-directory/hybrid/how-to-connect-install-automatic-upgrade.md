@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Atualização automática / Microsoft Docs'
+title: 'Azure AD Connect: Atualização automática | Microsoft Docs'
 description: Este tópico descreve a funcionalidade de atualização automática incorporada na sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91317621"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esta característica foi introduzida com a construção [1.1.105.0 (lançada fevereiro de 2016)](reference-connect-version-history.md).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md) e agora suporta cenários adicionais que anteriormente não eram suportados.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Certificar-se de que a instalação Azure AD Connect está sempre atualizada nunca foi tão fácil com a funcionalidade **de atualização automática.** Esta funcionalidade é ativada por padrão para instalações expressas e atualizações dirSync. Quando uma nova versão é lançada, a sua instalação é automaticamente atualizada.
 A atualização automática é ativada por padrão para o seguinte:
 
@@ -71,15 +71,15 @@ Agora pode ver os registos associados ao estado de atualização automática.
 
 O código de resultados tem um prefixo com uma visão geral do estado.
 
-| Prefixo do código de resultados | Descrição |
+| Prefixo do código de resultados | Description |
 | --- | --- |
-| Success |A instalação foi atualizada com sucesso. |
+| Com êxito |A instalação foi atualizada com sucesso. |
 | UpgradeAborted |Uma condição temporária parou a atualização. Será novamente julgado e a expectativa é que tenha sucesso mais tarde. |
 | UpgradeNotSupported |O sistema tem uma configuração que está a impedir que o sistema seja automaticamente atualizado. Será novamente julgado para ver se o Estado está a mudar, mas a expectativa é que o sistema tenha de ser atualizado manualmente. |
 
 Aqui está uma lista das mensagens mais comuns que encontra. Não enumera todos, mas a mensagem de resultados deve ser clara com o problema.
 
-| Mensagem de Resultados | Descrição |
+| Mensagem de Resultados | Description |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Não podia escrever ao registo. |

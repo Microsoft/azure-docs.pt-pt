@@ -16,10 +16,10 @@ ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 653159c2e40d3375a422f0da14274f57130de1fe
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93359685"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Resource Manager
@@ -48,8 +48,8 @@ Com as identidades geridas para recursos do Azure, o seu código pode obter toke
 3. Aceda a **Controlo de acesso (IAM)** no painel esquerdo.
 4. Clique para **Adicionar** uma nova atribuição de função à sua VM. Selecione **Função** como **Leitor**.
 5. No próximo dropdown, **atribua acesso à** **Máquina Virtual** de recurso.
-6. Em seguida, certifique-se de que está listada a subscrição correta na lista pendente **Subscrição**. Para **Grupo de Recursos** , selecione **Todos os grupos de recursos**.
-7. Por fim, em **Selecionar** , selecione a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**.
+6. Em seguida, certifique-se de que está listada a subscrição correta na lista pendente **Subscrição**. Para **Grupo de Recursos**, selecione **Todos os grupos de recursos**.
+7. Por fim, em **Selecionar**, selecione a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**.
 
     ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
@@ -57,7 +57,7 @@ Com as identidades geridas para recursos do Azure, o seu código pode obter toke
 
 Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. No portal, navegue para a VM do Linux e, em **Descrição Geral** , clique em **Ligar**.  
+1. No portal, navegue para a VM do Linux e, em **Descrição Geral**, clique em **Ligar**.  
 2. Clique em **Ligar** para ligar à VM com o cliente SSH que escolheu. 
 3. Na janela do terminal, `curl` utilizando, faça um pedido às identidades geridas locais para que o ponto final dos recursos Azure obtenha um token de acesso para O Gestor de Recursos Azure.  
  
@@ -99,7 +99,7 @@ Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar 
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este início rápido mostra como utilizar uma identidade gerida atribuída pelo sistema para aceder à API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, veja:
 

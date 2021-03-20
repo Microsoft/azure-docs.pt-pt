@@ -1,5 +1,5 @@
 ---
-title: Design de identidade híbrida - requisitos de sincronização de diretórios Azure / Microsoft Docs
+title: Design de identidade híbrida - requisitos de sincronização de diretórios Azure | Microsoft Docs
 description: Identifique quais os requisitos necessários para sincronizar todos os utilizadores entre on=premissas e nuvem para a empresa.
 documentationcenter: ''
 services: active-directory
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 500d226fcb60646becc49144f206dcb0dee49bd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89278399"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinar os requisitos de sincronização do diretório
@@ -75,5 +75,5 @@ Também precisa determinar os requisitos de segurança e a sincronização do di
 ## <a name="next-steps"></a>Passos seguintes
 [Determinar requisitos de autenticação de vários fatores](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)

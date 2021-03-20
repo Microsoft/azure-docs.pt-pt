@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730511"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Mover recursos numa configuração de Controlo de Manutenção para outra região
@@ -91,6 +91,6 @@ Verifique os recursos na nova região e verifique as configurações associadas 
 Após a mudança, considere apagar os recursos movidos na região origem.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga [estas instruções](move-region-maintenance-configuration.md) se precisar de mover as configurações de manutenção. 

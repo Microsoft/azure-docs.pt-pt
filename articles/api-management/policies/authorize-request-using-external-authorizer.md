@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
 ms.openlocfilehash: e38d92a13c9a66defc2d5090990b44a889cfd21c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92076237"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>Autorizar pedidos com um autorizador externo
@@ -35,4 +35,4 @@ Cole o código no bloco **de entrada.**
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de restrições de acesso](../api-management-access-restriction-policies.md)
-+ [Amostras de política](../policy-reference.md)
++ [Exemplos de Políticas](../policy-reference.md)

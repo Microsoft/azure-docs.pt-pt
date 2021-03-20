@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91323642"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Compreenda a aplicação e a implementação em Azure Spring Cloud
@@ -29,12 +29,12 @@ O nível padrão da Cloud Azure Spring permite que uma Aplicação tenha uma imp
 ## <a name="app"></a>Aplicação
 As seguintes funcionalidades/propriedades são definidas ao nível da App.
 
-| Funcionalidades | Descrição |
+| Funcionalidades | Description |
 |:--|:----------------|
 | Público</br>Ponto final | O URL para aceder à app |
 | Personalizado</br>Domínio | REGISTO CNAME que assegura o domínio personalizado |
 | Serviço</br>Enlace | Ligação fora da caixa com outros serviços da Azure |
-| Gerido</br>Identidade | Identidade gerida pelo Azure Ative Directory permite que a sua app aceda facilmente a outros recursos protegidos pela Azure, como o Azure Key Vault |
+| Seja gerido</br>Identidade | Identidade gerida pelo Azure Ative Directory permite que a sua app aceda facilmente a outros recursos protegidos pela Azure, como o Azure Key Vault |
 | Persistente</br>Armazenamento | Definição que permite que os dados persistam para além do reinício da aplicação |
 
 ## <a name="deployment"></a>Implementação
@@ -45,7 +45,7 @@ As seguintes funcionalidades/propriedades são definidas ao nível de Implantaç
 |:--|:----------------|
 | CPU | Número de vcores por instância de App |
 | Memória | Gb de memória por instância de App|
-| Instância</br>Contagem | O número de instâncias de aplicações, definidas manualmente ou automaticamente |
+| Instância</br>de palavras | O número de instâncias de aplicações, definidas manualmente ou automaticamente |
 | Escala automática | Contagem de instâncias de escala automaticamente com base em regras e horários predefinidos |
 | JVM</br>Opções | Definição de opções JVM  |
 | Ambiente</br>Variáveis | Definição de variáveis ambientais |
@@ -57,5 +57,5 @@ As seguintes funcionalidades/propriedades são definidas ao nível de Implantaç
 * **Uma Aplicação pode ter no máximo duas Implementações**: Criar mais de duas implementações é bloqueado pela API. Desloque o seu novo binário para a produção ou implantação de encenação existentes.
 * **A gestão da implementação não está disponível no Basic Tier**: Use o nível standard para Blue-Green capacidade de implantação.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Crie um ambiente de encenação em Azure Spring Cloud](spring-cloud-howto-staging-environment.md)

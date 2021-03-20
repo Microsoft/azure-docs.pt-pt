@@ -4,10 +4,10 @@ description: Aprenda a configurar as definições para atualizar uma aplicação
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.openlocfilehash: 11df0387db07669ebacdba2e3d850e32903da133
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573685"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configure a atualização de uma aplicação de Tecido de Serviço no Estúdio Visual

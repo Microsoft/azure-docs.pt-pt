@@ -1,5 +1,5 @@
 ---
-title: Problemas de instalação do Azure AD Connect Microsoft Docs'
+title: Problemas Azure AD Connect instala problemas de instalação | Microsoft Docs'
 description: Este tópico fornece passos para como resolver problemas com a instalação do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25314b4a306678dc877a95194907b3d73979e4f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89275866"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Resolução de problemas: Problemas de instalação Azure AD Connect
