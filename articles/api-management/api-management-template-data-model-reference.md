@@ -1,5 +1,5 @@
 ---
-title: Referência do modelo de modelo de gestão da Azure API / Microsoft Docs
+title: Referência do modelo de modelo de gestão da Azure API | Microsoft Docs
 description: Conheça a entidade e as representações de tipo para itens comuns utilizados nos modelos de dados para os modelos do portal do desenvolvedor na Gestão API da Azure.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86243159"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência do modelo de modelo de gestão da Azure API
@@ -41,7 +41,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 -   [Cabeçalho](#Header)  
 -   [Pedido de HTTP](#HTTPRequest)  
 -   [RESPOSTA HTTP](#HTTPResponse)  
--   [Problema](#Issue)  
+-   [Emissão](#Issue)  
 -   [Operação](#Operation)  
 -   [Menu de operação](#Menu)  
 -   [Item do menu de operação](#MenuItem)  
@@ -127,7 +127,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="comment"></a><a name="Comment"></a> Comentário  
  A `API` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |`Id`|número|A identificação do comentário.|  
 |`CommentText`|string|O corpo do comentário. Pode incluir HTML.|  
@@ -184,7 +184,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="http-response"></a><a name="HTTPResponse"></a> RESPOSTA HTTP  
  Esta secção descreve a `response` representação.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |`statusCode`|inteiro positivo|Código de estado de resposta da operação.|  
 |`description`|string|Descrição da resposta da operação.|  
@@ -227,7 +227,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="paging"></a><a name="Paging"></a> Paging  
  A `paging` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |`Page`|número|O número da página atual.|  
 |`PageSize`|número|Os resultados máximos a serem apresentados numa única página.|  
@@ -264,7 +264,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="provider"></a><a name="Provider"></a> Provedor  
  A `provider` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |`Properties`|dicionário de cordas|Propriedades para este fornecedor de autenticação.|  
 |`AuthenticationType`|string|O tipo de fornecedor. (Azure Ative Directy, Login do Facebook, Google Account, Microsoft Account, Twitter).|  
@@ -346,7 +346,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 ##  <a name="user-sign-up"></a><a name="UserSignUp"></a> Inscrição do utilizador  
  A `user sign up` entidade tem os seguintes imóveis:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|boolean|Valor utilizado pelo controlo [de](api-management-page-controls.md#sign-up)inscrição.|  
 |`Password`|string|Senha de conta de utilizador.|  

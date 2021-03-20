@@ -4,21 +4,21 @@ description: Encontre amostras de modelo do Gestor de Recursos Azure para implem
 ms.topic: article
 ms.date: 03/07/2019
 ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169651"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos de gestor de recursos Azure para instâncias de contentores Azure
 
 Os seguintes modelos de amostra implantam instâncias de contentores em várias configurações.
 
-Para obter opções de implantação, consulte a secção [De Implementação.](#deployment) Se você quiser criar os seus próprios modelos, o modelo de design de design de design de dados [do modelo do][ref] Azure Container Instances e as propriedades disponíveis.
+Para obter opções de implantação, consulte a secção [De Implementação.](#deployment) Se você quiser criar os seus próprios modelos, o modelo de design de dados [do modelo do][ref] Azure Container Instances e as propriedades disponíveis.
 
 ## <a name="sample-templates"></a>Modelos de exemplo
 
-| Modelo | Descrição |
+| Modelo | Description |
 |-|-|
 | **Aplicações** ||
 | [WordPress][app-wp] | Cria um website WordPress e a sua base de dados MySQL num grupo de contentores. O conteúdo do site WordPress e a base de dados MySQL são persistidos a uma partilha de Ficheiros Azure. Também cria uma porta de aplicação para expor o acesso da rede pública ao WordPress. |
@@ -27,7 +27,7 @@ Para obter opções de implantação, consulte a secção [De Implementação.](
 | [emptyDir][vol-emptydir] | Implanta dois recipientes Linux que partilham um volume deDir vazio. |
 | [gitRepo][vol-gitrepo] | Implanta um recipiente Linux que clona um repo GitHub e o monta como um volume. |
 | [segredo][vol-secret] | Implanta um recipiente Linux com um cert PFX montado como um volume secreto. |
-| **Redes** ||
+| **Rede** ||
 | [Recipiente exposto pela UDP][net-udp] | Implanta um recipiente Windows ou Linux que expõe uma porta UDP. |
 | [Recipiente Linux com IP público][net-publicip] | Implanta um único recipiente Linux acessível através de um IP público. |
 | [Implementar um grupo de contentores com uma rede virtual][net-vnet] | Implementa uma nova rede virtual, sub-rede, perfil de rede e grupo de contentores. |

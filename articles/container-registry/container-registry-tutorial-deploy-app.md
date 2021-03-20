@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148422"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementar uma aplicação web a partir de um registo de contentores Azure geo-replicado
@@ -41,7 +41,7 @@ Selecione **Repositórios**  >  **acr-helloworld,** em seguida, clique com o bot
 
 ![Implementar no serviço de aplicações no portal do Azure][deploy-app-portal-01]
 
-Se a opção "Implementar na aplicação Web" estiver desativada, poderá não ter ativado o utilizador administrador do registo, conforme indicado em [Criar um registo de contentor](container-registry-tutorial-prepare-registry.md#create-a-container-registry) no primeiro tutorial. Pode ativar o utilizador administrativo nas teclas de acesso **de definições**  >  **Access keys** no portal Azure.
+Se a opção "Implementar na aplicação Web" estiver desativada, poderá não ter ativado o utilizador administrador do registo, conforme indicado em [Criar um registo de contentor](container-registry-tutorial-prepare-registry.md#create-a-container-registry) no primeiro tutorial. Pode ativar o utilizador administrativo nas teclas de acesso **de definições**  >   no portal Azure.
 
 Na **Aplicação Web para Contentores** apresentada depois de selecionar "Implementar na aplicação Web", especifique os seguintes valores para cada definição:
 

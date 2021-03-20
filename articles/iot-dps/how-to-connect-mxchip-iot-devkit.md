@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para registar o MXChip IoT DevKit com IoT Hub ! Microsoft Docs
+title: Como utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para registar o MXChip IoT DevKit com ioT Hub | Microsoft Docs
 description: Como utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) para registar o MXChip IoT DevKit com ioT Hub.
 author: wesmc7777
 ms.author: wesmc
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954550"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Utilize o Serviço de Provisionamento de Dispositivos Azure IoT Hub para registar o MXChip IoT DevKit com ioT Hub
 
-Este artigo descreve como usar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para [o fornecimento](about-iot-dps.md#provisioning-process) do MXChip IoT DevKit a um Hub IoT Azure. Neste tutorial, vai aprender a:
+Este artigo descreve como usar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para [o fornecimento](about-iot-dps.md#provisioning-process) do MXChip IoT DevKit a um Hub IoT Azure. Neste tutorial, ficará a saber como:
 
 * Configure o ponto final global do serviço de provisionamento de dispositivos num dispositivo.
 * Utilize um dispositivo secreto único (UDS) para gerar um certificado X.509.
@@ -26,7 +26,7 @@ Este artigo descreve como usar o Serviço de Provisionamento de Dispositivos Azu
 
 O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é um tabuleiro compatível com Arduino com periféricos e sensores ricos. Você pode desenvolver para ele usando [a bancada de trabalho do dispositivo Azure IoT](https://aka.ms/iot-workbench) ou o pacote de extensão [Azure IoT Tools](https://aka.ms/azure-iot-tools) em Visual Studio Code. O DevKit vem com um catálogo de [projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) em crescimento para orientar as suas soluções de protótipo Internet of Things (IoT) que tiram partido dos serviços Azure.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar os passos neste tutorial, primeiro faça as seguintes tarefas:
 

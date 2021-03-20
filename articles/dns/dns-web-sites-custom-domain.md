@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
 ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94952952"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
@@ -29,7 +29,7 @@ Para tal, terá de criar três registos:
 
 Tenha em atenção que, se criar um registo para uma aplicação Web no Azure, o registo A tem de ser atualizado manualmente se o endereço IP subjacente à aplicação Web for alterado.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um registo A e um registo TXT para o seu domínio personalizado

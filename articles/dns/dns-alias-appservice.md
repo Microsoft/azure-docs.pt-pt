@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954516"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos web Azure equilibrados na zona apex
@@ -43,7 +43,7 @@ Crie um grupo de recursos para deter todos os recursos utilizados neste artigo.
 Crie dois planos de Serviço de Aplicações Web no seu grupo de recursos utilizando a seguinte tabela para obter informações de configuração. Para obter mais informações sobre a criação de um plano de Serviço de Aplicações, consulte [Gerir um plano de Serviço de Aplicações em Azure.](../app-service/app-service-plan-manage.md)
 
 
-|Nome  |Sistema Operativo  |Localização  |Escalão de Preço  |
+|Name  |Sistema Operativo  |Localização  |Escalão de Preço  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|E.U.A. Leste|Dev/Test D1-Shared|
 |ASP-02     |Windows|E.U.A. Central|Dev/Test D1-Shared|
@@ -58,7 +58,7 @@ Crie duas aplicações web, uma em cada plano de Serviço de Aplicações.
 4. Selecione **Criar**.
 5. Aceite os predefinidos e use a seguinte tabela para configurar as duas aplicações web:
 
-   |Nome<br>(deve ser único dentro de .azurewebsites.net)|Grupo de Recursos |Pilha de runtime|Região|Plano de Serviço de Aplicações/Localização
+   |Name<br>(deve ser único dentro de .azurewebsites.net)|Grupo de Recursos |Pilha de runtime|Region|Plano de Serviço de Aplicações/Localização
    |---------|---------|-|-|-------|
    |App-01|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Leste|ASP-01(D1)|
    |App-02|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Central|ASP-02(D1)|
@@ -87,7 +87,7 @@ Agora pode criar os pontos finais para as duas aplicações web.
 3. Selecione **Adicionar**.
 4. Utilize a seguinte tabela para configurar os pontos finais:
 
-   |Tipo  |Nome  |Destino  |Localização  |Configurações personalizadas do cabeçalho|
+   |Tipo  |Name  |Destino  |Localização  |Configurações personalizadas do cabeçalho|
    |---------|---------|---------|---------|---------|
    |Ponto final externo     |Fim de 01|Endereço IP que gravou para App-01|E.U.A. Leste|anfitrião:\<the URL you recorded for App-01\><br>Exemplo: **host:app-01.azurewebsites.net**|
    |Ponto final externo     |Fim de 02|Endereço IP que gravou para App-02|E.U.A. Central|anfitrião:\<the URL you recorded for App-02\><br>Exemplo: **host:app-02.azurewebsites.net**

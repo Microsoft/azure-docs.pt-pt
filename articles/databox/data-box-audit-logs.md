@@ -1,5 +1,5 @@
 ---
-title: Registos de auditoria para Azure Data Box, Azure Data Box Eventos pesados Microsoft Docs
+title: Registos de auditoria para Azure Data Box, Azure Data Box Eventos pesados| Microsoft Docs
 description: Descreve os registos completos de auditoria para a Data Box que são recolhidos nas várias fases da sua caixa de dados Azure e da encomenda pesada da Caixa de Dados Azure.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86209976"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Registos de auditoria para a sua Caixa de Dados Azure e Caixa de Dados Azure Pesada
@@ -65,9 +65,9 @@ Os seguintes IDs de evento de registo de segurança são recolhidos como registo
 
 Os iDs de registo de aplicações seguintes são recolhidos como parte dos registos de auditoria de pacotes na sua Caixa de Dados.     
 
-- **Microsoft-Azure-DataBox-OOBE-Auditing** - contém os eventos que ocorrem na UI local. 
+- **Microsoft-Azure-DataBox-OOBE-Auditing** - contém os eventos que ocorrem na UI local. 
 - **Microsoft-Azure-DataBox-Reprovision-Audit** - contém eventos relacionados com a reprovisionamento do dispositivo Data Box. A reprovisionamento da Caixa de Dados ocorre quando o dispositivo é reiniciado através da UI local. Escolha esta opção quando pretende apagar os dados que copiou removendo as ações existentes e recriando as ações como parte da reprovisionamento ou do reset do dispositivo.
-- **Microsoft-Azure-DataBox-HcsMgmt-Audit** - contém eventos relacionados apenas com o passo **de Preparação para** o navio antes de o dispositivo ser enviado de volta para o centro de dados Azure. 
+- **Microsoft-Azure-DataBox-HcsMgmt-Audit** - contém eventos relacionados apenas com o passo **de Preparação para** o navio antes de o dispositivo ser enviado de volta para o centro de dados Azure. 
 - **Microsoft-Azure-DataBox-IfxAudit** - contém as mensagens registadas por diferentes entidades do produto sobre os trabalhos, registos que indicam mais informações sobre o que está a acontecer em alguns dos fluxos.
 
 Aqui está uma tabela que resume os vários fornecedores de eventos e os correspondentes IDs de evento que são recolhidos em cada caso.

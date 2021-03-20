@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
 ms.openlocfilehash: aaaeed9d8d6a2d84fa13f495f581dc1f5fdc19e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91323429"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configure a rescisão de TLS com certificados Key Vault usando Azure PowerShell
 
 [O Azure Key Vault](../key-vault/general/overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Azure Application Gateway suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com via HTTPS. Este suporte está limitado ao Gateway de Aplicação v2 SKU.
 
-Para obter mais informações, consulte [a rescisão de TLS com certificados Key Vault](key-vault-certs.md).
+Para obter mais informações, veja [Terminação TLS com certificados do Key Vault](key-vault-certs.md).
 
 Este artigo mostra-lhe como usar um script Azure PowerShell para integrar o seu cofre-chave com o seu gateway de aplicação para certificados de rescisão TLS/SSL.
 

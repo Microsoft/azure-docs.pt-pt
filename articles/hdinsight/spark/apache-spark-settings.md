@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929755"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
@@ -146,7 +146,7 @@ O código abaixo mostra como alterar a configuração de uma aplicação em exec
 
 Monitorize as definições de configuração do núcleo para garantir que os seus trabalhos de Spark funcionam de forma previsível e performante. Estas definições ajudam a determinar a melhor configuração do cluster Spark para as suas cargas de trabalho específicas.  Também terá de monitorizar a execução de execuções de empregos de longa duração e de consumo de recursos.  Os desafios mais comuns centram-se em torno da pressão da memória de configurações impróprias, tais como executores de tamanho incorreto. Além disso, operações de longa duração, e tarefas, que resultam em operações cartesianas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Componentes e versões Apache Hadoop disponíveis com HDInsight?](../hdinsight-component-versioning.md)
 * [Gerir recursos para um cluster Apache Spark em HDInsight](apache-spark-resource-manager.md)

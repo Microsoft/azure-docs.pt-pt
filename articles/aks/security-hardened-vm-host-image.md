@@ -8,10 +8,10 @@ ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86244043"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Endurecimento de segurança para o número de agente da AKS anfitrião OS
@@ -66,14 +66,14 @@ O objetivo do hospedeiro de segurança endurecido é reduzir a área de superfí
 |5.2.8 |Certifique-se de que o login de raiz SSH está desativado |
 |5.2.10 |Garantir que o SSH PermitUserEnvironment é desativado |
 |5.2.11 |Certifique-se de que apenas os algoritmos MAX aprovados são usados |
-|5.2.12 |Certifique-se de que o intervalo de tempo de marcha lenta de marcha lenta de marcha lenta de marcha lenta de marcha lenta de marcha lenta está configurado |
+|5.2.12 |Certifique-se de que o intervalo de tempo de marcha lenta está configurado |
 |5.2.13 |Certifique-se de que o SSH LoginGraceTime está definido para um minuto ou menos |
 |5.2.15 |Certifique-se de que o banner de aviso SSH está configurado |
 |5.3.1 |Certifique-se de que os requisitos de criação de palavras-passe estão configurados |
 |5.4.1.1 |Certifique-se de que a expiração da palavra-passe é de 90 dias ou menos |
 |5.4.1.4 |Certifique-se de que o bloqueio de senha inativo é de 30 dias ou menos |
 |5.4.4 |Certifique-se de que o utilizador padrão umask é 027 ou mais restritivo |
-|5.6 |Garantir que o acesso ao comando su é restrito|
+|5,6 |Garantir que o acesso ao comando su é restrito|
 
 ## <a name="additional-notes"></a>Notas adicionais
  

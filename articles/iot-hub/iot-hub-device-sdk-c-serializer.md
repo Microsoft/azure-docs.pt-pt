@@ -1,5 +1,5 @@
 ---
-title: Dispositivo Azure IoT SDK para C - Serializer Microsoft Docs
+title: Dispositivo Azure IoT SDK para C - Serializer | Microsoft Docs
 description: Como utilizar a biblioteca Serializer no dispositivo Azure IoT SDK para C para criar aplicações de dispositivos que comunicam com um hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: f52d1d1c5f264550076688d5e25e110de230eff4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152241"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT dispositivo SDK para C – mais sobre serializer
@@ -26,13 +26,13 @@ O artigo introdutório descrevia como usar a biblioteca **serializer** para envi
 
 Finalmente, o artigo revisita alguns tópicos abordados em artigos anteriores, como mensagem e manuseamento de propriedades. Como vamos descobrir, essas características funcionam da mesma forma que usam a biblioteca **de serializers** como fazem com a biblioteca **IoTHubClient.**
 
-Tudo descrito neste artigo baseia-se nas amostras SDK **do serializer.** Se quiser acompanhar, consulte as aplicações mais simples de amqp e simples ** \_ amqp** e ** \_ simplesmosmas http** incluídas no dispositivo Azure IoT SDK para C.
+Tudo descrito neste artigo baseia-se nas amostras SDK **do serializer.** Se quiser acompanhar, consulte as aplicações mais simples de amqp e simples **\_ amqp** e **\_ simplesmosmas http** incluídas no dispositivo Azure IoT SDK para C.
 
 Pode encontrar o [**dispositivo Azure IoT SDK para**](https://github.com/Azure/azure-iot-sdk-c) o repositório C GitHub e ver detalhes da API na [referência C API](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>A linguagem de modelação
 
-O [dispositivo Azure IoT SDK para](iot-hub-device-sdk-c-intro.md) artigo C nesta série introduziu o dispositivo **Azure IoT SDK para** linguagem de modelação C através do exemplo fornecido na aplicação ** \_ amqp simples:**
+O [dispositivo Azure IoT SDK para](iot-hub-device-sdk-c-intro.md) artigo C nesta série introduziu o dispositivo **Azure IoT SDK para** linguagem de modelação C através do exemplo fornecido na aplicação **\_ amqp simples:**
 
 ```C
 BEGIN_NAMESPACE(WeatherStation);
@@ -65,7 +65,7 @@ O que não está demonstrado nesta amostra são tipos de dados adicionais que s�
 
 Os seguintes tipos de dados são suportados em modelos criados com a biblioteca **serializador:**
 
-| Tipo | Descrição |
+| Tipo | Description |
 | --- | --- |
 | double |número de ponto flutuante de dupla precisão |
 | int |Inteiro de 32 bits |
@@ -195,7 +195,7 @@ Se executar este código, a seguinte mensagem é enviada para o IoT Hub:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Note que a serialização está no JSON, que é o formato gerado pela biblioteca **serializadora.** Note também que cada membro do objeto JSON serializado corresponde aos membros do **TestType** que definimos no nosso modelo. Os valores também correspondem exatamente aos utilizados no código. No entanto, note que os dados binários estão codificados com base64: "AQID" é a codificação base64 de {0x01, 0x02, 0x03}.
+Note que a serialização está no JSON, que é o formato gerado pela biblioteca **serializadora.** Note também que cada membro do objeto JSON serializado corresponde aos membros do **TestType** que definimos no nosso modelo. Os valores também correspondem exatamente aos utilizados no código. No entanto, note que os dados binários estão codificados com base64: "AQID" é a codificação base de {0x01, 0x02, 0x03}.
 
 Este exemplo demonstra a vantagem de usar a biblioteca **serializadora** -- permite-nos enviar JSON para a nuvem, sem ter que lidar explicitamente com a serialização na nossa aplicação. Só temos de nos preocupar em definir os valores dos eventos de dados no nosso modelo e, em seguida, chamar apis simples para enviar esses eventos para a nuvem.
 
@@ -552,7 +552,7 @@ Dentro da biblioteca de utilidade partilhada, encontrará a seguinte pasta:
 azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
-Esta pasta contém uma solução Visual Studio chamada **macro \_ utils \_ h \_ generator.sln**:
+Esta pasta contém uma solução Visual Studio chamada **\_ macro utils \_ h \_ gerador.sln**:
 
   ![Screenshot da solução Visual Studio maco_utils_h_generator](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
 
@@ -578,7 +578,7 @@ WITH_DATA(int, MyData)
 );
 ```
 
-Como mencionado anteriormente, **o \_ MODELO DECLARA** É apenas uma macro C. Os nomes do modelo e a declaração **COM \_ DATA** (mais uma macro) são parâmetros do ** \_ MODELO DECLARA.** **nMacroParameters** define quantos parâmetros podem ser incluídos no ** \_ MODELO DECLARE**. Efetivamente, isto define quantos eventos de dados e declarações de ação você pode ter. Como tal, com o limite padrão de 124 isto significa que pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se tentar ultrapassar este limite, receberá erros de compilação semelhantes a este:
+Como mencionado anteriormente, **o \_ MODELO DECLARA** É apenas uma macro C. Os nomes do modelo e a declaração **COM \_ DATA** (mais uma macro) são parâmetros do **\_ MODELO DECLARA.** **nMacroParameters** define quantos parâmetros podem ser incluídos no **\_ MODELO DECLARE**. Efetivamente, isto define quantos eventos de dados e declarações de ação você pode ter. Como tal, com o limite padrão de 124 isto significa que pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se tentar ultrapassar este limite, receberá erros de compilação semelhantes a este:
 
   ![Screenshot de erros do compilador de parâmetros macro](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.png)
 
@@ -586,9 +586,9 @@ O parâmetro **nArithmetic** é mais sobre o funcionamento interno da linguagem 
 
    ![Screenshot de erros do compilador aritmético](media/iot-hub-device-sdk-c-serializer/03-nArithmeticCompilerErrors.png)
 
-Se pretender alterar estes parâmetros, modifique os valores no ficheiro macro \_ utils.tt, recomponha a \_ solução macro utils \_ h \_ generator.sln e execute o programa compilado. Quando o fizer, um novo ficheiro macro \_ utils.h é gerado e colocado no . \\ \\diretório inc comum.
+Se pretender alterar estes parâmetros, modifique os valores no ficheiro macro \_ utils.tt, recomponha a solução de gerador de .sln macro \_ \_ utils e \_ execute o programa compilado. Quando o fizer, um novo ficheiro macro \_ utils.h é gerado e colocado no . \\ \\diretório inc comum.
 
-Para utilizar a nova versão do macro \_ utils.h, remova o pacote **NuGet serializador** da sua solução e no seu lugar inclua o projeto **serializer** Visual Studio. Isto permite que o seu código compile contra o código fonte da biblioteca serializadora. Isto inclui os \_ utils macro atualizados.h. Se quiser fazê-lo para ** \_ amqp simples,** comece por remover o pacote NuGet para a biblioteca serializadora da solução:
+Para utilizar a nova versão do macro \_ utils.h, remova o pacote **NuGet serializador** da sua solução e no seu lugar inclua o projeto **serializer** Visual Studio. Isto permite que o seu código compile contra o código fonte da biblioteca serializadora. Isto inclui os \_ utils macro atualizados.h. Se quiser fazê-lo para **\_ amqp simples,** comece por remover o pacote NuGet para a biblioteca serializadora da solução:
 
    ![Screenshot de remover o pacote NuGet para a biblioteca serializer](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.png)
 
@@ -609,7 +609,7 @@ Note que o aumento destes valores alto o suficiente pode exceder os limites do c
 Até agora, cobrimos tudo o que precisa de saber sobre como escrever código com a biblioteca **de serializers.** Antes de concluir, vamos revisitar alguns tópicos de artigos anteriores que você pode estar a pensar.
 
 ## <a name="the-lower-level-apis"></a>As APIs de nível inferior
-A aplicação de amostra em que este artigo se focou é **simples \_ amqp.** Esta amostra utiliza as APIs de nível superior (as APIs**não-LL)** para enviar eventos e receber mensagens. Se utilizar estes APIs, corre um fio de fundo que cuida tanto do envio de eventos como da receção de mensagens. No entanto, pode utilizar as APIs de nível inferior (LL) para eliminar este fio de fundo e assumir controlo explícito quando envia eventos ou recebe mensagens da nuvem.
+A aplicação de amostra em que este artigo se focou é **simples \_ amqp.** Esta amostra utiliza as APIs de nível superior (as APIs **não-LL)** para enviar eventos e receber mensagens. Se utilizar estes APIs, corre um fio de fundo que cuida tanto do envio de eventos como da receção de mensagens. No entanto, pode utilizar as APIs de nível inferior (LL) para eliminar este fio de fundo e assumir controlo explícito quando envia eventos ou recebe mensagens da nuvem.
 
 Como descrito num [artigo anterior,](iot-hub-device-sdk-c-iothubclient.md)existe um conjunto de funções que consistem nas APIs de nível superior:
 
@@ -618,7 +618,7 @@ Como descrito num [artigo anterior,](iot-hub-device-sdk-c-iothubclient.md)existe
 * IoTHubClient \_ SetMessageCallback
 * Destruição IoTHubClient \_
 
-Estas APIs são demonstradas em ** \_ amqp simples.**
+Estas APIs são demonstradas em **\_ amqp simples.**
 
 Há também um conjunto análogo de APIs de nível inferior.
 
@@ -629,10 +629,10 @@ Há também um conjunto análogo de APIs de nível inferior.
 
 Note que as APIs de nível inferior funcionam exatamente da mesma forma que as descritas nos artigos anteriores. Pode utilizar o primeiro conjunto de APIs se quiser um fio de fundo para lidar com eventos de envio e receber mensagens. Utilize o segundo conjunto de APIs se quiser um controlo explícito sobre quando envia e recebe dados do IoT Hub. Qualquer um dos conjuntos de APIs funciona igualmente bem com a biblioteca **serializadora.**
 
-Para um exemplo de como as APIs de nível inferior são usadas com a biblioteca **serializer,** consulte a aplicação ** \_ http mais simples.**
+Para um exemplo de como as APIs de nível inferior são usadas com a biblioteca **serializer,** consulte a aplicação **\_ http mais simples.**
 
 ## <a name="additional-topics"></a>Tópicos adicionais
-Alguns outros tópicos que merecem ser mencionados novamente são o manuseamento de propriedades, usando credenciais de dispositivo alternativos e opções de configuração. Estes são todos os tópicos abordados num [artigo anterior.](iot-hub-device-sdk-c-iothubclient.md) O ponto principal é que todas estas características funcionam da mesma forma com a biblioteca **serializadora** como fazem com a biblioteca **IoTHubClient.** Por exemplo, se pretender anexar propriedades a um evento do seu modelo, utilize ** \_ propriedades IoTHubMessage** e **Map** \_ **AddorUpdate**, da mesma forma que descrito anteriormente:
+Alguns outros tópicos que merecem ser mencionados novamente são o manuseamento de propriedades, usando credenciais de dispositivo alternativos e opções de configuração. Estes são todos os tópicos abordados num [artigo anterior.](iot-hub-device-sdk-c-iothubclient.md) O ponto principal é que todas estas características funcionam da mesma forma com a biblioteca **serializadora** como fazem com a biblioteca **IoTHubClient.** Por exemplo, se pretender anexar propriedades a um evento do seu modelo, utilize **\_ propriedades IoTHubMessage** e **Map** \_ **AddorUpdate**, da mesma forma que descrito anteriormente:
 
 ```C
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
@@ -642,7 +642,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 Se o evento foi gerado a partir da biblioteca **serializadora** ou criado manualmente usando a biblioteca **IoTHubClient** não importa.
 
-Para as credenciais alternativas do dispositivo, a utilização **do IoTHubClient \_ LL \_ Create** funciona tão bem como **o IoTHubClient \_ CreateFromConnectionString** para alocar um ** \_ \_ manípulo cliente IOTHUB**.
+Para as credenciais alternativas do dispositivo, a utilização **do IoTHubClient \_ LL \_ Create** funciona tão bem como **o IoTHubClient \_ CreateFromConnectionString** para alocar um **\_ \_ manípulo cliente IOTHUB**.
 
 Finalmente, se estiver a utilizar a biblioteca **serializer,** pode definir opções de configuração com **IoTHubClient \_ LL \_ SetOption** tal como fez ao utilizar a biblioteca **IoTHubClient.**
 

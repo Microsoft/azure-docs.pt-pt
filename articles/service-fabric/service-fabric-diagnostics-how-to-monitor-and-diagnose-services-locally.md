@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 58319b47c78a85b4f06c2c834db20f6c42cc1939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247426"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local
@@ -43,13 +43,13 @@ Os modelos de projeto do Service Fabric Visual Studio contêm código de amostra
 Para projetos **criados** a partir dos modelos de serviço (apátridas ou stateful) basta procurar a `RunAsync` implementação:
 
 1. A chamada para `ServiceEventSource.Current.ServiceMessage` o método mostra um exemplo de um traço `RunAsync` ETW personalizado do código de aplicação.
-2. No ficheiro **ServiceEventSource.cs,** encontrará uma sobrecarga para o `ServiceEventSource.ServiceMessage` método que deve ser usado para eventos de alta frequência devido a razões de desempenho.
+2. No ficheiro **ServiceEventSource.cs,** encontrará uma sobrecarga para o `ServiceEventSource.ServiceMessage` método que deve ser utilizado para eventos de alta frequência devido a razões de desempenho.
 
 Para projetos **criados** a partir dos modelos de ator (apátridas ou stateful):
 
-1. Abra o ficheiro **"ProjectName".cs** onde o *ProjectName* é o nome que escolheu para o seu projeto Visual Studio.  
+1. Abra o ficheiro **"ProjectName" .cs** onde o *ProjectName* é o nome que escolheu para o seu projeto de Estúdio Visual.  
 2. Encontre o código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` no método *DoWorkAsync.*  Este é um exemplo de um traço ETW personalizado escrito a partir do código de aplicação.  
-3. Em **ActorEventSource.cs**de ficheiros, encontrará uma sobrecarga para o `ActorEventSource.ActorMessage` método que deve ser utilizado para eventos de alta frequência devido a razões de desempenho.
+3. No ficheiro **ActorEventSource.cs,** encontrará uma sobrecarga para o `ActorEventSource.ActorMessage` método que deve ser usado para eventos de alta frequência devido a razões de desempenho.
 
 Depois de adicionar rastreios ETW personalizados ao seu código de serviço, pode construir, implementar e executar novamente a aplicação para ver o(s) do seu(s) eventos no(s) Visualização de Eventos de Diagnóstico. Se depurar a aplicação com **F5,** o Visualizador de Eventos de Diagnóstico abrir-se-á automaticamente.
 

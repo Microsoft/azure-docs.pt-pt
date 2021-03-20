@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
 ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87460308"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Quickstart: Criar um cluster de tecido de serviço usando o modelo ARM
@@ -170,7 +170,7 @@ Também pode encontrar o ponto final do Service Fabric Explorer a partir da sua 
 
 ![Lâmina de recurso de tecido de serviço mostrando ponto final do Explorador de tecido de serviço](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 

@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422132"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e ligações IoT Edge
@@ -52,7 +52,7 @@ Agora, especifique as credenciais do recipiente no módulo IoT Edge.
 ## <a name="build-push-and-deploy-the-data-generator-module"></a>Construa, empurre e implemente o Módulo gerador de dados
 
 1. Clone os [ficheiros](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) do projeto para a sua máquina.
-2. Abra o ficheiro **IronOre_Silica_Predict.sln** usando Visual Studio 2019
+2. Abra o ficheiro **IronOre_Silica_Predict.sln** usando o Visual Studio 2019
 3. Atualizar os dados do registo do contentor no **deployment.template.js** 
    ```json
    "registryCredentials":{

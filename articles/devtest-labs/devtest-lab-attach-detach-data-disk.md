@@ -4,10 +4,10 @@ description: Saiba como anexar ou desprender um disco de dados a uma máquina vi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8eebfbda421233bcec780d441a4020acce740618
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91328518"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTest Labs
@@ -25,7 +25,7 @@ Antes de anexar um disco de dados a um VM, reveja estas dicas:
 Siga estes passos para criar e anexar um novo disco de dados gerido a um VM em Azure DevTest Labs.
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o laboratório desejado. 
 1. Da lista das **minhas máquinas virtuais,** selecione um VM em execução.
 1. A partir do menu à esquerda, **selecione Discos**.

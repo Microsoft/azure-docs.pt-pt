@@ -1,5 +1,5 @@
 ---
-title: Visão geral da segurança Azure IoT Hub X.509 CA Microsoft Docs
+title: Visão geral do Azure IoT Hub X.509 CA | Microsoft Docs
 description: Visão geral - como autenticar dispositivos no IoT Hub utilizando as Autoridades de Certificados X.509.
 author: eustacea
 manager: arjmands
@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: System Architecture'
 ms.openlocfilehash: 455f1f3e1c8181646fbe165d0f1aea6a2fb2fb13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92150704"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação do Dispositivo com Certificados AC X.509
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar certificados X.509 Certificate Authority (CA)
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A função X.509 CA permite a autenticação do dispositivo ao IoT Hub utilizando uma Autoridade de Certificados (CA). Simplifica consideravelmente o processo inicial de inscrição do dispositivo e a logística da cadeia de fornecimento durante o fabrico do dispositivo. [Saiba mais neste cenário sobre o valor da utilização de certificados X.509 CA](iot-hub-x509ca-concept.md) para autenticação de dispositivos.  Encorajamo-lo a ler este artigo de cenário antes de prosseguir, pois explica porque é que os passos que se seguem existem.
 

@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87315976"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependência: Modelo de dados de Insights de Aplicação
 
 A Telemetria de Dependência (in [Application Insights)](./app-insights-overview.md)representa uma interação do componente monitorizado com um componente remoto, como o SQL ou um ponto final HTTP.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome do comando iniciado com esta chamada de dependência. Baixo valor de cardinalidade. Exemplos são o nome do procedimento armazenado e o modelo do caminho url.
 
@@ -43,7 +43,7 @@ Duração do pedido no formato: `DD.HH:MM:SS.MMMMMM` . Deve ser menos que `1000`
 
 Código de resultado de uma chamada de dependência. Os exemplos são o código de erro SQL e o código de estado HTTP.
 
-## <a name="success"></a>Success
+## <a name="success"></a>Com êxito
 
 Indicação de chamada bem sucedida ou mal sucedida.
 

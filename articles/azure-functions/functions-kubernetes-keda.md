@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
 ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927537"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funções Azure em Kubernetes com KEDA
@@ -18,7 +18,7 @@ O tempo de funcionamento das Funções Azure proporciona flexibilidade no alojam
 
 ## <a name="how-kubernetes-based-functions-work"></a>Como funcionam as funções baseadas em Kubernetes
 
-O serviço Azure Functions é composto por dois componentes-chave: um tempo de funcionamento e um controlador de escala.  O tempo de execução das Funções funciona e executa o seu código.  O tempo de execução inclui lógica sobre como desencadear, registar e gerir execuções de funções.  O tempo de execução das Funções Azure pode ser executado *em qualquer lugar* .  O outro componente é um controlador de escala.  O controlador de escala monitoriza a taxa de eventos que estão a direcionar a sua função e escala proativamente o número de casos que executam a sua aplicação.  Para saber mais, consulte [a escala e hospedagem de Funções Azure.](functions-scale.md)
+O serviço Azure Functions é composto por dois componentes-chave: um tempo de funcionamento e um controlador de escala.  O tempo de execução das Funções funciona e executa o seu código.  O tempo de execução inclui lógica sobre como desencadear, registar e gerir execuções de funções.  O tempo de execução das Funções Azure pode ser executado *em qualquer lugar*.  O outro componente é um controlador de escala.  O controlador de escala monitoriza a taxa de eventos que estão a direcionar a sua função e escala proativamente o número de casos que executam a sua aplicação.  Para saber mais, consulte [a escala e hospedagem de Funções Azure.](functions-scale.md)
 
 As funções baseadas em Kubernetes proporcionam o tempo de funcionamento das funções num [recipiente Docker](functions-create-function-linux-custom-image.md) com escalas orientadas para o evento através da KEDA.  KEDA pode escalar em 0 casos (quando não ocorrerem eventos) e para *n* instâncias. Fá-lo expondo métricas personalizadas para o autoescalador Kubernetes (Horizontal Pod Autoscaler).  A utilização de recipientes de funções com KEDA permite replicar capacidades de função sem servidor em qualquer cluster Kubernetes.  Estas funções também podem ser implementadas usando a funcionalidade [de nós virtuais Azure Kubernetes Services (AKS)](../aks/virtual-nodes-cli.md) para infraestruturas sem servidor.
 

@@ -1,5 +1,5 @@
 ---
-title: Ligação híbrida com aplicação de 2 níveis / Microsoft Docs
+title: Ligação híbrida com aplicação de 2 níveis | Microsoft Docs
 description: Saiba como implantar aparelhos virtuais e UDR para criar um ambiente de aplicação de vários níveis em Azure
 services: virtual-network
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86231714"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de aparelho virtual
@@ -125,7 +125,7 @@ Sem o Encaminhamento IP habilitado para **OPFW,** a lógica de rede virtual Azur
 
 Com o IP Forwarding, a lógica de rede virtual Azure irá encaminhar os pacotes para OPFW, sem alterar o seu endereço de destino original. **A OPFW** deve tratar dos pacotes e determinar o que fazer com eles.
 
-Para que o cenário acima funcione, deve permitir o encaminhamento IP nos NICs para **OPFW**, **AZF1,** **AZF2**e **AZF3** que são utilizados para o encaminhamento (todos os NICs, exceto os ligados à sub-rede de gestão). 
+Para que o cenário acima funcione, deve permitir o encaminhamento IP nos NICs para **OPFW**, **AZF1,** **AZF2** e **AZF3** que são utilizados para o encaminhamento (todos os NICs, exceto os ligados à sub-rede de gestão). 
 
 ## <a name="firewall-rules"></a>Regras da Firewall
 Como descrito acima, o IP Reencaminhamento apenas garante que os pacotes são enviados para os aparelhos virtuais. O seu aparelho ainda precisa decidir o que fazer com esses pacotes. No cenário acima, terá de criar as seguintes regras nos seus aparelhos:

@@ -1,5 +1,5 @@
 ---
-title: Tutorial para filtrar, analisar dados com computação no Azure Stack Edge Pro Microsoft Docs
+title: Tutorial para filtrar, analisar dados com computação no Azure Stack Edge Pro | Microsoft Docs
 description: Aprenda a configurar o papel de computação no Azure Stack Edge Pro e use-o para transformar dados antes de enviar para o Azure.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 10741fbf2deb61d63f444ff9e2247bc59f41af38
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97968724"
 ---
 # <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transforme os dados com Azure Stack Edge Pro
@@ -57,7 +57,7 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
     |---------|---------|
     |Subscrição     |Selecione uma subscrição para o seu recurso IoT Hub. Pode utilizar a mesma subscrição que a utilizada pelo recurso Azure Stack Edge.         |
     |Grupo de recursos     |Selecione um grupo de recursos para o seu recurso IoT Hub. Pode utilizar o mesmo grupo de recursos que o utilizado pelo recurso Azure Stack Edge.         |
-    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT utiliza a mesma subscrição e o mesmo grupo de recursos utilizados pelo recurso do Azure Stack Edge.     |
     |Name     |Insira um nome para o seu recurso IoT Hub.         |
 
     ![Começar com o computo 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)

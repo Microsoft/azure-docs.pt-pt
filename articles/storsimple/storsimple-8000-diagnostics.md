@@ -1,5 +1,5 @@
 ---
-title: Ferramenta de diagnóstico para resolver problemas Dispositivo StorSimple 8000 Microsoft Docs
+title: Ferramenta de diagnóstico para resolver problemas dispositivo StorSimple 8000 | Microsoft Docs
 description: Este artigo fornece uma visão geral da ferramenta de diagnóstico e descreve como a ferramenta pode ser usada com um dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954074"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilize a Ferramenta de Diagnóstico StorSimple para resolver problemas de dispositivos da série 8000
@@ -414,10 +414,10 @@ Controller0>
 
 Aqui está uma tabela que descreve para que os vários parâmetros do Windows PowerShell no mapa de informações do sistema. 
 
-| Parâmetro PowerShell    | Descrição  |
+| Parâmetro PowerShell    | Description  |
 |-------------------------|------------------|
 | ID da Instância             | Cada controlador tem um identificador único ou um GUID associado a ele.|
-| Nome                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
+| Name                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
 | Modelação                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo é atribuído na fábrica e tem 15 caracteres de comprimento. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 - É o modelo do dispositivo.<br>SHX – É o local de fabrico.<br> 0991003 - É um produto específico. <br> G44HT- os últimos 5 dígitos são incrementados para criar números de série únicos. Isto pode não ser um conjunto sequencial.|
 | TimeZone                | O fuso horário do dispositivo configurado no portal Azure durante a implantação do dispositivo.|

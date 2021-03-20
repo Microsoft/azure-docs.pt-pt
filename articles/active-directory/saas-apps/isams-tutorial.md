@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com iSAMS / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com iSAMS | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o iSAMS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
 ms.openlocfilehash: e994e39cc916c51e3ad6b00015d710bb422cccc9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459701"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Tutorial: Azure Ative Directy integração única (SSO) com iSAMS
@@ -111,7 +111,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao iSAMS.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **iSAMS**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -157,7 +157,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Inicie sessão no iSAMS como Administrador.
 
-2.  Aceda ao **Painel de Controlo**Segurança Doméstica &  ->  **permissões**  ->  **Opções de**Utilizador de Contas &  ->  **Tarefas**  ->  **Modificam Propriedades do Utilizador**
+2.  Aceda ao **Painel de Controlo** Segurança Doméstica &  ->  **permissões**  ->  **Opções de** Utilizador de Contas &  ->  **Tarefas**  ->  **Modificam Propriedades do Utilizador**
 
     ![A screenshot mostra a página contas do utilizador com as propriedades do utilizador selecionadas.](./media/isams-tutorial/modify-user-properties.png)
 

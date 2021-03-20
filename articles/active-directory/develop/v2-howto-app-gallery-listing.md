@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988900"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
@@ -188,7 +188,7 @@ Em alternativa, um inquilino AZure AD vem com cada subscrição da Microsoft 365
 
 Uma vez que tenha um inquilino, teste um único sinal e [provisione.](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client) 
 
-**Para aplicações OIDC ou Juramento,** [Registe a sua candidatura](quickstart-register-app.md) como uma aplicação multi-arrendatário. Selecione as Contas em qualquer diretório organizacional e opção de contas pessoais da Microsoft em tipos de Conta Suportada.
+**Para aplicações OIDC ou Juramento,** [Registe a sua candidatura](quickstart-register-app.md) como uma aplicação multi-arrendatário. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types.
 
 **Para aplicações baseadas em SAML e WS-Fed,** você configura aplicações [únicas baseadas em SAML](../manage-apps/configure-saml-single-sign-on.md) usando um modelo de SAML genérico em Azure AD.
 

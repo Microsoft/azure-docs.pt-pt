@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub alta disponibilidade e recuperação de desastres Microsoft Docs
+title: Azure IoT Hub alta disponibilidade e recuperação de desastres | Microsoft Docs
 description: Descreve as funcionalidades do Azure e IoT Hub que o ajudam a construir soluções Azure IoT altamente disponíveis com capacidades de recuperação de desastres.
 author: jlian
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
 ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151670"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre do Hub IoT
@@ -103,7 +103,7 @@ O regresso à antiga região primária pode ser conseguido desencadeando outra v
 
 Enquanto o FQDN (e, portanto, a cadeia de ligação) da instância do hub IoT permanece o mesmo registo de falha, o endereço IP subjacente altera. Portanto, o tempo geral para que as operações de tempo de execução que estão a ser realizadas contra a sua instância do hub IoT se tornem totalmente operacionais após o processo de failover ser desencadeado pode ser expresso usando a seguinte função.
 
-Tempo para recuperar = RTO [10 min - 2 horas para falha manual ] 2 - 2 - 26 horas para failover iniciado pela Microsoft] + atraso de propagação DNS + Tempo tomado pela aplicação do cliente para refrescar qualquer endereço IP IoT Hub em cache.
+Tempo para recuperar = RTO [10 min - 2 horas para falha manual | 2 - 26 horas para failover iniciado pela Microsoft] + atraso de propagação de DNS + Tempo tomado pela aplicação do cliente para refrescar qualquer endereço IP IoT Hub em cache.
 
 > [!IMPORTANT]
 > Os SDKs IoT não cache o endereço IP do hub IoT. Recomendamos que o código de utilizador que inter-rela contrário com os SDKs não cache o endereço IP do hub IoT.
@@ -134,9 +134,9 @@ Aqui está um resumo das opções HA/DR apresentadas neste artigo que pode ser u
 
 | Opção HA/DR | RTO | RPO | Requer intervenção manual? | Complexidade de implementação | Impacto adicional dos custos|
 | --- | --- | --- | --- | --- | --- |
-| Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhum|Nenhum|
-| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhum|
-| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução ha personalizada|Não|Alto|> 1x o custo de 1 hub IoT|
+| Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|No|Nenhum|Nenhum|
+| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Yes|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhum|
+| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução ha personalizada|No|Alto|> 1x o custo de 1 hub IoT|
 
 ## <a name="next-steps"></a>Passos seguintes
 

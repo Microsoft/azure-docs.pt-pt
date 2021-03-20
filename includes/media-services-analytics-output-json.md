@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67184673"
 ---
 O trabalho produz um ficheiro de saída JSON que contém metadados sobre rostos detetados e rastreados. Os metadados incluem coordenadas que indicam a localização das faces, bem como um número de identificação facial que indica o rastreio desse indivíduo. Os números de identificação facial são propensos a ser reiniciados em circunstâncias em que a face frontal é perdida ou sobreposta no quadro, resultando em alguns indivíduos que recebem vários IDs atribuídos.

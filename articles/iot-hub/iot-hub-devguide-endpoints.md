@@ -1,5 +1,5 @@
 ---
-title: Compreenda os pontos finais do Azure IoT Hub ! Microsoft Docs
+title: Compreenda os pontos finais do Azure IoT Hub | Microsoft Docs
 description: Guia do desenvolvedor - informações de referência sobre dispositivos IoT Hub e pontos finais virados para o serviço.
 author: robinsh
 manager: philmea
@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
 ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152183"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais IoT Hub

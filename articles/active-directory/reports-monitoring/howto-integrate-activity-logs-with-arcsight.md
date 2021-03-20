@@ -1,5 +1,5 @@
 ---
-title: Integrar registos com o ArcSight utilizando o Azure Monitor ! Microsoft Docs
+title: Integrar registos com o ArcSight utilizando o monitor Azure | Microsoft Docs
 description: Saiba como integrar os registos do Azure Ative Directory com o ArcSight utilizando o Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc7bcab04da005fd0d46d18e7b708dcb1c9d58e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230522"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integre os registos do Azure Ative Directory com o ArcSight utilizando o Azure Monitor

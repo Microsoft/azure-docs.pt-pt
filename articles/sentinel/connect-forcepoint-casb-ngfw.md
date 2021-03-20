@@ -1,5 +1,5 @@
 ---
-title: Ligar os produtos Forcepoint ao Azure Sentinel. Microsoft Docs
+title: Ligue os produtos Forcepoint ao Azure Sentinel| Microsoft Docs
 description: Saiba como ligar os produtos Forcepoint ao Azure Sentinel.
 services: sentinel
 author: yelevin
@@ -13,16 +13,16 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588234"
 ---
 # <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Ligue os seus produtos Forcepoint ao Azure Sentinel
 
 > [!IMPORTANT]
-> O conector de dados dos produtos Forcepoint em Azure Sentinel está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O conector de dados dos produtos Forcepoint em Azure Sentinel está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 Este artigo explica como ligar os seus produtos Forcepoint ao Azure Sentinel. 

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,10 +9,10 @@ ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 999f3fb054eedab64a1f7bcebd9788e1edbf29f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86220616"
 ---
 Neste passo, cria-se a ligação entre o seu hub e um VNet. Repita estes passos para cada VNet que queira ligar.

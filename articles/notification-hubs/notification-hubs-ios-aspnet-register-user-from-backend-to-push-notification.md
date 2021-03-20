@@ -1,5 +1,5 @@
 ---
-title: Registe o utilizador atual para notificações push utilizando a API Web Microsoft Docs
+title: Registe o utilizador atual para notificações push utilizando a API Web | Microsoft Docs
 description: Saiba como solicitar o registo de notificação push numa aplicação iOS com Azure Notification Hubs quando o registo é realizado por ASP.NET Web API.
 services: notification-hubs
 documentationcenter: ios
@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86223317"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registe o utilizador atual para notificações push utilizando ASP.NET
@@ -26,7 +26,7 @@ ms.locfileid: "86223317"
 > [!div class="op_single_selector"]
 > * [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tópico mostra-lhe como solicitar o registo de notificação push com os Hubs de Notificação Azure quando o registo é realizado por ASP.NET Web API. Este tópico alarga o tutorial [Notificar os utilizadores com Centros de Notificação]. Já deve ter completado as etapas necessárias nesse tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário de notificação dos utilizadores, consulte [notificar os utilizadores com Os Centros de Notificação].
 
@@ -65,7 +65,7 @@ Este tópico mostra-lhe como solicitar o registo de notificação push com os Hu
     @property (readonly, nonatomic) NSString* installationId;
     @property (nonatomic) NSData* deviceToken;
     ```
-4. Copie o seguinte código na secção de implementação do ficheiro DeviceInfo.m:
+4. Copie o seguinte código na secção de implementação do ficheiro .m DeviceInfo:
 
     ```objc
     @synthesize installationId = _installationId;

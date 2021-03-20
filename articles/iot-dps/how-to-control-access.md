@@ -1,5 +1,5 @@
 ---
-title: Pontos finais de segurança no Serviço de Provisionamento de Dispositivos IoT / Microsoft Docs
+title: Pontos finais de segurança no Serviço de Provisionamento de Dispositivos IoT | Microsoft Docs
 description: Conceitos - como controlar o acesso ao Serviço de Provisionamento de Dispositivos IoT (DPS) para aplicações de backend. Inclui informações sobre fichas de segurança.
 author: wesmc7777
 manager: philmea
@@ -10,10 +10,10 @@ ms.date: 04/09/2019
 ms.author: wesmc
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 024dbf6518748a4048873de4eb54a53f9d9a6362
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954329"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure

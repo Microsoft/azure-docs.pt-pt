@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/03/2021
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 74813fabec4d5fe43cd158bb4aa359c2a3b0188a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988719"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Como configurar a indexação do blob na Pesquisa Cognitiva

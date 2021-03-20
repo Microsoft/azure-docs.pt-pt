@@ -1,5 +1,5 @@
 ---
-title: Teste Azure Aplicação Consistente Ferramenta Snapshot para Ficheiros Azure NetApp / Microsoft Docs
+title: Teste ferramenta de snapshot consistente da aplicação Azure para ficheiros Azure NetApp | Microsoft Docs
 description: Explica como executar o comando de teste da ferramenta Azure Application Consistent Snapshot que pode utilizar com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 03ffa93a71ded40e033f2068ea23fc6b994a5bbb
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632818"
 ---
 # <a name="test-azure-application-consistent-snapshot-tool-preview"></a>Teste Azure Aplicação Consistente Ferramenta Snapshot (pré-visualização)

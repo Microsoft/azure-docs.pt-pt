@@ -4,10 +4,10 @@ description: Saiba como o Lab Services pode tornar mais fácil criar, gerir e pr
 ms.topic: overview
 ms.date: 09/16/2020
 ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91333941"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introdução ao Azure Lab Services
@@ -27,9 +27,9 @@ As seguintes secções fornecem mais detalhes sobre estes laboratórios.
 ## <a name="managed-lab-types"></a>Tipos de laboratório geridos
 O Azure Lab Services permite-lhe criar laboratórios cuja infraestrutura é gerida pelo Azure. Este artigo refere-se a eles como tipos de laboratório geridos. Os tipos de laboratório geridos oferecem diferentes tipos de laboratórios que se adequam à sua necessidade específica. Atualmente, o único tipo de laboratório gerido que é suportado é **o laboratório de sala de aula.** 
 
-Os tipos de laboratório geridos permitem-lhe começar imediatamente, com a configuração mínima. O próprio serviço trata de toda a gestão da infraestrutura para o laboratório, desde girar os VMs até lidar com erros e escalar a infraestrutura.Para criar um laboratório gerido, como um laboratório de sala de aula, é preciso criar uma conta de laboratório para a sua organização primeiro. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
+Os tipos de laboratório geridos permitem-lhe começar imediatamente, com a configuração mínima. O próprio serviço trata de toda a gestão da infraestrutura para o laboratório, desde girar os VMs até lidar com erros e escalar a infraestrutura. Para criar um laboratório gerido, como um laboratório de sala de aula, é preciso criar uma conta de laboratório para a sua organização primeiro. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
 
-Quando cria e utiliza recursos Azure nestes tipos de laboratório geridos, o serviço cria e gere recursos em subscrições internas da Microsoft. Não são criados na sua própria subscrição do Azure. O serviço mantém um registo da utilização destes recursos nas subscrições internas da Microsoft. A utilização é faturada na sua subscrição do Azure que contém a conta de laboratório.   
+Quando cria e utiliza recursos Azure nestes tipos de laboratório geridos, o serviço cria e gere recursos em subscrições internas da Microsoft. Não são criados na sua própria subscrição do Azure. O serviço mantém um registo da utilização destes recursos nas subscrições internas da Microsoft. A utilização é faturada na sua subscrição do Azure que contém a conta de laboratório.   
 
 Aqui estão alguns dos casos de **utilização para tipos de laboratório geridos:** 
 

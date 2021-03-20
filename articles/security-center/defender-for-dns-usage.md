@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 375a81127a000741ca5e0397642800794610bcda
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754774"
 ---
-# <a name="respond-to-azure-defender-for-dns-alerts"></a>Responda ao Azure Defender para alertas dns
+# <a name="respond-to-azure-defender-for-dns-alerts"></a>Responder a alertas do Azure Defender para DNS
 
 Quando receber um alerta do Azure Defender para o DNS, recomendamos que investigue e responda ao alerta conforme descrito abaixo. O Azure Defender para DNS protege todos os recursos conectados, por isso mesmo que esteja familiarizado com a aplicação ou utilizador que desencadeou o alerta, é importante verificar a situação em torno de cada alerta.  
 

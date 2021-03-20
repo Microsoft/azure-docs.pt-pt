@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f82883b68ab911fb0b89fc117d9a9d77e05a781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245896"
 ---
 # <a name="sfctl-container"></a>sfctl container
@@ -27,7 +27,7 @@ Invocar a API do recipiente num recipiente implantado num nó de tecido de servi
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. <br><br> Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --código-pacote-id-id [Obrigatório] | ID que identifica exclusivamente uma instância de pacote de código implantada num nó de tecido de serviço. <br><br> Pode ser recuperado por "lista de pacotes de serviço". |
@@ -42,7 +42,7 @@ Invocar a API do recipiente num recipiente implantado num nó de tecido de servi
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -55,7 +55,7 @@ Obtém os registos dos contentores para o contentor colocados num nó de tecido 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. <br><br> Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --código-pacote-id-id [Obrigatório] | ID de identificação de pacote de código, que pode ser recuperado por "lista de pacotes de serviço". |
@@ -67,7 +67,7 @@ Obtém os registos dos contentores para o contentor colocados num nó de tecido 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

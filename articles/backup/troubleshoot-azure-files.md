@@ -4,10 +4,10 @@ description: Este artigo apresenta informações sobre a resolução de problema
 ms.date: 02/10/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376983"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
@@ -51,7 +51,7 @@ Recandidutar o registo. Se o problema persistir, contacte o suporte.
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Incapaz de apagar o cofre dos Serviços de Recuperação depois de desprotegir uma partilha de ficheiros
 
-No portal Azure, abra as suas contas **de**Armazenamento  >  **de Infraestruturas de Backup**do Cofre  >  **Storage accounts**. Selecione **Unregister** para remover as contas de armazenamento do cofre dos Serviços de Recuperação.
+No portal Azure, abra as suas contas **de** Armazenamento  >  **de Infraestruturas de Backup** do Cofre  >  . Selecione **Unregister** para remover as contas de armazenamento do cofre dos Serviços de Recuperação.
 
 >[!NOTE]
 >Um cofre dos Serviços de Recuperação só pode ser apagado depois de não registar todas as contas de armazenamento registadas no cofre.
@@ -261,7 +261,7 @@ Código de erro: UserErrorAnotherRestoreInProgressOnSameTarget
 
 Error Message: Outra tarefa de restauro está em andamento na mesma partilha de ficheiros alvo
 
-Use uma partilha de ficheiros de alvo diferente. Em alternativa, pode cancelar ou esperar que o outro restauro esteja concluído.
+Use uma partilha de ficheiros de alvo diferente. Em alternativa, pode cancelar ou aguardar a conclusão do outro restauro.
 
 ## <a name="common-modify-policy-errors"></a>Erros de política comuns de modificação
 
