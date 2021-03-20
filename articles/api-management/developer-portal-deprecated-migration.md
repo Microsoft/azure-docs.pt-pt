@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92326026"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrar para o novo portal de desenvolvedores
@@ -57,7 +57,7 @@ Quando migrar do portal deprecado, lembre-se das seguintes alterações:
 - Se alterou os modelos de notificação por e-mail predefinidos para incluir um URL de portal preterido explicitamente definido, altere-os para utilizar o parâmetro URL do portal ou apontar para o novo URL do portal. Se os modelos utilizarem o parâmetro URL do portal incorporado, não são necessárias alterações.
 - *As questões* e *aplicações* não são suportadas no novo portal de desenvolvedores.
 - A integração direta com o Facebook, Microsoft, Twitter e Google como fornecedores de identidade não é suportada no novo portal de desenvolvedores. Pode integrar-se com esses fornecedores através do Azure AD B2C.
-- Se utilizar a delegação, altere o URL de retorno nas suas aplicações e use o ponto final [ *get Shared Token API* ](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) em vez do ponto final *do URL Generate SSO.*
+- Se utilizar a delegação, altere o URL de retorno nas suas aplicações e use o ponto final [ *get Shared Token API*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) em vez do ponto final *do URL Generate SSO.*
 - Se utilizar a Azure AD como fornecedor de identidade:
 
     - Altere o URL de retorno na sua aplicação para indicar o novo domínio do portal do desenvolvedor.
@@ -67,7 +67,7 @@ Quando migrar do portal deprecado, lembre-se das seguintes alterações:
 
     - Altere o URL de retorno na sua aplicação para indicar o novo domínio do portal do desenvolvedor.
     - Modifique o sufixo do URL de devolução na sua aplicação a partir de `/signin-aad` `/signin` .
-    - Incluir *O Nome Dado,* *Apelido*e *ID de Objeto do Utilizador* nas reclamações da aplicação.
+    - Incluir *O Nome Dado,* *Apelido* e *ID de Objeto do Utilizador* nas reclamações da aplicação.
 
 - Se utilizar o OAuth 2.0 na consola de teste interativa, altere o URL de retorno na sua aplicação para apontar para o novo domínio do portal do desenvolvedor e modificar o sufixo:
 
@@ -82,5 +82,5 @@ Quando migrar do portal deprecado, lembre-se das seguintes alterações:
 
 Saiba mais sobre o portal de desenvolvedores:
 
-- [Visão geral do portal de desenvolvimento da AZure API Management](api-management-howto-developer-portal.md)
+- [Descrição geral do portal do programador da Gestão de API do Azure](api-management-howto-developer-portal.md)
 - [Aceda e personalize o portal do desenvolvedor](api-management-howto-developer-portal-customize.md)

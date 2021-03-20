@@ -4,10 +4,10 @@ description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos c
 ms.date: 02/17/2021
 ms.topic: how-to
 ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092140"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace

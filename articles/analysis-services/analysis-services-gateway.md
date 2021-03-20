@@ -1,5 +1,5 @@
 ---
-title: Porta de dados no local para serviços de análise da Azure Microsoft Docs
+title: Porta de dados no local para os Serviços de Análise Azure | Microsoft Docs
 description: Um gateway no local é necessário se o seu servidor de Serviços de Análise em Azure ligar-se a fontes de dados no local.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 6ca96f76287482a445d8a9a1cdc441333b36efbd
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97739608"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ligação a fontes de dados no local com gateway de dados no local

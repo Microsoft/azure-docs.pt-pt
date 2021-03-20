@@ -1,5 +1,5 @@
 ---
-title: Termine a revisão de acesso das funções da AD Azure na PIM - Azure AD ! Microsoft Docs
+title: Termine a revisão de acesso das funções AD Azure em PIM - Azure AD | Microsoft Docs
 description: Saiba como concluir uma revisão de acesso das funções da AD Azure em Azure AD Gestão de Identidade Privilegiada (PIM) e ver os resultados
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa7e8089fbbf2ee653100a05383fdbdc877ffda4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84742221"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Complete uma revisão de acesso das funções de Azure AD em Gestão de Identidade Privilegiada

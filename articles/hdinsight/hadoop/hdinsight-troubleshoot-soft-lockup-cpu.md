@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/05/2019
 ms.openlocfilehash: 5d9d7b0fc21660dd22ff92bbe2de38c759c440ec
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944344"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Cenário: "watchdog: BUG: soft lockup - CPU" error from a Azure HDInsight cluster
@@ -51,6 +51,6 @@ Aplique o patch de núcleo. O script abaixo atualiza o núcleo linux e reinicia 
 
 1. Espere que a execução tenha sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

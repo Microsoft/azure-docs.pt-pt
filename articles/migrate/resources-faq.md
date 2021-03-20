@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: a5db000ad76f23be60d279923a590204c2fcf5e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377385"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns

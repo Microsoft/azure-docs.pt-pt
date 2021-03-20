@@ -4,10 +4,10 @@ description: Crie um ponto final privado num registo de contentores e permita o 
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93342305"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link
@@ -205,8 +205,8 @@ Crie um link privado quando criar um registo ou adicionar um link privado a um r
 ### <a name="create-a-private-endpoint---new-registry"></a>Criar um ponto final privado - novo registo
 
 1. Ao criar um registo no portal, no **separador Básico,** no **SKU,** selecione **Premium**.
-1. Selecione o **separador 'Rede'.**
-1. Na **conectividade da rede** , selecione Private **endpoint**  >  **+ Add**.
+1. Selecione o separador **Rede**.
+1. Na **conectividade da rede**, selecione Private **endpoint**  >  **+ Add**.
 1. Insira ou selecione as seguintes informações:
 
     | Definição | Valor |
@@ -215,11 +215,11 @@ Crie um link privado quando criar um registo ou adicionar um link privado a um r
     | Grupo de recursos | Insira o nome de um grupo existente ou crie um novo.|
     | Name | Introduza um nome exclusivo. |
     | Subresource |Selecione **registo**|
-    | **Redes** | |
+    | **Rede** | |
     | Rede virtual| Selecione a rede virtual onde a sua máquina virtual está implantada, como *o myDockerVMVNET*. |
     | Sub-rede | Selecione uma sub-rede, como *a myDockerVMSubnet* onde a sua máquina virtual está implantada. |
     |**Integração privada de DNS**||
-    |Integrar com zona DNS privada |Selecione **Sim**. |
+    |Integrar com zona DNS privada |Selecione **Yes** (Sim). |
     |Zona DNS Privada |Selecione *(Nova) privatelink.azurecr.io* |
     |||
 1. Configure as definições restantes do registo e, em seguida, selecione **Review + Create**.
@@ -229,7 +229,7 @@ Crie um link privado quando criar um registo ou adicionar um link privado a um r
 ### <a name="create-a-private-endpoint---existing-registry"></a>Criar um ponto final privado - registo existente
 
 1. No portal, navegue para o registo do seu contentor.
-1. Em **Definições** , selecione **Networking**.
+1. Em **Definições**, selecione **Networking**.
 1. No **separador pontos finais privados,** selecione **+ ponto final privado**.
 1. No separador **Básicos, insira** ou selecione as seguintes informações:
 
@@ -240,7 +240,7 @@ Crie um link privado quando criar um registo ou adicionar um link privado a um r
     | Grupo de recursos | Insira o nome de um grupo existente ou crie um novo.|
     | **Detalhes da instância** |  |
     | Name | Insira um nome. |
-    |Região|selecione uma região.|
+    |Region|selecione uma região.|
     |||
 5. Selecione **Seguinte: Recurso**.
 6. Insira ou selecione as seguintes informações:
@@ -258,16 +258,16 @@ Crie um link privado quando criar um registo ou adicionar um link privado a um r
 
     | Definição | Valor |
     | ------- | ----- |
-    |**Redes**| |
+    |**Rede**| |
     | Rede virtual| Selecione a rede virtual onde a sua máquina virtual está implantada, como *o myDockerVMVNET*. |
     | Sub-rede | Selecione uma sub-rede, como *a myDockerVMSubnet* onde a sua máquina virtual está implantada. |
     |**Integração privada de DNS**||
-    |Integrar com zona DNS privada |Selecione **Sim**. |
+    |Integrar com zona DNS privada |Selecione **Yes** (Sim). |
     |Zona DNS Privada |Selecione *(Nova) privatelink.azurecr.io* |
     |||
 
-1. Selecione **Rever + criar**. Acedeu à página **Rever + criar** , onde o Azure valida a sua configuração. 
-2. Quando vir a mensagem **A validação passou** , selecione **Criar**.
+1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração. 
+2. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 Após a criação do ponto final privado, as definições de DNS na zona privada aparecem na página **de pontos finais privados** no portal:
 

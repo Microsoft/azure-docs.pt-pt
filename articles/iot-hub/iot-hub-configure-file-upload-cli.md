@@ -1,5 +1,5 @@
 ---
-title: Configurar o upload de ficheiros para ioT Hub usando Azure CLI [ Microsoft Docs
+title: Configurar o upload de ficheiros para o IoT Hub utilizando o Azure CLI | Microsoft Docs
 description: Como configurar os uploads de ficheiros para o Azure IoT Hub utilizando a plataforma cruzada Azure CLI.
 author: robinsh
 manager: philmea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536067"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configure os uploads de ficheiros IoT Hub usando O Azure CLI
@@ -89,13 +89,13 @@ Agora pode configurar o seu hub IoT para permitir a capacidade [de enviar fichei
 
 A configuração requer os seguintes valores:
 
-* **Recipiente de armazenamento** : Um recipiente de bolhas numa conta de armazenamento Azure na sua subscrição atual do Azure para associar ao seu hub IoT. Recuperou as informações necessárias da conta de armazenamento na secção anterior. O IoT Hub gera automaticamente URIs SAS com permissões de escrita para este recipiente blob para os dispositivos utilizarem quando carregam ficheiros.
+* **Recipiente de armazenamento**: Um recipiente de bolhas numa conta de armazenamento Azure na sua subscrição atual do Azure para associar ao seu hub IoT. Recuperou as informações necessárias da conta de armazenamento na secção anterior. O IoT Hub gera automaticamente URIs SAS com permissões de escrita para este recipiente blob para os dispositivos utilizarem quando carregam ficheiros.
 
-* **Receber notificações para ficheiros carregados** : Ative ou desative notificações de upload de ficheiros.
+* **Receber notificações para ficheiros carregados**: Ative ou desative notificações de upload de ficheiros.
 
-* **SAS TTL** : Esta definição é o tempo de vida dos SAS URIs devolvidos ao dispositivo pelo IoT Hub. Programado para uma hora por defeito.
+* **SAS TTL**: Esta definição é o tempo de vida dos SAS URIs devolvidos ao dispositivo pelo IoT Hub. Programado para uma hora por defeito.
 
-* **Definições de notificação de ficheiros predefinidoS TTL** : O tempo de vida de uma notificação de upload de ficheiros antes de expirar. Definido para um dia por defeito.
+* **Definições de notificação de ficheiros predefinidoS TTL**: O tempo de vida de uma notificação de upload de ficheiros antes de expirar. Definido para um dia por defeito.
 
 * **Contagem máxima de entrega** da notificação de ficheiros : O número de vezes que o IoT Hub tenta entregar uma notificação de upload de ficheiros. Definir para 10 por defeito.
 

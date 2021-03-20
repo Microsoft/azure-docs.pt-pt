@@ -4,10 +4,10 @@ description: Neste tutorial, você usa o portal Azure para criar uma atribuiçã
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91826595"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Criar uma atribuição política para identificar recursos não conformes
@@ -22,7 +22,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste tutorial, cria uma atribuição de política e atribui a _ \[ Pré-visualização]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._
+Neste tutorial, cria uma atribuição de política e atribui a _\[ Pré-visualização]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
@@ -30,11 +30,11 @@ Neste tutorial, cria uma atribuição de política e atribui a _ \[ Pré-visuali
 
 1. Selecione **Atribuições** no lado esquerdo da página Azure Policy. Uma atribuição é uma política que foi atribuída para ter lugar num âmbito específico.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Selecione página de atribuições a partir da página de visão geral da política" border="false":::
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Atribuir uma definição de política a partir da página atribuições" border="false":::
 
 1. Na página **Atribuir Política**, selecione **Âmbito** ao clicar no botão de reticências e ao selecionar um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de política será imposta. Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
 
@@ -50,11 +50,11 @@ Neste tutorial, cria uma atribuição de política e atribui a _ \[ Pré-visuali
 
    Para obter uma lista parcial das políticas incorporadas disponíveis, consulte [as amostras da Política Azure](../../../governance/policy/samples/index.md).
 
-1. Procure na lista de definições de política para encontrar a _ \[ pré-visualização:: O agente Log Analytics deve ser instalado na definição de máquinas Windows Azure Arc_ se tiver ativado o agente de servidores ativado pelo Arco numa máquina baseada no Windows. Para uma máquina baseada em Linux, encontre a _ \[ pré-visualização correspondente]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._ Clique nessa política e clique em **Selecionar**.
+1. Procure na lista de definições de política para encontrar a _\[ pré-visualização:: O agente Log Analytics deve ser instalado na definição de máquinas Windows Azure Arc_ se tiver ativado o agente de servidores ativado pelo Arco numa máquina baseada no Windows. Para uma máquina baseada em Linux, encontre a _\[ pré-visualização correspondente]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._ Clique nessa política e clique em **Selecionar**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Encontrar a definição de política correta" border="false":::
 
-1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Para este exemplo, deixe _ \[ a pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc_ ou _ \[ Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Linux Azure Arc,_ dependendo da qual selecionou. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
+1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Para este exemplo, deixe _\[ a pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc_ ou _\[ Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Linux Azure Arc,_ dependendo da qual selecionou. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
    **Atribuído por** será preenchido automaticamente com base em quem tem sessão iniciada. Este campo é opcional e, por isso, podem ser introduzidos valores personalizados.
 
 1. Não marque o campo **Criar uma Identidade Gerida**. Esta caixa _deve_ ser verificada quando a política ou iniciativa inclui uma política com o efeito [implantadoIfNotExists.](../../../governance/policy/concepts/effects.md#deployifnotexists) Como a política usada para este arranque rápido não, deixe-a em branco. Para obter mais informações, veja [identidades geridas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](../../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
@@ -65,9 +65,9 @@ Está agora pronto para identificar recursos não conformes para entender o esta
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos que não estão em conformidade
 
-Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize a ** \[ pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc** ou ** \[ Pré-visualização]: O agente Log Analytics deve ser instalado na sua** atribuição de política de máquinas Linux Azure Arc que criou.
+Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize a **\[ pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc** ou **\[ Pré-visualização]: O agente Log Analytics deve ser instalado na sua** atribuição de política de máquinas Linux Azure Arc que criou.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Detalhes de conformidade na página de Conformidade de Política" border="false":::
 
 Se houver recursos existentes que não estejam em conformidade com esta nova atribuição, eles aparecem sob **recursos não conformes.**
 
@@ -87,11 +87,11 @@ Os efeitos também necessitam que a condição de existência seja FALSE para es
 
 Para remover a atribuição criada, siga estes passos:
 
-1. Selecione **Compliance** (ou **Atribuições)** no lado esquerdo da página Azure Policy e localize a ** \[ Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc** ou ** \[ Pré-visualização:: O agente Log Analytics deve ser instalado na sua** atribuição de política de máquinas Linux Azure Arc que criou.
+1. Selecione **Compliance** (ou **Atribuições)** no lado esquerdo da página Azure Policy e localize a **\[ Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc** ou **\[ Pré-visualização:: O agente Log Analytics deve ser instalado na sua** atribuição de política de máquinas Linux Azure Arc que criou.
 
 1. Clique com o direito na atribuição de política e **selecione Eliminar a atribuição**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Excluir uma atribuição da página Compliance" border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: f98f128e56810e3dd710ce454c8dc34b333690d1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879297"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeie uma oferta de aplicação Azure para o mercado comercial
@@ -121,7 +121,7 @@ Quando criar uma nova oferta de aplicação Azure no Partner Center, introduzir�
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
 7. Resumo
-8. Descrição
+8. Description
 9. Screenshots/vídeos
 
 A imagem que se segue mostra como as informações da oferta aparecem no portal Azure:
@@ -231,7 +231,7 @@ Existem dois tipos de planos de aplicação Azure: _modelo de solução_ e _apli
  
     Utilize o tipo de plano de aplicação gerido quando você ou o seu cliente requer que a solução seja gerida por um parceiro ou que implemente uma solução baseada em subscrição. Para obter mais informações sobre as vantagens e tipos de aplicações geridas, consulte [a visão geral das aplicações geridas pela Azure.](../azure-resource-manager/managed-applications/overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para planear um modelo de solução, consulte [Plano um modelo de solução para uma oferta de aplicação Azure](plan-azure-app-solution-template.md).
 - Para planear uma aplicação gerida pela Azure, consulte [o Plano de um pedido gerido pela Azure para uma oferta de candidatura da Azure](plan-azure-app-managed-app.md).

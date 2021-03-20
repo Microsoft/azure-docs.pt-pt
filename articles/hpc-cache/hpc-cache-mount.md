@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
 ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91651433"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
@@ -115,7 +115,7 @@ Para uma montagem robusta do cliente, passe estas definições e argumentos no s
 
 > montagem -o hard,proto=tcp,mountproto=tcp,retry=30 ${CACHE_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Definições recomendadas de comando de montagem | Descrição |
+| Definições recomendadas de comando de montagem | Description |
 --- | ---
 ``hard`` | Os suportes macios para a Cache Azure HPC estão associados a falhas de aplicação e possíveis perda de dados.
 ``proto=tcp`` | Esta opção suporta o manuseamento adequado de erros de rede NFS.

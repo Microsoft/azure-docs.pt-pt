@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94626899"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
@@ -65,7 +65,7 @@ Para obter este roteiro:
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="exemplo":::
 
-1. Selecione **Connect** (Ligar).
+1. Selecione **Ligar**.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot do ícone de ligação para a sua partilha de ficheiros.":::
 

@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/02/2017
 ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018567"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utilizar o Browser de Tarefas e o Visualizador de Tarefas do Azure Data Lake Analytics
@@ -119,7 +119,7 @@ A Visão de Trabalho contém:
     
       Mostra o mapa de calor de I/O, tempo e produção de um trabalho, através do qual você pode encontrar onde o trabalho passa a maior parte do tempo, ou se o seu trabalho é um trabalho de fronteira de E/S, e assim por diante.
     
-      ![Exemplo de mapa de gráfico de gráfico de gráfico de azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
+      ![Exemplo de mapa de gráfico de azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
     * Progresso: O progresso da execução do trabalho, ver Informação em informação de fase.
     * Leitura/escrita de dados: Mapa de calor do total de dados lidos/escritos em cada fase.

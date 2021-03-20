@@ -1,5 +1,5 @@
 ---
-title: Entenda o analisador de modelos Digital Twins Microsoft Docs
+title: Compreenda o analisador de modelos Digital Twins | Microsoft Docs
 description: Como desenvolvedor, aprenda a usar o analisador DTDL para validar modelos.
 author: rido-min
 ms.author: rmpablos
@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331792"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Compreender o parser de modelos de duplos digitais

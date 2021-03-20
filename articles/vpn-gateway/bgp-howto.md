@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878889"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Como configurar o BGP em Gateways Azure VPN
@@ -162,6 +162,6 @@ Para o contexto, referindo-se ao **Diagrama 4**, se o BGP fosse desativado entre
 
 :::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Diagrama mostrando rede completa" border="false":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/windows/quick-create-portal.md) para obter os passos.

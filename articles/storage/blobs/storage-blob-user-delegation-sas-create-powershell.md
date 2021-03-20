@@ -12,10 +12,10 @@ ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 875b2a9f35562dd8f0d5df3c631e5ade1e3fbf75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91714532"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com PowerShell
@@ -26,7 +26,7 @@ Este artigo mostra como usar credenciais do Azure Ative Directory (Azure AD) par
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-powershell-module"></a>Instale o módulo PowerShell
+## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
 Para criar uma delegação de utilizador SAS com PowerShell, instale a versão 1.10.0 ou posterior do módulo Az.Storage. Siga estes passos para instalar a versão mais recente do módulo:
 
@@ -77,7 +77,7 @@ Para obter mais informações sobre a sessão com a PowerShell, consulte [Inicia
 
 ## <a name="assign-permissions-with-azure-rbac"></a>Atribuir permissões com o Azure RBAC
 
-Para criar uma delegação de utilizador SAS da Azure PowerShell, a conta AZure AD utilizada para assinar no PowerShell deve ser atribuída a uma função que inclua a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Esta permissão permite que a conta Azure AD solicite a chave da *delegação*do utilizador . A chave da delegação de utilizadores é utilizada para assinar a delegação de utilizadores SAS. A função que fornece a ação **Microsoft.Storage/storageAcounts/blobServices/generateUserDelegationKey** deve ser atribuída ao nível da conta de armazenamento, do grupo de recursos ou da subscrição. Para obter mais informações sobre permissões Azure RBAC para a criação de uma delegação de utilizadores SAS, consulte as permissões de Atribuição com secção **Azure RBAC** na [Criação de uma delegação de utilizador SAS](/rest/api/storageservices/create-user-delegation-sas).
+Para criar uma delegação de utilizador SAS da Azure PowerShell, a conta AZure AD utilizada para assinar no PowerShell deve ser atribuída a uma função que inclua a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Esta permissão permite que a conta Azure AD solicite a chave da *delegação* do utilizador . A chave da delegação de utilizadores é utilizada para assinar a delegação de utilizadores SAS. A função que fornece a ação **Microsoft.Storage/storageAcounts/blobServices/generateUserDelegationKey** deve ser atribuída ao nível da conta de armazenamento, do grupo de recursos ou da subscrição. Para obter mais informações sobre permissões Azure RBAC para a criação de uma delegação de utilizadores SAS, consulte as permissões de Atribuição com secção **Azure RBAC** na [Criação de uma delegação de utilizador SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 Se não tiver permissões suficientes para atribuir funções Azure a um responsável de segurança Azure, poderá ter de pedir ao proprietário ou administrador da conta para atribuir as permissões necessárias.
 

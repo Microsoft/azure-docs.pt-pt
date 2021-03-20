@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 134f1dc7cb6e53c181b2f518055e5cb758fccf31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91812714"
 ---
 1. Sob o seu WAN virtual, selecione Hubs e selecione **+New Hub**.
@@ -25,7 +25,7 @@ ms.locfileid: "91812714"
    * **Nome** - Introduza o nome que pretende chamar ao seu centro virtual.
    * **Espaço de endereço privado hub** - A gama de endereços do hub na notação CIDR.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="novo hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="criar hub virtual":::
 
 1. No separador Ponto a Local, complete os seguintes campos:
 
@@ -34,7 +34,7 @@ ms.locfileid: "91812714"
    * **Pool de Endereços do Cliente** - para os utilizadores remotos.
    * **IP do servidor DNS personalizado**.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="novo hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="hub com ponto a local":::
 
 1. Selecione **Rever + criar**.
 1. Na página **de validação passada,** selecione **Criar**.

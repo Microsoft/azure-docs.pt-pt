@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 19b769d1fff431f95c20e607c17747f2ff483d2f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487189"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorias de pesquisa para a API de Pesquisa local de Negócios de Bing
@@ -43,7 +43,7 @@ As subcategorias são aprovadas da mesma forma `localCategories` que. As subcate
 
 ### <a name="eat-drink"></a>Comer Bebida
 
-> CervejariasAndBrewPubs, CocktailLounges, AfricanRestaurants, AmericanRestaurants, Bagels, BarbecueRestaurants, Taverns, SportsBars, Bares, BarsGrillsAndPubs, BuffetRestaurants. BelgaRestaurants, BritishRestaurants, CafeRestaurants, CaribbeanRestaurants, ChinesesRestaurants, CoffeeAndTea, Delicatessens, DeliveryService, Diners, DiscountStores, Donuts, FastFood, FrenchRestaurants, FrozenYogurt, GermanRestaurants, Supermercados, GregoRestaurants, Mercearias, HawaiianRestaurants, HúngaroRestaurants, IceCreamAndFrozenDess, IndianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaus, ItalianRestaurants, ItalianRestas, ItalianRestaurants, ItalianRestaurants, ItalianRess, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaus, JaponesesRestaurants, Sumos, CoreanoRestaurants, Lojas de Licor, MexicanoRestaurants, MiddleEasternRestaurants, Pizza, PolacoRestaurants, PortuguesesRestaurants, Pretzels, Restaurantes, RussianAndUkrainianRestaurants Sanduíches, Frutos do MarRestaurants, EspanhóisRestaurants, SteakHouseRestaurants, SushiRestaurants, TakeAway, ThaiRestaurants, TurkishRestaurants, VegetarianAndVeganRestaurants, VietnamitaRestaurants
+> CervejariasAndBrewPubs, CocktailLounges, AfricanRestaurants, AmericanRestaurants, Bagels, BarbecueRestaurants, Taverns, SportsBars, Bares, BarsGrillsAndPubs, BuffetRestaurants| BelgaRestaurants, BritishRestaurants, CafeRestaurants, CaribbeanRestaurants, ChinesesRestaurants, CoffeeAndTea, Delicatessens, DeliveryService, Diners, DiscountStores, Donuts, FastFood, FrenchRestaurants, FrozenYogurt, GermanRestaurants, Supermercados, GregoRestaurants, Mercearias, HawaiianRestaurants, HúngaroRestaurants, IceCreamAndFrozenDess, IndianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaus, ItalianRestaurants, ItalianRestas, ItalianRestaurants, ItalianRestaurants, ItalianRess, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaus, JaponesesRestaurants, Sumos, CoreanoRestaurants, Lojas de Licor, MexicanoRestaurants, MiddleEasternRestaurants, Pizza, PolacoRestaurants, PortuguesesRestaurants, Pretzels, Restaurantes, RussianAndUkrainianRestaurants Sanduíches, Frutos do MarRestaurants, EspanhóisRestaurants, SteakHouseRestaurants, SushiRestaurants, TakeAway, ThaiRestaurants, TurkishRestaurants, VegetarianAndVeganRestaurants, VietnamitaRestaurants
 
 ### <a name="see-do"></a>Ver Fazer
 

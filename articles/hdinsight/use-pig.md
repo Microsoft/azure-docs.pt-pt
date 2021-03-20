@@ -7,10 +7,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944611"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Use o Porco Apache com Apache Hadoop em HDInsight
@@ -86,7 +86,7 @@ Você pode usar os Serviços de Integração de Servidor SQL (SSIS) para executa
 
 Saiba mais sobre o Azure Feature Pack para SSIS [aqui.][ssispack]
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Próximos passos
+## <a name="next-steps"></a><a id="nextsteps"></a>Passos seguintes
 
 Agora que aprendeu a usar o Pig com HDInsight, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 

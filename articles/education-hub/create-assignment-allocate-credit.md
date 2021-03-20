@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92332472"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Criar uma tarefa e alocar crédito
@@ -26,7 +26,7 @@ Depois de ter criado um curso e criado uma sala de aula no Microsoft Azure Educa
 
 ### <a name="accounts"></a>Contas
 
-O Azure Education Hub aceita qualquer endereço de e-mail no ___________________________________________________.___ formato. Atualmente *não* verifica uma conta válida na sua organização ou se a conta Microsoft é corrente ou válida. Verifique cuidadosamente cada endereço de e-mail antes de continuar.
+O Azure Education Hub aceita qualquer endereço de e-mail no _____ formato. Atualmente *não* verifica uma conta válida na sua organização ou se a conta Microsoft é corrente ou válida. Verifique cuidadosamente cada endereço de e-mail antes de continuar.
 
 > [!IMPORTANT]
 > O trabalho e as contas escolares estão sujeitos às suas próprias políticas, incluindo se um endereço de e-mail de um domínio diferente da organização é permitido (por exemplo, adicionar student2@outlook.com ao @school.edu domínio). Certifique-se de verificar estas políticas antes de adicionar novos utilizadores.

@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97739744"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conecte-se às redes virtuais Azure a partir de Azure Logic Apps utilizando um ambiente de serviço de integração (ISE)
@@ -207,7 +207,7 @@ Se não permitir o acesso a estas dependências, a sua implantação ise falha e
 
    Cada sub-rede tem de satisfazer estes requisitos:
 
-   * Usa um nome que começa com um carácter alfabético ou um sublinhado (sem números), e não usa estes caracteres: `<` `>` . `%` `&` `\\` `?` `/`
+   * Usa um nome que começa com um carácter alfabético ou um sublinhado (sem números), e não usa estes caracteres: `<` `>` . . `%` . `&` `\\` `?` `/`
 
    * Utiliza o [formato de encaminhamento de Inter-Domain sem classe (CIDR).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
    

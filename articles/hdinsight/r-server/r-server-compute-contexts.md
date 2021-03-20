@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943955"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto computacional para serviços ML em HDInsight
@@ -76,7 +76,7 @@ Para obter mais informações e exemplos de contextos de computação RevoScaleR
 
 Também pode consultar a [visão geral](/machine-learning-server/r/how-to-revoscaler-distributed-computing) da computação distribuída na [documentação do Servidor de Aprendizagem automática](/machine-learning-server/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelamente através de núcleos do nó de borda ou cluster HDInsight. Para saber mais sobre como utilizar os Serviços ML com clusters HDInsight, consulte os seguintes tópicos:
 

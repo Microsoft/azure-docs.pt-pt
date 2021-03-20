@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96492204"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
@@ -54,7 +54,7 @@ No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seg
 1. In **Create a new project**, escolha a App consola **(.NET Framework)** para C#e, em seguida, selecione **Next**.
 1. Em **Configurar o seu novo projeto,** insira um nome para a aplicação e selecione **Create**.
 
-Adicione todos os exemplos de código deste artigo à `Program` classe no ficheiro *Program.cs.*
+Adicione todos os exemplos de código deste artigo à `Program` classe no ficheiro .cs *Programa.*
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
 
@@ -135,7 +135,7 @@ Em seguida, guarde as suas credenciais no ficheiro *App.config* do seu projeto. 
 
 ## <a name="add-using-directives"></a>Adicionar com diretivas
 
-No **Solution Explorer,** abra o ficheiro *Program.cs* e adicione as seguintes diretivas de utilização ao topo do ficheiro.
+No **Solution Explorer,** abra o ficheiro *program.cs* e adicione as seguintes diretivas de utilização ao topo do ficheiro.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -156,7 +156,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Aceder à partilha de ficheiros programaticamente
 
-No ficheiro *Program.cs,* adicione o seguinte código para aceder programaticamente à partilha de ficheiros.
+No ficheiro *.cs Programa,* adicione o seguinte código para aceder programaticamente à partilha de ficheiros.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -559,7 +559,7 @@ O exemplo de código que se segue mostra como utilizar a biblioteca de clientes 
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Em primeiro lugar, adicione as `using` seguintes diretivas ao seu ficheiro *Program.cs,* juntamente com as que adicionou acima:
+Em primeiro lugar, adicione as `using` seguintes diretivas ao seu ficheiro *.cs Programa,* juntamente com as que adicionou acima:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;

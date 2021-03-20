@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fb2adafab88eb1d3855cdec8268601fb4e15dcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86257280"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
@@ -26,14 +26,14 @@ Cria uma implantação de Recursos de Malha de Tecido de Serviço.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --input-yaml-files [Obrigatório] | Percursos de ficheiros relativos ou absolutos separados em vírgula de todos os ficheiros yaml ou caminho relativo ou absoluto do diretório (recursivo) que contêm ficheiros yaml. |
 | --parâmetros | Um caminho relativo ou absoluto para um ficheiro yaml ou um objeto json que contém os parâmetros que precisam ser ultrapassados. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: c2114f5392da788bb440589e69e704a148731e02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86258613"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorização de desempenho com a extensão de Diagnóstico do Windows Azure
@@ -41,7 +41,7 @@ Para recolher contadores de desempenho via WAD, é necessário modificar a confi
 
 3. Adicione os contadores de desempenho que gostaria de recolher ao `PerformanceCounterConfiguration` que foi declarado no passo anterior. Cada contador que pretende recolher é definido com `counterSpecifier` `sampleRate` um, `unit` , , , e qualquer relevante `annotation` `sinks` .
 
-Aqui está um exemplo de uma configuração com o contador para o *tempo total* do processador (o tempo que o CPU estava a ser utilizado para operações de processamento) e *invocações do método do ator*de tecido de serviço por segundo , um dos contadores de desempenho personalizados do Service Fabric. Consulte os [contadores de desempenho](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) do ator fiável e [os contadores de desempenho de serviço fiável](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) para obter uma lista completa de contadores perf personalizados do Service Fabric.
+Aqui está um exemplo de uma configuração com o contador para o *tempo total* do processador (o tempo que o CPU estava a ser utilizado para operações de processamento) e *invocações do método do ator* de tecido de serviço por segundo , um dos contadores de desempenho personalizados do Service Fabric. Consulte os [contadores de desempenho](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) do ator fiável e [os contadores de desempenho de serviço fiável](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) para obter uma lista completa de contadores perf personalizados do Service Fabric.
 
  ```json
  "WadCfg": {

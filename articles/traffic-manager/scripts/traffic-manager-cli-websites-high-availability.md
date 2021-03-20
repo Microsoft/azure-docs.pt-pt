@@ -15,10 +15,10 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
 ms.openlocfilehash: abac2e5b1fcba65db92edd2bcc2f390ec0114f59
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185353"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Tráfego de rotas para elevada disponibilidade de aplicações utilizando O Azure CLI

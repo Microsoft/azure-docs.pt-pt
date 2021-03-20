@@ -1,5 +1,5 @@
 ---
-title: Tutorial para instalar - Desempacotar, rack, cabo Azure Stack Edge Pro DISPOSITIVO FÍSICO / Microsoft Docs
+title: Tutorial para instalar - Desembalar, cremalheira, cabo Azure Stack Edge Pro DISPOSITIVO GPU | Microsoft Docs
 description: O segundo tutorial sobre a instalação do Azure Stack Edge Pro GPU envolve como desempacotar, cremalheira e cabo do dispositivo físico.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97734725"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalar Azure Stack Edge Pro com GPU
@@ -22,7 +22,7 @@ Este tutorial descreve como instalar um dispositivo físico Azure Stack Edge Pro
 
 A instalação pode demorar cerca de duas horas a ser concluída.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Desembalar o dispositivo

@@ -1,5 +1,5 @@
 ---
-title: Crie a sua conta Azure Maps utilizando um modelo ARM / Microsoft Azure Maps
+title: Crie a sua conta Azure Maps utilizando um modelo ARM | Microsoft Azure Maps
 description: Saiba como criar uma conta Azure Maps utilizando um modelo Azure Resource Manager (ARM).
 author: philmea
 ms.author: philmea
@@ -7,10 +7,10 @@ ms.date: 10/20/2020
 ms.topic: how-to
 ms.service: azure-maps
 ms.openlocfilehash: c715c0639e962f76f669515c1d2c826c8cf6cc9e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92525186"
 ---
 # <a name="create-your-azure-maps-account-using-an-arm-template"></a>Crie a sua conta Azure Maps usando um modelo ARM

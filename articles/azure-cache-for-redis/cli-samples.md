@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 04/14/2017
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 32530982bc2a9d1b5deb31b3bc71460462352258
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536424"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Gerir a Cache Azure para Redis com Azure CLI
 
 A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure.
 
-| Criar cache | Descrição |
+| Criar cache | Description |
 | ------------ | ----------- |
 | [Criar uma cache](./scripts/create-cache.md) | Cria um grupo de recursos e um cache Azure de nível básico para redis. |
 | [Criar uma cache premium com clustering](./scripts/create-premium-cache-cluster.md) | Cria um grupo de recursos e uma cache de nível premium com clustering ativado.|

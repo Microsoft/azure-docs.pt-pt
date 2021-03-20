@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
 ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878193"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
@@ -399,6 +399,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 **Resposta:** Os VMs que executam o Amazon Linux não podem ser migrados como é, uma vez que o Amazon Linux OS é apenas suportado em AWS.
 Para migrar cargas de trabalho em execução no Amazon Linux, você pode girar um CentOS/RHEL VM em Azure e migrar a carga de trabalho em execução na máquina AWS Linux usando uma abordagem de migração de carga de trabalho relevante. Por exemplo, dependendo da carga de trabalho, pode existir ferramentas específicas da carga de trabalho para ajudar na migração – como por exemplo, para bases de dados ou ferramentas de implementação no caso de servidores web.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 1f2dbef014f1b48b554e6bc30af83b936fe532a7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944878"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilizar a Vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
@@ -156,7 +156,7 @@ Para obter mais informações sobre a utilização de UDFs com Hive em HDInsight
 
 Pode alterar várias definições de Hive, tais como alterar o motor de execução da Colmeia de Tez (o padrão) para MapReduce.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para informações gerais sobre a Colmeia em HDInsight:
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
 ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94616897"
 ---
 # <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
@@ -30,8 +30,8 @@ O Azure RBAC pode ser atribuído a um recurso de Visão Personalizada. Para conc
    > Também pode configurar o Azure RBAC para grupos de recursos inteiros, subscrições ou grupos de gestão. Faça-o selecionando o nível de âmbito pretendido e, em seguida, navegando para o item pretendido (por exemplo, selecionando **grupos de Recursos** e, em seguida, clicando no seu grupo de recursos pretendido).
 1. Selecione **o controlo de acesso (IAM)** no painel de navegação esquerdo.
 1. Selecione o **separador atribuições de funções** para visualizar as atribuições de funções para este âmbito.
-1. Selecione **Add**  ->  **Adicionar Ação de função**.
-1. Na **Role** lista de drop-down role, selecione uma função que pretende adicionar.
+1. Selecione   ->  **Adicionar Ação de função**.
+1. Na  lista de drop-down role, selecione uma função que pretende adicionar.
 1. Na lista **Select,** selecione um utilizador, grupo, principal de serviço ou identidade gerida. Se não vir o principal de segurança da lista, pode escrever a caixa Select para pesquisar nomes de exibição, endereços de e-mail e identificadores de objetos.
 1. Selecione **Guardar** para atribuir a função.
 

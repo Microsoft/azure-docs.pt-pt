@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 05/14/2020
 ms.openlocfilehash: 0b96bc9f6a78d07e091e791b769056859183da0d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945125"
 ---
 # <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>Não é possível descarregar grandes conjuntos de dados usando a estrutura de software JDBC/ODBC e Apache Thrift em HDInsight
@@ -35,7 +35,7 @@ Aumente o `Kryoserializer` valor do tampão. Adicione uma chave com o nome `spar
 > [!IMPORTANT]
 > O valor `spark.kryoserializer.buffer.max` deve ser inferior a 2048. Os valores fracionados não são suportados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

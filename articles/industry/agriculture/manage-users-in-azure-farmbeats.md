@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-ummehabiba
 ms.openlocfilehash: de9a11cac9856417422bd72579cbca44233ab422
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102179906"
 ---
 # <a name="manage-users"></a>Gerir utilizadores

@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/06/2020
 ms.openlocfilehash: 3be967b611f6b75705a60bfa14523832b0652931
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879229"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
@@ -41,7 +41,7 @@ A tabela seguinte mostra os tipos de oferta de mercado comercial no Partner Cent
 | [**Software como serviço**](plan-saas-offer.md) | Utilize o software como tipo de oferta de serviço (SaaS) para permitir ao seu cliente comprar a sua solução técnica baseada no SaaS como subscrição. Para obter informações sobre os requisitos de inscrição única para as ofertas da SaaS, consulte [a Azure AD e as ofertas transacionáveis saaS no mercado comercial.](azure-ad-saas.md) |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos de elegibilidade no artigo correspondente para o seu tipo de oferta para finalizar a seleção e configuração da sua oferta.
 - Reveja os padrões de publicação de cada loja online, por exemplo, sobre como a sua solução mapeia para um tipo de oferta e configuração.

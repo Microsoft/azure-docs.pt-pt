@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 552e5c2411889ee7f07265eb1cc35d98aed4d7c1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99574166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: Integração do Diretório Ativo Azure com M-Files

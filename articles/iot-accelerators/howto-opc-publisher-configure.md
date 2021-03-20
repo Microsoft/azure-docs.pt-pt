@@ -1,5 +1,5 @@
 ---
-title: Configure Editora OPC - Azure / Microsoft Docs
+title: Configure Editor OPC - Azure | Microsoft Docs
 description: Este artigo descreve como configurar o OPC Publisher para especificar alterações de dados de nó OPC UA, eventos OPC UA para publicar e também o formato de telemetria.
 author: dominicbetts
 ms.author: dobett
@@ -10,10 +10,10 @@ services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366960"
 ---
 # <a name="configure-opc-publisher"></a>Configurar o Publicador OPC
@@ -144,7 +144,7 @@ A OPC Publisher implementa as seguintes chamadas de método direto IoT Hub:
 - ExitApplication
 - GetInfo
 
-O formato da carga útil JSON do método de pedido e respostas é definido em [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
+O formato da carga útil JSON do pedido e respostas do método é definido em [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
 
 Se chamar um método desconhecido no módulo, responde com uma corda que diz que o método não é implementado. Pode chamar um método desconhecido como forma de pingar o módulo.
 

@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330500"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registo de Esquemas do Azure nos Hubs de Eventos (Pré-visualização)
@@ -53,7 +53,7 @@ Para limites (por exemplo: número de grupos de esquemas num espaço de nome) qu
 ## <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 Ao aceder programaticamente ao registo de esquemas, é necessário registar uma aplicação no Azure Ative Directory (Azure AD) e adicionar o principal de segurança da aplicação a uma das funções de controlo de acesso baseado em funções Azure (Azure RBAC):
 
-| Função | Descrição | 
+| Função | Description | 
 | ---- | ----------- | 
 | Proprietário | Leia, escreva e elimine os grupos e esquemas do Registo de Schema. |
 | Contribuinte | Leia, escreva e elimine os grupos e esquemas do Registo de Schema. |

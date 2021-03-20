@@ -1,5 +1,5 @@
 ---
-title: VPN Gateway Classic para a Migração de Gestores de Recursos / Microsoft Docs
+title: VPN Gateway Classic para Resource Manager Migration | Microsoft Docs
 description: Esta página fornece uma visão geral da migração VPN Gateway Classic para Resource Manager.
 documentationcenter: na
 services: vpn-gateway
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
 ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96488209"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN Gateway clássico para migração de Gestor de Recursos

@@ -4,10 +4,10 @@ description: 'Tutorial: Este artigo mostra como processar eventos kafka que são
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319381"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processa Apache Kafka para eventos de Centros de Eventos usando análise de stream 
@@ -27,7 +27,7 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário Maven.
-* [Rio Git](https://www.git-scm.com/)
+* [Git](https://www.git-scm.com/)
 * Uma **conta de Armazenamento Azure.** Se não tiver um, [crie um](../storage/common/storage-account-create.md) antes de prosseguir. O trabalho stream Analytics neste walkthrough armazena os dados de saída num armazenamento de bolhas Azure. 
 
 
@@ -63,7 +63,7 @@ Quando cria um espaço de nome de nível **padrão,** o ponto final de Kafka par
     ```
 
     Este código envia os dados do evento no formato **JSON.** Quando configurar a entrada para um trabalho stream Analytics, especifica o JSON como o formato para os dados de entrada. 
-7. **Executar o produtor** e transmitir para o Event Hubs. Numa máquina Do Windows, quando utilizar um ** pedido de comandoNode.js,** mude para a `azure-event-hubs-for-kafka/quickstart/java/producer` pasta antes de executar estes comandos. 
+7. **Executar o produtor** e transmitir para o Event Hubs. Numa máquina Do Windows, quando utilizar um **pedido de comandoNode.js,** mude para a `azure-event-hubs-for-kafka/quickstart/java/producer` pasta antes de executar estes comandos. 
    
     ```shell
     mvn clean package
@@ -72,7 +72,7 @@ Quando cria um espaço de nome de nível **padrão,** o ponto final de Kafka par
 
 ## <a name="verify-that-event-hub-receives-the-data"></a>Verifique se o centro de eventos recebe os dados
 
-1. Selecione **Centros de Eventos** em **ENTIDADES**. Confirme que vê um centro de **eventos**chamado test . 
+1. Selecione **Centros de Eventos** em **ENTIDADES**. Confirme que vê um centro de **eventos** chamado test . 
 
     ![Centro de eventos - teste](./media/event-hubs-kafka-stream-analytics/test-event-hub.png)
 2. Confirme que vê mensagens a chegar ao centro de eventos. 
@@ -101,7 +101,7 @@ A consulta no trabalho stream Analytics passa através dos dados sem realizar qu
 
 1. Na mensagem de notificação, selecione **Ir ao recurso** para ver a página de trabalho stream **Analytics.** 
 2. Selecione **Entradas** na secção **JOB TOPOLOGY** no menu esquerdo.
-3. **Selecione Adicionar entrada de fluxo**e, em seguida, selecione Event **Hub**. 
+3. **Selecione Adicionar entrada de fluxo** e, em seguida, selecione Event **Hub**. 
 
     ![Adicione o centro de eventos como uma entrada](./media/event-hubs-kafka-stream-analytics/select-event-hub-input.png)
 4. Na página de configuração de entrada do **Event Hub,** faça as seguintes ações: 

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320580"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Tutorial: Enviar notificações para dispositivos específicos que executam aplicações da Plataforma Universal Windows
@@ -81,7 +81,7 @@ O primeiro passo é adicionar os elementos da IU à sua página principal existe
     </Grid>
     ```
 
-1. No **Solution Explorer,** clique com o botão direito no projeto, selecione **Add**  >  **Class**. In **Add New Item**, nomeie as *notificações de*classe e selecione **Adicionar**. Se necessário, adicione o `public` modificador à definição de classe.
+1. No **Solution Explorer,** clique com o botão direito no projeto, selecione **Add**  >  **Class**. In **Add New Item**, nomeie as *notificações de* classe e selecione **Adicionar**. Se necessário, adicione o `public` modificador à definição de classe.
 
 1. Adicione as `using` seguintes declarações ao novo ficheiro:
 
@@ -143,7 +143,7 @@ O primeiro passo é adicionar os elementos da IU à sua página principal existe
 
     Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
 
-1. No *App.xaml.cs* ficheiro do projeto, adicione o seguinte imóvel à `App` classe:
+1. No ficheiro de projeto *App.xaml.cs,* adicione a seguinte propriedade à `App` classe:
 
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
@@ -206,7 +206,7 @@ Nesta secção, vai utilizar as categorias que foram armazenadas no armazenament
     ```
 
     Este processo garante que, quando a aplicação começa, recupera as categorias do armazenamento local. Em seguida, solicita o registo destas categorias. Criou o `InitNotificationsAsync` método como parte das [notificações enviar para as aplicações da Plataforma Universal windows utilizando o tutorial de Azure Notification Hubs.][get-started]
-2. No *ficheiro MainPage.xaml.cs* projeto, adicione o seguinte código ao `OnNavigatedTo` método:
+2. No ficheiro de projeto *MainPage.xaml.cs,* adicione o seguinte código ao `OnNavigatedTo` método:
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)

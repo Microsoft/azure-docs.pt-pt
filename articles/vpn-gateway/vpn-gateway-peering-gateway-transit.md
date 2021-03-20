@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: cherylmc
 ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98872184"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
@@ -174,7 +174,7 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais acerca das [restrições e comportamentos do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) e das [definições do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#create-a-peering) antes de criar um peering de rede virtual para a utilização de produção.
 * Saiba como [criar uma topologia hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com peering de rede virtual e trânsito do gateway.

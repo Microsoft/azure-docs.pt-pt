@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348734"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação após desastre para as máquinas virtuais do Azure com o Azure PowerShell
@@ -643,6 +643,6 @@ Pode desativar a replicação com o `Remove-AzRecoveryServicesAsrReplicationProt
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte a [referência PowerShell de Recuperação do Site Azure](/powershell/module/az.RecoveryServices) para saber como pode fazer outras tarefas, tais como criar planos de recuperação e testar o failover dos planos de recuperação com o PowerShell.

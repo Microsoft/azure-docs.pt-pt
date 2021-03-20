@@ -10,10 +10,10 @@ ms.date: 09/16/2020
 ms.author: victorh
 ms.custom: subject-armqs
 ms.openlocfilehash: 4c5d5c4cafee9402e2afd7ddc047fd3b68e84540
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92091326"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Quickstart: Criar um Azure WAF v2 no Gateway de aplicação usando um modelo ARM
@@ -86,7 +86,7 @@ Utilize o IIS para testar o gateway de aplicações:
 
    Refresque o seu navegador várias vezes e deverá ver ligações tanto para o myVM1 como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Isto remove o gateway de aplicação e todos os recursos relacionados.
 

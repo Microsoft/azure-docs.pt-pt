@@ -10,10 +10,10 @@ ms.date: 03/26/2019
 ms.author: chrande
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 5a793eb69b344e361679759e46db47c78885831e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360961"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Quickstart: Construir uma base de dados de gráficos com o Java SDK e o API API AZure Cosmos DB Gremlin
@@ -72,7 +72,7 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação API do Gremlin 
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-information).
 
-Os seguintes excertos são todos retirados do ficheiro *C:\git-samples\azure-cosmos-db-java-getting-started\src\GetStarted\Program.java.*
+Os seguintes excertos são todos retirados do ficheiro *C:\git-samples\azure-cosmos-db-java-getting-started\src\GetStarted\Program.java* ficheiro.
 
 Esta aplicação de consola Java utiliza uma base de dados [API gremlin](graph-introduction.md) com o condutor do OSS [Apache TinkerPop.](https://tinkerpop.apache.org/) 
 
@@ -168,11 +168,11 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
 Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar mais pontos de dados.
 
-1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph** , e, em seguida, selecione **Apply Filter**. 
+1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph**, e, em seguida, selecione **Apply Filter**. 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="A screenshot mostra gráfico selecionado a partir do A P I com a opção de Aplicar Filtro.":::
 
-2. Na lista **Resultados** , repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que o utilizador está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que o utilizador está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Vértices novos no gráfico no Data Explorer no portal do Azure":::
 
@@ -193,7 +193,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     > [!NOTE]
     > Neste guia de introdução, criará uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
-6. Selecione **OK**. Poderá ter de expandir o ecrã para ver **OK** , na parte inferior.
+6. Selecione **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
 
 7. Selecione **Novo Vertex** novamente e adicione um novo utilizador adicional. 
 
@@ -217,7 +217,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Alterar o alvo de um vértice num gráfico - Azure CosmosDB":::
 
-13. Na caixa **Target** *introduza rakesh* , e na caixa de **etiquetas Edge** insira *sabe* - e, em seguida, selecione a caixa de verificação.
+13. Na caixa **Target** *introduza rakesh*, e na caixa de **etiquetas Edge** insira *sabe*- e, em seguida, selecione a caixa de verificação.
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adicionar uma ligação no Data Explorer - Azure CosmosDB":::
 
@@ -235,7 +235,7 @@ Esta ação conclui a parte da criação de recursos deste tutorial. Pode contin
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, aprendeu a criar uma conta DB Azure Cosmos, criar um gráfico utilizando o Data Explorer e executar uma aplicação Java que adiciona dados ao gráfico. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

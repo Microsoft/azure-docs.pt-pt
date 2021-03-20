@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 21e4189e56f704129710da5b1d39613c4e1b1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91766893"
 ---
-# <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Combate à corrupção na base de dados de resolução de problemas na Base de Dados Azure para o MySQL
+# <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Resolver problemas de danos na Base de Dados do Azure para MySQL
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 A corrupção na base de dados pode causar tempo de inatividade para a sua aplicação. Também é fundamental resolver problemas de corrupção a tempo de evitar a perda de dados. Quando ocorrer corrupção na base de dados, verá este erro nos registos do seu servidor: `InnoDB: Database page corruption on disk or a failed.`

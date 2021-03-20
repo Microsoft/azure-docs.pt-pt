@@ -4,10 +4,10 @@ description: Descreve parâmetros relacionados com a atualização de uma aplica
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018482"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
@@ -33,7 +33,7 @@ Os parâmetros de atualização da aplicação visual Studio Service Fabric são
 ### <a name="required-parameters"></a>Parâmetros necessários
 (PS=PowerShell, VS=Visual Studio)
 
-| Parâmetro | Aplica-se A | Descrição |
+| Parâmetro | Aplica-se A | Description |
 | --- | --- | --- |
 ApplicationName |PS| Nome da aplicação que está a ser atualizada. Exemplos: tecido:/VisualObjects, tecido:/ClusterMonitor. |
 AplicaçãoTypeVersion|PS|A versão do tipo de aplicação que o upgrade visa. |
@@ -48,7 +48,7 @@ Não monitorizadoManual | PS | Indica que o modo de atualização não é monito
 Os parâmetros de avaliação da saúde são opcionais. Se os critérios de avaliação da saúde não forem especificados quando uma atualização começar, o Service Fabric utiliza as políticas de saúde da aplicação especificadas no ApplicationManifest.xml da instância de aplicação.
 
 > [!div class="mx-tdBreakAll"]
-> | Parâmetro | Aplica-se A | Descrição |
+> | Parâmetro | Aplica-se A | Description |
 > | --- | --- | --- |
 > | AplicativoParameter |PS, VS| Especifica as sobreposições para os parâmetros de aplicação.<br>Os parâmetros de aplicação PowerShell são especificados como pares de nome/valor de hashtable. Por exemplo, "VotingData_MinReplicaSetSize" @ = "3"; "VotingData_PartitionCount" = "1" }.<br>Os parâmetros de aplicação do Estúdio Visual podem ser especificados no diálogo de aplicação de tecido de serviço de publicação no campo **de ficheiros de parâmetros de aplicação.**
 > | Confirmar |PS| Os valores permitidos são **verdadeiros** e **falsos.** Solicita a confirmação antes de executar o cmdlet. |

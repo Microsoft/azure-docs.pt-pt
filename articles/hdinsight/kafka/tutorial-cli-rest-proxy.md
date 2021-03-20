@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ff11b8461b483f5a66df19bb1b108a1fe1168fb9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944029"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Criar um aglomerado de proxy Apache Kafka REST em HDInsight usando Azure CLI
@@ -197,7 +197,7 @@ az group delete \
     --name $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou com sucesso um aglomerado de procuração Apache Kafka REST em Azure HDInsight usando Azure CLI, use o código Python para interagir com o proxy REST:
 

@@ -7,10 +7,10 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 7375a46245fbe523ddf0512bb5a55371adff64e9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98683747"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalize um ponto final HTTP em Funções Azure

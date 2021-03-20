@@ -5,10 +5,10 @@ ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566831"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhar eventos personalizados para Azure Relay Hybrid Connections com Azure CLI e Grade de Eventos
@@ -104,7 +104,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 
 A aplicação de serviço de escuta deverá receber a mensagem de evento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive

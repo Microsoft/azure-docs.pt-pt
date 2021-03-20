@@ -9,10 +9,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
 ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879331"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planear uma oferta de máquina virtual
@@ -131,7 +131,7 @@ Ao criar a sua oferta no Partner Center, verá o **separador Revenda através do
 > [!NOTE]
 > O opt-in do canal parceiro Cloud Solution Provider (CSP) já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [**os Fornecedores de Soluções Cloud.**](./cloud-solution-providers.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie uma oferta de máquina virtual no Azure Marketplace](azure-vm-create.md)
 - [Crie uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md) ou crie uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md).
