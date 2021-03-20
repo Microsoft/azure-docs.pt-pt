@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 8dabfec18cb904fa72518428220991b817b53529
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928914"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exemplo Apache Storm toplogis e componentes para Apache Storm on HDInsight
 
 Segue-se uma lista de exemplos criados e mantidos pela Microsoft para utilização com [Apache Storm](https://storm.apache.org/) em HDInsight. Estes exemplos abrangem uma variedade de tópicos, desde a criação de topologias básicas C# e Java até ao trabalho com serviços Azure como Event Hubs, Cosmos DB, SQL Database, [Apache HBase](https://hbase.apache.org/) em HDInsight e Azure Storage. Alguns exemplos também demonstram como trabalhar com tecnologias não-Azure, ou mesmo não-Microsoft, como o SignalR e Socket.IO.
 
-| Descrição | Demonstra | Linguagem/Enquadramento |
+| Description | Demonstra | Linguagem/Enquadramento |
 |:--- |:--- |:--- |
 | [Escreva para Azure Data Lake Storage from Apache Storm](apache-storm-write-data-lake-store.md) |Escrevendo para Azure Data Lake Storage |Java |
 | [Evento Hub Spout e Fonte Bolt](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Fonte para o Event Hub Spout e Bolt |Java |

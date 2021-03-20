@@ -1,13 +1,13 @@
 ---
-title: Sequenciação de mensagens de autocarro da Azure Service e horários Microsoft Docs
+title: Sequenciação de mensagem de autocarro da Azure Service e os horários | Microsoft Docs
 description: Este artigo explica como preservar a sequenciação e encomenda (com os timetamps) de mensagens Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341176"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
@@ -30,7 +30,7 @@ Pode submeter mensagens para uma fila ou tópico para processamento adiado; por 
 
 As mensagens programadas não se materializam na fila até à hora definida. Antes desse tempo, as mensagens agendadas podem ser canceladas. O cancelamento elimina a mensagem.
 
-Pode agendar mensagens, quer definindo a propriedade [ScheduleEdEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) ao enviar uma mensagem através do caminho de envio regular, quer explicitamente com a [API do ScheduleMessageAsync.](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) Este último devolve imediatamente o **SequenceNumber**da mensagem programada, que poderá utilizar mais tarde para cancelar a mensagem agendada, se necessário. As mensagens programadas e os seus números de sequência também podem ser descobertos através da [navegação por mensagens](message-browsing.md).
+Pode agendar mensagens, quer definindo a propriedade [ScheduleEdEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) ao enviar uma mensagem através do caminho de envio regular, quer explicitamente com a [API do ScheduleMessageAsync.](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) Este último devolve imediatamente o **SequenceNumber** da mensagem programada, que poderá utilizar mais tarde para cancelar a mensagem agendada, se necessário. As mensagens programadas e os seus números de sequência também podem ser descobertos através da [navegação por mensagens](message-browsing.md).
 
 O **SequenceNumber** para uma mensagem agendada só é válido enquanto a mensagem estiver neste estado. À medida que a mensagem transita para o estado ativo, a mensagem é anexada à fila como se tivesse sido encostado no instante atual, o que inclui a atribuição de um novo **SequenceNumber**.
 

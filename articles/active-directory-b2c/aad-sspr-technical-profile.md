@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85383602"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico AZure AD SSPR numa política personalizada Azure AD B2C
@@ -59,7 +59,7 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para a Az
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| e-mailAddress | Sim | O identificador para o utilizador que possui o endereço de e-mail. A `PartnerClaimType` propriedade do pedido de entrada deve ser definida para `emailAddress` . |
+| e-mailAddress | Yes | O identificador para o utilizador que possui o endereço de e-mail. A `PartnerClaimType` propriedade do pedido de entrada deve ser definida para `emailAddress` . |
 
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de enviar para o serviço Azure AD SSPR.
@@ -74,7 +74,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Sim | Deve ser **o SendCode.**  |
+| Operação | Yes | Deve ser **o SendCode.**  |
 
 #### <a name="ui-elements"></a>Elementos da IU
 
@@ -82,8 +82,8 @@ Os metadados que se seguem podem ser utilizados para configurar as mensagens de 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageIfInternalError | Não | Mensagem de erro do utilizador se o servidor tiver encontrado um erro interno. |
-| UserMessageIfThrottled| Não | Mensagem de erro do utilizador se um pedido tiver sido estrangulado.|
+| UserMessageIfInternalError | No | Mensagem de erro do utilizador se o servidor tiver encontrado um erro interno. |
+| UserMessageIfThrottled| No | Mensagem de erro do utilizador se um pedido tiver sido estrangulado.|
 
 
 ### <a name="example-send-an-email"></a>Exemplo: enviar um e-mail
@@ -113,8 +113,8 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para a Az
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- | ----------- |
-| e-mailAddress| Sim | O mesmo endereço de e-mail usado anteriormente para enviar um código. Também é usado para localizar uma sessão de verificação de e-mail. A `PartnerClaimType` propriedade do pedido de entrada deve ser definida para `emailAddress` .|
-| verificaçãoDesco  | Sim | O código de verificação fornecido pelo utilizador deve ser verificado. A `PartnerClaimType` propriedade do pedido de entrada deve ser definida para `verificationCode` . |
+| e-mailAddress| Yes | O mesmo endereço de e-mail usado anteriormente para enviar um código. Também é usado para localizar uma sessão de verificação de e-mail. A `PartnerClaimType` propriedade do pedido de entrada deve ser definida para `emailAddress` .|
+| verificaçãoDesco  | Yes | O código de verificação fornecido pelo utilizador deve ser verificado. A `PartnerClaimType` propriedade do pedido de entrada deve ser definida para `verificationCode` . |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de ligar para o serviço Azure AD SSPR.
 
@@ -128,7 +128,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Sim | Deve ser **verificar Código** |
+| Operação | Yes | Deve ser **verificar Código** |
 
 #### <a name="ui-elements"></a>Elementos da IU
 

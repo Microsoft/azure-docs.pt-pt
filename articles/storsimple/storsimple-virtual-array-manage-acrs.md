@@ -1,5 +1,5 @@
 ---
-title: Gerir registos de controlo de acesso para StorSimple Virtual Array / Microsoft Docs
+title: Gerir registos de controlo de acesso para | de Matriz Virtual StorSimple Microsoft Docs
 description: Descreve como gerir os registos de controlo de acesso (ACRs) para determinar quais os anfitriões que podem ligar-se a um volume no StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bad0d7adfd77dff53b1582e63a91f2cd87a9233d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85507624"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Utilize o Gestor de Dispositivos StorSimple para gerir os registos de controlo de acesso para o StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os registos de controlo de acesso (ACRs) permitem-lhe especificar quais os anfitriões que podem ligar-se a um volume no StorSimple Virtual Array (também conhecido como dispositivo virtual StorSimple no local). Os ACRs são definidos para um volume específico e contêm os nomes qualificados iSCSI (IQNs) dos anfitriões. Quando um hospedeiro tenta ligar-se a um volume, o dispositivo verifica o ACR associado a esse volume para o nome IQN, e se houver uma correspondência, então a ligação é estabelecida. O **controlo de acesso regista** a lâmina dentro da secção de **Configuração** do seu serviço Desío, mostra todos os registos de controlo de acesso com as QINs correspondentes dos anfitriões.
 

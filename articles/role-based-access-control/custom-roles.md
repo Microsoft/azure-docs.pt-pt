@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: rolyon
 ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97617328"
 ---
 # <a name="azure-custom-roles"></a>Funções personalizadas do Azure
@@ -161,11 +161,11 @@ A tabela a seguir descreve o que significam as propriedades de funções persona
 | `Id`</br>`name` | Sim | String | A identificação única do papel personalizado. Para a Azure PowerShell e Azure CLI, este ID é gerado automaticamente quando cria um novo papel. |
 | `IsCustom`</br>`roleType` | Sim | String | Indica se este é um papel personalizado. Definir para `true` ou `CustomRole` para papéis personalizados. Definir para `false` ou `BuiltInRole` para papéis embutidos. |
 | `Description`</br>`description` | Sim | String | A descrição do papel personalizado. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é de 1024. |
-| `Actions`</br>`actions` | Sim | Corda[] | Um conjunto de cordas que especifica as operações de gestão que o papel permite ser executado. Para mais informações, consulte [Ações.](role-definitions.md#actions) |
-| `NotActions`</br>`notActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de gestão que são excluídas do permitido `Actions` . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser realizada aos seus dados dentro desse objeto. Se criar uma função personalizada `DataActions` com, essa função não pode ser atribuída no âmbito do grupo de gestão. Para obter mais informações, consulte [DataActions](role-definitions.md#dataactions). |
-| `NotDataActions`</br>`notDataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de dados que são excluídas do permitido `DataActions` . Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes`</br>`assignableScopes` | Sim | Corda[] | Uma variedade de cordas que especifica os âmbitos que o papel personalizado está disponível para atribuição. Só é possível definir um grupo de gestão num `AssignableScopes` papel personalizado. A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização. Para mais informações, consulte [OsScopes Atribuíveis](role-definitions.md#assignablescopes). |
+| `Actions`</br>`actions` | Yes | Corda[] | Um conjunto de cordas que especifica as operações de gestão que o papel permite ser executado. Para mais informações, consulte [Ações.](role-definitions.md#actions) |
+| `NotActions`</br>`notActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de gestão que são excluídas do permitido `Actions` . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
+| `DataActions`</br>`dataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser realizada aos seus dados dentro desse objeto. Se criar uma função personalizada `DataActions` com, essa função não pode ser atribuída no âmbito do grupo de gestão. Para obter mais informações, consulte [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions`</br>`notDataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de dados que são excluídas do permitido `DataActions` . Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes`</br>`assignableScopes` | Yes | Corda[] | Uma variedade de cordas que especifica os âmbitos que o papel personalizado está disponível para atribuição. Só é possível definir um grupo de gestão num `AssignableScopes` papel personalizado. A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização. Para mais informações, consulte [OsScopes Atribuíveis](role-definitions.md#assignablescopes). |
 
 ## <a name="wildcard-permissions"></a>Permissões wildcard
 
@@ -195,7 +195,7 @@ Microsoft.CostManagement/*/query/*
 
 Tal como as funções `AssignableScopes` incorporadas, a propriedade especifica os âmbitos de aplicação que o papel está disponível para atribuição. A `AssignableScopes` propriedade para um papel personalizado também controla quem pode criar, eliminar, atualizar ou ver o papel personalizado.
 
-| Tarefa | Operação | Descrição |
+| Tarefa | Operação | Description |
 | --- | --- | --- |
 | Criar/eliminar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os utilizadores que recebem esta operação em toda `AssignableScopes` a função personalizada podem criar (ou eliminar) funções personalizadas para utilização nesses âmbitos. Por exemplo, [Proprietários](built-in-roles.md#owner) e Administradores de Acesso ao Utilizador de [grupos](built-in-roles.md#user-access-administrator) de gestão, subscrições e grupos de recursos. |
 | Atualizar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os utilizadores que recebem esta operação em toda `AssignableScopes` a função personalizada podem atualizar funções personalizadas nesses âmbitos. Por exemplo, [Proprietários](built-in-roles.md#owner) e Administradores de Acesso ao Utilizador de [grupos](built-in-roles.md#user-access-administrator) de gestão, subscrições e grupos de recursos. |

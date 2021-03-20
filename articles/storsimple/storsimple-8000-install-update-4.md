@@ -1,5 +1,5 @@
 ---
-title: Instalar atualização 4 no dispositivo da série StorSimple 8000 / Microsoft Docs
+title: Instale a Atualização 4 no dispositivo da série StorSimple 8000 | Microsoft Docs
 description: Explica como instalar o StorSimple 8000 Series Update 4 no seu dispositivo da série StorSimple 8000.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: ed6f9d58c5c54c88acf8e3a0e7fda7d2d65b8637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514321"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instale a Atualização 4 no seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial explica como instalar o Update 4 num dispositivo StorSimple que executa uma versão de software anterior através do portal Azure e utilizando o método hotfix. O método hotfix é utilizado quando um gateway é configurado numa interface de rede diferente do DATA 0 do dispositivo StorSimple e está a tentar atualizar a partir de uma versão de software pré-Actualização 1.
 
@@ -74,7 +74,7 @@ O método hotfix envolve os três passos seguintes:
 
 Tem de descarregar e instalar os seguintes hotfixes na ordem prescrita e nas pastas sugeridas:
 
-| Encomenda | KB | Descrição | Tipo de atualização | Hora de Instalação |Instalar na pasta|
+| Encomenda | KB | Description | Tipo de atualização | Hora de Instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |Atualização de software |Normal <br></br>Não-disruptivo |~ 25 minutos |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Atualizações de condução e firmware LSI <br> Atualização de firmware USM (versão 3.38) |Normal <br></br>Não-disruptivo |~ 3 horas <br> (inclui 2A. + 2B. + 2C.)|Segunda Encomenda|
@@ -83,7 +83,7 @@ Tem de descarregar e instalar os seguintes hotfixes na ordem prescrita e nas pas
 
 Pode também ser necessário instalar atualizações de firmware de disco em cima de todas as atualizações apresentadas nas tabelas anteriores. Pode verificar se necessita das atualizações do firmware do disco executando o `Get-HcsFirmwareVersion` cmdlet. Se estiver a executar estas versões de firmware: `XMGJ` , , , , `XGEG` `KZ50` `F6C2` `VR08` `N002` `0106` então não precisa de instalar estas atualizações.
 
-| Encomenda | KB | Descrição | Tipo de atualização | Hora de Instalação | Instalar na pasta|
+| Encomenda | KB | Description | Tipo de atualização | Hora de Instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |Firmware de disco |Manutenção <br></br>Disruptivo |~ 30 minutos | Terceiro Acordo |
 

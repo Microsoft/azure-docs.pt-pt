@@ -1,5 +1,5 @@
 ---
-title: Conectores no Azure AD Synchronization Service Manager UI Microsoft Docs'
+title: Conectores no Azure AD Synchronization Service Manager UI | Microsoft Docs'
 description: Compreenda o separador Conectores no Gestor de Serviço de Sincronização para Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91319882"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Gestor de Serviços de Sincronização AZURE AD Connect
@@ -69,7 +69,7 @@ Comece por selecionar um **âmbito.** Pode pesquisar com base em dados (RDN, DN,
 ![Screenshot que mostra o menu suspenso "Scope".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Se fizer uma pesquisa Sub-Tree, obtém todos os objetos num único U.  
 ![Screenshot que mostra um exemplo de uma pesquisa de "Sub-Árvore".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
-A partir desta grelha pode selecionar um objeto, selecionar **propriedades**e [segui-lo](tshoot-connect-object-not-syncing.md) a partir do espaço do conector de origem, através do metaverso e até ao espaço do conector alvo.
+A partir desta grelha pode selecionar um objeto, selecionar **propriedades** e [segui-lo](tshoot-connect-object-not-syncing.md) a partir do espaço do conector de origem, através do metaverso e até ao espaço do conector alvo.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe da conta do AD DS
 Se alterar a palavra-passe da conta, o Serviço de Sincronização deixará de poder importar/exportar alterações para a AD no local.   Pode ver o seguinte:

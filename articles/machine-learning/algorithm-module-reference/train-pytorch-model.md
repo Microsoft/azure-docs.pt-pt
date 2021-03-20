@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 2d88069f33995bdbe9dd479afe9a4e72ab9939b6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420670"
 ---
 # <a name="train-pytorch-model"></a>Preparar um Modelo do PyTorch
@@ -37,9 +37,9 @@ Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machin
 
     O conjunto de dados de formação e o conjunto de dados de validação têm as mesmas categorias de etiquetas, caso contrário será lançado um InvalidDatasetError.
 
-4.  Para **épocas** , especifique quantas épocas gostaria de treinar. Todo o conjunto de dados será iterado em todas as épocas, por defeito 5.
+4.  Para **épocas**, especifique quantas épocas gostaria de treinar. Todo o conjunto de dados será iterado em todas as épocas, por defeito 5.
 
-5.  Para **o tamanho do lote** , especifique quantas instâncias treinar num lote, por defeito 16.
+5.  Para **o tamanho do lote**, especifique quantas instâncias treinar num lote, por defeito 16.
 
 6.  Para **a taxa de aprendizagem,** especifique um valor para a taxa de *aprendizagem.* Os valores da taxa de aprendizagem controlam o tamanho do passo que é usado no optimizador como sgd cada vez que o modelo é testado e corrigido.
 
@@ -47,7 +47,7 @@ Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machin
 
 7.  Para **sementes aleatórias,** digite opcionalmente um valor inteiro para usar como semente. Recomenda-se a utilização de uma semente se pretender garantir a reprodutibilidade da experiência através de corridas.
 
-8.  Para **Patience** , especifique quantas épocas para parar cedo o treino se a perda de validação não diminuir consecutivamente. por defeito 3.
+8.  Para **Patience**, especifique quantas épocas para parar cedo o treino se a perda de validação não diminuir consecutivamente. por defeito 3.
 
 9.  Envie o oleoduto. Se o seu conjunto de dados tiver um tamanho maior, levará algum tempo e recomenda-se a computação gpu.
 

@@ -1,5 +1,5 @@
 ---
-title: Começa com a gestão de dispositivos Azure IoT Hub (.NET/.NET) Microsoft Docs
+title: Começa com a gestão de dispositivos Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Como utilizar a gestão do dispositivo Azure IoT Hub para iniciar um reboot remoto do dispositivo. Utiliza o dispositivo Azure IoT SDK para .NET para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço Azure IoT SDK para .NET implementar uma aplicação de serviço que invoca o método direto.
 author: robinsh
 manager: philmea
@@ -11,10 +11,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 5760c574e64a3b3b4a1df12092cff44374790a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89018404"
 ---
 # <a name="get-started-with-device-management-net"></a>Começar com a gestão do dispositivo (.NET)
@@ -43,7 +43,7 @@ No final deste tutorial, terá duas aplicações de consola .NET:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -65,19 +65,19 @@ Nesta secção, cria-se uma aplicação de consola .NET, utilizando C#, que inic
 
 1. Em **Criar um novo projeto,** encontrar e selecionar o modelo de projeto da App consola **(.NET Framework)** e, em seguida, selecionar **Seguinte**.
 
-1. Em **Configurar o seu novo projeto**, nomeie o projeto *TriggerReboot*e selecione .NET Framework versão 4.5.1 ou posterior. Selecione **Criar**.
+1. Em **Configurar o seu novo projeto**, nomeie o projeto *TriggerReboot* e selecione .NET Framework versão 4.5.1 ou posterior. Selecione **Criar**.
 
     ![Novo projeto do Visual C# no Ambiente de Trabalho Clássico do Windows](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
 1. No **Solution Explorer,** clique com o botão direito no projeto **TriggerReboot** e, em seguida, selecione **Gerir pacotes NuGet**.
 
-1. **Selecione Procurar**e, em seguida, procurar e selecionar **dispositivos Microsoft.Azure..** **Selecione instalar** para instalar o pacote **Microsoft.Azure.Devices.**
+1. **Selecione Procurar** e, em seguida, procurar e selecionar **dispositivos Microsoft.Azure..** **Selecione instalar** para instalar o pacote **Microsoft.Azure.Devices.**
 
     ![Janela Gestor de Pacote NuGet](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-nuget-devices.png)
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -154,13 +154,13 @@ Para criar a aplicação do dispositivo simulado, siga estes passos:
 
 1. No Solution Explorer, clique com o botão direito no novo projeto **SimulateManagedDevice** e, em seguida, **selecione Gerir pacotes NuGet**.
 
-1. **Selecione Procurar**e, em seguida, procurar e selecionar **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
+1. **Selecione Procurar** e, em seguida, procurar e selecionar **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
 
     ![Aplicativo de cliente de janela do Gestor de pacotes NuGet](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -237,7 +237,7 @@ Para criar a aplicação do dispositivo simulado, siga estes passos:
 
 1. No Solution Explorer, clique com o botão direito na sua solução e, em seguida, selecione **set StartUp Projects**.
 
-1. Para **o Common Properties**Startup  >  **Project**, selecione Single startup **project**, e, em seguida, selecione o projeto **SimulateManagedDevice.** Selecione **OK** para guardar as alterações.
+1. Para **o Common Properties** Startup  >  **Project**, selecione Single startup **project**, e, em seguida, selecione o projeto **SimulateManagedDevice.** Selecione **OK** para guardar as alterações.
 
 1. Selecione **a**  >  **solução build build**.
 
@@ -248,9 +248,9 @@ Para criar a aplicação do dispositivo simulado, siga estes passos:
 
 Agora está pronto para executar as aplicações.
 
-1. Para executar a aplicação de dispositivo .NET **SimulateManagedDevice,** no Solution Explorer, clique com o botão direito no projeto **SimulateManagedDevice,** selecione **Debug**e, em seguida, selecione **Iniciar nova instância**. A aplicação deve começar a ouvir chamadas metódicas do seu hub IoT.
+1. Para executar a aplicação de dispositivo .NET **SimulateManagedDevice,** no Solution Explorer, clique com o botão direito no projeto **SimulateManagedDevice,** selecione **Debug** e, em seguida, selecione **Iniciar nova instância**. A aplicação deve começar a ouvir chamadas metódicas do seu hub IoT.
 
-1. Depois disso, o dispositivo está ligado e à espera de invocações de métodos, clique com o botão direito no projeto **TriggerReboot,** selecione **Debug**e, em seguida, selecione **Iniciar nova instância**.
+1. Depois disso, o dispositivo está ligado e à espera de invocações de métodos, clique com o botão direito no projeto **TriggerReboot,** selecione **Debug** e, em seguida, selecione **Iniciar nova instância**.
 
    Devia ver "Rebooting" escrito na consola **SimulatedManagedDevice** e nas propriedades relatadas do dispositivo, que incluem o último tempo de reinicialização, escrito na consola **TriggerReboot.**
 

@@ -1,13 +1,13 @@
 ---
-title: Como testar a sua app no Azure Microsoft Docs
+title: Como testar a sua aplicação em Azure | Microsoft Docs
 description: Aprenda a criar uma partilha de ficheiros num laboratório e monte-a na sua máquina local e numa máquina virtual em laboratório e, em seguida, implemente aplicações de desktop/web para a partilha de ficheiros e teste-as.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87282250"
 ---
 # <a name="test-your-app-in-azure"></a>Testar a aplicação no Azure 
@@ -18,7 +18,7 @@ Este artigo fornece passos para testar a sua aplicação em Azure usando a DevTe
 ## <a name="prerequisites"></a>Pré-requisitos 
 1. [Crie uma subscrição Azure](https://azure.microsoft.com/free/) se ainda não tiver uma e inscreva-se no [portal Azure](https://portal.azure.com).
 2. Siga as instruções [deste artigo](devtest-lab-create-lab.md) para criar um laboratório usando a Azure DevTest Labs. Pin o laboratório no seu painel de instrumentos para que possa encontrá-lo facilmente da próxima vez que iniciar sôs. A Azure DevTest Labs permite-lhe criar rapidamente recursos dentro do Azure, minimizando o desperdício e controlando os custos. Para saber mais sobre a DevTest Labs, consulte [a visão geral.](devtest-lab-overview.md) 
-3. Crie uma conta de Armazenamento Azure no grupo de recursos do laboratório seguindo instruções no artigo da [conta de armazenamento Criar.](../storage/common/storage-account-create.md) Na página de **conta de armazenamento Criar,** selecione **Utilizar o** grupo **de recursos**e selecione o grupo de recursos **do laboratório**. 
+3. Crie uma conta de Armazenamento Azure no grupo de recursos do laboratório seguindo instruções no artigo da [conta de armazenamento Criar.](../storage/common/storage-account-create.md) Na página de **conta de armazenamento Criar,** selecione **Utilizar o** grupo **de recursos** e selecione o grupo de recursos **do laboratório**. 
 4. Crie uma partilha de ficheiros no seu armazenamento Azure seguindo as instruções no artigo criar um ficheiro no artigo [do Azure Files.](../storage/files/storage-how-to-create-file-share.md) 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Monte a partilha de ficheiros na sua máquina local
@@ -37,10 +37,10 @@ Este artigo fornece passos para testar a sua aplicação em Azure usando a DevTe
 3. Na página **DevTest Lab** para o seu laboratório, selecione **+ Adicione** na barra de ferramentas. 
 
     ![Adicione botão para o laboratório](media/test-app-in-azure/add-button-in-lab.png)
-4. Na página **base,** procure **por smalldisk**e selecione **[smalldisk] Windows Server 2016 Data Center**. 
+4. Na página **base,** procure **por smalldisk** e selecione **[smalldisk] Windows Server 2016 Data Center**. 
 
     ![Escolha o servidor windows de pequeno disco](media/test-app-in-azure/choose-small-disk-windows-server.png)
-5. Na página **da máquina Virtual,** especifique o **nome da máquina virtual,** **o nome do utilizador,** **a palavra-passe**e selecione **Criar**.    
+5. Na página **da máquina Virtual,** especifique o **nome da máquina virtual,** **o nome do utilizador,** **a palavra-passe** e selecione **Criar**.    
     
     ![Criar página de máquina virtual](media/test-app-in-azure/create-virtual-machine-page.png)    
 
@@ -57,7 +57,7 @@ Nesta secção, publica a sua aplicação do Visual Studio para um teste VM na n
 
 1. Crie uma aplicação desktop/web utilizando o Visual Studio 2019.
 2. Crie a sua aplicação.
-3. Para publicar a sua aplicação, clique com o botão direito no seu projeto no **Solution Explorer**e selecione **Publicar**. 
+3. Para publicar a sua aplicação, clique com o botão direito no seu projeto no **Solution Explorer** e selecione **Publicar**. 
 4. No **assistente publicar,** insira a **unidade** que está mapeada para a sua parte de ficheiro.
 
     **Aplicativo de ambiente de trabalho:**
@@ -78,7 +78,7 @@ Nesta secção, publica a sua aplicação do Visual Studio para um teste VM na n
 3. Selecione **Ligar**.
 
     ![Página de máquina virtual](media/test-app-in-azure/virtual-machine-page.png)
-4. Dentro da máquina virtual, lance **o File Explorer**e selecione Este **PC** para encontrar a sua partilha de ficheiros.
+4. Dentro da máquina virtual, lance **o File Explorer** e selecione Este **PC** para encontrar a sua partilha de ficheiros.
 
     ![Encontre a partilha em VM](media/test-app-in-azure/find-share-on-vm.png)
 

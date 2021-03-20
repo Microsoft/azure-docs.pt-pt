@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928045"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup a pedido no Azure Service Fabric
@@ -186,7 +186,7 @@ Os pedidos de backup a pedido podem estar nos seguintes Estados:
     FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreender a configuração de backup periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referência API backupRestore REST](/rest/api/servicefabric/sfclient-index-backuprestore)

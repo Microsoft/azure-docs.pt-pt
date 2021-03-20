@@ -1,5 +1,5 @@
 ---
-title: Adicione uma aplicação web API - Azure Ative Directory B2C / Microsoft Docs
+title: Adicione uma aplicação web API - Azure Ative Directory B2C | Microsoft Docs
 description: Saiba como adicionar uma aplicação web API ao seu inquilino Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 0eeff0c8c338b09fbe375587db2b955a143138c2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94949824"
 ---
-# <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicione uma aplicação web API ao seu inquilino Azure Ative Directory B2C
+# <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar uma aplicação da API Web ao inquilino do Azure Active Directory B2C
 
  Registe os recursos da API web no seu inquilino para que possam aceitar e responder aos pedidos de aplicações do cliente que apresentem um token de acesso. Este artigo mostra-lhe como registar uma API web em Azure Ative Directory B2C (Azure AD B2C).
 

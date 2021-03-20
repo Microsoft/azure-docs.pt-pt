@@ -1,13 +1,13 @@
 ---
-title: Problemas de resolução de problemas com artefactos em Azure DevTest Labs Microsoft Docs
+title: Problemas de resolução de problemas com artefactos em Azure DevTest Labs | Microsoft Docs
 description: Saiba como resolver problemas que ocorrem ao aplicar artefactos numa máquina virtual Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483198"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Problemas de resolução de problemas ao aplicar artefactos numa máquina virtual Azure DevTest Labs
@@ -78,7 +78,7 @@ Quando um artefacto parece estar pendurado, primeiro determinar onde está preso
 ### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-vm-agent"></a>Para verificar se o artefacto parece parar de responder por causa do agente VM:
 1. Faça login na máquina virtual em questão.
 2. Utilizando o Explorador de Ficheiros, navegue para **C:\WindowsAzure\logs**.
-3. Localizar e abrir ficheiro **WaAppAgent.log**.
+3. Localizar e abrir o ficheiro **WaAppAgent.log**.
 4. Procure entradas que mostrem quando o Agente VM começa e quando está terminando a inicialização (isto é, o primeiro batimento cardíaco é enviado). Favorecer entradas mais recentes ou especificamente as que se rodeiam o período de tempo para o qual você experimenta o problema.
 
     ```
@@ -113,7 +113,7 @@ O erro acima apareceria na secção **de mensagem de implantação** na página 
 - **Verifique se há grupos de segurança de rede adicionados (NSG)**. Pode ser que tenha sido adicionada uma política de subscrição em que os NSGs são automaticamente configurados em todas as redes virtuais. Também afetaria a rede virtual padrão do laboratório, se usada, ou outra rede virtual configurada no seu laboratório, usada para a criação de VMs.
 - **Verifique a conta de armazenamento do laboratório predefinido** (isto é, a primeira conta de armazenamento criada quando o laboratório foi criado, cujo nome geralmente começa com a letra "a" e termina com um número de vários dígitos que é, um \<labname\> #).
     1. Navegue para o grupo de recursos do laboratório.
-    2. Localize o recurso da conta de **armazenamento**do tipo, cujo nome corresponde à convenção.
+    2. Localize o recurso da conta de **armazenamento** do tipo, cujo nome corresponde à convenção.
     3. Navegue para a página de conta de armazenamento chamada **Firewalls e redes virtuais**.
     4. Certifique-se de que está definido para **todas as redes**. Se a opção **de redes selecionada** for selecionada, certifique-se de que as redes virtuais do laboratório utilizadas para criar VMs são adicionadas à lista.
 

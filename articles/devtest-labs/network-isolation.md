@@ -4,10 +4,10 @@ description: Conheça o isolamento da rede em Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
 ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96352937"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Isolamento de rede em Laboratórios DevTest

@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202225"
 ---
 # <a name="general-claims-transformations"></a>Transformações gerais de reclamações
@@ -90,7 +90,7 @@ Hash o texto simples fornecido usando o sal e um segredo. O algoritmo de hashing
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | texto simples | string | A alegação de entrada para ser encriptada |
 | InputClaim | sal | string | O parâmetro do sal. Pode criar um valor aleatório, utilizando a `CreateRandomString` transformação de sinistros. |
-| InputParameter | RandomizerSecret | string | Aponta para uma **chave de política**Azure AD B2C existente . Para criar uma nova chave de política: No seu inquilino Azure AD B2C, em **Manage**, selecione **Identity Experience Framework**. Selecione **as chaves de política** para ver as chaves que estão disponíveis no seu inquilino. Selecione **Adicionar**. Para **opções**, selecione **Manual**. Fornecer um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **Secreta,** insira qualquer segredo que queira usar, como 1234567890. Para **a utilização da chave**, selecione **Signature**. Selecione **Criar**. |
+| InputParameter | RandomizerSecret | string | Aponta para uma **chave de política** Azure AD B2C existente . Para criar uma nova chave de política: No seu inquilino Azure AD B2C, em **Manage**, selecione **Identity Experience Framework**. Selecione **as chaves de política** para ver as chaves que estão disponíveis no seu inquilino. Selecione **Adicionar**. Para **opções**, selecione **Manual**. Fornecer um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **Secreta,** insira qualquer segredo que queira usar, como 1234567890. Para **a utilização da chave**, selecione **Signature**. Selecione **Criar**. |
 | OutputClaim | hash | string | O ClaimType que é produzido após esta transformação de alegações foi invocado. A reclamação configurada na `plaintext` entradaClaim. |
 
 ```xml

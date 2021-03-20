@@ -1,13 +1,13 @@
 ---
-title: Adicione um artefacto a um VM em Azure DevTest Labs Microsoft Docs
+title: Adicione um artefacto a um VM em Azure DevTest Labs | Microsoft Docs
 description: Saiba como adicionar um artefacto a uma máquina virtual num laboratório em Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b4772755d8077f7a659c4d403961ffaeb9e1d483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483895"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Adicionar um artefacto a uma VM
@@ -21,7 +21,7 @@ Para aprender como criar artefactos personalizados, consulte o artigo: [Crie art
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório que contém o VM com o qual pretende trabalhar.  
 1. Selecione **As minhas máquinas virtuais.**
 1. Selecione o VM desejado.

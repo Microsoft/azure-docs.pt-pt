@@ -4,10 +4,10 @@ description: Descreve como fazer backup e restaurar VMs Azure encriptados com o 
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99223462"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer o back up e restaurar máquinas virtuais Azure encriptadas

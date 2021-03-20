@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62afe97b44f45bc0b7aa12b33b6a65dd94ecf095
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99252207"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Definições de cookies para aceder a aplicações no local no Azure Ative Directory
@@ -27,7 +27,7 @@ O Azure Ative Directory (Azure AD) tem cookies de acesso e sessão para aceder a
 
 [O Application Proxy](application-proxy.md) utiliza as seguintes definições de cookies de acesso e sessão.
 
-| Definição de cookies | Predefinição | Descrição | Recomendações |
+| Definição de cookies | Predefinição | Description | Recomendações |
 | -------------- | ------- | ----------- | --------------- |
 | Use HTTP-Only Cookie | **Não** | **Sim** permite que o Application Proxy inclua a bandeira HTTPOnly em cabeçalhos de resposta HTTP. Esta bandeira proporciona benefícios adicionais de segurança, por exemplo, evita que a script (CSS) do lado do cliente copie ou modifique os cookies.<br></br><br></br>Antes de suportarmos a definição de HTTP-Only, o Application Proxy encriptava e transmitia cookies através de um canal TLS seguro para proteger contra modificações. | Use **Sim** por causa dos benefícios adicionais de segurança.<br></br><br></br>Use **O** para clientes ou agentes de utilizador que necessitem de acesso ao cookie da sessão. Por exemplo, utilize **O** para um cliente RDP ou MTSC que se conecta a um servidor Remote Desktop Gateway através do Application Proxy.|
 | Use Secure Cookie | **Não** | **Sim** permite que o Application Proxy inclua a bandeira Secure em cabeçalhos de resposta HTTP. Os Cookies Seguros aumentam a segurança transmitindo cookies através de um canal protegido TLS, como HTTPS. Isto impede que os cookies sejam observados por partes não autorizadas devido à transmissão do cookie em texto claro. | Use **Sim** por causa dos benefícios adicionais de segurança.|

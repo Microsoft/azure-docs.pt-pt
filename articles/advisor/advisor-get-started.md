@@ -4,10 +4,10 @@ description: Começa com o Conselheiro Azure.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85117867"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
@@ -27,7 +27,7 @@ Saiba como aceder ao Advisor através do portal Azure, obter recomendações e i
 
 1. O dashboard do Assistente apresentará um resumo das suas recomendações para todas as subscrições selecionadas.  Pode escolher as subscrições para as quais pretende que sejam apresentadas recomendações para utilizar a lista pendente de filtros de subscrições.
 
-1. Para obter recomendações para uma categoria específica, clique num dos separadores: **Fiabilidade,** **Segurança,** **Desempenho**ou **Custo**. 
+1. Para obter recomendações para uma categoria específica, clique num dos separadores: **Fiabilidade,** **Segurança,** **Desempenho** ou **Custo**. 
 
    ![Painel de instrumentos Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -93,7 +93,7 @@ O Advisor monitoriza o uso da sua máquina virtual durante 7 dias e, em seguida,
 Se quiser ser mais agressivo na identificação de máquinas virtuais de baixo uso, pode ajustar a regra média de utilização do CPU por subscrição.  A regra de utilização da CPU pode ser definida em 5%, 10%, 15%, ou 20%.
 
 > [!NOTE]
-> Para ajustar a regra média de utilização do CPU para identificar máquinas virtuais de baixa utilização, tem de ser um *Proprietário*de assinaturas .  Se não tiver as permissões necessárias para uma subscrição ou grupo de recursos, a opção de incluí-la ou excluí-la será desativada na interface do utilizador. 
+> Para ajustar a regra média de utilização do CPU para identificar máquinas virtuais de baixa utilização, tem de ser um *Proprietário* de assinaturas .  Se não tiver as permissões necessárias para uma subscrição ou grupo de recursos, a opção de incluí-la ou excluí-la será desativada na interface do utilizador. 
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)e depois abra [o Advisor](https://aka.ms/azureadvisordashboard).
 

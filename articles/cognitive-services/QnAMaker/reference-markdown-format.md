@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ms.openlocfilehash: f49e05578f55a38845acbd4010f928fb17c51606
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96352274"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato markdown suportado no texto de resposta do Criador QnA
@@ -37,8 +37,8 @@ Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA M
 |URL para ligação|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato para URL (hiperligação)](./media/qnamaker-concepts-datasources/format-url.png)|
 |*URL para imagem pública|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato para URL de imagem pública ](./media/qnamaker-concepts-datasources/format-image-url.png)|
 |Rasurado|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato para strikethrough](./media/qnamaker-concepts-datasources/format-strikethrough.png)|
-|Arrojado e itálico|`***text**_`|`How can I create a _*_QnA Maker_*_ bot?`|![formato para negrito e itálico](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
-|URL arrojado para ligação|`[_*text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para URL arrojado](./media/qnamaker-concepts-datasources/format-bold-url.png)|
+|Arrojado e itálico|`***text**_`|`How can I create a _*_QnA Maker_** bot?`|![formato para negrito e itálico](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|URL arrojado para ligação|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para URL arrojado](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |URL itálico para ligação|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato para URL itálico](./media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Símbolos de marcação de fuga|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![Formato para símbolos de marcação de fuga.](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>O exemplo anterior utiliza um número automático incorporado em marcação.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>O exemplo anterior utiliza uma numeragem explícita.|![formato para lista ordenada](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
@@ -51,8 +51,8 @@ Se pretender adicionar conteúdo utilizando APIs de base de conhecimento de atua
 
 | Preservar HTML  | Representação no pedido da API  | Representação no KB |
 |-----------|---------|-------------------------|
-| Sim | \&Lt;br \& gt; | &lt;br&gt; |
-| Sim | \&lt;h3 \& gt;header \& lt;/h3 \& gt; | &lt;cabeçalho h3 &gt; &lt; /h3&gt; |
+| Yes | \&Lt;br \& gt; | &lt;br&gt; |
+| Yes | \&lt;h3 \& gt;header \& lt;/h3 \& gt; | &lt;cabeçalho h3 &gt; &lt; /h3&gt; |
 
 Adicionalmente, CR LF (\r\n) são convertidos para \n no KB. LF(\n) é mantido como está. Se quiser escapar a qualquer sequência de fuga como uma \t ou \n pode usar backslash, por exemplo: \\ \\ 'r \\ \\ n' e \\ \\ 't'
 

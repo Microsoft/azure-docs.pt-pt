@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271965"
 ---
 # <a name="retrieve-offers"></a>Obter ofertas
@@ -27,8 +27,8 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 
 | **Nome**         |  **Descrição**                         |  **Tipo de dados** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador de editor, por exemplo `contoso` |   Cadeia    |
-|  api-version     | Última versão da API                    |    Date        |
+|  publisherId     | Identificador de editor, por exemplo `contoso` |   String    |
+|  api-version     | Última versão da API                    |    Data        |
 |  |  |
 
 ## <a name="header"></a>Cabeçalho

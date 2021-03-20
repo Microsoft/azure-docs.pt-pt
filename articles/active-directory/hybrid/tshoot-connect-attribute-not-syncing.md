@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas um atributo que não está sincronizado no Azure AD Connect Microsoft Docs'
+title: Resolução de problemas um atributo que não está a sincronizar no Azure AD Connect | Microsoft Docs'
 description: Este tópico fornece passos para como resolver problemas com a sincronização de atributos usando a tarefa de resolução de problemas.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6df1347eab57a6971fe2e39c0a55869c8f23939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91317492"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Resolução de problemas um atributo não sincronizado em Azure AD Connect

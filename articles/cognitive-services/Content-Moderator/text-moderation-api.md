@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912910"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
@@ -30,7 +30,7 @@ A resposta do serviço inclui as seguintes informações:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Idioma
+- Linguagem
 
 ## <a name="profanity"></a>Palavras ofensivas
 
@@ -142,7 +142,7 @@ Se pedir uma correção automática, a resposta contém a versão corrigida do t
 Embora o padrão, a lista global de termos funcione muito bem para a maioria dos casos, você pode querer ser exibido contra termos específicos das necessidades do seu negócio. Por exemplo, é melhor filtrar quaisquer marcas competitivas de publicações por parte dos utilizadores.
 
 > [!NOTE]
-> Existe um limite máximo de **5 listas de termos** , sendo que cada lista **não pode exceder 10 000 termos** .
+> Existe um limite máximo de **5 listas de termos**, sendo que cada lista **não pode exceder 10 000 termos**.
 >
 
 O exemplo a seguir mostra o ID da lista correspondente:

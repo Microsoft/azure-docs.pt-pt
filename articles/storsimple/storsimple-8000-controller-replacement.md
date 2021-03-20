@@ -1,5 +1,5 @@
 ---
-title: Substitua um controlador de dispositivos da série StorSimple 8000 Microsoft Docs
+title: Substitua um controlador de dispositivo storSimple série 8000 | Microsoft Docs
 description: Explica como remover e substituir um ou ambos os módulos controladores no seu dispositivo da série StorSimple 8000.
 services: storsimple
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514075"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substitua um módulo controlador no seu dispositivo StorSimple
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este tutorial explica como remover e substituir um ou ambos os módulos controladores num dispositivo StorSimple. Também discute a lógica subjacente aos cenários de substituição de um controlador único e duplo.
 
 > [!NOTE]
@@ -78,7 +78,7 @@ Complete os seguintes passos se um dos controladores do seu dispositivo Microsof
 
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>Para remover um único módulo de controlador falhado
-1. No portal Azure, vá ao serviço StorSimple Device Manager, clique em **Dispositivos**e, em seguida, clique no nome do dispositivo que pretende monitorizar.
+1. No portal Azure, vá ao serviço StorSimple Device Manager, clique em **Dispositivos** e, em seguida, clique no nome do dispositivo que pretende monitorizar.
 2. Vá ao **Monitor > saúde do hardware**. O estado do Controlador 0 ou do Controlador 1 deve ser vermelho, o que indica uma falha.
    
    > [!NOTE]
@@ -195,7 +195,7 @@ Utilize o seguinte procedimento para instalar um módulo controlador fornecido p
    > [!NOTE]
    > Pode levar até 5 minutos para o controlador e o LED ativarem.
   
-5. Para verificar se a substituição é bem sucedida, no portal Azure, vá ao seu dispositivo e, em seguida, navegue para **monitorizar**a  >  **saúde do Hardware**, e certifique-se de que tanto o controlador 0 como o controlador 1 estão saudáveis (o estado é verde).
+5. Para verificar se a substituição é bem sucedida, no portal Azure, vá ao seu dispositivo e, em seguida, navegue para **monitorizar** a  >  **saúde do Hardware**, e certifique-se de que tanto o controlador 0 como o controlador 1 estão saudáveis (o estado é verde).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>Identifique o controlador ativo no seu dispositivo
 Existem muitas situações, como o registo do dispositivo pela primeira vez ou a substituição do controlador, que obrigam a localizar o controlador ativo num dispositivo StorSimple. O controlador ativo processa todas as operações de firmware e networking de discos. Pode utilizar qualquer um dos seguintes métodos para identificar o controlador ativo:
@@ -207,7 +207,7 @@ Existem muitas situações, como o registo do dispositivo pela primeira vez ou a
 Cada um destes procedimentos é descrito a seguir.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Utilize o portal Azure para identificar o controlador ativo
-No portal Azure, navegue para o seu dispositivo e, em seguida, **monitorize**a  >  **saúde**do Hardware , e percorra para a secção **Controladores.** Aqui pode verificar qual o controlador ativo.
+No portal Azure, navegue para o seu dispositivo e, em seguida, **monitorize** a  >  **saúde** do Hardware , e percorra para a secção **Controladores.** Aqui pode verificar qual o controlador ativo.
 
 ![Identificar controlador ativo no portal Azure](./media/storsimple-controller-replacement/IC752072.png)
 
@@ -231,7 +231,7 @@ Se este LED estiver a piscar, o controlador está ativo e o outro controlador es
 
 **Figura 8** Parte de trás do recinto primário com portas de dados e LEDs de monitorização
 
-| Etiqueta | Descrição |
+| Etiqueta | Description |
 |:--- |:--- |
 | 1-6 |DADOS 0 – 5 portas de rede |
 | 7 |LED azul |

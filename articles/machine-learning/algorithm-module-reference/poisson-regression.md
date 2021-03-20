@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 2dfd8b3d919f9eeb3e183135ef543f417c878977
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420704"
 ---
 # <a name="poisson-regression"></a>Regressão de Poisson
@@ -57,13 +57,13 @@ Como a variável de resposta tem uma distribuição poisson, o modelo faz pressu
 
 3. No painel direito do módulo **de regressão poisson, especifique** como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    - **Parâmetro único** : Se souber como pretende configurar o modelo, forneça um conjunto específico de valores como argumentos.
+    - **Parâmetro único**: Se souber como pretende configurar o modelo, forneça um conjunto específico de valores como argumentos.
   
-    - **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, faça uma varredura de parâmetros utilizando o módulo [Tune Model Hyperparameters.](tune-model-hyperparameters.md) O treinador itera sobre vários valores que especifica para encontrar a configuração ideal.
+    - **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, faça uma varredura de parâmetros utilizando o módulo [Tune Model Hyperparameters.](tune-model-hyperparameters.md) O treinador itera sobre vários valores que especifica para encontrar a configuração ideal.
   
-4. **Tolerância à otimização** : Digite um valor que defina o intervalo de tolerância durante a otimização. Quanto mais baixo o valor, mais lento e preciso o encaixe.
+4. **Tolerância à otimização**: Digite um valor que defina o intervalo de tolerância durante a otimização. Quanto mais baixo o valor, mais lento e preciso o encaixe.
 
-5. **Peso de regularização L1** e **peso de regularização L2** : Valores de tipo a utilizar para regularização L1 e L2. *A regularização* adiciona constrangimentos ao algoritmo em relação a aspetos do modelo que são independentes dos dados de formação. A regularização é comumente usada para evitar a sobremontagem. 
+5. **Peso de regularização L1** e **peso de regularização L2**: Valores de tipo a utilizar para regularização L1 e L2. *A regularização* adiciona constrangimentos ao algoritmo em relação a aspetos do modelo que são independentes dos dados de formação. A regularização é comumente usada para evitar a sobremontagem. 
 
     - A regularização L1 é útil se o objetivo é ter um modelo o mais escasso possível.
 
@@ -75,7 +75,7 @@ Como a variável de resposta tem uma distribuição poisson, o modelo faz pressu
 
     Para uma boa discussão sobre a regularização L1 e L2, consulte [a Regularização L1 e L2 para machine learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Tamanho da memória para L-BFGS** : Especifique a quantidade de memória para reservar para a montagem e otimização do modelo.
+6. **Tamanho da memória para L-BFGS**: Especifique a quantidade de memória para reservar para a montagem e otimização do modelo.
 
      L-BFGS é um método específico de otimização, baseado no algoritmo Broyden-Fletcher-Goldfarb-Shanno (BFGS). O método utiliza uma quantidade limitada de memória (L) para calcular a direção do passo seguinte.
 

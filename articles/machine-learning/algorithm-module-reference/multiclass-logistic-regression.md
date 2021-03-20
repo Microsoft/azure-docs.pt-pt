@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: e2bbc28735bcbfd952c4941453956acd0568ea67
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420738"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo de regressão logística multiclasse
@@ -38,13 +38,13 @@ Na regressão logística multiclasse, o classificador pode ser usado para prever
 
 2. Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**
 
-    + **Parâmetro único** : Utilize esta opção se souber como pretende configurar o modelo e fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único**: Utilize esta opção se souber como pretende configurar o modelo e fornecer um conjunto específico de valores como argumentos.
 
-    + **Intervalo de parâmetros** : Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
+    + **Intervalo de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
 
 3. **Tolerância à otimização,** especifique o valor limiar para a convergência optimizador. Se a melhoria entre iterações for inferior ao limiar, o algoritmo para e devolve o modelo atual.
 
-4. **Peso de regularização L1** , **peso de regularização L2** : Digite um valor a utilizar para os parâmetros de regularização L1 e L2. Recomenda-se um valor não zero para ambos.
+4. **Peso de regularização L1**, **peso de regularização L2**: Digite um valor a utilizar para os parâmetros de regularização L1 e L2. Recomenda-se um valor não zero para ambos.
 
     A regularização é um método para prevenir a sobremontagem, penalizando modelos com valores de coeficiente extremos. A regularização funciona adicionando a penalidade que está associada aos valores do coeficiente ao erro da hipótese. Um modelo preciso com valores de coeficiente extremo seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria menos penalizado.
 
@@ -52,7 +52,7 @@ Na regressão logística multiclasse, o classificador pode ser usado para prever
 
      Diferentes combinações lineares de termos L1 e L2 foram concebidas para modelos de regressão logística, tais como [regularização líquida elástica.](https://wikipedia.org/wiki/Elastic_net_regularization)
 
-6. **Semente de número aleatório** : Digite um valor inteiro para usar como semente para o algoritmo se quiser que os resultados sejam repetíveis ao longo de percursos. Caso contrário, um valor do relógio do sistema é usado como semente, que pode produzir resultados ligeiramente diferentes em corridas do mesmo oleoduto.
+6. **Semente de número aleatório**: Digite um valor inteiro para usar como semente para o algoritmo se quiser que os resultados sejam repetíveis ao longo de percursos. Caso contrário, um valor do relógio do sistema é usado como semente, que pode produzir resultados ligeiramente diferentes em corridas do mesmo oleoduto.
 
 8. Ligue um conjunto de dados rotulado e treine o modelo:
 

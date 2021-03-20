@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: dc5bd178c837deea7a22fb3be5ba438085c0e748
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753557"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Definir o âmbito de descoberta para VMware VMs

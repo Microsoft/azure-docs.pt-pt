@@ -1,5 +1,5 @@
 ---
-title: Visão geral das bolhas da página de Azure Microsoft Docs
+title: Visão geral das bolhas da página de Azure | Microsoft Docs
 description: Uma visão geral das bolhas da página de Azure e suas vantagens, incluindo a utilização de casos com scripts de amostra.
 services: storage
 author: tamram
@@ -11,10 +11,10 @@ ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97629362"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure

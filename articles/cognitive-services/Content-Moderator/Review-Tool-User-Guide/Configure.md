@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912026"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a Ferramenta de revisão
@@ -35,7 +35,7 @@ Esta secção explica como criar subteammas e atribuir rapidamente avaliações 
 
 ### <a name="create-a-subteam"></a>Criar uma subeconda
 
-Vá à secção **subteams** e clique **em Adicionar Subteam** . Introduza o nome da subeconhética no diálogo e clique em **Guardar** .
+Vá à secção **subteams** e clique **em Adicionar Subteam**. Introduza o nome da subeconhética no diálogo e clique em **Guardar**.
 
 ![Nome subteam](images/1-Teams-2.PNG)
 
@@ -54,19 +54,19 @@ Clique no botão **Adicionar Membro** para atribuir os membros da sua equipa pre
 ### <a name="assign-reviews-to-subteams"></a>Atribuir comentários a subeconsagens
 
 Uma vez criado as suas subecondas e membros designados, pode começar a atribuir [avaliações](../review-api.md#reviews) de conteúdo a essas subedição. Isto é feito a partir do **separador 'Avaliação'** do site.
-Para atribuir conteúdo a uma subequipa, clique na elipse no canto superior direito, selecione **Mover para** , e selecione uma subequipa.
+Para atribuir conteúdo a uma subequipa, clique na elipse no canto superior direito, selecione **Mover para**, e selecione uma subequipa.
 
 ![Atribuir revisão de imagem a subeconsão](images/3-review-image-subteam-1.png)
 
 ### <a name="switch-between-subteams"></a>Alternar entre subteames
 
-Se for membro de mais de uma subeconsão, pode alternar entre essas subeetas para alterar quais as avaliações de conteúdo que são apresentadas para si. No **separador 'Revisão',** selecione o menu suspenso com a etiqueta **Predefinida** e selecione **Escolha Subteam** . Pode ver as avaliações de conteúdo para diferentes subteames, mas apenas aquelas das quais são membros.
+Se for membro de mais de uma subeconsão, pode alternar entre essas subeetas para alterar quais as avaliações de conteúdo que são apresentadas para si. No **separador 'Revisão',** selecione o menu suspenso com a etiqueta **Predefinida** e selecione **Escolha Subteam**. Pode ver as avaliações de conteúdo para diferentes subteames, mas apenas aquelas das quais são membros.
 
 ![Alternar entre subteames](images/3-review-image-subteam-2.png)
 
 ## <a name="tags"></a>Etiquetas
 
-O separador **Tags** permite definir etiquetas de moderação personalizadas para além das duas etiquetas de moderação padrão &mdash; **isadult** **(a** ) e **isracy** **(r** ). Quando cria uma etiqueta personalizada, fica disponível em comentários ao lado das etiquetas predefinidos. Pode alterar quais as tags que aparecem nas avaliações, alterando as suas definições de visibilidade.
+O separador **Tags** permite definir etiquetas de moderação personalizadas para além das duas etiquetas de moderação padrão &mdash; **isadult** **(a**) e **isracy** **(r**). Quando cria uma etiqueta personalizada, fica disponível em comentários ao lado das etiquetas predefinidos. Pode alterar quais as tags que aparecem nas avaliações, alterando as suas definições de visibilidade.
 
 ![Vista de tags, incluindo as caixas de verificação "É visível"](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ O separador **Tags** permite definir etiquetas de moderação personalizadas par
 
 Para criar uma nova etiqueta, tem de introduzir um código, nome e descrição curtos nos respetivos campos.
 
-- **Código curto** : Introduza um código de duas letras para a sua etiqueta. Exemplo: **cb**
-- **Nome** : Introduza um nome de etiqueta curto e descritivo em minúsculas sem espaços. Exemplo: **isbullying** .
-- **Descrição** : (opcional) Introduza uma descrição do tipo de conteúdo que a sua etiqueta visa. Exemplo: **Representações ou casos de ciberbullying** .
+- **Código curto**: Introduza um código de duas letras para a sua etiqueta. Exemplo: **cb**
+- **Nome**: Introduza um nome de etiqueta curto e descritivo em minúsculas sem espaços. Exemplo: **isbullying**.
+- **Descrição**: (opcional) Introduza uma descrição do tipo de conteúdo que a sua etiqueta visa. Exemplo: **Representações ou casos de ciberbullying**.
 
 Clique **em Adicionar** para adicionar uma etiqueta e clique em **Guardar** quando terminar de criar tags.
 
@@ -90,12 +90,12 @@ Pode eliminar as etiquetas personalizadas selecionando o ícone do lixo ao lado 
 
 O **separador Conectores** permite-lhe gerir os seus conectores, que são plugins específicos de serviço que podem processar o conteúdo de diferentes maneiras como parte dos [fluxos](../review-api.md#workflows)de trabalho de conteúdo.
 
-O conector predefinido quando cria um fluxo de trabalho é o conector content Moderador, que pode marcar o conteúdo como **adulto** ou **picante** , encontra profanidade, e assim por diante. No entanto, pode utilizar outros conectores, listados aqui, desde que tenha credenciais para os respetivos serviços (para utilizar o conector Face, por exemplo, terá de obter uma chave de subscrição [Face).](../../face/overview.md)
+O conector predefinido quando cria um fluxo de trabalho é o conector content Moderador, que pode marcar o conteúdo como **adulto** ou **picante**, encontra profanidade, e assim por diante. No entanto, pode utilizar outros conectores, listados aqui, desde que tenha credenciais para os respetivos serviços (para utilizar o conector Face, por exemplo, terá de obter uma chave de subscrição [Face).](../../face/overview.md)
 
 A [ferramenta Review](./human-in-the-loop.md) inclui os seguintes conectores:
 
 - Emoções
-- Rostos
+- Face
 - Serviço de Nuvem PhotoDNA
 - Análise de Texto
 
@@ -125,7 +125,7 @@ Se criou um [recurso de Moderador de Conteúdo](https://ms.portal.azure.com/#cre
 
 ![Teclas de moderador de conteúdo no portal Azure](images/credentials-azure-portal-keys.PNG)
 
-No separador Credenciais da ferramenta **'Obter' da ferramenta 'Obter',** vá ao painel de Definições de **Fluxo de Trabalho,** selecione **Editar** e cole a sua chave no campo **Ocp-Apim-Subscription-Key.** [Review tool](https://contentmoderator.cognitive.microsoft.com) Agora, os fluxos de trabalho que chamam de APIs de moderação usarão a sua credencial Azure.
+No separador Credenciais da ferramenta **'Obter' da ferramenta 'Obter',** vá ao painel de Definições de **Fluxo de Trabalho,** selecione **Editar** e cole a sua chave no campo **Ocp-Apim-Subscription-Key.** [](https://contentmoderator.cognitive.microsoft.com) Agora, os fluxos de trabalho que chamam de APIs de moderação usarão a sua credencial Azure.
 
 > [!NOTE]
 > Os outros dois campos no **painel de Definições** de Fluxo de Trabalho são para listas de termos e imagens personalizadas. Consulte os [termos personalizados](../try-terms-list-api.md) ou guias [de imagens personalizadas](../try-image-list-api.md) para saber sobre estes.

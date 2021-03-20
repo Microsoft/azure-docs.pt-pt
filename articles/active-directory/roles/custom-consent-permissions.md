@@ -13,10 +13,10 @@ ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
 ms.openlocfilehash: f9c2c15bbfcf9a9271e629ef26c11ecc4cbaaa6f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98740113"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de consentimento de aplicativos para funções personalizadas no Azure Ative Directory
@@ -65,7 +65,7 @@ Para delegar a criação, atualização e eliminação das políticas de consent
 
 ## <a name="full-list-of-permissions"></a>Lista completa de permissões
 
-Permissão | Descrição
+Permissão | Description
 ---------- | -----------
 microsoft.diretório/serviçoPrincipals/managePermissionGrantsForSelf. {id} | Concede a capacidade de consentir com apps em nome de si próprio (consentimento do utilizador), sujeito à política de consentimento da `{id}` aplicação.
 microsoft.diretório/serviçoPrincipals/managePermissionGrantsForAll. {id} | Concede a permissão para consentir com aplicações em nome de todos (consentimento administrativo em todo o inquilino), sujeito à política de consentimento da `{id}` app.
@@ -74,7 +74,7 @@ microsoft.diretório/permissãoSpolíticas/básico/atualização | Concede a cap
 microsoft.diretório/permissãoSpolias/criar | Concede a capacidade de criar políticas de consentimento de aplicativos.
 microsoft.diretório/permissãoSpolíticas/excluir | Concede a capacidade de eliminar políticas de consentimento de aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie funções personalizadas utilizando o portal Azure, Azure AD PowerShell e Graph API](custom-create.md)
 - [Ver as atribuições para um papel personalizado](../roles/view-assignments.md)

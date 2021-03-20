@@ -1,5 +1,5 @@
 ---
-title: Formato de dados GeoJSON para geofence Microsoft Azure Maps
+title: Formato de dados GeoJSON para geofence | Microsoft Azure Maps
 description: Saiba mais sobre os dados de geofência do Azure Maps. Veja como utilizar as APIs GET Geofence e POST Geofence ao recuperar a posição das coordenadas em relação a uma geofence.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92897199"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing Dados geojSON
@@ -30,11 +30,11 @@ Os dados relativos à geofência ou conjunto de geofências são representados p
 * É `expiredTime` a data de validade e a hora dos dados de geofencagem. Se o valor do `userTime` pedido for posterior a este valor, os dados de geofência correspondentes são considerados dados caducados e não são consultados. Sobre o qual a geometriaId destes dados de geofência será incluída na `expiredGeofenceGeometryId` matriz dentro da resposta de geofência.
 * `validityPeriod`Trata-se de uma lista de períodos de validade da geo-fence. Se o valor do `userTime` pedido ficar fora do período de validade, os dados de geofência correspondentes são considerados inválidos e não serão consultados. A geometriaId destes dados de geofência está incluída na `invalidPeriodGeofenceGeometryId` matriz dentro da resposta de geofência. A tabela a seguir mostra as propriedades do elemento validadePeriod.
 
-| Nome | Tipo | Obrigatório  | Descrição |
+| Nome | Tipo | Necessário  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | A data de início do período de tempo de validade. |
 | endTime   | Datetime  | true |  A data de fim do período de tempo de validade. |
-| recorrênciaType | cadeia | false |   O tipo de recorrência do período. O valor pode `Daily` `Weekly` ser, `Monthly` , ou . `Yearly` . O valor predefinido é `Daily`.|
+| recorrênciaType | string | false |   O tipo de recorrência do período. O valor pode `Daily` `Weekly` ser, `Monthly` , ou . `Yearly` . O valor predefinido é `Daily`.|
 | businessDayOnly | Booleano | false |  Indicar se os dados são válidos apenas durante os dias úteis. O valor predefinido é `false`.|
 
 

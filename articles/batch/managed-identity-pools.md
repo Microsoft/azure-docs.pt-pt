@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/10/2021
 ms.custom: references_regions
 ms.openlocfilehash: 4a59383d119f88bb3ee180f629ba0a6ea6ac2f44
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100418067"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configurar identidades geridas em piscinas de Lote

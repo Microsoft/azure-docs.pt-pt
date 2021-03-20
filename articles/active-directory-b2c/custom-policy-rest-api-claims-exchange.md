@@ -11,10 +11,10 @@ ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94949501"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Walkthrough: Add REST API reclama trocas de trocas para políticas personalizadas no Azure Ative Directory B2C
@@ -127,7 +127,7 @@ Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` esp
 
 ## <a name="add-an-orchestration-step"></a>Adicione um passo de orquestração
 
-[As viagens de utilizador](userjourneys.md) especificam caminhos explícitos através dos quais uma política permite que uma aplicação de partidos dependentes obtenha as reclamações desejadas para um utilizador. Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Pode adicionar ou subtrair passos de orquestração. Neste caso, irá adicionar um novo passo de orquestração que é utilizado para aumentar as informações fornecidas à aplicação após a inscrição ou inscrição do utilizador através da chamada REST API.
+Os [percursos do utilizador](userjourneys.md) especificam caminhos explícitos através dos quais uma política permite que uma aplicação de entidade confiadora obtenha as afirmações desejadas para um utilizador. Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Pode adicionar ou subtrair passos de orquestração. Neste caso, irá adicionar um novo passo de orquestração que é utilizado para aumentar as informações fornecidas à aplicação após a inscrição ou inscrição do utilizador através da chamada REST API.
 
 1. Abra o arquivo base da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> .
 1. Procure o `<UserJourneys>` elemento. Copie todo o elemento e, em seguida, elimine-o.

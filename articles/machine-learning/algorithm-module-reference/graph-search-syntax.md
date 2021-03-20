@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
 ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420772"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa do Graph
@@ -24,7 +24,7 @@ Neste artigo, você aprende sobre a sintaxe de pesquisa de gráficos em Azure Ma
 
 A pesquisa por gráficos suporta a pesquisa de palavras-chave de texto completo no nome do nó e nos comentários. Também pode filtrar na propriedade do nó como runStatus, duração, computeTarget. A pesquisa de palavras-chave baseia-se na consulta de Lucene. Uma consulta completa de pesquisa é assim:  
 
-**[consulta lucene ] [consulta de filtro]** 
+**[consulta lucene | [consulta de filtro]** 
 
 Pode utilizar consulta de Lucene ou consulta de filtro. Para utilizar ambos, utilize o **|** separador. A sintaxe da consulta do filtro é mais rigorosa do que a consulta de Lucene. Assim, se a entrada do cliente puder ser analisada como ambas, a consulta do filtro será aplicada.
 
@@ -36,7 +36,7 @@ A pesquisa de gráficos utiliza a consulta simples de Lucene como sintaxe de pes
 
  
 - E/OU
-- Wildcard combinando **com?** e *\** operadores.
+- Wildcard combinando **com?** e **\*** operadores.
 
 ### <a name="examples"></a>Exemplos
 
@@ -49,7 +49,7 @@ A pesquisa de gráficos utiliza a consulta simples de Lucene como sintaxe de pes
  
 - Correspondência wildcard: 
     - `machi?e learning`
-    - `mach_ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Não se pode começar uma consulta de Lucene com um caráter "*".

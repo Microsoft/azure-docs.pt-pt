@@ -1,5 +1,5 @@
 ---
-title: Copiar bolhas entre contas de armazenamento Azure com AzCopy v10 Microsoft Docs
+title: Copiar bolhas entre contas de armazenamento Azure com AzCopy v10 | Microsoft Docs
 description: Este artigo contém uma coleção de comandos de exemplo AzCopy que ajudam a copiar bolhas entre contas de armazenamento.
 author: normesta
 ms.service: storage
@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97617294"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>Copiar bolhas entre contas de armazenamento Azure utilizando AzCopy v10
@@ -136,7 +136,7 @@ A operação de cópia é sincronizada, pelo que quando o comando é devolvido, 
 
 Pode ajustar a sua operação de cópia utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 
-|Cenário|Sinalizador|
+|Scenario|Sinalizador|
 |---|---|
 |Copiar bolhas como Block, Page ou Append Blobs.|**--blob-type** = \[ \|Apendb BlockBlob PageBlob \|\]|
 |Copiar para um nível de acesso específico (como o nível de arquivo).|**--bloco-blob-tier** = \[ Nenhum \| Arquivo Quente \| Cool \|\]|

@@ -8,10 +8,10 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97964512"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Resolução de problemas comuns na Azure Data Share 
@@ -50,7 +50,7 @@ Podem surgir os seguintes erros quando criar uma nova partilha, adicionar conjun
 * Você não tem permissões apropriadas para x.
 * Não foi possível adicionar permissões de escrita para a conta Azure Data Share a um ou mais dos seus recursos selecionados.
 
-Pode ver um destes erros se não tiver permissões suficientes para a loja de dados Azure. Para mais informações, consulte [Funções e requisitos.](concepts-roles-permissions.md) 
+Pode ver um destes erros se não tiver permissões suficientes para a loja de dados Azure. Para obter mais informações, veja [Funções e requisitos](concepts-roles-permissions.md). 
 
 Precisa da permissão de escrita para partilhar ou receber dados de uma loja de dados Azure. Esta permissão é normalmente parte do papel do Contribuinte. 
 
@@ -65,7 +65,7 @@ Um instantâneo pode falhar por várias razões. Abra uma mensagem de erro detal
 
 Os instantâneos geralmente falham por estas razões:
 
-* A Data Share carece de permissão para ler a partir da loja de dados de origem ou para escrever na loja de dados-alvo. Para mais informações, consulte [Funções e requisitos.](concepts-roles-permissions.md) Se estiver a tirar uma fotografia pela primeira vez, o recurso Data Share poderá necessitar de alguns minutos para ter acesso à loja de dados Azure. Depois de alguns minutos, tente de novo.
+* A Data Share carece de permissão para ler a partir da loja de dados de origem ou para escrever na loja de dados-alvo. Para obter mais informações, veja [Funções e requisitos](concepts-roles-permissions.md). Se estiver a tirar uma fotografia pela primeira vez, o recurso Data Share poderá necessitar de alguns minutos para ter acesso à loja de dados Azure. Depois de alguns minutos, tente de novo.
 * A ligação Data Share à loja de dados de origem ou à loja de dados-alvo é bloqueada por uma firewall.
 * Foi eliminado um conjunto de dados partilhado, uma loja de dados de origem ou uma loja de dados-alvo.
 
