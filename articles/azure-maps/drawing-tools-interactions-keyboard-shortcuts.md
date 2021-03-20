@@ -1,5 +1,5 @@
 ---
-title: Tipos de interação de ferramentas de desenho e atalhos de teclado no mapa Microsoft Azure Maps
+title: Tipos de interação de ferramentas de desenho e atalhos de teclado no mapa | Microsoft Azure Maps
 description: Como desenhar e editar formas usando um rato, ecrã táctil ou teclado no Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895822"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interação e atalhos de teclado no módulo de ferramentas de desenho

@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 12/08/2020
 ms.openlocfilehash: ee3b1f7db8bdafb1233b32579e032e8c864c37a9
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97364583"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--flexible-server"></a>Conecte e consulta visão geral para base de dados Azure para PostgreSQL- Servidor Flexível
@@ -23,7 +23,7 @@ O documento que se segue inclui links para exemplos que mostram como conectar e 
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Descrição |
+| Início Rápido | Description |
 |---|---|
 |[Pgadmin](https://www.pgadmin.org/)|Pode utilizar a pgadmin para se ligar ao servidor e simplifica a criação, manutenção e utilização de objetos de base de dados.|
 |[psql em Azure Cloud Shell](./quickstart-create-server-cli.md#connect-using-postgresql-command-line-client)|Este artigo mostra como executar [**o psql**](https://www.postgresql.org/docs/current/static/app-psql.html) em [Azure Cloud Shell](../../cloud-shell/overview.md) para ligar ao seu servidor e, em seguida, executar declarações para consultar, inserir, atualizar e apagar dados na base de dados. Você pode executar **psql** se instalado no seu ambiente de desenvolvimento|

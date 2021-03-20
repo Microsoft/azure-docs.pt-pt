@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: sideeksh
 ms.openlocfilehash: a33e04a24013d5450c98b91048fa418958d16886
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89426389"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação de Sites
@@ -43,14 +43,14 @@ Antes de apagar um cofre, tem de remover servidores registados e itens no cofre.
 ## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Excluir um abóbada-Hiper-V VM (com VMM) para Azure
 
 1. Siga [estes passos](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) para eliminar os VMs Hiper-V geridos pelo System Center VMM.
-2. Desassociem e apaguem todas as políticas de replicação. Faça isto no seu cofre > **Infraestrutura de recuperação do local**  >  para políticas de replicação do Centro de**Sistemas VMM**  >  **Replication Policies**.
+2. Desassociem e apaguem todas as políticas de replicação. Faça isto no seu cofre > **Infraestrutura de recuperação do local**  >  para políticas de replicação do Centro de **Sistemas VMM**  >  .
 3. Siga [estes passos](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) para não registar um servidor VMM ligado.
 4. Então, apague o cofre.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Apagar um cofre-Hiper-V VM para Azure
 
 1. Siga [estes passos](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) para eliminar todos os VM protegidos.
-2. Desassociem e apaguem todas as políticas de replicação. Faça isso no seu cofre > **infraestrutura de recuperação do local**  >  para políticas de replicação de sites**hiper-V**  >  **Replication Policies**.
+2. Desassociem e apaguem todas as políticas de replicação. Faça isso no seu cofre > **infraestrutura de recuperação do local**  >  para políticas de replicação de sites **hiper-V**  >  .
 3. Siga [estas instruções](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) para não registar um hospedeiro Hiper-V.
 4. Apague o site Hyper-V.
 5. Então, apague o cofre.

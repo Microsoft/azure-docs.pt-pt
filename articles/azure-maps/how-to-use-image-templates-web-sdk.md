@@ -1,5 +1,5 @@
 ---
-title: Modelos de imagem no Azure Maps Web SDK / Microsoft Azure Maps
+title: Modelos de imagem no Azure Maps Web SDK | Microsoft Azure Maps
 description: Aprenda a adicionar ícones de imagem e polígonos cheios de padrões aos mapas utilizando o Azure Maps Web SDK. Ver modelos de padrão de imagem e preenchimento disponíveis.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895686"
 ---
 # <a name="how-to-use-image-templates"></a>Como utilizar modelos de imagem
@@ -119,15 +119,15 @@ Consulte o marcador pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML 
 
 Se a sua aplicação utilizar o mesmo ícone com ícones diferentes ou se estiver a criar um módulo que adiciona modelos de imagem adicionais, pode facilmente adicionar e recuperar estes ícones a partir da web SDK do Azure Maps. Utilize as seguintes funções estáticas no `atlas` espaço de nomes.
 
-| Nome | Tipo de retorno | Descrição | 
+| Name | Tipo de retorno | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao espaço de nome atlas. |
-|  `getImageTemplate(templateName: string, scale?: number)`| cadeia | Recupera um modelo SVG pelo nome. |
+|  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG pelo nome. |
 | `getAllImageTemplateNames()` | corda[] |  Recupera um modelo SVG pelo nome. |
 
 Os modelos de imagem SVG suportam os seguintes valores de espaço reservado:
 
-| Marcador de posição | Descrição |
+| Marcador de posição | Description |
 |-|-|
 | `{color}` | A cor primária. | 
 | `{secondaryColor}` | A cor secundária. | 

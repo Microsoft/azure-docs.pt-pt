@@ -1,5 +1,5 @@
 ---
-title: Prepare máquinas de origem para instalar o Serviço de Mobilidade através de uma instalação push para a recuperação de VMware e servidores físicos para a Azure ! Microsoft Docs
+title: Prepare máquinas de origem para instalar o Serviço de Mobilidade através de uma instalação de push para a recuperação de VMware e servidores físicos para a Azure | Microsoft Docs
 description: Aprenda a preparar o seu servidor para instalar o agente mobility através da instalação push para a recuperação de VMware vMs e servidores físicos para a Azure utilizando o serviço de Recuperação do Local Azure.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90525002"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar máquina de origem para a instalação de push de agente de mobilidade
@@ -53,7 +53,7 @@ Em cada máquina Linux que pretende proteger, faça o seguinte:
 4. Ativar o subsistema SFTP e a autenticação de senha no ficheiro sshd_config. Para isso, inscreva-se como **raiz.**
 5. No ficheiro **/etc/ssh/sshd_config,** encontre a linha que começa com **a PasswordAuthentication**.
 6. Descomprimir a linha, e mudar o valor para **sim.**
-7. Encontre a linha que começa com **o Subsistema**e desconsusa a linha.
+7. Encontre a linha que começa com **o Subsistema** e desconsusa a linha.
 
       ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 

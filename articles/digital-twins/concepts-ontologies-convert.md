@@ -8,10 +8,10 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: aa4dde51c077152dd5c8a938ad64ad0a051f89ad
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100561752"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Converter as práticas padrão da indústria para DTDL para Azure Digital Twins

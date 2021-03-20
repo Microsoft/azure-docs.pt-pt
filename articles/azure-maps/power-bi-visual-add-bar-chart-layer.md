@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de gráfico de barras ao Azure Maps Power BI visual / Microsoft Azure Maps
+title: Adicione uma camada de gráfico de barras ao Azure Maps Power BI | Microsoft Azure Maps
 description: Neste artigo, você vai aprender a usar a camada de gráfico de barras no Microsoft Azure Maps visual para Power BI.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 136676b46df6e32f98dca99fccba19d4aa369dbe
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896281"
 ---
 # <a name="add-a-bar-chart-layer"></a>Adicionar uma camada de gráfico de barras
@@ -71,7 +71,7 @@ Adicione mais contexto ao mapa:
 Personalize o visual:
 
 > [!div class="nextstepaction"]
-> [Sugestões e truques para a formatação de cores no Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Sugestões e truques para formatação de cor no Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
 > [Personalizar os títulos, fundos e legendas das visualizações](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

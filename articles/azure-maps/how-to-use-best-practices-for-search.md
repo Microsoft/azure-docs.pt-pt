@@ -1,5 +1,5 @@
 ---
-title: Boas práticas para o Azure Maps Search Service Microsoft Azure Maps
+title: Boas práticas para o Azure Maps Search Service | Microsoft Azure Maps
 description: Saiba como aplicar as melhores práticas ao utilizar o Serviço de Pesquisa do Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11c1938c3c1ccba533f52336fad81ebeaae53b24
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895482"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Melhores práticas para O Serviço de Pesquisa de Mapas Azure
@@ -59,20 +59,20 @@ Para os resultados da geobias para a área relevante para o seu utilizador, adic
 
 #### <a name="fuzzy-search-parameters"></a>Parâmetros de pesquisa difusos
 
-Recomendamos que utilize a Azure Maps [Search Fuzzy API](/rest/api/maps/search/getsearchfuzzy) quando não conhece as entradas do utilizador para uma consulta de pesquisa. Por exemplo, a entrada do utilizador pode ser um endereço ou o tipo de Ponto de Interesse (POI), como *o centro comercial* . A API combina pesquisa de POI e geocoding numa pesquisa canónica *de linha única:* 
+Recomendamos que utilize a Azure Maps [Search Fuzzy API](/rest/api/maps/search/getsearchfuzzy) quando não conhece as entradas do utilizador para uma consulta de pesquisa. Por exemplo, a entrada do utilizador pode ser um endereço ou o tipo de Ponto de Interesse (POI), como *o centro comercial*. A API combina pesquisa de POI e geocoding numa pesquisa canónica *de linha única:* 
 
 * Os `minFuzzyLevel` `maxFuzzyLevel` parâmetros e parâmetros ajudam a devolver os jogos relevantes mesmo quando os parâmetros de consulta não correspondem exatamente à informação que o utilizador quer. Para maximizar o desempenho e reduzir resultados incomuns, desemocione as consultas de pesquisa para os predefinidos de `minFuzzyLevel=1` e `maxFuzzyLevel=2` . 
 
-    Por exemplo, quando o `maxFuzzyLevel` parâmetro é definido para 2, o termo de pesquisa *restrant* é combinado com *o restaurante* . Pode anular os níveis padrão de peludas quando necessário. 
+    Por exemplo, quando o `maxFuzzyLevel` parâmetro é definido para 2, o termo de pesquisa *restrant* é combinado com *o restaurante*. Pode anular os níveis padrão de peludas quando necessário. 
 
 * Utilize o `idxSet` parâmetro para priorizar o conjunto exato de tipos de resultados. Para priorizar um conjunto exato de resultados, pode submeter uma lista de índices separados por vírgulas. Na sua lista, a ordem de artigos não importa. O Azure Maps suporta os seguintes índices:
 
-* `Addr` - **Intervalos de endereços** : Endereços que são interpolados desde o início e o fim da rua. Estes pontos são representados como intervalos de endereços.
-* `Geo` - **Geografias** : Divisões administrativas de terrenos. Uma geografia pode ser um país/região, estado ou cidade, por exemplo.
-* `PAD` - **Endereços de ponto :** Endereços que incluem nome de rua e número. Os endereços de ponto podem ser encontrados num índice. Um exemplo é *Soquel Dr 2501* . Um endereço de ponto fornece o mais alto nível de precisão disponível para endereços.  
-* `POI` - **Pontos de interesse** : Pontos num mapa que são considerados dignos de atenção ou que podem ser interessantes. A [API do Endereço de Pesquisa](/rest/api/maps/search/getsearchaddress) não devolve POIs.  
-* `Str` - **Ruas** : Ruas no mapa.
-* `XStr` - **Atravessar ruas ou cruzamentos** : Entroncamentos ou locais onde duas ruas se cruzam.
+* `Addr` - **Intervalos de endereços**: Endereços que são interpolados desde o início e o fim da rua. Estes pontos são representados como intervalos de endereços.
+* `Geo` - **Geografias**: Divisões administrativas de terrenos. Uma geografia pode ser um país/região, estado ou cidade, por exemplo.
+* `PAD` - **Endereços de ponto :** Endereços que incluem nome de rua e número. Os endereços de ponto podem ser encontrados num índice. Um exemplo é *Soquel Dr 2501*. Um endereço de ponto fornece o mais alto nível de precisão disponível para endereços.  
+* `POI` - **Pontos de interesse**: Pontos num mapa que são considerados dignos de atenção ou que podem ser interessantes. A [API do Endereço de Pesquisa](/rest/api/maps/search/getsearchaddress) não devolve POIs.  
+* `Str` - **Ruas**: Ruas no mapa.
+* `XStr` - **Atravessar ruas ou cruzamentos**: Entroncamentos ou locais onde duas ruas se cruzam.
 
 
 #### <a name="usage-examples"></a>Exemplos de utilização
@@ -85,7 +85,7 @@ Recomendamos que utilize a Azure Maps [Search Fuzzy API](/rest/api/maps/search/g
 
 Quando faz uma pesquisa de geocódigo invertido na [API reversa](/rest/api/maps/search/getsearchaddressreverse)do Endereço de Pesquisa, o serviço pode devolver polígonos para áreas administrativas. Por exemplo, talvez queira ir buscar o polígono da área para uma cidade. Para reduzir a pesquisa a tipos específicos de entidades de geografia, inclua o `entityType` parâmetro nos seus pedidos. 
 
-A resposta resultante contém o ID de geografia e o tipo de entidade que foi combinado. Se fornecer mais do que uma entidade, então o ponto final devolve a *menor entidade disponível* . Você pode usar o ID de geometria devolvido para obter a geometria da geografia através do [serviço Search Polygon](/rest/api/maps/search/getsearchpolygon).
+A resposta resultante contém o ID de geografia e o tipo de entidade que foi combinado. Se fornecer mais do que uma entidade, então o ponto final devolve a *menor entidade disponível*. Você pode usar o ID de geometria devolvido para obter a geometria da geografia através do [serviço Search Polygon](/rest/api/maps/search/getsearchpolygon).
 
 #### <a name="sample-request"></a>Pedido de amostra
 
@@ -763,17 +763,17 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### <a name="supported-types-of-results"></a>Tipos de resultados suportados
 
-* **Endereço de ponto** : Pontos num mapa que tenha um endereço específico com nome e número de rua. O Endereço de Ponto fornece o mais alto nível de precisão para endereços. 
+* **Endereço de ponto**: Pontos num mapa que tenha um endereço específico com nome e número de rua. O Endereço de Ponto fornece o mais alto nível de precisão para endereços. 
 
-* **Intervalo de endereços** : O leque de pontos de endereço que são interpolados desde o início e o fim da rua.  
+* **Intervalo de endereços**: O leque de pontos de endereço que são interpolados desde o início e o fim da rua.  
 
-* **Geografia** : Áreas num mapa que representam divisões administrativas de um terreno, por exemplo, país/região, estado ou cidade. 
+* **Geografia**: Áreas num mapa que representam divisões administrativas de um terreno, por exemplo, país/região, estado ou cidade. 
 
 * **PONTOS** num mapa que vale a pena atenção e que pode ser interessante.
 
-* **Rua** : Ruas no mapa. Os endereços são resolvidos às coordenadas de latitude e longitude da rua que contém o endereço. O número da casa pode não ser processado. 
+* **Rua**: Ruas no mapa. Os endereços são resolvidos às coordenadas de latitude e longitude da rua que contém o endereço. O número da casa pode não ser processado. 
 
-* **Cross Street** : Cruzamentos. Ruas cruzadas representam entroncamentos onde duas ruas se cruzam.
+* **Cross Street**: Cruzamentos. Ruas cruzadas representam entroncamentos onde duas ruas se cruzam.
 
 ### <a name="response"></a>Resposta
 

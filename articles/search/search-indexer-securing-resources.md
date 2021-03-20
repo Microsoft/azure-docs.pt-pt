@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503492"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Indexante acesso a conteúdos protegidos por funcionalidades de segurança da rede Azure (Azure Cognitive Search)

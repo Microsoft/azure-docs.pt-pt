@@ -1,5 +1,5 @@
 ---
-title: Sub-viagens em Azure Ative Directory B2C / Microsoft Docs
+title: Sub-viagens em Azure Ative Directory B2C | Microsoft Docs
 description: Especificar o elemento sub-viagens de uma política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,15 +11,15 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97386872"
 ---
 # <a name="sub-journeys"></a>Sub-viagens
 
-As subviagens podem ser usadas para organizar e simplificar o fluxo de passos de orquestração dentro de uma jornada de utilizador. [As viagens de utilizador](userjourneys.md) especificam caminhos explícitos através dos quais uma política permite que uma aplicação de partidos dependentes obtenha as reclamações desejadas para um utilizador. O utilizador é levado por estes caminhos para recuperar as alegações que devem ser apresentadas à parte que conta. Por outras palavras, as viagens de utilizador definem a lógica de negócio do que um utilizador final passa à medida que o Azure AD B2C Identity Experience Framework processa o pedido. Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. O elemento [ClaimsExchange](userjourneys.md#claimsexchanges) de um passo de orquestração está ligado a um único [perfil técnico](technicalprofiles.md) que executa.
+As subviagens podem ser usadas para organizar e simplificar o fluxo de passos de orquestração dentro de uma jornada de utilizador. Os [percursos do utilizador](userjourneys.md) especificam caminhos explícitos através dos quais uma política permite que uma aplicação de entidade confiadora obtenha as afirmações desejadas para um utilizador. O utilizador utiliza estes caminhos para obter as afirmações que devem ser apresentadas à entidade confiadora. Por outras palavras, as viagens de utilizador definem a lógica de negócio do que um utilizador final passa à medida que o Azure AD B2C Identity Experience Framework processa o pedido. Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. O elemento [ClaimsExchange](userjourneys.md#claimsexchanges) de um passo de orquestração está ligado a um único [perfil técnico](technicalprofiles.md) que executa.
 
 Uma sub-viagem é um agrupamento de passos de orquestração que podem ser invocados em qualquer ponto dentro de uma viagem de utilizador. Você pode usar sub-viagens para criar sequências de passo reutilizáveis ou implementar ramificação para melhor representar a lógica do negócio.
 
@@ -116,7 +116,7 @@ Para definir as sub-viagens suportadas pela política, adicione um elemento **Su
 
 O elemento **SubJourneys** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Sub-Journey | 1:n | Uma sub-viagem que define todas as construções necessárias para um fluxo completo do utilizador. |
 
@@ -124,12 +124,12 @@ O elemento **SubJourneys** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | O identificador de sub-viagem que pode ser usado pela viagem do utilizador para fazer referência à sub-viagem na apólice. O elemento **SubJourneyReferenceId** do elemento [candidato](userjourneys.md#journeylist) aponta para este atributo. |
-| Tipo | Sim | Valores possíveis: `Call` , ou `Transfer` . . Para mais informações, consulte [a ramificação da viagem do Utilizador](#user-journey-branching)|
+| Id | Yes | O identificador de sub-viagem que pode ser usado pela viagem do utilizador para fazer referência à sub-viagem na apólice. O elemento **SubJourneyReferenceId** do elemento [candidato](userjourneys.md#journeylist) aponta para este atributo. |
+| Tipo | Yes | Valores possíveis: `Call` , ou `Transfer` . . Para mais informações, consulte [a ramificação da viagem do Utilizador](#user-journey-branching)|
 
 O elemento **SubJourney** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Passos de Orquestra | 1:n | Uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Cada viagem de utilizador consiste numa lista ordenada de etapas de orquestração que são executadas em sequência. Se algum passo falhar, a transação falha. |
 
@@ -137,6 +137,6 @@ O elemento **SubJourney** contém o seguinte elemento:
 
 Para obter a lista completa dos elementos do passo de orquestração, consulte [UserJourneys](userjourneys.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [o UserJourneys](userjourneys.md)

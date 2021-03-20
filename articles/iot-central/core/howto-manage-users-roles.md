@@ -1,5 +1,5 @@
 ---
-title: Gerir utilizadores e funções na aplicação Azure IoT Central Microsoft Docs
+title: Gerir utilizadores e funções na aplicação Azure IoT Central | Microsoft Docs
 description: Como administrador, como gerir utilizadores e funções na sua aplicação Azure IoT Central
 author: lmasieri
 ms.author: lmasieri
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92122982"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerir utilizadores e funções na sua aplicação IoT Central
@@ -93,7 +93,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões do modelo do dispositivo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Gerir | Vista <br/> Outras dependências: Ver instâncias do dispositivo  |
@@ -101,7 +101,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de instância do dispositivo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
@@ -112,7 +112,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de grupos de dispositivos**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo   |
@@ -122,7 +122,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de gestão da conectividade do dispositivo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Ler caso | Nenhum <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
 | Gerir instância | Nenhum |
@@ -132,7 +132,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de emprego**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
@@ -143,7 +143,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de regras**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos |
@@ -155,7 +155,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de definições de aplicações**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Atualizar | Vista   |
@@ -165,7 +165,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de exportação de modelo de aplicação**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Exportar | Vista <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos, grupos de dispositivos, dashboards, exportação de dados, marcação, links de ajuda, funções personalizadas, regras |
@@ -173,7 +173,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de faturação**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Gerir | Nenhum     |
 | Controlo Total | Gerir |
@@ -182,7 +182,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de funções personalizadas**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum |
 | Atualizar | Vista |
@@ -192,7 +192,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de gestão de utilizadores**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum <br/> Outras dependências: Ver funções personalizadas |
 | Adicionar | Vista <br/> Outras dependências: Ver funções personalizadas |
@@ -206,7 +206,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões do painel de aplicações**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Atualizar | Vista   |
@@ -216,7 +216,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de painéis pessoais**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Atualizar | Vista   |
@@ -226,7 +226,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de marcação, favicon e cores**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Atualizar | Vista   |
@@ -234,7 +234,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de links de ajuda**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Atualizar | Vista   |
@@ -244,7 +244,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de exportação de dados**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Atualizar | Vista   |
@@ -254,7 +254,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões simbólicas da API**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Vista | Nenhum     |
 | Criar | Vista   |

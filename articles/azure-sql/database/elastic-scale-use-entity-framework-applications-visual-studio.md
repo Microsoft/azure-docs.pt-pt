@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 48d43cb2d3c51194d0708a2b9b739a0ee87843d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793403"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com enquadramento de entidade
@@ -39,16 +39,16 @@ Para executar a amostra, é necessário criar três bases de dados vazias na Bas
 * Base de dados Shard 1
 * Base de dados Shard 2
 
-Assim que tiver criado estas bases de dados, preencha os titulares de lugares em **Program.cs** com o nome do seu servidor, os nomes da base de dados e as suas credenciais para se ligar às bases de dados. Construa a solução no Visual Studio. O Visual Studio descarrega os pacotes NuGet necessários para a biblioteca de clientes de base de dados elástica, o Quadro de Entidades e o tratamento de Falhas Transitórias como parte do processo de construção. Certifique-se de que a restauração dos pacotes NuGet está ativada para a sua solução. Pode ativar esta definição clicando corretamente no ficheiro de solução no Visual Studio Solution Explorer.
+Assim que tiver criado estas bases de dados, preencha os titulares de lugares no **Programa.cs** com o nome do servidor, os nomes da base de dados e as suas credenciais para se ligar às bases de dados. Construa a solução no Visual Studio. O Visual Studio descarrega os pacotes NuGet necessários para a biblioteca de clientes de base de dados elástica, o Quadro de Entidades e o tratamento de Falhas Transitórias como parte do processo de construção. Certifique-se de que a restauração dos pacotes NuGet está ativada para a sua solução. Pode ativar esta definição clicando corretamente no ficheiro de solução no Visual Studio Solution Explorer.
 
 ## <a name="entity-framework-workflows"></a>Fluxos de trabalho do Quadro de Entidades
 
 Os desenvolvedores do Quadro de Entidades contam com um dos quatro fluxos de trabalho seguintes para construir aplicações e garantir a persistência de objetos de aplicação:
 
-* **Código Primeiro (Nova Base de Dados)** : O desenvolvedor EF cria o modelo no código de aplicação e, em seguida, a EF gera a base de dados a partir dele.
-* **Código Primeiro (Base de Dados Existente)** : O desenvolvedor permite que a EF gere o código de aplicação do modelo a partir de uma base de dados existente.
-* **Modelo Primeiro** : O desenvolvedor cria o modelo no designer EF e, em seguida, a EF cria a base de dados a partir do modelo.
-* **Base de dados Primeiro** : O desenvolvedor utiliza ferramentas EF para inferir o modelo a partir de uma base de dados existente.
+* **Código Primeiro (Nova Base de Dados)**: O desenvolvedor EF cria o modelo no código de aplicação e, em seguida, a EF gera a base de dados a partir dele.
+* **Código Primeiro (Base de Dados Existente)**: O desenvolvedor permite que a EF gere o código de aplicação do modelo a partir de uma base de dados existente.
+* **Modelo Primeiro**: O desenvolvedor cria o modelo no designer EF e, em seguida, a EF cria a base de dados a partir do modelo.
+* **Base de dados Primeiro**: O desenvolvedor utiliza ferramentas EF para inferir o modelo a partir de uma base de dados existente.
 
 Todas estas abordagens dependem da classe DbContext para gerir de forma transparente as ligações de base de dados e o esquema de base de dados para uma aplicação. Diferentes construtores na classe base DbContext permitem diferentes níveis de controlo sobre a criação de ligação, a colocação de botas de base de dados e a criação de esquemas. Os desafios surgem principalmente do facto de a gestão da ligação de base de dados fornecida pela EF se cruzar com as capacidades de gestão de ligação das interfaces de encaminhamento dependentes de dados fornecidas pela biblioteca de clientes de base de dados elástica.
 
@@ -56,7 +56,7 @@ Todas estas abordagens dependem da classe DbContext para gerir de forma transpar
 
 Para definições de termo, consulte [o glossário de ferramentas elastic database](elastic-scale-glossary.md).
 
-Com biblioteca de clientes de base de dados elástica, define as divisórias dos dados da sua aplicação chamadas fragmentos. Os fragmentos são identificados por uma chave de fragmentos e são mapeados para bases de dados específicas. Uma aplicação pode ter o número de bases de dados necessárias e distribuir os fragmentos para fornecer capacidade ou desempenho suficientes dadas as necessidades atuais do negócio. O mapeamento dos valores-chave de fragmentos nas bases de dados é armazenado por um mapa de fragmentos fornecido pelas APIs do cliente da base de dados elástica. Esta capacidade chama-se **Shard Map Management,** ou SMM para abreviar. O mapa de fragmentos também serve como corretor de ligações de base de dados para pedidos que carregam uma chave de fragmentos. Esta capacidade é conhecida como **encaminhamento dependente de dados** .
+Com biblioteca de clientes de base de dados elástica, define as divisórias dos dados da sua aplicação chamadas fragmentos. Os fragmentos são identificados por uma chave de fragmentos e são mapeados para bases de dados específicas. Uma aplicação pode ter o número de bases de dados necessárias e distribuir os fragmentos para fornecer capacidade ou desempenho suficientes dadas as necessidades atuais do negócio. O mapeamento dos valores-chave de fragmentos nas bases de dados é armazenado por um mapa de fragmentos fornecido pelas APIs do cliente da base de dados elástica. Esta capacidade chama-se **Shard Map Management,** ou SMM para abreviar. O mapa de fragmentos também serve como corretor de ligações de base de dados para pedidos que carregam uma chave de fragmentos. Esta capacidade é conhecida como **encaminhamento dependente de dados**.
 
 O gestor de mapas de fragmentos protege os utilizadores de visões inconsistentes em dados de shardlet que podem ocorrer quando estão a acontecer operações de gestão de fragmentos simultâneas (como a relocalização de dados de um fragmento para outro). Para tal, os mapas de fragmentos geridos pelo corretor da biblioteca do cliente são as ligações de base de dados para uma aplicação. Isto permite que a funcionalidade do mapa de fragmentos mate automaticamente uma ligação de base de dados quando as operações de gestão de fragmentos podem ter impacto no fragmento para o que a ligação foi criada. Esta abordagem tem de ser integrado com algumas das funcionalidades da EF, tais como a criação de novas ligações a partir de uma existente para verificar a existência de bases de dados. Em geral, a nossa observação tem sido a de que os construtores padrão DbContext apenas funcionam de forma fiável para ligações de base de dados fechadas que podem ser clonadas com segurança para trabalhos de EF. Em vez disso, o princípio de conceção da base de dados elástica é apenas ligar a corretora aberta. Poder-se-ia pensar que fechar uma ligação intermediada pela biblioteca do cliente antes de a entregar ao EF DbContext pode resolver este problema. No entanto, ao fechar a ligação e contar com a EF para a reabrir, renuncia-se à validação e à verificação de consistência realizadas pela biblioteca. No entanto, a funcionalidade de migração na EF utiliza estas ligações para gerir o esquema de base de dados subjacente de uma forma transparente à aplicação. Idealmente, irá reter e combinar todas estas capacidades tanto da biblioteca de clientes de base de dados elástica como da EF na mesma aplicação. A secção seguinte discute mais detalhadamente estas propriedades e requisitos.
 
@@ -65,15 +65,15 @@ O gestor de mapas de fragmentos protege os utilizadores de visões inconsistente
 Ao trabalhar com a biblioteca de clientes de base de dados elástica e as APIs do Quadro de Entidades, pretende reter as seguintes propriedades:
 
 * **Escala:** Para adicionar ou remover bases de dados do nível de dados da aplicação emperrada, conforme necessário para as exigências de capacidade da aplicação. Isto significa o controlo sobre a criação e eliminação de bases de dados e a utilização da base de dados elástica de apIs do gestor de mapas para gerir bases de dados e mapeamentos de shardlets.
-* **Consistência** : A aplicação emprega fragmentos e utiliza as capacidades de encaminhamento dependentes de dados da biblioteca do cliente. Para evitar corrupção ou resultados de consultas erradas, as ligações são intermediadas através do gestor de mapas de fragmentos. Isto também mantém validação e consistência.
-* **Código Primeiro** : Manter a conveniência do primeiro paradigma do código da EF. No Código Primeiro, as classes da aplicação são mapeadas de forma transparente para as estruturas de base de dados subjacentes. O código de aplicação interage com DbSets que mascaram a maioria dos aspetos envolvidos no processamento subjacente da base de dados.
-* **Schema** : O Quadro de Entidades trata da criação inicial de esquemas de base de dados e da evolução subsequente do esquema através de migrações. Ao reter estas capacidades, a adaptação da sua app é fácil à medida que os dados evoluem.
+* **Consistência**: A aplicação emprega fragmentos e utiliza as capacidades de encaminhamento dependentes de dados da biblioteca do cliente. Para evitar corrupção ou resultados de consultas erradas, as ligações são intermediadas através do gestor de mapas de fragmentos. Isto também mantém validação e consistência.
+* **Código Primeiro**: Manter a conveniência do primeiro paradigma do código da EF. No Código Primeiro, as classes da aplicação são mapeadas de forma transparente para as estruturas de base de dados subjacentes. O código de aplicação interage com DbSets que mascaram a maioria dos aspetos envolvidos no processamento subjacente da base de dados.
+* **Schema**: O Quadro de Entidades trata da criação inicial de esquemas de base de dados e da evolução subsequente do esquema através de migrações. Ao reter estas capacidades, a adaptação da sua app é fácil à medida que os dados evoluem.
 
 A seguinte orientação instrui como satisfazer estes requisitos para aplicações code first usando ferramentas de base de dados elásticas.
 
 ## <a name="data-dependent-routing-using-ef-dbcontext"></a>Encaminhamento dependente de dados utilizando EF DbContext
 
-As ligações de base de dados com o Quadro de Entidades são normalmente geridas através de subclasses de **DbContext** . Crie estas subclasses derivando da **DbContext** . É aqui que define os seus **DbSets** que implementam as coleções apoiadas na base de dados de objetos CLR para a sua aplicação. No contexto do encaminhamento dependente de dados, pode identificar várias propriedades úteis que não são necessariamente guardando para outros cenários de primeira aplicação do código EF:
+As ligações de base de dados com o Quadro de Entidades são normalmente geridas através de subclasses de **DbContext**. Crie estas subclasses derivando da **DbContext**. É aqui que define os seus **DbSets** que implementam as coleções apoiadas na base de dados de objetos CLR para a sua aplicação. No contexto do encaminhamento dependente de dados, pode identificar várias propriedades úteis que não são necessariamente guardando para outros cenários de primeira aplicação do código EF:
 
 * A base de dados já existe e foi registada no mapa de fragmentos da base de dados elástica.
 * O esquema da aplicação já foi implementado na base de dados (explicado abaixo).
@@ -159,7 +159,7 @@ using (var db = new ElasticScaleContext<int>(
 }
 ```
 
-O novo construtor abre a ligação ao fragmento que detém os dados para o fragmento identificado pelo valor do **inquilino 1** . O código do bloco **de utilização** permanece inalterado para aceder ao **DbSet** para blogs que utilizem EF no shard para **inquilinos1** . Isto altera a semântica para o código no bloco de utilização de modo a que todas as operações de base de dados sejam agora traçadas para o fragmento onde o **tenantid1** é mantido. Por exemplo, uma consulta linq sobre os blogs **DbSet** só devolveria blogs armazenados no fragmento atual, mas não os armazenados em outros fragmentos.  
+O novo construtor abre a ligação ao fragmento que detém os dados para o fragmento identificado pelo valor do **inquilino 1**. O código do bloco **de utilização** permanece inalterado para aceder ao **DbSet** para blogs que utilizem EF no shard para **inquilinos1**. Isto altera a semântica para o código no bloco de utilização de modo a que todas as operações de base de dados sejam agora traçadas para o fragmento onde o **tenantid1** é mantido. Por exemplo, uma consulta linq sobre os blogs **DbSet** só devolveria blogs armazenados no fragmento atual, mas não os armazenados em outros fragmentos.  
 
 ### <a name="transient-faults-handling"></a>Tratamento de falhas transitórias
 
@@ -205,7 +205,7 @@ Os exemplos de código acima ilustram as reescaminações de construtores predef
 
 A gestão automática de esquemas é uma conveniência fornecida pelo Quadro de Entidades. No contexto das aplicações que utilizam ferramentas de base de dados elásticas, pretende reter esta capacidade de provisão automática do esquema a fragmentos recém-criados quando as bases de dados são adicionadas à aplicação de fragmentos. O caso de utilização primária consiste em aumentar a capacidade no nível de dados para aplicações com cacos utilizando a EF. Confiar nas capacidades da EF para a gestão de esquemas reduz o esforço de administração da base de dados com uma aplicação de sharded construída sobre a EF.
 
-A implantação de esquemas através das migrações EF funciona melhor em **ligações não abertas** . Isto contrasta com o cenário de encaminhamento dependente de dados que se baseia na ligação aberta fornecida pela API do cliente de base de dados elástica. Outra diferença é a exigência de coerência: Embora desejável para garantir a coerência de todas as ligações de encaminhamento dependentes de dados para proteger contra manipulação simultânea de mapas de fragmentos, não é uma preocupação com a implantação inicial do esquema para uma nova base de dados que ainda não foi registada no mapa de fragmentos, e ainda não foi atribuída para segurar as shardlets. Pode, portanto, contar com ligações regulares de base de dados para este cenário, em oposição ao encaminhamento dependente de dados.  
+A implantação de esquemas através das migrações EF funciona melhor em **ligações não abertas**. Isto contrasta com o cenário de encaminhamento dependente de dados que se baseia na ligação aberta fornecida pela API do cliente de base de dados elástica. Outra diferença é a exigência de coerência: Embora desejável para garantir a coerência de todas as ligações de encaminhamento dependentes de dados para proteger contra manipulação simultânea de mapas de fragmentos, não é uma preocupação com a implantação inicial do esquema para uma nova base de dados que ainda não foi registada no mapa de fragmentos, e ainda não foi atribuída para segurar as shardlets. Pode, portanto, contar com ligações regulares de base de dados para este cenário, em oposição ao encaminhamento dependente de dados.  
 
 Isto leva a uma abordagem em que a implantação de esquemas através das migrações EF está estreitamente associada ao registo da nova base de dados como fragmento no mapa de fragmentos da aplicação. Isto baseia-se nos seguintes pré-requisitos:
 
@@ -270,7 +270,7 @@ Pode-se ter usado a versão do construtor herdado da classe base. Mas o código 
 
 As abordagens descritas neste documento implicam algumas limitações:
 
-* As aplicações EF que utilizam **o LocalDb** precisam primeiro de migrar para uma base de dados regular do SQL Server antes de utilizar a biblioteca de clientes de base de dados elástica. Escalonar uma aplicação através de fragmentos com escala elástica não é possível com **o LocalDb** . Note que o desenvolvimento ainda pode usar **o LocalDb.**
+* As aplicações EF que utilizam **o LocalDb** precisam primeiro de migrar para uma base de dados regular do SQL Server antes de utilizar a biblioteca de clientes de base de dados elástica. Escalonar uma aplicação através de fragmentos com escala elástica não é possível com **o LocalDb**. Note que o desenvolvimento ainda pode usar **o LocalDb.**
 * Quaisquer alterações à aplicação que impliquem alterações no esquema de bases de dados devem passar por migrações de EF em todos os fragmentos. O código de amostra deste documento não demonstra como fazê-lo. Considere utilizar Update-Database com um parâmetro ConnectionString para iterar sobre todos os fragmentos; ou extrair o script T-SQL para a migração pendente usando Update-Database com a opção -Script e aplicar o script T-SQL nos seus fragmentos.  
 * Dado um pedido, presume-se que todo o seu processamento de base de dados está contido num único fragmento identificado pela chave de fragmentos fornecida pelo pedido. No entanto, esta suposição nem sempre é verdadeira. Por exemplo, quando não é possível disponibilizar uma chave de cacos. Para resolver este problema, a biblioteca do cliente fornece a classe **MultiShardQuery** que implementa uma abstração de conexão para consulta sobre vários fragmentos. Aprender a usar o **MultiShardQuery** em combinação com a EF está fora do âmbito deste documento
 

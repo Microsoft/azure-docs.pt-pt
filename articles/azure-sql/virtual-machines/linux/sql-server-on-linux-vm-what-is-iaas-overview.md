@@ -1,5 +1,5 @@
 ---
-title: Visão geral do SQL Server em Azure Virtual Machines for Linux Microsoft Docs
+title: Visão geral do SQL Server em Azure Virtual Machines for Linux| Microsoft Docs
 description: Saiba como executar edições completas do SQL Server em Azure Virtual Machines para Linux. Obtenha ligações diretas para todas as imagens de VMs do SQL Server do Linux e conteúdos relacionados.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: c394fe2aa7639d32e5d79bcb22a01151f7666f5b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96324623"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux)
@@ -55,7 +55,7 @@ Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server c
 
 Ao configurar o SQL Server no Linux, instale o pacote do Motor database e, em seguida, vários pacotes opcionais, dependendo dos seus requisitos. As imagens de máquina virtual do Linux para o SQL Server instalam automaticamente a maioria dos pacotes por si. A tabela seguinte mostra os pacotes que são instalados para cada distribuição.
 
-| Distribuição | [Motor de base de dados](/sql/linux/sql-server-linux-setup) | [Ferramentas](/sql/linux/sql-server-linux-setup-tools) | [Agente do Servidor SQL](/sql/linux/sql-server-linux-setup-sql-agent) | [Pesquisa em texto completo](/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](/sql/linux/sql-server-linux-setup-ssis) | [Suplemento do HA](/sql/linux/sql-server-linux-business-continuity-dr) |
+| Distribuição | [Motor de base de dados](/sql/linux/sql-server-linux-setup) | [Ferramentas](/sql/linux/sql-server-linux-setup-tools) | [Agente do Servidor SQL](/sql/linux/sql-server-linux-setup-sql-agent) | [Pesquisa de texto completo](/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](/sql/linux/sql-server-linux-setup-ssis) | [Suplemento do HA](/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![MOTOR RHEL e base de dados](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e ferramentas](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Agente do SERVIDOR RHEL e SQL](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![REL e pesquisa de texto completo](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Addon RHEL e HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 | SLES | ![SLES e motor de base de dados](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e ferramentas](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Agente SLES e SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e pesquisa de texto completo](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![Addon SLES e HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|

@@ -8,10 +8,10 @@ ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89425352"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre regiões públicas e o Azure Government 
@@ -27,7 +27,7 @@ Este tutorial mostra-lhe como mover VMs Azure entre o Governo de Azure e as regi
 > * Preparar os VMs de origem
 > * Preparar a região alvo
 > * Copiar dados para a região-alvo
-> * Testar a configuração
+> * Teste a configuração.
 > * Realizar o movimento
 > * Descartar os recursos na região origem
 
@@ -109,8 +109,8 @@ Os passos abaixo irão guiá-lo como usar a Recuperação do Site Azure para cop
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Crie o cofre em qualquer região, exceto na região de origem.
 
-1. Inscreva-se nos Serviços de Recuperação [do portal Azure.](https://portal.azure.com)  >  **Recovery Services**
-2. Clique **em Criar uma**cópia de segurança das  >  **ferramentas de gestão**de recursos  >  **e recuperação do site.**
+1. Inscreva-se nos Serviços de Recuperação [do portal Azure.](https://portal.azure.com)  >  
+2. Clique **em Criar uma** cópia de segurança das  >  **ferramentas de gestão** de recursos  >  **e recuperação do site.**
 3. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que um a. subscrição, selecione o apropriado.
 4. Crie um grupo de recursos **ContosoRG**.
 5. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -122,7 +122,7 @@ Os passos abaixo irão guiá-lo como usar a Recuperação do Site Azure para cop
 
 Configurar o servidor de configuração, registá-lo no cofre e descobrir VMs.
 
-1. Clique **na recuperação do local**Preparar Fonte  >  **de Infraestrutura**  >  **Source**.
+1. Clique **na recuperação do local** Preparar Fonte  >  **de Infraestrutura**  >  .
 2. Se não tiver um servidor de configuração, clique em **+Servidor de Configuração**.
 3. In **Add Server**, verifique se o Servidor de **Configuração** aparece no **tipo servidor**.
 4. Descarregue o ficheiro de instalação de configuração unificada de recuperação do site.
@@ -153,13 +153,13 @@ Executar configuração unificada como administrador local, para instalar o serv
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após o início do registo, o servidor de configuração é apresentado na página **'Servidores' de Definições**  >  **Servers** no cofre.
+Após o início do registo, o servidor de configuração é apresentado na página **'Servidores' de Definições**  >   no cofre.
 
 ### <a name="configure-target-settings-for-replication"></a>Configurar as definições-alvo para a replicação
 
 Selecione e verifique os recursos de destino.
 
-1. Clique **em Preparar a infraestrutura**  >  **Target**e selecione a subscrição Azure que pretende utilizar.
+1. Clique **em Preparar a infraestrutura**  >  **Target** e selecione a subscrição Azure que pretende utilizar.
 2. Especifique o modelo de implementação do alvo.
 3. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
@@ -168,7 +168,7 @@ Selecione e verifique os recursos de destino.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em Políticas de Replicação **da Infraestrutura de Recuperação do Local**  >  **Replication Policies**  >  **+Política de Replicação**.
+1. Para criar uma nova política de replicação, clique em Políticas de Replicação **da Infraestrutura de Recuperação do Local**  >    >  **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Este valor especifica a frequência com que são criados pontos de recuperação de dados. Será gerado um alerta se a replicação contínua exceder este limite.
 4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.
@@ -198,13 +198,13 @@ A política é associada automaticamente ao servidor de configuração. Por pred
    > Tem de introduzir o endereço IP do Azure VM que pretende mover
 
 10. Nas propriedades **Properties**  >  **Configure**, selecione a conta que será utilizada pelo servidor de processos para instalar automaticamente o serviço de Mobilidade na máquina.
-11. Nas **definições de replicação,**  >  **certifique-se de que**a política de replicação correta está selecionada. 
+11. Nas **definições de replicação,**  >  **certifique-se de que** a política de replicação correta está selecionada. 
 12. Clique **em Ativar a replicação.** Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Definições**  >  **de**  >  **Empregos Locais de Recuperação do Local .** Depois de o trabalho **de Proteção finalização,** a máquina está pronta para falhar.
 
 
-Para monitorizar os servidores que adiciona, pode verificar a última vez que os descobertos são os últimos contactos dos **servidores**de  >  **configuração.** Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
+Para monitorizar os servidores que adiciona, pode verificar a última vez que os descobertos são os últimos contactos dos **servidores** de  >  **configuração.** Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
 
-## <a name="test-the-configuration"></a>Testar a configuração
+## <a name="test-the-configuration"></a>Teste a configuração.
 
 
 1. Navegue para o cofre, em **Definições**  >  **Itens Replicados,** clique na máquina Virtual que pretende mover-se para a região alvo, clique no ícone **+Test Failover.**

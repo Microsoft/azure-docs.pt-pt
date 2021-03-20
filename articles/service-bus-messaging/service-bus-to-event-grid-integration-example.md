@@ -8,10 +8,10 @@ ms.date: 10/16/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 93375f6047fbe4eda2132e024dab0e067e83ccf1
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999070"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>Tutorial: Responda aos eventos de ônibus da Azure Service recebidos através da Azure Event Grid utilizando apps Azure Logic
@@ -28,7 +28,7 @@ Neste passo, você cria uma app lógica Azure que recebe eventos de Service Bus 
     3. Selecione a sua **subscrição Azure**. 
     4. Selecione **Utilizar o** **grupo de recursos** e selecione o grupo de recursos que utilizou para outros recursos (como a função Azure, Service Bus namespace) que criou anteriormente. 
     5. Selecione a **Localização** para a aplicação lógica. 
-    6. Selecione **Review + Criar**. 
+    6. Selecione **Rever + Criar**. 
     1. Na página **'Rever + Criar',** selecione **Criar** para criar a aplicação lógica. 
 1. Na página **de Design de Aplicações Lógicas,** selecione Blank Logic **App** em **modelos**. 
 1. No designer, faça os seguintes passos:

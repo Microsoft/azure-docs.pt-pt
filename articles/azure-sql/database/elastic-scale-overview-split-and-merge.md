@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793471"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
@@ -187,7 +187,7 @@ O serviço de fusão dividida funciona como um serviço de cloud na sua subscri�
 
 O Serviço de Fusão Dividida fornece a tabela **RequestStatus** na base de dados da loja de metadados para monitorização de pedidos preenchidos e em curso. A tabela lista uma linha para cada pedido de fusão por partes que tenha sido submetida a este caso do serviço de fusão por partes. Fornece as seguintes informações para cada pedido:
 
-- **Timestamp**
+- **Tempotamp**
 
   A hora e a data em que o pedido foi iniciado.
 

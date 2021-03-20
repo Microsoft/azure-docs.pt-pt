@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716198"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Ver e configurar telemetria de proteção contra DDoS
@@ -37,14 +37,14 @@ Neste tutorial, irá aprender a:
 As [seguintes métricas](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) estão disponíveis para a Norma de Proteção DDoS Azure. Estas métricas também são exportáveis através de configurações de diagnóstico (ver [e configurar registo de diagnóstico DDoS).](diagnostic-logging.md)
 
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de Agregação | Descrição |
+| Metric | Nome de exibição métrica | Unidade | Tipo de Agregação | Description |
 | --- | --- | --- | --- | --- |
 | BytesDroppedDDoS | Bytes de entrada deixaram cair DDoS | BytesPerSecond | Máximo | Bytes de entrada deixaram cair DDoS| 
 | BytesForwardedDDoS | Bytes de entrada reencaminhado DDoS | BytesPerSecond | Máximo | Bytes de entrada reencaminhado DDoS |
 | BytesInDDoS | Bytes de entrada DDoS | BytesPerSecond | Máximo | Bytes de entrada DDoS |
-| DDoSTriggerSYNPackets | Pacotes SYN de entrada para desencadear a mitigação do DDoS | CondePerSecond | Máximo | Pacotes SYN de entrada para desencadear a mitigação do DDoS |
-| Pacotes DDoSTriggerTCP | Pacotes TCP de entrada para desencadear mitigação do DDoS | CondePerSecond | Máximo | Pacotes TCP de entrada para desencadear mitigação do DDoS |
-| DDoSTriggerUDPPackets | Pacotes UDP de entrada para desencadear mitigação do DDoS | CondePerSecond | Máximo | Pacotes UDP de entrada para desencadear mitigação do DDoS |
+| DDoSTriggerSYNPackets | Pacotes SYN de entrada para acionar a mitigação de DDoS | CondePerSecond | Máximo | Pacotes SYN de entrada para acionar a mitigação de DDoS |
+| Pacotes DDoSTriggerTCP | Pacotes TCP de entrada para acionar a mitigação de DDoS | CondePerSecond | Máximo | Pacotes TCP de entrada para acionar a mitigação de DDoS |
+| DDoSTriggerUDPPackets | Pacotes UDP de entrada para acionar a mitigação de DDoS | CondePerSecond | Máximo | Pacotes UDP de entrada para acionar a mitigação de DDoS |
 | IfUnderDDosAttack | Sob o ataque do DDoS ou não | de palavras | Máximo | Sob o ataque do DDoS ou não |
 | PacotesDroppedDDoS | Pacotes de entrada deixaram cair DDoS | CondePerSecond | Máximo | Pacotes de entrada deixaram cair DDoS |
 | PacotesForwardedDDoS | Pacotes de entrada reencaminhados DDoS | CondePerSecond | Máximo | Pacotes de entrada reencaminhados DDoS |

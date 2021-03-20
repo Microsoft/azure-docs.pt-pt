@@ -8,10 +8,10 @@ ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 64b99976a306c3c8423f5115c95a15158a3ddb51
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93043197"
 ---
 Este passo une todos os recursos e pastas que tenha configurado na sua instância do Windows Server durante os passos anteriores.
@@ -20,4 +20,4 @@ Este passo une todos os recursos e pastas que tenha configurado na sua instânci
 1. Localize o seu recurso de Serviço de Sincronização de Armazenamento.
 1. Crie um novo *grupo de sincronização* dentro do recurso Storage Sync Service para cada partilha de ficheiros Azure. Na terminologia Azure File Sync, a partilha de ficheiros Azure tornar-se-á um *ponto final* em nuvem na topologia de sincronização que está descrevendo com a criação de um grupo de sincronização. Enquanto estás a criar o grupo de sincronização, dá-lhe um nome familiar para que reconheças que conjunto de ficheiros sincroniza aqui. Certifique-se de que faz referência à partilha de ficheiros Azure com um nome correspondente.
 1. Após a criação do grupo de sincronização, aparecerá uma linha para que apareça na lista de grupos de sincronização. Selecione o nome (um link) para visualizar o conteúdo do grupo de sincronização. Verá a sua partilha de ficheiros Azure nos **pontos finais da Cloud.**
-1. Localizar o botão **+ adicionar ponto final do servidor.** A pasta no servidor local que a provisionou tornar-se-á o caminho para este *ponto final do servidor* .
+1. Localizar o botão **+ adicionar ponto final do servidor.** A pasta no servidor local que a provisionou tornar-se-á o caminho para este *ponto final do servidor*.

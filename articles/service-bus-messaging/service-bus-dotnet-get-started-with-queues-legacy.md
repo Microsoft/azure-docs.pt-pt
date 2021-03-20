@@ -6,10 +6,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652994"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
@@ -48,7 +48,7 @@ Lançar Visual Studio e criar um novo projeto **de App de Consola (.NET Core)** 
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Escrever código e enviar mensagens para a fila
 
-1. Em *Program.cs*, adicione as `using` seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
+1. No *Programa.cs*, adicione as `using` seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
 
     ```csharp
     using System.Text;
@@ -114,7 +114,7 @@ Lançar Visual Studio e criar um novo projeto **de App de Consola (.NET Core)** 
     }
     ```
 
-Aqui está como deve ser o seu *ficheiro Program.cs.*
+Aqui está como deve ser o seu ficheiro *.cs programa.*
 
 ```csharp
 namespace CoreSenderApp
@@ -194,7 +194,7 @@ Para receber as mensagens que enviou, crie outra aplicação **de Consola (.NET 
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Escrever código para receber mensagens da fila
 
-1. Em *Program.cs*, adicione as `using` seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
+1. No *Programa.cs*, adicione as `using` seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
 
     ```csharp
     using System;
@@ -295,7 +295,7 @@ Para receber as mensagens que enviou, crie outra aplicação **de Consola (.NET 
     }
     ```
 
-Eis como deve ser o seu ficheiro *Program.cs:*
+Aqui está o que o seu *programa.cs* arquivo deve ser:
 
 ```csharp
 namespace CoreReceiverApp

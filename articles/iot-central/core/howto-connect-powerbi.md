@@ -1,5 +1,5 @@
 ---
-title: Visualize os seus dados Azure IoT Central num dashboard Power BI / Microsoft Docs
+title: Visualize os seus dados Azure IoT Central num painel de | de painéis de | Microsoft Docs
 description: Utilize a Solução Power BI para Azure IoT Central para visualizar e analisar os seus dados IoT Central.
 ms.service: iot-central
 services: iot-central
@@ -8,10 +8,10 @@ ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
 ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123342"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise os seus dados Azure IoT Central num painel power BI
@@ -55,13 +55,13 @@ Quando abrir o ficheiro PBIX, certifique-se de que lê e segue as instruções n
 
 O ficheiro PBIX contém os dispositivos e o relatório **de telemetria** mostra uma visão histórica da telemetria que foi enviada por dispositivos. Fornece uma desagregação dos diferentes tipos de telemetria, e também mostra a telemetria mais recente enviada por dispositivos.
 
-:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Pipeline de solução de BI de potência":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Power BI Devices e Relatório de Telemetria":::
 
 ## <a name="pipeline-resources"></a>Recursos de gasodutos
 
 Você pode aceder a todos os recursos Azure que compõem o oleoduto no portal Azure. Todos os recursos estão no grupo de recursos que criaste quando criaste o oleoduto.
 
-:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Pipeline de solução de BI de potência":::
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Vista do portal Azure do grupo de recursos":::
 
 A lista que se segue descreve o papel de cada recurso no gasoduto:
 

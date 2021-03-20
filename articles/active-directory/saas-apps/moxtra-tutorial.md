@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Moxtra Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Moxtra | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Moxtra.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
 ms.openlocfilehash: be63ea7ebf905b825ffe73dfc2b37dcdc3bb88fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92507606"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Tutorial: Azure Ative Directory integração única (SSO) com Moxtra
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Moxtra espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção 'Reclamações de Utilizador' no diálogo 'Atributos do Utilizador', execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------------- | -------------------- |    
     | nome de primeiro nome | user.givenname |
     | último nome | utilizador.sobrenome |
@@ -136,7 +136,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Moxtra.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Moxtra**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -154,7 +154,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Em outra janela do navegador, inscreva-se no site da empresa Moxtra como administrador.
 
-2. Na barra de ferramentas à esquerda, clique na **Consola de Admin > S.A. 'Sign-on' único SAML**e, em seguida, clique em **New**.
+2. Na barra de ferramentas à esquerda, clique na **Consola de Admin > S.A. 'Sign-on' único SAML** e, em seguida, clique em **New**.
    
     ![O Screenshot mostra a página de sign-on single SAML com a opção de criar um novo SEML Single Sign-on.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 

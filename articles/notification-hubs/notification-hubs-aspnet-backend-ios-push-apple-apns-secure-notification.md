@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a6c85ba017656bd312ddfe3d5f6d98014a3dc89a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090351"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Hubs de notificação Azure Secure Push
@@ -28,7 +28,7 @@ ms.locfileid: "90090351"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O suporte de notificação push no Microsoft Azure permite-lhe aceder a uma infraestrutura push de fácil utilização, multiplataforma e dimensionada, o que simplifica consideravelmente a implementação de notificações push para aplicações de consumidores e empresas para plataformas móveis.
 

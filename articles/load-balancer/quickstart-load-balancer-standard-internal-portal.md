@@ -16,10 +16,10 @@ ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715467"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando o portal Azure

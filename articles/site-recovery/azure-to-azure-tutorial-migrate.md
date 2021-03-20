@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394837"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Mover VMs para outra região de Azure
@@ -97,12 +97,12 @@ Os passos a seguir mostram como preparar a máquina virtual para o movimento uti
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Em busca, tipo Serviços de Recuperação > clique em cofres dos Serviços de Recuperação
 1. No menu de cofres dos Serviços de Recuperação, clique em +Adicionar.
-1. No **Nome** , especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
+1. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie o grupo de recursos **ContosoRG**.
 1. Selecione uma região do Azure. Para verificar as regiões apoiadas, consulte a disponibilidade geográfica nos [detalhes dos preços de recuperação do local de Azure](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Nos **cofres dos Serviços de Recuperação** , selecione **ContosoVMVault**  >  **Itens replicados**  >  **+Replicate**.
+1. Nos **cofres dos Serviços de Recuperação**, selecione **ContosoVMVault**  >  **Itens replicados**  >  **+Replicate**.
 1. No dropdown, selecione **Azure Virtual Machines**.
-1. Em **Localização de origem** , selecione a região do Azure de origem onde as VMs estão atualmente a ser executadas.
+1. Em **Localização de origem**, selecione a região do Azure de origem onde as VMs estão atualmente a ser executadas.
 1. Selecione o modelo de implementação do Resource Manager. Em seguida, selecione a **subscrição Source** e **o grupo de recursos Source**.
 1. Selecione **OK** para guardar as definições.
 
@@ -111,8 +111,8 @@ Os passos a seguir mostram como preparar a máquina virtual para o movimento uti
 A Recuperação do Site recupera uma lista dos VMs que estão associados ao grupo de subscrição e recursos.
 
 1. No passo seguinte, selecione o VM que pretende mover e, em seguida, selecione **OK**.
-1. Em **Definições** , selecione **Recuperação de Desastres**.
-1. Em **Configurar recuperação após desastre** > **Região de destino** , selecione a região de destino para a qual irá replicar.
+1. Em **Definições**, selecione **Recuperação de Desastres**.
+1. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar.
 1. Para este tutorial, aceite as outras predefinições.
 1. Selecione **Ativar replicação**. Este passo inicia um trabalho para permitir a replicação para o VM.
 
@@ -122,8 +122,8 @@ A Recuperação do Site recupera uma lista dos VMs que estão associados ao grup
 
 Os passos seguintes mostram como realizar a mudança para a região alvo.
 
-1. Vai para o cofre. Em **Definições**  >  **Itens Replicados** , selecione o VM e, em seguida, selecione **Failover**.
-2. Em **Ativação pós-falha** , selecione **Mais recente**.
+1. Vai para o cofre. Em **Definições**  >  **Itens Replicados**, selecione o VM e, em seguida, selecione **Failover**.
+2. Em **Ativação pós-falha**, selecione **Mais recente**.
 3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode acompanhar o progresso falhado na página **Jobs.**
 4. Após o fim do trabalho, verifique se o VM aparece na região de Azure alvo, como esperado.
 

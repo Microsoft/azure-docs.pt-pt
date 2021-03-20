@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086782"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
@@ -41,7 +41,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Pode modificar diretamente as definições de daemon no Docker. Selecione o **ícone de Docker** e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas** .
+    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Pode modificar diretamente as definições de daemon no Docker. Selecione o **ícone de Docker** e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas**.
     
     >[!NOTE]
     >

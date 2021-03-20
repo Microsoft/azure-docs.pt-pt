@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 6ea9be8e7e67a8e52412e7011cfb1d33c9929191
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97486732"
 ---
 Como parte dos pré-requisitos para este arranque rápido, descarregou o código de amostra para uma pasta. Siga estes passos para examinar e editar o código de amostra.
@@ -12,10 +12,10 @@ Como parte dos pré-requisitos para este arranque rápido, descarregou o código
 
     O modelo de implantação refere-se ao manifesto de implantação do dispositivo de borda, onde são utilizadas variáveis para algumas propriedades. O ficheiro *.env* inclui os valores para essas variáveis.
 1. Aceda à pasta *src/cloud-to-device-app.* Aqui vê-se a *appsettings.jsficheiro* e alguns outros ficheiros:
-    * ***operations.jsem** _ - A lista de operações que quer que o programa seja executado.
-    _ ***main.py** _ - O código do programa de amostra. Este código:
+    * ***operations.jsem*** - A lista de operações que quer que o programa seja executado.
+    * ***main.py*** - O código do programa de amostra. Este código:
 
-        _ Carrega as definições da aplicação.
+        * Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](../../../direct-methods.md) 
         * Pausa para que possa examinar a saída do programa na janela **TERMINAL** e examinar os eventos gerados pelo módulo na janela **OUTPUT.**
         * Invoca métodos diretos para limpar recursos.

@@ -9,17 +9,17 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 48f33514510618abadf329a11a9ab71a020be0bd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92479589"
 ---
-1. Abra a página para o seu portal de rede virtual. Pode navegar até ao portal indo para o **nome do seu VNet -> overview -> Dispositivos conectados -> Nome do seu gateway** , embora existam várias outras formas de navegar também.
+1. Abra a página para o seu portal de rede virtual. Pode navegar até ao portal indo para o **nome do seu VNet -> overview -> Dispositivos conectados -> Nome do seu gateway**, embora existam várias outras formas de navegar também.
 1. Na página para o portal, selecione **Connections**. Na parte superior da página 'Ligações', **selecione +Adicionar** para abrir a página **de ligação Adicionar.**
 
    :::image type="content" source="./media/vpn-gateway-add-site-to-site-connection-portal-include/connection.png" alt-text="Ligação site-a-local":::
-1. Na página **Adicionar ligação** , configure os valores para a ligação.
+1. Na página **Adicionar ligação**, configure os valores para a ligação.
 
    * **Nome:** Atribua um nome à sua ligação.
    * **Tipo de ligação:** Selecione **Site-to-site (IPSec)**.
@@ -29,7 +29,7 @@ ms.locfileid: "92479589"
    * Deixe **O endereço IP privado Azure** sem ser verificado.
    * Deixar **Ativar o BGP** sem ser verificado.
    * Selecione **IKEv2**.
-   * Os restantes valores para **Subscrição** , **Grupo de Recursos** e **Localização** são fixos.
+   * Os restantes valores para **Subscrição**, **Grupo de Recursos** e **Localização** são fixos.
 
 1. Selecione **OK** para criar a sua ligação. Verá *A Criar Ligação* a piscar no ecrã.
 1. A ligação é apresentada na página **Ligações** do gateway de rede virtual. O estado será alterado de *Desconhecido* para *A ligar* e, em seguida, *Efetuado com êxito*.

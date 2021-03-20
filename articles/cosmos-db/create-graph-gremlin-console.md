@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: chrande
 ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93361516"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer uma base de dados de grafos do Azure Cosmos DB com a consola do Gremlin
@@ -53,11 +53,11 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Conecte-se ao seu serviço de aplicações/Gráfico
 
 1. Antes de iniciar a Consola Gremlin, crie ou modifique o ficheiro de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Preencha as configurações de *anfitrião* , *porta* , *nome de utilizador* , *palavra-passe* , *connectionPool* e *serializador* , conforme definido na seguinte tabela:
+2. Preencha as configurações de *anfitrião*, *porta*, *nome de utilizador*, *palavra-passe*, *connectionPool* e *serializador*, conforme definido na seguinte tabela:
 
     Definição|Valor sugerido|Descrição
     ---|---|---
-    anfitriões|[ *nome da conta*. **gremlin**.cosmos.azure.com]|Veja a captura de ecrã abaixo. Este é o valor **Gremlin URI** na página geral do portal Azure, em parênteses quadrados, com o trailing :443/ removido. Nota: *Certifique-se* de usar o valor Gremlin, e **não** o URI que termina com [nome de conta .documents.azure.com] o que provavelmente resultaria numa exceção "Host não respondeu em tempo útil" ao tentar executar consultas gremlin mais tarde. 
+    anfitriões|[*nome da conta*. **gremlin**.cosmos.azure.com]|Veja a captura de ecrã abaixo. Este é o valor **Gremlin URI** na página geral do portal Azure, em parênteses quadrados, com o trailing :443/ removido. Nota:*Certifique-se* de usar o valor Gremlin, e **não** o URI que termina com [nome de conta .documents.azure.com] o que provavelmente resultaria numa exceção "Host não respondeu em tempo útil" ao tentar executar consultas gremlin mais tarde. 
     porta|443|Defina como 443.
     nome de utilizador|*O seu nome de utilizador*|O recurso do formulário `/dbs/<db>/colls/<coll>`, em que `<db>` é o nome da base de dados e `<coll>` é o nome da coleção.
     palavra-passe|*A chave primária*| Veja a segunda captura de ecrã abaixo. Esta é a chave primária, que pode ser obtida na página Chaves do portal do Azure, na caixa Chave Primária. Utilize o botão de copiar, no lado esquerdo da caixa, para copiar o valor.
@@ -109,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Criar vértices e margens
 
-Vamos começar por adicionar cinco vértices de pessoas, para *Thomas* , *Mary Kay* , *Robin* , *Ben* e *Jack*.
+Vamos começar por adicionar cinco vértices de pessoas, para *Thomas*, *Mary Kay*, *Robin*, *Ben* e *Jack*.
 
 Entrada (Thomas):
 
@@ -320,7 +320,7 @@ Parabéns! Concluiu este tutorial do Azure Cosmos DB: Gremlin API!
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 No guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer, a criar vértices e margens e a percorrer o gráfico com a consola Gremlin. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

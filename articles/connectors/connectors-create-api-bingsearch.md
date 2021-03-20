@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 306298e4338665ef52add7f46d6da8675c97c3e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716555"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Encontre resultados em Bing Search utilizando aplicações Azure Logic
@@ -52,11 +52,11 @@ Ou, se a sua ligação já existe, forneça as informações necessárias para o
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de pesquisa | Sim | <*palavras de pesquisa*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
-   | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
-   | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
-   | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
+   | Consulta de pesquisa | Yes | <*palavras de pesquisa*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
+   | Mercado | Yes | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
+   | Pesquisa segura | Yes | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
+   | de palavras | No | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | Desvio | No | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 
    Por exemplo:
@@ -103,11 +103,11 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão para consulta dos resultados do gatilho. Pode selecionar a partir dos campos na lista de conteúdos dinâmicos ou criar uma expressão com o construtor de expressão. |
-   | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
-   | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
-   | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
+   | Consulta de pesquisa | Yes | <*expressão de pesquisa*> | Introduza uma expressão para consulta dos resultados do gatilho. Pode selecionar a partir dos campos na lista de conteúdos dinâmicos ou criar uma expressão com o construtor de expressão. |
+   | Mercado | Yes | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
+   | Pesquisa segura | Yes | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
+   | de palavras | No | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | Desvio | No | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 
    Por exemplo, suponha que queira os resultados cujo nome de categoria inclui a palavra "tech".
@@ -150,9 +150,9 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Nome da Ligação | Sim | <*nome de conexão*> | O nome para criar para a sua ligação |
-   | Versão da API | Sim | <*Versão API*> | Por predefinição, a versão API de Pesquisa Bing está definida para a versão atual. Pode selecionar uma versão anterior, se necessário. |
-   | Chave de API | Sim | <*Chave API*> | A chave de API de Pesquisa Bing que recebeu anteriormente. Se não tiver uma chave, obtenha já a sua [chave API.](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api) |  
+   | Nome da Ligação | Yes | <*nome de conexão*> | O nome para criar para a sua ligação |
+   | Versão da API | Yes | <*Versão API*> | Por predefinição, a versão API de Pesquisa Bing está definida para a versão atual. Pode selecionar uma versão anterior, se necessário. |
+   | Chave de API | Yes | <*Chave API*> | A chave de API de Pesquisa Bing que recebeu anteriormente. Se não tiver uma chave, obtenha já a sua [chave API.](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api) |  
    |||||  
 
    Por exemplo:

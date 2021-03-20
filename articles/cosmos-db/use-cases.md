@@ -7,10 +7,10 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 04de6dce6cbab4dc0716ae841707b1d61d6bc375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93073762"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização comuns do Azure Cosmos DB
@@ -61,11 +61,11 @@ Os cenários de utilização de dados do catálogo envolvem armazenar e consulta
 
 Considere um exemplo de um catálogo de produtos para um fornecedor de peças para automóveis. Cada parte pode ter os seus próprios atributos, além dos atributos comuns que todas as partes partilham. Além disso, os atributos para uma peça específica podem mudar no ano seguinte quando um novo modelo é lançado. O Azure Cosmos DB suporta esquemas flexíveis e dados hierárquicos, pelo que é adequado para armazenar dados do catálogo de produtos.
 
-:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Arquitetura de referência de referência Azure Cosmos DB IoT" border="false":::
+:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Arquitetura de referência de catálogo de retalho Azure Cosmos DB" border="false":::
 
 O Azure Cosmos DB é frequentemente usado para o fornecimento de eventos para potenciar arquiteturas orientadas para eventos usando a sua funcionalidade [de feed de mudança.](change-feed.md) O feed de alteração fornece microserviços a jusante a capacidade de ler de forma fiável e incremental inserções e atualizações (por exemplo, eventos de encomenda) feitos a um Azure Cosmos DB. Esta funcionalidade pode ser alavancada para fornecer uma loja de eventos persistente como um corretor de mensagens para eventos que mudam o estado e impulsionar o fluxo de processamento de encomendas entre muitos microserviços (que podem ser implementados como [funções de Azure sem servidor).](https://azure.com/serverless)
 
-:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Arquitetura de referência de referência Azure Cosmos DB IoT" border="false":::
+:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB encomendando arquitetura de referência de gasoduto" border="false":::
 
 Além disso, os dados armazenados no Azure Cosmos DB podem ser integrados com HDInsight para análise de big data através de empregos Apache Spark. Para mais detalhes sobre o Conector de Faíscas para Azure Cosmos DB, consulte [Executar um trabalho de Spark com Cosmos DB e HDInsight](spark-connector.md).
 
@@ -80,7 +80,7 @@ Azure Cosmos DB é usado por jogos como [The Walking Dead: No Man's Land](https:
 * Funcionalidades sociais, incluindo mensagens de chat no jogo, membros do sindicato dos jogadores, desafios concluídos, leaderboards de pontuação alta e gráficos sociais são mais fáceis de implementar com um esquema flexível.
 * A Azure Cosmos DB como uma plataforma gerida como um serviço (PaaS) exigiu um trabalho mínimo de configuração e gestão para permitir uma iteração rápida e reduzir o tempo ao mercado.
 
-:::image type="content" source="./media/use-cases/gaming.png" alt-text="Arquitetura de referência de referência Azure Cosmos DB IoT" border="false":::
+:::image type="content" source="./media/use-cases/gaming.png" alt-text="Arquitetura de referência de jogos Azure Cosmos DB" border="false":::
 
 ## <a name="web-and-mobile-applications"></a>Aplicações Web e móveis
 O Azure Cosmos DB é frequentemente utilizado em aplicações Web e em aplicações móveis e é ideal para modelar interações sociais, integrar com serviços de terceiros e para a criação de experiências personalizadas. Os Cosmos DB SDKs podem ser usados para construir aplicações ricas em iOS e Android usando a popular [estrutura de Xamarin.](mobile-apps-with-xamarin.md)  
@@ -92,14 +92,14 @@ As aplicações que se integram com redes sociais de terceiros devem responder �
 
 Muitas das aplicações sociais são executadas à escala global e podem apresentar padrões de utilização imprevisíveis. A flexibilidade na escala da loja de dados é essencial, uma vez que a camada de aplicação se escala para corresponder à procura de utilização.  Pode escalar adicionando divisórias de dados adicionais numa conta Cosmos DB.  Além disso, também pode criar contas adicionais de Cosmos DB em várias regiões. Para disponibilidade da região de serviços Cosmos DB, consulte [regiões de Azure.](https://azure.microsoft.com/regions/#services)
 
-:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Arquitetura de referência de referência Azure Cosmos DB IoT" border="false":::
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Diagrama que mostra a arquitetura de referência da aplicação web Azure Cosmos DB." border="false":::
 
 ### <a name="personalization"></a>Personalização
 Hoje em dia, as aplicações modernas vêm com vistas e experiências complexas. Estes são tipicamente dinâmicos, atendendo às preferências do utilizador ou humores e necessidades de marca. Assim, as aplicações precisam ser capazes de recuperar configurações personalizadas de forma eficaz para tornar os elementos e experiências de UI rapidamente. 
 
 JSON, um formato suportado pela Cosmos DB, é um formato eficaz para representar dados de layout de UI, uma vez que não só é leve, como também pode ser facilmente interpretado pelo JavaScript. Cosmos DB oferece níveis de consistência incapazes que permitem leituras rápidas com baixas escritas de latência. Assim, armazenar dados de layout de UI, incluindo configurações personalizadas como documentos JSON em Cosmos DB é um meio eficaz para obter estes dados através do fio.
 
-:::image type="content" source="./media/use-cases/personalization.png" alt-text="Arquitetura de referência de referência Azure Cosmos DB IoT" border="false":::
+:::image type="content" source="./media/use-cases/personalization.png" alt-text="Azure Cosmos DB web app arquitetura de referência" border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
 ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96301711"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Criar e utilizar regras personalizadas de Firewall de Aplicação Web v2 no Gateway de Aplicações
@@ -545,7 +545,7 @@ JSON correspondente:
   }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar as suas regras personalizadas, pode aprender a ver os seus registos WAF. Para mais informações, consulte os [diagnósticos do Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 

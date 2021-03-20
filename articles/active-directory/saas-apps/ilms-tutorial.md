@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o iLMS Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | iLMS Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o iLMS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 7289fe2ec1f39679dcec95f1f48a6efa9ed0cdfc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460347"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutorial: Integrar o iLMS com o Azure Ative Directory
@@ -182,7 +182,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
 
 Nesta secção, você permitirá que Britta Simon use Azure single sign-on, concedendo acesso ao iLMS.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **iLMS**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

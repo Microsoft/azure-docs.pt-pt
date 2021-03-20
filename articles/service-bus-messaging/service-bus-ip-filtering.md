@@ -4,10 +4,10 @@ description: Como utilizar as Regras de Firewall para permitir ligações de end
 ms.topic: article
 ms.date: 02/12/2021
 ms.openlocfilehash: e73f566533cb2357653f7f584ec9ca77333c0a63
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100560870"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de endereços ou intervalos IP específicos

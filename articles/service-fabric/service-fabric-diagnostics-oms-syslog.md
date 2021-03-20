@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570207"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster de tecido de serviço Linux em Syslog
@@ -87,7 +87,7 @@ Aqui estão as alterações para chamar
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Integração de registos do Monitor Azure
-Pode ler estes eventos Syslog numa ferramenta de monitorização, como registos do Azure Monitor. Pode criar um espaço de trabalho Log Analytics utilizando o Mercado Azure utilizando estas [instruções]. (.. /azure-monitor/logs/quick-create-workspace.md) Também precisa adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para o espaço de trabalho. Este é o mesmo agente usado para recolher contadores de desempenho. 
+Pode ler estes eventos Syslog numa ferramenta de monitorização, como registos do Azure Monitor. Pode criar um espaço de trabalho Log Analytics utilizando o Mercado Azure utilizando estas [instruções]. (.. /azure-monitor/logs/quick-create-workspace.md) Também é necessário adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para o espaço de trabalho. Este é o mesmo agente usado para recolher contadores de desempenho. 
 
 1. Navegue até a `Advanced Settings` lâmina
 

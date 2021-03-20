@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: 05fbc5675d6ee3b6720d9db9e07e7010cf1d9172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89435662"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurar alertas sobre métricas VPN Gateway
@@ -23,14 +23,14 @@ Este artigo ajuda-o a configurar alertas sobre as métricas do Gateway Azure VPN
 |---       | ---        | ---       | ---            | ---       |
 |**Largura média da largura**| Bytes/s  | 5 minutos| Utilização média combinada da largura de banda de todas as ligações site-to-site no gateway.     |
 |**P2SBandwidth**| Bytes/s  | 1 minuto  | Utilização média combinada da largura de banda de todas as ligações ponto-a-local no gateway.    |
-|**P2SConnectionCount**| Contagem  | 1 minuto  | Contagem de ligações ponto-a-local no portal.   |
+|**P2SConnectionCount**| de palavras  | 1 minuto  | Contagem de ligações ponto-a-local no portal.   |
 |**TunnelAverageBandwidth** | Bytes/s    | 5 minutos  | Utilização média da largura de banda dos túneis criados no portal. |
 |**TunnelEgressBytes** | Bytes | 5 minutos | Tráfego de saída em túneis criados no portal.   |
-|**TunnelEgressPackets** | Contagem | 5 minutos | Contagem de pacotes de saída em túneis criados no portal.   |
-|**TunnelEgressPacketDropTSMismatch** | Contagem | 5 minutos | Contagem de pacotes de saída caídos em túneis causados por desfasamento do selecionador de trânsito. |
+|**TunnelEgressPackets** | de palavras | 5 minutos | Contagem de pacotes de saída em túneis criados no portal.   |
+|**TunnelEgressPacketDropTSMismatch** | de palavras | 5 minutos | Contagem de pacotes de saída caídos em túneis causados por desfasamento do selecionador de trânsito. |
 |**TúnelIngsBytes** | Bytes | 5 minutos | Tráfego de entrada em túneis criados no portal.   |
-|**Pacotes de escavação** | Contagem | 5 minutos | Contagem de pacotes de entrada em túneis criados no portal.   |
-|**TunnelIngressPacketDropTSMismatch** | Contagem | 5 minutos | Contagem de pacotes de entrada caídos em túneis causados por desfasamento do seletor de trânsito. |
+|**Pacotes de escavação** | de palavras | 5 minutos | Contagem de pacotes de entrada em túneis criados no portal.   |
+|**TunnelIngressPacketDropTSMismatch** | de palavras | 5 minutos | Contagem de pacotes de entrada caídos em túneis causados por desfasamento do seletor de trânsito. |
 
 
 ## <a name="set-up-azure-monitor-alerts-based-on-metrics-by-using-the-azure-portal"></a><a name="setup"></a>Configurar alertas do Azure Monitor com base em métricas utilizando o portal Azure

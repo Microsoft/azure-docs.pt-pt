@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 60a182764639341fcda159356dd9fe6c65cfabd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89463829"
 ---
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>Mova um espaço de nome Azure Relay para outra região
@@ -39,7 +39,7 @@ Para começar, exporte um modelo de Gestor de Recursos. Este modelo contém defi
 1. Procure, `location` e substitua o valor do imóvel com o novo nome para a região. Para obter códigos de localização, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/) O código para uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
 1. Remover definições de recursos dinâmicos de **retransmissão wcf** (tipo: `Microsoft.Relay/namespaces/WcfRelays` ). Os relés dinâmicos do WCF são os que têm propriedade **édinâmica** definida para **ser verdadeira** na página **de Relays.** No exemplo seguinte, o **ecoservice** é um relé WCF dinâmico e a sua definição deve ser removida do gabarito. 
 
-    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Baixar modelo de Gestor de Recursos":::
+    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Relés dinâmicos":::
 
 ## <a name="move"></a>Mover
 Implemente o modelo para criar um espaço de nome retransmissor na região alvo. 
@@ -47,19 +47,19 @@ Implemente o modelo para criar um espaço de nome retransmissor na região alvo.
 1. No portal Azure, selecione **Criar um recurso**.
 2. Em **Search the Marketplace**, **digite a implementação** do modelo para o texto de pesquisa, selecione **a implementação do modelo (implementar usando modelos personalizados)** e, em seguida, prima **ENTER**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Baixar modelo de Gestor de Recursos":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Nova implementação do modelo":::    
 1. Na página de implementação do **modelo,** selecione **Criar**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Baixar modelo de Gestor de Recursos":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Nova implementação do modelo - crie botão":::        
 1. Na página **de implementação personalizada,** selecione **Construa o seu próprio modelo no editor**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Baixar modelo de Gestor de Recursos":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Construa o seu próprio modelo no editor - link":::            
 1. Na página do **modelo editar,** selecione Carregar o **ficheiro** na barra de ferramentas e, em seguida, seguir as instruções para carregar o **template.jsno** ficheiro que descarregou na última secção.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Baixar modelo de Gestor de Recursos":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Selecione o modelo":::                
 1. **Selecione Guardar** para guardar o modelo. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Baixar modelo de Gestor de Recursos":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Modelo de poupança":::                    
 1. Na página **de implementação personalizada,** siga estes passos: 
     1. Selecione uma **subscrição Azure**. 
     2. Selecione um grupo de **recursos** existente ou crie um. 
@@ -67,26 +67,26 @@ Implemente o modelo para criar um espaço de nome retransmissor na região alvo.
     4. Introduza um novo **nome para o espaço de nomes.**
     1. Selecione **Rever + criar**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Baixar modelo de Gestor de Recursos":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Implementar o modelo do Gestor de Recursos":::
     1. Na página **'Rever + criar',** selecione **Criar** na parte inferior da página. 
     
 ## <a name="verify"></a>Verificação
 1. Depois de a implementação ter sido bem sucedida, selecione **Ir para o grupo de recursos**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Baixar modelo de Gestor de Recursos":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Ir para a ligação de grupo de recursos":::    
 1. Na página do **grupo Recursos,** selecione o espaço de nomes Azure Relay. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Baixar modelo de Gestor de Recursos":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Selecione espaço de nomes Azure Relay":::    
 1. Na página **Azure Relay namespace,** selecione **Hybrid Connections** ou **WCF Relays** no menu esquerdo para verificar se as ligações híbridas e os relés WCF são criados. Se se esqueceu de apagar definições para retransmissores dinâmicos do WCF antes de importar o modelo, elimine-os na página **de Retransmissores WCF.** Os relés dinâmicos do WCF são criados automaticamente quando os clientes se ligam ao espaço de nomes Relay. 
 
 ## <a name="discard-or-clean-up"></a>Eliminar ou limpar
-Após a implementação, se quiser recomeçar, pode eliminar o **espaço de nomes target Azure Relay**e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
+Após a implementação, se quiser recomeçar, pode eliminar o **espaço de nomes target Azure Relay** e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
 
 Para cometer as alterações e completar o movimento de um espaço de nome, elimine o **espaço de nomeS Azure Relay** na região de origem. 
 
 Para eliminar um espaço de nome Azure Relay (fonte ou alvo) utilizando o portal Azure:
 
-1. Na janela de pesquisa no topo do portal Azure, **escreva Relés**e selecione **Retransmissores** de **Serviços** nos resultados da pesquisa. Você vê todos os espaços de nomes Azure Relay numa lista.
+1. Na janela de pesquisa no topo do portal Azure, **escreva Relés** e selecione **Retransmissores** de **Serviços** nos resultados da pesquisa. Você vê todos os espaços de nomes Azure Relay numa lista.
 2. Selecione o espaço de nome alvo para apagar para abrir a página **'Relay'.** 
 1. Na página **'Retransmissão',** **selecione Eliminar** a partir da barra de ferramentas. 
 

@@ -1,5 +1,5 @@
 ---
-title: Considerações de segurança Microsoft Docs
+title: Considerações de segurança | Microsoft Docs
 description: Este tópico fornece orientações gerais para assegurar o funcionamento do SQL Server numa máquina virtual Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 54010359f226fe02336f039e3dcbb98075e9b06a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97360089"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para o SQL Server em Máquinas Virtuais do Azure

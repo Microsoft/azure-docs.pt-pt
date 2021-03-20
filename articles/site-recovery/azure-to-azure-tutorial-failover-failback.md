@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
 ms.openlocfilehash: 99263c83d25542073d63c1cba394a147bd5b2170
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392865"
 ---
 # <a name="tutorial-fail-over-azure-vms-to-a-secondary-region"></a>Tutorial: Falha sobre VMs de Azure para uma região secundária
@@ -57,10 +57,10 @@ Antes de começar este tutorial, deve ter:
 
 3. Em **Failover,** escolha um ponto de recuperação. O Azure VM na região alvo é criado usando dados deste ponto de recuperação.
   
-   - **Processo mais recente** : Utiliza o último ponto de recuperação processado pela Recuperação do Local. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que fornece um objetivo de tempo de recuperação baixo (RTO).
+   - **Processo mais recente**: Utiliza o último ponto de recuperação processado pela Recuperação do Local. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que fornece um objetivo de tempo de recuperação baixo (RTO).
    -  **Mais recente:** Processa todos os dados enviados para a Recuperação do Local, para criar um ponto de recuperação para cada VM antes de falhar. Fornece o objetivo de ponto de recuperação mais baixo (RPO), porque todos os dados são replicados para a Recuperação do Local quando a falha é desencadeada.
-   - **Aplicações mais recentes consistentes** : Esta opção falha em VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
-   - **Costume** : Falhe no ponto de recuperação particular. O costume só está disponível quando falha num único VM e não usa um plano de recuperação.
+   - **Aplicações mais recentes consistentes**: Esta opção falha em VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
+   - **Costume**: Falhe no ponto de recuperação particular. O costume só está disponível quando falha num único VM e não usa um plano de recuperação.
 
     > [!NOTE]
     > Se adicionar um disco a um VM depois de ativar a replicação, os pontos de replicação mostram os discos disponíveis para recuperação. Por exemplo, um ponto de replicação criado antes de adicionar um segundo disco mostrará como "1 de 2 discos".
@@ -74,12 +74,12 @@ Antes de começar este tutorial, deve ter:
 
     ![Notificação de ](./media/azure-to-azure-tutorial-failover-failback/notification-failover-start.png) ![ progresso Notificação de sucesso](./media/azure-to-azure-tutorial-failover-failback/notification-failover-finish.png)     
 
-5. Após o failover, o Azure VM criado na região alvo aparece em **Máquinas Virtuais**. Certifique-se de que o VM está a funcionar e de tamanho adequado. Se pretender utilizar um ponto de recuperação diferente para o VM, selecione **Alterar o ponto de recuperação** , na página **Essentials.**
+5. Após o failover, o Azure VM criado na região alvo aparece em **Máquinas Virtuais**. Certifique-se de que o VM está a funcionar e de tamanho adequado. Se pretender utilizar um ponto de recuperação diferente para o VM, selecione **Alterar o ponto de recuperação**, na página **Essentials.**
 6. Quando estiver satisfeito com o falhado sobre o VM, **selecione Comprometa-se** na página geral, para terminar a falha.
 
     ![Comprometer botão](./media/azure-to-azure-tutorial-failover-failback/commit-button.png) 
 
-7. In **Commit** , selecione **OK** para confirmar. O Commit elimina todos os pontos de recuperação disponíveis para o VM na Recuperação do Site, e não poderá alterar o ponto de recuperação.
+7. In **Commit**, selecione **OK** para confirmar. O Commit elimina todos os pontos de recuperação disponíveis para o VM na Recuperação do Site, e não poderá alterar o ponto de recuperação.
 
 8. Monitorize o progresso das notificações.
 

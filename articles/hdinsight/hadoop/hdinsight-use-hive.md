@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944289"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e HiveQL em Azure HDInsight?
@@ -20,7 +20,7 @@ A Colmeia permite-lhe projetar estrutura em dados em grande parte não estrutura
 
 O HDInsight fornece vários tipos de cluster, que são sintonizados para cargas de trabalho específicas. Os seguintes tipos de agrupamento são mais utilizados para consultas de Colmeia:
 
-|Tipo de cluster |Descrição|
+|Tipo de cluster |Description|
 |---|---|
 |Interactive Query|Um cluster Hadoop que fornece uma funcionalidade [de processamento analítico de baixa latência (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para melhorar os tempos de resposta para consultas interativas. Para obter mais informações, consulte o Início com Consulta Interativa no documento [HDInsight.](../interactive-query/apache-interactive-query-get-started.md)|
 |Hadoop|Um cluster Hadoop que é sintonizado para cargas de trabalho de processamento de lotes. Para obter mais informações, consulte o [Início com Apache Hadoop no documento HDInsight.](../hadoop/apache-hadoop-linux-tutorial-get-started.md)|
@@ -204,7 +204,7 @@ Para mais informações, consulte a documentação do [Azure Feature Pack.](/sql
 
 Apache Oozie é um sistema de trabalho e coordenação que gere os empregos de Hadoop. Para obter mais informações sobre a utilização de Oozie com Hive, consulte o [Use Apache Oozie para definir e executar um](../hdinsight-use-oozie-linux-mac.md) documento de fluxo de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu o que é a Hive e como usá-la com Hadoop em HDInsight, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 

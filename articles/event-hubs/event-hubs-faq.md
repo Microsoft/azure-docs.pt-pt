@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Az
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98696113"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
@@ -247,7 +247,7 @@ Para um exemplo sobre como direcionar uma versão API de armazenamento específi
 - Python - [Sincronizado,](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) [Assíncronos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

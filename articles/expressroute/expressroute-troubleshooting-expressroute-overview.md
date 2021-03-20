@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204644"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
@@ -319,7 +319,7 @@ StatusCode: 400
 ## <a name="next-steps"></a>Passos Seguintes
 Para mais informações ou ajuda, confira os seguintes links:
 
-- [Suporte à Microsoft][Support]
+- [Suporte da Microsoft][Support]
 - [Criar e modificar um circuito ExpressRoute][CreateCircuit]
 - [Criar e modificar o encaminhamento de um circuito ExpressRoute][CreatePeering]
 
