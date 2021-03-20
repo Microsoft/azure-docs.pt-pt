@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743513"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte para serviços de cloud Azure (Clássico)
@@ -50,7 +50,7 @@ Desconhecido significa que a saúde agregada da implantação do Serviço de Nuv
 Uma vez que as instâncias de função são basicamente VMs e o exame de saúde para VMs é reutilizado para instâncias de função, o termo VM é usado para representar Instâncias de Papel. 
 
 ## <a name="cloud-services-deployment-level-annotations--their-meanings"></a>Notações de serviços em nuvem (nível de implantação) & os seus significados
-| Anotação | Descrição | 
+| Anotação | Description | 
 | --- | --- | 
 | Disponível| Não existem problemas conhecidos da plataforma Azure que afetem esta implementação do Cloud Service |
 | Desconhecido | Atualmente somos incapazes de determinar a saúde desta implementação do Serviço cloud | 
@@ -63,7 +63,7 @@ Uma vez que as instâncias de função são basicamente VMs e o exame de saúde 
 | Desconhecido e talvez impactado | Neste momento, não conseguimos determinar a saúde desta implantação do Serviço cloud. Isto pode ser causado por uma paragem de serviço Azure em curso que pode estar a afetar esta máquina virtual, que irá automaticamente recuperar quando a paralisação for resolvida |
 
 ## <a name="cloud-services-role-instance-level-annotations--their-meanings"></a>Serviços em Nuvem (Nível de Exemplo de Função) Anotações & os seus significados
-| Anotação | Descrição | 
+| Anotação | Description | 
 | --- | --- | 
 | Disponível | Não existem problemas conhecidos da plataforma Azure que afetem esta máquina virtual | 
 | Desconhecido | Atualmente somos incapazes de determinar a saúde desta máquina virtual |

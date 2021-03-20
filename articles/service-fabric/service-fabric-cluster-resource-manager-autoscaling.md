@@ -7,10 +7,10 @@ ms.date: 04/17/2018
 ms.author: miradic
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 060bb9dcdd504846c76ab4c782b2857fdddfa394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91354807"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao Auto Scaling
@@ -46,7 +46,7 @@ O primeiro tipo de gatilho baseia-se na carga de casos numa divisória de servi�
 
 Este gatilho só pode ser utilizado com serviços apátridas (recipientes apátridas ou serviços de Tecido de Serviço). No caso de um serviço ter múltiplas divisórias, o gatilho é avaliado para cada partição separadamente, e cada divisória terá o mecanismo especificado aplicado a ele de forma independente. Assim, neste caso, é possível que algumas das divisórias do serviço sejam escalonadas, algumas serão dimensionadas, e algumas não serão escaladas ao mesmo tempo, com base na sua carga.
 
-O único mecanismo que pode ser usado com este gatilho é o PartitionInstanceInstanceSsssechanchanism. Existem três fatores que determinam como este mecanismo é aplicado:
+O único mecanismo que pode ser usado com este gatilho é o PartitionInstanceInstanceSsechanchanism. Existem três fatores que determinam como este mecanismo é aplicado:
 * _O Incremento de Escala_ determina quantas instâncias serão adicionadas ou removidas quando o mecanismo é acionado.
 * _O Conde de Instância Máxima_ define o limite superior para a escala. Se o número de casos da partição atingir este limite, o serviço não será dimensionado, independentemente da carga. É possível omitir este limite especificando o valor de -1, e nesse caso o serviço será dimensionado o máximo possível (o limite é o número de nós que estão disponíveis no cluster).
 * _O Conde de Instância Mínima_ define o limite inferior para a escala. Se o número de casos da partição atingir este limite, o serviço não será dimensionado independentemente da carga.

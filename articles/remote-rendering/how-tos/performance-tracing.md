@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204100"
 ---
 # <a name="create-client-side-performance-traces"></a>Criar rastreios de desempenho do lado do cliente
@@ -35,13 +35,13 @@ Ao procurar informações sobre vestígios de desempenho, irá inevitavelmente e
 * `WPR`
 * `WPA`
 
-**ETW** significa [ **E**vent **T**corrida para **W**indows](/windows/win32/etw/about-event-tracing). É simplesmente o nome geral para a eficiente instalação de rastreio de nível kernel que é incorporada no Windows. Chama-se rastreio de *eventos,* porque as aplicações que suportam a ETW emitirão eventos para registar ações que podem ajudar a rastrear problemas de desempenho. Por predefinição, o sistema operativo já emite eventos para coisas como acessos a discos, interruptores de tarefas e tal. Aplicações como ARR também emitem eventos personalizados, por exemplo sobre quadros abandonados, lag de rede, etc.
+**ETW** significa [ **E** vent **T** corrida para **W** indows](/windows/win32/etw/about-event-tracing). É simplesmente o nome geral para a eficiente instalação de rastreio de nível kernel que é incorporada no Windows. Chama-se rastreio de *eventos,* porque as aplicações que suportam a ETW emitirão eventos para registar ações que podem ajudar a rastrear problemas de desempenho. Por predefinição, o sistema operativo já emite eventos para coisas como acessos a discos, interruptores de tarefas e tal. Aplicações como ARR também emitem eventos personalizados, por exemplo sobre quadros abandonados, lag de rede, etc.
 
-**ETL** significa **E**vent **T**race **L**ogging. Significa simplesmente que foi recolhido um vestígio (registado) e, portanto, é normalmente usado como extensão de ficheiros para ficheiros que armazenam os dados de rastreio. Assim, quando faz um rastreio, normalmente terá um \* ficheiro .etl depois.
+**ETL** significa **E** vent **T** race **L** ogging. Significa simplesmente que foi recolhido um vestígio (registado) e, portanto, é normalmente usado como extensão de ficheiros para ficheiros que armazenam os dados de rastreio. Assim, quando faz um rastreio, normalmente terá um \* ficheiro .etl depois.
 
-**WPR** significa [ **W**indows **P**erformance **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) e é o nome da aplicação que inicia e impede a gravação de vestígios de eventos. O WPR toma um ficheiro de perfil \* (.wprp) que configura quais os eventos exatos para registar. Tal `wprp` ficheiro é fornecido com o ARR SDK. Ao fazer rastreios num pc de secretária, pode lançar o WPR diretamente. Ao fazer um rastreio nos HoloLens, normalmente passa-se pela interface web.
+**WPR** significa [ **W** indows **P** erformance **R** ecorder](/windows-hardware/test/wpt/windows-performance-recorder) e é o nome da aplicação que inicia e impede a gravação de vestígios de eventos. O WPR toma um ficheiro de perfil \* (.wprp) que configura quais os eventos exatos para registar. Tal `wprp` ficheiro é fornecido com o ARR SDK. Ao fazer rastreios num pc de secretária, pode lançar o WPR diretamente. Ao fazer um rastreio nos HoloLens, normalmente passa-se pela interface web.
 
-**WPA** significa [ **W**indows **P**erformance **A**nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) e é o nome da aplicação GUI que é usada para abrir \* ficheiros .etl e vasculhar os dados para identificar problemas de desempenho. O WPA permite-lhe classificar dados por vários critérios, exibir os dados de várias formas, pesquisar detalhes e correlacionar informações.
+**WPA** significa [ **W** indows **P** erformance **A** nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) e é o nome da aplicação GUI que é usada para abrir \* ficheiros .etl e vasculhar os dados para identificar problemas de desempenho. O WPA permite-lhe classificar dados por vários critérios, exibir os dados de várias formas, pesquisar detalhes e correlacionar informações.
 
 Enquanto os vestígios ETL podem ser criados em qualquer dispositivo Windows (PC local, HoloLens, servidor de nuvem, etc.), são normalmente guardados para o disco e analisados com WPA num PC de secretária. Os ficheiros ETL podem ser enviados para outros desenvolvedores para que possam dar uma vista de olhos. Esteja ciente de que informações sensíveis, tais como caminhos de ficheiros e endereços IP, podem ser capturadas em vestígios ETL, no entanto. Pode utilizar a ETW de duas formas: gravar vestígios ou analisar vestígios. Os vestígios de gravação são diretos e requer uma configuração mínima. Analisar vestígios, por outro lado, requer uma compreensão decente tanto da ferramenta WPA como do problema que está a investigar. O material geral para a aprendizagem do WPA será dado abaixo, bem como diretrizes para como interpretar vestígios específicos do ARR.
 
@@ -51,7 +51,7 @@ Para identificar problemas de desempenho do ARR, deve preferir fazer um rastreio
 
 ### <a name="wpr-configuration"></a>Configuração WPR
 
-1. Lance o menu [:::no-loc text="Windows Performance Recorder":::](/windows-hardware/test/wpt/windows-performance-recorder) inicial. *start menu*
+1. Lance o menu [:::no-loc text="Windows Performance Recorder":::](/windows-hardware/test/wpt/windows-performance-recorder) inicial. 
 1. Expandir **Mais Opções**
 1. Clique **em Adicionar Perfis...**
 1. Selecione o ficheiro *AzureRemoteRenderingNetworkProfiling.wprp*. Pode encontrar este ficheiro no ARR SDK em *Ferramentas/ETLProfiles*.

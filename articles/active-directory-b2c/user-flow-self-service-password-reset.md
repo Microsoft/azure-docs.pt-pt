@@ -1,5 +1,5 @@
 ---
-title: Senha de autosserviço reiniciada no Azure Ative Directory B2C Microsoft Docs
+title: Autosserviço de senha reiniciada no Azure Ative Directory B2C | Microsoft Docs
 description: Demonstra como configurar o reset da palavra-passe de autosserviço para os seus clientes no Azure Ative Directory B2C
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87481500"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurar reset de senha de autosserviço para os seus clientes

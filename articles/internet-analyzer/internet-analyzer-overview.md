@@ -1,5 +1,5 @@
 ---
-title: Azure Internet Analyzer / Microsoft Docs
+title: Azure Internet Analyzer | Microsoft Docs
 description: Saiba mais sobre o Azure Internet Analyzer
 services: internet-analyzer
 author: megan-beatty
@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91360893"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>O que é o Analisador de Internet? (Pré-visualização)
@@ -43,7 +43,7 @@ Durante a pré-visualização, estão disponíveis os seguintes pontos finais pr
     * E.U.A. Leste
     * Oeste do Japão
     * Europa do Norte
-    * África do Sul Norte
+    * Norte da África do Sul
     * Sudeste Asiático 
     * Uae Norte
     * Oeste do Reino Unido  

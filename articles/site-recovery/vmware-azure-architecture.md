@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5cf4dc5123040fd2af8efe54153867a8709fe1ef
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652233"
 ---
-# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do VMware para o Azure
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para Azure arquitetura de recuperação de desastres
 
 Este artigo descreve a arquitetura e os processos utilizados quando implementa a replicação, falha e recuperação de máquinas virtuais VMware (VMs) entre um site VMware no local e Azure utilizando o serviço de Recuperação do [Local Azure.](site-recovery-overview.md)
 

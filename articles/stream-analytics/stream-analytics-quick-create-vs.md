@@ -7,10 +7,10 @@ ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.openlocfilehash: 7a02d0914ae111d6e2e00493fe27613e27d836b1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012364"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio
@@ -44,7 +44,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados, que são p
    |---------|---------|---------|
    |Subscrição  | \<Your subscription\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
-   |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
+   |Region  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
    |Nome do hub IoT  | MyASAIotHub  |   Selecione um nome para o seu Hub IoT.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
@@ -112,7 +112,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
-   |Alias de Entrada  |  Input   |  Introduza um nome para identificar a entrada da tarefa.   |
+   |Alias de Entrada  |  Entrada   |  Introduza um nome para identificar a entrada da tarefa.   |
    |Tipo de Fonte   |  Fluxo de Dados |  Escolha a origem de entrada adequada: Fluxo de Dados ou Dados de Referência.   |
    |Origem  |  IoT Hub |  Escolha a origem de entrada adequada.   |
    |Recurso  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
@@ -200,7 +200,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 2. Na página do grupo de recursos, selecione **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o Visual Studio. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [PowerShell](stream-analytics-quick-create-powershell.md). 
 

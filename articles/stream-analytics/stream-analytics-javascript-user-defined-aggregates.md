@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: e9695a268d1c6ec43a737afd36536e4ec2a41a41
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012483"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics JavaScript agregados definidos pelo utilizador
@@ -227,7 +227,7 @@ Crie um ficheiro JSON local com conteúdo abaixo, faça o upload do ficheiro par
 
 Para obter ajuda adicional, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

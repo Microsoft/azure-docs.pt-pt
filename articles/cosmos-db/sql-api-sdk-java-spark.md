@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 7ff75bf9d45803dd96927bcf7c70e7c7912db979
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097163"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark Connector for Core (SQL) API: Liberar notas e recursos
@@ -44,7 +44,7 @@ Pode utilizar o conector com [Azure Databricks](https://azure.microsoft.com/serv
 
 | Componente | Versão |
 |---------|-------|
-| Apache Spark | 2.4. *x* , 2.3. *x* , 2.2. *x* , e 2.1. *x* |
+| Apache Spark | 2.4.*x*, 2.3. *x*, 2.2. *x*, e 2.1. *x* |
 | Scala | 2.11 |
 | Azure Databricks (versão runtime) | Mais tarde que 3.4 |
 
@@ -58,7 +58,7 @@ Pode utilizar o conector com [Azure Databricks](https://azure.microsoft.com/serv
 
 | Recurso | Ligação |
 |---|---|
-| **Transferência de SDK** | [Baixar mais recentemente .jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
+| **Transferência de SDK** | [Baixar os mais recentes .jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**Documentação da API** | [Referência do conector de faíscas]() |
 |**Contribuir para o SDK** | [Conector DB Azure Cosmos para Faísca Apache no GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
 |**Introdução** | [Acelere a análise de big data usando o conector Apache Spark para Azure Cosmos DB](./spark-connector.md#bk_working_with_connector) <br> [Use o Fluxo Estruturado de Faíscas Apache com Apache Kafka e Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
@@ -75,7 +75,7 @@ Pode utilizar o conector com [Azure Databricks](https://azure.microsoft.com/serv
 
 ### <a name="311"></a>3.1.1
 #### <a name="key-bug-fixes"></a>Correções de erros chave
-* Fixa uma caixa de borda de verificação de streaming em que o `ID` contém o caractere do tubo (/) com o `ChangeFeedMaxPagesPerBatch` config aplicado.
+* Fixa uma caixa de borda de verificação de streaming em que `ID` o contém o caractere do tubo (|) com o `ChangeFeedMaxPagesPerBatch` config aplicado.
 
 ### <a name="310"></a>3.1.0
 #### <a name="new-features"></a>Novas funcionalidades

@@ -1,5 +1,5 @@
 ---
-title: Introdução à Azure Network Watcher Connection Troubleshoot Microsoft Docs
+title: Introdução à Azure Network Watcher | Microsoft Docs
 description: Esta página fornece uma visão geral da capacidade de resolução de problemas de conexão do Observador de Rede
 services: network-watcher
 documentationcenter: na
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 9c855fff9e5791b9c0cf870acfc6de53e7a700b2
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654001"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à resolução de problemas de conexão no Observador da Rede Azure

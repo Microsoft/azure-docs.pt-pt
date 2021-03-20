@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
 ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021954"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introdução à Palavra-passe Personalizada
@@ -77,6 +77,6 @@ Antes de utilizar uma palavra-chave personalizada, tem de criar uma palavra-chav
 [!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/keyword-recognition/keyword-basics-objc.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Teste a sua palavra-chave personalizada com os [dispositivos de fala SDK Quickstart](./speech-devices-sdk-quickstart.md?pivots=platform-android).

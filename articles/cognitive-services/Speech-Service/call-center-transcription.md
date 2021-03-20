@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021971"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
@@ -70,7 +70,7 @@ A nossa latência de ponta a ponta é consideravelmente baixa para as várias te
 
 As nossas novas vozes também são indistinguíveis das vozes humanas. Podes usar as nossas vozes para dar ao teu bot a sua personalidade única.
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Pesquisar
 
 Outro fundamento da análise é identificar interações onde ocorreu um evento ou experiência específico. Isto é normalmente feito com uma de duas abordagens; ou uma pesquisa ad hoc onde o utilizador simplesmente escreve uma frase e o sistema responde, ou uma consulta mais estruturada onde um analista pode criar um conjunto de declarações lógicas que identificam um cenário numa chamada, e então cada chamada pode ser indexada contra esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade ubíqua "esta chamada deve ser registada para fins de qualidade... ". Muitas empresas querem certificar-se de que os seus agentes estão a fornecer esta isenção de responsabilidade aos clientes antes de a chamada ser realmente gravada. A maioria dos sistemas de análise tem a capacidade de tendência para os comportamentos encontrados por algoritmos de consulta/pesquisa, e este relato de tendências é, em última análise, uma das funções mais importantes de um sistema de análise. Através do [diretório de serviços cognitivos,](https://azure.microsoft.com/services/cognitive-services/directory/search/) a sua solução final-final pode ser significativamente melhorada com capacidades de indexação e pesquisa.
 
@@ -121,7 +121,7 @@ Outro cenário é a integração direta com o Protocolo de Iniciação da Sessã
 
  O serviço Speech funciona bem com modelos embutidos. No entanto, é melhor personalizar e afinar ainda mais a experiência para o seu produto ou ambiente. As opções de personalização vão desde a sintonização de modelos acústicos a fontes de voz únicas para a sua marca. Depois de ter construído um modelo personalizado, pode usá-lo com qualquer uma das funcionalidades do serviço Speech em tempo real ou em modo de lote.
 
-| Serviço de voz | Modelação | Descrição |
+| Serviço de voz | Modelação | Description |
 | -------------- | ----- | ----------- |
 | Conversão de voz em texto | [Modelo acústico](./how-to-custom-speech-train-model.md) | Crie um modelo acústico personalizado para aplicações, ferramentas ou dispositivos que sejam utilizados em ambientes particulares, como num carro ou num piso de fábrica, cada um com condições de gravação específicas. Exemplos incluem discurso acentuado, ruídos de fundo específicos, ou usar um microfone específico para a gravação. |
 |                | [Modelo de linguagem](./how-to-custom-speech-train-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e gramática específicos da indústria, como terminologia médica, ou jargão de TI. |
@@ -144,7 +144,7 @@ O código de amostra está disponível no GitHub para cada uma das funcionalidad
 - [REST API: Texto-a-discurso](rest-text-to-speech.md)
 - [REST API: Transcrição e personalização do lote](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)

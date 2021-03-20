@@ -8,10 +8,10 @@ ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
 ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91301206"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Como integrar o RabbitMQ com o Azure Service Bus
@@ -38,27 +38,27 @@ No portal Azure, clique no botão grande mais para adicionar um novo recurso
 
 Em seguida, selecione Integração e clique no Azure Service Bus para criar um espaço de nome de mensagens:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Selecione ônibus da Azure Service":::
 
 Serão solicitados a introduzir a informação do espaço de nome. Selecione a subscrição do Azure que pretende utilizar. Se não tiver um [grupo de recursos,](../azure-resource-manager/management/manage-resource-groups-portal.md)pode criar um novo.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Create namespace":::
 
 Use `rabbitmq` `Namespace name` para, mas pode ser o que quiser. Em seguida, definir `East US` para o local. Escolha `Basic` como o preço.
 
 Se tudo correr bem, deve ver o seguinte ecrã de confirmação:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Criar confirmação de espaço de nome":::
 
 Em seguida, no portal Azure, verá o seu novo `rabbitmq` espaço de nome listado lá. Clique nele para aceder ao recurso para que possa adicionar uma fila ao mesmo.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Lista de recursos com novo espaço de nome":::
 
 ## <a name="creating-our-azure-service-bus-queue"></a>Criar a nossa fila de autocarros Azure Service
 
 Agora que tem o seu espaço de nomes Azure Service Bus, clique `Queues` no botão à esquerda, para `Entities` que possa adicionar uma nova fila:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Criar fila":::
 
 O nome da fila será `from-rabbitmq` apenas como um lembrete de onde vêm as mensagens. Pode deixar todas as outras opções como padrão, mas pode alterá-las de acordo com as necessidades da sua app.
 
@@ -78,21 +78,21 @@ Agora é hora de obter as credenciais necessárias para ligar RabbitMQ a Azure.
 
 Terá de criar uma Política de [Acesso Partilhado](../storage/common/storage-sas-overview.md) (SAS) para a sua fila, para que o RabbitMQ possa publicar mensagens para a sua fila. Uma Política SAS permite-lhe especificar o que é permitido a parte externa fazer com o seu recurso. A ideia é que o RabbitMQ seja capaz de enviar mensagens, mas não ouvir ou gerir a fila.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Adicionar política SAS":::
 
 Marque a `Send` caixa e, em seguida, clique `Create` para ter a nossa Política SAS no lugar.
 
 Uma vez criada a política, clique nele para ver a **Cadeia de Ligação Primária**. Vamos usá-lo para deixar o RabbitMQ falar com a Azure Service Bus:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Obter política SAS":::
 
 Antes de poder utilizar essa cadeia de ligação, terá de convertê-la no formato de ligação AMQP da RabbitMQ. Então vá para a [ferramenta de conversor de cordas de ligação](https://red-mushroom-0f7446a0f.azurestaticapps.net/) e cole a sua cadeia de ligação no formulário, clique em converter. Terá uma ligação que está pronta para o RabbitMQ. (Esse site executa tudo o que é local no seu navegador para que os seus dados não são enviados através do fio). Pode aceder ao seu código fonte no [GitHub.](https://github.com/videlalvaro/connstring_to_amqp)
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Converter cadeia de conexão":::
 
 Agora abra o plugin de gestão RabbitMQ nos nossos navegadores `http://localhost:15672/#/dynamic-shovels` e vá `Admin -> Shovel Management` para, onde você pode adicionar a sua nova pá que cuidará de enviar mensagens de uma fila RabbitMQ para a sua fila de ônibus de serviço Azure.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Adicionar pá de coelhinhomq":::
 
 Ligue para a sua Pá `azure` e escolha como protocolo de `AMQP 0.9.1` origem. Na imagem, temos `amqp://` , que é o URI padrão que nos liga a um servidor RabbitMQ local. Certifique-se de que o adapta à sua atual implantação.
 
@@ -110,15 +110,15 @@ No `Address` campo vamos inserir o nome da sua fila de **autocarros Azure Servic
 
 Na interface De Gestão RabbitMQ podemos `Queues` ir, selecionar a `azure` fila e procurar o `Publish message` painel. Aparecerá um formulário que lhe permitirá publicar mensagens diretamente na sua fila. Para o nosso exemplo, vamos apenas adicionar `fist message` como o e bater `Payload` `Publish Message` :
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publicar primeira mensagem":::
 
 Volte para Azure e inspecione a sua fila. Clique `Service Bus Explorer` no painel esquerdo e, em seguida, clique no botão _Peek._ Se tudo correr bem, verá que a sua fila agora tem uma mensagem. Parabéns!
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Fila de ônibus de serviço Azure":::
 
 Mas vamos certificar-nos de que a mensagem é a que enviaste do RabbitMQ. Selecione o `Peek` separador e clique no `Peek` botão para recuperar as últimas mensagens na sua fila. Clique na mensagem para inspecionar o seu conteúdo. Devia ver algo como a imagem abaixo onde está `first message` listado.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Criar um recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Espreitar a fila":::
 
 ## <a name="lets-recap"></a>Vamos Recapitular
 

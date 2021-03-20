@@ -7,10 +7,10 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94445159"
 ---
 # <a name="hierarchical-state-override"></a>Substituição do estado hierárquico
@@ -28,32 +28,32 @@ Como exemplo, considere o modelo de um carro e pretende trocar todo o carro para
 
 O conjunto fixo de estados que podem ser ultrapassados são:
 
-* **`Hidden`** : As respetivas malhas no gráfico de cena são ocultas ou mostradas.
-* **`Tint color`** : Um objeto renderizado pode ser colorido com a sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a cor da borda de uma roda.
+* **`Hidden`**: As respetivas malhas no gráfico de cena são ocultas ou mostradas.
+* **`Tint color`**: Um objeto renderizado pode ser colorido com a sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a cor da borda de uma roda.
   
   ![Cor de tonalidade usada para tornar um objeto verde](./media/color-tint.png)
 
-* **`See-through`** : A geometria é tornada semi-transparente, por exemplo, para revelar as partes interiores de um objeto. A imagem a seguir mostra todo o carro a ser renderizado em modo see-through, com exceção da pinça do travão vermelho:
+* **`See-through`**: A geometria é tornada semi-transparente, por exemplo, para revelar as partes interiores de um objeto. A imagem a seguir mostra todo o carro a ser renderizado em modo see-through, com exceção da pinça do travão vermelho:
 
   ![Modo transparente utilizado para tornar os objetos selecionados transparentes](./media/see-through.png)
 
   > [!IMPORTANT]
   > O efeito see-through só funciona quando o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* é utilizado.
 
-* **`Shell`** : A geometria é transformada como uma concha transparente e dessaturada. Este modo permite desvanecer partes não importantes de uma cena, mantendo ainda uma sensação de forma e posicionamento relativo. Para alterar a aparência da renderização da concha, utilize o estado [ShellRenderingSettings.](shell-effect.md) Veja a seguinte imagem para o modelo do carro inteiramente renderizado, com exceção das molas azuis:
+* **`Shell`**: A geometria é transformada como uma concha transparente e dessaturada. Este modo permite desvanecer partes não importantes de uma cena, mantendo ainda uma sensação de forma e posicionamento relativo. Para alterar a aparência da renderização da concha, utilize o estado [ShellRenderingSettings.](shell-effect.md) Veja a seguinte imagem para o modelo do carro inteiramente renderizado, com exceção das molas azuis:
 
   ![Modo de concha usado para desbotar objetos específicos](./media/shell.png)
 
   > [!IMPORTANT]
   > O efeito da concha só funciona quando o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* é utilizado.
 
-* **`Selected`** : A geometria é prestada com um [esboço de seleção](outlines.md).
+* **`Selected`**: A geometria é prestada com um [esboço de seleção](outlines.md).
 
   ![Opção de contorno usada para destacar uma parte selecionada](./media/selection-outline.png)
 
-* **`DisableCollision`** : A geometria está isenta de [consultas espaciais.](spatial-queries.md) A **`Hidden`** bandeira não afeta a bandeira do estado de colisão, por isso estas duas bandeiras são muitas vezes colocadas juntas.
+* **`DisableCollision`**: A geometria está isenta de [consultas espaciais.](spatial-queries.md) A **`Hidden`** bandeira não afeta a bandeira do estado de colisão, por isso estas duas bandeiras são muitas vezes colocadas juntas.
 
-* **`UseCutPlaneFilterMask`** : Utilize uma máscara de broca de filtro individual para controlar a seleção do plano cortado. Esta bandeira determina se a máscara de filtro individual deve ser usada ou herdada do seu progenitor. A máscara de bit de filtro em si é definida através da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre o funcionamento da filtragem, consulte o [parágrafo dos planos de corte seletivo](cut-planes.md#selective-cut-planes). Veja o exemplo seguinte onde apenas o pneu e a borda são cortados enquanto o resto da cena permanece inalterado.
+* **`UseCutPlaneFilterMask`**: Utilize uma máscara de broca de filtro individual para controlar a seleção do plano cortado. Esta bandeira determina se a máscara de filtro individual deve ser usada ou herdada do seu progenitor. A máscara de bit de filtro em si é definida através da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre o funcionamento da filtragem, consulte o [parágrafo dos planos de corte seletivo](cut-planes.md#selective-cut-planes). Veja o exemplo seguinte onde apenas o pneu e a borda são cortados enquanto o resto da cena permanece inalterado.
 ![Aviões de corte seletivo](./media/selective-cut-planes-hierarchical-override.png)
 
 

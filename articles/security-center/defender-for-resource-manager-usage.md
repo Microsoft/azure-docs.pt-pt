@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 54790795aab8aac247e17198159130d7139dd38c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754743"
 ---
-# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Responda aos alertas do Azure Defender para o Gestor de Recursos
+# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Responder a alertas do Azure Defender para Resource Manager
 
 Quando receber um alerta do Azure Defender para o Gestor de Recursos, recomendamos que investigue e responda ao alerta conforme descrito abaixo. O Azure Defender for Resource Manager protege todos os recursos conectados, por isso mesmo que esteja familiarizado com a aplicação ou utilizador que desencadeou o alerta, é importante verificar a situação em torno de cada alerta.  
 

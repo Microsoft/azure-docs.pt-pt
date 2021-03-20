@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99095646"
 ---
-# <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aparelhos virtuais em rede em Azure
+# <a name="network-virtual-appliance-issues-in-azure"></a>Problemas relativos a aplicações virtuais de rede no Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336246"
 ---
 # <a name="server-parameters"></a>Parâmetros do servidor
@@ -47,7 +47,7 @@ A hiperescala (Citus) valida assim a versão do código e a da correspondência 
 
 Este valor não é verdadeiro e é eficaz no coordenador. Em casos raros, processos de atualização complexos podem exigir a definição deste parâmetro como falso, desativando assim a verificação.
 
-#### <a name="cituslog_distributed_deadlock_detection-boolean"></a>citus.log \_ distribuído \_ \_ deteção de impasse (boolean)
+#### <a name="cituslog_distributed_deadlock_detection-boolean"></a>citus.log \_ deteção de impasse distribuído \_ \_ (booleano)
 
 Se registar o processamento distribuído de deteção de impasse no registo do servidor. Não é falso.
 
@@ -141,7 +141,7 @@ Durante a grande mesa, a Hyperscale (Citus) pode ter de repartir dinamicamente e
 Utilize o formato de cópia binária para transferir dados entre o coordenador e os trabalhadores. Ao executar consultas distribuídas, os trabalhadores transferem os seus resultados intermédios para o coordenador para agregação final. Por predefinição, estes dados são transferidos em formato de texto. O habilitar este parâmetro instrui a base de dados a utilizar o formato binário de serialização do PostgreSQL para transferir estes dados.
 Este parâmetro pode ser definido em tempo de execução e é eficaz no coordenador.
 
-#### <a name="citusmax_intermediate_result_size-integer"></a>citus.max \_ tamanho do resultado intermédio \_ \_ (inteiro)
+#### <a name="citusmax_intermediate_result_size-integer"></a>citus.max tamanho \_ do resultado intermédio \_ \_ (inteiro)
 
 A dimensão máxima em KB dos resultados intermédios para os CTEs que não podem ser empurrados para baixo para os nós dos trabalhadores para a execução, e para subqueries complexos. O padrão é de 1 GB, e um valor de -1 significa que não há limite.
 As consultas que excedam o limite serão canceladas e produzirão uma mensagem de erro.
@@ -212,7 +212,7 @@ Este valor de configuração determina o comprimento desse período de sono. Est
 Este parâmetro pode ser diminuído para atenuar o atraso causado devido ao executor de rastreador de tarefas, reduzindo o intervalo de tempo entre as rondas de gestão.
 Diminuir o atraso é útil nos casos em que as consultas de fragmentos são curtas e, portanto, atualizar o seu estado regularmente.
 
-##### <a name="citusmax_assign_task_batch_size-integer"></a>citus.max \_ atribuir tamanho do lote de tarefa \_ \_ \_ (inteiro)
+##### <a name="citusmax_assign_task_batch_size-integer"></a>citus.max atribuir \_ \_ o tamanho do lote de tarefa \_ \_ (inteiro)
 
 O executor de rastreador de tarefas do coordenador atribui sincronizadamente tarefas em lotes ao daemon sobre os trabalhadores. Este parâmetro define o número máximo de tarefas a atribuir num único lote. Escolher um tamanho de lote maior permite uma tarefa mais rápida. No entanto, se o número de trabalhadores for elevado, então pode demorar mais tempo para que todos os trabalhadores obtenham tarefas.  Este parâmetro pode ser definido em tempo de execução e é eficaz no coordenador.
 

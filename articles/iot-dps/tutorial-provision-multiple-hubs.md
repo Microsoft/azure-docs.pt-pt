@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316005"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Dispositivos de provisão através de hubs IoT equilibrados em carga
@@ -45,10 +45,10 @@ A lista de inscrição informa o Serviço Aprovisionamento de Dispositivos sobre
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-A política de alocação é uma definição do Serviço Aprovisionamento de Dispositivos que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
+A política de alocação é uma definição do Serviço Aprovisionamento de Dispositivos que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
 
 1. **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa para o dispositivo.
-2. **Distribuição ponderada uniformemente** (predefinição): os hubs IoT associados são igualmente suscetíveis de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
+2. **Distribuição ponderada uniformemente** (predefinição): os hubs IoT associados são igualmente suscetíveis de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
 3. **Configuração estática através da lista de inscrição**: a especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação ao nível do Serviço Aprovisionamento de Dispositivos.
 
 Siga estes passos para definir a política de alocação:

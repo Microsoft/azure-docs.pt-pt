@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100096213"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerencie os seus dispositivos conectados a partir da página dispositivos

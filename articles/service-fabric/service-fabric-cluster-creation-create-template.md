@@ -4,10 +4,10 @@ description: Saiba como criar um modelo de Gestor de Recursos para um cluster de
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: b028b5c1f32733146c071e50b24202e5bad945c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260487"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Crie um modelo de gestor de recursos de cluster de tecido de serviço
@@ -24,13 +24,13 @@ Antes de implantar um cluster de produção para executar cargas de trabalho de 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 Os modelos do Gestor de Recursos da Amostra estão disponíveis nas [amostras do Azure no GitHub.](https://github.com/Azure-Samples/service-fabric-cluster-templates) Estes modelos podem ser usados como ponto de partida para o seu modelo de cluster.
 
-Este artigo utiliza o modelo de exemplo [de cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype] e os parâmetros do modelo. Faça * o downloadazuredeploy.js* eazuredeploy.parameters.js* no* seu computador e abra ambos os ficheiros no seu editor de texto favorito.
+Este artigo utiliza o modelo de exemplo [de cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype] e os parâmetros do modelo. Faça *o downloadazuredeploy.js* eazuredeploy.parameters.js *no* seu computador e abra ambos os ficheiros no seu editor de texto favorito.
 
 > [!NOTE]
 > Para as nuvens nacionais (Governo Azure, Azure China, Azure Germany), também deve adicionar o seguinte `fabricSettings` ao seu modelo: `AADLoginEndpoint` e `AADTokenEndpointFormat` `AADCertEndpointFormat` .
 
 ## <a name="add-certificates"></a>Adicionar certificados
-Você adiciona certificados a um modelo de Gestor de Recursos de cluster, referindo-se ao cofre de chaves que contém as teclas de certificado. Adicione esses parâmetros e valores de cofre-chave num ficheiro de parâmetros do gestor de recursos* (azuredeploy.parameters.js).*
+Você adiciona certificados a um modelo de Gestor de Recursos de cluster, referindo-se ao cofre de chaves que contém as teclas de certificado. Adicione esses parâmetros e valores de cofre-chave num ficheiro de parâmetros do gestor de recursos *(azuredeploy.parameters.js).*
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Adicione todos os certificados à escala de máquina virtual conjunto osProfile
 Todos os certificados instalados no cluster devem ser configurados na secção **osProfile** do recurso conjunto de escala (Microsoft.Compute/virtualMachineScaleSets). Esta ação instrui o fornecedor de recursos a instalar o certificado nos VMs. Esta instalação inclui tanto o certificado de cluster como quaisquer certificados de segurança de aplicação que planeie utilizar para as suas aplicações:
@@ -132,7 +132,7 @@ O certificado de autenticação do cluster deve ser configurado tanto no recurso
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adicione a configuração AD AZure para usar Azure AD para acesso ao cliente
 
-Adicione a configuração AD AD do Azure a um modelo de Gestor de Recursos de cluster, fazendo referência ao cofre de chaves que contém as teclas de certificado. Adicione os parâmetros e valores AD do Azure num ficheiro de parâmetros do gestor de recursos* (azuredeploy.parameters.jsem*). 
+Adicione a configuração AD AD do Azure a um modelo de Gestor de Recursos de cluster, fazendo referência ao cofre de chaves que contém as teclas de certificado. Adicione os parâmetros e valores AD do Azure num ficheiro de parâmetros do gestor de recursos *(azuredeploy.parameters.jsem*). 
 
 > [!NOTE]
 > Em Linux, os inquilinos e utilizadores da AD Azure devem ser criados antes de criar o cluster.  Para mais informações, leia [Configurar AD AZure para autenticar clientes.](service-fabric-cluster-creation-setup-aad.md)

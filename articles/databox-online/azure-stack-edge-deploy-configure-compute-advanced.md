@@ -1,5 +1,5 @@
 ---
-title: Tutorial para filtrar, analisar dados para implementação avançada com computação no Azure Stack Edge Pro Microsoft Docs
+title: Tutorial para filtrar, analisar dados para implementação avançada com computação no Azure Stack Edge Pro | Microsoft Docs
 description: Aprenda a configurar o papel de computação no Azure Stack Edge Pro e use-o para transformar dados para fluxo de implementação avançado antes de enviar para a Azure.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97968293"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transforme dados com Azure Stack Edge Pro para fluxo avançado de implementação

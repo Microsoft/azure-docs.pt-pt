@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: search
 author: HeidiSteen
 ms.service: cognitive-search
@@ -9,17 +9,17 @@ ms.date: 05/11/2020
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: fe5c8129434ddb4eec2dd25a3f123f28b4db221b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83682642"
 ---
 Um serviço de pesquisa é limitado pelo espaço do disco ou por um limite rígido no número máximo de índices ou indexadores, o que vier primeiro. Os seguintes limites de armazenamento de documentos de tabela. Para obter limites máximos de objetos, consulte [limites por recurso.](../articles/search/search-limits-quotas-capacity.md#index-limits)
 
 | Recurso | Gratuito | Básico<sup>1</sup> | S1 | S2 | S3 | S3 &nbsp; HD | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contrato de nível de serviço (SLA)<sup>2</sup>  |Não |Sim |Sim |Sim |Sim |Sim |Sim |Sim |
+| Contrato de nível de serviço (SLA)<sup>2</sup>  |No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
 | Armazenamento por partição |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | Partições por serviço |N/D |1 |12 |12 |12 |3 |12 |12 |
 | Tamanho da partição |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

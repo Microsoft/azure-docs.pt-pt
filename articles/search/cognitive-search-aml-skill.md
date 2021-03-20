@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630280"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidade AML num oleoduto de enriquecimento de pesquisa cognitiva Azure

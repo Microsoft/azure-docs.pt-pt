@@ -1,5 +1,5 @@
 ---
-title: Amostras de código para Azure Ative Directory v1.0 Microsoft Docs
+title: Amostras de código para Azure Ative Directory v1.0 | Microsoft Docs
 description: Fornece um índice de amostras de código Azure Ative (v1.0 endpoint), organizadas por cenário.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,10 +15,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 662a0f53a5d5e8e02ef3b29640009fd07bf4f1d0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652149"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código do Azure Ative Directory (ponto final v1.0)

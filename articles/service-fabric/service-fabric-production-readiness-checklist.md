@@ -4,10 +4,10 @@ description: Prepare a sua aplicação de Tecido de Serviço e produção de clu
 ms.topic: conceptual
 ms.date: 6/05/2019
 ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87835872"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção

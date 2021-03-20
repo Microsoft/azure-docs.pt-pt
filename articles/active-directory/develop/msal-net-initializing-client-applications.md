@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600286"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialize as aplicações do cliente utilizando MSAL.NET
@@ -96,7 +96,7 @@ Nos cortes de código que utilizam os construtores de aplicações, uma série d
 
 Os modificadores que pode definir num cliente público ou um construtor de aplicações de clientes confidenciais são:
 
-|Modificador | Descrição|
+|Modificador | Description|
 |--------- | --------- |
 |`.WithAuthority()` 7 sobreposições | Define a autoridade de incumprimento do pedido a uma autoridade AD Azure, com a possibilidade de escolher a Nuvem Azure, o público, o inquilino (ID do inquilino ou nome de domínio), ou fornecer diretamente a autoridade URI.|
 |`.WithAdfsAuthority(string)` | Define a autoridade por incumprimento do pedido como uma autoridade ADFS.|
@@ -115,7 +115,7 @@ Os modificadores que pode definir num cliente público ou um construtor de aplic
 
 Os modificadores que pode definir num construtor de aplicações de cliente público em Xamarin.iOS são:
 
-|Modificador | Descrição|
+|Modificador | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Apenas Xamarin.iOS**: Define o grupo de segurança do porta-chaves iOS (para a persistência da cache).|
 
@@ -123,7 +123,7 @@ Os modificadores que pode definir num construtor de aplicações de cliente púb
 
 Os modificadores que pode definir num construtor de aplicações de cliente confidencial são:
 
-|Modificador | Descrição|
+|Modificador | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Define o certificado que identifica o pedido com Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Define o segredo do cliente (palavra-passe de aplicação) identificando a aplicação com Azure AD.|

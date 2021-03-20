@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b3907882df09bfae1d6453fbffbd3e7562554f7c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010881"
 ---
 * **Política Integrada:** As VPNs de Política foram anteriormente chamadas de gateways de encaminhamento estático no modelo clássico de implantação. As VPNs baseadas em políticas encriptam e directizam pacotes através de túneis IPsec com base nas políticas IPsec configuradas com as combinações de prefixos de endereço entre a sua rede no local e o VNet Azure. Normalmente, a política (ou o seletor de tráfego), é definido como uma lista de acesso na configuração do dispositivo VPN. O valor para um tipo VPN baseado em política é *o PolicyBased*. Ao utilizar uma VPN VPN de 400% de política, tenha em mente as seguintes limitações:

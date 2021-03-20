@@ -1,5 +1,5 @@
 ---
-title: Obtenha detalhes utilizando a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp ; Microsoft Docs
+title: Obtenha detalhes utilizando a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp | Microsoft Docs
 description: Fornece um guia para executar o comando de detalhes da ferramenta Azure Application Consistent Snapshot que pode utilizar com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 43d358f7050dcc831f9f2bf439fba6e688ee633b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632904"
 ---
 # <a name="obtain-details-using-azure-application-consistent-snapshot-tool-preview"></a>Obtenha detalhes usando a ferramenta Azure Application Consistent Snapshot (pré-visualização)

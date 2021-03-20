@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com smartvid.io Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com smartvid.io | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o smartvid.io.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 40579331630eb62fc7b34d63e9945c90db2214f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>Tutorial: Integração do Diretório Ativo Azure com smartvid.io

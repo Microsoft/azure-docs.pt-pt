@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: e2578b47d27ef062d83ba8621a49e9a8f439897c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919030"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referência - escolha um protocolo de comunicação
@@ -71,6 +71,6 @@ Os dispositivos podem comunicar com o IoT Hub em Azure utilizando vários protoc
 
 Depois de ter criado um hub IoT numa região de Azure, o hub IoT mantém o mesmo endereço IP para a vida daquele hub IoT. No entanto, se a Microsoft mudar o hub IoT para uma unidade de escala diferente para manter a qualidade do serviço, então é atribuído um novo endereço IP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como o IoT Hub implementa o protocolo MQTT, consulte [Comunicar com o seu hub IoT utilizando o protocolo MQTT](iot-hub-mqtt-support.md).

@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
 ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754339"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções adicionais de ameaças no Centro de Segurança Azure
@@ -65,7 +65,7 @@ Para obter uma lista dos alertas do Azure Defender para o Gestor de Recursos, co
 
 Os alertas DB do Azure Cosmos são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar contas DB do Azure Cosmos.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Proteção avançada de ameaças para Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [A lista de alertas de proteção contra ameaças para Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)

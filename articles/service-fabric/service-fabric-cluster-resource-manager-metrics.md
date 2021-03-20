@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173010"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestão do consumo de recursos e carga em Tecido de Serviço com métricas
@@ -19,13 +19,13 @@ ms.locfileid: "92173010"
 Coisas como memória, disco e uso de CPU são exemplos de métricas. Estas métricas são métricas físicas, recursos que correspondem a recursos físicos no nó que precisam de ser geridos. As métricas também podem ser (e geralmente são) métricas lógicas. Métricas lógicas são coisas como "MyWorkQueueDepth" ou "MessagesToProcess" ou "TotalRecords". As métricas lógicas são definidas pela aplicação e correspondem indiretamente a algum consumo físico de recursos. As métricas lógicas são comuns porque pode ser difícil medir e reportar o consumo de recursos físicos numa base de serviço. A complexidade de medir e reportar as suas próprias métricas físicas é também a razão pela qual o Service Fabric fornece algumas métricas padrão.
 
 ## <a name="default-metrics"></a>Métricas padrão
-Digamos que quer começar a escrever e a implementar o seu serviço. Neste momento não sabe que recursos físicos ou lógicos consome. Não há problema! O Gestor de Recursos do Cluster de Tecido de Serviço utiliza algumas métricas padrão quando não são especificadas outras métricas. São:
+Digamos que quer começar a escrever e a implementar o seu serviço. Neste momento não sabe que recursos físicos ou lógicos consome. Não há problema! O Gestor de Recursos do Cluster de Tecido de Serviço utiliza algumas métricas padrão quando não são especificadas outras métricas. A saber:
 
   - PrimaryCount - contagem de réplicas primárias no nó 
   - ReplicaCount - contagem de réplicas totais no nó
   - Conde - contagem de todos os objetos de serviço (apátridas e imponentes) no nó
 
-| Métrica | Carga apátrida de instância | Carga Secundária Imponente | Carga Primária Imponente | Peso |
+| Metric | Carga apátrida de instância | Carga Secundária Imponente | Carga Primária Imponente | Peso |
 | --- | --- | --- | --- | --- |
 | Contagem primária |0 |0 |1 |Alto |
 | ReplicaCount |0 |1 |1 |Médio |

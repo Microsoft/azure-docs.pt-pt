@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: cdd6c9da5a1895d4aadd73133734cd4c8204ecf1
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742170"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services-classic"></a>O que fazer em caso de uma rutura do serviço Azure que impacte a Azure Cloud Services (clássico)
@@ -55,7 +55,7 @@ Dependendo das fontes de dados da sua aplicação, poderá ter de verificar os p
 ## <a name="option-3-wait-for-recovery"></a>Opção 3: Aguardar a recuperação
 Neste caso, não é necessária qualquer ação da sua parte, mas o seu serviço estará indisponível até que a região seja restaurada. Pode ver o estado atual do serviço no Painel de Saúde do [Serviço Azure](https://azure.microsoft.com/status/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como implementar uma estratégia de recuperação de desastres e alta disponibilidade, consulte [a recuperação de desastres e a elevada disponibilidade para aplicações Azure.](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 Para desenvolver uma compreensão técnica detalhada das capacidades de uma plataforma em nuvem, consulte [a orientação técnica de resiliência do Azure](/azure/architecture/checklist/resiliency-per-service).

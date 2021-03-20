@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89231151"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
@@ -32,11 +32,11 @@ A arquitetura de relatórios no Azure AD consiste nos seguintes componentes:
 
 - **Relatórios de atividade** 
     - [Iniciar s-ins](concept-sign-ins.md) – Fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador
-    - [Registos de auditoria](concept-audit-logs.md) - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. 
+    - [Registos de auditoria](concept-audit-logs.md) - Fornece rastreabilidade através de registos para todas as alterações efetuadas por várias funcionalidades dentro do Azure AD. 
     
 - **Relatórios de segurança** 
-    - [Inícios de sessão de risco](../identity-protection/overview-identity-protection.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
-    - [Utilizadores sinalizados para risco](../identity-protection/overview-identity-protection.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
+    - [Entradas arriscadas](../identity-protection/overview-identity-protection.md) - Um sinal de risco é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador. 
+    - [Utilizadores sinalizados para o risco](../identity-protection/overview-identity-protection.md) - Um utilizador de risco é um indicador para uma conta de utilizador que pode ter sido comprometida. 
 
 Este artigo lista as atividades de auditoria que podem ser registadas nos seus registos de auditoria.
 

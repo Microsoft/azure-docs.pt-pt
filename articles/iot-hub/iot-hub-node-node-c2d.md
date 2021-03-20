@@ -1,5 +1,5 @@
 ---
-title: Mensagens em nuvem-para-dispositivo com Azure IoT Hub (Nó) Microsoft Docs
+title: Mensagens em nuvem para dispositivo com Azure IoT Hub (Nó) | Microsoft Docs
 description: Como enviar mensagens nuvem-para-dispositivo para um dispositivo a partir de um hub Azure IoT usando os SDKs Azure IoT para Node.js. Modifica uma aplicação de dispositivo simulada para receber mensagens nuvem-a-dispositivo e modifica uma aplicação de back-end para enviar as mensagens cloud-to-device.
 author: wesmc7777
 manager: philmea
@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91446882"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envie mensagens nuvem-para-dispositivo com IoT Hub (Node.js)

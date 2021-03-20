@@ -1,5 +1,5 @@
 ---
-title: Utilize o dashboard connected Factory - Azure / Microsoft Docs
+title: Utilize o painel de instrumentos da Fábrica Conectada - Azure | Microsoft Docs
 description: Este artigo descreve como utilizar as funcionalidades do dashboard Connected Factory para monitorizar e gerir os seus dispositivos IoT industriais.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
 ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011222"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Utilize funcionalidades no painel de aceleração de solução de fábrica conectada

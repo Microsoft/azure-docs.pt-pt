@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 6f92c138a02c9dbdc1d22ca04c733cfbee69dcd0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94488524"
 ---
 # <a name="how-to-configure-your-azure-application-offer-properties"></a>Como configurar a sua aplicação Azure oferece propriedades
@@ -23,7 +23,7 @@ Na página **Propriedades,** definirá as categorias aplicáveis à sua oferta e
 
 ## <a name="select-a-category-for-your-offer"></a>Selecione uma categoria para a sua oferta
 
-Em **Categorias** , selecione o link **Categories** e, em seguida, escolha pelo menos uma e até duas categorias para agrupar a sua oferta nas áreas de pesquisa de mercado comercial apropriadas. Selecione até duas subcategorias para cada categoria primária e secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+Em **Categorias**, selecione o link **Categories** e, em seguida, escolha pelo menos uma e até duas categorias para agrupar a sua oferta nas áreas de pesquisa de mercado comercial apropriadas. Selecione até duas subcategorias para cada categoria primária e secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
 
 ## <a name="provide-terms-and-conditions"></a>Fornecer termos e condições
 
@@ -74,7 +74,7 @@ Nos termos da **emenda Universal ao contrato padrão para a** caixa de mercado c
 
 Pode optar por fornecer os seus próprios termos e condições, em vez do contrato padrão. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
 
-1. De acordo com a **Legal** , certifique-se de que **o Uso do Contrato Padrão para** a caixa de verificação do mercado comercial da Microsoft está limpo.
+1. De acordo com a **Legal**, certifique-se de que **o Uso do Contrato Padrão para** a caixa de verificação do mercado comercial da Microsoft está limpo.
 1. Na caixa **de Termos e Condições,** introduza até 10.000 caracteres de texto.
 1. **Selecione Guardar o rascunho** antes de continuar para o separador seguinte: Oferta de listagem.
 

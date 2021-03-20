@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
 ms.openlocfilehash: 58d547995d39505da18a6bca1a6c3925b95252a6
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97978904"
 ---
 Para configurar a Speech SDK para aceitar a entrada de áudio comprimido, criar `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` a partir de um exemplo da sua classe de fluxo, especificando o formato de compressão do fluxo.

@@ -1,5 +1,5 @@
 ---
-title: Começa com a gestão de dispositivos Azure IoT Hub (Python) Microsoft Docs
+title: Começa com a gestão de dispositivos Azure IoT Hub (Python) | Microsoft Docs
 description: Como utilizar a gestão do dispositivo IoT Hub para iniciar um reboot remoto de dispositivos. Você usa o Azure IoT SDK para Python para implementar uma aplicação de dispositivo simulado que inclui um método direto e uma aplicação de serviço que invoca o método direto.
 author: robinsh
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: d4c514042b89341b90b0bb9c939ef4b463741916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87872723"
 ---
 # <a name="get-started-with-device-management-python"></a>Começar com a gestão de dispositivos (Python)
@@ -30,7 +30,7 @@ Este tutorial mostrar-lhe como:
 
 No final deste tutorial, você tem duas aplicações de consola Python:
 
-* **dmpatterns_getstarted_device.py**, que se conecta ao seu hub IoT com a identidade do dispositivo criada anteriormente, recebe um método de reinicialização direta, simula um reboot físico e relata a hora do último reboot.
+* **dmpatterns_getstarted_device.py**, que se conecta ao seu hub IoT com a identidade do dispositivo criada anteriormente, recebe um método direto de reinicialização, simula um reboot físico e informa a hora do último reboot.
 
 * **dmpatterns_getstarted_service.py**, que chama um método direto na aplicação do dispositivo simulado, exibe a resposta e exibe as propriedades relatadas atualizadas.
 
@@ -42,7 +42,7 @@ No final deste tutorial, você tem duas aplicações de consola Python:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

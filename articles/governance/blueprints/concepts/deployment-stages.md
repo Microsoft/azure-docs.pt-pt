@@ -4,10 +4,10 @@ description: Aprenda os passos relacionados com a segurança e artefactos que os
 ms.date: 01/27/2021
 ms.topic: conceptual
 ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918556"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema
@@ -54,7 +54,7 @@ Uma falha de acesso por uma implantação é muitas vezes o resultado do nível 
 
 Uma vez concluídas as implementações, a Azure Blueprints revoga os direitos da identidade gerida **atribuída pelo sistema** a partir da subscrição. Em seguida, o serviço Azure Blueprints revoga os seus direitos da subscrição. A remoção de direitos impede que a Azure Blueprints se torne proprietária permanente de uma subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](./parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](./sequencing-order.md).

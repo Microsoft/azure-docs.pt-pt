@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: baanders
 ms.openlocfilehash: 919cc934920d922a82ceb9e30630006627af44e9
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92205501"
 ---
 ## <a name="prerequisites-permission-requirements"></a>Pré-requisitos: Requisitos de permissão

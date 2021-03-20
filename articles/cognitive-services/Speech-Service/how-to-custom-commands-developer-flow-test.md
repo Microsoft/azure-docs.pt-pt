@@ -12,10 +12,10 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c0bd21f55fee4d8487826deae23093ede293c8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021818"
 ---
 # <a name="test-your-custom-commands-application"></a>Teste a sua Aplicação de Comandos Personalizados
@@ -52,7 +52,7 @@ Para outras linguagens e plataformas de programação:
 - [Linguagems de programação SDK de fala, plataformas, capacidades de cenário](./speech-sdk.md)
 - [Códigos de amostra de assistente de voz](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

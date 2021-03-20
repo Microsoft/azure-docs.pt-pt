@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89565587"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Quickstart: Implementar uma instância de contentor em Azure utilizando a Azure PowerShell
@@ -88,7 +88,7 @@ Quando o estado do contentor `ProvisioningState` passar a **Com êxito**, navegu
 
 ![IIS implementado com o Azure Container Instances visto no browser][qs-powershell-01]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar o recipiente, retire-o com o cmdlet [Remove-AzContainerGroup:][Remove-AzContainerGroup]
 

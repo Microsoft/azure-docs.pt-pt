@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
 ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89568783"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ligue-se aos VMs Azure após a queda do local 
@@ -77,7 +77,7 @@ Como alternativa à atribuição manual de um endereço IP público a um VM Azur
 
 Para definir o endereço IP interno de um VM Azure após o failover, você tem algumas opções:
 
-- **Reter**o mesmo endereço IP : Pode utilizar o mesmo endereço IP no Azure VM que o atribuído à máquina no local.
+- **Reter** o mesmo endereço IP : Pode utilizar o mesmo endereço IP no Azure VM que o atribuído à máquina no local.
 - **Utilize diferentes endereços IP**: Pode utilizar um endereço IP diferente para o VM Azure.
 
 
@@ -141,7 +141,7 @@ Antes de falhar, especifique as definições de rede e o endereço IP para o tar
 2. Na página **Compute and Network** para a máquina, clique em **Editar,** para configurar as definições de rede e adaptador para o target Azure VM.
 3. Nas **propriedades da Rede**, selecione a rede alvo na qual o VM Azure será localizado quando for criado após a falha.
 4. Nas **interfaces de rede,** configurar os adaptadores de rede na rede alvo. Por predefinição, a Recuperação do Local mostra todos os NICs detetados na máquina no local.
-    - No **tipo de interface de rede Target** pode definir cada NIC como **Primário,** **Secundário**ou **Não criar** se não precisar desse NIC específico na rede alvo. Um adaptador de rede deve ser definido como primário para o failover. Note que modificar a rede alvo afeta todos os NICs para o VM Azure.
+    - No **tipo de interface de rede Target** pode definir cada NIC como **Primário,** **Secundário** ou **Não criar** se não precisar desse NIC específico na rede alvo. Um adaptador de rede deve ser definido como primário para o failover. Note que modificar a rede alvo afeta todos os NICs para o VM Azure.
     - Clique no nome NIC para especificar a sub-rede na qual o VM Azure será implantado.
     - Overwrite **Dynamic** com o endereço IP privado que pretende atribuir ao alvo Azure VM. Se um endereço IP não for especificado, a Recuperação do Site atribuirá o próximo endereço IP disponível na sub-rede ao NIC no failover.
     - [Saiba mais](site-recovery-manage-network-interfaces-on-premises-to-azure.md) sobre a gestão de NICs para falhas no local para Azure.

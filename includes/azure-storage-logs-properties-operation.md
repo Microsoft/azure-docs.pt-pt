@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
 ms.openlocfilehash: 2474b8920c5387c7896b413f229c2f5b06cdafb1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011188"
 ---
 | Propriedade | Descrição |
@@ -16,7 +16,7 @@ ms.locfileid: "96011188"
 |**Hora** | O tempo universal coordenado (UTC) quando o pedido foi recebido por armazenamento. Por exemplo: `2018/11/08 21:09:36.6900118`.|
 |**recursosId** | A identificação de recursos da conta de armazenamento. Por exemplo: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
 |**categoria** | A categoria da operação solicitada. Por exemplo: `StorageRead` `StorageWrite` , ou . `StorageDelete` .|
-|**operaçãoName** | O tipo de operação REST que foi realizada. <br> Para obter uma lista completa de operações, consulte [o tópico de Operações Registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)do Storage Analytics . |
+|**operationName** | O tipo de operação REST que foi realizada. <br> Para obter uma lista completa de operações, consulte [o tópico de Operações Registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)do Storage Analytics . |
 |**operaçãoVer** | A versão do serviço de armazenamento que foi especificada quando o pedido foi feito. Isto equivale ao valor do cabeçalho **versão x-ms.** Por exemplo: `2017-04-17`.|
 |**schemaVersão** | A versão do esquema do registo. Por exemplo: `1.0`.|
 |**statusCode** | O código de estado HTTP para o pedido. Se o pedido for interrompido, este valor poderá ser definido para `Unknown` . <br> Por exemplo: `206` |

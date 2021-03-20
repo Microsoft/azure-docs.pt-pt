@@ -1,5 +1,5 @@
 ---
-title: Buscar fichas de assinatura de acesso partilhado em código Cofre da Chave Azure
+title: Buscar fichas de assinatura de acesso partilhado em código | Cofre da Chave Azure
 description: A funcionalidade de conta de armazenamento gerida proporciona uma integração perfeita entre o Azure Key Vault e uma conta de armazenamento Azure. Esta amostra utiliza o Azure SDK para .NET para gerir fichas SAS.
 ms.topic: tutorial
 ms.service: key-vault
@@ -10,10 +10,10 @@ manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a0202c5259ccebedf03ade217f57b6305b9fa1b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94444933"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Crie a definição SAS e pegue fichas de assinatura de acesso partilhado em código
