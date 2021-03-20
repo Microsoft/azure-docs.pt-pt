@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Work.com Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Work.com | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Work.com.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Diretório Ativo Azure com Work.com
@@ -49,7 +49,7 @@ Para configurar a integração de Work.com no AD Azure, é necessário adicionar
 
 **Para adicionar Work.com da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração de Work.com no AD Azure, é necessário adicionar
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Work.com** , selecione **Work.com** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, escreva **Work.com**, selecione **Work.com** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
     ![Work.com na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com Work.com com base num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com Work.com com base num utilizador de teste chamado **Britta Simon**.
 Para um único s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Work.com.
 
 Para configurar e testar o Azure AD com Work.com, é necessário completar os seguintes blocos de construção:
@@ -88,7 +88,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Work.com,** selecione **'S-on' único** .
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Work.com,** selecione **'S-on' único**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
 1. Inscreva-se no seu inquilino Work.com como administrador.
 
-2. Ir para **a Configuração** .
+2. Ir para **a Configuração**.
    
     ![A screenshot mostra a configuração selecionada a partir do menu do utilizador.](./media/work-com-tutorial/ic794108.png "Configuração")
 
@@ -135,17 +135,17 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
    
     ![A screenshot mostra My Domain Select Domain Management in the Administrar painel.](./media/work-com-tutorial/ic767825.png "Meu Domínio")
 
-4. Para verificar se o seu domínio foi configurado corretamente, certifique-se de que está no " **Passo 4 Implantado para os Utilizadores** " e reveja as suas " **Definições de Domínio** ".
+4. Para verificar se o seu domínio foi configurado corretamente, certifique-se de que está no "**Passo 4 Implantado para os Utilizadores**" e reveja as suas "**Definições de Domínio**".
    
     ![Domínio implantado para utilizador](./media/work-com-tutorial/ic784377.png "Domínio implantado para utilizador")
 
 5. Inscreva-se no seu inquilino Work.com.
 
-6. Ir para **a Configuração** .
+6. Ir para **a Configuração**.
     
     ![A screenshot mostra a configuração selecionada a partir do menu do utilizador.](./media/work-com-tutorial/ic794108.png "Configuração")
 
-7. Expanda o menu **Controlos de Segurança** e, em seguida, clique em **Definições de Sign-On únicas** .
+7. Expanda o menu **Controlos de Segurança** e, em seguida, clique em **Definições de Sign-On únicas**.
     
     ![Definições de Sign-On única](./media/work-com-tutorial/ic794113.png "Definições de Sign-On única")
 
@@ -153,9 +153,9 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
     
     ![ATIVADO SAML](./media/work-com-tutorial/ic781026.png "ATIVADO SAML")
     
-    a. Selecione **SAML Ativado** .
+    a. Selecione **SAML Ativado**.
     
-    b. Clique **em Novo** .
+    b. Clique **em Novo**.
 
 9. Na secção **Definições de Sign-On Única SAML,** execute os seguintes passos:
     
@@ -168,31 +168,31 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
     
     b. Na caixa de texto **emitente,** cole o valor do **Identificador AD Azure** que copiou do portal Azure.
     
-    c. Para fazer o upload do certificado descarregado a partir do portal Azure, clique em **Procurar** .
+    c. Para fazer o upload do certificado descarregado a partir do portal Azure, clique em **Procurar**.
     
     d. Na caixa de texto **Id da Entidade,** escreva `https://salesforce-work.com` .
     
-    e. Como **Tipo de Identidade SAML,** **selecione Assertion contém o ID da Federação a partir do objeto do Utilizador** .
+    e. Como **Tipo de Identidade SAML,** **selecione Assertion contém o ID da Federação a partir do objeto do Utilizador**.
     
-    f. Como **Local de Identidade SAML,** selecione Identidade está no elemento **NomeIdentfier da declaração do sujeito** .
+    f. Como **Local de Identidade SAML,** selecione Identidade está no elemento **NomeIdentfier da declaração do sujeito**.
     
     exemplo, Na caixa de texto **URL do Fornecedor de Identidade,** cole o valor do URL de **login** que copiou do portal Azure.
 
     h. Na caixa de texto **URL do Fornecedor de Identidade,** cole o valor do URL **logout** que copiou do portal Azure.
     
-    i. Como **prestador de serviços iniciou a ligação de pedido** , selecione HTTP **Post** .
+    i. Como **prestador de serviços iniciou a ligação de pedido**, selecione HTTP **Post**.
     
-    j. Clique em **Guardar** .
+    j. Clique em **Guardar**.
 
 10. No seu portal clássico Work.com, no painel de navegação à esquerda, clique em **Gestão de Domínio** para expandir a secção relacionada e, em seguida, clique em **My Domain** para abrir a página **My Domain.** 
     
     ![A screenshot mostra o meu domínio selecionado a partir da Gestão de Domínios.](./media/work-com-tutorial/ic794115.png "Meu Domínio")
 
-11. Na página **My Domain,** na secção de Marcação de Página de Início de **Sessão,** clique em **Editar** .
+11. Na página **My Domain,** na secção de Marcação de Página de Início de **Sessão,** clique em **Editar**.
     
     ![A screenshot mostra a secção de marcação de página de login onde pode selecionar editar.](./media/work-com-tutorial/ic767826.png "Marcação de página de login")
 
-12. Na página de **marcação de página de início de sessão,** na secção Serviço de **Autenticação,** é apresentado o nome das suas **Definições SSO SAML.** Selecione-o e, em seguida, clique em **Guardar** .
+12. Na página de **marcação de página de início de sessão,** na secção Serviço de **Autenticação,** é apresentado o nome das suas **Definições SSO SAML.** Selecione-o e, em seguida, clique em **Guardar**.
     
     ![A screenshot mostra o início de página de marcação onde pode selecionar o nome da sua definição, que é P E.](./media/work-com-tutorial/ic784366.png "Marcação de página de login")
 
@@ -200,7 +200,7 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -212,27 +212,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, permitindo o acesso a Work.com.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **Work.com** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Work.com**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Work.com** .
+2. Na lista de candidaturas, selecione **Work.com**.
 
     ![O link Work.com na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -254,7 +254,7 @@ Para que os utilizadores do Azure Ative Directory possam inscrever-se, devem ser
 
 1. Inscreva-se no site da empresa Work.com como administrador.
 
-2. Ir para **a Configuração** .
+2. Ir para **a Configuração**.
    
     ![A screenshot mostra a configuração selecionada a partir do menu do utilizador.](./media/work-com-tutorial/ic794108.png "Configuração")
 
@@ -262,7 +262,7 @@ Para que os utilizadores do Azure Ative Directory possam inscrever-se, devem ser
    
     ![Gerir utilizadores](./media/work-com-tutorial/IC784369.png "Gerir Utilizadores")
 
-4. Clique **em Novo Utilizador** .
+4. Clique **em Novo Utilizador**.
    
     ![Todos os Utilizadores](./media/work-com-tutorial/IC794117.png "All Users")
 
@@ -270,21 +270,21 @@ Para que os utilizadores do Azure Ative Directory possam inscrever-se, devem ser
    
     ![Edição de Utilizador](./media/work-com-tutorial/ic794118.png "Edição de Utilizador")
    
-    a. Na caixa de texto **Name Name,** digite o **primeiro nome** do utilizador **Britta** .
+    a. Na caixa de texto **Name Name,** digite o **primeiro nome** do utilizador **Britta**.
     
-    b. Na caixa de texto **Do Último Nome,** digite o **apelido** do utilizador **Simon** .
+    b. Na caixa de texto **Do Último Nome,** digite o **apelido** do utilizador **Simon**.
     
-    c. Na caixa de texto **Alias,** digite o **nome** do utilizador **BrittaS** .
+    c. Na caixa de texto **Alias,** digite o **nome** do utilizador **BrittaS**.
     
     d. Na caixa de texto **por e-mail,** digite o endereço de **e-mail** do Brittasimon@contoso.com utilizador.
     
     e. Na caixa de texto **do Nome do Utilizador,** digite um nome de utilizador do utilizador como Brittasimon@contoso.com .
     
-    f. Na caixa de texto **Nick Name,** escreva um **nome nick** do utilizador **Simon** .
+    f. Na caixa de texto **Nick Name,** escreva um **nome nick** do utilizador **Simon**.
     
-    exemplo, Selecione **Função,** **Licença de Utilizador** e **Perfil** .
+    exemplo, Selecione **Função,** **Licença de Utilizador** e **Perfil**.
     
-    h. Clique em **Guardar** .  
+    h. Clique em **Guardar**.  
       
     > [!NOTE]
     > O titular da conta AZure AD receberá um e-mail incluindo um link para confirmar a conta antes de ficar ativa.

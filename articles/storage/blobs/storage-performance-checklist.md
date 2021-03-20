@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544756"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
@@ -33,9 +33,9 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 | &nbsp; |Metas de escalabilidade |[Um grande número de clientes está a aceder a uma única bolha simultaneamente?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |Metas de escalabilidade |[A sua aplicação está dentro dos alvos de escalabilidade para uma única bolha?](#bandwidth-and-operations-per-blob) |
 | &nbsp; |Criação de partições |[A sua convenção de nomeação foi concebida para permitir um melhor equilíbrio de cargas?](#partitioning) |
-| &nbsp; |Redes |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
-| &nbsp; |Redes |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
-| &nbsp; |Redes |[O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
+| &nbsp; |Rede |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
+| &nbsp; |Rede |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
+| &nbsp; |Rede |[O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
 | &nbsp; |Acesso direto ao cliente |[Está a utilizar assinaturas de acesso partilhado (SAS) e partilha de recursos de origem cruzada (CORS) para permitir o acesso direto ao Azure Storage?](#sas-and-cors) |
 | &nbsp; |Colocação em cache |[A sua aplicação é de caching dados que são frequentemente acedidos e raramente alterados?](#reading-data) |
 | &nbsp; |Colocação em cache |[A sua aplicação está a fazer atualizações de loteamento, caching-las no cliente e, em seguida, a carregá-las em conjuntos maiores?](#uploading-data-in-batches) |
@@ -116,7 +116,7 @@ Pode seguir algumas boas práticas para reduzir a frequência de tais operaçõe
   
 - Para obter mais informações sobre o esquema de partição utilizado no Azure Storage, consulte [o Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Os constrangimentos físicos da rede da aplicação podem ter um impacto significativo no desempenho. As seguintes secções descrevem algumas das limitações que os utilizadores podem encontrar.  
 

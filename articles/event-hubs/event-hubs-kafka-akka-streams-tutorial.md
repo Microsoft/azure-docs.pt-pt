@@ -1,13 +1,13 @@
 ---
-title: Usando Akka Streams para Apache Kafka - Azure Event Hubs / Microsoft Docs
+title: Usando fluxos Akka para Apache Kafka - Azure Event Hubs| Microsoft Docs
 description: Este artigo fornece informações sobre como ligar a Akka Streams a um centro de eventos Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 92ab927189329493696c70b61ffc7f11cad22a66
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369578"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar o Akka Streams com os Hubs de Eventos para o Apache Kafka
@@ -35,7 +35,7 @@ Para completar este tutorial, certifique-se de que tem os seguintes pré-requisi
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Faça o download](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
-* [Rio Git](https://www.git-scm.com/downloads)
+* [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos

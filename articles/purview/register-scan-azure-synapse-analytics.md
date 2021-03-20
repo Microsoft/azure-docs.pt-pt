@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3111b3a102abd923169cf655f1d71e79b19f7d5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875014"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598138"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registar e digitalizar Azure Synapse Analytics
 
@@ -127,7 +127,7 @@ Para registar um novo servidor Azure Synapse Analytics no seu Catálogo de Dados
 No ecrã **'Azure Synapse Analytics',** faça o seguinte:
 
 1. Introduza um **Nome** que a fonte de dados será listada no Catálogo.
-1. Escolha como pretende apontar para a sua conta de armazenamento desejada:
+1. Escolha como pretende apontar para o servidor SQL lógico desejado:
    1. **Selecione A partir da subscrição Azure**, selecione a subscrição apropriada da caixa de entrega de **subscrição Azure** e o servidor apropriado a partir da caixa de entrega do **nome do Servidor.**
    1. Ou, pode selecionar **Entrar manualmente** e inserir um **nome de Servidor**.
 1. **Termine** para registar a fonte de dados.
@@ -136,7 +136,7 @@ No ecrã **'Azure Synapse Analytics',** faça o seguinte:
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

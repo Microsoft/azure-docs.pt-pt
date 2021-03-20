@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: ba531164e024f96d3bdd23912f3f6e90275edda4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83589742"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configure RHEL/CentOS 7 para Discurso SDK
@@ -92,7 +92,7 @@ sudo yum install -y alsa-lib dotnet-sdk-2.1 java-1.8.0-openjdk-devel openssl pyt
 sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
 ```
 
-### <a name="2-cc-compiler-and-runtime-libraries"></a>2. Compilador C/C++ e bibliotecas de tempo de execução
+### <a name="2-cc-compiler-and-runtime-libraries"></a>2.C/C++ compilador e bibliotecas de tempo de execução
 
 Instale os pacotes pré-requisitos com este comando:
 

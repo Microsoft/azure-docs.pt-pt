@@ -1,5 +1,5 @@
 ---
-title: Dashboards de recursos para avaliações de acesso em PIM - Azure AD / Microsoft Docs
+title: Dashboards de recursos para avaliações de acesso em PIM - Azure AD | Microsoft Docs
 description: Descreve como usar um dashboard de recursos para realizar uma revisão de acesso na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e95eaa5b0e86a7470fc48edc23b2dbfb47e4b10c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743733"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>Utilize um painel de recursos para realizar uma revisão de acesso na Gestão de Identidade Privilegiada

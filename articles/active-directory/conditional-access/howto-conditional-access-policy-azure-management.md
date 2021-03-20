@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e2b6b3e9a6bdead4e4da7f1a829698d86cfbf52
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366178"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso Condicional: Requerem MFA para gestão do Azure
@@ -42,14 +42,14 @@ As políticas de acesso condicional são ferramentas poderosas, recomendamos exc
 Os seguintes passos ajudarão a criar uma política de Acesso Condicional para exigir que aqueles com acesso à aplicação [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) realizem a autenticação multi-factor.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
    1. Selecione **Concluído**.
-1. No **âmbito das aplicações ou ações cloud**  >  **Inclua**, **selecione selecione apps,** escolha **a Gestão do Azure do Microsoft**e **selecione Select** then **Done**.
+1. No **âmbito das aplicações ou ações cloud**  >  **Inclua**, **selecione selecione apps,** escolha **a Gestão do Azure do Microsoft** e **selecione Select** then **Done**.
 1. **Em Condições As**  >  **aplicações do Cliente (Pré-visualização)**, em **Seleção das aplicações do cliente esta política será aplicável para** deixar todos os predefinidos selecionados e selecionar **Feito**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.

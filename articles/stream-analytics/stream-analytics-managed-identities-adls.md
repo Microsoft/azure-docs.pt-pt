@@ -5,16 +5,16 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 03/16/2021
 ms.custom: seodec18
-ms.openlocfilehash: d7e9b1ecef9cfda804b89f0ba1beeb54d7d48b98
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d5b406d260b1c6518d9227c51d84ab7eb3754329
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020354"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598155"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas (pré-visualização)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas
 
 O Azure Stream Analytics suporta a autenticação de identidade gerida com a saída da Azure Data Lake Storage (ADLS) Gen1. A identidade é uma aplicação gerida registada no Azure Ative Directory que representa um determinado trabalho de Stream Analytics, e pode ser usada para autenticar a um recurso direcionado. As identidades geridas eliminam as limitações dos métodos de autenticação baseados no utilizador, como a necessidade de reautorização devido a alterações de palavra-passe ou expirações simbólicas do utilizador que ocorrem a cada 90 dias. Adicionalmente, identidades geridas ajudam com a automatização de implementações de trabalho stream Analytics que produção para Azure Data Lake Storage Gen1.
 
@@ -36,7 +36,7 @@ Este artigo mostra-lhe três maneiras de ativar a identidade gerida para um trab
  
    O diretor de serviço tem o mesmo nome que o trabalho da Stream Analytics. Por exemplo, se o nome do seu trabalho for **MyASAJob,** o nome do chefe de serviço criado também é **MyASAJob**.
 
-3. Na janela de propriedades de saída do lavatório de saída ADLS Gen1, clique no modo de autenticação e selecione **Identidade gerida **.
+3. Na janela de propriedades de saída do lavatório de saída ADLS Gen1, clique no modo de autenticação e selecione **Identidade Gerida**.
 
 4. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída ADLS, consulte [Criar uma saída da Data lake Store com análise de fluxo.](../data-lake-store/data-lake-store-stream-analytics.md) Quando terminar, clique em **Guardar**.
 
@@ -70,7 +70,7 @@ Este artigo mostra-lhe três maneiras de ativar a identidade gerida para um trab
 
    ![Stream Analytics trabalho config identidades geridas](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Na janela de propriedades de saída do lavatório de saída ADLS Gen1, clique no modo de autenticação e selecione **Identidade gerida **.
+2. Na janela de propriedades de saída do lavatório de saída ADLS Gen1, clique no modo de autenticação e selecione **Identidade Gerida**.
 
    ![Identidades geridas pela saída ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
@@ -186,7 +186,7 @@ Esta funcionalidade não suporta o seguinte:
 
 2. **[Identidade atribuída ao utilizador:](../active-directory/managed-identities-azure-resources/overview.md)** não é suportado. Isto significa que o utilizador não pode introduzir o seu próprio principal de serviço para ser utilizado pelo seu trabalho stream Analytics. O principal do serviço é gerado pela Azure Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma saída da Data lake Store com análise de fluxo](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Teste Stream Analytics consultas localmente com Visual Studio](stream-analytics-vs-tools-local-run.md)

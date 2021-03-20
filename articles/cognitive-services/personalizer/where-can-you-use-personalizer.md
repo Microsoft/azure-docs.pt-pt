@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777229"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o Personalizar
@@ -24,7 +24,7 @@ O personalização utiliza a aprendizagem de reforço para selecionar que ação
 * **Sugestões padrão** para menus & opções: ter o bot sugerir o item mais provável de uma forma personalizada como um primeiro passo, em vez de apresentar um menu impessoal ou lista de alternativas.
 * **Traços bot & tom**: para bots que podem variar tom, verbosidade e estilo de escrita, considere variar estes traços.
 * **Notificação & conteúdo de alerta:** decida qual o texto a utilizar para alertas para envolver mais os utilizadores.
-* **Notificação & tempo**de alerta: tenha uma aprendizagem personalizada de quando enviar notificações aos utilizadores para os envolver mais.
+* **Notificação & tempo** de alerta: tenha uma aprendizagem personalizada de quando enviar notificações aos utilizadores para os envolver mais.
 
 
 ## <a name="expectations-required-to-use-personalizer"></a>Expectativas necessárias para usar o Personalizador

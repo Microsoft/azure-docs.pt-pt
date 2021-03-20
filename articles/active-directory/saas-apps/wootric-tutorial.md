@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Wootric Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com wootric | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Wootric.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: a959dd3615c9498411b141356420939ad7026189
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92638368"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wootric"></a>Tutorial: Azure Ative Directory integração única (SSO) com Wootric
@@ -49,15 +49,15 @@ Para configurar a integração da Wootric no Azure AD, é necessário adicionar 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Add a partir da secção **da galeria,** **digite Wootric** na caixa de pesquisa.
 1. Selecione **Wootric** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-wootric"></a>Configurar e testar Azure AD SSO para wootric
 
-Configure e teste Azure AD SSO com Wootric usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Wootric.
+Configure e teste Azure AD SSO com Wootric usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Wootric.
 
 Para configurar e testar a Azure AD SSO com a Wootric, complete os seguintes blocos de construção:
 
@@ -72,8 +72,8 @@ Para configurar e testar a Azure AD SSO com a Wootric, complete os seguintes blo
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Wootric,** encontre a secção **Gerir** e selecione **um único sinal de sação** .
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Wootric,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Wootric espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome |  Atributo de origem |
+    | Name |  Atributo de origem |
     | -------------- | --------- |
     | ID | user.objectid |
 
@@ -103,21 +103,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Wootric.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de candidaturas, selecione **Wootric** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **Wootric**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -137,7 +137,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![A screenshot mostra o ícone de definições selecionado a partir do site Wootric.](./media/wootric-tutorial/configure-1.PNG)
 
-1. Nas **INTEGRAÇÕES** , selecione **Autenticação** a partir do menu do lado esquerdo e clique em **Ativar o Signo Único com diretório ativo Azure** .
+1. Nas **INTEGRAÇÕES**, selecione **Autenticação** a partir do menu do lado esquerdo e clique em **Ativar o Signo Único com diretório ativo Azure**.
 
     ![O screenshot mostra ativar o signo único ligado com o Azure Ative Directory ligado no item de autenticação.](./media/wootric-tutorial/configure-2.PNG)
 
@@ -153,7 +153,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     d. Selecione automaticamente conceder acesso à caixa de verificação **de novos utilizadores.**
     
-    e. Clique em **Guardar** .
+    e. Clique em **Guardar**.
 
 ### <a name="create-wootric-test-user"></a>Criar utilizador de teste Wootric
 

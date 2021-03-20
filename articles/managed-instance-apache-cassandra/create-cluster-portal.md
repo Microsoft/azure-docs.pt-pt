@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: db3f188cc796642285d9b082b46371879491c632
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cb555eefb19b5db7ed7eb0792a813c295a4bf38b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225239"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588618"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Quickstart: Criar uma instância gerida azure para o cluster Apache Cassandra a partir do portal Azure (Preview)
  
@@ -89,7 +89,6 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="Veja os recursos do cluster." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
 
-
 ## <a name="connecting-to-your-cluster"></a>Ligação ao seu cluster
 
 Azure Managed Instance for Apache Cassandra não cria nós com endereços IP públicos, por isso, para se ligar ao seu recém-criado cluster Cassandra, terá de criar outro recurso dentro do VNet. Isto pode ser uma aplicação, ou uma Máquina Virtual com a ferramenta de consulta de código aberto da Apache [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) instalada. Pode utilizar um [modelo](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) para implementar uma Máquina Virtual Ubuntu. Quando estiver implantado, utilize o SSH para ligar à máquina e instale o CQLSH utilizando os comandos abaixo:
@@ -113,6 +112,15 @@ export SSL_VALIDATE=false
 host=("<IP>" "<IP>" "<IP>")
 cqlsh $host 9042 -u cassandra -p cassandra --ssl
 ```
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se encontrar um erro ao aplicar permissões à sua Rede Virtual, como *não pode encontrar o utilizador ou o principal de serviço na base de dados de gráficos para 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, pode aplicar manualmente a mesma permissão a partir do portal Azure. Para aplicar permissões a partir do portal, vá ao painel de controlo de **acesso (IAM)** da sua rede virtual existente e adicione uma atribuição de função para "Azure Cosmos DB" à função "Administrador de Rede". Se aparecerem duas entradas quando procura "Azure Cosmos DB", adicione ambas as entradas como mostrado na imagem seguinte: 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Aplicar permissões" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> A atribuição de funções DB da Azure Cosmos é utilizada apenas para fins de implantação. Azure Managed Instanced for Apache Cassandra não tem dependências de Azure Cosmos DB.   
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

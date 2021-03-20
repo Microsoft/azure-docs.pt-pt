@@ -1,5 +1,5 @@
 ---
-title: Componentes de gateway de aplicação
+title: Componentes do Gateway de Aplicação
 description: Este artigo fornece informações sobre os vários componentes em um gateway de aplicação
 services: application-gateway
 author: surajmb
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
 ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88723321"
 ---
-# <a name="application-gateway-components"></a>Componentes de gateway de aplicação
+# <a name="application-gateway-components"></a>Componentes do Gateway de Aplicação
 
  Um gateway de aplicação serve como único ponto de contacto para os clientes. Distribui o tráfego de aplicações de entrada em vários pools de backend, que incluem VMs Azure, conjuntos de escala de máquinas virtuais, Serviço de Aplicações Azure e servidores externos no local. Para distribuir tráfego, um gateway de aplicações utiliza vários componentes descritos neste artigo.
 
@@ -152,6 +152,6 @@ Para mais informações, consulte [Monitorar a saúde do seu gateway de aplicaç
 
 Criar um gateway de aplicações:
 
-* [No portal do Azure](quick-create-portal.md)
+* [No portal Azure](quick-create-portal.md)
 * [Usando a Azure PowerShell](quick-create-powershell.md)
 * [Usando o CLI Azure](quick-create-cli.md)

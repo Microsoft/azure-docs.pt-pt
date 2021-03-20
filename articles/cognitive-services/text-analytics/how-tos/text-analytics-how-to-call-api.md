@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650733"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599219"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -66,6 +66,7 @@ Consulte a tabela abaixo para ver quais as características que podem ser utiliz
 | Mineração de opinião | ✔ |  |
 | Extração de expressões-chave | ✔ | ✔* |
 | Reconhecimento de Entidades Nomeadas (incluindo PII e PHI) | ✔ | ✔* |
+| Ligação de entidades | ✔ | ✔* |
 | Análise de texto para a saúde (recipiente) | ✔ |  |
 | Análise de Texto para a saúde (API) |  | ✔  |
 
@@ -118,8 +119,9 @@ Segue-se um exemplo de um pedido de API para os pontos finais sincronizados de T
 
 O `/analyze` ponto final permite-lhe escolher qual das funcionalidades de Análise de Texto suportadas que pretende utilizar numa única chamada API. Este ponto final suporta atualmente:
 
-* extração de frase-chave 
+* Extração de Expressões-Chave 
 * Reconhecimento de Entidades Nomeadas (incluindo PII e PHI)
+* Ligar à Entidade
 
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
@@ -128,7 +130,7 @@ O `/analyze` ponto final permite-lhe escolher qual das funcionalidades de Análi
 |`documents` | Inclui os `id` campos e `text` campos abaixo | Necessário | Contém informações para cada documento enviado e o texto em bruto do documento. |
 |`id` | String | Necessário | Os IDs que fornece são usados para estruturar a saída. |
 |`text` | Texto cru não estruturado, até 125.000 caracteres. | Necessário | Deve estar na língua inglesa, que é a única língua atualmente apoiada. |
-|`tasks` | Inclui as seguintes funcionalidades de Análise de Texto: `entityRecognitionTasks` , `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Necessário | Um ou mais dos recursos de Text Analytics que pretende utilizar. Note que `entityRecognitionPiiTasks` tem um parâmetro opcional que pode ser definido para ou `domain` `pii` `phi` . Se não for especificado, o sistema falha em `pii` . |
+|`tasks` | Inclui as seguintes funcionalidades de Análise de Texto: `entityRecognitionTasks` `entityLinkingTasks` , ou `keyPhraseExtractionTasks` `entityRecognitionPiiTasks` . | Necessário | Um ou mais dos recursos de Text Analytics que pretende utilizar. Note que `entityRecognitionPiiTasks` tem um parâmetro opcional que pode ser definido para ou e para a `domain` `pii` `phi` `pii-categories` deteção de tipos de entidades selecionadas. Se o `domain` parâmetro não for especificado, o sistema falha em `pii` . |
 |`parameters` | Inclui os `model-version` campos e `stringIndexType` campos abaixo | Necessário | Este campo está incluído nas tarefas de recurso acima escolhidas. Contêm informações sobre a versão modelo que pretende utilizar e o tipo de índice. |
 |`model-version` | String | Necessário | Especifique qual a versão do modelo que está a ser chamado de que pretende utilizar.  |
 |`stringIndexType` | String | Necessário | Especifique o descodificador de texto que corresponda ao seu ambiente de programação.  Os tipos suportados são `textElement_v8` (predefinido), `unicodeCodePoint` `utf16CodeUnit` . . Consulte o [artigo Text offset](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
@@ -158,6 +160,14 @@ O `/analyze` ponto final permite-lhe escolher qual das funcionalidades de Análi
                 }
             }
         ],
+        "entityLinkingTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
         "keyPhraseExtractionTasks": [{
             "parameters": {
                 "model-version": "latest"
@@ -165,7 +175,10 @@ O `/analyze` ponto final permite-lhe escolher qual das funcionalidades de Análi
         }],
         "entityRecognitionPiiTasks": [{
             "parameters": {
-                "model-version": "latest"
+                "model-version": "latest",
+                "stringIndexType": "TextElements_v8",
+                "domain": "phi",
+                "pii-categories":"default"
             }
         }]
     }
@@ -231,16 +244,16 @@ No Carteiro (ou noutra ferramenta de teste web da API), adicione o ponto final p
 
 | Funcionalidade | Tipo de pedido | Pontos finais de recursos |
 |--|--|--|
-| Submeter trabalho de análise | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
-| Obtenha estado de análise e resultados | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
+| Submeter trabalho de análise | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
+| Obtenha estado de análise e resultados | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Pontos finais para envio de pedidos assíncronos para o `/health` ponto final
 
 | Funcionalidade | Tipo de pedido | Pontos finais de recursos |
 |--|--|--|
-| Enviar Análise de Texto para trabalho de saúde  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
-| Obtenha o estado de trabalho e os resultados | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Enviar Análise de Texto para trabalho de saúde  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
+| Obtenha o estado de trabalho e os resultados | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -266,7 +279,7 @@ Depois de ter o seu ponto final, no Carteiro (ou noutra ferramenta de teste web 
 
       + [Deteção linguística](text-analytics-how-to-language-detection.md)
       + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md)
-      + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)
+      + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)
       + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)
 
 ## <a name="send-the-request"></a>Enviar o pedido
@@ -278,7 +291,7 @@ Se fez a chamada para os `/analyze` pontos finais assíncronos ou `/health` fina
 1. Na resposta da API, encontre o `Operation-Location` do cabeçalho, que identifica o trabalho que enviou para a API. 
 2. Crie um pedido GET para o ponto final que usou. consulte o [quadro acima](#set-up-a-request) para o formato endpoint, e reveja a documentação de referência da [API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Por exemplo:
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
 
 3. Adicione o `Operation-Location` pedido.
 
@@ -296,7 +309,7 @@ As respostas sincronizadas do ponto final variam consoante o ponto final que uti
 
 + [Deteção linguística](text-analytics-how-to-language-detection.md#step-3-view-the-results)
 + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
-+ [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md#view-the-results)
++ [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md#view-results)
 
 # <a name="asynchronous"></a>[Assíncrono](#tab/asynchronous)

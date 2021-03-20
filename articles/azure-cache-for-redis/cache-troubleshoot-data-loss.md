@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538600"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Resolver problemas de perda de dados da Cache do Azure para Redis
@@ -27,7 +27,7 @@ O Azure Cache para Redis não apaga as chaves aleatoriamente depois de terem sid
 
 Se descobrir que as chaves desapareceram do seu cache, verifique as seguintes causas possíveis:
 
-| Causa | Descrição |
+| Causa | Description |
 |---|---|
 | [Expiração da chave](#key-expiration) | As chaves são removidas devido aos intervalos de tempo definidos. |
 | [Despejo chave](#key-eviction) | As teclas são removidas sob pressão de memória. |
@@ -86,7 +86,7 @@ Qualquer cache Azure para a instância Redis no nível Standard ou Premium está
 
 Se a maioria ou todas as chaves desaparecerem do seu cache, verifique as seguintes causas possíveis:
 
-| Causa | Descrição |
+| Causa | Description |
 |---|---|
 | [Lavagem de chaves](#key-flushing) | As chaves foram purgadas manualmente. |
 | [Seleção de bases de dados incorreta](#incorrect-database-selection) | O Azure Cache para Redis está programado para utilizar uma base de dados não padrão. |
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Seleção de bases de dados incorreta
 
-A azure Cache para Redis utiliza a base de **dados db0** por predefinição. Se mudar para outra base de dados (por exemplo, **db1** ) e tentar ler as chaves, a Azure Cache para Redis não as encontrará lá. Cada base de dados é uma unidade logicamente separada e contém um conjunto de dados diferente. Utilize o comando [SELECT](https://redis.io/commands/select) para utilizar outras bases de dados disponíveis e procure chaves em cada uma delas.
+A azure Cache para Redis utiliza a base de **dados db0** por predefinição. Se mudar para outra base de dados (por exemplo, **db1**) e tentar ler as chaves, a Azure Cache para Redis não as encontrará lá. Cada base de dados é uma unidade logicamente separada e contém um conjunto de dados diferente. Utilize o comando [SELECT](https://redis.io/commands/select) para utilizar outras bases de dados disponíveis e procure chaves em cada uma delas.
 
 ### <a name="redis-instance-failure"></a>Falha de exemplo de Redis
 

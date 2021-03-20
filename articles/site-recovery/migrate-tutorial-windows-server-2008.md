@@ -9,10 +9,10 @@ ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6cc0855d3a4540de780a566a4613b4dbc647cfc5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369493"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores com o Windows Server 2008 para o Azure
@@ -99,8 +99,8 @@ Execute as seguintes tarefas para preparar a subscrição do Azure e o ambiente 
 
 ### <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-1. Inscreva-se nos Serviços de Recuperação [do portal Azure.](https://portal.azure.com)  >  **Recovery Services**
-2. Clique **em Criar uma**cópia de segurança das  >  **ferramentas de gestão**de recursos  >  **e recuperação do site.**
+1. Inscreva-se nos Serviços de Recuperação [do portal Azure.](https://portal.azure.com)  >  
+2. Clique **em Criar uma** cópia de segurança das  >  **ferramentas de gestão** de recursos  >  **e recuperação do site.**
 3. Em **Nome**, especifique o nome amigável **W2K8-migration**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 4. Crie um grupo de recursos com o nome **w2k8migrate**.
 5. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -120,14 +120,14 @@ O cofre novo é adicionado ao **Dashboard** em **Todos os recursos** e na págin
 
 Selecione e verifique os recursos de destino.
 
-1. Clique **em Preparar a infraestrutura**  >  **Target**e selecione a subscrição Azure que pretende utilizar.
+1. Clique **em Preparar a infraestrutura**  >  **Target** e selecione a subscrição Azure que pretende utilizar.
 2. Especifique o modelo de implementação do Resource Manager.
 3. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
 
 ### <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em Políticas de Replicação **da Infraestrutura de Recuperação do Local**  >  **Replication Policies**  >  **+Política de Replicação**.
+1. Para criar uma nova política de replicação, clique em Políticas de Replicação **da Infraestrutura de Recuperação do Local**  >    >  **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Se o RPO de replicação exceder este limite, será gerado um alerta.
 4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. Os servidores replicados podem ser recuperados até qualquer ponto desta janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.

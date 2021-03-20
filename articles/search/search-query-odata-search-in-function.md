@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922825"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Função OData `search.in` em Pesquisa Cognitiva Azure
@@ -74,7 +74,7 @@ Existem duas sobrecargas da `search.in` função:
 
 Os parâmetros são definidos na tabela seguinte:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Tipo | Description |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Uma referência de campo de cordas (ou uma variável de alcance sobre um campo de recolha de cordas no caso em que `search.in` é usado dentro de uma ou `any` `all` expressão). |
 | `valueList` | `Edm.String` | Uma cadeia contendo uma lista delimitada de valores que corresponda ao `variable` parâmetro. Se o `delimiters` parâmetro não for especificado, os delimiters predefinidos são o espaço e a vírgula. |
@@ -94,7 +94,7 @@ Encontre todos os hotéis com nome igual a 'Sea View motel' ou 'Budget hotel'. A
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 ```
 
-Encontre todos os hotéis com nome igual a 'Sea View motel' ou 'Budget hotel' separados por '/'):
+Encontre todos os hotéis com nome igual a 'Sea View motel' ou 'Budget hotel' separados por '|'):
 
 ```odata-filter-expr
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')

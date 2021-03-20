@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368031"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Capacidade do plano e escala para recuperação de desastres VMware para Azure
@@ -80,7 +80,7 @@ Depois de utilizar [o Planificador de Implementação de Recuperação](site-rec
 * **Largura de banda de aceleração**: O tráfego de VMware que se replica para Azure passa por um servidor de processo específico. Pode acelerar a largura de banda nas máquinas que estão a funcionar como servidores de processo.
 * **Influência largura de banda**: Pode influenciar a largura de banda que é usada para a replicação usando um par de chaves de registo:
   * O valor de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** especifica o número de fios que são utilizados para transferência de dados (replicação inicial ou delta) de um disco. Um valor mais elevado aumenta a largura de banda da rede que é usada para a replicação.
-  * O ** valor de ** registoHKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVMespecifica o número de fios que são utilizados para transferência de dados durante o failback.
+  * O **valor de** registoHKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVMespecifica o número de fios que são utilizados para transferência de dados durante o failback.
 
 ### <a name="throttle-bandwidth"></a>Limitar largura de banda
 
@@ -104,7 +104,7 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>Altere a largura de banda da rede para um VM
 
-1. No registo do VM, vá a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication. **
+1. No registo do VM, vá a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication.**
    * Para alterar o tráfego de largura de banda num disco de replicação, modifique o valor do **UploadThreadsPerVM**. Crie a chave se não existir.
    * Para alterar a largura de banda para tráfego de recuo da Azure, modifique o valor do **DownloadThreadsPerVM**.
 2. O valor predefinido para cada tecla é **4**. Numa rede “sobreaprovisionada”, os valores predefinidos destas chaves de registo devem ser alterados. O valor máximo que pode utilizar é **de 32**. Monitorize o tráfego para otimizar o valor.
@@ -126,7 +126,7 @@ Se reduzir a sua implementação para além de 200 máquinas de origem ou se tiv
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar máquinas para usar o novo servidor de processo
 
-1. Selecione **servidores**  >  **de recuperação do site**de definições . Selecione o servidor de configuração e, em seguida, expanda **os servidores de processo**.
+1. Selecione **servidores**  >  **de recuperação do site** de definições . Selecione o servidor de configuração e, em seguida, expanda **os servidores de processo**.
 
     ![Screenshot da caixa de diálogo do Servidor de Processo](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Clique com o botão direito no servidor de processo atualmente em uso e, em seguida, **selecione Switch**.
@@ -146,12 +146,12 @@ Para aprender a adicionar um servidor-alvo principal para uma máquina virtual b
 
 Para adicionar um servidor-alvo principal para uma máquina virtual baseada no Windows:
 
-1. Aceda aos servidores de configuração da infraestrutura do local do **cofre dos serviços de recuperação dos**  >  **Site Recovery Infrastructure**  >  **serviços de recuperação dos serviços de recuperação**do cofre .
+1. Aceda aos servidores de configuração da infraestrutura do local do **cofre dos serviços de recuperação dos**  >    >  **serviços de recuperação dos serviços de recuperação** do cofre .
 2. Selecione o servidor de configuração necessário e, em seguida, selecione **Master Target Server**.
 
     ![Screenshot que mostra o botão adicionar o servidor do alvo principal](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Descarregue o ficheiro de configuração unificado e, em seguida, execute o ficheiro no VM para configurar o servidor alvo principal.
-4. Selecione **Instalar o alvo principal**Em  >  **seguida**.
+4. Selecione **Instalar o alvo principal** Em  >  **seguida**.
 
     ![Screenshot que mostra a seleção da opção principal de instalação](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. Selecione a localização de instalação predefinitiva e, em seguida, **selecione Instalar**.
@@ -165,7 +165,7 @@ Para adicionar um servidor-alvo principal para uma máquina virtual baseada no W
     ![Screenshot que mostra onde introduzir o endereço IP e a frase de passagem para o servidor de configuração](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Selecione **Registar**. Quando a inscrição estiver concluída, **selecione Terminar**.
 
-Quando o registo termina com sucesso, o servidor é listado no portal Azure nos **servidores**  >  de Configuração**de Infraestruturas de Recuperação do Local de Recuperação**de  >  **Serviços**de Recuperação de Serviços de Recuperação de Serviços de Recuperação , nos servidores-alvo principais do servidor de configuração.
+Quando o registo termina com sucesso, o servidor é listado no portal Azure nos **servidores**  >  de Configuração **de Infraestruturas de Recuperação do Local de Recuperação** de  >  **Serviços** de Recuperação de Serviços de Recuperação de Serviços de Recuperação , nos servidores-alvo principais do servidor de configuração.
 
  > [!NOTE]
  > Descarregue a versão mais recente do [ficheiro de configuração unificado](https://aka.ms/latestmobsvc)do servidor alvo principal para o Windows .

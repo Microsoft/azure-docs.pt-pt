@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Hybrid Azure AD juntam-se a tarefas de configuração pós-109 Microsoft Docs'
+title: 'Azure AD Connect: Hybrid Azure AD juntam-se a tarefas de configuração pós-| Microsoft Docs'
 description: Este documento detalha as tarefas de configuração de posts necessárias para completar a junção híbrida AZure AD
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88612474"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD Híbrido
@@ -63,7 +63,7 @@ Se a sua organização utilizar um serviço de federação para iniciar sedutaç
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Ativar SSO sem emenda AD AD para dispositivos de nível inferior do Windows
 
-Se a sua organização utilizar a Sincronização de Hash password ou a autenticação pass-through para iniciar sedutação no Azure AD, ative o SSO sem emenda AD Ad Ad Ad com esse método de entrada para autenticar dispositivos de nível inferior do Windows:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
+Se a sua organização utilizar a Sincronização de Hash password ou a autenticação pass-through para iniciar sedutação no Azure AD, ative o SSO sem emenda AD Ad com esse método de entrada para autenticar dispositivos de nível inferior do Windows:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Desconfie da política AD do Azure para dispositivos de nível inferior do Windows
 

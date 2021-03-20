@@ -11,19 +11,19 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 608017c15d039be940d1d67b8f9e1bf7618134b7
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 87415fc98bbcc9331ae4ff6282a65c85b570042d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491513"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579778"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web-in com OpenID Connect em Azure Ative Directory B2C
 
 O OpenID Connect é um protocolo de autenticação, construído em cima do OAuth 2.0, que pode ser usado para iniciar com segurança os utilizadores em aplicações web. Ao utilizar a implementação do Azure Ative Directory B2C (Azure AD B2C) do OpenID Connect, pode subcontratar inscrições, iniciar seduções e outras experiências de gestão de identidade nas suas aplicações web para a Azure Ative Directory (Azure AD). Este guia mostra-lhe como fazê-lo de forma independente da linguagem. Descreve como enviar e receber mensagens HTTP sem utilizar nenhuma das nossas bibliotecas de código aberto.
 
 > [!NOTE]
-> A maioria das bibliotecas de autenticação de código aberto adquirem e validam os tokens JWT para a sua aplicação. Recomendamos explorar essas opções, em vez de implementar o seu próprio código. Para obter mais informações, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)e [a biblioteca de autenticação Web de identidade do Microsoft](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
+> A maioria das bibliotecas de autenticação de código aberto adquirem e validam os tokens JWT para a sua aplicação. Recomendamos explorar essas opções, em vez de implementar o seu próprio código. Para obter mais informações, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](../active-directory/develop/msal-overview.md)e [a biblioteca de autenticação Web de identidade do Microsoft](../active-directory/develop/microsoft-identity-web.md).
 
 [O OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) alarga o protocolo de *autorização* OAuth 2.0 para utilização como protocolo de *autenticação.* Este protocolo de autenticação permite-lhe realizar uma única sação. Introduz o conceito de símbolo de *ID,* que permite ao cliente verificar a identidade do utilizador e obter informações básicas sobre o perfil sobre o utilizador.
 
@@ -50,12 +50,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| {inquilino} | Sim | Nome do seu inquilino Azure AD B2C |
-| {política} | Sim | O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
-| client_id | Sim | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
-| nonce | Sim | Um valor incluído no pedido (gerado pela aplicação) que está incluído no token de ID resultante como reclamação. A aplicação pode então verificar este valor para mitigar os ataques de repetição de token. O valor é tipicamente uma corda única aleatória que pode ser usada para identificar a origem do pedido. |
-| response_type | Sim | Deve incluir um token de ID para OpenID Connect. Se a sua aplicação web também precisar de fichas para chamar uma API web, pode usar `code+id_token` . |
-| scope | Sim | Uma lista de âmbitos separados pelo espaço. O `openid` âmbito indica uma permissão para assinar no utilizador e obter dados sobre o utilizador sob a forma de fichas de identificação. O `offline_access` âmbito é opcional para aplicações web. Indica que a sua aplicação necessitará de um *token de atualização* para um acesso alargado aos recursos. |
+| {inquilino} | Yes | Nome do seu inquilino Azure AD B2C |
+| {política} | Yes | O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
+| client_id | Yes | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
+| nonce | Yes | Um valor incluído no pedido (gerado pela aplicação) que está incluído no token de ID resultante como reclamação. A aplicação pode então verificar este valor para mitigar os ataques de repetição de token. O valor é tipicamente uma corda única aleatória que pode ser usada para identificar a origem do pedido. |
+| response_type | Yes | Deve incluir um token de ID para OpenID Connect. Se a sua aplicação web também precisar de fichas para chamar uma API web, pode usar `code+id_token` . |
+| scope | Yes | Uma lista de âmbitos separados pelo espaço. O `openid` âmbito indica uma permissão para assinar no utilizador e obter dados sobre o utilizador sob a forma de fichas de identificação. O `offline_access` âmbito é opcional para aplicações web. Indica que a sua aplicação necessitará de um *token de atualização* para um acesso alargado aos recursos. |
 | rápido | No | O tipo de interação do utilizador que é necessária. O único valor válido neste momento é `login` , o que obriga o utilizador a introduzir as suas credenciais nesse pedido. |
 | redirect_uri | No | O `redirect_uri` parâmetro da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação. Deve corresponder exatamente a um dos `redirect_uri` parâmetros que registou no portal Azure, exceto que deve ser URL codificado. |
 | response_mode | No | O método utilizado para enviar o código de autorização resultante de volta à sua aplicação. Pode `query` ser, `form_post` ou `fragment` . .  O `form_post` modo de resposta é recomendado para uma melhor segurança. |
@@ -103,7 +103,7 @@ error=access_denied
 Receber apenas um token de identificação não é suficiente para autenticar o utilizador. Valide a assinatura do token de identificação e verifique as reclamações no token de acordo com os requisitos da sua aplicação. Azure AD B2C utiliza [tokens web JSON (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chaves públicas para assinar fichas e verificar se são válidos. 
 
 > [!NOTE]
-> A maioria das bibliotecas de autenticação de código aberto validam os tokens JWT para a sua aplicação. Recomendamos explorar essas opções, em vez de implementar a sua própria lógica de validação. Para obter mais informações, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)e [a biblioteca de autenticação Web de identidade do Microsoft](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
+> A maioria das bibliotecas de autenticação de código aberto validam os tokens JWT para a sua aplicação. Recomendamos explorar essas opções, em vez de implementar a sua própria lógica de validação. Para obter mais informações, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](../active-directory/develop/msal-overview.md)e [a biblioteca de autenticação Web de identidade do Microsoft](../active-directory/develop/microsoft-identity-web.md).
 
 O Azure AD B2C tem um ponto final de metadados OpenID Connect, que permite que uma aplicação obtenha informações sobre o Azure AD B2C no tempo de execução. Esta informação inclui pontos finais, conteúdo simbólico e chaves de assinatura simbólicas. Existe um documento de metadados JSON para cada fluxo de utilizador no seu inquilino B2C. Por exemplo, o documento de metadados para o fluxo do `b2c_1_sign_in` utilizador `fabrikamb2c.onmicrosoft.com` está localizado em:
 
@@ -155,13 +155,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| {inquilino} | Sim | Nome do seu inquilino Azure AD B2C |
-| {política} | Sim | O fluxo de utilizador que foi utilizado para adquirir o código de autorização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. Adicione este parâmetro à cadeia de consulta, não ao corpo POST. |
-| client_id | Sim | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
+| {inquilino} | Yes | Nome do seu inquilino Azure AD B2C |
+| {política} | Yes | O fluxo de utilizador que foi utilizado para adquirir o código de autorização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. Adicione este parâmetro à cadeia de consulta, não ao corpo POST. |
+| client_id | Yes | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
 | client_secret | Sim, em Web Apps | O segredo da aplicação que foi gerado no [portal Azure.](https://portal.azure.com/) Os segredos do cliente são usados neste fluxo para cenários de Web App, onde o cliente pode armazenar de forma segura um segredo do cliente. Para cenários de Aplicação Nativa (cliente público), os segredos dos clientes não podem ser armazenados de forma segura, portanto não são utilizados neste fluxo. Se utilizar um segredo de cliente, por favor altere-o periódico. |
-| code | Sim | O código de autorização que adquiriu no início do fluxo de utilizador. |
-| grant_type | Sim | O tipo de subvenção, que deve ser `authorization_code` para o fluxo de código de autorização. |
-| redirect_uri | Sim | O `redirect_uri` parâmetro do pedido onde recebeu o código de autorização. |
+| code | Yes | O código de autorização que adquiriu no início do fluxo de utilizador. |
+| grant_type | Yes | O tipo de subvenção, que deve ser `authorization_code` para o fluxo de código de autorização. |
+| redirect_uri | Yes | O `redirect_uri` parâmetro do pedido onde recebeu o código de autorização. |
 | scope | No | Uma lista de âmbitos separados pelo espaço. O `openid` âmbito indica uma permissão para assinar no utilizador e obter dados sobre o utilizador sob a forma de id_token parâmetros. Pode ser usado para obter fichas para a própria API web de back-end da sua aplicação, que é representada pela mesma identificação de aplicação que o cliente. O `offline_access` âmbito indica que a sua aplicação precisa de um token de atualização para um acesso alargado aos recursos. |
 
 Uma resposta simbólica bem sucedida parece:
@@ -224,12 +224,12 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| {inquilino} | Sim | Nome do seu inquilino Azure AD B2C |
-| {política} | Sim | O fluxo de utilizador que foi usado para adquirir o token original da atualização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. Adicione este parâmetro à cadeia de consulta, não ao corpo POST. |
-| client_id | Sim | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
+| {inquilino} | Yes | Nome do seu inquilino Azure AD B2C |
+| {política} | Yes | O fluxo de utilizador que foi usado para adquirir o token original da atualização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. Adicione este parâmetro à cadeia de consulta, não ao corpo POST. |
+| client_id | Yes | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
 | client_secret | Sim, em Web Apps | O segredo da aplicação que foi gerado no [portal Azure.](https://portal.azure.com/) Os segredos do cliente são usados neste fluxo para cenários de Web App, onde o cliente pode armazenar de forma segura um segredo do cliente. Para cenários de Aplicação Nativa (cliente público), os segredos dos clientes não podem ser armazenados de forma segura, portanto não são utilizados nesta chamada. Se utilizar um segredo de cliente, por favor altere-o periódico. |
-| grant_type | Sim | O tipo de subvenção, que deve ser `refresh_token` para esta parte do fluxo do código de autorização. |
-| refresh_token | Sim | O token original da atualização que foi adquirido na segunda parte do fluxo. O `offline_access` âmbito de aplicação deve ser utilizado tanto na autorização como nos pedidos simbólicos, a fim de receber um token de atualização. |
+| grant_type | Yes | O tipo de subvenção, que deve ser `refresh_token` para esta parte do fluxo do código de autorização. |
+| refresh_token | Yes | O token original da atualização que foi adquirido na segunda parte do fluxo. O `offline_access` âmbito de aplicação deve ser utilizado tanto na autorização como nos pedidos simbólicos, a fim de receber um token de atualização. |
 | redirect_uri | No | O `redirect_uri` parâmetro do pedido onde recebeu o código de autorização. |
 | scope | No | Uma lista de âmbitos separados pelo espaço. O `openid` âmbito indica uma permissão para assinar no utilizador e obter dados sobre o utilizador sob a forma de fichas de identificação. Pode ser usado para enviar fichas para a própria API web de back-end da sua aplicação, que é representada pela mesma identificação de aplicação que o cliente. O `offline_access` âmbito indica que a sua aplicação precisa de um token de atualização para um acesso alargado aos recursos. |
 
@@ -281,8 +281,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 | Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| {inquilino} | Sim | Nome do seu inquilino Azure AD B2C |
-| {política} | Sim | O fluxo do utilizador que pretende utilizar para assinar o utilizador fora da sua aplicação. |
+| {inquilino} | Yes | Nome do seu inquilino Azure AD B2C |
+| {política} | Yes | O fluxo do utilizador que pretende utilizar para assinar o utilizador fora da sua aplicação. |
 | id_token_hint| No | Um token de ID previamente emitido para passar para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. `id_token_hint`O garante que o é um URL de resposta registado nas `post_logout_redirect_uri` definições de aplicação Azure AD B2C. Para obter mais informações, consulte [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | Não* | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação.<br><br>\**Isto é necessário quando se utiliza `Application` a configuração SSO de isolamento e _o Pedido de ID ID_ no pedido de logout está definido para `No` .* |
 | post_logout_redirect_uri | No | O URL para o que o utilizador deve ser redirecionado após a assinatura com sucesso. Se não estiver incluído, o Azure AD B2C mostra ao utilizador uma mensagem genérica. A menos que forneça um `id_token_hint` URL, não deve registar este URL como URL de resposta nas definições de aplicação Azure AD B2C. |

@@ -1,5 +1,5 @@
 ---
-title: O que é o licenciamento baseado em grupo - Azure Ative Directory / Microsoft Docs
+title: O que é o licenciamento baseado em grupo - Azure Ative Directory | Microsoft Docs
 description: Saiba mais sobre o licenciamento baseado em grupo do Azure Ative Directory, incluindo como funciona e as melhores práticas.
 services: active-directory
 keywords: Licenciamento do Azure AD
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369816"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupo no Azure Ative Directory?

@@ -1,5 +1,5 @@
 ---
-title: Redefinir a sua palavra-passe utilizando informações de segurança - Azure Ative Directory Microsoft Docs
+title: Redefinir a sua palavra-passe utilizando informações de segurança - Azure Ative Directory | Microsoft Docs
 description: Como redefinir a sua própria palavra-passe se a esquecer, utilizando a sua informação de segurança e verificação em duas etapas.
 services: active-directory
 author: curtand
@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
 ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827776"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reinicie o seu trabalho ou senha escolar usando informações de segurança
@@ -55,7 +55,7 @@ Se não consegue aceder à sua conta Azure Ative Directory (Azure AD), pode ser 
 
 - **Reinicie a sua palavra-passe através de um endereço de e-mail.** Envia um e-mail para o endereço de e-mail que previamente configurado em informações de verificação ou segurança em duas etapas. Se o seu administrador tiver ligado a experiência de informação de segurança, pode encontrar mais informações sobre a configuração de um endereço de e-mail na informação de segurança Configurar para usar o artigo [de e-mail (pré-visualização).](security-info-setup-email.md) Se ainda não estiver a utilizar informações de segurança, pode encontrar mais informações sobre a criação de um endereço de e-mail na [minha conta Configurar para](multi-factor-authentication-end-user-first-time.md) artigo de verificação em duas etapas. 
 
-    1. Selecione **Enviar por email o meu e-mail alternativo**e, em seguida, selecione **Email**.
+    1. Selecione **Enviar por email o meu e-mail alternativo** e, em seguida, selecione **Email**.
 
     2. Digite o código de verificação do e-mail para a caixa e, em seguida, selecione **Seguinte**.
 
@@ -85,7 +85,7 @@ Se não consegue aceder à sua conta Azure Ative Directory (Azure AD), pode ser 
 
 - **Reinicie a sua palavra-passe através de uma notificação da sua aplicação autenticadora.** Envia uma notificação de aprovação para a aplicação autenticadora. Se o seu administrador tiver ligado a experiência de informação de segurança, pode encontrar mais informações sobre a criação de uma aplicação autenticadora para enviar uma notificação na informação de segurança Configurar para utilizar um artigo de [aplicação de autenticação (pré-visualização).](security-info-setup-auth-app.md) Se ainda não estiver a utilizar informações de segurança, pode encontrar mais informações sobre a criação de uma aplicação autenticadora para enviar uma notificação na minha conta para o artigo de verificação em [duas etapas.](multi-factor-authentication-end-user-first-time.md)
 
-    1. Selecione **Aprovar uma notificação na minha aplicação de autenticador**e, em seguida, selecione **Enviar Notificação**.
+    1. Selecione **Aprovar uma notificação na minha aplicação de autenticador** e, em seguida, selecione **Enviar Notificação**.
 
     2. Aprove a inscrição na sua aplicação de autenticador.
 
@@ -93,7 +93,7 @@ Se não consegue aceder à sua conta Azure Ative Directory (Azure AD), pode ser 
 
 - **Reinicie a sua palavra-passe utilizando um código da sua aplicação autenticadora.** Aceita um código aleatório fornecido pela sua aplicação de autenticação. Se o seu administrador tiver ligado a experiência de informação de segurança, pode encontrar mais informações sobre a criação de uma aplicação autenticadora para fornecer um código na [informação de segurança Configurar para utilizar um artigo de aplicação de autenticação (pré-visualização).](security-info-setup-auth-app.md) Se ainda não estiver a utilizar informações de segurança, pode encontrar mais informações sobre a criação de uma aplicação autenticadora para fornecer um código na minha conta para o artigo de verificação em [duas etapas.](multi-factor-authentication-end-user-first-time.md)
 
-  1. Selecione **Introduza um código a partir da minha aplicação de autenticador**e, em seguida, selecione **Enviar Notificação**.
+  1. Selecione **Introduza um código a partir da minha aplicação de autenticador** e, em seguida, selecione **Enviar Notificação**.
 
   2. Abra a sua aplicação autenticadora, digite o código de verificação da sua conta na caixa e, em seguida, selecione **Seguinte**.
 
@@ -117,7 +117,7 @@ Utilize este método se normalmente aceder às suas apps através do portal Do O
 
 2. Selecione o seu perfil no lado superior direito e, em seguida, **selecione Ver conta**.
 
-3. Selecione **Segurança &**  >  **palavra-passe de**privacidade .
+3. Selecione **Segurança &**  >  **palavra-passe de** privacidade .
 
 4. Digite a sua senha antiga, crie e confirme a sua nova palavra-passe e, em seguida, **selecione Enviar por isso**.
 
@@ -160,7 +160,7 @@ Eis alguns casos de erro comuns e as suas soluções:
 |Quando tento mudar a minha senha, sinto um erro. |A sua palavra-passe tem uma palavra, frase ou padrão que torna a sua palavra-passe facilmente adivinhável.| Tente novamente usando uma senha mais forte.|
 |Depois de introduzir o meu ID do utilizador, vou a uma página que diz: "Por favor contacte o seu administrador."|A Microsoft determinou que a palavra-passe da sua conta de utilizador é gerida pelo seu administrador num ambiente no local. Como resultado, não é possível redefinir a sua palavra-passe a partir do link "Não pode aceder à sua conta". |Contacte o seu administrador para mais ajuda.|
 |Depois de introduzir o meu ID do Utilizador, recebo um erro que diz: "A sua conta não está ativada para reset de palavra-passe."|O seu administrador ainda não criou a sua conta para que possa redefinir a sua própria senha.|O seu administrador não ligou a palavra-passe para a sua organização a partir do link "Não pode aceder à sua conta", ou não o licenciou para utilizar a funcionalidade.<br><br> Para redefinir a sua palavra-passe, tem de selecionar o "link de contacto com um administrador" para enviar um e-mail ao administrador da sua empresa e informá-los de que pretende redefinir a sua palavra-passe.|
-|Depois de introduzir o meu ID do utilizador, recebo um erro que diz: "Não conseguimos verificar a sua conta."|O processo de login não foi capaz de verificar a informação da sua conta.|Há duas razões para estar a ver esta mensagem.<br><br>1. O seu administrador ligou a palavra-passe para a sua organização, mas não se registou para utilizar o serviço. Para se registar para reiniciar a palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [Configurar informações de segurança para utilizar uma aplicação autenticadora (pré-visualização)](security-info-setup-auth-app.md), [Configurar informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [Configurar informações](security-info-setup-text-msg.md)de segurança para utilizar mensagens [de texto (pré-visualização)](security-info-setup-email.md) [Set up security info to use security questions (preview)](security-info-setup-questions.md)<br><br>2. O seu administrador não ligou a palavra-passe para a sua organização. Nesta situação, deve selecionar o "link de contacto com um administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir a sua palavra-passe.|
+|Depois de introduzir o meu ID do utilizador, recebo um erro que diz: "Não conseguimos verificar a sua conta."|O processo de login não foi capaz de verificar a informação da sua conta.|Há duas razões para estar a ver esta mensagem.<br><br>1. O seu administrador ligou a palavra-passe para a sua organização, mas não se registou para utilizar o serviço. Para se registar para reiniciar a palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [Configurar informações de segurança para utilizar uma aplicação autenticadora (pré-visualização)](security-info-setup-auth-app.md), [Configurar informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [Configurar informações](security-info-setup-text-msg.md)de segurança para utilizar mensagens [de texto (pré-visualização)](security-info-setup-email.md) [](security-info-setup-questions.md)<br><br>2. O seu administrador não ligou a palavra-passe para a sua organização. Nesta situação, deve selecionar o "link de contacto com um administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir a sua palavra-passe.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,10 +4,10 @@ description: Saiba como atualizar a configuração que executa um cluster de Tec
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 692dc2162159ab61a3ac527e12dac43438084a60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842721"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Atualizar a configuração de um cluster em Azure 
@@ -25,7 +25,7 @@ Este artigo descreve como personalizar as várias definições de tecido para o 
 Os clusters Azure podem ser configurados através do modelo JSON Resource Manager. Para saber mais sobre as diferentes definições, consulte [as definições de Configuração para clusters](service-fabric-cluster-fabric-settings.md). Como exemplo, os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* à secção *de Diagnósticos* utilizando o Azure Resource Explorer.
 
 1. Ir para https://resources.azure.com
-2. Navegue para a sua subscrição expandindo os fornecedores de recursos de **subscrições**  ->  **\<Your Subscription>**  ->  **resourceGroups**  ->  **\<Your Resource Group>**  ->  **providers**  ->  **Microsoft.ServiceFabric**  ->  **clusters** -> **\<Your Cluster Name>**
+2. Navegue para a sua subscrição expandindo os fornecedores de recursos de **subscrições**  ->  **\<Your Subscription>**  ->    ->  **\<Your Resource Group>**  ->    ->  **Microsoft.ServiceFabric**  ->  **clusters** -> **\<Your Cluster Name>**
 3. No canto superior direito, selecione **Ler/Escrever.**
 4. **Selecione Editar** e atualizar o `fabricSettings` elemento JSON e adicione um novo elemento:
 

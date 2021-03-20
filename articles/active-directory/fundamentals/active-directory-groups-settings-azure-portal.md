@@ -1,5 +1,5 @@
 ---
-title: Edite as informações do seu grupo - Azure Ative Directory / Microsoft Docs
+title: Edite as informações do seu grupo - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como editar as informações do seu grupo utilizando o Diretório Ativo Azure.
 services: active-directory
 author: ajburnle
@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c346877d29c5fef03b45c895cbf8d462f90d0979
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369136"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Edite as informações do seu grupo utilizando o Azure Ative Directory
@@ -27,7 +27,7 @@ Utilizando o Azure Ative Directory (Azure AD), pode editar as definições de um
 ## <a name="to-edit-your-group-settings"></a>Para editar as definições de grupo
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory**e, em seguida, selecione **Grupos**.
+2. Selecione **Azure Ative Directory** e, em seguida, selecione **Grupos**.
 
     Os **Grupos - Todas as** páginas de grupos aparecem, mostrando todos os seus grupos ativos.
 
@@ -37,7 +37,7 @@ Utilizando o Azure Ative Directory (Azure AD), pode editar as definições de um
 
     ![Página de todos os grupos, com texto de pesquisa na caixa de pesquisa](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
 
-4. Selecione a **política de MDM**do grupo - Oeste , e, em seguida, selecione **Propriedades** da área **De gestão.**
+4. Selecione a **política de MDM** do grupo - Oeste , e, em seguida, selecione **Propriedades** da área **De gestão.**
 
     ![Página geral do grupo, com opção de membro e informação em destaque](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 

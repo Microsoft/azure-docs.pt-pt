@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934842"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData funções geo-espaciais em Azure Cognitive Search - `geo.distance` e `geo.intersects`
 
 A Azure Cognitive Search suporta consultas geo-espaciais em [expressões de filtro OData](query-odata-filter-orderby-syntax.md) através das `geo.distance` funções e `geo.intersects` funções. A `geo.distance` função devolve a distância em quilómetros entre dois pontos, sendo um um campo ou variável de alcance, e um sendo uma constante passada como parte do filtro. A `geo.intersects` função retorna `true` se um determinado ponto estiver dentro de um determinado polígono, onde o ponto é uma variável de campo ou alcance e o polígono é especificado como uma constante passada como parte do filtro.
 
-A `geo.distance` função também pode ser usada no parâmetro [ **$orderby** ](search-query-odata-orderby.md) para classificar os resultados de pesquisa por distância de um dado ponto. A sintaxe para `geo.distance` **em $orderby** é a mesma que é em **$filter**. Quando utilizar `geo.distance` em **$orderby,** o campo a que se aplica deve ser do tipo `Edm.GeographyPoint` e deve também ser **homologável**.
+A `geo.distance` função também pode ser usada no parâmetro [ **$orderby**](search-query-odata-orderby.md) para classificar os resultados de pesquisa por distância de um dado ponto. A sintaxe para `geo.distance` **em $orderby** é a mesma que é em **$filter**. Quando utilizar `geo.distance` em **$orderby,** o campo a que se aplica deve ser do tipo `Edm.GeographyPoint` e deve também ser **homologável**.
 
 > [!NOTE]
 > Ao utilizar `geo.distance` no parâmetro **$orderby,** o campo que passa para a função deve conter apenas um único ponto geoponto. Por outras palavras, deve ser do tipo `Edm.GeographyPoint` e `Collection(Edm.GeographyPoint)` não. Não é possível ordenar em campos de recolha em Azure Cognitive Search.

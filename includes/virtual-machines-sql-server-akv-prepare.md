@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 3509185baa3a9d7be90c1fa4bd8000da4a8a6fe5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95553372"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparar para integração AKV
@@ -25,7 +25,7 @@ Para utilizar a integração do cofre de chave Azure para configurar o seu SQL S
 
 1. [Instalar Azure Powershell](#install)
 2. [Criar um Diretório Ativo Azure](#register)
-3. [Criar um cofre chave](#createkeyvault)
+3. [Criar um cofre de chaves](#createkeyvault)
 
 As secções seguintes descrevem estes pré-requisitos e as informações que precisa de recolher para posterior execução dos cmdlets PowerShell.
 

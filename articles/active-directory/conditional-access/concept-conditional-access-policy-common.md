@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdaaed72b85bc3c0196a8897be311efa5fb714e2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366348"
 ---
 # <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional comuns
@@ -28,7 +28,7 @@ ms.locfileid: "92366348"
 
 Mais informações sobre contas de acesso de emergência e por que são importantes podem ser encontradas nos seguintes artigos: 
 
-* [Gerir contas de acesso de emergência em Azure AD](../roles/security-emergency-access.md)
+* [Gerir contas de acesso de emergência no AAD](../roles/security-emergency-access.md)
 * [Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory](../authentication/concept-resilient-controls.md)
 
 ## <a name="typical-policies-deployed-by-organizations"></a>Políticas típicas implementadas pelas organizações

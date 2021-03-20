@@ -1,5 +1,5 @@
 ---
-title: Começa com a Biblioteca Azure CDN para .NET Microsoft Docs
+title: Começa com a Biblioteca Azure CDN para .NET | Microsoft Docs
 description: Aprenda a escrever aplicações .NET para gerir o Azure CDN utilizando o Visual Studio.
 services: cdn
 documentationcenter: .net
@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: a812704c42a4da5ddf89fe6c5ba0c9a684047f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919493"
 ---
 # <a name="get-started-with-the-azure-cdn-library-for-net"></a>Começa com a Biblioteca Azure CDN para .NET
@@ -49,7 +49,7 @@ A partir do Visual Studio 2015, clique em **File**, **New**, **Project...** para
 
 O nosso projeto vai usar algumas bibliotecas Azure contidas em pacotes Nuget.  Vamos adicioná-los ao projeto.
 
-1. Clique no menu **Ferramentas,** **Gestor de Pacotes Nuget**e, em seguida, **Consola de Gestor de Pacotes**.
+1. Clique no menu **Ferramentas,** **Gestor de Pacotes Nuget** e, em seguida, **Consola de Gestor de Pacotes**.
 
     ![Gerir pacotes Nuget](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 2. Na Consola Gestor de Pacotes, execute o seguinte comando para instalar a Biblioteca de **Autenticação de Diretório Ativo (ADAL)**:
@@ -62,7 +62,7 @@ O nosso projeto vai usar algumas bibliotecas Azure contidas em pacotes Nuget.  V
 ## <a name="directives-constants-main-method-and-helper-methods"></a>Diretivas, constantes, método principal e métodos de ajuda
 Vamos escrever a estrutura básica do nosso programa.
 
-1. De volta ao separador Program.cs, substitua as `using` diretivas no topo pelo seguinte:
+1. De volta ao separador program.cs, substitua as `using` diretivas no topo com as seguintes:
 
     ```csharp
     using System;
@@ -74,7 +74,7 @@ Vamos escrever a estrutura básica do nosso programa.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Precisamos definir algumas constantes que os nossos métodos usarão.  Na `Program` classe, mas antes do `Main` método, adicione o seguinte.  Certifique-se de que substitui os espaços reservados, incluindo os ** &lt; suportes angulares, &gt; **com os seus próprios valores, se necessário.
+2. Precisamos definir algumas constantes que os nossos métodos usarão.  Na `Program` classe, mas antes do `Main` método, adicione o seguinte.  Certifique-se de que substitui os espaços reservados, incluindo os **&lt; suportes angulares, &gt;** com os seus próprios valores, se necessário.
 
     ```csharp
     //Tenant app constants

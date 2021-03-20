@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96029352"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
@@ -48,16 +48,16 @@ Antes de configurar as identidades do dispositivo em Azure AD para o seu ambient
 
 | Tipo de identidade do dispositivo | Infraestrutura de identidade | Dispositivos Windows | Versão da plataforma VDI | Suportado |
 | --- | --- | --- | --- | --- |
-| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Sim |
+| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Yes |
 |   |   | Corrente do Windows | Não Persistente | Sim<sup>5</sup> |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
-|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Sim |
-|   |   | Corrente do Windows | Não Persistente | Não |
+|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Yes |
+|   |   | Corrente do Windows | Não Persistente | No |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
-| Azure AD associado | Federados | Corrente do Windows | Persistente | Não |
-|   |   |   | Não Persistente | Não |
-|   | Gerido | Corrente do Windows | Persistente | Não |
-|   |   |   | Não Persistente | Não |
+| Azure AD associado | Federados | Corrente do Windows | Persistente | No |
+|   |   |   | Não Persistente | No |
+|   | Seja gerido | Corrente do Windows | Persistente | No |
+|   |   |   | Não Persistente | No |
 | Azure AD registado | Federado/Gerido | Windows corrente/Windows para baixo nível | Persistente/Não Persistente | Não Aplicável |
 
 <sup>1</sup> Os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 v1803 ou superior e o Windows Server 2019.

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 50b09fd82461221ae6cd008f6918ac2f3a26fd94
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090833"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588399"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrar o Azure Spring Cloud nas Soluções de Balanceamento de Carga do Azure
 
@@ -76,6 +76,17 @@ Para integrar com o serviço Azure Spring Cloud, complete as seguintes configura
 1.  **Use sonda personalizada**: selecione *Sim* e escolha a sonda personalizada criada acima.
 
     ![App Gateway 3](media/spring-cloud-load-balancers/app-gateway-3.png)
+
+### <a name="configure-rewrite-set"></a>Conjunto de reescrita de configuração
+1.  Selecione **Rewrites** e, em seguida, **Reescreva** o conjunto para adicionar um conjunto de reescrita.
+1.  Selecione as regras de encaminhamento que encaminham os pedidos para os pontos finais públicos da Azure Spring Cloud.
+1.  No **separador de configuração de regra de reescrita,** selecione **Adicionar regra de reescrita**.
+1.  **Tipo de reescrita**: selecione **Cabeçalho de Pedido**
+1.  **Tipo de ação**: selecione **Eliminar**
+1.  **Nome do cabeçalho**: selecione **Cabeçalho Comum**
+1.  **Cabeçalho Comum**: selecione **X-Forwarded-Proto**
+
+    ![App Gateway 4](media/spring-cloud-load-balancers/app-gateway-4.png)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-front-door"></a>Integre a nuvem de primavera Azure com a porta frontal Azure
 

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 08/16/2020
 ms.author: cshoe
 ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88689572"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar extensões de ligação funções Azure Funções
@@ -35,7 +35,7 @@ Para as aplicações de funções Java, JavaScript, PowerShell, Python e Custom 
 
 ### <a name="extension-bundles"></a><a name="extension-bundles"></a>Pacotes de extensão
 
-Os pacotes de extensão são uma forma de adicionar um conjunto compatível de extensões de ligação à sua aplicação de função. Você ativa pacotes de extensão nahost.jsda aplicação * em* arquivo.
+Os pacotes de extensão são uma forma de adicionar um conjunto compatível de extensões de ligação à sua aplicação de função. Você ativa pacotes de extensão nahost.jsda aplicação *em* arquivo.
 
 Pode utilizar pacotes de extensão com versões 2.x e versões posteriores do tempo de execução das Funções.
 

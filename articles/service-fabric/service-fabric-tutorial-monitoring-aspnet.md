@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: e7fe68c2d0c51ffcc67693da722d9243ea3506f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91840800"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric com o Application Insights
@@ -63,7 +63,7 @@ Uma vez preenchido as informações necessárias, **selecione Criar** para obter
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Adicionar o Application Insights aos serviços da aplicação
 
-Lançar Visual Studio 2019 com privilégios elevados clicando no ícone do Estúdio Visual no Menu Iniciar e escolhendo **Run como administrador**. Selecione **File**  >  **Open**  >  **Project/Solution** e navegue para a aplicação de voto (criada na parte um do tutorial ou git clonado). *Voto Aberto.sln*. Se for solicitado para restaurar os pacotes NuGet da aplicação, selecione **Sim**.
+Lançar Visual Studio 2019 com privilégios elevados clicando no ícone do Estúdio Visual no Menu Iniciar e escolhendo **Run como administrador**. Selecione **File**  >  **Open**  >  **Project/Solution** e navegue para a aplicação de voto (criada na parte um do tutorial ou git clonado). *Voto aberto.sln*. Se for solicitado para restaurar os pacotes NuGet da aplicação, selecione **Sim**.
 
 Siga estes passos para configurar insights de aplicações tanto para os serviços VoteWeb como VoteData:
 
@@ -98,16 +98,16 @@ Aqui estão os passos para configurar o pacote NuGet:
 3. Procure `Microsoft.ApplicationInsights.ServiceFabric.Native` e selecione o pacote NuGet apropriado.
 4. À direita, selecione as duas caixas de verificação ao lado dos dois serviços na aplicação, **VotingWeb** e **VoteData** e selecione **Instalar**.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
-5. Selecione **OK** na caixa de diálogo de alterações de *pré-visualização* que aparece e aceite a *Aceitação*da Licença . Deste modo, irá concluir a adição do NuGet aos serviços.
-6. Agora tem de configurar o inicializador de telemetria nos dois serviços. Para isso, *abram-se VotingWeb.cs* e *VotingData.cs.* Para ambos os parâmetros, execute os dois passos seguintes:
-    1. Adicione estes dois *utilizando* declarações no topo de cada * \<ServiceName> .cs,* após as declarações *existentes:*
+5. Selecione **OK** na caixa de diálogo de alterações de *pré-visualização* que aparece e aceite a *Aceitação* da Licença . Deste modo, irá concluir a adição do NuGet aos serviços.
+6. Agora tem de configurar o inicializador de telemetria nos dois serviços. Para isso, abra *o VoteWeb.cs* e *VoteData.cs*. Para ambos os parâmetros, execute os dois passos seguintes:
+    1. Adicione estes dois *usando* declarações no topo de cada *\<ServiceName> .cs,* após as declarações *existentes:*
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. Em ambos os ficheiros, na declaração de *devolução* aninhada dos *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, nos *serviços ConfigureServices,*  >  *services*com os outros serviços singleton declarados, adicione:
+    2. Em ambos os ficheiros, na declaração de *devolução* aninhada dos *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, nos *serviços ConfigureServices,*  >  com os outros serviços singleton declarados, adicione:
     ```csharp
     .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
     ```
@@ -148,7 +148,7 @@ Aqui estão os passos para configurar o pacote NuGet:
         .Build();
     ```
 
-Verifique duas vezes se o `UseApplicationInsights()` método é chamado tanto *VotingWeb.cs* como *VotingData.cs* como mostrado acima.
+Verifique duas vezes se o `UseApplicationInsights()` método é chamado tanto no *VoteWeb.cs* como *no VoteData.cs* como mostrado acima.
 
 >[!NOTE]
 >Esta aplicação de exemplo utiliza http para os serviços para comunicar. Se desenvolver uma aplicação com o serviço Gestão remota V2 também terá de adicionar as seguintes linhas de código no mesmo local como fez acima

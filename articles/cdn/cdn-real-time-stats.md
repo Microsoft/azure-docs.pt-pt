@@ -1,5 +1,5 @@
 ---
-title: Estatísticas em tempo real no Azure CDN Microsoft Docs
+title: Estatísticas em tempo real em Azure CDN | Microsoft Docs
 description: As estatísticas em tempo real fornecem dados em tempo real sobre o desempenho da Azure CDN ao entregar conteúdo aos seus clientes.
 services: cdn
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 3af2e849aa6658e539b0b5bdbda4428cc28e5ce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84887231"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estatísticas em tempo real no Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este documento explica estatísticas em tempo real no Microsoft Azure CDN.  Esta funcionalidade fornece dados em tempo real, tais como largura de banda, estados de cache e ligações simultâneas ao seu perfil de CDN ao entregar conteúdo aos seus clientes. Isto permite uma monitorização contínua da saúde do seu serviço a qualquer momento, incluindo eventos ao vivo.
 
 Estão disponíveis os seguintes gráficos:
