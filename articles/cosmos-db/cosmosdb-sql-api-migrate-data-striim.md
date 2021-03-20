@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339611"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrar dados para a conta Azure Cosmos DL API usando Striim
@@ -30,13 +30,13 @@ Este artigo mostra como usar o Striim para migrar dados de uma base de **dados d
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Implementar a solução de mercado Striim
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. **Selecione Criar um recurso** e procurar **Striim** no mercado Azure. Selecione a primeira opção e **Crie**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Encontre o item do mercado Striim":::
 
-1. Em seguida, insira as propriedades de configuração da instância Striim. O ambiente Striim está implantado numa máquina virtual. A partir do painel **Básico,** introduza o **nome de utilizador VM** , **palavra-passe VM** (esta palavra-passe é usada para SSH no VM). Selecione a sua **Subscrição,** **Grupo de Recursos** e Detalhes de **Localização** onde pretende implementar o Striim. Uma vez concluído, selecione **OK**.
+1. Em seguida, insira as propriedades de configuração da instância Striim. O ambiente Striim está implantado numa máquina virtual. A partir do painel **Básico,** introduza o **nome de utilizador VM**, **palavra-passe VM** (esta palavra-passe é usada para SSH no VM). Selecione a sua **Subscrição,** **Grupo de Recursos** e Detalhes de **Localização** onde pretende implementar o Striim. Uma vez concluído, selecione **OK**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configurar definições básicas para Striim":::
 
@@ -62,7 +62,7 @@ Este artigo mostra como usar o Striim para migrar dados de uma base de **dados d
 
 Nesta secção, configura a base de dados Oráculo como fonte de movimento de dados.  Vai precisar do condutor da [Oracle JDBC](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) para ligar à Oracle. Para ler as alterações a partir da base de dados Oráculo de origem, pode utilizar o [LogMiner](https://www.oracle.com/technetwork/database/features/availability/logmineroverview-088844.html) ou os [APIs XStream](https://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm#XSTRM72647). O controlador Oracle JDBC deve estar presente no classe Java da Striim para ler, escrever ou persistir dados da base de dados da Oracle.
 
-Descarregue o controlador [ojdbc8.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) para a sua máquina local. Irá instalá-lo no cluster Striim mais tarde.
+Descarregue o [controlador .jar ojdbc8](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) para a sua máquina local. Irá instalá-lo no cluster Striim mais tarde.
 
 ## <a name="configure-the-target-database"></a>Configurar a base de dados-alvo
 
@@ -86,7 +86,7 @@ Nesta secção, irá configurar a conta Azure Cosmos DB SQL API como o alvo do m
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Ligar ao Striim VM":::
 
-1. Agora, abra um novo separador de terminal para copiar o ficheiro **ojdbc8.jar** que descarregou anteriormente. Utilize o seguinte comando SCP para copiar o ficheiro do frasco da sua máquina local para a pasta tmp da instância Striim em execução em Azure:
+1. Agora, abra um novo separador de terminal para copiar o **ficheiro ojdbc8.jar** que descarregou anteriormente. Utilize o seguinte comando SCP para copiar o ficheiro do frasco da sua máquina local para a pasta tmp da instância Striim em execução em Azure:
 
    ```bash
    cd <Directory_path_where_the_Jar_file_exists> 
@@ -146,7 +146,7 @@ Nesta secção, irá configurar a conta Azure Cosmos DB SQL API como o alvo do m
 
 1. Na página seguinte, diga o seu pedido. Pode fornecer um nome como **oraToCosmosDB** e, em seguida, selecionar **Save**.
 
-1. Em seguida, insira a configuração de origem da sua origem Oráculo. Introduza um valor para o **Nome Fonte**. O nome de origem é apenas uma convenção de nomeação para a aplicação Striim, você pode usar algo como **src_onPremOracle**. Introduza valores para o resto dos parâmetros de origem **URL** , **Nome de utilizador** , **Password,** escolha **LogMiner** como leitor para ler dados da Oracle. Selecione **Seguinte** para continuar.
+1. Em seguida, insira a configuração de origem da sua origem Oráculo. Introduza um valor para o **Nome Fonte**. O nome de origem é apenas uma convenção de nomeação para a aplicação Striim, você pode usar algo como **src_onPremOracle**. Introduza valores para o resto dos parâmetros de origem **URL**, **Nome de utilizador**, **Password,** escolha **LogMiner** como leitor para ler dados da Oracle. Selecione **Seguinte** para continuar.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Configurar parâmetros de origem":::
 
@@ -164,7 +164,7 @@ Nesta secção, irá configurar a conta Azure Cosmos DB SQL API como o alvo do m
 
    * **Nome do alvo** - Forneça um nome amigável para o alvo. 
    * **Entrada A partir de** - Da lista de dropdown, selecione o fluxo de entrada do que criou na configuração Oráculo de origem. 
-   * **Coleções** - Introduza as propriedades de configuração DB do Azure Cosmos. A sintaxe de coleções é **SourceSchema.SourceTable, TargetDatabase.TargetContainer**. Neste exemplo, o valor seria "SYSTEM. ORDENS, StriimDemo.Orders". 
+   * **Coleções**- Introduza as propriedades de configuração DB do Azure Cosmos. A sintaxe de coleções é **SourceSchema.SourceTable, TargetDatabase.TargetContainer**. Neste exemplo, o valor seria "SYSTEM. ORDENS, StriimDemo.Orders". 
    * **AccessKey** - A Chave Primária da sua conta Azure Cosmos.
    * **ServiceEndpoint** – O URI da sua conta Azure Cosmos, podem ser encontrados na secção **Chaves** do portal Azure. 
 

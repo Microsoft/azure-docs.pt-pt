@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880140"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: Criar uma habilidade personalizada do Reconhecimento de Formulários
@@ -43,7 +43,7 @@ Primeiro, adicione variáveis ambientais ao nível do projeto. Localize o projet
 * `FORMS_RECOGNIZER_RETRY_DELAY` com o valor definido para 1000. Este valor é o tempo em milissegundos que o programa vai esperar antes de voltar a tentar a consulta.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS` com o valor definido para 100. Este valor é o número de vezes que o programa irá consultar o serviço enquanto tenta obter uma resposta bem sucedida.
 
-Em seguida, abra _AnalyzeForm.cs_ e encontre a `fieldMappings` variável, que faz referência ao *field-mappings.jsarquivado.* Este ficheiro (e a variável que o referencia) define a lista de chaves que pretende extrair dos seus formulários e uma etiqueta personalizada para cada tecla. Por exemplo, um valor de `{ "Address:", "address" }, { "Invoice For:", "recipient" }` meios o script apenas irá guardar os valores para os `Address:` campos e campos `Invoice For:` detetados, e irá rotular esses valores com `"address"` `"recipient"` e, respectivamente.
+Em seguida, abra _o AnalyzeForm.cs_ e encontre a `fieldMappings` variável, que faz referência ao *field-mappings.jsno* ficheiro. Este ficheiro (e a variável que o referencia) define a lista de chaves que pretende extrair dos seus formulários e uma etiqueta personalizada para cada tecla. Por exemplo, um valor de `{ "Address:", "address" }, { "Invoice For:", "recipient" }` meios o script apenas irá guardar os valores para os `Address:` campos e campos `Invoice For:` detetados, e irá rotular esses valores com `"address"` `"recipient"` e, respectivamente.
 
 Finalmente, note a `contentType` variável. Este script executa o modelo de Reconhecimento de Formulários em documentos remotos que são referenciados por URL, pelo que o tipo de conteúdo é `application/json` . Se pretender analisar os ficheiros locais, incluindo os seus streams de byte nos pedidos HTTP, terá de alterar o `contentType` [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) apropriado para o seu ficheiro.
 
@@ -160,7 +160,7 @@ Para utilizar esta habilidade num pipeline de Pesquisa Cognitiva, terá de adici
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, criou uma habilidade personalizada a partir do serviço Azure Form Recogniser. Para saber mais sobre habilidades personalizadas, consulte os seguintes recursos. 
 

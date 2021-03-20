@@ -1,5 +1,5 @@
 ---
-title: Aquisição de administrador de diretório não gerido - Azure AD / Microsoft Docs
+title: Aquisição de administrador de um diretório não gerido - Azure AD | Microsoft Docs
 description: Como assumir um nome de domínio DNS numa organização AZure AD não gerida (inquilino-sombra).
 services: active-directory
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547105"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
@@ -45,7 +45,7 @@ Alguns produtos que incluem SharePoint e OneDrive, como o Microsoft 365, não su
   
    ![primeira screenshot para Tornar o Administrador](./media/domains-admin-takeover/become-admin-first.png)
   
-5. Adicione o registo TXT para provar que possui o nome de domínio **quartocoffee.xyz** no seu registo de nome de domínio. Neste exemplo, é GoDaddy.com.
+5. Adicione o registo TXT para provar que possui o nome de domínio **fourthcoffee.xyz** no seu registo de nome de domínio. Neste exemplo, é GoDaddy.com.
   
    ![Adicione um registo txt para o nome de domínio](./media/domains-admin-takeover/become-admin-txt-record.png)
 
@@ -71,7 +71,7 @@ Quando completar os passos anteriores, é agora o administrador global da organi
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer utilizadores do serviço Power BI ou Azure Rights Management que tenham licenças atribuídas na organização Microsoft 365 devem guardar os seus dashboards se o nome de domínio for removido. Devem iniciar sposição com um nome de utilizador como *\@ utilizador fourthcoffeexyz.onmicrosoft.com* em vez de utilizador *\@ quartocoffee.xyz*.
+> Qualquer utilizadores do serviço Power BI ou Azure Rights Management que tenham licenças atribuídas na organização Microsoft 365 devem guardar os seus dashboards se o nome de domínio for removido. Devem iniciar sôms com um nome de utilizador como *\@ fourthcoffeexyz.onmicrosoft.com* utilizador em vez de *fourthcoffee.xyz \@ de utilizador*.
 
 ## <a name="external-admin-takeover"></a>Aquisição de administrador externo
 

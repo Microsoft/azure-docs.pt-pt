@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77194284"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>O que é o roaming de estado empresarial?
@@ -28,7 +28,7 @@ Com o Windows 10, os utilizadores [do Azure Ative Directory (Azure AD)](../funda
 
 Enterprise State Roaming está disponível em várias regiões de Azure. Pode encontrar a lista atualizada das regiões disponíveis na página [Azure Services by Regions](https://azure.microsoft.com/regions/#services) no âmbito do Azure Ative Directory.
 
-| Artigo | Descrição |
+| Artigo | Description |
 | --- | --- |
 | [Ativar o Roaming de Estado Empresarial no Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming está disponível para qualquer organização com uma assinatura Premium Azure Ative Directory (Azure AD). Para obter mais informações sobre como obter uma subscrição AD Azure, consulte a página do [produto AZure AD.](https://azure.microsoft.com/services/active-directory) |
 | [FAQ de definições e roaming de dados](enterprise-state-roaming-faqs.md) |Este artigo responde a algumas perguntas que os administradores de TI podem ter sobre configurações e sincronização de dados de aplicações. |

@@ -1,5 +1,5 @@
 ---
-title: Início rápido da política de nomeação de grupos - Azure Ative Directory / Microsoft Docs
+title: Início rápido da política de nomeação de grupo - Azure Ative Directory | Microsoft Docs
 description: Explica como adicionar novos utilizadores ou eliminar os utilizadores existentes no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6013d14d7639bf4f7fe318c9a2da96e4d8acbcb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546289"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início rápido: Política de nomenclatura para grupos no Azure Active Directory

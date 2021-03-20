@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: bfb170036293dc9f519259dc92737f30380aa84a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77025015"
 ---
 # <a name="networking-prerequisites-for-azure-vmware-solution-by-cloudsimple"></a>Pré-requisitos de networking para Azure VMware Solution by CloudSimple
@@ -25,7 +25,7 @@ As tabelas deste artigo descrevem o conjunto de intervalos de endereços e servi
 
 Durante a criação de um serviço CloudSimple e de uma nuvem privada, deve cumprir as gamas de encaminhamento inter-domínio (CIDR) sem classe especificadas, da seguinte forma.
 
-| Nome/usado para     | Descrição                                                                                                                            | Intervalo de endereços            |
+| Nome/usado para     | Description                                                                                                                            | Intervalo de endereços            |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | Gateway CIDR      | Necessário para serviços de borda (gateways VPN).  Este CIDR é necessário durante a criação do Serviço CloudSimple e deve ser do espaço RFC 1918. | /28                      |
 | vSphere/vSAN CIDR | Obrigatório para redes de gestão VMware. Este CIDR deve ser especificado durante a criação de nuvens privadas.                                    | /24 ou /23 ou /22 ou /21 |
@@ -34,7 +34,7 @@ Durante a criação de um serviço CloudSimple e de uma nuvem privada, deve cump
 
 A ligação de uma [rede no local à rede de nuvem privada através do ExpressRoute](on-premises-connection.md) estabelece uma ligação Global Reach.  A ligação utiliza o Border Gateway Protocol (BGP) para trocar rotas entre a sua rede no local, a sua rede de nuvem privada e as suas redes Azure.
 
-| Nome/usado para             | Descrição                                                                                                                                                                             | Intervalo de endereços |
+| Nome/usado para             | Description                                                                                                                                                                             | Intervalo de endereços |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | ExpressRoute Peering CIDR | Necessário quando utilizar o ExpressRoute Global Reach para conectividade no local. Este CIDR deve ser fornecido quando um pedido de ligação Global Reach é feito através de um bilhete de apoio. | /29           |
 
@@ -42,7 +42,7 @@ A ligação de uma [rede no local à rede de nuvem privada através do ExpressRo
 
 A ligação de uma [rede no local à rede de nuvem privada através da utilização de VPN site-to-site](vpn-gateway.md) requer os seguintes endereços IP, rede no local e identificadores. 
 
-| Intervalo de endereço/endereço | Descrição                                                                                                                                                                                                                                                           |
+| Intervalo de endereço/endereço | Description                                                                                                                                                                                                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Peer IP               | Endereço IP público de gateway VPN no local. Necessário estabelecer uma ligação VPN local-a-local entre um datacenter no local e a região de Serviço CloudSimple. Este endereço IP é necessário durante a criação de gateway VPN site-to-site.                                         |
 | Identificador de pares       | Identificador de pares do portal VPN no local. Isto é geralmente o mesmo **que peer IP**.  Se for especificado um identificador único no seu gateway VPN no local, o identificador deve ser especificado.  O ID do peer é necessário durante a criação de gateway VPN local.   |
@@ -52,7 +52,7 @@ A ligação de uma [rede no local à rede de nuvem privada através da utilizaç
 
 Uma ligação VPN ponto-a-local permite o acesso à rede CloudSimple a partir de uma máquina cliente.  [Para configurar a VPN ponto a local,](vpn-gateway.md)tem de especificar o seguinte intervalo de endereços de rede.
 
-| Intervalo de endereço/endereço | Descrição                                                                                                                                                                                                                                                                                                  |
+| Intervalo de endereço/endereço | Description                                                                                                                                                                                                                                                                                                  |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Sub-rede de clientes         | Os endereços DHCP são fornecidos pela sub-rede do cliente quando se conecta utilizando uma VPN ponto-a-local. Esta sub-rede é necessária enquanto está a criar uma porta VPN ponto a local num portal CloudSimple.  A rede é dividida em duas sub-redes; um para a ligação UDP e o outro para ligações TCP. |
 

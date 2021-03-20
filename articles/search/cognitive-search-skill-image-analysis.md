@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 69b84a3edb606ed99b6aaca7db5ad0e57124f1b9
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91948940"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Capacidade cognitiva de análise de imagem
@@ -40,7 +40,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                                          |
+| Nome de entrada      | Description                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complexo. Atualmente, apenas funciona com o campo "/document/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` é definido para um valor diferente de ```none``` . Consulte a [amostra](#sample-output) para mais informações.|
 
@@ -512,7 +512,7 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
 ## <a name="error-cases"></a>Casos de erro
 Nos seguintes casos de erro, não são extraídos elementos.
 
-| Código de Erro | Descrição |
+| Código de Erro | Description |
 |------------|-------------|
 | `NotSupportedLanguage` | A linguagem fornecida não é suportada. |
 | `InvalidImageUrl` | O URL de imagem está mal formatado ou não está acessível.|
@@ -538,7 +538,7 @@ Se obter o erro `"One or more skills are invalid. Details: Error in skill #<num>
             ]
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

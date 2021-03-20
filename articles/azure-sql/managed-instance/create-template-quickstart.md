@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/22/2020
 ms.openlocfilehash: badeb850e8d0346347a994f053fb0f64fd01240a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91283348"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Quickstart: Criar uma instância gerida Azure SQL usando um modelo ARM
@@ -91,7 +91,7 @@ Visite o [portal Azure](https://portal.azure.com/#blade/HubsExtension/BrowseReso
 - Para um arranque rápido que mostre como ligar-se a SQL Managed Instance a partir de uma máquina virtual Azure, consulte [configurar uma ligação virtual Azure](connect-vm-instance-configure.md).
 - Para obter um arranque rápido que mostre como ligar-se à SQL Managed Instance a partir de um computador cliente no local utilizando uma ligação ponto-a-local, consulte [configurar uma ligação ponto-a-local](point-to-site-p2s-configure.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Mantenha a instância gerida se quiser ir aos [próximos passos,](#next-steps)mas elimine a instância gerida e os recursos relacionados após completar quaisquer tutoriais adicionais. Depois de eliminar uma instância gerida, consulte [Eliminar uma sub-rede depois de eliminar uma instância gerida](virtual-cluster-delete.md).
 

@@ -4,10 +4,10 @@ description: Saiba como gerir as listas de utilizadores do Azure Lab Services a 
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: fa8f96a84be5c4c91e0153216e15963ec0e3d6f8
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91946714"
 ---
 # <a name="manage-lab-services-user-lists-from-teams"></a>Gerir listas de utilizadores de Serviços de Laboratório de Equipas
@@ -29,7 +29,7 @@ Uma vez que a sincronização automática ou manual esteja completa, o seguinte 
     * Se houver novidades na equipa, serão criados novos VMs.
     * Se algum utilizador tiver sido eliminado da equipa, o VM associado também será eliminado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado o modelo VM e quando o educador selecionar para publicar o modelo, será criado o número de VMs equivalente ao número de utilizadores na lista de utilizadores do laboratório. Assim que o laboratório for publicado e os VMs forem criados, os Utilizadores serão automaticamente registados no laboratório e os VMs serão-lhes atribuídos no seu primeiro login nos Serviços Azure Lab, ou seja, quando acederem pela primeira vez à app de serviços do **Azure Lab.** 
 

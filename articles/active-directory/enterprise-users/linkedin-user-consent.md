@@ -1,5 +1,5 @@
 ---
-title: Partilha e consentimento de dados linkedIn - Azure Ative Directory / Microsoft Docs
+title: Partilha e consentimento de dados linkedIn - Azure Ative Directory | Microsoft Docs
 description: Explica como a integração do LinkedIn partilha dados através de aplicações da Microsoft no Azure Ative Directory
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d13ae1e5198666e115507fd91bb0fedb1c5fa64
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96545915"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn liga a partilha e consentimento de dados

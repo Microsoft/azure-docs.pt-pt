@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650529"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Adicionar recursos personalizados à Azure REST API
@@ -104,9 +104,9 @@ az resource create --is-full-object \
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-é objeto completo | *Sim, o que é* | Indica que o objeto de propriedades inclui outras opções, tais como localização, tags, sku e/ou plano.
-ID | *Sim, o que é* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**
-propriedades | *Sim, o que é* | O órgão de pedido que será enviado para o **ponto final.**
+é objeto completo | *Sim* | Indica que o objeto de propriedades inclui outras opções, tais como localização, tags, sku e/ou plano.
+ID | *Sim* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**
+propriedades | *Sim* | O órgão de pedido que será enviado para o **ponto final.**
 
 Eliminar um recurso Azure Custom:
 
@@ -116,7 +116,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-ID | *Sim, o que é* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**.
+ID | *Sim* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**.
 
 Recupere um recurso personalizado Azure:
 
@@ -126,7 +126,7 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-ID | *Sim, o que é* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**
+ID | *Sim* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
@@ -176,9 +176,9 @@ Modelo de gestor de recursos Azure:
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-nome de recursoTypeName | *Sim, o que é* | O **nome** do **recursoType** definido no fornecedor personalizado.
-nome de recursoProviderName | *Sim, o que é* | O nome da instância do fornecedor de recursos personalizado.
-customResourceName | *Sim, o que é* | O nome de recurso personalizado.
+nome de recursoTypeName | *Sim* | O **nome** do **recursoType** definido no fornecedor personalizado.
+nome de recursoProviderName | *Sim* | O nome da instância do fornecedor de recursos personalizado.
+customResourceName | *Sim* | O nome de recurso personalizado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

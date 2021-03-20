@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: bcb7f2d008c54981223b4839f9a750e6ee9ac5cc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97355155"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
@@ -129,7 +129,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 6. Termos de utilização
 7. Política de privacidade
 8. Nome da oferta
-9. Descrição
+9. Description
 10. Screenshots/vídeos
 
 ### <a name="marketplace-details"></a>Detalhes do mercado

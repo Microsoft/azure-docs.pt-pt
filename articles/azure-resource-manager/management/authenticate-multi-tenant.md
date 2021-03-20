@@ -4,10 +4,10 @@ description: Descreve como o Azure Resource Manager lida com pedidos de autentic
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75478828"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticar pedidos entre inquilinos
@@ -18,7 +18,7 @@ Ao criar uma aplicação multi-arrendatário, poderá ter de lidar com pedidos d
 
 O pedido tem os seguintes valores de cabeçalho de autenticação:
 
-| Nome do cabeçalho | Descrição | Valor de exemplo |
+| Nome do cabeçalho | Description | Valor de exemplo |
 | ----------- | ----------- | ------------ |
 | Autorização | Ficha primária | Token primário do portador &lt;&gt; |
 | x-ms-autorização-auxiliar | Fichas auxiliares | Portador &lt; auxiliar-token1 &gt; , CryedBearer &lt; auxiliar-token2, &gt; Bearer &lt; auxiliar-token3&gt; |

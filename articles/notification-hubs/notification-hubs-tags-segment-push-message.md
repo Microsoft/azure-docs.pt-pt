@@ -18,15 +18,15 @@ ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4ff8225522e79e2be40682fb5e4823777dde2aa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998308"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de encaminhamento e etiqueta
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As expressões de etiquetas permitem-lhe direcionar conjuntos específicos de dispositivos, ou mais especificamente registos, ao enviar uma notificação push através de Centros de Notificação.
 
@@ -40,7 +40,7 @@ A única forma de direcionar registos de notificação específicos é associar 
 
 ## <a name="tags"></a>Etiquetas
 
-Uma etiqueta pode ser qualquer corda, até 120 caracteres, contendo caracteres alfanuméricos e os seguintes caracteres não alfanuméricos: ' `_` ' ' ' ' ' ' ' ' ' ' ' ' ' ' `@` `#` `.` `:` '' '' `-` '' '' '' '' ', ', '. O exemplo a seguir mostra uma aplicação a partir da qual pode receber notificações de torradas sobre grupos musicais específicos. Neste cenário, uma forma simples de encaminhar notificações é rotular registos com etiquetas que representem as diferentes bandas, como na seguinte figura:
+Uma etiqueta pode ser qualquer corda, até 120 caracteres, contendo caracteres alfanuméricos e os seguintes caracteres não alfanuméricos: ' `_` ' ' ' ' ' ' ' ' ' ' ' ' `@` `#` `.` `:` '' '' `-` ', ', '. O exemplo a seguir mostra uma aplicação a partir da qual pode receber notificações de torradas sobre grupos musicais específicos. Neste cenário, uma forma simples de encaminhar notificações é rotular registos com etiquetas que representem as diferentes bandas, como na seguinte figura:
 
 ![Visão geral das etiquetas](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 

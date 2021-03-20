@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
 ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340962"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar elasticamente uma conta Azure Cosmos DB Cassandra API
@@ -40,7 +40,7 @@ Se precisar de minimizar a latência, existe um espectro de opções para gerir 
 
 As seguintes secções explicam as vantagens e desvantagens de cada abordagem. Pode então decidir qual a melhor estratégia para equilibrar as necessidades de escala do seu sistema, o custo global e as necessidades de eficiência para a sua solução.
 
-## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Utilizar o portal do Azure
+## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Use o portal Azure
 
 Você pode escalar os recursos na conta Azure Cosmos DB Cassandra API usando o portal Azure. Para saber mais, consulte o artigo sobre [a produção de provisões em contentores e bases de dados.](set-throughput.md) Este artigo explica os benefícios relativos da fixação de produção em qualquer [base de dados](set-throughput.md#set-throughput-on-a-database) ou nível [de contentor](set-throughput.md#set-throughput-on-a-container) no portal Azure. Os termos "base de dados" e "contentor" mencionados nestes artigos mapeiam para "keyspace" e "mesa" respectivamente para a API de Cassandra.
 

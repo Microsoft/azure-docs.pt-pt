@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87027398"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrar uma política clássica no portal Azure
@@ -32,7 +32,7 @@ O processo de migração consiste nas seguintes etapas:
 
 ## <a name="open-a-classic-policy"></a>Abrir uma política clássica
 
-1. No [portal Azure,](https://portal.azure.com)navegue para acesso condicional de segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. No [portal Azure,](https://portal.azure.com)navegue para acesso condicional de segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione, **Políticas clássicas**.
 
    ![Vista de políticas clássicas](./media/policy-migration-mfa/12.png)
@@ -41,12 +41,12 @@ O processo de migração consiste nas seguintes etapas:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Criar uma nova política de acesso condicional
 
-1. No [portal Azure,](https://portal.azure.com)navegue para acesso condicional de segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. No [portal Azure,](https://portal.azure.com)navegue para acesso condicional de segurança **do Diretório Ativo Azure**  >    >  .
 1. Para criar uma nova política de acesso condicional, selecione **Nova política**.
 1. Na página **Novo,** na caixa de texto **'Nome',** escreva um nome para a sua política.
 1. Na secção **Atribuições,** clique em **Utilizadores e grupos**.
    1. Se tiver todos os utilizadores selecionados na sua política clássica, clique em **Todos os utilizadores**. 
-   1. Se tiver grupos selecionados na sua política clássica, clique em **Selecionar utilizadores e grupos**e, em seguida, selecione os utilizadores e grupos necessários.
+   1. Se tiver grupos selecionados na sua política clássica, clique em **Selecionar utilizadores e grupos** e, em seguida, selecione os utilizadores e grupos necessários.
    1. Se tiver os grupos excluídos, clique no separador **Excluir** e, em seguida, selecione os utilizadores e grupos necessários. 
    1. Selecione **Feito**
 1. Na secção **Atribuição,** clique em **aplicativos cloud ou ações**.

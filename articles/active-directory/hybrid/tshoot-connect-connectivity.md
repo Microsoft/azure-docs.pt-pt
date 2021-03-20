@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Problemas de conectividade Azure AD de resolução de problemas Microsoft Docs'
+title: 'Azure AD Connect: Problemas de conectividade Azure Ad de resolução de problemas | Microsoft Docs'
 description: Explica como resolver problemas de conectividade com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677064"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Problemas Azure AD conectividade
@@ -44,7 +44,7 @@ O servidor proxy também deve ter os URLs necessários abertos. A lista oficial 
 
 Destes URLs, a tabela a seguir é o mínimo absoluto para poder ligar-se ao Azure AD. Esta lista não inclui quaisquer funcionalidades opcionais, tais como a writeback de palavras-passe ou a Azure AD Connect Health. Está documentado aqui para ajudar na resolução de problemas para a configuração inicial.
 
-| URL | Porta | Descrição |
+| URL | Porta | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Usado para descarregar listas de CRL. |
 | \*.verisign.com |HTTP/80 |Usado para descarregar listas de CRL. |
@@ -119,32 +119,32 @@ Se seguiu todos estes passos anteriores e ainda não consegue ligar-se, pode nes
 ### <a name="reference-proxy-logs"></a>Registos de procuração de referência
 Aqui está uma lixeira de um registo de procuração real e a página de assistente de instalação de onde foi tirada (foram removidas as entradas duplicadas para o mesmo ponto final). Esta secção pode ser usada como referência para os seus próprios registos de procuração e rede. Os pontos finais reais podem ser diferentes no seu ambiente (em particular os URLs em *itálico).*
 
-**Ligar ao Azure AD**
+**Ligue-se ao Azure AD**
 
 | Hora | URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect:// *bba800-âncora* .microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-âncora*.microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect:// *bwsc02-relay* .microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Configurar**
 
 | Hora | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect:// *bba800-âncora* .microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-âncora*.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect:// *bba900-âncora* .microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-âncora*.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect:// *bba800-âncora* .microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-âncora*.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect:// *bwsc02-relay* .microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Sincronização inicial**
 
@@ -152,8 +152,8 @@ Aqui está uma lixeira de um registo de procuração real e a página de assiste
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect:// *bba900-âncora* .microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect:// *bba800-âncora* .microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-âncora*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-âncora*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Erros de autenticação
 Esta secção cobre erros que podem ser devolvidos da ADAL (a biblioteca de autenticação utilizada por Azure AD Connect) e PowerShell. O erro explicado deve ajudá-lo a entender os próximos passos.

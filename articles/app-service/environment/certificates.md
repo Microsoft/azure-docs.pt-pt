@@ -8,10 +8,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962048"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente de Serviço de Aplicações 
@@ -73,7 +73,7 @@ Um caso de uso comum é configurar a sua aplicação como cliente num modelo de 
 
 Para fazer o upload do certificado para a sua aplicação na sua ASE:
 
-1. Gere um ficheiro *.cer* para o seu certificado. 
+1. Gere um *ficheiro .cer* para o seu certificado. 
 2. Vá à app que precisa do certificado no portal Azure
 3. Aceda às definições SSL na aplicação. Clique em Carregar Certificado. Selecione Público. Selecione Máquina Local. Forneça um nome. Navegue e selecione o seu ficheiro *.cer.* Selecione upload. 
 4. Copie a impressão digital.

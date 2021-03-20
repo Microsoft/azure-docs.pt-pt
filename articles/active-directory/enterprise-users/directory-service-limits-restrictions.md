@@ -1,5 +1,5 @@
 ---
-title: Limites de serviço e restrições - Azure Ative Directory Microsoft Docs
+title: Limites de serviço e restrições - Azure Ative Directory | Microsoft Docs
 description: Restrições de utilização e outros limites de serviço para o serviço Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 055f66ed96a293c7bc97cc34012756f0fee27f14
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547122"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrições e limites de serviço do Azure AD

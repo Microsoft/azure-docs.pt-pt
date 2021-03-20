@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 720c064c6b382bc62565c0828422181c761df8e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936933"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Persistir dados de tarefas para o Azure Storage com o serviço Batch API
@@ -180,7 +180,7 @@ O projeto de amostra [persistOutputs](https://github.com/Azure/azure-batch-sampl
 1. Abra o projeto no **Visual Studio 2019.**
 2. Adicione **as suas credenciais** de conta de lote e armazenamento a **AccountSettings.settings** no projeto Microsoft.Azure.Batch.Samples.Common.
 3. **Construa** (mas não corra) a solução. Restaurar quaisquer pacotes NuGet se solicitado.
-4. Utilize o portal Azure para carregar um [pacote de aplicações](batch-application-packages.md) para **PersistOutputsTask**. Inclua os `PersistOutputsTask.exe` conjuntos e os seus conjuntos dependentes no pacote .zip, de definição do ID da aplicação para "PersistOutputsTask", e a versão do pacote de aplicações para "1.0".
+4. Utilize o portal Azure para carregar um [pacote de aplicações](batch-application-packages.md) para **PersistOutputsTask**. Inclua os `PersistOutputsTask.exe` conjuntos e os seus conjuntos dependentes no pacote .zip, definir o ID da aplicação para "PersistOutputsTask", e a versão do pacote de aplicações para "1.0".
 5. **Inicie** (executar) o projeto **PersistOutputs.**
 6. Quando solicitado para escolher a tecnologia de persistência a utilizar para executar a amostra, introduza **2** para executar a amostra utilizando a API de serviço de lote para persistir na saída da tarefa.
 7. Se desejar, volte a executar a amostra, entrando **em 3** para persistir na saída com a API de serviço de lote, e também para nomear o contentor de destino e o caminho do blob de acordo com a norma das Convenções de Arquivo.

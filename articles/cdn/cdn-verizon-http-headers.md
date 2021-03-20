@@ -1,5 +1,5 @@
 ---
-title: Cabeçalhos HTTP específicos da Verizon para o motor de regras do Azure CDN Microsoft Docs
+title: Cabeçalhos HTTP específicos de Verizon para Azure CDN regras motor | Microsoft Docs
 description: Este artigo descreve como utilizar cabeçalhos HTTP específicos da Verizon com motor de regras Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
 ms.openlocfilehash: e20f6ce9540d357b61ae2cfdf0e8f96d127dc6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343222"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP específicos de Verizon para motor de regras Azure CDN
@@ -42,7 +42,7 @@ X-Host | Indica o nome de anfitrião do pedido. | cdn.mydomain.com
 X-Midgress | Indica se o pedido foi solicitado através de um servidor CDN adicional. Por exemplo, um servidor de escudo pop-para-origem ou um servidor de gateway POP-para-ADN. <br />Este cabeçalho só é adicionado ao pedido quando ocorre o trânsito. Neste caso, o cabeçalho é definido para 1 para indicar que o pedido foi proxipado através de um servidor CDN adicional.| 1
 [Anfitrião](#host-request-header) | Identifica o hospedeiro e a porta onde o conteúdo solicitado pode ser encontrado. | marketing.mydomain.com:80
 [Lista de X-Gateway](#x-gateway-list-request-header) | ADN: Identifica a lista de falhas dos servidores ADN Gateway atribuídos a uma origem do cliente. <br />Escudo de origem: Indica o conjunto de servidores de escudo de origem atribuídos à origem do cliente. | `icn1,hhp1,hnd1`
-X-EC-_ &lt; nome &gt; _ | Os cabeçalhos de pedido que começam com *X-EC* (por exemplo, X-EC-Tag, [X-EC-Debug)](cdn-http-debug-headers.md)são reservados para utilização pelo CDN.| waf-produção
+X-EC-_&lt; nome &gt;_ | Os cabeçalhos de pedido que começam com *X-EC* (por exemplo, X-EC-Tag, [X-EC-Debug)](cdn-http-debug-headers.md)são reservados para utilização pelo CDN.| waf-produção
 
 ## <a name="via-request-header"></a>Através do cabeçalho de pedido
 O formato através do qual o cabeçalho de `Via` pedido identifica um servidor POP é especificado pela seguinte sintaxe:

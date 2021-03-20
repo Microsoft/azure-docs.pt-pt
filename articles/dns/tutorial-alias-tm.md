@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77149954"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registo de alias para suportar os nomes de domínio apex com o Gestor de Tráfego 
@@ -42,16 +42,16 @@ O domínio de exemplo utilizado para este tutorial é o contoso.com, mas utilize
 Primeiro, crie uma rede virtual e uma sub-rede onde possa colocar os servidores Web.
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No canto superior esquerdo do portal, selecione **Criar um recurso**. Introduza *grupo de recursos* na caixa de pesquisa e crie um grupo de recursos chamado **RG-DNS-Alias-TM**.
-3. **Selecione Criar uma**rede  >  virtual de rede**de**  >  **Virtual network**recursos.
+3. **Selecione Criar uma** rede  >  virtual de rede **de**  >  recursos.
 4. Criar uma rede virtual denominada **VNet-Servers**. Coloque-o no grupo de recursos **RG-DNS-Alias-TM** e atribua à sub-rede o nome **SN-Web**.
 
 ## <a name="create-two-web-server-virtual-machines"></a>Criar duas máquinas virtuais do servidor Web
-1. Selecione **Criar um**  >  **VM do Windows Server 2016**de recurso .
+1. Selecione **Criar um**  >  **VM do Windows Server 2016** de recurso .
 2. Introduza **Web-01** para o nome e coloque a VM no grupo de recursos **RG-DNS-Alias-TM**. Introduza um nome de utilizador e uma palavra-passe e selecione **OK**.
 3. Para **Tamanho**, selecione um SKU com 8 GB de RAM.
 4. Em **Definições**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**.
 5. Selecione **Endereço IP público**. Sob **Atribuição**, selecione **Estático** e, em seguida, selecione **OK**.
-6. Para portas de entrada **HTTP**pública, selecione  >  **HTTPS**  >  **RDP (3389)** e, em seguida, selecione **OK**.
+6. Para portas de entrada pública, selecione  >  **HTTPS**  >  **RDP (3389)** e, em seguida, selecione **OK**.
 7. Na página **Resumo**, selecione **Criar**. Este procedimento demora alguns minutos a concluir.
 
 Repita este procedimento para criar outra máquina virtual com o nome **Web-02**.
@@ -69,7 +69,7 @@ Repita este procedimento para o endereço IP público **Web-02-ip**, com **web02
 
 Instale o IIS em **Web-01** e **Web-02**.
 
-1. Ligue-se à **Web-01**e inscreva-se.
+1. Ligue-se à **Web-01** e inscreva-se.
 2. No dashboard do **Gestor de Servidor**, selecione **Adicionar funções e funcionalidades**.
 3. Selecione **Seguinte** três vezes. Na página **Funções de Servidor**, selecione **Servidor Web (IIS)**.
 4. Selecione **Adicionar Funcionalidades** e selecione **Seguinte**.
@@ -83,7 +83,7 @@ Repita este procedimento para instalar o IIS em **Web-02**.
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
 
 1. Abra o grupo de recursos **RG-DNS-Alias-TM** e selecione o Endereço IP público **Web-01-ip**. Aponte o endereço IP para utilizar mais tarde. Repita este passo para o endereço IP público **Web-02-ip**.
-1. Selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**.
+1. Selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >    >  .
 2. Para o nome, introduza **TM-alias-test**. Coloque-o no grupo de recursos **RG-DNS-Alias-TM**.
 3. Selecione **Criar**.
 4. Após a implementação terminar, selecione **Ir para recurso**.

@@ -1,5 +1,5 @@
 ---
-title: Adicionar utilizadores com licenças diretas para agrupar licenciamento - Azure AD ! Microsoft Docs
+title: Adicione utilizadores com licenças diretas para agrupar licenciamento - Azure AD | Microsoft Docs
 description: Como migrar de licenças individuais de utilizador para licenciamento baseado em grupo usando O Diretório Ativo Azure
 services: active-directory
 keywords: Licenciamento do Azure AD
@@ -17,10 +17,10 @@ ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: adc80cf579ce3086abd4171b065f859acd0b9294
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546510"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Como migrar utilizadores com licenças individuais para grupos para licenciamento

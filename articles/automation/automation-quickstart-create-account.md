@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83836707"
 ---
-# <a name="create-an-azure-automation-account"></a>Criar uma conta de Automatização do Azure
+# <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
 Pode criar uma conta Azure Automation através do Azure, utilizando o portal Azure, uma interface de utilizador baseada no navegador que permite o acesso a uma série de recursos. Uma conta Automation pode gerir recursos em todas as regiões e subscrições para um determinado inquilino. 
 
@@ -21,7 +21,7 @@ Este quickstart guia-o na criação de uma conta Automation e na execução de u
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-[Inscreva-se no Azure.](https://portal.azure.com)
+[Inicie sessão no Azure](https://portal.azure.com).
 
 ## <a name="create-automation-account"></a>Criar conta de Automatização
 
@@ -32,7 +32,7 @@ Este quickstart guia-o na criação de uma conta Automation e na execução de u
 
 2. Clique no botão Criar um botão **de recurso** encontrado no canto superior esquerdo do portal Azure.
 
-3. Selecione **IT & Management Tools**e, em seguida, selecione **Automação**.
+3. Selecione **IT & Management Tools** e, em seguida, selecione **Automação**.
 
 4. Introduza a informação da conta, incluindo o nome da conta selecionada. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. Quando a informação estiver concluída, clique em **Criar** para iniciar a implementação da conta Automation.
 
@@ -59,7 +59,7 @@ Execute um dos runbooks do tutorial.
 
     ![Descrição geral do runbook](./media/automation-quickstart-create-account/automation-tutorial-script-runbook-overview.png)
 
-1. Clique em **Iniciar**e na página Iniciar Runbook, clique em **OK** para iniciar o runbook.
+1. Clique em **Iniciar** e na página Iniciar Runbook, clique em **OK** para iniciar o runbook.
 
     ![Página de tarefa do runbook](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 

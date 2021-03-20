@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76906967"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Criar esquemas para rastrear mensagens AS2 em Azure Logic Apps
@@ -52,7 +52,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens AS2 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens AS2 |
@@ -61,18 +61,18 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | agreementName | Não | String | Nome do acordo AS2 para o qual as mensagens são resolvidas |
 | direção | Sim | String | Direção do fluxo de mensagem, que é `receive` ou `send` |
 | messageId | Não | String | ID de mensagem AS2 dos cabeçalhos da mensagem AS2 |
-| disposiçãoType | Não | String | Valor do tipo de disposição de disposição de disposição de disposição de mensagem (MDN) |
+| disposiçãoType | Não | String | Valor do tipo de disposição de disposição de mensagem (MDN) |
 | fileName | Não | String | Nome do ficheiro do cabeçalho da mensagem AS2 |
-| isMessageFailed | Sim | Booleano | Se a mensagem AS2 falhou |
-| isMessageSigned | Sim | Booleano | Se a mensagem AS2 foi assinada |
-| isMessageEncrypted | Sim | Booleano | Se a mensagem AS2 foi encriptada |
-| isMessageComprido | Sim | Booleano | Se a mensagem AS2 foi comprimida |
+| isMessageFailed | Yes | Booleano | Se a mensagem AS2 falhou |
+| isMessageSigned | Yes | Booleano | Se a mensagem AS2 foi assinada |
+| isMessageEncrypted | Yes | Booleano | Se a mensagem AS2 foi encriptada |
+| isMessageComprido | Yes | Booleano | Se a mensagem AS2 foi comprimida |
 | correlationMessageId | Não | String | ID de mensagem AS2, para correlacionar mensagens com MDNs |
-| entradasHeaders | Não | Dicionário de JToken | Detalhes do cabeçalho de mensagem AS2 |
-| outgoingHeaders | Não | Dicionário de JToken | Detalhes do cabeçalho de mensagens AS2 de saída |
-| isNrrEnabled | Sim | Booleano | Se usar o valor padrão se o valor não for conhecido |
-| isMdnExpected | Sim | Booleano | Se usar o valor padrão se o valor não for conhecido |
-| mdnType | Sim | Enumeração | Valores permitidos: `NotConfigured` `Sync` , e `Async` |
+| entradasHeaders | No | Dicionário de JToken | Detalhes do cabeçalho de mensagem AS2 |
+| outgoingHeaders | No | Dicionário de JToken | Detalhes do cabeçalho de mensagens AS2 de saída |
+| isNrrEnabled | Yes | Booleano | Se usar o valor padrão se o valor não for conhecido |
+| isMdnExpected | Yes | Booleano | Se usar o valor padrão se o valor não for conhecido |
+| mdnType | Yes | Enumeração | Valores permitidos: `NotConfigured` `Sync` , e `Async` |
 |||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Esquema de rastreio AS2 MDN
@@ -105,7 +105,7 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | nome senderPartner | Não | String | Nome do parceiro do remetente de mensagens AS2 |
 | receptorPartnerName | Não | String | Nome do parceiro do recetor de mensagens AS2 |
@@ -116,14 +116,14 @@ Para ajudá-lo a monitorizar propriedades de sucesso, erros e mensagens para tra
 | messageId | Não | String | ID de mensagem AS2 |
 | originalMessageId | Não | String | ID de mensagem original AS2 |
 | disposiçãoType | Não | String | Valor do tipo de disposição MDN |
-| isMessageFailed | Sim | Booleano | Se a mensagem AS2 falhou |
-| isMessageSigned | Sim | Booleano | Se a mensagem AS2 foi assinada |
-| isNrrEnabled | Sim | Booleano | Se usar o valor padrão se o valor não for conhecido |
-| statusCode | Sim | Enumeração | Valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
-| micVerificationStatus | Sim | Enumeração | Valores permitidos: `NotApplicable` `Succeeded` , e `Failed` |
+| isMessageFailed | Yes | Booleano | Se a mensagem AS2 falhou |
+| isMessageSigned | Yes | Booleano | Se a mensagem AS2 foi assinada |
+| isNrrEnabled | Yes | Booleano | Se usar o valor padrão se o valor não for conhecido |
+| statusCode | Yes | Enumeração | Valores permitidos: `Accepted` `Rejected` , e `AcceptedWithErrors` |
+| micVerificationStatus | Yes | Enumeração | Valores permitidos: `NotApplicable` `Succeeded` , e `Failed` |
 | correlationMessageId | Não | String | ID de correlação, que é o ID para a mensagem original que tem o MDN configurado |
-| entradasHeaders | Não | Dicionário de JToken | Detalhes do cabeçalho da mensagem de entrada |
-| outgoingHeaders | Não | Dicionário de JToken | Detalhes do cabeçalho de mensagem de saída |
+| entradasHeaders | No | Dicionário de JToken | Detalhes do cabeçalho da mensagem de entrada |
+| outgoingHeaders | No | Dicionário de JToken | Detalhes do cabeçalho de mensagem de saída |
 |||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de rastreio do protocolo B2B

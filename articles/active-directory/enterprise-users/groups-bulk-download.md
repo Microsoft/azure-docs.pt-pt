@@ -1,5 +1,5 @@
 ---
-title: Faça o download de uma lista de grupos no portal Azure Ative Directory Microsoft Docs
+title: Faça o download de uma lista de grupos no portal Azure Ative Directory | Microsoft Docs
 description: Descarregue propriedades de grupo a granel no centro de administração Azure em Azure Ative Directory.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 98c61679fed04c0a696b60bb7ee53009a8a530e0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547683"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Descarregue em massa uma lista de grupos no Azure Ative Directory

@@ -1,5 +1,5 @@
 ---
-title: OPC Vault arquitetura - Azure / Microsoft Docs
+title: Arquitetura OPC Vault - Azure | Microsoft Docs
 description: Arquitetura de serviço de gestão de certificados OPC Vault
 author: mregen
 ms.author: mregen
@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: eb558d967ad657d14158684fba92b13979ea5fe2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91281593"
 ---
 # <a name="opc-vault-architecture"></a>Arquitetura do Cofre OPC

@@ -8,10 +8,10 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
 ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880275"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
@@ -55,7 +55,7 @@ Os parceiros que queiram participar no programa devem identificar outros parceir
 
 ## <a name="develop-an-integrated-solution"></a>Desenvolver uma solução integrada
 
-Após a aprovação da sua nomeação, utilize os recursos do programa ligados para desenvolver a sua solução integrada. Siga estes passos.
+Após a aprovação da sua nomeação, utilize os recursos do programa ligados para desenvolver a sua solução integrada. Siga estes passos:
 
 1. Complete as principais discussões empresariais e técnicas num formato de workshop para definir a abordagem de solução e integração.
 
@@ -111,6 +111,6 @@ Embora existam cinco tipos de serviços disponíveis para ofertas de serviços d
 
 Quando a sua solução estiver ao vivo no Microsoft AppSource ou no Azure Marketplace, vai querer impulsionar a consciencialização e a procura através de atividades de marketing. Reveja as atividades enumeradas no [plano de projeto e na linha do tempo.](https://aka.ms/AA5qiuc) Este recurso inclui atividades que os parceiros podem conduzir dentro das suas próprias equipas e uns com os outros. Em seguida, aceda [aos benefícios do mercado](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) para os parceiros que publicam no mercado. Todas as ofertas de soluções integradas são elegíveis para benefícios a nível experimental.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Formulário de nomeação de soluções integradas](https://aka.ms/AA5qicu)

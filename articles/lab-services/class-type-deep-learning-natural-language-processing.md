@@ -1,13 +1,13 @@
 ---
-title: Criar um laboratório focado em deep learning usando os Serviços Azure Lab Microsoft Docs
+title: Crie um laboratório focado em aprendizagem profunda usando os serviços do Azure Lab | Microsoft Docs
 description: Aprenda a criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural (NLP) usando os Serviços Azure Lab.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 01199e76b7b9cb1a6360b5aba010d0cfd8936c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91251461"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural usando os Serviços Azure Lab
@@ -36,7 +36,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 
 A Máquina Virtual de Ciência de Dados para a imagem Linux fornece os quadros e ferramentas de aprendizagem profunda necessários para este tipo de aula. Como resultado, após a criação da máquina de modelo, você não precisa personalizá-lo ainda mais. Pode ser publicado para os alunos usarem. Selecione o botão **Publicar** na página do modelo para publicar o modelo para o laboratório.  
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 Se quiser estimar o custo deste laboratório, pode usar o seguinte exemplo: 
 
 Para uma turma de 25 alunos com 20 horas de horário de aula programado e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria - 25 alunos * (20 + 10) horas * 139 Unidades de Laboratório * 0,01 USD por hora = 1042,5 USD

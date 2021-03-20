@@ -9,10 +9,10 @@ ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 55f0d2e8df36cc11f26c5ff6259ebe2215aaffc6
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880547"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>QuickStart: Ligue uma conta Azure Purview a um espaço de trabalho synapse 

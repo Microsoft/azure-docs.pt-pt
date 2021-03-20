@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108421"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
@@ -36,7 +36,7 @@ O elemento **Predicates** deve aparecer diretamente seguindo o elemento **Claims
 
 O elemento **Predicates** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Predicado | 1:n | Uma lista de predicados. |
 
@@ -44,26 +44,26 @@ O elemento **Predicado** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o predicado. Outros elementos podem usar este identificador na apólice. |
-| Método | Sim | O tipo de método a utilizar para validação. Valores possíveis: [IsLengthRange](#islengthrange), [MatchRegex,](#matchesregex) [IncludesCharacters,](#includescharacters)ou [IsDateRange](#isdaterange).  |
-| HelpText | Não | Uma mensagem de erro para os utilizadores se a verificação falhar. Esta cadeia pode ser localizada usando a personalização do [idioma](localization.md) |
+| Id | Yes | Um identificador que é usado para o predicado. Outros elementos podem usar este identificador na apólice. |
+| Método | Yes | O tipo de método a utilizar para validação. Valores possíveis: [IsLengthRange](#islengthrange), [MatchRegex,](#matchesregex) [IncludesCharacters,](#includescharacters)ou [IsDateRange](#isdaterange).  |
+| HelpText | No | Uma mensagem de erro para os utilizadores se a verificação falhar. Esta cadeia pode ser localizada usando a personalização do [idioma](localization.md) |
 
 O elemento **Predicado** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 0:1 | (Precatado) Uma mensagem de erro para os utilizadores se a verificação falhar. |
 | Parâmetros | 1:1 | Os parâmetros para o tipo de método da validação da corda. |
 
 O elemento **Parâmetros** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Parâmetro | 1:n | Os parâmetros para o tipo de método da validação da corda. |
 
 O elemento **parâmetro** contém os seguintes atributos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | O identificador do parâmetro. |
 
@@ -75,8 +75,8 @@ O método IsLengthRange verifica se o comprimento de um valor de pedido de cadei
 
 | Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Máximo | Sim | O número máximo de caracteres que podem ser introduzidos. |
-| Mínimo | Sim | O número mínimo de caracteres que devem ser introduzidos. |
+| Máximo | Yes | O número máximo de caracteres que podem ser introduzidos. |
+| Mínimo | Yes | O número mínimo de caracteres que devem ser introduzidos. |
 
 
 O exemplo a seguir mostra um método IsLengthRange com os parâmetros `Minimum` e `Maximum` que especificam a gama de comprimentos da cadeia:
@@ -96,7 +96,7 @@ O método MatchRegex verifica se um valor de reclamação de corda corresponde a
 
 | Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Expressão Regular | Sim | O padrão de expressão regular para combinar. |
+| Expressão Regular | Yes | O padrão de expressão regular para combinar. |
 
 O exemplo a seguir mostra um `MatchesRegex` método com o parâmetro que especifica uma expressão `RegularExpression` regular:
 
@@ -114,7 +114,7 @@ O método IncludesCharacters verifica se um valor de reclamação de cadeia cont
 
 | Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Conjunto de Caracteres | Sim | O conjunto de caracteres que podem ser introduzidos. Por exemplo, caracteres  `a-z` minúsculos, caracteres `A-Z` maiúsculas, `0-9` dígitos, ou uma lista de símbolos, tais como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
+| Conjunto de Caracteres | Yes | O conjunto de caracteres que podem ser introduzidos. Por exemplo, caracteres  `a-z` minúsculos, caracteres `A-Z` maiúsculas, `0-9` dígitos, ou uma lista de símbolos, tais como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 O exemplo a seguir mostra um `IncludesCharacters` método com o parâmetro que especifica o conjunto de `CharacterSet` caracteres:
 
@@ -132,8 +132,8 @@ O método IsDateRange verifica se um valor de reclamação de data está entre u
 
 | Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Máximo | Sim | A maior data possível que pode ser inscrita. O formato da data segue a `yyyy-mm-dd` convenção, ou `Today` . |
-| Mínimo | Sim | A menor data possível que pode ser inscrita. O formato da data segue a `yyyy-mm-dd` convenção, ou `Today` .|
+| Máximo | Yes | A maior data possível que pode ser inscrita. O formato da data segue a `yyyy-mm-dd` convenção, ou `Today` . |
+| Mínimo | Yes | A menor data possível que pode ser inscrita. O formato da data segue a `yyyy-mm-dd` convenção, ou `Today` .|
 
 O exemplo a seguir mostra um `IsDateRange` método com os parâmetros e que `Minimum` `Maximum` especificam a gama de datas com um formato de `yyyy-mm-dd` e `Today` .
 
@@ -172,7 +172,7 @@ O elemento **PredicateValidations** deve aparecer diretamente seguindo o element
 
 O elemento **PredicateValidations** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Pré-validade | 1:n | Uma lista de validação predicado. |
 
@@ -180,17 +180,17 @@ O elemento **PredicateValidation** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para validação predicado. O elemento **ClaimType** pode utilizar este identificador na apólice. |
+| Id | Yes | Um identificador que é usado para validação predicado. O elemento **ClaimType** pode utilizar este identificador na apólice. |
 
 O elemento **PredicateValidation** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Grupos Predicados | 1:n | Uma lista de grupos predicados. |
 
 O elemento **PredicateGroups** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Grupo Predicate | 1:n | Uma lista de predicados. |
 
@@ -198,11 +198,11 @@ O elemento **PredicateGroup** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o grupo predicado.  |
+| Id | Yes | Um identificador que é usado para o grupo predicado.  |
 
 O elemento **PredicateGroup** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 0:1 |  Uma descrição do predicado que pode ser útil para os utilizadores saberem que valor devem escrever. |
 | PredicateReferências | 1:n | Uma lista de referências predicados. |
@@ -211,11 +211,11 @@ O elemento **PredicateReferences** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Não | Especifica que o valor deve corresponder pelo menos às muitas definições predicados para a entrada ser aceite. Se não for especificado, o valor deve corresponder a todas as definições predicados. |
+| MatchAtLeast | No | Especifica que o valor deve corresponder pelo menos às muitas definições predicados para a entrada ser aceite. Se não for especificado, o valor deve corresponder a todas as definições predicados. |
 
 O elemento **PredicateReferences** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Pré-referência | 1:n | Uma referência a um predicado. |
 
@@ -223,7 +223,7 @@ O elemento **PredicateReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para validação predicado.  |
+| Id | Yes | Um identificador que é usado para validação predicado.  |
 
 
 ## <a name="configure-password-complexity"></a>Configure a complexidade da palavra-passe

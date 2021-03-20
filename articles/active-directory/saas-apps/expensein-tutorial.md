@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com DespesasIn ; Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com DespesasEm | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ExpenseIn.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.openlocfilehash: eb7062b745ae6eb97dc2cd4ba2051cc221031630
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96179168"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar DespesasIn com Diretório Ativo Azure
@@ -145,7 +145,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Selecione **Sim** para Permitir a **inscrição no fornecedor**.
 
-    c. Na caixa **de texto's's's's's's's's,** cole o valor do URL de **login,** que copiou do portal Azure.
+    c. Na caixa **de texto's's,** cole o valor do URL de **login,** que copiou do portal Azure.
 
     d. Na caixa de texto **emitente,** cole o valor do **Identificador AD AZure,** que copiou do portal Azure.
 

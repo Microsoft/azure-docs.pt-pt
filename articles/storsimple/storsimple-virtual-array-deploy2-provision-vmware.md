@@ -9,16 +9,16 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87021482"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar StorSimple Virtual Array - Provision in VMware
-![Diagrama mostrando os passos necessários para implantar uma matriz virtual.A segunda parte do segundo escalão é rotulada Provisão em VMware e é destacada.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
+![Diagrama mostrando os passos necessários para implantar uma matriz virtual. A segunda parte do segundo escalão é rotulada Provisão em VMware e é destacada.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -139,7 +139,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 22. Na página **'Rede',** especifique o número das interfaces de rede. O requisito mínimo é uma interface de rede.
 
     ![Screenshot da página da Rede. O número de interfaces de rede está definido para um e o botão Seguinte é realçado.](./media/storsimple-virtual-array-deploy2-provision-vmware/image23.png)
-23. Na página **do Controlador SCSI,** aceite o **controlador LSI Logic SAS**padrão.
+23. Na página **do Controlador SCSI,** aceite o **controlador LSI Logic SAS** padrão.
 
     ![Screenshot da página do Controlador SCSI. A opção L S I logic S A S é selecionada e o botão Seguinte é realçado.](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
 24. Na página **Select a Disk,** escolha **Utilize um disco virtual existente.** Clique em **Seguinte**.

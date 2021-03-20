@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91871818"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembale, suporte de cremalheira e cabo o seu dispositivo StorSimple 8600
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O microsoft Azure StorSimple 8600 é um dispositivo de compostagem dupla e é composto por um recinto primário e um recinto EBOD. Este tutorial explica como desempacotar, montar e cabo o hardware do dispositivo StorSimple 8600 antes de configurar o software StorSimple.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Desembale o seu dispositivo StorSimple 8600
@@ -198,7 +198,7 @@ Para suportar este controlador redundante falha, é necessário por cabo a rede 
    
     **Parte de trás do seu dispositivo mostrando as portas de dados**
    
-   | Etiqueta | Descrição |
+   | Etiqueta | Description |
    | --- | --- |
    |   0,1,4,5 |1 Interfaces de rede GbE |
    |   2,3 |10 interfaces de rede GbE |
@@ -209,7 +209,7 @@ Para suportar este controlador redundante falha, é necessário por cabo a rede 
 
 **Cabo de rede para o seu dispositivo**
 
-| Etiqueta | Descrição |
+| Etiqueta | Description |
 | --- | --- |
 | A |LAN com acesso à Internet |
 | B |Controlador 0 |

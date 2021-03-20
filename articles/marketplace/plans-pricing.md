@@ -8,10 +8,10 @@ author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
 ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91858177"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planos e preços para ofertas de mercado comercial
@@ -80,7 +80,7 @@ O mercado comercial opera num modelo de agência, em que os editores fixam preç
 
 - **Mercados**: Todos os planos devem estar disponíveis em pelo menos um mercado.  Tem a opção de selecionar apenas países "Tax Remitted", nos quais a Microsoft remete as vendas e usa o imposto em seu nome.
 - **Preços**: Os modelos de preços aplicam-se apenas aos planos de aplicação gerida pela Azure, ofertas de máquinas virtuais SaaS e Azure. Todos os planos para a mesma oferta devem usar o mesmo modelo de preços.  
-- **Visibilidade do**plano : Dependendo do tipo de oferta, pode definir um público privado ou esconder a oferta ou plano do Azure Marketplace. Isto é explicado mais detalhadamente no [Plano de visibilidade](#plan-visibility) mais tarde neste artigo.
+- **Visibilidade do** plano : Dependendo do tipo de oferta, pode definir um público privado ou esconder a oferta ou plano do Azure Marketplace. Isto é explicado mais detalhadamente no [Plano de visibilidade](#plan-visibility) mais tarde neste artigo.
 
 > [!TIP]
 > Recomendamos que crie planos mais adequados aos padrões de utilização da sua base de clientes alvo. Isto reduz os utilizadores de mudar frequentemente de planos com base nas suas mudanças de utilização. Para um exemplo de uma oferta saaS com planos de faturação de três metros, consulte [a oferta sample](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -128,7 +128,7 @@ Os preços fixados em Dólares dos Estados Unidos (USD) são convertidos na moed
 
 Você pode fazer planos para alguns tipos de oferta publicamente disponíveis ou disponíveis apenas para um público específico (privado). As ofertas com planos privados serão publicadas no portal Azure. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](private-offers.md)
 
-Você define o seu público privado usando IDs de inquilino Azure ou IDs de assinatura Azure, dependendo do tipo de oferta. Pode introduzir até 10 IDs manualmente ou importar até 10.000 IDs de subscrição ou 20.000 IDs de inquilino (conforme aplicável) com um ficheiro .csv. Também pode definir públicos privados para serviços de consultoria e ofertas Dynamics 365 que não têm planos.
+Você define o seu público privado usando IDs de inquilino Azure ou IDs de assinatura Azure, dependendo do tipo de oferta. Você pode inserir até 10 IDs manualmente ou importar até 10,00 IDs de subscrição ou 20.000 IDs de inquilino (conforme aplicável) com um ficheiro .csv. Também pode definir públicos privados para serviços de consultoria e ofertas Dynamics 365 que não têm planos.
 
 Depois de a sua oferta ser publicada com um plano privado, pode atualizar o público ou optar por disponibilizar o plano a todos. Depois de um plano ser publicado como visível para todos, deve permanecer visível para todos e não pode ser configurado novamente como um plano privado.
 

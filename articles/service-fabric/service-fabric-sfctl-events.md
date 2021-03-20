@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 635bddef1a98d6ed2b112662d8c9c44fe65e9e32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76906100"
 ---
 # <a name="sfctl-events"></a>eventos sfctl
@@ -40,7 +40,7 @@ A resposta é a lista de objetos ApplicationEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --tempo de início-utc [Obrigatório] | A hora de início de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
@@ -51,7 +51,7 @@ A resposta é a lista de objetos ApplicationEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -66,7 +66,7 @@ A resposta é a lista de objetos NodeEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --tempo de início-utc [Obrigatório] | A hora de início de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
@@ -77,7 +77,7 @@ A resposta é a lista de objetos NodeEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -92,7 +92,7 @@ A resposta é a lista de objetos PartitionEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --tempo de início-utc [Obrigatório] | A hora de início de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
@@ -103,7 +103,7 @@ A resposta é a lista de objetos PartitionEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -118,7 +118,7 @@ A resposta é a lista de objetos ServiceEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --tempo de início-utc [Obrigatório] | A hora de início de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
@@ -129,7 +129,7 @@ A resposta é a lista de objetos ServiceEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -144,7 +144,7 @@ A resposta é a lista de objetos ApplicationEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
@@ -156,7 +156,7 @@ A resposta é a lista de objetos ApplicationEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -171,7 +171,7 @@ A resposta é a lista de objetos ClusterEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --tempo de início-utc [Obrigatório] | A hora de início de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
@@ -182,7 +182,7 @@ A resposta é a lista de objetos ClusterEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -197,7 +197,7 @@ A resposta é a lista de objetos NodeEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -209,7 +209,7 @@ A resposta é a lista de objetos NodeEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -224,7 +224,7 @@ A resposta é a lista de objetos ReplicaEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -236,7 +236,7 @@ A resposta é a lista de objetos ReplicaEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -251,7 +251,7 @@ A resposta é a lista de objetos PartitionEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -263,7 +263,7 @@ A resposta é a lista de objetos PartitionEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -278,7 +278,7 @@ A resposta é a lista de objetos ReplicaEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --partição-id [Obrigatório] | A identidade da partição. |
@@ -291,7 +291,7 @@ A resposta é a lista de objetos ReplicaEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -306,7 +306,7 @@ A resposta é a lista de objetos ServiceEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de procura em ISO UTC yyyy-MM-ddTHH \: mm \: ssZ. |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
@@ -318,7 +318,7 @@ A resposta é a lista de objetos ServiceEvent.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

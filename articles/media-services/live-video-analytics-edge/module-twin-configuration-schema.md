@@ -4,10 +4,10 @@ description: Este tópico descreve o esquema do JSON twin do vídeo ao vivo no I
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87053072"
 ---
 # <a name="module-twin-json-schema"></a>Módulo twin JSON schema
@@ -23,23 +23,23 @@ Este tópico descreve o esquema do JSON twin do vídeo ao vivo no IoT Edge.
 
 Live Video Analytics on IoT Edge expõe as seguintes propriedades gémeas do módulo. 
 
-|Propriedade |Necessário |Dinâmica |Descrição |
+|Propriedade |Necessário |Dinâmica |Description |
 |---|---|---|---|
-|aplicaçãoDataDirectório |Sim |Não |Caminho para um volume montado para uma configuração persistente. |
-|azureMediaServicesArmId |Sim |Não |Identificador exclusivo de Gestão de Recursos Azure para a Conta de Serviços de Mídia.|
-|aadTenantId |Sim |Não |Cliente Azure Ad Inquilina do Inquilino.|
-|aadServicePrincipalAppId |Sim |Sim |O cliente criou o Azure AD AppId.|
-|aadServicePrincipalCertificate |Sim, é o seu<sup>*</sup>  |Sim |O cliente criou o certificado Azure AD AppId.|
-|aadServicePrincipalPassword |Sim, é o seu<sup>*</sup>  |Sim |O cliente criou a senha Azure AD AppId.|
-|aadEndpoint |Não |Não |Ponto final Azure AD específico da nuvem. <br/>Predefinição: `https://login.microsoftonline.com` |
-|aadResourceId |Não |Não |Audiência/ID de recursos Azure específicos em nuvem <br/>Predefinição: `https://management.core.windows.net/` |
-|armEndpoint |Não |Não |Fonte específica de recursos Azure Gerencie o ponto final. <br/>Predefinição: `https://management.azure.com/` |
-|diagnósticosLevel |Não |Sim |Verbosidade dos eventos: <br/>Informação &#x02758; Aviso &#x02758; Erro &#x02758; & crítico#x02758; Nenhum. |
-|diagnósticoSEventsOutputName |Não |Sim |Saída do hub para eventos de diagnóstico. <br/>(Vazio significa que os diagnósticos não são publicados)|
-|operacionalEventsOutputName|Não|Sim|Produção do hub para eventos operacionais.<br/>(Vazio significa que os eventos operacionais não são publicados)
-|logLevel|Não|Sim|Um dos seguintes: <br/>&#x000B7; Verbose<br/>&#x000B7; Informação (Padrão)<br/>&#x000B7; Aviso<br/>&#x000B7; Erro<br/>&#x000B7; Nenhum.|
-|logCategorias|Não|Sim|Uma lista separada em vírgula do seguinte: Aplicação, MediaPipeline, Eventos <br/>Padrão: Aplicação, Eventos|
-|debugLogsDirectory|Não|Sim|Diretório para registos de depurg. Se os registos presentes forem gerados, se não estiverem desativados os registos de depuração.
+|aplicaçãoDataDirectório |Yes |No |Caminho para um volume montado para uma configuração persistente. |
+|azureMediaServicesArmId |Yes |No |Identificador exclusivo de Gestão de Recursos Azure para a Conta de Serviços de Mídia.|
+|aadTenantId |Yes |No |Cliente Azure Ad Inquilina do Inquilino.|
+|aadServicePrincipalAppId |Yes |Yes |O cliente criou o Azure AD AppId.|
+|aadServicePrincipalCertificate |Sim<sup>*</sup>  |Yes |O cliente criou o certificado Azure AD AppId.|
+|aadServicePrincipalPassword |Sim<sup>*</sup>  |Yes |O cliente criou a senha Azure AD AppId.|
+|aadEndpoint |No |No |Ponto final Azure AD específico da nuvem. <br/>Predefinição: `https://login.microsoftonline.com` |
+|aadResourceId |No |No |Audiência/ID de recursos Azure específicos em nuvem <br/>Predefinição: `https://management.core.windows.net/` |
+|armEndpoint |No |No |Fonte específica de recursos Azure Gerencie o ponto final. <br/>Predefinição: `https://management.azure.com/` |
+|diagnósticosLevel |No |Yes |Verbosidade dos eventos: <br/>&#x02758 de informação; &#x02758 de aviso; &#x02758 de erro; &#x02758 críticos; Nenhum. |
+|diagnósticoSEventsOutputName |No |Yes |Saída do hub para eventos de diagnóstico. <br/>(Vazio significa que os diagnósticos não são publicados)|
+|operacionalEventsOutputName|No|Yes|Produção do hub para eventos operacionais.<br/>(Vazio significa que os eventos operacionais não são publicados)
+|logLevel|No|Yes|Um dos seguintes: <br/>&#x000B7; Verbose<br/>&#x000B7; Informação (Padrão)<br/>&#x000B7; Aviso<br/>&#x000B7; Erro<br/>&#x000B7; Nenhum.|
+|logCategorias|No|Yes|Uma lista separada em vírgula do seguinte: Aplicação, MediaPipeline, Eventos <br/>Padrão: Aplicação, Eventos|
+|debugLogsDirectory|No|Yes|Diretório para registos de depurg. Se os registos presentes forem gerados, se não estiverem desativados os registos de depuração.
 
 <sup>*</sup>Deve fornecer o certificado principal de serviço ou a senha. 
 
