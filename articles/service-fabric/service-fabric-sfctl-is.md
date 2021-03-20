@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 349f70c32ea4ebb4559f053d5ef05b4b37b6480f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260374"
 ---
 # <a name="sfctl-is"></a>sfctl is
@@ -29,7 +29,7 @@ Para os clusters que têm um ou mais casos do Serviço de Infraestruturas config
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --comando [Obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
 | --serviço-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestruturas sem o \: regime URI do tecido. Este parâmetro requer apenas para o cluster que tem mais de um caso de serviço de infraestrutura em funcionamento. |
@@ -37,7 +37,7 @@ Para os clusters que têm um ou mais casos do Serviço de Infraestruturas config
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -52,7 +52,7 @@ Para os agrupamentos que têm um ou mais casos do Serviço de Infraestruturas co
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --comando [Obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
 | --serviço-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestruturas sem o \: regime URI do tecido. Este parâmetro requer apenas para o cluster que tem mais de um caso de serviço de infraestrutura em funcionamento. |
@@ -60,7 +60,7 @@ Para os agrupamentos que têm um ou mais casos do Serviço de Infraestruturas co
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

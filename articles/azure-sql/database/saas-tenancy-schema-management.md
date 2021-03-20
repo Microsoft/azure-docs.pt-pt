@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
 ms.openlocfilehash: e4328be0aade0658dedb034dbbb6980b810f771a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793199"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir o esquema numa aplicação SaaS utilizando o padrão de base de dados por inquilino com base de dados Azure SQL
@@ -62,14 +62,14 @@ O código fonte de aplicação e os scripts de gestão estão disponíveis no [w
 
 Este tutorial requer que utilize o PowerShell para criar um agente de trabalho e a sua base de dados de agente de emprego. A base de dados de agentes de emprego tem definições de emprego, estatuto profissional e história. Uma vez criado o agente de trabalho e a sua base de dados, pode criar e monitorizar imediatamente os trabalhos.
 
-1. <bpt id="p1">**</bpt>In PowerShell ISE<ept id="p1">**</ept>, open …<ph id="ph1">\\</ph>Learning Modules<ph id="ph2">\\</ph>Schema Management<ph id="ph3">\\</ph><bpt id="p2">*</bpt>Demo-SchemaManagement.ps1<ept id="p2">*</ept>.
+1. **Em PowerShell ISE,** aberto... \\Demo-SchemaManagement.ps1de Gestão de Módulos \\ de Aprendizagem. \\ **
 1. Prima **F5** para executar o script.
 
 O *Demo-SchemaManagement.ps1* script chama *o* Deploy-SchemaManagement.ps1script para criar uma base de dados chamada *osagent* no servidor do catálogo. Em seguida, cria o agente de trabalho, usando a base de dados como parâmetro.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar uma tarefa para implementar novos dados de referência para todos os inquilinos
 
-Na aplicação Wingtip Tickets, cada base de dados de inquilinos inclui um conjunto de tipos de locais suportados. Cada local é de um tipo específico de local, que define o tipo de eventos que podem ser hospedados, e determina a imagem de fundo usada na app. Para a aplicação de suporte a novos tipos de eventos, estes dados de referência devem ser atualizados e novos tipos de locais adicionados.  Neste exercício, vai implementar uma atualização para todas as bases de dados de inquilinos para adicionar dois tipos de local adicionais: *Corrida de Motos* e *Clube de Natação* .
+Na aplicação Wingtip Tickets, cada base de dados de inquilinos inclui um conjunto de tipos de locais suportados. Cada local é de um tipo específico de local, que define o tipo de eventos que podem ser hospedados, e determina a imagem de fundo usada na app. Para a aplicação de suporte a novos tipos de eventos, estes dados de referência devem ser atualizados e novos tipos de locais adicionados.  Neste exercício, vai implementar uma atualização para todas as bases de dados de inquilinos para adicionar dois tipos de local adicionais: *Corrida de Motos* e *Clube de Natação*.
 
 Em primeiro lugar, reveja os tipos de locais incluídos em cada base de dados de inquilinos. Ligue-se a uma das bases de dados dos inquilinos no SQL Server Management Studio (SSMS) e inspecione a tabela VenueTypes.  Pode ainda consultar esta tabela no editor de Consultas no portal Azure, acedido a partir da página de base de dados. 
 
@@ -85,10 +85,10 @@ Para criar um novo emprego, utiliza-se um conjunto de procedimentos de criação
 1. Modifique a declaração: SET @wtpUser = &lt; utilizador e &gt; substitua o valor do Utilizador utilizado quando implementou a aplicação Wingtip Tickets SaaS Database Per Tenant
 1. Certifique-se de que está ligado à base _de dados jobagent_ e prima **F5** para executar o script
 
-Observe os seguintes elementos no script *DeployReferenceData.sql:*
+Observe os seguintes elementos no *script .sql ImplementarReferenceData:*
 * **sp \_ add \_ \_ grupo alvo** cria o nome de grupo alvo DemoServerGroup.
 * **sp \_ adicionar membro \_ do \_ grupo \_ alvo** é usado para definir o conjunto de bases de dados-alvo.  Primeiro, o servidor _de &lt; &gt; utilizadores de 1-dpt-dpt dos inquilinos_ é adicionado.  Adicionar o servidor como alvo faz com que as bases de dados desse servidor no momento da execução do trabalho sejam incluídas no trabalho. Em seguida, a base de dados _basetenantdb_ e a base de dados *de adhocreporting* (usada num tutorial posterior) são adicionadas como alvos.
-* **sp \_ add \_ job** cria um trabalho chamado _Reference Data Deployment_ .
+* **sp \_ add \_ job** cria um trabalho chamado _Reference Data Deployment_.
 * **sp \_ add \_ jobstep** cria o passo de trabalho contendo texto de comando T-SQL para atualizar a tabela de referência, VenueTypes.
 * As vistas restantes no script mostram a existência dos objetos e monitorizam a execução da tarefa. Utilize estas consultas para rever o valor de estado na coluna do **ciclo de vida** para determinar quando o trabalho terminou em todas as bases de dados-alvo.
 
@@ -106,7 +106,7 @@ Crie uma tarefa com os mesmos procedimentos armazenados no “sistema” das tar
 1. Clique no botão direito, selecione Connection e _ligue-se ao servidor do utilizador de catálogo-dpt.database.windows.net, &lt; &gt;_ se ainda não estiver ligado
 1. Certifique-se de que está ligado à base _de dados jobagent_ e prima **F5** para executar o script
 
-Observe os seguintes elementos no script _OnlineReindex.sql:_
+Observe os seguintes elementos no script _.sql OnlineReindex:_
 * **sp \_ add \_ job** cria um novo emprego chamado "Online Reindex PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885"
 * **sp \_ adicionar \_ jobstep** cria o passo de trabalho contendo texto de comando T-SQL para atualizar o índice
 * As restantes opiniões no script monitorizam a execução do trabalho. Utilize estas consultas para rever o valor de estado na coluna do **ciclo de vida** para determinar quando o trabalho terminou com sucesso em todos os membros do grupo alvo.

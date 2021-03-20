@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect e privacidade do utilizador ! Microsoft Docs
+title: Azure AD Connect e privacidade do utilizador | Microsoft Docs
 description: Este documento descreve como obter a conformidade do RGPD com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997703"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacidade do utilizador e Azure AD Connect 

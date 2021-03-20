@@ -1,5 +1,5 @@
 ---
-title: Patching Automatizado para VMs do servidor SQL (Gestor de Recursos) Microsoft Docs
+title: Patching automatizado para VMs de servidor SQL (Gestor de Recursos) | Microsoft Docs
 description: Este artigo explica a função de Patching Automatizado para máquinas virtuais SQL Server que executam no Azure utilizando o Gestor de Recursos.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 429fe39f84a54c22fa97178b85f417d76dc84a8e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359477"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Patching automatizado para servidor SQL em máquinas virtuais Azure (Gestor de Recursos)
@@ -66,7 +66,7 @@ Para utilizar patching automatizado, considere os seguintes pré-requisitos:
 ## <a name="settings"></a>Definições
 A tabela a seguir descreve as opções que podem ser configuradas para Patching Automatizado. Os passos de configuração reais variam consoante utilize o portal Azure ou os comandos Azure Windows PowerShell.
 
-| Definição | Valores possíveis | Descrição |
+| Definição | Valores possíveis | Description |
 | --- | --- | --- |
 | **Aplicação de Patches Automatizada** |Ativar/Desativar (Desativado) |Ativa ou desativa o Patching Automatizado para uma máquina virtual Azure. |
 | **Agenda de manutenção** |Todos os dias, segundas, terças, quartas, quintas, sextas, sábados, domingos |O calendário para descarregar e instalar atualizações do Windows, SQL Server e Microsoft para a sua máquina virtual. |

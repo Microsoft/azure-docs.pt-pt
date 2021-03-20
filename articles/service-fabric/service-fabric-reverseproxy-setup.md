@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256337"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurar e configurar procuração inversa no Tecido de Serviço Azure
@@ -74,7 +74,7 @@ Depois de ter um modelo de Gestor de Recursos, pode ativar o representante inver
         ...
     }
     ```
-3. Para configurar os certificados TLS/SSL na porta para o representante inverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na secção tipo [de recurso](../azure-resource-manager/templates/template-syntax.md) **Microsoft.ServiceFabric/clusters** .
+3. Para configurar os certificados TLS/SSL na porta para o representante inverso, adicione o certificado à propriedade ***reverseProxyCertificate** _ na secção _ *Microsoft.ServiceFabric/clusters* *  [Tipo de recurso](../azure-resource-manager/templates/template-syntax.md).
 
     ```json
     {

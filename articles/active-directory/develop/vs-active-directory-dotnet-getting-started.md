@@ -1,5 +1,5 @@
 ---
-title: Começar com a Azure AD em projetos .NET MVC / Rio Azure
+title: Começa com o Azure AD em projetos .NET MVC | Rio Azure
 description: Como começar a usar o Azure Ative Directory em projetos .NET MVC depois de ligar ou criar um AD Azure usando serviços conectados ao Visual Studio
 author: ghogen
 manager: jillfra
@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: devx-track-csharp, aaddev, vs-azure
 ms.openlocfilehash: 15a7c873e4d1e5c962a89b03f2a5cafc88843192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88165469"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Começar com O Diretório Ativo Azure (ASP.NET Projetos MVC)

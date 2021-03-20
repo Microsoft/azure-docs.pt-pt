@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - Monitorização da regra de encaminhamento / Microsoft Docs
+title: Porta frontal Azure - Regra de encaminhamento que combina | Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure corresponde à regra de encaminhamento para um pedido de entrada
 services: front-door
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449203"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Como os pedidos são combinados com uma regra de encaminhamento

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88142507"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes VMware de nuvem privada
@@ -54,7 +54,7 @@ O Controlador de Serviços de Plataforma Incorporado no VCSA está associado a u
 
 Nuvens privadas são criadas com armazenamento totalmente configurado all-flash vSAN, local para o cluster.  São necessários três nós mínimos do mesmo SKU para criar um cluster vSphere com a loja de dados vSAN.  A des duplicação e a compressão são ativadas na loja de dados vSAN por padrão.  Dois grupos de discos são criados em cada nó do cluster vSphere. Cada grupo de disco contém um disco de cache e três discos de capacidade.
 
-Uma política de armazenamento vSAN padrão é criada no cluster vSphere e aplicada na loja de dados vSAN.  Esta política determina como os objetos de armazenamento VM são a provisionados e atribuídos dentro da datastore para garantir o nível de serviço exigido.  A política de armazenamento define as **falhas de toleração (FTT)** e o **método de tolerância**à falha .  Pode criar novas políticas de armazenamento e aplicá-las aos VMs. Para manter o SLA, a capacidade disponível de 25% deve ser mantida na loja de dados vSAN.  
+Uma política de armazenamento vSAN padrão é criada no cluster vSphere e aplicada na loja de dados vSAN.  Esta política determina como os objetos de armazenamento VM são a provisionados e atribuídos dentro da datastore para garantir o nível de serviço exigido.  A política de armazenamento define as **falhas de toleração (FTT)** e o **método de tolerância** à falha .  Pode criar novas políticas de armazenamento e aplicá-las aos VMs. Para manter o SLA, a capacidade disponível de 25% deve ser mantida na loja de dados vSAN.  
 
 ### <a name="default-vsan-storage-policy"></a>Política de armazenamento vSAN padrão
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91445378"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Enable and work with Bastion resource logs (Ativar e trabalhar com registos do recurso do Bastion)
@@ -23,7 +23,7 @@ ms.locfileid: "91445378"
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu recurso Azure Bastion e selecione **as definições** de Diagnóstico a partir da página Azure Bastion.
 
    ![Screenshot que mostra a página "Definições de Diagnóstico".](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Selecione **as definições de Diagnóstico**e, em seguida, selecione +Adicione a **definição de diagnóstico** para adicionar um destino para os registos.
+2. Selecione **as definições de Diagnóstico** e, em seguida, selecione +Adicione a **definição de diagnóstico** para adicionar um destino para os registos.
 
    ![Screenshot que mostra a página "Definições de Diagnóstico" com o botão "Adicionar definição de diagnóstico" selecionado.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. Na página **de definições de Diagnóstico,** selecione o tipo de conta de armazenamento a utilizar para armazenar registos de diagnóstico.

@@ -9,10 +9,10 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93376229"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -31,7 +31,7 @@ Sim. Anteriormente, só podiam ser utilizados os certificados de raiz autoassina
 
 ### <a name="can-i-use-certificates-from-azure-key-vault"></a>Posso usar certificados do Azure Key Vault?
 
-Não.
+N.º
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>Que ferramentas posso utilizar para criar certificados?
 
@@ -52,4 +52,4 @@ Pode utilizar a sua solução de PKI de Empresa (o PKI interno), o Azure PowerSh
     * Para o certificado de cliente:
 
       * Ao criar a chave privada, especifique o comprimento como 4096.
-      * Ao criar o certificado para o parâmetro *-extensions* , especifique *usr_cert*.
+      * Ao criar o certificado para o parâmetro *-extensions*, especifique *usr_cert*.

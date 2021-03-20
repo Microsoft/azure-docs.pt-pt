@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: 43cac81717027b39210d6cd9cb9ad0baa596f50d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943183"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Executar consultas de Colmeia Apache usando PowerShell
@@ -102,7 +102,7 @@ Este cmdlet devolve as informações escritas à STDERR durante o processamento 
 
 Como pode ver, o Azure PowerShell fornece uma maneira fácil de executar consultas de Hive num cluster HDInsight, monitorizar o estado do trabalho e recuperar a saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para informações gerais sobre a Colmeia em HDInsight:
 

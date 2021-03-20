@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Kintone Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Kintone | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kintone.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 96ea3423d3c2dff2c8ba8c82b4c26d318c47211f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Diretório Ativo Azure com a Kintone
@@ -139,7 +139,7 @@ Para configurar o Azure AD single sign-on com Kintone, execute os seguintes pass
 
     ![Utilizadores & Administração do Sistema](./media/kintone-tutorial/ic785880.png "Utilizadores & Administração do Sistema")
 
-1. Em **Segurança da Administração do Sistema \> ** clique em **Iniciarções de Sessão**.
+1. Em **Segurança da Administração do Sistema \>** clique em **Iniciarções de Sessão**.
 
     ![Iniciar sessão](./media/kintone-tutorial/ic785881.png "Iniciar sessão")
 
@@ -188,7 +188,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Kintone.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Kintone**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Kintone**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -238,7 +238,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Kintone, devem ser
 
     ![Novos Utilizadores](./media/kintone-tutorial/ic785890.png "Novos Utilizadores")
 
-    a. Digite um **Nome de Exibição**, Nome de Início de **Sessão**, **Nova Palavra-passe**, **Confirme a Palavra-passe,** Endereço de **e-mail**e outros detalhes de uma conta AD válida Azure que pretende apresentar nas caixas de texto relacionadas.
+    a. Digite um **Nome de Exibição**, Nome de Início de **Sessão**, **Nova Palavra-passe**, **Confirme a Palavra-passe,** Endereço de **e-mail** e outros detalhes de uma conta AD válida Azure que pretende apresentar nas caixas de texto relacionadas.
 
     b. Clique em **Guardar**.
 

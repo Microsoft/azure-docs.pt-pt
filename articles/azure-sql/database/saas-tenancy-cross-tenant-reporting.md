@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 18a02b81e459217ccca53d48a08e35a706b071b0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793267"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Inter-inquilino reportando usando consultas distribuídas
@@ -70,7 +70,7 @@ Na aplicação Wingtip Tickets SaaS Database Per Tenant, cada inquilino recebe u
 Para simular este padrão, um conjunto de pontos de vista 'globais' são adicionados à base de dados dos inquilinos que projetam uma identificação de inquilino em cada uma das tabelas que são consultadas globalmente. Por exemplo, a vista *VenueEvents* adiciona um *VenueId* computorizado às colunas projetadas a partir da tabela *Eventos.* Da mesma forma, as *vistas VenueTicketPurchases* e *VenueTickets* adicionam uma coluna *VenueId* computorizada projetada a partir das respetivas tabelas. Estas vistas são usadas pela Consulta Elástica para paralelizar consultas e empurrá-las para a base de dados de inquilinos remotos apropriado quando uma coluna *VenueId* está presente. Isto reduz drasticamente a quantidade de dados que são devolvidos e resulta num aumento substancial do desempenho para muitas consultas. Estas opiniões globais foram pré-criadas em todas as bases de dados de inquilinos.
 
 1. Abra o SSMS e [ligue-se ao servidor user1- USER dos &lt; &gt; inquilinos.](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms)
-1. Expandir **bases de dados,** clique à direita _contosoconcerthall,_ e selecione **Nova Consulta** .
+1. Expandir **bases de dados,** clique à direita _contosoconcerthall,_ e selecione **Nova Consulta**.
 1. Executar as seguintes consultas para explorar a diferença entre as mesas de inquilino único e as vistas globais:
 
    ```T-SQL
@@ -91,22 +91,22 @@ Nestas vistas, o *VenueId* é calculado como um haxixe do nome Local, mas qualqu
 
 Para examinar a definição da vista *local:*
 
-1. No **Object Explorer,** **expanda as vistas contosoconcerthall:**  >  **Views**
+1. No **Object Explorer,** **expanda as vistas contosoconcerthall:**  >  
 
    ![A screenshot mostra o conteúdo do nó Views, incluindo quatro tipos de Venue d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Dbo de clique à **direita. Locais.**
 3. Selecione **a visualização do script como** CREATE para  >  **a** nova janela do editor de  >  **consultas**
 
-Script qualquer uma das outras vistas *do Local* para ver como eles adicionam o *VenueId* .
+Script qualquer uma das outras vistas *do Local* para ver como eles adicionam o *VenueId*.
 
 ## <a name="deploy-the-database-used-for-distributed-queries"></a>Implementar a base de dados utilizada para consultas distribuídas
 
 Este exercício implementa a base de dados _de adhocreporting._ Esta é a base de dados da cabeça que contém o esquema usado para consulta em todas as bases de dados de inquilinos. A base de dados é implantada no servidor de catálogo existente, que é o servidor utilizado para todas as bases de dados relacionadas com a gestão na aplicação da amostra.
 
-1. em *PowerShell ISE,* aberto... \\ Módulos de Aprendizagem \\ Analíticos Operacionais \\ Adhoc Reportando \\ *Demo-AdhocReporting.ps1* . 
+1. em *PowerShell ISE,* aberto... \\ Módulos de Aprendizagem \\ Analíticos Operacionais \\ Adhoc Reportando \\ *Demo-AdhocReporting.ps1*. 
 
-1. Definir **$DemoScenario = 2** , _Implementar base de dados de relatórios ad hoc_ .
+1. Definir **$DemoScenario = 2**, _Implementar base de dados de relatórios ad hoc_.
 
 1. Prima **F5** para executar o script e criar a base *de dados de adhocreporting.*
 
@@ -116,8 +116,8 @@ Na secção seguinte, adicione esquema à base de dados para que possa ser usado
 
 Este exercício adiciona esquema (fonte de dados externos e definições de tabela externa) à base de dados _de adhocreporting_ para permitir a consulta em todas as bases de dados dos inquilinos.
 
-1. Abra o SQL Server Management Studio e ligue-se à base de dados Adhoc Reporting que criou no passo anterior. O nome da base de dados é *adhocreporting* .
-2. Abra ...\Módulos de aprendizagem\Análise Operacional\Adhoc Reporting\ _Initialize-AdhocReportingDB.sql_ in SSMS.
+1. Abra o SQL Server Management Studio e ligue-se à base de dados Adhoc Reporting que criou no passo anterior. O nome da base de dados é *adhocreporting*.
+2. Abra ...\Módulos de aprendizagem\Análise Operacional\Adhoc Reporting\ _Initialize-AdhocReportingDB.sql_ em SSMS.
 3. Reveja o script SQL e note:
 
    A Consulta Elástica utiliza uma credencial de base de dados para aceder a cada uma das bases de dados dos inquilinos. Esta credencial deve estar disponível em todas as bases de dados e deve normalmente ser concedida aos direitos mínimos necessários para permitir essas consultas.
@@ -128,7 +128,7 @@ Este exercício adiciona esquema (fonte de dados externos e definições de tabe
 
     ![criar fonte de dados externos](./media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   As tabelas externas que referenciam as vistas globais descritas na secção anterior, e definidas com **DISTRIBUIÇÃO = SHARDED(VenueId)** . Como cada *VenueId mapeia* para uma base de dados individual, isto melhora o desempenho para muitos cenários, como mostrado na secção seguinte.
+   As tabelas externas que referenciam as vistas globais descritas na secção anterior, e definidas com **DISTRIBUIÇÃO = SHARDED(VenueId)**. Como cada *VenueId mapeia* para uma base de dados individual, isto melhora o desempenho para muitos cenários, como mostrado na secção seguinte.
 
     ![criar tabelas externas](./media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -150,10 +150,10 @@ Ao inspecionar o plano de execução, paire sobre os ícones do plano para obter
 
 Importante notar, é que a definição **DE DISTRIBUIÇÃO = SHARDED (VenueId)** quando a fonte de dados externa é definida melhora o desempenho para muitos cenários. À medida que cada *VenueId* mapeia para uma base de dados individual, a filtragem é facilmente feita remotamente, devolvendo apenas os dados necessários.
 
-1. Abrir... \\ Módulos de Aprendizagem \\ Analytics Operacional \\ Adhoc Reportando \\ *Demo-AdhocReportingQueries.sql* em SSMS.
+1. Abrir... \\ Módulos \\ de Aprendizagem Analytics Operacional \\ Adhoc Reportando \\ *Demo-AdhocReportingQueries.sql* em SSMS.
 2. Certifique-se de que está ligado à base de dados **de denúncias.**
 3. Selecione o menu **de consulta** e clique **em Incluir Plano de Execução Real**
-4. Destaque para quais os **F5** *locais que estão registados atualmente?*
+4. Destaque para quais os  *locais que estão registados atualmente?*
 
    A consulta devolve toda a lista de locais, ilustrando a rapidez e facilidade com que é consulta em todos os inquilinos e devolver dados de cada inquilino.
 
@@ -161,7 +161,7 @@ Importante notar, é que a definição **DE DISTRIBUIÇÃO = SHARDED (VenueId)**
 
    ![SELECIONE * DO DBO. Locais](./media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
 
-5. Selecione a próxima consulta e prima **F5** .
+5. Selecione a próxima consulta e prima **F5**.
 
    Esta consulta junta dados das bases de dados dos inquilinos e da tabela *Local VenueTypes* (local, uma vez que é uma tabela na base de dados *de adhocreporting).*
 
@@ -169,7 +169,7 @@ Importante notar, é que a definição **DE DISTRIBUIÇÃO = SHARDED (VenueId)**
 
    ![Junte-se a dados remotos e locais](./media/saas-tenancy-cross-tenant-reporting/query2-plan.png)
 
-6. Agora selecione o *Em que dia foram mais vendidos?* Consulta, e pressione **F5** .
+6. Agora selecione o *Em que dia foram mais vendidos?* Consulta, e pressione **F5**.
 
    Esta consulta faz uma união e agregação um pouco mais complexas. A maior parte do processamento ocorre remotamente.  Apenas linhas individuais, contendo a contagem diária de bilhetes de cada local por dia, são devolvidas à base de dados principal.
 

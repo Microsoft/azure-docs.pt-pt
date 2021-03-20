@@ -9,10 +9,10 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98873574"
 ---
 # <a name="cognitive-services-development-options"></a>Opções de desenvolvimento dos Serviços Cognitivos
@@ -147,7 +147,7 @@ A Compreensão da Linguagem e o serviço de Fala oferecem soluções de integra�
 
 Muitos dos Serviços Cognitivos podem ser implantados em contentores para acesso e utilização pré-pré-m. A utilização destes recipientes confere-lhe a flexibilidade para aproximar os Serviços Cognitivos dos seus dados por razões de conformidade, segurança ou outras razões operacionais. Para obter uma lista completa dos recipientes dos Serviços Cognitivos, consulte [os recipientes on-prem para serviços cognitivos.](./cognitive-services-container-support.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 <!--
 * Learn more about low code development options for Cognitive Services -->
 * [Crie um recurso de Serviços Cognitivos e comece a construir](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

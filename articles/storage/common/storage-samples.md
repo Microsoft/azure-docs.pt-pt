@@ -1,5 +1,5 @@
 ---
-title: Amostras de código de armazenamento Azure / Microsoft Docs
+title: Amostras de código de armazenamento Azure | Microsoft Docs
 description: Ver, descarregar e executar código de amostra e aplicações para Azure Storage. Descubra a obtenção de amostras para bolhas, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento .NET, Java, Python, Node.js, Azure CLI e C++.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: de587483f5dc15b17fa32e044b569ef9d7f007f7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792961"
 ---
 # <a name="azure-storage-samples"></a>Amostras de armazenamento Azure
@@ -21,7 +21,7 @@ Utilize os links abaixo para visualizar e transferir código de amostra de Azure
 
 ## <a name="azure-code-samples-library"></a>Biblioteca de amostras de código Azure
 
-A biblioteca [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) inclui amostras para armazenamento Azure que você pode baixar e executar localmente. A Biblioteca de Amostras de Código fornece código de amostra em formato .zip. Em alternativa, pode navegar e clonar o repositório GitHub para cada amostra.
+A biblioteca [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) inclui amostras para armazenamento Azure que você pode baixar e executar localmente. A Biblioteca de Amostras de Código fornece o código de amostra em formato .zip. Em alternativa, pode navegar e clonar o repositório GitHub para cada amostra.
 
 ## <a name="net-samples"></a>Amostras de .NET
 

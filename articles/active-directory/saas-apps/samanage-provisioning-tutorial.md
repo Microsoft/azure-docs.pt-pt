@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure SolarWinds Service Desk (anteriormente Samanage) para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar o Balcão de Serviço SolarWinds (anteriormente Samanage) para fornecimento automático de utilizadores com O Diretório Ativo Azure | Microsoft Docs'
 description: Saiba como providenciar e desaprovisionar automaticamente as contas de utilizadores do Azure AD ao SolarWinds Service Desk (anteriormente Samanage).
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
 ms.openlocfilehash: cca46d47003a1611c861986f8df839de57500db6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181490"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Tutorial: Configure o Balcão de Serviço SolarWinds (anteriormente Samanage) para o fornecimento automático de utilizadores

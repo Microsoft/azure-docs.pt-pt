@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
 ms.openlocfilehash: a30a42e8a8c4049b53274da512089dd29965e775
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573158"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Quais as novidades no Azure Load Balancer?
@@ -40,7 +40,7 @@ Também pode encontrar as últimas atualizações do Azure Load Balancer e subsc
 
 O grupo de produtos está a trabalhar ativamente em resoluções para as seguintes questões conhecidas:
 
-|Problema |Descrição  |Mitigação  |
+|Problema |Description  |Mitigação  |
 | ---------- |---------|---------|
 | Evento de alerta de balançador de carga e registos de estado da sonda de saúde | O registo não funciona para eventos de alerta de balanceadores de carga para balanceadores de carga básicos e padrão, nem registos de estado da sonda de saúde para balanceador de carga básico  | [Utilize o Azure Monitor para métricas multidimensionais para o seu Balancer de Carga Padrão](load-balancer-standard-diagnostics.md). O Azure Monitor fornece visualização para um rico conjunto de métricas multidimensionais que também podem ser exportadas como troncos. Pode alavancar o painel de métricas pré-configurado através da sub-lâmina insights do seu Balancer de Carga. Se utilizar o [upgrade](upgrade-basic-standard.md) do Balancer de Carga Básica para standard para monitorização de métricas de nível de produção.
 
@@ -48,4 +48,4 @@ O grupo de produtos está a trabalhar ativamente em resoluções para as seguint
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure Load Balancer, [frequently asked questions](load-balancer-faqs.md)consulte [o que é o Equilibr de Carga Azure?](load-balancer-overview.md)
+Para obter mais informações sobre o Azure Load Balancer, [](load-balancer-faqs.md)consulte [o que é o Equilibr de Carga Azure?](load-balancer-overview.md)

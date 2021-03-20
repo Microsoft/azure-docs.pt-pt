@@ -5,10 +5,10 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88066207"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Quickstart: Como usar tópicos e subscrições de Service Bus com PHP
@@ -68,7 +68,7 @@ Para utilizar as APIs do serviço de transporte:
 O exemplo a seguir mostra como incluir o ficheiro de carregamento automático e fazer referência à classe **ServiceBusService.**
 
 > [!NOTE]
-> Este exemplo (e outros exemplos neste artigo) pressupõe que instalou as Bibliotecas de Clientes PHP para Azure via Compositor. Se instalou as bibliotecas manualmente ou como um pacote PEAR, deve fazer referência ao ficheiro autoloader **WindowsAzure.php.**
+> Este exemplo (e outros exemplos neste artigo) pressupõe que instalou as Bibliotecas de Clientes PHP para Azure via Compositor. Se instalou as bibliotecas manualmente ou como um pacote PEAR, deve fazer referência ao ficheiro autoloader **.php WindowsAzure.**
 > 
 > 
 

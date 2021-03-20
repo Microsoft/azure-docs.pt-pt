@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792383"
 ---
 # <a name="key-vault-versions"></a>Versões do Key Vault
@@ -50,7 +50,7 @@ Novas funcionalidades e integrações lançadas este ano:
 Novas funcionalidades lançadas este ano:
 
 - Chaves de conta de armazenamento geridas. Recurso De Chaves de Conta de Armazenamento acrescentou uma integração mais fácil com o Azure Storage. Consulte o tópico geral para obter mais informações, [visão geral das chaves de conta de armazenamento geridos](../secrets/overview-storage-keys.md).
-- Eliminação recuperável. A função de eliminação suave melhora a proteção de dados dos cofres e dos objetos chave do cofre. Consulte o tópico geral para obter mais informações, eliminar a visão geral do [soft-delete](./soft-delete-overview.md).
+- Apagar suavemente. A função de eliminação suave melhora a proteção de dados dos cofres e dos objetos chave do cofre. Consulte o tópico geral para obter mais informações, eliminar a visão geral do [soft-delete](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 

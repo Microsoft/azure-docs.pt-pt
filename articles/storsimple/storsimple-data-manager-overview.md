@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Microsoft Azure StorSimple Data Manager Microsoft Docs
+title: Microsoft Azure StorSimple Data Manager | Microsoft Docs
 description: Conheça a solução StorSimple Data Manager e como pode utilizar este serviço para escrever aplicações que utilizam dados StorSimple e outros serviços Azure.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88183501"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral do StorSimple Data Manager
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Microsoft Azure StorSimple utiliza o armazenamento em nuvem como uma extensão da solução no local e tiers automaticamente dados através do armazenamento no local e na nuvem. Os dados são armazenados na nuvem num formato deduped e comprimido para a máxima eficiência e para reduzir custos. Como os dados são armazenados em formato StorSimple, não é facilmente consumível por outras aplicações em nuvem que possa querer utilizar.
 

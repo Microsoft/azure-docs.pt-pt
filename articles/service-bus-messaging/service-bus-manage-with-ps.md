@@ -1,13 +1,13 @@
 ---
-title: Use a PowerShell para gerir os recursos do Azure Service Bus Microsoft Docs
+title: Use a PowerShell para gerir os recursos da Azure Service Bus | Microsoft Docs
 description: Este artigo explica como usar o módulo Azure PowerShell para criar e gerir entidades de Service Bus (espaços de nome, filas, tópicos, subscrições).
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88065748"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o PowerShell para gerir os recursos do Service Bus
@@ -72,7 +72,7 @@ Esta parte do guião faz o seguinte:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Criar uma regra de autorização de espaço de nome
 
-O exemplo a seguir mostra como gerir as regras de autorização do espaço de identificação utilizando os cmdletes [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), e [Remove-AzServiceBusAuthorizationRule.](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)
+O exemplo a seguir mostra como gerir as regras de autorização do espaço de identificação utilizando os cmdletes [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), e [Remove-AzServiceBusAuthorizationRule.](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) [](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)
 
 ```powershell
 # Query to see if rule exists

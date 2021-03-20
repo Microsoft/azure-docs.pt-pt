@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para o FishEye/Crucible Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para o FishEye/Crucible | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kantega SSO para o FishEye/Crucible.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 06a4e8aa1ad74f47526f3a39931632953bfaaec2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutorial: Integração do Azure Ative Directory com a Kantega SSO para FishEye/Crucible
@@ -148,7 +148,7 @@ Para configurar o Azure AD single sign-on com Kantega SSO para FishEye/Crucible,
 
     ![Screenshot que mostra o diálogo "Instalar" para o plugin.](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
-1. Uma vez concluída a instalação. Clique em **Close** (Fechar).
+1. Uma vez concluída a instalação. Clique em **Fechar**.
 
     ![Screenshot que mostra o diálogo "Instalado e pronto a ir" e o botão "Fechar" selecionado.](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
@@ -180,7 +180,7 @@ Para configurar o Azure AD single sign-on com Kantega SSO para FishEye/Crucible,
 
     ![Screenshot que mostra a secção "Importação de Metadados" com "Ficheiro metadados no meu computador" selecionado.](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
-    a. Selecione **o ficheiro Metadados no meu computador**e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
+    a. Selecione **o ficheiro Metadados no meu computador** e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
 
     b. Clique em **Seguinte**.
 

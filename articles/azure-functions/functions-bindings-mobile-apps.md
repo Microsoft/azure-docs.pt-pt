@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5ea58cc3d9f3615a74249b36f3f9ffb79caddda1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212241"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Ligações de Aplicativos Móveis para Funções Azure 
@@ -30,7 +30,7 @@ As ligações para aplicações móveis são fornecidas no pacote [Microsoft.Azu
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="input"></a>Input
+## <a name="input"></a>Entrada
 
 A entrada de Aplicativos Móveis carrega um registo a partir de um ponto final de tabela móvel e passa-o para a sua função. Nas funções C# e F#, quaisquer alterações efetuadas ao registo são automaticamente enviadas para a mesa quando a função sai com sucesso.
 
@@ -135,12 +135,12 @@ Para obter informações sobre propriedades de atributos que possa configurar, c
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `MobileTable` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 | **tipo**| n/a | Deve ser definido para "mobileTable"|
 | **direção**| n/a |Deve ser definido para "in"|
 | **nome**| n/a | Nome do parâmetro de entrada na assinatura da função.|
-|**tableName** |**Nome de mesa**|Nome da tabela de dados da aplicação móvel|
+|**nome de mesa** |**TableName**|Nome da tabela de dados da aplicação móvel|
 | **id**| **ID** | O identificador do registo para recuperar. Pode ser estático ou baseado no gatilho que invoca a função. Por exemplo, se utilizar um gatilho de fila para a sua função, `"id": "{queueTrigger}"` utiliza o valor de cadeia da mensagem de fila como iD de registo para recuperar.|
 |**conexão**|**Ligação**|O nome de uma configuração de aplicação que tem o URL da aplicação móvel. A função utiliza este URL para construir as operações de REST necessárias contra a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contenha o URL da aplicação móvel e, em seguida, especifique o nome da definição da aplicação na `connection` propriedade na sua ligação de entrada. A URL `http://<appname>.azurewebsites.net` parece.
 |**apiKey**|**ApiKey**|O nome de uma configuração de aplicação que tem a chave API da sua aplicação móvel. Forneça a chave API se [implementar uma chave API na sua aplicação móvel Node.js,](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave API na sua aplicação móvel .NET.](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) Para fornecer a chave, crie uma definição de app na sua aplicação de função que contenha a chave API e, em seguida, adicione a `apiKey` propriedade na sua ligação de entrada com o nome da configuração da aplicação. |
@@ -293,12 +293,12 @@ Para um exemplo completo, consulte [o exemplo de Saída - C#](#output---c-exampl
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `MobileTable` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 | **tipo**| n/a | Deve ser definido para "mobileTable"|
 | **direção**| n/a |Deve ser definido para "out"|
 | **nome**| n/a | Nome do parâmetro de saída na assinatura da função.|
-|**tableName** |**Nome de mesa**|Nome da tabela de dados da aplicação móvel|
+|**nome de mesa** |**TableName**|Nome da tabela de dados da aplicação móvel|
 |**conexão**|**MobileAppUriSetting**|O nome de uma configuração de aplicação que tem o URL da aplicação móvel. A função utiliza este URL para construir as operações de REST necessárias contra a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contenha o URL da aplicação móvel e, em seguida, especifique o nome da definição da aplicação na `connection` propriedade na sua ligação de entrada. A URL `http://<appname>.azurewebsites.net` parece.
 |**apiKey**|**ApiKeySetting**|O nome de uma configuração de aplicação que tem a chave API da sua aplicação móvel. Forneça a chave API se [implementar uma chave API no seu backend de aplicações móveis Node.js,](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave API no seu backend de aplicações móveis .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de app na sua aplicação de função que contenha a chave API e, em seguida, adicione a `apiKey` propriedade na sua ligação de entrada com o nome da configuração da aplicação. |
 

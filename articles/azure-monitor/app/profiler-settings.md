@@ -1,5 +1,5 @@
 ---
-title: Utilize o painel de definições do profiler Azure Application Insights / Microsoft Docs
+title: Utilize o painel de perfis de insights de aplicação Azure | Microsoft Docs
 description: Consulte o estado do Profiler e inicie as sessões de perfis
 ms.topic: conceptual
 author: cweining
@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86499414"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar perfil de insights de aplicação
@@ -63,7 +63,7 @@ Esta secção da página mostra informações sobre sessões de perfis recentes.
 Desencadeado por | Como a sessão foi iniciada, seja por um gatilho, perfil agora ou amostragem padrão. 
 Nome da Aplicação | Nome da aplicação que foi perfilada.
 Caso da Máquina | Nome da máquina onde o agente do perfil correu.
-Timestamp | Hora em que o perfil foi capturado.
+CarimboDeDataEHora | Hora em que o perfil foi capturado.
 Tracee | Número de vestígios ligados a pedidos individuais.
 % de CPU | Percentagem de CPU que estava a ser usada enquanto o perfil estava em funcionamento.
 Memória % | Percentagem de memória que estava a ser usada enquanto o perfil estava a funcionar.

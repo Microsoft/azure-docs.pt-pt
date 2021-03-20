@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com aplicação móvel do workday / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com aplicação móvel do workday | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Workday Mobile Application.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
 ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182024"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutorial: Azure Ative Directory integração única (SSO) com aplicação móvel workday
@@ -130,7 +130,7 @@ Para garantir que os dispositivos iOS só podem iniciar súplica através do Wor
 
 ## <a name="set-up-intune-app-configuration-policies"></a>Configurar políticas de configuração de aplicativos Intune
 
-| Cenário | Pares de valor chave |
+| Scenario | Pares de valor chave |
 |----------------------------------------------------------------------------------------   |-----------|
 | Povoar automaticamente os campos de Endereços De Inquilino e Web para:<br>● Dia de trabalho no Android quando ativa o Android para perfis de trabalho.<br>● Dia de trabalho no iPad e iPhone.     | Utilize estes valores para configurar o seu Inquilino: <br>● Chave de configuração = `UserGroupCode`<br>● Tipo de Valor = Cadeia <br>● Valor de Configuração = Nome do seu inquilino. Exemplo: `gms`<br>Utilize estes valores para configurar o seu Endereço Web:<br>● Chave de configuração = `AppServiceHost`<br>● Tipo de Valor = Cadeia<br>● Valor de Configuração = O URL base para o seu inquilino. Exemplo: `https://www.myworkday.com`                                |   |
 | Desativar estas ações para o Workday no iPad e iPhone:<br>● Corte, Copie e Pasta<br>● Imprimir                       | Desative o valor (Boolean) nestas `False` teclas para desativar a funcionalidade:<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
@@ -144,7 +144,7 @@ Para garantir que os dispositivos iOS só podem iniciar súplica através do Wor
 
 1. Aceda ao [portal do Azure](https://portal.azure.com/) e inicie sessão.
 1. Procure **por Intune** ou selecione o widget da lista.
-1. Vá **Client Apps** às Políticas de  >  Configuração de **Aplicativos de Aplicações de Aplicações**  >  **de Aplicativos do** Cliente. Em seguida, **selecione + Adicionar**  >  **Dispositivos Geridos**.
+1. Vá às Políticas de  >  Configuração de **Aplicativos de Aplicações de Aplicações**  >  **de Aplicativos do** Cliente. Em seguida, **selecione + Adicionar**  >  **Dispositivos Geridos**.
 1. Insira um nome.
 1. Em **Plataforma,** escolha **iOS/iPadOS**.
 1. No âmbito **da App Associated**, escolha o Workday para a aplicação iOS que adicionou.
@@ -177,7 +177,7 @@ Para garantir que os dispositivos iOS só podem iniciar súplica através do Wor
 
 1. Aceda ao [portal do Azure](https://portal.azure.com/) e inicie sessão.
 2. Procure **por Intune** ou selecione o widget da lista.
-3. Vá **Client Apps** às Políticas de  >  Configuração de **Aplicativos de Aplicações de Aplicações**  >  **de Aplicativos do** Cliente. Em seguida, **selecione + Adicionar**  >  **Dispositivos Geridos**.
+3. Vá às Políticas de  >  Configuração de **Aplicativos de Aplicações de Aplicações**  >  **de Aplicativos do** Cliente. Em seguida, **selecione + Adicionar**  >  **Dispositivos Geridos**.
 5. Insira um nome. 
 6. Em **Plataforma,** escolha **Android.**
 7. No âmbito **da App Associated,** escolha o Workday para a aplicação Android que adicionou.

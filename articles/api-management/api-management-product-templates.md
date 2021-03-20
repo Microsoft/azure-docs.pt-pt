@@ -1,5 +1,5 @@
 ---
-title: Modelos de produto na Azure API Management / Microsoft Docs
+title: Modelos de produto em Azure API Management | Microsoft Docs
 description: Saiba como personalizar o conteúdo das páginas do produto no portal de desenvolvimento da API Management Azure.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249908"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelos de produto na Gestão API da Azure
@@ -79,7 +79,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |Paginação|[Entidade de paging.](api-management-template-data-model-reference.md#Paging)|A informação de paging para a coleção de produtos.|  
 |Filtragem|[Entidade filtrante.](api-management-template-data-model-reference.md#Filtering)|A informação de filtragem da página da lista de produtos.|  
@@ -204,7 +204,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |Produto|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
 |IsDeveloperSubscrito|boolean|Se o utilizador atual é subscrito a este produto.|  

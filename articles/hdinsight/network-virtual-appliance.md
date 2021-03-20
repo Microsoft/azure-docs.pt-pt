@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: 7fe266c3c7b75762133fca4645e0675845c28972
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943982"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar aparelho virtual de rede em Azure HDInsight
@@ -31,7 +31,7 @@ Pode opcionalmente ativar um ou mais dos seguintes pontos finais de serviço que
 | **Ponto final** |
 |---|
 | SQL do Azure |
-| Storage do Azure |
+| Armazenamento do Azure |
 | Azure Active Directory |
 
 ### <a name="ip-address-dependencies"></a>Dependências de endereços IP
@@ -59,7 +59,7 @@ A lista abaixo apenas fornece alguns FQDNs que podem ser necessários para a cor
 |login.windows.net:443                                                  |
 |login.microsoftonline.com:443                                          |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar a firewall para restringir o tráfego de saída](./hdinsight-restrict-outbound-traffic.md)
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)

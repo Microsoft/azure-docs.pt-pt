@@ -4,10 +4,10 @@ description: Configure o proxy inverso para permitir uma comunicação segura de
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.openlocfilehash: b01ce559b3c790164992d6618149afa9df069466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256140"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligar a um serviço seguro com o proxy inverso
@@ -20,7 +20,7 @@ Este artigo explica como estabelecer uma ligação segura entre o proxy e os ser
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de ligação segura entre o representante e os serviços invertidos 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Procuração inversa autenticando serviços:
-O representante inverso identifica-se a serviços utilizando o seu certificado. Para os clusters Azure, o certificado é especificado com propriedade ***reverseProxyCertificate*** na secção de [tipo de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) do modelo de Gestor de Recursos. Para agrupamentos autónomos, o certificado é especificado quer com o ***ReverseProxyCertificate,*** quer com a propriedade ***ReverseProxyCertificateCommonNames*** na secção de **Segurança** de ClusterConfig.js. Para saber mais, consulte [Ativar o proxy invertido em agrupamentos autónomos](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+O representante inverso identifica-se a serviços utilizando o seu certificado. Para os clusters Azure, o certificado é especificado com * propriedade **deProxyCertificate** _ inversa na secção [_ *Microsoft.ServiceFabric/clusters* *](/azure/templates/microsoft.servicefabric/clusters) Tipo de [recurso](../azure-resource-manager/templates/template-syntax.md) do modelo de Gestor de Recursos. Para agrupamentos autónomos, o certificado é especificado quer com o **_ReverseProxyCertificate_*_ quer* com a propriedade _ _ReverseProxyCertificateCommonNames_ _ na secção *de segurança _* de** ClusterConfig.js. Para saber mais, consulte [Ativar o proxy invertido em agrupamentos autónomos](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Os serviços podem implementar a lógica para verificar o certificado apresentado pelo representante inverso. Os serviços podem especificar os dados do certificado de cliente aceite como definições de configuração no pacote de configuração. Isto pode ser lido em tempo de execução e usado para validar o certificado apresentado pelo representante inverso. Consulte os [parâmetros de aplicação](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
 

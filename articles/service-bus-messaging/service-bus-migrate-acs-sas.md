@@ -4,10 +4,10 @@ description: Saiba como migrar do Serviço de Controlo de Acesso ao Diretório A
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88064626"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus - Migrar do Azure Ative Directory Access Control Service para autorização de assinatura de acesso partilhado
@@ -30,7 +30,7 @@ Os cenários de migração enquadram-se em três grandes categorias:
 
 1.  **Incumprimentos inalterados**. Alguns clientes usam um objeto [SharedSecretTokenProvider,](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) passando a identidade de serviço **do proprietário** gerada automaticamente e a sua chave secreta para o espaço de nomes ACS, emparelhado com o espaço de nomes do Service Bus, e não adicionam novas regras.
 
-2.  **Identidades de serviço personalizadas com regras simples.** Alguns clientes adicionam novas identidades de serviço e concedem cada nova identidade de serviço **Enviar,** **Ouvir**e **Gerir** permissões para uma entidade específica.
+2.  **Identidades de serviço personalizadas com regras simples.** Alguns clientes adicionam novas identidades de serviço e concedem cada nova identidade de serviço **Enviar,** **Ouvir** e **Gerir** permissões para uma entidade específica.
 
 3.  **Identidades de serviço personalizadas com regras complexas.** Muito poucos clientes têm conjuntos de regras complexos em que fichas emitidas externamente são mapeadas para direitos no Relay, ou onde uma única identidade de serviço é atribuída direitos diferenciados em vários caminhos do espaço de nome através de várias regras.
 

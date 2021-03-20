@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Conector de Identidade Brivo Onair para o fornecimento automático de utilizadores com diretório ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar o Conector de Identidade Brivo Onair para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automáticamente e desavisigativar contas de utilizador ao Conector de Identidade Brivo Onair.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998094"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutorial: Configurar o Conector de Identidade Brivo Onair brivo para o fornecimento automático do utilizador

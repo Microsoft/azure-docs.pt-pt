@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: c4198a1b73f76d61e39324befc85b55bd260e363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212229"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Ligação de saída de Hubs de Notificação para Funções Azure
@@ -248,7 +248,7 @@ Os parâmetros e propriedades do construtor do atributo são descritos na secç�
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `NotificationHub` atributo:
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** |n/a| Deve ser definido para `notificationHub` . |
 |**direção** |n/a| Deve ser definido para `out` . | 
@@ -287,7 +287,7 @@ Para utilizar uma ligação de saída do hub de notificação, tem de configurar
 
 Para configurar a cadeia de ligação a um centro de notificação existente:
 
-1. Navegue para o seu centro de notificação no [portal Azure,](https://portal.azure.com)escolha **as políticas de Acesso**e selecione o botão de cópia ao lado da política de **assinaturas DefaultFulFuldAccess.** Isto copia a cadeia de ligação para a política *defaultFulFullSharedAccessSignature* para o seu centro de notificação. Esta cadeia de ligação permite que a sua função envie mensagens de notificação para o centro.
+1. Navegue para o seu centro de notificação no [portal Azure,](https://portal.azure.com)escolha **as políticas de Acesso** e selecione o botão de cópia ao lado da política de **assinaturas DefaultFulFuldAccess.** Isto copia a cadeia de ligação para a política *defaultFulFullSharedAccessSignature* para o seu centro de notificação. Esta cadeia de ligação permite que a sua função envie mensagens de notificação para o centro.
     ![Copie a cadeia de ligação do hub de notificação](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
 1. Navegue para a sua aplicação de função no portal Azure, escolha **configurações de aplicação**, adicione uma chave como **MyHubConnectionString**, cole a *assinatura defaultFulFuldAccessss*  para o seu centro de notificação como valor e, em seguida, clique em **Guardar**.
 
@@ -299,7 +299,7 @@ O nome desta definição de aplicação é o que vai na definição de ligação
 
 | Enlace | Referência |
 |---|---|
-| Centro de Notificação | [Guia de Operações](/rest/api/notificationhubs/) |
+| Hub de Notificação | [Guia de Operações](/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>Passos seguintes
 

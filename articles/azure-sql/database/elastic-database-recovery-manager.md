@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91bcd998849c619a328a198c97bb8c977b9d8232
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792230"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilizar a classe RecoveryManager para corrigir problemas do mapa de partições horizontais
@@ -33,7 +33,7 @@ Para definições de termo, consulte [o glossário de ferramentas elastic databa
 
 ## <a name="why-use-the-recovery-manager"></a>Por que usar o gestor de recuperação
 
-Num ambiente de base de dados desontes, há um inquilino por base de dados, e muitas bases de dados por servidor. Também pode haver muitos servidores no ambiente. Cada base de dados está mapeada no mapa de fragmentos, para que as chamadas possam ser encaminhadas para o servidor e base de dados corretos. As bases de dados são rastreadas de acordo com uma **chave de fragmentos,** e cada fragmento é atribuído uma **gama de valores-chave** . Por exemplo, uma chave de fragmentos pode representar os nomes dos clientes de "D" para "F". O mapeamento de todos os fragmentos (também conhecidos como bases de dados) e as suas gamas de mapeamento estão contidos no **mapa global de fragmentos (GSM)** . Cada base de dados também contém um mapa das gamas contidas no fragmento que é conhecido como o **mapa de fragmentos local (LSM)** . Quando uma aplicação se conecta a um fragmento, o mapeamento é em cache com a aplicação para uma recuperação rápida. O LSM é utilizado para validar dados em cache.
+Num ambiente de base de dados desontes, há um inquilino por base de dados, e muitas bases de dados por servidor. Também pode haver muitos servidores no ambiente. Cada base de dados está mapeada no mapa de fragmentos, para que as chamadas possam ser encaminhadas para o servidor e base de dados corretos. As bases de dados são rastreadas de acordo com uma **chave de fragmentos,** e cada fragmento é atribuído uma **gama de valores-chave**. Por exemplo, uma chave de fragmentos pode representar os nomes dos clientes de "D" para "F". O mapeamento de todos os fragmentos (também conhecidos como bases de dados) e as suas gamas de mapeamento estão contidos no **mapa global de fragmentos (GSM)**. Cada base de dados também contém um mapa das gamas contidas no fragmento que é conhecido como o **mapa de fragmentos local (LSM)**. Quando uma aplicação se conecta a um fragmento, o mapeamento é em cache com a aplicação para uma recuperação rápida. O LSM é utilizado para validar dados em cache.
 
 O GSM e o LSM podem ficar dessincronizados pelas seguintes razões:
 

@@ -1,5 +1,5 @@
 ---
-title: Melhorias na gestão dos utilizadores (pré-visualização) - Azure Ative Directory Microsoft Docs
+title: Melhorias na gestão do utilizador (pré-visualização) - Azure Ative Directory | Microsoft Docs
 description: Descreve como o Azure Ative Directory permite a pesquisa, filtragem e mais informações sobre os seus utilizadores.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98127843"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Melhorias na gestão dos utilizadores (pré-visualização) no Azure Ative Directory
@@ -83,7 +83,7 @@ A página **de utilizadores eliminados** inclui todas as colunas disponíveis na
 - Nome principal original do utilizador: A UPN original do utilizador antes do seu ID objeto foi adicionado como um prefixo à sua UPN eliminada.
 
 > [!NOTE]
-> As datas de eliminação são apresentadas no Tempo Universal Coordenado (UTC) .
+> Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
 
 Algumas colunas são apresentadas por defeito. Para adicionar outras colunas, selecione **Colunas** na página, selecione os nomes das colunas que pretende adicionar e selecione **OK** para guardar as suas preferências.
 

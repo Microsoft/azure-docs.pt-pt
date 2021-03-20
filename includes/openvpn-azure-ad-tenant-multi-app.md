@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c3236f9c60cb359349d96e93f674c3e278e44f1e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93375799"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Criar o inquilino AZURE AD
@@ -31,7 +31,7 @@ Criar um inquilino AZure AD usando os passos no novo artigo de [inquilino:](../a
 Neste passo, você cria dois utilizadores inquilinos Azure AD: uma conta Global Admin e uma conta de utilizador principal. A conta principal do utilizador é utilizada como a sua conta principal de incorporação (conta de serviço). Quando cria uma conta de utilizador de inquilino Azure AD, ajusta a função de Diretório para o tipo de utilizador que pretende criar. Use os passos [deste artigo](../articles/active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois utilizadores para o seu inquilino AZURE AD. Certifique-se de alterar a **Função de Diretório** para criar os tipos de conta:
 
 * Admin Global
-* Utilizador
+* User
 
 ## <a name="3-register-the-vpn-client"></a><a name="register-client"></a>3. Registar o Cliente VPN
 
@@ -132,7 +132,7 @@ Neste passo, regista-se aplicações adicionais para vários utilizadores e grup
 
 Atribua os utilizadores às suas aplicações.
 
-1. Sob **as aplicações Azure AD -> Enterprise,** selecione a aplicação recém-registada e clique em **Propriedades**. Certifique-se de que a **yes** atribuição do utilizador é **necessária?** Clique em **Guardar**.
+1. Sob **as aplicações Azure AD -> Enterprise,** selecione a aplicação recém-registada e clique em **Propriedades**. Certifique-se de que a atribuição do utilizador é **necessária?** Clique em **Guardar**.
 
     ![Azure VPN 8](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943169"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive com as ferramentas do Data Lake para Visual Studio
@@ -142,7 +142,7 @@ O exemplo a seguir baseia-se na `log4jLogs` tabela criada no procedimento anteri
 
 4. Para verificar se o trabalho criou a tabela, vá ao **Server Explorer** e expanda **o Azure**  >  **HDInsight**. Expanda o seu cluster HDInsight e, em seguida, expanda o padrão das **Bases de Dados de Colmeia**  >  . A tabela **ErrorLogs** e a tabela **log4jLogs** estão listadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como pode ver, as ferramentas HDInsight para Visual Studio fornecem uma maneira fácil de trabalhar com consultas de Hive em HDInsight.
 

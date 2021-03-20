@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 225ccb67153a33ed47af68ebb1549dce37426278
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573466"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Começar com atores fiáveis
@@ -46,7 +46,7 @@ A solução contém três projetos:
 
 * **O projeto de serviço de ator (HelloWorld)**. Este projeto define o serviço Service Fabric que vai acolher o ator. Contém a implementação do ator, *HelloWorld.cs*. Uma implementação do ator é uma classe que deriva do tipo base `Actor` e implementa as interfaces definidas no projeto *MyActor.Interfaces.* Uma classe de ator também deve implementar um construtor que aceite um `ActorService` caso e um e `ActorId` passá-lo para a `Actor` classe base.
     
-    Este projeto também contém *Program.cs,* que regista aulas de ator com o tempo de execução do Service Fabric `ActorRuntime.RegisterActorAsync<T>()` utilizando. A `HelloWorld` turma já está registada. Quaisquer implementações adicionais de atores adicionadas ao projeto também devem ser registadas no `Main()` método.
+    Este projeto também contém *Program.cs,* que regista aulas de ator com o tempo de execução do Service Fabric utilizando `ActorRuntime.RegisterActorAsync<T>()` . A `HelloWorld` turma já está registada. Quaisquer implementações adicionais de atores adicionadas ao projeto também devem ser registadas no `Main()` método.
 
 ## <a name="customize-the-helloworld-actor"></a>Personalize o ator HelloWorld
 
@@ -61,7 +61,7 @@ public interface IHelloWorld : IActor
 }
 ```
 
-No projeto **HelloWorld,** em **HelloWorld.cs,** substitua toda a definição de classe da seguinte forma:
+No projeto **HelloWorld,** no **HelloWorld.cs,** substitua toda a definição de classe da seguinte forma:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -110,7 +110,7 @@ Crie uma aplicação de consola simples para ligar para o serviço de ator.
     
     ![Adicionar diálogo de referência][7]
 
-6. No projeto ActorClient, substitua todo o conteúdo da *Program.cs* pelo seguinte código:
+6. No projeto ActorClient, substitua todo o conteúdo do *Programa.cs* pelo seguinte código:
     
     ```csharp
     using System;

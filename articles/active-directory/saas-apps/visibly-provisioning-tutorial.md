@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Visivelmente para o provisionamento automático do utilizador com o Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configurar Visivelmente para o fornecimento automático de utilizadores com O Diretório Ativo Azure | Microsoft Docs'
 description: Saiba como provisão e desavisagem automática de contas de utilizador de Azure AD a Visivelmente.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: c2feae18c4b32e1a1a87d153219aff0bfee3b756
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182194"
 ---
 # <a name="tutorial-configure-visibly-for-automatic-user-provisioning"></a>Tutorial: Configurar Visivelmente para o fornecimento automático de utilizadores

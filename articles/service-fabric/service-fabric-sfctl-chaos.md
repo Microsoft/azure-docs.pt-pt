@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260830"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Começa, para e reporta o serviço de testes do caos.
 
 ## <a name="subgroups"></a>Subgrupos
-|Subgrupo|Descrição|
+|Subgrupo|Description|
 | --- | --- |
 | [agendar](service-fabric-sfctl-chaos-schedule.md) | Arranja e define o calendário do caos. |
 ## <a name="commands"></a>Comandos
@@ -35,7 +35,7 @@ Para obter o próximo segmento dos eventos Caos, você pode especificar o Contin
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificado por URL. |
 | --fim-tempo-utc | O tempo de ficheiro do Windows que representa o tempo final do intervalo de tempo para o qual deve ser gerado um relatório Caos. Consulte [o método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter mais detalhes. |
@@ -45,7 +45,7 @@ Para obter o próximo segmento dos eventos Caos, você pode especificar o Contin
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -60,13 +60,13 @@ Obtenha o estado do Caos indicando se o Caos está ou não em funcionamento, os 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -81,7 +81,7 @@ Se o Caos ainda não está a funcionar no aglomerado, começa o Caos com os par�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --app-tipo-plano de política de saúde | JSON codificava matriz de entradas de dicionário (chave/valor) com aplicações não saudáveis de percentagem máxima para tipos de aplicações específicos. Cada entrada no dicionário especifica como chave o nome do tipo de aplicação e um número inteiro de valor que representa a percentagem de MaxPercentUnhealthyApplications usada para avaliar as aplicações do tipo de aplicação especificado. <br><br> Define um mapa com aplicações não saudáveis de percentagem máxima para tipos específicos de aplicações. O mapa da política de saúde do tipo de aplicação pode ser usado durante a avaliação da saúde do cluster para descrever os tipos de aplicação individuais. Os tipos de aplicações incluídos no mapa são avaliados em comparação com a percentagem especificada no mapa, e não com as maxpercentunhealthyApplicações globais definidas na política de saúde do cluster. As aplicações de tipos de aplicação especificados no mapa não são contabilizadas contra o conjunto global de aplicações. Por exemplo, se algumas aplicações de um tipo forem críticas, o administrador de cluster pode adicionar uma entrada no mapa para esse tipo de aplicação e atribuir-lhe um valor de 0% (não tolerar quaisquer falhas). Todas as outras aplicações podem ser avaliadas com maxPercentUnhealthyApplicações definidas para 20% para tolerar algumas falhas dos milhares de casos de aplicações. O mapa da política de saúde do tipo de aplicação só é utilizado se o manifesto do cluster permitir uma avaliação de saúde tipo de aplicação utilizando a entrada de configuração para HealthManager/EnableApplicationTypeHealthEvaluation. <br><br> Exemplo JSON codificado cadeia: \" [{tecla \" : \" tecido:/Votação, \" valor : \" \" \" 0 \" }] |
 | --caos-filtro-alvo | Dicionário codificado JSON com duas teclas tipo de corda. As duas teclas são NodeTypeInclusionList e ApplicationInclusionList. Os valores para ambas as teclas são uma lista de cordas. chaos_target_filter define todos os filtros para falhas de caos direcionadas, por exemplo, falhando apenas certos tipos de nós ou falhando apenas certas aplicações. <br><br> Se chaos_target_filter não for utilizado, o Caos falha todas as entidades do cluster. Se chaos_target_filter for utilizada, o Caos falha apenas as entidades que cumprem a especificação chaos_target_filter. NodeTypeInclusionList e ApplicationInclusionList permitem apenas uma semântica sindical. Não é possível especificar uma intersecção entre NodeTypeInclusionList e ApplicationInclusionList. Por exemplo, não é possível especificar "avaria esta aplicação apenas quando está nesse tipo de nó". Uma vez que uma entidade é incluída no NodeTypeInclusionList ou no ApplicationInclusionList, essa entidade não pode ser excluída usando o ChaosTargetFilter. Mesmo que a aplicaçãoX não apareça no ApplicationInclusionList, em algumas aplicações de iteração caosX pode ser falha porque acontece que está num nó de nodeTypeY que está incluído no NodeTypeInclusionList. Se tanto o NodeTypeInclusionList como o ApplicationInclusionList estiverem vazios, é lançado um ArgumentException. Todos os tipos de falhas (reinicie o nó, reinicie o pacote de código, remova a réplica, reinicie a réplica, mova-se primáriamente e mova-se secundário) para os nós destes tipos de nós. Se um tipo de nó (digamos NodeTypeX) não aparecer no NodeTypeInclusionList, então as falhas do nível do nó (como nodeRestart) nunca serão ativadas para os nós de NodeTypeX, mas o pacote de código e as falhas de réplica ainda podem ser ativadas para NodeTypeX se uma aplicação na Lista de Exclusões de Aplicação acontecer reside num nó de NodeTypeX. No máximo 100 nomes do tipo nó podem ser incluídos nesta lista, para aumentar este número, é necessária uma atualização config para a configuração MaxNumberOfNodeTypesInChaosEntityFilter. Todas as réplicas pertencentes a serviços destas aplicações são passíveis de réplicas (reiniciar réplicas, remover réplicas, mover-se primária e mover-se secundária) pelo Caos. O caos só pode reiniciar um pacote de código se o pacote de código hospedar réplicas destas aplicações apenas. Se uma aplicação não aparecer nesta lista, pode ainda ser defeituosa em alguma iteração do Caos se a aplicação acabar num nó de um nó que está incluído no NodeTypeInclusionList. No entanto, se a aplicaçãoX estiver ligada ao nodeTypeY através de restrições de colocação e a aplicaçãoX estiver ausente do ApplicationInclusionList e o nodeTypeY estiver ausente do NodeTypeInclusionList, então a aplicaçãoX nunca será defeituosa. No máximo 1000 nomes de aplicações podem ser incluídos nesta lista, para aumentar este número, é necessária uma atualização config para a configuração do MaxNumberOfApplicationsInChaosEntityFilter. |
@@ -99,7 +99,7 @@ Se o Caos ainda não está a funcionar no aglomerado, começa o Caos com os par�
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -114,13 +114,13 @@ Impede o Caos de executar novas falhas. As falhas a bordo continuarão a ser exe
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

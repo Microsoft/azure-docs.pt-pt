@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92096356"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Instalação personalizada do Azure Ative Directory Connect
@@ -38,7 +38,7 @@ Na página **Definições Expressas,** selecione **Personalizar** para iniciar u
 
 - [Componentes necessários](#install-required-components)
 - [Inscrição do utilizador](#user-sign-in)
-- [Ligar ao Azure AD](#connect-to-azure-ad)
+- [Ligue-se ao Azure AD](#connect-to-azure-ad)
 - [Sincronização](#sync-pages)
 
 ### <a name="install-required-components"></a>Instalar os componentes necessários
@@ -96,7 +96,7 @@ Depois de introduzir o nome da floresta e selecionar  **Add Diretório,** aparec
 
 | Opção | Descrição |
 | --- | --- |
-| Criar conta nova | Crie a conta Azure AD DS que o Azure AD Connect necessita para se ligar à floresta de Diretório Ativo durante a sincronização do diretório. Depois de selecionar esta opção, insira o nome de utilizador e a palavra-passe para uma conta administrada da empresa.  O Azure AD Connect utiliza a conta de administração da empresa fornecida para criar a conta AZure AD DS necessária. Pode introduzir a parte de domínio no formato NetBIOS ou no formato FQDN. Ou seja, insira *FABRIKAM\administrador* ou *fabrikam.com\administrator*. |
+| Criar conta nova | Crie a conta Azure AD DS que o Azure AD Connect necessita para se ligar à floresta de Diretório Ativo durante a sincronização do diretório. Depois de selecionar esta opção, insira o nome de utilizador e a palavra-passe para uma conta administrada da empresa.  O Azure AD Connect utiliza a conta de administração da empresa fornecida para criar a conta AZure AD DS necessária. Pode introduzir a parte de domínio no formato NetBIOS ou no formato FQDN. Ou seja, insira *o administrador da FABRIKAM\ou* *fabrikam.com\administrador*. |
 | Utilizar conta existente | Forneça uma conta Azure AD DS existente que o Azure AD Connect pode usar para ligar à floresta de Diretório Ativo durante a sincronização do diretório. Pode introduzir a parte de domínio no formato NetBIOS ou no formato FQDN. Ou seja, *insira FABRIKAM\syncuser* ou *fabrikam.com\syncuser*. Esta conta pode ser uma conta de utilizador regular porque necessita apenas das permissões de leitura por defeito. Mas dependendo do seu cenário, pode precisar de mais permissões. Para mais informações, consulte [as contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account). |
 
 ![Screenshot mostrando a página "Connect Directory" e a janela da conta florestal A D, onde pode optar por criar uma nova conta ou usar uma conta existente.](./media/how-to-connect-install-custom/connectdir02.png)
@@ -260,7 +260,7 @@ Num computador que dispõe de ferramentas de gestão de Políticas de Grupo:
 
 1.  Abra as ferramentas de gestão da Política de Grupo.
 2.  Editar a política de grupo que será aplicada a todos os utilizadores. Por exemplo, a política de domínio predefinido.
-3.  Aceda à **configuração do utilizador**  >  **Modelos Administrativos**  >  **Windows Componentes**Internet  >  **Explorer**Internet  >  **Control Panel**  >  **Security Page**. Em seguida, selecione **Site para a Lista de Atribuição de Zonas**.
+3.  Aceda à **configuração do utilizador**  >  **Modelos Administrativos**  >  **Windows Componentes** Internet  >  **Explorer** Internet  >  **Control Panel**  >  **Security Page**. Em seguida, selecione **Site para a Lista de Atribuição de Zonas**.
 4.  Habilitar a política. Em seguida, na caixa de diálogo, introduza um nome de valor `https://autologon.microsoftazuread-sso.com` e valor de `1` . A sua configuração deve parecer a seguinte imagem.
   
     ![Screenshot mostrando zonas intranet.](./media/how-to-connect-install-custom/sitezone.png)

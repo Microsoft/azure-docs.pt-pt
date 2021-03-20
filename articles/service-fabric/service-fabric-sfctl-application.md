@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260867"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -45,7 +45,7 @@ Cria uma aplicação de Tecido de Serviço utilizando a descrição especificada
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --app-nome [Obrigatório] | O nome do pedido, incluindo o \: "sistema URI do tecido". |
 | --tipo de aplicação [Obrigatório] | O nome do tipo de aplicação encontrado no manifesto de candidatura. |
@@ -58,7 +58,7 @@ Cria uma aplicação de Tecido de Serviço utilizando a descrição especificada
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -73,7 +73,7 @@ Uma aplicação deve ser criada antes de poder ser eliminada. A eliminação de 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | ...-força-remoção | Remova uma aplicação ou serviço de tecido de serviço com força sem passar pela sequência graciosa de paragem. Este parâmetro pode ser usado para eliminar com força uma aplicação ou serviço para o qual a eliminação está fora devido a problemas no código de serviço que impede o encerramento gracioso de réplicas. |
@@ -81,7 +81,7 @@ Uma aplicação deve ser criada antes de poder ser eliminada. A eliminação de 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -96,7 +96,7 @@ Esta consulta devolve as informações da aplicação do sistema se o ID da apli
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -105,7 +105,7 @@ Esta consulta devolve as informações da aplicação do sistema se o ID da apli
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -120,7 +120,7 @@ Obtém a informação sobre a saúde de uma aplicação implantada num nó de Te
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -131,7 +131,7 @@ Obtém a informação sobre a saúde de uma aplicação implantada num nó de Te
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -146,7 +146,7 @@ Obtém a lista de aplicações implantadas num nó de Tecido de Serviço. Os res
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --nome de nó [Obrigatório] | O nome do nó. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificado por URL. |
@@ -156,7 +156,7 @@ Obtém a lista de aplicações implantadas num nó de Tecido de Serviço. Os res
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -171,7 +171,7 @@ Devolve o estado de saúde da aplicação de tecido de serviço. A resposta rela
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --aplicações implantadas-saúde-estado-filtro | Permite a filtragem das aplicações implementadas objetos do estado de saúde devolvidos em resultado de consulta de saúde da aplicação com base no seu estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Serão devolvidas apenas aplicações que correspondam ao filtro. Todas as aplicações implementadas são usadas para avaliar o estado de saúde agregado. Se não for especificado, todas as entradas são devolvidas. Os valores do Estado são enumerações baseadas em bandeiras, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando o operador bitwise 'OR'. Por exemplo, se o valor fornecido for 6, então o estado de saúde das aplicações implementadas com o valor healthState de OK (2) e Aviso (4) são devolvidos.  <br> - Padrão - Valor predefinido. Corresponde a qualquer Estado da Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do HealthState. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtro que combine com a entrada com o valor HealthState Ok. O valor é 2.  <br> - Aviso - Filtro que corresponda à entrada com o valor healthState Warning. O valor é 4.  <br> - Erro - Filtrar a entrada com o Erro de Valor HealthState. O valor é 8.  <br> - Tudo - Filtrar que corresponda à entrada com qualquer valor HealthState. O valor é 65535. |
@@ -182,7 +182,7 @@ Devolve o estado de saúde da aplicação de tecido de serviço. A resposta rela
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -197,7 +197,7 @@ Devolve a informação sobre a aplicação que foi criada ou em processo de cria
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --excluir-parâmetros de aplicação | A bandeira que especifica se os parâmetros de aplicação serão excluídos do resultado. |
@@ -205,7 +205,7 @@ Devolve a informação sobre a aplicação que foi criada ou em processo de cria
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -220,7 +220,7 @@ Obtém a informação sobre as aplicações que foram criadas ou no processo de 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicação-definição-tipo-filtro | Usado para filtrar na ApplicationDefinitionKind, que é o mecanismo usado para definir uma aplicação de Tecido de Serviço.  <br> - Padrão - Valor predefinido, que executa a mesma função que selecionar "All". O valor é 0.  <br> - Tudo - Filtrar que corresponda à entrada com qualquer valor DefinitionKind da Aplicação. O valor é 65535.  <br> - ServiceFabricApplicationDescription - Filtro que corresponde à entrada com o valor de AplicaçãoDefinitionKind ServiceFabricApplicationDescription. O valor é 1.  <br> - Compor - Filtro que combine com entrada com Valor DefinitionA Definition Compose. O valor é 2. |
 | --denominação-aplicação | O nome do tipo de aplicação usado para filtrar as aplicações para consulta. Este valor não deve conter a versão do tipo de aplicação. |
@@ -231,7 +231,7 @@ Obtém a informação sobre as aplicações que foram criadas ou no processo de 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -246,14 +246,14 @@ Devolve a informação de carga sobre a aplicação que foi criada ou em process
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -268,7 +268,7 @@ A resposta contém o manifesto de aplicação XML como uma corda.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicação-tipo-nome [Obrigatório] | O nome do tipo de aplicação. |
 | --versão do tipo de aplicação [Necessária] | A versão do tipo de aplicação. |
@@ -276,7 +276,7 @@ A resposta contém o manifesto de aplicação XML como uma corda.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -291,7 +291,7 @@ Fornece um tipo de aplicação de Tecido de Serviço com o cluster. A disposiç�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --application-package-download-uri | O caminho para o pacote de aplicações 'sfpkg' de onde o pacote de aplicações pode ser descarregado usando protocolos HTTP ou HTTPS. <br><br> Apenas para a loja externa do tipo de provisão. O pacote de aplicações pode ser armazenado numa loja externa que fornece operação GET para descarregar o ficheiro. Os protocolos suportados são HTTP e HTTPS, e o caminho deve permitir o acesso ao READ. |
 | --application-type-build-path | Apenas para a loja de imagem tipo provisão. O caminho relativo para o pacote de aplicações na loja de imagens especificado durante a operação de upload prévio. |
@@ -303,7 +303,7 @@ Fornece um tipo de aplicação de Tecido de Serviço com o cluster. A disposiç�
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -318,7 +318,7 @@ Relatórios de estado de saúde da aplicação de Tecido de Serviço especificad
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. <br><br> Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o \~ ' ' caráter. Por exemplo, se o nome da aplicação for 'tecido \: /myapp/app1', a identidade da aplicação seria 'myapp \~ app1' em 6.0+ e 'myapp/app1' em versões anteriores. |
 | --saúde-propriedade [Necessária] | A propriedade da informação de saúde. <br><br> Uma entidade pode ter relatórios de saúde para diferentes propriedades. A propriedade é uma corda e não uma enumeração fixa para permitir ao repórter flexibilidade para categorizar a condição do estado que desencadeia o relatório. Por exemplo, um repórter com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que possa reportar a propriedade "AvailableDisk" nesse nó. O mesmo repórter pode monitorizar a conectividade do nó, para que possa reportar uma propriedade "Conectividade" no mesmo nó. Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para o nó especificado. Juntamente com o SourceId, a propriedade identifica exclusivamente a informação de saúde. |
@@ -333,7 +333,7 @@ Relatórios de estado de saúde da aplicação de Tecido de Serviço especificad
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -348,7 +348,7 @@ Devolve a informação sobre os tipos de aplicação que são a provisionados ou
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicação-tipo-nome [Obrigatório] | O nome do tipo de aplicação. |
 | --versão tipo aplicação | A versão do tipo de aplicação. |
@@ -359,7 +359,7 @@ Devolve a informação sobre os tipos de aplicação que são a provisionados ou
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -374,7 +374,7 @@ Devolve a informação sobre os tipos de aplicação que são a provisionados ou
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicação-tipo-definição-filtro-tipo | Usado para filtrar no ApplicationTypeDefinitionKind, que é o mecanismo utilizado para definir um tipo de aplicação de Tecido de Serviço.  <br> - Padrão - Valor predefinido, que executa a mesma função que selecionar "All". O valor é 0.  <br> - Tudo - Filtrar que corresponda à entrada com qualquer valor ApplicationTypeDefinitionKind. O valor é 65535.  <br> - ServiceFabricApplicationPackage - Filtro que corresponde à entrada com o valor de AplicaçãoTypeDefinitionKind ServiceFabricApplicationPackage. O valor é 1.  <br> - Compor - Filtro que combine com entrada com Valor DefinitionKind de Aplicação. O valor é 2. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificado por URL. |
@@ -384,7 +384,7 @@ Devolve a informação sobre os tipos de aplicação que são a provisionados ou
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -399,7 +399,7 @@ Esta operação só pode ser executada se todas as instâncias de aplicação do
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicação-tipo-nome [Obrigatório] | O nome do tipo de aplicação. |
 | --versão do tipo de aplicação [Necessária] | A versão do tipo de aplicação tal como definida no manifesto de aplicação. |
@@ -408,7 +408,7 @@ Esta operação só pode ser executada se todas as instâncias de aplicação do
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -423,7 +423,7 @@ Valida os parâmetros de atualização da aplicação fornecida e começa a atua
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. <br><br> Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --versão da aplicação [Necessária] | A versão do tipo de aplicação alvo (encontrada no manifesto de aplicação) para a atualização da aplicação. |
@@ -445,7 +445,7 @@ Valida os parâmetros de atualização da aplicação fornecida e começa a atua
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -460,7 +460,7 @@ Retoma uma atualização manual da aplicação do Tecido de Serviço não monito
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --upgrade-nome de domínio [Obrigatório] | O nome do domínio de atualização no qual retomará a atualização. |
@@ -468,7 +468,7 @@ Retoma uma atualização manual da aplicação do Tecido de Serviço não monito
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -483,14 +483,14 @@ Começa a reverter a atual atualização da aplicação para a versão anterior.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -505,14 +505,14 @@ Devolve informações sobre o estado da última atualização de aplicações, j
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -527,7 +527,7 @@ Exibir opcionalmente o progresso do upload para cada ficheiro na embalagem. O up
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --caminho [Obrigatório] | Caminho para o pacote de aplicações locais. |
 | --compressa | Aplicável apenas aos pacotes de aplicações do Service Fabric. Crie uma nova pasta que contenha o pacote de aplicações comprimidos para a localização predefinida ou para a localização especificada pelo parâmetro de localização comprimido e, em seguida, carrefique a pasta recém-criada. <br><br> Se já existir um ficheiro comprimido gerado pelo sfctl, será substituído se esta bandeira for definida. Um erro será devolvido se o diretório não for um pacote de candidatura. Se já se trata de um pacote de aplicações comprimidos, a pasta será copiada como está. Por predefinição, o pacote de aplicação comprimido recém-criado será eliminado após um upload bem sucedido. Se o upload não for bem sucedido, por favor limpe manualmente o pacote comprimido conforme necessário. A supressão não remove quaisquer dirs vazios que possam ter sido criados se o parâmetro de localização comprimido referenciar diretórios inexistentes. |
@@ -539,7 +539,7 @@ Exibir opcionalmente o progresso do upload para cada ficheiro na embalagem. O up
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

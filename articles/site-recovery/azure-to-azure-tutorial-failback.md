@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
 ms.openlocfilehash: 5c127010a7988bf08c77340a4fc10bb32dc76f87
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93393947"
 ---
 # <a name="tutorial-fail-back-azure-vm-to-the-primary-region"></a>Tutorial: Falha em Azure VM para a região primária
@@ -48,11 +48,11 @@ Depois de os VM serem reprotegidos, podes falhar de volta à região primária, 
 
     [Página mostrando que concordamos em executar failover sem um teste failover](./media/azure-to-azure-tutorial-failback/no-test.png)
 
-4. Em **Failover** , note a direção do secundário para o primário e selecione um ponto de recuperação. O Azure VM no alvo (região primária) é criado usando dados a partir deste ponto.
-   - **Processo mais recente** : Utiliza o último ponto de recuperação processado pela Recuperação do Local. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que fornece um objetivo de tempo de recuperação baixo (RTO).
+4. Em **Failover**, note a direção do secundário para o primário e selecione um ponto de recuperação. O Azure VM no alvo (região primária) é criado usando dados a partir deste ponto.
+   - **Processo mais recente**: Utiliza o último ponto de recuperação processado pela Recuperação do Local. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que fornece um objetivo de tempo de recuperação baixo (RTO).
    -  **Mais recente:** Processa todos os dados enviados para a Recuperação do Local, para criar um ponto de recuperação para cada VM antes de falhar. Fornece o objetivo de ponto de recuperação mais baixo (RPO), porque todos os dados são replicados para a Recuperação do Local quando a falha é desencadeada.
-   - **Aplicações mais recentes consistentes** : Esta opção falha em VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
-   - **Costume** : Falhe no ponto de recuperação particular. O costume só está disponível quando falha num único VM e não usa um plano de recuperação.
+   - **Aplicações mais recentes consistentes**: Esta opção falha em VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
+   - **Costume**: Falhe no ponto de recuperação particular. O costume só está disponível quando falha num único VM e não usa um plano de recuperação.
 
     > [!NOTE]
     > Se falhar num VM ao qual adicionou um disco depois de ter ativado a replicação para o VM, os pontos de replicação mostrarão os discos disponíveis para recuperação. Por exemplo, um ponto de replicação que foi criado antes de adicionar um segundo disco mostrará como "1 de 2 discos".

@@ -16,10 +16,10 @@ ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360416"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure através de uma credencial de SAS
@@ -48,8 +48,8 @@ Um SAS de Serviço permite conceder acesso limitado aos objetos numa conta de ar
 
 Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também pode ignorar este passo e conceder à identidade gerida atribuída pelo sistema da VM acesso às chaves de uma conta de armazenamento existente. 
 
-1. Clique no botão **+/Criar novo serviço** , no canto superior esquerdo do portal do Azure.
-2. Clique em **Armazenamento** , em seguida, em **Conta de Armazenamento** , e um novo painel "Criar a conta de armazenamento" será apresentado.
+1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
+2. Clique em **Armazenamento**, em seguida, em **Conta de Armazenamento**, e um novo painel "Criar a conta de armazenamento" será apresentado.
 3. Introduza um **Nome** para a conta de armazenamento, que utilizará mais tarde.  
 4. O **Modelo de implementação** e o **Tipo de conta** devem ser definidos como "Gestor de recursos" e "Fins gerais", respetivamente. 
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
@@ -63,7 +63,7 @@ Mais tarde, iremos carregar e transferir um ficheiro para a nova conta de armaze
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Contentores** no painel esquerdo, em "Serviço Blob".
-3. Clique em **+ Contentor** , na parte superior da página, e surge um painel "Novo contentor".
+3. Clique em **+ Contentor**, na parte superior da página, e surge um painel "Novo contentor".
 4. Dê um nome ao contentor, selecione um nível de acesso e clique em **OK**. O nome que especificou será utilizado mais tarde no tutorial. 
 
     ![Criar contentor de armazenamento](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
@@ -78,7 +78,7 @@ O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD. 
 4. Defina **Função** como "Contribuidor de Conta de Armazenamento", no lado direito da página. 
 5. Na lista pendente seguinte, defina **Atribuir acesso a** ao recurso "Máquina Virtual".  
 6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para "Todos os grupos de recursos".  
-7. Por fim, em **Selecionar** , selecione a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**.  
+7. Por fim, em **Selecionar**, selecione a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**.  
 
     ![Texto alternativo da imagem](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
@@ -88,7 +88,7 @@ No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente
 
 Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/install-win10). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. No portal do Azure, navegue para **Máquinas Virtuais** , aceda à sua máquina virtual do Linux e, em seguida, na página **Descrição Geral** , clique em **Ligar** na parte superior. Copie a cadeia de ligação para ligar à sua VM. 
+1. No portal do Azure, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Linux e, em seguida, na página **Descrição Geral**, clique em **Ligar** na parte superior. Copie a cadeia de ligação para ligar à sua VM. 
 2. Ligue à VM através do seu cliente SSH.  
 3. Em seguida, ser-lhe-á pedido que introduza a **palavra-passe** que adicionou ao criar a **VM do Linux**. Deverá iniciar sessão com êxito.  
 4. Utilize o CURL para obter um token de acesso para o Azure Resource Manager.  
@@ -226,7 +226,7 @@ Resposta:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial aprendeu a utilizar uma identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Armazenamento do Azure através de uma credencial de SAS.  Para saber mais sobre o SAS do Armazenamento do Azure, veja:
 

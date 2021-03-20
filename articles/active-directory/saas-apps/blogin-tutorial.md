@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com blogIn Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com blogIn | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o BlogIn.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.openlocfilehash: a47a3ae27fd1a18b7e9acd7d8b25748f6274c3e9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456998"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Tutorial: Azure Ative Directory integração única (SSO) com blogIn
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.blogin.co/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Pode obter os valores exatos para estes campos na página **Definições** no BlogIn (separador de**visão** do utilizador > **Configurar SSO e Provisioning do Utilizador).** Em alternativa, pode contactar a [equipa de suporte do Cliente BlogIn](mailto:support@blogin.co) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Pode obter os valores exatos para estes campos na página **Definições** no BlogIn (separador de **visão** do utilizador > **Configurar SSO e Provisioning do Utilizador).** Em alternativa, pode contactar a [equipa de suporte do Cliente BlogIn](mailto:support@blogin.co) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A aplicação BlogIn espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -122,7 +122,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao BlogIn.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **BlogIn**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -140,7 +140,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 Para configurar o login único no **BlogIn** na sua conta BlogIn e siga estes passos:
 
-1. Ir para **Definições**  >  **Configurações Configurações Configuração Configuração**  >  **Configuração Configuração SSO & fornecimento do utilizador**.
+1. Ir para **Definições**  >  **Configurações Configurações Configuração**  >  **SSO & fornecimento do utilizador**.
 2. No ecrã seguinte, altere o estado de Sign-On único para **On** e escolha um nome personalizado para o botão de login SSO que será exibido no ecrã de login.
 
 3. Se guardou o Url de **Metadados da Federação** de Aplicações no último passo da secção anterior, escolha o método de configuração **MEtadados URL** e cole **o Url de metadados da Federação de Aplicações** no campo URL dos metadados. Caso contrário, altere o método de Configuração para **manual,** povoe manualmente **o URL SSO (URL do Fornecedor de Início de Sessão)** e o Emissor de Fornecedor de Identidade **(ID da entidade)** e faça o upload do **Certificado (base64)** que obteve do Azure AD.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: User sign-in / Microsoft Docs'
+title: 'Azure AD Connect: | de sação do utilizador Microsoft Docs'
 description: Azure AD Conecte o pedido de inscrição do utilizador para configurações personalizadas.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997788"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opções de inscrição do utilizador
@@ -68,7 +68,7 @@ A autenticação pass-through utiliza um agente simples numa máquina de domíni
 Além disso, também pode ativar um único sinal de inscrição para utilizadores em máquinas de domínio que estão na rede corporativa. Com um único s-on, os utilizadores ativados apenas precisam de introduzir um nome de utilizador para ajudá-los a aceder de forma segura aos recursos na nuvem.
 ![Autenticação pass-through](./media/plan-connect-user-signin/pta.png)
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 - [Autenticação pass-through](how-to-connect-pta.md)
 - [Início de sessão único](how-to-connect-sso.md)
 
