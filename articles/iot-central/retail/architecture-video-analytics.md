@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central de análise de vídeo e deteção de movimentos Microsoft Docs
+title: Azure IoT Central de análise de vídeo objeto e deteção de movimento | Microsoft Docs
 description: Aprenda a construir uma aplicação IoT Central usando o modelo de aplicação de deteção de objetos e movimentos no IoT Central. Este modelo utiliza análises de vídeo ao vivo e câmaras conectadas.
 author: KishorIoT
 ms.author: nandab
@@ -9,10 +9,10 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 ms.openlocfilehash: 48808f762536390287bae40e8af3849da20b81c2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91874293"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Análise de vídeo - arquitetura de aplicação de deteção de objetos e movimentos

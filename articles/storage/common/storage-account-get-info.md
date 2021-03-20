@@ -11,10 +11,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0fd693573858df095b62a7a7917563141ac19c5b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94579339"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obtenha o tipo de conta de armazenamento e o nome SKU com .NET
@@ -23,9 +23,9 @@ Este artigo mostra como obter o tipo de conta de armazenamento Azure e o nome SK
 
 ## <a name="about-account-type-and-sku-name"></a>Sobre o tipo de conta e o nome SKU
 
-**Tipo de conta** : Os tipos de conta válidos incluem, `BlobStorage` , , e `BlockBlobStorage` `FileStorage` `Storage` `StorageV2` . [A visão geral da conta de armazenamento Azure](storage-account-overview.md) tem mais informações, incluindo descrições das várias contas de armazenamento.
+**Tipo de conta**: Os tipos de conta válidos incluem, `BlobStorage` , , e `BlockBlobStorage` `FileStorage` `Storage` `StorageV2` . [A visão geral da conta de armazenamento Azure](storage-account-overview.md) tem mais informações, incluindo descrições das várias contas de armazenamento.
 
-**Nome SKU** : Nomes válidos da SKU `Premium_LRS` incluem, , , , , , , `Premium_ZRS` e `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` `Standard_ZRS` . Os nomes SKU são sensíveis a casos e são campos de cordas na [Classe SkuName.](/dotnet/api/microsoft.azure.management.storage.models.skuname)
+**Nome SKU**: Nomes válidos da SKU `Premium_LRS` incluem, , , , , , , `Premium_ZRS` e `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` `Standard_ZRS` . Os nomes SKU são sensíveis a casos e são campos de cordas na [Classe SkuName.](/dotnet/api/microsoft.azure.management.storage.models.skuname)
 
 ## <a name="retrieve-account-information"></a>Recuperar informações sobre contas
 

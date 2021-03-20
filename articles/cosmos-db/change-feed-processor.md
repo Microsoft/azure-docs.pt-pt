@@ -11,10 +11,10 @@ ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340231"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
@@ -84,7 +84,7 @@ Por exemplo, pode ter uma unidade de implantação que desencadeie uma API exter
 
 Como mencionado anteriormente, dentro de uma unidade de implantação pode ter um ou mais casos. Para tirar partido da distribuição do cálculo dentro da unidade de implantação, os únicos requisitos-chave são:
 
-1. Todas as instâncias devem ter a mesma configuração do recipiente de arrendamento.
+1. Todas as instâncias devem ter a mesma configuração de contentor de concessão.
 1. Todas as instâncias devem ter o `processorName` mesmo.
 1. Cada instância precisa de ter um nome de instância diferente (`WithInstanceName`).
 

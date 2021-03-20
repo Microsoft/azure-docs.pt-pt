@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98739795"
 ---
 # <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Azure Cloud Services (clássico) Definição LoadBalancerProbe Schema
@@ -58,7 +58,7 @@ O `LoadBalancerProbe` elemento define a sonda de saúde para um modelo. Pode def
 
 A tabela a seguir descreve os atributos do `LoadBalancerProbe` elemento:
 
-|Atributo|Tipo|Descrição|
+|Atributo|Tipo|Description|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obrigatório. O nome da sonda do balançador de carga. O nome tem de ser exclusivo.|
 | `protocol`          | `string` | Obrigatório. Especifica o protocolo do ponto final. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, é necessário um ACK recebido para que a sonda tenha sucesso. Se `http` for especificado, é necessária uma resposta de 200 OK do URI especificado para que a sonda seja bem sucedida.|

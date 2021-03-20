@@ -1,5 +1,5 @@
 ---
-title: Adicione os utilizadores a um grupo dinâmico - tutorial - Azure AD ! Microsoft Docs
+title: Adicione os utilizadores a um grupo dinâmico - tutorial - Azure AD | Microsoft Docs
 description: Neste tutorial, via utilizar grupos com regras de adesão de utilizador para adicionar ou remover utilizadores automaticamente.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc891a7b07305fc0ef55376d7b6fbb262d740bb5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547496"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros de grupos automaticamente
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta funcionalidade requer uma licença Azure AD Premium para si como administrador global da organização. Se não tiver um, em Azure AD, selecione **Produtos de Licenças**  >  **Products**  >  **Tente/Compre**.
+Esta funcionalidade requer uma licença Azure AD Premium para si como administrador global da organização. Se não tiver um, em Azure AD, selecione **Produtos de Licenças**  >    >  **Tente/Compre**.
 
 Não é obrigatório atribuir licenças aos utilizadores para que os mesmos possam ser membros de grupos dinâmicos. Só precisa do número mínimo de licenças Azure AD Premium P1 disponíveis na organização para abranger todos esses utilizadores. 
 

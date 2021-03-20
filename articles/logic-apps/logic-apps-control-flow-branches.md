@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: 3514ce966e1de9af1741de6b966964aca2599610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91269238"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou juntar ramos paralelos para ações de fluxo de trabalho em Azure Logic Apps
@@ -18,7 +18,7 @@ ms.locfileid: "91269238"
 Por padrão, as suas ações em fluxos de trabalho de aplicações lógicas são executadas sequencialmente. Para realizar ações independentes ao mesmo tempo, pode criar [ramos paralelos,](#parallel-branches)e depois [juntar esses ramos](#join-branches) mais tarde no seu fluxo. 
 
 > [!TIP] 
-> Se tiver um gatilho que receba uma matriz e queira executar um fluxo de trabalho para cada item de matriz, pode *debaste* essa matriz com a propriedade do gatilho [ **SplitOn** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> Se tiver um gatilho que receba uma matriz e queira executar um fluxo de trabalho para cada item de matriz, pode *debaste* essa matriz com a propriedade do gatilho [ **SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

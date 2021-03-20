@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741116"
 ---
 # <a name="how-to-update-an-azure-cloud-service-classic"></a>Como atualizar um Azure Cloud Service (clássico)
@@ -51,18 +51,18 @@ A tabela a seguir mostra as alterações permitidas a um serviço durante uma at
 
 | Alterações permitidas ao alojamento, serviços e funções | Atualização no local | Encenado (troca VIP) | Eliminar e relançar |
 | --- | --- | --- | --- |
-| Versão do sistema operativo |Sim |Sim |Sim |
-| .NET nível de confiança |Sim |Sim |Sim |
-| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Sim |Sim |
-| Configurações de armazenamento locais |Aumentar apenas<sup>2</sup> |Sim |Sim |
-| Adicionar ou remover funções num serviço |Sim |Sim |Sim |
-| Número de casos de um papel específico |Sim |Sim |Sim |
-| Número ou tipo de pontos finais para um serviço |Sim<sup>2</sup> |Não |Sim |
-| Nomes e valores das definições de configuração |Sim |Sim |Sim |
-| Valores (mas não nomes) das definições de configuração |Sim |Sim |Sim |
-| Adicionar novos certificados |Sim |Sim |Sim |
-| Alterar certificados existentes |Sim |Sim |Sim |
-| Implementar novo código |Sim |Sim |Sim |
+| Versão do sistema operativo |Yes |Yes |Yes |
+| .NET nível de confiança |Yes |Yes |Yes |
+| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Yes |Yes |
+| Configurações de armazenamento locais |Aumentar apenas<sup>2</sup> |Yes |Yes |
+| Adicionar ou remover funções num serviço |Yes |Yes |Yes |
+| Número de casos de um papel específico |Yes |Yes |Yes |
+| Número ou tipo de pontos finais para um serviço |Sim<sup>2</sup> |No |Yes |
+| Nomes e valores das definições de configuração |Yes |Yes |Yes |
+| Valores (mas não nomes) das definições de configuração |Yes |Yes |Yes |
+| Adicionar novos certificados |Yes |Yes |Yes |
+| Alterar certificados existentes |Yes |Yes |Yes |
+| Implementar novo código |Yes |Yes |Yes |
 
 <sup>1</sup> Alteração de tamanho limitada ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
@@ -183,7 +183,7 @@ O diagrama seguinte ilustra como um serviço do que contém duas funções são 
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
 [Como monitorizar os serviços na nuvem](cloud-services-how-to-monitor.md)  
 [Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)

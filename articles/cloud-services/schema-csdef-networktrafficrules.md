@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 2c8ab53068b71652d03d03bf79a224fe5e34dff3
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98739773"
 ---
 # <a name="azure-cloud-services-classic-definition-networktrafficrules-schema"></a>Azure Cloud Services (clássico) Definição NetworkTrafficRules Schema
@@ -75,7 +75,7 @@ O `Destinations` elemento descreve uma coleção de RoleEndpoints com o que pode
 ##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> Elemento RoleEndpoint
 O `RoleEndpoint` elemento descreve um ponto final sobre um papel para permitir comunicações com. Pode especificar `RoleEndpoint` vários elementos se houver mais de um ponto final na função.
 
-| Atributo      | Tipo     | Descrição |
+| Atributo      | Tipo     | Description |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Obrigatório. O nome do ponto final para permitir o tráfego.|
 | `roleName`     | `string` | Obrigatório. O nome da função web para permitir a comunicação.|
@@ -86,14 +86,14 @@ O `AllowAllTraffic` elemento é uma regra que permite que todas as funções se 
 ##  <a name="whensource-element"></a><a name="WhenSource"></a> Quando Elemento DeOrigem
 O `WhenSource` elemento descreve uma coleção de papéis que pode comunicar com os pontos finais definidos no `Destinations` nó.
 
-| Atributo | Tipo     | Descrição |
+| Atributo | Tipo     | Description |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obrigatório. Especifica a regra a aplicar ao permitir comunicações. O único valor válido é `AnyRule` atualmente.|
   
 ##  <a name="fromrole-element"></a><a name="FromRole"></a> Elemento FromRole
 O `FromRole` elemento especifica as funções que podem comunicar com os pontos finais definidos no `Destinations` nó. Pode especificar `FromRole` vários elementos se houver mais de uma função que possa comunicar com os pontos finais.
 
-| Atributo  | Tipo     | Descrição |
+| Atributo  | Tipo     | Description |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Obrigatório. O nome para o papel a partir do qual permitir a comunicação.|
 

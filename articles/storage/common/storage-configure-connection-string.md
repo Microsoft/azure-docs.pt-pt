@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783883"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar Cadeias de Ligação do Storage do Azure
@@ -57,7 +57,7 @@ Por exemplo, a sua cadeia de ligação pode parecer semelhante a:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Embora o Azure Storage suporte http e HTTPS numa cadeia de ligação, *HTTPS é altamente recomendado* .
+Embora o Azure Storage suporte http e HTTPS numa cadeia de ligação, *HTTPS é altamente recomendado*.
 
 > [!TIP]
 > Pode encontrar as cordas de ligação da sua conta de armazenamento no [portal Azure](https://portal.azure.com). Navegue para **DEFINIÇÕES**  >  **As teclas** de acesso na lâmina do menu da sua conta de armazenamento para ver as cordas de ligação para as teclas de acesso primária e secundária.

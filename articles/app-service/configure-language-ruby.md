@@ -6,10 +6,10 @@ ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92743682"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurar uma aplicação Ruby do Linux para o Serviço de Aplicações do Azure
@@ -65,7 +65,7 @@ ENV['WEBSITE_SITE_NAME']
 
 Por predefinição, quando implementa um [repositório Git](deploy-local-git.md) ou um [pacote Zip](deploy-zip.md) com os processos de compilação ativados, o motor de implementação (Kudu) executa automaticamente os seguintes passos pós-implementação:
 
-1. Verifica se existe um *Gemfile* .
+1. Verifica se existe um *Gemfile*.
 1. Execute `bundle clean`. 
 1. Execute `bundle install --path "vendor/bundle"`.
 1. Executa `bundle package` para empacotar gems na pasta fornecedor/cache.

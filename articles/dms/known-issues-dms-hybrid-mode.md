@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 819fe5ced6c91819c817065305a31fca456ea5c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91291848"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Questões conhecidas/limitações de migração com a utilização do modo híbrido
@@ -73,9 +73,9 @@ Por padrão, o serviço híbrido Azure Database Migration Service funciona como 
     - Chave de configuração do trabalhador híbrido DMS
     - Par chave do motor de cenário DMS
 
-    b. Clique com o botão direito na entrada da **Chave da Aplicação Híbrida DMS,** aponte para **todas as tarefas**e, em seguida, selecione **Gerir Chaves Privadas**.
+    b. Clique com o botão direito na entrada da **Chave da Aplicação Híbrida DMS,** aponte para **todas as tarefas** e, em seguida, selecione **Gerir Chaves Privadas**.
 
-    c. No separador **Segurança,** selecione **Add**e, em seguida, insira o nome da conta.
+    c. No separador **Segurança,** selecione **Add** e, em seguida, insira o nome da conta.
 
     d. Use os mesmos passos para conceder permissão de chave privada para a nova conta para o certificado **DMS Scenario Engine Key Pair.**
 

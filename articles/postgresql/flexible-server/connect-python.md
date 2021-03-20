@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90948490"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Flexível
@@ -44,7 +44,7 @@ Para `psycopg2` instalar, abra um terminal ou um pedido de comando e executar o 
 A ligação a uma base de dados Azure para PostgreSQL - Servidor Flexível requer o nome do servidor totalmente qualificado e credenciais de login. Pode obter esta informação do portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)procure e selecione o nome do servidor flexível. 
-2. Na **página** geral do servidor, copie o nome de **servidor** totalmente qualificado e o nome de **utilizador Admin**. O **nome do Servidor** totalmente qualificado é sempre do formulário * \<my-server-name> .postgres.database.azure.com*.
+2. Na **página** geral do servidor, copie o nome de **servidor** totalmente qualificado e o nome de **utilizador Admin**. O **nome do Servidor** totalmente qualificado é sempre do formulário *\<my-server-name> .postgres.database.azure.com*.
 
    Também precisa da sua senha de administração. Se o esquecer, pode repor a partir da página geral. 
 
@@ -61,7 +61,7 @@ Para cada exemplo de código neste artigo:
    - `<admin-password>` com a palavra-passe do seu servidor.
    - `<database-name>` com o nome da sua Base de Dados Azure para postgreSQL - Base de dados de servidor flexível. Uma base de dados padrão chamada *postgres* foi criada automaticamente quando criou o seu servidor. Pode mudar o nome dessa base de dados ou criar uma nova base de dados utilizando comandos SQL. 
 
-1. Guarde o ficheiro na pasta do projeto com uma extensão *.py,* como *postgres-insert.py*. Para o Windows, certifique-se de que a codificação UTF-8 é selecionada quando guardar o ficheiro. 
+1. Guarde o ficheiro na sua pasta de projeto com uma extensão *.py,* como *postgres-insert.py*. Para o Windows, certifique-se de que a codificação UTF-8 é selecionada quando guardar o ficheiro. 
 
 1. Para executar o ficheiro, altere a pasta do projeto numa interface de linha de comando e `python` escreva seguido pelo nome de ficheiro, por exemplo `python postgres-insert.py` .
 

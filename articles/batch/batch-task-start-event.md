@@ -4,10 +4,10 @@ description: Informações de referência para o evento de início de tarefa do 
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: 3a57ffbb1e1659cff54d101aa4b90ca1bd5d3a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91851021"
 ---
 # <a name="task-start-event"></a>Evento de início de tarefa
@@ -42,9 +42,9 @@ ms.locfileid: "91851021"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|Cadeia|A identificação do trabalho que contém a tarefa.|
-|`id`|Cadeia|A identificação da tarefa.|
-|`taskType`|Cadeia|O tipo de tarefa. Isto pode ser 'JobManager' indicando que é uma tarefa de gestor de emprego ou 'Utilizador' indicando que não é uma tarefa de gerente de emprego.|
+|`jobId`|String|A identificação do trabalho que contém a tarefa.|
+|`id`|String|A identificação da tarefa.|
+|`taskType`|String|O tipo de tarefa. Isto pode ser 'JobManager' indicando que é uma tarefa de gestor de emprego ou 'Utilizador' indicando que não é uma tarefa de gerente de emprego.|
 |`systemTaskVersion`|Int32|Este é o contra-ataque interno de uma tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a problemas transitórios. Estas questões podem incluir erros de agendamento internos ou tentativas de recuperação de nós de computação em mau estado.|
 |`requiredSlots`|Int32|As ranhuras necessárias para executar a tarefa.|
 |[`nodeInfo`](#nodeInfo)|Tipo Complexo|Contém informações sobre o nó de computação em que a tarefa foi executada.|
@@ -56,8 +56,8 @@ ms.locfileid: "91851021"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|Cadeia|A identificação da piscina em que a tarefa funcionou.|
-|`nodeId`|Cadeia|A identificação do nó em que a tarefa funcionou.|
+|`poolId`|String|A identificação da piscina em que a tarefa funcionou.|
+|`nodeId`|String|A identificação do nó em que a tarefa funcionou.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 

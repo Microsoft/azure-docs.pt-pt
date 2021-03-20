@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74789461"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Começa com o conector OneDrive para negócios
@@ -24,7 +24,7 @@ Para criar aplicações Lógica com OneDrive para Negócios, tem primeiro de cri
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Token |Sim |Fornecer OneDrive para credenciais de negócio |
+| Token |Yes |Fornecer OneDrive para credenciais de negócio |
 
 Depois de criar a ligação, pode usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 

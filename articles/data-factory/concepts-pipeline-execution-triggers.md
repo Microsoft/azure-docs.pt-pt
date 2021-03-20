@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: bd36b589424a0d890fc5e1bbab3f234e9b3264c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2dba9e4f727b56e5093171c2ea59382075563f31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374784"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592069"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 
@@ -290,8 +290,8 @@ A tabela que se segue mostra o modo como a propriedade **startTime** controla a 
 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
 | --- | --- | --- |
-| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O gatilho começa _o mais cedo que_ a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
-| **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O gatilho começa _o mais cedo_ que a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
+| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O acionador é iniciado _imediatamente a seguir_ à hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
+| **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O acionador é iniciado _imediatamente a seguir_ à hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é 2017-04-08 13:00, a hora de início é 2017-04-07 14:00 e a periodicidade é de dois em dois dias. (O valor **de recorrência** é definido definindo a propriedade **de frequência** para "dia" e a propriedade de **intervalo** para 2.) Note que o valor **startTime** está no passado e ocorre antes da hora atual.
 
@@ -323,13 +323,8 @@ Os acionadores de janela em cascata são um tipo de acionador que é acionado nu
 
 Para obter mais informações sobre os gatilhos da janela e, por exemplo, consulte [Criar um gatilho de janela caindo](how-to-create-tumbling-window-trigger.md).
 
-## <a name="event-based-trigger"></a>Acionador baseado em eventos
-
-Um gatilho baseado em eventos executa oleodutos em resposta a um evento, como a chegada de um ficheiro, ou a eliminação de um ficheiro, no Azure Blob Storage.
-
-Para obter mais informações sobre acionadores baseados em eventos, veja [Criar um acionador que executa um pipeline em resposta a um evento](how-to-create-event-trigger.md).
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemplos de agendas de periodicidade do acionador
+
 Esta secção mostra exemplos de agendas de periodicidade. Concentra-se no objeto **schedule** e nos respetivos elementos.
 
 Os exemplos assumem que o valor do **intervalo** é 1 e que o valor **da frequência** está correto de acordo com a definição do calendário. Por exemplo, não é possível ter um valor de **frequência** de "dia" e também ter uma modificação **mensal** no objeto de **agenda.** Estes tipos de restrições estão descritos na tabela na secção anterior.
@@ -364,6 +359,7 @@ Os exemplos assumem que o valor do **intervalo** é 1 e que o valor **da frequê
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês. |
 
 ## <a name="trigger-type-comparison"></a>Comparação de tipos de acionador
+
 Tanto o acionador de janela em cascata, como o acionador de agenda, operam em heartbeats de tempo. Em que diferem?
 
 > [!NOTE]
@@ -380,9 +376,19 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 | **Variáveis do sistema** | Juntamente com @trigger ().ProgramadoTime e @trigger ().startTime, também suporta a utilização das variáveis do sistema **WindowStart** e **WindowEnd.** Os utilizadores podem aceder a `trigger().outputs.windowStartTime` e `trigger().outputs.windowEndTime` como variáveis do sistema de acionador na definição do acionador. Os valores são utilizados como a hora de início e a hora de fim do período de tempo, respetivamente. Por exemplo, para um acionador de janela em cascata executado de hora a hora, para o período de tempo das 1:00 às 2:00, a definição é `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` e `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Suporta apenas variáveis padrão @trigger ().ProgramadosTime e @trigger ().startTime variáveis. |
 | **Relação de pipeline para acionador** | Suporta uma relação um para um. Apenas um pipeline pode ser acionado. | Suporta relações muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines. |
 
+## <a name="event-based-trigger"></a>Acionador baseado em eventos
+
+Um gatilho baseado em eventos executa oleodutos em resposta a um evento. Há dois sabores de gatilhos baseados em eventos.
+
+* _O gatilho do evento de armazenamento_ executa um oleoduto contra eventos que ocorram numa conta de Armazenamento, como a chegada de um ficheiro, ou a eliminação de um ficheiro na conta de Armazenamento Azure Blob.
+* _Processos de desencadeamento de eventos personalizados_ e lida com [tópicos personalizados](../event-grid/custom-topics.md) na Grade de Eventos
+
+Para obter mais informações sobre os gatilhos baseados em eventos, consulte [o Trigger do Evento de Armazenamento](how-to-create-event-trigger.md) e o Gatilho de [Eventos Personalizados.](how-to-create-custom-event-trigger.md)
+
 ## <a name="next-steps"></a>Passos seguintes
+
 Veja os tutoriais seguintes:
 
 - [Início Rápido: criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md)
-- [Criar um acionador de agenda](how-to-create-schedule-trigger.md)
+- [Criar um gatilho de horário](how-to-create-schedule-trigger.md)
 - [Criar um acionador de janela em cascata](how-to-create-tumbling-window-trigger.md)

@@ -10,10 +10,10 @@ ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92777746"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Falha em vários pontos finais com Azure Traffic Manager
@@ -62,20 +62,20 @@ Crie um perfil de Gestor de Tráfego Azure e configuure a carga equilibrando os 
 
 1. Crie um perfil de Gestor de Tráfego Azure seguindo os passos no [perfil Criar um Gestor de Tráfego.](../traffic-manager/quickstart-create-traffic-manager-profile.md) 
 
-    * **Método de encaminhamento** , selecione **Priority** .
+    * **Método de encaminhamento**, selecione **Priority**.
 
 2. Adicione os seus pontos finais cdn no seu perfil de Gestor de Tráfego seguindo os passos nos [pontos finais do Add Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints)
 
-    * **Tipo** , selecione **pontos finais externos** .
+    * **Tipo**, selecione **pontos finais externos**.
     * **Prioridade,** insira um número.
 
-    Por exemplo, criar **cdndemo101akamai.azureedge.net** com uma prioridade de **1** e **cdndemo101verizon.azureedge.net** com uma prioridade de **2** .
+    Por exemplo, criar **cdndemo101akamai.azureedge.net** com uma prioridade de **1** e **cdndemo101verizon.azureedge.net** com uma prioridade de **2**.
 
    ![Pontos finais do gestor de tráfego da CDN](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
 ## <a name="configure-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Configure o domínio personalizado em Azure CDN e Azure Traffic Manager
-Depois de configurar os perfis do CDN e do Traffic Manager, siga estes passos para adicionar mapeamento DNS e registar o domínio personalizado nos pontos finais do CDN. Para este exemplo, o nome de domínio personalizado é **cdndemo101.dustydogpetcare.online** .
+Depois de configurar os perfis do CDN e do Traffic Manager, siga estes passos para adicionar mapeamento DNS e registar o domínio personalizado nos pontos finais do CDN. Para este exemplo, o nome de domínio personalizado é **cdndemo101.dustydogpetcare.online**.
 
 1. Vá ao site para o fornecedor de domínio do seu domínio personalizado, como o GoDaddy, e crie duas entradas DNS CNAME. 
 
@@ -96,7 +96,7 @@ Depois de configurar os perfis do CDN e do Traffic Manager, siga estes passos pa
     >
 
 
-2.  A partir do seu perfil Azure CDN, selecione o primeiro ponto final CDN (Akamai). **Selecione Adicionar domínio personalizado** e inserir **cdndemo101.dustydogpetcare.online** . Verifique se a marca de verificação para validar o domínio personalizado é verde. 
+2.  A partir do seu perfil Azure CDN, selecione o primeiro ponto final CDN (Akamai). **Selecione Adicione o domínio personalizado** e a entrada **cdndemo101.dustydogpetcare.online**. Verifique se a marca de verificação para validar o domínio personalizado é verde. 
 
     O Azure CDN utiliza o subdomínio **cdnverify** para validar o mapeamento DNS para completar este processo de registo. Para obter mais informações, consulte [Criar um registo DE DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Este passo permite ao Azure CDN reconhecer o domínio personalizado para que possa responder aos seus pedidos.
     
@@ -110,7 +110,7 @@ Depois de configurar os perfis do CDN e do Traffic Manager, siga estes passos pa
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. A partir do seu perfil Azure CDN, selecione o segundo ponto final CDN (Verizon) e repita o passo 2. **Selecione Adicionar domínio personalizado** e insira **cdndemo101.dustydogpetcare.online** .
+4. A partir do seu perfil Azure CDN, selecione o segundo ponto final CDN (Verizon) e repita o passo 2. **Selecione Adicionar domínio personalizado** e introduza **cdndemo101.dustydogpetcare.online**.
  
 Depois de completar estes passos, o seu serviço multi-CDN com capacidades de failover é configurado com O Gestor de Tráfego Azure. 
 

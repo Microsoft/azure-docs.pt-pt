@@ -1,5 +1,5 @@
 ---
-title: Dados suportados em formato de dados Microsoft Azure Maps
+title: Dados suportados | Microsoft Azure Maps
 description: Saiba como os dados espaciais delimitados são analisados no módulo IO espacial.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91310174"
 ---
 # <a name="supported-data-format-details"></a>Detalhes do formato de dados suportado
@@ -401,7 +401,7 @@ Ao digitalizar a linha do cabeçalho, qualquer tipo de informação que esteja n
 - double
 - número
 
-#### <a name="booleans"></a>Booleans
+#### <a name="booleans"></a>Booleanos
 
 - edm.boolean
 - bool
@@ -410,7 +410,7 @@ Ao digitalizar a linha do cabeçalho, qualquer tipo de informação que esteja n
 #### <a name="dates"></a>Datas
 
 - edm.datetime
-- date
+- data
 - datetime
 
 #### <a name="geography"></a>Geografia

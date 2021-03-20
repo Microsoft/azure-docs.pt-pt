@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85384979"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerir ameaças a recursos e dados no Azure Ative Directory B2C
@@ -45,7 +45,7 @@ Para gerir as definições de proteção de palavras-passe, incluindo o limiar d
 1. Introduza as definições de proteção de palavras-passe desejadas e, em seguida, **selecione Guardar**.
 
     ![Página de proteção de palavras-passe do portal Azure nas definições de AD Azure](./media/threat-management/portal-02-password-protection.png)
-    <br />*Definição do limiar de bloqueio para 5 nas definições **de proteção de palavras-passe** *.
+    <br />*Definição do limiar de bloqueio para 5 nas definições **de proteção de palavras-passe***.
 
 ## <a name="view-locked-out-accounts"></a>Ver contas bloqueadas
 

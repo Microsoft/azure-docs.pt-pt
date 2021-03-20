@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 26add03929551c912b4d7b7cf10741d53333689a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780568"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como providenciar novos inquilinos e registá-los no catálogo
@@ -64,7 +64,7 @@ Podem ser utilizadas diferentes abordagens ao fornecimento de bases de dados. Po
 
 O fornecimento de bases de dados tem de fazer parte da sua estratégia de gestão de esquemas. Tem de se certificar de que as novas bases de dados são adsejadas com o esquema mais recente. Esta exigência é explorada no tutorial de [gestão de Schema.](saas-tenancy-schema-management.md)
 
-A base de dados wingtip tickets-per-tenant app fornece novos inquilinos copiando uma base de dados de modelos chamada _basetenantdb_ , que é implantada no servidor de catálogo. O provisionamento pode ser integrado na aplicação como parte de uma experiência de inscrição. Também pode ser suportado offline usando scripts. Este tutorial explora o fornecimento utilizando o PowerShell.
+A base de dados wingtip tickets-per-tenant app fornece novos inquilinos copiando uma base de dados de modelos chamada _basetenantdb_, que é implantada no servidor de catálogo. O provisionamento pode ser integrado na aplicação como parte de uma experiência de inscrição. Também pode ser suportado offline usando scripts. Este tutorial explora o fornecimento utilizando o PowerShell.
 
 Os scripts de provisionamento copiam a base de dados _basetenantdb_ para criar uma nova base de dados de inquilinos numa piscina elástica. A base de dados do inquilino é criada no servidor do inquilino mapeado para o _novo_ pseudónimo DNS. Este pseudónimo mantém uma referência ao servidor utilizado para a disponibilização de novos inquilinos e é atualizado para apontar para um servidor de inquilino de recuperação nos tutoriais de recuperação de desastres[(DR usando georestore,](./saas-dbpertenant-dr-geo-restore.md) [DR usando georeplicação).](./saas-dbpertenant-dr-geo-replication.md) Os scripts rubricam então a base de dados com informações específicas do inquilino e registam-na no mapa de fragmentos do catálogo. As bases de dados dos inquilinos são dadas nomes com base no nome do inquilino. Este esquema de nomeação não é uma parte crítica do padrão. O catálogo mapeia a chave do inquilino para o nome da base de dados, para que qualquer convenção de nomeação possa ser usada.
 
@@ -80,9 +80,9 @@ Para entender como a aplicação de Ingressos Wingtip implementa o novo provisio
 
 1. No PowerShell ISE, aberto... \\ Módulos de Aprendizagem \\ ProvisionAndCatalog \\ _Demo-ProvisionAndCatalog.ps1_ e definir os seguintes parâmetros:
 
-   * **$TenantName** = o nome do novo local (por exemplo, *Bushwillow Blues* ).
+   * **$TenantName** = o nome do novo local (por exemplo, *Bushwillow Blues*).
    * **$VenueType** = um dos locais predefinidos: _blues, classicmusic, dance, jazz, judo, automobilismo, multiusos, ópera, rockmusic, futebol._
-   * **$DemoScenario**  =  **1** , *Provision a um único inquilino.*
+   * **$DemoScenario**  =  **1**, *Provision a um único inquilino.*
 
 2. Para adicionar um breakpoint, coloque o seu cursor em qualquer lugar da linha que diz *New-Tenant ' .* Em seguida, pressione F9.
 
@@ -104,15 +104,15 @@ Não precisa seguir explicitamente este fluxo de trabalho. Explica como depurar 
 * **Importar o módulo CatalogAndDatabaseManagement.psm1.** Fornece um catálogo e abstração ao nível do inquilino sobre as funções [de Gestão de Fragmentos.](elastic-scale-shard-map-management.md) Este módulo encapsula grande parte do padrão de catálogo e vale a pena explorar.
 * **Importar o módulo SubscriptionManagement.psm1.** Contém funções para iniciar sessão no Azure e selecionar a subscrição Azure com a quais pretende trabalhar.
 * **Obtenha detalhes de configuração.** Entre em Get-Configuration usando F11 e veja como a app config é especificada. Os nomes de recursos e outros valores específicos da aplicação são definidos aqui. Não altere estes valores até que esteja familiarizado com os scripts.
-* **Pegue o objeto do catálogo.** Entre no Get-Catalog, que compõe e devolve um objeto de catálogo que é usado no script de nível superior. Esta função utiliza funções de Gestão de Fragmentos que são importadas de **AzureShardManagement.psm1** . O objeto do catálogo é composto pelos seguintes elementos:
+* **Pegue o objeto do catálogo.** Entre no Get-Catalog, que compõe e devolve um objeto de catálogo que é usado no script de nível superior. Esta função utiliza funções de Gestão de Fragmentos que são importadas de **AzureShardManagement.psm1**. O objeto do catálogo é composto pelos seguintes elementos:
 
-   * $catalogServerFullyQualifiedName é construído utilizando o caule padrão mais o seu nome de utilizador: _\<user\> catalog-.database.windows.net_ .
-   * $catalogDatabaseName é obtido a partir da configuração: *tenantcatalog* .
+   * $catalogServerFullyQualifiedName é construído utilizando o caule padrão mais o seu nome de utilizador: _\<user\> catalog-.database.windows.net_.
+   * $catalogDatabaseName é obtido a partir da configuração: *tenantcatalog*.
    * O objeto $shardMapManager é inicializado a partir da base de dados do catálogo.
    * O objeto $shardMap é inicializado a partir do mapa de partições horizontais _tenantcatalog_ na base de dados do catálogo. Um objeto de catálogo é composto e devolvido. É usado no guião de nível mais alto.
 * **Calcule a nova chave do inquilino.** É utilizada uma função hash para criar a chave de inquilino a partir do nome do inquilino.
 * **Verifique se a chave do inquilino já existe.** O catálogo é verificado para se certificar de que a chave está disponível.
-* **A base de dados do inquilino é aprovisionada com New-TenantDatabase** . Utilize o F11 para entrar na forma como a base de dados é aprovisionada utilizando um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+* **A base de dados do inquilino é aprovisionada com New-TenantDatabase**. Utilize o F11 para entrar na forma como a base de dados é aprovisionada utilizando um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     O nome de base de dados é construído a partir do nome de inquilino para ficar claro quais as partições horizontais que pertencem a que inquilino. Também pode utilizar outras convenções de nomeação de bases de dados. Um modelo de Gestor de Recursos cria uma base de dados de inquilinos copiando uma base de dados de modelos _(baseTenantDB)_ no servidor do catálogo. Como alternativa, pode criar uma base de dados e inicializá-la importando um bacpac. Ou pode executar um script de inicialização a partir de um local bem conhecido.
 
@@ -136,9 +136,9 @@ Após o provisionamento concluído, a execução retorna ao roteiro *original de
 
 Este exercício prevê um lote de 17 inquilinos. Recomendamos que você provisa este lote de inquilinos antes de iniciar outros tutoriais de base de dados SaaS de banco de dados por inquilino. Há mais do que algumas bases de dados para trabalhar.
 
-1. No PowerShell ISE, aberto... \\ Disposições sobre módulos \\ de aprendizagem Eatalog \\ *Demo-ProvisionAndCatalog.ps1* . Altere o parâmetro *$DemoScenario* para 3:
+1. No PowerShell ISE, aberto... \\ Disposições sobre módulos \\ de aprendizagem Eatalog \\ *Demo-ProvisionAndCatalog.ps1*. Altere o parâmetro *$DemoScenario* para 3:
 
-   * **$DemoScenario**  =  **3** , *Provision a lote de inquilinos.*
+   * **$DemoScenario**  =  **3**, *Provision a lote de inquilinos.*
 2. Para executar o guião, prima F5.
 
 O script implementa um lote de inquilinos adicionais. Utiliza um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) que controla o lote e delega o fornecimento de cada base de dados a um modelo ligado. Utilizar modelos desta forma permite que o Azure Resource Manager funcione como o mediador no processo de aprovisionamento do script. Os modelos prevêem bases de dados em paralelo e manuseam as retrações, se necessário. O script é idempotente, por isso, se falhar ou parar por qualquer motivo, volte a executá-lo.
@@ -155,9 +155,9 @@ O script implementa um lote de inquilinos adicionais. Utiliza um [modelo de Gest
 
 Outros padrões de provisionamento não incluídos neste tutorial:
 
-**Bases de dados de pré-provisão** : O padrão de pré-provisão explora o facto de que as bases de dados numa piscina elástica não acrescentam custos adicionais. Faturação é para a piscina elástica, não para as bases de dados. Bases de dados inúteis não consomem recursos. Ao pré-a provisionar bases de dados numa piscina e alocá-las quando necessário, pode reduzir o tempo para adicionar inquilinos. O número de bases de dados pré-a provisionadas pode ser ajustado conforme necessário para manter um tampão adequado à taxa de provisionamento prevista.
+**Bases de dados de pré-provisão**: O padrão de pré-provisão explora o facto de que as bases de dados numa piscina elástica não acrescentam custos adicionais. Faturação é para a piscina elástica, não para as bases de dados. Bases de dados inúteis não consomem recursos. Ao pré-a provisionar bases de dados numa piscina e alocá-las quando necessário, pode reduzir o tempo para adicionar inquilinos. O número de bases de dados pré-a provisionadas pode ser ajustado conforme necessário para manter um tampão adequado à taxa de provisionamento prevista.
 
-**Provisionamento automático** : No padrão de fornecimento automático, um serviço de fornecimento fornece servidores, piscinas e bases de dados automaticamente, se necessário. Se quiser, pode incluir bases de dados de pré-a provisionamento em piscinas elásticas. Se as bases de dados forem desativadas e eliminadas, as lacunas nas piscinas elásticas podem ser preenchidas pelo serviço de fornecimento. Tal serviço pode ser simples ou complexo, como manusear o fornecimento em múltiplas geografias e criar geo-replicação para a recuperação de desastres.
+**Provisionamento automático**: No padrão de fornecimento automático, um serviço de fornecimento fornece servidores, piscinas e bases de dados automaticamente, se necessário. Se quiser, pode incluir bases de dados de pré-a provisionamento em piscinas elásticas. Se as bases de dados forem desativadas e eliminadas, as lacunas nas piscinas elásticas podem ser preenchidas pelo serviço de fornecimento. Tal serviço pode ser simples ou complexo, como manusear o fornecimento em múltiplas geografias e criar geo-replicação para a recuperação de desastres.
 
 Com o padrão de a provisionamento automático, um pedido de cliente ou script submete um pedido de provisionamento a uma fila a ser processada pelo serviço de fornecimento. Em seguida, ele sonda o serviço para determinar a conclusão. Se for utilizado o pré-fornecimento, os pedidos são tratados rapidamente. O serviço fornece uma base de dados de substituição em segundo plano.
 

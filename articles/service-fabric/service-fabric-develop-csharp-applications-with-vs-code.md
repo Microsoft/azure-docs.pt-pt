@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 5fbd523a38b3c4860316e45b8b7c03a17de19499
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92678330"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicações de tecido de serviço C# com Código de Estúdio Visual
@@ -34,7 +34,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 ## <a name="open-the-application-in-vs-code"></a>Abra a aplicação em Código VS
 
 ### <a name="windows"></a>Windows
-Clique com o botão direito no ícone do Código VS no Menu Iniciar e escolha **Executar como administrador** . Para anexar o depurar aos seus serviços, tem de executar o Código VS como administrador.
+Clique com o botão direito no ícone do Código VS no Menu Iniciar e escolha **Executar como administrador**. Para anexar o depurar aos seus serviços, tem de executar o Código VS como administrador.
 
 ### <a name="linux"></a>Linux
 Utilizando o terminal, navegue para o caminho /service-fabric-dotnet-core-start-start/Services/CounterService a partir do diretório que a aplicação foi clonada localmente.
@@ -74,7 +74,7 @@ Juntamente com a implementação da aplicação para o cluster local, também po
 
 1. Certifique-se de que construiu a sua aplicação utilizando as instruções acima. Atualize o ficheiro de configuração gerado `Cloud.json` com os detalhes do cluster remoto a que pretende publicar.
 
-2. A partir da **Paleta de Comando,** selecione o **Tecido de Serviço: Publicar o comando de aplicação** . A saída do processo de instalação é enviada para o terminal integrado.
+2. A partir da **Paleta de Comando,** selecione o **Tecido de Serviço: Publicar o comando de aplicação**. A saída do processo de instalação é enviada para o terminal integrado.
 
    ![Publicar comando de aplicação em Código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
@@ -101,7 +101,7 @@ Para definir um ponto de rutura e depurar, complete os seguintes passos:
 
    ![Processo Primário](./media/service-fabric-develop-csharp-applications-with-vs-code/select-process.png)
 
-5. O ponto de rutura no ficheiro *CounterService.cs* será atingido muito rapidamente. Em seguida, pode explorar os valores das variáveis locais. Utilize a barra de ferramentas Debug no topo do Código VS para continuar a execução, pisar linhas, entrar em métodos ou sair do método atual. 
+5. O ponto de rutura no *ficheiro CounterService.cs* será atingido muito rapidamente. Em seguida, pode explorar os valores das variáveis locais. Utilize a barra de ferramentas Debug no topo do Código VS para continuar a execução, pisar linhas, entrar em métodos ou sair do método atual. 
 
    ![Valores de Debug](./media/service-fabric-develop-csharp-applications-with-vs-code/breakpoint-hit.png)
 

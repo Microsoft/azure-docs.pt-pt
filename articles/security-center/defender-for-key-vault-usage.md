@@ -1,5 +1,5 @@
 ---
-title: Como responder aos alertas do Azure Defender para o Cofre de Chaves
+title: Como responder a alertas do Azure Defender para o Key Vault
 description: Conheça os passos necessários para responder aos alertas do Azure Defender para o Key Vault.
 author: memildin
 ms.author: memildin
@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96122208"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Responder a alertas do Azure Defender para o Key Vault
-Quando receber um alerta do Azure Defender para o Key Vault, recomendamos que investigue e responda ao alerta conforme descrito abaixo. O Azure Defender for Key Vault protege aplicações e credenciais, por isso mesmo que esteja familiarizado com a aplicação ou utilizador que desencadeou o alerta, é importante verificar a situação em torno de cada alerta.  
+Quando receber um alerta do Azure Defender para o Key Vault, recomendamos que investigue e responda ao alerta conforme descrito abaixo. O Azure Defender para o Key Vault protege aplicações e credenciais, por isso, mesmo que esteja familiarizado com a aplicação ou o utilizador que acionou o alerta, é importante verificar a situação em cada alerta.  
 
 Cada alerta do Azure Defender para o Key Vault inclui os seguintes elementos:
 
-- ID de objeto
+- ID do Objeto
 - Nome principal do utilizador ou endereço IP do recurso suspeito
 
 > [!TIP]
-> Com base no *tipo* de acesso que ocorreu, alguns campos podem não estar disponíveis. Por exemplo, se o seu cofre chave foi acedido por uma aplicação, não verá um nome principal do utilizador associado. Se o tráfego tiver origem no exterior de Azure, não verá um ID de objeto.
+> Com base no *tipo* de acesso que ocorreu, alguns campos podem não estar disponíveis. Por exemplo, se o cofre de chaves tiver sido acedido por uma aplicação, não verá um Nome Principal de Utilizador associado. Se o tráfego teve origem fora do Azure, não verá um ID de Objeto.
 
 ## <a name="step-1-contact"></a>Passo 1. Contacto
 

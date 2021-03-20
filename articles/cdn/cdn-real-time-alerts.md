@@ -1,5 +1,5 @@
 ---
-title: Alertas em tempo real da Azure CDN Microsoft Docs
+title: Azure CDN alerta em tempo real | Microsoft Docs
 description: Alertas em tempo real no Microsoft Azure CDN. Os alertas em tempo real fornecem notificações sobre o desempenho dos pontos finais no seu perfil de CDN.
 services: cdn
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 6811a06eb3483fd53b6e566033935c3b2e00ceca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84887254"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas em tempo real no Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este documento explica alertas em tempo real no Microsoft Azure CDN. Esta funcionalidade fornece notificações em tempo real sobre o desempenho dos pontos finais no seu perfil de CDN.  Pode configurar alertas de e-mail ou HTTP com base em:
 
 * Largura de banda
@@ -63,7 +63,7 @@ Este documento explica alertas em tempo real no Microsoft Azure CDN. Esta funcio
    > Tem de selecionar **HTTP Grande Objeto** como Tipo de **Mídia**.  As outras escolhas não são usadas pela **Azure CDN da Verizon.**  A falha na seleção **http Large Object** faz com que o seu alerta nunca seja acionado.
    > 
    > 
-8. Crie uma **Expressão** para monitorizar selecionando um **valor métrico,** **operador**e **gatilho**.
+8. Crie uma **Expressão** para monitorizar selecionando um **valor métrico,** **operador** e **gatilho**.
    
    * Para **métrica,** selecione o tipo de condição que pretende monitorizada.  **Bandwidth Mbps** é a quantidade de uso de largura de banda em megabits por segundo.  **Total de Conexões** é o número de ligações HTTP simultâneas aos nossos servidores de borda.  Para definições dos vários estados de cache e códigos de estado, consulte [os códigos de estado da cache do Azure CDN](/previous-versions/azure/mt759237(v=azure.100)) e [os códigos de estado do Azure CDN HTTP](/previous-versions/azure/mt759238(v=azure.100))
    * **O operador** é o operador matemático que estabelece a relação entre a métrica e o valor do gatilho.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082564"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar mapeamento de rede para recuperação de desastres Hiper-V VM para Azure
@@ -23,7 +23,7 @@ Este artigo ajuda-o a compreender e a preparar-se para o mapeamento de rede quan
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Preparar mapeamento de rede para replicação ao Azure
 
 Quando está a replicar para o Azure, mapes de mapeamento de rede entre redes VM num servidor VMM de origem e redes virtuais Azure. O mapeamento faz o seguinte:
--  **Ligação à**rede — Garante que os VMs Azure replicados estão ligados à rede mapeada. Todas as máquinas que falham na mesma rede podem ligar-se entre si, mesmo que tenham falhado em diferentes planos de recuperação.
+-  **Ligação à** rede — Garante que os VMs Azure replicados estão ligados à rede mapeada. Todas as máquinas que falham na mesma rede podem ligar-se entre si, mesmo que tenham falhado em diferentes planos de recuperação.
 - **Gateway de rede**— Se um gateway de rede for configurado na rede Azure alvo, os VMs podem ligar-se a outras máquinas virtuais no local.
 
 O mapeamento da rede funciona da seguinte forma:
@@ -38,7 +38,7 @@ O mapeamento da rede funciona da seguinte forma:
 
 Quando está a replicar-se num site secundário, mapeias de mapeamento de rede entre redes VM num servidor VMM de origem e redes VM num servidor VMM alvo. O mapeamento faz o seguinte:
 
-- **Ligação à**rede — Liga os VMs a redes apropriadas após a falha. A réplica VM será ligada à rede alvo que está mapeada para a rede de origem.
+- **Ligação à** rede — Liga os VMs a redes apropriadas após a falha. A réplica VM será ligada à rede alvo que está mapeada para a rede de origem.
 - **Colocação VM ideal**— Coloca idealmente os VMs réplicas nos servidores de anfitriões Hiper-V. Os VMs de réplica são colocados em anfitriões que podem aceder às redes VM mapeadas.
 - **Sem mapeamento de rede**— Se não configurar o mapeamento da rede, as réplicas de VMs não serão ligadas a quaisquer redes VM após a falha.
 

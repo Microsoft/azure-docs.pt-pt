@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a EY GlobalOne Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a EY GlobalOne | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o EY GlobalOne.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
 ms.openlocfilehash: a248718d12abf90abd80c9210b994e7d74ab111b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92448746"
 ---
 # <a name="tutorial-integrate-ey-globalone-with-azure-active-directory"></a>Tutorial: Integre a EY GlobalOne com o Azure Ative Directory
@@ -133,7 +133,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B. Sim
 
 Nesta secção, você permitirá a B. Simon usar o Azure single sign-on, concedendo acesso à EY GlobalOne.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **EY GlobalOne**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792111"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Reportagem em bases de dados de nuvem escalonadas (pré-visualização)
@@ -163,7 +163,7 @@ A cláusula DISTRIBUIÇÃO especifica a distribuição de dados utilizada para e
 2. **Replicado** significa que cópias idênticas da tabela estão presentes em cada base de dados. É da sua responsabilidade garantir que as réplicas são idênticas em todas as bases de dados.
 3. **RODADA \_ ROBIN** significa que a tabela é horizontalmente dividida utilizando um método de distribuição dependente da aplicação.
 
-**Referência do nível de dados** : A tabela externa DDL refere-se a uma fonte de dados externa. A fonte de dados externos especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todas as bases de dados no seu nível de dados.
+**Referência do nível de dados**: A tabela externa DDL refere-se a uma fonte de dados externa. A fonte de dados externos especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todas as bases de dados no seu nível de dados.
 
 ### <a name="security-considerations"></a>Considerações de segurança
 

@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ff906654dc91c7b1980292efd2a737503e684e9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742918"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Resolver problemas de funções atribuídas a grupos de cloud
@@ -98,7 +98,7 @@ User | Proprietário do catálogo | Só se o dono do grupo | Só se o dono do gr
 
 **A:** Se atribuir um grupo existente a um papel, o proprietário do grupo existente poderá adicionar outros membros a este grupo sem que os novos membros percebam que terão o papel. Como os grupos atribuíveis são poderosos, estamos a impor muitas restrições para os proteger. Não quer alterações no grupo que seriam surpreendentes para a pessoa que gere o grupo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Criar um grupo ao qual se pode atribuir funções](groups-create-eligible.md)

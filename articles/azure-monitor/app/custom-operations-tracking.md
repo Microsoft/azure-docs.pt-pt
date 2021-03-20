@@ -6,10 +6,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88933312"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhe as operações personalizadas com o Application Insights .NET SDK
@@ -24,7 +24,7 @@ Este documento fornece orientações sobre como rastrear as operações personal
 - Application Insights para aplicações web (executando ASP.NET) versão 2.4+.
 - Insights de aplicação para ASP.NET versão Core 2.1+.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma operação é uma peça lógica de trabalho gerida por uma aplicação. Tem um nome, hora de início, duração, resultado, e um contexto de execução como nome de utilizador, propriedades e resultado. Se a operação A foi iniciada pela operação B, então a operação B será definida como pai para A. Uma operação pode ter apenas um pai, mas pode ter muitas operações infantis. Para obter mais informações sobre operações e correlação de telemetria, consulte [a correlação de telemetria Azure Application Insights](correlation.md).
 
 No Application Insights .NET SDK, a operação é descrita pela classe abstrata [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
@@ -479,7 +479,7 @@ Cada operação de Insights de Aplicação (pedido ou dependência) envolve `Act
 ## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda os fundamentos da correlação de [telemetria](correlation.md) em Insights de Aplicação.
-- Confira como os dados correlacionados conferem experiência e mapa de aplicações de diagnóstico [de transações.](./app-map.md) [Transaction Diagnostics Experience](./transaction-diagnostics.md)
+- Confira como os dados correlacionados conferem experiência e mapa de aplicações de diagnóstico [de transações.](./app-map.md) [](./transaction-diagnostics.md)
 - Consulte o [modelo de dados](./data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
 - Reporte [eventos personalizados e métricas](./api-custom-events-metrics.md) à Application Insights.
 - Confira a [configuração](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) padrão para a recolha de propriedades de contexto.

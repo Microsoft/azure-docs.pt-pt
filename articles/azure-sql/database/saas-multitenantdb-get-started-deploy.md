@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
 ms.openlocfilehash: 4de7e428bff0feaafdec00b0c0014bbaf6acb917
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790972"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação de multi-inquilinos com caco
@@ -76,7 +76,7 @@ Escolham os vossos nomes agora e escrevam-nos.
     > Para esta demonstração, não utilize grupos de recursos, servidores ou piscinas pré-existentes. Em vez disso, escolha **Criar um novo grupo de recursos.** Elimine este grupo de recursos quando tiver terminado com a aplicação para parar a faturação relacionada.
     > Não utilize esta aplicação, nem quaisquer recursos que crie, para produção. Alguns aspetos da autenticação e as definições de firewall do servidor são intencionalmente inseguros na aplicação para facilitar a demonstração.
 
-    - Para **o grupo de recursos** - Selecione Criar **novo** , e, em seguida, fornecer um **Nome** para o grupo de recursos (sensível a caso).
+    - Para **o grupo de recursos** - Selecione Criar **novo**, e, em seguida, fornecer um **Nome** para o grupo de recursos (sensível a caso).
         - Selecione uma **localização** da lista de drop-down.
     - Para **o Utilizador** - Recomendamos que escolha um valor de **utilizador** curto.
 
@@ -85,7 +85,7 @@ Escolham os vossos nomes agora e escrevam-nos.
     - Clique para concordar com os termos e condições.
     - Clique em **Comprar**.
 
-1. Monitorize o estado de implementação clicando em **Notificações** , que é o ícone da campainha à direita da caixa de pesquisa. A implementação da aplicação Wingtip demora aproximadamente cinco minutos.
+1. Monitorize o estado de implementação clicando em **Notificações**, que é o ícone da campainha à direita da caixa de pesquisa. A implementação da aplicação Wingtip demora aproximadamente cinco minutos.
 
    ![implementação concluída com êxito](./media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -94,7 +94,7 @@ Escolham os vossos nomes agora e escrevam-nos.
 Enquanto a aplicação estiver a ser implementada, descarregue o código fonte de aplicação e os scripts de gestão.
 
 > [!NOTE]
-> Os conteúdos executáveis (scripts, DLLs) podem ser bloqueados pelo Windows quando os ficheiros zip são descarregados de uma fonte externa e extraídos. Ao extrair os scripts de um ficheiro zip, utilize os seguintes passos para desbloquear o ficheiro .zip antes de extrair. Ao desbloquear o ficheiro .zip, certifique-se de que os scripts podem ser executados.
+> Os conteúdos executáveis (scripts, DLLs) podem ser bloqueados pelo Windows quando os ficheiros zip são descarregados de uma fonte externa e extraídos. Ao extrair os scripts de um ficheiro zip, utilize os seguintes passos para desbloquear o ficheiro .zip antes de extrair. Ao desbloquear o ficheiro .zip, garante que os scripts podem ser executados.
 
 1. Navegue pelo [WingtipTicketsSaaS-MultiTenantDb GitHub repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Clique **em Clone ou descarregue.**
@@ -137,7 +137,7 @@ Uma página central do Centro de **Eventos** fornece uma lista de links para os 
 
 Para controlar a distribuição de pedidos de entrada, a aplicação Wingtip utiliza [o Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino na sua URL. Cada URL também inclui o seu valor específico do Utilizador. Cada URL obedece ao formato apresentado utilizando os seguintes passos:
 
-- http://events.wingtip-mt.&lt;user &gt; .trafficmanager.net/ *fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user &gt; .trafficmanager.net/*fabrikamjazzclub*
 
 1. A aplicação de eventos analisa o nome do inquilino da URL. O nome do inquilino é *fabrikamjazzclub* no exemplo anterior URL.
 2. A aplicação então tem o nome do inquilino para criar uma chave para aceder a um catálogo usando [a gestão de mapas de fragmentos.](elastic-scale-shard-map-management.md)

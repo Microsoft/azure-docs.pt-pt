@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
 ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92070661"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Verifique se há eventos de saúde de recursos com impacto no seu cluster AKS (Pré-visualização)
@@ -39,7 +39,7 @@ Ao executar as cargas de trabalho do seu contentor em AKS, pretende garantir que
 
 A Azure Resource Health ajuda-o a diagnosticar e a obter apoio para problemas de serviço que afetam os seus recursos Azure. Resource Health reporta sobre a saúde atual e passada dos seus recursos e ajuda-o a determinar se o problema é causado por uma ação iniciada pelo utilizador ou por um evento de plataforma.
 
-A Resource Health recebe sinais para o seu cluster gerido para determinar o estado de saúde do cluster. Examina o estado de saúde do seu cluster AKS e reporta as ações necessárias para cada sinal de saúde. Estes sinais vão desde problemas de resolução automática, atualizações planeadas, eventos de saúde não planeados e indisponibilidade causada por ações iniciadas pelo utilizador. Estes sinais são classificados utilizando o estado de saúde do Recurso Azure: *Disponível,* *Indisponível,* *Desconhecido*e *Degradado*.
+A Resource Health recebe sinais para o seu cluster gerido para determinar o estado de saúde do cluster. Examina o estado de saúde do seu cluster AKS e reporta as ações necessárias para cada sinal de saúde. Estes sinais vão desde problemas de resolução automática, atualizações planeadas, eventos de saúde não planeados e indisponibilidade causada por ações iniciadas pelo utilizador. Estes sinais são classificados utilizando o estado de saúde do Recurso Azure: *Disponível,* *Indisponível,* *Desconhecido* e *Degradado*.
 
 - **Disponível**: Quando não existem questões conhecidas que afetem a saúde do seu cluster, a Resource Health informa o seu cluster como *Disponível*.
 

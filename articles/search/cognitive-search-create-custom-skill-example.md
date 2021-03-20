@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89020189"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: Criar uma habilidade personalizada utilizando a API de Pesquisa de Entidade Bing
@@ -34,9 +34,9 @@ Embora este exemplo utilize uma Função Azure para hospedar uma API web, não �
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
-1. No Visual Studio, selecione **New**  >  **Project** a partir do menu Ficheiro.
+1. No Visual Studio, selecione **New** > **Project** (Novo Projeto) no menu File (Ficheiro).
 
-1. No diálogo do Novo Projeto, selecione **Instalar,** expandir a Nuvem **Visual C.**  >  **Cloud**, selecione **Funções Azure,** digite um Nome para o seu projeto e selecione **OK**. O nome da aplicação de função deve ser válido como um espaço de nome C#, por isso não utilize sublinhados, hífens ou quaisquer outros caracteres não alfanuméricos.
+1. No diálogo do Novo Projeto, selecione **Instalar,** expandir a Nuvem **Visual C.**  >  , selecione **Funções Azure,** digite um Nome para o seu projeto e selecione **OK**. O nome da aplicação de função deve ser válido como um espaço de nome C#, por isso não utilize sublinhados, hífens ou quaisquer outros caracteres não alfanuméricos.
 
 1. Selecione **Azure Functions v2 (.NET Core)**. Também pode fazê-lo com a versão 1, mas o código escrito abaixo baseia-se no modelo v2.
 
@@ -50,7 +50,7 @@ Embora este exemplo utilize uma Função Azure para hospedar uma API web, não �
 
 O Visual Studio cria um projeto e neste uma classe que contém o código automático de tipo de função de escolhida. O atributo *FunctionName* nos conjuntos define o nome da função. O atributo *HttpTrigger* especifica que a função é acionada por um pedido de HTTP.
 
-Agora, substitua todo o conteúdo do ficheiro *Function1.cs* pelo seguinte código:
+Agora, substitua todo o conteúdo do ficheiro *Função1.cs* pelo seguinte código:
 
 ```csharp
 using System;

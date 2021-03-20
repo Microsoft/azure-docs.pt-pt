@@ -1,5 +1,5 @@
 ---
-title: SQL Server em máquinas virtuais Linux FAQ Microsoft Docs
+title: SQL Server em máquinas virtuais Linux FAQ | Microsoft Docs
 description: Este artigo fornece respostas a perguntas frequentes sobre a execução do SQL Server em máquinas virtuais Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792553"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Perguntas frequentes para SQL Server em máquinas virtuais Linux
@@ -57,7 +57,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
    As máquinas virtuais RHEL e SLES requerem uma subscrição sem limite de gastos e um método de pagamento verificado (geralmente um cartão de crédito) associado à subscrição. Se forte um RHEL ou SLES VM sem remover o limite de gastos, a sua subscrição ficará desativada e todos os VMs/serviços parados. Se encontrar este estado, para ree capacitar a [subscrição, retire o limite de gastos](https://account.windowsazure.com/subscriptions). Os seus créditos restantes serão restaurados para o ciclo de faturação atual, mas uma sobretaxa de imagem RHEL ou SLES VM irá contra o seu cartão de crédito se optar por recomeçar e continuar a executá-lo.
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licensing
 
 1. **Como posso instalar a minha cópia licenciada do SQL Server numa VM do Azure?**
 
@@ -69,7 +69,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 1. **Posso alterar uma VM para utilizar a minha própria licença do SQL Server caso tenha sido criada com uma das imagens da galeria pay as you go?**
 
-   Não. Não pode mudar de licença pay-per/second para usar a sua própria licença. Tem de criar um novo Linux VM, instalar o SQL Server e migrar os seus dados. Consulte a pergunta anterior para mais detalhes sobre como trazer a sua própria licença.
+   N.º Não pode mudar de licença pay-per/second para usar a sua própria licença. Tem de criar um novo Linux VM, instalar o SQL Server e migrar os seus dados. Consulte a pergunta anterior para mais detalhes sobre como trazer a sua própria licença.
 
 ## <a name="administration"></a>Administração
 

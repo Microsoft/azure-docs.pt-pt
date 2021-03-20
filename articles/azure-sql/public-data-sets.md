@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
 ms.openlocfilehash: 2e836a175b45c6fca46f9c76760e1cbaef305a47
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792587"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para testes e prototipagem
@@ -52,6 +52,6 @@ Consulte esta lista de conjuntos de dados públicos para obter dados que pode ut
 
 | Origem de dados | Sobre os dados | Sobre os ficheiros |
 |---|---|---|
-| [Arquivo GitHub](https://www.githubarchive.org/) | "O GitHub Archive é um projeto para registar a linha temporal do GitHub [dos eventos], arquivá-la e torná-la facilmente acessível para análises mais aprofundadas." | Descarregue os arquivos de eventos codificados JSON em formato .gz (Gzip) a partir de um cliente web. |
+| [Arquivo GitHub](https://www.githubarchive.org/) | "O GitHub Archive é um projeto para registar a linha temporal do GitHub [dos eventos], arquivá-la e torná-la facilmente acessível para análises mais aprofundadas." | Descarregue os arquivos de eventos codificados json em .gz formato (Gzip) a partir de um cliente web. |
 | [Dados de atividade do GitHub do projeto GHTorrent](http://ghtorrent.org/) | "O projeto GHTorrent [é] um esforço para criar um espelho expansível, questionável e offline de dados oferecidos através da API GitHub REST. GHTorrent monitoriza a linha de tempo do evento público GitHub. Para cada evento, recupera o seu conteúdo e as suas dependências, exaustivamente." | As lixeiras da base de dados MySQL estão em formato CSV. |
 | [Despejo de dados de fluxo de pilha](https://archive.org/details/stackexchange) | "Esta é uma descarga anonimizada de todos os conteúdos contribuídos pelo utilizador na rede Stack Exchange [incluindo Stack Overflow]." | "Cada site [como Stack Overflow] é formatado como um arquivo separado composto por ficheiros XML fechados via 7-zip usando a compressão bzip2. Cada arquivo do site inclui Posts, Utilizadores, Votos, Comentários, Pós-História e PostLinks." |

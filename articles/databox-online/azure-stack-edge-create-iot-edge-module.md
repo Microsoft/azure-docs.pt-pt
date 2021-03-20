@@ -1,5 +1,5 @@
 ---
-title: Módulo IoT Edge para Azure Stack Edge Pro Microsoft Docs
+title: Módulo IoT Edge C# para Azure Stack Edge Pro | Microsoft Docs
 description: Saiba como desenvolver um módulo C# IoT Edge que pode ser implantado no seu Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91951150"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros com Azure Stack Edge Pro
@@ -70,7 +70,7 @@ Um registo de contentor do Azure é um registo do Docker privado no Azure, onde 
 
    1. Um **nome único de registo** dentro de Azure que contém 5 a 50 caracteres alfanuméricos.
    2. Escolha uma **subscrição.**
-   3. Criar novo ou escolher um grupo de **Recursos**existente.
+   3. Criar novo ou escolher um grupo de **Recursos** existente.
    4. Selecione uma **localização**. Recomendamos que esta localização seja a mesma que está associada ao recurso Azure Stack Edge.
    5. Mude **Utilizador administrador** para **Ativar**.
    6. Desa estação o SKU para **Basic**.
@@ -125,7 +125,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-1. No explorador de código VS, **abram os módulos > FileCopyModule > Program.cs**.
+1. No explorador de código VS, **abram os módulos > Programa de > FileCopyModule.cs**.
 2. No topo do espaço de **nome FileCopyModule**, adicione o seguinte usando declarações para tipos que são usados mais tarde. **Microsoft.Azure.Devices.Client.Transport.Mqtt** é um protocolo para enviar mensagens para ioT Edge Hub.
 
     ```
@@ -240,7 +240,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
     ```
 
 7. Guarde este ficheiro.
-8. Também pode [descarregar uma amostra de código existente](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) para este projeto. Em seguida, pode validar o ficheiro que guardou contra o ficheiro **program.cs** nesta amostra.
+8. Também pode [descarregar uma amostra de código existente](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) para este projeto. Pode então validar o ficheiro que guardou contra o ficheiro **.cs programa** nesta amostra.
 
 ## <a name="build-your-iot-edge-solution"></a>Criar a sua solução do IoT Edge
 
@@ -257,7 +257,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
 
 2. Quando solicitado para obter a senha, forneça a senha. Também pode recuperar os valores do servidor de login, nome de utilizador e palavra-passe a partir das Chaves de **Acesso** no registo do seu contentor no portal Azure.
  
-3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita ** no** ficheiro e selecione **a solução Build and Push IoT Edge**.
+3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita **no** ficheiro e selecione **a solução Build and Push IoT Edge**.
 
     ![Construir e empurrar a solução IoT Edge 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  

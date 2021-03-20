@@ -1,5 +1,5 @@
 ---
-title: Utilize um grupo para gerir o acesso a apps SaaS - Azure AD ! Microsoft Docs
+title: Utilize um grupo para gerir o acesso a aplicações SaaS - Azure AD | Microsoft Docs
 description: Como utilizar grupos no Azure Ative Directory para atribuir acesso a aplicações SaaS que são integradas com o Azure Ative Directory.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df36cd334dbb455cf1717bf18fc6c8337d0ee6d2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547887"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Utilizar um grupo para gerir o acesso a aplicações SaaS

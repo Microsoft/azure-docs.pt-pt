@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920295"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de ligação Azure Functions
@@ -321,6 +321,6 @@ A expressão vinculativa `DateTime` `DateTime.UtcNow` resolve-se a . O caminho d
 
 Em C# e outras línguas .NET, pode utilizar um padrão de ligação imperativo, em oposição às encadernações declarativas em *function.js* e atributos. A ligação imperativa é útil quando os parâmetros de ligação precisam de ser calculados em tempo de execução em vez de tempo de conceção. Para saber mais, consulte a referência do [desenvolvedor C#](functions-dotnet-class-library.md#binding-at-runtime) ou a referência do [desenvolvedor de scripts C#](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Utilizando o valor de retorno da função Azure](./functions-bindings-return-value.md)

@@ -1,13 +1,13 @@
 ---
-title: Crie um laboratório de scripts de conchas Linux com os Serviços de Laboratório Azure Microsoft Docs
+title: Crie um laboratório de scripts de conchas Linux com a Azure Lab Services | Microsoft Docs
 description: Aprende a criar um laboratório para ensinar a escrever em Linux.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444969"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Crie um laboratório para ensinar scripts de conchas em Linux
@@ -69,7 +69,7 @@ Esta secção mostra como instalar um par de editores de texto. Gedit é o edito
 
     O modelo é agora atualizado e tem tanto a linguagem de programação como as ferramentas de desenvolvimento necessárias para completar o laboratório. A imagem do modelo pode agora ser publicada no laboratório. Selecione o botão **Publicar** na página do modelo para publicar o modelo para o laboratório.  
 
-## <a name="cost"></a>Cost 
+## <a name="cost"></a>Custo 
 Se quiser estimar o custo deste laboratório, pode usar o seguinte exemplo:
  
 Para uma turma de 25 alunos com 20 horas de horário de aula programado e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria: 

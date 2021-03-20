@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/09/2020
 ms.openlocfilehash: 1610c51b613712c06410247e2eb673a50a9988b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792247"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-an-arm-template"></a>Quickstart: Criar uma nova instância de serviço de gestão API Azure usando um modelo ARM
@@ -21,7 +21,7 @@ Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (modelo
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
 
@@ -50,25 +50,25 @@ Mais amostras de modelo de gestão AZure API podem ser encontradas em [modelos A
     Neste exemplo, o caso está configurado no nível de Desenvolvedor, uma opção económica para avaliar a Gestão API da Azure. Este nível não é para uso de produção. Para obter mais informações sobre o dimensionamento dos escalões da Gestão de API, consulte [Atualização de versão do software e dimensionamento](upgrade-and-scale.md).
 
 1. Selecione ou introduza os seguintes valores.
-    - **Subscrição** : selecione uma subscrição do Azure.
-    - **Grupo de recursos** : selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, selecione **OK** .
-    - **Região** : selecione uma localização para o grupo de recursos. Exemplo: **Central US** .
-    - **Email do Editor** : insira um endereço de e-mail para receber notificações.
-    - **Nome do editor** : insira um nome que escolher para a editora API.
-    - **Sku** : aceite o valor padrão do **Desenvolvedor.**
-    - **Sku Count** : aceite o valor predefinido.
-    - **Localização** : aceite a localização gerada para o serviço de Gestão da API.
+    - **Subscrição**: selecione uma subscrição do Azure.
+    - **Grupo de recursos**: selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, selecione **OK**.
+    - **Região**: selecione uma localização para o grupo de recursos. Exemplo: **Central US**.
+    - **Email do Editor**: insira um endereço de e-mail para receber notificações.
+    - **Nome do editor**: insira um nome que escolher para a editora API.
+    - **Sku**: aceite o valor padrão do **Desenvolvedor.**
+    - **Sku Count**: aceite o valor predefinido.
+    - **Localização**: aceite a localização gerada para o serviço de Gestão da API.
 
     :::image type="content" source="media/quickstart-arm-template/create-instance-template.png" alt-text="Propriedades do modelo de gestão da API":::
 
-1. Selecione **Rever + Criar** e, em seguida, rever os termos e condições. Se estiver de acordo, **selecione Criar** .
+1. Selecione **Rever + Criar** e, em seguida, rever os termos e condições. Se estiver de acordo, **selecione Criar**.
 
     > [!TIP]
     >  Pode levar entre 30 a 40 minutos para criar e ativar um serviço de Gestão API no nível de Desenvolvedor.
 
 1. Após a criação do caso com sucesso, recebe uma notificação:
 
-    :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Propriedades do modelo de gestão da API":::
+    :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Notificação de implantação":::
 
  O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, também pode utilizar o Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -79,7 +79,7 @@ Utilize o portal Azure para verificar os recursos implantados ou utilize ferrame
 1. No [portal Azure,](https://portal.azure.com)procure e selecione **os serviços de Gestão da API** e selecione a instância de serviço que criou.
 1. Reveja as propriedades do seu serviço na página **'Vista Geral'.**
 
-:::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="Propriedades do modelo de gestão da API":::
+:::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="Página geral do serviço":::
 
 Quando o seu serviço de gestão API estiver online, está pronto para usá-lo. Comece com o tutorial para [importar e publicar](import-and-publish.md) a sua primeira API.
 
@@ -89,10 +89,10 @@ Se planeia continuar a trabalhar com tutoriais subsequentes, talvez queira deixa
 
 1. No [portal Azure,](https://portal.azure.com)procure e selecione **grupos de Recursos.** Também pode selecionar **grupos de recursos** na página **inicial.**
 1. Na página **dos grupos de recursos,** selecione o seu grupo de recursos.
-1. Na página do grupo de recursos, selecione **Eliminar o grupo de recursos** .
+1. Na página do grupo de recursos, selecione **Eliminar o grupo de recursos**.
 
-    :::image type="content" source="media/quickstart-arm-template/delete-resource-group.png" alt-text="Propriedades do modelo de gestão da API":::
-1. Digite o nome do seu grupo de recursos e, em seguida, **selecione Delete** .
+    :::image type="content" source="media/quickstart-arm-template/delete-resource-group.png" alt-text="Eliminar grupo de recursos":::
+1. Digite o nome do seu grupo de recursos e, em seguida, **selecione Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

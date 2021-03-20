@@ -1,5 +1,5 @@
 ---
-title: Utilização de Desktop Virtual do Windows com ficheiros Azure NetApp ; Microsoft Docs
+title: Utilizando o Windows Virtual Desktop com ficheiros Azure NetApp | Microsoft Docs
 description: Fornece orientação de boas práticas e plantas de amostra na implementação do Windows Virtual Desktop com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
 ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91932469"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios da utilização do Azure NetApp Files com o Windows Virtual Desktop 

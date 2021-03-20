@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788830"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database e SQL Managed Instance
@@ -162,11 +162,11 @@ Os clientes com cargas de trabalho sensíveis a alterações de hardware ou clie
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>Preciso de tirar a minha aplicação offline para converter de um nível de serviço baseado em DTU para um nível de serviço baseado em vCore?
 
-Não. Não precisas de desligar a aplicação. Os novos níveis de serviço oferecem um método simples de conversão on-line semelhante ao processo existente de upgrade de bases de dados do padrão para o nível de serviço premium e o contrário. Pode iniciar esta conversão utilizando o portal Azure, PowerShell, O Azure CLI, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
+N.º Não precisas de desligar a aplicação. Os novos níveis de serviço oferecem um método simples de conversão on-line semelhante ao processo existente de upgrade de bases de dados do padrão para o nível de serviço premium e o contrário. Pode iniciar esta conversão utilizando o portal Azure, PowerShell, O Azure CLI, T-SQL ou a API REST. Veja [Gerir bases de dados únicas](single-database-scale.md) e [Gerir conjuntos elásticos](elastic-pool-overview.md).
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>Posso converter uma base de dados de um nível de serviço no modelo de compra baseado em vCore para um nível de serviço no modelo de compra baseado em DTU?
 
-Sim, pode converter facilmente a sua base de dados para qualquer objetivo de desempenho suportado utilizando o portal Azure, PowerShell, O CLI Azure, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
+Sim, pode converter facilmente a sua base de dados para qualquer objetivo de desempenho suportado utilizando o portal Azure, PowerShell, O CLI Azure, T-SQL ou a API REST. Veja [Gerir bases de dados únicas](single-database-scale.md) e [Gerir conjuntos elásticos](elastic-pool-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc, devx-track-azurecli
 ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746931"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Criar um registo de contentores Azure e empurrar uma imagem de contentor
@@ -40,7 +40,7 @@ Em primeiro lugar, obtenha o nome completo do servidor de início de sessão do 
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Por exemplo, se o registo tiver o nome *mycontainerregistry082* :
+Por exemplo, se o registo tiver o nome *mycontainerregistry082*:
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table

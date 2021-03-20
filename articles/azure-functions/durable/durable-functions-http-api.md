@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697848"
 ---
 # <a name="http-api-reference"></a>Referência HTTP API
@@ -18,7 +18,7 @@ A extensão Funções Duradouras expõe um conjunto de APIs HTTP incorporadas qu
 
 Todas as APIs HTTP implementadas pela extensão requerem os seguintes parâmetros. O tipo de dados de todos os parâmetros é `string` .
 
-| Parâmetro        | Tipo de parâmetro  | Descrição |
+| Parâmetro        | Tipo de parâmetro  | Description |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Cadeias de consulta    | O nome do centro de [tarefas.](durable-functions-task-hubs.md) Se não for especificado, assume-se o nome do centro de tarefas da aplicação de funções atual. |
 | **`connection`** | Cadeias de consulta    | O **nome** da cadeia de ligação para a conta de armazenamento. Se não for especificado, assume-se a cadeia de ligação predefinida para a aplicação de funções. |
@@ -166,7 +166,7 @@ Vários valores possíveis de código de estado podem ser devolvidos.
 
 A carga útil de resposta para os casos **HTTP 200** e **HTTP 202** é um objeto JSON com os seguintes campos:
 
-| Campo                 | Tipo de dados | Descrição |
+| Campo                 | Tipo de dados | Description |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | cadeia (de carateres)    | O estado de funcionação do caso. Os valores incluem *Execução,* *Pendente,* *Falhado,* *Cancelado,* *Terminado,* *Concluído*. |
 | **`input`**           | JSON      | Os dados do JSON usados para inicializar o caso. Este campo é `null` se o parâmetro de cadeia de consulta está definido para `showInput` `false` .|
@@ -427,7 +427,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 Os parâmetros de pedido para esta API incluem o conjunto predefinido mencionado anteriormente, bem como os seguintes parâmetros únicos:
 
-| Campo                 | Tipo de parâmetro  | Descrição |
+| Campo                 | Tipo de parâmetro  | Description |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | Cadeias de consulta    | Filtra a lista de casos purgados que foram criados no ou após o determinado semp de tempo ISO8601.|
 | **`createdTimeTo`**   | Cadeias de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de casos purgados que foram criados no ou antes do determinado semp timetamp ISO8601.|

@@ -1,5 +1,5 @@
 ---
-title: Manipulação de erros nas políticas de Gestão da API da Azure ! Microsoft Docs
+title: Manipulação de erros nas políticas de gestão da API da Azure | Microsoft Docs
 description: Saiba como responder às condições de erro que possam ocorrer durante o processamento de pedidos na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92070950"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Erro ao processar as políticas de Gestão de API
@@ -82,13 +82,13 @@ Quando ocorre um erro e o controlo salta para a `on-error` secção de política
 
 | Nome       | Tipo   | Descrição                                                                                               | Obrigatório |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | cadeia | Nomeia o elemento onde ocorreu o erro. Pode ser política ou um nome de passo de gasoduto embutido.      | Yes      |
-| `Reason`   | cadeia | Código de erro amigável à máquina, que pode ser utilizado no manuseamento de erros.                                       | No       |
-| `Message`  | cadeia | Descrição de erros legíveis pelo homem.                                                                         | Yes      |
-| `Scope`    | cadeia | Nome do âmbito onde ocorreu o erro e pode ser de "global", "produto", "api" ou "operação" | No       |
-| `Section`  | cadeia | Nome da secção onde ocorreu erro. Valores possíveis: "entrada", "backend", "outbound" ou "on-error".      | No       |
-| `Path`     | cadeia | Especifica a política aninhada, por exemplo "escolher[3]/quando[2]".                                                 | No       |
-| `PolicyId` | cadeia | Valor do `id` atributo, se especificado pelo cliente, na política onde ocorreu erro             | No       |
+| `Source`   | string | Nomeia o elemento onde ocorreu o erro. Pode ser política ou um nome de passo de gasoduto embutido.      | Yes      |
+| `Reason`   | string | Código de erro amigável à máquina, que pode ser utilizado no manuseamento de erros.                                       | No       |
+| `Message`  | string | Descrição de erros legíveis pelo homem.                                                                         | Yes      |
+| `Scope`    | string | Nome do âmbito onde ocorreu o erro e pode ser de "global", "produto", "api" ou "operação" | No       |
+| `Section`  | string | Nome da secção onde ocorreu erro. Valores possíveis: "entrada", "backend", "outbound" ou "on-error".      | No       |
+| `Path`     | string | Especifica a política aninhada, por exemplo "escolher[3]/quando[2]".                                                 | No       |
+| `PolicyId` | string | Valor do `id` atributo, se especificado pelo cliente, na política onde ocorreu erro             | No       |
 
 > [!TIP]
 > Pode aceder ao código de estado através do contexto. Resposta.Código de Estado.
@@ -190,4 +190,4 @@ Para obter mais informações sobre as políticas, consulte:
 -   [Políticas em Gestão de API](api-management-howto-policies.md)
 -   [Transformar APIs](transform-api.md)
 -   [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
--   [Amostras de política](./policy-reference.md)
+-   [Exemplos de Políticas](./policy-reference.md)

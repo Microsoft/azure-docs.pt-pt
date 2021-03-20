@@ -1,5 +1,5 @@
 ---
-title: Adicione o seu domínio personalizado - Azure Ative Directory / Microsoft Docs
+title: Adicione o seu domínio personalizado - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como adicionar um domínio personalizado utilizando o Azure Ative Directory.
 services: active-directory
 author: ajburnle
@@ -14,17 +14,17 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95973903"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicione o seu nome de domínio personalizado usando o portal Azure Ative Directory
 
 Cada novo inquilino da AD AZure vem com um nome de domínio inicial, *\<domainname> .onmicrosoft.com*. Não é possível alterar ou apagar o nome de domínio inicial, mas pode adicionar os nomes da sua organização. A adição de nomes de domínio personalizados ajuda-o a criar nomes de utilizadores familiares aos seus utilizadores, como *alain \@ contoso.com*.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de poder adicionar um nome de domínio personalizado, crie o seu nome de domínio com um registo de domínio. Para um registrador de domínio acreditado, consulte [os registos acreditados da ICANN.](https://www.icann.org/registrar-reports/accredited-list.html)
 

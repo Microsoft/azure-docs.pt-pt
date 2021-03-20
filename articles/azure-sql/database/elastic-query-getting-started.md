@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781231"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório através de bases de dados de nuvem escalonadas (pré-visualização)
@@ -37,7 +37,7 @@ Aqui irá criar um gestor de mapas de fragmentos juntamente com vários fragment
 1. Construa e execute a aplicação de amostra **de ferramentas elastic Database** seguindo os passos na secção de [artigos Descarregue e execute a aplicação da amostra](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Assim que terminar todos os passos, verá o seguinte pedido de comando:
 
     ![comando pronta][1]
-2. Na janela de comando, escreva "1" e prima **Enter** . Isto cria o gestor de mapas de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, escreva "3" e prima **Enter;** repetir a ação quatro vezes. Isto insere linhas de dados de amostra nos seus fragmentos.
+2. Na janela de comando, escreva "1" e prima **Enter**. Isto cria o gestor de mapas de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, escreva "3" e prima **Enter;** repetir a ação quatro vezes. Isto insere linhas de dados de amostra nos seus fragmentos.
 3. O [portal Azure](https://portal.azure.com) deve apresentar três novas bases de dados no seu servidor:
 
    ![Confirmação do Estúdio Visual][2]
@@ -74,7 +74,7 @@ Estes são usados para ligar ao gestor de mapas de fragmentos e aos fragmentos:
 
     "username" e "password" devem ser os mesmos que as informações de login utilizadas no passo 3 da secção [Descarregue e execute a aplicação de amostra](elastic-scale-get-started.md#download-and-run-the-sample-app) na Obtenção iniciada com artigo **de ferramentas Elastic Database.**
 
-### <a name="external-data-sources"></a>Fontes de dados externas
+### <a name="external-data-sources"></a>Origens de dados externas
 Para criar uma fonte de dados externa, execute o seguinte comando na base de dados ElasticDBQuery:
 
 ```tsql
@@ -121,13 +121,13 @@ Notará que os agregados de consultas resultam de todos os fragmentos e dão a s
 
 1. Lançamento Excel 2013.
 2. Navegue para a fita **Data.**
-3. Clique **em Outras Fontes** e clique **no SqL Server** .
+3. Clique **em Outras Fontes** e clique **no SqL Server**.
 
    ![Excel importa de outras fontes][5]
-4. No Assistente de Ligação de **Dados** digite o nome do servidor e as credenciais de login. Em seguida, clique em **Seguinte** .
+4. No Assistente de Ligação de **Dados** digite o nome do servidor e as credenciais de login. Em seguida, clique em **Seguinte**.
 5. Na caixa de diálogo **Selecione a base de dados que contém os dados que pretende,** selecione a base de dados **ElasticDBQuery.**
-6. Selecione a tabela **Clientes** na vista da lista e clique em **Seguinte** . Em seguida, clique em **Concluir** .
-7. No formulário **Dados de Importação,** em **Selecione como pretende ver estes dados no seu livro,** selecione **Tabela** e clique **em OK** .
+6. Selecione a tabela **Clientes** na vista da lista e clique em **Seguinte**. Em seguida, clique em **Concluir**.
+7. No formulário **Dados de Importação,** em **Selecione como pretende ver estes dados no seu livro,** selecione **Tabela** e clique **em OK**.
 
 Todas as linhas da tabela **Clientes,** armazenadas em fragmentos diferentes povoam a folha excel.
 

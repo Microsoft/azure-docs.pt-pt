@@ -11,13 +11,13 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 1/14/2021
-ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 03/15/2021
+ms.openlocfilehash: 5c0de2c1589bfa495ab6ad287b998c403041674c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219135"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592171"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorizar o desempenho do Azure SQL Managed Instance e da Base de Dados SQL do Microsoft Azure com as vistas de gestão dinâmicas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,6 +31,10 @@ A Base de Dados DO Microsoft Azure SQL e a Azure SQL Managed Instance suportam p
 - Pontos de vista dinâmicos relacionados com transações.
 
 Para obter informações detalhadas sobre pontos de vista dinâmicos de gestão, consulte [Vistas e Funções de Gestão Dinâmica (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+
+## <a name="monitor-with-sql-insights"></a>Monitor com insights SQL
+
+[Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md) é uma ferramenta para monitorizar instâncias geridas Azure SQL, bases de dados Azure SQL e instâncias do SQL Server em VMs Azure SQL. Este serviço utiliza um agente remoto para capturar dados a partir de pontos de vista dinâmicos de gestão (DMVs) e encaminha os dados para a Azure Log Analytics, onde pode ser monitorizado e analisado. Pode ver estes dados do [Azure Monitor](../../azure-monitor/overview.md) em vistas fornecidas ou aceder diretamente aos dados do Registo para executar consultas e analisar tendências. Para começar a utilizar insights SQL do Monitor Azure, consulte [ativar os insights SQL](../../azure-monitor/insights/sql-insights-enable.md).
 
 ## <a name="permissions"></a>Permissões
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84711039"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerir uma aplicação de tecido de serviço Azure utilizando o CLI do tecido de serviço Azure (sfctl)
@@ -22,7 +22,7 @@ Saiba como criar e eliminar aplicações que estão a ser executadas num cluster
 
 * Tenha um pacote de aplicação de Tecido de Serviço pronto para ser implantado. Para obter mais informações sobre como autor e embalar uma aplicação, leia sobre o modelo de [aplicação de Tecido de Serviço.](service-fabric-application-model.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para implementar uma nova aplicação, complete estes passos:
 

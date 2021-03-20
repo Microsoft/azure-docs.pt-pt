@@ -1,5 +1,5 @@
 ---
-title: Gerir a recuperação de desastres utilizando a replicação transversal do Azure NetApp Files Microsoft Docs
+title: Gerir a recuperação de desastres utilizando a replicação transversal de ficheiros Azure NetApp | Microsoft Docs
 description: Descreve como gerir a recuperação de desastres utilizando a replicação transversal do Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243210"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590998"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gerir a recuperação de desastres utilizando a replicação entre regiões 
 
@@ -38,10 +38,10 @@ Quando precisa de ativar o volume de destino (por exemplo, quando pretender falh
 1. Para quebrar o olhar de replicação, selecione o volume de destino. Clique em **Replicação** no Serviço de Armazenamento.  
 
 2.  Verifique os seguintes campos antes de continuar:  
-    * Certifique-se de que o Estado do Espelho aparece ***Espelhado** _.   
-        Não tente quebrar a replicação olhando se o Estado do Espelho mostrar _Uninitialized*.
-    * Certifique-se de que o Estado da Relação mostra ***Idle** _.   
-        Não tente quebrar a replicação espreitando se o Estado da Relação mostrar _Transferring*.   
+    * Certifique-se de que o Estado do Espelho mostra ***espelhado***.   
+        Não tente quebrar a replicação olhando se o Estado-Espelho mostrar *Uniinializado*.
+    * Certifique-se de que o Estado da Relação mostra ***idle***.   
+        Não tente quebrar o olhar de replicação se o Estado da Relação mostrar *a transferência*.   
 
     Ver [Estado de saúde do Display da relação de replicação](cross-region-replication-display-health-status.md). 
 
@@ -80,10 +80,10 @@ Depois de concluída a operação de ressígnia do destino para a fonte, é nece
 1. Quebre o olhar de replicação:  
     a. Selecione o volume de *destino.* Clique em **Replicação** no Serviço de Armazenamento.  
     b. Verifique os seguintes campos antes de continuar:   
-    * Certifique-se de que o Estado do Espelho aparece ***Espelhado** _.   
-    Não tente quebrar a replicação olhando se o Estado do Espelho mostrar _uninitialized*.  
-    * Certifique-se de que o Estado da Relação mostra ***Idle** _.   
-    Não tente quebrar a replicação espreitando se o Estado da Relação mostrar _transferring*.    
+    * Certifique-se de que o Estado do Espelho mostra ***espelhado***.   
+    Não tente quebrar a replicação olhando se o Estado-Espelho mostrar *não ininibido*.  
+    * Certifique-se de que o Estado da Relação mostra ***idle***.   
+    Não tente quebrar o olhar de replicação se o Estado da Relação mostrar *a transferência*.    
 
         Ver [Estado de saúde do Display da relação de replicação](cross-region-replication-display-health-status.md). 
 
@@ -97,12 +97,13 @@ Depois de concluída a operação de ressígnia do destino para a fonte, é nece
 3. Remonte o volume de origem seguindo os passos no [Monte ou desmonte um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
     Este passo permite que um cliente aceda ao volume de origem.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
+* [Redimensionar um volume de destino de replicação transversal](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Eliminar replicações ou volumes de volume](cross-region-replication-delete.md)
+* [Eliminar volumes ou replicações de volume](cross-region-replication-delete.md)
 * [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 

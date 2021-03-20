@@ -9,10 +9,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
 ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91295622"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Problemas de conexão de resolução de problemas na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
@@ -32,7 +32,7 @@ Geralmente, os problemas de ligação à Hiperescala (Citus) podem ser classific
 * Erros transitórios (de curta duração ou intermitente)
 * Erros persistentes ou não transitórios (erros que se repetem regularmente)
 
-## <a name="troubleshoot-transient-errors"></a>Erros transitórios de resolução de problemas
+## <a name="troubleshoot-transient-errors"></a>Resolver erros transitórios
 
 Erros transitórios ocorrem por uma série de razões. As atualizações mais comuns incluem manutenção do sistema, erro com hardware ou software e atualizações de node vCore do coordenador.
 
