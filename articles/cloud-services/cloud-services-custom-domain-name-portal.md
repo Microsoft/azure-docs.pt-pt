@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: bced2345473dbcbb5b9adf0269de0bef0549e862
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742374"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service-classic"></a>Configurar um nome de domínio personalizado para um serviço de nuvem Azure (clássico)
@@ -109,7 +109,7 @@ Para criar um registo A, tem primeiro de encontrar o endereço IP virtual do seu
      Guarde o endereço IP, pois necessitará dele ao criar um registo A.
 2. Inicie sessão no site do seu registo DNS e vá à página para gerir o DNS. Procure links ou áreas do site rotulados como **Nome de Domínio**, **DNS** ou **Gestão do Servidor de Nome**.
 3. Agora encontre onde pode selecionar ou introduzir um registo. Pode ter de selecionar o tipo de gravação a partir de uma queda ou ir para uma página de definições avançadas.
-4. Selecione ou introduza o domínio ou subdomínio que utilizará este registo A. Por exemplo, selecione **www** se pretende criar um pseudónimo para **www \. customdomain.com**. Se quiser criar uma entrada wildcard para todos os subdomínios, insira '**'. Isto abrangerá todos os subd domínios como **mail.customdomain.com,** **login.customdomain.com** e **www \. customdomain.com**.
+4. Selecione ou introduza o domínio ou subdomínio que utilizará este registo A. Por exemplo, selecione **www** se pretende criar um pseudónimo para **www \. customdomain.com**. Se quiser criar uma entrada wildcard para todos os subdomínios, insira '******'. Isto abrangerá todos os subd domínios como **mail.customdomain.com,** **login.customdomain.com** e **www \. customdomain.com**.
 
     Se pretender criar um registo A para o domínio raiz, pode ser listado como o **\@** símbolo ' nas ferramentas DNS do seu registo.
 5. Insira o endereço IP do seu serviço de nuvem no campo fornecido. Isto associa a entrada de domínio utilizada no registo A com o endereço IP da sua implementação de serviço em nuvem.
@@ -120,14 +120,14 @@ Por exemplo, o seguinte registo A encaminha todo o tráfego de **contoso.com** p
 | --- | --- |
 | \@ |137.135.70.239 |
 
-Este exemplo demonstra a criação de um registo A para o domínio raiz. Se desejar criar uma entrada wildcard para cobrir todos os subdomínios, introduzirá '*' como subdomínio.
+Este exemplo demonstra a criação de um registo A para o domínio raiz. Se desejar criar uma entrada wildcard para cobrir todos os subdomínios, introduzirá '*****' como subdomínio.
 
 > [!WARNING]
 > Os endereços IP em Azure são dinâmicos por padrão. Provavelmente irá querer utilizar um [endereço IP reservado](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para garantir que o seu endereço IP não se altere.
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Como Mapear Conteúdo da CDN para um Domínio Personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).

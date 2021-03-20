@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88009176"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop (clássico)
@@ -98,7 +98,7 @@ Todos os valores de parâmetros nesta secção devem corresponder ao que fornece
     >[!NOTE]
     >Se o tamanho específico do VM que procura não aparece no seletor de tamanho vM, isso é porque ainda não o acedemos à ferramenta Azure Marketplace. Para solicitar um tamanho VM, crie um pedido ou antevou um pedido existente no [fórum Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general)do Windows .
 
-2. Personalize o *Perfil de Utilização,* total de *utilizadores*e *número de parâmetros de máquinas virtuais* para selecionar o número total de anfitriões de sessão que gostaria de ter na piscina de anfitriões. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, configuure estas opções para chegar a 8 máquinas virtuais.
+2. Personalize o *Perfil de Utilização,* total de *utilizadores* e *número de parâmetros de máquinas virtuais* para selecionar o número total de anfitriões de sessão que gostaria de ter na piscina de anfitriões. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, configuure estas opções para chegar a 8 máquinas virtuais.
 3. Introduza um prefixo para os nomes das máquinas virtuais. Por exemplo, se introduzir o nome "prefixo", as máquinas virtuais serão chamadas de "prefix-0", "prefixo-1", e assim por diante.
 4. Selecione **Seguinte : Configurações de máquinas virtuais**.
 

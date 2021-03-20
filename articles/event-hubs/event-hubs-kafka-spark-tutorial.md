@@ -1,13 +1,13 @@
 ---
-title: Conecte-se com a sua app Apache Spark - Azure Event Hubs Microsoft Docs
+title: Conecte-se com a sua aplicação Apache Spark - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece informações sobre como usar Apache Spark com Azure Event Hubs para Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913743"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Ligue a sua aplicação Apache Spark com Azure Event Hubs
@@ -30,7 +30,7 @@ Antes de começar o tutorial, confirme que tem:
 -   Subscrição do Azure. Se não tiver uma subscrição, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 -   [Apache Spark v2.4](https://spark.apache.org/downloads.html)
 -   [Apache Kafka v2.0]( https://kafka.apache.org/20/documentation.html)
--   [Rio Git](https://www.git-scm.com/downloads)
+-   [Git](https://www.git-scm.com/downloads)
 
 > [!NOTE]
 > O adaptador Spark-Kafka foi atualizado para suportar o Kafka 2.0 a partir do Spark v2.4. Nas versões anteriores do Spark, o adaptador suportava o Kafka v0.10 e posteriores, mas dependia especificamente das APIs do Kafka v0.10. Uma vez que os Hubs de Eventos para Kafka não suportam o Kafka v0.10, os ecossistemas dos Hubs de Eventos para Kafka não suportam os adaptadores Spark-Kafka de versões do Spark anteriores à v2.4.

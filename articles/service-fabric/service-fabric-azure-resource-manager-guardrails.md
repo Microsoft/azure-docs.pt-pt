@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
 ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247829"
 ---
 # <a name="service-fabric-guardrails"></a>Guarda-costas de tecido de serviço 
 Ao implementar um cluster de tecido de serviço, são colocados guarda-costas, o que falhará na implementação de um Gestor de Recursos Azure no caso de uma configuração de cluster inválida. As secções seguintes fornecem uma visão geral das questões comuns de configuração do cluster e dos passos necessários para mitigar estas questões. 
 
 ## <a name="durability-mismatch"></a>Incompatibilidade de durabilidade
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 O valor de durabilidade para um tipo de nó de tecido de serviço é definido em duas secções diferentes de um modelo de Gestor de Recursos Azure. A secção de extensão de escala de máquina virtual do recurso Conjunto de Escala de Máquina Virtual e a secção Tipo de Nó do recurso cluster de tecido de serviço. É um requisito que o valor de durabilidade nestas secções corresponda, caso contrário a implementação do recurso falhará.
 
 A seguinte secção contém um exemplo de uma incompatibilidade de durabilidade entre a definição de durabilidade da escala de máquina virtual e a definição de durabilidade do tipo de nó de serviço:  
@@ -67,7 +67,7 @@ Para corrigir uma incompatibilidade de durabilidade, que é indicada por qualque
 
 
 ## <a name="seed-node-deletion"></a>Supressão do nó de sementes 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 Um cluster de tecido de serviço tem uma propriedade [de nível de fiabilidade](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) que é usada para determinar o número de réplicas de serviços de sistema que funcionam no tipo de nó primário do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nós no tipo de nó primário for inferior ao mínimo exigido para o nível de fiabilidade, o cluster tornar-se-á instável.  
 
 ### <a name="error-messages"></a>Mensagens de erro 

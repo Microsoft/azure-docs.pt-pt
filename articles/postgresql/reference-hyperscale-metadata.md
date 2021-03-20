@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 74403365fe48584fa5d1db0e349c9dfc3772d874
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652861"
 ---
 # <a name="system-tables-and-views"></a>Tabelas e vistas do sistema
@@ -33,7 +33,7 @@ Pode visualizar e consultar estas tabelas utilizando o SQL depois de iniciar ses
 
 A tabela de partição pg \_ dist \_ armazena metadados sobre quais as tabelas na base de dados distribuídas. Para cada tabela distribuída, também armazena informações sobre o método de distribuição e informações detalhadas sobre a coluna de distribuição.
 
-| Nome         | Tipo     | Descrição                                                                                                                                                                                                                                           |
+| Nome         | Tipo     | Description                                                                                                                                                                                                                                           |
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid | regclasse | Tabela distribuída à qual esta linha corresponde. Este valor refere a coluna relfilenode na tabela de catálogos de sistemas pg_class.                                                                                                                   |
 | partmethod   | char     | O método utilizado para a partilha/distribuição. Os valores desta coluna correspondentes a diferentes métodos de distribuição são apêndice: 'a', haxixe: 'h', tabela de referência: 'n'                                                                          |
@@ -54,7 +54,7 @@ SELECT * from pg_dist_partition;
 A \_ tabela de fragmentos pg dist \_ armazena metadados sobre fragmentos individuais de uma tabela. Pg_dist_shard tem informações sobre quais os fragmentos de mesa distribuídos pertencentes, e estatísticas sobre a coluna de distribuição de fragmentos.
 Para tabelas distribuídas de apêndice, estas estatísticas correspondem a valores min/max da coluna de distribuição. Para as mesas distribuídas com haxixe, são gamas de fichas de haxixe atribuídas a esse fragmento. Estas estatísticas são usadas para podar fragmentos não relacionados durante consultas SELECIONADAs.
 
-| Nome          | Tipo     | Descrição                                                                                                                                                                                  |
+| Nome          | Tipo     | Description                                                                                                                                                                                  |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid  | regclasse | Tabela distribuída à qual esta linha corresponde. Este valor refere a coluna relfilenode na tabela de catálogos de sistemas pg_class.                                                          |
 | shardid       | bigint   | Identificador globalmente único atribuído a este fragmento.                                                                                                                                           |
@@ -77,7 +77,7 @@ SELECT * from pg_dist_shard;
 
 A coluna de fragmentos em fragmentos de pg \_ dist \_ indica o tipo de armazenamento utilizado para o fragmento. Uma breve visão geral de diferentes tipos de armazenamento de fragmentos e sua representação está abaixo.
 
-| Tipo de armazenamento | Valor da shardstorage | Descrição                                                                        |
+| Tipo de armazenamento | Valor da shardstorage | Description                                                                        |
 |--------------|--------------------|------------------------------------------------------------------------------------|
 | MESA        | 't'                | Indica que o fragmento armazena dados pertencentes a uma tabela distribuída regular.         |
 | COLUMNAR     | 'c'                | Indica que o fragmento armazena dados colunar. (Usado por cstore_fdw tabelas distribuídas) |
@@ -87,7 +87,7 @@ A coluna de fragmentos em fragmentos de pg \_ dist \_ indica o tipo de armazenam
 
 A \_ tabela de colocação pg dist \_ rastreia a localização de réplicas de fragmentos em nós de trabalhadores. Cada réplica de um fragmento atribuído a um nó específico é chamada de colocação de fragmentos. Esta tabela armazena informações sobre a saúde e localização de cada colocação de fragmentos.
 
-| Nome        | Tipo   | Descrição                                                                                                                               |
+| Nome        | Tipo   | Description                                                                                                                               |
 |-------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | shardid     | bigint | Identificador de fragmentos associado a esta colocação. Este valor refere-se à coluna shardid na tabela de catálogos pg_dist_shard.             |
 | estado de caco  | int    | Descreve o estado desta colocação. Diferentes estados de fragmentos são discutidos na secção abaixo.                                         |
@@ -112,7 +112,7 @@ SELECT * from pg_dist_placement;
 
 A hiperescala (Citus) gere a saúde dos fragmentos numa base por colocação. Se uma colocação colocar o sistema num estado inconsistente, Citus automaticamente o assinala como indisponível. O estado de colocação é registado na tabela pg_dist_shard_placement, dentro da coluna do estado de fragmento. Aqui está uma breve visão geral de diferentes estados de colocação de fragmentos:
 
-| Nome do Estado | Valor do estado de shardstate | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Nome do Estado | Valor do estado de shardstate | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | FINALIZADO  | 1                | Os novos fragmentos do Estado são criados. As colocações de fragmentos neste estado são consideradas atualizadas e são usadas no planeamento e execução de consultas.                                                                                                                                                                                                                                                                                 |
 | INATIVO   | 3                | As colocações de fragmentos neste estado são consideradas inativas devido a estar fora de sincronização com outras réplicas do mesmo fragmento. O estado pode ocorrer quando um apêndice, modificação (INSERIR, ATUALIZAR, EXCLUIR) ou uma operação DDL falha para esta colocação. O planejador de consultas ignorará as colocações neste estado durante o planeamento e execução. Os utilizadores podem sincronizar os dados nestes fragmentos com uma réplica finalizada como uma atividade de fundo. |
@@ -122,7 +122,7 @@ A hiperescala (Citus) gere a saúde dos fragmentos numa base por colocação. Se
 
 A tabela de nó de nó dist pg \_ contém \_ informações sobre os nós dos trabalhadores no cluster.
 
-| Nome             | Tipo    | Descrição                                                                                                                                                                                |
+| Nome             | Tipo    | Description                                                                                                                                                                                |
 |------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | nodeid           | int     | Identificador autogerado para um nó individual.                                                                                                                                          |
 | groupid          | int     | O identificador utilizado para denotar um grupo de um servidor primário e servidores zero ou mais secundários, quando o modelo de replicação de streaming é usado. Por defeito, é o mesmo que o nódid.         |
@@ -149,7 +149,7 @@ SELECT * from pg_dist_node;
 
 A \_ tabela de objetos dist citus.pg \_ contém uma lista de objetos como tipos e funções que foram criados no nó coordenador e propagados aos nós dos trabalhadores. Quando um administrador adiciona novos nós de trabalhador ao cluster, a Hyperscale (Citus) cria automaticamente cópias dos objetos distribuídos nos novos nós (na ordem correta para satisfazer as dependências dos objetos).
 
-| Nome                        | Tipo    | Descrição                                          |
+| Nome                        | Tipo    | Description                                          |
 |-----------------------------|---------|------------------------------------------------------|
 | classid                     | oid     | Classe do objeto distribuído                      |
 | objid                       | oid     | ID do objeto distribuído                  |
@@ -212,7 +212,7 @@ A tabela de colocação pg \_ dist \_ contém informações sobre quais as mesas
 Quando duas tabelas estão no mesmo grupo de colocação, a Hyperscale (Citus) garante que os fragmentos com os mesmos valores de partição serão colocados nos mesmos nós de trabalhadores.
 A colocação permite a junção de otimizações, certos rollups distribuídos e suporte de chaves estrangeiras. A colocação de fragmentos é deduzida quando o fragmento conta, os fatores de replicação e os tipos de colunas de partição combinam entre duas tabelas; no entanto, um grupo de colocação personalizado pode ser especificado ao criar uma tabela distribuída, se assim o desejar.
 
-| Nome                   | Tipo | Descrição                                                                   |
+| Nome                   | Tipo | Description                                                                   |
 |------------------------|------|-------------------------------------------------------------------------------|
 | co-tionid           | int  | Identificador único para o grupo de colocação esta linha corresponde.          |
 | shardcount             | int  | Contagem de fragmentos para todas as tabelas neste grupo de colocação                          |
@@ -231,7 +231,7 @@ SELECT * from pg_dist_colocation;
 
 Esta tabela define estratégias que [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards) podem usar para determinar onde mover fragmentos.
 
-| Nome                           | Tipo    | Descrição                                                                                                                                       |
+| Nome                           | Tipo    | Description                                                                                                                                       |
 |--------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | default_strategy               | boolean | Se rebalance_table_shards deve escolher esta estratégia por defeito. Utilize citus_set_default_rebalance_strategy para atualizar esta coluna             |
 | shard_cost_function            | regproc | Identificador para uma função de custo, que deve tomar um shardid como bigint, e devolver a sua noção de um custo, como tipo real                                |
@@ -329,7 +329,7 @@ A hiperescala (Citus) fornece `citus_stat_statements` estatísticas sobre como a
 
 Esta vista pode traçar consultas aos inquilinos originários de uma aplicação multi-arrendatário, o que ajuda a decidir quando fazer o isolamento do inquilino.
 
-| Nome          | Tipo   | Descrição                                                                      |
+| Nome          | Tipo   | Description                                                                      |
 |---------------|--------|----------------------------------------------------------------------------------|
 | queryid       | bigint | identificador (bom para pg_stat_statements junta)                                   |
 | userid        | oid    | utilizador que executou a consulta                                                           |

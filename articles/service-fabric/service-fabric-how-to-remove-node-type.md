@@ -1,5 +1,5 @@
 ---
-title: Remova um nó no tecido de serviço Azure / Microsoft Docs
+title: Remova um nó no tecido de serviço Azure | Microsoft Docs
 description: Aprenda a remover um tipo de nó de um cluster de tecido de serviço em execução em Azure.
 author: inputoutputcode
 manager: sridmad
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: chrpap
 ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88163582"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um nó de tecido de serviço

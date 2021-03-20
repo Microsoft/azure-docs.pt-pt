@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80398464"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Visão geral dos fornecedores de recursos personalizados Azure
@@ -25,7 +25,7 @@ A Azure Custom Resource Providers é uma plataforma de extensibilidade para a Az
 > [!IMPORTANT]
 > Os Fornecedores Personalizados estão atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="what-can-custom-resource-providers-do"></a>O que podem os fornecedores de recursos personalizados fazer
 
@@ -37,11 +37,11 @@ Aqui estão alguns exemplos do que pode alcançar com fornecedores de recursos p
 
 ## <a name="what-is-a-custom-resource-provider"></a>O que é um fornecedor de recursos personalizado
 
-Os Fornecedores de Recursos Personalizados Azure são feitos através da criação de um contrato entre a Azure e um ponto final. Este contrato define uma lista de novos recursos e ações através de um novo recurso, **Microsoft.CustomProviders/resourceProviders**. O fornecedor de recursos personalizados irá então expor estas novas APIs em Azure. Os Fornecedores de Recursos Personalizados Azure são compostos por três partes: fornecedor de recursos **personalizados, pontos finais**e recursos personalizados.
+Os Fornecedores de Recursos Personalizados Azure são feitos através da criação de um contrato entre a Azure e um ponto final. Este contrato define uma lista de novos recursos e ações através de um novo recurso, **Microsoft.CustomProviders/resourceProviders**. O fornecedor de recursos personalizados irá então expor estas novas APIs em Azure. Os Fornecedores de Recursos Personalizados Azure são compostos por três partes: fornecedor de recursos **personalizados, pontos finais** e recursos personalizados.
 
 ## <a name="how-to-build-custom-resource-providers"></a>Como construir fornecedores de recursos personalizados
 
-Os fornecedores de recursos personalizados são uma lista de contratos entre a Azure e os pontos finais. Este contrato descreve como a Azure deve interagir com um ponto final. O fornecedor de recursos age como um representante e encaminhará pedidos e respostas para e a partir do **ponto final**especificado. Um fornecedor de recursos pode especificar dois tipos de contratos: [**recursosTypes**](./custom-providers-resources-endpoint-how-to.md) e [**ações**](./custom-providers-action-endpoint-how-to.md). Estes são ativados através de definições de ponto final. Uma definição de ponto final é composta por três campos: **nome,** **roteamentoType**e **ponto final**.
+Os fornecedores de recursos personalizados são uma lista de contratos entre a Azure e os pontos finais. Este contrato descreve como a Azure deve interagir com um ponto final. O fornecedor de recursos age como um representante e encaminhará pedidos e respostas para e a partir do **ponto final** especificado. Um fornecedor de recursos pode especificar dois tipos de contratos: [**recursosTypes**](./custom-providers-resources-endpoint-how-to.md) e [**ações**](./custom-providers-action-endpoint-how-to.md). Estes são ativados através de definições de ponto final. Uma definição de ponto final é composta por três campos: **nome,** **roteamentoType** e **ponto final**.
 
 Ponto final da amostra:
 
@@ -55,9 +55,9 @@ Ponto final da amostra:
 
 Propriedade | Necessário | Descrição
 ---|---|---
-name | *Sim, o que é* | O nome da definição de ponto final. O Azure exporá este nome através da sua API em '/subscrições/{subscriçãoId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>recursosProviders/{resourceProviderName}/{endpointDefinitionName}'
+name | *Sim* | O nome da definição de ponto final. O Azure exporá este nome através da sua API em '/subscrições/{subscriçãoId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>recursosProviders/{resourceProviderName}/{endpointDefinitionName}'
 roteamentoType | *Não* | Determina o tipo de contrato com o **ponto final.** Se não for especificado, será por defeito para "Proxy".
-endpoint | *Sim, o que é* | O ponto final para encaminhar os pedidos para. Isto irá lidar com a resposta, bem como quaisquer efeitos secundários do pedido.
+endpoint | *Sim* | O ponto final para encaminhar os pedidos para. Isto irá lidar com a resposta, bem como quaisquer efeitos secundários do pedido.
 
 ### <a name="building-custom-resources"></a>Construção de recursos personalizados
 
@@ -82,7 +82,7 @@ Fornecedor de recursos personalizados de amostra com **recursosTypes**:
 
 APIs adicionadas ao Azure para a amostra acima:
 
-HttpMethod | Amostra URI | Descrição
+HttpMethod | Amostra URI | Description
 ---|---|---
 PUT | /subscrições/{subscriçãoId}/resourceGroups/{resourceGroupName}/<br>fornecedores/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | A Azure REST API chama para criar um novo recurso.
 DELETE | /subscrições/{subscriçãoId}/resourceGroups/{resourceGroupName}/<br>fornecedores/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | A Azure REST API chama para eliminar um recurso existente.
@@ -112,7 +112,7 @@ Fornecedor de Recursos Personalizados da Amostra com **ações:**
 
 APIs adicionadas ao Azure para a amostra acima:
 
-HttpMethod | Amostra URI | Descrição
+HttpMethod | Amostra URI | Description
 ---|---|---
 POST | /subscrições/{subscriçãoId}/resourceGroups/{resourceGroupName}/<br>fornecedores/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api-version=2018-09-01-preview | A Azure REST API chama para ativar a ação.
 

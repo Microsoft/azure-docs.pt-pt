@@ -1,5 +1,5 @@
 ---
-title: Dispositivo Azure IoT SDK para C - IoTHubClient Microsoft Docs
+title: Dispositivo Azure IoT SDK para C - IoTHubClient | Microsoft Docs
 description: Como utilizar a biblioteca IoTHubClient no dispositivo Azure IoT SDK para C para criar aplicações de dispositivos que comunicam com um hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: f33521dd9110d7ba6ee84650345b38c8c6a4950b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92149134"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Dispositivo Azure IoT SDK para C – mais sobre ioTHubClient
@@ -26,13 +26,13 @@ O artigo anterior descrevia como usar a biblioteca **IoTHubClient** para enviar 
 
 O artigo conclui cobrindo um par de tópicos diversos, incluindo mais sobre credenciais de dispositivo e como mudar o comportamento do **IoTHubClient** através de opções de configuração.
 
-Usaremos as amostras **de SDK IoTHubClient** para explicar estes tópicos. Se quiser acompanhar, consulte a amostra do **cliente iothub \_ \_ \_ http** e aplicações ** \_ \_ \_ amqp de amostra de cliente iothub** incluídas no dispositivo Azure IoT SDK para C. Tudo descrito nas seguintes secções é demonstrado nestas amostras.
+Usaremos as amostras **de SDK IoTHubClient** para explicar estes tópicos. Se quiser acompanhar, consulte a amostra do **cliente iothub \_ \_ \_ http** e aplicações **\_ \_ \_ amqp de amostra de cliente iothub** incluídas no dispositivo Azure IoT SDK para C. Tudo descrito nas seguintes secções é demonstrado nestas amostras.
 
 Pode encontrar o [**dispositivo Azure IoT SDK para**](https://github.com/Azure/azure-iot-sdk-c) o repositório C GitHub e ver detalhes da API na [referência C API](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-lower-level-apis"></a>As APIs de nível inferior
 
-O artigo anterior descrevia o funcionamento básico do **IotHubClient** no contexto da aplicação ** \_ \_ \_ amqp** da amostra de cliente iothub. Por exemplo, explicou como inicializar a biblioteca usando este código.
+O artigo anterior descrevia o funcionamento básico do **IotHubClient** no contexto da aplicação **\_ \_ \_ amqp** da amostra de cliente iothub. Por exemplo, explicou como inicializar a biblioteca usando este código.
 
 ```C
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
@@ -77,7 +77,7 @@ Da mesma forma, quando regista uma função de retorno para mensagens utilizando
 
 As **APIs ll** não criam um fio de fundo. Em vez disso, uma nova API deve ser chamada para enviar e receber explicitamente dados do IoT Hub. Isto é demonstrado no exemplo seguinte.
 
-A ** \_ \_ aplicação \_ de amostra de cliente iothub** que está incluída no SDK demonstra as APIs de nível inferior. Nessa amostra, enviamos eventos para o IoT Hub com código como:
+A **\_ \_ aplicação \_ de amostra de cliente iothub** que está incluída no SDK demonstra as APIs de nível inferior. Nessa amostra, enviamos eventos para o IoT Hub com código como:
 
 ```C
 EVENT_INSTANCE message;
@@ -97,7 +97,7 @@ while (1)
 }
 ```
 
-Este código (a partir da ** \_ \_ aplicação \_ http amostra de cliente iothub)** chama repetidamente **IoTHubClient \_ LL \_ DoWork**. Cada vez **que o IoTHubClient \_ LL \_ DoWork** é chamado, envia alguns eventos do tampão para o IoT Hub e recupera uma mensagem em fila sendo enviada para o dispositivo. Este último caso significa que se registarmos uma função de retorno para mensagens, então a chamada é invocada (assumindo que quaisquer mensagens são em fila). Teríamos registado tal função de retorno com código como:
+Este código (a partir da **\_ \_ aplicação \_ http amostra de cliente iothub)** chama repetidamente **IoTHubClient \_ LL \_ DoWork**. Cada vez **que o IoTHubClient \_ LL \_ DoWork** é chamado, envia alguns eventos do tampão para o IoT Hub e recupera uma mensagem em fila sendo enviada para o dispositivo. Este último caso significa que se registarmos uma função de retorno para mensagens, então a chamada é invocada (assumindo que quaisquer mensagens são em fila). Teríamos registado tal função de retorno com código como:
 
 ```C
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
@@ -134,7 +134,7 @@ Qualquer que seja o modelo que escolher, certifique-se de ser consistente em que
 
 O oposto também é verdade. Se começar com **ioTHubClient \_ CreateFromConnectionString**, use as APIs não-LL para qualquer processamento adicional.
 
-No dispositivo Azure IoT SDK para C, consulte a ** \_ \_ aplicação \_ http** da amostra do cliente iothub para um exemplo completo das APIs de nível inferior. A ** \_ \_ aplicação \_ amqp de amostra de cliente iothub** pode ser referenciada para um exemplo completo das APIs não-LL.
+No dispositivo Azure IoT SDK para C, consulte a **\_ \_ aplicação \_ http** da amostra do cliente iothub para um exemplo completo das APIs de nível inferior. A **\_ \_ aplicação \_ amqp de amostra de cliente iothub** pode ser referenciada para um exemplo completo das APIs não-LL.
 
 ## <a name="property-handling"></a>Movimentação de imóveis
 
@@ -223,7 +223,7 @@ Em todo o caso, esteja atento aos diferentes códigos de devolução para que po
 
 ## <a name="alternate-device-credentials"></a>Credenciais alternativas do dispositivo
 
-Como explicado anteriormente, a primeira coisa a fazer quando se trabalha com a biblioteca **IoTHubClient** é obter um ** \_ \_ IOTHUB CLIENT HANDLE** com uma chamada como:
+Como explicado anteriormente, a primeira coisa a fazer quando se trabalha com a biblioteca **IoTHubClient** é obter um **\_ \_ IOTHUB CLIENT HANDLE** com uma chamada como:
 
 ```C
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
@@ -238,7 +238,7 @@ HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSK
 
 Existem quatro peças de informação nesta cadeia: nome IoT Hub, sufixo IoT Hub, ID do dispositivo e chave de acesso partilhado. Obtém o nome de domínio totalmente qualificado (FQDN) de um hub IoT quando cria a sua instância de hub IoT no portal Azure — isto dá-lhe o nome do hub IoT (a primeira parte do FQDN) e o sufixo do hub IoT (o resto do FQDN). Obtém o ID do dispositivo e a chave de acesso partilhada quando regista o seu dispositivo com o IoT Hub (conforme descrito no [artigo anterior).](iot-hub-device-sdk-c-intro.md)
 
-**IoTHubClient \_ CreateFromConnectionString** dá-lhe uma maneira de inicializar a biblioteca. Se preferir, pode criar um novo ** \_ \_ MANÍpulo cliente IOTHUB** utilizando estes parâmetros individuais em vez da cadeia de ligação do dispositivo. Isto é conseguido com o seguinte código:
+**IoTHubClient \_ CreateFromConnectionString** dá-lhe uma maneira de inicializar a biblioteca. Se preferir, pode criar um novo **\_ \_ MANÍpulo cliente IOTHUB** utilizando estes parâmetros individuais em vez da cadeia de ligação do dispositivo. Isto é conseguido com o seguinte código:
 
 ```C
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;

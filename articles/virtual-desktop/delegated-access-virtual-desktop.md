@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f2aa2c74704cf89c082d2837b39e82902efa0a62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88010060"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
@@ -32,7 +32,7 @@ O acesso delegado ao Windows Virtual Desktop suporta os seguintes valores para c
 * Âmbito
     * Piscinas de acolhimento
     * Grupos de aplicações
-    * Áreas de trabalho
+    * Áreas de Trabalho
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlets PowerShell para atribuições de funções
 

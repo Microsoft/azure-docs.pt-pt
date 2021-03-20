@@ -13,17 +13,17 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a8ecb908063a40da32c1397fd4249811f9c2712
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99254619"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Links na página não funcionam para uma aplicação de Procuração de Aplicação
 
 Este artigo ajuda-o a resolver problemas por que as ligações na sua aplicação Azure Ative Directory Application Proxy não funcionam corretamente.
 
-## <a name="overview"></a>Descrição Geral 
+## <a name="overview"></a>Descrição geral 
 Após a publicação de uma aplicação Application Proxy, os únicos links que funcionam por padrão na aplicação são ligações a destinos contidos no URL raiz publicado. Os links dentro das aplicações não estão funcionando, o URL interno para a aplicação provavelmente não inclui todos os destinos de links dentro da aplicação.
 
 **Porque é que isto acontece?** Ao clicar num link numa aplicação, o Application Proxy tenta resolver o URL como um URL interno dentro da mesma aplicação, ou como um URL disponível externamente. Se o link aponta para um URL interno que não está dentro da mesma aplicação, não pertence a nenhum destes baldes e resulta num erro não encontrado.

@@ -4,10 +4,10 @@ description: Saiba como ativar a confiança de conteúdo para o seu registo de c
 ms.topic: article
 ms.date: 09/18/2020
 ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148583"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
@@ -80,7 +80,7 @@ Pode ver abaixo os detalhes para conceder a função `AcrImageSigner` no portal 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Navegue para o seu registo no portal Azure e, em seguida, selecione **Access control (IAM)**  >  **Add role assignment**. No âmbito **da atribuição de funções De**adicionar , selecione em `AcrImageSigner` **Função,** em seguida, **selecione** um ou mais utilizadores ou principais de serviço, em seguida, **Guarde**.
+Navegue para o seu registo no portal Azure e, em seguida, selecione **Access control (IAM)**  >  **Add role assignment**. No âmbito **da atribuição de funções De** adicionar , selecione em `AcrImageSigner` **Função,** em seguida, **selecione** um ou mais utilizadores ou principais de serviço, em seguida, **Guarde**.
 
 Neste exemplo, foram atribuídas duas entidades: `AcrImageSigner` um chefe de serviço chamado "service-principal", e um utilizador chamado "Utilizador Azure".
 

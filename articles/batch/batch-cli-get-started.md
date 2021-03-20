@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144759"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
@@ -141,7 +141,7 @@ Quando consulta o serviço Batch com uma operação `list`, pode especificar uma
 
 A tabela seguinte descreve as cláusulas OData que o serviço Batch suporta:
 
-| Cláusula | Descrição |
+| Cláusula | Description |
 |---|---|
 | `--select-clause [select-clause]` | Devolve um subconjunto de propriedades para cada entidade. |
 | `--filter-clause [filter-clause]` | Devolve apenas as entidades que correspondem à expressão OData especificada. |

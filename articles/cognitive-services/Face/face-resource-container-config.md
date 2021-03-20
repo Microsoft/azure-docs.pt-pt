@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80878430"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar recipientes face Docker
@@ -51,7 +51,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 Lembre-se de adicionar o encaminhamento _face_ ao ponto final URI, como mostrado no exemplo. 
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](face-how-to-install-containers.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -61,7 +61,7 @@ Lembre-se de adicionar o encaminhamento _face_ ao ponto final URI, como mostrado
 
 As definições de configuração na `CloudAI` secção fornecem opções específicas do contentor únicas para o seu recipiente. As seguintes configurações e objetos são suportados para o recipiente Face na `CloudAI` secção
 
-| Nome | Tipo de dados | Descrição |
+| Name | Tipo de dados | Descrição |
 |------|-----------|-------------|
 | `Storage` | Objeto | O cenário de armazenamento utilizado pelo recipiente Face. Para obter mais informações sobre cenários de armazenamento e configurações associadas para o `Storage` objeto, consulte [as definições do cenário de Armazenamento](#storage-scenario-settings) |
 
@@ -80,7 +80,7 @@ O recipiente Face armazena bolhas, cache, metadados e dados de fila, dependendo 
 
 Os cenários de armazenamento e as definições de configuração associadas são geridos pelo `Storage` objeto, sob a `CloudAI` secção de configuração. As seguintes definições de configuração estão disponíveis no `Storage` objeto:
 
-| Nome | Tipo de dados | Descrição |
+| Name | Tipo de dados | Descrição |
 |------|-----------|-------------|
 | `StorageScenario` | String | O cenário de armazenamento suportado pelo contentor. Estão disponíveis os seguintes valores<br/>`Memory` - Valor predefinido. O recipiente utiliza armazenamento temporário não persistente, não distribuído e em memória, para uso temporário de nó único. Se o recipiente for parado ou removido, o depósito desse recipiente será destruído.<br/>`Azure` - O contentor utiliza recursos Azure para armazenamento. Se o recipiente for parado ou removido, o armazenamento desse recipiente é persistido.|
 | `ConnectionStringOfAzureStorage` | String | O fio de ligação para o recurso de armazenamento Azure utilizado pelo recipiente.<br/>Esta definição só se aplica se `Azure` for especificada para a definição de `StorageScenario` configuração. |
@@ -122,7 +122,7 @@ Os recipientes Face não utilizam suportes de entrada ou saída para armazenar d
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](face-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço Docker e as permissões de localização do anfitrião. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | String | Os recipientes faciais não utilizam isto.|
 |Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|

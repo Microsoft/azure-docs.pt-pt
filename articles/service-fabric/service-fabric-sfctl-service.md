@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245607"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -48,14 +48,14 @@ Obtém o nome do pedido para o serviço especificado. Um erro de 404 FABRIC_E_SE
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -70,7 +70,7 @@ Obtém a lista de pacotes de código implantados num nó de Tecido de Serviço p
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -80,7 +80,7 @@ Obtém a lista de pacotes de código implantados num nó de Tecido de Serviço p
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -93,7 +93,7 @@ Cria o serviço de tecido de serviço especificado.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --app-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o \~ ' ' caráter. Por exemplo, se o nome da aplicação for 'tecido \: /myapp/app1', a identidade da aplicação seria 'myapp \~ app1' em 6.0+ e 'myapp/app1' em versões anteriores. |
 | --nome [Obrigatório] | O nome do serviço. Esta deve ser uma criança da identificação da aplicação. Este é o nome completo, incluindo o `fabric\:` URI. Por exemplo, o serviço `fabric\:/A/B` é uma criança de aplicação `fabric\:/A` . |
@@ -128,7 +128,7 @@ Cria o serviço de tecido de serviço especificado.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -143,7 +143,7 @@ Um serviço deve ser criado antes de poder ser eliminado. Por predefinição, o 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
 | ...-força-remoção | Remova uma aplicação ou serviço de tecido de serviço com força sem passar pela sequência graciosa de paragem. Este parâmetro pode ser usado para eliminar com força uma aplicação ou serviço para o qual a eliminação está fora devido a problemas no código de serviço que impede o encerramento gracioso de réplicas. |
@@ -151,7 +151,7 @@ Um serviço deve ser criado antes de poder ser eliminado. Por predefinição, o 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -166,7 +166,7 @@ Obtém a lista que contém a informação sobre um tipo de serviço específico 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -176,7 +176,7 @@ Obtém a lista que contém a informação sobre um tipo de serviço específico 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -191,7 +191,7 @@ Obtém a lista que contém as informações sobre tipos de serviço das aplicaç
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -200,7 +200,7 @@ Obtém a lista que contém as informações sobre tipos de serviço das aplicaç
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -215,14 +215,14 @@ Obtém a descrição de um serviço de tecido de serviço existente. Um serviço
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -237,7 +237,7 @@ Obtém os registos dos contentores para o contentor colocados num nó de tecido 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --código-pacote-nome [Obrigatório] | O nome do pacote de código especificado no manifesto de serviço registado como parte de um tipo de aplicação num cluster de Tecido de Serviço. |
@@ -249,7 +249,7 @@ Obtém os registos dos contentores para o contentor colocados num nó de tecido 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -264,7 +264,7 @@ Obtém a informação de saúde do serviço especificado. Use EventosHealthState
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
 | --eventos-saúde-estado-filtro | Permite filtrar a recolha de objetos HealthEvent devolvidos com base no estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são usados para avaliar o estado de saúde agregado. Se não for especificado, todas as entradas são devolvidas. Os valores do Estado são enumeração baseada em bandeiras, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando o operador bitwise 'OR'. Por exemplo, Se o valor fornecido for 6, todos os eventos com o valor healthState de OK (2) e Aviso (4) são devolvidos.  <br> - Padrão - Valor predefinido. Corresponde a qualquer Estado da Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do HealthState. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtro que combine com a entrada com o valor HealthState Ok. O valor é 2.  <br> - Aviso - Filtro que corresponda à entrada com o valor healthState Warning. O valor é 4.  <br> - Erro - Filtrar a entrada com o Erro de Valor HealthState. O valor é 8.  <br> - Tudo - Filtrar que corresponda à entrada com qualquer valor HealthState. O valor é 65535. |
@@ -274,7 +274,7 @@ Obtém a informação de saúde do serviço especificado. Use EventosHealthState
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -289,7 +289,7 @@ Devolve as informações sobre o serviço especificado pertencente à aplicaçã
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
@@ -297,7 +297,7 @@ Devolve as informações sobre o serviço especificado pertencente à aplicaçã
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -312,7 +312,7 @@ Devolve a informação sobre todos os serviços pertencentes à aplicação espe
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificado por URL. |
@@ -321,7 +321,7 @@ Devolve a informação sobre todos os serviços pertencentes à aplicação espe
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -336,7 +336,7 @@ Obtém o manifesto descrevendo um tipo de serviço. A resposta contém o manifes
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicação-tipo-nome [Obrigatório] | O nome do tipo de aplicação. |
 | --versão do tipo de aplicação [Necessária] | A versão do tipo de aplicação. |
@@ -345,7 +345,7 @@ Obtém o manifesto descrevendo um tipo de serviço. A resposta contém o manifes
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -358,7 +358,7 @@ Descarrega pacotes associados a manifesto de serviço especificado para a cache 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --app-tipo-nome [Obrigatório] | O nome do manifesto de candidatura para o manifesto de serviço solicitado correspondente. |
 | --versão tipo app [Necessária] | A versão do manifesto de candidatura para o manifesto de serviço solicitado correspondente. |
@@ -369,7 +369,7 @@ Descarrega pacotes associados a manifesto de serviço especificado para a cache 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -384,7 +384,7 @@ Obtém a informação sobre a saúde de um pacote de serviço para uma aplicaç�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -394,7 +394,7 @@ Obtém a informação sobre a saúde de um pacote de serviço para uma aplicaç�
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -409,7 +409,7 @@ Devolve as informações sobre os pacotes de serviço implantados num nó de Tec
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -418,7 +418,7 @@ Devolve as informações sobre os pacotes de serviço implantados num nó de Tec
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -433,7 +433,7 @@ Devolve as informações sobre os pacotes de serviço implantados num nó de Tec
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --id de aplicação [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da aplicação sem o \: esquema URI de tecido. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome da aplicação for "tecido \: /myapp/app1", a identidade da aplicação seria "myapp \~ app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome de nó [Obrigatório] | O nome do nó. |
@@ -441,7 +441,7 @@ Devolve as informações sobre os pacotes de serviço implantados num nó de Tec
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -456,14 +456,14 @@ Indica ao cluster de Tecido de Serviço que deve tentar recuperar o serviço esp
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -478,7 +478,7 @@ Relatórios de estado de saúde do serviço de tecido de serviço especificado. 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --saúde-propriedade [Necessária] | A propriedade da informação de saúde. <br><br> Uma entidade pode ter relatórios de saúde para diferentes propriedades. A propriedade é uma corda e não uma enumeração fixa para permitir ao repórter flexibilidade para categorizar a condição do estado que desencadeia o relatório. Por exemplo, um repórter com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que possa reportar a propriedade "AvailableDisk" nesse nó. O mesmo repórter pode monitorizar a conectividade do nó, para que possa reportar uma propriedade "Conectividade" no mesmo nó. Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para o nó especificado. Juntamente com o SourceId, a propriedade identifica exclusivamente a informação de saúde. |
 | --estado de saúde [Obrigatório] | Os valores possíveis incluem \: 'Inválido', 'Ok', 'Aviso', 'Erro', 'Desconhecido'. |
@@ -493,7 +493,7 @@ Relatórios de estado de saúde do serviço de tecido de serviço especificado. 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -508,7 +508,7 @@ Resolva uma divisória de serviço de tecido de serviço para obter os pontos fi
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este ID é tipicamente o nome completo do serviço sem o esquema URI de \: tecido' . A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for "tecido \: /myapp/app1/svc1", a identidade do serviço seria "myapp \~ app1 \~ svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores. |
 | --partição-tipo-chave | Tipo chave para a partição. Este parâmetro é necessário se o esquema de partição do serviço for Int64Range ou Nomeado. Os valores possíveis estão a seguir-se. - Nenhum (1) - Indica que o parâmetro PartitionKeyValue não está especificado. Isto é válido para as divisórias com esquema de partição como Singleton. Este é o valor predefinido. O valor é 1. - Int64Range (2) - Indica que o parâmetro PartitionKeyValue é uma chave de partição int64. Isto é válido para as divisórias com esquema de partição como Int64Range. O valor é 2. - Nome (3) - Indica que o parâmetro PartitionKeyValue é um nome da partição. Isto é válido para as divisórias com esquema de partição como Nomeado. O valor é 3. |
@@ -518,7 +518,7 @@ Resolva uma divisória de serviço de tecido de serviço para obter os pontos fi
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -533,7 +533,7 @@ Obtém a lista que contém as informações sobre tipos de serviço que são sup
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicação-tipo-nome [Obrigatório] | O nome do tipo de aplicação. |
 | --versão do tipo de aplicação [Necessária] | A versão do tipo de aplicação. |
@@ -541,7 +541,7 @@ Obtém a lista que contém as informações sobre tipos de serviço que são sup
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -554,7 +554,7 @@ Atualiza o serviço especificado utilizando a descrição dada da atualização.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Este é tipicamente o nome completo do serviço sem o \: esquema URI 'fabric'. A partir da versão 6.0, os nomes hierárquicos são delimitados com o " \~ " " personagem. Por exemplo, se o nome de serviço for 'tecido \: /myapp/app1/svc1', a identidade do serviço seria 'myapp \~ app1 \~ svc1' em 6.0+ e 'myapp/app1/svc1' em versões anteriores. |
 | ...restrições | Os constrangimentos de colocação como uma corda. As restrições de colocação são expressões booleanas nas propriedades dos nónó sociais e permitem restringir um serviço a nós específicos com base nos requisitos de serviço. Por exemplo, para colocar um serviço em nós onde o NodeType é azul especifique o seguinte \: "NodeColor == azul". |
@@ -577,7 +577,7 @@ Atualiza o serviço especificado utilizando a descrição dada da atualização.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

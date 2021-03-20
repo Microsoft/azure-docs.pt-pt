@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
 ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602510"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Economize custos para recursos com capacidade reservada - Azure SQL Database & SQL Managed Instance
@@ -57,9 +57,9 @@ Por exemplo, suponhamos que você está executando um propósito geral, Gen5 –
     
     | Campo      | Descrição|
     |------------|--------------|
-    |Subscrição|A subscrição utilizada para pagar a reserva de capacidade. O método de pagamento da subscrição é cobrado os custos iniciais da reserva. O tipo de subscrição deve ser um acordo de empresa (número de oferta MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (número de oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição de empresa, os encargos são deduzidos do saldo do pré-pagamento Azure (anteriormente chamado de compromisso monetário) ou cobrados como excesso de idade. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.|
+    |Subscrição|A subscrição utilizada para pagar a reserva de capacidade. O método de pagamento da subscrição é cobrado os custos iniciais da reserva. O tipo de subscrição deve ser um acordo de empresa (número de oferta MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (número de oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária) da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.|
     |Âmbito       |O âmbito da reserva vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar  <br/><br/>**Partilhado**, o desconto de reserva vCore é aplicado na base de dados ou caso gerido em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.<br/><br/>**Subscrição única**, o desconto de reserva vCore é aplicado nas bases de dados ou casos geridos nesta subscrição. <br/><br/>**Grupo de recursos únicos**, o desconto de reserva é aplicado às instâncias de bases de dados ou instâncias geridas na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.|
-    |Região      |A região de Azure que está coberta pela reserva de capacidade.|
+    |Region      |A região de Azure que está coberta pela reserva de capacidade.|
     |Tipo de implantação|O tipo de recurso SQL para o quais pretende comprar a reserva.|
     |Nível de desempenho|O nível de serviço das bases de dados ou de instâncias geridas. |
     |Termo        |Um ano ou três anos.|

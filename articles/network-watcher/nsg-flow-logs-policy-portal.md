@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011106"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>QuickStart: Implementar e gerir registos de fluxo NSG utilizando a política do Azure 
@@ -132,7 +132,7 @@ Devias ver algo como seguir a imagem uma vez que a tua apólice. Caso a sua apó
 ![Resultados da política do DINE](./media/network-watcher-builtin-policy/7_2_dine-policy-results.png)  
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 -   Utilize este [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) Vá mais fundo utilizando modelos ARM para implementar Registos de Fluxo e Análise de Tráfego.
 -   Saiba mais sobre [o Network Watcher](./index.yml)

@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-js
 ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91335454"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Create your first durable function in JavaScript (Criar a sua primeira função durável em JavaScript)
@@ -128,7 +128,7 @@ Tem agora uma aplicação Durable Functions que pode ser executada localmente e 
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. Deve instalar estas ferramentas ao iniciar uma função do Visual Studio Code pela primeira vez.
 
-1. Para testar a sua função, desaponte um ponto de rutura no `Hello` código de função de atividade *(Olá/index.js). * Prima F5 ou selecione `Debug: Start Debugging` a partir da paleta de comando para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+1. Para testar a sua função, desaponte um ponto de rutura no `Hello` código de função de atividade *(Olá/index.js).* Prima F5 ou selecione `Debug: Start Debugging` a partir da paleta de comando para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
 
     > [!NOTE]
     > Consulte os [Diagnósticos de Funções Duradouras](durable-functions-diagnostics.md#debugging) para obter mais informações sobre a depuração.

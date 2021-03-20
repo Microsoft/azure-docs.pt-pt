@@ -12,10 +12,10 @@ ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953768"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Tutorial para configurar HYPR com Azure Ative Directory B2C
@@ -50,7 +50,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Screenshot para o diagrama hypr-arquitetura](media/partner-hypr/hypr-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. Os utilizadores selecionam o pré-in/inscrição e introduzem o nome de utilizador na página.
 | 2. | A aplicação envia os atributos do utilizador ao Azure AD B2C para verificação de identificação.

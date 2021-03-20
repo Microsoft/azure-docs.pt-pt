@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326240"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
@@ -360,7 +360,7 @@ Guarde todos os ficheiros e prima F5 para executar a aplicação localmente.  Ap
 
 Antes de colocar a aplicação no Azure, instale o certificado na `Cert:\LocalMachine\My` loja de todos os nós de cluster remoto.  Os serviços podem mover-se para diferentes nós do cluster.  Quando o serviço Web de front-end é iniciado num nó de cluster, o script de arranque irá procurar o certificado e configurar as permissões de acesso.
 
-Em primeiro lugar, exporte o certificado para um ficheiro PFX. Abra a aplicação certlm.msc e navegue para **Personal** > **Certificados Pessoais**.  Clique com o botão direito no certificado *de certificação e* selecione **All Tasks** > **Export**.
+Em primeiro lugar, exporte o certificado para um ficheiro PFX. Abra a aplicação certlm.msc e navegue para  > **Certificados Pessoais**.  Clique com o botão direito no certificado *de certificação e* selecione **All Tasks** > **Export**.
 
 ![Exportar o certificado][image4]
 

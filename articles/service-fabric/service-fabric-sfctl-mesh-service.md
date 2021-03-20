@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 68ea876d9951b49a6683cc74df8b9107fd942e51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245675"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
@@ -29,13 +29,13 @@ Obtém a informação sobre todos os serviços de um recurso de aplicação. As 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --- nome de aplicação --nome de aplicação [Obrigatório] | O nome da aplicação. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -50,14 +50,14 @@ Obtém a informação sobre o recurso serviço com o nome próprio. As informaç
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --- nome de aplicação --nome de aplicação [Obrigatório] | O nome da aplicação. |
 | --nome -n [Obrigatório] | O nome do serviço. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |

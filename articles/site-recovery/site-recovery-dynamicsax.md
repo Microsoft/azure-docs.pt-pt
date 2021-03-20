@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86133813"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastres para uma aplicação AX dynamics multitier   
@@ -43,9 +43,9 @@ Para criar este artigo, utilizamos máquinas virtuais VMware com Dynamics AX 201
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Sim | Sim
-**VMware** | Sim | Sim
-**Servidor físico** | Sim | Sim
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Servidor físico** | Yes | Yes
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Permitir a recuperação de desastres da aplicação Dynamics AX utilizando a Recuperação do Local
 ### <a name="protect-your-dynamics-ax-application"></a>Proteja a sua aplicação Dynamics AX
@@ -99,7 +99,7 @@ Pode criar um plano de recuperação na Recuperação do Local para automatizar 
 
 1. Selecione o cofre de recuperação do site na sua subscrição e selecione o azulejo **planos de recuperação.**
 
-2. Selecione **+ plano de recuperação**e especifique um nome.
+2. Selecione **+ plano de recuperação** e especifique um nome.
 
 3. Selecione a **Fonte** e **o Alvo**. O alvo pode ser Azure ou um local secundário. Se escolher O Azure, tem de especificar o modelo de implantação.
 
@@ -153,7 +153,7 @@ Para obter mais informações sobre a execução de um teste de failover, consul
 
 2. Selecione o plano de recuperação criado para Dynamics AX.
 
-3. Selecione **Failover**e selecione **Failover**.
+3. Selecione **Failover** e selecione **Failover**.
 
 4. Selecione a rede alvo e **selecione ✓** para iniciar o processo de failover.
 
@@ -167,7 +167,7 @@ Para obter considerações específicas do SQL Server durante o failback, consul
 
 2. Selecione o plano de recuperação criado para Dynamics AX.
 
-3. Selecione **Failover**e selecione **Failover**.
+3. Selecione **Failover** e selecione **Failover**.
 
 4. Selecione **Mudar a direção**.
 

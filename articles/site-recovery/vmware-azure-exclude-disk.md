@@ -7,10 +7,10 @@ ms.date: 12/10/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: c4842172ff181b5cdbe7f6fecf69da8755ae43fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129881"
 ---
 # <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Excluir discos da replicação VMware VM para Azure
@@ -31,7 +31,7 @@ Antes de excluir discos da replicação:
  Note o seguinte antes de começar:
 
 - **Replicação:** Por defeito, todos os discos de uma máquina são replicados.
-- **Tipo de**disco : Só os discos básicos podem ser excluídos da replicação. Não é possível excluir discos do sistema operativo ou discos dinâmicos.
+- **Tipo de** disco : Só os discos básicos podem ser excluídos da replicação. Não é possível excluir discos do sistema operativo ou discos dinâmicos.
 - **Serviço de mobilidade**: Para excluir um disco de replicação, deve instalar manualmente o serviço de Mobilidade na máquina antes de permitir a replicação. Não é possível utilizar a instalação push, uma vez que este método instala o serviço mobility num VM apenas após a replicação estar ativada.  
 - **Adicionar/remover/excluir discos**: Depois de ativar a replicação, não é possível adicionar/remover/excluir discos para replicação. Se pretender adicionar/remover ou excluir discos, tem de desativar a proteção da máquina e, em seguida, ative-a novamente.
 - **Falha:** Depois de falha, se falhado sobre as aplicações precisa de discos excluídos para funcionar, é necessário criar esses discos manualmente. Em alternativa, pode integrar a automatização Azure num plano de recuperação, para criar o disco durante a falha da máquina.

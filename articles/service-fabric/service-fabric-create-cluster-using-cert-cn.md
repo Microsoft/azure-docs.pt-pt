@@ -4,10 +4,10 @@ description: Saiba como criar um cluster de tecido de serviço usando o nome com
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86246440"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar um cluster de tecido de serviço que usa o nome comum do certificado em vez de impressão digital
@@ -94,7 +94,7 @@ Em seguida, desagreda o *certificadoCommonName*, *sourceVaultValue,* e *certific
 },
 ```
 
-### <a name="update-the-template-file"></a>Atualizar o ficheiro do modelo
+### <a name="update-the-template-file"></a>Atualizar o ficheiro de modelo
 Em seguida, abra a *azuredeploy.jsem* arquivo num editor de texto e faça três atualizações para suportar o nome comum do certificado.
 
 1. Na secção **de parâmetros,** adicione um *parâmetro certificadoCommonName:*
@@ -120,7 +120,7 @@ Em seguida, abra a *azuredeploy.jsem* arquivo num editor de texto e faça três 
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. No recurso **Microsoft.Compute/virtualMachineScaleSets,** atualize a extensão da máquina virtual para utilizar o nome comum nas definições de certificado em vez da impressão digital.  No **virtualMachineProfile** -> **extensõesProfile** -> **extensões** -> **certificado** -> **de definições de propriedades**, -> **certificate**adicionar 
+3. No recurso **Microsoft.Compute/virtualMachineScaleSets,** atualize a extensão da máquina virtual para utilizar o nome comum nas definições de certificado em vez da impressão digital.  No **virtualMachineProfile** -> **extensõesProfile** -> **extensões** -> **certificado** -> **de definições de propriedades**, -> adicionar 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

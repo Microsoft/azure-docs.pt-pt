@@ -4,10 +4,10 @@ description: O Microsoft Azure Backup Server oferece-lhe capacidades de backup m
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332768"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novidades no Microsoft Azure Backup Server (MABS)
@@ -128,6 +128,6 @@ Saiba mais informações sobre os passos de instalação/upgrade para MABS [aqui
 Saiba como preparar o seu servidor ou comece a proteger uma carga de trabalho:
 
 * [Preparar cargas de trabalho do servidor de backup](backup-azure-microsoft-azure-backup.md)
-* [Utilize o Servidor de Backup para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md)
-* [Use o Servidor de Backup para fazer backup no SQL Server](backup-azure-sql-mabs.md)
+* [Utilizar o Backup Server para criar cópias de segurança de um servidor VMware](backup-azure-backup-server-vmware.md)
+* [Utilizar o Backup Server para criar cópias de segurança do SQL Server](backup-azure-sql-mabs.md)
 * [Use armazenamento de backup moderno com servidor de backup](backup-mabs-add-storage.md)

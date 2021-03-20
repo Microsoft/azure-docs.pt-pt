@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929200"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Eventos de processo de Azure Event Hubs com Apache Storm on HDInsight (C#)
@@ -206,7 +206,7 @@ Para parar as topologias, selecione cada topologia no **Storm Topology Viewer** 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, você aprendeu a usar o bico e parafuso do Java Event Hubs de uma topologia C# para trabalhar com dados em Azure Event Hubs. Para saber mais sobre a criação de topologias C#, consulte o seguinte:
 

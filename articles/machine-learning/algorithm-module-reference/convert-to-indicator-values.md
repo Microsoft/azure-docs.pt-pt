@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420857"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em Valores Indicadores
@@ -71,7 +71,7 @@ Agora pode utilizar as três colunas indicadoras como características num model
 
 O módulo devolve duas saídas:
 
-- **Conjunto de dados de resultados** : Conjunto de dados com colunas de valores indicadores convertidos. As colunas não selecionadas para limpeza também são "passadas".
+- **Conjunto de dados de resultados**: Conjunto de dados com colunas de valores indicadores convertidos. As colunas não selecionadas para limpeza também são "passadas".
 - **Transformação dos valores indicador :** Uma transformação de dados usada para converter para valores indicadores, que pode ser guardada no seu espaço de trabalho e aplicada a novos dados mais tarde.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Aplicar uma operação de valores indicadores guardados a novos dados

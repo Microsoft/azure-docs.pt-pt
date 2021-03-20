@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646389"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Implementação frequentemente feita perguntas (FAQs) para chaves de segurança híbridas FIDO2 em Azure AD 
@@ -231,7 +231,7 @@ O pedido HTTP é um pedido padrão de Token (PRT) de Atualização Primária. Es
 
 A Azure AD combina a chave de cliente encriptada e o tampão de mensagens na resposta prt como propriedades adicionais. A carga útil é encriptada utilizando a tecla de sessão do Dispositivo AD Azure.
 
-| Campo              | Tipo   | Descrição  |
+| Campo              | Tipo   | Description  |
 |--------------------|--------|--------------|
 | tgt_client_key     | string | Base64 codificada chave do cliente (segredo). Esta chave é o segredo do cliente usado para proteger o TGT. Neste cenário sem palavra-passe, o segredo do cliente é gerado pelo servidor como parte de cada pedido de TGT e depois devolvido ao cliente na resposta. |
 | tgt_key_type       | int    | O tipo de chave AD DS no local utilizado tanto para a chave do cliente como para a chave de sessão Kerberos incluída no KERB_MESSAGE_BUFFER. |

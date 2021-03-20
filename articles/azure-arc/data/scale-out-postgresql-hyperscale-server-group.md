@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96779979"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Dimensione o seu Azure Arc ativado pelo grupo de servidores pós-escala PostgreSQL adicionando mais nóns de trabalhadores
@@ -33,7 +33,7 @@ Se já estiver familiarizado com o modelo de escala de Azure Arc ativado pela Hy
 
 > \* Nos documentos acima, salte as secções **Iniciar sessão No portal Azure,**& **Criar uma Base de Dados Azure para PostgreSQL - Hiperescala (Citus)**. Implemente os passos restantes na sua implantação do Arco Azure. Estas secções são específicas da Base de Dados Azure para a Hiperescala Pós-SQL (Citus) oferecida como um serviço PaaS na nuvem Azure, mas as outras partes dos documentos são diretamente aplicáveis à sua Hiperescala Pós-Altura pós-SQL ativada pelo Arco Azure.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 Este cenário refere-se ao grupo de servidores de hiperescala PostgreSQL que foi criado como um exemplo na documentação do [grupo de servidores de hiperescala PostgreSQL ativada por Um Arco Azure.](create-postgresql-hyperscale-server-group.md)
 
 ### <a name="load-test-data"></a>Carregar os dados de teste

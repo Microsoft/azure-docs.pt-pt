@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Infor CloudSuite para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
+title: 'Tutorial: Configurar Infor CloudSuite para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisões automáticas e desavisagem de contas de utilizadores ao Infor CloudSuite.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
 ms.openlocfilehash: 8fdd2c8a326fbdc68d1aec65377f4c465c5ee4c1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96353906"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar Infor CloudSuite para fornecimento automático de utilizadores

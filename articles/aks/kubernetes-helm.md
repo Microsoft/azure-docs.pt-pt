@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/07/2020
 ms.author: zarhoads
 ms.openlocfilehash: f12dffe0b538738a8f6dd00cd3d87d44da828f21
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96779172"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicações existentes com Helm in Azure Kubernetes Service (AKS)
@@ -19,7 +19,7 @@ ms.locfileid: "96779172"
 
 Este artigo mostra-lhe como configurar e usar Helm num cluster Kubernetes em AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

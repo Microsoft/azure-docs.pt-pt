@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 3eb761a793c41c2e2cc2cb952e4fb9f241b41ab6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929698"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar empregos de streaming Apache Spark de alta disponibilidade com YARN
@@ -114,7 +114,7 @@ Para resumir, utilizando o checkpoint + RECETORES WAL + confiáveis, poderá for
     // to be able to recover on restart, store all offsets in an external database
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do fluxo de faíscas de Apache Spark](apache-spark-streaming-overview.md)
 * [Crie empregos em streaming de Faíscas Apache Com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)

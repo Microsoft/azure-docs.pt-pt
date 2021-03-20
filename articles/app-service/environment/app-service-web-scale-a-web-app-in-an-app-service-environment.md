@@ -8,10 +8,10 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86220563"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Aplicativos de escala em um Ambiente de Serviço de Aplicações v1
@@ -39,11 +39,11 @@ Você pode criar vários planos de serviço de aplicações usando recursos comp
 ### <a name="scaling-the-number-of-instances"></a>Escalonamento do número de ocorrências
 Quando cria a sua aplicação web pela primeira vez num Ambiente de Serviço de Aplicações começa com 1 instância.  Em seguida, pode escalar para instâncias adicionais para fornecer recursos de computação adicionais para a sua app.   
 
-Se o seu ASE tem capacidade suficiente, então isto é muito simples.  Você vai ao seu Plano de Serviço de Aplicações que detém os sites que deseja escalar e selecionar Escala.  Isto abre o UI onde pode definir manualmente a balança para o seu ASP ou configurar regras de autoescala para o seu ASP.  Para escalar manualmente a sua aplicação basta definir ***Escala através*** de uma contagem ***de exemplos que eu insira manualmente***.  A partir daqui, arraste o slider para a quantidade desejada ou introduza-o na caixa ao lado do deslizador.  
+Se o seu ASE tem capacidade suficiente, então isto é muito simples.  Você vai ao seu Plano de Serviço de Aplicações que detém os sites que deseja escalar e selecionar Escala.  Isto abre o UI onde pode definir manualmente a balança para o seu ASP ou configurar regras de autoescala para o seu ASP.  Para escalar manualmente a sua aplicação simplesmente definir ***Escala por** _ para _* uma contagem de instância que _eu insira manualmente_**.  A partir daqui, arraste o slider para a quantidade desejada ou introduza-o na caixa ao lado do deslizador.  
 
 ![Screenshot que mostra onde pode definir a escala para o seu ASP ou configurar regras de autoescala para o seu ASP.][2] 
 
-As regras de autoescala para um ASP num ASE funcionam da mesma forma que normalmente.  Pode selecionar ***a Percentagem de CPU*** em ***Escala e*** criar regras de autoescala para o seu ASP com base na Percentagem de CPU ou pode criar regras mais complexas usando ***regras de programação e desempenho***.  Para ver mais detalhes completos sobre configurar a autoescalação, utilize o guia aqui [Escala uma aplicação no Azure App Service][AppScale]. 
+As regras de autoescala para um ASP num ASE funcionam da mesma forma que normalmente.  Pode selecionar ***Percentagem de CPU** _ em _*_Escala e_*_ criar regras de autoescala para o seu ASP com base na Percentagem de CPU ou pode criar regras mais complexas usando _as regras_ de agenda e desempenho _* **.  Para ver mais detalhes completos sobre configurar a autoescalação, utilize o guia aqui [Escala uma aplicação no Azure App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Seleção de piscina de trabalhadores
 Como já foi notado, a seleção da piscina dos trabalhadores é acedida a partir da UI ASP.  Abra a lâmina para o ASP que pretende escalar e selecionar a piscina do trabalhador.  Você verá todas as piscinas de trabalhadores que você configuraram no seu Ambiente de Serviço de Aplicações.  Se você tem apenas uma piscina de trabalhadores, então você só verá a piscina listada.  Para alterar em que grupo de trabalhadores o seu ASP está, basta selecionar o pool de trabalhadores para onde pretende que o seu Plano de Serviço de Aplicações se mude.  

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: data-factory
 author: memildin
 ms.service: data-factory
@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 55390a3eb2a074729b4a0868416a95e208325b76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91400940"
 ---
 ```json
@@ -60,23 +60,23 @@ ms.locfileid: "91400940"
 
 |Campo|Tipo de dados|Descrição|
 |----|----|----|
-|**Nome de Alertadisplay**|Cadeia|O nome do alerta.|
-|**AlertaType**|Cadeia|O tipo de alerta. Os alertas do mesmo tipo devem ter o mesmo valor. Este campo é uma corda com chave que representa o tipo de alerta e não de uma instância de alerta. Todas as instâncias de alerta da mesma lógica de deteção/analítico devem ter o mesmo valor para o tipo de alerta.|
-|**Entidade Comprometida**|Cadeia|O nome de exibição do recurso mais relacionado com este alerta.|
-|**Descrição**|Cadeia|Descrição do alerta.|
+|**Nome de Alertadisplay**|String|O nome do alerta.|
+|**AlertaType**|String|O tipo de alerta. Os alertas do mesmo tipo devem ter o mesmo valor. Este campo é uma corda com chave que representa o tipo de alerta e não de uma instância de alerta. Todas as instâncias de alerta da mesma lógica de deteção/analítico devem ter o mesmo valor para o tipo de alerta.|
+|**Entidade Comprometida**|String|O nome de exibição do recurso mais relacionado com este alerta.|
+|**Descrição**|String|Descrição do alerta.|
 |**EndTimeUtc**|DateTime|A hora do último evento ou atividade incluída no alerta.  O campo deve ser uma cadeia que esteja em conformidade com o formato ISO8601, incluindo informações sobre o ausmo horário UTC.|
 |**Entidades**|IEnumerable (IEntity)|Uma lista de entidades relacionadas com o alerta. Esta lista pode conter uma mistura de entidades de diversos tipos. O tipo de entidades pode ser qualquer um dos tipos definidos na secção Entidades. As entidades que não constam da lista abaixo também podem ser enviadas, no entanto não é garantido que sejam processadas (o alerta não falhará a validação com novos tipos de entidades).|
 |**Extensões**|Dicionário (String,String)|Os fornecedores podem (opcionalmente) incluir campos personalizados aqui.|
 |**Intenção**|Enumeração|A corrente de morte está por detrás do alerta. Para lista de valores apoiados e explicações das intenções de cadeia de morte apoiadas pelo Azure Security Center, consulte [Intenções](../articles/security-center/alerts-reference.md#intentions).<br/>Este campo pode ter múltiplos valores (separados por vírgula).|
 |**IsIncident**|Booleano|Este campo determina se o alerta é um incidente (um agrupamento composto de vários alertas) ou um único alerta. O valor predefinido para o campo é 'falso' (o que significa que é um único alerta).|
 |**ProcessamentoEndTime**|DateTime|O momento em que o alerta foi acessível ao utilizador final no produto original que mantém o alerta.|
-|**Nome do produto**|Cadeia|O nome do produto que publicou este alerta (Azure Security Center, Azure ATP, Microsoft Defender ATP, MCAS, e assim por diante).|
+|**Nome do produto**|String|O nome do produto que publicou este alerta (Azure Security Center, Azure ATP, Microsoft Defender ATP, MCAS, e assim por diante).|
 |**ReparaçãoSteps**|Lista<String>|Itens de ação manual a tomar para remediar o alerta.|
 |**Identificadores de Recursos**|Lista (Identificadores de Recursos)|Os identificadores de recursos para este alerta que podem ser usados para direcionar o alerta para o grupo de exposição do produto certo (inquilino, espaço de trabalho, subscrição, etc.). Pode haver vários identificadores de diferente tipo por alerta.|
 |**Gravidade**|Enumeração|A gravidade do alerta, conforme reportado pelo provedor. Valores possíveis: Informativo, Baixo, Médio e Alto.|
 |**StartTimeUtc**|DateTime|A hora do primeiro evento ou atividade incluída no alerta. O campo deve ser uma cadeia que esteja em conformidade com o formato ISO8601, incluindo informações sobre o ausmo horário UTC.|
 |**Estado**|Enumeração|O estado do ciclo de vida do alerta.<br/>Os estatutos apoiados são: Novos, Resolvidos, Dispensados, Desconhecidos.<br/>Um alerta que especifica um valor diferente das opções suportadas é atribuído o estado 'Desconhecido'.<br/>Um alerta que não especifica um valor é atribuído o estado 'Novo'.|
-|**SystemAlertId**|Cadeia|O identificador de alerta.|
+|**SystemAlertId**|String|O identificador de alerta.|
 |**TimeGenerated**|DateTime|O momento em que o alerta foi gerado pelo fornecedor de alerta. Se não for reportado por fornecedores de alerta interno, um produto pode optar por atribuir o tempo que foi recebido para processamento pelo produto.  O campo deve ser uma cadeia que esteja em conformidade com o formato ISO8601, incluindo informações sobre o ausmo horário UTC.|
-|**Nome do fornecedor**|Cadeia|O nome do vendedor que levanta o alerta.|
+|**Nome do fornecedor**|String|O nome do vendedor que levanta o alerta.|
 |||

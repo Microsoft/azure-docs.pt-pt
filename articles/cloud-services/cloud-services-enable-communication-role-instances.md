@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743037"
 ---
 # <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Permitir a comunicação para instâncias de função em Azure Cloud Services (clássico)
@@ -368,7 +368,7 @@ Só permite o tráfego de rede de **WebRole1** a **WorkerRole1,** **WebRole1** a
 
 Uma referência de esquema XML para os elementos acima utilizados pode ser encontrada [aqui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre o [modelo](cloud-services-model-and-package.md)cloud service .
 
 

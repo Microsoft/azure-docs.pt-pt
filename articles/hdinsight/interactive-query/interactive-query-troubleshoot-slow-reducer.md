@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
 ms.openlocfilehash: f9b6e0d862d17badb1caa672852214cdd86abb49
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930820"
 ---
 # <a name="scenario-reducer-is-slow-in-azure-hdinsight"></a>Cenário: Redutor é lento em Azure HDInsight
@@ -35,6 +35,6 @@ Um valor `true` de faz sentido quando o número de divisórias é maior e os dad
 
 1. Se #1 não for possível, desafie o valor do config em falso na sessão beeline e tente novamente a consulta. `set hive.optimize.sort.dynamic.partition=false`. Não é aconselhável definir o valor em falso a um nível de cluster. O valor `true` é ideal e definir o parâmetro conforme necessário com base na natureza dos dados e consulta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -1,5 +1,5 @@
 ---
-title: Como utilizar a Avaliação de Acesso Contínuo viabilizou APIs nas suas aplicações Rio Azure
+title: Como utilizar a Avaliação contínua de Acesso ativada nas suas aplicações | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Como aumentar a segurança e a resiliência das aplicações adicionando suporte para avaliação contínua de acesso, permitindo o acesso de longa duração a tokens que podem ser revogados com base em eventos críticos e avaliação de políticas.
 services: active-directory
@@ -13,10 +13,10 @@ ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
 ms.openlocfilehash: f6ce792b3db0100d7356884bbc6ee2696580df10
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652063"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Como utilizar a Avaliação contínua de Acessos permitiu APIs nas suas aplicações

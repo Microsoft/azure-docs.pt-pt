@@ -1,5 +1,5 @@
 ---
-title: Gestão de computação Azure Stack Edge Pro Microsoft Docs
+title: Azure Stack Edge Pro gestão de computação | Microsoft Docs
 description: Descreve como gerir as definições de computação Edge, tais como gatilho, módulos, configuração de computação, remover a configuração através do portal Azure no seu Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: alkohli
 ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97967916"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gerir computação no seu Azure Stack Edge Pro

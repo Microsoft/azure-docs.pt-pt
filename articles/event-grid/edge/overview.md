@@ -4,10 +4,10 @@ description: Utilize a Grelha de Eventos Azure como módulo no IoT Edge para eve
 ms.topic: overview
 ms.date: 07/08/2020
 ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171521"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>O que é Azure Event Grid em Azure IoT Edge?
@@ -71,11 +71,11 @@ Existem cinco conceitos na Azure Event Grid que permitem começar:
 * **Subscrições de eventos** — O ponto final ou mecanismo incorporado para encaminhar eventos, por vezes para mais do que um manipulador. As subscrições também são utilizadas pelos processadores para filtrar inteligentemente os eventos recebidos.
 * **Manipuladores de eventos** — A app ou serviço que reage ao evento.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 
 A Grelha de Eventos no IoT Edge é gratuita durante a pré-visualização pública.
 
-## <a name="issues"></a>Problemas
+## <a name="issues"></a>Questões
 Informe quaisquer problemas com a utilização da Grade de Eventos no IoT Edge em [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80348384"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Visão geral do desenvolvimento do serviço Azure Blockchain
@@ -44,7 +44,7 @@ Para obter mais informações, consulte [Quickstart: Use Geth para anexar um nó
 O Qurum é um protocolo de contabilidade distribuído baseado no Ethereum com transações mais privacidade contratual e novos mecanismos de consenso. As principais melhorias ao longo Go-Ethereum incluem:
 
 * **Privacidade** - O Quorum apoia transações privadas e contratos privados através da separação do Estado público e privado e utiliza trocas de mensagens encriptadas entre pares para transferência direcionada de dados privados para os participantes da rede.
-* **Mecanismos** de consenso alternativos - prova de trabalho ou consenso de prova de participação não são necessários para uma rede autorizada. O Quorum oferece múltiplos mecanismos de consenso concebidos para cadeias de consórcios como RAFT e IBFT.O Serviço Azure Blockchain utiliza o mecanismo de consenso IBFT.
+* **Mecanismos** de consenso alternativos - prova de trabalho ou consenso de prova de participação não são necessários para uma rede autorizada. O Quorum oferece múltiplos mecanismos de consenso concebidos para cadeias de consórcios como RAFT e IBFT.  O Serviço Azure Blockchain utiliza o mecanismo de consenso IBFT.
 * **Permissão por pares** - a permissão de nó e pares usando contratos inteligentes garante que apenas as partes conhecidas podem aderir à rede.
 * **Maior Desempenho** - O Quorum oferece um desempenho superior ao do Geth público.
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421163"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo de Rede Neural Two-Class
@@ -42,13 +42,13 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
   
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único** : Escolha esta opção se já sabe como pretende configurar o modelo.
+    -   **Parâmetro único**: Escolha esta opção se já sabe como pretende configurar o modelo.
 
-    -   **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.  
+    -   **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.  
 
 3.  Para **especificação de camada oculta,** selecione o tipo de arquitetura de rede para criar.  
   
-    -   **Caso totalmente ligado** : Utiliza a arquitetura de rede neural padrão, definida para redes neuronais de duas classes da seguinte forma:
+    -   **Caso totalmente ligado**: Utiliza a arquitetura de rede neural padrão, definida para redes neuronais de duas classes da seguinte forma:
   
         -   Tem uma camada escondida.
   
@@ -66,7 +66,7 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
 
 7.  Para **o diâmetro inicial dos pesos de aprendizagem,** especifique os pesos dos nós no início do processo de aprendizagem.
 
-8.  Para **o impulso** , especifique um peso a aplicar durante a aprendizagem aos nóns de iterações anteriores  
+8.  Para **o impulso**, especifique um peso a aplicar durante a aprendizagem aos nóns de iterações anteriores  
 
 10. Selecione a opção **De exemplos Shuffle** para baralhar casos entre iterações. Se desmarcar esta opção, os casos são processados exatamente da mesma ordem sempre que o oleoduto.
   

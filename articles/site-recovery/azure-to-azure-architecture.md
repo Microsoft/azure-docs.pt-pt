@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
 ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652250"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
@@ -43,7 +43,7 @@ Quando ativa a replicação de um VM, a Recuperação do Site dá-lhe a opção 
 **Recurso de Destino** | **Definição predefinida**
 --- | ---
 **Assinatura de destino** | O mesmo que a assinatura de origem.
-**Grupo de recursos-alvo** | O grupo de recursos a que os VMs pertencem após o failover.<br/><br/> Pode ser em qualquer região de Azure, exceto na região de origem.<br/><br/> A Recuperação do Site cria um novo grupo de recursos na região alvo, com um sufixo "asr".<br/><br/>
+**Grupo de recursos de destino** | O grupo de recursos a que os VMs pertencem após o failover.<br/><br/> Pode ser em qualquer região de Azure, exceto na região de origem.<br/><br/> A Recuperação do Site cria um novo grupo de recursos na região alvo, com um sufixo "asr".<br/><br/>
 **VNet alvo** | A rede virtual (VNet) na qual os VMs replicados estão localizados após a falha. Um mapeamento de rede é criado entre redes virtuais de origem e alvo, e vice-versa.<br/><br/> A Recuperação do Site cria um novo VNet e sub-rede, com o sufixo "asr".
 **Conta de armazenamento alvo** |  Se o VM não utilizar um disco gerido, esta é a conta de armazenamento a que os dados são replicados.<br/><br/> A Recuperação do Site cria uma nova conta de armazenamento na região alvo, para espelhar a conta de armazenamento de origem.
 **Discos geridos por réplicas** | Se o VM utilizar um disco gerido, estes são os discos geridos aos quais os dados são replicados.<br/><br/> A Recuperação do Site cria discos geridos por réplicas na região de armazenamento para espelhar a fonte.
@@ -134,7 +134,7 @@ Se o acesso de saída para VMs for controlado com URLs, permita estes URLs.
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que a VM comunique com o serviço Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
-| Cofre de Chaves                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
 | Automatização do Azure          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Permite permitir a atualização automática do agente de mobilidade para um item replicado via portal |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP

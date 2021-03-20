@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array iSCSI configuração do servidor / Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array iSCSI configuração do servidor | Microsoft Docs
 description: Descreve como executar a configuração inicial, registar o seu servidor StorSimple iSCSI e completar a configuração do dispositivo.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956556"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementar StorSimple Virtual Array – Configurar como um servidor iSCSI através do portal Azure
@@ -81,7 +81,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 6. Na página de definições do **dispositivo:**
    
    1. Atribua um **nome** único ao seu dispositivo. Este nome pode ser de 1 a 15 caracteres e pode conter letras, números e hífenes.
-   2. Clique no ícone do servidor **iSCSI** ![ para o tipo de dispositivo que está a ](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) criar. **Type** Um servidor iSCSI permitir-lhe-á providenciar armazenamento de blocos.
+   2. Clique no ícone do servidor **iSCSI** ![ para o tipo de dispositivo que está a ](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) criar.  Um servidor iSCSI permitir-lhe-á providenciar armazenamento de blocos.
    3. Especifique se pretende que este dispositivo seja unido ao domínio. Se o seu dispositivo for um servidor iSCSI, então juntar o domínio é opcional. Se decidir não juntar o servidor iSCSI a um domínio, clique em **Aplicar,** aguarde que as definições sejam aplicadas e, em seguida, salte para o passo seguinte.
       
        Se quiser juntar o dispositivo a um domínio. Introduza um **nome de domínio** e, em seguida, clique em **Aplicar**.
@@ -162,7 +162,7 @@ Execute os seguintes passos no portal Azure para completar a configuração do d
 2. Na lâmina **de volume adicionar,** faça o seguinte:
    
    * No campo **de nomes Volume,** insira um nome único para o seu volume. O nome deve ser uma corda que contenha 3 a 127 caracteres.
-   * Na lista de dropdown **do tipo,** especifique se deve criar um volume **tiered** ou **localmente fixado.** Para cargas de trabalho que exijam garantias locais, baixas latências e maior desempenho, selecione **volume** **fixo local.** Para todos os outros dados, **selecione Volume Tiered** **volume**.
+   * Na lista de dropdown **do tipo,** especifique se deve criar um volume **tiered** ou **localmente fixado.** Para cargas de trabalho que exijam garantias locais, baixas latências e maior desempenho, selecione **volume** **fixo local.** Para todos os outros dados, **selecione Volume Tiered** .
    * No campo **Capacidade,** especifique o tamanho do volume. Um volume hierárquico deve estar entre 500 GB e 5 TB e um volume fixado localmente deve estar entre 50 GB e 500 GB.
      
      Um volume fixado localmente é densamente a provisionado e garante que os dados primários no volume permanecem no dispositivo e não derramem para a nuvem.

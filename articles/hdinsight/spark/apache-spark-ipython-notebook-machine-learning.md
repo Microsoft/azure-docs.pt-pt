@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
 ms.openlocfilehash: 88a71eb5a8ca9a6f2bf1d17fc4eaf9780527d2cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930544"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Construir uma aplicação de aprendizagem automática Apache Spark em Azure HDInsight
@@ -201,7 +201,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 ![Portal Azure elimina um cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar o Jupyter Notebook para construir uma aplicação de aprendizagem automática Apache Spark para Azure HDInsight. Avance para o próximo tutorial para saber como utilizar o IntelliJ IDEA para trabalhos do Spark.
 

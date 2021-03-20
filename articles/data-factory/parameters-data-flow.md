@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040748"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrizar os fluxos de dados de mapeamento
@@ -28,13 +28,13 @@ Utilize esta capacidade para tornar os seus dados fluídos de uso geral, flexív
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Criar parâmetros num fluxo de dados de mapeamento
 
-Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela de fluxo de dados para ver as propriedades gerais. No painel de definições, verá um separador chamado **Parâmetro** . Selecione **Novo** para gerar um novo parâmetro. Para cada parâmetro, deve atribuir um nome, selecionar um tipo e definir opcionalmente um valor predefinido.
+Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela de fluxo de dados para ver as propriedades gerais. No painel de definições, verá um separador chamado **Parâmetro**. Selecione **Novo** para gerar um novo parâmetro. Para cada parâmetro, deve atribuir um nome, selecionar um tipo e definir opcionalmente um valor predefinido.
 
 ![Criar parâmetros de fluxo de dados](media/data-flow/create-params.png "Criar parâmetros de fluxo de dados")
 
 ## <a name="use-parameters-in-a-mapping-data-flow"></a>Use parâmetros num fluxo de dados de mapeamento 
 
-Os parâmetros podem ser referenciados em qualquer expressão de fluxo de dados. Os parâmetros começam com $e são imutáveis. Encontrará a lista de parâmetros disponíveis no interior do Porta-voz do Construtor de Expressão no **separador Parâmetros.**
+Os parâmetros podem ser referenciados em qualquer expressão de fluxo de dados. Os parâmetros começam com $$ são imutáveis. Encontrará a lista de parâmetros disponíveis no interior do Porta-voz do Construtor de Expressão no **separador Parâmetros.**
 
 ![A screenshot mostra os parâmetros disponíveis no separador Parâmetros.](media/data-flow/parameter-expression.png "Expressão do parâmetro do fluxo de dados")
 

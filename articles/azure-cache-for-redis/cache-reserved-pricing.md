@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 2f3472aa495042749410bc0b9635f0924a02e1fd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98598552"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pré-pagamento por Azure Cache para redis computa recursos com capacidade reservada
@@ -52,9 +52,9 @@ A tabela a seguir descreve os campos necessários.
 
 | Campo | Descrição |
 | :------------ | :------- |
-| Subscrição   | A subscrição utilizada para pagar a Cache Azure para reserva de capacidade reservada redis. O método de pagamento da subscrição é cobrado os custos iniciais da Cache Azure para reserva de capacidade reservada redis. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição de empresa, os encargos são deduzidos do saldo do pré-pagamento Azure (anteriormente chamado de compromisso monetário) ou cobrados como excesso de idade. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
+| Subscrição   | A subscrição utilizada para pagar a Cache Azure para reserva de capacidade reservada redis. O método de pagamento da subscrição é cobrado os custos iniciais da Cache Azure para reserva de capacidade reservada redis. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária) da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
 | Âmbito | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Partilhado**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis que estão a decorrer em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Subscrição única**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis nesta subscrição. </br></br> **Grupo de recursos únicos**, o desconto de reserva é aplicado à Cache Azure para instâncias Redis na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.
-| Região | A região de Azure que está coberta pela Cache Azure para reserva de capacidade reservada redis.
+| Region | A região de Azure que está coberta pela Cache Azure para reserva de capacidade reservada redis.
 | Escalão de preço | O nível de serviço para o Cache Azure para servidores Redis.
 | Termo | Um ano ou três anos
 | Quantidade | A quantidade de recursos computacionares que estão a ser adquiridos dentro da Cache Azure para reserva de capacidade reservada redis. A quantidade é uma série de caches na região de Azure selecionada e nível de serviço que estão sendo reservados e receberá o desconto de faturação. Por exemplo, se estiver a executar ou a planear executar um Cache Azure para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, então especificaria a quantidade que lhe dá o equivalente a 26 GB para maximizar o benefício para todos os caches. Isto pode ser 1 caches P3 ou 2 P2.
