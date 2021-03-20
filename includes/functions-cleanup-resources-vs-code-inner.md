@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/20/2020
 ms.author: glenga
 ms.openlocfilehash: 74aaf519e6fbe4ddff5398857a459f562319c59e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422693"
 ---
 1. No Código do Estúdio Visual, prima <kbd>F1</kbd> para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Open in portal` .
@@ -19,7 +19,7 @@ ms.locfileid: "93422693"
 
    :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos a eliminar na página da aplicação de função.":::
 
-1. Na página **Grupo de recursos** , reveja a lista dos recursos incluídos e certifique-se de que são aqueles que pretende eliminar.
+1. Na página **Grupo de recursos**, reveja a lista dos recursos incluídos e certifique-se de que são aqueles que pretende eliminar.
  
 1. Selecione **Eliminar grupo de recursos** e siga as instruções.
 

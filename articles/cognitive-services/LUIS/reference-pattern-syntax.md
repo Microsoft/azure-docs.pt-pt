@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542194"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrão
@@ -57,8 +57,8 @@ Uma combinação de **agrupamento** com sintaxe **opcional** tem um limite de 3 
 
 |Permitido|Exemplo|
 |--|--|
-|Sim|[ [ test1 &#x7c; test2 ] ] &#x7c; test3 )|
-|Não|[ [ [ test1 ] &#x7c; test2 ] ] &#x7c; test3 )|
+|Yes|[ [ test1 &#x7c; test2 ] ] &#x7c; test3 )|
+|No|[ [ [ test1 ] &#x7c; test2 ] ] &#x7c; test3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limites de nidificação para grupos com sintaxe ou de ing
 
@@ -66,8 +66,8 @@ Uma combinação de **agrupamento** com sintaxe **ou-ing** tem um limite de 2 ba
 
 |Permitido|Exemplo|
 |--|--|
-|Sim|( ensaio 1 &#x7c; &#x7c; de ensaio (ensaio 3 &#x7c; 4)|
-|Não|( ensaio 1 &#x7c; teste 2 &#x7c; teste3 &#x7c; (ensaio 4 &#x7c; teste5 ) |
+|Yes|( ensaio 1 &#x7c; &#x7c; de ensaio (ensaio 3 &#x7c; 4)|
+|No|( ensaio 1 &#x7c; teste 2 &#x7c; teste3 &#x7c; (ensaio 4 &#x7c; teste5 ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade a um modelo de padrão
 Para adicionar uma entidade ao modelo de padrão, rodeie o nome da entidade com aparelhos encaracolados, tais como `Who does {Employee} manage?` .

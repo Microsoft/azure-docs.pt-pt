@@ -15,10 +15,10 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895891"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
@@ -55,7 +55,7 @@ Quando implementa uma VM, o Azure aplica várias regras de segurança predefinid
 
 Quando cria uma rede virtual, o Azure cria várias rotas de saída predefinidas para o tráfego de rede. O tráfego de saída de todos os recursos, como VMs, implementados numa rede virtual, são encaminhados com base nas rotas predefinidas do Azure. Pode substituir as rotas predefinidas do Azure ou criar rotas adicionais. Pode aperceber-se de que uma VM já não consegue comunicar com outros recursos devido a uma rota específica. A capacidade de *próximo salto* permite-lhe especificar um endereço IPv4 de origem e de destino. Depois, o próximo salto testa a comunicação e informa-o do tipo de próximo salto que é utilizado para encaminhar o tráfego. Pode, em seguida, remover, alterar ou adicionar uma rota, para resolver um problema de encaminhamento. Saiba mais sobre a capacidade de [próximo salto](diagnose-vm-network-routing-problem.md).
 
-### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnosticar ligações de saída a partir de uma VM
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnosticar ligações de saída de um VM
 
 A capacidade de *resolução de problemas de ligação* permite-lhe testar uma ligação entre uma VM e outra VM, um FQDN, um URI ou um endereço IPv4. O teste devolve informações semelhantes às que são devolvidas quando é utilizada a capacidade de [monitorização da ligação](#connection-monitor), mas testa a ligação num ponto no tempo, em vez de a monitorizar ao longo do tempo, que é o que acontece com a monitorização da ligação. Saiba mais sobre como resolver problemas de ligações com a [resolução de problemas de ligações](network-watcher-connectivity-overview.md).
 

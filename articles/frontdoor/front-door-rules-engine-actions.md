@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91569773"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Ações do Motor de Regras do Azure Front Door
@@ -35,9 +35,9 @@ Utilize esta ação para modificar os cabeçalhos que estão presentes nos pedid
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada com regras de correspondência e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada com regras de correspondência e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
 
 ## <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -47,9 +47,9 @@ Utilize esta ação para modificar cabeçalhos que estão presentes nas resposta
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada e a regra corresponde ao cabeçalho especificado na regra, o cabeçalho é eliminado da resposta. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor** especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor** especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada e a regra corresponde ao cabeçalho especificado na regra, o cabeçalho é eliminado da resposta. | String
 
 ## <a name="route-configuration-overrides"></a>Substituições da configuração de rotas 
 
@@ -92,14 +92,14 @@ Caminho de encaminhamento personalizado | Defina o caminho para encaminhar os pe
 
 Utilize estas definições para controlar como os ficheiros ficam em cache para pedidos que contenham cadeias de consulta. Se cache o seu conteúdo com base em todos os parâmetros ou em parâmetros selecionados. Pode utilizar definições adicionais para substituir o valor do tempo de vida (TTL) para controlar quanto tempo o conteúdo permanece em cache. Para forçar o caching como uma ação, coloque o campo de caching em "Habilitado". Quando se força a caching, aparecem as seguintes opções: 
 
-Comportamento da cache |  Descrição              
+Comportamento da cache |  Description              
 ---------------|----------------
 Ignorar cadeias de consulta | Uma vez que o ativo é em cache, todos os pedidos subsequentes ignoram as cordas de consulta até que o ativo em cache expire.
 Colocar em cache todos os URLs exclusivos | Cada pedido com um URL único, incluindo a cadeia de consulta, é tratado como um ativo único com a sua própria cache.
 Ignore as cadeias de consulta especificadas | Solicitam que as cadeias de consulta de URL listadas na definição "Parâmetros de consulta" sejam ignoradas para caching.
 Incluir cadeias de consulta especificadas | Solicitam cadeias de consulta de URL listadas na definição "Parâmetros de consulta" para o caching.
 
-Campos adicionais |  Descrição 
+Campos adicionais |  Description 
 ------------------|---------------
 Compressão dinâmica | A Porta frontal pode comprimir dinamicamente o conteúdo na borda, resultando numa resposta menor e mais rápida.
 Parâmetros de consulta | Uma lista separada por vírgula de parâmetros permitidos (ou não autorizados) para utilizar como base para o caching.

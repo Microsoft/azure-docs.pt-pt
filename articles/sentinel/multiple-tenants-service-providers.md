@@ -1,5 +1,5 @@
 ---
-title: Gerir vários inquilinos em Azure Sentinel como Prestador de Serviços de Segurança Geridos Microsoft Docs
+title: Gerir vários inquilinos em Azure Sentinel como prestador de serviços de segurança gerido | Microsoft Docs
 description: Como embarcar e gerir vários inquilinos em Azure Sentinel como um Fornecedor de Serviços de Segurança Gerido (MSSP) usando o Farol Azure.
 services: sentinel
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
 ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578156"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Gerir vários inquilinos em Azure Sentinel como MSSP
@@ -35,7 +35,7 @@ Se é um prestador de serviços de segurança gerido (MSSP) e está a usar [o Fa
 
     1. A partir do menu de navegação no ecrã de subscrição, em **Definições,** selecione **Fornecedores de Recursos**.
 
-    1. Do nome de ** *assinatura* ! Os fornecedores de recursos** rastream, procuram e selecionam *Microsoft.OperationalInsights* e *Microsoft.SecurityInsights*e verifique a coluna **Status.** Se o estado do fornecedor não for *registado,* selecione **Registar-se**.
+    1. Do nome de ***subscrição* | Os fornecedores de recursos** rastream, procuram e selecionam *Microsoft.OperationalInsights* e *Microsoft.SecurityInsights* e verifique a coluna **Status.** Se o estado do fornecedor não for *registado,* selecione **Registar-se**.
     
         :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="Consulte os fornecedores de recursos":::
 
@@ -43,7 +43,7 @@ Se é um prestador de serviços de segurança gerido (MSSP) e está a usar [o Fa
 
 1. Sob **a subscrição Do Diretório +** selecione os diretórios delegados (diretório = inquilino) e as subscrições onde estão localizados os espaços de trabalho Azure Sentinel do seu cliente.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Consulte os fornecedores de recursos":::
+    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Escolha inquilinos e assinaturas":::
 
 1. Abra o Azure Sentinel. Você verá todos os espaços de trabalho nas subscrições selecionadas, e você será capaz de trabalhar com eles perfeitamente, como qualquer espaço de trabalho em seu próprio inquilino.
 

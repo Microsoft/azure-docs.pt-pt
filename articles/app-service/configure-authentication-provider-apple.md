@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
 ms.openlocfilehash: b77e0613f502d003b5e4651e34be4cadbd4209a9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603362"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para iniciar sôms usando um Sign in com o fornecedor Apple (Pré-visualização)
@@ -193,6 +193,6 @@ Uma configuração completa pode parecer o exemplo seguinte (onde o APPLE_GENERA
 }
 ```
 
-## <a name="next-steps"></a><a name="related-content"> </a>Próximos passos
+## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]

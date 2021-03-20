@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
 ms.openlocfilehash: 6ea16da3844b8098d87d65e1016f92c69ae34067
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945160"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associar um endereço IP público a uma máquina virtual
@@ -212,6 +212,6 @@ Instale [PowerShell,](/powershell/azure/install-az-ps)ou utilize a Concha da Nuv
 
 Antes de poder ligar ao endereço IP público a partir da internet, certifique-se de que tem as portas necessárias abertas em qualquer grupo de segurança de rede que possa ter associado à interface de rede, a sub-rede em que a interface de rede está, ou ambas. Embora os grupos de segurança filtrem o tráfego para o endereço IP privado da interface de rede, uma vez que o tráfego de internet de entrada chega ao endereço IP público, Azure traduz o endereço público para o endereço IP privado, então se um grupo de segurança de rede impedir o fluxo de tráfego, a comunicação com o endereço IP público falha. Pode ver as regras de segurança eficazes para uma interface de rede e a sua sub-rede utilizando o [Portal](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli)ou [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Permitir o tráfego de acesso à internet para o seu VM com um grupo de segurança de rede. Para aprender a criar um grupo de segurança de rede, consulte [Trabalhar com grupos de segurança de rede.](manage-network-security-group.md#work-with-network-security-groups) Para saber mais sobre grupos de segurança de rede, consulte [os grupos de segurança.](./network-security-groups-overview.md)

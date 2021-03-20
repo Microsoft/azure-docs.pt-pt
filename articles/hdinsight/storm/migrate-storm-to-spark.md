@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944793"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
@@ -64,7 +64,7 @@ As topologias do Storm são compostas por múltiplos componentes que são dispos
 
 A tempestade consiste nos seguintes três daemons, que mantêm o aglomerado de tempestades funcionando.
 
-|Rio Daemon |Descrição |
+|Rio Daemon |Description |
 |---|---|
 |Nimbus|Semelhante ao Hadoop JobTracker, é responsável por distribuir código em torno do cluster e atribuir tarefas a máquinas e monitorização de falhas.|
 |Zookeeper|Usado para coordenação de agrupamentos.|
@@ -144,7 +144,7 @@ Para migrar a sua aplicação de Storm para uma das APIs de streaming spark, fa�
     > [!div class="mx-imgBorder"]
     > ![remover clusters HDInsight antigos, conforme necessário](./media/migrate-storm-to-spark/remove-old-clusters1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre Storm, Spark Streaming e Spark Structured Streaming, consulte os seguintes documentos:
 

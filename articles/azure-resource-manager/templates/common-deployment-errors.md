@@ -5,10 +5,10 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
 ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98696401"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
@@ -247,7 +247,7 @@ Em alguns casos, a maneira mais fácil de resolver problemas o seu modelo é tes
 
 Ou suponha que esteja a ter erros de implantação que acredita estarem relacionados com dependências incorretamente definidas. Teste o seu modelo quebrando-o em modelos simplificados. Em primeiro lugar, crie um modelo que implemente apenas um único recurso (como um SQL Server). Quando tiver a certeza de que tem esse recurso corretamente definido, adicione um recurso que depende dele (como uma Base de Dados SQL). Quando tiver esses dois recursos corretamente definidos, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implementação de teste, elimine o grupo de recursos para se certificar de que testa adequadamente as dependências.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](template-tutorial-troubleshoot.md)
 * Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../management/view-activity-logs.md)

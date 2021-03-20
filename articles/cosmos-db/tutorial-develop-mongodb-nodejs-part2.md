@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097860"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar uma aplicação angular com API da Azure Cosmos DB para a MongoDB - Criar uma aplicação Node.js Express
@@ -82,9 +82,9 @@ Este tutorial também requer:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Utilizar a arquitetura Express para compilar a aplicação
 
-1. No Visual Studio Code, no painel **Explorer** , clique com botão direito do rato na pasta **src** , clique em **Nova Pasta** e dê o nome *server* à mesma.
+1. No Visual Studio Code, no painel **Explorer**, clique com botão direito do rato na pasta **src**, clique em **Nova Pasta** e dê o nome *server* à mesma.
 
-2. No painel **Explorer** , clique com o botão direito do rato na pasta **server** , clique em **Novo Ficheiro** e dê o nome *index.js* ao mesmo.
+2. No painel **Explorer**, clique com o botão direito do rato na pasta **server**, clique em **Novo Ficheiro** e dê o nome *index.js* ao mesmo.
 
 3. Novamente na linha de comandos, utilize o comando seguinte para instalar o analisador de corpo. Isto ajuda a nossa aplicação a analisar os dados JSON que são transmitidos através das APIs.
 
@@ -126,9 +126,9 @@ Este tutorial também requer:
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. No Visual Studio Code, no painel **Explorer** , clique com botão direito do rato na pasta **server** e clique em **Novo ficheiro** . Dê o nome *routes.js* ao ficheiro novo. 
+5. No Visual Studio Code, no painel **Explorer**, clique com botão direito do rato na pasta **server** e clique em **Novo ficheiro**. Dê o nome *routes.js* ao ficheiro novo. 
 
-6. Copie o código seguinte para **routes.js** . Este código:
+6. Copie o código seguinte para **routes.js**. Este código:
    * Referencia o router do Express
    * Obtém os heroes
    * Envia o JSON novamente para um hero definido

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94701845"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando o legado Microsoft.Azure.Search v10 client library
@@ -118,7 +118,7 @@ O índice de hotéis é composto por campos simples e complexos, onde um campo s
 
 1. Adicione duas definições de classe vazias ao seu projeto: Address.cs, Hotel.cs
 
-1. Em Address.cs, substitua o conteúdo predefinido com o seguinte código:
+1. No Address.cs, substitua o conteúdo predefinido com o seguinte código:
 
     ```csharp
     using System;
@@ -148,7 +148,7 @@ O índice de hotéis é composto por campos simples e complexos, onde um campo s
     }
     ```
 
-1. Em Hotel.cs, a classe define a estrutura global do índice, incluindo referências à classe de endereço.
+1. No Hotel.cs, a classe define a estrutura global do índice, incluindo referências à classe de endereço.
 
     ```csharp
     namespace AzureSearchQuickstart
@@ -196,7 +196,7 @@ O índice de hotéis é composto por campos simples e complexos, onde um campo s
     }
     ```
 
-    Os atributos no campo determinam como é usado numa aplicação. Para melhor, todos os casos, é a sua mensagem na pesquisa por `IsSearchable` texto. Pode pesquisar por palavras ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases da semana. 
+    Os atributos no campo determinam como é usado numa aplicação. Para melhor, todos os casos, é a sua mensagem na pesquisa por `IsSearchable` texto. Pode pesquisar por palavras ou frases da semana. 
     
     > [!NOTE]
     > No .NET SDK, os campos devem ser explicitamente atribuídos como [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable) [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable) , e [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable) [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable) . Este comportamento contrasta com a API REST que permite implicitamente a atribuição com base no tipo de dados (por exemplo, os campos de cordas simples são automaticamente pesquisáveis).
@@ -205,7 +205,7 @@ O índice de hotéis é composto por campos simples e complexos, onde um campo s
 
     Neste índice, os campos de descrição utilizam a [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer) propriedade opcional, especificada quando pretende anular o analisador padrão padrão Lucene. O `description_fr` campo está a usar o analisador francês Lucene[(FrLucene)](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene)porque armazena texto francês. Está `description` a utilizar o analisador de idiomas opcional da Microsoft[(EnMicrosoft).](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft)
 
-1. Em Program.cs, crie uma instância da [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient) classe para ligar ao serviço, utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.jsligado). 
+1. No Programa.cs, crie uma instância da [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient) classe para ligar ao serviço, utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.jsligado). 
 
    `SearchServiceClient` tem uma [`Indexes`](/dotnet/api/microsoft.azure.search.searchserviceclient.indexes) propriedade, fornecendo todos os métodos necessários para criar, listar, atualizar ou eliminar índices de Pesquisa Cognitiva Azure. 
 
@@ -309,7 +309,7 @@ Na Pesquisa Cognitiva Azure, os documentos são estruturas de dados que são ent
 
 Ao carregar documentos, deve utilizar um [`IndexBatch`](/dotnet/api/microsoft.azure.search.models.indexbatch) objeto. Um `IndexBatch` contém uma coleção de [`IndexAction`](/dotnet/api/microsoft.azure.search.models.indexaction) objetos, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar ([upload, merge, delete e mergeOrUpload).](search-what-is-data-import.md#indexing-actions)
 
-1. Em Program.cs, crie uma série de documentos e ações de índice, e depois passe a matriz para `IndexBatch` . Os documentos abaixo estão em conformidade com o índice hotel-quickstart, tal como definido pelas classes de hotel e endereço.
+1. No Programa.cs, crie uma série de documentos e ações de índice e, em seguida, passe a matriz para `IndexBatch` . Os documentos abaixo estão em conformidade com o índice hotel-quickstart, tal como definido pelas classes de hotel e endereço.
 
     ```csharp
     // Upload documents as a batch
@@ -435,7 +435,7 @@ Ao carregar documentos, deve utilizar um [`IndexBatch`](/dotnet/api/microsoft.az
 
     O atraso de 2 segundos compensa a indexação, que é assíncronia, para que todos os documentos possam ser indexados antes de as consultas serem executadas. A codificação num atraso é normalmente apenas necessária em demos, testes e aplicações de amostra.
 
-1. Em Program.cs, em geral, descompromes as linhas para "2 - Carregar documentos". 
+1. No Programa.cs, em geral, descomprimir as linhas para "2 - Carregar documentos". 
 
     ```csharp
     // Uncomment next 3 lines in "2 - Load documents"
@@ -458,7 +458,7 @@ Esta secção adiciona duas peças de funcionalidade: lógica de consulta e resu
 A [`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) classe representa os resultados.
 
 
-1. Em Program.cs, crie um método WriteDocuments que imprime os resultados de pesquisa para a consola.
+1. No Programa.cs, crie um método WriteDocuments que imprime os resultados de pesquisa para a consola.
 
     ```csharp
     private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
@@ -540,7 +540,7 @@ A [`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentse
 
     As pesquisas e os filtros são efetuados utilizando o método `Documents.Search`. Uma consulta de pesquisa pode ser transmitida no parâmetro `searchText`, enquanto uma expressão de filtro pode ser transmitida na propriedade `Filter` da classe `SearchParameters`. Para filtrar sem pesquisar, basta passar `"*"` para o parâmetro `searchText` . Para pesquisar sem filtrar, basta deixar a propriedade `Filter` por definir ou não transmitir numa instância `SearchParameters` de todo.
 
-1. Em Program.cs, no essencial, descomprometam as linhas para "3 - Pesquisa". 
+1. No Programa.cs, em geral, descomprimir as linhas para "3 - Pesquisa". 
 
     ```csharp
     // Uncomment next 2 lines in "3 - Search an index"

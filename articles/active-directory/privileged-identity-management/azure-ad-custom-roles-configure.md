@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fb23e60539c704dac457ab6e8706ec0cfe350ed9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835327"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas da Azure AD na Gestão de Identidade Privilegiada
@@ -64,7 +64,7 @@ Além disso, pode escolher uma destas opções de duração de atribuição *ati
 - **Permitir uma atribuição ativa permanente**: Os administradores podem atribuir uma adesão ativa permanente.
 - **Expire a atribuição ativa após:** Os administradores podem exigir que todas as atribuições ativas tenham uma data de início e fim especificada.
 
-### <a name="require-azure-ad-multi-factor-authentication"></a>Requerem autenticação de vários fatores Azure Ad
+### <a name="require-azure-ad-multi-factor-authentication"></a>Pedir o Multi-Factor Authentication do Azure AD
 
 A Gestão de Identidade Privilegiada proporciona a aplicação opcional da Autenticação Multi-Factor Azure AD para dois cenários distintos.
 

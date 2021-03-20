@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395245"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Fazer o back up e restaurar bases de dados em Azure SQL Edge 
@@ -171,7 +171,7 @@ Este exemplo utiliza o backup *ironOreSilicaPrediction* que fez no exemplo anter
 
 ### <a name="restore-from-url"></a>Restauro a partir de URL
 
-O Azure SQL Edge também suporta restaurar uma base de dados a partir de uma conta de Armazenamento Azure. Pode restaurar a partir das bolhas de bloco ou das cópias de segurança da página. No exemplo seguinte, o ficheiro de backup de base de dados *IronOreSilicaPrediction_2020_04_16.bak* numa bolha de blocos é restaurado para criar a base de dados, *IronOreSilicaPrediction_3*.
+O Azure SQL Edge também suporta restaurar uma base de dados a partir de uma conta de Armazenamento Azure. Pode restaurar a partir das bolhas de bloco ou das cópias de segurança da página. No exemplo seguinte, o ficheiro de backup da base de dados *IronOreSilicaPrediction_2020_04_16.bak* numa bolha de blocos é restaurado para criar a base de dados, *IronOreSilicaPrediction_3*.
 
 ```sql
 RESTORE DATABASE IronOreSilicaPrediction_3

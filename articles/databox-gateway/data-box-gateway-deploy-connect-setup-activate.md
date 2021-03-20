@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96583692"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar o Azure Data Box Gateway
@@ -53,7 +53,7 @@ Antes de configurar e configurar o seu Portal da Caixa de Dados, certifique-se d
    
     ![Inscreva-se na UI web local](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
-4. A pedido, altere a palavra-passe do dispositivo. A nova palavra-passe deve conter entre 8 e 16 caracteres. Deve conter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais.
+4. A pedido, altere a palavra-passe do dispositivo. A nova palavra-passe tem de ter entre 8 e 16 carateres. Deve conter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais.
 
     ![Alterar a palavra-passe do dispositivo](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
@@ -89,7 +89,7 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
    Na página **de procuração** da Web, faça o seguinte:
    
    1. Na caixa **DE URL de procuração web,** introduza o URL neste formato: `http://&lt;host-IP address or FQDN&gt;:Port number` . Os URLs HTTPS não são suportados.
-   2. Em **Autenticação**, **selecione Nenhum** ou **NTLM**.
+   2. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**.
    3. Se estiver a utilizar a autenticação, insira um **nome de utilizador** e uma **palavra-passe**.
    4. Para validar e aplicar as definições de procuração web configuradas, selecione **Apply**.
 

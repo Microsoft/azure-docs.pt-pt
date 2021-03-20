@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570789"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas em Azure Logic Apps com Enterprise Integration Pack
@@ -40,7 +40,7 @@ Para limites relacionados com contas de integração e artefactos como mapas, co
     |------|-------------|
     | [Conta de armazenamento Azure](../storage/common/storage-account-overview.md) | Nesta conta, crie um recipiente de bolhaS Azure para a sua montagem. Saiba [como criar uma conta de armazenamento.](../storage/common/storage-account-create.md) |
     | Contentor de blobs | Neste recipiente, pode fazer o upload da sua montagem. Também precisa da localização deste recipiente quando adicionar a montagem à sua conta de integração. Saiba como [criar um recipiente de bolhas.](../storage/blobs/storage-quickstart-blobs-portal.md) |
-    | [Explorador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Esta ferramenta ajuda-o a gerir mais facilmente as contas de armazenamento e os recipientes blob. Para utilizar o Storage Explorer, [descarregue e instale o Azure Storage Explorer](https://www.storageexplorer.com/). Em seguida, ligue o Storage Explorer à sua conta de armazenamento seguindo os passos em [Começar com o Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [Quickstart: Crie uma bolha no armazenamento de objetos com o Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal Azure, encontre e selecione a sua conta de armazenamento. A partir do menu da sua conta de armazenamento, selecione **Storage Explorer**. |
+    | [Explorador do Storage do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Esta ferramenta ajuda-o a gerir mais facilmente as contas de armazenamento e os recipientes blob. Para utilizar o Storage Explorer, [descarregue e instale o Azure Storage Explorer](https://www.storageexplorer.com/). Em seguida, ligue o Storage Explorer à sua conta de armazenamento seguindo os passos em [Começar com o Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [Quickstart: Crie uma bolha no armazenamento de objetos com o Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal Azure, encontre e selecione a sua conta de armazenamento. A partir do menu da sua conta de armazenamento, selecione **Storage Explorer**. |
     |||
 
   * Para mapas, pode atualmente adicionar mapas maiores utilizando as [aplicações lógicas AZure REST API - Mapas](/rest/api/logic/maps/createorupdate).
@@ -107,7 +107,7 @@ Para adicionar conjuntos maiores, pode enviar o seu conjunto para um recipiente 
 
 1. Abra o Explorador de Armazenamento Azure. Na janela Explorer, expanda a subscrição do Azure se não for já expandida.
 
-1. Expandir **contas de armazenamento** > { a sua conta de*armazenamento*} > **Blob Containers**. Selecione o seu recipiente blob.
+1. Expandir **contas de armazenamento** > { a sua conta de *armazenamento*} > **Blob Containers**. Selecione o seu recipiente blob.
 
 1. No menu de atalho do seu recipiente blob, selecione **Definir o Nível de Acesso Público**.
 
@@ -321,7 +321,7 @@ Para atualizar um mapa existente, tem de carregar um novo ficheiro de mapa que t
 1. Na **página** geral da sua conta de integração, em **Componentes,** selecione o **azulejo do Maps.**
 
 1. Depois de a página **do Maps** abrir, selecione o seu mapa. 
-   Para baixar e editar primeiro o mapa, escolha **Baixar**e guardar o mapa.
+   Para baixar e editar primeiro o mapa, escolha **Baixar** e guardar o mapa.
 
 1. Quando estiver pronto para fazer o upload do mapa atualizado, na página do **Maps,** selecione o mapa que pretende atualizar e escolha **Update**.
 

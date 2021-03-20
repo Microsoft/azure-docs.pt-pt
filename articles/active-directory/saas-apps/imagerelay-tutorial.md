@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Relé de Imagem / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | de Retransmissão de Imagem Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Image Relay.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: b76c2e346adb6c2afd146b0d73c8f20165145bac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Tutorial: Integração do Diretório Ativo Azure com Relé de Imagem
@@ -205,7 +205,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, concedendo acesso ao Image Relay.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Image Relay**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Image Relay**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -239,7 +239,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon in Image R
 
     ![Screenshot mostra Create S S O User selecionado a partir do menu.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
-3. Introduza o **Email**, **Nome Próprio**, **Apelido**e **Empresa** do utilizador que pretende providenciar e selecione o grupo de permissões (por exemplo, SSO Basic) que é o grupo que só pode iniciar sinação através de uma única sintrodução.
+3. Introduza o **Email**, **Nome Próprio**, **Apelido** e **Empresa** do utilizador que pretende providenciar e selecione o grupo de permissões (por exemplo, SSO Basic) que é o grupo que só pode iniciar sinação através de uma única sintrodução.
 
     ![Screenshot mostra Criar uma página de utilizador S S O onde pode introduzir as informações necessárias.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 

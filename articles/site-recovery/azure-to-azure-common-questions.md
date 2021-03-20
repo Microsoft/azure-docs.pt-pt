@@ -6,10 +6,10 @@ manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397970"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre do Azure para Azure
@@ -205,7 +205,7 @@ A consistência multi-VM garante que os pontos de recuperação são consistente
 
 ### <a name="can-i-fail-over-a-single-vm-in-a-replication-group"></a>Posso falhar por causa de um único VM num grupo de replicação?
 
-Não. Quando ativa a consistência multi-VM, infere que uma aplicação tem uma dependência de todos os VMs do grupo de replicação, e não é permitida uma falha de VM única.
+N.º Quando ativa a consistência multi-VM, infere que uma aplicação tem uma dependência de todos os VMs do grupo de replicação, e não é permitida uma falha de VM única.
 
 ### <a name="how-many-vm-can-i-replicate-together-in-a-group"></a>Quantos VM posso replicar juntos num grupo?
 
@@ -301,7 +301,7 @@ Sim. [Saiba mais](site-recovery-runbook-automation.md).
 
 ### <a name="after-failover-are-vms-in-the-secondary-region-protected-automatically"></a>Após o fracasso, os VM na região secundária estão protegidos automaticamente? 
 
-Não. Quando se falham sobre os VM de uma região para outra, os VMs começam na região de recuperação de desastres alvo num estado desprotegido. Para [reprotecer](./azure-to-azure-how-to-reprotect.md) os VMs na região secundária, permite a replicação de volta à região primária.
+N.º Quando se falham sobre os VM de uma região para outra, os VMs começam na região de recuperação de desastres alvo num estado desprotegido. Para [reprotecer](./azure-to-azure-how-to-reprotect.md) os VMs na região secundária, permite a replicação de volta à região primária.
 
 ### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>Quando reproteto, todos os dados são replicados da região secundária para o primário? 
 

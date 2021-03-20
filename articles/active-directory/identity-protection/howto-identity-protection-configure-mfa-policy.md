@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835871"
 ---
 # <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registo de autenticação multi-factor Azure AD
@@ -36,7 +36,7 @@ Para obter mais informações sobre autenticação multi-factor Azure AD, consul
 ## <a name="policy-configuration"></a>Configuração da política
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
-1. Consulte a política **Azure Active Directory** de registo  >  **Security**  >  de MFA de **proteção de identidade**  >  **MFA registration policy** de segurança ativa do Azure Ative.
+1. Consulte a política de registo  >    >  de MFA de **proteção de identidade**  >  de segurança ativa do Azure Ative.
    1. Em **Atribuições**
       1. **Utilizadores** - Escolha **todos os utilizadores** ou **selecione indivíduos e grupos** se limitar o seu lançamento.
          1. Opcionalmente pode optar por excluir os utilizadores da apólice.
@@ -59,4 +59,4 @@ Para uma visão geral da experiência do utilizador relacionado, consulte:
 
 - [Ativar o reset da palavra-passe de autosserviço AZure AD](../authentication/howto-sspr-deployment.md)
 
-- [Ativar a autenticação de vários fatores Azure Ad](../authentication/howto-mfa-getstarted.md)
+- [Ativar o Multi-Factor Authentication do Azure AD](../authentication/howto-mfa-getstarted.md)

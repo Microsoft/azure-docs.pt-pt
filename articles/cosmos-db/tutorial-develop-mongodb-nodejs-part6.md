@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081319"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar uma aplicação angular com API da Azure Cosmos DB para MongoDB - Adicionar funções CRUD à app
@@ -39,7 +39,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
 1. No Código do Estúdio Visual, abra **routes.js** e **hero.service.js** lado a lado premindo o botão **Split Editor** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png"::: .
 
-    Veja se a linha 7 de routes.js chama a função `getHeroes` na linha 5 de **hero.service.js** .  Temos de criar este emparelhamento para as funções post, put e delete. 
+    Veja se a linha 7 de routes.js chama a função `getHeroes` na linha 5 de **hero.service.js**.  Temos de criar este emparelhamento para as funções post, put e delete. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="routes.js e hero.service.js no Visual Studio Code":::
     
@@ -68,7 +68,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
    }
    ```
 
-3. Em **hero.service.js** , atualize o `module.exports` para incluir a função `postHero` nova. 
+3. Em **hero.service.js**, atualize o `module.exports` para incluir a função `postHero` nova. 
 
     ```javascript
     module.exports = {
@@ -77,7 +77,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
     };
     ```
 
-4. Em **routes.js** , adicione um router para a função `post` a seguir ao router `get`. Este router publica um hero de cada vez. Estruturar o ficheiro do router desta forma mostra claramente todos os pontos finais da API disponíveis e deixa o trabalho real a cargo do ficheiro **hero.service.js** .
+4. Em **routes.js**, adicione um router para a função `post` a seguir ao router `get`. Este router publica um hero de cada vez. Estruturar o ficheiro do router desta forma mostra claramente todos os pontos finais da API disponíveis e deixa o trabalho real a cargo do ficheiro **hero.service.js**.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -89,17 +89,17 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
 6. Agora, regresse ao browser e prima F12, na maioria dos computadores, para abrir o separador Ferramentas do programador e Rede. Navegue para `http://localhost:3000` para ver as chamadas efetuadas através da rede.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="routes.js e hero.service.js no Visual Studio Code":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Separador Redes no Chrome que mostra a atividade de rede":::
 
-7. Selecione o botão **Adicionar Hero Novo** para adicionar um hero novo. Introduza o ID “999”, o nome “Pedro” e a indicação “Olá” e, em seguida, selecione **Guardar** . Deverá ver, no separador Rede, que enviou um pedido POST para um hero novo. 
+7. Selecione o botão **Adicionar Hero Novo** para adicionar um hero novo. Introduza o ID “999”, o nome “Pedro” e a indicação “Olá” e, em seguida, selecione **Guardar**. Deverá ver, no separador Rede, que enviou um pedido POST para um hero novo. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="routes.js e hero.service.js no Visual Studio Code":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Separador Rede no Chrome que mostra a atividade de rede para as funções Get e Post":::
 
     Agora, vamos voltar atrás e adicionar as funções Put e Delete à aplicação.
 
 ## <a name="add-the-put-and-delete-functions"></a>Adicionar as funções Put e Delete
 
-1. Em **routes.js** , adicione os routers `put` e `delete` a seguir ao router post.
+1. Em **routes.js**, adicione os routers `put` e `delete` a seguir ao router post.
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -159,7 +159,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
    }
    ```
 
-3. Em **hero.service.js** , exporte os módulos novos:
+3. Em **hero.service.js**, exporte os módulos novos:
 
    ```javascript
     module.exports = {
@@ -172,17 +172,17 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
 4. Agora que atualizámos o código, selecione o botão **Reiniciar** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png"::: no Código do Estúdio Visual.
 
-5. Atualize a página do browser e selecione o botão **Adicionar novo hero** . Adicione um hero novo com o ID "9", o nome "Starlord" e a indicação "Hi". Selecione o botão **Guardar** para guardar o hero novo.
+5. Atualize a página do browser e selecione o botão **Adicionar novo hero**. Adicione um hero novo com o ID "9", o nome "Starlord" e a indicação "Hi". Selecione o botão **Guardar** para guardar o hero novo.
 
-6. Agora, selecione o hero **Starlord** , mude a indicação de “Olá” para “Tchau” e, em seguida, selecione o botão **Guardar** . 
+6. Agora, selecione o hero **Starlord**, mude a indicação de “Olá” para “Tchau” e, em seguida, selecione o botão **Guardar**. 
 
     Agora pode selecionar o ID no separador Rede para mostrar o payload. Pode ver, no payload, que a indicação está agora definida como “Bye”.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="routes.js e hero.service.js no Visual Studio Code"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Aplicação heroes e separador Rede que mostra o payload"::: 
 
     Também pode eliminar um dos heroes na IU e ver quanto tempo é que a operação delete demora a ser concluída. Experimente ao selecionar o botão “Eliminar” no hero com o nome “Pedro".
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="routes.js e hero.service.js no Visual Studio Code"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Aplicação heroes e separador Rede que mostra o tempo que demora a concluir as funções"::: 
 
     Se atualizar a página, o separador Rede mostra o tempo que demora a obter os heroes. Embora estes tempos sejam rápidos, muito está dependente de onde os seus dados estão localizados no mundo e da sua capacidade de georreplicá-los numa zona perto dos seus utilizadores. Pode encontrar mais informações sobre a georreplicação no tutorial seguinte, que vai ser lançado em breve.
 

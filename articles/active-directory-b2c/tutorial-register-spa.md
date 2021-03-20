@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d2eaf1dce432821dcfc693dc69dcf975a3d8be8d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503866"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação de uma página (SPA) no Azure Ative Directory B2C
@@ -56,7 +56,7 @@ Se ainda não criou o seu próprio [Inquilino Azure AD B2C,](tutorial-create-ten
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Insira um **Nome** para a inscrição. Por exemplo, *spaapp1*.
 1. Nos **tipos de conta suportados,** selecione Contas em qualquer fornecedor de identidade ou **diretório organizacional (para autenticar utilizadores com fluxos de utilizador)**
 1. Em **Redirecionar URI,** selecione **aplicação de página única (SPA)** e, em seguida, introduza `https://jwt.ms` na caixa de texto URL.

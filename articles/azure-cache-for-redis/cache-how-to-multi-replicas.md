@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91566793"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Adicione réplicas ao Cache Azure para Redis (Pré-visualização)
@@ -23,7 +23,7 @@ A azure Cache para os níveis Redis Standard e Premium oferecem redundância hos
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
 > Esta funcionalidade está neste momento em pré-visualização - [contacte-nos](mailto:azurecache@microsoft.com) se estiver interessado.
@@ -44,13 +44,13 @@ Para criar uma cache, siga estes passos:
     | ------------ |  ------- | -------------------------------------------------- |
     | **Subscrição** | Selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
     | **Grupo de recursos** | Selecione um grupo de recursos ou selecione **Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
-    | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será * \<DNS name> .redis.cache.windows.net*. | 
+    | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será *\<DNS name> .redis.cache.windows.net*. | 
     | **Localização** | Selecione uma localização. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
     | **Tipo cache** | Selecione uma cache [de nível Premium.](https://azure.microsoft.com/pricing/details/cache/) |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para mais informações, consulte [Azure Cache para ver visão geral do Redis](cache-overview.md). |
    
 1. Na página **Advanced,** escolha **a contagem de réplicas.**
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Selecione Azure Cache para Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Contagem de réplicas.":::
 
 1. Deixe outras opções nas suas definições predefinitivos. 
 

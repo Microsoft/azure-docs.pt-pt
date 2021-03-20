@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91604691"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes com .NET Core
@@ -132,7 +132,7 @@ Os comandos anteriores utilizam as seguintes informações:
 - **descrição** - Uma explicação mais profunda do que a apólice faz ou por que é atribuída a este âmbito.
 - **âmbito** - Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de políticas é executada. Pode ir de um grupo de gestão a um recurso individual. Certifique-se de que `{scope}` substitui por um dos seguintes padrões:
   - Grupo de gestão: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Assinatura: `/subscriptions/{subscriptionId}`
+  - Subscrição: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 
@@ -233,7 +233,7 @@ Os comandos anteriores utilizam as seguintes informações:
 
 Os resultados `response` correspondem ao que vê no **separador** de conformidade de recursos de uma atribuição de políticas na vista do portal Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 - Eliminar a atribuição de políticas _Audit VMs sem discos geridos Atribuição_ através do portal. A definição de política é uma incorporação, por isso não há definição para remover.
 

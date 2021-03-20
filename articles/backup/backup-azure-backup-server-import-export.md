@@ -4,10 +4,10 @@ description: Com a Azure Backup, pode enviar dados para fora da rede utilizando 
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: 006c0fa4d67c9a85426d7a007912df65876313da
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98701818"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
@@ -196,6 +196,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento do próximo trabalho de criação de réplicas online programado, o Data Protection Manager realiza backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../import-export/storage-import-export-service.md).

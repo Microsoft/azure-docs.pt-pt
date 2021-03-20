@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98702502"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Utilização do Azure Data Lake Storage Gen1 para grandes requisitos de dados

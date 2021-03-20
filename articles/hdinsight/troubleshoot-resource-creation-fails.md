@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: bad934e02184c46c19dcda91e18e7c7ce2f1c884
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944645"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Falhas na criação de recursos de resolução de problemas em Azure HDInsight
@@ -42,6 +42,6 @@ Para pedir um aumento da quota, sigas os passos seguintes:
 
 Para obter mais informações, veja [Criar um pedido de suporte para aumentar o núcleo](hdinsight-capacity-planning.md#quotas).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

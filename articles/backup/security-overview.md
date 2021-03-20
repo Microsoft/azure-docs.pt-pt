@@ -4,10 +4,10 @@ description: Saiba mais sobre as capacidades de segurança no Azure Backup que o
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 9aa1909f1590b477d9a7f7a09ad0c2b1936e3e29
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325660"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
@@ -64,7 +64,7 @@ O Azure Backup fornece [capacidades de monitorização e alerta incorporadas](./
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos
 
-O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS) para fazer backup e restaurar ficheiros, pastas e o estado de volume ou sistema de um computador no local para o Azure. A MARS agora fornece funcionalidades de segurança para ajudar a proteger as cópias de segurança híbridas. Estas funcionalidades incluem:
+O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS) para fazer backup e restaurar ficheiros, pastas e o estado de volume ou sistema de um computador no local para o Azure. A MARS agora fornece funcionalidades de segurança para ajudar a proteger as cópias de segurança híbridas. Essas funcionalidades incluem:
 
 * Uma camada adicional de autenticação é adicionada sempre que é realizada uma operação crítica como alterar uma palavra-passe. Esta validação destina-se a garantir que tais operações só podem ser realizadas por utilizadores que tenham credenciais Azure válidas. [Saiba mais sobre as funcionalidades que impedem os ataques.](./backup-azure-security-feature.md#prevent-attacks)
 

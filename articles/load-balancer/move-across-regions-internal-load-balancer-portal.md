@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698498"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mover o Equilibrador de Carga Interno Azure para outra região utilizando o portal Azure
@@ -65,7 +65,7 @@ Os passos seguintes mostram como preparar o equilibrador de carga interno para o
 
 8. Clique em **Guardar** no editor.
 
-9. Clique no modelo de edição **do modelo** para abrir otemplate.js >  **Edit template** **no** ficheiro no editor online.
+9. Clique no modelo de edição **do modelo** para abrir otemplate.js >   **no** ficheiro no editor online.
 
 10. Para editar a região-alvo onde o VNET será movido, altere a propriedade de **localização** sob recursos:
 
@@ -87,7 +87,7 @@ Os passos seguintes mostram como preparar o equilibrador de carga interno para o
 
     ```
 
-11. Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  **centralus**
+11. Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  
 
 12. Também pode alterar outros parâmetros no **template.jsno** ficheiro, se quiser, e é opcional dependendo dos seus requisitos:
 
@@ -184,7 +184,7 @@ Os passos seguintes mostram como preparar o equilibrador de carga interno para o
 
 15. Clique **em BASICS**  >  **Resource group** para escolher o grupo de recursos onde o VNET alvo será implantado.  Pode clicar em **Criar novo** para criar um novo grupo de recursos para o VNET alvo.  Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do VNET existente.
 
-16. Verifique **se a localização BASICS** está definida para o local alvo onde deseja que o  >  **Location** VNET seja implantado.
+16. Verifique **se a localização BASICS** está definida para o local alvo onde deseja que o  >   VNET seja implantado.
 
 17. Verifique em **DEFINIÇÕES** que o nome corresponde ao nome que introduziu no editor de parâmetros acima.
 
@@ -239,7 +239,7 @@ Os passos seguintes mostram como preparar o equilibrador de carga interno para o
         ```
     6. Clique em **Guardar** no editor online.
 
-7. Clique no modelo de edição **do modelo** para abrir otemplate.js >  **Edit template** **no** ficheiro no editor online.
+7. Clique no modelo de edição **do modelo** para abrir otemplate.js >   **no** ficheiro no editor online.
 8. Para editar a região-alvo onde será movida a configuração interna do balançador de carga, altere a propriedade de **localização** sob **recursos** na **template.jsem** arquivo:
 
     ```json
@@ -255,11 +255,11 @@ Os passos seguintes mostram como preparar o equilibrador de carga interno para o
                 },
     ```
 
-9.  Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  **centralus**
+9.  Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  
 
 10. Também pode alterar outros parâmetros no modelo se escolher, e é opcional dependendo dos seus requisitos:
 
-    * **Sku** - Pode alterar o sku do balançador de carga interno na configuração de padrão para básico ou básico para padrão, alterando a propriedade do nome **sku**  >  **name** no **template.jsno** ficheiro:
+    * **Sku** - Pode alterar o sku do balançador de carga interno na configuração de padrão para básico ou básico para padrão, alterando a propriedade do nome **sku**  >   no **template.jsno** ficheiro:
 
         ```json
         "resources": [

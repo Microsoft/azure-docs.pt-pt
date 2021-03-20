@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 65da8e07c01561577fe7eff449bfc10348c7f277
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716606"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorizar, receber e enviar eventos com Hubs de Eventos do Azure e Azure Logic Apps
@@ -79,23 +79,23 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome do Hub de Eventos** | Sim | O nome para o Centro de Eventos que pretende monitorizar |
-   | **Tipo de conteúdo** | Não | O tipo de conteúdo do evento. A predefinição é `application/octet-stream`. |
-   | **Nome do grupo de consumidores** | Não | O [nome para o grupo de consumidores Event Hub](../event-hubs/event-hubs-features.md#consumer-groups) para usar para eventos de leitura. Se não for especificado, o grupo de consumidores predefinido é utilizado. |
-   | **Contagem máxima de eventos** | Não | O número máximo de eventos. O gatilho retorna entre um e o número de eventos especificados por esta propriedade. |
-   | **Intervalo** | Sim | Um inteiro positivo que descreve quantas vezes o fluxo de trabalho funciona com base na frequência |
-   | **Frequência** | Sim | A unidade de tempo para a recorrência |
+   | **Nome do Hub de Eventos** | Yes | O nome para o Centro de Eventos que pretende monitorizar |
+   | **Tipo de conteúdo** | No | O tipo de conteúdo do evento. A predefinição é `application/octet-stream`. |
+   | **Nome do grupo de consumidores** | No | O [nome para o grupo de consumidores Event Hub](../event-hubs/event-hubs-features.md#consumer-groups) para usar para eventos de leitura. Se não for especificado, o grupo de consumidores predefinido é utilizado. |
+   | **Contagem máxima de eventos** | No | O número máximo de eventos. O gatilho retorna entre um e o número de eventos especificados por esta propriedade. |
+   | **Intervalo** | Yes | Um inteiro positivo que descreve quantas vezes o fluxo de trabalho funciona com base na frequência |
+   | **Frequência** | Yes | A unidade de tempo para a recorrência |
    ||||
 
    **Propriedades adicionais**
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Esquema de conteúdo** | Não | O esquema de conteúdo JSON para os eventos a ler no Centro de Eventos. Por exemplo, se especificar o esquema de conteúdo, pode desencadear a aplicação lógica apenas para os eventos que correspondam ao esquema. |
-   | **Chave de partição mínima** | Não | Introduza o ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para ler. Por predefinição, todas as divisórias são lidas. |
-   | **Chave de partição máxima** | Não | Introduza o ID de [partição](../event-hubs/event-hubs-features.md#partitions) máxima para ler. Por predefinição, todas as divisórias são lidas. |
-   | **Fuso horário** | Não | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita a compensação UTC. Selecione o fuso horário que pretende aplicar. <p>Para obter mais informações, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com apps Azure Logic](../connectors/connectors-native-recurrence.md). |
-   | **Hora de início** | Não | Fornecer uma hora de início neste formato: <p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário<p>-ou-<p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário<p>Para obter mais informações, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com apps Azure Logic](../connectors/connectors-native-recurrence.md). |
+   | **Esquema de conteúdo** | No | O esquema de conteúdo JSON para os eventos a ler no Centro de Eventos. Por exemplo, se especificar o esquema de conteúdo, pode desencadear a aplicação lógica apenas para os eventos que correspondam ao esquema. |
+   | **Chave de partição mínima** | No | Introduza o ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para ler. Por predefinição, todas as divisórias são lidas. |
+   | **Chave de partição máxima** | No | Introduza o ID de [partição](../event-hubs/event-hubs-features.md#partitions) máxima para ler. Por predefinição, todas as divisórias são lidas. |
+   | **Fuso horário** | No | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita a compensação UTC. Selecione o fuso horário que pretende aplicar. <p>Para obter mais informações, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com apps Azure Logic](../connectors/connectors-native-recurrence.md). |
+   | **Hora de início** | No | Fornecer uma hora de início neste formato: <p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário<p>-ou-<p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário<p>Para obter mais informações, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com apps Azure Logic](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **Save**.
@@ -130,10 +130,10 @@ A partir da lista de ações, selecione esta ação: **Enviar evento - Centros d
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome do Hub de Eventos** | Sim | O Centro de Eventos onde pretende enviar o evento |
-   | **Conteúdo** | Não | O conteúdo do evento que deseja enviar |
-   | **Propriedades** | Não | As propriedades e valores da aplicação para enviar |
-   | **Chave de partição** | Não | O [ID de partição](../event-hubs/event-hubs-features.md#partitions) para onde enviar o evento |
+   | **Nome do Hub de Eventos** | Yes | O Centro de Eventos onde pretende enviar o evento |
+   | **Conteúdo** | No | O conteúdo do evento que deseja enviar |
+   | **Propriedades** | No | As propriedades e valores da aplicação para enviar |
+   | **Chave de partição** | No | O [ID de partição](../event-hubs/event-hubs-features.md#partitions) para onde enviar o evento |
    ||||
 
    Por exemplo, pode enviar a saída do seu gatilho de Centros de Eventos para outro Centro de Eventos:
@@ -152,8 +152,8 @@ A partir da lista de ações, selecione esta ação: **Enviar evento - Centros d
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome de conexão** | Sim | <*nome de conexão*> | O nome para criar para a sua ligação |
-   | **Espaço de nomes de centros de eventos** | Sim | <*espaço de nome de centros de eventos*> | Selecione o espaço de nomes 'Centros de Eventos' que pretende utilizar. |
+   | **Nome de conexão** | Yes | <*nome de conexão*> | O nome para criar para a sua ligação |
+   | **Espaço de nomes de centros de eventos** | Yes | <*espaço de nome de centros de eventos*> | Selecione o espaço de nomes 'Centros de Eventos' que pretende utilizar. |
    |||||  
 
    Por exemplo:

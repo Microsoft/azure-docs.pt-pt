@@ -8,10 +8,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.openlocfilehash: 3fffff64668eb8a010c76fc5e11904193f18d17d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91545082"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/LUIS/go-rest-predict/predict.go)
@@ -223,7 +223,7 @@ Use Vá para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) d
     }
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar com este arranque rápido, elimine o ficheiro do sistema de ficheiros.
 

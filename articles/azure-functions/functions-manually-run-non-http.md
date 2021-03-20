@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
 ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537706"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
@@ -43,16 +43,16 @@ Utilize esta localização de pedido no Carteiro juntamente com a chave principa
 
 1. Na secção **chave Editar,** copie o valor da chave para a sua área de transferência e, em seguida, selecione **OK**.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Localize a chave principal para copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copie a chave principal da pasta." border="true":::
 
-1. Depois de copiar a tecla *_master,* selecione **Código + Teste**e, em seguida, selecione **Registos**. Verá mensagens da função registada aqui quando executar manualmente a função do Carteiro.
+1. Depois de copiar a tecla *_master,* selecione **Código + Teste** e, em seguida, selecione **Registos**. Verá mensagens da função registada aqui quando executar manualmente a função do Carteiro.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Localize a chave principal para copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Screenshot que mostra a página 'Código + Teste' com uma mensagem dos registos apresentados." border="true":::
 
 > [!CAUTION]  
 > Devido às permissões elevadas na sua aplicação de função concedida pela chave principal, não deve partilhar esta chave com terceiros ou distribuí-la numa aplicação. A chave só deve ser enviada para um ponto final HTTPS.
 
-## <a name="call-the-function"></a>Ligue para a função
+## <a name="call-the-function"></a>Chamar a função
 
 Abra o Carteiro e siga estes passos:
 
@@ -62,22 +62,22 @@ Abra o Carteiro e siga estes passos:
 1. Tipo **x-funções-chave** como a primeira chave e cole a tecla principal (da área de transferência) como o valor.
 1. Digite **o Tipo de Conteúdo** como a segunda chave e tipo de **aplicação/json** como o valor.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Localize a chave principal para copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Configurações de cabeçalhos do carteiro." border="true":::
 
 1. Selecione o **separador Corpo.**
 1. Tipo **{ "entrada": "teste" }** como o corpo para o pedido.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Localize a chave principal para copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Configurações do corpo do carteiro." border="true":::
 
-1. Selecione **Send** (Enviar).
+1. Selecione **Enviar**.
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Localize a chave principal para copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Envie um pedido com o Carteiro." border="true":::
 
     O carteiro relata então um estatuto de **202 Aceitos.**
 
 1. Em seguida, volte à sua função no portal Azure. Reveja os registos e verá mensagens provenientes da chamada manual para a função.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Localize a chave principal para copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Veja os registos para ver os resultados dos testes da chave principal." border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

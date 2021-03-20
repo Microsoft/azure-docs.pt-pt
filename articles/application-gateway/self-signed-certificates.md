@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
 ms.openlocfilehash: e60aa9f072a447af97aa7cc66534e6e893fdbcf6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93396945"
 ---
-# <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gere um certificado auto-assinado do Azure Application Gateway com uma raiz personalizada CA
+# <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gerar um certificado autoassinado do Gateway de Aplicação do Azure com uma AC raiz personalizada
 
 O Gateway de Aplicação v2 SKU introduz a utilização de Certificados de Raiz Fidedigna para permitir servidores de backend. Isto remove os certificados de autenticação que eram necessários no V1 SKU. O *certificado de raiz* é um X.509 codificado base-64(. CER) certificado de raiz de formato do servidor de certificado de backend. Identifica a autoridade de certificados de raiz (CA) que emitiu o certificado do servidor e o certificado do servidor é então utilizado para a comunicação TLS/SSL.
 
@@ -177,7 +177,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 ## <a name="upload-the-root-certificate-to-application-gateways-http-settings"></a>Faça o upload do certificado de raiz para as definições HTTP do Gateway de Aplicação
 
-Para fazer o upload do certificado em Application Gateway, deve exportar o certificado .crt para um formato .cer Base-64 codificado. Uma vez que .crt já contém a chave pública no formato codificado base-64, basta mudar o nome da extensão do ficheiro de .crt para .cer. 
+Para fazer o upload do certificado no Application Gateway, tem de exportar o certificado .crt para um formato .cer Base-64 codificado. Uma vez que .crt já contém a chave pública no formato codificado base-64, basta mudar o nome da extensão do ficheiro de .crt para .cer. 
 
 ### <a name="azure-portal"></a>Portal do Azure
 

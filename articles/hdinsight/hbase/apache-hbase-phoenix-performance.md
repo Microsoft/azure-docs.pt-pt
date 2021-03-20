@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: ffba3b986b35c375d0404d9d2bae5af79f93c54f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944806"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Melhores práticas de desempenho do Apache Phoenix
@@ -253,7 +253,7 @@ CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
 Para mais detalhes sobre esta e outras opções, consulte [a Gramática Apache Phoenix.](https://phoenix.apache.org/language/index.html#options)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Guia de Afinação De Fénix Apache](https://phoenix.apache.org/tuning_guide.html)
 * [Índices Secundários](https://phoenix.apache.org/secondary_indexing.html)

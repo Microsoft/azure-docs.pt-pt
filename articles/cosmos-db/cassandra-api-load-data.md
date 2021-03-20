@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: ad3dfc8c86d22e58377ebfbdb94b2beb004ded56
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93092471"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carregue os dados da amostra numa tabela da API de Cassandra no Azure Cosmos DB
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Utilize os seguintes passos para carregar dados para a sua tabela da API para Cassandra:
 
-1. Abra o ficheiro "UserRepository.java" sob a pasta "src\main\java\com\azure\cosmosdb\cassandra" e anexa o código para inserir os campos de user_id, user_name e user_bcity na tabela:
+1. Abra o ficheiro "UserRepository.java" sob a pasta "src\main\java\com\azure\cosmosdb\cassandra" e apencha o código para inserir os campos de user_id, user_name e user_bcity na tabela:
 
    ```java
    /**
@@ -76,7 +76,7 @@ Utilize os seguintes passos para carregar dados para a sua tabela da API para Ca
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-Abra uma janela de comando ou terminal e altere o caminho da pasta para onde criou o projeto. Executar o comando "mvn clean install" para gerar o ficheiro cosmosdb-cassandra-exemplos.jar dentro da pasta alvo e executar a aplicação. 
+Abra uma janela de comando ou terminal e altere o caminho da pasta para onde criou o projeto. Executar o comando "mvn clean install" para gerar os exemplos cosmosdb-cassandra.jar ficheiro dentro da pasta alvo e executar a aplicação. 
 
 ```bash
 cd "cassandra-demo"

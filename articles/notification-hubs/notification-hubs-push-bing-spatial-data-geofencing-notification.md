@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push com os Hubs de Notificação do Azure e Bing Spatial Data ! Microsoft Docs
+title: Envie notificações push com os Hubs de Notificação Azure e Bing Spatial Data | Microsoft Docs
 description: Neste tutorial, irá aprender a entregar notificações push com base na localização com Hubs de Notificação do Azure e Dados Geográficos do Bing.
 services: notification-hubs
 documentationcenter: windows
@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 51ad23e67a77c28d0ad8a147168a0094f5de1796
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578007"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações push baseadas em localização com centros de notificação e dados espaciais de Bing
@@ -50,7 +50,7 @@ Neste tutorial, siga os seguintes passos:
 2. Na barra de navegação superior, selecione **Origens de dados** e selecione **Gerir Origens de Dados**.
 
     ![Screenshot do Bing Maps Dev Center na página 'Gerir fontes de dados' com os dados do Upload como uma opção de fonte de dados delineada a vermelho.](./media/notification-hubs-geofence/bing-maps-manage-data.png)
-3. Se não vir uma origem de dados existente, verá uma ligação para criar uma origem de dados. Selecione **Carregar dados como uma origem de dados**. Também pode utilizar o menu **de dados de fontes de dados.**  >  **Upload data**
+3. Se não vir uma origem de dados existente, verá uma ligação para criar uma origem de dados. Selecione **Carregar dados como uma origem de dados**. Também pode utilizar o menu **de dados de fontes de dados.**  >  
 
     ![Screenshot da caixa de diálogo de fonte de dados.](./media/notification-hubs-geofence/bing-maps-create-data.png)
 4. Crie um ficheiro `NotificationHubsGeofence.pipe` no seu disco rígido com o seguinte conteúdo: Neste tutorial, utilize um ficheiro baseado em tubos de amostra que enquadra uma área da orla marítima de São Francisco:
@@ -349,14 +349,14 @@ Neste tutorial, siga os seguintes passos:
 
     > [!NOTE]
     > Defina o `POST_URL` para a localização da sua aplicação Web implementada. Por enquanto, não faz mal executá-lo localmente, mas à medida que trabalha na implementação de uma versão pública, precisa de acolhê-la com um fornecedor externo.
-2. Registe a aplicação UWP para enviar notificações push. No Estúdio Visual, escolha **a**aplicação Project  >  **Store**Associate com  >  **a loja.**
+2. Registe a aplicação UWP para enviar notificações push. No Estúdio Visual, escolha **a** aplicação Project  >  **Store** Associate com  >  **a loja.**
 
     ![Screenshot do menu de clique à direita da solução com a Loja e App Associada com as opções da Loja em destaque.](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. Depois de iniciar sessão na conta de programador, certifique-se de que seleciona uma aplicação existente ou cria uma nova e associe-lhe o pacote.
-4. Aceda ao Dev Center e abra a aplicação que criou. Escolha **Services**  >  **serviços Push Notificações**  >  **Ao Vivo Site**.
+4. Aceda ao Dev Center e abra a aplicação que criou. Escolha   >  **serviços Push Notificações**  >  **Ao Vivo Site**.
 
     ![Screenshot do Windows Dev Center exibindo a página de notificações Push com o site live services em destaque.](./media/notification-hubs-geofence/ms-live-services.png)
-5. No site, tome nota do **Segredo da Aplicação** e do **SID do Pacote**. Precisa tanto no portal Azure – abra o seu centro de notificações, escolha **o Windows**  >  (WNS) dos**Serviços de Notificação**de Definições  >  **e** introduza as informações nos campos necessários.
+5. No site, tome nota do **Segredo da Aplicação** e do **SID do Pacote**. Precisa tanto no portal Azure – abra o seu centro de notificações, escolha **o Windows**  >  (WNS) dos **Serviços de Notificação** de Definições  >  **e** introduza as informações nos campos necessários.
 
     ![Screenshot mostrando a página de Definições com as opções de Serviços de Notificação e Windows (WNS) realçadas e os valores de SID e Chave de Segurança do Pacote preenchidos.](./media/notification-hubs-geofence/notification-hubs-wns.png)
 6. Escolha **guardar**.

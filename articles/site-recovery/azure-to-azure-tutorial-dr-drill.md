@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
 ms.openlocfilehash: c7cd1898f27f3b7255009efb40f6bcc8938dbf9e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395655"
 ---
 # <a name="tutorial-run-a-disaster-recovery-drill-for-azure-vms"></a>Tutorial: Executar um exercício de recuperação de desastres para VMs Azure
@@ -54,10 +54,10 @@ Antes de iniciar este tutorial, deve permitir a recuperação de desastres para 
 
 2. Em **Test Failover,** escolha um ponto de recuperação. O Azure VM na região alvo é criado usando dados deste ponto de recuperação.
   
-   - **Processo mais recente** : Utiliza o último ponto de recuperação processado pela Recuperação do Local. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que fornece um objetivo de tempo de recuperação baixo (RTO).
+   - **Processo mais recente**: Utiliza o último ponto de recuperação processado pela Recuperação do Local. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que fornece um objetivo de tempo de recuperação baixo (RTO).
    -  **Mais recente:** Processa todos os dados enviados para a Recuperação do Local, para criar um ponto de recuperação para cada VM antes de falhar. Fornece o objetivo de ponto de recuperação mais baixo (RPO), porque todos os dados são replicados para a Recuperação do Local quando a falha é desencadeada.
-   - **Aplicações mais recentes consistentes** : Esta opção falha em VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
-   - **Costume** : Falhe no ponto de recuperação particular. O costume só está disponível quando falha num único VM e não usa um plano de recuperação.
+   - **Aplicações mais recentes consistentes**: Esta opção falha em VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
+   - **Costume**: Falhe no ponto de recuperação particular. O costume só está disponível quando falha num único VM e não usa um plano de recuperação.
 
 3. Na **rede virtual Azure,** selecione a rede alvo para colocar VMs Azure criados após o failover. Selecione uma rede de não produção, se possível, e não a rede que foi criada quando ativou a replicação.
 

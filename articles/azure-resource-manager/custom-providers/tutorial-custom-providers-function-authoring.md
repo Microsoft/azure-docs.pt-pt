@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
 ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200214"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Autor de um ponto final RESTful para fornecedores personalizados
@@ -43,7 +43,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 
 Com base no `x-ms-customproviders-requestpath` cabeçalho do exemplo, pode criar os parâmetros *partitionKey* e *rowKey* para o seu armazenamento, tal como mostrado na tabela seguinte:
 
-Parâmetro | Modelo | Descrição
+Parâmetro | Modelo | Description
 ---|---|---
 *partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | O parâmetro *partitionKey* especifica como os dados são divididos. Normalmente, os dados são divididos pela instância do fornecedor personalizado.
 *rowKey* | `{myResourceType}:{myResourceName}` | O parâmetro *rowKey* especifica o identificador individual para os dados. Normalmente, o identificador é o nome do recurso.

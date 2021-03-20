@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 7a27ed657ba21d9e2125df903b40d74cd81eacf6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379306"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning Studio (clássico) usando a atividade de recurso de atualização
@@ -34,7 +34,7 @@ ms.locfileid: "100379306"
 
 Este artigo complementa o principal artigo de integração do Azure Machine Learning Factory - Azure Machine Learning Studio (clássico): [Criar oleodutos preditivos utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory.](data-factory-azure-ml-batch-execution-activity.md) Se ainda não o fez, reveja o artigo principal antes de ler este artigo. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Com o tempo, os modelos preditivos no Azure Machine Learning Studio (clássico) experiências de pontuação precisam de ser retreinados usando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo ML retreinado. Os passos típicos para permitir a reconversão e atualização dos modelos studio (clássico) através de serviços web são:
 
 1. Crie uma experiência no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).

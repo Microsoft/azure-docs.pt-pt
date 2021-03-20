@@ -10,15 +10,15 @@ ms.custom: include file
 ms.topic: include
 ms.date: 12/11/2020
 ms.openlocfilehash: 09dd6e9a9d69797c2c33270d1620e861a052efe2
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97505125"
 ---
 O alvo de computação que utiliza para hospedar o seu modelo irá afetar o custo e a disponibilidade do seu ponto final implantado. Utilize esta tabela para escolher um alvo de computação apropriado.
 
-| Destino de computação | Utilizado para | Suporte gpu | Suporte FPGA | Descrição |
+| Destino de computação | Utilizado para | Suporte de GPU | Suporte de FPGA | Description |
 | ----- | ----- | ----- | ----- | ----- |
 | [&nbsp;Serviço web local &nbsp;](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | Teste/depuragem | &nbsp; | &nbsp; | Utilização para testes limitados e resolução de problemas. A aceleração do hardware depende da utilização de bibliotecas no sistema local.
 | [Azure Kubernetes Service (AKS)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | Inferência em tempo real |  [Sim](../articles/machine-learning/how-to-deploy-inferencing-gpus.md) (implantação de serviço web) | [Sim](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Utilização para implantações de produção de alta escala. Proporciona tempo de resposta rápida e autoscalagem do serviço implantado. A autoescalagem do cluster não é suportada através do Azure Machine Learning SDK. Para alterar os nós no cluster AKS, utilize o UI para o seu cluster AKS no portal Azure. <br/><br/> Apoiado no designer. |

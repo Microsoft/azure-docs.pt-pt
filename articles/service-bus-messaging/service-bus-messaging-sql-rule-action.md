@@ -4,10 +4,10 @@ description: Este artigo fornece uma referência para a sintaxe de ação de reg
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652841"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Regra de subscrição SQL Action Syntax
