@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88923403"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData `$filter` `$orderby` para, e `$select` em Azure Cognitive Search
 
-A Azure Cognitive Search suporta um subconjunto da sintaxe de expressão OData para **$filter**, **$orderby**e **expressões $select.** As expressões de filtro são avaliadas durante a análise de consulta, limitando a procura a campos específicos ou adicionando critérios de correspondência utilizados durante as análises de índices. As expressões de encomenda são aplicadas como um passo pós-processamento sobre um conjunto de resultados para classificar os documentos que são devolvidos. As expressões selecionadas determinam quais os campos de documentos incluídos no conjunto de resultados. A sintaxe destas expressões é distinta da sintaxe de consulta [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) que é usada no parâmetro **de pesquisa,** embora haja alguma sobreposição na sintaxe para campos de referência.
+A Azure Cognitive Search suporta um subconjunto da sintaxe de expressão OData para **$filter**, **$orderby** e **expressões $select.** As expressões de filtro são avaliadas durante a análise de consulta, limitando a procura a campos específicos ou adicionando critérios de correspondência utilizados durante as análises de índices. As expressões de encomenda são aplicadas como um passo pós-processamento sobre um conjunto de resultados para classificar os documentos que são devolvidos. As expressões selecionadas determinam quais os campos de documentos incluídos no conjunto de resultados. A sintaxe destas expressões é distinta da sintaxe de consulta [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) que é usada no parâmetro **de pesquisa,** embora haja alguma sobreposição na sintaxe para campos de referência.
 
 Este artigo fornece uma visão geral da linguagem de expressão OData utilizada em filtros, encomendas e expressões selecionadas. A linguagem é apresentada "de baixo para cima", começando pelos elementos mais básicos e baseando-se neles. A sintaxe de nível superior para cada parâmetro é descrita num artigo separado:
 
@@ -38,7 +38,7 @@ Este artigo fornece uma visão geral da linguagem de expressão OData utilizada 
 
 As expressões OData variam de simples a altamente complexas, mas todas partilham elementos comuns. As partes mais básicas de uma expressão OData na Pesquisa Cognitiva Azure são:
 
-- **Caminhos de**campo, que se referem a campos específicos do seu índice.
+- **Caminhos de** campo, que se referem a campos específicos do seu índice.
 - **Constantes,** que são valores literais de um determinado tipo de dados.
 
 > [!NOTE]
@@ -70,7 +70,7 @@ Um identificador pode referir-se ao nome de um campo, ou a uma **variável** de 
 
 Exemplos de percursos de campo são mostrados na tabela seguinte:
 
-| Caminho de campo | Descrição |
+| Caminho de campo | Description |
 | --- | --- |
 | `HotelName` | Refere-se a um campo de alto nível do índice |
 | `Address/City` | Refere-se ao `City` sub-campo de um campo complexo no índice; `Address` é de tipo neste `Edm.ComplexType` exemplo |
@@ -211,7 +211,7 @@ Os caminhos de campo e as constantes são a parte mais básica de uma expressão
 
 No entanto, a maior parte do tempo você precisará de expressões mais complexas que se referem a mais de um campo e constante. Estas expressões são construídas de diferentes formas dependendo do parâmetro.
 
-O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para os **parâmetros $filter**, **$orderby**e **$select.** Estes são construídos a partir de expressões mais simples que se referem a caminhos de campo e constantes:
+O seguinte EBNF [(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para os **parâmetros $filter**, **$orderby** e **$select.** Estes são construídos a partir de expressões mais simples que se referem a caminhos de campo e constantes:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -233,13 +233,13 @@ Está também disponível um diagrama de sintaxe interativo:
 
 Os **parâmetros $orderby** e **$select** são ambas listas separadas por vírgulas de expressões mais simples. O **parâmetro $filter** é uma expressão booleana que é composta por subexpressões mais simples. Estas subexpressões são combinadas com operadores lógicos [ `and` `or` como, e, `not` ](search-query-odata-logical-operators.md)operadores de comparação [ `eq` `lt` como, e assim por `gt` diante,](search-query-odata-comparison-operators.md)e operadores de recolha como [ `any` e `all` ](search-query-odata-collection-operators.md).
 
-Os **parâmetros $filter**, **$orderby**e **$select** são explorados mais detalhadamente nos seguintes artigos:
+Os **parâmetros $filter**, **$orderby** e **$select** são explorados mais detalhadamente nos seguintes artigos:
 
 - [OData $filter sintaxe na pesquisa cognitiva de Azure](search-query-odata-filter.md)
 - [OData $orderby sintaxe na pesquisa cognitiva de Azure](search-query-odata-orderby.md)
 - [OData $select sintaxe na pesquisa cognitiva do Azure](search-query-odata-select.md)
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Ver também  
 
 - [Navegação facetada em Pesquisa Cognitiva Azure](search-faceted-navigation.md)
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)

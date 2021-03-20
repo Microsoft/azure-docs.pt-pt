@@ -7,10 +7,10 @@ ms.date: 03/27/2018
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a36425acf42a469c7f48b2e954bdacfdfcce1b10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89011485"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adicionar registos à sua aplicação do Service Fabric
@@ -126,7 +126,7 @@ O ASP.NET core logging[(Microsoft.Extensions.Logging NuGet )](https://www.nuget.
 
 Alguns fornecedores de terceiros utilizam a abordagem descrita na secção anterior, incluindo [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/)e [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Pode ligar cada uma delas à ASP.NET registo do Núcleo, ou pode usá-las separadamente. Serilog tem uma característica que enriquece todas as mensagens enviadas de um madeireiro. Esta funcionalidade pode ser útil para obter informações sobre o nome, tipo e partição do serviço. Para utilizar esta capacidade na infraestrutura core ASP.NET, faça estes passos:
 
-1. Adicione ao projeto os pacotes **Serilog**, **Serilog.Extensions.Logging,** **Serilog.Sinks.Literate**e **Serilog.Sinks.Observable** NuGet. 
+1. Adicione ao projeto os pacotes **Serilog**, **Serilog.Extensions.Logging,** **Serilog.Sinks.Literate** e **Serilog.Sinks.Observable** NuGet. 
 2. Criar um `LoggerConfiguration` e o caso do madeireiro.
 
    ```csharp
@@ -139,7 +139,7 @@ Alguns fornecedores de terceiros utilizam a abordagem descrita na secção anter
    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
    ```
 
-4. No construtor de serviço, cria enriquecimentos de propriedades para **ServiceTypeName,** **ServiceName,** **PartitionId**e **InstanceId**.
+4. No construtor de serviço, cria enriquecimentos de propriedades para **ServiceTypeName,** **ServiceName,** **PartitionId** e **InstanceId**.
 
    ```csharp
    public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)

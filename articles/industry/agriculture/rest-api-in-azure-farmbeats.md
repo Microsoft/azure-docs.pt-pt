@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674509"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats APIs
@@ -29,7 +29,7 @@ As APIs FarmBeats contêm documentação técnica da Swagger. Para obter informa
 
 A tabela seguinte resume todos os objetos e recursos no FarmBeats Datahub:
 
-| Objetos e recursos | Descrição
+| Objetos e recursos | Description
 --- | ---|
 Quinta | A quinta corresponde a uma localização física de interesse dentro do sistema FarmBeats. Cada quinta tem um nome de fazenda e uma identificação única da fazenda. |
 Dispositivo  | O dispositivo corresponde a um dispositivo físico presente na quinta. Cada dispositivo tem um ID de dispositivo único. Um dispositivo é normalmente a provisionado para uma fazenda com uma identificação agrícola.
@@ -107,9 +107,9 @@ Por exemplo, quando consulta a lista de dispositivos (chamada GET em /Dispositiv
 
 Azure FarmBeats Databeats Datahub APIs devolve os erros HTTP padrão. Os códigos de erro mais comuns são os seguintes:
 
- |Código de erro             | Descrição |
+ |Código de erro             | Description |
  |---                    | --- |
- |200                    | Success |
+ |200                    | Com êxito |
  |201                    | Criar (Post) Sucesso |
  |400                    | Mau pedido. Há um erro no pedido. |
  |401                    | Não autorizado. O chamador da API não está autorizado a aceder ao recurso. |
@@ -143,19 +143,19 @@ Neste exemplo, quando uma quinta foi criada, o campo obrigatório "Nome" não fo
 
 As APIs Azure FarmBeats podem ser acedidas por um utilizador ou por um registo de aplicações no Azure Ative Directory. Para criar um registo de aplicações no Azure Ative Directory, siga estes passos:
 
-1. Aceda ao [portal Azure,](https://portal.azure.com)e selecione **Azure Ative Directory**  >  **App registro**  >  **Novas inscrições** . Em alternativa, pode utilizar uma conta existente.
+1. Aceda ao [portal Azure,](https://portal.azure.com)e selecione **Azure Ative Directory**  >  **App registro**  >  **Novas inscrições**. Em alternativa, pode utilizar uma conta existente.
 2. Para uma nova conta, faça o seguinte:
 
     - Insira um nome.
-    - Selecione **Contas neste diretório organizacional apenas (inquilino único)** .
+    - Selecione **Contas neste diretório organizacional apenas (inquilino único)**.
     - Utilize os valores predefinidos no resto dos campos.
-    - Selecione **Registar** .
+    - Selecione **Registar**.
 
 3. No novo painel de **visão geral** do registo de aplicações, faça o seguinte:
 
     - Capture a **identificação do cliente** e **o ID do inquilino.**
     - Vá a **Certificados e Segredos** para gerar um novo segredo de cliente e capturar o **Segredo de Clientes.**
-    - Volte ao **Overview** , e selecione o link ao lado **da Aplicação Manage no diretório local.**
+    - Volte ao **Overview**, e selecione o link ao lado **da Aplicação Manage no diretório local.**
     - Vá a **Propriedades** para capturar o **ID do objeto.**
 
 4. Vá ao seu Datahub Swagger (https:// <yourdatahub> .azurewebsites.net/swagger/index.html) e faça o seguinte:

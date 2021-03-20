@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89078185"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Anfitriões de sessão de desktop virtual do Windows (clássico) usando Azure Automation
@@ -44,7 +44,7 @@ Durante o tempo de utilização fora do pico, o trabalho determina quantas VMs d
 >[!NOTE]
 >Se definir manualmente o VM do anfitrião da sessão para o modo de drenagem, o trabalho não gerirá o VM do anfitrião da sessão. Se o VM do anfitrião da sessão estiver em funcionamento e definido para o modo de drenagem, será tratado como indisponível, o que fará com que o trabalho inicie VMs adicionais para lidar com a carga. Recomendamos que marque quaisquer VMs Azure antes de os definir manualmente para o modo de drenagem. Pode nomear a etiqueta com o parâmetro *ManutençãoTagName* quando criar o Azure Logic App Scheduler mais tarde. As etiquetas ajudar-lhe-ão a distinguir estes VMs daqueles que a ferramenta de escalagem gere. A definição da etiqueta de manutenção também impede que a ferramenta de escalação faça alterações no VM até remover a etiqueta.
 
-Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permite que a definição de configuração da sessão em políticas de grupo especificadas lide com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, aceda a políticas **de configuração de computador**  >  **Policies**  >  **Modelos administrativos**Windows  >  **Components Remote**Desktop Services Remote  >  **Desktop**Session  >  **Host**  >  **Time Limits**. Se houver sessões ativas num VM anfitrião de sessão, o trabalho deixará o VM anfitrião da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará o VM anfitrião da sessão.
+Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permite que a definição de configuração da sessão em políticas de grupo especificadas lide com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, aceda a políticas **de configuração de computador**  >    >  **Modelos administrativos** Windows  >  **Components Remote** Desktop Services Remote  >  **Desktop** Session  >  **Host**  >  **Time Limits**. Se houver sessões ativas num VM anfitrião de sessão, o trabalho deixará o VM anfitrião da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará o VM anfitrião da sessão.
 
 Durante qualquer tempo, o trabalho também leva em conta o *MaxSessionLimit* do anfitrião para determinar se o número atual de sessões é mais de 90% da capacidade máxima. Se for, o trabalho iniciará vMs de anfitrião adicional.
 

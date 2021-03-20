@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Arnês / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a harness | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Harness.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.openlocfilehash: d6a6c8b49582b34c2603e0ddf78b76736f97c183
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92445618"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Azure Ative Directy integração única (SSO) com Arnês
@@ -110,7 +110,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Harness.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Harness**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -136,7 +136,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 3. Se pretender configurar o Harness manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa Harness como administrador e execute os seguintes passos:
 
-4. No topo-direito da página, clique em **Definições de**Autenticação contínua  >  **de gestão de acesso a**segurança  >  **Authentication Settings**.
+4. No topo-direito da página, clique em **Definições de** Autenticação contínua  >  **de gestão de acesso a** segurança  >  .
 
     ![Screenshot que mostra o menu "Segurança Contínua" com "Gestão de Acesso" e "Definições de autenticação" selecionados.](./media/harness-tutorial/configure01.png)
 
@@ -164,7 +164,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Harness, devem ser
 
 1. Inscreva-se no Harness como administrador.
 
-1. No topo-direito da página, clique em **Utilizadores de**  >  **Gestão**de Acesso de Segurança Contínua  >  **Users**.
+1. No topo-direito da página, clique em **Utilizadores de**  >  **Gestão** de Acesso de Segurança Contínua  >  .
 
     ![Screenshot que mostra o menu "Segurança Contínua" com "Gestão de Acesso" e "Utilizadores" selecionados.](./media/harness-tutorial/configure04.png)
 

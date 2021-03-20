@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Gateway Geral Disponibilidade nota de lançamento Microsoft Docs
+title: Notas de lançamento da caixa de dados Azure Gateway| Microsoft Docs
 description: Descreve questões e resoluções abertas críticas para o Gateway Azure Data Box com lançamento geral de disponibilidade.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/11/2020
 ms.author: alkohli
 ms.openlocfilehash: 2984f7990b9570c5ec57633de7f7e50162fb6f46
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96583017"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Azure Data Box Edge/Azure Data Box Gateway Notas de lançamento geral de disponibilidade
@@ -40,7 +40,7 @@ A versão GA corresponde às versões de software:
 
 A tabela seguinte fornece um resumo de problemas conhecidos para a versão de execução do Data Box Gateway.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Tipos de ficheiros | Os seguintes tipos de ficheiros não são suportados: ficheiros de caracteres, ficheiros de blocos, tomadas, tubos, ligações simbólicas.  |Copiar estes ficheiros resulta na criação de ficheiros de 0 comprimentos na partilha NFS. Estes ficheiros permanecem em estado de erro e também são reportados em *error.xml*. <br> Ligações simbólicas a diretórios resultam em diretórios nunca ficarem marcados offline. Como resultado, pode não ver a cruz cinzenta nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente enviado para a Azure. |
 | **2.** |Eliminação | Devido a um erro nesta versão, se uma parte NFS for eliminada, então a parte não pode ser eliminada. O estado da partilha mostrará *a Eliminação*.  |Isto ocorre apenas quando a ação está usando um nome de ficheiro não suportado. |

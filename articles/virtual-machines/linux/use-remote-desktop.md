@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 1f7eb3b38b4ae04e81839fce2b14c1a84f3f0204
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 84960e6247edc708bedb899c96ebf7522397269a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564599"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580373"
 ---
 # <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Instale e configuure xrdp para usar desktop remoto com Ubuntu
 
@@ -138,7 +138,7 @@ tail -f /var/log/syslog
 
 Outras distribuições de Linux, como Red Hat Enterprise Linux e SUSE, podem ter diferentes formas de reiniciar serviços e registar localizações alternativas para rever.
 
-Se não receber qualquer resposta no seu cliente de ambiente de trabalho remoto e não vir quaisquer eventos no registo do sistema, este comportamento indica que o tráfego remoto de ambiente de trabalho não pode chegar ao VM. Reveja as regras do seu grupo de segurança de rede para garantir que tem uma regra para permitir a TCP na porta 3389. Para obter mais informações, consulte [problemas de conectividade da aplicação Troubleshoot](../troubleshooting/troubleshoot-app-connection.md).
+Se não receber qualquer resposta no seu cliente de ambiente de trabalho remoto e não vir quaisquer eventos no registo do sistema, este comportamento indica que o tráfego remoto de ambiente de trabalho não pode chegar ao VM. Reveja as regras do seu grupo de segurança de rede para garantir que tem uma regra para permitir a TCP na porta 3389. Para obter mais informações, consulte [problemas de conectividade da aplicação Troubleshoot](/troubleshoot/azure/virtual-machines/troubleshoot-app-connection).
 
 
 ## <a name="next-steps"></a>Passos seguintes

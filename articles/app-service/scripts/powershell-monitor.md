@@ -7,13 +7,13 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 8a3af13060d932b1a39a85bbc631732f8f859dfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89070280"
 ---
-# <a name="monitor-a-web-appwith-web-server-logs"></a>Monitorizar uma aplicação Web com os registos do servidor Web
+# <a name="monitor-a-web-app-with-web-server-logs"></a>Monitorizar uma aplicação Web com os registos do servidor Web
 
 Neste cenário criará um grupo de recursos, o plano do serviço de aplicações, a aplicação Web e configura a aplicação Web para ativar os registos do servidor Web. Em seguida, transfira os ficheiros de registo para revisão.
 
@@ -23,7 +23,7 @@ Se for preciso, instale o Azure PowerShell com a instrução que se encontra no 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 

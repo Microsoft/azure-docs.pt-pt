@@ -1,5 +1,5 @@
 ---
-title: Limitações da Azure Cloud Shell Microsoft Docs
+title: Limitações da Azure Cloud Shell | Microsoft Docs
 description: Visão geral das limitações da Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74951484"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações da Concha da Nuvem Azure

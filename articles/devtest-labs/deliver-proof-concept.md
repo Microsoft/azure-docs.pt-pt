@@ -1,18 +1,18 @@
 ---
-title: Entregar uma prova de conceito - Azure DevTest Labs Microsoft Docs
+title: Entregar uma prova de conceito - Azure DevTest Labs | Microsoft Docs
 description: Aprenda a entregar uma prova de conceito para que a Azure DevTest Labs possa ser incorporada com sucesso num ambiente empresarial.
 ms.topic: article
 ms.date: 06/2/2020
 ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288029"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Entregar uma prova de conceito 
 
-Um dos cenários-chave para a Azure DevTest Labs é permitir o desenvolvimento e testar ambientes na nuvem. Alguns exemplos:
+Um dos cenários-chave para a Azure DevTest Labs é permitir o desenvolvimento e testar ambientes na nuvem. Os exemplos incluem:
 
 * Criar desktops de desenvolvedores na nuvem.
 * Configurar ambientes para testes.
@@ -71,7 +71,7 @@ Esta secção mostra uma amostra para usar para digitalizar uma prova de conceit
 > [!TIP]
 > Para minimizar a possibilidade de configurar o seu projeto para falhas, recomendamos vivamente que não ignore o exemplo descrito nesta secção. 
 
-### <a name="overview"></a>Descrição geral 
+### <a name="overview"></a>Descrição Geral 
 
 Estamos a planear desenvolver um novo ambiente em Azure baseado na DevTest Labs para os fornecedores usarem como um ambiente isolado da rede corporativa. Para determinar se a solução vai satisfazer os requisitos, desenvolveremos uma prova de conceito para validar a solução de ponta a ponta. Incluímos vários fornecedores para experimentar e verificar a experiência. 
 

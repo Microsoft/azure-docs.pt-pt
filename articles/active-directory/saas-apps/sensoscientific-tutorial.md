@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Sistema de Monitorização da Temperatura Sem Fios sensoScientific | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Sistema de Monitorização da Temperatura Sem Fios SensoScientific.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 27512ac694f20544f1fdd5b79b27d7bf2cabdd66
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Diretório Ativo Azure com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific
@@ -49,7 +49,7 @@ Para configurar a integração do Sistema de Monitorização da Temperatura Sem 
 
 **Para adicionar o Sistema de Monitorização da Temperatura Sem Fios SensoScientific da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Sistema de Monitorização da Temperatura Sem 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **escreva SensoScientific Wireless Temperature Monitoring System** , selecione **SensoScientific Wireless Temperature Monitoring System** from result panel then click **Add** button to add the application.
+4. Na caixa de pesquisa, **escreva SensoScientific Wireless Temperature Monitoring System**, selecione **SensoScientific Wireless Temperature Monitoring System** from result panel then click **Add** button to add the application.
 
     ![Sistema de Monitorização da Temperatura Sem Fios SensoScientific na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sinal de sinalização com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific baseado num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com um único sinal de sinalização com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific baseado num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de funcionamento, é necessário estabelecer uma relação de ligação entre um utilizador AD Azure e o utilizador relacionado no Sistema de Monitorização da Temperatura Sem Fios SensoScientific.
 
 Para configurar e testar o único sinal de Adure com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação do Sistema de **Monitorização da Temperatura Sem Fios SensoScientific,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação do Sistema de **Monitorização da Temperatura Sem Fios SensoScientific,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -133,13 +133,13 @@ Para configurar o Azure AD com o Sistema de Monitorização da Temperatura Sem F
 
     e. Navegue no certificado que descarregou do portal Azure e faça o upload aqui.
 
-    f. Clique em **Guardar** .
+    f. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -151,27 +151,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permitindo o acesso ao Sistema de Monitorização da Temperatura Sem Fios SensoScientific.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **SensoScientific Wireless Temperature Monitoring System** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **SensoScientific Wireless Temperature Monitoring System**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, **selecione SensoScientific Wireless Temperature Monitoring System** .
+2. Na lista de aplicações, **selecione SensoScientific Wireless Temperature Monitoring System**.
 
     ![A ligação do Sistema de Monitorização da Temperatura Sem Fios SensoScientific na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

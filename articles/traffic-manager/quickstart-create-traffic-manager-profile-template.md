@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
 ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92676006"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Quickstart: Criar um perfil de Gestor de Tráfego usando um modelo ARM
@@ -21,7 +21,7 @@ Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (Modelo
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-traffic-manager-external-endpoint%2Fazuredeploy.json)
 
@@ -62,11 +62,11 @@ Para encontrar mais modelos relacionados com O Gestor de Tráfego Azure, consult
 
 1. Selecione **Copiar** do bloco de código anterior para copiar o script PowerShell.
 
-1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta** .
+1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta**.
 
 1. Insira os valores.
 
-    A implementação do modelo cria um perfil com dois pontos finais externos. **O ponto final1** utiliza um ponto final-alvo `www.microsoft.com` com a localização no **Norte da Europa.** **O ponto final2** usa um ponto final de `docs.microsoft.com` destino com a localização em South Central **US** .
+    A implementação do modelo cria um perfil com dois pontos finais externos. **O ponto final1** utiliza um ponto final-alvo `www.microsoft.com` com a localização no **Norte da Europa.** **O ponto final2** usa um ponto final de `docs.microsoft.com` destino com a localização em South Central **US**.
 
     O nome do grupo de recursos é o nome do projeto com **rg** anexado.
 

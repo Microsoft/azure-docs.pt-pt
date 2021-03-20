@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e56473ae935ec58a6cf6f0ea30fe5f7ccfec3f80
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: f82169c084fc65fd483119bb84f29198ed288019
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017210"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580322"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o módulo Azure PowerShell para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
 
@@ -32,7 +32,20 @@ Também pode encontrar os tamanhos VM programáticamente. Para aprender a recupe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail encryptionAtHost@microsoft.com com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
+Tem de ativar a funcionalidade da sua subscrição antes de utilizar a propriedade EncryptionAtHost para o seu VM/VMSS. Siga os passos abaixo para ativar a funcionalidade para a sua subscrição:
+
+1.  Execute o seguinte comando para registar a funcionalidade para a sua subscrição
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.  Verifique se o estado de registo está registado (demora alguns minutos) usando o comando abaixo antes de experimentar a funcionalidade.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Criar um cofre de chave azul e diskEncryptionSet
 

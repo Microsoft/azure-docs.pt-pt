@@ -1,5 +1,5 @@
 ---
-title: Use a caça Livestream em Azure Sentinel para detetar ameaças Microsoft Docs
+title: Use a caça Livestream em Azure Sentinel para detetar ameaças | Microsoft Docs
 description: Este artigo descreve como usar a caça Livestream em Azure Sentinel para acompanhar os dados.
 services: sentinel
 documentationcenter: na
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84783168"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use o livestream de caça em Azure Sentinel para detetar ameaças
+# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Utilizar a transmissão em direto da investigação no Azure Sentinel para detetar ameaças
 
 Use livestream de caça para criar sessões interativas que lhe permitam testar consultas recém-criadas à medida que os eventos ocorrem, obter notificações das sessões quando um jogo é encontrado, e lançar investigações se necessário. Pode criar rapidamente uma sessão livestream utilizando qualquer consulta de Log Analytics.
 
@@ -43,7 +43,7 @@ Use livestream de caça para criar sessões interativas que lhe permitam testar 
 
 Você pode criar uma sessão livestream a partir de uma consulta de caça existente, ou criar a sua sessão do zero.
 
-1. No portal Azure, **Sentinel**navegue para a  >  **Sentinel Threat Management**  >  **Hunting**.
+1. No portal Azure, navegue para a  >  **Sentinel Threat Management**  >  **Hunting**.
 
 1. Para criar uma sessão livestream a partir de uma consulta de caça:
     
@@ -76,7 +76,7 @@ Você pode criar uma sessão livestream a partir de uma consulta de caça existe
 
 ## <a name="view-your-livestream-sessions"></a>Veja as suas sessões livestream
 
-1. No portal Azure, **Sentinel**navegue para a  >  **gestão da**Sentinel Threat  >  **Hunting**  >  **Livestream.**
+1. No portal Azure, navegue para a  >  **gestão da** Sentinel Threat  >  **Hunting**  >  **Livestream.**
 
 1. Selecione a sessão livestream que deseja visualizar ou editar. Por exemplo:
     

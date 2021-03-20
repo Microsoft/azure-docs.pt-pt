@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505771"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581121"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -86,12 +86,12 @@ A sua aplicação web deve solicitar ao utilizador se quiser terminar a transmis
 
 #### <a name="server-side"></a>Lado do servidor
 
-Você pode monitorizar eventos ao vivo subscrevendo eventos da Azure Event Grid. Para mais informações, consulte o esquema do [evento EventGrid.](media-services-event-schemas.md#live-event-types)
+Você pode monitorizar eventos ao vivo subscrevendo eventos da Azure Event Grid. Para mais informações, consulte o esquema do [evento EventGrid.](monitoring/media-services-event-schemas.md#live-event-types)
 
 Pode:
 
-* [Subscreva](reacting-to-media-services-events.md) os eventos ligados ao nível do stream [microsoft.media.LiveEventEncoderDis](media-services-event-schemas.md#liveeventencoderdisconnected) e monitorize que não há reconexões durante algum tempo para parar e apagar o seu evento ao vivo.
-* [Subscreva](reacting-to-media-services-events.md) os [eventos](media-services-event-schemas.md#liveeventingestheartbeat) cardíacos ao nível da pista. Se todas as faixas tiverem uma bitrate de entrada caindo para 0 ou a última marca de tempo não estiver mais aumentando, você pode desligar com segurança o evento ao vivo. Os eventos de batimentos cardíacos chegam a cada 20 segundos para cada pista, por isso pode ser um pouco verboso.
+* [Subscreva](monitoring/reacting-to-media-services-events.md) os eventos ligados ao nível do stream [microsoft.media.LiveEventEncoderDis](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) e monitorize que não há reconexões durante algum tempo para parar e apagar o seu evento ao vivo.
+* [Subscreva](monitoring/reacting-to-media-services-events.md) os [eventos](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) cardíacos ao nível da pista. Se todas as faixas tiverem uma bitrate de entrada caindo para 0 ou a última marca de tempo não estiver mais aumentando, você pode desligar com segurança o evento ao vivo. Os eventos de batimentos cardíacos chegam a cada 20 segundos para cada pista, por isso pode ser um pouco verboso.
 
 ###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Como inseri quebras/vídeos e ardósias de imagens durante uma transmissão em direto?
 
@@ -117,7 +117,7 @@ Para obter mais informações, consulte [Protect your content utilizando encript
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Como e onde consegui um token JWT antes de usá-lo para pedir uma licença ou chave?
 
-Para a produção, você precisa ter Secure Token Service (isto é, um serviço web), que emite um token JWT após um pedido HTTPS. Para o teste, pode utilizar o código indicado no `GetTokenAsync` método definido em [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+Para a produção, você precisa ter Secure Token Service (isto é, um serviço web), que emite um token JWT após um pedido HTTPS. Para o teste, pode utilizar o código indicado no `GetTokenAsync` método definido no [Programa.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
 O leitor faz um pedido, depois de um utilizador ser autenticado, para STS para tal token e atribui-o como o valor do token. Pode utilizar a API do [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 

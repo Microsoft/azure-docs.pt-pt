@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85200160"
 ---
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/) 
@@ -37,4 +37,4 @@ ms.locfileid: "85200160"
     * **Leia e escreva dados do diretório**: Selecione esta permissão para cenários de migração de utilizadores ou de gestão de utilizadores.
     * **Leia e escreva as políticas de enquadramento de confiança da sua organização**: Selecione esta permissão para cenários de integração contínua/entrega contínua (CI/CD). Por exemplo, a implementação de políticas personalizadas com a Azure Pipelines.
 1. Selecione **Guardar**.
-1. Selecione **permissões grant**e, em seguida, selecione **Sim**. Pode levar alguns minutos para que as permissões se propaguem completamente.
+1. Selecione **permissões grant** e, em seguida, selecione **Sim**. Pode levar alguns minutos para que as permissões se propaguem completamente.

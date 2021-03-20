@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
 ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86538008"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurar recipientes de reconhecimento de formulários
@@ -47,7 +47,7 @@ A `Billing` definição especifica o ponto final URI do recurso _Form Recogniser
 
 Pode encontrar esta definição no portal Azure, na **Visão Geral do Reconhecimento de Formulários**, no **ponto final**.
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -76,10 +76,10 @@ O recipiente Do Reconhecimento de Formulários requer um suporte de entrada e um
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização de montagem do [computador anfitrião](form-recognizer-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões da conta de serviço Docker e as permissões de localização do anfitrião.
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Obrigatório| `Input` | Cadeia | O alvo do suporte de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Necessário| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obrigatório| `Input` | String | O alvo do suporte de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Necessário| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemplo de estivador executar comandos
 

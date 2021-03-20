@@ -1,5 +1,5 @@
 ---
-title: Quickstart para usar configuração de aplicativos Azure com aplicações Python Microsoft Docs
+title: Quickstart para usar configuração de aplicativos Azure com aplicações Python | Microsoft Docs
 description: Neste quickstart, crie uma aplicação Python com Configuração de Aplicações Azure para centralizar o armazenamento e gestão das definições de aplicações separadas do seu código.
 services: azure-app-configuration
 author: drewbatgit
@@ -9,10 +9,10 @@ ms.custom: devx-track-python
 ms.date: 9/17/2020
 ms.author: drewbat
 ms.openlocfilehash: 954f4edcd10d701d00d9cd23280aaac7c287992d
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91997471"
 ---
 # <a name="quickstart-create-a-python-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Python com configuração de aplicação Azure
@@ -282,7 +282,7 @@ Deleted configuration setting:
 Key: TestApp:Settings:NewSetting, Value: Value has been updated!
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]

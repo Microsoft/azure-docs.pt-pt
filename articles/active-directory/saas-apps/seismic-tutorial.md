@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com Sísmico Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | Sísmico Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Sísmico.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 71de0573f252cab7f2b479212551562de2b1d1c2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Tutorial: Integração do Diretório Ativo Azure com Sísmico
@@ -53,14 +53,14 @@ Para configurar a integração da Sísmico em AD Azure, precisa adicionar sísmi
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **escreva sísmico** na caixa de pesquisa.
 1. Selecione **Sísmico** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
-Nesta secção, você configura e testa Azure AD single sign-on com Sísmico com base em um utilizador de teste chamado **Britta Simon** .
+Nesta secção, você configura e testa Azure AD single sign-on com Sísmico com base em um utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Sísmico.
 
 Para configurar e testar o Azure AD com sísmico, você precisa completar os seguintes blocos de construção:
@@ -76,8 +76,8 @@ Para configurar e testar o Azure AD com sísmico, você precisa completar os seg
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **sísmicas,** encontre a secção **Gerir** e selecione um único sinal de **sação** .
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **sísmicas,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -107,21 +107,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Sísmico.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Sísmico.**
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -133,7 +133,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-seismic-sso"></a>Configurar sso sso sso sso sso
+## <a name="configure-seismic-sso"></a>Configurar sso s
 
 Para configurar um único sign-on no lado **sísmico,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte sísmico](mailto:support@seismic.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

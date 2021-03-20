@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Serviços de Diretório OpenText para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
+title: 'Tutorial: Configurar serviços de diretório OpenText para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como providenciar e desa provisionar automaticamente as contas de utilizadores do Azure AD para os Serviços de Diretório OpenText.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
 ms.openlocfilehash: 2f31eddab1070d073d3fd5a4761dad597e42a2e0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181897"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>Tutorial: Configurar serviços de diretório OpenText para fornecimento automático de utilizadores

@@ -10,17 +10,17 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: f88ccd077c857826271484c9929b37f8c5d751fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962711"
 ---
 # <a name="terraform-samples-for-azure-app-service"></a>Amostras terraform para Azure App Service
 
 A tabela seguinte inclui links para scripts terraform.
 
-| Script | Descrição |
+| Script | Description |
 |-|-|
 |**Criar aplicação**||
 | [Crie duas aplicações e conecte-se de forma segura com a integração Private Endpoint e VNet](./scripts/terraform-secure-backend-frontend.md )| Cria duas aplicações de Serviço de Aplicações e conecta aplicações juntamente com a integração private Endpoint e VNet. |

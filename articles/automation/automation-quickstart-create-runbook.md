@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: 948ca820347c7cdcd560ade46e850f66b25bc88e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90987291"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Crie um runbook de Automatização do Azure
@@ -55,7 +55,7 @@ Primeiro, crie um runbook. O runbook de exemplo criado neste guia rápido devolv
 
 1. Clique **em Guardar** para guardar uma cópia do rascunho do livro de recortes.
 
-    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook.png" alt-text="Screenshot da página Edit PowerShell Runbook.":::
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook.png" alt-text="Screenshot da página Editar PowerShell Runbook com um exemplo de código na janela direita.":::
 
 ## <a name="test-the-runbook"></a>Testar o runbook
 
@@ -65,13 +65,13 @@ Uma vez criado o livro de recortes, tem de testar o livro de recortes para valid
 
 1. Introduza um valor para **Nome** e clique em **Iniciar**. A tarefa de teste inicia e o estado da tarefa e o resultado são apresentados.
 
-    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-test-runbook.png" alt-text="Screenshot da página Edit PowerShell Runbook.":::
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-test-runbook.png" alt-text="Screenshot do painel de teste com um valor de exemplo no campo de nomes.":::
 
 1. Feche o painel de teste clicando no **X** no canto superior direito. Selecione **OK** na caixa que aparece.
 
 1. Na página Editar Runbook do PowerShell, clique em **Publicar** para publicar o runbook como a versão oficial do runbook na conta.
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png" alt-text="Screenshot da página Edit PowerShell Runbook.":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png" alt-text="Screenshot da página EditAr PowerShell Runbook mostrando o botão Publicar selecionado.":::
 
 ## <a name="run-the-runbook"></a>Executar o runbook
 
@@ -79,17 +79,17 @@ Assim que o runbook é publicado, é apresentada a página de descrição geral.
 
 1. Na página de descrição geral do runbook, clique em **Iniciar** para abrir a página de configuração Iniciar Runbook para este runbook.
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png" alt-text="Screenshot da página Edit PowerShell Runbook.":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png" alt-text="Screenshot da página de configuração do Start Runbook.":::
 
 1. Deixe o **Nome** em branco, para que o valor predefinido seja utilizado e clique em **OK**. O trabalho de runbook é submetido e a página De Trabalho aparece.
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-job-page.png" alt-text="Screenshot da página Edit PowerShell Runbook.":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-job-page.png" alt-text="Screenshot da página de Trabalho mostrando o botão de saída selecionado.":::
 
 1. Quando o estado do trabalho estiver `Running` `Completed` ou, clique em **Saída** para abrir o painel de saída e ver a saída do livro de execução.
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="Screenshot da página Edit PowerShell Runbook.":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="Screenshot do painel de saída mostrando a saída do runbook.":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar, elimine o runbook. Para tal, selecione o runbook na lista de runbooks e clique em **Eliminar**.
 

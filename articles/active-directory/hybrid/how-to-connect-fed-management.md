@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Gestão e personalização da AD FS Microsoft Docs
+title: Azure AD Connect - AD FS gestão e personalização | Microsoft Docs
 description: Gestão de FS AD com Azure AD Connect e personalização da experiência de sind de súm em AD FS do utilizador com Azure AD Connect e PowerShell.
 keywords: AD FS, ADFS, gestão AD FS, AAD Connect, Connect, sign-in, Personalização AD FS, confiança de reparação, M365, federação, festa de confiança
 services: active-directory
@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274117"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os Serviços da Federação de Diretórios Ativos utilizando o Azure AD Connect
@@ -92,7 +92,7 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
 > [!NOTE]
 > Para adicionar um servidor AD FS, o Azure AD Connect requer o certificado PFX. Portanto, só pode efetuar esta operação se configurar a quinta AD FS utilizando o Azure AD Connect.
 
-1. Selecione **Implementar um servidor de federação adicional**e clique em **Seguinte**.
+1. Selecione **Implementar um servidor de federação adicional** e clique em **Seguinte**.
 
    ![Servidor adicional da federação](./media/how-to-connect-fed-management/AddNewADFSServer1.PNG)
 
@@ -253,7 +253,7 @@ c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
 => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 ```
 
-Nesta regra, está simplesmente a verificar a **idflag**temporária da bandeira. Decide se emite a reclamação com base no seu valor.
+Nesta regra, está simplesmente a verificar a **idflag** temporária da bandeira. Decide se emite a reclamação com base no seu valor.
 
 > [!NOTE]
 > A sequência destas regras é importante.

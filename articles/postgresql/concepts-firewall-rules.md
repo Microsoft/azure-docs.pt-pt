@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: ba353cf41cf3876a681f8f18d4121401260ff4ff
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98877175"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Regras de firewall na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -72,7 +72,7 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
 * **A regra de firewall não está disponível para o formato IPv6:** As regras de firewall devem estar no formato IPv4. Se especificar as regras de firewall no formato IPv6, apresentará o erro de validação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar e gerir a Base de Dados Azure para regras de firewall postgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md)
 * [Criar e gerir a Base de Dados de Azure para regras de firewall postgresQL usando Azure CLI](howto-manage-firewall-using-cli.md)
 * [Pontos finais de serviço VNet na Base de Dados Azure para PostgreSQL](./concepts-data-access-and-security-vnet.md)

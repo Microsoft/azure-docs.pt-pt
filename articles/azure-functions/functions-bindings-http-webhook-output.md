@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697447"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Funções Azure HTTP Vinculações de saída
@@ -64,9 +64,9 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
-| personalizadosHeaders|nenhuma|Permite-lhe definir cabeçalhos personalizados na resposta HTTP. O exemplo anterior adiciona o `X-Content-Type-Options` cabeçalho à resposta para evitar o cheiro do tipo de conteúdo. |
+| personalizadosHeaders|nenhum|Permite-lhe definir cabeçalhos personalizados na resposta HTTP. O exemplo anterior adiciona o `X-Content-Type-Options` cabeçalho à resposta para evitar o cheiro do tipo de conteúdo. |
 |dynamicThrottlesEnabled|verdade<sup>\*</sup>|Quando ativado, esta definição faz com que o gasoduto de processamento de pedidos verifique periodicamente os contadores de desempenho do sistema `connections/threads/processes/memory/cpu/etc` e, se algum desses contadores estiver acima de um limiar elevado incorporado (80%), os pedidos serão rejeitados com uma `429 "Too Busy"` resposta até que o contador(s) volte aos níveis normais.<br/><sup>\*</sup>O padrão num plano de consumo é `true` . O padrão num plano dedicado é `false` .|
 |hsts|não habilitado|Quando `isEnabled` definido para , o comportamento HTTP Strict Transport Security `true` [(HSTS) de .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) é aplicado, conforme definido na [ `HstsOptions` classe](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). O exemplo acima também define a [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) propriedade para 10 dias. Propriedades suportadas `hsts` são: <table><tr><th>Propriedade</th><th>Descrição</th></tr><tr><td>excluídosHosts</td><td>Uma série de nomes de anfitriões para os quais o cabeçalho HSTS não é adicionado.</td></tr><tr><td>incluiMus</td><td>Valor booleano que indica se o parâmetro de SubDomain do cabeçalho De Segurança Estrita-Transporte está ativado.</td></tr><tr><td>maxAge</td><td>Corda que define o parâmetro da idade máxima do cabeçalho De Segurança Estrita-Transporte.</td></tr><tr><td>pré-carregamento</td><td>Boolean que indica se o parâmetro de pré-carga do cabeçalho De Segurança Estrita-Transporte está ativado.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|O número máximo de funções HTTP que são executadas em paralelo. Este valor permite-lhe controlar a concordância, o que pode ajudar a gerir a utilização de recursos. Por exemplo, pode ter uma função HTTP que utiliza um grande número de recursos do sistema (memória/cpu/tomadas) de modo a causar problemas quando a conuscência é demasiado elevada. Ou pode ter uma função que faz pedidos de saída para um serviço de terceiros, e essas chamadas precisam de ser limitadas. Nestes casos, aplicar um acelerador aqui pode ajudar. <br/><sup>*</sup>O padrão para um plano de consumo é de 100. O padrão para um plano dedicado não é limitado `-1` ().|

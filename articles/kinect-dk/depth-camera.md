@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, câmara de profundidade, tof, princípios, desempenho, invalidação
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85277510"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Câmera de profundidade Azure Kinect DK
@@ -56,7 +56,7 @@ O erro sistemático é definido como a diferença entre a profundidade medida ap
 
 ![Erro sistemático de profundidade](./media/concepts/depth-camera-systematic-error.png)
 
-Onde *d<sub>t</sub> * denota a profundidade da medida no tempo *t*, *N* é o número de quadros usados no procedimento médio e *d<sub>gt</sub> * é a profundidade da verdade no solo.
+Onde *d <sub>t</sub>* denota a profundidade da medida no tempo *t*, *N* é o número de quadros usados no procedimento médio e *d <sub>gt</sub>* é a profundidade da verdade no solo.
 
 A especificação de erro sistemática da câmara de profundidade exclui interferências multi-caminhos (MPI). MPI é quando um pixel sensor integra luz que é refletida por mais de um objeto. O MPI é parcialmente atenuado na nossa câmara de profundidade usando frequências de modulação mais altas, juntamente com a invalidação de profundidade, que introduziremos mais tarde.
 
@@ -66,7 +66,7 @@ Vamos supor que tiramos 100 imagens do mesmo objeto sem mover a câmara. A profu
 
 ![Erro aleatório de profundidade](./media/concepts/depth-camera-random-error.png)
 
-Quando *N* denota o número de medições de profundidade, *d<sub>t</sub> * representa a medição de profundidade no momento *t* e *d* denota o valor médio calculado sobre todas as medições de profundidade *d<sub>t</sub>*.
+Quando *N* denota o número de medições de profundidade, *d <sub>t</sub>* representa a medição de profundidade no momento *t* e *d* denota o valor médio calculado sobre todas as medições de profundidade *d <sub>t</sub>*.
 
 ## <a name="invalidation"></a>Invalidação
 

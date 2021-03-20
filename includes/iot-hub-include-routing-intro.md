@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 552a40be0c069d1002ebc7ea4dafe0d6f93a5755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85128187"
 ---
 [O encaminhamento de mensagens](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) permite o envio de dados de telemetria dos seus dispositivos IoT para pontos finais compatíveis com o Event Hub ou pontos finais personalizados, tais como armazenamento de bolhas, filas de autocarros de serviço, tópicos de autocarro de serviço e centros de eventos. Para configurar o encaminhamento de mensagens [personalizadas,](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) cria consultas de encaminhamento para personalizar o percurso que corresponde a uma determinada condição. Uma vez configurado, os dados de entrada são automaticamente encaminhados para os pontos finais pelo Hub IoT. Se uma mensagem não corresponder a nenhuma das consultas de encaminhamento definidas, é encaminhada para o ponto final padrão.

@@ -4,10 +4,10 @@ description: Saiba como criar horários de Serviços de Laboratório dentro de E
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: 202b202f99868875a51d13e95fbcac677246cc05
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92042342"
 ---
 # <a name="create-and-manage-lab-services-schedules-within-teams"></a>Criar e gerir horários de Serviços de Laboratório dentro de Equipas
@@ -28,7 +28,7 @@ Os utilizadores podem criar, editar e apagar horários de laboratório dentro de
 ## <a name="automatic-shutdown-and-disconnect-settings"></a>Definições automáticas de paragem e desconexão
 
 Pode ativar várias funcionalidades de controlo de custos de autorredução para evitar custos adicionais quando as máquinas virtuais não estão a ser utilizadas ativamente. A combinação das três funcionalidades de paragem e desconexão automáticas que se seguem captura a maioria dos casos em que os utilizadores deixam acidentalmente as suas máquinas virtuais em funcionamento:
- 
+ 
 - Desconectar automaticamente os utilizadores de máquinas virtuais que o SISTEMA considera inativas.
 - Desligue automaticamente as máquinas virtuais quando os utilizadores se desligam.
 - Desligue automaticamente as máquinas virtuais que são iniciadas mas os utilizadores não se conectam.

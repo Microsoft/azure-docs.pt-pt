@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configurar funções de Serviços de Análise Azure / Microsoft Docs
+title: Tutorial - Configurar funções de Serviços de Análise Azure | Microsoft Docs
 description: Neste tutorial, aprenda a configurar o administrador e as funções de utilizador do Azure Analysis Services utilizando o portal Azure ou o SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92018700"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
@@ -37,7 +37,7 @@ Para saber mais sobre a segurança do utilizador no Azure Analysis Services, vej
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal](https://portal.azure.com/).
+Inscreva-se no [portal.](https://portal.azure.com/)
 
 ## <a name="get-server-name"></a>Obter nome do servidor
 Para ligar ao seu servidor do SSMS, primeiro precisa do nome do servidor. Pode obter o nome do servidor a partir do portal.
@@ -134,7 +134,7 @@ Nesta tarefa, irá utilizar o comando [Criar](/analysis-services/tmsl/create-com
 
     ![Verificar no Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize a **Role Properties**  >  **Membership** para remover contas de utilizador ou clique com o botão direito de uma função e, em seguida, clique em **Eliminar**.
 

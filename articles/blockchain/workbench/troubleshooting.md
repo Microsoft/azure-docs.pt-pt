@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: troubleshooting
 ms.reviewer: brendal
 ms.openlocfilehash: 20c0f9bdd6f820a73b1ba6660de805268c0d8714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85212858"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench Pré-visualização resolução de problemas
@@ -44,19 +44,19 @@ O script aceita os seguintes parâmetros:
 
 | Parâmetro  | Descrição | Obrigatório |
 |---------|---------|----|
-| SubscriçãoID | SubscriçãoID para criar ou localizar todos os recursos. | Sim |
-| ResourceGroupName | Nome do Grupo de Recursos Azure onde a blockchain Workbench foi implantada. | Sim |
-| OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, predefinições no diretório atual. | Não |
-| LookbackHours | Número de horas para utilizar ao puxar a telemetria. O valor predefinido é de 24 horas. O valor máximo é de 90 horas | Não |
-| OmsSubscriptionId | O ID de subscrição onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| Não |
-| OmsResourceGroup |O grupo de recursos onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| Não |
-| Nome OmsWorkspace | O nome do espaço de trabalho Log Analytics. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench | Não |
+| SubscriçãoID | SubscriçãoID para criar ou localizar todos os recursos. | Yes |
+| ResourceGroupName | Nome do Grupo de Recursos Azure onde a blockchain Workbench foi implantada. | Yes |
+| OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, predefinições no diretório atual. | No |
+| LookbackHours | Número de horas para utilizar ao puxar a telemetria. O valor predefinido é de 24 horas. O valor máximo é de 90 horas | No |
+| OmsSubscriptionId | O ID de subscrição onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| No |
+| OmsResourceGroup |O grupo de recursos onde os registos do Azure Monitor são implantados. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench.| No |
+| Nome OmsWorkspace | O nome do espaço de trabalho Log Analytics. Só passe este parâmetro se os registos do Monitor Azure para a rede blockchain forem implantados fora do grupo de recursos da Blockchain Workbench | No |
 
 ## <a name="what-is-collected"></a>O que é recolhido?
 
 O ficheiro ZIP de saída contém a seguinte estrutura de pasta:
 
-| Pasta ou Arquivo | Descrição  |
+| Pasta ou Arquivo | Description  |
 |---------|---------|
 | \Summary.txt | Resumo do sistema |
 | \Métricas\blockchain | Métricas sobre a blockchain |

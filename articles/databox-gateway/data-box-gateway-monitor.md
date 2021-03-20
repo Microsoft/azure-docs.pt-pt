@@ -1,5 +1,5 @@
 ---
-title: Monitorize o seu dispositivo Azure Data Box Gateway / Microsoft Docs
+title: Monitorize o seu dispositivo Azure Data Box Gateway | Microsoft Docs
 description: Descreve como usar o portal Azure e a UI web local para monitorizar o seu Gateway de Caixa de Dados Azure.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: ed05f3d60f8ba4fbb06327136c7a117ae1d1d2db
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582484"
 ---
 # <a name="monitor-your-azure-data-box-gateway"></a>Monitorize o seu Gateway de Caixa de Dados Azure
@@ -45,12 +45,12 @@ Esta secção descreve as métricas de monitorização do seu dispositivo. As m�
 
 Uma lista completa das métricas é mostrada na tabela seguinte:
 
-|Métricas de capacidade                     |Descrição  |
+|Métricas de capacidade                     |Description  |
 |-------------------------------------|-------------|
 |**Capacidade disponível**               | Refere-se ao tamanho dos dados que podem ser escritos ao dispositivo. Por outras palavras, esta é a capacidade que pode ser disponibilizada no dispositivo. <br></br>Pode libertar a capacidade do dispositivo eliminando a cópia local de ficheiros que têm uma cópia tanto no dispositivo como na nuvem.        |
 |**Capacidade total**                   | Refere-se aos bytes totais do dispositivo para escrever dados. Isto também é referido como o tamanho total da cache local. <br></br> Agora pode aumentar a capacidade de um dispositivo virtual existente adicionando um disco de dados. Adicione um disco de dados através da gestão do hipervisor para o VM e, em seguida, reinicie o seu VM. O conjunto de armazenamento local do dispositivo Gateway expandir-se-á para acomodar o novo disco de dados adicionado. <br></br>Para obter mais informações, aceda a [Adicionar um disco rígido para máquina virtual Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
 
-|Métricas de transação              | Descrição         |
+|Métricas de transação              | Description         |
 |-------------------------------------|---------|
 |**Bytes de nuvem carregados (dispositivo)**    | Soma de todos os bytes carregados em todas as ações do seu dispositivo        |
 |**Bytes de nuvem carregados (partilhar)**     | Bytes carregados por ação. Este pode ser: <br></br> Avg, que é a (Soma de todos os bytes carregados por ação / Número de ações),  <br></br>Max, que é o número máximo de bytes carregados a partir de uma ação <br></br>Min, que é o número mínimo de bytes carregados a partir de uma parte      |

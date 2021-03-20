@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339279"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Leitura do feed de alterações do Azure Cosmos DB
@@ -29,7 +29,7 @@ Ao ler o feed de mudança de DB do Azure Cosmos, recomendamos a utilização de 
 - Carregamento equilibrando vários clientes consumindo mudanças. Por exemplo, se um cliente não consegue acompanhar as alterações de processamento e outro tem capacidade disponível.
 - [Erros de manuseamento](change-feed-processor.md#error-handling). Por exemplo, rectição automática de alterações falhadas que não foram processadas corretamente após uma exceção não manipulada no código ou um problema de rede transitório.
 
-A maioria dos cenários que usam o feed de mudança de DB Azure Cosmos usará uma das opções do modelo push. No entanto, existem alguns cenários em que poderá querer o controlo adicional de baixo nível do modelo de puxar. Estas incluem:
+A maioria dos cenários que usam o feed de mudança de DB Azure Cosmos usará uma das opções do modelo push. No entanto, existem alguns cenários em que poderá querer o controlo adicional de baixo nível do modelo de puxar. Incluem-se:
 
 - Alterações de leitura a partir de uma chave de partição particular
 - Controlando o ritmo em que o seu cliente recebe alterações para o processamento

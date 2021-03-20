@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: a9e35c7d4d64279c65971dd512bcd2107dad6594
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92000061"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Como rolar certificados de dispositivo X.509 na Aplicação Central IoT
@@ -31,7 +31,7 @@ Para atualizar uma inscrição em grupo em resposta a uma falha de segurança, d
 
 1. Navegue para a **Administração**  no painel esquerdo e selecione **a ligação do dispositivo**.
 
-2. Selecione **Grupos de Inscrição**e selecione o nome do grupo na lista.
+2. Selecione **Grupos de Inscrição** e selecione o nome do grupo na lista.
 
 3. Para atualização de certificados, **selecione Gerir o primário** ou gerir o **secundário**.
 
@@ -45,7 +45,7 @@ Se estiver a rolar certificados para lidar com expirações de certificados, uti
 
 1. Navegue para a **Administração**  no painel esquerdo e selecione **a ligação do dispositivo**.
 
-2. Selecione **Grupos de Inscrição**e selecione o nome do grupo na lista.
+2. Selecione **Grupos de Inscrição** e selecione o nome do grupo na lista.
 
 3. Para atualização de certificado, **selecione Gerir Principal**.
 
@@ -57,7 +57,7 @@ Se estiver a rolar certificados para lidar com expirações de certificados, uti
 
 Se estiver a rolar certificados em resposta a uma falha de segurança, utilize a seguinte abordagem para atualizar imediatamente o certificado atual:
 
-1. Selecione **Dispositivos**e selecione o dispositivo.
+1. Selecione **Dispositivos** e selecione o dispositivo.
 
 2. Selecione **Connect**, e selecione o método de ligação como **Inscrição Individual**
 
@@ -75,7 +75,7 @@ Se estiver a rolar certificados para lidar com expirações de certificados, dev
 
 Quando o certificado secundário se aproxima do termo e precisa de ser enrolado, pode rodar para usar a configuração primária. A rotação entre os certificados primário e secundário reduz assim o tempo de inatividade para os dispositivos que tentam provisão.
 
-1. Selecione **Dispositivos**e selecione o dispositivo.
+1. Selecione **Dispositivos** e selecione o dispositivo.
 
 2. Selecione **Connect**, e selecione o método de ligação como **Inscrição Individual**
 

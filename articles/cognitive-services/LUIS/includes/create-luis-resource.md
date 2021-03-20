@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/20/2020
 ms.author: aahi
 ms.openlocfilehash: ee7fd384a198c5eff672b14b6cb479aac26cfe54
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972522"
 ---
 <a name="create-luis-resources"></a>
@@ -23,11 +23,11 @@ ms.locfileid: "95972522"
 
 1. Introduza todas as definições necessárias:
 
-    |Nome|Objetivo|
+    |Name|Objetivo|
     |--|--|
     |Subscrição | A subscrição que será faturada para o recurso.|
     |Grupo de recursos| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem-lhe agrupar recursos Azure para acesso e gestão.|
-    |Nome| Um nome personalizado que escolhe. É usado como subdomínio personalizado para as suas consultas de autoria e previsão.|
+    |Name| Um nome personalizado que escolhe. É usado como subdomínio personalizado para as suas consultas de autoria e previsão.|
     |Localização de autoria|A região associada ao seu modelo.|
     |Nível de preço de autoria|Determina as transações máximas por segundo e mês.|
     |Localização de previsão|A região associada ao seu tempo de fim de prazo de previsão publicado.|

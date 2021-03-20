@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.author: cynthn
 ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88929448"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Gerar e armazenar chaves SSH no portal Azure
@@ -48,7 +48,7 @@ Para obter informações mais detalhadas sobre a criação e utilização de cha
 
 1. Em seguida, obterá uma janela pop-up para, selecione **Baixar a tecla privada e criar recurso**. Isto irá descarregar a chave SSH como um ficheiro .pem.
 
-   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Crie um novo grupo de recursos e gere um par de chaves SSH":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Descarregue a chave privada como um ficheiro .pem":::
 
 1. Uma vez descarregado o ficheiro .pem, é possível movê-lo para algum lugar no seu computador, onde é fácil apontar para o seu cliente SSH.
 
@@ -74,7 +74,7 @@ Também pode carregar uma chave SSH pública para armazenar em Azure. Para obter
 
 1. Na página **chave SSH,** selecione **Criar**.
 
-   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Crie um novo grupo de recursos e gere um par de chaves SSH":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Faça o upload de uma chave pública SSH para ser armazenada em Azure":::
 
 1. No **grupo de recursos** selecione Criar **novos** para criar um novo grupo de recursos para armazenar as suas chaves. Digite um nome para o seu grupo de recursos e selecione **OK**.
 
@@ -98,7 +98,7 @@ As chaves SSH criadas no portal são armazenadas como recursos, para que possa f
 1. Nos filtros, selecione **Type**, desescolh a opção **Selecione para** limpar a lista.
 1. Tipo **SSH** no filtro e selecione **a tecla SSH**.
 
-   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Crie um novo grupo de recursos e gere um par de chaves SSH":::
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Screenshot de como filtrar a lista para ver todas as suas chaves SSH.":::
 
 ## <a name="get-the-public-key"></a>Obtenha a chave pública
 

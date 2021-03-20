@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADConnectivityTools PowerShell Reference / Microsoft Docs'
+title: 'Ligação AD AD: ADConnectivityTools PowerShell Reference | Microsoft Docs'
 description: Este documento fornece informações de referência para o módulo ADConnectivityTools.psm1 PowerShell.
 author: billmath
 manager: daveba
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: d5e06d0a6f7693ca9cc69f05f6b2318d6b60b5e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89070807"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell Reference

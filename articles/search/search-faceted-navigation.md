@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05be5295ae5f8c73c916a21bba7dbc98ab0c5e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002798"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar a navegação facetada na Pesquisa Cognitiva do Azure
@@ -69,7 +69,7 @@ Na Pesquisa Cognitiva Azure, um pedido é especificado através de um ou mais pa
 A precisão, entendida como a capacidade de filtrar acessos irrelevantes, é conseguida através de uma ou ambas as expressões:
 
 -   **pesquisa=**  
-    O valor deste parâmetro constitui a expressão de pesquisa. Pode ser um único pedaço de texto, ou uma expressão de pesquisa complexa que inclui vários termos e operadores. No servidor, é utilizada uma expressão de pesquisa para pesquisa de texto completo, consultando campos pes pes pes pes pes pes pes pesjáveis no índice para termos correspondentes, devolvendo resultados na ordem de classificação. Se definir `search` para nulo, a execução de consulta é superior a todo o índice (isto é, `search=*` ). Neste caso, outros elementos da consulta, como um `$filter` perfil de pontuação ou de pontuação, são os principais fatores que afetam os documentos devolvidos) `($filter` e em que ordem `scoringProfile` (ou `$orderby` ).
+    O valor deste parâmetro constitui a expressão de pesquisa. Pode ser um único pedaço de texto, ou uma expressão de pesquisa complexa que inclui vários termos e operadores. No servidor, é utilizada uma expressão de pesquisa para pesquisa de texto completo, consultando campos pes pesjáveis no índice para termos correspondentes, devolvendo resultados na ordem de classificação. Se definir `search` para nulo, a execução de consulta é superior a todo o índice (isto é, `search=*` ). Neste caso, outros elementos da consulta, como um `$filter` perfil de pontuação ou de pontuação, são os principais fatores que afetam os documentos devolvidos) `($filter` e em que ordem `scoringProfile` (ou `$orderby` ).
 
 -   **$filter=**  
     Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados de pesquisa com base nos valores de atributos específicos do documento. A `$filter` é avaliado em primeiro lugar, seguido por uma lógica de faceta que gera os valores disponíveis e contagens correspondentes para cada valor
@@ -283,7 +283,7 @@ Em brotos facetados, normalmente só pretende incluir documentos que tenham o va
 
 **Corte os resultados faceta com mais filtros**
 
-Os resultados faceta são documentos encontrados nos resultados da pesquisa que correspondem a um termo faceta. No exemplo seguinte, nos resultados de pesquisa para *computação*em nuvem, 254 itens também têm *especificação interna* como tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item satisfaça os critérios de ambos os filtros, é contado em cada um deles. Esta duplicação é possível quando se enfrenta em `Collection(Edm.String)` campos, que são frequentemente utilizados para implementar a marcação de documentos.
+Os resultados faceta são documentos encontrados nos resultados da pesquisa que correspondem a um termo faceta. No exemplo seguinte, nos resultados de pesquisa para *computação* em nuvem, 254 itens também têm *especificação interna* como tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item satisfaça os critérios de ambos os filtros, é contado em cada um deles. Esta duplicação é possível quando se enfrenta em `Collection(Edm.String)` campos, que são frequentemente utilizados para implementar a marcação de documentos.
 
 ```output
 Search term: "cloud computing"
@@ -336,7 +336,7 @@ As etiquetas são tipicamente definidas no HTML ou na forma `index.cshtml` (na a
 ## <a name="filter-based-on-a-range"></a>Filtro baseado numa gama
 Encarar os intervalos de valores é um requisito comum de aplicação de pesquisa. As gamas são suportadas para dados numéricos e valores datetime. Pode ler mais sobre cada abordagem em [Documentos de Busca (Azure Cognitive Search API)](/rest/api/searchservice/Search-Documents).
 
-A Azure Cognitive Search simplifica a construção do alcance, fornecendo duas abordagens para a computação de uma gama. Para ambas as abordagens, a Azure Cognitive Search cria as gamas apropriadas dadas as entradas que forneceu. Por exemplo, se especificar valores de gama de 10/20/30, cria automaticamente intervalos de 0-10, 10-20, 20-30. A sua aplicação pode remover opcionalmente quaisquer intervalos que estejam vazios. 
+A Azure Cognitive Search simplifica a construção do alcance, fornecendo duas abordagens para a computação de uma gama. Para ambas as abordagens, a Azure Cognitive Search cria as gamas apropriadas dadas as entradas que forneceu. Por exemplo, se especificar valores de gama de 10|20|30, cria automaticamente intervalos de 0-10, 10-20, 20-30. A sua aplicação pode remover opcionalmente quaisquer intervalos que estejam vazios. 
 
 **Abordagem 1: Utilize o parâmetro de intervalo**  
 Para definir as facetas de preço em incrementos de $10, especificaria: `&facet=price,interval:10`

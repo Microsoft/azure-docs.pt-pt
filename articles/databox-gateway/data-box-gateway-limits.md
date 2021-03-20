@@ -1,5 +1,5 @@
 ---
-title: Limites de Gateway da Caixa de Dados Azure / Microsoft Docs
+title: Limites de gateway de caixa de dados Azure | Microsoft Docs
 description: Descreve os limites do sistema e os tamanhos recomendados para o Gateway da Caixa de Dados do Microsoft Azure.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: 15b01f92fe0d39d099c10c7c086790a4dbb91379
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582661"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Limites de gateway de caixa de dados Azure
@@ -27,11 +27,11 @@ Considere estes limites à medida que implementa e opera a sua solução Microso
 
 A tabela seguinte descreve os limites para o dispositivo Data Box Gateway.
 
-| Descrição | Valor |
+| Description | Valor |
 |---|---|
-|Não. de ficheiros por dispositivo |100 milhões <br> Por cada 25 milhões de ficheiros que estão a ser adicionados (com limite máximo de 100 milhões), deve adicionar 2 TB de espaço em disco, 8 GB de RAM e 4 núcleos de CPU. |
-|Não. de ações por dispositivo |24 |
-|Não. de ações por recipiente de armazenamento Azure |1 |
+|N.º de ficheiros por dispositivo |100 milhões <br> Por cada 25 milhões de ficheiros que estão a ser adicionados (com limite máximo de 100 milhões), deve adicionar 2 TB de espaço em disco, 8 GB de RAM e 4 núcleos de CPU. |
+|N.º de ações por dispositivo |24 |
+|N.º de ações por recipiente de armazenamento Azure |1 |
 |Tamanho máximo do ficheiro escrito para uma partilha|Para um dispositivo virtual de 2-TB, o tamanho máximo do ficheiro é de 500 GB. <br> O tamanho máximo do ficheiro aumenta com o tamanho do disco de dados na relação anterior até atingir um máximo de 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento Azure

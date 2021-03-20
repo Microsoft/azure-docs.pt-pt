@@ -1,5 +1,5 @@
 ---
-title: Faça upload de ficheiros de dispositivos para Azure IoT Hub com Nó Microsoft Docs
+title: Faça upload de ficheiros de dispositivos para Azure IoT Hub com nó | Microsoft Docs
 description: Como fazer o upload de ficheiros de um dispositivo para a nuvem utilizando o dispositivo Azure IoT SDK para Node.js. Os ficheiros carregados são armazenados num recipiente de bolhas de armazenamento Azure.
 author: wesmc7777
 manager: philmea
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: db4f78e14696c421adaedd16b0b3f8d598f12846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91251903"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Node.js)

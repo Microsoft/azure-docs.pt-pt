@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 164e06024844fb5262586450b737db9c807e373a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099892"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588754"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Crie um domínio personalizado no Azure Front Door Standard/Premium SKU (Preview) utilizando o portal Azure
 
@@ -38,6 +38,9 @@ Depois de criar um perfil Azure Front Door Standard/Premium, o anfitrião fronta
 * Se estiver a utilizar o Azure para hospedar os seus [domínios DNS,](../../dns/dns-overview.md)tem de delegar o sistema de nome de domínio do fornecedor de domínio (DNS) num DNS Azure. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). Caso contrário, se estiver a utilizar um fornecedor de domínio para manusear o seu domínio DNS, tem de validar manualmente o domínio introduzindo registos DNS TXT solicitados.
 
 ## <a name="add-a-new-custom-domain"></a>Adicione um novo domínio personalizado
+
+> [!NOTE]
+> Enquanto em Visualização Pública, usar DNS Azure para criar domínios Apex não é suportado no Azure Front Door Standard/Premium. Existem outros fornecedores de DNS que suportam o achatado CNAME ou a perseguição de DNS que permitirão que os domínios APEX sejam usados para Azure Front Door Standard/Premium.
 
 Um domínio personalizado é gerido pela secção De Domínios no portal. Um domínio personalizado pode ser criado e validado antes da associação a um ponto final. Um domínio personalizado e os seus subdomínios podem ser associados apenas a um único ponto final de cada vez. No entanto, pode utilizar subdomínios diferentes do mesmo domínio personalizado para diferentes Portas Frontais. Também pode mapear domínios personalizados com subdomínios diferentes para o mesmo ponto final da porta frontal.
 

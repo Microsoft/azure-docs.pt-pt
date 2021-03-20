@@ -1,5 +1,5 @@
 ---
-title: Como permitir o SSO de aplicações cruzadas no iOS usando a ADAL Microsoft Docs
+title: Como permitir o SSO de aplicações cruzadas no iOS utilizando a ADAL | Microsoft Docs
 description: Como utilizar as funcionalidades do ADAL SDK para ativar o Signo Único em todas as suas aplicações.
 services: active-directory
 author: rwike77
@@ -16,10 +16,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85383704"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Permitir o SSO de aplicações cruzadas no iOS utilizando o ADAL
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Quando partilha um chaveiro em todas as suas aplicações qualquer aplicação pode eliminar utilizadores ou, pior, eliminar todos os tokens da sua aplicação. Isto é particularmente desastroso se tiver aplicações que dependem dos tokens para fazer trabalhos de fundo. Partilhar um porta-chaves significa que deve ter muito cuidado em todas as operações de remoção através dos SDKs de identidade.
 
-Já está. O SDK irá agora partilhar credenciais em todas as suas aplicações. A lista de utilizadores também será partilhada em todas as instâncias de aplicação.
+Já está! O SDK irá agora partilhar credenciais em todas as suas aplicações. A lista de utilizadores também será partilhada em todas as instâncias de aplicação.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ligar sSO para corretor assistido SSO
 

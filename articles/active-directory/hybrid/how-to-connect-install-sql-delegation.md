@@ -1,5 +1,5 @@
 ---
-title: Instale o Azure AD Connect utilizando permissões de administrador delegados da SQL Microsoft Docs
+title: Instale o Azure AD Connect utilizando permissões de administrador delegadas da SQL | Microsoft Docs
 description: Este tópico descreve uma atualização para Azure AD Connect que permite a instalação usando uma conta que só tem permissões de dbo SQL.
 documentationcenter: ''
 author: billmath
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85358672"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect com permissões de administrador do SQL delegado
@@ -31,7 +31,7 @@ Com a mais recente versão do Azure AD Connect, o fornecimento da base de dados 
 ## <a name="before-you-begin"></a>Antes de começar
 Para utilizar esta funcionalidade, é necessário perceber que existem várias peças móveis e cada uma pode envolver um administrador diferente na sua organização.  A tabela seguinte resume as funções individuais e as respetivas funções na implantação do Azure AD Connect com esta funcionalidade.
 
-|Função|Descrição|
+|Função|Description|
 |-----|-----|
 |Administrador de AD de domínio ou floresta|Cria a conta de serviço de nível de domínio que é utilizada pelo Azure AD Connect para executar o serviço de sincronização.  Para obter mais informações sobre contas de serviço, consulte [Contas e permissões.](reference-connect-accounts-permissions.md)
 |Administrador do SQL|Cria a base de dados ADSync e concede acesso de login + dbo ao administrador Azure AD Connect e à conta de serviço criada pelo administrador de domínio/floresta.|

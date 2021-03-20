@@ -1,5 +1,5 @@
 ---
-title: Como gerir o serviço de certificados OPC Vault - Azure / Microsoft Docs
+title: Como gerir o serviço de certificados OPC Vault - Azure | Microsoft Docs
 description: Gerir os certificados de CA de raiz de opc vault e permissões do utilizador.
 author: mregen
 ms.author: mregen
@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91281920"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gerir o serviço de certificados OPC Vault
@@ -101,9 +101,9 @@ Por predefinição, a identidade do serviço tem apenas permissões limitadas pa
 4. Ir para **políticas de acesso.**
 5. **Selecione Adicionar novo**.
 6. Ignore o modelo. Não há modelo que corresponda aos requisitos.
-7. Escolha **Select Principal**e selecione o utilizador a ser adicionado, ou convide um novo utilizador para o inquilino.
-8. Selecione as **seguintes permissões chave**: **Obter,** **Lista**e **Assinar**.
-9. Selecione as **seguintes permissões secretas**: **Obter,** **Lista,** **Definir**e **Excluir**.
+7. Escolha **Select Principal** e selecione o utilizador a ser adicionado, ou convide um novo utilizador para o inquilino.
+8. Selecione as **seguintes permissões chave**: **Obter,** **Lista** e **Assinar**.
+9. Selecione as **seguintes permissões secretas**: **Obter,** **Lista,** **Definir** e **Excluir**.
 10. Selecione as **seguintes permissões de Certificado**: **Obter** e **Listar**.
 11. Selecione **OK**, e selecione **Guardar**.
 
@@ -115,10 +115,10 @@ Por predefinição, a identidade do serviço tem apenas permissões limitadas pa
 4. Ir para **políticas de acesso.**
 5. **Selecione Adicionar novo**.
 6. Ignore o modelo. Não há modelo que corresponda aos requisitos.
-7. Escolha **Select Principal**e selecione o utilizador a ser adicionado, ou convide um novo utilizador para o inquilino.
-8. Selecione as **seguintes permissões chave**: **Obter,** **Lista**e **Assinar**.
-9. Selecione as **seguintes permissões secretas**: **Obter,** **Lista,** **Definir**e **Excluir**.
-10. Selecione as **seguintes permissões de Certificado**: **Obter,** **Listar,** **Atualizar,** **Criar**e **Importar**.
+7. Escolha **Select Principal** e selecione o utilizador a ser adicionado, ou convide um novo utilizador para o inquilino.
+8. Selecione as **seguintes permissões chave**: **Obter,** **Lista** e **Assinar**.
+9. Selecione as **seguintes permissões secretas**: **Obter,** **Lista,** **Definir** e **Excluir**.
+10. Selecione as **seguintes permissões de Certificado**: **Obter,** **Listar,** **Atualizar,** **Criar** e **Importar**.
 11. Selecione **OK**, e selecione **Guardar**.
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Remover a política de acesso ao utilizador do Cofre de Chaves Azure

@@ -7,10 +7,10 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
 ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91999289"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação twilio para funções Azure
@@ -203,7 +203,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra como enviar uma mensagem SMS utilizando a ligação de saída, tal como definida no *function.js*seguinte.
+O exemplo a seguir mostra como enviar uma mensagem SMS utilizando a ligação de saída, tal como definida no *function.js* seguinte.
 
 ```json
     {
@@ -334,7 +334,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**|**nome**| Nome variável utilizado no código de função para a mensagem de texto SMS Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Este valor deve ser definido como o nome de uma definição de app que detém o seu Sid conta Twilio `TwilioAccountSid` (). Se não for definido, o nome de definição de aplicação predefinido é "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Este valor deve ser definido como o nome de uma definição de aplicação que detém o seu token de autenticação Twilio ( `TwilioAccountAuthToken` ). Se não for definido, o nome de definição de aplicação padrão é "AzureWebJobsTwilioAuthToken". |
-|**Para**| N/A - especificar em código | **Para**| Este valor é definido para o número de telefone para o qual o texto SMS é enviado.|
+|**para**| N/A - especificar em código | **Para**| Este valor é definido para o número de telefone para o qual o texto SMS é enviado.|
 |**De**|**De** | **De**| Este valor é definido para o número de telefone de onde o texto SMS é enviado.|
 |**corpo**|**corpo** | **Corpo**| Este valor pode ser utilizado para codificar a mensagem de texto SMS se não precisar de a definir dinamicamente no código para a sua função. |  
 

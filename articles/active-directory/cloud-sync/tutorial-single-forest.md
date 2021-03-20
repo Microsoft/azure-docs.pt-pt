@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a93ce1c4274f63a863880e932b247726639e5cd9
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98614688"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integre uma única floresta com um único inquilino AZure AD
@@ -83,7 +83,7 @@ A verificação do agente ocorre no portal Azure e no servidor local que está a
 ### <a name="azure-portal-agent-verification"></a>Verificação do agente do portal Azure
 Para verificar se o agente está a ser visto pela Azure siga estes passos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. À esquerda, selecione **Azure Ative Directory**, clique em **Azure AD Connect** e no center select **Gerir a sincronização de nuvem**.</br>
 ![Portal do Azure](media/how-to-install/install-6.png)</br>
 

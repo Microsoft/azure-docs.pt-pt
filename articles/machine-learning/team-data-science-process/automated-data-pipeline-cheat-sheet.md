@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
 ms.openlocfilehash: f60b62faa36352ab1221b23332fca695f32a3d74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91250645"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Referência rápida para um pipeline de dados automático para predições do Azure Machine Learning
@@ -27,7 +27,7 @@ Esta folha de batota acompanha-o através das decisões que precisa de tomar, e 
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Descarregue a folha de batota automatizada do pipeline de dados machine learning
 Uma vez descarregado a folha de batota, pode imprimi-la em tamanho tabloide (11 x 17 in.).
 
-Descarregue a folha de batota aqui: ** [Microsoft Azure Machine Learning ficha de batota de pipeline automatizado de dados](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Descarregue a folha de batota aqui: **[Microsoft Azure Machine Learning ficha de batota de pipeline automatizado de dados](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure Machine Learning Studio (clássico) Capabilities Overview][op-cheat-sheet]
 
