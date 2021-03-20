@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93323653"
 ---
 # <a name="linear-regression-module"></a>Módulo linear de regressão
@@ -102,16 +102,16 @@ Após o treino estar completo:
 
 3. Para **criar o modo de treinador,** indique se pretende treinar o modelo com um conjunto de parâmetros predefinidos ou se pretende otimizar o modelo utilizando uma varredura de parâmetros.
 
-    + **Parâmetro único** : Se souber como pretende configurar a rede linear de regressão, pode fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único**: Se souber como pretende configurar a rede linear de regressão, pode fornecer um conjunto específico de valores como argumentos.
     
-    + **Intervalo de parâmetros** : Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
+    + **Intervalo de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
 
    
-4. Para **a taxa de aprendizagem** , especifique a taxa inicial de aprendizagem para o otimizador de descida de gradiente estocástico.
+4. Para **a taxa de aprendizagem**, especifique a taxa inicial de aprendizagem para o otimizador de descida de gradiente estocástico.
 
 5. Para **o Número de épocas de treino,** escreva um valor que indique quantas vezes o algoritmo deve iterar através de exemplos. Para conjuntos de dados com um pequeno número de exemplos, este número deve ser grande para alcançar a convergência.
 
-6. **Normalizar as características** : Se já normalizou os dados numéricos utilizados para treinar o modelo, pode desmarcar esta opção. Por predefinição, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
+6. **Normalizar as características**: Se já normalizou os dados numéricos utilizados para treinar o modelo, pode desmarcar esta opção. Por predefinição, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
 
     > [!NOTE]
     > 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342251"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Orientação de recuperação de desastres para Avere vFXT para Azure
@@ -83,7 +83,7 @@ Siga estes passos para estabelecer uma cópia de segurança de dados noutra cont
 
    Tome nota do nome e da informação de junção do ficheiro principal (listado na página **Namespace** no painel de controlo) para que possa replicá-lo quando voltar a adicionar o recipiente após a cópia de segurança.
 
-   Utilize o painel de controlo do cluster para remover o ficheiro do núcleo. [Abra o painel de controlo do cluster](avere-vfxt-cluster-gui.md) e escolha o ficheiro **Core**Gerir  >  **os ficheiros centrais**. Encontre o sistema de armazenamento que pretende fazer recuar e utilize o botão **Remover** para eliminá-lo do cluster.
+   Utilize o painel de controlo do cluster para remover o ficheiro do núcleo. [Abra o painel de controlo do cluster](avere-vfxt-cluster-gui.md) e escolha o ficheiro **Core** Gerir  >  **os ficheiros centrais**. Encontre o sistema de armazenamento que pretende fazer recuar e utilize o botão **Remover** para eliminá-lo do cluster.
 
 1. Crie um novo recipiente de armazenamento Blob vazio em outra conta de armazenamento em outra região.
 

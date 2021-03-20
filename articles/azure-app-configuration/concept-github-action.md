@@ -7,10 +7,10 @@ ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 1c290032f7a33079b560d3c4cc1fcb9526e70331
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98762159"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sync o seu repositório GitHub para a Configuração de Aplicações
@@ -308,16 +308,16 @@ Os parâmetros de entrada especificam os dados utilizados pela ação durante o 
 
 | Nome de entrada | Necessário? | Valor |
 |----|----|----|
-| ficheiro de configuração | Sim | Caminho relativo para o ficheiro de configuração no repositório.  Os padrões glob são suportados e podem incluir vários ficheiros. |
-| formato | Sim | Formato de ficheiro do ficheiro de configuração.  Os formatos válidos são: JSON, YAML, propriedades. |
-| conexãoStragem | Sim | Cadeia de ligação para a instância de configuração da aplicação. A cadeia de ligação deve ser armazenada como um segredo no repositório GitHub, e apenas o nome secreto deve ser usado no fluxo de trabalho. |
-| separador | Sim | Separador utilizado ao aplanar o ficheiro de configuração para pares de valor-chave.  Os valores válidos são: . , ; : - _ __ / |
-| prefixo | Não | Prefixo a ser adicionado ao início das teclas. |
-| etiqueta | Não | Etiqueta utilizada ao definir pares de valor de chave. Se não for especificado, é utilizada uma etiqueta nulo. |
-| rigoroso | Não | Um valor booleano que determina se o modo rígido está ativado. O valor predefinido é false. |
-| profundidade | Não | Profundidade máxima para achatar o ficheiro de configuração.  Profundidade deve ser um número positivo.  O padrão não terá profundidade máxima. |
-| etiquetas | Não | Especifica a etiqueta definida em pares de valor-chave.  O formato esperado é uma forma stringified de um objeto JSON da seguinte forma: { [nome de propriedade: corda]: corda; } Cada valor-nome de propriedade torna-se uma etiqueta. |
+| ficheiro de configuração | Yes | Caminho relativo para o ficheiro de configuração no repositório.  Os padrões glob são suportados e podem incluir vários ficheiros. |
+| formato | Yes | Formato de ficheiro do ficheiro de configuração.  Os formatos válidos são: JSON, YAML, propriedades. |
+| conexãoStragem | Yes | Cadeia de ligação para a instância de configuração da aplicação. A cadeia de ligação deve ser armazenada como um segredo no repositório GitHub, e apenas o nome secreto deve ser usado no fluxo de trabalho. |
+| separador | Yes | Separador utilizado ao aplanar o ficheiro de configuração para pares de valor-chave.  Os valores válidos são: . , ; : - _ __ / |
+| prefixo | No | Prefixo a ser adicionado ao início das teclas. |
+| etiqueta | No | Etiqueta utilizada ao definir pares de valor de chave. Se não for especificado, é utilizada uma etiqueta nulo. |
+| rigoroso | No | Um valor booleano que determina se o modo rígido está ativado. O valor predefinido é false. |
+| profundidade | No | Profundidade máxima para achatar o ficheiro de configuração.  Profundidade deve ser um número positivo.  O padrão não terá profundidade máxima. |
+| etiquetas | No | Especifica a etiqueta definida em pares de valor-chave.  O formato esperado é uma forma stringified de um objeto JSON da seguinte forma: { [nome de propriedade: corda]: corda; } Cada valor-nome de propriedade torna-se uma etiqueta. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre a Configuração da Aplicação Sync GitHub Action e como pode ser usada para automatizar atualizações para a sua instância de Configuração de Aplicações. Para saber como a Configuração da Aplicação Azure reage a alterações em pares de valor-chave, continue para o próximo [artigo](./concept-app-configuration-event.md).

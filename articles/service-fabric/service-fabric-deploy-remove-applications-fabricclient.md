@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 343a37c983b1d64a4b1986913d9d6fd648a113fe
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785554"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementar e remover aplicações usando o FabricClient
@@ -90,7 +90,7 @@ Quando uma instância de aplicação já não é necessária, pode removê-la pe
 ## <a name="unregister-an-application-type"></a>Não registar um tipo de aplicação
 Quando uma versão específica de um tipo de aplicação já não for necessária, deve desmarcar essa versão específica do tipo de aplicação utilizando o [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Versões não utilizadas não utilizadas dos tipos de aplicações liberta espaço de armazenamento utilizado pela loja de imagens. Uma versão de um tipo de aplicação pode ser não registada desde que nenhuma aplicação seja instantânea contra essa versão do tipo de aplicação. Além disso, o tipo de aplicação não pode ter atualizações pendentes de aplicação referendo-se a essa versão do tipo de aplicação.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pede um ImageStoreConnectionString
 O ambiente SDK do tecido de serviço já deve ter as predefinições corretas configuradas. Mas, se necessário, o ImageStoreConnectionString para todos os comandos deve corresponder ao valor que o cluster de Tecido de Serviço está a utilizar. Pode encontrar o ImageStoreConnectionString no manifesto de cluster, recuperado através dos comandos [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest) e Get-ImageStoreConnectionStringFromClusterManifest:
 
@@ -321,7 +321,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Atualização da aplicação do Tecido de Serviço](service-fabric-application-upgrade.md)
 
 [Introdução da saúde do tecido de serviço](service-fabric-health-introduction.md)

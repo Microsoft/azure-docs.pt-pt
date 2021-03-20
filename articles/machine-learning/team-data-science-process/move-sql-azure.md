@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 42bac2df7abe00be8c0e6ffddcc9bef7ef28ba9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309517"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
@@ -39,7 +39,7 @@ Os procedimentos aqui descritos exigem que tenha:
 * Acesso a uma **Base de Dados Azure SQL**. Se tiver de configurar uma Base de Dados Azure SQL, [começar com a Base de Dados SQL do Microsoft Azure](../../azure-sql/database/single-database-create-quickstart.md) fornece informações sobre como fornecer uma nova instância de uma Base de Dados SQL Azure.
 * Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
-**Dados** : Os processos de migração são demonstrados utilizando o [conjunto de dados do Táxi nyc](https://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados do Táxi nyc contém informações sobre dados de viagem e feiras e está disponível no armazenamento de blob Azure: [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). Uma amostra e descrição destes ficheiros são fornecidas na Descrição do Conjunto de [Datas de Viagens de Táxi de NYC](sql-walkthrough.md#dataset).
+**Dados**: Os processos de migração são demonstrados utilizando o [conjunto de dados do Táxi nyc](https://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados do Táxi nyc contém informações sobre dados de viagem e feiras e está disponível no armazenamento de blob Azure: [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). Uma amostra e descrição destes ficheiros são fornecidas na Descrição do Conjunto de [Datas de Viagens de Táxi de NYC](sql-walkthrough.md#dataset).
 
 Pode adaptar os procedimentos descritos aqui a um conjunto dos seus próprios dados ou seguir os passos descritos utilizando o conjunto de dados do Táxi de NYC. Para enviar o conjunto de dados do NYC Taxi para a sua base de dados do SQL Server, siga o procedimento descrito em [Dados de Importação a Granel para a Base de Dados do Servidor SQL](sql-walkthrough.md#dbload).
 

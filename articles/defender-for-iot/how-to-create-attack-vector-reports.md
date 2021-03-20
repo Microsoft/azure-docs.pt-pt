@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/17/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e9960fc2120add845be8feda9bafdef95a9b5f94
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: e22bf80cd9dbcd80a0de84fd5d044354b1fc4e2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100522330"
 ---
 # <a name="attack-vector-reporting"></a>Relatório de vetor de ataque
@@ -69,7 +69,7 @@ Para criar uma simulação de vetor de ataque:
 
    :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Vetores de ataque.":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Relatório de vetor de ataque](how-to-create-attack-vector-reports.md)
 

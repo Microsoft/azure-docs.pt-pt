@@ -12,10 +12,10 @@ ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026527"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Ativar o registo no SDK de discurso
@@ -116,7 +116,7 @@ Para aceder a um ficheiro criado, adicione as propriedades abaixo à `Info.plist
 
 Mais sobre o sistema de ficheiros iOS está disponível [aqui.](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore as nossas amostras no GitHub](https://aka.ms/csspeech/samples)

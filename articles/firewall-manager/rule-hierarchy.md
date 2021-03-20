@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331741"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Use a política de Firewall Azure para definir uma hierarquia de regras
@@ -48,7 +48,7 @@ Criar políticas para cada uma das equipas de candidatura:
 - Uma política de firewall de base de dados. A política de firewall database herda a política de firewall base.
 - Uma política de firewall de engenharia. A política de firewall de engenharia também herda a política de firewall base.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Equipas e requisitos" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Hierarquia política" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Criar funções personalizadas para aceder aos grupos de recolha de regras 
 
@@ -97,7 +97,7 @@ Utilize o seguinte procedimento de alto nível para definir funções personaliz
 
    Tem de adicionar os IDs de subscrição explícitos, caso contrário, não poderá importar a função para a sua subscrição.
 7. Elimine a linha de propriedade **Id**   e altere a propriedade **IsCustom**   para verdadeira.
-8. Alterar as propriedades **de nome**   e **descrição**   para *AZFM Rule Collection Group Autor* e *Utilizadores nesta função pode editar grupos de recolha de regras de política* de firewall
+8. Alterar as propriedades  **de nome**   e  **descrição**   para *AZFM Rule Collection Group Autor* e *Utilizadores nesta função pode editar grupos de recolha de regras de política* de firewall
 
 O seu ficheiro JSON deve ser semelhante ao seguinte exemplo:
 
@@ -134,9 +134,9 @@ Para listar todas as funções personalizadas, pode utilizar o comando Get-AzRol
 
 Também pode ver os papéis personalizados no portal Azure. Aceda à sua subscrição, selecione **Access control (IAM)**, **Roles**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Equipas e requisitos":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Equipas e requisitos":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="SalesAppPolicy ler permissão":::
 
 Para obter mais informações, consulte [Tutorial: Crie um papel personalizado Azure utilizando a Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

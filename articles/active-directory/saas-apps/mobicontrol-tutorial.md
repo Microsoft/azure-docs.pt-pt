@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o MobiControl Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a MobiControl | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o MobiControl.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 19ba6f81ab7aef8ebe6669e98b5d24d6debed737
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>Tutorial: Integração do Azure Ative Directory com o MobiControl
@@ -144,7 +144,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao MobiControl.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **MobiControl**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **MobiControl**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

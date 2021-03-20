@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Uberflip Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Uberflip | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Uberflip.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Azure Ative Directory com a Uberflip
@@ -55,7 +55,7 @@ Para configurar a integração da Uberflip no AD Azure, precisa adicionar o Uber
 
    ![A opção Azure Ative Directory](common/select-azuread.png)
 
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 
    ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -63,7 +63,7 @@ Para configurar a integração da Uberflip no AD Azure, precisa adicionar o Uber
 
    ![A nova opção de aplicação](common/add-new-app.png)
 
-1. Na caixa de pesquisa, insira **Uberflip**. Nos resultados da pesquisa, selecione **Uberflip**e, em seguida, **selecione Adicionar** para adicionar a aplicação.
+1. Na caixa de pesquisa, insira **Uberflip**. Nos resultados da pesquisa, selecione **Uberflip** e, em seguida, **selecione Adicionar** para adicionar a aplicação.
 
    ![Uberflip na lista de resultados](common/search-new-app.png)
 
@@ -135,7 +135,7 @@ Para configurar um único sinal no lado da Uberflip, é necessário enviar os Me
 
 Nesta secção, cria-se um utilizador de teste chamado B. Simon no portal Azure.
 
-1. No portal Azure, no painel esquerdo, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 
     ![As opções dos Utilizadores e "Todos os utilizadores"](common/users.png)
 
@@ -149,7 +149,7 @@ Nesta secção, cria-se um utilizador de teste chamado B. Simon no portal Azure.
 
     1. Na caixa **Nome,** **insira BSimon**.
   
-    1. Na caixa **de nome do utilizador,** **insira bSimon \@ \<yourcompanydomain> . \<extension> ** Por exemplo, **a BSimon \@ contoso.com**.
+    1. Na caixa **de nome do utilizador,** **insira bSimon \@ \<yourcompanydomain> . \<extension>** Por exemplo, **a BSimon \@ contoso.com**.
 
     1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
 
@@ -171,7 +171,7 @@ Nesta secção, você permite que B. Simon use a Azure single sign-on, concedend
 
     ![A opção "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. **Selecione + Adicione o utilizador**e, em seguida, selecione **Utilizadores e grupos** no painel **de atribuição de adicionar.**
+1. **Selecione + Adicione o utilizador** e, em seguida, selecione **Utilizadores e grupos** no painel **de atribuição de adicionar.**
 
     ![O painel de atribuição de adição](common/add-assign-user.png)
 

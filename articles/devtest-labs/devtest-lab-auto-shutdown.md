@@ -1,13 +1,13 @@
 ---
-title: Gerir políticas de autoshutdown em Azure DevTest Labs e Compute VMs Microsoft Docs
+title: Gerir políticas de autoshutdown em Azure DevTest Labs e Compute VMs | Microsoft Docs
 description: Aprenda a definir a política de autoshutdown para um laboratório para que as máquinas virtuais sejam automaticamente desligadas quando não estão a ser utilizadas.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93318971"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurar autoshutdown para laboratório e calcular máquinas virtuais em Azure DevTest Labs
@@ -135,7 +135,7 @@ Para começar, crie uma aplicação lógica na sua subscrição Azure utilizando
     4. Selecione uma **localização** para a aplicação lógica.
 
         ![Nova app lógica - configurações](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
-3. Nas **Notificações** , selecione **Ir para recurso** na notificação.
+3. Nas **Notificações**, selecione **Ir para recurso** na notificação.
 
     ![Ir para recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
 4. Selecione **o designer de aplicativos Logic** na categoria **Ferramentas de Implementação.**
@@ -217,8 +217,8 @@ Para começar, crie uma aplicação lógica na sua subscrição Azure utilizando
         ![Enviar opção de e-mail](./media/devtest-lab-auto-shutdown/select-send-email.png)
     3. Selecione **Iniciar sôms** para iniciar sôms na sua conta de e-mail.
     4. Selecione **campo TO** e escolha o proprietário.
-    5. Selecione **SUBJECT** , e insira um assunto da notificação por e-mail. Por exemplo: "Encerramento da máquina vmName para Laboratório: nome lab."
-    6. Selecione **BODY** , e defina o conteúdo do corpo para notificação de e-mail. Por exemplo: "vmName está programado para desligar em 15 minutos. Ignore esta paralisação clicando: URL. Atraso de paragem por uma hora: atrasoUrl60. Atraso de paragem por 2 horas: atrasoUrl120."
+    5. Selecione **SUBJECT**, e insira um assunto da notificação por e-mail. Por exemplo: "Encerramento da máquina vmName para Laboratório: nome lab."
+    6. Selecione **BODY**, e defina o conteúdo do corpo para notificação de e-mail. Por exemplo: "vmName está programado para desligar em 15 minutos. Ignore esta paralisação clicando: URL. Atraso de paragem por uma hora: atrasoUrl60. Atraso de paragem por 2 horas: atrasoUrl120."
 
         ![Pedido corpo JSON Schema](./media/devtest-lab-auto-shutdown/email-options.png)
 8. Selecione **Guardar** na barra de ferramentas. Agora, pode copiar o **URL HTTP POST**. Selecione o botão de cópia para copiar o URL para a área de transferência.

@@ -14,10 +14,10 @@ ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 7d297d96ba764c812a3d4db6d9383122c73cfe31
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100103146"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação Android
@@ -146,7 +146,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para criar um novo 
     O "Nome do Pacote" por que substituirá o `android:host` valor deve ser semelhante a: "com.azuresamples.msalandroidapp".
     O "Signature Hash" por quem substituirá o seu `android:path` valor deve ser semelhante a: "/1wIqXSqBj7w+h11ZifsnqwgyKrY=".
     
-    Poderá também encontrar estes valores na lâmina de autenticação do registo da sua aplicação. Note que o seu URI redirecionado será semelhante a: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Enquanto o Hash assinatura é URL codificado no final deste valor, o Hash assinatura **não** deve ser codificado no seu `android:path` valor.
+    Poderá também encontrar estes valores na lâmina de autenticação do registo da sua aplicação. Note que o seu reencaminhador URI será semelhante a: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Enquanto o Hash assinatura é URL codificado no final deste valor, o Hash assinatura **não** deve ser codificado no seu `android:path` valor.
 
 ## <a name="use-msal"></a>Utilizar MSAL
 

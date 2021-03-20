@@ -1,5 +1,5 @@
 ---
-title: Ver relatório de registo de auditoria para as funções da AZure AD no Azure AD PIM ! Microsoft Docs
+title: Ver relatório de registo de auditoria para as funções de Azure AD em Azure AD PIM | Microsoft Docs
 description: Saiba como ver o histórico de registos de auditoria para as funções de Azure AD em Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370836"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Ver histórico de auditoria para funções de Azure AD em Gestão de Identidade Privilegiada
@@ -98,7 +98,7 @@ Siga estes passos para ver o histórico de auditoria para as funções de Azure 
     | Raciocínio | Texto que foi introduzido no campo da razão durante a ativação. |
     | Expiração | Quando uma função ativa expira. Aplica-se apenas a atribuições de funções elegíveis. |
 
-1. Para classificar o histórico de auditoria, clique nos botões **Tempo,** **Ação**e **Fun.**
+1. Para classificar o histórico de auditoria, clique nos botões **Tempo,** **Ação** e **Fun.**
 
 ## <a name="filter-audit-history"></a>Histórico de auditoria de filtro
 

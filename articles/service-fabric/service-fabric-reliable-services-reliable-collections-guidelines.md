@@ -4,10 +4,10 @@ description: Diretrizes e recomendações para a utilização de coleções fiá
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: f12db76f324d07c178b49150d4e574476e7d9929
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784330"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para coleções fiáveis em tecido de serviço Azure
@@ -54,11 +54,11 @@ Ao decidir utilizar coleções voláteis e fiáveis, considere o seguinte:
 * Perda de quórum de uma partição volátil resulta em perda completa de dados
 * Backup e restauro NÃO está disponível para serviços voláteis
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e Fechaduras](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestão de Dados
-  * [Cópia de Segurança e Restauro](service-fabric-reliable-services-backup-restore.md)
+  * [Backup e Restauro](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização e Atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração fiável do Gestor de Estado](service-fabric-reliable-services-configuration.md)

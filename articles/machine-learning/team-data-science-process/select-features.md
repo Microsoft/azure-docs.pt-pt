@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 940d4c465acb5e8478d2b204ab5b9b18c79254f0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321316"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de características no Team Data Science Process (TDSP)
@@ -23,8 +23,8 @@ Este artigo explica as finalidades da seleção de recursos e fornece exemplos d
 
 A engenharia e seleção de funcionalidades faz parte do Processo de Ciência de Dados de Equipa (TDSP) delineado no artigo [O que é o Processo de Ciência de Dados da Equipa?](overview.md) A engenharia e a seleção de recursos são partes do passo de **funcionalidades de Desenvolvimento** do TDSP.
 
-* **engenharia de recursos** : Este processo tenta criar funcionalidades relevantes adicionais a partir das características brutas existentes nos dados, e aumentar o poder preditivo para o algoritmo de aprendizagem.
-* **seleção de recursos** : Este processo seleciona o subconjunto chave das características originais dos dados numa tentativa de reduzir a dimensionalidade do problema de treino.
+* **engenharia de recursos**: Este processo tenta criar funcionalidades relevantes adicionais a partir das características brutas existentes nos dados, e aumentar o poder preditivo para o algoritmo de aprendizagem.
+* **seleção de recursos**: Este processo seleciona o subconjunto chave das características originais dos dados numa tentativa de reduzir a dimensionalidade do problema de treino.
 
 **Normalmente, a engenharia de recursos** é aplicada primeiro para gerar funcionalidades adicionais, e em seguida, o passo de **seleção** de recursos é executado para eliminar características irrelevantes, redundantes ou altamente correlacionadas.
 

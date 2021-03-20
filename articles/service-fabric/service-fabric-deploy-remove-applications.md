@@ -4,10 +4,10 @@ description: Saiba como remover e implementar aplicações no Azure Service Fabr
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: d428a51c0bc224ca8706403ae176d46f1db82a32
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785452"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementar e remover aplicações usando PowerShell
@@ -312,7 +312,7 @@ Executar [Unregister-ServiceFabricApplicationType](/powershell/module/servicefab
 Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pede um ImageStoreConnectionString
 
@@ -390,7 +390,7 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar pacote de uma aplicação](service-fabric-package-apps.md)
 

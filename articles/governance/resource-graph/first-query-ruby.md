@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ativar a gema de Gráfi
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 41769359eaa1f930d34b0a182f35da38a6f5109d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920042"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Ruby
@@ -134,7 +134,7 @@ gem uninstall azure_mgmt_resourcegraph
 > [!NOTE]
 > A joia `azure_mgmt_resourcegraph` tem dependências como `ms_rest` e que também podem ter sido `ms_rest_azure` instaladas dependendo do seu ambiente. Pode desinstalar estas joias também se já não for necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, adicionou as joias do Gráfico de Recurso ao seu ambiente Ruby e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

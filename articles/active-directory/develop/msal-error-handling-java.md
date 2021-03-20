@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 8563804a736c37acc9a96eb4a186933507f34200
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98760681"
 ---
 # <a name="handle-errors-and-exceptions-in-msal-for-java"></a>Lidar com erros e exceções no MSAL para Java
@@ -84,6 +84,6 @@ A MSAL expõe um `reason` campo, que pode utilizar para proporcionar uma melhor 
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere permitir o [início de Sessão em MSAL para java](msal-logging-java.md) para ajudá-lo a diagnosticar e depurar problemas.

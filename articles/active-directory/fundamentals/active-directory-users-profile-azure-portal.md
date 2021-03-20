@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370921"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adicionar ou atualizar as informações do perfil de um utilizador com o Azure Active Directory
@@ -28,7 +28,7 @@ Como pode ver, há mais informação disponível no perfil de um utilizador do q
 ## <a name="to-add-or-change-profile-information"></a>Para adicionar ou alterar informações de perfil
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador do Utilizador para a organização.
 
-2. Selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione um utilizador. Por exemplo, _Alain Caronte._
+2. Selecione **Azure Ative Directory**, selecione **Utilizadores** e, em seguida, selecione um utilizador. Por exemplo, _Alain Caronte._
 
     Aparece a página **Alain Charon - Perfil.**
 

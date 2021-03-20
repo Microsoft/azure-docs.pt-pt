@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147084"
 ---
 # <a name="weather-partner-integration-with-farmbeats"></a>Integração de parceiros meteorológicos com FarmBeats
@@ -75,7 +75,7 @@ O serviço API serializa este dict e armazena-o num [cofre chave.](../../key-vau
 
 [A Azure Data Factory](../../data-factory/introduction.md) é usada para orquestrar trabalhos meteorológicos. Dá recursos para executar o código Docker. A Data Factory também fornece um mecanismo para empurrar os dados de forma segura para o VM onde funciona o trabalho do Docker. As credenciais da API são então armazenadas de forma segura no cofre da chave. 
 
-As credenciais são lidas como cordas seguras do cofre da chave. São fornecidas como propriedades estendidas no diretório de trabalho do contentor Docker. O seu percurso de ficheiro é */mnt/working_dir/activity.jsem* . 
+As credenciais são lidas como cordas seguras do cofre da chave. São fornecidas como propriedades estendidas no diretório de trabalho do contentor Docker. O seu percurso de ficheiro é */mnt/working_dir/activity.jsem*. 
 
 O código Docker pode ler as credenciais a partir de *activity.js* durante o tempo de execução para aceder a APIs do lado do parceiro para o cliente. No ficheiro JSON, as credenciais parecem este exemplo de código:
 
@@ -117,7 +117,7 @@ O programa Docker precisa de dois componentes: a bota e o trabalho. O programa p
 
 O componente bootstrap deve funcionar quando o cliente iniciar o registo do Docker no FarmBeats. Os seguintes argumentos `arg1` `arg2` (e) são passados para o programa:
 
-- **FarmBeats API ponto final** : O ponto final da FarmBeats API para pedidos de API. Este ponto final faz chamadas de API para a implantação farmbeats.
+- **FarmBeats API ponto final**: O ponto final da FarmBeats API para pedidos de API. Este ponto final faz chamadas de API para a implantação farmbeats.
 - **URL de Funções Azure:** O seu próprio ponto final. Este URL fornece o seu token de acesso para APIs FarmBeats. Você pode pedir `GET` a este URL para obter o token de acesso.
 
 A bootstrap cria os metadados que os utilizadores precisam para executar os seus trabalhos para obter dados meteorológicos. Para mais informações, consulte a implementação de [referência.](https://github.com/azurefarmbeats/noaa_docker) 
@@ -127,8 +127,8 @@ Se personalizar a *bootstrap_manifest.jsno* ficheiro, o programa de botas de ref
  > [!NOTE]
  > Se atualizar o *bootstrap_manifest.jsno* ficheiro como a [implementação](https://github.com/azurefarmbeats/noaa_docker) de referência descreve, não precisa de criar os seguintes metadados. O programa bootstrap utilizará o seu ficheiro manifesto para criar os metadados necessários.
 
-- /**WeatherDataModel** : Os metadados WeatherDataModel representam dados meteorológicos. Corresponde aos conjuntos de dados que a fonte fornece. Por exemplo, um DailyForecastSimpleModel pode fornecer informações médias de temperatura, humidade e precipitação uma vez por dia. Em contraste, um DailyForecastAdvancedModel pode fornecer muito mais informações a granularidade horária. Pode criar vários modelos de dados meteorológicos.
-- /**JobType** : A FarmBeats tem um sistema extensível de gestão de emprego. Como provedor de dados meteorológicos, terá vários conjuntos de dados e APIs (por exemplo, GetDailyForecasts). Pode ativar estes conjuntos de dados e APIs em FarmBeats utilizando o JobType. Após a criação de um tipo de trabalho, um cliente pode desencadear trabalhos desse tipo para obter dados meteorológicos para a sua localização ou para a sua quinta de interesse. Para obter mais informações, consulte JobType e Job APIs no [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
+- /**WeatherDataModel**: Os metadados WeatherDataModel representam dados meteorológicos. Corresponde aos conjuntos de dados que a fonte fornece. Por exemplo, um DailyForecastSimpleModel pode fornecer informações médias de temperatura, humidade e precipitação uma vez por dia. Em contraste, um DailyForecastAdvancedModel pode fornecer muito mais informações a granularidade horária. Pode criar vários modelos de dados meteorológicos.
+- /**JobType**: A FarmBeats tem um sistema extensível de gestão de emprego. Como provedor de dados meteorológicos, terá vários conjuntos de dados e APIs (por exemplo, GetDailyForecasts). Pode ativar estes conjuntos de dados e APIs em FarmBeats utilizando o JobType. Após a criação de um tipo de trabalho, um cliente pode desencadear trabalhos desse tipo para obter dados meteorológicos para a sua localização ou para a sua quinta de interesse. Para obter mais informações, consulte JobType e Job APIs no [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
 
 ### <a name="jobs"></a>Tarefas
 

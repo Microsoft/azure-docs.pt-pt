@@ -1,5 +1,5 @@
 ---
-title: Segurança de dados armazenados no Azure Data Lake Storage Gen1 Microsoft Docs
+title: Segurança de dados armazenados em Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Saiba como proteger dados na Azure Data Lake Storage Gen1 usando grupos e listas de controlo de acesso
 services: data-lake-store
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370700"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Proteger dados armazenados no Azure Data Lake Storage Gen1

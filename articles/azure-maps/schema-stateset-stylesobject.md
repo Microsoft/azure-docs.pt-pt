@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96903348"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject Schema guia de referência para mapas dinâmicos
@@ -88,9 +88,9 @@ O JSON abaixo mostra o uso exemplo de cada um dos três tipos de estilo.  O `Boo
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `keyName` | string | O *state* estado ou nome de propriedade dinâmica. A `keyName` deve ser único dentro da `StyleObject` matriz.| Sim |
-| `type` | string | Valor é "numérico". | Sim |
-| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Uma variedade de gamas de estilo numérico com cores associadas. Cada gama define uma cor que deve ser usada quando o valor do *estado* satisfaz a gama.| Sim |
+| `keyName` | string | O  estado ou nome de propriedade dinâmica. A `keyName` deve ser único dentro da `StyleObject` matriz.| Yes |
+| `type` | string | Valor é "numérico". | Yes |
+| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Uma variedade de gamas de estilo numérico com cores associadas. Cada gama define uma cor que deve ser usada quando o valor do *estado* satisfaz a gama.| Yes |
 
 ### <a name="numberruleobject"></a>NúmeroRuleObject
 
@@ -125,8 +125,8 @@ Na amostra JSON seguinte, ambas as gamas serão verdadeiras quando o valor do *e
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `range` | [RangeObject](#rangeobject) | O [RangeObject](#rangeobject) define um conjunto de condições de alcance lógica, que, `true` se, alterar a cor do display do *estado* para a cor especificada na `color` propriedade. Se `range` não for especificado, então a cor definida na `color` propriedade será sempre usada.   | Não |
-| `color` | string | A cor a usar quando o valor do estado cai na gama. A `color` propriedade é uma cadeia JSON em qualquer um dos seguintes formatos: <ul><li> Valores hexais de estilo HTML </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255,0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL ("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Cores HTML predefinidas, como amarelo, e azul.</li></ul> | Sim |
+| `range` | [RangeObject](#rangeobject) | O [RangeObject](#rangeobject) define um conjunto de condições de alcance lógica, que, `true` se, alterar a cor do display do *estado* para a cor especificada na `color` propriedade. Se `range` não for especificado, então a cor definida na `color` propriedade será sempre usada.   | No |
+| `color` | string | A cor a usar quando o valor do estado cai na gama. A `color` propriedade é uma cadeia JSON em qualquer um dos seguintes formatos: <ul><li> Valores hexais de estilo HTML </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255,0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL ("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Cores HTML predefinidas, como amarelo, e azul.</li></ul> | Yes |
 
 ### <a name="rangeobject"></a>RangeObject
 
@@ -134,10 +134,10 @@ O `RangeObject` define um valor de gama numérica de um [`NumberRuleObject`](#nu
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `minimum` | double | Todo o número x que x ≥ `minimum` .| Não |
-| `maximum` | double | Todo o número x que x ≤ `maximum` . | Não |
-| `exclusiveMinimum` | double | Todo o número x que x > `exclusiveMinimum` .| Não |
-| `exclusiveMaximum` | double | Todo o número x que x < `exclusiveMaximum` .| Não |
+| `minimum` | double | Todo o número x que x ≥ `minimum` .| No |
+| `maximum` | double | Todo o número x que x ≤ `maximum` . | No |
+| `exclusiveMinimum` | double | Todo o número x que x > `exclusiveMinimum` .| No |
+| `exclusiveMaximum` | double | Todo o número x que x < `exclusiveMaximum` .| No |
 
 ### <a name="example-of-numerictypestylerule"></a>Exemplo de NumericTypeStyleRule
 
@@ -172,9 +172,9 @@ A `StringTypeStyleRule` é um e consiste nas [`StyleObject`](#styleobject) segui
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `keyName` | string |  O *state* estado ou nome de propriedade dinâmica.  A `keyName` deve ser único dentro da  `StyleObject` matriz.| Sim |
-| `type` | string |Valor é "corda". | Sim |
-| `rules` | [`StringRuleObject`](#stringruleobject)[]| Uma variedade de N número de valores *do estado.*| Sim |
+| `keyName` | string |  O  estado ou nome de propriedade dinâmica.  A `keyName` deve ser único dentro da  `StyleObject` matriz.| Yes |
+| `type` | string |Valor é "corda". | Yes |
+| `rules` | [`StringRuleObject`](#stringruleobject)[]| Uma variedade de N número de valores *do estado.*| Yes |
 
 ### <a name="stringruleobject"></a>StringRuleObject
 
@@ -184,9 +184,9 @@ O valor das cordas é sensível a maiôs.
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `stateValue1` | string | A cor quando a cadeia de valor é stateValue1. | Não |
-| `stateValue2` | string | A cor quando a cadeia de valor é stateValue. | Não |
-| `stateValueN` | string | A cor quando a cadeia de valor é stateValueN. | Não |
+| `stateValue1` | string | A cor quando a cadeia de valor é stateValue1. | No |
+| `stateValue2` | string | A cor quando a cadeia de valor é stateValue. | No |
+| `stateValueN` | string | A cor quando a cadeia de valor é stateValueN. | No |
 
 ### <a name="example-of-stringtypestylerule"></a>Exemplo de StringTypeStyleRule
 
@@ -214,9 +214,9 @@ A `BooleanTypeStyleRule` é um e consiste nas [`StyleObject`](#styleobject) segu
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `keyName` | string |  O *state* estado ou nome de propriedade dinâmica.  A `keyName` deve ser único dentro da `StyleObject`  matriz.| Sim |
-| `type` | string |Valor é "boolean". | Sim |
-| `rules` | [`BooleanRuleObject`](#booleanruleobject)[1]| Um par booleano com cores `true` para valores e `false` valores *de estado.*| Sim |
+| `keyName` | string |  O  estado ou nome de propriedade dinâmica.  A `keyName` deve ser único dentro da `StyleObject`  matriz.| Yes |
+| `type` | string |Valor é "boolean". | Yes |
+| `rules` | [`BooleanRuleObject`](#booleanruleobject)[1]| Um par booleano com cores `true` para valores e `false` valores *de estado.*| Yes |
 
 ### <a name="booleanruleobject"></a>BooleanRuleObject
 
@@ -224,8 +224,8 @@ Um `BooleanRuleObject` define cores `true` e `false` valores.
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `true` | string | A cor a usar quando o valor do *estado* é `true` . A `color` propriedade é uma cadeia JSON em qualquer um dos seguintes formatos: <ul><li> Valores hexais de estilo HTML </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255,0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL ("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Cores HTML predefinidas, como amarelo, e azul.</li></ul>| Sim |
-| `false` | string | A cor a usar quando o valor do *estado* é `false` . | Sim |
+| `true` | string | A cor a usar quando o valor do *estado* é `true` . A `color` propriedade é uma cadeia JSON em qualquer um dos seguintes formatos: <ul><li> Valores hexais de estilo HTML </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255,0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL ("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Cores HTML predefinidas, como amarelo, e azul.</li></ul>| Yes |
+| `false` | string | A cor a usar quando o valor do *estado* é `false` . | Yes |
 
 ### <a name="example-of-booleantypestylerule"></a>Exemplo de BooleanTypeStyleRule
 

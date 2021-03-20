@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
 ms.openlocfilehash: 22a7738c2d4d3cc02c03c233e0821f07b459dd94
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452086"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Apoio à deslocação de recursos Azure SQL entre regiões de Azure

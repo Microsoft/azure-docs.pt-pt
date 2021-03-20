@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a SumoLogic Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com a SumoLogic | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SumoLogic.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: 2dcc52688cabebaa6eb813e3240150ea8774e716
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521902"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Tutorial: Azure Ative Directy integração única (SSO) com a SumoLogic
@@ -107,7 +107,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação SumoLogic espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    |  Nome | Atributo de origem |
+    |  Name | Atributo de origem |
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | utilizador.sobrenome |
@@ -140,7 +140,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à SumoLogic.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **SumoLogic**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -166,7 +166,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Definições globais de segurança](./media/sumologic-tutorial/ic778557.png "Definições globais de segurança")
 
-1. A partir da **configuração Select ou criar uma nova** lista, selecione **AZure AD**e, em seguida, clique em **Configurar**.
+1. A partir da **configuração Select ou criar uma nova** lista, selecione **AZure AD** e, em seguida, clique em **Configurar**.
 
     ![A screenshot mostra Configure SAML 2.0 onde pode selecionar Azure A D.](./media/sumologic-tutorial/ic778558.png "Configurar SAML 2.0")
 
@@ -210,7 +210,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na SumoLogic, devem s
 
     ![Novo Utilizador](./media/sumologic-tutorial/ic778563.png "Novo Utilizador")
 
-    a. Digite as informações relacionadas da conta Azure AD que pretende obter nas caixas de texto **Name,** **Last Name**e **Email.**
+    a. Digite as informações relacionadas da conta Azure AD que pretende obter nas caixas de texto **Name,** **Last Name** e **Email.**
   
     b. Selecione um papel.
   

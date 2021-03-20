@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Amazon Business Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Amazon Business | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Amazon Business.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672904"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio Amazon com o Azure Ative Directory
@@ -80,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     1. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando um dos seguintes padrões:
 
-       | URL | Região |
+       | URL | Region |
        |-|-|
        | `https://www.amazon.com`| América do Norte |
        | `https://www.amazon.co.jp`| Ásia Leste |
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     1. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
 
-       | URL | Região |
+       | URL | Region |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| América do Norte |
        | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Ásia Leste |

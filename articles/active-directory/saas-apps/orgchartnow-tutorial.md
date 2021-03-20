@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o OrgChart Now Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o OrgChart Now | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o OrgChart Now.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: fc6b90be8e951c0e30c99d0bb16f85e49cf991f2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integração do Azure Ative Directory com o OrgChart Now
@@ -215,9 +215,9 @@ Para permitir que os utilizadores de Azure AD iniciem sessão no OrgChart Now, d
 
     ![OrgChart Agora gerir](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * Na caixa de texto **do ID** do utilizador, introduza o ID do Utilizador como ** \@ brittasimon contoso.com**.
+    * Na caixa de texto **do ID** do utilizador, introduza o ID do Utilizador como **\@ brittasimon contoso.com**.
 
-    * Na caixa de texto **do Endereço de E-mail,** insira o e-mail do utilizador como ** \@ brittasimon contoso.com**.
+    * Na caixa de texto **do Endereço de E-mail,** insira o e-mail do utilizador como **\@ brittasimon contoso.com**.
 
     * Clique em **Adicionar**.
 

@@ -9,13 +9,13 @@ ms.devlang: azurepowershell
 ms.date: 11/16/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3cb320a37818084f2fbcad22a3cc992655b19c3d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95550014"
 ---
-# <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Implementar nuvem de primavera Azure com Azure PowerShell
+# <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Implementar o Azure Spring Cloud no Azure PowerShell
 
 Este artigo descreve como pode criar um exemplo de Azure Spring Cloud usando o módulo [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell.
 
@@ -26,7 +26,7 @@ Este artigo descreve como pode criar um exemplo de Azure Spring Cloud usando o m
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
-  > Enquanto o módulo **Az.SpringCloud** PowerShell estiver em pré-visualização, deve instalá-lo separadamente utilizando o `Install-Module` cmdlet. Depois de este módulo PowerShell ficar geralmente disponível, fará parte das futuras versões do módulo Az PowerShell e disponível por padrão a partir de Azure Cloud Shell.
+  > Enquanto o módulo **Az.SpringCloud** PowerShell estiver em pré-visualização, deve instalá-lo separadamente utilizando o `Install-Module` cmdlet. Quando este módulo do PowerShell entrar em disponibilidade geral, fará parte das versões futuras do módulo Az PowerShell e estará disponível por predefinição a partir do Azure Cloud Shell.
 
   ```azurepowershell-interactive
   Install-Module -Name Az.SpringCloud

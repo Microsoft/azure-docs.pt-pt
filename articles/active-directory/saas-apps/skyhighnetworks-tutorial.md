@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Configuração SSO do MVISION Cloud AD Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a configuração SSO AD SSO da MVISION Cloud Ad | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Configuração SSO AD SSO da MVISION Cloud Azure.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.openlocfilehash: 456348f5492af44274a37a6400fb8d95e9bd55a4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015150"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integrar a configuração SSO AD AD AD da MVISION com diretório ativo Azure
@@ -43,7 +43,7 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 * MVISION Cloud Ad SSO Configuração suporta SSO iniciado **SP e IDP**
 * Assim que configurar o Dropbox, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Adicionar configuração SSO AD AD AD da MVISION Cloud Ad da galeria
+## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Adicionar configuração SSO AD da MVISION Cloud Ad da galeria
 
 Para configurar a integração da Configuração SSO AD AD AD da MVISION Cloud Azure em Ad AD, é necessário adicionar a configuração SSO AD AD AD da galeria à sua lista de aplicações geridas para o SaaS.
 
@@ -129,7 +129,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permitindo o acesso à Configuração SSO AD AD AD da MVISION Cloud.
+Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permitindo o acesso à Configuração SSO AD da MVISION Cloud.
 
 1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações**, em seguida, selecione **MVISION Cloud AD SSO Configuração**.
 
@@ -137,7 +137,7 @@ Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permiti
 
 2. Na lista de aplicações, selecione **MVISION Cloud Azure AD SSO Configuração**.
 
-    ![O link de configuração SSO AD AD AD da MVISION na lista de aplicações](common/all-applications.png)
+    ![O link de configuração SSO AD da MVISION na lista de aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
@@ -177,6 +177,6 @@ Quando clicar no azulejo de configuração SSO MVISION Cloud Azure AD no Painel 
 
 - [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 
-- [Experimente a configuração SSO AD AD AD da MVISION cloud com Azure AD](https://aad.portal.azure.com/)
+- [Experimente a configuração SSO AD da MVISION cloud com Azure AD](https://aad.portal.azure.com/)
 
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

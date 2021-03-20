@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração com a Humanidade Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Humanidade | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Humanity.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: e1099f271291c6d86610237454e08e06b5fe48c7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Azure Ative Directy integração com a Humanidade
@@ -178,7 +178,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Humanidade.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Humanity**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Humanity**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -224,7 +224,7 @@ Para permitir que os utilizadores de Azure AD acedam à Humanidade, devem ser ad
 
     ![Salvar funcionários](./media/shiftplanning-tutorial/iC786625.png "Salvar funcionários")
 
-    a. Digite o **Primeiro Nome,** **Apelido**e **E-mail** de uma conta AD válida Azure que pretende apresentar nas caixas de texto relacionadas.
+    a. Digite o **Primeiro Nome,** **Apelido** e **E-mail** de uma conta AD válida Azure que pretende apresentar nas caixas de texto relacionadas.
 
     b. Clique **em Salvar Funcionários.**
 

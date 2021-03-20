@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95556193"
 ---
 Ao conceber um sistema, é importante compreender as potenciais ameaças a esse sistema, e adicionar defesas apropriadas em conformidade, uma vez que o sistema é projetado e arquitetado. É importante projetar o produto desde o início com a segurança em mente porque entender como um intruso pode ser capaz de comprometer um sistema ajuda a garantir que as mitigações apropriadas estão em vigor desde o início.
