@@ -1,5 +1,5 @@
 ---
-title: Desenvolver para dispositivos móveis usando Azure IoT SDKs Microsoft Docs
+title: Desenvolver para dispositivos móveis usando Azure IoT SDKs | Microsoft Docs
 description: Guia do desenvolvedor - Saiba como desenvolver-se para dispositivos móveis usando Azure IoT Hub SDKs.
 author: robinsh
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
 ms.openlocfilehash: 63fade17d10189cbe8e775b2a859902f1c2bb004
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151637"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Desenvolver para dispositivos móveis usando Azure IoT SDKs
@@ -39,7 +39,7 @@ Azure IoT Hub SDKs lança um conjunto de bibliotecas de Cacau Objective-C para o
 * Função Objetivo C: Se o seu projeto estiver escrito no Objective-C, pode ligar diretamente para as APIs do Azure IoT Hub C SDK.  Se o seu projeto estiver escrito em Swift, pode ligar `@objc func` antes de criar a sua função e passar a escrever todas as lógicas relacionadas com o Azure IoT Hub usando o código C ou Objective-C.  Um conjunto de amostras que demonstrem ambas podem ser encontradas no [repositório de amostras.](https://github.com/Azure-Samples/azure-iot-samples-ios)  
 
 * Incorpore amostras C: Se tiver escrito uma aplicação de dispositivo C, pode fazê-la referência diretamente no seu projeto XCode:
-    * Adicione o ficheiro sample.c ao seu projeto XCode a partir do XCode.  
+    * Adicione o ficheiro .c amostra ao seu projeto XCode a partir do XCode.  
     * Adicione o ficheiro do cabeçalho à sua dependência.  Um ficheiro de cabeçalho está incluído no [repositório](https://github.com/Azure-Samples/azure-iot-samples-ios) de amostras como exemplo. Para mais informações, visite a página de documentação da Apple para [o Objective-C](https://developer.apple.com/documentation/objectivec).
 
 ## <a name="develop-for-android-platform"></a>Desenvolver para plataforma Android

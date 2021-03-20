@@ -1,5 +1,5 @@
 ---
-title: Inspeção de pacotes com O Observador da Rede Azure Microsoft Docs
+title: Inspeção de pacote com Azure Network Watcher | Microsoft Docs
 description: Este artigo descreve como usar o Network Watcher para realizar uma inspeção de pacotes profundos recolhida de um VM
 services: network-watcher
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 3bd85d6faf05fcf659e9335ee9de3d64198dfa08
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011174"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com O Observador da Rede Azure
@@ -121,7 +121,7 @@ Introduzimos o texto do filtro de cima na caixa de texto do filtro e entramos.
 
 Pelos resultados, podemos ver que todo o tráfego vem de uma máquina virtual local na mesma sub-rede. Se ainda não entendermos porque é que este tráfego está a ocorrer, podemos inspecionar os pacotes para determinar porque está a fazer estas chamadas no porto 111. Com esta informação podemos tomar as medidas apropriadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça as outras funcionalidades de diagnóstico do Network Watcher visitando a [visão geral de monitorização da rede Azure](network-watcher-monitoring-overview.md)
 

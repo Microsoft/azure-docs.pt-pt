@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
 ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202349"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Circuitos e peering do ExpressRoute)
@@ -50,7 +50,7 @@ Os serviços de computação Azure, nomeadamente máquinas virtuais (IaaS) e ser
 
 Pode ligar mais do que uma rede virtual ao domínio de observação privada. Reveja a [página de PERGUNTAS Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Pode visitar a página [Azure Subscription and Service Limits, Quotas e Restrições](../azure-resource-manager/management/azure-subscription-service-limits.md) para obter informações atualizadas sobre limites.  Consulte a página [de encaminhamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração do encaminhamento.
 
-### <a name="microsoft-peering"></a><a name="microsoftpeering"></a>Peering da Microsoft
+### <a name="microsoft-peering"></a><a name="microsoftpeering"></a>Microsoft a espreitar
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 

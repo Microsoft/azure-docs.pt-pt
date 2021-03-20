@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: a8e089e302e9d40c69cf7ff2a3480c17894e1463
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016291"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Trabalhos de Streaming de Autoscale Analytics utilizando a Azure Automation
@@ -78,6 +78,6 @@ Pode haver casos em que não se pode prever a carga de entrada. Nestes casos, é
 
 É uma boa prática fazer testes à escala antes de executar o seu trabalho na produção. Ao testar o seu trabalho contra cargas de entrada variadas, você tem uma noção de quantas SUs o seu trabalho precisa para diferentes entradas. Isto pode informar as condições que define nas suas regras de alerta que desencadeiam a escala e reduzem as operações. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar consultas paralizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Escala Azure Stream Analytics empregos para aumentar a produção](stream-analytics-scale-jobs.md)

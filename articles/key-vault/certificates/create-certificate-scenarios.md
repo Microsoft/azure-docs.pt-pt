@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81430971"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorizar e gerir a criação do certificados
@@ -86,7 +86,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 ### <a name="request"></a>Pedir
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OU
+OR
 
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -121,7 +121,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OU
+OR
 
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -153,7 +153,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OU
+OR
 
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -192,7 +192,7 @@ Um objeto pendente pode ser eliminado ou substituído por uma operação de cria
 ### <a name="request"></a>Pedir
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OU
+OR
 
 Obter `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -296,7 +296,7 @@ Um cancelamento só pode ser solicitado. Um pedido pode ou não ser cancelado. S
 ### <a name="request"></a>Pedir
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OU
+OR
 
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -336,7 +336,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ### <a name="request"></a>Pedir
 EXCLUIR `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OU
+OR
 
 EXCLUIR `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -414,7 +414,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nome do elemento|Necessário|Tipo|Versão|Descrição|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Sim|matriz|\<introducing version>|Cadeia de certificados X509 como matriz de corda base 64.|
+|x5c|Yes|matriz|\<introducing version>|Cadeia de certificados X509 como matriz de corda base 64.|
 
 ### <a name="response"></a>Resposta
 

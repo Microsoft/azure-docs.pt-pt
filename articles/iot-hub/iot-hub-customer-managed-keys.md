@@ -1,5 +1,5 @@
 ---
-title: Encriptação de dados do Azure IoT Hub em repouso através de chaves geridas pelo cliente Microsoft Docs
+title: Encriptação de dados do Azure IoT Hub em repouso através de chaves geridas pelo cliente| Microsoft Docs
 description: Encriptação de dados em repouso com chaves geridas pelo cliente para ioT Hub
 author: ash2017
 manager: briz
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: asrastog
 ms.openlocfilehash: 352da24b36124ff0446a81c1ecbc584da545bb16
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142201"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Encriptação de dados em repouso com chaves geridas pelo cliente para ioT Hub

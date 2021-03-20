@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92150915"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticação do Azure SignalR Service com as Funções do Azure Functions
@@ -30,7 +30,7 @@ Tutorial passo a passo para criar uma sala de chat com autenticação e mensagen
 
 É necessário o software seguinte para criar este tutorial.
 
-* [Rio Git](https://git-scm.com/downloads)
+* [Git](https://git-scm.com/downloads)
 * [Node.js](https://nodejs.org/en/download/) (versão 10.x)
 * [SDK .NET](https://www.microsoft.com/net/download) (versão 2.x, necessário para extensões das Funções)
 * [Ferramentas de Núcleo de Funções do Azure](https://github.com/Azure/azure-functions-core-tools) (versão 2)
@@ -58,7 +58,7 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 
 1. Introduza as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Valor |
     |---|---|
     | Nome do recurso | Nome exclusivo da instância do SignalR Service |
     | Grupo de recursos | Criar um novo grupo de recursos com um nome único |
@@ -327,7 +327,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 1. Introduza as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Valor |
     |---|---|
     | Subscrição | Selecione a subscrição que contém a instância do Serviço SignalR |
     | Grupo de recursos | Selecione o mesmo grupo de recursos |
@@ -338,7 +338,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
     | Replicação | Armazenamento localmente redundante (LRS) |
     | Nível de acesso | Frequente |
 
-1. Clique **em Rever + criar**e, em seguida, **Criar**.
+1. Clique **em Rever + criar** e, em seguida, **Criar**.
 
 ### <a name="configure-static-websites"></a>Configurar sites estáticos
 
@@ -348,7 +348,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 1. Selecione **Ativado** para ativar a funcionalidade do site estático.
 
-1. No **nome do documento índice**, insiraindex.htm* l*.
+1. No **nome do documento índice**, insiraindex.htm *l*.
 
 1. Clique em **Guardar**.
 
@@ -461,7 +461,7 @@ A aplicação Web será alojada através da funcionalidade de sites estáticos d
 
 1. Introduza os seguintes valores:
 
-    | Nome | Valor |
+    | Name | Valor |
     |---|---|
     | Subscrição | Selecione a sua subscrição |
     | Conta de armazenamento | Selecione a conta de armazenamento que criou anteriormente |
@@ -503,7 +503,7 @@ Parabéns! Implementou uma aplicação de chat sem servidor em tempo real!
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados neste tutorial, elimine o grupo de recursos no portal do Azure.
 

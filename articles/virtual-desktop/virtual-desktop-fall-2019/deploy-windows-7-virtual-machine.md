@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 259e49fbdd6a0eb392ddf6a3cd3c318798cfabd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88005069"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop (clássico)
@@ -37,7 +37,7 @@ Para configurar um VM Windows 7 no Windows Virtual Desktop:
 5. Aceda ao Windows Update no seu VM.
 6. Instale todas as atualizações do Windows na categoria Importante.
 7. Instale todas as Atualizações do Windows na categoria Opcional (excluindo pacotes de idiomas). Isto instala a atualização 8.0 do Remote Desktop Protocol 8.0[(KB2592687)](https://www.microsoft.com/download/details.aspx?id=35387)que necessita para completar estas instruções.
-8. Abra o Editor de Política de Grupo Local e navegue para modelos administrativos **de configuração de**  >  **Administrative Templates**  >  **computador, windows components**  >  **Remote Desktop Services**Remote Desktop Session  >  **Host**Remote  >  **Session Environment**.
+8. Abra o Editor de Política de Grupo Local e navegue para modelos administrativos **de configuração de**  >    >  **computador, windows components**  >  **Remote Desktop Services** Remote Desktop Session  >  **Host** Remote  >  **Session Environment**.
 9. Ativar a política do Protocolo de Ambiente de Trabalho Remoto 8.0.
 10. Junte este VM ao seu domínio Ative Directory.
 11. Reinicie a máquina virtual executando o seguinte comando:

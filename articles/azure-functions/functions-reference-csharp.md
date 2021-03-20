@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92164844"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador Azure Functions C# (.csx)
@@ -56,7 +56,7 @@ As extensões de ligação necessárias na [versão 2.x e versões posteriores](
 
 ## <a name="binding-to-arguments"></a>Vinculativo aos argumentos
 
-Os dados de entrada ou saída estão ligados a um parâmetro de função de script C# através da `name` propriedade nofunction.js* no* ficheiro de configuração. O exemplo a seguir mostra uma *function.jsno* ficheiro e no ficheiro *run.csx* para uma função desencadeada pela fila. O parâmetro que recebe dados da mensagem de fila é nomeado `myQueueItem` porque é o valor da `name` propriedade.
+Os dados de entrada ou saída estão ligados a um parâmetro de função de script C# através da `name` propriedade nofunction.js *no* ficheiro de configuração. O exemplo a seguir mostra uma *function.jsno* ficheiro e no ficheiro *run.csx* para uma função desencadeada pela fila. O parâmetro que recebe dados da mensagem de fila é nomeado `myQueueItem` porque é o valor da `name` propriedade.
 
 ```json
 {
@@ -381,7 +381,7 @@ Para obter informações sobre como enviar ficheiros para a sua pasta de funçõ
 O diretório que contém o ficheiro de script de função é automaticamente observado para alterações nos conjuntos. Para observar as alterações de montagem em outros diretórios, adicione-os à `watchDirectories` lista emhost.js[ em](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Usando pacotes NuGet
-Para utilizar pacotes NuGet numa função 2.x e mais tarde C#, carrece um ficheiro *function.proj* para a pasta da função no sistema de ficheiros da aplicação de funções. Aqui está um ficheiro *de exemplo.proj* que adiciona uma referência à versão *1.1.0*do *Microsoft.ProjectOxford.Face* :
+Para utilizar pacotes NuGet numa função 2.x e mais tarde C#, carrece um ficheiro *function.proj* para a pasta da função no sistema de ficheiros da aplicação de funções. Aqui está um ficheiro *de exemplo.proj* que adiciona uma referência à versão *1.1.0* do *Microsoft.ProjectOxford.Face* :
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -519,7 +519,7 @@ A tabela que se segue lista os atributos .NET para cada tipo de encadernação e
 > [!div class="mx-codeBreakAll"]
 > | Enlace | Atributo | Adicionar referência |
 > |------|------|------|
-> | BD do Cosmos | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
+> | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 > | Hubs de Eventos | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAccountTests.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 > | Aplicações Móveis | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 > | Hubs de Notificação | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |

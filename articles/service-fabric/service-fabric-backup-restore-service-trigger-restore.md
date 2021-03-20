@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928015"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar a cópia de segurança no Tecido de Serviço Azure
@@ -336,7 +336,7 @@ Pode configurar o serviço Reliable Stateful e as divisórias Reliable Actors no
 - [Referência da API do RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)
 - [Referência API GetPartitionRestoreProgress](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Compreender a configuração da cópia de segurança periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restaurar referência API REST](/rest/api/servicefabric/sfclient-index-backuprestore)
 

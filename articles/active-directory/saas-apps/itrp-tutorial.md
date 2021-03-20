@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a ITRP Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | ITRP Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar um único sign-on entre Azure Ative Directory e ITRP.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Ative Directory com a ITRP
@@ -225,7 +225,7 @@ Para criar uma conta de utilizador, tome estes passos:
 
 1. Selecione o sinal de mais **+** () para adicionar uma nova pessoa:
 
-    ![Selecione o sinal mais](./media/itrp-tutorial/ic775576.png "Selecione o sinal mais")
+    ![Selecione o sinal de adição](./media/itrp-tutorial/ic775576.png "Selecione o sinal de adição")
 
 1. Na caixa de diálogo **Add New Person,** tome os seguintes passos.
 

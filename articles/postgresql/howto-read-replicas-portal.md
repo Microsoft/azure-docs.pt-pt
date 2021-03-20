@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.openlocfilehash: 9fdef187e9bdf77b29c548f767a4b4edfeb62f44
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422183"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerir réplicas de leitura na Base de Dados Azure para PostgreSQL - Servidor Único a partir do portal Azure
@@ -41,7 +41,7 @@ Para configurar o nível certo de registo, utilize o parâmetro de suporte de re
 
 2. A partir do menu do servidor, selecione **Replication**. Se o suporte de replicação do Azure estiver definido para pelo menos **replica,** pode criar réplicas de leitura. 
 
-3. Se o suporte de replicação do Azure não estiver definido para, pelo menos, **replicar,** desate-o. Selecione **Save** (Guardar).
+3. Se o suporte de replicação do Azure não estiver definido para, pelo menos, **replicar,** desate-o. Selecione **Guardar**.
 
    :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Definir réplica e salvar":::
 
@@ -73,7 +73,7 @@ Para criar uma réplica de leitura, siga estes passos:
 
 5. Selecione um local para a réplica. A localização predefinida é a mesma do servidor primário.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Selecione uma localização":::
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Selecionar uma localização":::
 
    > [!NOTE]
    > Para saber mais sobre em que regiões pode criar uma réplica, visite o [artigo conceitos de réplica lido.](concepts-read-replicas.md) 

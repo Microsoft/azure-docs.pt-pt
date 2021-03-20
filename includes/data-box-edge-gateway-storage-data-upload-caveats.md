@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 6dc201af2271909de15af9bac1a2e2bb68faed1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91401042"
 ---
 As ressalvas seguintes aplicam-se aos dados à medida que se movem para Azure.
@@ -16,8 +16,8 @@ As ressalvas seguintes aplicam-se aos dados à medida que se movem para Azure.
 - Sugerimos que mais de um dispositivo não deve escrever para o mesmo recipiente.
 - Se tiver um objeto Azure existente (como uma bolha ou um ficheiro) na nuvem com o mesmo nome que o objeto que está a ser copiado, o dispositivo substituirá o ficheiro na nuvem.
 - Uma hierarquia de diretório vazio (sem ficheiros) criada sob pastas de partilha não é carregada para os recipientes blob.
-- Pode copiar os dados utilizando arrastar e largar com o Explorador de Ficheiros ou através da linha de comando. Se o tamanho agregado dos ficheiros copiados for superior a 10 GB, recomendamos que utilize um programa de cópia a granel, como robocopia ou rsync. As ferramentas de cópia a granel reagem à operação de cópia por erros intermitentes e proporcionam resiliência adicional.
-- Se a parte associada ao recipiente de armazenamento Azure carregar bolhas que não correspondem ao tipo de bolhas definidas para a partilha no momento da criação, então essas bolhas não são atualizadas. Por exemplo, cria-se uma partilha de blocos no dispositivo. Associe a partilha a um recipiente de nuvem existente que tenha bolhas de página. Refresque essa partilha para descarregar os ficheiros. Modifique alguns dos ficheiros renovados que já estão armazenados como bolhas de página na nuvem. Verá falhas no upload.
+- Pode copiar os dados ao arrastar e soltar com o Explorador de Ficheiros ou através da linha de comandos. Se o tamanho agregado dos ficheiros que estão a ser copiados for superior a 10 GB, recomendamos que utilize um programa de cópia em massa, como o Robocopy ou rsync. As ferramentas de cópia em massa tentam a operação de cópia novamente para os erros intermitentes e proporcionam uma resiliência adicional.
+- Se a parte associada ao recipiente de armazenamento Azure carregar bolhas que não correspondem ao tipo de bolhas definidas para a partilha no momento da criação, então essas bolhas não são atualizadas. Por exemplo, crie uma partilha de blobs de blocos no dispositivo. Associe a partilha a um contentor de cloud existente com blobs de páginas. Atualize essa partilha para transferir os ficheiros. Modifique alguns dos ficheiros atualizados que já estão armazenados como blobs de páginas na cloud. Vai observar falhas de carregamento.
 - Depois de um ficheiro ser criado nas ações, a renomeação do ficheiro não é suportada.
 - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
 - Se utilizar o rsync para copiar dados, então `rsync -a` a opção não é suportada.

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 629a154c89ad301a3e200b1d6cd04c62057d9959
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016546"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage Gen 1 produção da Azure Stream Analytics
@@ -23,7 +23,7 @@ A produção de armazenamento de lagos de dados Azure da Stream Analytics não e
 
 A tabela que se segue lista os nomes das propriedades e as suas descrições para configurar a sua saída do Data Lake Storage Gen 1.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída | Um nome amigável usado em consultas para direcionar a saída de consulta para data lake store. |
 | Subscrição | A subscrição que contém a sua conta de Armazenamento de Data Lake Azure. |
@@ -45,7 +45,7 @@ Para a tecla de partição, utilize fichas {date} e {time} no padrão de prefixo
 
 Para obter o tamanho máximo da mensagem, consulte os [limites de armazenamento do Data Lake](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits). Para otimizar o tamanho do lote, utilize até 4 MB por operação de escrita.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas (pré-visualização)](stream-analytics-managed-identities-adls.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

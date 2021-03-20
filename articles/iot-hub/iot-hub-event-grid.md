@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub e Grade de Eventos ! Microsoft Docs
+title: Azure IoT Hub e | de grelha de eventos Microsoft Docs
 description: Use a grelha de eventos Azure para desencadear processos baseados em ações que ocorrem no IoT Hub.
 author: robinsh
 manager: philmea
@@ -13,15 +13,15 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152137"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do IoT Hub usando a Grade de Eventos para desencadear ações
 
-O Hub IoT do Azure integra-se no Azure Event Grid para que possa enviar notificações de eventos para outros serviços e acionar processos a jusante. Configure as aplicações empresariais para escutar eventos do Hub IoT para que possa reagir a eventos críticos de forma fiável, dimensionável e segura.Por exemplo, crie uma aplicação que atualiza uma base de dados, cria um pedido de trabalho e envia uma notificação por e-mail sempre que um novo dispositivo IoT é registado no hub IoT.
+O Hub IoT do Azure integra-se no Azure Event Grid para que possa enviar notificações de eventos para outros serviços e acionar processos a jusante. Configure as aplicações empresariais para escutar eventos do Hub IoT para que possa reagir a eventos críticos de forma fiável, dimensionável e segura. Por exemplo, crie uma aplicação que atualiza uma base de dados, cria um pedido de trabalho e envia uma notificação por e-mail sempre que um novo dispositivo IoT é registado no hub IoT.
 
 [A azure Event Grid](../event-grid/overview.md) é um serviço de encaminhamento de eventos totalmente gerido que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](../azure-functions/functions-overview.md) e [Azure Logic Apps,](../logic-apps/logic-apps-overview.md)e pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](../event-grid/overview.md).
 

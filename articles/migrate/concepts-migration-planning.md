@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.openlocfilehash: ef916e0e8b32c96382a731d4a307e2b2a98ba1ea
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753863"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Construir plano de migração com Azure Migrate
@@ -145,7 +145,7 @@ Um plano de testes pós-migração deve incluir testes funcionais, de integraç�
 
 Construa um roteiro de migração e declare uma janela de manutenção para migrar as suas apps e bases de dados com o mínimo de tempo de inatividade e limitar o potencial impacto operacional e empresarial durante a migração.  
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Recomendamos que faça uma migração de teste em Azure Migrate, antes de iniciar uma migração em larga escala. Uma migração de testes ajuda-o a estimar o tempo envolvido e a ajustar o seu plano de migração. Proporciona uma oportunidade para descobrir quaisquer problemas potenciais, e corrigi-los antes da migração completa.
 

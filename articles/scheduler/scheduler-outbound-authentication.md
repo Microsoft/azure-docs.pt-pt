@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80878974"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para Azure Scheduler
@@ -48,9 +48,9 @@ Ao adicionar a autenticação utilizando o `ClientCertificate` modelo, especifiq
 | Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL/TLS |
-| **tipo** | Sim | O tipo de autenticação. Para certificados de cliente SSL/TLS, o valor é `ClientCertificate` . |
-| **pfx** | Sim | O conteúdo codificado de base64 do ficheiro PFX |
-| **palavra-passe** | Sim | A senha de acesso ao ficheiro PFX |
+| **tipo** | Yes | O tipo de autenticação. Para certificados de cliente SSL/TLS, o valor é `ClientCertificate` . |
+| **pfx** | Yes | O conteúdo codificado de base64 do ficheiro PFX |
+| **palavra-passe** | Yes | A senha de acesso ao ficheiro PFX |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Entidade de resposta - Certificado de cliente 
@@ -168,9 +168,9 @@ Ao adicionar a autenticação utilizando o `Basic` modelo, especifique estes ele
 | Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização da autenticação básica | 
-| **tipo** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic` . | 
-| **nome de utilizador** | Sim | O nome de utilizador para autenticar | 
-| **palavra-passe** | Sim | A senha para autenticar |
+| **tipo** | Yes | O tipo de autenticação. Para a autenticação básica, o valor é `Basic` . | 
+| **nome de utilizador** | Yes | O nome de utilizador para autenticar | 
+| **palavra-passe** | Yes | A senha para autenticar |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo de resposta - Básico
@@ -285,12 +285,12 @@ Ao adicionar a autenticação utilizando o `ActiveDirectoryOAuth` modelo, especi
 
 | Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
-| **autenticação** (elemento-mãe) | Sim | O objeto de autenticação para a utilização da autenticação ActiveDirectoryOAuth |
-| **tipo** | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth` . |
-| **tenant** | Sim | O identificador de inquilino do inquilino da AD Azure. Para encontrar o identificador de inquilino para o inquilino da Ad Azure, corra `Get-AzureAccount` em Azure PowerShell. |
-| **público** | Sim | Este valor está definido para `https://management.core.windows.net/` . | 
-| **clientId** | Sim | O identificador de cliente para a aplicação AD Azure | 
-| **segredo** | Sim | O segredo para o cliente que está pedindo o sinal | 
+| **autenticação** (elemento-mãe) | Yes | O objeto de autenticação para a utilização da autenticação ActiveDirectoryOAuth |
+| **tipo** | Yes | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth` . |
+| **tenant** | Yes | O identificador de inquilino do inquilino da AD Azure. Para encontrar o identificador de inquilino para o inquilino da Ad Azure, corra `Get-AzureAccount` em Azure PowerShell. |
+| **público** | Yes | Este valor está definido para `https://management.core.windows.net/` . | 
+| **clientId** | Yes | O identificador de cliente para a aplicação AD Azure | 
+| **segredo** | Yes | O segredo para o cliente que está pedindo o sinal | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Órgão de resposta - Ative Directory OAuth

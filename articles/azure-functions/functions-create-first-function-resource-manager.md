@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422829"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Quickstart: Criar e implementar recursos de funções Azure a partir de um modelo ARM
@@ -121,7 +121,7 @@ Na saída, copie o URL do gatilho HTTP. Utilize isto para testar a sua função 
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. No **Explorador de Soluções** , clique com o botão direito do rato no projeto e selecione **Publicar**.
+1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
 1. Em **Escolher um alvo de publicação,** escolha o plano de consumo de **funções Azure** com **Select existente** e selecione Criar **perfil**.
 

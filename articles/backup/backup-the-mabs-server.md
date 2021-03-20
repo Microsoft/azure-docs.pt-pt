@@ -4,10 +4,10 @@ description: Saiba como fazer backup do Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172128"
 ---
 # <a name="back-up-the-mabs-server"></a>Fazer cópia de segurança do servidor MABS
@@ -198,7 +198,7 @@ Esta opção de backup utiliza SQL nativo para fazer backup da base de dados MAB
 
 1. Partilhe a pasta. Por exemplo, partilhe `C:\MABSBACKUP` a pasta como *DPMBACKUP*.
 
-1. Copie e cole o comando OSQL abaixo no Bloco de Notas e guarde-o para um ficheiro chamado `C:\MABSACKUP\bkupdb.cmd` . Certifique-se de que não há extensão .txt. Modifique o SQL_Instance_name e DPMDB_NAME para corresponder à instância e nome DPMDB utilizado pelo seu servidor MABS.
+1. Copie e cole o comando OSQL abaixo no Bloco de Notas e guarde-o para um ficheiro chamado `C:\MABSACKUP\bkupdb.cmd` . Certifique-se de que não há .txt extensão. Modifique o SQL_Instance_name e DPMDB_NAME para corresponder à instância e nome DPMDB utilizado pelo seu servidor MABS.
 
     ```SQL
     OSQL -E -S localhost\SQL_INSTANCE_NAME -Q "BACKUP DATABASE DPMDB_NAME TO DISK='C:\DPMBACKUP\dpmdb.bak' WITH FORMAT"
@@ -246,7 +246,7 @@ Pode fazer backup na base de dados MABS como qualquer outra base de dados do SQL
 
 1. Ligue-se à partilha utilizando o `\\MABSServer\MABSSERVERNAME-dpmdb` Explorer a partir de qualquer computador Windows.
 
-2. Clique com o botão direito no ficheiro **dpmdb.bak** para visualizar propriedades. No separador **Versões Anteriores** encontram-se todas as cópias de segurança que pode selecionar e copiar. Há também a última cópia de segurança ainda localizada na pasta C:\MABSBACKup que também é facilmente acessível.
+2. Clique com o direito no ficheiro **dpmdb.bak** para visualizar propriedades. No separador **Versões Anteriores** encontram-se todas as cópias de segurança que pode selecionar e copiar. Há também a última cópia de segurança ainda localizada na pasta C:\MABSBACKup que também é facilmente acessível.
 
 3. Se precisar de mover um disco de armazenamento MABS anexado a SAN para outro servidor para ser capaz de ler a partir do volume de réplica, ou reinstalar o Windows para ler discos ligados localmente, terá de conhecer previamente o percurso do ponto de montagem do volume de réplica MABS ou o Volume GUID para saber qual o volume que detém a cópia de segurança da base de dados. Pode utilizar o script SQL abaixo para extrair essas informações em qualquer altura após a proteção inicial, mas antes de ser necessário efetuar um restauro. Substitua-o `%dpmsqlservername%` pelo nome do SQL Server que hospeda a base de dados.
 
@@ -276,7 +276,7 @@ Pode fazer backup na base de dados MABS como qualquer outra base de dados do SQL
 
     3. Ligue-se à partilha utilizando o `\\SERVERNAME\MABSSERVERNAME-dpmdb` Explorer a partir de qualquer computador Windows.
 
-    4. Clique com o botão direito no ficheiro **dpmdb.bak** para ver as propriedades. No separador **Versões Anteriores** encontram-se todas as cópias de segurança que pode selecionar e copiar.
+    4. Clique com o direito no ficheiro **dpmdb.bak** para ver as propriedades. No separador **Versões Anteriores** encontram-se todas as cópias de segurança que pode selecionar e copiar.
 
 ## <a name="using-dpmsync"></a>Utilização de DPMSync
 
@@ -288,7 +288,7 @@ Pode fazer backup na base de dados MABS como qualquer outra base de dados do SQL
 |----------------|-----------------------------|
 | **-Restaurar ODB**                       | Restaura uma base de dados MABS a partir de um local especificado.|
 | **-Sincronização**                            | Sincroniza as bases de dados restauradas. Tem de executar **O DpmSync –Sync** depois de restaurar as bases de dados. Depois de executar **o DpmSync –Sync,** algumas réplicas podem ainda estar marcadas como desaparecidas. |
-| **-Localização DbLoc** *location*                | Identifica a localização da cópia de segurança da base de dados MABS.|
+| **-Localização DbLoc**                 | Identifica a localização da cópia de segurança da base de dados MABS.|
 | **-Nome de instância** <br/>*servidor\instância*     | Instância para a qual o DPMDB deve ser restaurado.|
 | **-RealocalatoReplica**         | Realoca todos os volumes de réplicas em falta sem sincronização. |
 | **-DadosCopiados**                      | Indica que preencheu os dados de carregamento nos volumes de réplicas recentemente atribuídos. Isto é aplicável apenas para computadores clientes. |

@@ -7,10 +7,10 @@ ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: 8891c29e5d8d06df6292d06ec06e5e57fb9880e7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422846"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutorial: Implementar um modelo de classificação de imagem pré-treinado para funções Azure com PyTorch
@@ -21,7 +21,7 @@ Neste artigo, aprende-se a usar as Funções Python, PyTorch e Azure para carreg
 > * Inicialize um ambiente local para o desenvolvimento de Funções Azure em Python.
 > * Importe um modelo de aprendizagem automática PyTorch pré-treinado para uma aplicação de função.
 > * Construa uma API HTTP sem servidor para classificar uma imagem como uma das 1000 [classes](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a)ImageNet .
-> * Consumir a API a partir de uma aplicação web.
+> * Consumir a API numa aplicação Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +115,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: *\_ \_ init \_ \_ .py* , que contém o código de função, e *function.jsligados* , que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./create-first-function-cli-python.md#optional-examine-the-file-contents) no arranque rápido do Python.
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nesta pasta *\_ \_ encontram-se \_ \_* dois ficheiros: .py , que contém o código de função, e *function.js,* que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./create-first-function-cli-python.md#optional-examine-the-file-contents) no arranque rápido do Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
@@ -185,7 +185,7 @@ A instalação pode demorar alguns minutos, durante o qual pode proceder à modi
 
 ## <a name="update-the-function-to-run-predictions"></a>Atualizar a função para executar previsões
 
-1. Abra *a classificação/init \_ \_ \_ \_ .py* num editor de texto e adicione as seguintes linhas após as `import` declarações existentes para importar a biblioteca JSON padrão e os ajudantes *de previsão:*
+1. A *classificação aberta/ \_ \_ \_ \_ init .py* num editor de texto e adicione as seguintes linhas após as declarações existentes para importar a biblioteca `import` JSON padrão e os ajudantes *de previsão:*
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

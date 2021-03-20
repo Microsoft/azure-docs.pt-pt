@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre a autenticação de uma apl
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913318"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma aplicação com o Azure Ative Directory para aceder aos recursos do Event Hubs
@@ -75,7 +75,7 @@ Depois de registar a aplicação, designa o principal de serviço da aplicação
 
     ![Selecione o seu centro de eventos](./media/authenticate-application/select-event-hub.png)
 1. Selecione **Access Control (IAM)** para exibir as definições de controlo de acesso para o centro de eventos. 
-1. Selecione o **separador funções** para ver a lista de atribuições de funções. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar a atribuição de função** . 
+1. Selecione o **separador funções** para ver a lista de atribuições de funções. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar a atribuição de função**. 
 
     ![Adicione botão na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
 1. Na página **de atribuição de funções Adicionar,** faça os seguintes passos:

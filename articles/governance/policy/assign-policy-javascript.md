@@ -5,10 +5,10 @@ ms.date: 09/24/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: 7548053e4bd5be214bf7de3eef3dc4c6c95442d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91349097"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-javascript"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando o JavaScript
@@ -58,7 +58,7 @@ Para permitir que o JavaScript funcione com a Política Azure, as bibliotecas de
    ```
 
    > [!NOTE]
-   > Verifique empackage.jsem _ é a_ versão `@azure/arm-policy` **3.1.0** ou superior, `@azure/arm-policyinsights` é a versão **3.2.0** ou superior, e `@azure/ms-rest-nodeauth` é a versão **3.0.5** ou superior.
+   > Verifique empackage.jsem _é a_ versão `@azure/arm-policy` **3.1.0** ou superior, `@azure/arm-policyinsights` é a versão **3.2.0** ou superior, e `@azure/ms-rest-nodeauth` é a versão **3.0.5** ou superior.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
@@ -115,7 +115,7 @@ Os comandos anteriores utilizam as seguintes informações:
 - **descrição** - Uma explicação mais profunda do que a apólice faz ou por que é atribuída a este âmbito.
 - **âmbito** - Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de políticas é executada. Pode ir de um grupo de gestão a um recurso individual. Certifique-se de que `{scope}` substitui por um dos seguintes padrões:
   - Grupo de gestão: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Assinatura: `/subscriptions/{subscriptionId}`
+  - Subscrição: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 
@@ -179,7 +179,7 @@ Os resultados assemelham-se ao seguinte exemplo:
 
 Os resultados coincidem com o que vê no **separador** de conformidade de recursos de uma atribuição de políticas na vista do portal Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 - Eliminar a atribuição de políticas _Audit VMs sem discos geridos Atribuição_ através do portal. A definição de política é uma incorporação, por isso não há definição para remover.
 

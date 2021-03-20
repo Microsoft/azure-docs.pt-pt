@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646287"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso Condicional para utilizadores de colaboração B2B
@@ -28,7 +28,7 @@ Este artigo descreve como as organizações podem âmbito das políticas de Aces
 
 O seguinte diagrama ilustra o fluxo: ![ a imagem mostra o fluxo de autenticação para utilizadores convidados B2B a partir de um diretório externo](./media/conditional-access-b2b/authentication-flow-b2b-guests.png)
 
-| Passo | Descrição |
+| Passo | Description |
 |--------------|-----------------------|
 | 1. | O utilizador convidado B2B solicita o acesso a um recurso. O recurso redireciona o utilizador para o seu inquilino de recursos, um IdP de confiança.|
 | 2. | O inquilino identifica o utilizador como externo e redireciona o utilizador para o IdP do utilizador convidado B2B. O utilizador realiza a autenticação primária no IdP.
@@ -39,7 +39,7 @@ O seguinte diagrama ilustra o fluxo: ![ a imagem mostra o fluxo de autenticaçã
 
 O diagrama a seguir ilustra o fluxo: ![ a imagem mostra o fluxo de autenticação para utilizadores convidados B2B com uma senha de tempo](./media/conditional-access-b2b/authentication-flow-b2b-guests-otp.png)
 
-| Passo | Descrição |
+| Passo | Description |
 |--------------|-----------------------|
 | 1. |O utilizador solicita o acesso a um recurso noutro inquilino. O recurso redireciona o utilizador para o seu inquilino de recursos, um IdP de confiança.|
 | 2. | O inquilino identifica o utilizador como um [utilizador de senha única (OTP) e](./one-time-passcode.md) envia um e-mail com a OTP ao utilizador.|

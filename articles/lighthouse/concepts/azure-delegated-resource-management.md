@@ -4,10 +4,10 @@ description: A gestão de recursos delegados da Azure é uma parte fundamental d
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92203862"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
@@ -31,7 +31,7 @@ Pode [publicar o novo tipo de oferta de Serviço Gerido para o Azure Marketplace
 
 A um nível elevado, eis como a Azure delegada gestão de recursos funciona:
 
-1. Em primeiro lugar, identifica o acesso (funções) que os seus grupos, diretores de serviço ou utilizadores precisarão para gerir os recursos Azure do cliente. A definição de acesso contém o ID do inquilino gerente juntamente com as identidades **principais** do seu inquilino mapeadas para [funções incorporadas **Valores dedefinição** ](../../role-based-access-control/built-in-roles.md) (Contribuinte, VM Contribuinte, Leitor, etc.).
+1. Em primeiro lugar, identifica o acesso (funções) que os seus grupos, diretores de serviço ou utilizadores precisarão para gerir os recursos Azure do cliente. A definição de acesso contém o ID do inquilino gerente juntamente com as identidades **principais** do seu inquilino mapeadas para [funções incorporadas **Valores dedefinição**](../../role-based-access-control/built-in-roles.md) (Contribuinte, VM Contribuinte, Leitor, etc.).
 2. Você especifica este acesso e a bordo do cliente para o Farol Azure de uma de duas maneiras:
    - [Publique uma oferta de serviço gerida aZure Marketplace](../how-to/publish-managed-services-offers.md) (privada ou pública) que o cliente aceitará
    - [Implementar um modelo de Gestor de Recursos Azure ao inquilino do cliente](../how-to/onboard-customer.md) para uma ou mais subscrições específicas ou grupos de recursos

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743020"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de extinção de SO convidado de Família 1
@@ -68,5 +68,5 @@ Recomendamos que emigre as suas funções de Cloud Service para uma das família
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Apoio alargado à família guest OS 1 terminou 3 de novembro de 2014
 Os serviços em nuvem na família Guest OS 1 já não são suportados. Migrar para fora da família 1 o mais rápido possível para evitar perturbações de serviço.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja as [últimas versões do Guest OS](cloud-services-guestos-update-matrix.md).

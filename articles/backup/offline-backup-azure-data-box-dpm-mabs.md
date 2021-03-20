@@ -4,10 +4,10 @@ description: Pode utilizar a Caixa de Dados Azure para semear dados de backup in
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752554"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
@@ -48,7 +48,7 @@ São suportados os seguintes SKUs da Caixa de Dados:
 > [!IMPORTANT]
 > Os dados de cópia de segurança iniciais de uma única fonte de dados devem ser contidos num único disco Azure Data Box ou Azure Data Box, e não podem ser partilhados entre vários dispositivos dos mesmos SKUs ou diferentes. No entanto, uma Caixa de Dados Azure pode conter cópias de segurança iniciais de várias fontes de dados.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 O agente MARS em execução no DPM/MABS deve ser atualizado para a [versão mais recente](https://aka.ms/azurebackup_agent) (2.0.9171.0 ou mais tarde).
 
@@ -244,7 +244,7 @@ A partir do servidor DPM/MABS está a tentar configurar a cópia de segurança o
 
 1. Abra o **pedido de certificado de computador Gerir** o  >  separador **pessoal** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 2. Selecione o certificado acima, clique com o botão direito **Todas as Tarefas** e **Exporte** sem chave privada, no formato .cer.
-3. Aceda à aplicação de backup offline Azure mencionada no **ponto 2**. Nas **Chaves de Definições**  >  **Keys**  >  **Carrevare a chave pública,** carre faça o upload do certificado exportado no degrau acima.
+3. Aceda à aplicação de backup offline Azure mencionada no **ponto 2**. Nas **Chaves de Definições**  >    >  **Carrevare a chave pública,** carre faça o upload do certificado exportado no degrau acima.
 
    ![Carregar chaves públicas](./media/offline-backup-azure-data-box-dpm-mabs/upload-public-keys.png)
 

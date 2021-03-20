@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: e53bf377a7ef8f2293debd288ba25ef8f04ff4fc
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611003"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Como utilizar comandos numa solução Azure IoT Central
@@ -40,10 +40,10 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo             |Descrição|
 |-------------------|-----------|
 |Nome a Apresentar       |O valor de comando utilizado nos painéis e formulários.|
-| Nome            | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. O código do dispositivo utiliza este valor **Nome.**|
+| Name            | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. O código do dispositivo utiliza este valor **Nome.**|
 | Tipo de Capacidade | O comando.|
 | Fila se offline | Se fazer deste comando um comando *offline.* |
-| Descrição     | Uma descrição da capacidade de comando.|
+| Description     | Uma descrição da capacidade de comando.|
 | Comentário     | Qualquer comentário sobre a capacidade de comando.|
 | Pedir     | A carga útil para o comando do dispositivo.|
 | Resposta     | A carga útil da resposta do comando do dispositivo.|

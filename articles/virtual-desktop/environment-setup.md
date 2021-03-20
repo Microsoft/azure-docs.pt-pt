@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88002620"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
@@ -45,7 +45,7 @@ Para publicar recursos aos utilizadores, deve atribuí-los a grupos de aplicaç�
 - Um utilizador pode ser designado para um grupo de aplicações de desktop e um grupo de aplicações RemoteApp no mesmo pool de anfitriões. No entanto, os utilizadores só podem lançar um tipo de grupo de aplicações por sessão. Os utilizadores não podem lançar os dois tipos de grupos de aplicações ao mesmo tempo numa única sessão.
 - Um utilizador pode ser designado para vários grupos de aplicações dentro da mesma piscina de anfitriões, e o seu feed será uma acumulação de ambos os grupos de aplicações.
 
-## <a name="workspaces"></a>Áreas de trabalho
+## <a name="workspaces"></a>Áreas de Trabalho
 
 Um espaço de trabalho é um agrupamento lógico de grupos de aplicações no Windows Virtual Desktop. Cada grupo de aplicações virtual do Windows Desktop deve estar associado a um espaço de trabalho para os utilizadores verem as aplicações remotas e os ambientes de trabalho que lhes são publicados.
 

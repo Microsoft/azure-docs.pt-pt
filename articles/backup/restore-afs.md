@@ -4,17 +4,17 @@ description: Saiba como utilizar o portal Azure para restaurar uma partilha de f
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376779"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar ações de ficheiros Azure
 
 Este artigo explica como usar o portal Azure para restaurar uma partilha de ficheiros inteira ou ficheiros específicos a partir de um ponto de restauração criado pela [Azure Backup](./backup-overview.md).
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 * Restaurar uma partilha completa de ficheiros Azure.
 * Restaurar ficheiros ou pastas individuais.
@@ -36,7 +36,7 @@ Para realizar uma operação de restauro, siga estes passos.
 
     ![Tipos de gestão de backup](./media/restore-afs/backup-management.png)
 
-1. No painel **de itens de cópia de segurança,** sob **o Tipo de Gestão de Cópias**de Segurança, selecione **Azure Storage (Ficheiros Azure)**. Verá uma lista de todas as ações de ficheiros e as respetivas contas de armazenamento apoiadas através deste cofre.
+1. No painel **de itens de cópia de segurança,** sob **o Tipo de Gestão de Cópias** de Segurança, selecione **Azure Storage (Ficheiros Azure)**. Verá uma lista de todas as ações de ficheiros e as respetivas contas de armazenamento apoiadas através deste cofre.
 
     ![Lista de todas as ações de ficheiros](./media/restore-afs/file-shares.png)
 
@@ -108,7 +108,7 @@ Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas indivi
 
 #### <a name="restore-to-the-original-location-item-level-recovery"></a>Restaurar a localização original (recuperação ao nível do item)
 
-1. Selecione **a Localização Original** como **Destino de Recuperação**e selecione se deve saltar ou substituir se houver conflitos, escolhendo a opção apropriada da lista **em caso de conflitos.**
+1. Selecione **a Localização Original** como **Destino de Recuperação** e selecione se deve saltar ou substituir se houver conflitos, escolhendo a opção apropriada da lista **em caso de conflitos.**
 
     ![Localização original para recuperação do nível do item](./media/restore-afs/original-location-item-level.png)
 

@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92911771"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descreva um cluster de tecido de serviço utilizando o Cluster Resource Manager
@@ -119,7 +119,7 @@ Por exemplo, digamos que temos um cluster com seis nós, configurado com cinco d
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Agora vamos dizer que criamos um serviço com um **targetReplicaSetSize** (ou, para um serviço apátrida, **InstanceCount** ) valor de cinco. As réplicas aterram na N1-N5. Na verdade, o N6 nunca é usado, não importa quantos serviços como este crie. Mas porquê? Vamos ver a diferença entre o layout atual e o que aconteceria se n6 fosse escolhido.
+Agora vamos dizer que criamos um serviço com um **targetReplicaSetSize** (ou, para um serviço apátrida, **InstanceCount**) valor de cinco. As réplicas aterram na N1-N5. Na verdade, o N6 nunca é usado, não importa quantos serviços como este crie. Mas porquê? Vamos ver a diferença entre o layout atual e o que aconteceria se n6 fosse escolhido.
 
 Aqui está o layout que temos e o número total de réplicas por falha e domínio de upgrade:
 
@@ -355,7 +355,7 @@ Para suportar este tipo de configurações, o Service Fabric inclui etiquetas qu
 
 ### <a name="built-in-node-properties"></a>Propriedades de nó incorporado
 
-O Tecido de Serviço define algumas propriedades de nó padrão que podem ser usadas automaticamente para que não tenha que defini-las. As propriedades predefinidas definidas em cada nó são **NodeType** e **NodeName** .
+O Tecido de Serviço define algumas propriedades de nó padrão que podem ser usadas automaticamente para que não tenha que defini-las. As propriedades predefinidas definidas em cada nó são **NodeType** e **NodeName**.
 
 Por exemplo, pode escrever uma restrição de colocação como `"(NodeType == NodeType03)"` . **NodeType** é uma propriedade comumente usada. É útil porque corresponde 1:1 com um tipo de máquina. Cada tipo de máquina corresponde a um tipo de carga de trabalho numa aplicação tradicional n-tier.
 

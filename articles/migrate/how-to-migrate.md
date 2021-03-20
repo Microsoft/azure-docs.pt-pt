@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 97051e97ec9868f6941b579241e16e62fdd2162b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751789"
 ---
 # <a name="add-migration-tools"></a>Adicionar ferramentas de migração
@@ -41,7 +41,7 @@ Este artigo descreve como adicionar ferramentas de migração em [Azure Migrate]
     
          ![Botão para adicionar ferramentas de migração adicionais](./media/how-to-migrate/add-migration-tools.png)
 
-    - Se criou um projeto utilizando uma opção diferente e ainda não tem ferramentas de migração, em ferramentas de migração **de servidores,**  >  **Migration tools** **selecione Clique aqui**.
+    - Se criou um projeto utilizando uma opção diferente e ainda não tem ferramentas de migração, em ferramentas de migração **de servidores,**  >   **selecione Clique aqui**.
 
     ![Botão para adicionar as primeiras ferramentas de migração](./media/how-to-migrate/no-migration-tool.png)
 
@@ -54,7 +54,7 @@ Este artigo descreve como adicionar ferramentas de migração em [Azure Migrate]
 
 Se criou um projeto Azure Migrate utilizando a opção **de base de dados Avaliar e migrar** no portal, a ferramenta migração de bases de dados é automaticamente adicionada ao projeto. 
 
-1. Se a ferramenta migração da base de dados não estiver no projeto, nas ferramentas de avaliação **de bases de dados,**  >  **Assessment tools** **selecione Clique aqui.**
+1. Se a ferramenta migração da base de dados não estiver no projeto, nas ferramentas de avaliação **de bases de dados,**  >   **selecione Clique aqui.**
     
     ![Adicionar ferramentas de migração de bases de dados](./media/how-to-migrate/no-database-migration-tool.png)
 
@@ -69,7 +69,7 @@ Se criou um projeto Azure Migrate utilizando a opção **de base de dados Avalia
 
 Se criou um projeto Azure Migrate utilizando a opção **Explore mais**  >  **WebApps** no portal, a ferramenta de migração de aplicações Web é automaticamente adicionada ao projeto. 
 
-1. Se a ferramenta de migração de aplicações Web não estiver no projeto, nas ferramentas de avaliação **de aplicações web,**  >  **Assessment tools** selecione **Clique aqui**.
+1. Se a ferramenta de migração de aplicações Web não estiver no projeto, nas ferramentas de avaliação **de aplicações web,**  >  selecione **Clique aqui**.
 
     ![Adicionar ferramentas de migração de aplicativos web](./media/how-to-migrate/no-web-app-migration-tool.png)
  
