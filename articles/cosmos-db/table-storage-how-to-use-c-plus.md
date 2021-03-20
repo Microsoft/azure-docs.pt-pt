@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94489884"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
@@ -224,7 +224,7 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 
 Algumas coisas a salientar nas operações de lote:
 
-* Você pode fazer até 100 `insert` , , , , , e `delete` `merge` `replace` `insert-or-merge` `insert-or-replace` operações em qualquer combinação em um único lote.  
+* Você pode fazer até 100 `insert` , , , e `delete` `merge` `replace` `insert-or-merge` `insert-or-replace` operações em qualquer combinação em um único lote.  
 * Uma operação de lote pode ter uma operação de recuperação, se for a única operação no lote.  
 * Todas as entidades numa única operação em lote têm de ter a mesma chave de partição.  
 * Uma operação em lote está limitada a um payload de dados de 4 MB.  
@@ -498,12 +498,12 @@ else
 }
 ```
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Para a Edição Comunitária do Estúdio Visual, se o seu projeto obtiver erros de construção por causa dos ficheiros incluídos *storage_account.h* e *table.h,* remova o interruptor **/permissivo-compilador:**
 
-1. No **Explorador de Soluções** , clique com o botão direito do rato no seu projeto e selecione **Propriedades**.
-1. Na caixa de diálogo **Páginas de Propriedades** , expanda **Propriedades de Configuração** , expanda **C/C++** e selecione **Idioma**.
+1. No **Explorador de Soluções**, clique com o botão direito do rato no seu projeto e selecione **Propriedades**.
+1. Na caixa de diálogo **Páginas de Propriedades**, expanda **Propriedades de Configuração**, expanda **C/C++** e selecione **Idioma**.
 1. Definir **Modo de conformidade** para **Não**.
 
 ## <a name="next-steps"></a>Passos seguintes

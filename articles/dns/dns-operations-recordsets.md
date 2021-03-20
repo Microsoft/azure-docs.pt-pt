@@ -1,5 +1,5 @@
 ---
-title: Gerir registos DNS em Azure DNS usando Azure PowerShell Microsoft Docs
+title: Gerir registos DNS em Azure DNS usando Azure PowerShell | Microsoft Docs
 description: Gerir os recordes de DNS e os registos no Azure DNS ao hospedar o seu domínio no Azure DNS. Todos os comandos PowerShell para operações em recordes e registos.
 services: dns
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: f4e713f54ab4702b21763dc9fc6c7b606f94a945
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011596"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerir registos e registos DNS em Azure DNS usando a Azure PowerShell

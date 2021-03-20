@@ -4,10 +4,10 @@ description: Descubra as melhores práticas e orientação para apoiar a nuvem e
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593340"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
@@ -28,7 +28,7 @@ Embora seja fácil começar a proteger infraestruturas e aplicações no Azure, 
 
 ![Arquitetura do Azure Backup](./media/guidance-best-practices/azure-backup-architecture.png)
 
-### <a name="workloads"></a>Cargas de trabalho
+### <a name="workloads"></a>Cargas de Trabalho
 
 O Azure Backup permite a proteção de dados para várias cargas de trabalho (no local e nuvem). É um mecanismo seguro e fiável de proteção de dados incorporado em Azure. Pode escalar perfeitamente a sua proteção através de várias cargas de trabalho sem qualquer sobrecarga de gestão para si. Existem vários canais de automatização também para permitir isso (via PowerShell, CLI, Azure Resource Manager e REST APIs.)
 

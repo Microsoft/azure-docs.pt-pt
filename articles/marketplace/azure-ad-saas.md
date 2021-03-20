@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 674f267d3d99dd22c1ae06b6d32587761d5983ce
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93124922"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD e ofertas transacionáveis da SaaS no mercado comercial
@@ -35,7 +35,7 @@ A Azure AD permite a compra, realização e gestão perfeitas de soluções de m
 
 Como mostrado na Figura 1, quando um comprador seleciona a sua oferta, iniciam uma cadeia de fluxos de trabalho que inclui compra, subscrição e gestão de utilizadores. Dentro desta cadeia, você como o editor é responsável por certos requisitos, com a Microsoft a fornecer suporte em pontos-chave.
 
-**_Figura 1: Utilização de Azure AD para ofertas saas no mercado comercial_* _
+***Figura 1: Utilização de Azure AD para ofertas saas no mercado comercial***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow.png" alt-text="Ilustra a gestão de compras, gestão de subscrição e etapas opcionais de gestão do utilizador.":::
 
@@ -45,14 +45,14 @@ As seguintes secções fornecem detalhes sobre os requisitos para cada passo de 
 
 Este valor mostra os quatro passos de processo para a gestão da compra.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustra a gestão de compras, gestão de subscrição e etapas opcionais de gestão do utilizador.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustra os quatro passos de processo para a gestão da compra.":::
 
 Esta tabela fornece detalhes para as etapas do processo de gestão de compras.
 
 | Passo de processo | Ação de editor | Recomendado ou necessário para editores |
 | ------------ | ------------- | ------------- |
 | 1. O comprador assina no mercado comercial com a sua identidade de identificação Azure e seleciona uma oferta SaaS. | Não é necessária nenhuma ação de editor. | Não aplicável |
-| 2. Após a compra, o comprador seleciona _ *Conta configurar* * no Azure Marketplace ou **Configure agora** no AppSource, que direciona o comprador para a página de aterragem da editora para esta oferta. O comprador deve poder assinar o pedido de SaaS da editora com a Azure AD SSO e só deve ser solicitado o consentimento mínimo que não exija a aprovação do administrador AD da Azure. | Desenhe uma [página de aterragem](azure-ad-transactable-saas-landing-page.md) para a oferta para que receba um utilizador com a sua identidade AZure AD ou Microsoft (MSA) e facilite qualquer provisão ou configuração adicional que seja necessária. | Necessário |
+| 2. Após a compra, o comprador seleciona a **conta Configure** no Azure Marketplace ou **Configure agora** no AppSource, que direciona o comprador para a página de aterragem da editora para esta oferta. O comprador deve poder assinar o pedido de SaaS da editora com a Azure AD SSO e só deve ser solicitado o consentimento mínimo que não exija a aprovação do administrador AD da Azure. | Desenhe uma [página de aterragem](azure-ad-transactable-saas-landing-page.md) para a oferta para que receba um utilizador com a sua identidade AZure AD ou Microsoft (MSA) e facilite qualquer provisão ou configuração adicional que seja necessária. | Necessário |
 | 3. A editora solicita detalhes de compra da API de cumprimento do SaaS. | Utilizando um [token](./partner-center-portal/pc-saas-registration.md) de acesso gerado a partir do ID de aplicação da página de aterragem, [ligue para o ponto final de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) para obter detalhes sobre a compra. | Necessário |
 | 4. Através do Azure AD e da Microsoft Graph API, a editora reúne os detalhes da empresa e do utilizador necessários para a disponibilização do comprador na aplicação SaaS da editora.  | Decomponha o token do utilizador Azure AD para encontrar nome e e-mail, ou [ligue para a API do Microsoft Graph](/graph/use-the-api) e use permissões delegadas para [obter informações](/graph/api/user-get) sobre o utilizador que está iniciado. | Necessário |
 ||||
@@ -61,7 +61,7 @@ Esta tabela fornece detalhes para as etapas do processo de gestão de compras.
 
 Este número mostra os dois passos de processo para a gestão da subscrição.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustra a gestão de compras, gestão de subscrição e etapas opcionais de gestão do utilizador.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustra os dois passos de processo para a gestão de subscrições.":::
 
 Esta tabela descreve os detalhes sobre os passos do processo de gestão de subscrição.
 
@@ -75,7 +75,7 @@ Esta tabela descreve os detalhes sobre os passos do processo de gestão de subsc
 
 Este número mostra os três passos de processo para a gestão do utilizador.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustra a gestão de compras, gestão de subscrição e etapas opcionais de gestão do utilizador.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustra os três passos de processo opcionais para a gestão do utilizador.":::
 
 Os passos de processo 7 a 9 são passos opcionais do processo de gestão do utilizador. Proporcionam benefícios adicionais para os editores que suportam a Azure AD um único sign-on (SSO). Esta tabela descreve os detalhes sobre os passos do processo de gestão do utilizador.
 

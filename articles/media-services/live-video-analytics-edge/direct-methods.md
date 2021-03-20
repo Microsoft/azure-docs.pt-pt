@@ -4,10 +4,10 @@ description: Live Video Analytics on IoT Edge expõe vários métodos diretos. O
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656245"
 ---
 # <a name="direct-methods"></a>Métodos diretos
@@ -98,7 +98,7 @@ Erro de validações detalhadas, como validações de módulos de gráfico, são
 }
 ```
 
-|Estado|    Código detalhado   |Descrição|
+|Estado|    Código detalhado   |Description|
 |---|---|---|
 |400|   GraphValidationError|   Erros gráficos gerais, tais como ciclos ou divisórias, etc.|
 |400|   MóduloValidationError|  Erros de validação específicos do módulo.|
@@ -287,7 +287,7 @@ Recupera uma lista de todas as topologias de gráficos que correspondem aos crit
 
 | Condição | Código de estado | Código de erro detalhado |
 |--|--|--|
-| Success | 200 | N/D |
+| Com êxito | 200 | N/D |
 | Erros gerais do utilizador | Gama 400 |  |
 | Erros gerais do servidor | Gama 500 |  |
 
@@ -474,7 +474,7 @@ Recupera uma lista de todos os casos de gráficos que correspondem aos critério
 
 | Condição | Código de estado | Código de erro detalhado |
 |--|--|--|
-| Success | 200 | N/D |
+| Com êxito | 200 | N/D |
 | Erros gerais do utilizador | Gama 400 |  |
 | Erros gerais do servidor | Gama 500 |  |
 

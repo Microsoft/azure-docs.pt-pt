@@ -9,10 +9,10 @@ ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0e8a1d48934d73f1035c6f2c4c76e56d9a0e4052
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206975"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligue uma rede virtual a um circuito ExpressRoute utilizando o PowerShell (clássico)
@@ -77,7 +77,7 @@ Cada uma das nuvens menores dentro da grande nuvem é usada para representar sub
 ![Conectividade de subscrição cruzada](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### <a name="administration"></a>Administração
-O *proprietário do circuito* é o administrador/coadministrador da subscrição em que o circuito ExpressRoute é criado. O proprietário do circuito pode autorizar administradores/coadministradores de outras subscrições, referidas como *utilizadores*de circuitos, a utilizarem o circuito dedicado que possuem. Os utilizadores de circuitos autorizados a utilizar o circuito ExpressRoute da organização podem ligar a rede virtual na sua subscrição ao circuito ExpressRoute após a sua autorização.
+O *proprietário do circuito* é o administrador/coadministrador da subscrição em que o circuito ExpressRoute é criado. O proprietário do circuito pode autorizar administradores/coadministradores de outras subscrições, referidas como *utilizadores* de circuitos, a utilizarem o circuito dedicado que possuem. Os utilizadores de circuitos autorizados a utilizar o circuito ExpressRoute da organização podem ligar a rede virtual na sua subscrição ao circuito ExpressRoute após a sua autorização.
 
 O proprietário do circuito tem o poder de modificar e revogar autorizações a qualquer momento. A revogação de uma autorização resultará na perda de todos os links da subscrição cujo acesso foi revogado.
 

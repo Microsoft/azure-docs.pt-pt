@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.openlocfilehash: 393e67d1b690f7231b5bf298b44f4db7c489d184
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91704519"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Gerir uma base de dados de Azure para servidor PostgreSQL utilizando o portal Azure
@@ -50,7 +50,7 @@ Pode escalar de Final geral para memória Otimizada e vice-versa. A alteração 
 
 2. Altere a definição **vCore** movendo o slider para o valor pretendido.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot do portal Azure para escolher a opção vCore na Base de Dados Azure para PostgreSQL":::
 
    > [!NOTE]
    > O escalonamento vCores provoca o reinício do servidor.
@@ -63,7 +63,7 @@ Pode escalar de Final geral para memória Otimizada e vice-versa. A alteração 
 
 2. Altere a definição **de Armazenamento** movendo o deslizador para o valor pretendido.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot do portal Azure para escolher a escala de armazenamento na Base de Dados Azure para PostgreSQL":::
 
    > [!NOTE]
    > O armazenamento não pode ser reduzido.
@@ -76,11 +76,11 @@ Pode alterar a palavra-passe da função do administrador utilizando o portal Az
 
 1. Selecione o seu servidor no portal Azure. Na janela **'Vista Geral'** **selecione redefinir a palavra-passe**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot do portal Azure para redefinir a palavra-passe na Base de Dados Azure para PostgreSQL":::
 
 2. Introduza uma nova senha e confirme a senha. A caixa de texto irá instruí-lo sobre os requisitos de complexidade da palavra-passe.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot do portal Azure para redefinir a sua palavra-passe e guardar na Base de Dados Azure para PostgreSQL":::
 
 3. Selecione **OK** para guardar a nova senha.
 
@@ -90,11 +90,11 @@ Pode eliminar o seu servidor se já não precisar dele.
 
 1. Selecione o seu servidor no portal Azure. Na janela **'Vista Geral'** selecione **Eliminar**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot do portal Azure para eliminar o servidor na Base de Dados Azure para PostgreSQL":::
 
 2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que pretende eliminar.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot do portal Azure para confirmar o servidor apagar na Base de Dados Azure para PostgreSQL":::
 
    > [!NOTE]
    > Apagar um servidor é irreversível.

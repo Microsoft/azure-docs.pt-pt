@@ -1,5 +1,5 @@
 ---
-title: Aplicações do Serviço de Mensagens De Java Migrae (JMS) da Apache ActiveMQ para a Azure Service Bus Microsoft Docs
+title: Aplicações do Serviço de Mensagens Java (JMS) da Apache ActiveMQ para a Azure Service Bus | Microsoft Docs
 description: Este artigo explica como migrar aplicações JMS existentes que interagem com a Apache ActiveMQ para interagir com a Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515751"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicações existentes do Java Message Service (JMS) 2.0 da Apache ActiveMQ para Azure Service Bus
@@ -35,7 +35,7 @@ A Azure Service Bus e Apache ActiveMQ são ambos corretores de mensagens, funcio
 
 Ainda assim, existem algumas diferenças entre os dois, como mostra a tabela seguinte:
 
-| Categoria | ActiveMQ | Azure Service Bus |
+| Categoria | ActiveMQ | Service Bus do Azure |
 | --- | --- | --- |
 | Tiering de aplicações | Monólito agrupado | Dois níveis <br> (gateway + back end) |
 | Suporte de protocolo | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
@@ -73,7 +73,7 @@ Utiliza os seguintes componentes e versões enquanto escreve as aplicações JMS
 | Componente | Versão |
 |---|---|
 | Serviço de Mensagens Java (JMS) API | 1.1 ou maior |
-| Protocolo AMQP | 1,0 |
+| Protocolo AMQP | 1.0 |
 
 ### <a name="ensure-that-amqp-ports-are-open"></a>Certifique-se de que as portas AMQP estão abertas
 

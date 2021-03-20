@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.openlocfilehash: 102b03ad4fe247ae0abc4e2312d7027c6170333f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019470"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados em Azure Stream Analytics 
@@ -98,7 +98,7 @@ Pode utilizar esta funcionalidade para impor quaisquer requisitos de residência
 ## <a name="known-issues"></a>Problemas conhecidos
 Existe um problema conhecido em que um trabalho que utiliza a chave gerida pelo cliente encontra falhas ao usar a identidade gerida para autenticar quaisquer entradas ou saídas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md)
 * [Compreenda as entradas para a Azure Stream Analytics](stream-analytics-add-inputs.md)

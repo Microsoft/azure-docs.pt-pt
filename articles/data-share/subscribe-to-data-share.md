@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017054"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados com o Azure Data Share  
@@ -116,7 +116,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 Prepare o seu ambiente Azure CLI e, em seguida, veja os seus convites.
 
-Comece por preparar o seu ambiente para o Azure CLI:
+Comece por preparar o seu ambiente para a CLI do Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -262,7 +262,7 @@ Utilize estes comandos para configurar onde pretende receber dados.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Utilize o comando [de definição de sincronização de partilha de partilha de partilha de dados az para](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) ver as definições de sincronização definidas na sua parte.
+   Utilize o comando [de definição de sincronização de partilha de dados az para](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) ver as definições de sincronização definidas na sua parte.
 
    ```azurecli
    az datashare consumer share-subscription list-source-share-synchronization-setting \

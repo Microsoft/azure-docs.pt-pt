@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o serviço de e-mail SendGrid (Java) Microsoft Docs
+title: Como utilizar o serviço de e-mail SendGrid (Java) | Microsoft Docs
 description: Saiba como enviar e-mail com o serviço de e-mail SendGrid no Azure. Amostras de código escritas em Java.
 services: ''
 documentationcenter: java
@@ -17,10 +17,10 @@ ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.custom: devx-track-java
 ms.openlocfilehash: 9ff006b74b6202b02a2767aee4d853b1206ce60d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015456"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar e-mail usando SendGrid de Java

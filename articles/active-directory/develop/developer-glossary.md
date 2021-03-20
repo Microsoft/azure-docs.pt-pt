@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755646"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvimento de plataforma de identidade da Microsoft
@@ -220,7 +220,7 @@ Semelhante à forma como um objeto principal de serviço é usado para represent
 
 Um tipo de [aplicação](#client-application) de cliente que executa todo o código num servidor web e é capaz de funcionar como um cliente "confidencial", armazenando de forma segura as suas credenciais no servidor. Para obter mais informações, consulte [os tipos e perfis de clientes da OAuth2.][OAuth2-Client-Types]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O [Guia do Programador da plataforma de identidade da Microsoft][AAD-Dev-Guide] é a página de aterragem para todos os tópicos relacionados com o desenvolvimento da plataforma de identidade da Microsoft, incluindo uma visão geral da integração de [aplicações][AAD-How-To-Integrate] e os fundamentos da autenticação da plataforma de identidade da Microsoft e [cenários de autenticação suportados.][AAD-Auth-Scenarios] Também pode encontrar amostras de código & tutoriais sobre como se levantar e correr rapidamente no [GitHub.](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)
 

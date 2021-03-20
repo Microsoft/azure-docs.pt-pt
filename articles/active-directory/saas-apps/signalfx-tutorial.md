@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a SignalFx Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a SignalFx | Microsoft Docs'
 description: Saiba como configurar um único sinal de entrada entre o Azure Ative Directory e o SignalFx.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 1fbc42864761360d252ed62cea1aef6f2937b599
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516074"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutorial: Azure Ative Directory integração única (SSO) com SignalFx
@@ -50,7 +50,7 @@ Utilize estas instruções para adicionar a aplicação SignalFx à sua lista de
 
 1. Inicie sessão no [portal Azure](https://portal.azure.com).
 1. Na janela de navegação do lado esquerdo, selecione **Azure Ative Directory**.
-1. Selecione **aplicações Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. Selecione **aplicações Enterprise** e, em seguida, selecione **Todas as aplicações**.
 1. Selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** na caixa de pesquisa, insira e selecione **SignalFx**.
      * Poderá ter de esperar alguns minutos para que o pedido seja adicionado ao seu inquilino.
@@ -92,7 +92,7 @@ Utilize estas instruções para ativar o Azure AD SSO no portal Azure.
     
 1. Reveja e verifique se o seguinte mapa de reclamações aos atributos de origem que são povoados no Diretório Ativo. 
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ------------------- | -------------------- |
     | User.FirstName  | user.givenname |
     | User.email  | user.mail |
@@ -112,25 +112,25 @@ Utilize estas instruções para ativar o Azure AD SSO no portal Azure.
 
 Utilize estas instruções para criar um utilizador de teste no portal Azure chamado **B.Simon**.
 
-1. No portal Azure, na janela de navegação do lado esquerdo, selecione **O Diretório Ativo Azure,** selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, na janela de navegação do lado esquerdo, selecione **O Diretório Ativo Azure,** selecione **Utilizadores** e, em seguida, selecione **Todos os utilizadores**.
 1. No topo da página, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador:**
    1. No **nome do utilizador,** insira, `username@companydomain.extension` tal como `b.simon@contoso.com` .
    1. Em **Nome,** insira `B.Simon` .
-   1. Marque **a palavra-passe**e, em seguida, copie o valor apresentado na **Palavra-passe**. Necessitará desta informação mais tarde para testar esta integração. 
+   1. Marque **a palavra-passe** e, em seguida, copie o valor apresentado na **Palavra-passe**. Necessitará desta informação mais tarde para testar esta integração. 
    1. Clique em **Criar**.
 
 ## <a name="step-5-assign-the-azure-ad-test-user"></a>Passo 5: Atribuir o utilizador de teste Azure AD
 
 Utilize estas instruções para permitir que o utilizador de teste utilize o Azure um único sinal de entrada para o SignalFx.
 
-1. No portal Azure, selecione **aplicações Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **aplicações Enterprise** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **SignalFx**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e, em seguida, selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. **Selecione Adicionar utilizador**e, em seguida, na caixa de diálogo de atribuição de **adicionar,** selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador** e, em seguida, na caixa de diálogo de atribuição de **adicionar,** selecione **Utilizadores e grupos**.
 
     ![O link do utilizador adicionar](common/add-assign-user.png)
 
@@ -141,7 +141,7 @@ Utilize estas instruções para permitir que o utilizador de teste utilize o Azu
 ## <a name="step-6-complete-the-signalfx-sso-configuration"></a>Passo 6: Complete a configuração SignalFx SSO 
 
 1. Abra o separador anterior e volte ao SignalFx UI para ver a atual página de integração do Azure Ative Directory. 
-1. Ao lado **do Certificado (Base64),** clique em **Upload File**e, em seguida, localize o ficheiro de **certificado codificado Base64** que descarregou anteriormente a partir do portal Azure.
+1. Ao lado **do Certificado (Base64),** clique em **Upload File** e, em seguida, localize o ficheiro de **certificado codificado Base64** que descarregou anteriormente a partir do portal Azure.
 1. Junto ao **Identificador AD AD Azure,** cole o valor do **identificador Azure AD** que copiou anteriormente do portal Azure. 
 1. Ao lado **do URL de metadados da Federação,** cole o valor **url de metadados da Federação** de Aplicações que copiou anteriormente do portal Azure. 
 1. Clique em **Guardar**.

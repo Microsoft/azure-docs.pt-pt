@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024760"
 ---
 # <a name="voice-assistants-on-windows"></a>Assistentes de voz no Windows
@@ -53,7 +53,7 @@ A AAR ainda assinala aplicações ativas quando a sua palavra-chave é falada. E
 
 O spotter de palavras-chave que desencadeia a aplicação para iniciar conseguiu um baixo consumo de energia simplificando o modelo de palavras-chave. Isto permite que o spotter de palavras-chave esteja "sempre ligado" sem um impacto de alta potência, mas também significa que o spotter de palavras-chave provavelmente terá um elevado número de "aceitações falsas" onde deteta uma palavra-chave, mesmo que nenhuma palavra-chave tenha sido falada. É por isso que o sistema de ativação por voz lança a aplicação em segundo plano: para dar à aplicação a oportunidade de verificar se a palavra-chave foi falada antes de interromper a sessão atual do utilizador. A AAR guarda o áudio alguns segundos antes da palavra-chave ser detetada e torna-o acessível à aplicação. A aplicação pode usar isto para executar um spotter de palavras-chave mais fiável no mesmo áudio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - **Reveja as diretrizes de design:** As [nossas diretrizes de design](windows-voice-assistants-best-practices.md) estabelecem o trabalho de chave necessário para fornecer as melhores experiências possíveis para a ativação de voz no Windows 10.
 - **Visite a página 'Começar':** Comece [aqui](how-to-windows-voice-assistants-get-started.md) para que os passos comecem a implementar assistentes de voz no Windows, desde definir o seu ambiente de desenvolvimento através de uma introdução ao guia de implementação.

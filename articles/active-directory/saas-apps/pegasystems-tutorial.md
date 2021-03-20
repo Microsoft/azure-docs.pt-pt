@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
 ms.openlocfilehash: 802bd61d499f64a128a4d1c0585363cb1962f8a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101650044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integração do Diretório Ativo Azure com a Pega Systems

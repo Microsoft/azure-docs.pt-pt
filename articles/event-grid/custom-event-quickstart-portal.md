@@ -4,10 +4,10 @@ description: 'Quickstart: Use a Azure Event Grid e o portal Azure para publicar 
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013671"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da Web com o portal Azure e a Grade de Eventos
@@ -129,7 +129,7 @@ O segundo exemplo utiliza o PowerShell para efetuar passos semelhantes.
 1. No **Cloud Shell**, selecione **PowerShell** no canto superior esquerdo da janela Cloud Shell. Consulte a imagem da janela **Cloud Shell** na secção Azure CLI.
 2. Desa estarda as seguintes variáveis. Depois de copiar e colar cada comando, atualize o nome do **tópico** e **o nome do grupo de recursos** antes de executar o comando:
 
-    **Grupo de recursos:**
+    **Grupo de recursos**:
     ```powershell
     $resourceGroupName = "<resource group name>"
     ```

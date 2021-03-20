@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540761"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como utilizar o EXPLAIN para perfilar desempenho de consulta na Base de Dados Azure para o MySQL
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como se pode ver pela saída, o MySQL não utiliza nenhum índice porque não existem índices adequados. Também mostra *a utilização temporária; Utilizando o tipo de ficheiro* , o que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula GROUP **BY.**
+Como se pode ver pela saída, o MySQL não utiliza nenhum índice porque não existem índices adequados. Também mostra *a utilização temporária; Utilizando o tipo de ficheiro*, o que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula GROUP **BY.**
  
 Criar um índice apenas na coluna **c2** não faz diferença, e o MySQL ainda precisa de criar uma tabela temporária:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Neste caso, pode ser criado um **índice coberto** tanto em **c1** como **em c2,** acrescentando o valor de **c2** " diretamente no índice para eliminar mais análises de dados.
+Neste caso, pode ser criado um **índice coberto** tanto em **c1** como **em c2,** acrescentando o valor de **c2**" diretamente no índice para eliminar mais análises de dados.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);

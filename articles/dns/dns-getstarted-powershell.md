@@ -10,10 +10,10 @@ ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: f2563c33d02490732f73fcf9d1a78f548ec2d3e2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282225"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Início rápido: Criar uma zona DNS do Azure e registar com o Azure PowerShell
@@ -43,7 +43,7 @@ New-AzResourceGroup -name MyResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
-Uma zona DNS é criada ao utilizar o cmdlet `New-AzDnsZone`. O exemplo a seguir cria uma zona DE DNS chamada *contoso.xyz* no grupo de recursos chamado *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
+Uma zona DNS é criada ao utilizar o cmdlet `New-AzDnsZone`. O exemplo a seguir cria uma zona DENS chamada *contoso.xyz* no grupo de recursos chamado *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
 
 ```powershell
 New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup
@@ -95,7 +95,7 @@ Agora que tem uma zona de DNS de teste com um registo de teste 'A', pode testar 
 
    ![A screenshot mostra uma janela de pedido de comando com um comando de procura n s e valores para Servidor, Endereço, Nome e Endereço.](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
+O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configura. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

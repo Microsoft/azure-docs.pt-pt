@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
 ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015201"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para integração empresarial B2B em Azure Logic Apps com Pacote de Integração Empresarial
@@ -316,7 +316,7 @@ Quando trabalhar com esquemas HIPAA e os tipos de mensagens 277 ou 837, tem de r
 
 Esta tabela lista os tipos de mensagens afetadas, quaisquer variantes e os números de versão documental que mapeiam para esses tipos de mensagens:
 
-| Tipo de mensagem ou variante |  Descrição | Número da versão documental (GS8) |
+| Tipo de mensagem ou variante |  Description | Número da versão documental (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Notificação do estado da informação dos cuidados de saúde | 005010X212 |
 | 837_I | Reivindicação de Cuidados de Saúde Institucional | 004010X096A1 <br>005010X223A1 <br>005010X22 |

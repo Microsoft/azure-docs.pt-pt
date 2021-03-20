@@ -9,13 +9,13 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 8233cc714d977083f4d55716d35c0b7094a069ea
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94557960"
 ---
-# <a name="firmware-security"></a>Segurança firmware
+# <a name="firmware-security"></a>Segurança do firmware
 Este artigo descreve como a Microsoft protege o ecossistema de hardware em nuvem e as cadeias de fornecimento.
 
 ## <a name="securing-the-cloud-hardware-ecosystem"></a>Segurança do ecossistema de hardware em nuvem
@@ -53,5 +53,5 @@ Para saber mais sobre o que fazemos para impulsionar a integridade e segurança 
 - [Bota segura](secure-boot.md)
 - [Atestado de arranque e hospedeiro medido](measured-boot-host-attestation.md)
 - [Projeto Cerberus](project-cerberus.md)
-- [Encriptação inativa](encryption-atrest.md)
-- [Segurança hipervisor](hypervisor.md)
+- [Encriptação de dados inativos](encryption-atrest.md)
+- [Segurança do hipervisor](hypervisor.md)

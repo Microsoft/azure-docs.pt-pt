@@ -9,10 +9,10 @@ ms.date: 02/22/2021
 ms.author: dech
 ms.custom: references_regions
 ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692781"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Ativar cadernos para contas DB do Azure Cosmos (pré-visualização)

@@ -4,10 +4,10 @@ description: Compreenda como o serviço Azure Resource Graph permite uma consult
 ms.date: 01/27/2021
 ms.topic: overview
 ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919146"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
@@ -93,7 +93,7 @@ O Resource Graph suporta Azure CLI, Azure PowerShell, Azure SDK para Python, e m
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [língua de consulta.](./concepts/query-language.md)
 - Consulte o idioma em uso nas [consultas de arranque](./samples/starter.md).

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
 ms.openlocfilehash: 717a8c87c6a1c22d3f75cd4e3054bfdf0c4b5f9a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95023450"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Peering da Internet vs. Peering Service
@@ -51,7 +51,7 @@ Na figura acima de cada sucursal de uma empresa global conecta-se à localizaç�
 ## <a name="faq"></a>FAQ
 Para perguntas frequentes, consulte [o Serviço de Peering - FAQ](service-faqs.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os benefícios do cliente com [o Serviço de Espreitamento.](../peering-service/index.yml)
 * Saiba mais sobre os passos para permitir um persimento direto para o serviço de peering em [peering service parceiro walkthrough](walkthrough-peering-service-all.md).

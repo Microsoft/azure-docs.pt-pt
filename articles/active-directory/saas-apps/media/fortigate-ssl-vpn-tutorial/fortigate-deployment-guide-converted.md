@@ -1,5 +1,5 @@
 ---
-title: Guia de implantação fortiGate / Microsoft Docs
+title: Guia de implantação FortiGate | Microsoft Docs
 description: Instale-se e trabalhe com o produto de firewall fortinet FortiGate de próxima geração.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: jeedes
 ms.openlocfilehash: cdaa6a9601452100ab90ef8b0f2191002f256b74
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025528"
 ---
 # <a name="fortigate-azure-virtual-machine-deployment-guide"></a>Guia de implantação de máquinas virtuais FortiGate Azure
@@ -64,7 +64,7 @@ Para uma experiência de utilizador consistente, desajuste o endereço IP públi
 
     ![Screenshot de Fortigate SSL VPN.](public-ip-address.png)
 
-3. Selecione **Static**  >  **Static Save**.
+3. Selecione   >  **Static Save**.
 
 Se possuir um nome de domínio publicamente rotaível para o ambiente em que o VM FortiGate está a ser implantado, crie um registo de Hospedeiro (A) para o VM. Este registo mapeia para o endereço IP público anterior que é atribuído estáticamente.
 
@@ -148,8 +148,8 @@ As seguintes secções acompanham-no como configurar o LM FortiGate.
 
 2. Continue além de quaisquer erros de certificado.
 3. Inscreva-se utilizando as credenciais de administrador fornecidas durante a implementação do FortiGate VM.
-4. No menu esquerdo, **System** selecione  >  **Certificates** do Sistema.
-5. Selecione Certificado Remoto **de Importação**  >  **Remote Certificate**.
+4. No menu esquerdo, selecione  >  **Certificates** do Sistema.
+5. Selecione Certificado Remoto **de Importação**  >  .
 6. Navegue pelo certificado descarregado a partir da implementação de aplicações personalizadas FortiGate no inquilino Azure. Selecione-o e selecione **OK**.
 
 ### <a name="upload-and-configure-a-custom-ssl-certificate"></a>Faça upload e configurar um certificado SSL personalizado
@@ -160,11 +160,11 @@ As seguintes secções acompanham-no como configurar o LM FortiGate.
 
 2. Continue além de quaisquer erros de certificado.
 3. Inscreva-se utilizando as credenciais de administrador fornecidas durante a implementação do FortiGate VM.
-4. No menu esquerdo, **System** selecione  >  **Certificates** do Sistema.
+4. No menu esquerdo, selecione  >  **Certificates** do Sistema.
 5. **Selecione**  >  **Import Local Certificate**  >  **PKCS #12 Certificate**.
 6. Navegue pelo . Ficheiro PFX que contém o certificado SSL e a chave privada.
 7. Providenciar o . Senha PFX, e um nome significativo para o certificado. Em seguida, selecione **OK**.
-8. No menu esquerdo, selecione **Definições do Sistema**  >  **Settings**.
+8. No menu esquerdo, selecione **Definições do Sistema**  >  .
 9. Em **Definições de Administração,** expanda a lista ao lado do **certificado do servidor HTTPS** e selecione o certificado SSL importado anteriormente.
 10. Selecione **Aplicar**.
 11. Feche a janela do navegador e vá para `https://<address>:8443` .

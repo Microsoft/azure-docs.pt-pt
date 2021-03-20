@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919549"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Começar com Ferramentas elásticas de base de dados
@@ -110,7 +110,7 @@ Parabéns! Construiu e executou com sucesso a sua primeira aplicação de sharde
 
 * **Consulta sobre vários fragmentos**: A consulta através de fragmentos é ilustrada no ficheiro *MultiShardQuerySample.cs.* Para obter mais informações, consulte [a consulta multi-fragmentos.](https://go.microsoft.com/?linkid=9862597)
 
-* **Adicionar fragmentos vazios**: A adição iterativa de novos fragmentos vazios é efetuada pelo código no ficheiro *CreateShardSample.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)
+* **Adicionar fragmentos vazios**: A adição iterativa de novos fragmentos vazios é realizada pelo código no ficheiro *CreateShardSample.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações à escala elástica
 
@@ -126,7 +126,7 @@ Por exemplo, a aplicação da amostra cria novas bases de dados. O custo desta c
 
 Para obter informações sobre preços, consulte [os detalhes dos preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as Ferramentas de Base de Dados Elásticas, consulte os seguintes artigos:
 

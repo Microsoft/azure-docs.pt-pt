@@ -4,10 +4,10 @@ description: Uma visão geral dos cofres dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755128"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
@@ -40,26 +40,26 @@ Esta secção discute as opções disponíveis para encriptar os seus dados de b
 
 Por predefinição, todos os seus dados são encriptados utilizando chaves geridas pela plataforma. Não precisa de tomar nenhuma ação explícita do seu lado para ativar esta encriptação. Aplica-se a todas as cargas de trabalho que estão a ser apoiadas até ao cofre dos Serviços de Recuperação.
 
-### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 
 Pode optar por encriptar os seus dados utilizando chaves de encriptação possuídas e geridas por si. O Azure Backup permite-lhe utilizar as suas teclas RSA armazenadas no Cofre da Chave Azure para encriptar as suas cópias de segurança. A chave de encriptação utilizada para encriptar cópias de segurança pode ser diferente da utilizada para a origem. Os dados estão protegidos utilizando uma chave de encriptação de dados baseada em AES 256 (DEK), que está, por sua vez, protegida usando as suas chaves. Isto dá-lhe controlo total sobre os dados e as chaves. Para permitir a encriptação, o cofre dos Serviços de Recuperação deve ter acesso à chave de encriptação no Cofre da Chave Azure. Pode desativar a chave ou revogar o acesso sempre que necessário. No entanto, tem de ativar a encriptação utilizando as suas chaves antes de tentar proteger quaisquer itens no cofre.
 
 Leia mais sobre como encriptar os seus dados de backup [utilizando as teclas geridas pelo cliente](encryption-at-rest-with-cmk.md).
 
-## <a name="azure-advisor"></a>Azure Advisor
+## <a name="azure-advisor"></a>Assistente do Azure
 
 [O Azure Advisor](../advisor/index.yml) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Analisa o seu uso Azure e fornece recomendações oportunas para ajudar a otimizar e proteger as suas implementações. Fornece recomendações em quatro categorias: Alta Disponibilidade, Segurança, Desempenho e Custo.
 
 O Azure Advisor fornece [recomendações horárias](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) para VMs que não são apoiados, por isso nunca perca o apoio de VMs importantes. Também pode controlar as recomendações snoozing-las.  Pode selecionar a recomendação e ativar a cópia de segurança em VMs em linha especificando o cofre (onde serão armazenadas cópias de segurança) e a política de backup (agendamento de cópias de backup e retenção de cópias de backup).
 
-![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
+![Assistente do Azure](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - [Cenários suportados e não suportados pelo cofre](backup-support-matrix.md#vault-support)
 - [Cofre frequentemente fez perguntas](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize os seguintes artigos para:
 

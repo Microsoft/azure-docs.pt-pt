@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: c7b186aa1a6f63b1bc3e9dbefa5001faac967762
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94556169"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar os ficheiros de configuração do cliente VPN para configurações P2S de autenticação de certificado nativa do Azure
@@ -34,8 +34,8 @@ Antes de começar, certifique-se de que todos os utilizadores de ligação têm 
 
 Pode gerar ficheiros de configuração do cliente utilizando o PowerShell ou utilizando o portal Azure. Qualquer um dos métodos devolve o mesmo ficheiro zip. Desaperte o ficheiro para ver as seguintes pastas:
 
-* **WindowsAmd64** e **WindowsX86** , que contêm os pacotes de instaladores Windows 32 bits e 64 bits, respectivamente. O pacote de instaladores **WindowsAmd64** destina-se a todos os clientes Windows suportados com 64 bits, e não apenas a Amd.
-* **Genérico** , que contém informações gerais usadas para criar a sua própria configuração de cliente VPN. A pasta Genérica é fornecida se o IKEv2 ou o SSTP+IKEv2 estiverem configurados no gateway. Se apenas o SSTP estiver configurado, a pasta Genérica não está presente.
+* **WindowsAmd64** e **WindowsX86**, que contêm os pacotes de instaladores Windows 32 bits e 64 bits, respectivamente. O pacote de instaladores **WindowsAmd64** destina-se a todos os clientes Windows suportados com 64 bits, e não apenas a Amd.
+* **Genérico**, que contém informações gerais usadas para criar a sua própria configuração de cliente VPN. A pasta Genérica é fornecida se o IKEv2 ou o SSTP+IKEv2 estiverem configurados no gateway. Se apenas o SSTP estiver configurado, a pasta Genérica não está presente.
 
 ### <a name="generate-files-using-the-azure-portal"></a><a name="zipportal"></a>Gerar ficheiros utilizando o portal Azure
 
@@ -66,7 +66,7 @@ Pode gerar ficheiros de configuração do cliente utilizando o PowerShell ou uti
 
  Tem de configurar manualmente o cliente VPN IKEv2 nativo em cada Mac que irá ligar ao Azure. O Azure não fornece o ficheiro mobileconfig para a autenticação de certificados nativa do Azure. O **Genérico** contém toda a informação que precisa para a configuração. Se não vir a pasta Generic na sua transferência, é provável que o IKEv2 não tenha sido selecionado como um tipo de túnel. Note que o gateway VPN Basic SKU não suporta iKEv2. Depois de selecionar IKEv2, gere novamente o ficheiro zip para obter a pasta Generic.<br>A pasta Generic contém os seguintes ficheiros:
 
-* **VpnSettings.xml** , que contém configurações importantes como endereço de servidor e tipo de túnel. 
+* **VpnSettings.xml**, que contém configurações importantes como endereço de servidor e tipo de túnel. 
 * **VpnServerRoot.cer,** que contém o certificado de raiz necessário para validar o Gateway Azure VPN durante a configuração da ligação P2S.
 
 Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para autenticação de certificado. Você tem que completar estes passos em cada Mac que irá ligar-se a Azure:
@@ -88,7 +88,7 @@ Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para aut
 1. Na pasta **Genérico,** a partir do ficheiro **VpnSettings.xml,** copie o valor da etiqueta **VpnServer.** Cole este valor nos campos **de endereço do servidor** e **iD remoto** do perfil.
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/server.png" alt-text="A screenshot mostra informações do servidor.":::
-1. Selecione **Definições de autenticação** e selecione **Certificado**. Para **Catalina** , selecione **Nenhum** , e, em seguida, **certificado**.
+1. Selecione **Definições de autenticação** e selecione **Certificado**. Para **Catalina**, selecione **Nenhum**, e, em seguida, **certificado**.
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/authentication-settings.png" alt-text="A screenshot mostra as definições de autenticação.":::
 
@@ -144,7 +144,7 @@ As seguintes instruções foram criadas em Ubuntu 18.0.4. Ubuntu 16.0.10 não su
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/vpn-server.png" alt-text="A screenshot mostra dados de cópia.":::
 1. Cole o nome no campo **Address** da sua nova ligação VPN na secção **Gateway.** Em seguida, selecione o ícone da pasta no final do campo **Certificate,** navegue na pasta **Genérico** e selecione o ficheiro **VpnServerRoot.**
-1. Na secção **Cliente** da ligação, para **autenticação,** selecione **Certificado/tecla privada**. Para **Certificado** e **Chave Privada,** escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções** , **selecione Solicite um endereço IP interno**. Em seguida, **selecione Adicionar**.
+1. Na secção **Cliente** da ligação, para **autenticação,** selecione **Certificado/tecla privada**. Para **Certificado** e **Chave Privada,** escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções**, **selecione Solicite um endereço IP interno**. Em seguida, **selecione Adicionar**.
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/ip-request.png" alt-text="Screenshot mostra Pedir um endereço IP interno.":::
 
@@ -168,7 +168,7 @@ Se ainda não tiver gerado certificados, utilize os seguintes passos:
 
 1. Descarregue o pacote VPNClient do portal Azure.
 1. Extraia o ficheiro.
-1. Da pasta **Genérica,** copie ou mova o **VpnServerRoot.cer** para **/etc/ipsec.d/cacerts**.
+1. A partir da pasta **Genérica,** copie ou mova o **VpnServerRoot.cer** para **/etc/ipsec.d/cacerts**.
 1. Copiar ou mover **o cliente cp.p12** para **/etc/ipsec.d/private/**. Este ficheiro é o certificado de cliente para o gateway VPN.
 1. Abra o ficheiro **VpnSettings.xml** e copie o `<VpnServer>` valor. Usará este valor no próximo passo.
 1. Ajuste os valores no exemplo abaixo e, em seguida, adicione o exemplo à configuração **/etc/ipsec.conf.**

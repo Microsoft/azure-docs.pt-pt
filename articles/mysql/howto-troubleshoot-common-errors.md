@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631372"
 ---
 # <a name="common-errors"></a>Erros comuns
@@ -25,9 +25,9 @@ O erro acima ocorre após o login bem sucedido, mas antes de executar qualquer c
 
 Existem alguns parâmetros do servidor como require_secure_transport que não são suportados ao nível da sessão e, portanto, tentar alterar os valores destes parâmetros usando init_connect pode resultar no Erro 1184 enquanto se conecta ao servidor MySQL como mostrado abaixo
 
-mysql> mostrar bases de dados; ERROR 2006 (HY000): O servidor MySQL desapareceu Sem ligação. A tentar reconectar-se... Id de ligação: 64897 Base de dados atual: *** NONE **_ ERRO 1184 (08S01): Ligação abortada 22 a db: utilizador 'db-name': 'user' host: 'hostIP' (init_connect comando falhou)
+mysql> mostrar bases de dados; ERROR 2006 (HY000): O servidor MySQL desapareceu Sem ligação. A tentar reconectar-se... Id de ligação: 64897 Base de dados atual: *** NONE *** ERRO 1184 (08S01): Ligação abortada 22 a db: utilizador 'db-name': 'user' host: 'hostIP' (init_connect comando falhou)
 
-_ *Resolução** : Deve redefinir init_connect valor no separador parâmetros do Servidor no portal Azure e definir apenas os parâmetros do servidor suportados utilizando init_connect parâmetro. 
+**Resolução** : Deve redefinir init_connect valor no separador parâmetros do Servidor no portal Azure e definir apenas os parâmetros do servidor suportados utilizando init_connect parâmetro. 
 
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Erros por falta de privilégios super e papel da DBA

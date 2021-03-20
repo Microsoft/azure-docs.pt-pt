@@ -1,5 +1,5 @@
 ---
-title: App extensões em Azure Ative Directory B2C / Microsoft Docs
+title: App extensões em Azure Ative Directory B2C | Microsoft Docs
 description: Restaurar a aplicação de extensões b2c.
 services: active-directory-b2c
 author: msmimart
@@ -11,15 +11,15 @@ ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dc536fa4292d794e8d89a2564ad10a3c10dd0a3d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94560865"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: App de extensões
 
-Quando um diretório AD B2C AD É criado, uma aplicação chamada `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` é criada automaticamente dentro do novo diretório. Esta aplicação, designada por **app de extensões b2c,** está visível nos *registos da App.* É utilizado pelo serviço Azure AD B2C para armazenar informações sobre utilizadores e atributos personalizados. Se a aplicação for eliminada, o Azure AD B2C não funcionará corretamente e o seu ambiente de produção será afetado.
+Quando um diretório AD B2C AD É criado, uma aplicação chamada `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` é criada automaticamente dentro do novo diretório. Esta aplicação, designada por **app de extensões b2c,** está visível nos *registos da App.* É utilizado pelo serviço Azure AD B2C para armazenar informações sobre utilizadores e atributos personalizados. Se for eliminada, o AAD B2C não funcionará corretamente e o ambiente de produção será afetado.
 
 > [!IMPORTANT]
 > Não elimine a aplicação de extensões b2c a não ser que esteja a planear eliminar imediatamente o seu inquilino. Se a aplicação permanecer eliminada por mais de 30 dias, as informações do utilizador serão permanentemente perdidas.

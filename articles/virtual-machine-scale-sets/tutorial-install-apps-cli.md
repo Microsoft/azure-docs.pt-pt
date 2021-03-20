@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: d9969cf0fa453f857de421dd10934f63f5773f6c
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94516752"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
@@ -78,7 +78,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 
 ## <a name="apply-the-custom-script-extension"></a>Aplicar a Extensão de Script Personalizado
-Aplique a configuração de Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento com [az vmss extension set](/cli/azure/vmss/extension). O exemplo seguinte aplica a configuração *customConfig.json* às instâncias de VM *myScaleSet* no grupo de recursos com o nome *myResourceGroup* :
+Aplique a configuração de Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento com [az vmss extension set](/cli/azure/vmss/extension). O exemplo seguinte aplica a configuração *customConfig.json* às instâncias de VM *myScaleSet* no grupo de recursos com o nome *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -94,7 +94,7 @@ Cada instância de VM no conjunto de dimensionamento transfere e executa o scrip
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para permitir que o tráfego alcance o servidor Web, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb* :
+Para permitir que o tráfego alcance o servidor Web, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -154,7 +154,7 @@ Todas as instâncias de VM no conjunto de dimensionamento são automaticamente a
 ![Página Web atualizada no Nginx](media/tutorial-install-apps-cli/running-nginx-updated.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive

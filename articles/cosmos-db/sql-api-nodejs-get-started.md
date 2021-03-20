@@ -10,10 +10,10 @@ ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
 ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098666"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola Node.js com o SDK de JavaScript para gerir os dados da API SQL do Azure Cosmos DB
@@ -207,7 +207,7 @@ Instale as dependências do projeto através da npm. Utilize o seguinte comando:
 
 * ```npm install``` 
 
-Em seguida, no ```config.js``` ficheiro, atualize os valores config.end e config.key descritos no [Passo 3: Descreva as configurações da sua aplicação](#Config).  
+Em seguida, no ```config.js``` ficheiro, atualize o ponto config.end e config.key [valores descritos no Passo 3: Descreva as configurações da sua aplicação](#Config).  
 
 Em seguida, no seu terminal, localize o ficheiro ```app.js``` e execute o comando:  
 
@@ -215,7 +215,7 @@ Em seguida, no seu terminal, localize o ficheiro ```app.js``` e execute o comand
 node app.js 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete** e, em seguida, confirme o nome do grupo de recursos para eliminar.
 

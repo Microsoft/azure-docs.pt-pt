@@ -1,5 +1,5 @@
 ---
-title: ApIs de exportação da Azure API Management para a Plataforma De Energia Microsoft Docs
+title: ApIs de exportação da Azure API Management para a Plataforma de Energia | Microsoft Docs
 description: Saiba como exportar APIs da API Management para a Plataforma de Energia.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/01/2020
 ms.author: apimpm
 ms.openlocfilehash: 7c4d32dd63120a52fd7351977943574455e5cfad
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146659"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>APIs de exportação da Azure API Management para a Plataforma de Energia 

@@ -1,5 +1,5 @@
 ---
-title: Envie notificações para dispositivos Android específicos usando Hubs de Notificação Azure e Mensagens Google Cloud Microsoft Docs
+title: Envie notificações para dispositivos Android específicos usando hubs de notificação do Azure e mensagens Google Cloud | Microsoft Docs
 description: Saiba como utilizar os Hubs de Notificação para enviar notificações push para dispositivos Android específicos através dos Hubs de Notificação do Microsoft Azure e do Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c0c0018ac3007f77da820b9b0cecbb69c68bef31
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92308306"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Tutorial: Enviar notificações push para dispositivos Android específicos usando mensagens Google Cloud (depreciadas)

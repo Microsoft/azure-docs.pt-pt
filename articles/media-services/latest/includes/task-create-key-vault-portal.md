@@ -6,10 +6,10 @@ ms.date: 11/04/2020
 ms.author: inhenkel
 ms.custom: portal
 ms.openlocfilehash: 2756145ce7f385ab02e70b3f232743ae51b9f453
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013236"
 ---
 <!--Create a key vault in the portal-->

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: jeedes
 ms.openlocfilehash: 6372cd9d778210163c461c55119343e6c6911e4d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101649092"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integrar Insights Adaptativos com Diretório Ativo Azure
@@ -120,7 +120,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Vá para a **Administração.**
 
-    ![Screenshot que destaca a Administração no painel de navegação.](./media/adaptivesuite-tutorial/administration.png "Admin")
+    ![Screenshot que destaca a Administração no painel de navegação.](./media/adaptivesuite-tutorial/administration.png "Administrador")
 
 3. Na secção **Utilizadores e Funções,** clique em **Definições SSO SAML**.
 
@@ -164,7 +164,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se em Insights Adaptativ
 
 2. Vá para a **Administração.**
 
-   ![Administração](./media/adaptivesuite-tutorial/administration.png "Admin")
+   ![Administração](./media/adaptivesuite-tutorial/administration.png "Administrador")
 
 3. Na secção **Utilizadores e Funções,** clique nos **Utilizadores**.
 

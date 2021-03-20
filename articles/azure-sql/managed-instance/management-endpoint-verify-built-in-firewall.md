@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: d8d46518415dc56e2792ef090b0be654d538426f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853276"
 ---
 # <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Verificar a firewall incorporada do Azure SQL Managed Instance

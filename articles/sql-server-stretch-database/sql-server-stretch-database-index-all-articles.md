@@ -1,5 +1,5 @@
 ---
-title: Todos os tópicos para o serviço SQL Server Stretch Database Microsoft Docs
+title: Todos os tópicos para o serviço de base de dados de alongamento do servidor SQL | Microsoft Docs
 description: Tabela de todos os tópicos para o serviço Azure chamado SQL Server Stretch Database que existem em https://azure.microsoft.com/documentation/articles/ , Título e descrição.
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 15b4a90a4e082cbe8fc0f2da1a87b6860cfb66a4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024216"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos os tópicos para o serviço de base de dados de alongamento do servidor Azure SQL

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026015"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de expressão antes ou durante a previsão
-LUIS fornece formas de manipular a expressão antes ou durante a previsão. Estes incluem [a fixação de ortografia](luis-tutorial-bing-spellcheck.md)e a fixação de problemas de aso desaporo para datas pré-construídasV2 . [datetimeV2](luis-reference-prebuilt-datetimev2.md)
+LUIS fornece formas de manipular a expressão antes ou durante a previsão. Estes incluem [a fixação de ortografia](luis-tutorial-bing-spellcheck.md)e a fixação de problemas de aso desaporo para datas pré-construídasV2 . [](luis-reference-prebuilt-datetimev2.md)
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Erros ortográficos corretos na expressão
 
@@ -114,7 +114,7 @@ DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Erros ortográficos corretos com este tutorial](luis-tutorial-bing-spellcheck.md)

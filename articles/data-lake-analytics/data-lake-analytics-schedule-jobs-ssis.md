@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/17/2018
 ms.openlocfilehash: b080b433f5af49e970faba02003fb68e21a08365
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221456"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar empregos U-SQL utilizando serviços de integração de servidores SQL (SSIS)
@@ -89,13 +89,13 @@ Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiro
     Para criar esta ligação de ficheiro:
 
    1. Escolha **\<New Connection...>** na definição de 'FileConnection'.
-   2. Desave **o tipo de utilização** para **o ficheiro existente**e desacorda o **Ficheiro** para qualquer trajetória de ficheiro existente.
+   2. Desave **o tipo de utilização** para **o ficheiro existente** e desacorda o **Ficheiro** para qualquer trajetória de ficheiro existente.
 
        ![Screenshot que mostra o Diretor de Ligação de Ficheiros Com "Ficheiro existente" selecionado para "Tipo de Utilização".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. Na **visualização de Gestores de Conexão,** clique com o botão direito na ligação de ficheiros criada agora e escolha **Propriedades**.
 
-   4. Na janela **Propriedades,** expanda **as Expressões**e coloque **o ConnectionString** na variável definida no Foreach Loop Container, por exemplo, `@[User::FileName]` .
+   4. Na janela **Propriedades,** expanda **as Expressões** e coloque **o ConnectionString** na variável definida no Foreach Loop Container, por exemplo, `@[User::FileName]` .
 
        ![Recipiente de loop foreach configurado](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
@@ -128,7 +128,7 @@ Além de utilizar ficheiros U-SQL armazenados na nuvem, também pode utilizar fi
 
 2. Selecione o tipo **de ficheiro** e clique **em Adicionar...**.
 
-3. Desave **o tipo de utilização** para **o ficheiro existente**e desave o **Ficheiro** para o ficheiro na máquina local.
+3. Desave **o tipo de utilização** para **o ficheiro existente** e desave o **Ficheiro** para o ficheiro na máquina local.
 
     ![Adicionar ligação de ficheiro ao arquivo local](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 

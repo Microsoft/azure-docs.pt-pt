@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 07/01/2019
 ms.author: rohogue
 ms.openlocfilehash: 72308bf64246a8041bd40fa557280014a13c95eb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218787"
 ---
 # <a name="what-is-azure-fxt-edge-filer-hybrid-storage-cache"></a>O que é o cache de armazenamento híbrido Azure FXT Edge Filer?
@@ -47,7 +47,7 @@ Expanda o seu centro de dados para o armazenamento em nuvem com o Azure FXT Edge
 
 Estão disponíveis dois modelos de hardware.
 
-| Modelo | DRAM | NVMe SSD | Portas de rede |
+| Modelação | DRAM | NVMe SSD | Portas de rede |
 |-------|------|----------|---------------|
 | FXT 6600 | 1536 GB | 25.6 TB | 6 x 25Gb/10Gb + 2 x 1Gb |
 | FXT 6400 | 768 GB | 12.8 TB | 6 x 25Gb/10Gb + 2 x 1Gb |

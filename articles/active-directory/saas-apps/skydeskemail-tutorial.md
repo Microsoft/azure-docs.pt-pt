@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o SkyDesk Email Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com skyDesk email | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o SkyDesk Email.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 30e94c9737241ff49c29898adcc5e50c6b73a9b1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Azure Ative Directory com o SkyDesk Email
@@ -124,7 +124,7 @@ Para configurar o Azure AD single sign-on com SkyDesk Email, execute os seguinte
 
 1. Num navegador web diferente, inscreva-se na sua conta de Email SkyDesk como administrador.
 
-1. No menu em cima, clique em **Configuração**e selecione **Org**.
+1. No menu em cima, clique em **Configuração** e selecione **Org**.
 
     ![A screenshot mostra Org selecionado a partir do menu Configuração.](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
@@ -194,7 +194,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao SkyDesk Email.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **SkyDesk Email**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **SkyDesk Email**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

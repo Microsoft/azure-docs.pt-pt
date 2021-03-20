@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados da Citrix WAF ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados da Citrix WAF ao Azure Sentinel| Microsoft Docs
 description: Aprenda a utilizar o conector de dados Citrix WAF para puxar os seus registos para o Azure Sentinel. Veja os dados da Citrix WAF nos livros, crie alertas e melhore a investigação.
 services: sentinel
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
 ms.openlocfilehash: 475e04ad3dd8c7cc51d6345b4b51dd68cff5b597
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93103126"
 ---
 # <a name="connect-your-citrix-waf-to-azure-sentinel"></a>Ligue o seu Citrix WAF ao Azure Sentinel

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Achieve3000 Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com | Achieve3000 Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Achieve3000.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9af00fef9c15ada44a5475bb419387b32b06d139
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313367"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Tutorial: Azure Ative Directory integração única (SSO) com Achieve3000
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 6. Além de acima, a aplicação Achieve3000 espera que poucos mais atributos sejam repercutidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito. 
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ---------------| --------- |
     | studentID     | user.mail |
 
@@ -121,7 +121,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Achieve3000.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Achieve3000**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -141,7 +141,7 @@ Para configurar um único sign-on no lado **Do Achieve3000,** é necessário env
 
 ### <a name="create-achieve3000-test-user"></a>Criar utilizador de teste Achieve3000
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Achieve3000. Trabalhe com [a equipa de suporte Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os utilizadores na plataforma Achieve3000. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Achieve3000. Trabalhe com [a equipa de suporte Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os utilizadores na plataforma Achieve3000. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
