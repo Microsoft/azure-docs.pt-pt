@@ -1,13 +1,13 @@
 ---
-title: Visão geral do Serviço de Saúde / Microsoft Docs
+title: Visão geral da saúde do serviço | Microsoft Docs
 description: Saiba como o Service Health lhe fornece um dashboard personalizável que acompanha a saúde dos seus serviços Azure nas regiões onde os utiliza.
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 8246b0ab93b95c13858e4ff96d0f24b255d05e55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90967797"
 ---
 # <a name="service-health-overview"></a>Visão geral da saúde do serviço
@@ -54,7 +54,7 @@ Pode obter um link para que o problema seja utilizado no seu sistema de gestão 
 
 [![Gerir problemas de serviço - Gestão de problemas](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
-## <a name="get-support-from-microsoft"></a>Obtenha apoio da Microsoft
+## <a name="get-support-from-microsoft"></a>Obter suporte da Microsoft
 
 Contacte o suporte se o seu recurso for deixado em mau estado mesmo depois de o problema ser resolvido.  Utilize os links de suporte no direito da página.  
 

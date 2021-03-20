@@ -1,5 +1,5 @@
 ---
-title: Limitações da colaboração B2B - Azure Ative Directory Microsoft Docs
+title: Limitações da colaboração B2B - Azure Ative Directory | Microsoft Docs
 description: Limitações atuais para a colaboração B2B do Diretório Ativo Azure
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4f960819aa208dcc8d3e476fc45a766452b612c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96168955"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações da colaboração Azure AD B2B

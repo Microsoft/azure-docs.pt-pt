@@ -1,5 +1,5 @@
 ---
-title: Recursos de pedido de dados do cliente no Azure IoT Central Microsoft Docs
+title: Funcionalidades de pedido de dados do cliente na Azure IoT Central | Microsoft Docs
 description: Este artigo descreve identificar, eliminar e exportar dados de clientes na aplicação Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: dabcadea96f4ced5bdf73a35ef533e6d290595c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87001881"
 ---
 # <a name="azure-iot-central-customer-data-request-features"></a>Funcionalidades de pedido de dados do cliente Azure IoT Central

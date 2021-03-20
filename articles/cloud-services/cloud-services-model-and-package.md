@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741541"
 ---
 # <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>O que é o modelo cloud service (clássico) e como o embalo?
@@ -278,7 +278,7 @@ Quando as variáveis forem definidas da seguinte forma:
 | \[CaminhoFísico\] |Os diretórios físicos dos conteúdos para cada caminho virtual definido no nó do site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do ficheiro binário para o papel. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Estou a criar um pacote de serviços na nuvem e quero...
 
 * [Configurar ambiente de trabalho remoto para uma instância de serviço em nuvem][remotedesktop]

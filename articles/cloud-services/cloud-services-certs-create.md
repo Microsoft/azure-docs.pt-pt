@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: c73f9812f344eecf4e51f43405b48693ddfa191b
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98739739"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Visão geral dos certificados para Azure Cloud Services (clássico)
@@ -92,7 +92,7 @@ Há muitas páginas na internet que cobrem como fazê-lo com o IIS. [Aqui](https
 ### <a name="linux"></a>Linux
 [Este](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artigo descreve como criar certificados com SSH.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Faça o upload do seu certificado de serviço para o portal Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Faça o upload de um [certificado de API](/previous-versions/azure/azure-api-management-certs) de gestão para o portal Azure.

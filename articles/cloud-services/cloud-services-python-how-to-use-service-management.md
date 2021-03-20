@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741405"
 ---
 # <a name="use-service-management-from-python"></a>Utilize a gestão de serviços da Python
@@ -447,7 +447,7 @@ Para saber mais sobre como capturar uma máquina virtual Linux no modelo clássi
 
 Para saber mais sobre como capturar uma máquina virtual do Windows no modelo clássico de implementação, consulte [Capture a windows virtual machine](/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic).
 
-## <a name="next-steps"></a><a name="What's Next"> </a>Próximos passos
+## <a name="next-steps"></a><a name="What's Next"> </a>Passos seguintes
 Agora que aprendeu o básico da gestão de serviços, pode aceder à documentação de referência completa da [API para o Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) e executar tarefas complexas facilmente para gerir a sua aplicação Python.
 
 Para obter mais informações, consulte o [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/).

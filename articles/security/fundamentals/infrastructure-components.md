@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68727200"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componentes e limites do sistema de informação azul
@@ -69,7 +69,7 @@ Hospedeiro e nativo são imagens do sistema operativo endurecido que acolhem os 
 
 Os componentes internos Azure em execução nos VMs do sistema operativo convidado não têm oportunidade de executar o Protocolo de Ambiente de Trabalho Remoto. Quaisquer alterações nas definições de configuração de base devem passar pelo processo de gestão de alterações e libertação.
 
-## <a name="azure-datacenters"></a>Centros de dados Azure
+## <a name="azure-datacenters"></a>Datacenters do Azure
 A equipa da Microsoft Cloud Infrastructure and Operations (MCIO) gere as instalações de infraestrutura física e datacenter para todos os serviços online da Microsoft. A MCIO é a principal responsável pela gestão dos controlos físicos e ambientais dentro dos datacenters, bem como pela gestão e suporte de dispositivos de rede de perímetros exteriores (tais como routers de arestas e routers de datacenters). O MCIO é também responsável pela configuração do hardware mínimo do servidor nos racks do datacenter. Os clientes não têm interação direta com a Azure.
 
 ## <a name="service-management-and-service-teams"></a>Equipas de gestão de serviços e serviços
@@ -84,7 +84,7 @@ As equipas de serviço são:
 - Serviços de Engenharia de Nuvem
 - ISSD: Segurança
 - Autenticação Multifactor
-- SQL Database
+- Base de Dados SQL
 - Armazenamento
 
 ## <a name="types-of-users"></a>Tipos de utilizadores

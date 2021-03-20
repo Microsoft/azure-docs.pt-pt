@@ -4,10 +4,10 @@ description: Ver e filtrar recomendações do Azure Advisor para reduzir o ruíd
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90986872"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Consulte as recomendações do Azure Advisor que lhe interessam
@@ -47,7 +47,7 @@ O Azure Advisor permite-lhe dispensar ou adiar recomendações sobre um único r
 1. Selecione uma recomendação da lista de recomendações
 1. Selecione Adiar ou Dispensar a recomendação que pretende adiar ou demitir
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Screenshot do Azure Advisor mostrando opções de filtragem.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Screenshot da janela Use Managed Disks mostrando a coluna selecionada e adiar e dispensar ações para uma única recomendação realçada.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Adiar ou rejeitar várias recomendações no portal Azure
 
@@ -57,7 +57,7 @@ O Azure Advisor permite-lhe dispensar ou adiar recomendações sobre um único r
 1. Selecione a caixa de verificação à esquerda da fila para todos os recursos que pretende adiar ou rejeitar a recomendação.
 1. Selecione **Adiar** ou **Dispensar** na parte superior esquerda da tabela.
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Screenshot do Azure Advisor mostrando opções de filtragem.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Screenshot da janela 'Use Managed Disks' mostrando a coluna selecionada e adia e descarta as ações no topo esquerdo da tabela realçada.":::
 
 > [!NOTE]
 > Precisa de autorização do colaborador ou do proprietário para dispensar ou adiar uma recomendação. Saiba mais sobre permissões no Azure Advisor.
@@ -73,7 +73,7 @@ Pode ativar uma recomendação que foi adiada ou dispensada. Esta ação pode se
 
 1. Altere o filtro no painel de visão geral para **adiado**. Em seguida, o conselheiro apresenta recomendações adiadas ou rejeitadas.
 
-    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Screenshot do Azure Advisor mostrando opções de filtragem.":::
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Screenshot da janela Azure Advisor mostrando o menu suspenso adiado selecionado.":::
 
 1. Selecione uma categoria para ver recomendações **adiadas** e **rejeitadas.**
 
@@ -81,7 +81,7 @@ Pode ativar uma recomendação que foi adiada ou dispensada. Esta ação pode se
 
 1. Clique em **Ativar** no final da linha. Uma vez clicado, a recomendação está ativa para esse recurso e assim removida desta tabela. A recomendação está agora visível no **separador Ative.**
  
-     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Screenshot do Azure Advisor mostrando opções de filtragem.":::
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Screenshot da janela 'Apagar suave' ativar a exibição do separador rejeitado & adiado com a ação Ativação realçada.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

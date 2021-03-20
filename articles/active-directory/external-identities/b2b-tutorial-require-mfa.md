@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f5f7f823d6c5f5860c2e78fe8cacdd1d788c581
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95974124"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor a autenticação multifator aos utilizadores convidados B2B
@@ -123,7 +123,7 @@ Para concluir o cenário deste tutorial, precisa de:
 
     ![Screenshot mostrando onde selecionar a opção E se](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
-## <a name="test-your-conditional-access-policy"></a>Teste a sua política de Acesso Condicional
+## <a name="test-your-conditional-access-policy"></a>Testar a política de Acesso Condicional
 1.  Utilize o seu nome de utilizador e palavra-passe de teste para iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2.  Deverá ver um pedido de métodos de autenticação adicionais. Tenha em atenção que poderá demorar algum tempo até que a política entre em vigor.
 

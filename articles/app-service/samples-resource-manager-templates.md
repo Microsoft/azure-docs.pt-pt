@@ -8,10 +8,10 @@ ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
 ms.openlocfilehash: 5129fccceb633991767cdd3b52bbb5b6af067270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88891050"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Modelos de gestor de recursos Azure para o Serviço de Aplicações
@@ -20,7 +20,7 @@ A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para o S
 
 Para saber mais sobre a sintaxe JSON e propriedades para recursos de Serviços de Aplicação, consulte os [tipos de recursos microsoft.Web](/azure/templates/microsoft.web/allversions).
 
-| Implementação de uma aplicação | Descrição |
+| Implementação de uma aplicação | Description |
 |-|-|
 | [Plano de Serviço de Aplicações e app básica do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Implementa uma aplicação de Serviço de Aplicações que está configurada para o Linux. |
 | [Plano de Serviço de Aplicações e aplicação básica do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Implementa uma aplicação de Serviço de Aplicações que está configurada para windows. |

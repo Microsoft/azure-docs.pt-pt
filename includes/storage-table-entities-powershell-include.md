@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67183934"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -18,7 +18,7 @@ ms.locfileid: "67183934"
 
 Agora que tem uma mesa, vamos ver como gerir entidades, ou filas, na mesa. 
 
-As entidades podem ter até 255 propriedades, incluindo três propriedades do sistema: **PartitionKey,** **RowKey**e **Timestamp**. É responsável pela inserção e atualização dos valores de **PartitionKey** e **RowKey.** O servidor gere o valor do **Timestamp,** que não pode ser modificado. Juntos, o **PartitionKey** e **o RowKey** identificam exclusivamente todas as entidades dentro de uma tabela.
+As entidades podem ter até 255 propriedades, incluindo três propriedades do sistema: **PartitionKey,** **RowKey** e **Timestamp**. É responsável pela inserção e atualização dos valores de **PartitionKey** e **RowKey.** O servidor gere o valor do **Timestamp,** que não pode ser modificado. Juntos, o **PartitionKey** e **o RowKey** identificam exclusivamente todas as entidades dentro de uma tabela.
 
 * **PartitionKey**: Determina a partição em que a entidade está armazenada.
 * **RowKey**: Identifica exclusivamente a entidade dentro da partição.
@@ -60,7 +60,7 @@ Add-AzTableRow `
 Pode consultar as entidades numa tabela utilizando o comando **Get-AzTableRow.**
 
 > [!NOTE]
-> Os cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**e **Get-AzureStorageTableRowByCustomFilter** são depreciados e serão removidos numa futura atualização de versão.
+> Os cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName** e **Get-AzureStorageTableRowByCustomFilter** são depreciados e serão removidos numa futura atualização de versão.
 
 #### <a name="retrieve-all-entities"></a>Recuperar todas as entidades
 

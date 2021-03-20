@@ -1,5 +1,5 @@
 ---
-title: O que é o Serviço Azure SignalR?
+title: O que é o Azure SignalR Service?
 description: Entenda melhor quais os cenários típicos de uso para usar O Sinal Azure e aprenda os principais benefícios do Azure SignalR.
 author: sffamily
 ms.service: signalr
@@ -8,13 +8,13 @@ ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 92da400616ace9f24da121d81798d5ebd9222e35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88921890"
 ---
-# <a name="what-is-azure-signalr-service"></a>O que é o Serviço Azure SignalR?
+# <a name="what-is-azure-signalr-service"></a>O que é o Azure SignalR Service?
 
 O Azure SignalR Service simplifica o processo de acrescentar a funcionalidade Web de tempo real a aplicações através de HTTP. Esta funcionalidade em tempo real permite que o serviço envie atualizações de conteúdo a clientes ligados, como uma única página Web ou aplicação móvel. Como resultado, os clientes são atualizados sem que tenham de consultar o servidor ou submeter novos pedidos HTTP para as atualizações.
 

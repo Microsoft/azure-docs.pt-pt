@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: ae7baeac6cee2a692928642e3e38ce0adad17d1c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674890"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Tutorial: Desenhe uma base de dados relacional na Base de Dados Azure SQL utilizando SSMS
@@ -48,7 +48,7 @@ Para completar este tutorial, certifique-se de que instalou:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database-in-azure-sql-database"></a>Criar uma base de dados em branco na Base de Dados Azure SQL
 
@@ -56,8 +56,8 @@ Uma base de dados na Base de Dados Azure SQL é criada com um conjunto definido 
 
 Siga estes passos para criar uma base de dados em branco.
 
-1. No menu do portal do Azure ou a partir da **Home page** , selecione **Criar um recurso** .
-2. Na página **Nova** , selecione **Bases de Dados** na secção de Microsoft Azure Marketplace e, em seguida, clique em **Base de Dados SQL** na secção **Em Destaque** .
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+2. Na página **Nova**, selecione **Bases de Dados** na secção de Microsoft Azure Marketplace e, em seguida, clique em **Base de Dados SQL** na secção **Em Destaque**.
 
    ![create empty-database](./media/design-first-database-tutorial/create-empty-database.png)
 
@@ -81,10 +81,10 @@ Siga estes passos para criar uma base de dados em branco.
 
     ![criar servidor de base de dados](./media/design-first-database-tutorial/create-database-server.png)
 
-5. Clique em **Selecionar** .
+5. Clique em **Selecionar**.
 6. Clique em **Escalão de preço** para especificar o escalão de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Pode explorar as opções para o número de DTUs/vCores e armazenamento que está disponível para cada nível de serviço.
 
-    Depois de selecionar o nível de serviço, o número de DTUs ou vCores, e a quantidade de armazenamento, clique em **Aplicar** .
+    Depois de selecionar o nível de serviço, o número de DTUs ou vCores, e a quantidade de armazenamento, clique em **Aplicar**.
 
 7. Introduza uma **Colagem** para a base de dados em branco (para este tutorial, utilize o valor predefinido). Para obter mais informações sobre agrupamentos, veja [Agrupamentos](/sql/t-sql/statements/collations)
 
@@ -115,9 +115,9 @@ A Azure SQL Database cria uma firewall IP ao nível do servidor. Esta firewall i
 
 1. Clique em **Adicionar IP** ao cliente na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall IP. Uma regra de firewall IP pode abrir a porta 1433 para um único endereço IP ou uma gama de endereços IP.
 
-1. Clique em **Guardar** . Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
+1. Clique em **Guardar**. Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
 
-1. Clique em **OK** e, em seguida, feche a página **Definições da firewall** .
+1. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
 
 O seu endereço IP pode agora passar pela firewall IP. Pode agora ligar-se à sua base de dados utilizando o SQL Server Management Studio ou outra ferramenta à sua escolha. Certifique-se de que utiliza a conta de administração do servidor que criou anteriormente.
 
@@ -129,7 +129,7 @@ O seu endereço IP pode agora passar pela firewall IP. Pode agora ligar-se à su
 Utilize [o SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma ligação à sua base de dados.
 
 1. Abra o SQL Server Management Studio.
-2. Na caixa de dialogo **Ligar ao Servidor** , introduza as seguintes informações:
+2. Na caixa de dialogo **Ligar ao Servidor**, introduza as seguintes informações:
 
    | Definição       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -141,11 +141,11 @@ Utilize [o SQL Server Management Studio](/sql/ssms/sql-server-management-studio-
 
    ![ligar ao servidor](./media/design-first-database-tutorial/connect.png)
 
-3. Clique em **Opções** na caixa de diálogo **Ligar ao servidor** . Na secção **'Ligar à base de dados',** insira *a base de Dados* para ligar a esta base de dados.
+3. Clique em **Opções** na caixa de diálogo **Ligar ao servidor**. Na secção **'Ligar à base de dados',** insira *a base de Dados* para ligar a esta base de dados.
 
     ![ligar à base de dados no servidor](./media/design-first-database-tutorial/options-connect-to-db.png)  
 
-4. Clique em **Ligar** . A janela **Object Explorer** abre-se em SSMS.
+4. Clique em **Ligar**. A janela **Object Explorer** abre-se em SSMS.
 
 5. No **Object Explorer,** expanda **as bases de dados** e expanda a base de *Dados* para visualizar os objetos na base de dados da amostra.
 
@@ -167,7 +167,7 @@ O diagrama seguinte mostra como estas tabelas estão relacionadas entre si. Algu
 
 ![Relações de tabelas](./media/design-first-database-tutorial/tutorial-database-tables.png)
 
-1. No **Object Explorer,** clique com o botão direito *na base doData* e selecione **Nova Consulta** . É aberta uma janela de consulta em branco que está ligada à sua base de dados.
+1. No **Object Explorer,** clique com o botão direito *na base doData* e selecione **Nova Consulta**. É aberta uma janela de consulta em branco que está ligada à sua base de dados.
 
 2. Na janela da consulta, execute a consulta seguinte para criar quatro tabelas na base de dados:
 

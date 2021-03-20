@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: b5e6a0cd58fca954646640e43a81155822cdba04
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567007"
 ---
 # <a name="tutorial-assess-google-cloud-platform-gcp-vm-instances-for-migration-to-azure"></a>Tutorial: Avaliar os exemplos de VM da Plataforma Google Cloud (GCP) para migração para Azure
@@ -20,7 +20,7 @@ Como parte da sua viagem de migração para Azure, você avalia as suas cargas d
 
 Este artigo mostra-lhe como avaliar os exemplos de VM da Plataforma cloud do Google (GCP) para migração para Azure, utilizando a ferramenta Azure Migrate: Server Assessment.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 - Executar uma avaliação com base em metadados de máquina e informações de configuração.
 - Executar uma avaliação com base em dados de desempenho.

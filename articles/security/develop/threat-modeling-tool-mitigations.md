@@ -1,5 +1,5 @@
 ---
-title: Mitigações - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
+title: Mitigações - Ferramenta de Modelação de Ameaças da Microsoft - Azure | Microsoft Docs
 description: Página de mitigação da Ferramenta de Modelação de Ameaças da Microsoft destacando possíveis soluções para as ameaças geradas mais expostas.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68728035"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigações da ferramenta de modelação de ameaças da Microsoft
@@ -35,10 +35,10 @@ As mitigações da Ferramenta de Modelação de Ameaças são categorizadas de a
 | Categoria | Descrição |
 | -------- | ----------- |
 | **[Auditoria e Registo](threat-modeling-tool-auditing-and-logging.md)** | Quem fez o quê e quando? Auditoria e registo referem-se à forma como a sua aplicação regista eventos relacionados com a segurança |
-| **[Autenticação](threat-modeling-tool-authentication.md)** | Quem és? A autenticação é o processo em que uma entidade comprova a identidade de outra entidade, tipicamente através de credenciais, como um nome de utilizador e senha |
+| **[Autenticação](threat-modeling-tool-authentication.md)** | Qual é a sua função? A autenticação é o processo em que uma entidade comprova a identidade de outra entidade, tipicamente através de credenciais, como um nome de utilizador e senha |
 | **[Autorização](threat-modeling-tool-authorization.md)** | O que é que se pode fazer? A autorização é a forma como a sua aplicação fornece controlos de acesso para recursos e operações |
 | **[Segurança de Comunicação](threat-modeling-tool-communication-security.md)** | Com quem está a falar? A Segurança da Comunicação garante que toda a comunicação feita é o mais segura possível |
-| **[Gestão da Configuração](threat-modeling-tool-configuration-management.md)** | Quem é que a tua candidatura funciona? A que bases de dados se liga? Como é administrada a sua candidatura? Como estão asseguradas estas definições? A gestão de configuração refere-se à forma como a sua aplicação lida com estes problemas operacionais |
+| **[Gestão de Configurações](threat-modeling-tool-configuration-management.md)** | Quem é que a tua candidatura funciona? A que bases de dados se liga? Como é administrada a sua candidatura? Como estão asseguradas estas definições? A gestão de configuração refere-se à forma como a sua aplicação lida com estes problemas operacionais |
 | **[Criptografia](threat-modeling-tool-cryptography.md)** | Como está a guardar segredos (confidencialidade)? Como está a alterar os seus dados ou bibliotecas (integridade)? Como está a fornecer sementes para valores aleatórios que devem ser criptograficamente fortes? Criptografia refere-se à forma como a sua aplicação impõe confidencialidade e integridade |
 | **[Gestão de Exceções](threat-modeling-tool-exception-management.md)** | Quando um método de chamada na sua aplicação falha, o que faz a sua aplicação? Quanto revela? Devolve informações de erros amigáveis aos utilizadores finais? Passa informações valiosas de exceção para quem ligou? A sua candidatura falha graciosamente? |
 | **[Validação de entrada](threat-modeling-tool-input-validation.md)** | Como sabe que a entrada que a sua candidatura recebe é válida e segura? A validação de entrada refere-se à forma como a sua aplicação filtra, esfrega ou rejeita a entrada antes do processamento adicional. Considere limitar a entrada através de pontos de entrada e codificar a saída através de pontos de saída. Confia em dados de fontes como bases de dados e ações de ficheiros? |
@@ -50,7 +50,7 @@ Isto ajuda-o a identificar:
 * Onde estão os erros mais comuns cometidos
 * Onde estão as melhorias mais accuáveis
 
-Como resultado, utiliza estas categorias para focar e priorizar o seu trabalho de segurança, para que se souber que os problemas de segurança mais predominantes ocorrem nas categorias de validação, autenticação e autorização de entrada, pode começar por aí. Para mais informações visite ** [este link de patente](https://www.google.com/patents/US7818788)**
+Como resultado, utiliza estas categorias para focar e priorizar o seu trabalho de segurança, para que se souber que os problemas de segurança mais predominantes ocorrem nas categorias de validação, autenticação e autorização de entrada, pode começar por aí. Para mais informações visite **[este link de patente](https://www.google.com/patents/US7818788)**
 
 ## <a name="next-steps"></a>Passos seguintes
 

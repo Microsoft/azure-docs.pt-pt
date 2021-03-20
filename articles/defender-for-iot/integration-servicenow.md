@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558730"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>O Pedido de Gestão do ICS do IoT para o ServiceNow
@@ -153,7 +153,7 @@ Para definir a regra:
 
 ### <a name="send-defender-for-iot-device-attributes"></a>Enviar atributos do dispositivo IoT para Defender
 
-Este artigo descreve como configurar o Defender para ioT para empurrar uma vasta gama de atributos do dispositivo para as tabelas ServiceNow. Consulte **_Informação de Inventário_* _ para mais detalhes sobre o tipo de informação empurrada para o ServiceNow.
+Este artigo descreve como configurar o Defender para ioT para empurrar uma vasta gama de atributos do dispositivo para as tabelas ServiceNow. Consulte ***informações de inventário*** para obter mais informações sobre o tipo de informação empurrada para o ServiceNow.
 
 Para enviar atributos para o ServiceNow, tem de mapear a sua consola de gestão no local para uma instância ServiceNow. Isto garante que o Defender da plataforma IoT pode comunicar e autenticar com a ocorrência.
 
@@ -161,7 +161,7 @@ Para adicionar uma instância ServiceNow:
 
 1. Inscreva-se no seu Defender para consola de gestão IoT no local.
 
-1. Selecione _ *Definições do sistema** e, em seguida, **ServiçoNow** a partir da secção de integração de consolas de gestão no local.
+1. Selecione **Definições do Sistema** e, em seguida, **ServiceNow** a partir da secção de integração de consolas de gestão no local.
 
       :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Selecione o botão ServiceNow.":::
 
@@ -276,7 +276,7 @@ Este artigo descreve os atributos do dispositivo empurrados para o ServiceNow.
 | Fornecedor | O fornecedor de dispositivos. |
 | Protocolos | Os protocolos detetados no tráfego gerado pelo dispositivo. |
 | Proprietário | Insira o nome do proprietário do dispositivo. |
-| A localização | Introduza a localização física do dispositivo. |
+| Localização | Introduza a localização física do dispositivo. |
 
 Ver dispositivos ligados a um dispositivo nesta vista.
 

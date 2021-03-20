@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741337"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalize o ciclo de vida de uma função Web ou Trabalhador em .NET
@@ -78,7 +78,7 @@ Não é necessário ultrapassar o método **Run;** a implementação padrão ini
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementação dos métodos de ciclo de vida ASP.NET para um papel web
 Pode utilizar os métodos de ciclo de vida ASP.NET, para além dos fornecidos pela classe **RoleEntryPoint,** para gerir sequências de inicialização e de encerramento para um papel web. Isto pode ser útil para fins de compatibilidade se estiver a apresentar uma aplicação ASP.NET existente ao Azure. Os métodos ASP.NET do ciclo de vida são chamados a partir dos métodos **RoleEntryPoint.** O método **\_ Início de Aplicação** é chamado após o fim do método **RoleEntryPoint.OnStart.** O método **\_ Final de Aplicação** é chamado antes do método **RoleEntryPoint.OnStop** ser chamado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [criar um pacote de serviços em nuvem.](cloud-services-model-and-package.md)
 
 

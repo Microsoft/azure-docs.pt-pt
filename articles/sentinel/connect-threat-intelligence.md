@@ -1,5 +1,5 @@
 ---
-title: Ligue dados de inteligência de ameaça ao Azure Sentinel Microsoft Docs
+title: Ligue dados de inteligência de ameaça ao | de Azure Sentinel Microsoft Docs
 description: Saiba como ligar dados de inteligência de ameaça ao Azure Sentinel.
 documentationcenter: na
 author: yelevin
@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96121750"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>Ligar dados de fornecedores de inteligência de ameaças
+# <a name="connect-data-from-threat-intelligence-providers"></a>Ligar dados de fornecedores de informações sobre ameaças
 
 > [!IMPORTANT]
 > Os conectores de dados da Threat Intelligence em Azure Sentinel estão atualmente em pré-visualização pública.
@@ -76,7 +76,7 @@ Pode transmitir indicadores de ameaça ao Azure Sentinel utilizando um dos produ
 
 2. [Configure permissões API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) para a aplicação registada: Adicione a permissão de aplicação de gráficos da Microsoft **ThreatIndicators.ReadWrite.OwnedBy** à sua aplicação registada.
 
-3. Peça ao administrador do Azure Ative Directory para conceder o consentimento administrativo ao pedido registado para a sua organização. A partir do portal Azure: Registos de App **Azure Ative Directory**  >  **App registrations**  >  **\<_app name_>**  >  **Ver Permissões API**  >  **Conceder consentimento administrativo para \<_tenant name_>**.
+3. Peça ao administrador do Azure Ative Directory para conceder o consentimento administrativo ao pedido registado para a sua organização. A partir do portal Azure: Registos de App **Azure Ative Directory**  >    >  **\<_app name_>**  >  **Ver Permissões API**  >  **Conceder consentimento administrativo para \<_tenant name_>**.
 
 4. Configure o seu produto TIP ou app que utiliza a integração direta com a Microsoft Graph Security tiIndicators API para enviar indicadores para O Azure Sentinel especificando o seguinte:
     
@@ -86,7 +86,7 @@ Pode transmitir indicadores de ameaça ao Azure Sentinel utilizando um dos produ
     
     c. Para a ação, especifique o alerta.
 
-5. No portal Azure, navegue nos conectores de dados **do Azure Sentinel**  >  **Data connectors** e, em seguida, selecione o conector de Plataformas de Inteligência de **Ameaça (Pré-visualização).**
+5. No portal Azure, navegue nos conectores de dados **do Azure Sentinel**  >   e, em seguida, selecione o conector de Plataformas de Inteligência de **Ameaça (Pré-visualização).**
 
 6. Selecione **abrir a página do conector** e, em seguida, **ligar**.
 
@@ -102,7 +102,7 @@ Pode transmitir indicadores de ameaça ao Azure Sentinel utilizando um dos produ
 
 ### <a name="instructions"></a>Instruções
 
-1. No portal Azure, navegue nos conectores de dados **Azure Sentinel**  >  **Data connectors** e, em seguida, selecione o conector Threat Intelligence **- TAXII (Preview).**
+1. No portal Azure, navegue nos conectores de dados **Azure Sentinel**  >   e, em seguida, selecione o conector Threat Intelligence **- TAXII (Preview).**
 
 2. Selecione **Abrir a página do conector**.
 

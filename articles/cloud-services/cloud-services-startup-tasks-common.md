@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741201"
 ---
 # <a name="common-cloud-service-classic-startup-tasks"></a>Tarefas de arranque common Cloud Service (clássicos)
@@ -87,7 +87,7 @@ As secções relevantes do ficheiro [ServiceDefinition.csdef] são apresentadas 
 O ficheiro de lote *De arranque.cmd* utiliza *AppCmd.exe* para adicionar uma secção de compressão e uma entrada de compressão para json no ficheiro *Web.config.* O **nível de erro** esperado de 183 está definido para zero usando o VERIFY.EXE programa de linha de comando. Os velóis de erro inesperados são registados em StartupErrorLog.txt.
 
 ```cmd
-REM   **_ Add a compression section to the Web.config file. _*_
+REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -102,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Add compression for json. _*_
+REM   *** Add compression for json. ***
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -110,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Exit batch file. _*_
+REM   *** Exit batch file. ***
 EXIT /b 0
 
-REM   _*_ Log error and exit _*_
+REM   *** Log error and exit ***
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -129,7 +129,7 @@ A segunda firewall controla as ligações entre a máquina virtual e os processo
 
 O Azure cria regras de firewall para os processos iniciados dentro das suas funções. Por exemplo, quando inicia um serviço ou programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que esse serviço se comunique com a Internet. No entanto, se criar um serviço que seja iniciado por um processo fora da sua função (como um serviço COM+ ou uma Tarefa Agendada do Windows), tem de criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Estas regras de firewall podem ser criadas utilizando uma tarefa de arranque.
 
-Uma tarefa de arranque que crie uma regra de firewall deve ter uma tarefa[de] texto de [execução]de _*elevated**. Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
+Uma tarefa de arranque que crie uma regra de firewall deve ter uma tarefa [de] texto de [execução] **elevada**. Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -495,7 +495,7 @@ Nem todas as reciclagems de papéis incluem um reboot, mas todas as reciclagems 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Use o armazenamento local para armazenar ficheiros que devem ser acedidos na função
 Se pretender copiar ou criar um ficheiro durante a sua tarefa inicial que esteja então acessível à sua função, esse ficheiro deve ser colocado no armazenamento local. Consulte [a secção anterior.](#create-files-in-local-storage-from-a-startup-task)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja o [modelo e pacote de serviços](cloud-services-model-and-package.md) em nuvem
 
 Saiba mais sobre como as [Tarefas](cloud-services-startup-tasks.md) funcionam.

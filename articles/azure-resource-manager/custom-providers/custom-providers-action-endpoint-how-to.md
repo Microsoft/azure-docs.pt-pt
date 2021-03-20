@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650399"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Adicionar ações personalizadas à Azure REST API
@@ -132,8 +132,8 @@ az resource invoke-action --action {actionName} \
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-ação | *Sim, o que é* | O nome da ação definida no **ResourceProvider**.
-ids | *Sim, o que é* | O ID de recursos do **ResourceProvider.**
+ação | *Sim* | O nome da ação definida no **ResourceProvider**.
+ids | *Sim* | O ID de recursos do **ResourceProvider.**
 pedido-corpo | *Não* | O órgão de pedido que será enviado para o **ponto final.**
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
@@ -186,8 +186,8 @@ Modelo de gestor de recursos Azure:
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-recursoIdentifier | *Sim, o que é* | O ID de recursos do **ResourceProvider.**
-apiVersion | *Sim, o que é* | A versão API do tempo de execução do recurso. Esta deve ser sempre "2018-09-01-preview".
+recursoIdentifier | *Sim* | O ID de recursos do **ResourceProvider.**
+apiVersion | *Sim* | A versão API do tempo de execução do recurso. Esta deve ser sempre "2018-09-01-preview".
 funçõesValues | *Não* | O órgão de pedido que será enviado para o **ponto final.**
 
 ## <a name="next-steps"></a>Passos seguintes

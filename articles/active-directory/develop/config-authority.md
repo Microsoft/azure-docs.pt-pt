@@ -1,5 +1,5 @@
 ---
-title: Configure fornecedores de identidade (MSAL iOS/macOS) Rio Azure
+title: Configure os fornecedores de identidade (MSAL iOS/macOS) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como utilizar diferentes autoridades como B2C, nuvens soberanas e utilizadores convidados, com MSAL para iOS e macOS.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96169448"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como: Configurar a MSAL para iOS e macOS utilizarem diferentes fornecedores de identidade

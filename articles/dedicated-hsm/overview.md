@@ -1,5 +1,5 @@
 ---
-title: O que é o Dedicated HSM? - Azure Dedicado HSM / Microsoft Docs
+title: O que é o Dedicated HSM? - Azure Dedicado HSM | Microsoft Docs
 description: Saiba como o Azure Dedicated HSM é um serviço Azure que fornece armazenamento de chaves criptográficas em Azure.
 services: dedicated-hsm
 author: msmbaldwin
@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90970209"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>O que é o Azure Dedicated HSM?
@@ -60,7 +60,7 @@ O Azure Dedicated HSM é um serviço especializado que aborda requisitos únicos
 
 ### <a name="best-fit"></a>Melhor ajuste
 
-O HSM dedicado a Azure é o mais adequado para cenários de "elevação e mudança" que requerem acesso direto e exclusivo aos dispositivos HSM. Alguns exemplos:
+O HSM dedicado a Azure é o mais adequado para cenários de "elevação e mudança" que requerem acesso direto e exclusivo aos dispositivos HSM. Os exemplos incluem:
 
 - Aplicações migratórias de máquinas virtuais Azure para Azure
 - Aplicações migratórias da Amazon AWS EC2 para máquinas virtuais que utilizam o serviço AWS Cloud HSM Classic (a Amazon não está a oferecer este serviço a novos clientes)
@@ -89,6 +89,6 @@ Os [guias de integração gemalto](https://safenet.gemalto.com/partners/microsof
 
 * [Elevada disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)

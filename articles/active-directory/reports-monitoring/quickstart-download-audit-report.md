@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68989683"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Início Rápido: Transferir um relatório de auditoria no portal do Azure
@@ -33,7 +33,7 @@ Neste arranque rápido, você aprende a baixar um ficheiro CSV dos registos de a
 É necessário:
 
 * Um inquilino do Azure Active Directory. 
-* Um utilizador, que esteja no **cargo de Administrador de Segurança,** Leitor de **Segurança**ou **Administrador Global** para o arrendatário. Além disso, qualquer utilizador no inquilino pode aceder aos seus próprios registos de auditoria.
+* Um utilizador, que esteja no **cargo de Administrador de Segurança,** Leitor de **Segurança** ou **Administrador Global** para o arrendatário. Além disso, qualquer utilizador no inquilino pode aceder aos seus próprios registos de auditoria.
 
 ## <a name="quickstart-download-an-audit-report"></a>Início Rápido: Transferir um relatório de auditoria
 

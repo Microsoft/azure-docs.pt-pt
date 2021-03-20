@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6a1e4b3b44004ec6d03c293bbd10617b3d3af69
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98740827"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência no AAD
@@ -150,7 +150,7 @@ Estes passos devem ser realizados a intervalos regulares e para alterações de 
 - Quando houve uma mudança recente no pessoal de TI, como uma mudança de emprego, uma partida ou uma nova contratação
 - Quando as subscrições da AD AZure na organização mudaram
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](security-planning.md)
 - [Adicione os utilizadores usando a AZure AD](../fundamentals/add-users-azure-active-directory.md) e [atribua o novo utilizador à função de Administrador Global](../fundamentals/active-directory-users-assign-role-azure-portal.md)

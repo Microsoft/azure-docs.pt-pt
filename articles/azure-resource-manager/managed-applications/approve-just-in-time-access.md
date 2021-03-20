@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 4a3604a3256fb2d3f4253891bbc28c7685748cd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75651023"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configure e aprove acesso just-in-time para aplicações geridas azure
@@ -103,7 +103,7 @@ Para aprovar pedidos através da Azure AD Gestão de Identidade Privilegiada:
 
    ![Selecione aprovar pedidos](./media/approve-just-in-time-access/select-approve-requests.png)
 
-1. Selecione **as aplicações geridas pela Azure**e selecione o pedido para aprovar.
+1. Selecione **as aplicações geridas pela Azure** e selecione o pedido para aprovar.
 
    ![Selecione pedidos](./media/approve-just-in-time-access/view-requests.png)
 

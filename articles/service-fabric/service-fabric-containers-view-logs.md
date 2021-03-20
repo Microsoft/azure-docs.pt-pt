@@ -4,10 +4,10 @@ description: Descreve como visualizar registos de contentores para um serviço d
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75458178"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Ver registos para um serviço de contentores de tecido de serviço
@@ -18,7 +18,7 @@ Os registos de contentores podem ser acedidos através [do Service Fabric Explor
 
 Os troncos de contentores estão localizados no nó de aglomerado em que a instância de serviço do contentor está em funcionamento. Como exemplo, obtenha os registos do recipiente frontal web da [aplicação linux voting.](service-fabric-quickstart-containers-linux.md) Na vista da árvore, expandir **o cluster** > **applications** > **voteType** > **tecido:/Votação/azurevotefront**.  Em seguida, expanda a partição (d1aaa737e-f22a-e347-be16-eec90be24bc1, neste exemplo) e certifique-se de que o recipiente está a funcionar no nó de cluster *_lnxvm_0*.
 
-Na vista da árvore, encontre o pacote de código no nó *_lnxvm_0* expandindo **os nós** > **_lnxvm_0** > **tecido:/Código** > de pacotes**azurevotfrontPkg** > **Code Packages** > **code**.  Em seguida, selecione a opção **Registos de Contentores** para visualizar os registos do contentor.
+Na vista da árvore, encontre o pacote de código no nó *_lnxvm_0* expandindo **os nós** > **_lnxvm_0** > **tecido:/Código** > de pacotes **azurevotfrontPkg** >  > .  Em seguida, selecione a opção **Registos de Contentores** para visualizar os registos do contentor.
 
 ![Plataforma do Service Fabric][Image1]
 

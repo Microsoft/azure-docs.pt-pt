@@ -1,13 +1,13 @@
 ---
-title: Visão geral do estado do Azure ! Microsoft Docs
+title: Visão geral do estado de Azure | Microsoft Docs
 description: Uma visão global sobre a saúde dos serviços Azure
 ms.topic: overview
 ms.date: 06/11/2019
 ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82732555"
 ---
 # <a name="azure-status-overview"></a>Visão geral do estado de Azure
