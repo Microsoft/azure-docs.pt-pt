@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397648"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configuração do ouvinte do Gateway de Aplicação
@@ -20,7 +20,7 @@ ms.locfileid: "93397648"
 
 Um ouvinte é uma entidade lógica que verifica os pedidos de ligação recebidas utilizando o endereço porta, protocolo, anfitrião e IP. Ao configurar o ouvinte, deve introduzir valores para estes que correspondam aos valores correspondentes no pedido de entrada no gateway.
 
-Quando cria um gateway de aplicações utilizando o portal Azure, também cria um ouvinte predefinido, escolhendo o protocolo e a porta para o ouvinte. Pode escolher se ativa o suporte HTTP2 no ouvinte. Depois de criar o gateway de aplicações, pode editar as definições desse ouvinte predefinido *(appGatewayHttpListener* ) ou criar novos ouvintes.
+Quando cria um gateway de aplicações utilizando o portal Azure, também cria um ouvinte predefinido, escolhendo o protocolo e a porta para o ouvinte. Pode escolher se ativa o suporte HTTP2 no ouvinte. Depois de criar o gateway de aplicações, pode editar as definições desse ouvinte predefinido *(appGatewayHttpListener*) ou criar novos ouvintes.
 
 ## <a name="listener-type"></a>Tipo de ouvinte
 

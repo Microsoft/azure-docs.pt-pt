@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
 ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395211"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Ligar e consultar Azure SQL Edge
@@ -36,8 +36,8 @@ Pode ligar-se a uma instância de Azure SQL Edge a partir de qualquer uma destas
 
 Para ligar a um motor de base de dados Azure SQL Edge a partir de uma máquina de rede, precisa do seguinte:
 
-- **Endereço IP ou nome de rede da máquina hospedeira** : Esta é a máquina hospedeira onde o recipiente Azure SQL Edge está em funcionamento.
-- **Mapeamento do porto de anfitrião do recipiente Azure SQL Edge** : Este é o mapeamento da porta de contentores Docker para uma porta no hospedeiro. Dentro do recipiente, a Borda Azure SQL é sempre mapeada para a porta 1433. Pode mudar isto se quiser. Para alterar o número da porta, atualize as **opções de criação** de recipientes para o módulo Azure SQL Edge em Azure IoT Edge. No exemplo seguinte, a porta 1433 do contentor está mapeada para o porto 1600 no hospedeiro.
+- **Endereço IP ou nome de rede da máquina hospedeira**: Esta é a máquina hospedeira onde o recipiente Azure SQL Edge está em funcionamento.
+- **Mapeamento do porto de anfitrião do recipiente Azure SQL Edge**: Este é o mapeamento da porta de contentores Docker para uma porta no hospedeiro. Dentro do recipiente, a Borda Azure SQL é sempre mapeada para a porta 1433. Pode mudar isto se quiser. Para alterar o número da porta, atualize as **opções de criação** de recipientes para o módulo Azure SQL Edge em Azure IoT Edge. No exemplo seguinte, a porta 1433 do contentor está mapeada para o porto 1600 no hospedeiro.
 
     ```JSON
     {
@@ -51,7 +51,7 @@ Para ligar a um motor de base de dados Azure SQL Edge a partir de uma máquina d
     }
     ```
 
-- **Palavra-passe SA para o exemplo Azure SQL Edge** : Este é o valor especificado para a variável ambiental durante a `SA_PASSWORD` implementação do Azure SQL Edge.
+- **Palavra-passe SA para o exemplo Azure SQL Edge**: Este é o valor especificado para a variável ambiental durante a `SA_PASSWORD` implementação do Azure SQL Edge.
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Ligue ao motor da base de dados a partir do recipiente
 
@@ -94,7 +94,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## <a name="connect-to-azure-sql-edge-from-another-network-machine"></a>Ligue-se ao Azure SQL Edge a partir de outra máquina de rede
 
-É melhor ligar-se à instância de Azure SQL Edge a partir de outra máquina da rede. Para tal, utilize o endereço IP do anfitrião Docker e a porta de acolhimento para a qual está mapeado o recipiente Azure SQL Edge. Por exemplo, se o endereço IP do anfitrião Docker for *xxx.xxx.xxx.xxx* , e o contentor Azure SQL Edge estiver mapeado para a porta de acolhimento *1600* , então o endereço do servidor, por exemplo, Azure SQL Edge seria *xxx.xxx.xxx.xxx.1600*. O script de python atualizado é:
+É melhor ligar-se à instância de Azure SQL Edge a partir de outra máquina da rede. Para tal, utilize o endereço IP do anfitrião Docker e a porta de acolhimento para a qual está mapeado o recipiente Azure SQL Edge. Por exemplo, se o endereço IP do anfitrião Docker for *xxx.xxx.xxx.xxx*, e o contentor Azure SQL Edge estiver mapeado para a porta de acolhimento *1600*, então o endereço do servidor, por exemplo, Azure SQL Edge seria *xxx.xxx.xxx.xxx.1600*. O script de python atualizado é:
 
 ```python
 

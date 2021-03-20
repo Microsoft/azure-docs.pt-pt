@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397455"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotações para controlador de entrada de gateway de aplicação 
 
 ## <a name="introductions"></a>Apresentações
 
-O recurso Kubernetes Ingress pode ser anotado com pares arbitrários de chave/valor. A AGIC baseia-se em anotações para programar funcionalidades de Gateway de Aplicação, que não são configuráveis através do INgress YAML. As anotações ingresss são aplicadas a todas as definições HTTP, piscinas de backend e ouvintes derivados de um recurso de entrada.
+O recurso Kubernetes Ingress pode ser anotado com pares arbitrários de chave/valor. A AGIC baseia-se em anotações para programar funcionalidades de Gateway de Aplicação, que não são configuráveis através do INgress YAML. As anotações ingres são aplicadas a todas as definições HTTP, piscinas de backend e ouvintes derivados de um recurso de entrada.
 
 ## <a name="list-of-supported-annotations"></a>Lista de anotações apoiadas
 

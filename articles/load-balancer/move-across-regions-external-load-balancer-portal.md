@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94693754"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Mover um equilibrador de carga externo para outra região utilizando o portal Azure
@@ -43,9 +43,9 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o IP público de origem e selecione-o.
-3. Selecione **Settings**  >  **o modelo de exportação de** definições.
+3. Selecione   >  **o modelo de exportação de** definições.
 4. Selecione **Implementar** sob **o modelo de Exportação.**
-5. Selecione **TEMPLATE**  >  **modelo Editar parâmetros** para abrir o parameters.jsno ficheiro no editor online.
+5. Selecione   >  **modelo Editar parâmetros** para abrir o parameters.jsno ficheiro no editor online.
 8. Para editar o parâmetro do nome IP público, altere a propriedade de **valor** em **parâmetros** do nome IP público de origem para o nome do seu IP público alvo. Incluir o nome em aspas.
 
     ```json
@@ -63,7 +63,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
     **Selecione Save** no editor.
 
-9.  Selecione **modelo de** edição de modelo para abrir o template.jsno ficheiro no editor  >  **Edit template** online.
+9.  Selecione **modelo de** edição de modelo para abrir o template.jsno ficheiro no editor  >   online.
 
 10. Para editar a região-alvo para a qual o IP público será movido, altere o imóvel de **localização** em **recursos**:
 
@@ -141,11 +141,11 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
  
 13. **Selecione Save** no editor online.
 
-14. Selecione **SUBSCRIÇão BASICS**  >  **Subscription** para escolher a subscrição onde o IP público-alvo será implementado.
+14. Selecione **SUBSCRIÇão BASICS**  >   para escolher a subscrição onde o IP público-alvo será implementado.
 
-15. Selecione o grupo de recursos **BASICS**  >  **Resource group** para escolher o grupo de recursos onde o IP público-alvo será implementado. Pode selecionar **Criar novo** para criar um novo grupo de recursos para o IP público-alvo. Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
+15. Selecione o grupo de recursos **BASICS**  >   para escolher o grupo de recursos onde o IP público-alvo será implementado. Pode selecionar **Criar novo** para criar um novo grupo de recursos para o IP público-alvo. Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
 
-16. Verifique se **a localização BASICS**  >  **Location** está definida para o local alvo onde deseja que o IP público seja implantado.
+16. Verifique se **a localização BASICS**  >   está definida para o local alvo onde deseja que o IP público seja implantado.
 
 17. Em **DEFINIÇÕES,** verifique se o nome corresponde ao nome que inseriu anteriormente no editor de parâmetros.
 
@@ -159,9 +159,9 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o balanceador de carga externo de origem e selecione-o.
-3. Selecione **Settings**  >  **o modelo de exportação de** definições.
+3. Selecione   >  **o modelo de exportação de** definições.
 4. Selecione **Implementar** sob **o modelo de Exportação.**
-5. Selecione **TEMPLATE**  >  **modelo Editar parâmetros** para abrir o parameters.jsno ficheiro no editor online.
+5. Selecione   >  **modelo Editar parâmetros** para abrir o parameters.jsno ficheiro no editor online.
 
 5. Para editar o parâmetro do nome do balançador de carga externo, altere a propriedade de **valor** do nome do balançador externo de origem para o nome do equilibrador de carga externo alvo. Incluir o nome em aspas.
 
@@ -223,7 +223,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
         },
     ```
 
-8.  Selecione **modelo de** edição de modelo para abrir o template.jsno ficheiro no editor  >  **Edit template** online.
+8.  Selecione **modelo de** edição de modelo para abrir o template.jsno ficheiro no editor  >   online.
 9.  Para editar a região-alvo para a qual será movida a configuração do balançador de carga externo, altere a propriedade de **localização** sob **recursos** na template.jsem arquivo:
 
     ```json
@@ -389,11 +389,11 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
 12. **Selecione Save** no editor online.
 
-13. Selecione **SUBSCRIÇão BASICS**  >  **Subscription** para escolher a subscrição onde o balanceador de carga externo alvo será implantado.
+13. Selecione **SUBSCRIÇão BASICS**  >   para escolher a subscrição onde o balanceador de carga externo alvo será implantado.
 
-15. Selecione o grupo de recursos **BASICS**  >  **Resource group** para escolher o grupo de recursos onde o balanceador de carga-alvo será implantado. Pode selecionar **Criar novo** para criar um novo grupo de recursos para o balanceador de carga externo alvo. Ou pode escolher o grupo de recursos existente que criou anteriormente para o IP público. Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do equilibrador de carga externo de origem existente.
+15. Selecione o grupo de recursos **BASICS**  >   para escolher o grupo de recursos onde o balanceador de carga-alvo será implantado. Pode selecionar **Criar novo** para criar um novo grupo de recursos para o balanceador de carga externo alvo. Ou pode escolher o grupo de recursos existente que criou anteriormente para o IP público. Certifique-se de que o nome não é o mesmo que o grupo de recursos de origem do equilibrador de carga externo de origem existente.
 
-16. Verifique se **a localização BASICS**  >  **Location** está definida para o local alvo onde deseja que o balançador de carga externo seja implantado.
+16. Verifique se **a localização BASICS**  >   está definida para o local alvo onde deseja que o balançador de carga externo seja implantado.
 
 17. Em **DEFINIÇÕES,** verifique se o nome corresponde ao nome introduzido anteriormente no editor de parâmetros. Verifique se os IDs de recursos são preenchidos para quaisquer IPs públicos na configuração.
 

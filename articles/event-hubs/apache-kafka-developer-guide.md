@@ -4,16 +4,16 @@ description: Este artigo fornece links para artigos que descrevem como integrar 
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90061738"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guia de desenvolvimento apache Kafka para hubs de eventos Azure
 Este artigo fornece links para artigos que descrevem como integrar as suas aplicações Apache Kafka com Azure Event Hubs. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Event Hubs fornece um ponto final kafka que pode ser usado pelas suas aplicações existentes baseadas em Kafka como uma alternativa para executar o seu próprio cluster Kafka. O Event Hubs trabalha com muitas das suas aplicações kafka existentes. Para mais informações, consulte [Os Centros de Eventos para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
@@ -22,7 +22,7 @@ Você pode encontrar quickstarts no GitHub e neste conjunto de conteúdos que o 
 ### <a name="quickstarts-in-github"></a>Quickstarts em GitHub
 Veja os seguintes quickstarts no **azure-event-hubs-for-kafka** repo: 
 
-| Linguagem/enquadramento do cliente | Descrição | 
+| Linguagem/enquadramento do cliente | Description | 
 | ------------------------- | ----------- | 
 | [.NET](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/dotnet) | <p>Este quickstart mostrará como criar e conectar-se a um ponto final de Event Hubs Kafka usando um produtor de exemplo e consumidor escrito em C# usando .NET Core 2.0.</p><p>Esta amostra baseia-se no [cliente Apache Kafka .NET da Confluent,](https://github.com/confluentinc/confluent-kafka-dotnet)modificado para utilização com Centros de Eventos para Kafka.</p> | 
 | [Java](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | Este quickstart mostrará como criar e conectar-se a um ponto final de Event Hubs Kafka usando um produtor e consumidor de exemplo escrito em Java. |
@@ -42,7 +42,7 @@ Consulte o quickstart: [Streaming de dados com Os Centros de Eventos utilizando 
 ### <a name="tutorials-in-github"></a>Tutoriais em GitHub
 Veja os seguintes tutoriais no GitHub:
 
-| Tutorial | Descrição | 
+| Tutorial | Description | 
 | ------------------------- | ----------- | 
 | [Akka](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/akka/java) | Este tutorial mostra como ligar akka Streams aos Centros de Eventos ativados pela Kafka sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Existem dois tutoriais separados usando linguagens de programação **java** e **Scala.** | 
 | [Ligar](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) | Este documento irá acompanhá-lo através da integração do Kafka Connect com os Azure Event Hubs e da implementação de conectores básicos FileStreamSource e FileStreamSink. Embora estes conectores não sejam destinados ao uso da produção, demonstram um cenário de ligação kafka de ponta a ponta onde o Azure Event Hubs se disfarça como um corretor Kafka.| 
@@ -63,7 +63,7 @@ Além disso, consulte o tutorial: [Processa Apache Kafka para eventos de Event H
 ## <a name="how-to-guides"></a>Guias de procedimentos
 Consulte os seguintes guias de como fazer na nossa documentação:
 
-| Artigo | Descrição | 
+| Artigo | Description | 
 | ------- | ----------- | 
 | [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md) | Mostra como espelhar um corretor Kafka num centro de eventos usando Kafka MirrorMaker. |
 | [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md) | Acompanha-o através da ligação da sua aplicação Spark aos Centros de Eventos para streaming em tempo real. |

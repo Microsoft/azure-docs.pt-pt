@@ -1,5 +1,5 @@
 ---
-title: Reveja o relatório de estimativa de custos do Planeamento de Recuperação do Local Azure para a recuperação de hiper-VMs para Azure. Microsoft Docs
+title: Reveja o relatório de estimativa de custos do Planeamento de Recuperação do Local Azure para a recuperação de hiper-VMs para Azure| Microsoft Docs
 description: Este artigo descreve como rever o relatório de estimativa de custos gerado o Azure Site Recovery Planner para a recuperação de desastres hiper-V para Azure.
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999217"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
@@ -167,12 +167,12 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas suportadas
 O Planeador de Implementações do Site Recovery pode gerar o relatório de custos com qualquer uma das moedas seguintes.
 
-|Moeda|Nome|Moeda|Nome|Moeda|Nome|
+|Moeda|Name|Moeda|Name|Moeda|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)|AUD|Dólar australiano ($)|BRL|Real brasileiro (R$)|
 |CAD|Dólar canadiano ($)|CHF|Franco suíço (chf)|DKK|Coroa dinamarquesa (kr)|
 |EUR|Euro (€)|GBP|Libra britânica (£)|HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rupia da Indonésia (Rp)|INR|Rupia indiana (₹)|JPY|Iene japonês (≤)|
+|IDR|Rupia da Indonésia (Rp)|INR|Rupia indiana (₹)|JPY|Iene japonês (¥)|
 |KRW|Coreano venceu (₩)|MXN|Peso mexicano (MX$)|MYR|Ringgit malaio (RM$)|
 |NOK|Coroa norueguesa (kr)||NZD|Dólar da Nova Zelândia ($)||RUB|Rublo russo (руб)|
 |SAR|Rial saudita (SR)|SEK|Coroa sueca (kr)|TWD|Dólar de Taiwan (NT$)|

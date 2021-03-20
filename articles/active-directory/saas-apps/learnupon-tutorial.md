@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a LearnUpon Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | da LearnUpon Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o LearnUpon.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 297395fbd0a7fd3fc8959eed5c0aeabd7b8e5751
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Diretório Ativo Azure com a LearnUpon
@@ -132,7 +132,7 @@ Para configurar o Azure AD um único sinal de inscrição com a LearnUpon, execu
 
     ![A imagem mostra o separador de definições.](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
-1. Clique **em 'Sign On' único - SAML**e, em seguida, clique em **Definições Gerais** para configurar as definições DE SAML.
+1. Clique **em 'Sign On' único - SAML** e, em seguida, clique em **Definições Gerais** para configurar as definições DE SAML.
    
     ![A screenshot mostra single sign on - SAML selecionado com Definições Gerais selecionadas.](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
@@ -154,9 +154,9 @@ Para configurar o Azure AD um único sinal de inscrição com a LearnUpon, execu
   
     exemplo, Na caixa de texto **URL sign out,** cole o valor **URL logout,** que copiou a partir do portal Azure.
 
-    h. Clique **em Gerir impressões digitais dos dedos**e, em seguida, faça o upload da impressão digital do seu certificado descarregado.
+    h. Clique **em Gerir impressões digitais dos dedos** e, em seguida, faça o upload da impressão digital do seu certificado descarregado.
 
-1. Clique nas **Definições do Utilizador**e, em seguida, execute os seguintes passos:
+1. Clique nas **Definições do Utilizador** e, em seguida, execute os seguintes passos:
 
      ![A screenshot mostra a secção Definições do Utilizador onde pode introduzir os valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
@@ -192,7 +192,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao LearnUpon.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **LearnUpon**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **LearnUpon**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

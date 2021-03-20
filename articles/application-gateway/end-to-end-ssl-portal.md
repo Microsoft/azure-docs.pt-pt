@@ -10,13 +10,13 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397506"
 ---
-# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configure o TLS de ponta a ponta utilizando o Gateway de Aplicação com o portal
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurar o TLS ponto a ponto com o Gateway de Aplicação através do portal
 
 Este artigo descreve como usar o portal Azure para configurar a encriptação de segurança da camada de transporte (TLS) de ponta a ponta, anteriormente conhecida como encriptação Secure Sockets Layer (SSL), através do Azure Application Gateway v1 SKU.
 
@@ -49,7 +49,7 @@ Para saber mais, consulte [ativar a rescisão do TLS enquanto cria um novo gatew
 
 3. Selecione **appGatewayBackendHttpSettings**.
 
-4. Ao abrigo **do Protocolo** , selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.**
+4. Ao abrigo **do Protocolo**, selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.**
 
 5. Selecione **Criar novo**.
 
@@ -57,7 +57,7 @@ Para saber mais, consulte [ativar a rescisão do TLS enquanto cria um novo gatew
 
 7. Selecione o ficheiro de certificado na caixa **de certificados Upload CER.**
 
-   Para os gateways de aplicação Standard e WAF (v1), deverá carregar a chave pública do certificado de servidor back-end em formato .cer.
+   Para os gateways de aplicações Standard e WAF (v1), deverá carregar a chave pública do certificado de servidor back-end em formato .cer.
 
    ![Adicionar um certificado](./media/end-to-end-ssl-portal/addcert.png)
 
@@ -67,7 +67,7 @@ Para saber mais, consulte [ativar a rescisão do TLS enquanto cria um novo gatew
 
    ![Certificado de raiz](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
-8. Selecione **Save** (Guardar).
+8. Selecione **Guardar**.
 
 ## <a name="enable-end-to-end-tls-for-an-existing-application-gateway"></a>Ativar o TLS de ponta a ponta para um gateway de aplicações existente
 
@@ -84,7 +84,7 @@ Se escolher esta última opção, aplique os passos no seguinte procedimento.
 
 3. Selecione **o ouvinte básico** ou **multi-site,** dependendo dos seus requisitos.
 
-4. Ao abrigo **do Protocolo** , selecione **HTTPS**. Aparece um painel para **o Certificado.**
+4. Ao abrigo **do Protocolo**, selecione **HTTPS**. Aparece um painel para **o Certificado.**
 
 5. Faça o upload do certificado PFX que pretende utilizar para a rescisão de TLS entre o cliente e o gateway de aplicações.
 
@@ -103,7 +103,7 @@ Se escolher esta última opção, aplique os passos no seguinte procedimento.
 
 3. Selecione **appGatewayBackendHttpSettings**.
 
-4. Ao abrigo **do Protocolo** , selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.** 
+4. Ao abrigo **do Protocolo**, selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.** 
 
 5. Selecione **Criar novo**.
 
@@ -111,7 +111,7 @@ Se escolher esta última opção, aplique os passos no seguinte procedimento.
 
 7. Selecione o ficheiro de certificado na caixa **de certificados Upload CER.**
 
-   Para os gateways de aplicação Standard e WAF (v1), deverá carregar a chave pública do certificado de servidor back-end em formato .cer.
+   Para os gateways de aplicações Standard e WAF (v1), deverá carregar a chave pública do certificado de servidor back-end em formato .cer.
 
    ![Adicionar um certificado](./media/end-to-end-ssl-portal/addcert.png)
 
@@ -119,7 +119,7 @@ Se escolher esta última opção, aplique os passos no seguinte procedimento.
 
    ![Adicionar certificado de raiz fidedigno](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-8. Selecione **Save** (Guardar).
+8. Selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

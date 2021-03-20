@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
 ms.openlocfilehash: 546c0c21762d0cfe10cf4f1b7a2e1b7d6691166e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98685264"
 ---
 # <a name="connect-to-a-sql-pool-in-azure-synapse"></a>Conecte-se a uma piscina SQL em Azure Synapse 
@@ -26,7 +26,7 @@ Adecte-se a uma piscina SQL em Azure Synapse.
 
 O nome do servidor no exemplo seguinte é sqlpoolservername.database.windows.net. Descubra o nome de servidor completamente qualificado:
 
-1. Aceda ao [portal do Azure](https://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Clique em **Azure Synapse Analytics**.
 3. Clique na piscina SQL a que pretende ligar.
 4. Localize o nome do servidor completo.

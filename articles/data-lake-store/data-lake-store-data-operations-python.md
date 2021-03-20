@@ -1,5 +1,5 @@
 ---
-title: 'Python: Operações de sistema de ficheiros na Azure Data Lake Storage Gen1 Microsoft Docs'
+title: 'Python: Operações de sistema de ficheiros em Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Saiba como usar o Python SDK para trabalhar com o sistema de ficheiros Data Lake Storage Gen1.
 services: data-lake-store
 author: twooley
@@ -9,10 +9,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
 ms.openlocfilehash: 8ca455a802b180163579f67104a61f455dd54f94
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109226"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de sistema de ficheiros em Azure Data Lake Storage Gen1 usando Python

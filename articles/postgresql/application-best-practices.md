@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.openlocfilehash: 6463f30bc79d937bd5a51a5c8c78fbdd72954b1e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97364605"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-postgresql"></a>Melhores práticas para a construção de uma aplicação com Base de Dados Azure para PostgreSQL
@@ -49,7 +49,7 @@ A sua aplicação pode sofrer erros transitórios quando as ligações à base d
 Pode utilizar [a replicação de dados](./concepts-read-replicas.md) para cenários de falha. Quando se utiliza réplicas de leitura, não ocorre qualquer falha automatizada entre servidores de origem e réplica. Vai notar um desfasamento entre a fonte e a réplica porque a replicação é assíncronea. O lag de rede pode ser influenciado por muitos fatores, como o tamanho da carga de trabalho que funciona no servidor de origem e a latência entre centros de dados. Na maioria dos casos, o lag de réplica varia de alguns segundos a alguns minutos.
 
 
-## <a name="database-deployment"></a>Implantação de bases de dados
+## <a name="database-deployment"></a>Implementação de base de dados
 
 ### <a name="configure-cicd-deployment-pipeline"></a>Configure o gasoduto de implantação CI/CD
 De vez em quando, tem de implementar alterações na sua base de dados. Nesses casos, pode utilizar a integração contínua (CI) através [das ações do GitHub](https://github.com/Azure/postgresql/blob/master/README.md) para o seu servidor PostgreSQL atualizar a base de dados executando um script personalizado contra ele.

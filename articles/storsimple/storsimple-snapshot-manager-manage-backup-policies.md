@@ -1,5 +1,5 @@
 ---
-title: StorSimple Políticas de backup do Gestor de Instantâneos / Microsoft Docs
+title: Políticas de backup do StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como utilizar o snap-in do StorSimple Snapshot Manager MMC para criar e gerir as políticas de backup que controlam as cópias de segurança programadas.
 services: storsimple
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054947"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use storSimple Snapshot Manager para criar e gerir políticas de backup
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma política de backup cria um calendário para fazer backup de dados de volume localmente ou na nuvem. Quando cria uma política de backup, também pode especificar uma política de retenção. (Pode reter um máximo de 64 instantâneos.) Para obter mais informações sobre as políticas de backup, consulte [os tipos de Backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) na série [StorSimple 8000: uma solução de nuvem híbrida](storsimple-overview.md).
 
 Este tutorial explica como:
@@ -36,7 +36,7 @@ Utilize o seguinte procedimento para criar uma nova política de backup.
 
 #### <a name="to-create-a-backup-policy"></a>Para criar uma política de backup
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
-2. No painel **de âmbito,** clique com o botão direito políticas de **backup**e clique em Criar Política **de Backup**.
+2. No painel **de âmbito,** clique com o botão direito políticas de **backup** e clique em Criar Política **de Backup**.
 
     ![Criar uma política de cópias de segurança](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 

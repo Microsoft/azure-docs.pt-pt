@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 01/12/2021
 ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98179270"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Quickstart: Criar uma pesquisa cognitiva Azure no portal Azure
@@ -92,7 +92,7 @@ Em seguida, configurar o enriquecimento de IA para invocar OCR, análise de imag
 
 ### <a name="step-3---configure-the-index"></a>Passo 3 - Configurar o índice
 
-Um índice contém o seu conteúdo pes procurado e o assistente **de dados de Importação** pode normalmente criar o esquema para si através da amostragem da fonte de dados. Neste passo, reveja o esquema gerado e reveja potencialmente quaisquer definições. Abaixo está o esquema padrão criado para o conjunto de dados de demo Blob.
+Um índice contém o seu conteúdo pes **pes pes procurado** e o assistente de dados de Importação pode normalmente criar o esquema para si através da amostragem da fonte de dados. Neste passo, reveja o esquema gerado e reveja potencialmente quaisquer definições. Abaixo está o esquema padrão criado para o conjunto de dados de demo Blob.
 
 Para este início rápido, o assistente é muito útil, pois define predefinições razoáveis:  
 

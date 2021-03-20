@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: chrande
 ms.custom: devx-track-js
 ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360144"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação Node.js utilizando a conta API API da Azure Cosmos DB Gremlin
@@ -152,13 +152,13 @@ Esta aplicação de consola utiliza o controlador [gremlin Node.jsde ](https://w
 
 1. Abra o ficheiro *config.js.* 
 
-2. Em *config.js* , preencha a `config.endpoint` chave com o valor **gremlin Endpoint** a partir da página **geral** da sua conta Cosmos DB no portal Azure. 
+2. Em *config.js*, preencha a `config.endpoint` chave com o valor **gremlin Endpoint** a partir da página **geral** da sua conta Cosmos DB no portal Azure. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Ver e copiar uma chave de acesso no portal Azure, página geral":::
 
-3. Em *config.js* , preencha o valor config.primaryKey com o valor **da Chave Primária** a partir da página **Keys** da sua conta Cosmos DB no portal Azure. 
+3. Em *config.js*, preencha o valor config.primaryKey com o valor **da Chave Primária** a partir da página **Keys** da sua conta Cosmos DB no portal Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -206,7 +206,7 @@ Experimente concluir `g.V()` com `.has('firstName', 'Thomas')`, para testar o fi
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a criar uma conta DB Azure Cosmos, criar um gráfico utilizando o Data Explorer e executar uma aplicação Node.js para adicionar dados ao gráfico. Agora pode criar consultas mais complexas e implementar a lógica de passagem de gráfico através do Gremlin. 
 

@@ -1,5 +1,5 @@
 ---
-title: Requisitos de identidade para design de identidade em nuvem híbrida Azure Microsoft Docs
+title: Requisitos de identidade para design de identidade de nuvem híbrida Azure | Microsoft Docs
 description: Identifique as necessidades comerciais da empresa que o levarão a definir os requisitos para o design de identidade híbrida.
 documentationcenter: ''
 services: active-directory
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89660560"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de identidade para a sua solução de identidade híbrida
@@ -29,7 +29,7 @@ O primeiro passo para a conceção de uma solução de identidade híbrida é de
 
 É preciso passar por estes aspetos fundamentais do negócio para perceber o que é uma exigência agora e o que a empresa planeia para o futuro. Se não tiver a visibilidade da estratégia de longo prazo para o design de identidade híbrida, é provável que a sua solução não seja escalável à medida que as necessidades do negócio crescem e mudam. O diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e as cargas de trabalho que estão a ser desbloqueadas para os utilizadores. Este é apenas um exemplo de todas as novas possibilidades que podem ser desbloqueadas e entregues com uma sólida estratégia de identidade híbrida. 
 
-Alguns componentes que fazem parte da arquitetura híbrida de ![ identidade híbrida arquitetura arquitetura arquitetura arquitetura](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Alguns componentes que fazem parte da arquitetura híbrida de ![ identidade híbrida arquitetura](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Determinar as necessidades do negócio
 Cada empresa terá requisitos diferentes, mesmo que estas empresas façam parte da mesma indústria, os requisitos reais do negócio podem variar. Ainda pode aproveitar as melhores práticas da indústria, mas no final são as necessidades de negócio da empresa que o levarão a definir os requisitos para o design de identidade híbrida. 
@@ -110,6 +110,6 @@ Também tem de avaliar os requisitos do utilizador. Esta avaliação é importan
 ## <a name="next-steps"></a>Passos seguintes
 [Determinar os requisitos de sincronização do diretório](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

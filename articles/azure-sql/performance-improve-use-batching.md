@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792604"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como utilizar o lote para melhorar o desempenho da aplicação Azure SQL Estrudindo
@@ -106,7 +106,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes realizara
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure to Azure (mesmo datacenter)** :
+**Azure to Azure (mesmo datacenter)**:
 
 | Operações | Nenhuma transação (ms) | Transação (ms) |
 | --- | --- | --- |
@@ -128,7 +128,7 @@ Para obter mais informações sobre transações em ADO.NET, consulte [As Transa
 
 ### <a name="table-valued-parameters"></a>Parâmetros de valor de tabela
 
-Os parâmetros valorizados pela tabela suportam os tipos de tabela definidos pelo utilizador como parâmetros em declarações Transact-SQL, procedimentos armazenados e funções. Esta técnica de loteamento do lado do cliente permite-lhe enviar várias linhas de dados dentro do parâmetro valorado da tabela. Para utilizar parâmetros valorizados por tabela, primeiro defina um tipo de tabela. A seguinte declaração Transact-SQL cria um tipo de tabela chamado **MyTableType** .
+Os parâmetros valorizados pela tabela suportam os tipos de tabela definidos pelo utilizador como parâmetros em declarações Transact-SQL, procedimentos armazenados e funções. Esta técnica de loteamento do lado do cliente permite-lhe enviar várias linhas de dados dentro do parâmetro valorado da tabela. Para utilizar parâmetros valorizados por tabela, primeiro defina um tipo de tabela. A seguinte declaração Transact-SQL cria um tipo de tabela chamado **MyTableType**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas a partir de um parâmetro de valor de mesa, **\@ TestTvp** . O objeto **DataTable** anteriormente criado é atribuído a este parâmetro com o método **SqlCommand.Parâmetros.Add.** O loteamento dos encaixes numa chamada aumenta significativamente o desempenho sobre as inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas a partir de um parâmetro de valor de mesa, **\@ TestTvp**. O objeto **DataTable** anteriormente criado é atribuído a este parâmetro com o método **SqlCommand.Parâmetros.Add.** O loteamento dos encaixes numa chamada aumenta significativamente o desempenho sobre as inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, utilize um procedimento armazenado em vez de um comando baseado em texto. O seguinte comando Transact-SQL cria um procedimento armazenado que requer o parâmetro de tabela **SimpleTestTableType.**
 
@@ -212,7 +212,7 @@ Para obter mais informações sobre parâmetros valorizados por tabela, consulte
 
 ### <a name="sql-bulk-copy"></a>Cópia a granel SQL
 
-A cópia a granel SQL é outra forma de inserir grandes quantidades de dados numa base de dados-alvo. .Net aplicações podem usar a classe **SqlBulkCopy** para realizar operações de inserção a granel. **SqlBulkCopy** é semelhante em função à ferramenta de linha de comando, **Bcp.exe,** ou à declaração Transact-SQL, **BULK INSERT** . O exemplo de código que se segue mostra como copiar em massa as linhas na **datatable** de origem, tabela, para a tabela de destino, MyTable.
+A cópia a granel SQL é outra forma de inserir grandes quantidades de dados numa base de dados-alvo. .Net aplicações podem usar a classe **SqlBulkCopy** para realizar operações de inserção a granel. **SqlBulkCopy** é semelhante em função à ferramenta de linha de comando, **Bcp.exe,** ou à declaração Transact-SQL, **BULK INSERT**. O exemplo de código que se segue mostra como copiar em massa as linhas na **datatable** de origem, tabela, para a tabela de destino, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))

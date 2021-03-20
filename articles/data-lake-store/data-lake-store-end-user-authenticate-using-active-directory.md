@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
 ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103786"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando O Diretório Ativo Azure
@@ -82,7 +82,7 @@ Consulte [obter o ID da aplicação](../active-directory/develop/howto-create-se
 
 Para recuperar o URI de redirecionamento, faça os seguintes passos.
 
-1. A partir do portal Azure, selecione **Azure Ative Directory**, clique nas **inscrições da App**e, em seguida, encontre e clique na aplicação nativa AD AZure que criou.
+1. A partir do portal Azure, selecione **Azure Ative Directory**, clique nas **inscrições da App** e, em seguida, encontre e clique na aplicação nativa AD AZure que criou.
 
 2. A partir da lâmina **Definições** para a aplicação, clique em **Redirecionar URIs**.
 
@@ -93,21 +93,21 @@ Para recuperar o URI de redirecionamento, faça os seguintes passos.
 
 ## <a name="step-3-set-permissions"></a>Passo 3: Definir permissões
 
-1. A partir do portal Azure, selecione **Azure Ative Directory**, clique nas **inscrições da App**e, em seguida, encontre e clique na aplicação nativa AD AZure que criou.
+1. A partir do portal Azure, selecione **Azure Ative Directory**, clique nas **inscrições da App** e, em seguida, encontre e clique na aplicação nativa AD AZure que criou.
 
-2. A partir da lâmina **Definições** para a aplicação, clique nas **permissões necessárias**e, em seguida, clique em **Adicionar**.
+2. A partir da lâmina **Definições** para a aplicação, clique nas **permissões necessárias** e, em seguida, clique em **Adicionar**.
 
     ![Screenshot da lâmina de Definições com a opção Redirecionamento U R I chamada e a lâmina de redirecionamento U R I com o verdadeiro U R que chamei.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
-3. Na lâmina **add API Access,** clique em **Selecionar uma API,** clique em **Azure Data Lake**e, em seguida, clique em **Select**.
+3. Na lâmina **add API Access,** clique em **Selecionar uma API,** clique em **Azure Data Lake** e, em seguida, clique em **Select**.
 
     ![Screenshot da lâmina de acesso Add API com a opção Select aPI chamada e a lâmina API Select com a opção Azure Data Lake e a opção Select chamada.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
 
-4.  Na lâmina **add API Access,** clique em **Selecionar permissões,** selecione a caixa de verificação para dar **acesso total à Data Lake Store**e, em seguida, clique em **Select**.
+4.  Na lâmina **add API Access,** clique em **Selecionar permissões,** selecione a caixa de verificação para dar **acesso total à Data Lake Store** e, em seguida, clique em **Select**.
 
     ![Screenshot da lâmina de acesso Add API com a opção Desempção Select chamada e a lâmina De Acesso Ativa com a ter acesso total à opção de serviço Azure Data Lake e a opção Select chamada.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-    Clique em **Done** (Concluído).
+    Clique em **Concluído**.
 
 5. Repita os dois últimos passos para conceder permissões para **a API de Gestão de Serviços windows Azure.**
 

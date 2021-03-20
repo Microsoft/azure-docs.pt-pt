@@ -4,10 +4,10 @@ description: Saiba como embalar uma aplicação existente como um hóspede execu
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86259265"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pacote e implemente um executável existente para o tecido de serviço
@@ -22,7 +22,7 @@ Ao embalar um executável existente como [um hóspede executável,](service-fabr
 
 O Visual Studio fornece um modelo de serviço de serviço de Tecido de Serviço para ajudá-lo a implementar um hóspede executável para um cluster de Tecido de Serviço.
 
-1. Escolha **o Arquivo**Novo  >  **Projeto**e crie uma aplicação de Tecido de Serviço.
+1. Escolha **o Arquivo** Novo  >  **Projeto** e crie uma aplicação de Tecido de Serviço.
 2. Escolha **o Hóspede Executável** como o modelo de serviço.
 3. Clique **em navegar** para selecionar a pasta com o seu executável e preencha os restantes parâmetros para criar o serviço.
    * *Código Pacote Comportamento*. Pode ser configurado para copiar todo o conteúdo da sua pasta para o Visual Studio Project, o que é útil se o executável não mudar. Se espera que o executável mude e queira que a capacidade de captar novas construções dinamicamente, pode optar por ligar-se à pasta. Pode utilizar pastas ligadas ao criar o projeto de aplicação no Visual Studio. Isto liga-se à localização de origem a partir do projeto, possibilitando a atualização do hóspede executável no seu destino de origem. Estas atualizações tornam-se parte do pacote de aplicações em construção.

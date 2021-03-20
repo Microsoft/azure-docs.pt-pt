@@ -5,29 +5,29 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 5e923fdf560692c645c8a69e7e26d13f69d6920c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93375818"
 ---
 ### <a name="to-take-a-backup"></a>Para efetuar uma cópia de segurança
 
-1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. A partir da lista tabular de dispositivos, selecione e clique no seu dispositivo e, em seguida, clique em **Todas as definições**. No painel **Definições** , aceda a **Definições > Gerir > Política de cópias de segurança**.
+1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. A partir da lista tabular de dispositivos, selecione e clique no seu dispositivo e, em seguida, clique em **Todas as definições**. No painel **Definições**, aceda a **Definições > Gerir > Política de cópias de segurança**.
 
     ![Adicionar-política-cópia-de-segurança](./media/storsimple-8000-take-backup/step8takebu1.png)
 
-2. No painel **Política de cópias de segurança** , clique em **+ Adicionar política**.
+2. No painel **Política de cópias de segurança**, clique em **+ Adicionar política**.
 
     ![Política de backup-backup 2](./media/storsimple-8000-take-backup/step8takebu2.png)
 
-3. No painel **Criar política de cópias de segurança** , escreva um nome que contenha entre 3 e 150 carateres para a sua política de cópia de segurança.
+3. No painel **Criar política de cópias de segurança**, escreva um nome que contenha entre 3 e 150 carateres para a sua política de cópia de segurança.
 
 4. Selecione os volumes cuja cópia de segurança efetuar. Se selecionar mais do que um volume, esses volumes são agrupados para criar uma cópia de segurança consistente de falhas.
 
     ![Política de backup-backup 3](./media/storsimple-8000-take-backup/step8takebu4.png)
 
-5. No painel **Adicionar primeira agenda** :
+5. No painel **Adicionar primeira agenda**:
 
     1. Selecione o tipo de cópia de segurança. Para obter restauros mais rápidos, selecione **Local** snapshot. Para obter resiliência de dados, selecione **Cloud** snapshot.
     2. Especifique a frequência da cópia de segurança em minutos, horas, dias ou semanas.

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: efab0234d428a8283845946289cdd1e8a17ded26
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792060"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionar um fragmento usando ferramentas elásticas de base de dados
@@ -79,6 +79,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Importante** : Utilize esta técnica apenas se tiver a certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados da gama que está a ser movida, pelo que o melhor é incluir verificações no seu código.  Se existirem linhas na gama que está a ser movida, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Utilize a [ferramenta de fusão dividida](elastic-scale-overview-split-and-merge.md) para efetuar a operação nestes casos.  
+**Importante**: Utilize esta técnica apenas se tiver a certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados da gama que está a ser movida, pelo que o melhor é incluir verificações no seu código.  Se existirem linhas na gama que está a ser movida, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Utilize a [ferramenta de fusão dividida](elastic-scale-overview-split-and-merge.md) para efetuar a operação nestes casos.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

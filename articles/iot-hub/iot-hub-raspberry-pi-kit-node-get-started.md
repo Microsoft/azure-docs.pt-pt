@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
 ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97802529"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligue raspberry Pi ao Azure IoT Hub (Node.js)
@@ -232,7 +232,7 @@ Ligue pi utilizando o cabo MICRO USB e a fonte de alimentação. Utilize o cabo 
 
    Se **não tiver o sensor,** deslote o `simulatedData` valor para fazer com que a `true` aplicação da amostra crie e utilize dados de sensores simulados.
 
-   *Nota: O endereço i2c utilizado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, pode também ser 0x76: se encontrar um erro i2c, tente alterar o valor para 118 e veja se funciona melhor. Para ver que endereço é usado pelo seu sensor, corra `sudo i2cdetect -y 1` em uma concha na framboesa pi*
+   *Nota: O endereço i2c utilizado neste tutorial é 0x77 por defeito. Dependendo da sua configuração, também pode ser 0x76: se encontrar um erro i2c, tente alterar o valor para 118 e ver se funciona melhor. Para ver que endereço é usado pelo seu sensor, corra `sudo i2cdetect -y 1` em uma concha na framboesa pi*
 
 2. Salve e saia digitando Control-O > Introduza > Control-X.
 

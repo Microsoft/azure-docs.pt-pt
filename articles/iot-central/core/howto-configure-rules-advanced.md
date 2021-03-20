@@ -1,5 +1,5 @@
 ---
-title: Utilize fluxos de trabalho para integrar a sua aplicação Azure IoT Central com outros serviços em nuvem ! Microsoft Docs
+title: Utilize fluxos de trabalho para integrar a sua aplicação Azure IoT Central com outros serviços em nuvem | Microsoft Docs
 description: Este artigo de como fazer mostra-lhe, como construtor, como configurar regras e ações que integram a sua aplicação IoT Central com outros serviços na nuvem. Para criar uma regra avançada, utilize um conector IoT Central em Aplicações de Automação de Energia ou Azure Logic.
 author: dominicbetts
 ms.author: dobett
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123325"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Utilize fluxos de trabalho para integrar a sua aplicação Azure IoT Central com outros serviços na nuvem
@@ -71,11 +71,11 @@ Para adicionar o **Azure IoT Central V3 - pré-visualizar** o conector como uma 
 Para adicionar o conector **Azure IoT Central V3- pré-visualização** como uma ação em Azure Logic Apps:
 
 1. No **Logic Apps Designer,** no painel **de ação Escolha,** selecione o **separador Personalizado.**
-1. Procure *por IoT Central*e selecione o conector **de pré-visualização Azure IoT Central V3.**
+1. Procure *por IoT Central* e selecione o conector **de pré-visualização Azure IoT Central V3.**
 1. Na lista de ações, selecione a ação IoT Central que pretende utilizar.
 1. No passo de ação, complete a configuração para a ação que escolheu. Em seguida, selecione **Guardar**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Encontre o Azure IoT Central - pré-visualizar o conector e escolha o gatilho":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Encontre o conector Azure IoT Central V3 e escolha uma ação":::
 
 ## <a name="list-of-actions"></a>Lista de ações
 
@@ -129,7 +129,7 @@ Utilize esta ação para recuperar os detalhes do dispositivo.
 | Aplicação | Escolha na sua lista de aplicações IoT Central. |
 | Dispositivo | A identificação única do dispositivo para apagar. |
 
-Pode utilizar os detalhes devolvidos nas expressões dinâmicas noutras ações. Os detalhes do dispositivo devolvidos incluem: **Aprovado,** **corpo,** **descrição do dispositivo,** **nome do dispositivo,** **modelo do dispositivo,** **aprovisionado**e **simulado**.
+Pode utilizar os detalhes devolvidos nas expressões dinâmicas noutras ações. Os detalhes do dispositivo devolvidos incluem: **Aprovado,** **corpo,** **descrição do dispositivo,** **nome do dispositivo,** **modelo do dispositivo,** **aprovisionado** e **simulado**.
 
 ### <a name="get-device-cloud-properties"></a>Obtenha propriedades na nuvem de dispositivo
 

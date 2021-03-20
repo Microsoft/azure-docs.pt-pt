@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect e federação / Microsoft Docs
+title: Azure AD Connect e federação | Microsoft Docs
 description: Esta página é a localização central para toda a documentação relativa às operações AD FS que utilizam o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a97142e0c512f4f95235ad08c94c852906d3efd8
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92095861"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e a federação

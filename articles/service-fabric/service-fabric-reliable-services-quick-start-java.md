@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-javai
 ms.openlocfilehash: f67957d711958febdb01dfad0b3c44a92cb0bcfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91535241"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Começar com serviços fiáveis em Java
@@ -30,7 +30,7 @@ Para começar com os Serviços Fiáveis, basta compreender alguns conceitos bás
 * **Tipo de serviço**: Esta é a sua implementação de serviço. É definido pela classe que escreve que se estende `StatelessService` e qualquer outro código ou dependências neles utilizados, juntamente com um nome e um número de versão.
 * **Caso de serviço nomeado**: Para executar o seu serviço, cria instâncias nomeadas do seu tipo de serviço, tal como cria instâncias de objetos de tipo classe. As instâncias de serviço são, de facto, instantâneas de objetos da sua classe de serviço que escreve.
 * **Anfitrião de serviço**: As instâncias de serviço nomeadas que cria precisam de ser executadas dentro de um hospedeiro. O anfitrião do serviço é apenas um processo em que os casos do seu serviço podem ser executados.
-* **Registo de**serviço : As inscrições reúnem tudo. O tipo de serviço deve ser registado no tempo de funcionação do Tecido de Serviço num anfitrião de serviço para permitir que o Service Fabric crie instâncias para executar.  
+* **Registo de** serviço : As inscrições reúnem tudo. O tipo de serviço deve ser registado no tempo de funcionação do Tecido de Serviço num anfitrião de serviço para permitir que o Service Fabric crie instâncias para executar.  
 
 ## <a name="create-a-stateless-service"></a>Criar um serviço apátrida
 Comece por criar uma aplicação De Tecido de Serviço. O Service Fabric SDK para Linux inclui um gerador Yeoman para fornecer o andaime para uma aplicação de Tecido de Serviço com um serviço apátrida. Comece por executar o seguinte comando Yeoman:
@@ -84,7 +84,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="implement-the-service"></a>Implementar o serviço
 
-Abra **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Esta classe define o tipo de serviço e pode executar qualquer código. A API de serviço fornece dois pontos de entrada para o seu código:
+Abra **a HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Esta classe define o tipo de serviço e pode executar qualquer código. A API de serviço fornece dois pontos de entrada para o seu código:
 
 * Um método de ponto de entrada aberto, chamado `runAsync()` , onde você pode começar a executar quaisquer cargas de trabalho, incluindo cargas de trabalho de computação de longa duração.
 
@@ -156,7 +156,7 @@ A sua aplicação deverá agora ter dois serviços: o serviço apátrida HelloWo
 
 Um serviço estatal tem os mesmos pontos de entrada que um serviço apátrida. A principal diferença é a disponibilidade de um fornecedor estatal que pode armazenar o Estado de forma fiável. O Service Fabric vem com uma implementação de fornecedor estatal chamada Reliable Collections, que permite criar estruturas de dados replicadas através do Gestor estatal fiável. Um Serviço Fidedigna imponente utiliza este fornecedor estatal por defeito.
 
-Abra HelloWorldStateful.java em **HelloWorldStateful -> src**, que contém o seguinte método RunAsync:
+Abra a .java HelloWorldStateful em **HelloWorldStateful -> src**, que contém o seguinte método RunAsync:
 
 ```java
 @Override

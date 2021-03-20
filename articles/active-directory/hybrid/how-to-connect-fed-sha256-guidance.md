@@ -18,14 +18,14 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf9347d4d14e6583febd4ffaf0447e912133b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89660930"
 ---
 # <a name="change-signature-hash-algorithm-for-microsoft-365-relying-party-trust"></a>Mude o algoritmo de hash de assinatura para a Microsoft 365 confiando na confiança do partido
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os Serviços da Federação de Diretório Ativo (AD FS) assinam os seus tokens no Microsoft Azure Ative Directory para garantir que não podem ser adulterados. Esta assinatura pode basear-se em SHA1 ou SHA256. O Azure Ative Directory agora suporta fichas assinadas com um algoritmo SHA256, e recomendamos definir o algoritmo de assinatura de fichas para SHA256 para o mais alto nível de segurança. Este artigo descreve os passos necessários para definir o algoritmo de assinatura simbólica para o nível SHA256 mais seguro.
 
 >[!NOTE]

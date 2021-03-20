@@ -1,5 +1,5 @@
 ---
-title: Apoiar políticas únicas de sing-on e de proteção de aplicações em aplicações móveis que desenvolvese Rio Azure
+title: Suporte políticas únicas de segurança de assinatura e aplicações em aplicações móveis que desenvolva | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Explicação e visão geral da construção de aplicações móveis que suportam políticas únicas de segurança de entrada e aplicações utilizando a plataforma de identidade da Microsoft e integrando-se com o Azure Ative Directory.
 services: active-directory
@@ -12,10 +12,10 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
 ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165183"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Apoie políticas únicas de segurança de assinatura e aplicações em aplicações móveis que desenvolver
@@ -57,7 +57,7 @@ Para aplicações Android, temos um [quickstart](quickstart-v2-android.md) que m
 
 A Google tem orientação para o fazer em Aplicações Android: [Chrome Custom Tabs - Google Chrome](https://developer.chrome.com/multidevice/android/customtabs).
 
-A Apple tem orientação para o fazer em aplicações iOS: [Autenticar um Utilizador Através de um Serviço Web Documentação do Desenvolvedor de Maçãs.](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service)
+A Apple tem orientação para o fazer em aplicações iOS: [Autenticar um utilizador através de um serviço web | Documentação do Desenvolvedor de Maçãs.](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service)
 
 > [!TIP]
 > O [plug-in SSO para dispositivos Apple](apple-sso-plugin.md) permite sSO para aplicações iOS que usam visualizações web incorporadas em dispositivos geridos usando o Intune. Recomendamos o MSAL e o navegador do sistema como a melhor opção para o desenvolvimento de apps que permitem sSO para todos os utilizadores, mas isso irá permitir sSO em alguns cenários onde de outra forma não é possível.

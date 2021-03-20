@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
 ms.openlocfilehash: b76eab5771d724e4f0ec56b7d5acd5cf5f91edc0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98183460"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do estado degradado no Gestor de Tráfego do Azure
@@ -43,7 +43,7 @@ Se a saúde do seu Gestor de Tráfego apresentar um estado **inativo,** então a
 Para resolver uma falha da sonda, precisa de uma ferramenta que mostre o retorno do código de estado HTTP a partir do URL da sonda. Existem muitas ferramentas disponíveis que mostram a resposta HTTP crua.
 
 * [Fiddler](https://www.telerik.com/fiddler)
-* [caracóis](https://curl.haxx.se/)
+* [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Além disso, pode utilizar o separador Rede das Ferramentas de Depuragem F12 no Internet Explorer para visualizar as respostas HTTP.

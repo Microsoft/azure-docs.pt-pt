@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5504b9bc87f78682ff584006255d4e75e5e69fa7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793352"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Transações distribuídas entre bases de dados da cloud (pré-visualização)
@@ -238,9 +238,9 @@ As transações de base de dados elásticas são suportadas em diferentes servid
 
 Utilize os seguintes cmdlets PowerShell para gerir as relações de comunicação entre servidores para transações elásticas de base de dados:
 
-* **New-AzSqlServerCommunicationLink** : Utilize este cmdlet para criar uma nova relação de comunicação entre dois servidores na Base de Dados Azure SQL. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com o outro servidor.
-* **Get-AzSqlServerCommunicationLink** : Utilize este cmdlet para recuperar as relações de comunicação existentes e as suas propriedades.
-* **Remove-AzSqlServerCommunicationLink** : Utilize este cmdlet para remover uma relação de comunicação existente.
+* **New-AzSqlServerCommunicationLink**: Utilize este cmdlet para criar uma nova relação de comunicação entre dois servidores na Base de Dados Azure SQL. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com o outro servidor.
+* **Get-AzSqlServerCommunicationLink**: Utilize este cmdlet para recuperar as relações de comunicação existentes e as suas propriedades.
+* **Remove-AzSqlServerCommunicationLink**: Utilize este cmdlet para remover uma relação de comunicação existente.
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transações em vários servidores para Azure SQL Managed Instance
 
@@ -259,8 +259,8 @@ Utilize vistas de gestão dinâmica (DMVs) para monitorizar o estado e o progres
 Estes DMVs são particularmente úteis:
 
 * **sys.dm trans \_ \_ \_ transações ativas** trans: Lista as transações atualmente ativas e o seu estado. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações infantis que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída têm o mesmo valor UOW. Para mais informações, consulte a documentação do [DMV.](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql)
-* **sys.dm \_ \_ transações de base de \_ dados de trans** : Fornece informações adicionais sobre transações, tais como a colocação da transação no registo. Para mais informações, consulte a documentação do [DMV.](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql)
-* **sys.dm tran \_ \_ locks** : Fornece informações sobre as fechaduras que são atualmente detidas por transações em curso. Para mais informações, consulte a documentação do [DMV.](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql)
+* **sys.dm \_ \_ transações de base de \_ dados de trans**: Fornece informações adicionais sobre transações, tais como a colocação da transação no registo. Para mais informações, consulte a documentação do [DMV.](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql)
+* **sys.dm tran \_ \_ locks**: Fornece informações sobre as fechaduras que são atualmente detidas por transações em curso. Para mais informações, consulte a documentação do [DMV.](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql)
 
 ## <a name="limitations"></a>Limitações
 

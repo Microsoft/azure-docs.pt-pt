@@ -1,5 +1,5 @@
 ---
-title: Controlos de página da AZure API Management / Microsoft Docs
+title: Azure API Management controle | Microsoft Docs
 description: Saiba mais sobre os controlos de página disponíveis para uso em modelos de portal de desenvolvedores na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250028"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlos de página da AZure API
@@ -168,7 +168,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
 ### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvedores  
  O `sign-up` controlo pode ser utilizado nos seguintes modelos de portal do desenvolvedor:  
   
--   [Registar-me](api-management-page-templates.md#SignUp)  
+-   [Inscrever-se](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscreva botão  
  O `subscribe-button` sistema fornece um controlo para a subscrição de um utilizador a um produto.  

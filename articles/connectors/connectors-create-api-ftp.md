@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999587"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros FTP com o Azure Logic Apps
@@ -45,8 +45,8 @@ A FTP desencadeia o trabalho através da sondagem do sistema de ficheiros FTP e 
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| Winscp | Ir a **Opções**  >  **Preferências**  >  **Transfer**  >  **Transferir Editar**  >  **Preservar horários Desativar**  >  **Disable** |
-| FileZilla | Ir para **transferir**  >  **limites tempos de ficheiros transferidos Desativar**  >  **Disable** |
+| Winscp | Ir a **Opções**  >  **Preferências**  >    >  **Transferir Editar**  >  **Preservar horários Desativar**  >   |
+| FileZilla | Ir para **transferir**  >  **limites tempos de ficheiros transferidos Desativar**  >   |
 |||
 
 Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo ficheiro está completo e não parcialmente escrito. Por exemplo, um ficheiro pode ter alterações em andamento quando o gatilho verifica o servidor de ficheiros. Para evitar a devolução de um ficheiro parcialmente escrito, o gatilho anota o tempo de tempo para o ficheiro que tem alterações recentes, mas não devolve imediatamente esse ficheiro. O gatilho devolve o ficheiro apenas quando volta a sondar o servidor. Às vezes, este comportamento pode causar um atraso que é até o dobro do intervalo de votação do gatilho.

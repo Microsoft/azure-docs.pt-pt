@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o IBM OpenPages Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o IBM OpenPages | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o IBM OpenPages.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: b4270545f1ae47286b440d1e02d5f020e6608bd1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-openpages"></a>Tutorial: Integração do Azure Ative Directory com o IBM OpenPages
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao IBM OpenPages.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **IBM OpenPages**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **IBM OpenPages**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Implemente uma porta de entrada auto-hospedada para Kubernetes Microsoft Docs
+title: Implemente uma porta de entrada auto-hospedada para Kubernetes | Microsoft Docs
 description: Saiba como implementar um componente de gateway auto-hospedado da Azure API Management para Kubernetes
 services: api-management
 author: vladvino
@@ -10,10 +10,10 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89500135"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementar um gateway autoalojado no Kubernetes
@@ -35,7 +35,7 @@ Este artigo descreve os passos para a implantação do componente de gateway aut
 3. Selecione **Implantação**.
 4. Um token de acesso na caixa de texto **Token** foi gerado automaticamente para si, com base nos valores de **validade** e **segredo** padrão. Se necessário, escolha valores em ambos os controlos para gerar um novo token.
 5. Selecione o separador **Kubernetes** nos **scripts de Implementação**.
-6. Selecione o link de ficheiro ** \<gateway-name\> .yml** e descarregue o ficheiro YAML.
+6. Selecione o link de ficheiro **\<gateway-name\> .yml** e descarregue o ficheiro YAML.
 7. Selecione o ícone de **cópia** no canto inferior direito da caixa de texto **Implementar** para guardar os `kubectl` comandos para a área de transferência.
 8. Cole comandos para a janela do terminal (ou comando). O primeiro comando cria um segredo de Kubernetes que contém o símbolo de acesso gerado no passo 4. O segundo comando aplica o ficheiro de configuração descarregado no passo 6 para o cluster Kubernetes e espera que o ficheiro esteja no diretório atual.
 9. Executar os comandos para criar os objetos Kubernetes necessários no [espaço de nome padrão](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e iniciar pods de gateway auto-hospedados a partir da imagem do [recipiente](https://aka.ms/apim/sputnik/dhub) descarregado do Registo de Contentores da Microsoft.
@@ -112,7 +112,7 @@ O ficheiro YAML fornecido no portal Azure define `externalTrafficPolicy` o campo
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Nomes de domínio personalizados e certificados SSL
 
-Se utilizar nomes de domínio personalizados para os pontos finais da API Management, especialmente se utilizar um nome de domínio personalizado para o ponto final de Gestão, poderá ter de atualizar o valor do `config.service.endpoint` ficheiro ** \<gateway-name\> .yaml** para substituir o nome de domínio predefinido pelo nome de domínio personalizado. Certifique-se de que o ponto final de Gestão pode ser acedido a partir do casulo do gateway auto-hospedado no cluster Kubernetes.
+Se utilizar nomes de domínio personalizados para os pontos finais da API Management, especialmente se utilizar um nome de domínio personalizado para o ponto final de Gestão, poderá ter de atualizar o valor do `config.service.endpoint` ficheiro **\<gateway-name\> .yaml** para substituir o nome de domínio predefinido pelo nome de domínio personalizado. Certifique-se de que o ponto final de Gestão pode ser acedido a partir do casulo do gateway auto-hospedado no cluster Kubernetes.
 
 Neste cenário, se o certificado SSL utilizado pelo ponto final de Gestão não for assinado por um certificado de CA bem conhecido, deve certificar-se de que o certificado de CA é fidedigno pelo casulo do gateway auto-hospedado.
 
