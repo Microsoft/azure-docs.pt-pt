@@ -1,5 +1,5 @@
 ---
-title: Personalize navegadores & WebViews (MSAL iOS/macOS) Rio Azure
+title: Personalize os navegadores & WebViews (MSAL iOS/macOS) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como personalizar a experiência do navegador MSAL iOS/macOS para iniciar serção nos utilizadores.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85478132"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Como: Personalizar navegadores e WebViews para iOS/macOS
@@ -74,11 +74,11 @@ O navegador que utiliza impacta a experiência SSO devido à forma como partilha
 
 | Tecnologia    | Tipo de navegador  | disponibilidade do iOS | disponibilidade de macOS | Partilha cookies e outros dados  | Disponibilidade MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 e até | macOS 10.15 e mais | Sim | iOS e macOS 10.15+ | c/ Instâncias do Safari
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 e até | macOS 10.15 e mais | Yes | iOS e macOS 10.15+ | c/ Instâncias do Safari
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 e até | N/D | Sim | Apenas no iOS |  c/ Instâncias do Safari
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 e até | N/D | Não | Apenas no iOS | Não**
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 e até | N/D | No | Apenas no iOS | Não**
 | **SFSafariViewController** | Sistema | iOS10 | N/D | Sim | Apenas no iOS |  c/ Instâncias do Safari
-| **WKWebView**  | In-app | iOS8 e até | macOS 10.10 e mais | Não | iOS e macOS | Não**
+| **WKWebView**  | In-app | iOS8 e até | macOS 10.10 e mais | No | iOS e macOS | Não**
 
 ** Para que o SSO funcione, os tokens precisam de ser partilhados entre aplicações. Isto requer uma cache simbólica, ou aplicação de corretor, como o Microsoft Authenticator para iOS.
 

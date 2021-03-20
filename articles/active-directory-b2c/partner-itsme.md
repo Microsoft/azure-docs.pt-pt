@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87489520"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configure o seu nome OpenID Connect (OIDC) com o Azure Ative Directory B2C
@@ -76,7 +76,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. Nos **serviços Azure**, selecione **Azure AD B2C** (ou selecione **Mais serviços** e use a caixa de pesquisa **de todos os serviços** para procurar *Azure AD B2C).*
 
-3. Selecione **os fornecedores de identidade**e, em seguida, selecione novo fornecedor **OpenID Connect**.
+3. Selecione **os fornecedores de identidade** e, em seguida, selecione novo fornecedor **OpenID Connect**.
 
 4. Preencha o formulário com as seguintes informações:
 

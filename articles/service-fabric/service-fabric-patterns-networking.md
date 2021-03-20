@@ -4,10 +4,10 @@ description: Descreve padrões comuns de networking para o Tecido de Serviço e 
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87421472"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede de tecido de serviço
@@ -38,7 +38,7 @@ Todos os modelos de tecido de serviço estão no [GitHub.](https://github.com/Az
 
 ### <a name="existing-virtual-network"></a>Rede virtual existente
 
-No exemplo seguinte, começamos com uma rede virtual existente chamada ExistingRG-vnet, no grupo **de recursosRG existente.** A sub-rede tem o nome de padrão. Estes recursos predefinidos são criados quando utiliza o portal Azure para criar uma máquina virtual padrão (VM). Poderia criar a rede virtual e a sub-rede sem criar o VM, mas o principal objetivo de adicionar um cluster a uma rede virtual existente é fornecer conectividade de rede a outros VMs. A criação do VM dá um bom exemplo de como uma rede virtual existente é normalmente utilizada. Se o seu cluster Service Fabric utilizar apenas um equilibrador de carga interno, sem endereço IP público, pode utilizar o VM e o seu IP público como *uma caixa de salto*segura.
+No exemplo seguinte, começamos com uma rede virtual existente chamada ExistingRG-vnet, no grupo **de recursosRG existente.** A sub-rede tem o nome de padrão. Estes recursos predefinidos são criados quando utiliza o portal Azure para criar uma máquina virtual padrão (VM). Poderia criar a rede virtual e a sub-rede sem criar o VM, mas o principal objetivo de adicionar um cluster a uma rede virtual existente é fornecer conectividade de rede a outros VMs. A criação do VM dá um bom exemplo de como uma rede virtual existente é normalmente utilizada. Se o seu cluster Service Fabric utilizar apenas um equilibrador de carga interno, sem endereço IP público, pode utilizar o VM e o seu IP público como *uma caixa de salto* segura.
 
 ### <a name="static-public-ip-address"></a>Endereço IP público estático
 

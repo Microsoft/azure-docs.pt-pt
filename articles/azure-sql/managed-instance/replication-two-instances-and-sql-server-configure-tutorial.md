@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/21/2019
 ms.openlocfilehash: d2b45f5b51f4656294632aa46f679a7a09c06ed3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94593931"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Azure SQL Managed Instance e o SQL Server
@@ -146,7 +146,7 @@ Uma zona privada de DNS permite o encaminhamento de DNS entre as instâncias ger
 
 ### <a name="create-a-private-dns-zone"></a>Criar uma zona privada de DNS
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. **Selecione Criar um recurso** para criar um novo recurso Azure.
 1. Pesquisa `private dns zone` no Azure Marketplace.
 1. Escolha o recurso **de zona DNS privado** publicado pela Microsoft e, em seguida, selecione **Criar** para criar a zona DNS.
@@ -349,7 +349,7 @@ Use ReplTutorial
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. Navegue para o seu grupo de recursos no [portal Azure](https://portal.azure.com).
 1. Selecione as instâncias geridas e, em seguida, **selecione Delete**. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar**. Este processo pode demorar algum tempo a ser concluído em segundo plano, e até que esteja feito, não será capaz de eliminar o *cluster virtual* ou quaisquer outros recursos dependentes. Monitorize a eliminação no separador **'Atividade'** para confirmar que a sua instância gerida foi eliminada.
@@ -369,7 +369,7 @@ O agente foi configurado com um login do Windows e precisa de utilizar um login 
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
 
-2019-11-19 02:21:05.07 Cadeia de Conexão de Armazenamento Azure para replstorage 2019-11-19 02:21:05.07 Ligação a Azure Files Storage ' \\ replstorage.file.core.windows.net\replshare' 2019-11-19 02:21:31.21 Falhou a ligação ao Azure Storage '' com erro de SISTEMA: 53.
+2019-11-19 02:21:05.07 Cadeia de Conexão de Armazenamento Azure para replstorage 2019-11-19 02:21:05.05.007 Ligação ao Azure Files Storage ' \\ replstorage.file.core.windows.net\replshare' 2019-11-19 02:21:31.21 Falhou a ligação ao Azure Storage '' com erro de SISTEMA: 53.
 
 Isto é provável porque a porta 445 está fechada na firewall Azure, na firewall do Windows, ou em ambos.
 

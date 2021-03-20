@@ -1,5 +1,5 @@
 ---
-title: Gerir registos de controlo de acessos em StorSimple / Microsoft Docs
+title: Gerir registos de controlo de acesso em StorSimple | Microsoft Docs
 description: Descreve como utilizar registos de controlo de acesso (ACRs) para determinar quais os anfitriões que podem ligar-se a um volume no dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949909"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utilize o serviço StorSimple Manager para gerir registos de controlo de acessos
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição Geral
 Os registos de controlo de acesso (ACRs) permitem-lhe especificar quais os anfitriões que podem ligar-se a um volume no dispositivo StorSimple. Os ACRs são definidos para um volume específico e contêm os nomes qualificados iSCSI (IQNs) dos anfitriões. Quando um hospedeiro tenta ligar-se a um volume, o dispositivo verifica o ACR associado a esse volume para o nome IQN e se existe uma correspondência, então a ligação é estabelecida. Os registos de controlo de acesso na secção **de Configuração** da sua lâmina de serviço StorSimple Device Manager exibem todos os registos de controlo de acesso com as QINs correspondentes dos anfitriões.
 
 Este tutorial explica as seguintes tarefas comuns relacionadas com ACR:

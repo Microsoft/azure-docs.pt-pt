@@ -1,5 +1,5 @@
 ---
-title: Validar regras para a adesão dinâmica ao grupo (pré-visualização) - Azure AD / Microsoft Docs
+title: Validar regras para a adesão dinâmica do grupo (pré-visualização) - Azure AD | Microsoft Docs
 description: Como testar membros contra uma regra de adesão para um grupo dinâmico no Azure Ative Directory.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1048284e8e7a492bf0810a16e29409546ed414b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547564"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a>Validar uma regra de adesão dinâmica do grupo (pré-visualização) no Azure Ative Directory

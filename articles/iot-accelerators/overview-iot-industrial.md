@@ -1,5 +1,5 @@
 ---
-title: Visão geral da Azure industrial IoT [ Microsoft Docs
+title: Visão geral do IoT industrial Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral da IoT industrial. Explica a fábrica conectada, a conectividade do piso de fábrica e os componentes de segurança no IIoT.
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 3df10c9d7630e9db76994e8e508f30adb986e0d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91281818"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é ioT industrial (IIoT)

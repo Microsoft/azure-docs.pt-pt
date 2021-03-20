@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
 ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98725841"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
@@ -319,7 +319,7 @@ As seguintes funcionalidades de rede virtual não são atualmente *suportadas* c
 - **Gateway NAT**: A utilização [da Rede Virtual Azure NAT](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico tornaria a SQL Managed Instance indisponível. O serviço SQL Managed Instance está atualmente limitado ao uso de balanceador de carga básico que não proporciona coexistência de fluxos de entrada e saída com a Rede Virtual NAT.
 - **IPv6 para Azure Virtual Network**: Implantar a SQL Managed Instance para [dupla pilha redes virtuais IPv4/IPv6](../../virtual-network/ipv6-overview.md) deverá falhar. Associar o grupo de segurança da rede (NSG) ou a tabela de rotas (UDR) que contenha prefixos de endereço IPv6 na sub-rede SQL Managed Instance, ou adicionar prefixos de endereço IPv6 a NSG ou UDR que já esteja associado à sub-rede de instância gerida, tornaria indisponíveis as instâncias geridas sql. As implementações de Exemplos Geridos SQL para uma sub-rede com NSG e UDR que já têm prefixos IPv6 devem falhar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Saiba como [configurar uma nova rede virtual Azure](virtual-network-subnet-create-arm-template.md) ou uma [rede virtual Azure existente](vnet-existing-add-subnet.md) onde pode implementar a SQL Managed Instance.

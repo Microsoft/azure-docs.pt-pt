@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
 ms.openlocfilehash: e3c47a60a6cda074eba7b5c3292577c29f50c2ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87424056"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métricas NAT de rede virtual Azure
@@ -36,7 +36,7 @@ Os recursos de gateway da Rede Virtual Azure fornecem métricas multidimensionai
 
 Os recursos de gateway NAT fornecem as seguintes métricas multidimensionais no Azure Monitor:
 
-| Métrica | Descrição | Agregação recomendada | Dimensões |
+| Metric | Descrição | Agregação recomendada | Dimensões |
 |---|---|---|---|
 | Bytes | Bytes processados de entrada e saída | Soma | Direção (Em; Out), Protocolo (6 TCP; 17 UDP) |
 | Pacotes | Pacotes processados de entrada e saída | Soma | Direção (Em; Out), Protocolo (6 TCP; 17 UDP) |

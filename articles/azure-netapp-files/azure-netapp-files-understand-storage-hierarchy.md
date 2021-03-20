@@ -1,5 +1,5 @@
 ---
-title: Hierarquia de armazenamento dos Ficheiros Azure NetApp Microsoft Docs
+title: Hierarquia de armazenamento de ficheiros Azure NetApp | Microsoft Docs
 description: Descreve a hierarquia de armazenamento, incluindo contas, conjuntos de capacidade e volumes do Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91278333"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Hierarquia de armazenamento do Azure NetApp Files

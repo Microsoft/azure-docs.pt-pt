@@ -4,10 +4,10 @@ description: Aprenda a integrar ambientes Azure DevTest Labs nos seus oleodutos 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483028"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar ambientes nos seus oleodutos Azure DevOps CI/CD
@@ -34,7 +34,7 @@ Para criar a definição de libertação, faça o seguinte:
 
 1.  No **separador Lançamentos** do **hub Build & Release,** selecione o botão **de sinal mais (+).**
 2.  Na janela **de definição de desbloqueio Criar,** selecione o modelo **Vazio** e, em seguida, selecione **Seguinte**.
-3.  **Selecione Escolha Mais tarde**e, em seguida, selecione **Criar** para criar uma nova definição de lançamento com um ambiente padrão e sem artefactos ligados.
+3.  **Selecione Escolha Mais tarde** e, em seguida, selecione **Criar** para criar uma nova definição de lançamento com um ambiente padrão e sem artefactos ligados.
 4.  Para abrir o menu de atalho, na nova definição de lançamento, selecione a **elipse (...)** ao lado do nome do ambiente e, em seguida, selecione **variáveis Configure**.
 5.  Na janela **Configure - ambiente,** para as variáveis que utiliza nas tarefas de definição de libertação, insira os seguintes valores:
 1.  Para **administradorLogin,** insira o nome de login do Administrador SQL.
@@ -51,9 +51,9 @@ A próxima fase da implantação consiste em criar o ambiente a utilizar para fi
 2. Para **o Nome do Laboratório,** selecione o nome do caso que criou anteriormente*.
 3. Para **o Nome do Repositório,** selecione o repositório onde o modelo de Gestor de Recursos (201) foi empurrado para*.
 4. Para **o nome do modelo,** selecione o nome do ambiente que guardou para o seu repositório de código fonte*. 
-5. O **Nome do Laboratório,** **Nome do Repositório**e **Nome do Modelo** são as representações amigáveis dos IDs de recursos Azure. Introduzir manualmente o nome amigável provocará falhas, utilize as listas de espera para selecionar as informações.
+5. O **Nome do Laboratório,** **Nome do Repositório** e **Nome do Modelo** são as representações amigáveis dos IDs de recursos Azure. Introduzir manualmente o nome amigável provocará falhas, utilize as listas de espera para selecionar as informações.
 6. Para **o Nome do Ambiente,** insira um nome para identificar exclusivamente o caso do ambiente dentro do laboratório.  Deve ser único dentro do laboratório.
-7. O **Arquivo de Parâmetros** e os **Parâmetros**permitem que os parâmetros personalizados sejam transmitidos ao ambiente. Ambos podem ser utilizados para definir os valores dos parâmetros. Para este exemplo, utilizar-se-á a secção Parâmetros. Utilize os nomes das variáveis que definiu no ambiente, por exemplo: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+7. O **Arquivo de Parâmetros** e os **Parâmetros** permitem que os parâmetros personalizados sejam transmitidos ao ambiente. Ambos podem ser utilizados para definir os valores dos parâmetros. Para este exemplo, utilizar-se-á a secção Parâmetros. Utilize os nomes das variáveis que definiu no ambiente, por exemplo: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
 8. As informações dentro do modelo de ambiente podem ser transmitidas na secção de saída do modelo. Consulte **Criar variáveis de saída com base na saída do modelo de ambiente** para que outras tarefas possam utilizar os dados. `$(Reference name.Output Name)` é o padrão a seguir. Por exemplo, se o Nome de Referência fosse DTL e o nome de saída no modelo fosse a localização, a variável seria `$(DTL.location)` .
 
 ## <a name="delete-the-environment"></a>Apagar o ambiente

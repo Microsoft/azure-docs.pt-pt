@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484014"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Criar um ambiente com cluster de tecido de serviço independente em Azure DevTest Labs
 Este artigo fornece informações sobre como criar um ambiente com um cluster de tecido de serviço independente em Azure DevTest Labs. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A DevTest Labs pode criar ambientes de teste independentes, conforme definidos pelos modelos de Gestão de Recursos Azure. Estes ambientes contêm recursos iaaS, como máquinas virtuais, e recursos PaaS, como o Service Fabric. A DevTest Labs permite-lhe gerir máquinas virtuais num ambiente, fornecendo comandos para controlar as máquinas virtuais. Estes comandos dão-lhe a capacidade de iniciar ou parar uma máquina virtual num horário. Da mesma forma, a DevTest Labs também pode ajudá-lo a gerir clusters de Tecidos de Serviço num ambiente. Pode iniciar ou parar um cluster de Tecido de Serviço num ambiente manualmente ou através de um horário.
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
@@ -33,7 +33,7 @@ Os clusters de tecido de serviço são criados usando ambientes em DevTest Labs.
 
     ![Selecione Cluster de Laboratório de Tecido de Serviço na lista](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
 4. Na página **configurar definições,** faça os seguintes passos: 
-    1. Especifique um **nome** para o seu **ambiente**de cluster . Este é o nome do grupo de recursos em Azure no qual o cluster de Tecido de Serviço vai ser criado. 
+    1. Especifique um **nome** para o seu **ambiente** de cluster . Este é o nome do grupo de recursos em Azure no qual o cluster de Tecido de Serviço vai ser criado. 
     2. Selecione o **sistema operativo (OS)** para as máquinas virtuais do cluster. O valor predefinido é: **Windows**.
     3. Especifique um nome para o **administrador** do cluster. 
     4. Especifique uma **palavra-passe** para o administrador. 

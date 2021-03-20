@@ -1,5 +1,5 @@
 ---
-title: O que é OPC Vault - Azure / Microsoft Docs
+title: O que é OPC Vault - Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral do OPC Vault. Pode configurar, registar e gerir o ciclo de vida do certificado para aplicações OPC UA na nuvem.
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 715ed204e28d6260c28fa099b40fc78aa12de44d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91281546"
 ---
 # <a name="what-is-opc-vault"></a>O que é o Cofre OPC?

@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados da Palo Alto Networks ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados da Palo Alto Networks ao Azure Sentinel| Microsoft Docs
 description: Saiba como utilizar o conector de dados palo Alto Networks para ligar facilmente os seus registos palo Alto Networks com o Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 245db436fc3216fe5c8c8f51c50c0ac03190f9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85564560"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Ligue as redes Palo Alto a Azure Sentinel

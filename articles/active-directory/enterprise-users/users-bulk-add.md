@@ -1,5 +1,5 @@
 ---
-title: A granel cria utilizadores no portal Azure Ative Directory Microsoft Docs
+title: Criar a granel utilizadores no portal Azure Ative Directory | Microsoft Docs
 description: Adicione utilizadores a granel no centro de administração Azure AD no Azure Ative Directory
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c653f3e8583ef3aadff26cb2b7a3266555d313a2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547819"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>A granel cria utilizadores no Azure Ative Directory
@@ -70,7 +70,7 @@ As linhas de um modelo de CSV descarregado são as seguintes:
 1. Quando o seu ficheiro passar a validação, **selecione Enviar** por terminação da operação a granel Azure que importa os novos utilizadores.
 1. Quando a operação de importação estiver concluída, verá uma notificação do estado de trabalho da operação a granel.
 
-Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Em Massa.** O ficheiro contém a razão de cada erro. A submissão do ficheiro deve corresponder ao modelo fornecido e incluir os nomes exatos da coluna.
+Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Em Massa.** O ficheiro contém o motivo de cada erro. A submissão do ficheiro deve corresponder ao modelo fornecido e incluir os nomes exatos da coluna.
 
 ## <a name="check-status"></a>Verificar o estado
 

@@ -9,10 +9,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 968f82a143872fd282222539ab71a70db488a20d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91935768"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Criar um plano de continuidade de negócios e recuperação de desastres
@@ -104,8 +104,8 @@ O agente FSLogix pode suportar várias localizações de perfil se configurar as
 
 Para configurar as entradas de registo:
 
-1. Abra o **Editor de Registos.**
-2. Vá a **Perfis**  >  **HKEY_LOCAL_MACHINE**  >  **SOFTWARE**  >  **FSLogix**de software de HKEY_LOCAL_MACHINE  >  **de**computador.
+1. Abra o **Editor de Registo**.
+2. Vá a **Perfis**  >    >    >  **FSLogix** de software de HKEY_LOCAL_MACHINE  >  **de** computador.
    
      > [!div class="mx-imgBorder"]
      > ![Uma imagem da janela dos perfis no Editor de Registos. A VHDLocation está selecionada.](media/regedit-profiles.png)

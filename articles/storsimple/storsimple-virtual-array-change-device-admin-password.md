@@ -1,5 +1,5 @@
 ---
-title: Alterar StorSimple Virtual Array dispositivo admin password / Microsoft Docs
+title: Alterar StorSimple Virtual Array dispositivo admin password | Microsoft Docs
 description: Descreve como utilizar o portal Azure ou o StorSimple Virtual Array web UI para alterar a palavra-passe do administrador do dispositivo.
 services: storsimple
 documentationcenter: NA
@@ -16,15 +16,15 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8bc8846d546faec194617ccb753cdbd105e16bf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85513618"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Alterar a palavra-passe do administrador do dispositivo StorSimple Virtual Array através do Gestor de Dispositivos StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando utilizar a interface Windows PowerShell para aceder ao Array Virtual StorSimple, é-lhe exigido que introduza uma palavra-passe do administrador do dispositivo. Quando o dispositivo StorSimple é inicialmente provisionado e iniciado, a palavra-passe padrão é *Password1*. Para a segurança dos seus dados, a palavra-passe predefinida expira na primeira vez que iniciar sôs o seu sôm e é obrigado a alterar esta palavra-passe.
 

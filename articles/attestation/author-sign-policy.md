@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341812"
 ---
 # <a name="how-to-author-an-attestation-policy"></a>Como autor de uma política de atestado
@@ -36,7 +36,7 @@ issuancerules
  
 Um ficheiro de política tem três segmentos, como visto acima:
 
-- **versão** : A versão é o número de versão da gramática que é seguida. 
+- **versão**: A versão é o número de versão da gramática que é seguida. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Um ficheiro de política tem três segmentos, como visto acima:
 
     Atualmente, a única versão suportada é a versão 1.0.
 
-- **regras de autorização** : Uma recolha de regras de reclamação que será verificada primeiro, para determinar se o Azure Attestation deve proceder às **regras de emissão**. As regras de reclamação aplicam-se na ordem em que são definidas.
+- **regras de autorização**: Uma recolha de regras de reclamação que será verificada primeiro, para determinar se o Azure Attestation deve proceder às **regras de emissão**. As regras de reclamação aplicam-se na ordem em que são definidas.
 
-- **regras de emissão** : Uma recolha de regras de reclamação que serão avaliadas para adicionar informações adicionais ao resultado do atestado, tal como definido na política. As regras de reclamação aplicam-se na ordem em que são definidas e são também facultativas.
+- **regras de emissão**: Uma recolha de regras de reclamação que serão avaliadas para adicionar informações adicionais ao resultado do atestado, tal como definido na política. As regras de reclamação aplicam-se na ordem em que são definidas e são também facultativas.
 
 Consulte [as regras de reclamação e reclamação](claim-rule-grammar.md) para obter mais informações.
    
@@ -129,7 +129,7 @@ Depois de criar um ficheiro de política, para fazer o upload de uma política e
 
 2. (Opcional) Assine a apólice. A azure Attestation suporta os seguintes algoritmos:
      - **Nenhum:** Não assine a carga da apólice.
-     - **RS256** : Algoritmo suportado para assinar a carga útil da política
+     - **RS256**: Algoritmo suportado para assinar a carga útil da política
 
 3. Faça o upload do JWS e valide a apólice.
      - Se o ficheiro de política estiver isento de erros de sintaxe, o ficheiro de política é aceite pelo serviço.

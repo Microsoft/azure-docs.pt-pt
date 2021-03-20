@@ -12,10 +12,10 @@ ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010907"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Ligue para as operações da API com autorização de Chave Partilhada
@@ -44,7 +44,7 @@ Use [git](https://git-scm.com/) para descarregar uma cópia da aplicação para 
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Este comando clona o repositório para a sua pasta local do git. Para abrir a solução Visual Studio, procure a pasta storage-dotnet-rest-api-com-auth, abra-a e clique duas vezes em StorageRestApiAuth.sln.
+Este comando clona o repositório para a sua pasta local do git. Para abrir a solução Visual Studio, procure a pasta storage-dotnet-rest-api-com-auth, abra-a e clique duas vezes no StorageRestApiAuth.sln.
 
 ## <a name="about-rest"></a>Sobre o REST
 
@@ -66,7 +66,7 @@ Reveja a referência para a operação [ListContainers.](/rest/api/storageservic
 
 **Método de Pedido**: GET. Este verbo é o método HTTP que especifica como propriedade do objeto pedido. Outros valores para este verbo incluem HEAD, PUT e DELETE, dependendo da API que está a chamar.
 
-**Pedido URI**: `https://myaccount.blob.core.windows.net/?comp=list` .O pedido URI é criado a partir do ponto final da conta de armazenamento blob `https://myaccount.blob.core.windows.net` e da cadeia de recursos `/?comp=list` .
+**Pedido URI**: `https://myaccount.blob.core.windows.net/?comp=list` .  O pedido URI é criado a partir do ponto final da conta de armazenamento blob `https://myaccount.blob.core.windows.net` e da cadeia de recursos `/?comp=list` .
 
 [Parâmetros URI](/rest/api/storageservices/List-Containers2#uri-parameters): Existem parâmetros de consulta adicionais que pode utilizar ao chamar ListContainers. Alguns destes parâmetros são *tempo limite* para a chamada (em segundos) e *prefixo*, que é usado para filtragem.
 
@@ -94,7 +94,7 @@ Para segurança ao executar em produção, utilize sempre HTTPS em vez de HTTP. 
 
 No nosso projeto de amostra, o código para criar o cabeçalho de autorização está numa classe separada. A ideia é que possas pegar em toda a turma e adicioná-la à tua própria solução e usá-la "como está". O código do cabeçalho de autorização funciona para a maioria das chamadas de API rest para o armazenamento Azure.
 
-Para construir o pedido, que é um objeto httpRequestMessage, vá ao ListContainersAsyncREST em Program.cs. As etapas para a construção do pedido são:
+Para construir o pedido, que é um objeto httpRequestMessage, vá ao ListContainersAsyncREST no Programa.cs. As etapas para a construção do pedido são:
 
 - Crie o URI para ser utilizado para chamar o serviço.
 - Crie o objeto HttpRequestMessage e desfaça a carga útil. A carga é nula para listContainersAsyncREST porque não estamos a passar nada.
@@ -286,19 +286,19 @@ Este corte de código mostra o formato da cadeia de assinaturas Da Chave Partilh
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 A maioria destes campos raramente são usados. Para o armazenamento blob, especifique VERB, md5, comprimento de conteúdo, Cabeçalhos Canonizados e Recursos Canonizados. Pode deixar os outros em branco (mas coloque-os para `\n` saber que estão em branco).

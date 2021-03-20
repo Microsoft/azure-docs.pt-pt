@@ -9,17 +9,17 @@ ms.date: 08/13/2020
 ms.author: danlep
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: 173c9156f253e43111299b53287e97ab7b2c0aa5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746952"
 ---
 ## <a name="create-azure-container-registry"></a>Criar um registo de contentor do Azure
 
 Antes de criar o registo de contentor, precisa de um *grupo de recursos* no qual o implementar. Um grupo de recursos é uma coleção lógica na qual todos os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo seguinte, é criado um grupo de recursos designado *myResourceGroup* na região *eualeste* :
+Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo seguinte, é criado um grupo de recursos designado *myResourceGroup* na região *eualeste*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ Depois de criar o grupo de recursos, crie um registo de contentor do Azure com o
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Aqui está a saída parcial para um novo registo de contentores Azure chamado *mycontainerregistry082* :
+Aqui está a saída parcial para um novo registo de contentores Azure chamado *mycontainerregistry082*:
 
 ```output
 {

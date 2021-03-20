@@ -1,13 +1,13 @@
 ---
-title: Adicione um VM usando uma imagem partilhada em Azure DevTest Labs Microsoft Docs
+title: Adicione um VM usando uma imagem partilhada em Azure DevTest Labs | Microsoft Docs
 description: Saiba como adicionar uma máquina virtual (VM) utilizando uma imagem da galeria de imagens partilhada anexada em Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483861"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Adicione um VM usando uma imagem da galeria de imagens partilhada anexada

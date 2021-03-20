@@ -9,15 +9,15 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515265"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ligue ou desligue o seu dispositivo da série StorSimple 8000
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O desligamento de um dispositivo Microsoft Azure StorSimple não é necessário como parte do funcionamento normal do sistema. No entanto, poderá ser necessário ligar um novo dispositivo ou um dispositivo que teve de ser desligado. Geralmente, é necessária uma paragem nos casos em que deve substituir hardware falhado, mover fisicamente uma unidade ou retirar um dispositivo de serviço. Este tutorial descreve o procedimento necessário para ligar e desligar o seu dispositivo StorSimple em diferentes cenários.
 
 ## <a name="turn-on-a-new-device"></a>Ligue um novo dispositivo
@@ -146,7 +146,7 @@ Para desligar o dispositivo de forma ordenada e controlada, pode fazê-lo atrav�
 > [!IMPORTANT]
 > Não desligue um dispositivo de funcionamento utilizando o botão de alimentação na parte de trás do aparelho.
 > 
-> Antes de desligar o aparelho, certifique-se de que todos os componentes do dispositivo estão saudáveis. No portal Azure, navegue para a saúde do Hardware **do Monitor de Dispositivos**  >  **Monitor**  >  e verifique se o estado de todos os componentes**Hardware health**é verde. Isto só é verdade para um sistema saudável. Se o sistema estiver a ser desligado para substituir um componente avariado, verá um estado de avaria (vermelho) ou degradado (amarelo) para o respetivo componente no Estado de **Hardware**.
+> Antes de desligar o aparelho, certifique-se de que todos os componentes do dispositivo estão saudáveis. No portal Azure, navegue para a saúde do Hardware **do Monitor de Dispositivos**  >    >  e verifique se o estado de todos os componentesé verde. Isto só é verdade para um sistema saudável. Se o sistema estiver a ser desligado para substituir um componente avariado, verá um estado de avaria (vermelho) ou degradado (amarelo) para o respetivo componente no Estado de **Hardware**.
 > 
 > 
 
@@ -154,7 +154,7 @@ Depois de aceder ao Windows PowerShell para StorSimple ou o portal Azure, siga o
 
 ### <a name="device-with-ebod-enclosure"></a>Dispositivo com recinto EBOD <a name="8600a"></a>
 > [!IMPORTANT]
-> Antes de desligar o recinto primário e o recinto EBOD, certifique-se de que todos os componentes do dispositivo estão saudáveis. No portal Azure, navegue para a saúde do **Hardware devices**  >  **Monitor**  >  **Hardware health**, e verifique se todos os componentes estão saudáveis.
+> Antes de desligar o recinto primário e o recinto EBOD, certifique-se de que todos os componentes do dispositivo estão saudáveis. No portal Azure, navegue para a saúde do **Hardware devices**  >  **Monitor**  >  , e verifique se todos os componentes estão saudáveis.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para desligar um dispositivo de execução com o recinto EBOD

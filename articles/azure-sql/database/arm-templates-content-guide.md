@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
 ms.openlocfilehash: 5202145af6f60f34bdce57aa94f4fec92a8b227f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677271"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos de gestor de recursos Azure para Azure SQL Database & SQL Managed Instance
@@ -27,7 +27,7 @@ Os modelos do Azure Resource Manager permitem definir a infraestrutura como cód
 
 A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Database.
 
-|Ligação |Descrição|
+|Ligação |Description|
 |---|---|
 | [Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo de Gestor de Recursos Azure cria uma única base de dados na Base de Dados Azure SQL e configura as regras de firewall IP de nível do servidor. |
 | [Servidor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo de Gestor de Recursos Azure cria um servidor para a Base de Dados Azure SQL. |
@@ -46,7 +46,7 @@ A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azu
 
 A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Managed Instance.
 
-|Ligação|Descrição|
+|Ligação|Description|
 |---|---|
 | [SQL Managed Instance em um novo VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Este modelo de Gestor de Recursos Azure cria uma nova rede virtual Azure configurada e gerido na rede virtual. |
 | [Ambiente de rede para sql caso gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementação criará uma rede virtual Azure configurada com duas sub-redes, uma que será dedicada às suas instâncias geridas e outra onde poderá colocar outros recursos (por exemplo, VMs, ambientes de Serviço de Aplicações, etc.). Este modelo criará um ambiente de networking devidamente configurado onde pode implementar casos geridos. |

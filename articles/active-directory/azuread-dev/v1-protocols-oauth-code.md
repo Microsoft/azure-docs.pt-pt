@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5f987ab15201e4c4dabf147ac468184881e9ed17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85551644"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações Web do Azure Active Directory através do fluxo de concessão de código do OAuth 2.0
@@ -43,7 +43,7 @@ Em primeiro lugar, registe a sua candidatura junto do seu inquilino Azure Ative 
    
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
    
-1. No menu esquerdo do **Azure Ative,** selecione **Registos de Aplicações**e, em seguida, selecione **Novo registo**.
+1. No menu esquerdo do **Azure Ative,** selecione **Registos de Aplicações** e, em seguida, selecione **Novo registo**.
    
 1. Siga as instruções e crie uma nova aplicação. Não importa se é uma aplicação web ou um cliente público (mobile & desktop) para este tutorial, mas se você gostaria de exemplos específicos para aplicações web ou aplicações de clientes públicos, confira os [nossos quickstarts](v1-overview.md).
    
@@ -54,7 +54,7 @@ Em primeiro lugar, registe a sua candidatura junto do seu inquilino Azure Ative 
    
 1. Uma vez concluída a inscrição, a Azure AD atribuirá à sua aplicação um identificador de cliente único (o ID da **aplicação).** Precisa deste valor nas próximas secções, por isso copie-o da página de candidatura.
    
-1. Para encontrar a sua aplicação no portal Azure, selecione **registos de Aplicações**e, em seguida, selecione **Ver todas as aplicações**.
+1. Para encontrar a sua aplicação no portal Azure, selecione **registos de Aplicações** e, em seguida, selecione **Ver todas as aplicações**.
 
 ## <a name="oauth-20-authorization-flow"></a>Fluxo de autorização OAuth 2.0
 
@@ -78,7 +78,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` `contoso.onmicrosoft.com` ou para `common` tokens independentes do inquilino |
 | client_id |obrigatório |O ID da aplicação atribuído à sua app quando a registou no Azure AD. Pode encontrar isto no Portal Azure. Clique no **Azure Ative Directory** na barra lateral dos **serviços,** clique nos registos da App e escolha a aplicação. |
@@ -87,7 +87,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Pode `query` `fragment` ser, ou `form_post` . . `query` fornece o código como um parâmetro de cadeia de consulta no seu URI de redirecionamento. Se estiver a solicitar um token de identificação utilizando o fluxo implícito, não pode utilizar `query` como especificado na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se está a solicitar apenas o código, pode `query` `fragment` usar, ou `form_post` . `form_post` executa um POST contendo o código para o seu URI de redirecionamento. O padrão é `query` para um fluxo de código.  |
 | state |recomendado |Um valor incluído no pedido que também é devolvido na resposta simbólica. Um valor único gerado aleatoriamente é normalmente usado para [prevenir ataques de falsificação de pedidos de trans-locais](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a vista em que estavam. |
 | recurso | recomendado |A App ID URI da API web alvo (recurso seguro). Para encontrar a App ID URI, no Portal Azure, clique no **Diretório Ativo Azure,** clique nas **inscrições da Aplicação,** abra a página **de Definições** da aplicação e, em seguida, clique em **Propriedades**. Também pode ser um recurso externo como `https://graph.microsoft.com` . Isto é exigido em um dos pedidos de autorização ou simbólico. Para garantir menos instruções de autenticação, coloque-o no pedido de autorização para garantir que o consentimento é recebido do utilizador. |
-| scope | **ignorado** | Para as aplicações V1 AD Azure, os âmbitos devem ser configurados estáticamente no Portal Azure ao abrigo das **definições**de aplicações , **Permissões Necessárias**. |
+| scope | **ignorado** | Para as aplicações V1 AD Azure, os âmbitos devem ser configurados estáticamente no Portal Azure ao abrigo das **definições** de aplicações , **Permissões Necessárias**. |
 | rápido |opcional |Indique o tipo de interação do utilizador que é necessária.<p> Os valores válidos são: <p> *início de sessão*: O utilizador deve ser solicitado a reauthenticar. <p> *select_account*: O utilizador é solicitado a selecionar uma conta, interrompendo um único sinal. O utilizador pode selecionar uma conta inscrita existente, introduzir as suas credenciais para uma conta lembrada ou optar por utilizar uma conta diferente. <p> *consentimento*: O consentimento do utilizador foi concedido, mas precisa de ser atualizado. O utilizador deve ser solicitado a consentir. <p> *admin_consent*: Um administrador deve ser solicitado a consentir em nome de todos os utilizadores da sua organização |
 | login_hint |opcional |Pode ser usado para pré-preenchimento do nome de utilizador/endereço de endereço de e-mail da página de inscrição para o utilizador, se souber o seu nome de utilizador com antecedência. Muitas vezes as aplicações usam este parâmetro durante a reautornação, tendo já extraído o nome de utilizador de um pré-in usando a `preferred_username` alegação. |
 | domain_hint |opcional |Fornece uma pista sobre o inquilino ou domínio que o utilizador deve usar para iniciar sinsutar. O valor do domain_hint é um domínio registado para o arrendatário. Se o inquilino for federado para um diretório no local, a AAD redireciona para o servidor da federação de inquilinos especificado. |
@@ -134,7 +134,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto final de autorização
 A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro.
 
-| Código de Erro | Descrição | Ação do Cliente |
+| Código de Erro | Description | Ação do Cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro exigido em falta. |Corrija e reenvia o pedido. Este é um erro de desenvolvimento, e é tipicamente apanhado durante os testes iniciais. |
 | unauthorized_client |O pedido do cliente não está autorizado a solicitar um código de autorização. |Isto ocorre geralmente quando a aplicação do cliente não está registada no Azure AD ou não é adicionada ao inquilino AZure AD do utilizador. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
@@ -163,7 +163,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` `contoso.onmicrosoft.com` ou para `common` tokens independentes do inquilino |
 | client_id |obrigatório |O ID de aplicação atribuído à sua app quando a registou no Azure AD. Pode encontrar isto no portal Azure. O Id da aplicação é apresentado nas definições do registo da aplicação. |
@@ -240,7 +240,7 @@ Uma resposta de erro de amostra pode ser assim:
 #### <a name="http-status-codes"></a>Códigos de estado HTTP
 A tabela que se segue lista os códigos de estado HTTP que o ponto de terminação da emissão de token devolve. Em alguns casos, o código de erro é suficiente para descrever a resposta, mas se houver erros, é necessário analisar o documento JSON que o acompanha e examinar o seu código de erro.
 
-| Código HTTP | Descrição |
+| Código HTTP | Description |
 | --- | --- |
 | 400 |Código HTTP predefinido. Usado na maioria dos casos e é normalmente devido a um pedido mal formado. Corrija e reenvia o pedido. |
 | 401 |Falha na autenticação. Por exemplo, o pedido está faltando o parâmetro client_secret. |
@@ -248,7 +248,7 @@ A tabela que se segue lista os códigos de estado HTTP que o ponto de terminaç�
 | 500 |Ocorreu um erro interno no serviço. Recandidutar o pedido. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de erro para erros de ponto final simbólicos
-| Código de Erro | Descrição | Ação do Cliente |
+| Código de Erro | Description | Ação do Cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro exigido em falta. |Corrigir e reenviar o pedido |
 | invalid_grant |O código de autorização é inválido ou caducou. |Tente um novo pedido para o `/authorize` ponto final |
@@ -290,7 +290,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>Códigos de erro do esquema do portador
 A especificação RFC 6750 define os seguintes erros para os recursos que utilizam o WWW-Authenticate cabeçalho e o regime do Portador na resposta.
 
-| Código de Estado HTTP | Código de Erro | Descrição | Ação do Cliente |
+| Código de Estado HTTP | Código de Erro | Description | Ação do Cliente |
 | --- | --- | --- | --- |
 | 400 |invalid_request |O pedido não está bem formado. Por exemplo, pode estar a perder um parâmetro ou a usar o mesmo parâmetro duas vezes. |Corrija o erro e redaça o pedido. Este tipo de erro só deve ocorrer durante o desenvolvimento e ser detetado nos testes iniciais. |
 | 401 |invalid_token |O sinal de acesso está em falta, inválido ou revogado. O valor do parâmetro error_description fornece detalhes adicionais. |Solicite um novo sinal do servidor de autorização. Se o novo símbolo falhar, ocorreu um erro inesperado. Envie uma mensagem de erro ao utilizador e redaça após atrasos aleatórios. |

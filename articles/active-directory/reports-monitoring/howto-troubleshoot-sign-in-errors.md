@@ -1,5 +1,5 @@
 ---
-title: Como resolver relatórios de erros de sessão de resolução de problemas Microsoft Docs
+title: Como resolver os relatórios de erros de sessão de resolução de problemas | Microsoft Docs
 description: Saiba como resolver erros de sessão de resolução de problemas utilizando relatórios do Azure Ative Directory no portal Azure
 services: active-directory
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85608131"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Erros de sessão de resolução de problemas utilizando relatórios do Azure Ative Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>How to: Resolver erros de início de sessão com os relatórios do Azure Active Directory
 
 O [relatório de inscrições](concept-sign-ins.md) no Azure Ative Directory (Azure AD) permite-lhe encontrar respostas para questões em torno da gestão do acesso às aplicações na sua organização, incluindo:
 
@@ -45,7 +45,7 @@ Além disso, o relatório de inscrições também pode ajudá-lo a resolver falh
 2. Selecione **Azure Ative Directory** e selecione **Iniciar sing-ins** na secção **de Monitorização.** 
 3. Utilize os filtros fornecidos para reduzir a falha, quer pelo nome de utilizador, quer pelo identificador de objetos, nome de aplicação ou data. Além disso, selecione **Falha** da redução do **estado** para mostrar apenas as insuposições falhadas. 
 
-    ![Filtrar os resultados](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![Resultados da filtragem](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
 4. Identifique a inscrição falhada que quer investigar. Selecione-o para abrir a janela de detalhes adicionais com mais informações sobre o sinse-in falhado. Note o **código de erro de iniciar** e a razão de Falha de **inscrição**. 
 

@@ -1,5 +1,5 @@
 ---
-title: Autorizar o acesso a aplicações web com OpenID Connect & Azure AD [ Microsoft Docs
+title: Autorizar o acesso a aplicativos web com openID connect & Azure AD | Microsoft Docs
 description: Este artigo descreve como usar mensagens HTTP para autorizar o acesso a aplicações web e APIs web no seu inquilino usando O Diretório Ativo Azure e OpenID Connect.
 services: active-directory
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85551563"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações Web com o OpenID Connect e o Azure Active Directory
@@ -39,7 +39,7 @@ Em primeiro lugar, registe a sua candidatura junto do seu inquilino Azure Ative 
    
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
    
-1. No menu esquerdo do **Azure Ative,** selecione **Registos de Aplicações**e, em seguida, selecione **Novo registo**.
+1. No menu esquerdo do **Azure Ative,** selecione **Registos de Aplicações** e, em seguida, selecione **Novo registo**.
    
 1. Siga as instruções e crie uma nova aplicação. Não importa se é uma aplicação web ou um cliente público (mobile & desktop) para este tutorial, mas se você gostaria de exemplos específicos para aplicações web ou aplicações de clientes públicos, confira os [nossos quickstarts](v1-overview.md).
    
@@ -50,7 +50,7 @@ Em primeiro lugar, registe a sua candidatura junto do seu inquilino Azure Ative 
    
 1. Uma vez concluída a inscrição, a Azure AD atribuirá à sua aplicação um identificador de cliente único (o ID da **aplicação).** Precisa deste valor nas próximas secções, por isso copie-o da página de candidatura.
    
-1. Para encontrar a sua aplicação no portal Azure, selecione **registos de Aplicações**e, em seguida, selecione **Ver todas as aplicações**.
+1. Para encontrar a sua aplicação no portal Azure, selecione **registos de Aplicações** e, em seguida, selecione **Ver todas as aplicações**.
 
 ## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação utilizando o OpenID Connect
 
@@ -108,7 +108,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` `contoso.onmicrosoft.com` ou para `common` tokens independentes do inquilino |
 | client_id |obrigatório |O ID da aplicação atribuído à sua app quando a registou no Azure AD. Pode encontrar isto no portal Azure. Clique em **Azure Ative Directory,** clique em **Registos de Aplicações,** escolha a aplicação e localize o ID da aplicação na página da aplicação. |
@@ -161,7 +161,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro.
 
-| Código de Erro | Descrição | Ação do Cliente |
+| Código de Erro | Description | Ação do Cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro exigido em falta. |Corrija e reenvia o pedido. Este é um erro de desenvolvimento, e é tipicamente apanhado durante os testes iniciais. |
 | unauthorized_client |O pedido do cliente não está autorizado a solicitar um código de autorização. |Isto ocorre geralmente quando a aplicação do cliente não está registada no Azure AD ou não é adicionada ao inquilino AZure AD do utilizador. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
@@ -197,7 +197,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendado |O URL para o que o utilizador deve ser redirecionado após a assinatura com sucesso.  Este URL deve corresponder a um dos URIs de redirecionamento registados para a sua aplicação no portal de registo de aplicações.  Se *post_logout_redirect_uri* não estiver incluído, o utilizador é mostrado uma mensagem genérica. |
 

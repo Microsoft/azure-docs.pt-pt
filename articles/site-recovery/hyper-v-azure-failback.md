@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
 ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87416235"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma reativação pós-falha para VMs Hyper-V
@@ -64,8 +64,8 @@ Volte a um local alternativo da seguinte forma:
 
 1. Se estiver a configurar um novo hardware, instale uma [versão suportada do Windows](hyper-v-azure-support-matrix.md#replicated-vms)e o papel De Hiper-V na máquina.
 2. Crie um interruptor de rede virtual com o mesmo nome que tinha no servidor original.
-3. No Grupo de Proteção **de Itens Protegidos,**  >  **Protection Group**  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> selecione o VM que pretende falhar e, em seguida, selecione **"Failover" planeado**.
-4. Em **ConfirmaÇão Planeada Failover**s, eleja **Crie máquina virtual no local se não existir**.
+3. No Grupo de Proteção **de Itens Protegidos,**  >    >  \<ProtectionGroupName>  ->  \<VirtualMachineName> selecione o VM que pretende falhar e, em seguida, selecione **"Failover" planeado**.
+4. Em **ConfirmaÇão Planeada Failover** s, eleja **Crie máquina virtual no local se não existir**.
 5. No **Nome do Anfitrião,** selecione o novo servidor de anfitrião Hyper-V no qual pretende colocar o VM.
 6. Na **Sincronização de Dados,** recomendamos que selecione a opção de sincronizar os dados antes da falha. Isto minimiza o tempo de inatividade para os VMs à medida que sincroniza sem os desligar. Faz o seguinte:
     - **Fase 1**: Tira uma foto do Azure VM e copia-a para o anfitrião Hiper-V no local. A máquina continua a funcionar em Azure.

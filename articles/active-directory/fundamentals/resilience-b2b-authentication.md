@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 487efce1fe57413dda740c42a7fd3d5ea91cfa49
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724964"
 ---
 # <a name="build-resilience-in-external-user-authentication"></a>Construir resiliência na autenticação externa do utilizador
@@ -56,7 +56,7 @@ Como alternativa ao envio de convites ou links, pode ativar [a inscrição de se
 
 * **Resposta do Conector API**: Desenhe conectores API no fluxo de inscrição para falhar graciosamente se a API não estiver disponível. Examine e forneça aos seus desenvolvedores de API estas [respostas de exemplo da API](../external-identities/self-service-sign-up-add-api-connector.md) e as [melhores práticas para a resolução de problemas.](../external-identities/self-service-sign-up-add-api-connector.md) Trabalhe com a equipa de desenvolvimento da API para testar todos os cenários de resposta possíveis, incluindo continuação, erro de validação e respostas de bloqueio. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

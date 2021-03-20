@@ -14,10 +14,10 @@ ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b4b1234b88eafedbd03b78241baaa40231a6cbd6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97356808"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server em Azure Virtual Machines (Windows)
@@ -144,7 +144,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 ### <a name="storage"></a>Armazenamento
 * [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 * [Visão geral da rede virtual](../../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP no Azure](../../../virtual-network/public-ip-addresses.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)

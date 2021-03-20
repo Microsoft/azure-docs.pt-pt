@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Adicionar um modelo de amostra- Azure Analysis Services / Microsoft Docs
+title: Tutorial - Adicionar um modelo de amostra- Azure Analysis Services | Microsoft Docs
 description: Neste tutorial, aprenda a adicionar um modelo de amostra nos Serviços de Análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f882a40940a5c7202e9cf1f5c8b8927f008f4a39
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92013615"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
@@ -35,7 +35,7 @@ Para concluir este tutorial, precisa de:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal](https://portal.azure.com/).
+Inscreva-se no [portal.](https://portal.azure.com/)
 
 ## <a name="add-a-sample-model"></a>Adicionar um modelo de exemplo
 
@@ -43,7 +43,7 @@ Inicie sessão no [portal](https://portal.azure.com/).
 
     ![Criar um modelo de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. Em **Novo modelo**Escolha uma fonte de  >  **dados,** verifique se os **dados da amostra** e, em seguida, clique em **Adicionar**.
+2. Em **Novo modelo** Escolha uma fonte de  >  **dados,** verifique se os **dados da amostra** e, em seguida, clique em **Adicionar**.
 
     ![Selecione novo modelo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
@@ -52,7 +52,7 @@ Inicie sessão no [portal](https://portal.azure.com/).
     ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O modelo de exemplo está a utilizar recursos de memória de cache. Se não estiver a utilizar o seu modelo de exemplo para fins de teste, deve removê-lo do seu servidor.
 

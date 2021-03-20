@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 111fff6e35bed9c2af9c638549362039f25def12
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386021"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
@@ -87,7 +87,7 @@ Criar uma aplicação de consola C# .NET:
 
 ### <a name="create-a-data-factory-client"></a>Criar um cliente de fábrica de dados
 
-1. Abra *Program.cs* e adicione as seguintes declarações:
+1. *Programa Aberto.cs* e adicione as seguintes declarações:
 
    ```csharp
    using System;
@@ -145,7 +145,7 @@ Criar uma aplicação de consola C# .NET:
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Adicione um `CreateOrUpdateDataFactory` método ao seu ficheiro *Program.cs:*
+1. Adicione um `CreateOrUpdateDataFactory` método ao seu ficheiro .cs *Programa:*
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -178,7 +178,7 @@ Criar uma aplicação de consola C# .NET:
 
 ## <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 
-1. Adicione um `StorageLinkedServiceDefinition` método ao seu ficheiro *Program.cs:*
+1. Adicione um `StorageLinkedServiceDefinition` método ao seu ficheiro .cs *Programa:*
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -210,7 +210,7 @@ Nesta secção, cria-se dois conjuntos de dados, um para a fonte e outro para a 
 
 Adicione um método que cria um *conjunto de dados de bolhas Azure*. Para obter mais informações sobre propriedades e detalhes suportados, consulte [as propriedades do conjunto de dados Azure Blob](connector-azure-blob-storage.md#dataset-properties).
 
-Adicione um `SourceBlobDatasetDefinition` método ao seu ficheiro *Program.cs:*
+Adicione um `SourceBlobDatasetDefinition` método ao seu ficheiro .cs *Programa:*
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -237,7 +237,7 @@ Note a utilização de parâmetros para o *FolderPath*. `sourceBlobContainer` é
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Crie um conjunto de dados para um azure Blob
 
-1. Adicione um `SourceBlobDatasetDefinition` método ao seu ficheiro *Program.cs:*
+1. Adicione um `SourceBlobDatasetDefinition` método ao seu ficheiro .cs *Programa:*
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)

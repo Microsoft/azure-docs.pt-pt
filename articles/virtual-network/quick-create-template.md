@@ -10,10 +10,10 @@ ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98217673"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Quickstart: Criar uma rede virtual - Modelo de Gestor de Recursos
@@ -58,7 +58,7 @@ Explore os recursos que foram criados com a rede virtual.
 
 Para saber mais sobre a sintaxe JSON e propriedades para uma rede virtual num modelo, consulte [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a rede virtual, elimine o grupo de recursos. Isto remove a rede virtual e todos os recursos relacionados.
 
@@ -72,4 +72,4 @@ Remove-AzResourceGroup -Name <your resource group name>
 Neste arranque rápido, implementou uma rede virtual Azure com duas sub-redes. Para saber mais sobre as redes virtuais Azure, continue ao tutorial para redes virtuais.
 
 > [!div class="nextstepaction"]
-> [Filtrar o tráfego de rede](tutorial-filter-network-traffic.md)
+> [Filtre o tráfego de rede](tutorial-filter-network-traffic.md)

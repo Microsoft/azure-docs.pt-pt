@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945310"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade suportados pela Azure HDInsight
@@ -131,7 +131,7 @@ A alta disponibilidade do Yarn ResourceManager é independente do NameNode e de 
 
 Os clusters HDInsight HBase suportam a alta disponibilidade do HBase Master. Ao contrário de outros serviços ha, que funcionam em headnodes, o HBase Masters funciona nos três nós zookeeper, onde um deles é o mestre ativo e os outros dois estão em espera. Tal como o NameNode, o HBase Master coordena com o Apache Zookeeper para a eleição de líder e faz falhas automáticas quando o atual mestre ativo tem problemas. Há apenas um HBase Master ativo a qualquer momento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight](./hdinsight-business-continuity.md)
 - [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)

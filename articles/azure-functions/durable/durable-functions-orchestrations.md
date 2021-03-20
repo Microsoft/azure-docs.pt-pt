@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97845422"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duradouras
@@ -124,7 +124,7 @@ Uma vez concluído o ponto de verificação, a função do orquestrador é livre
 
 Após a conclusão, a história da função mostrada anteriormente parece algo com a seguinte tabela no Armazenamento de Mesa Azure (abreviada para fins de ilustração):
 
-| PartitionKey (InstanceId)                     | EventType             | CarimboDeDataEHora               | Entrada | Nome             | Resultado                                                    | Estado |
+| PartitionKey (InstanceId)                     | EventType             | CarimboDeDataEHora               | Entrada | Name             | Resultado                                                    | Estado |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | Execução Começada      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrquestradorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |

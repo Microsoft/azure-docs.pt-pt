@@ -1,5 +1,5 @@
 ---
-title: Substitua um PCM no seu dispositivo da série StorSimple 8000 Microsoft Docs
+title: Substitua um PCM no seu dispositivo da série StorSimple 8000 | Microsoft Docs
 description: Explica como remover e substituir o Módulo de Alimentação e Arrefecimento (PCM) no seu dispositivo StorSimple
 services: storsimple
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514584"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo refrigerador de energia no seu dispositivo StorSimple
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Módulo de Alimentação e Arrefecimento (PCM) no seu dispositivo Microsoft Azure StorSimple é composto por uma fonte de alimentação e ventiladores de arrefecimento que são controlados através dos compartimentos primários e EBOD. Há apenas um modelo de PCM que é certificado para cada recinto. O recinto primário é certificado para um PCM de 764 W e o recinto EBOD é certificado para um PCM de 580 W. Embora os PCMs para o recinto primário e o recinto EBOD sejam diferentes, o procedimento de substituição é idêntico.
 
 Este tutorial explica como:

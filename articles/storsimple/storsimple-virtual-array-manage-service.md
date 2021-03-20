@@ -1,5 +1,5 @@
 ---
-title: Implementar serviço StorSimple Device Manager / Microsoft Docs
+title: Implementar serviço de gestor de dispositivos StorSimple | Microsoft Docs
 description: Explica como criar e eliminar o serviço StorSimple Device Manager no portal Azure e descreve como gerir a chave de registo de serviço.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995024"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implementar o serviço StorSimple Device Manager para StorSimple Virtual Array

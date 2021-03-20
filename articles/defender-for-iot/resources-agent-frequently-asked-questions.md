@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
 ms.openlocfilehash: f584f11603e41b63f3c96749ed6c720eb5ce07a8
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97835062"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>Azure Defender para agente IoT frequentemente fez perguntas
@@ -55,7 +55,7 @@ A geração de dados do agente é impulsionada pela configuração do dispositiv
 
 ## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>As mensagens de agente usam quota de IoT Hub?
 
-Yes. Os dados transmitidos pelo agente são contados na sua quota IoT Hub.
+Sim. Os dados transmitidos pelo agente são contados na sua quota IoT Hub.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>O que se segue? Instalei um agente e não vejo atividades ou registos...
 

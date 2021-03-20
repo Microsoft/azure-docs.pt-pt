@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff7505e7c47b93f32efd9de60463873026247329
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724930"
 ---
 # <a name="resilience-through-developer-best-practices"></a>Resiliência através das melhores práticas do desenvolvedor
@@ -132,7 +132,7 @@ No contexto da resiliência, os testes de APIs REST precisam de incluir a verifi
 
 Recomendamos que o seu plano de teste inclua [testes completos de API.](../../active-directory-b2c/best-practices.md#testing) Se está a planear um próximo aumento devido à promoção ou tráfego de férias, tem de rever os seus testes de carga com as novas estimativas. Realize testes de carga das suas APIs e da Rede de Entrega de Conteúdos (CDN) num ambiente de desenvolvimento e não em produção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recursos de resiliência para desenvolvedores Azure AD B2C](resilience-b2c.md)
   - [Experiência resiliente do utilizador final](resilient-end-user-experience.md)

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92742800"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud
@@ -34,8 +34,8 @@ Para configurar uma identidade gerida no [portal Azure](https://portal.azure.com
 
 1. Crie uma aplicação no portal como normalmente faria. Navegue até ele no portal.
 2. Desloque-se até ao grupo **Definições** no painel de navegação esquerdo.
-3. Selecione **identidade** .
-4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar* . Clique em **Guardar** .
+3. Selecione **identidade**.
+4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Guardar**.
 
  ![Identidade gerida no portal](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -72,8 +72,8 @@ A remoção de uma identidade atribuída ao sistema também a eliminará do Azur
 Para remover a identidade gerida atribuída pelo sistema de uma aplicação que já não precisa dela:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) usando uma conta associada à subscrição do Azure que contém a instância Azure Spring Cloud.
-1. Navegue para a máquina virtual desejada e selecione **Identidade** .
-1. Em **Estado atribuído ao** / **Sistema** , selecione **Off** e clique em **Guardar** :
+1. Navegue para a máquina virtual desejada e selecione **Identidade**.
+1. Em **Estado atribuído ao** / **Sistema**, selecione **Off** e clique em **Guardar**:
 
  ![Identidade gerida](./media/spring-cloud-managed-identity/remove-identity.png)
 

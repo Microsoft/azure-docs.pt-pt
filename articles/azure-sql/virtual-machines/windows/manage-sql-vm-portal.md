@@ -1,5 +1,5 @@
 ---
-title: Gerir máquinas virtuais SQL Server em Azure utilizando o portal Azure Microsoft Docs
+title: Gerir máquinas virtuais SQL Server em Azure utilizando o portal Azure | Microsoft Docs
 description: Saiba como aceder ao recurso de máquina virtual SQL no portal Azure para um SQL Server VM hospedado no Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 68c7805136a7361a64a6ff6dfbb9e7d910b2ea9b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97357947"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerir VMs de servidor SQL em Azure utilizando o portal Azure

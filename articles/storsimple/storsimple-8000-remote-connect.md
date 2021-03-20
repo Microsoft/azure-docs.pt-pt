@@ -8,15 +8,15 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514569"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Ligue-se remotamente ao seu dispositivo da série StorSimple 8000
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode ligar-se remotamente ao seu dispositivo através do Windows PowerShell. Quando se liga desta forma, não se vê um menu. (Só se vê um menu se utilizar a consola em série no dispositivo para ligar.) Com o remoting do Windows PowerShell, liga-se a um espaço de funcionação específico. Também pode especificar o idioma de exibição.
 
@@ -167,7 +167,7 @@ Execute os seguintes passos na consola em série do dispositivo para permitir um
     Aparecerá um certificado semelhante ao seguinte.
    
     ![Obtenha certificado de gestão remota](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
-6. Copie as informações no certificado a partir de **-----BEGIN CERTIFICATE-----** **para -----END CERTIFICATE-----** num editor de texto como o Notepad, e guarde-as como um ficheiro .cer. (Copiará este ficheiro para o seu anfitrião remoto quando preparar o anfitrião.)
+6. Copie as informações no certificado do **certificado -----BEGIN CERTIFICATE-----** para **-----END CERTIFICATE-----** num editor de texto como o Notepad, e guarde-as como um ficheiro .cer. (Copiará este ficheiro para o seu anfitrião remoto quando preparar o anfitrião.)
    
    > [!NOTE]
    > Para gerar um novo certificado, utilize o `Set-HcsRemoteManagementCert` cmdlet.
@@ -176,7 +176,7 @@ Execute os seguintes passos na consola em série do dispositivo para permitir um
 
 Para preparar o computador anfitrião para uma ligação remota que utilize uma sessão HTTPS, execute os seguintes procedimentos:
 
-* [Importe o ficheiro .cer na loja raiz do cliente ou anfitrião remoto](#to-import-the-certificate-on-the-remote-host).
+* [Importe o ficheiro .cer para a loja raiz do cliente ou anfitrião remoto.](#to-import-the-certificate-on-the-remote-host)
 * [Adicione os números de série do dispositivo ao ficheiro hostis no seu anfitrião remoto](#to-add-device-serial-numbers-to-the-remote-host).
 
 Cada um dos procedimentos anteriores, é descrito abaixo.
@@ -185,8 +185,8 @@ Cada um dos procedimentos anteriores, é descrito abaixo.
 1. Clique com o botão direito no ficheiro .cer e selecione **o certificado de instalação**. Isto inicia o Certificado De Importação De Feiticeiro.
    
     ![Certificado Import Wizard 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
-2. Para **localizar a Loja**, selecione Máquina **Local**e, em seguida, clique em **Seguinte**.
-3. Selecione **Coloque todos os certificados na seguinte loja**e, em seguida, clique em **procurar**. Navegue até à loja de raiz do seu anfitrião remoto e, em seguida, clique em **Seguinte**.
+2. Para **localizar a Loja**, selecione Máquina **Local** e, em seguida, clique em **Seguinte**.
+3. Selecione **Coloque todos os certificados na seguinte loja** e, em seguida, clique em **procurar**. Navegue até à loja de raiz do seu anfitrião remoto e, em seguida, clique em **Seguinte**.
    
     ![Certificado Import Wizard 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 4. Clique em **Concluir**. Uma mensagem que diz que a importação foi bem sucedida aparece.
@@ -195,7 +195,7 @@ Cada um dos procedimentos anteriores, é descrito abaixo.
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Para adicionar números de série do dispositivo ao anfitrião remoto
 1. Inicie o Notepad como administrador e, em seguida, abra o ficheiro hostis localizado em \Windows\System32\Drivers\etc.
-2. Adicione as seguintes três entradas no ficheiro dos anfitriões: **endereço IP DATA 0**, **Endereço IP Fixo do Controlador 0**e Endereço IP Fixo do **Controlador 1**.
+2. Adicione as seguintes três entradas no ficheiro dos anfitriões: **endereço IP DATA 0**, **Endereço IP Fixo do Controlador 0** e Endereço IP Fixo do **Controlador 1**.
 3. Introduza o número de série do dispositivo que guardou anteriormente. Mapeeia isto para o endereço IP como mostrado na imagem seguinte. Para o Controlador 0 e o Controlador 1, o controlador de apêndice **0** e **o Controlador1** no final do número de série (nome CN).
    
     ![Adicionar nome CN ao ficheiro de anfitriões](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)

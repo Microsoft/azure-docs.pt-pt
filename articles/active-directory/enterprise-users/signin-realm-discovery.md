@@ -1,5 +1,5 @@
 ---
-title: Pesquisa de nome de utilizador durante a inscrição - Azure Ative Directory / Microsoft Docs
+title: Pesquisa de nome de utilizador durante a entrada - Azure Ative Directory | Microsoft Docs
 description: Como as mensagens no ecrã refletem a procura do nome de utilizador durante a entrada no Azure Ative Directory
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ec804029919f0b9c4be26b044cd7a3eeddf6690
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547836"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Descoberta do reino doméstico para páginas de inscrição do Azure Ative Directory

@@ -1,5 +1,5 @@
 ---
-title: Substitua o chassis no dispositivo da série StorSimple 8000 Microsoft Docs
+title: Substitua o chassis no dispositivo da série StorSimple 8000 | Microsoft Docs
 description: Descreve como remover e substituir o chassis para o seu invólucro primário StorSimple ou para o recinto EBOD.
 services: storsimple
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: de0f6299f35f9d76fdade976bf70456426e5ec51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85513442"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Substitua o chassis no seu dispositivo StorSimple
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este tutorial explica como remover e substituir um chassis num dispositivo da série StorSimple 8000. O modelo StorSimple 8100 é um único dispositivo de caixa (um chassis), enquanto o 8600 é um dispositivo de recinto duplo (dois chassis). Para um modelo 8600, existem potencialmente dois chassis que podem falhar no dispositivo: o chassis para o recinto primário ou o chassis para o recinto EBOD.
 
 Em qualquer dos casos, o chassis de substituição que é enviado pela Microsoft está vazio. Sem Módulos de Potência e Arrefecimento (PCMs), módulos controladores, unidades de disco de estado sólido (SSDs), discos rígidos (HDDs) ou módulos EBOD.

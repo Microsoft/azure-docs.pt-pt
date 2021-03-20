@@ -1,5 +1,5 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 description: incluir arquivo para a lista de categorias e subcategorias
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.custom: include file
 author: anbene
 ms.author: mingshen
 ms.openlocfilehash: 763ee108e1e2899bb2268ae5e6236f74a73e4b44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87498056"
 ---
 | [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
@@ -78,8 +78,8 @@ ms.locfileid: "87498056"
 | **Acompanhamento & Diagnósticos**  | **Cadeia de Abastecimento & operações** |
 | **Migração**  | &nbsp;&nbsp;Gestão de Produção de & De Ativos |
 | &nbsp;&nbsp;Migração de Dados | &nbsp;&nbsp;Previsão da Procura |
-| **Realidade Mista**  | &nbsp;&nbsp;Gestão de Informação & Conectividade |
-| **Redes**  | &nbsp;&nbsp;Planeamento, Compras & Reporte |
+| **Mixed Reality**  | &nbsp;&nbsp;Gestão de Informação & Conectividade |
+| **Rede**  | &nbsp;&nbsp;Planeamento, Compras & Reporte |
 | &nbsp;&nbsp;Gestores de Eletrodomés | &nbsp;&nbsp;Gestão de Serviços de qualidade & |
 | &nbsp;&nbsp;Conectividade | &nbsp;&nbsp;Gestão de Encomendas & Vendas |
 | &nbsp;&nbsp;Firewalls | &nbsp;&nbsp;Gestão de Armazéns & Transportes |

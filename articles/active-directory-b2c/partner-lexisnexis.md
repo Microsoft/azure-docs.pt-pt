@@ -11,10 +11,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108438"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial para configurar LexisNexis com Azure Ative Directory B2C
@@ -49,7 +49,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![screenshot para lexisnexis-arquitetura-diagrama](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:--------------|:-------------|
 |1. | O utilizador chega a uma página de login. O utilizador seleciona a inscrição para criar uma nova conta e introduzir informações na página. Azure AD B2C recolhe os atributos do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.

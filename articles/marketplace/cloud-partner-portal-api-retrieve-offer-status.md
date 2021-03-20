@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272016"
 ---
 # <a name="retrieve-offer-status"></a>Obter estado da oferta
@@ -27,15 +27,15 @@ Recupera o estado atual da oferta.
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador de editor, por exemplo `Contoso`  |     Cadeia     |
-|  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia     |
-|  api-version    | Última versão da API                        |     Date       |
+|  publisherId    | Identificador de editor, por exemplo `Contoso`  |     String     |
+|  offerId        | GUID que identifica exclusivamente a oferta      |     String     |
+|  api-version    | Última versão da API                        |     Data       |
 |  |  |
 
 ## <a name="header"></a>Cabeçalho
 
 
-|  Nome           |  Valor               |
+|  Name           |  Valor               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Autorização  | `Bearer YOUR_TOKEN`  |

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994932"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configure método de encaminhamento MultiValue em Gestor de Tráfego
@@ -37,7 +37,7 @@ Crie um grupo de recursos para o perfil de Gestor de Tráfego.
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
 Crie um perfil de Gestor de Tráfego que direcione o tráfego do utilizador enviando-os para o ponto final com menor latência.
 
-1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
+1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >    >    >  **Criar**.
 2. No **perfil 'Criar Gestor de Tráfego',** introduza ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **Criar**:
     
     | Definição                 | Valor                                              |
@@ -62,7 +62,7 @@ Adicione dois endereços IP como pontos finais externos ao perfil de Gestor de T
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto final externo                                   |
-    | Nome           | myEndpoint1                                        |
+    | Name           | myEndpoint1                                        |
     | Nome de domínio totalmente qualificado (FQDN) ou IP           | Digite o endereço IP público do ponto final que pretende adicionar a este perfil de Gestor de Tráfego                         |
     |        |           |
 

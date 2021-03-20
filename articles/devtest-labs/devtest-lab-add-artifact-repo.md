@@ -1,13 +1,13 @@
 ---
-title: Adicione um repositório git a um laboratório em Azure DevTest Labs Microsoft Docs
+title: Adicione um repositório de Git a um laboratório em Azure DevTest Labs | Microsoft Docs
 description: Saiba como adicionar um repositório GitHub ou Azure DevOps Git para a sua fonte de artefactos personalizados em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483147"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicione um repositório Git para armazenar artefactos personalizados e modelos de Gestor de Recursos
@@ -36,7 +36,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 4. No canto superior direito do GitHub, selecione a imagem de perfil e, em seguida, selecione **Definições**.
 5. No menu **de definições pessoais** à esquerda, selecione **Fichas de acesso pessoal**.
 6. **Selecione Gerer novo símbolo**.
-7. Na página **de token de acesso pessoal Novo,** sob **descrição de Token,** insira uma descrição. Aceite os itens predefinidos nos **âmbitos Select**e, em seguida, selecione **Gerar Token**.
+7. Na página **de token de acesso pessoal Novo,** sob **descrição de Token,** insira uma descrição. Aceite os itens predefinidos nos **âmbitos Select** e, em seguida, selecione **Gerar Token**.
 8. Salve o símbolo gerado. Usas o símbolo mais tarde.
 9. Feche o GitHub.   
 10. Continue até ao laboratório Ligar o seu laboratório à secção [de repositório.](#connect-your-lab-to-the-repository)
@@ -56,12 +56,12 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
    3. Na lista **de Contas,** selecione **Todas as contas acessíveis**.
    4. Selecione a opção **Read Only.**
    5. **Selecione Criar Ficha**.
-9. O novo símbolo aparece na lista de **Tokens de Acesso Pessoal.** Selecione **Copy Token**e, em seguida, guarde o valor simbólico para utilização posterior.
+9. O novo símbolo aparece na lista de **Tokens de Acesso Pessoal.** Selecione **Copy Token** e, em seguida, guarde o valor simbólico para utilização posterior.
 10. Continue até ao laboratório Ligar o seu laboratório à secção [de repositório.](#connect-your-lab-to-the-repository)
 
 ## <a name="connect-your-lab-to-the-repository"></a>Ligue o seu laboratório ao repositório
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **Mais Serviços**e, em seguida, selecione **DevTest Labs** da lista de serviços.
+2. Selecione **Mais Serviços** e, em seguida, selecione **DevTest Labs** da lista de serviços.
 3. Da lista de laboratórios, selecione o seu laboratório. 
 4. Selecione **Configuração e políticas**  >  **Repositórios**  >  **+ Adicionar**.
 
