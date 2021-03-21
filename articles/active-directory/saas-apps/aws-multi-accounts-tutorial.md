@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 0ddcb239ba106bcdc2f0a29d68eb395876fadc06
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88761649"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gerir os recursos de base de dados da IBM Informix utilizando apps Azure Logic
@@ -78,14 +78,14 @@ Este tópico mostra-lhe como usar o conector numa aplicação lógica para proce
 
 1. Forneça esta informação de ligação e, em seguida, **selecione Criar**.
 
-   | Propriedade | Propriedade JSON | Necessário | Valor de exemplo | Descrição |
+   | Propriedade | Propriedade JSON | Necessário | Valor de exemplo | Description |
    |----------|---------------|----------|---------------|-------------|
-   | Nome da ligação | `name` | Sim | `informix-demo-connection` | O nome a utilizar para a ligação à sua base de dados Informix |
-   | Servidor | `server` | Sim | - Nuvem: `informixdemo.cloudapp.net:9089` <br>- No local: `informixdemo:9089` | O endereço TCP/IP ou pseudónimo que se encontra no formato IPv4 ou IPv6, seguido de um cólon e um número de porta TCP/IP |
-   | Base de Dados | `database` | Sim | `nwind` | O nome da base de dados relacional DRDA (RDBNAM) ou nome da base de dados Informix (dbname). Informix aceita uma corda de 128 bytes. |
+   | Nome da ligação | `name` | Yes | `informix-demo-connection` | O nome a utilizar para a ligação à sua base de dados Informix |
+   | Servidor | `server` | Yes | - Nuvem: `informixdemo.cloudapp.net:9089` <br>- No local: `informixdemo:9089` | O endereço TCP/IP ou pseudónimo que se encontra no formato IPv4 ou IPv6, seguido de um cólon e um número de porta TCP/IP |
+   | Base de Dados | `database` | Yes | `nwind` | O nome da base de dados relacional DRDA (RDBNAM) ou nome da base de dados Informix (dbname). Informix aceita uma corda de 128 bytes. |
    | Autenticação | `authentication` | Apenas no local | **Básico** ou **Windows** (kerberos) | O tipo de autenticação que é exigido pela sua base de dados Informix. Esta propriedade só aparece quando seleciona **Connect via gateway de dados no local.** |
-   | Nome de utilizador | `username` | Não | <*nome do utilizador da base de dados*> | Um nome de utilizador para a base de dados |
-   | Palavra-passe | `password` | Não | <*palavra-passe de base de dados*> | Uma senha para a base de dados |
+   | Nome de utilizador | `username` | No | <*nome do utilizador da base de dados*> | Um nome de utilizador para a base de dados |
+   | Palavra-passe | `password` | No | <*palavra-passe de base de dados*> | Uma senha para a base de dados |
    | Gateway | `gateway` | Apenas no local | - <*assinatura Azure*> <br>- <*Azure-on-premises-data-gateway-recurso*> | A subscrição Azure e o nome de recurso Azure para o portal de dados no local que criou no portal Azure. A propriedade **gateway** e sub-propriedades só aparecem quando seleciona **Connect via gateway de dados no local.** |
    ||||||
 

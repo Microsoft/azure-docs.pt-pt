@@ -1,5 +1,5 @@
 ---
-title: Visão geral da Saúde do Recurso de Gateway de Aplicação Azure
+title: Descrição geral do Resource Health do Gateway de Aplicação do Azure
 description: Este artigo é uma visão geral da funcionalidade de saúde de recursos para O Azure Application Gateway
 services: application-gateway
 author: vhorne
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397177"
 ---
-# <a name="azure-application-gateway-resource-health-overview"></a>Visão geral da Saúde do Recurso de Gateway de Aplicação Azure
+# <a name="azure-application-gateway-resource-health-overview"></a>Descrição geral do Resource Health do Gateway de Aplicação do Azure
 
 O [Azure Resource Health](../service-health/resource-health-overview.md) ajuda a diagnosticar e obter suporte quando um problema do serviço Azure afetar os seus recursos. Informa-o sobre a saúde atual e passada dos seus recursos. E fornece suporte técnico para ajudá-lo a mitigar problemas.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321883"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo em tabelas do Hive do HDInsight
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 Aqui, `<sample rate, 0-1>` especifica a proporção de registos que os utilizadores querem recolher.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Amostragem aleatória por grupos
-Ao recolher amostras de dados categóricos, pode querer incluir ou excluir todos os casos para algum valor da variável categórica. Este tipo de amostragem chama-se "amostragem por grupo". Por exemplo, se tiver uma variável categórica " *Estado* ", que tem valores como NY, MA, CA, NJ e PA, quer que os registos de cada estado estejam juntos, sejam eles amostrados ou não.
+Ao recolher amostras de dados categóricos, pode querer incluir ou excluir todos os casos para algum valor da variável categórica. Este tipo de amostragem chama-se "amostragem por grupo". Por exemplo, se tiver uma variável categórica "*Estado*", que tem valores como NY, MA, CA, NJ e PA, quer que os registos de cada estado estejam juntos, sejam eles amostrados ou não.
 
 Aqui está uma consulta de exemplo que as amostras por grupo:
 

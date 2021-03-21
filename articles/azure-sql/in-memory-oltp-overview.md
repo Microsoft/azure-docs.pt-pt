@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
 ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779956"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimizar o desempenho utilizando tecnologias de memória na Base de Dados Azure SQL e na Azure SQL Managed Instance
@@ -101,7 +101,7 @@ Existe uma forma programática de perceber se uma determinada base de dados supo
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Se a consulta devolver **1** , In-Memory OLTP é suportado nesta base de dados. As seguintes consultas identificam todos os objetos que precisam de ser removidos antes de uma base de dados poder ser desclassificado para Final Geral, Padrão ou Básico:
+Se a consulta devolver **1**, In-Memory OLTP é suportado nesta base de dados. As seguintes consultas identificam todos os objetos que precisam de ser removidos antes de uma base de dados poder ser desclassificado para Final Geral, Padrão ou Básico:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Tamanho de dados e tampa de armazenamento para In-Memory OLTP
 
-In-Memory OLTP inclui tabelas otimizadas para a memória, que são usadas para armazenar dados do utilizador. Estas mesas são necessárias para caber na memória. Como gere a memória diretamente na Base de Dados SQL, temos o conceito de quota para dados do utilizador. Esta ideia é referida como *armazenamento OLTP in-memory* .
+In-Memory OLTP inclui tabelas otimizadas para a memória, que são usadas para armazenar dados do utilizador. Estas mesas são necessárias para caber na memória. Como gere a memória diretamente na Base de Dados SQL, temos o conceito de quota para dados do utilizador. Esta ideia é referida como *armazenamento OLTP in-memory*.
 
 Cada nível de preços de base de dados único suportado e cada nível elástico de preços da piscina inclui uma certa quantidade de In-Memory armazenamento OLTP.
 
@@ -149,7 +149,7 @@ Mas a degradação do nível pode ter um impacto negativo na sua base de dados. 
 
 Antes de desclassificar a base de dados para Finalidade Geral, Standard ou Básico, remova todas as tabelas e tipos de tabelas otimizados para a memória, bem como todos os módulos T-SQL compilados de forma nativa.
 
-*Recursos de escala no nível Business Critical* : Os dados em tabelas otimizadas para a memória devem caber no armazenamento OLTP In-Memory que esteja associado ao nível da base de dados ou à instância gerida, ou esteja disponível na piscina elástica. Se tentar reduzir o nível ou mover a base de dados para uma piscina que não tenha In-Memory armazenamento OLTP suficiente, a operação falha.
+*Recursos de escala no nível Business Critical*: Os dados em tabelas otimizadas para a memória devem caber no armazenamento OLTP In-Memory que esteja associado ao nível da base de dados ou à instância gerida, ou esteja disponível na piscina elástica. Se tentar reduzir o nível ou mover a base de dados para uma piscina que não tenha In-Memory armazenamento OLTP suficiente, a operação falha.
 
 ## <a name="in-memory-columnstore"></a>Loja de colunas na memória
 

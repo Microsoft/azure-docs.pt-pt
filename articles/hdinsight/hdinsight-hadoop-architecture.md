@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 6f291e5aa440a3e6e45a1dcdb872e18c8d4557ce
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945910"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
@@ -48,7 +48,7 @@ Todos os tipos de cluster HDInsight implementam YARN. O ResourceManager é impla
 
 Para desembrulhá-lo da sua Conta de Armazenamento, consulte:
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 * [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../storage/blobs/soft-delete-blob-overview.md)
 * [Undelete Blob](/rest/api/storageservices/undelete-blob)
@@ -65,7 +65,7 @@ Para desembrulhá-lo da sua Conta de Armazenamento, consulte:
 
 A `fs.trash.interval` propriedade do **hdfs**  >  **Advanced core-site** deve permanecer no valor padrão porque você não deve armazenar `0` quaisquer dados no sistema de ficheiros local. Este valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar o MapReduce no Apache Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

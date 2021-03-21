@@ -4,10 +4,10 @@ description: Este artigo explica como usar sessões para permitir o manuseamento
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680758"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
@@ -34,9 +34,9 @@ No portal, coloque a bandeira com a seguinte caixa de verificação:
 ![Screenshot da caixa de diálogo de fila Create com a opção Desestação selecionada e delineada a vermelho.][2]
 
 > [!NOTE]
-> Quando as Sessões são ativadas numa fila ou numa subscrição, as aplicações do cliente não podem ***mais** _ enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo o id da sessão) e recebidas recebendo a sessão.
+> Quando as Sessões são ativadas numa fila ou numa subscrição, as aplicações do cliente ***já não*** podem enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo o id da sessão) e recebidas recebendo a sessão.
 
-As APIs para sessões existem em clientes de fila e subscrição. Há um modelo imperativo que controla quando se recebem sessões e mensagens, e um modelo baseado em manipuladores, semelhante ao _OnMessage*, que esconde a complexidade da gestão do ciclo de receção.
+As APIs para sessões existem em clientes de fila e subscrição. Há um modelo imperativo que controla quando se recebem sessões e mensagens, e um modelo baseado em manipuladores, semelhante ao *OnMessage,* que esconde a complexidade da gestão do ciclo de receção.
 
 ### <a name="session-features"></a>Características da sessão
 
@@ -76,7 +76,7 @@ O estado da sessão realizado em fila ou numa subscrição conta para a quota de
 
 A definição de contagem de entrega por mensagem no contexto das sessões varia ligeiramente em parte da definição na ausência de sessões. Aqui está uma tabela que resume quando a contagem de entrega é incrementada.
 
-| Cenário | É a contagem de entrega da mensagem incrementada |
+| Scenario | É a contagem de entrega da mensagem incrementada |
 |----------|---------------------------------------------|
 | A sessão é aceite, mas o bloqueio da sessão expira (devido ao tempo limite) | Yes |
 | A sessão é aceite, as mensagens dentro da sessão não estão concluídas (mesmo que estejam bloqueadas), e a sessão está fechada | No |

@@ -12,31 +12,31 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: a5639d583d9b98f6527e47bf5db213cb191ebeb7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575295"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Ver e configurar os alertas da proteção contra DDoS
 
-A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. O alerta pode ser configurado para qualquer uma das métricas do Monitor Azure expostas pela Proteção DDoS. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
+A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. Os alertas podem ser configurados para qualquer uma das métricas do Azure Monitor expostas pelo DDoS Protection. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
 
 Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
-> * Alertas de configuração através do Monitor Azure
+> * Configurar alertas através do Azure Monitor
 > * Configurar alertas através do portal
-> * Ver alertas no Centro de Segurança Azure
+> * Ver alertas no Centro de Segurança do Azure
 > * Valide e teste os seus alertas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Antes de poder completar os passos neste tutorial, tem primeiro de criar um [plano de proteção Azure DDoS Standard](manage-ddos-protection.md) e o DDoS Protection Standard deve ser ativado numa rede virtual.
-- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)     
+- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, terá primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)     
 
-## <a name="configure-alerts-through-azure-monitor"></a>Alertas de configuração através do Monitor Azure
+## <a name="configure-alerts-through-azure-monitor"></a>Configurar alertas através do Azure Monitor
 
 Com estes modelos, poderá configurar alertas para todos os endereços IP públicos em que ativou o início de sessão de diagnóstico. Assim, para utilizar estes modelos de alerta, primeiro necessitará de um espaço de trabalho log analytics com definições de diagnóstico ativadas. Ver [visualização e configurar a registo de diagnóstico do DDoS](diagnostic-logging.md).
 
@@ -74,7 +74,7 @@ Em poucos minutos após a deteção de ataques, deverá receber um e-mail das m�
 
 Também pode aprender mais sobre [configurar webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [aplicações lógicas](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criar alertas.
 
-## <a name="view-alerts-in-azure-security-center"></a>Ver alertas no Centro de Segurança Azure
+## <a name="view-alerts-in-azure-security-center"></a>Ver alertas no Centro de Segurança do Azure
 
 O Azure Security Center fornece uma lista de alertas de [segurança,](../security-center/security-center-managing-and-responding-alerts.md)com informações para ajudar a investigar e corrigir problemas. Com esta funcionalidade, obtém-se uma visão unificada dos alertas, incluindo alertas relacionados com ataques DDoS e as ações tomadas para mitigar o ataque em pouco tempo.
 Existem dois alertas específicos que verá para qualquer deteção e mitigação de ataques DDoS:
@@ -95,9 +95,9 @@ Para simular um ataque DDoS para validar os seus alertas, consulte [validar a de
 
 Neste tutorial, ficou a saber como:
 
-- Alertas de configuração através do Monitor Azure
+- Configurar alertas através do Azure Monitor
 - Configurar alertas através do portal
-- Ver alertas no Centro de Segurança Azure
+- Ver alertas no Centro de Segurança do Azure
 - Valide e teste os seus alertas
 
 Para aprender a testar e simular um ataque DDoS, consulte o guia de testes de simulação:

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920785"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados Azure em repouso
@@ -73,7 +73,7 @@ As permissões de utilização das teclas armazenadas no Cofre da Chave Azure, q
 Mais de uma chave de encriptação é usada numa encriptação na implementação do descanso. Armazenar uma chave de encriptação no Azure Key Vault garante um acesso seguro à chave e uma gestão central das chaves. No entanto, o acesso local ao serviço às chaves de encriptação é mais eficiente para encriptação e desencriptação a granel do que interagir com o Key Vault para cada operação de dados, permitindo uma encriptação mais forte e um melhor desempenho. Limitar a utilização de uma única chave de encriptação diminui o risco de a chave ser comprometida e o custo da reencriminação quando uma chave deve ser substituída. As encriptações Azure em modelos de repouso utilizam uma hierarquia chave composta pelos seguintes tipos de teclas para responder a todas estas necessidades:
 
 - **Chave de encriptação de dados (DEK)** – Uma chave AES256 simétrica usada para encriptar uma divisória ou bloco de dados.  Um único recurso pode ter muitas divisórias e muitas chaves de encriptação de dados. Encriptar cada bloco de dados com uma chave diferente torna os ataques de análise cripto mais difícil. O acesso aos DEKs é necessário pelo fornecedor de recursos ou pela instância de aplicação que está a encriptar e desencriptar um bloco específico. Quando um DEK é substituído por uma nova chave, apenas os dados do seu bloco associado devem ser reencri encriptados com a nova chave.
-- **Chave Chave Chave De encriptação (KEK)** – Uma chave de encriptação usada para encriptar as Chaves de Encriptação de Dados. A utilização de uma chave de encriptação que nunca sai do Key Vault permite que as próprias chaves de encriptação de dados sejam encriptadas e controladas. A entidade que tem acesso à KEK pode ser diferente da entidade que requer o DEK. Uma entidade pode intermediar o acesso ao DEK para limitar o acesso de cada DEK a uma divisória específica. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um único ponto pelo qual os DEKs podem ser efetivamente eliminados pela supressão do KEK.
+- **Chave De encriptação (KEK)** – Uma chave de encriptação usada para encriptar as Chaves de Encriptação de Dados. A utilização de uma chave de encriptação que nunca sai do Key Vault permite que as próprias chaves de encriptação de dados sejam encriptadas e controladas. A entidade que tem acesso à KEK pode ser diferente da entidade que requer o DEK. Uma entidade pode intermediar o acesso ao DEK para limitar o acesso de cada DEK a uma divisória específica. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um único ponto pelo qual os DEKs podem ser efetivamente eliminados pela supressão do KEK.
 
 As teclas de encriptação de dados, encriptadas com as Chaves de Encriptação de Chaves são armazenadas separadamente e apenas uma entidade com acesso à Chave de Encriptação pode desencriptar estas Chaves de Encriptação de Dados. São suportados diferentes modelos de armazenamento de chaves. Consulte [os modelos de encriptação de dados](encryption-models.md) para obter mais informações.
 

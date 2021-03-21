@@ -11,10 +11,10 @@ ms.date: 03/01/2021
 ms.author: rolyon
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ms.openlocfilehash: d9b39bc9a2f00fe83cae0ff78c6346042967e8bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042142"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Ver registos de atividade para alterações do RBAC do Azure
@@ -55,7 +55,7 @@ Para obter mais informações sobre registos de atividades, consulte [os registo
 A saída de registo a partir do separador JSON, Azure PowerShell ou Azure CLI pode incluir muita informação. Aqui estão algumas das propriedades-chave a procurar quando se tenta interpretar uma entrada de registo. Para obter formas de filtrar a saída de registo utilizando a Azure PowerShell ou a Azure CLI, consulte as seguintes secções.
 
 > [!div class="mx-tableFixed"]
-> | Propriedade | Valores de exemplo | Descrição |
+> | Propriedade | Valores de exemplo | Description |
 > | --- | --- | --- |
 > | autorização:ação | Microsoft.Authorization/roleAssignments/write | Criar atribuição de funções |
 > |  | Microsoft.Autorização/funAsignments/delete | Eliminar atribuição de funções |

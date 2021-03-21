@@ -4,10 +4,10 @@ description: Saiba como calcular os seus custos para orçamentar os preços do A
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88654536"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Azure Backup

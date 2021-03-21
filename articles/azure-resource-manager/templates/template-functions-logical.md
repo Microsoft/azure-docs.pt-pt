@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920475"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
@@ -32,11 +32,11 @@ Verifica se todos os valores dos parâmetros são verdadeiros. A `and` função 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |boolean |O primeiro valor para verificar se é verdade. |
-| arg2 |Sim |boolean |O segundo valor para verificar se é verdade. |
-| argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiros. |
+| arg1 |Yes |boolean |O primeiro valor para verificar se é verdade. |
+| arg2 |Yes |boolean |O segundo valor para verificar se é verdade. |
+| argumentos adicionais |No |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -96,9 +96,9 @@ Converte o parâmetro num booleano.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |corda ou int |O valor para converter para um boolean. |
+| arg1 |Yes |corda ou int |O valor para converter para um boolean. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -215,11 +215,11 @@ Devolve um valor baseado no facto de uma condição ser verdadeira ou falsa. A `
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| condição |Sim |boolean |O valor para verificar se é verdade ou falso. |
-| verdadeiroValue |Sim | cadeia, int, objeto ou matriz |O valor para voltar quando a condição é verdadeira. |
-| falsoValue |Sim | cadeia, int, objeto ou matriz |O valor para devolver quando a condição é falsa. |
+| condição |Yes |boolean |O valor para verificar se é verdade ou falso. |
+| verdadeiroValue |Yes | cadeia, int, objeto ou matriz |O valor para voltar quando a condição é verdadeira. |
+| falsoValue |Yes | cadeia, int, objeto ou matriz |O valor para devolver quando a condição é falsa. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -341,9 +341,9 @@ Converte o valor booleano ao seu valor oposto. A `not` função não é suportad
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |boolean |O valor para converter. |
+| arg1 |Yes |boolean |O valor para converter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -436,11 +436,11 @@ Verifica se qualquer valor de parâmetro é verdadeiro. A `or` função não é 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |boolean |O primeiro valor para verificar se é verdade. |
-| arg2 |Sim |boolean |O segundo valor para verificar se é verdade. |
-| argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiros. |
+| arg1 |Yes |boolean |O primeiro valor para verificar se é verdade. |
+| arg2 |Yes |boolean |O segundo valor para verificar se é verdade. |
+| argumentos adicionais |No |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
 ### <a name="return-value"></a>Valor devolvido
 

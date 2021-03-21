@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: feb28b1d448d0146046ed789d1389a3a42f344de
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94557848"
 ---
 # <a name="secure-boot"></a>Arranque Seguro
@@ -55,8 +55,8 @@ A validação de que as digestão db e dbx estão corretas garante:
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que fazemos para impulsionar a integridade e segurança da plataforma, consulte:
 
-- [Segurança firmware](firmware.md)
+- [Segurança do firmware](firmware.md)
 - [Atestado de arranque e hospedeiro medido](measured-boot-host-attestation.md)
 - [Projeto Cerberus](project-cerberus.md)
-- [Encriptação inativa](encryption-atrest.md)
-- [Segurança hipervisor](hypervisor.md)
+- [Encriptação de dados inativos](encryption-atrest.md)
+- [Segurança do hipervisor](hypervisor.md)

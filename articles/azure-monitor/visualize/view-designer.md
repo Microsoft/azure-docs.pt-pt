@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
 ms.openlocfilehash: cb0274260022c55ae657b5b28b2c9ad1903d0296
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043274"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crie vistas personalizadas utilizando o View Designer no Azure Monitor
@@ -33,7 +33,7 @@ As vistas são exibidas na página **geral** do Monitor Azure no portal Azure. A
 
 As vistas que cria com o View Designer contêm os elementos descritos na tabela seguinte:
 
-| Parte | Descrição |
+| Parte | Description |
 |:--- |:--- |
 | Mosaicos | São apresentados na sua página **de visão geral do** Monitor Azure. Cada azulejo apresenta um resumo visual da vista personalizada que representa. Cada tipo de azulejo fornece uma visualização diferente dos seus registos. Selecione um azulejo para exibir uma vista personalizada. |
 | Vista personalizada | Apresentado quando seleciona um azulejo. Cada vista contém uma ou mais partes de visualização. |

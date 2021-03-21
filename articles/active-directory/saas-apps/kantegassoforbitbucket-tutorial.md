@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para a Bitbucket Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para a Bitbucket | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kantega SSO para o Bitbucket.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 52879eb7cb7a9d90113971aa66c590b99b2d5e88
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Tutorial: Integração do Azure Ative Directory com a Kantega SSO para a Bitbucket
@@ -144,7 +144,7 @@ Para configurar o Azure AD single sign-on com Kantega SSO para Bitbucket, execut
 
     ![A screenshot mostra a instalação do progresso.](./media/kantegassoforbitbucket-tutorial/addon31.png)
 
-1. Uma vez concluída a instalação. Clique em **Close** (Fechar).
+1. Uma vez concluída a instalação. Clique em **Fechar**.
 
     ![A imagem mostra o botão Close.](./media/kantegassoforbitbucket-tutorial/addon33.png)
 
@@ -176,7 +176,7 @@ Para configurar o Azure AD single sign-on com Kantega SSO para Bitbucket, execut
 
     ![A screenshot mostra a secção de importação de metadados onde pode navegar para um ficheiro de metadados.](./media/kantegassoforbitbucket-tutorial/addon7.png)
 
-    a. Selecione **o ficheiro Metadados no meu computador**e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
+    a. Selecione **o ficheiro Metadados no meu computador** e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
 
     b. Clique em **Seguinte**.
 

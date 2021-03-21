@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: cd339729f2300ff7e13e7422bf73373b4ce4658e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221014"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)
@@ -125,7 +125,7 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 
 #### <a name="request-log-schema"></a>Solicitar esquema de registo
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | hora |String |A horatampia (em UTC) do log |
 | resourceId |String |O identificador do recurso que a operação teve lugar em |
@@ -139,7 +139,7 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 
 #### <a name="request-log-properties-schema"></a>Solicite esquema de propriedades de registo
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, GET. |
 | Caminho |String |O caminho em que a operação foi realizada |
@@ -175,7 +175,7 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | hora |String |A horatampia (em UTC) do log |
 | resourceId |String |O identificador do recurso que a operação teve lugar em |
@@ -193,7 +193,7 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | JobId |String |A ID atribuída ao trabalho |
 | Nome de emprego |String |O nome que foi fornecido para o trabalho |
@@ -204,7 +204,7 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 | Paralelismo |String |O número de unidades de Data Lake Analytics solicitadas para este trabalho durante a submissão |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime,** **EndTime**e **Parallelism** fornecem informações sobre uma operação. Estas entradas só contêm um valor se essa operação tiver começado ou concluído. Por exemplo, **o SubmitTime** contém apenas um valor após **a operaçãoName** tem o valor **JobSubmitted**.
+> **SubmitTime**, **StartTime,** **EndTime** e **Parallelism** fornecem informações sobre uma operação. Estas entradas só contêm um valor se essa operação tiver começado ou concluído. Por exemplo, **o SubmitTime** contém apenas um valor após **a operaçãoName** tem o valor **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Processar os dados de registo
 

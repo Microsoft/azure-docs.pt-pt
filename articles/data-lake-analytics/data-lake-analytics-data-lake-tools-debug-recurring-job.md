@@ -6,17 +6,17 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 05/20/2018
 ms.openlocfilehash: b95d4b0a082e8eac191d610c9516e5ce72180b4c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219178"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Resolver problemas de uma tarefa periódica anormal
 
 Este artigo mostra como usar [a Azure Data Lake Tools para o Visual Studio](https://aka.ms/adltoolsvs) para resolver problemas com empregos recorrentes. Saiba mais sobre o oleoduto e os empregos recorrentes a partir do [Azure Data Lake e do blog Azure HDInsight.](/archive/blogs/azuredatalake/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy)
 
-Os empregos recorrentes geralmente partilham a mesma lógica de consulta e dados de entrada semelhantes. Por exemplo, imagine que tem um emprego recorrente a funcionar todas as segundas-feiras de manhã às 8 da manhã. para contar o utilizador semanal ativo da semana passada. Os scripts para estes trabalhos partilham um modelo de script que contém a lógica de consulta. Os inputs para estes trabalhos são os dados de utilização da semana passada. Partilhar a mesma lógica de consulta e contributos semelhantes geralmente significa que o desempenho destes trabalhos é semelhante e estável. Se um dos seus trabalhos recorrentes de repente funcionar de forma anormal, falhar ou abrandar muito, talvez queira:
+Os empregos recorrentes geralmente partilham a mesma lógica de consulta e dados de entrada semelhantes. Por exemplo, imagine que tem um emprego recorrente a funcionar todas as segundas-feiras de manhã às 8:00.M. para contar o utilizador semanal ativo da semana passada. Os scripts para estes trabalhos partilham um modelo de script que contém a lógica de consulta. Os inputs para estes trabalhos são os dados de utilização da semana passada. Partilhar a mesma lógica de consulta e contributos semelhantes geralmente significa que o desempenho destes trabalhos é semelhante e estável. Se um dos seus trabalhos recorrentes de repente funcionar de forma anormal, falhar ou abrandar muito, talvez queira:
 
 - Consulte os relatórios estatísticos das séries anteriores do trabalho recorrente para ver o que aconteceu.
 - Compare o trabalho anormal com um normal para descobrir o que foi mudado.
@@ -29,7 +29,7 @@ Para utilizar a Vista de Emprego Relacionada para resolver um problema de trabal
 
 ### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Você tem a URL para o trabalho recorrente
 
-Através de **Tools**  >  **Data Lake**Job  >  **View,** pode colar o URL de trabalho para abrir a Job View no Estúdio Visual. Selecione **Ver Empregos Relacionados** para abrir a vista de trabalho relacionada.
+Através de **Tools**  >  **Data Lake** Job  >  **View,** pode colar o URL de trabalho para abrir a Job View no Estúdio Visual. Selecione **Ver Empregos Relacionados** para abrir a vista de trabalho relacionada.
 
 ![Ver links de empregos relacionados em ferramentas de análise de lago de dados](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  

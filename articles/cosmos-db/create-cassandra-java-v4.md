@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: ee30af3f07c8b350393822f01833feec6e3b52e2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93099815"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB Cassandra API (v4 Driver)
@@ -67,7 +67,7 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação do Cassandra a 
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em saber de que forma o código cria os recursos da base de dados, pode rever os fragmentos seguintes. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). Estes snippets são todos retirados do *ficheiro src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.*  
+Este passo é opcional. Se estiver interessado em saber de que forma o código cria os recursos da base de dados, pode rever os fragmentos seguintes. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). Estes snippets são todos retirados do *ficheiro src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* ficheiro.  
 
 * A `CqlSession` ligação à Azure Cosmos DB Cassandra API e devolve uma sessão de acesso `Cluster` (objeto do condutor V3 está agora obsoleto). Cassandra Host, Port, User name e password é definida usando a página de cadeia de ligação no portal Azure.
 
@@ -78,7 +78,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
     ```
 
 
-Os seguintes snippets são do ficheiro *src/main/java/com/azure/cosmosdb/cassandra/repositório/UserRepository.java.*
+Os seguintes snippets são do ficheiro *src/main/java/com/azure/cosmosdb/cassandra/repositório/UserRepository.java* ficheiro.
 
 * Largue o espaço-chave se já existir de uma execução anterior.
 
@@ -152,7 +152,7 @@ Os seguintes snippets são do ficheiro *src/main/java/com/azure/cosmosdb/cassand
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Os detalhes da cadeia de ligação permitem que a aplicação comunique com a base de dados alojada.
 
-1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String** . 
+1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
     :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Ver e copiar um nome de utilizador no portal do Azure, página Cadeia de ligação":::
 
@@ -216,13 +216,13 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Ver e copiar um nome de utilizador no portal do Azure, página Cadeia de ligação":::
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Ver os dados no Data Explorer - Azure Cosmos DB":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

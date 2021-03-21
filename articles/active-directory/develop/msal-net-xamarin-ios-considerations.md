@@ -1,5 +1,5 @@
 ---
-title: Considerações de Xamarin iOS (MSAL.NET) Rio Azure
+title: Considerações de Xamarin iOS (MSAL.NET) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações para a utilização do Xamarin iOS com a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 62eb4ab9eb6e4b0e7be0f7aadae1173950d21615
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98064492"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerações para a utilização de Xamarin iOS com MSAL.NET
@@ -147,11 +147,11 @@ Nestes casos, utilize [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft
 
 Se tiver dúvidas ou quiser reportar um problema que encontrou no MSAL.NET, abra um problema no repositório [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) no GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre propriedades para xamarin iOS, consulte o parágrafo de [considerações específicas](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) para o iOS do ficheiro README.md da amostra seguinte:
 
-Sample | Plataforma | Descrição
+Sample | Plataforma | Description
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universal Windows Platform (UWP) | Uma aplicação simples Xamarin Forms que mostra como usar o MSAL para autenticar contas pessoais da Microsoft e AD AD AZure através do ponto final Azure AD 2.0. A aplicação também mostra como usar o token resultante para aceder ao Microsoft Graph.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o PerformanceCentre Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o PerformanceCentre | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o PerformanceCentre.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 79255b98312b16fa21e07abad701e08578c6ca89
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integração do Azure Ative Directory com o PerformanceCentre
@@ -130,7 +130,7 @@ Para configurar o Azure AD com o PerformanceCentre, execute os seguintes passos:
    
     ![Screenshot que mostra o menu "PerformanceCenter" com "Configurar" selecionado.][10]
 
-3. No separador do lado esquerdo, clique em **Miscelâneas**e, em seguida, clique **em Single Sign On**.
+3. No separador do lado esquerdo, clique em **Miscelâneas** e, em seguida, clique **em Single Sign On**.
    
     ![Screenshot que mostra o separador "Configurar" com "Sign-On único" selecionado a partir do menu "Diversos".][11]
 
@@ -175,7 +175,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao PerformanceCentre.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **PerformanceCentre**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **PerformanceCentre**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -205,7 +205,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon no Perform
 
 1. Inscreva-se no site da empresa PerformanceCentre como administrador.
 
-2. No menu à esquerda, clique em **Interrelate**e, em seguida, clique em **Criar Participante**.
+2. No menu à esquerda, clique em **Interrelate** e, em seguida, clique em **Criar Participante**.
    
     ![Screenshot que mostra a página "PerformanceCenter" da empresa "Interrelate -Participantes" com o botão "Criar Participante" selecionado.][400]
 

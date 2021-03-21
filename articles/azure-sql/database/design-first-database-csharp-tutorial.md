@@ -11,10 +11,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
 ms.openlocfilehash: 4b3235f457f1c6475c18045886c49d3dd2ca2242
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92671175"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Tutorial: Desenhe uma base de dados relacional na Azure SQL Database C&#x23; e ADO.NET
@@ -47,7 +47,7 @@ Uma base de dados na Base de Dados Azure SQL é criada com um conjunto definido 
 Siga estes passos para criar uma base de dados em branco.
 
 1. Clique em **Criar um recurso** no canto superior esquerdo do portal Azure.
-2. Na página **Nova** , selecione **Bases de Dados** na secção de Microsoft Azure Marketplace e, em seguida, clique em **Base de Dados SQL** na secção **Em Destaque** .
+2. Na página **Nova**, selecione **Bases de Dados** na secção de Microsoft Azure Marketplace e, em seguida, clique em **Base de Dados SQL** na secção **Em Destaque**.
 
    ![create empty-database](./media/design-first-database-csharp-tutorial/create-empty-database.png)
 
@@ -71,10 +71,10 @@ Siga estes passos para criar uma base de dados em branco.
 
     ![criar servidor de base de dados](./media/design-first-database-csharp-tutorial/create-database-server.png)
 
-5. Clique em **Selecionar** .
+5. Clique em **Selecionar**.
 6. Clique em **Escalão de preço** para especificar o escalão de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Pode explorar as opções para o número de DTUs/vCores e armazenamento que está disponível para cada nível de serviço.
 
-    Depois de selecionar o nível de serviço, o número de DTUs ou vCores, e a quantidade de armazenamento, clique em **Aplicar** .
+    Depois de selecionar o nível de serviço, o número de DTUs ou vCores, e a quantidade de armazenamento, clique em **Aplicar**.
 
 7. Introduza uma **Colagem** para a base de dados em branco (para este tutorial, utilize o valor predefinido). Para obter mais informações sobre agrupamentos, veja [Agrupamentos](/sql/t-sql/statements/collations)
 
@@ -91,7 +91,7 @@ A SQL Database cria uma firewall IP ao nível do servidor. Esta firewall impede 
 > [!IMPORTANT]
 > A Base de Dados SQL comunica através da porta 1433. Se estiver a tentar ligar-se a este serviço a partir de uma rede corporativa, o tráfego de saída sobre o porto 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não pode ligar-se à sua base de dados a menos que o seu administrador abra a porta 1433.
 
-1. Depois de concluída a implementação, clique nas bases de **dados SQL** a partir do menu à esquerda e, em seguida, clique na *sua Base de Dados* SQL na página de **bases de dados SQL.** A página geral da sua base de dados abre, mostrando-lhe o **nome do Servidor** totalmente qualificado (como *yourserver.database.windows.net* ) e fornece opções para uma configuração posterior.
+1. Depois de concluída a implementação, clique nas bases de **dados SQL** a partir do menu à esquerda e, em seguida, clique na *sua Base de Dados* SQL na página de **bases de dados SQL.** A página geral da sua base de dados abre, mostrando-lhe o **nome do Servidor** totalmente qualificado (como *yourserver.database.windows.net*) e fornece opções para uma configuração posterior.
 
 2. Copie este nome de servidor totalmente qualificado para utilização para ligar ao seu servidor e bases de dados do SQL Server Management Studio.
 
@@ -103,9 +103,9 @@ A SQL Database cria uma firewall IP ao nível do servidor. Esta firewall impede 
 
 4. Clique em **Adicionar IP** ao cliente na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall IP. Uma regra de firewall IP pode abrir a porta 1433 para um único endereço IP ou uma gama de endereços IP.
 
-5. Clique em **Guardar** . Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
+5. Clique em **Guardar**. Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
 
-6. Clique em **OK** e, em seguida, feche a página **Definições da firewall** .
+6. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
 
 O seu endereço IP pode agora passar pela firewall IP. Pode agora ligar-se à sua base de dados utilizando o SQL Server Management Studio ou outra ferramenta à sua escolha. Certifique-se de que utiliza a conta de administração do servidor que criou anteriormente.
 

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
 ms.openlocfilehash: bff61ec9dfcb985ea0111ca58bfd58273e1fe432
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101723253"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimize your Active Directory environment with the Active Directory Health Check solution in Azure Monitor (Otimizar o ambiente do Active Directory com a solução Verificação de Estado de Funcionamento do Active Directory no Azure Monitor)

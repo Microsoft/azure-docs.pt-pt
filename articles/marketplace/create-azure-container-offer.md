@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
 ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459560"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentor do Azure no Azure Marketplace
@@ -151,7 +151,7 @@ Uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de compri
 
 Uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -365,11 +365,11 @@ Nome do **Registo do Contentor Azure** – Forneça o nome do Registo do [Conten
 
  :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a caixa de diálogo do registo do contentor De atualização.":::
 
-**Palavra-passe para o Registo do Contentor Azure** – Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [espetáculo](/cli/azure/acr/credential#az-acr-credential-show).
+**Palavra-passe para o Registo do Contentor Azure** – Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >   ou com o Azure CLI utilizando o comando do [espetáculo](/cli/azure/acr/credential#az-acr-credential-show).
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra o menu 'Chave de Acesso'.":::
 
-**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Inclua o nome do repositório quando empurrar a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../container-registry/container-registry-repositories.md)
+**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Inclua o nome do repositório quando empurrar a imagem para o registo. Pode encontrar o nome do repositório [](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../container-registry/container-registry-repositories.md)
 
 > [!NOTE]
 > Depois do nome estar definido, não pode ser mudado. Use um nome único para cada oferta na sua conta.

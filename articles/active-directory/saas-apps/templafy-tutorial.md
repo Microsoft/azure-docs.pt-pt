@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Templafy SAML2 Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com | Templafy SAML2 Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Templafy SAML2.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.openlocfilehash: d83bf1b6e986f867a3781b5da7d2784e65815520
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy-saml2"></a>Tutorial: Azure Ative Directory integração única (SSO) com templafy SAML2
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação TEMplafy SAML2 espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem| Espaço de Nomes  |
+    | Name | Atributo de origem| Espaço de Nomes  |
     | ---------------| --------------- | --------- |
     | givenname | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | surname | utilizador.sobrenome | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
@@ -127,7 +127,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a TEMplafy SAML2.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Templafy SAML2**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

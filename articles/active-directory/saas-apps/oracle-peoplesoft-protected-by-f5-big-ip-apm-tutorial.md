@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com a Oracle PeopleSoft - Protegida por F5 BIG-IP APM / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a Oracle PeopleSoft - Protegida por F5 BIG-IP APM | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Oracle PeopleSoft - Protegido por F5 BIG-IP APM.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522296"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a Oracle PeopleSoft - Protegida por F5 BIG-IP APM
@@ -108,7 +108,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a Oracle PeopleSoft - Protegida pela aplicação F5 BIG-IP APM espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ------------------ | --------- |
     | EMPLID | utilizador.employeeid |
 
@@ -132,7 +132,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Oracle PeopleSoft - Protegida por F5 BIG-IP APM.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Oracle PeopleSoft - Protected by F5 BIG-IP APM**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
@@ -178,7 +178,7 @@ Importe o Certificado de Metadados no F5 que será utilizado mais tarde no proce
     ![novos serviços SAML SP](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/new-saml-sp-service.png)
 
 1. Selecione a Configuração SP, PeopleSoftAppSSO e **Clique em Conectores IdP Bind/UnBind**.
-Clique em **Adicionar Nova Linha** e selecione o **conector IdP externo** criado no passo anterior, clique em **Update**e, em seguida, clique em **OK**.
+Clique em **Adicionar Nova Linha** e selecione o **conector IdP externo** criado no passo anterior, clique em **Update** e, em seguida, clique em **OK**.
 
     ![criar serviços SAML SP](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/edit-saml-idp-use-sp.png)
 
@@ -240,7 +240,7 @@ Navegue para **o Peopletools > Security > Os perfis de utilizador > perfis de ut
 
     ![Utilizador Peoplesoft](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/user-profile.png)
 
-1. Aceda ao perfil web e **introduza o OAMPSFT** como o **ID**do utilizador de acesso público.
+1. Aceda ao perfil web e **introduza o OAMPSFT** como o **ID** do utilizador de acesso público.
 
     ![Perfis de Utilizador](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
 

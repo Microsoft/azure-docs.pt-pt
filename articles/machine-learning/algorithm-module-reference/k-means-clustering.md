@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
 ms.openlocfilehash: 7e0b61c1ca6ae30044e4c9d4705bdce01eac1942
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93323688"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: K-Significa Clustering
@@ -58,7 +58,7 @@ Quando processa os dados de treino, o algoritmo K-significa começa com um conju
   
 2.  Para especificar como pretende que o modelo seja treinado, selecione a opção **Modo De Formação Criar.**  
   
-    -   **Parâmetro único** : Se conhecer os parâmetros exatos que pretende utilizar no modelo de agrupamento, pode fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: Se conhecer os parâmetros exatos que pretende utilizar no modelo de agrupamento, pode fornecer um conjunto específico de valores como argumentos.  
   
 3.  Para **o número de centrosids,** digite o número de clusters com que o algoritmo comece.  
   
@@ -66,11 +66,11 @@ Quando processa os dados de treino, o algoritmo K-significa começa com um conju
   
 4.  As propriedades **A inicialização** é usada para especificar o algoritmo que é usado para definir a configuração inicial do cluster.  
   
-    -   **Primeiro N** : Alguns números iniciais de pontos de dados são escolhidos a partir do conjunto de dados e utilizados como meios iniciais. 
+    -   **Primeiro N**: Alguns números iniciais de pontos de dados são escolhidos a partir do conjunto de dados e utilizados como meios iniciais. 
     
          Este método também é chamado *de método Forgy.*  
   
-    -   **Aleatório** : O algoritmo coloca aleatoriamente um ponto de dados num cluster e, em seguida, calcula a média inicial para ser o centroíid dos pontos atribuídos aleatoriamente do cluster. 
+    -   **Aleatório**: O algoritmo coloca aleatoriamente um ponto de dados num cluster e, em seguida, calcula a média inicial para ser o centroíid dos pontos atribuídos aleatoriamente do cluster. 
 
          Este método também é chamado de método *de partição aleatória.*  
   
@@ -81,23 +81,23 @@ Quando processa os dados de treino, o algoritmo K-significa começa com um conju
     
 5.  Para **sementes de número aleatório,** digite opcionalmente um valor a utilizar como semente para a inicialização do cluster. Este valor pode ter um efeito significativo na seleção do cluster.  
   
-6.  Para **Métrica** , escolha a função a utilizar para medir a distância entre os vetores de cluster, ou entre novos pontos de dados e o centroid escolhido aleatoriamente. A Azure Machine Learning suporta as seguintes métricas de distância do cluster:  
+6.  Para **Métrica**, escolha a função a utilizar para medir a distância entre os vetores de cluster, ou entre novos pontos de dados e o centroid escolhido aleatoriamente. A Azure Machine Learning suporta as seguintes métricas de distância do cluster:  
   
-    -   **Euclideano** : A distância euclidana é comumente usada como uma medida de dispersão de aglomerados para o agrupamento de meios K. Esta métrica é preferida porque minimiza a distância média entre os pontos e os centrosids.
+    -   **Euclideano**: A distância euclidana é comumente usada como uma medida de dispersão de aglomerados para o agrupamento de meios K. Esta métrica é preferida porque minimiza a distância média entre os pontos e os centrosids.
   
 7.  Para **iterações,** digite o número de vezes que o algoritmo deve iterar sobre os dados de treino antes de finalizar a seleção de centrosids.  
   
      Pode ajustar este parâmetro para equilibrar a precisão em termos de tempo de treino.  
   
-8.  Para **o modo de etiqueta de atribuição** , escolha uma opção que especifique como uma coluna de etiqueta, se estiver presente no conjunto de dados, deve ser manuseada.  
+8.  Para **o modo de etiqueta de atribuição**, escolha uma opção que especifique como uma coluna de etiqueta, se estiver presente no conjunto de dados, deve ser manuseada.  
   
      Como o agrupamento K-significa que o agrupamento é um método de aprendizagem automática não supervisionado, os rótulos são opcionais. No entanto, se o seu conjunto de dados já tiver uma coluna de etiquetas, pode utilizar esses valores para orientar a seleção dos clusters, ou pode especificar que os valores serão ignorados.  
   
-    -   **Ignore a coluna da etiqueta** : Os valores na coluna da etiqueta são ignorados e não são utilizados na construção do modelo.
+    -   **Ignore a coluna da etiqueta**: Os valores na coluna da etiqueta são ignorados e não são utilizados na construção do modelo.
   
-    -   **Preencha os valores em falta** : Os valores da coluna de etiqueta são utilizados como características para ajudar a construir os clusters. Se faltar alguma etiqueta, o valor é imputado utilizando outras funcionalidades.  
+    -   **Preencha os valores em falta**: Os valores da coluna de etiqueta são utilizados como características para ajudar a construir os clusters. Se faltar alguma etiqueta, o valor é imputado utilizando outras funcionalidades.  
   
-    -   **Sobrepor-se do mais próximo ao centro** : Os valores da coluna de etiqueta são substituídos por valores de etiquetas previstos, utilizando a etiqueta do ponto mais próximo do centroid atual.  
+    -   **Sobrepor-se do mais próximo ao centro**: Os valores da coluna de etiqueta são substituídos por valores de etiquetas previstos, utilizando a etiqueta do ponto mais próximo do centroid atual.  
 
 8.  Selecione a opção **de normalização das funcionalidades** se quiser normalizar as funcionalidades antes do treino.
   

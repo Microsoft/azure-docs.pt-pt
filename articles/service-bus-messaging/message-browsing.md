@@ -4,10 +4,10 @@ description: Navegue e espreite as mensagens Service Bus permite que um cliente 
 ms.topic: article
 ms.date: 11/11/2020
 ms.openlocfilehash: c52c9c967d4eada1a931e188ed4d25f7691cfb91
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94553646"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
@@ -22,7 +22,7 @@ Peek também devolve mensagens que estavam bloqueadas e estão atualmente a ser 
 
 ## <a name="peek-apis"></a>Espreite as APIs
 
-Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem nas bibliotecas clientes .NET e Java e em objetos recetores: **MessageReceiver** , **MessageSession**. Peek trabalha em filas, subscrições e respetivas filas de cartas mortas.
+Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem nas bibliotecas clientes .NET e Java e em objetos recetores: **MessageReceiver**, **MessageSession**. Peek trabalha em filas, subscrições e respetivas filas de cartas mortas.
 
 Quando chamado repetidamente, **Peek** enumera todas as mensagens na fila ou registo de subscrição, por ordem, do número de sequência mais baixo disponível para o mais alto. É a ordem em que as mensagens foram encosadas, não a ordem pela qual as mensagens podem eventualmente ser recuperadas.
 

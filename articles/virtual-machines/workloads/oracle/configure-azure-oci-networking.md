@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
 ms.openlocfilehash: 09264f9f20411e7536eb4a1dbf12ac297e7e3ef9
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675713"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Criar uma interligação direta entre a Infraestrutura Azure e a Oracle Cloud  

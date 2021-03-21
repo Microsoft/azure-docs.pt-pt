@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Watch by Colors Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Watch by Colors | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Watch by Colors.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.openlocfilehash: fae276049ec3ff6c4bf96be38ff0d2a952731a15
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636787"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Tutorial: Azure Ative Directory integração única (SSO) com Watch by Colors
@@ -47,14 +47,14 @@ Para configurar a integração do Watch by Colors no AD Azure, é necessário ad
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **escreva Watch by Colors** na caixa de pesquisa.
 1. Selecione **Watch by Colors** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-watch-by-colors"></a>Configurar e testar Azure AD único sign-on para Watch by Colors
 
-Configure e teste Azure AD SSO com Relógio por Cores usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Watch by Colors.
+Configure e teste Azure AD SSO com Relógio por Cores usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Watch by Colors.
 
 Para configurar e testar Azure AD SSO com Relógio por Cores, complete os seguintes blocos de construção:
 
@@ -69,8 +69,8 @@ Para configurar e testar Azure AD SSO com Relógio por Cores, complete os seguin
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Watch by Colors,** encontre a secção **Gerir** e selecione um único sinal **de sação** .
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Watch by Colors,** encontre a secção **Gerir** e selecione um único sinal **de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -89,21 +89,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Watch by Colors.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de aplicações, selecione **Watch by Colors** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Watch by Colors**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -117,7 +117,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-watch-by-colors-sso"></a>Configure Relógio por Cores SSO
 
-1. Para automatizar a configuração dentro do Watch by Colors, tem de instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
+1. Para automatizar a configuração dentro do Watch by Colors, tem de instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
@@ -127,7 +127,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 3. Se pretender configurar o Watch by Colors manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa Watch by Colors como administrador e execute os seguintes passos:
 
-4. No canto superior direito da página, clique em **SSO** de Definições de Conta de perfil  >  **Account Settings**  >  **(Signo Único)** .
+4. No canto superior direito da página, clique em **SSO** de Definições de Conta de perfil  >    >  **(Signo Único)**.
 
     ![A screenshot mostra a página 'Definições de Conta' onde o S S O está desativado.](./media/watch-by-colors-tutorial/config01.png)
 
@@ -135,13 +135,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![A screenshot mostra o separador configuração SAML onde pode ativar o SAML.](./media/watch-by-colors-tutorial/config02.png)
 
-    a. Toggle **Enable SAML** to **ON** .
+    a. Toggle **Enable SAML** to **ON**.
 
     b. Na caixa de texto **URL,** cole o **Url de Metadados da Federação,** que copiou do portal Azure.
 
     c. Clique **em Importar,** em seguida, os seguintes campos são automaticamente povoados automaticamente na página.
 
-    d. Clique em **Guardar** .
+    d. Clique em **Guardar**.
 
 ### <a name="create-watch-by-colors-test-user"></a>Criar Relógio por Cores test utilizador
 
@@ -151,7 +151,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Watch by Colors, d
 
 1. Inscreva-se para Ver por Cores como Administrador de Segurança.
 
-1. No canto superior direito da página, clique no **perfil**  >  **Utilizadores**  >  **Adicionar Utilizador** .
+1. No canto superior direito da página, clique no **perfil**  >  **Utilizadores**  >  **Adicionar Utilizador**.
 
     ![A imagem mostra a página do Utilizadores.](./media/watch-by-colors-tutorial/config03.png)
 
@@ -159,9 +159,9 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Watch by Colors, d
 
     ![A screenshot mostra os Dados do Utilizador onde pode introduzir os valores descritos.](./media/watch-by-colors-tutorial/config04.png)
 
-    a. Na caixa de texto **First Name,** insira o primeiro nome do utilizador como **B** .
+    a. Na caixa de texto **First Name,** insira o primeiro nome do utilizador como **B**.
 
-    b. Na caixa de texto **Last Name,** insira o último nome do utilizador como **Simon** .
+    b. Na caixa de texto **Last Name,** insira o último nome do utilizador como **Simon**.
 
     c. Na caixa de texto **por e-mail,** insira o e-mail do utilizador como `B.Simon@contoso.com` .
 
@@ -169,7 +169,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Watch by Colors, d
 
     e. Selecione **Permissões de Conta** conforme a sua organização.
 
-    f. Clique em **Guardar** .
+    f. Clique em **Guardar**.
 
 ## <a name="test-sso"></a>Teste SSO 
 

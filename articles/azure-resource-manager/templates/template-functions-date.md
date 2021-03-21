@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920502"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
@@ -27,11 +27,11 @@ Adiciona uma duração de tempo a um valor base. Espera-se o formato ISO 8601.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| base | Sim | string | O valor da data inicial para a adição. Utilize [o formato iso 8601 timetamp](https://en.wikipedia.org/wiki/ISO_8601). |
-| duration | Sim | string | O valor do tempo a adicionar à base. Pode ser um valor negativo. Utilize [o formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| formato | Não | string | O formato de saída para o resultado da hora da data. Se não for fornecido, o formato do valor base é utilizado. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Yes | string | O valor da data inicial para a adição. Utilize [o formato iso 8601 timetamp](https://en.wikipedia.org/wiki/ISO_8601). |
+| duration | Yes | string | O valor do tempo a adicionar à base. Pode ser um valor negativo. Utilize [o formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| formato | No | string | O formato de saída para o resultado da hora da data. Se não for fornecido, o formato do valor base é utilizado. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -186,9 +186,9 @@ Devolve o valor atual (UTC) da data no formato especificado. Se não for forneci
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| formato |Não |string |O valor codificado uri para converter-se a uma corda. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| formato |No |string |O valor codificado uri para converter-se a uma corda. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 

@@ -4,10 +4,10 @@ description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperaç
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172749"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
@@ -68,7 +68,7 @@ Configure uma apólice de reserva para o cofre.
 
    ![Botão de reserva](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-1. Em **Backup Goal**Onde está a sua carga de trabalho a  >  **correr?** **Azure** Em **O que pretende fazer para fazer o back-up?** Selecione Máquina **Virtual**  >   **OK**. Isto regista a extensão VM no cofre.
+1. Em **Backup Goal** Onde está a sua carga de trabalho a  >  **correr?**  Em **O que pretende fazer para fazer o back-up?** Selecione Máquina **Virtual**  >   **OK**. Isto regista a extensão VM no cofre.
 
    ![Backup e Backup Goal](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -77,7 +77,7 @@ Configure uma apólice de reserva para o cofre.
 
       ![Política de backup predefinido](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
-    * Se não quiser utilizar a política predefinitiva, **selecione Create New**e crie uma política personalizada como descrito no procedimento seguinte.
+    * Se não quiser utilizar a política predefinitiva, **selecione Create New** e crie uma política personalizada como descrito no procedimento seguinte.
 
 1. Em **Máquinas Virtuais**, selecione **Adicionar**.
 

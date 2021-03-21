@@ -32,7 +32,7 @@ Nos Serviços de Comunicação social v3, as APIs de Armazenamento são usadas p
 
 Para proteger os seus ativos em repouso, os ativos devem ser encriptados pela encriptação do lado do armazenamento. A tabela a seguir mostra como funciona a encriptação do lado do armazenamento nos Serviços de Media v3:
 
-|Opção de encriptação|Descrição|Serviços de Multimédia v3|
+|Opção de encriptação|Description|Serviços de Multimédia v3|
 |---|---|---|
 |Encriptação de armazenamento de serviços de mídia| Encriptação AES-256, chave gerida pelos Media Services. |Não apoiado. <sup>1</sup>|
 |[Encriptação do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado.|

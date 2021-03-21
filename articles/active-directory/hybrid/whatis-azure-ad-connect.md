@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d8e1af1848405441088796d2e3b42e7b52eedba8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98065121"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
@@ -71,7 +71,7 @@ Métricas de utilização [avançadas](how-to-connect-health-adfs.md#usage-analy
 ## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Requisitos de licença para utilização de Azure AD Connect Health
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições expressas](how-to-connect-install-express.md)

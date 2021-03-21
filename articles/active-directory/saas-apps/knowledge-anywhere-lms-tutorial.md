@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Knowledge Anywhere LMS Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Knowledge Anywhere LMS | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Knowledge Anywhere LMS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
 ms.openlocfilehash: eab1304408f896f5c9d736488997c1246ae167f2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458988"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutorial: Integrar conhecimento em qualquer lugar LMS com Diretório Ativo Azure
@@ -159,7 +159,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B. Sim
 
 Nesta secção, você permitirá a B. Simon usar o Azure single sign-on, concedendo acesso ao Knowledge Anywhere LMS.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Knowledge Anywhere LMS**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

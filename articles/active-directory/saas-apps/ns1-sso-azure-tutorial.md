@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com NS1 SSO para Azure / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com NS1 SSO para Azure | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o NS1 SSO para o Azure.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
 ms.openlocfilehash: a7fad0af26d15bc77a52d55309c594937ba3be13
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518624"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com NS1 SSO para Azure
@@ -49,7 +49,7 @@ Para configurar a integração do NS1 SSO para Azure em Ad AZure, precisa adicio
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **digite NS1 SSO para Azure** na caixa de pesquisa.
 1. Selecione **NS1 SSO para Azure** a partir do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão: `https://api.nsone.net/saml/sso/<ssoid>`
 
-1. Selecione **Definir URLs adicionais**e executar o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
+1. Selecione **Definir URLs adicionais** e executar o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
 
     Na caixa de texto **URL de entrada de inscrição,** digite o seguinte URL:  `https://my.nsone.net/#/login/sso`
 
@@ -126,7 +126,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Quando já tem Azure AD / Microsoft Docs'
+title: 'Azure AD Connect: Quando já tem Azure AD | Microsoft Docs'
 description: Este tópico descreve como usar o Connect quando tem um inquilino AZure AD existente.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420534"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
@@ -34,7 +34,7 @@ Pode gerir alguns utilizadores no local e outros na nuvem. Um cenário comum par
 Se começou a gerir utilizadores em Azure AD que também estão no local AD e mais tarde querem usar o Connect, então existem algumas preocupações adicionais que deve considerar.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronizar com os utilizadores existentes no Azure AD
-Quando instala o Azure AD Connect e começa a sincronizar, o serviço de sincronização AZure AD (em Azure AD) verifica cada novo objeto e tenta encontrar um objeto existente para combinar. Existem três atributos utilizados para este processo: **userPrincipalName,** **proxyAddresses** e **sourceAnchor** / **imuttableID**. Uma correspondência no **userPrincipalName** e **proxyAddresses** é conhecida como uma **combinação suave**. Uma correspondência na **fonteAnchor** é conhecida como **hard match**. Para o **proxyAddresses** atribuem apenas o valor com **SMTP:** , este é o endereço de e-mail primário, é usado para a avaliação.
+Quando instala o Azure AD Connect e começa a sincronizar, o serviço de sincronização AZure AD (em Azure AD) verifica cada novo objeto e tenta encontrar um objeto existente para combinar. Existem três atributos utilizados para este processo: **userPrincipalName,** **proxyAddresses** e **sourceAnchor** / **imuttableID**. Uma correspondência no **userPrincipalName** e **proxyAddresses** é conhecida como uma **combinação suave**. Uma correspondência na **fonteAnchor** é conhecida como **hard match**. Para o **proxyAddresses** atribuem apenas o valor com **SMTP:**, este é o endereço de e-mail primário, é usado para a avaliação.
 
 A partida só é avaliada para novos objetos vindos do Connect. Se alterar um objeto existente, por isso corresponde a qualquer um destes atributos, então vê um erro.
 
