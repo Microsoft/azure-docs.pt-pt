@@ -1,5 +1,5 @@
 ---
-title: Referência de enriquecimentos Azure Sentinel UEBA Microsoft Docs
+title: Azure Sentinel UEBA refere-se | Microsoft Docs
 description: Este artigo exibe os enriquecimentos de entidades gerados pela análise de comportamento da entidade de Azure Sentinel.
 services: sentinel
 cloud: na
@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 01/04/2021
 ms.author: yelevin
 ms.openlocfilehash: daba8fc1f645b51dc8668c806be63744b6ae0842
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97901790"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Referência de enriquecimentos Azure Sentinel UEBA
@@ -53,7 +53,7 @@ As duas primeiras tabelas, **insights do utilizador** e insights do **dispositiv
 | --- | --- | --- | --- |
 | **Browser**<br>*(Browser)* | O navegador usado na ação. | Edge |
 | **Família de dispositivos**<br>*(DispositivoFamily)* | A família do dispositivo usado na ação. | Windows |
-| **Tipo de Dispositivo**<br>*(DeviceType)* | O tipo de dispositivo cliente usado na ação | Ambiente de trabalho |
+| **Tipo de dispositivo**<br>*(DeviceType)* | O tipo de dispositivo cliente usado na ação | Ambiente de Trabalho |
 | **ISP**<br>*(ISP)* | O fornecedor de serviços de internet usado na ação. |  |
 | **Sistema operativo**<br>*(Sistema Operativo)* | O sistema operativo utilizado na ação. | Windows 10 |
 | **Descrição do indicador de informação de ameaça**<br>*(Descrição do Indicator ThreatIntel)* | Descrição do indicador de ameaça observado resolvido a partir do endereço IP utilizado na ação. | Host é membro da botnet: azorult |
@@ -155,7 +155,7 @@ As duas primeiras tabelas, **insights do utilizador** e insights do **dispositiv
 | --- | --- | --- | --- |
 | **A última vez que o utilizador realizou ação**<br>*(LastTimeUserPerformedAction)* | 180 | A última vez que o utilizador realizou a mesma ação. | <Timestamp> |
 | **Ações semelhantes não foram realizadas no passado.**<br>*(SimilarActionWasn'tPerformedInThePast)* | 30 | O utilizador não realizou qualquer ação no mesmo fornecedor de recursos. | Verdade, Falso |
-| **Localização IP de origem**<br>*(Localização SourceIP)* | *N/D* | O país resolveu a partir da origem ip da ação. | [Surrey, Inglaterra] |
+| **Localização IP de origem**<br>*(Localização SourceIP)* | *N/A* | O país resolveu a partir da origem ip da ação. | [Surrey, Inglaterra] |
 | **Volume incomum de operações**<br>*(UncommonHighVolumeOfOperations)* | 7 | Um utilizador realizou uma explosão de operações semelhantes dentro do mesmo fornecedor | Verdade, Falso |
 | **Número incomum de falhas de acesso condicional AZure AD**<br>*(UnusualNumberOfAADConditionalAccessFailures)* | 5 | Um número incomum de utilizadores não autenticou devido ao acesso condicional | Verdade, Falso |
 | **Número incomum de dispositivos adicionados**<br>*(UnusualNumberOfDevicesAdded)* | 5 | Um utilizador adicionou um número incomum de dispositivos. | Verdade, Falso |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Halosys Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com halosys | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Halosys.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 75ebb2e7e996299e532aba9964b044149bdb5983
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92446126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integração do Azure Ative Directory com Halosys
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Halosys.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Halosys**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Halosys**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

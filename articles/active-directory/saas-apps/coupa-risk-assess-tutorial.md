@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Coupa Risk Assess / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Coupa Risk Assess | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Coupa Risk Assess.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
 ms.openlocfilehash: bad1ccc99575b788e1bb5ea541c6b6690ead6eca
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180987"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coupa-risk-assess"></a>Tutorial: Azure Ative Directory integração única (SSO) com Avaliação de Risco coupa

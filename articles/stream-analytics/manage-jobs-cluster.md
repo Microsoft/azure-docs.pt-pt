@@ -8,10 +8,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: 09a67d11ac4daf3e87a50ee2171f1ca49060c5bf
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018127"
 ---
 # <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Adicione e remova os empregos num cluster Azure Stream Analytics
@@ -48,7 +48,7 @@ Os trabalhos de Stream Analytics devem estar num estado parado antes de poderem 
 
    Quando um trabalho é removido de um cluster Stream Analytics, ele retorna ao ambiente padrão multi-inquilino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora sabe como adicionar e remover empregos no seu cluster Azure Stream Analytics. Em seguida, pode aprender a gerir pontos finais privados e escalar os seus clusters:
 

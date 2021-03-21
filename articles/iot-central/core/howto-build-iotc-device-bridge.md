@@ -1,5 +1,5 @@
 ---
-title: Construa a ponte de dispositivos Azure IoT Central ! Microsoft Docs
+title: Construa a ponte de dispositivos Azure IoT Central | Microsoft Docs
 description: Construa a ponte do dispositivo IoT Central para ligar outras nuvens IoT (Sigfox, Partícula, Rede de Coisas, etc.) à sua aplicação IoT Central.
 services: iot-central
 ms.service: iot-central
@@ -10,10 +10,10 @@ ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
 ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026255"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Construa a ponte do dispositivo IoT Central para ligar outras nuvens IoT à IoT Central
@@ -42,7 +42,7 @@ As instruções estão listadas em detalhe no ficheiro README no repo GitHub.
 ## <a name="pricing"></a>Preços
 Os recursos Azure serão hospedados na sua subscrição do Azure. Pode saber mais sobre os preços no [ficheiro README.](https://aka.ms/iotcentralgithubdevicebridge)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a construir a ponte do dispositivo IoT Central, aqui está o próximo passo sugerido:
 
 > [!div class="nextstepaction"]

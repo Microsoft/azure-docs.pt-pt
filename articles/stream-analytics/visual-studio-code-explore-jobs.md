@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: how-to
 ms.openlocfilehash: 4f1c0650820a419275ade6095344033b6d81a568
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013877"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Explore a Azure Stream Analytics com Código de Estúdio Visual (Pré-visualização)
@@ -42,6 +42,6 @@ Você pode usar a vista de trabalho para interagir com os trabalhos da Azure Str
 
    ![Vista de emprego aberta no portal](./media/vscode-explore-jobs/open-job-view.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie um trabalho em nuvem Azure Stream Analytics em Código de Estúdio Visual (Pré-visualização)](quick-create-visual-studio-code.md)

@@ -4,10 +4,10 @@ description: Este artigo descreve como implementar extensões de máquinas virtu
 ms.date: 01/05/2021
 ms.topic: conceptual
 ms.openlocfilehash: 9b1f83ad976aa3471430a912280fac25dc5c5c0c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97916189"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Ativar extensões Azure VM usando Azure PowerShell
@@ -28,7 +28,7 @@ Quando a instalação estiver concluída, a seguinte mensagem é devolvida:
 
 ## <a name="enable-extension"></a>Permitir extensão
 
-Para ativar uma extensão VM no seu servidor ativado pelo Arco, utilize [a extensão new-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) com os parâmetros , `-Name` `-ResourceGroupName` - `-MachineName` `-Location` `-Publisher` `ExtensionType` e. `-Settings`
+Para ativar uma extensão VM no seu servidor ativado pelo Arco, utilize [a extensão new-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) com os parâmetros , `-Name` , , , - `-ResourceGroupName` `-MachineName` `-Location` `-Publisher` `ExtensionType` e. `-Settings`
 
 O exemplo a seguir permite a extensão VM do Log Analytics num servidor Linux ativado pelo Arco:
 

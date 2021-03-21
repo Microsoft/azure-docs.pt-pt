@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972764"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Ative Directory Connect sync: Configurar a localização de dados preferenciais para os recursos da Microsoft 365
@@ -142,8 +142,8 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
-    | Descrição | *Fornecer uma descrição personalizada* |  |
+    | Name | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
+    | Description | *Fornecer uma descrição personalizada* |  |
     | Sistema Conectado | *Escolha o conector ative de diretório no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
@@ -171,8 +171,8 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
-    | Descrição | *Fornecer uma descrição* ||
+    | Name | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
+    | Description | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o Conector AD Azure* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||
@@ -183,7 +183,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | IGUAL | Utilizador |
+    | sourceObjectType | IGUAL | User |
     | cloudMastered | NOTAQUAL | Verdadeiro |
 
     O filtro de deteção determina quais os objetos AZure AD a que esta regra de sincronização de saída é aplicada. Neste exemplo, utilizamos o mesmo filtro de deteção de "out to Azure AD – User Identity" OOB (fora da caixa) regra de sincronização. Impede que a regra de sincronização seja aplicada a objetos do **Utilizador** que não sejam sincronizados a partir de um Diretório Ativo no local. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.

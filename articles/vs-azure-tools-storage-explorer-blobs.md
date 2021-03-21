@@ -1,5 +1,5 @@
 ---
-title: Gerir os recursos de armazenamento Azure Blob com o Storage Explorer Microsoft Docs
+title: Gerir os recursos de armazenamento Azure Blob com | do Storage Explorer Microsoft Docs
 description: Gerir os recursos de armazenamento Azure Blob com o Storage Explorer. Crie um recipiente blob, veja o conteúdo do recipiente blob, elimine ou copie um recipiente de bolhas, e muito mais.
 services: storage
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95531972"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir os recursos de armazenamento Azure Blob com o Storage Explorer

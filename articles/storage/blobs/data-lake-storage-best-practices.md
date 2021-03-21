@@ -1,5 +1,5 @@
 ---
-title: Boas práticas para a utilização do Azure Data Lake Storage Gen2 Microsoft Docs
+title: Melhores práticas para a utilização do Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Conheça as melhores práticas sobre a ingestão de dados, segurança de datas e desempenho relacionado com a utilização do Azure Data Lake Storage Gen2 (anteriormente conhecido como Azure Data Lake Store)
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95913560"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen2

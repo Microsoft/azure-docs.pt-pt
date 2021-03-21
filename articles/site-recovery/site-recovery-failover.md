@@ -5,10 +5,10 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 6737f64773f91ede1631d42cd7f28c7d961c0454
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368626"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Executar uma ativação pós-falha de local para o Azure
@@ -32,7 +32,7 @@ Se pretender ligar-se aos VMs Azure utilizando RDP/SSH após o failover, há uma
 
 **Depois do failover** | **Localização** | **Ações**
 --- | --- | ---
-**Azure VM executando janelas** | Máquina no local antes do failover | Para aceder ao Azure VM através da internet, ative o RDP e certifique-se de que as regras TCP e UDP são adicionadas ao **Público**, e que o PDR é permitido para todos os perfis em Apps Permitidas do Windows **Firewall**  >  **Allowed Apps**.<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative o RDP **Windows Firewall**na máquina e certifique-se de que o RDP é permitido nas  ->  **aplicações e funcionalidades permitidas**pelo Windows Firewall , para redes **de domínio e privado.**<br/><br/> <br/><br/> Remova quaisquer rotas estáticas persistentes e procuração winHTTP. Certifique-se de que a política do sistema operativo SAN está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando desencadear uma falha. A atualização do Windows pode começar quando falhar e não poderá iniciar sessão no VM até que a atualização esteja concluída.
+**Azure VM executando janelas** | Máquina no local antes do failover | Para aceder ao Azure VM através da internet, ative o RDP e certifique-se de que as regras TCP e UDP são adicionadas ao **Público**, e que o PDR é permitido para todos os perfis em Apps Permitidas do Windows **Firewall**  >  .<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative o RDP na máquina e certifique-se de que o RDP é permitido nas  ->  **aplicações e funcionalidades permitidas** pelo Windows Firewall , para redes **de domínio e privado.**<br/><br/> <br/><br/> Remova quaisquer rotas estáticas persistentes e procuração winHTTP. Certifique-se de que a política do sistema operativo SAN está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando desencadear uma falha. A atualização do Windows pode começar quando falhar e não poderá iniciar sessão no VM até que a atualização esteja concluída.
 **Azure VM executando Linux** | Máquina no local antes do failover | Certifique-se de que o serviço Secure Shell no VM está programado para iniciar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
 
 
@@ -48,12 +48,12 @@ Executar o plano de recuperação falha da seguinte forma:
 
     ![Screenshot da Recuperação do Local Azure mostrando o painel ADRP com Failover selecionado no menu Mais.](./media/site-recovery-failover/Failover.png)
 
-3. Na **Failover**  >  **direção Failover Failover,** deixe o padrão se estiver a replicar-se em Azure.
+3. Na   >  **direção Failover Failover,** deixe o padrão se estiver a replicar-se em Azure.
 4. Em **Failover**, selecione um **Ponto de Recuperação** para o qual falhar.
 
     - **Mais recente**: Use o último ponto. Isto processa todos os dados enviados para o serviço de Recuperação de Sítios, e cria um ponto de recuperação para cada máquina. Esta opção fornece o RPO mais baixo (Objetivo de Ponto de Recuperação) porque o VM criado após o failover tem todos os dados que foram replicados para a Recuperação do Local quando a falha foi desencadeada.
     Por favor, note que quando a região de origem cai, não há mais processamento de registo possível. Por isso, terás de falhar até ao último ponto de recuperação processado. Veja o próximo ponto para entender mais.
-   - **Mais recente processo**: Utilize esta opção para falhar sobre VMs até ao último ponto de recuperação já processado pela Recuperação do Site. Pode ver o mais recente ponto de recuperação processado nos **últimos Pontos de Recuperação do**VM. Esta opção fornece um RTO baixo, uma vez que nenhum tempo é gasto para o processamento dos dados não processados
+   - **Mais recente processo**: Utilize esta opção para falhar sobre VMs até ao último ponto de recuperação já processado pela Recuperação do Site. Pode ver o mais recente ponto de recuperação processado nos **últimos Pontos de Recuperação do** VM. Esta opção fornece um RTO baixo, uma vez que nenhum tempo é gasto para o processamento dos dados não processados
    - **Mais recente aplicações consistentes**: Utilize esta opção para falhar os VMs até ao mais recente ponto de recuperação consistente da aplicação que foi processado pela Recuperação do Site.
    - **Processo multi-VM mais recente**: Com esta opção, os VMs que fazem parte de um grupo de replicação falham no último ponto de recuperação consistente multi-VM comum. Outras máquinas virtuais falham no seu último ponto de recuperação processado. Esta opção destina-se apenas a planos de recuperação que tenham pelo menos um VM com consistência multi-VM ativada.
    - **Aplicações multi-VM mais recentes consistentes**: Com esta opção, os VMs que fazem parte de um grupo de replicação falham no mais recente ponto comum de recuperação multi-VM consistente com aplicações. Outras máquinas virtuais falham no seu mais recente ponto de recuperação consistente com aplicações. Apenas para planos de recuperação que tenham pelo menos um VM com consistência multi-VM habilitado.

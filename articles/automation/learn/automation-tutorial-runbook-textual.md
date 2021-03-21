@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.openlocfilehash: e822e17f154b72854c5150e071301d7bbd53072e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98890819"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutorial: Criar um manual de fluxo de trabalho PowerShell
@@ -224,7 +224,7 @@ O seu runbook começa atualmente o VM que tem codificado no livro de recortes. S
 
 8. Quando o livro de execução estiver concluído, verifique se o VM começou.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](/powershell/scripting/overview).
 * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

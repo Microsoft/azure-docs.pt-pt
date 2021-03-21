@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Keeper Password Manager & Digital Vault [ Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Keeper Password Manager & Digital Vault | Microsoft Docs'
 description: Saiba como configurar um único sinal de entrada entre o Azure Ative Directory e o Keeper Password Manager & Digital Vault.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
 ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96178046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração do Diretório Ativo Azure com Keeper Password Manager & Digital Vault
@@ -120,7 +120,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado `B.Simon` .
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Na parte superior do ecrã, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. Para **nome,** insira `B.Simon` .  
@@ -135,7 +135,7 @@ Nesta secção, você permite que B.Simon utilize o Azure single sign-on, conced
 1. No portal Azure, selecione **Aplicações empresariais**  >  **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Keeper Password Manager & Digital Vault**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-1. Selecione **Adicionar utilizador**. In **Add Assignment**, selecione **Utilizadores e grupos**.
+1. Selecione **Adicionar utilizador**. Em **Adicionar Atribuição**, selecione **Utilizadores e grupos**.
 1. Em **Utilizadores e grupos,** selecione **B.Simon** da lista de utilizadores. Em seguida, escolha **Selecione** na parte inferior do ecrã.
 1. Se está à espera que uma função seja atribuída aos utilizadores, pode selecioná-la na lista **de funções Select.** Se não tiver sido criada qualquer função para esta aplicação, a função **De Acesso Predefinido** é selecionada.
 1. In **Add Assignment**, selecione **Atribua**.

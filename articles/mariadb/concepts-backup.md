@@ -3,14 +3,14 @@ title: Backup e restauro - Azure Database for MariaDB
 description: Saiba mais sobre cópias de segurança automáticas e restauro da sua Base de Dados Azure para o servidor MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 1d5fc158d2e37223e048c4106206ddba4602fabb
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659942"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauro na Base de Dados Azure para MariaDB
@@ -21,7 +21,7 @@ A Azure Database for MariaDB cria automaticamente cópias de segurança do servi
 
 A Azure Database for MariaDB recebe cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
-Estes ficheiros de cópia de segurança não são expostos ao utilizador e não podem ser exportados. Estas cópias de segurança só podem ser utilizadas para operações de restauro na Base de Dados Azure para o MariaDB. Pode usar [o meu "mysqldump"](howto-migrate-dump-restore.md) para copiar uma base de dados.
+Estes ficheiros de cópia de segurança não são expostos pelo utilizador e não podem ser exportados. Estas cópias de segurança só podem ser utilizadas para operações de restauro na Base de Dados Azure para o MariaDB. Pode usar [o meu "mysqldump"](howto-migrate-dump-restore.md) para copiar uma base de dados.
 
 ### <a name="backup-frequency"></a>Frequência de cópia de segurança
 

@@ -1,5 +1,5 @@
 ---
-title: Integração do Power BI - Azure Time Series Insights Gen 2 / Microsoft Docs
+title: Integração power BI - Azure Time Series Insights Gen 2 | Microsoft Docs
 description: Saiba mais sobre a integração do Power BI na Azure Time Series Insight.
 author: deepakpalled
 ms.author: dpalled
@@ -9,10 +9,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.openlocfilehash: 2b6631415c32358cf445fab534b9524c88b6432e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020883"
 ---
 # <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Ligue a Azure Time Series Insights Gen 2 ao Power BI  
@@ -59,7 +59,7 @@ Utilize o conector de qualquer lugar do seu fluxo de trabalho:
 
 Para uma funcionalidade avançada de consulta e edição dentro do Power BI, utilize o Editor Avançado do Power BI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia [Como ligar insights da Série de Tempo ao Power BI](./how-to-connect-power-bi.md).
 

@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882285"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para o Azure File Sync
@@ -210,13 +210,13 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter movido todos os dados do seu StorSimple para o Windows Server, e a sua migração está completa: Volte a ***todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de volume de nível de nuvem para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter transferido todos os dados do seu StorSimple para o Windows Server, e a sua migração estiver completa: Volte a ***todos os***  grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que o seu objetivo seja ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-O problema mais provável é que o comando RoboCopy falhe com _"Volume cheio"* no lado do Windows Server. Se for esse o caso, a sua velocidade de descarregamento é provavelmente melhor do que a velocidade de carregamento. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
+O problema mais provável é que o comando RoboCopy falhe com *o "Volume cheio"* no lado do Windows Server. Se for esse o caso, a sua velocidade de descarregamento é provavelmente melhor do que a velocidade de carregamento. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
 
 Deixe sincronizar o progresso e o tiering da nuvem libertar o espaço do disco. Pode observar isso no Explorador de Ficheiros no seu Servidor windows.
 

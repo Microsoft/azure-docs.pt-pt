@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895568"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Perguntas frequentes sobre VMware Solution by CloudSimple
@@ -72,7 +72,7 @@ Um circuito Azure ExpressRoute é uma ligação segura de alta velocidade, baixa
 
 Não existe nenhuma taxa CloudSimple para a saída da rede.  As tarifas padrão Azure aplicam-se a qualquer tráfego de saída da sua rede virtual ou do circuito ExpressRoute no local.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 **Que funcionalidades de networking estão disponíveis para a minha Nuvem Privada?**
 
@@ -121,7 +121,7 @@ Todas as infraestruturas CloudSimple são monitorizadas continuamente pela plata
 O CloudSimple oferece armazenamento VMware vSAN com todas as Cloud Privadas.  Cada vSphere é criado com a sua própria loja de dados vSAN.  Para mais detalhes, consulte [os componentes Private Cloud VMware - armazenamento vSAN](vmware-components.md#vsan-storage).
 
 **A encriptação dos dados é suportada?**
-Yes.  Pode configurar o armazenamento vSAN na sua Nuvem Privada para utilizar um servidor de gestão de chaves (KMS) que seja implantado no local ou no Azure para encriptar dados armazenados em vSAN.
+Sim.  Pode configurar o armazenamento vSAN na sua Nuvem Privada para utilizar um servidor de gestão de chaves (KMS) que seja implantado no local ou no Azure para encriptar dados armazenados em vSAN.
 
 **Como são tratados os discos falhados?**
 

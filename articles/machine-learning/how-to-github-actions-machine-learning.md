@@ -11,10 +11,10 @@ ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
 ms.openlocfilehash: b21f53f8ec76257fc19e0e30cd025ecc46ad2188
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102218286"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Use ações do GitHub com aprendizagem de máquinas Azure

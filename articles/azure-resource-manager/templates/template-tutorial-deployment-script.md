@@ -1,5 +1,5 @@
 ---
-title: Use scripts de implementação de modelos Microsoft Docs
+title: Use scripts de implementação de modelos | Microsoft Docs
 description: Saiba como utilizar scripts de implementação em modelos de Gestor de Recursos Azure (modelos ARM).
 services: azure-resource-manager
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963968"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Use scripts de implementação para criar um certificado auto-assinado

@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 89f063ab50cfd880552e80a77ba798e4d06de5b3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101709585"
 ---
 # <a name="error-codes"></a>Códigos de erro #
@@ -44,7 +44,7 @@ Descreva a área do erro.
 Descreva detalhes do erro, os bits 27-20 fornecem um nível alto, bits 19-0 fornecem mais detalhes se disponíveis.
 
 
-| amp.errorCode. [Nome] | Códigos, Bits [27-0] (28 bits) | Descrição |
+| amp.errorCode. [Nome] | Códigos, Bits [27-0] (28 bits) | Description |
 |---|---:|---|
 | **intervalo de erros MEDIA_ERR_ABORTED (0x0100000 - 0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | Erro genérico de abortar |

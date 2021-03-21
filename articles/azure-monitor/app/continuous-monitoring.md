@@ -1,13 +1,13 @@
 ---
-title: Monitorização contínua do seu oleoduto de libertação de DevOps com Azure Pipelines e Azure Application Insights / Microsoft Docs
+title: Monitorização contínua do seu oleoduto de libertação de DevOps com Azure Pipelines e Azure Application Insights | Microsoft Docs
 description: Fornece instruções para configurar rapidamente a monitorização contínua com insights de aplicação
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86517132"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicione monitorização contínua ao seu oleoduto de libertação
@@ -20,11 +20,11 @@ Com monitorização contínua, os oleodutos de libertação podem incorporar dad
 
 1. Em [Azure DevOps,](https://dev.azure.com)selecione uma organização e projeto.
    
-1. No menu esquerdo da página **Pipelines**do projeto, selecione  >  **Pipelines Releases**. 
+1. No menu esquerdo da página do projeto, selecione  >  **Pipelines Releases**. 
    
 1. Desça a seta ao lado **de New** e selecione Novo oleoduto **de lançamento**. Ou, se ainda não tiver um oleoduto, selecione **Novo oleoduto** na página que aparece.
    
-1. No painel **de modelo Selecione um** painel de modelo, procure e selecione a **implementação do Serviço de Aplicações Azure com monitorização contínua**e, em seguida, selecione **Apply**. 
+1. No painel **de modelo Selecione um** painel de modelo, procure e selecione a **implementação do Serviço de Aplicações Azure com monitorização contínua** e, em seguida, selecione **Apply**. 
 
    ![Novo oleoduto Azure](media/continuous-monitoring/001.png)
 
@@ -37,7 +37,7 @@ Com monitorização contínua, os oleodutos de libertação podem incorporar dad
     | Parâmetro        | Valor |
    | ------------- |:-----|
    | **Nome da fase**      | Forneça um nome artístico, ou deixe-o na **fase 1**. |
-   | **Assinatura Azure** | Desça e selecione a subscrição Azure ligada que pretende utilizar.|
+   | **Subscrição do Azure** | Desça e selecione a subscrição Azure ligada que pretende utilizar.|
    | **Tipo de aplicação** | Desça e selecione o seu tipo de aplicação. |
    | **Nome do Serviço de Aplicações** | Insira o nome do seu Serviço de Aplicações Azure. |
    | **Nome do Grupo de Recursos para Insights de Aplicações**    | Desça e selecione o grupo de recursos que pretende utilizar. |
@@ -47,7 +47,7 @@ Com monitorização contínua, os oleodutos de libertação podem incorporar dad
 
 ## <a name="modify-alert-rules"></a>Modificar as regras de alerta
 
-Fora da caixa, a implementação do Serviço de **Aplicações Azure com** o modelo de monitorização contínua tem quatro regras de alerta: **Disponibilidade,** **Pedidos Falhados,** **Tempo de resposta do Servidor**e **exceções do Servidor**. Pode adicionar mais regras ou alterar as definições de regras para atender às necessidades do seu nível de serviço. 
+Fora da caixa, a implementação do Serviço de **Aplicações Azure com** o modelo de monitorização contínua tem quatro regras de alerta: **Disponibilidade,** **Pedidos Falhados,** **Tempo de resposta do Servidor** e **exceções do Servidor**. Pode adicionar mais regras ou alterar as definições de regras para atender às necessidades do seu nível de serviço. 
 
 Para modificar as definições da regra de alerta:
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: 657ccafa0e7b7f640122fd6b397b3fa2a7c5f0fc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98015560"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content"></a>Identificar e transcrever automaticamente conteúdo em vários idiomas
@@ -89,6 +89,6 @@ Além disso, cada instância na secção de transcrição incluirá a língua em
 * Ao exportar ficheiros de legendas fechados, a indicação linguística não aparecerá.
 * A transcrição da API não suporta vários ficheiros de idiomas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

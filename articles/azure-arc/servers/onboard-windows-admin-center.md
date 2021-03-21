@@ -4,10 +4,10 @@ description: Neste artigo, aprende-se a instalar o agente e a ligar máquinas ao
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5fa7a61b1e3b22503377cbcbe308a82be89dac72
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584780"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Ligue máquinas híbridas ao Azure do Windows Admin Center

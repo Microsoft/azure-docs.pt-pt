@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86259965"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -44,14 +44,14 @@ Obtém uma lista de informações sobre versões de código de tecido que são a
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --versão código | A versão do produto da Service Fabric. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -66,14 +66,14 @@ Obtém uma lista de informações sobre versões de tecido config que são a pro
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --versão config- | A versão config do Service Fabric. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -88,7 +88,7 @@ Use EventosHealthStateFilter para filtrar a recolha de eventos de saúde relatad
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aplicações-health-state-filter | Permite a filtragem da aplicação objetos do estado de saúde devolvidos em resultado de consulta de saúde do cluster com base no seu estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro obtido dos membros ou as operações bitwise em membros da enumeração HealthStateFilter. Apenas são devolvidas as aplicações que correspondam ao filtro. Todas as aplicações são usadas para avaliar o estado de saúde agregado. Se não for especificado, todas as entradas são devolvidas. Os valores do Estado são enumerações baseadas em bandeiras, pelo que o valor pode ser uma combinação destes valores obtidos utilizando o operador bitwise 'OR'. Por exemplo, se o valor fornecido for 6, então o estado de saúde das aplicações com o valor do Estado de Saúde de OK (2) e Aviso (4) são devolvidos.  <br> - Padrão - Valor predefinido. Corresponde a qualquer Estado da Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do HealthState. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtro que combine com a entrada com o valor HealthState Ok. O valor é 2.  <br> - Aviso - Filtro que corresponda à entrada com o valor healthState Warning. O valor é 4.  <br> - Erro - Filtrar a entrada com o Erro de Valor HealthState. O valor é 8.  <br> - Tudo - Filtrar que corresponda à entrada com qualquer valor HealthState. O valor é 65535. |
 | --eventos-saúde-estado-filtro | Permite filtrar a recolha de objetos HealthEvent devolvidos com base no estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são usados para avaliar o estado de saúde agregado. Se não for especificado, todas as entradas são devolvidas. Os valores do Estado são enumeração baseada em bandeiras, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando o operador bitwise 'OR'. Por exemplo, Se o valor fornecido for 6, todos os eventos com o valor healthState de OK (2) e Aviso (4) são devolvidos.  <br> - Padrão - Valor predefinido. Corresponde a qualquer Estado da Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do HealthState. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtro que combine com a entrada com o valor HealthState Ok. O valor é 2.  <br> - Aviso - Filtro que corresponda à entrada com o valor healthState Warning. O valor é 4.  <br> - Erro - Filtrar a entrada com o Erro de Valor HealthState. O valor é 8.  <br> - Tudo - Filtrar que corresponda à entrada com qualquer valor HealthState. O valor é 65535. |
@@ -99,7 +99,7 @@ Use EventosHealthStateFilter para filtrar a recolha de eventos de saúde relatad
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -114,13 +114,13 @@ Obtenha o manifesto de cluster de tecido de serviço. O manifesto de cluster con
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -135,7 +135,7 @@ As seguintes APIs iniciam operações de avaria que podem ser canceladas utiliza
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --operation-id [Obrigatório] | Um GUID que identifica uma chamada desta API.  Isto é passado para a API GetProgress correspondente. |
 | ...-força | Indica se deve revirar graciosamente e limpar o estado interno do sistema modificado executando a operação induzida pelo utilizador. |
@@ -143,7 +143,7 @@ As seguintes APIs iniciam operações de avaria que podem ser canceladas utiliza
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -158,7 +158,7 @@ Obtém a lista de operações de avaria induzidas pelo utilizador filtradas por 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --estado-filtro | Usado para filtrar no OperationState's para operações induzidas pelo utilizador. - 65535 - selecione All - 1 - selecione Running - 2 - selecione RollingBack - 8 - selecione Completed - 16 - selecione Faulted - 32 - selecione Cancelado - 64 - selecione ForceCancelled.  Padrão \: 65535. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
@@ -166,7 +166,7 @@ Obtém a lista de operações de avaria induzidas pelo utilizador filtradas por 
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -181,7 +181,7 @@ Validar e prever os pacotes de código ou configuração de um cluster de Tecido
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --cluster-manifesto-arquivo-caminho | O caminho manifesto do arquivo do cluster. |
 | --código-arquivo-caminho | O caminho do ficheiro do pacote de código de cluster. |
@@ -189,7 +189,7 @@ Validar e prever os pacotes de código ou configuração de um cluster de Tecido
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -204,13 +204,13 @@ Indica ao cluster de Tecido de Serviço que deve tentar recuperar os serviços d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -225,7 +225,7 @@ Envia um relatório de saúde sobre um aglomerado de tecidos de serviço. O rela
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --saúde-propriedade [Necessária] | A propriedade da informação de saúde. <br><br> Uma entidade pode ter relatórios de saúde para diferentes propriedades. A propriedade é uma corda e não uma enumeração fixa para permitir ao repórter flexibilidade para categorizar a condição do estado que desencadeia o relatório. Por exemplo, um repórter com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que possa reportar a propriedade "AvailableDisk" nesse nó. O mesmo repórter pode monitorizar a conectividade do nó, para que possa reportar uma propriedade "Conectividade" no mesmo nó. Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para o nó especificado. Juntamente com o SourceId, a propriedade identifica exclusivamente a informação de saúde. |
 | --estado de saúde [Obrigatório] | Os valores possíveis incluem \: 'Inválido', 'Ok', 'Aviso', 'Erro', 'Desconhecido'. |
@@ -239,7 +239,7 @@ Envia um relatório de saúde sobre um aglomerado de tecidos de serviço. O rela
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -250,11 +250,11 @@ Envia um relatório de saúde sobre um aglomerado de tecidos de serviço. O rela
 ## <a name="sfctl-cluster-select"></a>sfctl cluster selecionado
 Liga-se a um ponto final de cluster de tecido de serviço.
 
-Se ligar para fixar o cluster, especifique um caminho absoluto para um cert (.crt) e ficheiro chave (.key) ou um único ficheiro com ambos (.pem). Não especifique os dois. Opcionalmente, se ligar a um cluster seguro, também especificar um caminho absoluto para um ficheiro ou diretório de ca bundle de confiança.  Não há ligação a um cluster sem executar este comando primeiro, incluindo uma ligação com a localidade. No entanto, não é necessário um ponto final explícito para a ligação a um cluster local.  Se utilizar um certificado auto-assinado, ou outro certificado não assinado por um ca bem conhecido, passe no parâmetro -ca para garantir que a validação passa. Se não estiver num cluster de produção, para contornar a validação do lado do cliente (útil para a auto-assinada AC assinada ou não conhecida), utilize a opção --não verificar. Embora possível, não é recomendado para clusters de produção. Um erro de verificação do certificado pode resultar de outra forma.
+Se ligar para fixar o cluster, especifique um caminho absoluto para um cert (.crt) e um ficheiro chave (.key) ou um único ficheiro com ambos (.pem). Não especifique os dois. Opcionalmente, se ligar a um cluster seguro, também especificar um caminho absoluto para um ficheiro ou diretório de ca bundle de confiança.  Não há ligação a um cluster sem executar este comando primeiro, incluindo uma ligação com a localidade. No entanto, não é necessário um ponto final explícito para a ligação a um cluster local.  Se utilizar um certificado auto-assinado, ou outro certificado não assinado por um ca bem conhecido, passe no parâmetro -ca para garantir que a validação passa. Se não estiver num cluster de produção, para contornar a validação do lado do cliente (útil para a auto-assinada AC assinada ou não conhecida), utilize a opção --não verificar. Embora possível, não é recomendado para clusters de produção. Um erro de verificação do certificado pode resultar de outra forma.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --aad | Utilize o Diretório Ativo Azure para autenticação. |
 | --ca | Caminho absoluto para o diretório ca certs para tratar como ficheiro válido ou agregado ca. Se utilizar um diretório de certificados ca, `c_rehash <directory>` fornecido pela OpenSSL deve ser executado primeiro para calcular os hashes certificados e criar as ligações simbólicas apropriadas. Isto é utilizado para verificar se o certificado devolvido pelo cluster é válido. |
@@ -266,7 +266,7 @@ Se ligar para fixar o cluster, especifique um caminho absoluto para um cert (.cr
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -279,7 +279,7 @@ Mostre a que conjunto de tecidos de serviço este caso sfctl está ligado.
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -294,7 +294,7 @@ Desprovisionar os pacotes de código ou configuração de um cluster de Tecido d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --versão código | A versão do pacote de código de cluster. |
 | --versão config- | A versão manifesto do cluster. |
@@ -302,7 +302,7 @@ Desprovisionar os pacotes de código ou configuração de um cluster de Tecido d
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -317,7 +317,7 @@ Valide os parâmetros de atualização fornecidos e comece a atualizar o código
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --app-health-map | JSON codificava o dicionário de pares de nomes de aplicação e a percentagem máxima não saudável antes de levantar o erro. |
 | --app-tipo-mapa de saúde | JSON codificava o dicionário de pares de nomes do tipo de aplicação e a percentagem máxima não saudável antes de elevar o erro. |
@@ -342,7 +342,7 @@ Valide os parâmetros de atualização fornecidos e comece a atualizar o código
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -357,14 +357,14 @@ Faça com que o código de cluster ou a atualização de configuração passe pa
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --upgrade-domínio [Obrigatório] | O próximo domínio de upgrade para este upgrade de cluster. |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -379,13 +379,13 @@ Reverta o código ou a atualização de configuração de um cluster de Tecido d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -400,13 +400,13 @@ Obtém o progresso atual da atualização do cluster em curso. Se não houver ne
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para a realização da operação em segundos. Este prazo estipula a duração que o cliente está disposto a esperar pela conclusão da operação solicitada. O valor predefinido para este parâmetro é de 60 segundos.  Padrão \: 60. |
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
@@ -419,7 +419,7 @@ Atualize os parâmetros de atualização de uma atualização do cluster de teci
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --app-health-map | JSON codificava o dicionário de pares de nomes de aplicação e a percentagem máxima não saudável antes de levantar o erro. |
 | --app-tipo-mapa de saúde | JSON codificava o dicionário de pares de nomes do tipo de aplicação e a percentagem máxima não saudável antes de elevar o erro. |
@@ -443,7 +443,7 @@ Atualize os parâmetros de atualização de uma atualização do cluster de teci
 
 ### <a name="global-arguments"></a>Argumentos Globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --depurar | Aumente a verbosidade do registo para mostrar todos os registos de depurg. |
 | --ajuda -h | Mostre esta mensagem de ajuda e saia. |
