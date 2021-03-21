@@ -2,21 +2,21 @@
 title: 'Tutorial: Carregue os dados do Táxi de Nova Iorque'
 description: Tutorial usa o portal Azure e o SQL Server Management Studio para carregar os dados do Táxi de Nova Iorque a partir de uma bolha de Azure para Synapse SQL.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 35d985ee31fba52a57614cf62668d5355caf5ffa
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 1490a0e094c6ce2665e28f7d32540ad58d53cb2a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097628"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600144"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do Táxi de Nova Iorque
 

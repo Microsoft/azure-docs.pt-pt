@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3a07670e3348f74fb5c6eaec57f5e9da627e8c09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 048a089209ef7c5f20c96f77593e2cf39590147e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586721"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600531"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar e monitorizar os seus dados
 
@@ -76,6 +76,17 @@ Este tutorial ajuda-o a visualizar os seus dados no Azure Sentinel.
 
    ![Trocar livros](./media/tutorial-monitor-data/switch-workbooks.png)
 
+
+## <a name="print-a-workbook-or-save-as-pdf"></a>Imprima um livro de trabalho ou guarde como PDF
+
+Para imprimir um livro de trabalho, ou guardá-lo como UM PDF, use o menu de opções à direita do título do livro.
+
+1. Selecione opções > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Imprimir o conteúdo**. 
+2. No ecrã de impressão, ajuste as definições de impressão conforme necessário ou **selecione Guarde como PDF** para o guardar localmente.
+
+Por exemplo:
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Imprima o seu livro ou guarde como PDF.":::
 
 ## <a name="how-to-delete-workbooks"></a>Como eliminar livros
 

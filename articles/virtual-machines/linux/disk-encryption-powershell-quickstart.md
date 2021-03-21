@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 1833b25554df53a480af9a8fc643755dbc2bbdb8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102564684"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Quickstart: Criar e encriptar um Linux VM em Azure com Azure PowerShell

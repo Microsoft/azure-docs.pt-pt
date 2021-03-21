@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601377"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
@@ -311,7 +311,7 @@ Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter
 
 Para obter informações sobre o Agente do Servidor [SQL,](/sql/ssms/agent/sql-server-agent)consulte o Agente do Servidor SQL .
 
-### <a name="tables"></a>Tabelas
+### <a name="tables"></a>Tables
 
 Os seguintes tipos de tabela não são suportados:
 
@@ -360,7 +360,7 @@ O suporte parcial para [transações distribuídas](../database/elastic-transact
 
 A Azure SQL Managed Instance atualmente não suporta outros cenários que são regularmente suportados pela MSDTC no local ou em Máquinas Virtuais Azure.
 
-### <a name="extended-events"></a>Eventos Alargados
+### <a name="extended-events"></a>Eventos Expandidos
 
 Alguns destinos específicos do Windows para Eventos Expandidos (XEvents) não são suportados:
 

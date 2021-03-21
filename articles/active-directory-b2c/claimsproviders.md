@@ -11,17 +11,17 @@ ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 846394266b981c14788148be465912b14bc1fb3e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102447916"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Uma reclamação fornece uma interface para comunicar com diferentes tipos de partes através dos seus [perfis técnicos.](technicalprofiles.md) Todos os prestadores de sinistros devem ter um ou mais perfis técnicos que determinem os pontos finais e os protocolos necessários para comunicar com o fornecedor de sinistros. Um fornecedor de sinistros pode ter vários perfis técnicos. Por exemplo, vários perfis técnicos podem ser definidos porque o fornecedor de sinistros suporta vários protocolos, vários pontos finais com diferentes capacidades, ou lança diferentes reivindicações em diferentes níveis de garantia. Pode ser aceitável lançar reclamações sensíveis numa viagem de utilizador, mas não noutra.
+Uma reclamação fornece uma interface para comunicar com diferentes tipos de partes através dos seus [perfis técnicos.](technicalprofiles.md) Todos os fornecedores de afirmações devem ter um ou mais perfis técnicos que determinem os pontos finais e os protocolos necessários para comunicar com o fornecedor de afirmações. Um fornecedor de sinistros pode ter vários perfis técnicos. Por exemplo, vários perfis técnicos podem ser definidos porque o fornecedor de sinistros suporta vários protocolos, vários pontos finais com diferentes capacidades, ou lança diferentes reivindicações em diferentes níveis de garantia. Pode ser aceitável lançar reclamações sensíveis numa viagem de utilizador, mas não noutra.
 
 Uma viagem de utilizador combina chamar perfis técnicos através de passos de orquestração para definir a sua lógica de negócio. 
 
@@ -43,7 +43,7 @@ Uma viagem de utilizador combina chamar perfis técnicos através de passos de o
 
 O elemento **ClaimsProviders** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Provívido de Reclamações | 1:n | Um provedor de reclamações acreditado que pode ser alavancado em várias viagens de utilizador. |
 
@@ -51,7 +51,7 @@ O elemento **ClaimsProviders** contém o seguinte elemento:
 
 O elemento **ClaimsProvider** contém os seguintes elementos infantis:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ---------- | ----------- |
 | Domínio | 0:1 | Uma cadeia que contém o nome de domínio para o fornecedor de reclamações. Por exemplo, se o seu fornecedor de sinistros incluir o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de sinistros, a menos que seja ultrapassado pelo perfil técnico. O nome de domínio também pode ser referenciado numa **domain_hint**. Para obter mais informações, consulte o **redirecionar o sôm para uma** secção de prestador social de [Configuração de inscrição direta utilizando o Azure Ative Directory B2C](direct-signin.md). |
 | DisplayName | 1:1 | Uma cadeia que contém o nome do fornecedor de sinistros. |

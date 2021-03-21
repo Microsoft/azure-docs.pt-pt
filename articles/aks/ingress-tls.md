@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 1faabdda869bbaba8027df121d080b0fb421e9f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: aa03558196527e320ecba249dd22af19fec7a90c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728897"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592341"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS no Serviço Azure Kubernetes (AKS)
 
@@ -128,7 +128,6 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
-  --version v0.16.1 \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
   --set webhook.nodeSelector."kubernetes\.io/os"=linux \
@@ -144,7 +143,7 @@ Antes de os certificados poderem ser emitidos, o cert-manager requer um [recurso
 Crie um emitente de cluster, `cluster-issuer.yaml` como, usando o manifesto de exemplo a seguir. Atualizar o endereço de e-mail com um endereço válido da sua organização:
 
 ```yaml
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
@@ -407,7 +406,7 @@ Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` coma
 kubectl delete namespace ingress-basic
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

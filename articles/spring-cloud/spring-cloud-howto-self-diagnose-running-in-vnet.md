@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/25/2021
 ms.custom: devx-track-java
 ms.openlocfilehash: 5407213b62902326d53b73e42ee3af1ba9b11524
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102125102"
 ---
 # <a name="self-diagnose-running-azure-spring-cloud-in-vnet"></a>Auto-diagnóstico executando Azure Spring Cloud em VNET
@@ -19,7 +19,7 @@ O diagnóstico Azure Spring Cloud suporta aplicações interativas de resoluçã
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Navegue para a página de diagnósticos
 O procedimento a seguir inicia o diagnóstico de aplicações em rede.
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Vá à sua página de visão geral da nuvem de primavera Azure.
 1. Selecione **diagnosticar e resolver problemas** no menu no painel de navegação à esquerda.
 1. Selecione a terceira categoria, **Networking**.

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
 ms.openlocfilehash: 4a3eaddd160acb8d4d2ae9f0da43ce6cb0236055
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198154"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
@@ -30,7 +30,7 @@ Use as informações neste artigo para ajudá-lo a planear, gerar e transferir a
 
 Para obter mais informações, e para que um tutorial possa começar a usar o Key Vault (incluindo como criar um cofre chave para chaves protegidas pelo HSM), veja [o que é o Cofre da Chave Azure?](../general/overview.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Aqui está uma visão geral do processo. Os passos específicos a completar são descritos mais tarde no artigo.
 
@@ -72,7 +72,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Descrição|
+|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Description|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|Cofre de Chave Azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre da Chave Azure|
 |Chave-alvo|

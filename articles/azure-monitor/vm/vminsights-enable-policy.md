@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031961"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Ativar os conhecimentos de VM utilizando a Política Azure
@@ -47,7 +47,7 @@ Na página **Parâmetros,** selecione um **espaço de trabalho Log Analytics** p
    > [!NOTE]
    > Se o espaço de trabalho estiver fora do âmbito da atribuição, conceda permissões *ao Log Analytics Contributor* para o ID principal da atribuição de políticas. Se não fizeres isto, podes ver uma falha de implantação como `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![Espaço de trabalho](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![Área de trabalho](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 Clique **em 'Rever + Criar'** para rever os detalhes da atribuição antes de clicar em **Criar** para criá-la. Não crie uma tarefa de reparação neste momento, uma vez que provavelmente necessitará de múltiplas tarefas de reparação para ativar as máquinas virtuais existentes. Consulte os resultados de conformidade de [Remediato](#remediate-compliance-results) abaixo.
 

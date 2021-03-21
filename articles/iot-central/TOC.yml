@@ -131,17 +131,17 @@
       href: core/concepts-architecture.md
     - name: Guia para programadores de dispositivos
       href: core/overview-iot-central-developer.md
-    - name: Guia do operador
-      href: core/overview-iot-central-operator.md
     - name: Guia de construtor de soluções
       href: core/overview-iot-central-solution-builder.md
+    - name: Guia do operador
+      href: core/overview-iot-central-operator.md
     - name: O que são modelos de aplicação?
       href: core/concepts-app-templates.md
     - name: Modelos de aplicação específicos da indústria
       items:
         - name: Retail
           items:
-            - name: Descrição Geral
+            - name: Descrição geral
               href: retail/overview-iot-central-retail.md
             - name: Arquitetura de check-out de análise na loja
               href: retail/store-analytics-architecture.md
@@ -157,7 +157,7 @@
               href: retail/architecture-video-analytics.md
         - name: Energia
           items:
-            - name: Descrição Geral
+            - name: Descrição geral
               href: energy/overview-iot-central-energy.md
             - name: Arquitetura da aplicação de medidores inteligentes
               href: energy/concept-iot-central-smart-meter-app.md
@@ -165,7 +165,7 @@
               href: energy/concept-iot-central-solar-panel-app.md
         - name: Administração Pública
           items:
-            - name: Descrição Geral
+            - name: Descrição geral
               href: government/overview-iot-central-government.md
             - name: Arquitetura de monitorização de resíduos conectados
               href: government/concepts-connectedwastemanagement-architecture.md
@@ -175,7 +175,7 @@
               href: government/concepts-waterqualitymonitoring-architecture.md
         - name: Cuidados de saúde
           items:
-            - name: Descrição Geral
+            - name: Descrição geral
               href: healthcare/overview-iot-central-healthcare.md
             - name: Arquitetura da monitorização contínua do paciente
               href: healthcare/concept-continuous-patient-monitoring-architecture.md

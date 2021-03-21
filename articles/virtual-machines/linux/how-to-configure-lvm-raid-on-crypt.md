@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ec9f99d0a13b5b92bc267f184d364ebabe36a050
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bdd897e76df941130e3acdf9c30ea8edd41147e9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566112"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601929"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configure LVM e RAID em dispositivos encriptados
 
@@ -261,7 +261,7 @@ Não se preocupe com os pontos de montagem deste ficheiro. A Azure Disk Encrypti
 Desmonte os sistemas de ficheiros nos discos que serão utilizados como parte da LVM.
 
 ```bash
-for disk in c d e f; do unmount /tempdata${disk}; done
+for disk in c d e f; do umount /tempdata${disk}; done
 ```
 E remover as entradas /etc/fstab:
 
@@ -423,6 +423,9 @@ mkfs.ext4 /dev/md10
 ```
 
 Crie um novo ponto de montagem para o sistema de ficheiros, adicione o novo sistema de ficheiros a /etc/fstab e monte-o:
+
+>[!NOTE] 
+>Este ciclo itera apenas num dispositivo para este exemplo em particular, é construído desta forma para ser usado para vários dispositivos md, se necessário.
 
 ```bash
 for device in md10; do diskuuid="$(blkid -s UUID -o value /dev/${device})"; \

@@ -4,12 +4,12 @@ description: Saiba como criar uma ligação SSH com os nós de cluster do Servi�
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 7455b98348f2b8c40f2ffc125abe1297af88fbd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4c068dc1521d19793d42b6788d0439dd11499a91
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034460"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605907"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ligar com SSH aos nós de cluster do Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
 
@@ -141,14 +141,14 @@ Para criar uma ligação SSH a um nó AKS, você executou uma cápsula de ajuda 
 1. Coloque uma `debian` imagem de recipiente e anexe-lhe uma sessão terminal. Este recipiente pode ser utilizado para criar uma sessão de SSH com qualquer nó no cluster AKS:
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     ```
 
     > [!TIP]
     > Se utilizar os nóis do Windows Server, adicione um seletor de nó ao comando para agendar o recipiente Debian num nó Linux:
     >
     > ```console
-    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
     > ```
 
 1. Uma vez que a sessão de terminais esteja ligada ao recipiente, instale um cliente SSH `apt-get` utilizando:

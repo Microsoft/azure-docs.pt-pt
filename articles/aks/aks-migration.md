@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 19de94db517afb2a8eeb855e76f2381096f8d7c0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: e0c3e331dba08fc95f471e3ad40dfcbb10cc2f0c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609112"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670635"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o Serviço Azure Kubernetes (AKS)
 
@@ -18,6 +18,7 @@ Este artigo ajuda-o a planear e executar uma migração bem sucedida para o Serv
 
 Este documento pode ser usado para ajudar a suportar os seguintes cenários:
 
+* Contentorizando certas aplicações e migrando-as para AKS usando [Azure Migrate](../migrate/migrate-services-overview.md)
 * Migração de um cluster AKS apoiado por [conjuntos de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) para [conjuntos de escala de máquinas virtuais](../virtual-machine-scale-sets/overview.md)
 * Migrar um cluster AKS para usar um [balanceador de carga SKU standard](./load-balancer-standard.md)
 * Migração do Serviço de [Contentores Azure (ACS) - reforma 31 de janeiro de 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) para AKS
@@ -38,6 +39,7 @@ Várias ferramentas de código aberto podem ajudar na sua migração, dependendo
 Neste artigo vamos resumir os detalhes da migração para:
 
 > [!div class="checklist"]
+> * Aplicações de contentorização através do Azure Migrate 
 > * AKS com balanceador de carga padrão e conjuntos de balança de máquinas virtuais
 > * Serviços Azure existentes anexados
 > * Garantir quotas válidas
@@ -45,6 +47,13 @@ Neste artigo vamos resumir os detalhes da migração para:
 > * Considerações para aplicações apátridas
 > * Considerações para aplicações estatais
 > * Implementação da sua configuração de cluster
+
+## <a name="use-azure-migrate-to-migrate-your-applications-to-aks"></a>Use a Azure Migrate para migrar as suas aplicações para AKS
+
+A Azure Migrate oferece uma plataforma unificada para avaliar e migrar para a Azure nos servidores, infraestruturas, aplicações e dados. Para a AKS, pode utilizar a Azure Migrate para o seguinte:
+
+* [Contentorizar aplicações de ASP.NET e migrar para AKS](../migrate/tutorial-containerize-aspnet-kubernetes.md)
+* [Containerize aplicações web java e migra para AKS](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>AKS com balanceador de carga padrão e conjuntos de balança de máquinas virtuais
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 22be45403a7863328c5f6f2c883886296b734914
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d510fa35163a4c4a79352f5f35af9c384bf85304
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549095"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596319"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais Linux
 Este artigo aborda algumas questões comuns sobre máquinas virtuais Linux criadas em Azure usando o modelo de implementação do Gestor de Recursos. Para a versão Windows deste tópico, consulte [perguntas frequentes sobre máquinas virtuais do Windows](../windows/faq.md)
@@ -31,7 +31,7 @@ As contas de armazenamento Azure também podem fornecer armazenamento para o dis
 ## <a name="how-can-i-access-my-virtual-machine"></a>Como posso aceder à minha máquina virtual?
 Estabeleça uma ligação remota para iniciar snúm na máquina virtual, utilizando Secure Shell (SSH). Consulte as instruções sobre como ligar a [partir do Windows](ssh-from-windows.md) ou do [Linux e Mac](mac-create-ssh-keys.md). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
 
-Se tiver problemas, consulte as [ligações Troubleshoot Secure Shell (SSH).](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
+Se tiver problemas, consulte as [ligações Troubleshoot Secure Shell (SSH).](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>Posso utilizar o disco temporário (/dev/sdb1) para armazenar dados?
 Não utilize o disco temporário (/dev/sdb1) para armazenar dados. Só existe para armazenamento temporário. Arrisca-se a perder dados que não podem ser recuperados.

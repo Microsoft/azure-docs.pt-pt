@@ -7,10 +7,10 @@ ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101746313"
 ---
 # <a name="manage-the-datadog-resource"></a>Gerir o recurso Datadog
@@ -77,7 +77,7 @@ O portal Azure fornece uma visão apenas de leitura das chaves API. Para gerir a
 
 A integração Azure Datadog proporciona-lhe a capacidade de instalar o agente Datadog numa máquina virtual ou serviço de aplicações. Se uma chave predefinida não for selecionada, a instalação do agente Datadog falha.
 
-## <a name="monitor-virtual-machines-using-the-datadog-agent"></a>Monitorize máquinas virtuais usando o agente Datadog
+## <a name="monitor-virtual-machines-using-the-datadog-agent"></a>Monitorizar máquinas virtuais com o agente do Datadog
 
 Pode instalar agentes datadog em máquinas virtuais como uma extensão. Aceda ao **agente de máquinas Virtual** sob as configurações do Datadog org no painel esquerdo. Este ecrã mostra a lista de todas as máquinas virtuais na subscrição.
 

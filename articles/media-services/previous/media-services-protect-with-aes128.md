@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7dacc01b37fb91f02fe67f76fe79c0bfa9375ea7
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103009543"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave
@@ -174,7 +174,7 @@ QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
 …
 ```
 
-Se abrir um dos ficheiros de segmento num editor de texto (por exemplo, http: \/ /test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifesto (vídeo,formato=m3u8-aapl), contém #EXT-X-X, KEY o que indica que o ficheiro está encriptado.
+Se abrir um dos ficheiros de segmento num editor de texto (por exemplo, http: \/ /test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifesto (vídeo,formato=m3u8-aapl), contém #EXT-X-KEY, o que indica que o ficheiro está encriptado.
 
 ```text
 #EXTM3U

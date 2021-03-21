@@ -4,10 +4,10 @@ description: Descreve relatórios disponíveis para analisar dados recolhidos po
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: ca74521a08d4edaa498e00e6452d8f69912e4bb9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032804"
 ---
 # <a name="reports-in-container-insights"></a>Relatórios em insights de contentores

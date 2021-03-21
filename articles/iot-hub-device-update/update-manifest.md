@@ -7,15 +7,15 @@ ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: bbd39f7752a1a482350a7231a0bb5a3710591b1d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030686"
 ---
 # <a name="device-update-for-iot-hub-update-manifest"></a>Atualização do dispositivo para o manifesto de atualização do IoT Hub
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Atualização do Dispositivo para IoT Hub utiliza um _manifesto de atualização_ para comunicar ações e também metadados que suportam essas ações através das propriedades de interface [AzureDeviceUpdateCore.OrchestratorMetadata:4.](./device-update-plug-and-play.md)
 Este documento descreve os fundamentos de como a `updateManifest` propriedade, na `AzureDeviceUpdateCore.OrchestratorMetadata:4` interface, é utilizada pelo Agente de Atualização de Dispositivos. As `AzureDeviceUpdateCore.OrchestratorMetadata:4` propriedades da interface são enviadas do serviço Device Update para o serviço IoT Hub para o Agente de Atualização de Dispositivos. É `updateManifest` um objeto JSON serializado que é analisado pelo Agente de Atualização do Dispositivo.

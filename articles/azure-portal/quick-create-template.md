@@ -3,13 +3,13 @@ title: Crie um painel de porta-porta Azure utilizando um modelo de Gestor de Rec
 description: Aprenda a criar um painel de instrumentos do portal Azure utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
-ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/15/2021
+ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745730"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658334"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Quickstart: Criar um dashboard no portal Azure utilizando um modelo ARM
 
@@ -30,9 +30,13 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 O painel de instrumentos que cria na parte seguinte deste quickstart requer um VM existente. Crie um VM seguindo estes passos.
 
-1. No portal Azure, selecione Cloud Shell.
+1. No portal Azure, selecione **Cloud Shell**.
 
     ![Selecione a casca de nuvem da fita do portal Azure](media/quick-create-template/cloud-shell.png)
+
+1. Na janela **Cloud Shell,** selecione **PowerShell**.
+
+    ![Selecione PowerShell na janela do terminal](media/quick-create-template/powershell.png)
 
 1. Copie o seguinte comando e introduza-o na solicitação de comando para criar um grupo de recursos.
 
@@ -85,21 +89,9 @@ O portal Azure foi usado para implantar o modelo. Além do portal do Azure, tamb
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-Verifique se o dashboard foi criado com sucesso e se pode ver dados do VM.
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
-1. No portal do Azure, selecione **Dashboard**.
-
-    ![Navegação do portal Azure para painel](media/quick-create-template/navigate-to-dashboards.png)
-
-1. Na página do painel de instrumentos, selecione **Simple VM Dashboard**.
-
-    ![Navegue para o simples painel VM](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. Reveja o painel de instrumentos que o modelo ARM criou. Pode ver que alguns dos conteúdos são estáticos, mas também existem gráficos que mostram o desempenho do VM que criou no início.
-
-    ![Rever simples painel VM](media/quick-create-template/review-simple-vm-dashboard.png)
-
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender remover o VM e o painel de instrumentos associado, elimine o grupo de recursos que os contém.
 

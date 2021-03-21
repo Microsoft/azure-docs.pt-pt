@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367916"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593871"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Visão geral da transformação do fluxo de dados de mapeamento
 
@@ -31,6 +31,7 @@ Abaixo está uma lista das transformações atualmente suportadas no fluxo de da
 | [Join](data-flow-join.md) | Múltiplas entradas/saídas |  Combine dados de duas fontes ou fluxos. |
 | [Pesquisa](data-flow-lookup.md) | Múltiplas entradas/saídas | Dados de referência de outra fonte. |
 | [Novo ramo](data-flow-new-branch.md) | Múltiplas entradas/saídas | Aplicar vários conjuntos de operações e transformações contra o mesmo fluxo de dados. |
+| [Parse](data-flow-new-branch.md) | Formatter | Parse as colunas de texto no seu fluxo de dados que são cadeias de texto JSON, texto delimitado ou texto formatado XML. |
 | [Dinamizar](data-flow-pivot.md) | Modificador de esquemas | Uma agregação onde uma ou mais colunas de agrupamento têm os seus valores de linha distintos transformados em colunas individuais. |
 | [Posição](data-flow-rank.md) | Modificador de esquemas | Gerar um ranking ordenado com base em condições de classificação |
 | [Selecionar](data-flow-select.md) | Modificador de esquemas | Colunas de pseudónimos e nomes de fluxo, e colunas de queda ou reencomenda |

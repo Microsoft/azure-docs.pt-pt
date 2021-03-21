@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: inhenkel
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: 12732171f774e6ce010f722cde4a27bb298275b9
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103007941"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento
@@ -32,7 +32,7 @@ Para executar as ações descritas neste artigo, deverá utilizar APIs e [Powers
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Quando uma nova conta de armazenamento é criada, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticar o acesso à sua conta de armazenamento. Para manter as suas ligações de armazenamento mais seguras, é aconselhável regenerar periodicamente e rodar a chave de acesso ao armazenamento. São fornecidas duas teclas de acesso (primária e secundária) de forma a permitir manter as ligações à conta de armazenamento utilizando uma chave de acesso enquanto regenera a outra chave de acesso. Este procedimento também é chamado de "chaves de acesso rolante".
 
