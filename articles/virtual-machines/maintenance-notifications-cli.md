@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: cd042ce09533cbefe37cb2e4d311a3857e3dfdec
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552410"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Tratamento de notificações de manutenção planeadas utilizando o Azure CLI

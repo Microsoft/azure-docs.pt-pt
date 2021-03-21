@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
 ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019351"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas do Azure Stream Analytics
@@ -24,17 +24,17 @@ Alguns tipos de saídas [suportam a partição,](#partitioning)e [os tamanhos](#
 
 | Tipo de saída | Criação de partições | Segurança | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sim|Utilizador do Azure Ative Directory </br> , Identidade Gerida|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Utilizador do Azure Ative Directory </br> , Identidade Gerida|
 |[Base de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Auth utilizador SQL, </br> Identidade Gerida (pré-visualização)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sim|Auth utilizador SQL, </br> Identidade Gerida (pré-visualização)|
-|[Armazenamento de bolhas e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sim|Chave de acesso, </br> Identidade Gerida (pré-visualização)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|Auth utilizador SQL, </br> Identidade Gerida (pré-visualização)|
+|[Armazenamento de bolhas e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Chave de acesso, </br> Identidade Gerida (pré-visualização)|
 |[Azure Event Hubs](event-hubs-output.md)|Sim, precisa definir a coluna da chave de partição na configuração de saída.|Chave de acesso, </br> Identidade Gerida (pré-visualização)|
-|[Power BI](power-bi-output.md)|Não|Utilizador do Azure Ative Directory, </br> Identidade Gerida|
-|[Armazenamento de tabelas do Azure](table-storage-output.md)|Sim|Chave da conta|
-|[Filas de autocarros da Azure Service](service-bus-queues-output.md)|Sim|Chave de acesso|
-|[Tópicos de ônibus de serviço Azure](service-bus-topics-output.md)|Sim|Chave de acesso|
-|[BD do Cosmos para o Azure](azure-cosmos-db-output.md)|Sim|Chave de acesso|
-|[Funções do Azure](azure-functions-output.md)|Sim|Chave de acesso|
+|[Power BI](power-bi-output.md)|No|Utilizador do Azure Ative Directory, </br> Identidade Gerida|
+|[Armazenamento de tabelas do Azure](table-storage-output.md)|Yes|Chave da conta|
+|[Filas do Azure Service Bus](service-bus-queues-output.md)|Yes|Chave de acesso|
+|[Tópicos de ônibus de serviço Azure](service-bus-topics-output.md)|Yes|Chave de acesso|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Chave de acesso|
+|[Funções do Azure](azure-functions-output.md)|Yes|Chave de acesso|
 
 ## <a name="partitioning"></a>Criação de partições
 
@@ -79,7 +79,7 @@ Estas propriedades da janela de loteamento só são suportadas pela versão API 
           ],
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >

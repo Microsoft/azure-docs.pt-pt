@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: 322d6b590863d8065454c0439c5d899107a6abe7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784970"
 ---
 # <a name="roles-and-operations"></a>Funções e operações
@@ -23,7 +23,7 @@ O provisionamento também coloca requisitos no fabricante do dispositivo, espec�
 
 Uma série de Quickstarts são fornecidos na tabela de conteúdos à esquerda, para ajudar a explicar o fornecimento automático através da experiência prática. Para facilitar/simplificar o processo de aprendizagem, o software é utilizado para simular um dispositivo físico de inscrição e registo. Alguns Quickstarts exigem que cumpra operações para múltiplas funções, incluindo operações para funções inexistentes, devido à natureza simulada dos Quickstarts.
 
-| Função | Operação | Descrição |
+| Função | Operação | Description |
 |------| --------- | ------------|
 | Fabricante | Codificar a identidade e o registo URL | Com base no mecanismo de atestado utilizado, o fabricante é responsável pela codificação da informação de identidade do dispositivo e pelo URL de registo do Serviço de Provisionamento de Dispositivos.<br><br>**Arranques rápidos**: uma vez que o dispositivo é simulado, não existe qualquer papel do Fabricante. Consulte a função developer para obter detalhes sobre como obtém esta informação, que é usada na codificação de um pedido de registo de amostra. |
 | | Fornecer identidade do dispositivo | Como autor da informação de identidade do dispositivo, o fabricante é responsável pela sua comunicação ao operador (ou agente designado), ou pela sua inscrição direta no Serviço de Provisionamento de Dispositivos através de APIs.<br><br>**Arranques rápidos**: uma vez que o dispositivo é simulado, não existe qualquer papel do Fabricante. Consulte a função do Operador para obter mais detalhes sobre como obter a identidade do dispositivo, que é usada para inscrever um dispositivo simulado na sua instância do Serviço de Provisionamento de Dispositivos. |
@@ -67,7 +67,7 @@ Máquinas de venda automática ou máquinas de café automatizadas representam e
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Poderá achar útil marcar este artigo como um ponto de referência, uma vez que trabalha através dos quickstarts de fornecimento automático correspondentes. 
 

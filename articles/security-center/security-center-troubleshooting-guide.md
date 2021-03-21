@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 9822dfe50fa50fdd70f4e09e188188cad0f9b8f0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102438221"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
@@ -80,7 +80,7 @@ Existem dois cenários de instalação que podem produzir resultados diferentes 
 
 O **estado da monitorização** define o motivo pelo qual o Centro de Segurança não consegue monitorizar com êxito VMs e computadores inicializados para aprovisionamento automático. A tabela seguinte mostra os valores, as descrições e os passos de resolução do **Estado de monitorização**.
 
-| Estado de monitorização | Descrição | Passos de resolução |
+| Estado de monitorização | Description | Passos de resolução |
 |---|---|---|
 | Instalação de agente pendente | A instalação do agente Log Analytics ainda está em funcionamento.  A instalação pode demorar algumas horas. | Aguarde até que a instalação automática esteja concluída. |
 | Estado de energia desligado | A VM está parada.  O agente Log Analytics só pode ser instalado num VM que está em funcionamento. | Reinicie a VM. |
@@ -104,10 +104,10 @@ A tabela seguinte mostra os recursos necessários para a comunicação.
 
 | Recursos do Agente | Portas | Inspeção de HTTPS direto |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Sim |
-| *.oms.opinsights.azure.com | 443 | Sim |
-| *.blob.core.windows.net | 443 | Sim |
-| *.azure-automation.net | 443 | Sim |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Se encontrar problemas de integração com o agente, certifique-se de que lê o artigo [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Como resolver problemas de integração do Operations Management Suite).
 

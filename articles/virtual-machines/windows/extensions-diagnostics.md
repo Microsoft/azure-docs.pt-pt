@@ -12,15 +12,15 @@ ms.date: 04/06/2018
 ms.author: johnkem
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e703a8f91f18467660ef7e1b91fdb034feeb00b1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102549537"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de diagnóstico Azure para VMs windows
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A extensão VM do Azure Diagnostics permite-lhe recolher dados de monitorização, tais como contadores de desempenho e registos de eventos, a partir do seu VM do Windows. Pode especificar granulitivamente quais os dados que pretende recolher e para onde pretende que os dados possam ir, como uma conta de Armazenamento Azure ou um Azure Event Hub. Também pode utilizar estes dados para construir gráficos no portal Azure ou criar alertas métricos.
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 1f8100dd6340383eadec5d10b7f23db59ba0ebdf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786389"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomende os resultados da pesquisa utilizando o .NET SDK
@@ -50,7 +50,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. Apen
 
 ### <a name="add-the-orderby-property-to-the-search-parameters"></a>Adicione a propriedade OrderBy aos parâmetros de pesquisa
 
-1. Em HomeController.cs, adicione a opção **OrderBy** e inclua a propriedade Rating, com uma ordem de classificação descendente. No método **Índice (modelo SearchData),** adicione a seguinte linha aos parâmetros de pesquisa.
+1. No HomeController.cs, adicione a opção **OrderBy** e inclua a propriedade Rating, com uma ordem de classificação descendente. No método **Índice (modelo SearchData),** adicione a seguinte linha aos parâmetros de pesquisa.
 
     ```cs
     options.OrderBy.Add("Rating desc");
@@ -213,7 +213,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. Apen
 
 ### <a name="add-the-range-of-room-rates-to-the-view"></a>Adicione a gama de tarifas de quarto à vista
 
-1. Adicione propriedades que contenham a tarifa de quarto mais barata e cara ao modelo Hotel.cs.
+1. Adicione propriedades que contenham a tarifa de quarto mais barata e cara ao modelo .cs Hotel.
 
     ```cs
     // Room rate range
@@ -944,7 +944,7 @@ Considere os seguintes takeaways deste projeto:
 * É natural que alguns resultados sejam encomendados por ordem ascendente (por exemplo, distância de um ponto), e alguns em ordem descendente (por exemplo, classificação do hóspede).
 * Os perfis de pontuação podem ser definidos quando as comparações numéricas não estão disponíveis, ou não são inteligentes o suficiente, para um conjunto de dados. Marcar cada resultado ajudará a encomendar e mostrar os resultados de forma inteligente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Você completou esta série de tutoriais C# - você deveria ter adquirido conhecimento valioso das APIs de Pesquisa Cognitiva Azure.
 

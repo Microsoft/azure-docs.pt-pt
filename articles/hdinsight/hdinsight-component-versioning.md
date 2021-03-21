@@ -7,10 +7,10 @@ author: deshriva
 ms.author: deshriva
 ms.date: 02/08/2021
 ms.openlocfilehash: 53ca2ac73fdec9d3b39ffc04cbb24aca707a72eb
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103490454"
 ---
 # <a name="azure-hdinsight-versions"></a>Versões Azure HDInsight
@@ -23,8 +23,8 @@ Esta tabela lista as versões de HDInsight que estão disponíveis no portal Azu
 
 | Versão HDInsight | SO da VM | Data da versão | Prazo de validade do suporte | Data da reforma | Elevada disponibilidade |
 | --- | --- | --- | --- | --- | --- |
-| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |Setembro de 24, 2018 | | |Sim |
-| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |4 de abril de 2017      | *30 de junho de 2021 |30 de junho de 2021 |Sim |
+| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |Setembro de 24, 2018 | | |Yes |
+| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |4 de abril de 2017      | *30 de junho de 2021 |30 de junho de 2021 |Yes |
 
 *Estamos a alargar o prazo de suporte para certos tipos de cluster HDInsight 3.6. Consulte [as versões de componentes HDInsight 3.6](hdinsight-36-component-versioning.md).
 
