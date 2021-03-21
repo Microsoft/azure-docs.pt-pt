@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Origami Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com origami | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Origami.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 02c79e8385c7a7e9d60a3dcbed603ca94cb1dc43
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522273"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Diretório Ativo Azure com Origami
@@ -171,7 +171,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Origami.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Origami**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Origami**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -215,7 +215,7 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Origami.
    
     ![Screenshot que mostra o diálogo "Adicionar Novo Utilizador" com as caixas de texto "Nome de Utilizador", "Primeiro Nome" e "Apelido" em destaque.](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. Na caixa de texto **do Nome do Utilizador,** introduza o e-mail do utilizador como ** \@ brittasimon contoso.com**.
+    a. Na caixa de texto **do Nome do Utilizador,** introduza o e-mail do utilizador como **\@ brittasimon contoso.com**.
 
     b. Na caixa de texto da **palavra-passe,** digite uma palavra-passe.
 

@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93311921"
 ---
 # <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Suporte de colagem de base de dados para Synapse SQL em Azure Synapse Analytics 

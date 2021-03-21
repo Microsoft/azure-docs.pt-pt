@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659459"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI
@@ -56,7 +56,7 @@ Aqui estão os detalhes dos argumentos anteriores:
 name | mydemoserver | Nome único que identifica a sua Base de Dados Azure para servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres. Para mais informações, consulte [a Base de Dados Azure para as Regras de Nomeação Pós-SQL](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myResourceGroup | Nome do grupo de recursos Azure.
 localização | westus | Localização azul para o servidor.
-admin-user | myadmin | Nome de utilizador para o login do administrador. Não pode ser **azure_superuser,** **administrador,** **raiz,** **hóspede,** ou **público.** **root**
+admin-user | myadmin | Nome de utilizador para o login do administrador. Não pode ser **azure_superuser,** **administrador,** **raiz,** **hóspede,** ou **público.** 
 admin-password | *palavra-passe segura* | Palavra-passe do utilizador administrador. Deve conter 8 a 128 caracteres de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas, números e caracteres não alfanuméricos.
 sku-name|GP_Gen5_2| Nome da configuração do nível de preços e do cálculo. Siga a convenção {nível de preços}_{compute generation}_{vCores} em abreviatura. Para obter mais informações, consulte [a Base de Dados Azure para obter preços pós-SQL.](https://azure.microsoft.com/pricing/details/postgresql/server/)
 
@@ -118,7 +118,7 @@ O resultado está no formato JSON. Tome nota dos valores do **AdministradorLogin
 ```
 
 ## <a name="connect-to-the-azure-database-for-postgresql-server-by-using-psql"></a>Ligue-se à Base de Dados Azure para o servidor PostgreSQL utilizando o psql
-O cliente [psql](https://www.postgresql.org/docs/current/static/app-psql.html) é uma escolha popular para ligar aos servidores PostgreSQL. Pode ligar-se ao seu servidor utilizando o psql com [a Azure Cloud Shell](../cloud-shell/overview.md). Você também pode usar psql no seu ambiente local se você tiver disponível. Uma base de dados vazia, **postgres,** é criada automaticamente com um novo servidor PostgreSQL. Pode utilizar essa base de dados para se conectar com o psql, como mostra o código seguinte. 
+O cliente [psql](https://www.postgresql.org/docs/current/static/app-psql.html) é uma escolha popular para ligar aos servidores PostgreSQL. Pode ligar-se ao seu servidor utilizando o psql com [a Azure Cloud Shell](../cloud-shell/overview.md). Se o tiver disponível, também pode utilizar o psql no seu ambiente local. Uma base de dados vazia, **postgres,** é criada automaticamente com um novo servidor PostgreSQL. Pode utilizar essa base de dados para se conectar com o psql, como mostra o código seguinte. 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -145,6 +145,6 @@ Se apenas pretender eliminar o servidor recém-criado, pode executar o [comando 
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a sua base de dados utilizando exportação e importação](./howto-migrate-using-export-and-import.md)

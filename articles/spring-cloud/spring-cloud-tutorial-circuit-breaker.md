@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 13b57a8ef57e1d5f2fe066a9fc8b0b74382f066f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042849"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Use o painel de disjuntores com a nuvem de mola Azure

@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 08a1965aadf8f50625e54d7c5e3b3f6a44c0bbd4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946176"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento de SDK, REST e CLI para a Compreensão da Linguagem (LUIS)
@@ -123,7 +123,7 @@ A estrutura do bot fornece [várias ferramentas](https://github.com/microsoft/bo
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - uma ferramenta integrada de desenvolvimento para desenvolvedores e equipas multidisciplinares para construir bots e experiências de conversação com o Microsoft Bot Framework
 * [Amostras de estrutura de](https://github.com/microsoft/botbuilder-samples) bot - em #C, JavaScript, TypeScript e Python
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os [códigos](luis-reference-response-codes.md) de erro HTTP comuns
 * [Documentação de referência](../../index.yml) para todos os APIs e SDKs

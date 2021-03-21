@@ -1,5 +1,5 @@
 ---
-title: Roteiro PowerShell para listar e obter recursos API da Azure Cosmos DB SQL
+title: Roteiro PowerShell para listar e obter recursos API API API da Azure Cosmos DB SQL
 description: Azure PowerShell script - Lista DB da Azure Cosmos e obter operações para API SQL
 author: markjbrown
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: 849e73e61341576c4387aba8da8a648cf396052a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680856"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Listar e obter bases de dados e contentores para Azure Cosmos DB - SQL (Core) API

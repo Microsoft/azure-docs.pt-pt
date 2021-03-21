@@ -1,5 +1,5 @@
 ---
-title: Privacidade do Utilizador e Autenticação Pass-through do Diretório Ativo Azure Microsoft Docs
+title: Privacidade do utilizador e autenticação pass-through do Diretório Ativo Azure | Microsoft Docs
 description: Este artigo trata da autenticação pass-through do Azure Ative (Azure AD) e da conformidade do RGPD.
 services: active-directory
 keywords: Azure AD Connect Authentication Pass-through, RGPD, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996581"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do Utilizador e Autenticação Pass-through do Azure Active Directory
@@ -34,7 +34,7 @@ ms.locfileid: "95996581"
 A autenticação Ad AD Ad cria o seguinte tipo de registo, que pode conter Dados Pessoais:
 
 - Azure AD Connect ficheiros de registo de vestígios.
-- Ficheiros de registo de registo de registo de registo de agentes de autenticação.
+- Ficheiros de registo de registo de agentes de autenticação.
 - Ficheiros de registo do Windows Event.
 
 Melhorar a privacidade do utilizador para a autenticação pass-through de duas formas:
@@ -71,7 +71,7 @@ Este produto também pode criar **Registos de Eventos do Windows.** Para saber m
 
 Para visualizar registos relacionados com o Agente de Autenticação Pass-through, abra a aplicação **do Observador de Eventos** no servidor e verifique em **Registos de Aplicação e Serviço\Microsoft\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
-### <a name="delete-authentication-agent-trace-log-files"></a>Eliminar ficheiros de registo de registo de registo de registo de agente de autenticação
+### <a name="delete-authentication-agent-trace-log-files"></a>Eliminar ficheiros de registo de registo de agente de autenticação
 
 Deve verificar regularmente o conteúdo de **%ProgramData%\Microsoft\Microsoft\Azure AD Connect Authentication Agent\Trace** e eliminar o conteúdo desta pasta a cada 48 horas. 
 

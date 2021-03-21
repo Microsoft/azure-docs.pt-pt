@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 7098f23e9b5b6f56fbbe761335afc65375aea680
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96509225"
 ---
 **A azure Data Lake Storage Gen2** não é um tipo de serviço ou conta de armazenamento dedicado. É o mais recente lançamento de capacidades que são dedicadas à análise de big data.  Estas capacidades estão disponíveis numa conta de armazenamento v2 ou BlockBlobStorage para fins gerais, e pode obtê-las, permitindo a funcionalidade **de espaço hierárquico** da conta. Para alvos de escala, consulte estes artigos. 

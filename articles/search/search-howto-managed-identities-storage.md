@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358376"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurar uma ligação a uma conta do Armazenamento do Microsoft Azure através de uma identidade gerida
@@ -36,7 +36,7 @@ Quando uma identidade gerida atribuída ao sistema está ativada, a Azure cria u
 
 Depois de **selecionar, verá** um ID de objeto que foi atribuído ao seu serviço de pesquisa.
 
-![ID de objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
+![ID do Objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID do Objeto")
  
 ### <a name="2---add-a-role-assignment"></a>2 - Adicionar uma atribuição de função
 
@@ -77,7 +77,7 @@ Ao indexar a partir de uma conta de armazenamento, a fonte de dados deve ter as 
 * **credenciais**
     * Ao utilizar uma identidade gerida para autenticar, o formato **de credenciais** é diferente do que quando não se utiliza uma identidade gerida. Aqui irá fornecer um ResourceId que não tem chave de conta ou senha. O ResourceId deve incluir o ID de subscrição da conta de armazenamento, o grupo de recursos da conta de armazenamento e o nome da conta de armazenamento.
     * Formato de identidade gerido: 
-        * *ResourceId=/subscrições/ **o seu ID** de subscrição /grupos de recursos/ o nome do grupo de **recursos** /fornecedores/Microsoft.Storage/storageAcounts/ o nome da sua conta **de armazenamento** /;*
+        * *ResourceId=/subscrições/**o seu ID** de subscrição /grupos de recursos/ o nome do grupo de **recursos**/fornecedores/Microsoft.Storage/storageAcounts/ o nome da sua conta **de armazenamento**/;*
 * **O recipiente** especifica um recipiente ou nome de mesa na sua conta de armazenamento. Por predefinição, todas as bolhas dentro do recipiente são recuperáveis. Se quiser apenas indexar bolhas num determinado diretório virtual, pode especificar esse diretório utilizando o parâmetro de **consulta** opcional.
 
 Exemplo de como criar um objeto de origem de dados blob utilizando a [API REST](/rest/api/searchservice/create-data-source):

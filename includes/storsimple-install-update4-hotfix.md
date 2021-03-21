@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95557954"
 ---
 #### <a name="to-download-hotfixes"></a>Para transferir correções
@@ -26,7 +26,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
    
     ![Catálogo de pesquisa](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Clique **em Baixar**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique nos ficheiros para descarregar para a localização e pasta especificadas. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
+4. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique nos ficheiros para descarregar para a localização e pasta especificadas. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
 5. Procure quaisquer hotfixes adicionais listados na tabela acima **(4011841),** e descarregue os ficheiros correspondentes para as pastas específicas listadas na tabela anterior.
 
 > [!NOTE]

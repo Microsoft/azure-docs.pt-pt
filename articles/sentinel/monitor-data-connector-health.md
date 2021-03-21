@@ -1,5 +1,5 @@
 ---
-title: Monitorize a saúde dos seus conectores de dados com este livro do Azure Sentinel Microsoft Docs
+title: Monitorize a saúde dos seus conectores de dados com este livro de dados Azure Sentinel | Microsoft Docs
 description: Utilize o manual de monitorização da saúde para acompanhar a conectividade e o desempenho dos seus conectores de dados.
 services: sentinel
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
 ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94656995"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Monitorize a saúde dos seus conectores de dados com este livro do Azure Sentinel
@@ -65,5 +65,5 @@ Há três secções com açapões neste livro:
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="página de informações de agente de monitorização de saúde do conector de dados" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [embarcar os seus dados no Azure Sentinel,](quickstart-onboard.md)ligue [fontes de dados](connect-data-sources.md)e [obtenha visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)

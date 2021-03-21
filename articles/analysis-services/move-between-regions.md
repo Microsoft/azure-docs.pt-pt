@@ -1,5 +1,5 @@
 ---
-title: Mover serviços de análise do Azure para uma região diferente Microsoft Docs
+title: Mover os Serviços de Análise Azure para uma região diferente | Microsoft Docs
 description: Descreve como mover um recurso Azure Analysis Services para uma região diferente.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96497933"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente

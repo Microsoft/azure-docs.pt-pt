@@ -12,10 +12,10 @@ ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928635"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutorial para configurar Onfido com Azure Ative Directory B2C
@@ -50,7 +50,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![screenshot para onfido-arquitetura-diagrama](media/partner-onfido/onfido-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. O utilizador inscreve-se para criar uma nova conta e introduz informações na página. Azure AD B2C recolhe os atributos do utilizador. A aplicação do cliente Onfido hospedada no Azure AD B2C faz verificações preliminares para a informação do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
 ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102454248"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer o back up Lojas de Configuração de Aplicativos automaticamente
@@ -23,7 +23,7 @@ Neste artigo, você vai aprender a configurar uma cópia de segurança automáti
 
 Depois de configurar a cópia de segurança automática, a Configuração da Aplicação publicará eventos na Azure Event Grid para quaisquer alterações feitas aos valores-chave numa loja de configuração. A Event Grid suporta uma variedade de serviços Azure a partir dos quais os utilizadores podem subscrever os eventos emitidos sempre que os valores-chave são criados, atualizados ou eliminados.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Neste artigo, você usará o armazenamento da Fila Azure para receber eventos da Grade de Eventos e usará um gatilho de temporizador de Funções Azure para processar eventos na fila em lotes. 
 

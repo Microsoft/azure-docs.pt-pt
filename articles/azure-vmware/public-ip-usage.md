@@ -4,10 +4,10 @@ description: Este artigo explica como utilizar a funcionalidade IP pública em A
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581385"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Como utilizar a funcionalidade IP pública na Solução VMware Azure

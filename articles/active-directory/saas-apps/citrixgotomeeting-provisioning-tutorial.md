@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar GoToMeeting para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar GoToMeeting para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o GoToMeeting.
 services: active-directory
 author: jeevansd
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358904"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar GoToMeeting para fornecimento automático de utilizadores

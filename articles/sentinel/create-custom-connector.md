@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
 ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101724358"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Recursos para criar conectores personalizados Azure Sentinel
@@ -36,12 +36,12 @@ A tabela a seguir compara detalhes essenciais sobre cada método para a criaçã
 
 |Descrição do método  |Funcionalidade | Sem servidor    |Complexidade  |
 |---------|---------|---------|---------|
-|**[Agente de registo de análise](#connect-with-the-log-analytics-agent)** <br>O melhor para a recolha de ficheiros a partir de fontes no local e iaaS   | Apenas recolha de ficheiros  |   Não      |Baixo         |
+|**[Agente de registo de análise](#connect-with-the-log-analytics-agent)** <br>O melhor para a recolha de ficheiros a partir de fontes no local e iaaS   | Apenas recolha de ficheiros  |   No      |Baixo         |
 |**[Logstash](#connect-with-logstash)** <br>O melhor para fontes no local e iaaS, qualquer fonte para a qual um plugin está disponível, e organizações já familiarizadas com Logstash  | Os plugins disponíveis, além de plugin personalizados, as capacidades proporcionam uma flexibilidade significativa.   |   Não, não. requer um cluster VM ou VM para executar           |   Baixo; suporta muitos cenários com plugins      |
-|**[Logic Apps](#connect-with-logic-apps)** <br>Custo elevado; evitar dados de grande volume <br>O melhor para fontes de nuvem de baixo volume  | A programação sem código permite uma flexibilidade limitada, sem suporte para a implementação de algoritmos.<br><br> Se nenhuma ação disponível já suportar os seus requisitos, criar uma ação personalizada pode acrescentar complexidade.    |    Sim         |   Baixo; desenvolvimento simples e sem código      |
-|**[PowerShell](#connect-with-powershell)** <br>O melhor para prototipagem e uploads periódicos de ficheiros | Suporte direto para recolha de ficheiros. <br><br>O PowerShell pode ser usado para recolher mais fontes, mas requer codificação e configuração do script como um serviço.      |Não               |  Baixo       |
+|**[Logic Apps](#connect-with-logic-apps)** <br>Custo elevado; evitar dados de grande volume <br>O melhor para fontes de nuvem de baixo volume  | A programação sem código permite uma flexibilidade limitada, sem suporte para a implementação de algoritmos.<br><br> Se nenhuma ação disponível já suportar os seus requisitos, criar uma ação personalizada pode acrescentar complexidade.    |    Yes         |   Baixo; desenvolvimento simples e sem código      |
+|**[PowerShell](#connect-with-powershell)** <br>O melhor para prototipagem e uploads periódicos de ficheiros | Suporte direto para recolha de ficheiros. <br><br>O PowerShell pode ser usado para recolher mais fontes, mas requer codificação e configuração do script como um serviço.      |No               |  Baixo       |
 |**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>O melhor para os ISV implementando a integração, e para requisitos únicos de recolha   | Suporta todas as capacidades disponíveis com o código.  | Depende da implementação           |     Alto    |
-|**[Funções Azure](#connect-with-azure-functions)** O melhor para fontes de nuvem de alto volume e para requisitos de recolha únicos  | Suporta todas as capacidades disponíveis com o código.  |  Sim             |     Alto; requer conhecimento de programação    |
+|**[Funções Azure](#connect-with-azure-functions)** O melhor para fontes de nuvem de alto volume e para requisitos de recolha únicos  | Suporta todas as capacidades disponíveis com o código.  |  Yes             |     Alto; requer conhecimento de programação    |
 |     |         |                |
 
 > [!TIP]
@@ -93,7 +93,7 @@ Utilize uma [App Azure Logic](../logic-apps/index.yml) para criar um conector pe
 
 1. **Utilize um dos seguintes gatilhos para iniciar as suas Aplicações Lógicas**:
 
-    |Acionador  |Descrição  |
+    |Acionador  |Description  |
     |---------|---------|
     |**Uma tarefa recorrente**     |   Por exemplo, agende a sua App Lógica para recuperar dados regularmente a partir de ficheiros específicos, bases de dados ou APIs externos. <br>Para obter mais informações, consulte [Criar, programar e executar tarefas e fluxos de trabalho recorrentes em Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
     |**Desencadeamento a pedido**     | Execute a sua Aplicação Lógica a pedido para recolha e teste manual de dados. <br>Para obter mais informações, consulte  [aplicações lógicas Call, Trigger ou Nest logic utilizando pontos finais HTTPS](../logic-apps/logic-apps-http-endpoint.md).        |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Serviço de Segurança Web Symantec (WSS) para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar o Serviço de Segurança Web Symantec (WSS) para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para fornecimento e desprovisionamento de contas de utilizador automáticas ao Symantec Web Security Service (WSS).
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: d7e0db1b0bc1e7aef68ee06f3bdd5e5e0f83b73e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354721"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Tutorial: Configurar o Serviço de Segurança Web Symantec (WSS) para o provisionamento automático do utilizador
@@ -52,11 +52,11 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 
 Antes de configurar o Serviço de Segurança Web Symantec (WSS) para o fornecimento automático de utilizadores com AD Azure, terá de permitir o fornecimento scim no Symantec Web Security Service (WSS).
 
-1. Inscreva-se na sua [consola de administração Symantec Web Security Service](https://portal.threatpulse.com/login.jsp). Navegar para o Serviço **de Soluções.**  >  **Service**
+1. Inscreva-se na sua [consola de administração Symantec Web Security Service](https://portal.threatpulse.com/login.jsp). Navegar para o Serviço **de Soluções.**  >  
 
     ![Serviço de Segurança Web Symantec (WSS)](media/symantec-web-security-service/service.png)
 
-2. Navegar para integrações de **manutenção** de conta  >  **Integrations**  >  **nova integração.**
+2. Navegar para integrações de **manutenção** de conta  >    >  **nova integração.**
 
     ![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 

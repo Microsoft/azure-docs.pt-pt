@@ -12,10 +12,10 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96501214"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos alargados na Base de Dados Azure SQL 
@@ -37,7 +37,7 @@ Informações adicionais sobre eventos alargados estão disponíveis em:
 Este tópico pressupõe que já tem algum conhecimento de:
 
 - [Base de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/)
-- [Eventos expandidos](/sql/relational-databases/extended-events/extended-events)
+- [Eventos alargados](/sql/relational-databases/extended-events/extended-events)
 
 - A maior parte da nossa documentação sobre eventos estendidos aplica-se ao SQL Server, Azure SQL Database e Azure SQL Managed Instance.
 
@@ -73,7 +73,7 @@ Os tópicos relacionados fornecem duas amostras de código:
 
 A funcionalidade de eventos alargados é suportada por várias [vistas de catálogo.](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) As vistas do catálogo dizem-lhe sobre *metadados ou definições* de sessões de eventos criadas pelo utilizador na base de dados atual. As opiniões não devolvem informações sobre casos de sessões de eventos ativos.
 
-| Nome de<br/>vista de catálogo | Descrição |
+| Nome de<br/>vista de catálogo | Description |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Retorna uma linha para cada ação em cada evento de uma sessão de eventos. |
 | **sys.database_event_session_events** |Retorna uma linha para cada evento em uma sessão de evento. |
@@ -87,7 +87,7 @@ No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que inclu
 
 A Azure SQL Database tem [pontos de vista dinâmicos de gestão (DMVs)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) que suportam eventos alargados. Os DMVs falam-lhe sobre sessões *de eventos ativos.*
 
-| Nome do DMV | Descrição |
+| Nome do DMV | Description |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Devolve informações sobre as ações da sessão de eventos. |
 | **sys.dm_xe_database_session_events** |Devolve informações sobre eventos de sessão. |

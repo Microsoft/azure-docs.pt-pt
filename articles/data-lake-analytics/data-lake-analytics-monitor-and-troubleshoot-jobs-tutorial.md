@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 12/05/2016
 ms.openlocfilehash: ddcf41a333d261bd9c5f669fde724a25eeba670e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220283"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Monitorizar tarefas no Azure Data Lake Analytics com o Portal do Azure
@@ -23,7 +23,7 @@ ms.locfileid: "92220283"
    ![Gestão de empregos Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
     A gestão do trabalho dá-lhe um olhar sobre o estado de trabalho. Reparem que há um trabalho falhado.
-3. Clique no azulejo de **Gestão** de Emprego para ver os trabalhos. Os trabalhos são categorizados em **Running,** **Queued**e **Ended**. Verá o seu trabalho fracassado na secção **"Fim".** Será o primeiro da lista. Quando tem muitos empregos, pode clicar em **Filter** para ajudá-lo a localizar empregos.
+3. Clique no azulejo de **Gestão** de Emprego para ver os trabalhos. Os trabalhos são categorizados em **Running,** **Queued** e **Ended**. Verá o seu trabalho fracassado na secção **"Fim".** Será o primeiro da lista. Quando tem muitos empregos, pode clicar em **Filter** para ajudá-lo a localizar empregos.
 
    ![Azure Data Lake Analytics filtram trabalhos](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
 

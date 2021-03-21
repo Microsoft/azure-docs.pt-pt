@@ -1,5 +1,5 @@
 ---
-title: Implementar um modelo para a Azure Analysis Services utilizando o Visual Studio Microsoft Docs
+title: Implementar um modelo para a Azure Analysis Services utilizando o | do Visual Studio Microsoft Docs
 description: Aprenda a implementar um modelo tabular num servidor Azure Analysis Services utilizando o Visual Studio.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 9df10760164dcd0d207663c14107f72c46b76d25
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96501248"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementar um modelo do Visual Studio
@@ -39,7 +39,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
 ## <a name="to-deploy-from-visual-studio"></a>Para implementar a partir do Estúdio Visual
 
-1. No Visual Studio > **Solution Explorer,** clique com o botão direito no projeto > **Properties.** Em seguida, no **Servidor de Implementação**  >  **Server** cole o nome do servidor.   
+1. No Visual Studio > **Solution Explorer,** clique com o botão direito no projeto > **Properties.** Em seguida, no **Servidor de Implementação**  >   cole o nome do servidor.   
    
     ![Colar o nome do servidor na propriedade de implementação do servidor](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
 2. Em **Explorador de Soluções**, clique com o botão direito do rato em **Propriedades** e, em seguida, clique em **Implementar**. Ser-lhe-á pedido que inicie sessão no Azure.

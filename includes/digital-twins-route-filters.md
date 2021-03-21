@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
 ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98859576"
 ---
-| Nome do filtro | Descrição | Esquema de texto do filtro | Valores suportados | 
+| Nome do filtro | Description | Esquema de texto do filtro | Valores suportados | 
 | --- | --- | --- | --- |
 | Verdadeiro / Falso | Permite criar uma rota sem filtragem, ou desativar uma rota para que nenhum evento sejam enviados | `<true/false>` | `true` = rota está ativada sem filtragem <br> `false` = rota é desativada |
 | Tipo | O [tipo de evento](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) que flui através da sua instância digital gémea | `type = '<eventType>'` | Aqui estão os possíveis valores do tipo de evento: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |

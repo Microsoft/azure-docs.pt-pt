@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a Salesforce para o fornecimento automático de utilizadores com o Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configure Salesforce para o fornecimento automático de utilizadores com diretório Azure Ative| Microsoft Docs'
 description: Aprenda os passos necessários para realizar na Salesforce e Azure AD para obter e desa provisionar automaticamente as contas de utilizadores da Azure AD à Salesforce.
 services: active-directory
 author: jeevansd
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94353109"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para o fornecimento automático de utilizadores

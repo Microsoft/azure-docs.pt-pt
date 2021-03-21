@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
 ms.openlocfilehash: 8c0bbebf9fdc9e8027b947beb037dde47b26b67b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101644855"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Azure Ative Directory integração única (SSO) com CRM de açúcar
@@ -130,7 +130,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Vá ao **Administrador.**
 
-    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Admin")
+    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Administrador")
 
 1. Na secção **Administração,** clique em **Gestão de Passwords.**
 
@@ -162,7 +162,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CrM do açúcar, d
 
 1. Vá ao **Administrador.**
 
-    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Admin")
+    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Administrador")
 
 1. Na secção **Administração,** clique em **Gestão de Utilizadores.**
 

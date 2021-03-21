@@ -1,5 +1,5 @@
 ---
-title: Evite recargas de página (MSAL.js) Rio Azure
+title: Evite recargas de página (MSAL.js) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como evitar recargas de página ao adquirir e renovar tokens silenciosamente utilizando a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 0c96d161e55261af1bbe04eae6ead1d245158d02
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98064832"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evite recargas de página ao adquirir e renovar tokens silenciosamente utilizando MSAL.js
@@ -145,5 +145,5 @@ export class MsalComponent {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a construção de uma aplicação de uma página (SPA)](scenario-spa-overview.md) utilizando MSAL.js.

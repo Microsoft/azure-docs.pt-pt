@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101644940"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de Atualização Primário?
@@ -149,7 +149,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 > [!NOTE]
 > Nos dispositivos aderidos a Azure AD, esta troca ocorre sincronizadamente para emitir um PRT antes que o utilizador possa apresentar-se ao Windows. Nos dispositivos híbridos Azure AD, o Ative Directory no local é a principal autoridade. Assim, o utilizador só está à espera até que possa adquirir um TGT para iniciar sessão, enquanto a emissão de PRT acontece de forma assíncronea. Este cenário não se aplica aos dispositivos registados Azure AD, uma vez que o início de são não utiliza credenciais AZURE AD.
 
-| Passo | Descrição |
+| Passo | Description |
 | :---: | --- |
 | A | O utilizador introduz a sua palavra-passe no sinal na UI. LogonUI passa as credenciais num tampão de auth para LSA, que por sua vez passa internamente para cloudAP. O CloudAP remete este pedido para o plugin CloudAP. |
 | B | O plugin CloudAP inicia um pedido de descoberta de reinos para identificar o fornecedor de identidade para o utilizador. Se o inquilino do utilizador tiver uma configuração de fornecedor de federação, a Azure AD devolve o ponto final de câmbio do fornecedor de metadados (MEX). Caso contrário, o Azure AD devolve que o utilizador é gerido indicando que o utilizador pode autenticar com Azure AD. |
@@ -162,7 +162,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 
 ![Renovação do PRT em logons subsequentes](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
 
-| Passo | Descrição |
+| Passo | Description |
 | :---: | --- |
 | A | O utilizador introduz a sua palavra-passe no sinal na UI. LogonUI passa as credenciais num tampão de auth para LSA, que por sua vez passa internamente para cloudAP. O CloudAP remete este pedido para o plugin CloudAP. |
 | B | Se o utilizador tiver iniciado o login anteriormente no utilizador, o Windows inicia o login em cache e valida as credenciais para iniciar sessão no utilizador. A cada 4 horas, o plugin CloudAP inicia a renovação prt assíncrona. |
@@ -179,7 +179,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 
 ![Utilização prt durante pedidos de ficha de aplicação](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
 
-| Passo | Descrição |
+| Passo | Description |
 | :---: | --- |
 | A | Uma aplicação (por exemplo, Outlook, OneNote, etc.) inicia um pedido simbólico à WAM. A WAM, por sua vez, pede ao plugin Azure AD WAM para servir o pedido simbólico. |
 | B | Se já estiver disponível um token Refresh para a aplicação, o plugin Azure AD WAM utiliza-o para solicitar um token de acesso. Para fornecer provas de ligação do dispositivo, o plugin WAM assina o pedido com a tecla Session. O Azure AD valida a tecla Session e emite um token de acesso e um novo token de atualização para a aplicação, encriptado pela tecla Session. O plugin WAM solicita plugin Cloud AP para desencriptar os tokens, que, por sua vez, solicita ao TPM para desencriptar usando a tecla Session, resultando em plugin WAM recebendo ambos os tokens. Em seguida, o plugin WAM fornece apenas o token de acesso à aplicação, enquanto reencripta o token de atualização com DPAPI e armazena-o na sua própria cache  |
@@ -191,7 +191,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 
 ![SSO do navegador usando PRT](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
 
-| Passo | Descrição |
+| Passo | Description |
 | :---: | --- |
 | A | O utilizador entra no Windows com as suas credenciais para obter um PRT. Assim que o utilizador abrir o navegador, o navegador (ou extensão) carrega os URLs a partir do registo. |
 | B | Quando um utilizador abre um URL de login Azure AD, o navegador ou extensão valida o URL com os obtidos a partir do registo. Se corresponderem, o navegador invoca o anfitrião do cliente nativo para obter um token. |

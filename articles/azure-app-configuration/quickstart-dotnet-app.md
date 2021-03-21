@@ -1,5 +1,5 @@
 ---
-title: Quickstart para Configuração de Aplicativos Azure com .NET Framework / Microsoft Docs
+title: Quickstart para configuração de aplicativos Azure com .NET Framework | Microsoft Docs
 description: Neste artigo, crie uma aplicação .NET Framework com Configuração de Aplicações Azure para centralizar o armazenamento e gestão das definições de aplicações separadas do seu código.
 services: azure-app-configuration
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 62516218ed2c0249f829ad8d286e4ad8bbc471f8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932096"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação .NET Framework com Configuração de Aplicações Azure
@@ -80,7 +80,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
    A cadeia de ligação da sua loja de configuração de aplicações é lida a partir da variável `ConnectionString` ambiente. Adicione o `Environment` construtor de configuração antes `MyConfigStore` da propriedade da `configBuilders` `appSettings` secção.
 
-1. Abra *Program.cs*, e atualize o `Main` método para utilizar a Configuração da Aplicação chamando `ConfigurationManager` .
+1. *Programa Aberto.cs*, e atualize o `Main` método para utilizar a Configuração da Aplicação chamando `ConfigurationManager` .
 
     ```csharp
     static void Main(string[] args)

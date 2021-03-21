@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para o Bambu Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para | de bambu Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kantega SSO para o Bamboo.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: aa5f908cdf25925db63054adaf1e6dab15f5260b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Ative Directory com a Kantega SSO para bambu
@@ -144,7 +144,7 @@ Para configurar o Azure AD single sign-on com Kantega SSO para Bambu, execute os
 
     ![Screenshot mostra instalação de progresso para Kantega S S O para bambu.](./media/kantegassoforbamboo-tutorial/addon21.png)
 
-1. Uma vez concluída a instalação. Clique em **Close** (Fechar).
+1. Uma vez concluída a instalação. Clique em **Fechar**.
 
     ![A imagem mostra o botão Close.](./media/kantegassoforbamboo-tutorial/addon33.png)
 
@@ -176,7 +176,7 @@ Para configurar o Azure AD single sign-on com Kantega SSO para Bambu, execute os
 
     ![A screenshot mostra a secção de importação de metadados onde pode navegar para um ficheiro de metadados.](./media/kantegassoforbamboo-tutorial/addon7.png)
 
-    a. Selecione **o ficheiro Metadados no meu computador**e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
+    a. Selecione **o ficheiro Metadados no meu computador** e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
 
     b. Clique em **Seguinte**.
 
@@ -273,7 +273,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se em Bamboo, devem ser 
 
 1. Inscreva-se no seu servidor bamboo no local como administrador.
 
-1. Hover on cog e clique na **gestão**do Utilizador .
+1. Hover on cog e clique na **gestão** do Utilizador .
 
     ![A screenshot mostra a Gestão do Utilizador selecionada no menu Definições.](./media/kantegassoforbamboo-tutorial/user1.png)
 

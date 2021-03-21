@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o OfficeSpace Software para o fornecimento automático de utilizadores com o Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configurar software OfficeSpace para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desa provisionar contas de utilizadores ao OfficeSpace Software.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/02/2019
 ms.author: Zhchia
 ms.openlocfilehash: fc67d649e3a7cd094eb2c3d633244077abcab308
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359933"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutorial: Configurar software OfficeSpace para fornecimento automático de utilizadores
@@ -113,7 +113,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

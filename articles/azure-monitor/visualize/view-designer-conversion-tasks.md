@@ -6,10 +6,10 @@ ms.author: aul
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: d479e64620519491ba4847349ea33820747fcea7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043478"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Ver designer para trabalhos de conversão de tarefas comuns

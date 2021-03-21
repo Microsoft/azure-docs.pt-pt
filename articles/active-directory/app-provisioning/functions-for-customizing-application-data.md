@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: kenwith
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 0334f52b87071c8f363a0dfcc793170316747096
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198511"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referência para expressões de escrita para mapeamentos de atributos em Azure AD
@@ -372,7 +372,7 @@ Devoluções Verdadeiras se o atributo não estiver presente ou se for uma corda
  `Item([proxyAddresses], 1)` devolve o segundo item no atributo multi-valor.
 
 ---
-### <a name="join"></a>Associar
+### <a name="join"></a>Participar
 **Função:** Junte-se(separador, fonte1, fonte2, ...)
 
 **Descrição:** A junção é semelhante ao Apêndice,), exceto que pode combinar múltiplos valores de cadeia de **origem** numa única corda, e cada valor será separado por uma corda **separador.**

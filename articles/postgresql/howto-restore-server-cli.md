@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ef397eb67c1f60c14fb36bf455236d84b730f611
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659578"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Como fazer o back up e restaurar um servidor na Base de Dados Azure para PostgreSQL - Servidor Único usando o CLI Azure
@@ -121,7 +121,7 @@ Após o fim do processo de restauro, localize o novo servidor e verifique se os 
 
 O novo servidor criado durante o restauro não tem as regras de firewall ou os pontos finais de serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre as [cópias](concepts-backup.md) de segurança do serviço
 - Saiba mais [sobre réplicas](concepts-read-replicas.md)
 - Saiba mais sobre opções [de continuidade de negócios](concepts-business-continuity.md)

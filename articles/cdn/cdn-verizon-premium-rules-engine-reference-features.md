@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020420"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN das características do motor de regras Verizon Premium
@@ -39,7 +39,7 @@ Os tipos de funcionalidades disponíveis são:
 
 Estas funcionalidades são concebidas para controlar o acesso aos conteúdos.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Negar acesso (403)](https://docs.vdms.com/cdn/Content/HRE/F/Deny-Access-403.htm) | Determina se todos os pedidos são rejeitados com uma resposta 403 Proibida. |
 | [Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | Determina se Token-Based Autenticação será aplicada a um pedido. |
@@ -53,7 +53,7 @@ Estas funcionalidades são concebidas para controlar o acesso aos conteúdos.
 
 Estas funcionalidades são concebidas para personalizar quando e como o conteúdo é em cache.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Parâmetros de largura de banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Parameters.htm) | Determina se os parâmetros de aceleração da largura de banda (isto é, ec_rate e ec_prebuf) estarão ativos. |
 | [Aceleração da largura de banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Acelera a largura de banda para a resposta fornecida pelos nossos servidores de borda. |
@@ -92,7 +92,7 @@ A função 'Comentário' permite a adição de uma nota dentro de uma regra.
 
 Estas funcionalidades são concebidas para adicionar, modificar ou eliminar cabeçalhos do pedido ou resposta.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Cabeçalho de resposta à idade](https://docs.vdms.com/cdn/Content/HRE/F/Age-Response-Header.htm) | Determina se um cabeçalho de resposta age será incluído na resposta enviada ao solicitador. |
 | [Cabeçalhos de resposta cache de depurar](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) | Determina se uma resposta pode incluir o [cabeçalho de resposta X-EC-Debug](https://docs.vdms.com/cdn/Content/Knowledge_Base/X_EC_Debug.htm) que fornece informações sobre a política de cache para o ativo solicitado. |
@@ -106,7 +106,7 @@ Estas funcionalidades são concebidas para adicionar, modificar ou eliminar cabe
 
 Estas funcionalidades são concebidas para personalizar os dados armazenados em ficheiros de registo bruto.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Campo de registo personalizado 1](https://docs.vdms.com/cdn/Content/HRE/F/Custom-Log-Field-1.htm) | Determina o formato e o conteúdo que será atribuído ao campo de registo personalizado num ficheiro de registo bruto. |
 | [Cadeia de consulta de registo](https://docs.vdms.com/cdn/Content/HRE/F/Log-Query-String.htm) | Determina se uma cadeia de consulta será armazenada juntamente com o URL nos registos de acesso. |
@@ -117,7 +117,7 @@ Estas funcionalidades são concebidas para personalizar os dados armazenados em 
 
 Estas funcionalidades determinam se um pedido será submetido às otimizações fornecidas pelo Edge Optimizer.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Otimizador de bordas](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer.htm) | Determina se o Edge Optimizer pode ser aplicado a um pedido. |
 | [Edge Optimizer – Configuração Instantânea](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer-Instantiate-Configuration.htm) | Instantiize ou ativa a configuração edge optimizer associada a um site. |
@@ -128,7 +128,7 @@ Estas funcionalidades determinam se um pedido será submetido às otimizações 
 
 Estas funcionalidades são concebidas para controlar a forma como o CDN comunica com um servidor de origem.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Pedidos máximos de Keep-Alive](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | Define o número máximo de pedidos de ligação Keep-Alive antes de ser fechado. |
 | [Cabeçalhos especiais proxy](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) | Define o conjunto de [cabeçalhos de pedido específicos](https://docs.vdms.com/cdn/Content/Knowledge_Base/Request-Format.htm#RequestHeaders) do CDN que serão reencaminhados de um servidor de borda para um servidor de origem. |
@@ -139,7 +139,7 @@ Estas funcionalidades são concebidas para controlar a forma como o CDN comunica
 
 Estas funcionalidades fornecem funcionalidade avançada que deve ser utilizada apenas por utilizadores avançados.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Métodos HTTP cacheable](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-HTTP-Methods.htm) | Determina o conjunto de métodos HTTP adicionais que podem ser em cache na nossa rede. |
 | [Tamanho do corpo do pedido cacheable](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-Request-Body-Size.htm) | Define o limiar para determinar se uma resposta POST pode ser em cache. |
@@ -153,7 +153,7 @@ Estas funcionalidades fornecem funcionalidade avançada que deve ser utilizada a
 
 Estas funcionalidades permitem que um pedido seja redirecionado ou reescrito para um URL diferente.
 
-| Nome       | Objetivo                                                           |
+| Name       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Seguir redirecionamentos](https://docs.vdms.com/cdn/Content/HRE/F/Follow-Redirects.htm) | Determina se os pedidos podem ser redirecionados para o nome anfitrião definido no cabeçalho Localização devolvido por um servidor de origem do cliente. |
 | [Redirecionamento de URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm) | Redireciona os pedidos através do cabeçalho localização. |
@@ -173,6 +173,6 @@ Para as características mais recentes, consulte a [documentação](https://docs
 
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Anular o comportamento http usando o motor de regras](cdn-verizon-premium-rules-engine.md)
 - [Visão geral do Azure CDN](cdn-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Instantiate uma app de cliente público (MSAL.NET) Rio Azure
+title: Instantiate uma aplicação de cliente público (MSAL.NET) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a instantaneaizar uma aplicação de cliente público com opções de configuração utilizando a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 3e2ffebf0b414d4b59178fe04fb109530365786b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98064713"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instantiizar uma aplicação de cliente público com opções de configuração usando MSAL.NET

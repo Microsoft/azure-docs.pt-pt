@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577842"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão dos direitos da AD Azure
@@ -90,7 +90,7 @@ Além disso, o aprovador escolhido e um solicitador de um pacote de acesso têm 
 
 A tabela que se segue enumera as tarefas que as funções de gestão de direitos podem fazer.
 
-| Tarefa | Admin | Criador de catálogos | Proprietário do catálogo | Gestor de pacotes de acesso | Gestor de atribuição de pacotes de acesso |
+| Tarefa | Administrador | Criador de catálogos | Proprietário do catálogo | Gestor de pacotes de acesso | Gestor de atribuição de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Delegado a um criador de catálogos](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [Adicionar uma organização associada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |

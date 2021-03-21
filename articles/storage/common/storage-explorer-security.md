@@ -1,5 +1,5 @@
 ---
-title: Guia de segurança do Azure Storage Explorer Microsoft Docs
+title: Guia de segurança do Azure Storage Explorer | Microsoft Docs
 description: Orientação de segurança para o Azure Storage Explorer
 services: storage
 author: cralvord
@@ -8,10 +8,10 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
 ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783764"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Azure Storage Explorer
@@ -81,7 +81,7 @@ As chaves da conta de armazenamento concedem acesso ilimitado aos serviços e re
 
 Algumas funções da Azure concedem permissão para recuperar chaves de conta de armazenamento. Os indivíduos com estas funções podem efetivamente contornar permissões concedidas ou negadas pela Azure RBAC. Recomendamos não conceder esta permissão a menos que seja necessário.
 
-O Storage Explorer tentará utilizar as chaves da conta de armazenamento, se disponível, para autenticar pedidos. Pode desativar esta função em Definições **(Contas de armazenamento > serviços > Desativar o Uso das Chaves** ). Algumas funcionalidades não suportam o Azure RBAC, como trabalhar com contas de armazenamento clássicos. Tais funcionalidades ainda requerem teclas e não são afetadas por esta definição.
+O Storage Explorer tentará utilizar as chaves da conta de armazenamento, se disponível, para autenticar pedidos. Pode desativar esta função em Definições **(Contas de armazenamento > serviços > Desativar o Uso das Chaves**). Algumas funcionalidades não suportam o Azure RBAC, como trabalhar com contas de armazenamento clássicos. Tais funcionalidades ainda requerem teclas e não são afetadas por esta definição.
 
 Se tiver de utilizar as chaves para aceder aos seus recursos de armazenamento, recomendamos as seguintes orientações:
 

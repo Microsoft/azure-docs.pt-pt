@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
 ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462951"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuração detalhada para unidades de teste hospedadas
@@ -37,7 +37,7 @@ Este artigo descreve como configurar um test drive hospedado para Dynamics 365 p
     - **Unidades de teste simultâneas** max – O número de utilizadores simultâneos que podem ter um test drive ativo a funcionar ao mesmo tempo. Cada utilizador consumirá uma licença Dynamics enquanto o seu test drive estiver ativo, por isso certifique-se de que tem pelo menos estas muitas licenças Dynamics disponíveis para os utilizadores de test drive. Recomendamos 3 a 5.
     - **Duração do test drive** - O número de horas de test drive do utilizador estará ativo. Após o tempo expirado, o utilizador será desprovisionado do seu inquilino. Recomendamos 2-24 horas dependendo da complexidade da sua aplicação. O utilizador pode sempre solicitar outro test drive se ficar sem tempo e quiser aceder novamente ao test drive.
     - **URL de exemplo** – O URL para o utilizador do test drive será enviado quando iniciarem a unidade de teste. Este é tipicamente o URL da sua instância Dynamics 365 em que a sua aplicação e dados de amostra estão instalados. Valor de exemplo: `https://testdrive.crm.dynamics.com` .
-    - **Exemplo web API URL** – O URL web API para a sua Instância Dinâmica 365. Recupere este valor ao iniciar sessão na sua instância Microsoft Dynamics 365 e navegar para **definir** a  >  API de Recursos de Desenvolvimento **personalizado** e copiar o  >  **Developer Resources**  >  **Instance Web API** endereço (URL). Valor de exemplo: 
+    - **Exemplo web API URL** – O URL web API para a sua Instância Dinâmica 365. Recupere este valor ao iniciar sessão na sua instância Microsoft Dynamics 365 e navegar para **definir** a  >  API de Recursos de Desenvolvimento **personalizado** e copiar o  >    >   endereço (URL). Valor de exemplo: 
 
         :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="Um exemplo de Instance Web API.":::
 

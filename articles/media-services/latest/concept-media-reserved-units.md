@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: e0cfc47b546c31e6b93d224e64de20b79baacfd9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98891302"
 ---
 # <a name="media-reserved-units"></a>Unidades Reservadas aos Meios de Comunicação Social
@@ -54,6 +54,6 @@ A tabela a seguir ajuda-o a tomar uma decisão ao escolher entre diferentes velo
 [Unidades reservadas para mídia de escala com CLI](media-reserved-units-cli-how-to.md) 
  [Analisar vídeos](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Quotas e limites](limits-quotas-constraints.md)

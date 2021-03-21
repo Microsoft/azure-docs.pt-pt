@@ -4,10 +4,10 @@ description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para ger
 ms.date: 12/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577099"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
@@ -27,7 +27,7 @@ A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 > [!IMPORTANT]
 > Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização**. A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para ativar e utilizar a Política Azure com o seu cluster Kubernetes, tome as seguintes ações:
 

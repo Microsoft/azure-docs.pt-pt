@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 6b2134ffd414aed3ed6561fb34544094eb52baa0
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452480"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para Azure Spring Cloud
@@ -166,7 +166,7 @@ Vá para a página de inscrição.
 
     ![Domínio personalizado](./media/custom-dns-tutorial/custom-domain.png)
 
-3. Digite o nome de domínio totalmente qualificado para o qual adicionou um registo CNAME, como www.contoso.com. Certifique-se de que o tipo de registo hostname está definido para CNAME (<service_name>.azuremicroservices.io)
+3. Digite o nome de domínio totalmente qualificado para o qual adicionou um registo CNAME, como www.contoso.com. Certifique-se de que o tipo de gravação do Hostname está definido para CNAME (<service_name>.azuremicroservices.io)
 4. Clique **em Validar** para ativar o botão **Adicionar.**
 5. Clique em **Adicionar**.
 

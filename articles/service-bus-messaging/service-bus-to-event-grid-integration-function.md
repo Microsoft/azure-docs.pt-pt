@@ -8,16 +8,16 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ms.openlocfilehash: afc0a5bf9b83363d1f4baab955b55148fe3a8498
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95819428"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>Tutorial: Responda aos eventos de autocarro da Azure Service recebidos através da Azure Event Grid utilizando funções Azure
 Neste tutorial, você aprende a responder aos eventos do Azure Service Bus que são recebidos através da Azure Event Grid utilizando Azure Functions e Azure Logic Apps. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes do Service Bus
 > * Preparar uma aplicação de amostra para enviar mensagens
@@ -37,8 +37,8 @@ Instale [o Visual Studio 2019](https://www.visualstudio.com/vs) e inclua a carga
 >[!NOTE]
 > Para saber mais sobre a criação e implementação de uma aplicação Azure Functions, consulte [Desenvolver Funções Azure utilizando o Visual Studio](../azure-functions/functions-develop-vs.md)
 
-1. Abrir **ReceiveMessagesOnEvent.cs** ficheiro do projeto **FunctionApp1** da solução **SBEventGridIntegration.sln.** 
-1. `<SERCICE BUS NAMESPACE - CONNECTION STRING>`Substitua-a pelo fio de ligação ao seu espaço de nomes de Service Bus. Deve ser o mesmo que usou no ficheiro **Program.cs** do projeto **MessageSender** na mesma solução. 
+1. Open **ReceiveMessagesOnEvent.cs** ficheiro do projeto **FunctionApp1** da solução **SBEventGridIntegration.sln.** 
+1. `<SERCICE BUS NAMESPACE - CONNECTION STRING>`Substitua-a pelo fio de ligação ao seu espaço de nomes de Service Bus. Deve ser o mesmo que usou no ficheiro **.cs Programa** do projeto **MessageSender** na mesma solução. 
 1. Clique com o botão direito **FunctionApp1** e **selecione Publicar**. 
 1. Na página **Publicar,** selecione **Iniciar**. Estes passos podem ser diferentes do que você vê, mas o processo de publicação deve ser semelhante. 
 1. No assistente **de publicação,** na página **Target,** selecione **Azure** for **Target**. 
