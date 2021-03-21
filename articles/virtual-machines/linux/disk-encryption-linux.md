@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: bf5da120072f49421b6f2194626178048b044f6a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 6ebec78d5a9e82cc8a2f6ceb020a8b9552d6311e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564701"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604020"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs com Linux
 
@@ -122,7 +122,7 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az_vm_encryption
 
     >[!NOTE]
     > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
-A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 - **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um VM, utilize o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-show) 
 
@@ -171,7 +171,7 @@ Utilize o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute
      ```
 
     >[!NOTE]
-    > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+    > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
     
 - **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um VM, utilize o [cmdlet Get-AzVmDiskEncrypationStatus.](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 
     
@@ -262,7 +262,7 @@ Recomendamos uma configuração LVM-on-crypt. Para todos os exemplos a seguir, s
 
 1. Formato, montagem e adicione estes discos ao ficheiro fstab.
 
-1. Escolha um padrão de partição, crie uma divisória que abra por todo o percurso e, em seguida, formate a partição. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte o artigo ['Troubleshoot Device Names'.](../troubleshooting/troubleshoot-device-names-problems.md)
+1. Escolha um padrão de partição, crie uma divisória que abra por todo o percurso e, em seguida, formate a partição. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte o artigo ['Troubleshoot Device Names'.](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems)
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -384,7 +384,7 @@ Em contraste com a sintaxe PowerShell, o CLI não requer que o utilizador forne�
      ```
 
     >[!NOTE]
-    > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/grupos de recursos/[KVresource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+    > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/grupos de recursos/[KVresource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Desativar encriptação para Os VMs Linux

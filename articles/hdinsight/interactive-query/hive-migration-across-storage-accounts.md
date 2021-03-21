@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/11/2020
 ms.openlocfilehash: 0d62bebddb7751c168ba2e487b2391a40bbc6e67
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747228"
 ---
 # <a name="hive-workload-migration-to-new-account-in-azure-storage"></a>Migração da carga de trabalho da Colmeia para nova conta no Azure Storage

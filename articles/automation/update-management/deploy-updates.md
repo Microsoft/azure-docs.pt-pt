@@ -3,14 +3,14 @@ title: Como criar implementações de atualização para a Azure Automation Upda
 description: Este artigo descreve como agendar as implementações de atualização e rever o seu estado.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575885"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669683"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -21,6 +21,9 @@ Em cada cenário, a implementação cria alvos que selecionou máquina ou servid
 * O sistema operativo é automaticamente pré-selecionado com base no SO da máquina
 * A máquina-alvo a atualizar é definida para se direcionar automaticamente
 * Ao configurar o horário, pode especificar **Update now**, ocorre uma vez, ou utiliza um horário recorrente.
+
+> [!IMPORTANT]
+> Ao criar uma implementação de atualização, aceita os termos dos Termos de Licença de Software (EULA) fornecidos pela empresa que oferece atualizações para o seu sistema operativo.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

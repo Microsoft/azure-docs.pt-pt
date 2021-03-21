@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 0e72c35af1f1990527b0154d2ba47a45d3f8b8c9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425634"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604071"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Pré-visualização: Visão geral do Azure Image Builder
 
@@ -70,7 +70,7 @@ O Azure VM Image Builder é um serviço Azure totalmente gerido que é acessíve
 
 As configurações do modelo podem ser passadas utilizando modelos PowerShell, Az CLI, ARM e utilizando a tarefa Azure VM Image Builder DevOps, quando o submeter ao serviço, criaremos um Recurso de Modelo de Imagem. Quando o Recurso do Modelo de Imagem for criado, verá um grupo de recursos de encenação criado na sua subscrição, no formato: IT_ \<DestinationResourceGroup> _\<TemplateName>_ \( GUID). O grupo de recursos de encenação contém ficheiros e scripts referenciados na personalização de File, Shell, PowerShell na propriedade ScriptURI.
 
-Para executar a construção irá invocar `Run` no recurso Modelo de Imagem, o serviço irá então implementar recursos adicionais para a construção, tais como um VM, Rede, Disco, Adaptador de Rede, etc. Se construir uma imagem sem utilizar um VNET Image Builder existente também implementará um IP público e NSG, o serviço conecta-se à construção VM utilizando SSH ou WinRM. Se selecionar um VNET existente, o serviço será implantado utilizando o Azure Private Link, e não é necessário um endereço IP público, para obter mais detalhes sobre a rede de construtores de [imagens](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking)rever os detalhes .
+Para executar a construção irá invocar `Run` no recurso Modelo de Imagem, o serviço irá então implementar recursos adicionais para a construção, tais como um VM, Rede, Disco, Adaptador de Rede, etc. Se construir uma imagem sem utilizar um VNET Image Builder existente também implementará um IP público e NSG, o serviço conecta-se à construção VM utilizando SSH ou WinRM. Se selecionar um VNET existente, o serviço será implantado utilizando o Azure Private Link, e não é necessário um endereço IP público, para obter mais detalhes sobre a rede de construtores de [imagens](./linux/image-builder-networking.md)rever os detalhes .
 
 Quando a construção terminar todos os recursos serão eliminados, com exceção do grupo de recursos de encenação e da conta de armazenamento, para os remover, eliminará o recurso do Modelo de Imagem, ou poderá deixá-los lá para executar novamente a construção.
 
@@ -84,7 +84,7 @@ Quando se regista para o (AIB), este concede ao Serviço AIB permissão para cri
 
 Para permitir que o Azure VM Image Builder distribua imagens para as imagens geridas ou para uma Galeria de Imagens Partilhadas, terá de criar uma identidade atribuída ao utilizador Azure que tenha permissões para ler e escrever imagens. Se estiver a aceder ao armazenamento do Azure, então isto necessitará de permissões para ler contentores privados e públicos.
 
-As permissões são explicadas mais detalhadamente para [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell)e [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli).
+As permissões são explicadas mais detalhadamente para [PowerShell](./linux/image-builder-permissions-powershell.md)e [AZ CLI](./linux/image-builder-permissions-cli.md).
 
 ## <a name="costs"></a>Custos
 Incorrerá em alguns custos de computação, networking e armazenamento ao criar, construir e armazenar imagens com o Azure Image Builder. Estes custos são semelhantes aos custos incorridos na criação manual de imagens personalizadas. Pelos recursos, será cobrado às suas tarifas Azure. 
@@ -101,4 +101,3 @@ Atualmente, o Image Builder apenas suporta de forma nativa a criação de imagen
 ## <a name="next-steps"></a>Passos seguintes 
  
 Para experimentar o Azure Image Builder, consulte os artigos para a construção de imagens [Linux](./linux/image-builder.md) ou [Windows.](./windows/image-builder.md)
-

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b858903b87dc6c4cc1f7c40338c09bf5b8204b3d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176540"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização da integridade do ficheiro no Centro de Segurança Azure
@@ -56,7 +56,7 @@ Neste tutorial, ficará a saber como:
 
 Ao comparar o estado atual destes itens com o estado durante a verificação anterior, o FIM alerta-o se forem feitas modificações suspeitas.
 
-A FIM utiliza a solução Azure Change Tracking para rastrear e identificar alterações no seu ambiente. Quando a monitorização da integridade do ficheiro estiver ativada, tem um recurso de Rastreio de **Alterações** da **Solução** tipo . Para obter detalhes da frequência de recolha de dados, consulte [os detalhes da recolha de dados de Change Tracking](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
+O FIM utiliza a solução Controlo de Alterações do Azure para monitorizar e identificar as alterações no seu ambiente. Quando a monitorização da integridade do ficheiro estiver ativada, tem um recurso de Rastreio de **Alterações** da **Solução** tipo . Para obter detalhes da frequência de recolha de dados, consulte [os detalhes da recolha de dados de Change Tracking](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
 > Se remover o recurso **Change Tracking,** também irá desativar a funcionalidade de monitorização da integridade do ficheiro no Centro de Segurança.
@@ -247,7 +247,7 @@ Use wildcards para simplificar o rastreio através de diretórios. Aplicam-se as
 -   Ao definir o caminho, evite caminhos gerais como c: \* .* o que resultará na passagem de demasiadas pastas.
 
 ## <a name="disable-fim"></a>Desativar o FIM
-Pode desativar o FIM. A FIM utiliza a solução Azure Change Tracking para rastrear e identificar alterações no seu ambiente. Ao desativar o FIM, remove a solução de Rastreio de Alterações do espaço de trabalho selecionado.
+Pode desativar o FIM. O FIM utiliza a solução Controlo de Alterações do Azure para monitorizar e identificar as alterações no seu ambiente. Ao desativar o FIM, remove a solução de Rastreio de Alterações do espaço de trabalho selecionado.
 
 1. Para desativar o FIM, volte ao painel **de monitorização da integridade** do Ficheiro.
 2. Selecione uma área de trabalho.

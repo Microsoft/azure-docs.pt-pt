@@ -4,12 +4,12 @@ description: Este artigo fornece uma passagem para a criação de uma aplicaçã
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 2e5f297d5edb9a271843db060f948209dd076074
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: c418c13346fb1ec8ba16965fa1020c676ddf3ac6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106092"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602558"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>Enviar eventos para ou receber eventos de centros de eventos utilizando o JavaScript (azure/event-hubs)
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote **azure/event-hubs** JavaScript. 
@@ -113,7 +113,7 @@ Nesta secção, você recebe eventos de um centro de eventos usando uma loja de 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Criar uma conta de armazenamento Azure e um recipiente blob
 Para criar uma conta de armazenamento Azure e um recipiente de bolhas nele, faça as seguintes ações:
 
-1. [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
+1. [Criar uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Criar um contentor de blobs na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
 3. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
@@ -146,6 +146,11 @@ Certifique-se de que regista o fio de ligação e o nome do recipiente para post
       // Subscribe to the events, and specify handlers for processing the events and errors.
       const subscription = consumerClient.subscribe({
           processEvents: async (events, context) => {
+            if (events.length === 0) {
+              console.log(`No events received within wait time. Waiting for next interval`);
+              return;
+            }
+          
             for (const event of events) {
               console.log(`Received event: '${event.body}' from partition: '${context.partitionId}' and consumer group: '${context.consumerGroup}'`);
             }

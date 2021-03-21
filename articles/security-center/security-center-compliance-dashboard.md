@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
 ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100370274"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a conformidade regulamentar
@@ -123,7 +123,7 @@ Por exemplo, pode querer que o Centro de Segurança envie um e-mail a um utiliza
 
 
 
-## <a name="faq---regulatory-compliance-dashboard"></a>FAQ - Painel de conformidade regulamentar
+## <a name="faq---regulatory-compliance-dashboard"></a>FAQ – Dashboard de conformidade regulamentar
 
 - [Que normas são suportadas no painel de conformidade?](#what-standards-are-supported-in-the-compliance-dashboard)
 - [Porque é que alguns controlos parecem estar acinzentados?](#why-do-some-controls-appear-grayed-out)

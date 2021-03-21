@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102175758"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
@@ -41,7 +41,7 @@ Se descobrir que o acima ainda não satisfaz as suas necessidades, preencha a ta
 
 | Nome do Vault | Região do Cofre | Tipo de objeto (Segredo, Chave ou Cert) | Operação(s)* | Tipo chave | Comprimento ou curva da chave | Chave HSM?| RPS de estado estável necessário | Pico RPS necessário |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | Não | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | No | 200 | 1000 |
 
 \* Para obter uma lista completa de valores possíveis, consulte as [operações do Azure Key Vault](/rest/api/keyvault/key-operations).
 

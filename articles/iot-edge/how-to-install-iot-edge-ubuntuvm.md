@@ -11,10 +11,10 @@ ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 1cd89f3f772effce4997fb69b37858ce2077c1dc
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201096"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar borda Azure IoT em máquinas virtuais Ubuntu

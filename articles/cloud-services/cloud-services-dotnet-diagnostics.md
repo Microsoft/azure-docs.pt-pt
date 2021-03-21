@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 97e68d338580132b6927c4cc8b206db60fe93ba2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101703512"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Habilitar diagnósticos Azure em Azure Cloud Services (clássico)
@@ -37,7 +37,7 @@ Este artigo pressupõe que tem uma subscrição do Azure e está a usar o Visual
 6. Construa a sua solução para verificar se não tem erros.
 
 ### <a name="step-2-instrument-your-code"></a>Passo 2: Instrumento o seu código
-Substitua o conteúdo de WorkerRole.cs pelo seguinte código. A classe SampleEventSourceWriter, herdada da [Classe EventSource,][EventSource Class]implementa quatro métodos de registo: **SendEnums,** **MessageMethod,** **SetOther** e **HighFreq**. O primeiro parâmetro do método **WriteEvent** define o ID para o evento respetivo. O método Run implementa um loop infinito que chama cada um dos métodos de registo implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
+Substitua o conteúdo do .cs WorkerRole pelo seguinte código. A classe SampleEventSourceWriter, herdada da [Classe EventSource,][EventSource Class]implementa quatro métodos de registo: **SendEnums,** **MessageMethod,** **SetOther** e **HighFreq**. O primeiro parâmetro do método **WriteEvent** define o ID para o evento respetivo. O método Run implementa um loop infinito que chama cada um dos métodos de registo implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;

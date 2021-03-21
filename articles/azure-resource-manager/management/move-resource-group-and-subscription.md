@@ -4,18 +4,18 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1218df618f7f5fa0787505cb4fcee67dd264ea76
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601394"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670210"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
 Este artigo mostra-lhe como mover os recursos da Azure para outra subscrição da Azure ou outro grupo de recursos sob a mesma subscrição. Para mover recursos, pode utilizar o portal do Azure, o Azure PowerShell, a CLI do Azure ou a API REST.
 
-Tanto o grupo de origem como o grupo alvo estão bloqueados durante a operação de movimento. As operações de escrita e eliminação são bloqueadas nos grupos de recursos até que o movimento esteja concluído. Este bloqueio significa que não pode adicionar, atualizar ou eliminar recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se mover um SQL Server e a sua base de dados para um novo grupo de recursos, uma aplicação que utiliza a base de dados não experimenta tempo de inatividade. Ainda pode ler e escrever na base de dados. A fechadura pode durar no máximo quatro horas, mas a maioria dos movimentos completa em muito menos tempo.
+Tanto o grupo de origem como o grupo alvo estão bloqueados durante a operação de movimento. As operações de escrita e eliminação são bloqueadas nos grupos de recursos até que o movimento esteja concluído. Este bloqueio significa que não pode adicionar, atualizar ou eliminar recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se mover um servidor lógico Azure SQL e as suas bases de dados para um novo grupo de recursos ou subscrição, as aplicações que utilizam as bases de dados não experimentam tempo de inatividade. Ainda podem ler e escrever para as bases de dados. A fechadura pode durar no máximo quatro horas, mas a maioria dos movimentos completa em muito menos tempo.
 
 Mover um recurso apenas o move para um grupo de recursos ou uma subscrição novos. Não altera a localização do recurso.
 

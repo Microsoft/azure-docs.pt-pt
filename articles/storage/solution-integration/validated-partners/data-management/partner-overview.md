@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
 ms.openlocfilehash: 82ba49beb74fbc7b6f9d976d123fd9465d585d88
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561622"
 ---
 # <a name="azure-storage-data-governance-management-and-migration-partners"></a>Parceiros de governação, gestão e migração de dados do Azure Storage
@@ -21,7 +21,7 @@ Este artigo destaca as empresas parceiras da Microsoft integradas no Azure Stora
 
 ## <a name="verified-partners"></a>Parceiros verificados
 
-| Parceiro | Descrição | Ligação website/produto |
+| Parceiro | Description | Ligação website/produto |
 | ------- | ----------- | -------------------- |
 |![Logotipo da empresa commvault](./media/commvault-logo.jpg) |***Commvault**<br>Otimize, proteja, migrar e indexe os seus dados utilizando a infraestrutura da Microsoft com a Commvault. Assuma o controlo dos seus dados com a Commvault Complete Data Protection, a solução de gestão de dados centrada na Microsoft e centrada no Azure. A Commvault fornece as ferramentas necessárias para gerir, migrar, aceder e recuperar os seus dados, independentemente do local onde resida, reduzindo ao mesmo tempo o custo e o risco.|[Página do parceiro](https://www.commvault.com/complete-data-protection)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault)|
 |![Logotipo da empresa Data Dynamics](./media/datadyn-logo.png) |**Dinâmica de Dados**<br>A Data Dynamics fornece soluções empresariais para gerir dados não estruturados para ambientes híbridos e multi-cloud. A sua Plataforma Unificada de Gestão de Dados Não Estruturada utiliza a análise e a automatização para ajudá-lo a transferir dados de ambientes de armazenamento heterogéneos (SMB, NFS ou S3 Object) para O Azure. A plataforma proporciona integração perfeita, escala empresarial e desempenho que permite uma gestão eficiente de dados para ambientes híbridos e multi-cloud. Os casos de utilização incluem: migração inteligente em nuvem, recuperação de desastres, arquivo, backup e otimização de infraestruturas e gestão de dados. |[Página do parceiro](https://www.datadynamicsinc.com/ms-azure-partner/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_2-preview?tab=Overview&flightCodes=18994ad6-20dc-4bdb-ae27-e7ef3263fa9e)|

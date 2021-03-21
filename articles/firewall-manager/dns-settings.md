@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: victorh
 ms.openlocfilehash: a02879c5322add16f89f77e2da39daec7d2b5f31
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100633653"
 ---
 # <a name="azure-firewall-policy-dns-settings"></a>Definições de DNS de política de Azure Firewall

@@ -8,20 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 02/15/2021
+ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, tradução de texto, tradução automática, serviço de tradução
-ms.openlocfilehash: 72df700d38cad3ee31ef438d7df1c890acde9e6b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ec76aa7554110b7440eb825f2d5e86ae2da6baa2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727979"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657727"
 ---
 # <a name="what-is-the-translator-service"></a>O que é o serviço de Tradutor?
 
-O Tradutor é um serviço de tradução automática baseado em nuvem e faz parte da família [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) de APIs cognitivos usados para construir aplicações inteligentes. O tradutor é fácil de integrar nas suas aplicações, websites, ferramentas e soluções. Permite-lhe adicionar experiências multi-idiomas ao utilizador em [90 idiomas e dialetos.](./language-support.md) E pode ser usado em qualquer plataforma de hardware com qualquer sistema operativo para tradução de texto.
+O Tradutor é um serviço de tradução automática baseado em nuvem e faz parte da família [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) de APIs cognitivos usados para construir aplicações inteligentes. O tradutor é fácil de integrar nas suas aplicações, websites, ferramentas e soluções. Permite-lhe adicionar experiências multi-idiomas de utilizador em [90 idiomas e dialetos](./language-support.md) e pode ser usado para tradução de texto com qualquer sistema operativo.
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* [**Os quickstarts**](quickstart-translator.md) estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.  
+* [**Os guias de como fazer**](translator-how-to-signup.md) contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.  
+* [**Os conceitos**](character-counts.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.  
+* [**Os tutoriais**](tutorial-wpf-translation-csharp.md) são guias mais longos que mostram como usar o serviço como componente em soluções de negócio mais amplas.  
+
 
 ## <a name="about-microsoft-translator"></a>Sobre o Microsoft Translator
 
@@ -45,11 +53,9 @@ Saiba mais sobre [o funcionamento da NMT.](https://www.microsoft.com/en-us/trans
 
 ## <a name="improve-translations-with-custom-translator"></a>Melhorar as traduções com o Tradutor Personalizado
 
- O Tradutor Personalizado, uma extensão do serviço Tradutor, pode ser usado em conjunto com o Tradutor para personalizar o sistema de tradução neural e melhorar a tradução para a sua terminologia e estilo específicos.
+ [Custom Tradutor](customization.md), uma extensão do serviço Tradutor, pode ser usado para personalizar o sistema de tradução neural e melhorar a tradução para a sua terminologia e estilo específicos.
 
 Com o Custom Tradutor, pode construir sistemas de tradução para lidar com a terminologia utilizada no seu próprio negócio ou indústria. O seu sistema de tradução personalizado pode facilmente integrar-se com as suas aplicações, fluxos de trabalho, websites e dispositivos existentes, através do Tradutor regular, utilizando o parâmetro da categoria.
-
-Saiba mais sobre o [Tradutor Personalizado](customization.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

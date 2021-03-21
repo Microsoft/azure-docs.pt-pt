@@ -10,10 +10,10 @@ ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176152"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de Importação/Exportação do Azure
@@ -39,7 +39,7 @@ Pode acompanhar o estado das suas empresas de importação ou exportação no **
 
 Você vê um dos seguintes estatutos de trabalho dependendo de onde a sua unidade está no processo.
 
-| Estatuto do Trabalho | Descrição |
+| Estatuto do Trabalho | Description |
 |:--- |:--- |
 | Criação | Após a criação de um trabalho, o seu estado está definido para **criar.** Enquanto o trabalho está no estado **de Criação,** o serviço de Importação/Exportação assume que as unidades não foram enviadas para o centro de dados. Um trabalho pode permanecer neste estado por até duas semanas, após o qual é automaticamente apagado pelo serviço. |
 | Envio | Depois de enviar o seu pacote, deverá atualizar as informações de rastreio no portal Azure.  Ao fazê-lo, transforma o trabalho em estado **de transporte.** O trabalho permanece no estado **de transporte** por até duas semanas. 
@@ -55,7 +55,7 @@ O quadro abaixo descreve o ciclo de vida de uma unidade individual à medida que
 
 A tabela a seguir descreve cada estado que cada unidade de um trabalho pode passar.
 
-| Estado de condução | Descrição |
+| Estado de condução | Description |
 |:--- |:--- |
 | Especificado | Para um trabalho de importação, quando o trabalho é criado a partir do portal Azure, o estado inicial para uma unidade é **especificado**. Para um trabalho de exportação, uma vez que não é especificado qualquer unidade quando o trabalho é criado, o estado de unidade inicial é **recebido**. |
 | Recebido | A transição de unidade para o estado **recebido** quando o serviço de importação/exportação processou as unidades que foram recebidas da companhia de navegação para um trabalho de importação. Para um trabalho de exportação, o estado de condução inicial é o Estado **Recebido.** |

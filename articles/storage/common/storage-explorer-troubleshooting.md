@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
 ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102439464"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
@@ -111,7 +111,7 @@ Se não tem certeza de onde vem o certificado, siga estes passos para encontrá-
 2. Abrir o sl.
     * Janelas: Abra o diretório de instalação, selecione **/bin/**, e, em seguida, clique duas vezes **openssl.exe**.
     * Mac e Linux: Fugir `openssl` de um terminal.
-3. Execute o `s_client -showcerts -connect microsoft.com:443`.
+3. Execute `s_client -showcerts -connect microsoft.com:443`.
 4. Procure certificados autoassinados. Se não tem a certeza de quais certificados são auto-assinados, tome nota de qualquer lugar que o sujeito `("s:")` e `("i:")` emitente sejam os mesmos.
 5. Quando encontrar certificados auto-assinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` até um novo ficheiro `-----END CERTIFICATE-----` .cer.
 6. Abrir o Explorador de Armazenamento e ir para **editar**  >  **certificados SSL**  >  **Certificados de Importação Certificados**. Em seguida, utilize o selecionador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.

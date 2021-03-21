@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331017"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670346"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtenha pontos finais de ligação e forme cordas de conexão para o seu grupo de servidor de hiperescala pós-escala pós-escala ativado pelo Arco
 
@@ -43,22 +43,23 @@ Execute o seguinte comando:
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Devolve uma saída como:
+Por exemplo:
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+azdata arc postgres endpoint list -n postgres01
+```
+
+Mostra a lista de pontos finais: o ponto final postgreSQL que utiliza para ligar a sua aplicação e utilizar os pontos finais da base de dados, Kibana e Grafana para análise e monitorização de registos. Por exemplo: 
+```console
+Arc
+ ===================================================================================================================
+ Postgres01 Instance
+ -------------------------------------------------------------------------------------------------------------------
+ Description           Endpoint
+
+ PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
+ Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
+ Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+
 ```
 Utilize estes pontos finais para:
 - Forme as suas cordas de ligação e conecte-se com as ferramentas ou aplicações do seu cliente
@@ -66,7 +67,7 @@ Utilize estes pontos finais para:
 
 Por exemplo, pode utilizar o ponto final chamado _PostgreSQL Instance_ para se conectar com o psql ao seu grupo de servidor. Por exemplo:
 ```console
-psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
+psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -79,18 +80,18 @@ postgres=#
 >
 > - A palavra-passe do utilizador _de postgres_ indicado no ponto final denominado "_PostgreSQL Instance_" é a palavra-passe que escolheu ao implementar o grupo de servidor.
 > - Sobre a azdata: o arrendamento associado à sua ligação dura cerca de 10 horas. Depois disso, tens de voltar a ligar-te. Se o seu contrato de arrendamento tiver expirado, receberá a seguinte mensagem de erro quando tentar executar um comando com azdata (com outros dados): _ERROR: (401)_ 
->  _Reason: Headers de_resposta HTTP não 
+>  _Reason: Headers de_ resposta HTTP não 
 >  _autorizados: HTTPHeaderDict ({'Date': 'Sun, 06 set 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ Basic 
 >  _realm="Credenciais de login_ necessárias", erro do portador="invalid_token", error_description="O token está expirado"}}_Quando isso acontece, é necessário voltar a ligar-se aos dados como explicado acima.
 
 ## <a name="from-cli-with-kubectl"></a>De CLI com kubectl
 - Se o seu grupo de servidor é da versão 12 do Postgres (padrão), então o seguinte comando:
 ```console
-kubectl get postgresql-12/<server group name>
+kubectl get postgresql-12/<server group name> -n <namespace name>
 ```
 - Se o seu grupo de servidor é da versão 11 do Postgres, então o seguinte comando:
 ```console
-kubectl get postgresql-11/<server group name>
+kubectl get postgresql-11/<server group name> -n <namespace name>
 ```
 
 Estes comandos produzirão saídas como a de baixo. Pode utilizar essa informação para formar as suas cadeias de ligação:
@@ -149,12 +150,6 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 
 ```ruby
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
-```
-
-### <a name="web-app"></a>Aplicação Web
-
-```webapp
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

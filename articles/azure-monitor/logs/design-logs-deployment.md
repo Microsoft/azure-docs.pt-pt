@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
 ms.openlocfilehash: a889275782388781eadffb7cf0a24771bf6e9e4f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030839"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
@@ -64,7 +64,7 @@ Com o controlo de acesso baseado em funções Azure (Azure RBAC), você pode con
 
 Os dados a que um utilizador tem acesso são determinados por uma combinação de fatores listados na tabela seguinte. Cada um é descrito nas secções abaixo.
 
-| Fator | Descrição |
+| Fator | Description |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método que o utilizador utiliza para aceder ao espaço de trabalho.  Define o âmbito dos dados disponíveis e o modo de controlo de acesso que é aplicado. |
 | [Modo de controlo de acesso](#access-control-mode) | Definição no espaço de trabalho que define se as permissões são aplicadas no espaço de trabalho ou no nível de recursos. |

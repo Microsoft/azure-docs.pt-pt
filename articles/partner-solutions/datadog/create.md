@@ -8,10 +8,10 @@ author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
 ms.openlocfilehash: 7af8b82c5da6c60527b45b6e8e292b9f067016ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101748894"
 ---
 # <a name="quickstart-get-started-with-datadog"></a>QuickStart: Começa com o Datadog
@@ -83,7 +83,7 @@ Fornecer os seguintes valores.
 
 Se estiver a ligar-se a uma organização de Datadog existente, consulte a secção seguinte. Caso contrário, selecione **Seguinte: Métricas e troncos** e salte a secção seguinte.
 
-## <a name="link-to-existing-datadog-organization"></a>Link para a organização datadog existente
+## <a name="link-to-existing-datadog-organization"></a>Ligação para a organização do Datadog existente
 
 Pode ligar o seu novo recurso Datadog em Azure a uma organização de Datadog existente.
 

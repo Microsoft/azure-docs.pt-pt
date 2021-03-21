@@ -3,12 +3,12 @@ title: Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "92172749"
+ms.locfileid: "104670431"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 
@@ -117,6 +117,8 @@ Se selecionou para criar uma nova política de backup, preencha as definições 
 4. No **intervalo de retenção**, especifique quanto tempo pretende manter os seus pontos de backup diários ou semanais.
 5. Na **retenção do ponto de backup mensal** e da **retenção do ponto de backup anual,** especifique se pretende manter uma cópia de segurança mensal ou anual das suas cópias de segurança diárias ou semanais.
 6. Selecione **OK** para salvar a apólice.
+    > [!NOTE]
+    > Para armazenar a recolha de pontos de restauração (RPC), o serviço Backup cria um grupo de recursos separado (RG). Este RG é diferente de RG do VM. [Saiba mais](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![Nova política de backup](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

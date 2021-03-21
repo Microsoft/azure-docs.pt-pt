@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-ummehabiba
 ms.custom: has-adal-ref
 ms.openlocfilehash: e4182f3718422be3a0aa99c980d33026df4ce9af
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102173754"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
@@ -108,7 +108,7 @@ Siga estes passos:
 | Código de Produto | Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800. |
 | Portas | Nome e tipo portuário, que é digital ou analógico. |
 | Name | Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto. |
-| Descrição | Forneça uma descrição significativa do modelo. |
+| Description | Forneça uma descrição significativa do modelo. |
 | Propriedades | Propriedades adicionais do fabricante. |
 | **Dispositivo** |  |
 | DeviceModelId | Identificação do modelo do dispositivo associado. |
@@ -117,7 +117,7 @@ Siga estes passos:
 | Localização | Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros). |
 | ParentDeviceId | ID do dispositivo-mãe ao qual este dispositivo está ligado. Por exemplo, um nó que está ligado a um portal. Um nó tem os paisDeviceId como porta de entrada. |
 | Name | Um nome para identificar o recurso. Os parceiros do dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo utilizador, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats. |
-| Descrição | Forneça uma descrição significativa. |
+| Description | Forneça uma descrição significativa. |
 | Propriedades | Propriedades adicionais do fabricante. |
 | **SensorModel** |  |
 | Tipo (analógico, digital) | O tipo de sensor, seja analógico ou digital. |
@@ -129,7 +129,7 @@ Siga estes passos:
 | Unidade de > sensores | Unidade de dados de telemetria sensor. As unidades definidas pelo sistema são NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsSperquareMeter, Watts, WattsPerquareMeter, Watts, WattsPersquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Para adicionar mais, consulte a API /ExtendedType. |
 | SensorMeasures > A agregaçãoType | Os valores não podem ser nenhum, médio, máximo, mínimo ou StandardDeviation. |
 | Name | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto. |
-| Descrição | Forneça uma descrição significativa do modelo. |
+| Description | Forneça uma descrição significativa do modelo. |
 | Propriedades | Propriedades adicionais do fabricante. |
 | **Sensor** |  |
 | HardwareId | ID único para o sensor definido pelo fabricante. |
@@ -138,7 +138,7 @@ Siga estes passos:
 | Nome > Do Porto | Nome e tipo da porta à qual o sensor está ligado ao dispositivo. Este tem de ser o mesmo nome definido no modelo do dispositivo. |
 | DeviceID | Identificação do dispositivo a que o sensor está ligado. |
 | Name | Nome para identificar recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto. |
-| Descrição | Forneça uma descrição significativa. |
+| Description | Forneça uma descrição significativa. |
 | Propriedades | Propriedades adicionais do fabricante. |
 
 Para obter mais informações sobre objetos, consulte [Swagger.](https://aka.ms/FarmBeatsDatahubSwagger)

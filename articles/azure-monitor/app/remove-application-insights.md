@@ -4,10 +4,10 @@ description: Como remover a Aplicação Insights SDK para ASP.NET e ASP.NET Core
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1d70413fa6a47e2d41693db6eb705f31b2a2b1b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704315"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Como remover insights de aplicações em Estúdio Visual
@@ -72,7 +72,7 @@ Para remover o Application Insights, terá de remover as embalagens e referênci
     
     ![A screenshot mostra uma caixa de diálogo com as dependências a serem removidas.](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  Depois de tudo ser desinstalado, poderá ainda ver "ApplicationInsights.config" e "AiHandleErrorAttribute.cs" no *Solution Explorer.* Pode apagar os dois ficheiros manualmente.
+1.  Depois de tudo desinstalado, poderá ainda ver "ApplicationInsights.config" e "AiHandleErrorAttribute.cs" no *Solution Explorer*. Pode apagar os dois ficheiros manualmente.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 

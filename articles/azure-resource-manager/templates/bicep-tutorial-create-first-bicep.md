@@ -2,16 +2,16 @@
 title: Tutorial - Criar & implementar ficheiros Bicep do Gestor de Recursos Azure
 description: Crie o seu primeiro ficheiro Bicep para a implementação de recursos Azure. No tutorial, você aprende sobre a sintaxe do ficheiro Bicep e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: b04dbb7f708a4019ae70c716d4faa05ca2c28720
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632582"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594279"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutorial: Criar e implementar primeiro ficheiro Azure Resource Manager Bicep
 
@@ -31,11 +31,11 @@ Comecemos por ter a certeza de que tem as ferramentas necessárias para criar e 
 
 ### <a name="editor"></a>Editor
 
-Para criar ficheiros Bicep, precisa de um bom editor. Recomendamos o Código do Estúdio Visual com a extensão Bicep. Se necessitar de instalar estas ferramentas, consulte [Quickstart: Crie ficheiros Bicep com Código de Estúdio Visual](quickstart-create-bicep-use-visual-studio-code.md).
+Para criar ficheiros Bicep, precisa de um bom editor. Recomendamos o Código do Estúdio Visual com a extensão Bicep. Se precisar de instalar estas ferramentas, consulte o [ambiente de desenvolvimento Configure Bicep](./bicep-install.md#development-environment).
 
 ### <a name="command-line-deployment"></a>Implantação da linha de comando
 
-Também precisa do mais recente Azure PowerShell ou do mais recente Azure CLI para implementar o ficheiro Bicep. Para as instruções de instalação, consulte:
+Pode implementar ficheiros Bicep utilizando O Azure CLI ou Azure PowerShell. Para o Azure CLI, precisa da versão 2.20.0 ou posterior; para a Azure PowerShell, precisa da versão 5.6.0 ou posterior. Para as instruções de instalação, consulte:
 
 - [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
