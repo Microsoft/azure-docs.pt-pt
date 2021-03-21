@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898050"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>CloudSimple Modelo de permissão em nuvem privada de VMware vCenter
@@ -54,7 +54,7 @@ Para conceder permissão a cada utilizador para gerir a Nuvem Privada, crie cont
 | **Alarmes** | Alarme de reconhecimento <br> Criar alarme <br> Desativar a ação de alarme <br> Modificar o alarme <br> Remover o alarme <br> Definir estado de alarme |
 | **Permissões** | Modificar a permissão |
 | **Biblioteca de Conteúdos** | Adicionar item da biblioteca <br> Criar biblioteca local <br> Criar biblioteca subscrita <br> Apagar item da biblioteca <br> Apagar biblioteca local <br> Excluir biblioteca subscrita <br> Transferir ficheiros <br> Artigo da biblioteca de despejo <br> Despejar biblioteca subscrita <br> Armazenamento de importação <br> Informações de subscrição da sonda <br> Ler armazenamento <br> Artigo da biblioteca sincronizada <br> Biblioteca sincronizada <br> Introspeção tipo <br> Atualizar definições de configuração <br> Atualizar ficheiros <br> Atualizar biblioteca <br> Atualizar item da biblioteca <br> Atualizar biblioteca local <br> Atualização da biblioteca subscrita <br> Ver definições de configuração |
-| **Operações criptográficas** | Adicionar disco <br> Clone <br> Desencriptar <br> Acesso Direto <br> Encriptar <br> Criptografe novo <br> Gerir kms <br> Gerir políticas de encriptação <br> Gerir chaves <br> Migrar <br> Recripto <br> Registar VM <br> Anfitrião de registo |
+| **Operações criptográficas** | Adicionar disco <br> Clone <br> Desencriptar <br> Acesso Direto <br> Encriptar <br> Criptografe novo <br> Gerir kms <br> Gerir políticas de encriptação <br> Gerir chaves <br> Migrate <br> Recripto <br> Registar VM <br> Anfitrião de registo |
 | **grupo dvPort** | Criar <br> Eliminar <br> Modificar <br> Operação política <br> Operação de âmbito |
 | **Arquivo de dados** | Alocar espaço <br> Procurar loja de dados <br> Configure datastore <br> Operações de ficheiro de baixo nível <br> Mover datastore <br> Remover datastore <br> Remover ficheiro <br> Renomear datastore <br> Atualizar ficheiros de máquinas virtuais <br> Atualizar metadados de máquinas virtuais |
 | **Gestor de agente da ESX** | Configurar <br> Modificar <br> Vista |
@@ -76,7 +76,7 @@ Para conceder permissão a cada utilizador para gerir a Nuvem Privada, crie cont
 | **Armazenamento orientado para o perfil** | Atualização de armazenamento orientada para o perfil <br> Vista de armazenamento orientada para o perfil |
 | **Vistas de armazenamento** | Serviço de configuração <br> Vista |
 | **Tasks** | Criar tarefa <br> Atualizar tarefa |
-| **Serviço de transfer**| Gerir <br> Monitorizar |
+| **Serviço de transfer**| Gerir <br> Monitor |
 | **vApp** | Adicionar máquina virtual <br> Atribuir piscina de recursos <br> Atribuir vApp <br> Clone <br> Criar <br> Eliminar <br> Exportar <br> Importar <br> Mover <br> Desligar <br> Ligado <br> Mudar o Nome <br> Suspender <br> Anular o Registo <br> Ver ambiente OVF <br> configuração de aplicação vApp <br> configuração de instância vApp <br> vApp gerido Por configuração <br> configuração de recursos vApp |
 | **VRMPolicy** | Consulta VRMPolicy <br> Atualizar VRMPolicy |
 | **Configuração de > de máquinas virtuais** | Adicionar disco existente <br> Adicionar disco novo <br> Adicionar ou remover dispositivo <br> Avançado <br> Alterar contagem de CPU <br> Alterar recurso <br> Configurar gerido Por <br> Rastreio de mudança de disco <br> Arrendamento em disco <br> Definições de ligação de exibição <br> Estender o disco virtual <br> Dispositivo USB anfitrião <br> Memória <br> Modificar as definições do dispositivo <br> Consulta compatibilidade com a tolerância à falha <br> Consulta de ficheiros não desnudos <br> Dispositivo bruto <br> Recarregar do caminho <br> Remover o disco <br> Mudar o Nome <br> Redefinir informações dos hóspedes <br> Definir anotação <br> Definições <br> Colocação de ficheiros de swap <br> Toggle fork parent <br> Desbloqueie a máquina virtual <br> Atualizar compatibilidade da máquina virtual |

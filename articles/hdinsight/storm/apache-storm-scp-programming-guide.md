@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
 ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932633"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação SCP para Apache Storm em Azure HDInsight
@@ -431,19 +431,19 @@ Pode submeter especificações de topologia diretamente a um cluster storm para 
 
 SCP.NET adicionou as seguintes funções para definir topologias transacionais:
 
-| Nova função | Parâmetros | Descrição |
+| Nova função | Parâmetros | Description |
 | --- | --- | --- |
 | **tx-toplopy** |*nome de topologia*<br />*mapa de bicos*<br />*mapa de parafusos* |Define uma topologia transacional com o nome topologia, mapa de definição de bicos e mapa de definição de parafusos. |
-| **scp-tx-bico** |*nome executivo*<br />*args*<br />*fields* |Define um bico transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico. |
-| **scp-tx-lote-bolt** |*nome executivo*<br />*args*<br />*fields* |Define um parafuso de lote transacional. A função executa a aplicação especificada pelo *nome executivo* e usa *args.*<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
-| **scp-tx-commit-bolt** |*nome executivo*<br />*args*<br />*fields* |Define um parafuso de compromisso transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
+| **scp-tx-bico** |*nome executivo*<br />*args*<br />*campos* |Define um bico transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico. |
+| **scp-tx-lote-bolt** |*nome executivo*<br />*args*<br />*campos* |Define um parafuso de lote transacional. A função executa a aplicação especificada pelo *nome executivo* e usa *args.*<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
+| **scp-tx-commit-bolt** |*nome executivo*<br />*args*<br />*campos* |Define um parafuso de compromisso transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
 | **nontx-topologia** |*nome de topologia*<br />*mapa de bicos*<br />*mapa de parafusos* |Define uma topologia não transacional com o nome de topologia, mapa de definição de bicos e mapa de definição de parafusos. |
-| **scp-bico** |*nome executivo*<br />*args*<br />*fields*<br />*parâmetros* |Define um bico não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico.<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
-| **scp-bolt** |*nome executivo*<br />*args*<br />*fields*<br />*parâmetros* |Define um parafuso não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
+| **scp-bico** |*nome executivo*<br />*args*<br />*campos*<br />*parâmetros* |Define um bico não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico.<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
+| **scp-bolt** |*nome executivo*<br />*args*<br />*campos*<br />*parâmetros* |Define um parafuso não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
 
 SCP.NET define as seguintes palavras-chave:
 
-| Palavra-chave | Descrição |
+| Palavra-chave | Description |
 | --- | --- |
 | **:nome** |O nome da topologia |
 | **:topologia** |A topologia usando as funções na tabela anterior e funções incorporadas |
@@ -786,7 +786,7 @@ Esta topologia contém um bico java e um parafuso C#. Utiliza a implementação 
 
 Este exemplo é essencialmente o mesmo que o HelloWorld. A única diferença é que o seu código é compilado como um DLL e a topologia é submetida usando SCPHost.exe. Consulte a secção de modo anfitrião SCP para obter uma explicação mais detalhada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Por exemplo, as topologias da Tempestade Apache criadas com recurso ACP, consulte os seguintes artigos:
 

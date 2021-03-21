@@ -4,10 +4,10 @@ description: Saiba como fazer o back up Azure Managed Disks a partir do portal A
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98738157"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Faça o back up Azure Managed Disks (na pré-visualização)
@@ -217,6 +217,6 @@ O serviço Azure Backup cria um trabalho para cópias de segurança programadas 
 
    ![Selecione trabalho para ver detalhes](./media/backup-managed-disks/select-job.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restaurar Discos Geridos Azure](restore-managed-disks.md)

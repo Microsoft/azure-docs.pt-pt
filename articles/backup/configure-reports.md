@@ -4,10 +4,10 @@ description: Configure e veja relatórios para Azure Backup usando diários de l
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102509374"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: fb2cc0b81083936a67bcd465e0408b9f4b53996b
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603554"
 ---
 # <a name="iot-hub-mqtt-5-support-overview-preview"></a>Visão geral de suporte do IoT Hub MQTT 5 (pré-visualização)
@@ -581,7 +581,7 @@ Resposta:
     status: 0100
     reason: "`Correlation Data` property is missing"
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para rever a referência API de pré-visualização MQTT 5, consulte o [plano de dados do IoT Hub MQTT 5 API referência](iot-hub-mqtt-5-reference.md).
 - Para seguir uma amostra C#, consulte [o repositório de amostras gitHub](https://github.com/Azure-Samples/iot-hub-mqtt-5-preview-samples-csharp).

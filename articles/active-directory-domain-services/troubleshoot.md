@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directory Domain Services resolução de problemas Microsoft Docs'
+title: Azure Ative Directory Domain Services resolução de problemas | Microsoft Docs'
 description: Saiba como resolver erros comuns quando cria ou gere os Serviços de Domínio do Diretório Ativo do Azure
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 89b04f86d41f8e4828580f70a9aec8acea3e0053
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618455"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e etapas de resolução de problemas para os serviços de domínio do diretório ativo Azure

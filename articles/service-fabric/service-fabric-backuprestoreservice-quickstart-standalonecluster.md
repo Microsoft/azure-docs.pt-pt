@@ -4,10 +4,10 @@ description: Utilize a cópia de segurança periódica de um Serviço autónomo 
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.openlocfilehash: d78a627c0c50a3e2ec57138e40cb5bc97486d6f7
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103198697"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup periódico e restauro em um tecido de serviço autónomo
@@ -34,7 +34,7 @@ A cópia de segurança dos dados da aplicação numa base periódica é uma nece
 O Service Fabric fornece um conjunto de APIs para obter a seguinte funcionalidade relacionada com a funcionalidade de backup e restauro periódico:
 
 - Agende backup periódico de serviços estatais fiáveis e atores fiáveis com suporte para carregar backup para locais de armazenamento (externos). Locais de armazenamento suportados
-    - Storage do Azure
+    - Armazenamento do Azure
     - Partilha de Ficheiros (no local)
 - Backups enumeradores
 - Desencadear uma cópia não planeada de uma partição

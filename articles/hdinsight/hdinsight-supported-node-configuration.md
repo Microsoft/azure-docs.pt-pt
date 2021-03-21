@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/14/2020
 ms.openlocfilehash: d41ee2554d30a56bc2e025bbe2c93aee143d75e8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931641"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quais são as configurações de nó padrão e recomendadas para Azure HDInsight?
@@ -81,6 +81,6 @@ Para obter mais informações sobre as especificações de cada tipo VM, consult
 > - O trabalhador é conhecido como *Supervisor* do tipo de aglomerado de tempestades.
 > - O trabalhador é conhecido como *Região* para o tipo de cluster HBase.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quais são os componentes e versões Apache Hadoop disponíveis com HDInsight?](hdinsight-component-versioning.md)

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: c901d4024292ad03a9195ad0cbd226f473917ee4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98738089"
 ---
 # <a name="data-collection-for-your-app"></a>Recolha de dados para a sua aplicação
@@ -77,7 +77,7 @@ Não reutilhe as expressões do seu conjunto de treino no seu conjunto de testes
 
 Uma vez publicada a primeira versão da sua aplicação, deverá atualizar o seu conjunto de testes com expressões de tráfego real para garantir que o seu conjunto de testes reflete a sua distribuição de produção e pode monitorizar o desempenho realista ao longo do tempo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como o LUIS altera os seus dados antes da previsão](luis-concept-data-alteration.md)

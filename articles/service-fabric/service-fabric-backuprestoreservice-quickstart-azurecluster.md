@@ -4,10 +4,10 @@ description: Utilize a funcionalidade de backup e restauro periódicos do Servic
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103198717"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup periódico e restauro em um cluster de tecido de serviço Azure
@@ -35,7 +35,7 @@ O serviço de backup e restauro no Tecido de Serviço permite uma cópia de segu
 O Service Fabric fornece um conjunto de APIs para obter a seguinte funcionalidade relacionada com a funcionalidade de backup e restauro periódico:
 
 - Agende backup periódico de serviços estatais fiáveis e atores fiáveis com suporte para carregar backup para locais de armazenamento (externos). Locais de armazenamento suportados
-    - Storage do Azure
+    - Armazenamento do Azure
     - Partilha de Ficheiros (no local)
 - Backups enumeradores
 - Desencadear uma cópia de segurança ad hoc de uma partição

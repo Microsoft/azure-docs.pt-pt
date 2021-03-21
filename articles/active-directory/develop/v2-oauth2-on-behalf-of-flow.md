@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98756083"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo
@@ -219,7 +219,7 @@ Em alguns cenários, você pode ter apenas um único emparelhamento de cliente d
 
 Se um cliente usa o fluxo implícito para obter uma id_token, e esse cliente também tem wildcards em um URL de resposta, o id_token não pode ser usado para um fluxo OBO.  No entanto, os tokens de acesso adquiridos através do fluxo implícito de subvenção ainda podem ser resgatados por um cliente confidencial, mesmo que o cliente iniciante tenha um URL de resposta wildcard registado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra forma de realizar o serviço de atendimento usando credenciais de cliente.
 

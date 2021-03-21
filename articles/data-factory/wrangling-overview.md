@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: f922e7a2755a6e26a0d9f93f2668753e2f4dad5a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98738174"
 ---
 # <a name="what-is-data-wrangling"></a>O que é que os dados estão a discutir?
@@ -21,7 +21,7 @@ As organizações precisam de explorar os seus dados de negócio críticos para 
 
 A Data Factory capacita-o com a preparação de dados sem código em escala de nuvem iterativamente utilizando a Power Query. A Data Factory integra-se com [a Power Query Online](/power-query/) e disponibiliza funções de Power Query M como uma atividade de pipeline.
 
-Data Factory traduz M gerado pelo Power Query Online Mashup Editor em código de faísca para a execução em escala de nuvem, traduzindo M em Azure Data Factory Data Flows. A discussão de dados com a Consulta de Energia e os fluxos de dados são especialmente úteis para engenheiros de dados ou "integradores de dados de cidadãos".
+Data Factory traduz M gerado pelo Power Query Online Mashup Editor em código de faísca para a execução em escala de nuvem, traduzindo M em Azure Data Factory Data Data Data Flows. A discussão de dados com a Consulta de Energia e os fluxos de dados são especialmente úteis para engenheiros de dados ou "integradores de dados de cidadãos".
 
 > [!NOTE]
 > A atividade de Power Query na Azure Data Factory está atualmente disponível em pré-visualização pública
@@ -64,6 +64,6 @@ Atualmente nem todas as funções power query M são suportadas para a luta de d
 
 Para obter mais informações sobre as transformações apoiadas, consulte [as funções de conflito de dados](wrangling-functions.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [criar um mash-up de power query](wrangling-tutorial.md)de dados .

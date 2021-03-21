@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 879b86714adf50b5a4da4398389405063ac046dc
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743411"
 ---
 # <a name="how-to-create-and-deploy-an-azure-cloud-service-classic"></a>Como criar e implementar um Azure Cloud Service (clássico)
@@ -91,7 +91,7 @@ Se o seu pacote de implantação foi [configurado para utilizar certificados,](c
 
 [TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)
 * [Gerencie o seu serviço na nuvem](cloud-services-how-to-manage-portal.md).

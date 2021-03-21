@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f0151fd4be7505cf7beea0eeb54f8e34404997
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577763"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582124"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Funções incorporadas para desktop virtual do Windows
 
@@ -146,7 +146,7 @@ A lista a seguir descreve quais as permissões a que esta função pode aceder:
 
 ## <a name="session-host-operator"></a>Operador anfitrião de sessão
 
-A função 'Colaborador do Anfitrião da Sessão' permite-lhe visualizar e remover os anfitriões da sessão, bem como alterar o modo de drenagem. Não podem adicionar anfitriões de sessão usando o portal Azure porque não têm permissão de escrita para objetos de piscina hospedeiras. Se o token de registo for válido (gerado e não expirado), pode utilizar esta função para adicionar anfitriões de sessão à piscina anfitriã fora do portal Azure se o administrador tiver permissões de computação através da função Contribuinte máquina virtual.
+A função 'Operador anfitrião da sessão' permite-lhe visualizar e remover os anfitriões da sessão, bem como alterar o modo de drenagem. Não podem adicionar anfitriões de sessão usando o portal Azure porque não têm permissão de escrita para objetos de piscina hospedeiras. Se o token de registo for válido (gerado e não expirado), pode utilizar esta função para adicionar anfitriões de sessão à piscina anfitriã fora do portal Azure se o administrador tiver permissões de computação através da função Contribuinte máquina virtual.
 
 A lista a seguir descreve quais as permissões a que esta função pode aceder:
 

@@ -1,15 +1,15 @@
 ---
 title: Guia de programabilidade definido pelo utilizador U-SQL para o Lago de Dados Azure
-description: Saiba mais sobre o guia de programabilidade UDO - exaustor definido pelo utilizador.
+description: Saiba mais sobre o guia de programabilidade UDO UDO UDO UDO - exaustor definido pelo utilizador.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: ad7f6336753903533771033de21aec8262425a61
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97608022"
 ---
 # <a name="use-user-defined-extractor"></a>Utilizar o extrator definido pelo utilizador

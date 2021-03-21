@@ -7,10 +7,10 @@ ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 42502864cfed177adfe487e9c59247579628fec8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98539081"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
@@ -48,7 +48,7 @@ Para resolver isto, tudo o que precisa de fazer é transferir os utilizadores pa
 
 Isto também pode acontecer se um Fornecedor CSP criou a subscrição e depois foi transferido para o cliente. Para resolver este reencamíssitão, o Fornecedor de Recursos.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Vá à **Subscrição** e, em seguida, selecione a sua subscrição.
 3. No menu do lado esquerdo da página, selecione **Fornecedor de Recursos**.
 4. Localizar e selecionar **Microsoft.DesktopVirtualization** e, em seguida, selecionar **Re-registrar**.

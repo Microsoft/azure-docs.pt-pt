@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2021
 ms.author: duau
 ms.openlocfilehash: 455eeb83ef5a9608c077de24b8d3d4722d26a822
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742714"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego
@@ -199,7 +199,7 @@ Para obter mais informações sobre a resolução de problemas de verificação 
 
 * [Como posso ser notificado se um dos meus pontos finais vai para baixo?](./traffic-manager-faqs.md#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba [como funciona o Gestor de Tráfego](traffic-manager-how-it-works.md)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 01c5d4aaa3896e05bc743be309df050471ece5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609095"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582056"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Lançamento confiável para máquinas virtuais Azure (pré-visualização)
 
@@ -73,7 +73,7 @@ A Azure oferece um lançamento fidedigno como uma forma perfeita de melhorar a s
 
 ## <a name="secure-boot"></a>Bota segura
 
-Na raiz do lançamento fidedigno está o Secure Boot para o seu VM. Este modo, que é implementado no firmware da plataforma, protege contra a instalação de rootkits e kits de arranque baseados em malware. O Secure Boot funciona para garantir que apenas os sistemas operativos assinados e os controladores podem arrancar. Estabelece uma "raiz de confiança" para a pilha de software no seu VM. Com o Arranque Seguro ativado, todos os componentes de arranque DE SO (carregador de arranque, kernel, kernel) devem ser assinados por editores de confiança. Tanto o Windows como o sistema de distribuição Linux suportam o Secure Boot. Se o Secure Boot não autenticar que a imagem foi assinada por uma editora de confiança, o VM não será autorizado a arrancar. Para obter mais informações, consulte [Arranque Seguro](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+Na raiz do lançamento fidedigno está o Secure Boot para o seu VM. Este modo, que é implementado no firmware da plataforma, protege contra a instalação de rootkits e kits de arranque baseados em malware. O Secure Boot funciona para garantir que apenas os sistemas operativos assinados e os controladores podem arrancar. Estabelece uma "raiz de confiança" para a pilha de software no seu VM. Com o Arranque Seguro ativado, todos os componentes de arranque DE SO (carregador de arranque, kernel, kernel) devem ser assinados por editores de confiança. Tanto o Windows como o sistema de distribuição Linux suportam o Secure Boot. Se o Secure Boot não autenticar que a imagem foi assinada por uma editora de confiança, o VM não será autorizado a arrancar. Para obter mais informações, consulte [Arranque Seguro](/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## <a name="vtpm"></a>vTPM
 
@@ -87,7 +87,7 @@ O lançamento fidedigno utiliza o vTPM para realizar atetação remota pela nuve
 
 O HVCI é uma poderosa mitigação do sistema que protege os processos do modo kernel do Windows contra a injeção e execução de código malicioso ou não verificado. Verifica os controladores e binários do modo kernel antes de funcionarem, evitando que ficheiros não assinados carreguem na memória. Isto garante que tal código executável não pode ser modificado uma vez que é permitido carregar. Para obter mais informações sobre VBS e HVCI, consulte [a Segurança Baseada na Virtualização (VBS) e a Integridade do Código Aplicado do Hipervisor (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-Com lançamento fidedigno e VBS pode ativar a Guarda Credencial do Windows Defender. Esta funcionalidade isola e protege segredos para que apenas o software privilegiado do sistema possa aceder aos mesmos. Ajuda a impedir o acesso não autorizado a segredos e ataques de roubo de credenciais, como ataques Pass-the-Hash (PtH). Para mais informações, consulte [a Guarda Credencial.](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
+Com lançamento fidedigno e VBS pode ativar a Guarda Credencial do Windows Defender. Esta funcionalidade isola e protege segredos para que apenas o software privilegiado do sistema possa aceder aos mesmos. Ajuda a impedir o acesso não autorizado a segredos e ataques de roubo de credenciais, como ataques Pass-the-Hash (PtH). Para mais informações, consulte [a Guarda Credencial.](/windows/security/identity-protection/credential-guard/credential-guard)
 
 
 ## <a name="security-center-integration"></a>Integração do Centro de Segurança
@@ -134,7 +134,7 @@ Na cadeia de arranque segura, cada passo no processo de arranque verifica uma as
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>O que acontece quando uma falha de integridade é detetada?
 
-O lançamento confiável para máquinas virtuais Azure é monitorizado para ameaças avançadas. Se tais ameaças forem detetadas, será acionado um alerta. Os alertas só estão disponíveis no [Standard Tier](/azure/security-center/security-center-pricing) of Azure Security Center.
+O lançamento confiável para máquinas virtuais Azure é monitorizado para ameaças avançadas. Se tais ameaças forem detetadas, será acionado um alerta. Os alertas só estão disponíveis no [Standard Tier](../security-center/security-center-pricing.md) of Azure Security Center.
 O Centro de Segurança Azure realiza periodicamente atestado. Se o atestado falhar, será acionado um alerta de gravidade média. Atestado de lançamento fidedigno pode falhar pelas seguintes razões: 
 - As informações atestadas, que incluem um registo da Base de Computação Fidedigna (TCB), desviam-se de uma linha de base fidedigna (como quando o Secure Boot está ativado). Isto pode indicar que os módulos não fided os falsos foram carregados e o SO pode estar comprometido.
 - A citação do atestado não pôde ser verificada a partir do vTPM do VM atestado. Isto pode indicar que o malware está presente e pode estar a intercetar o tráfego para o TPM. 

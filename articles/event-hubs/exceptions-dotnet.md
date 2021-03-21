@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 09/23/2020
 ms.author: spelluru
 ms.openlocfilehash: af2d820fd255d041ade21a00d7d7a9ac6b12fcba
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98745907"
 ---
 # <a name="eventhubsexception---net"></a>EventHubsException - .NET
@@ -49,5 +49,5 @@ catch (EventHubsException ex) where
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Existem outras exceções que estão documentadas no [artigo do legado.](event-hubs-messaging-exceptions.md) Alguns deles aplicam-se apenas à biblioteca de clientes legacy Event Hubs .NET.

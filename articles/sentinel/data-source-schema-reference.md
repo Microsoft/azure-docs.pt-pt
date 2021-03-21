@@ -11,10 +11,10 @@ ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
 ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698353"
 ---
 # <a name="data-source-schema-reference"></a>Referência de esquema de fonte de dados

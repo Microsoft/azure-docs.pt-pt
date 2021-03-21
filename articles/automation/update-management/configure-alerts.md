@@ -3,14 +3,14 @@ title: Como criar alertas para a Azure Automation Update Management
 description: Este artigo diz como configurar alertas do Azure para notificar sobre o estado das avaliações ou implementações de atualização.
 services: automation
 ms.subservice: update-management
-ms.date: 10/19/2020
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 224a7b5457a099fd763ac657349fc5497824ab76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579700"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601432"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Como criar alertas para a Gestão de Atualização
 
@@ -38,51 +38,37 @@ Siga os passos abaixo para configurar alertas para que saiba o estado de uma imp
 
 1. Na sua conta Demômes, selecione **Alertas** em **Monitorização** e, em seguida, selecione **Nova regra de alerta**.
 
-2. Na página **'Criar' regra de alerta,** a sua conta Demôm automação já está selecionada como recurso. Se quiser alterá-lo, **selecione o recurso Editar**.
+1. Na página **'Criar' regra de alerta,** a sua conta Demôm automação já está selecionada como recurso. Se quiser alterá-lo, **selecione o recurso Editar**.
 
-3. Na página Selecione uma página de recursos, escolha Contas de **Automação** a partir da lista de retirada do **tipo de recurso.**
+1. Na página Selecione uma página de recursos, escolha Contas de **Automação** a partir da lista de retirada do **tipo de recurso.**
 
-4. Selecione a conta Automation que pretende utilizar e, em seguida, selecione **Fazer**.
+1. Selecione a conta Automation que pretende utilizar e, em seguida, selecione **Fazer**.
 
-5. **Selecione Adicionar a condição** para escolher o sinal apropriado para o seu requisito.
+1. **Selecione Adicionar a condição** para escolher o sinal apropriado para o seu requisito.
 
-6. Para uma dimensão, selecione um valor válido da lista. Se o valor que deseja não estiver na lista, selecione **\+** ao lado da dimensão e escreva o nome personalizado. Em seguida, selecione o valor a procurar. Se pretender selecionar todos os valores para uma dimensão, selecione o botão **Selecione. \*** Se não escolher um valor para uma dimensão, a Gestão de Atualização ignora essa dimensão.
+1. Para uma dimensão, selecione um valor válido da lista. Se o valor que deseja não estiver na lista, selecione **\+** ao lado da dimensão e escreva o nome personalizado. Em seguida, selecione o valor a procurar. Se pretender selecionar todos os valores para uma dimensão, selecione o botão **Selecione. \*** Se não escolher um valor para uma dimensão, a Gestão de Atualização ignora essa dimensão.
 
     ![Configurar lógica de sinal](./media/manage-updates-for-vm/signal-logic.png)
 
-7. Em **lógica de alerta,** introduza valores nos campos de **agregação** e **limiar** de tempo e, em seguida, selecione **Fazer**.
+1. Em **lógica de alerta,** introduza valores nos campos de **agregação** e **limiar** de tempo e, em seguida, selecione **Fazer**.
 
-8. Na página seguinte, insira um nome e uma descrição para o alerta.
+1. Na página seguinte, insira um nome e uma descrição para o alerta.
 
-9. Desaprova o campo **Severidade** para **Informational (Sev 2)** para uma execução bem sucedida ou **informativo (Sev 1)** para uma execução falhada.
+1. Desaprova o campo **Severidade** para **Informational (Sev 2)** para uma execução bem sucedida ou **informativo (Sev 1)** para uma execução falhada.
 
     ![A screenshot mostra a secção de detalhes de alerta de Definição com o nome da regra de alerta, descrição e severidade realçados.](./media/manage-updates-for-vm/define-alert-details.png)
 
-10. Selecione **Sim** para ativar a regra de alerta.
+1. Selecione **Sim** para ativar a regra de alerta.
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configurar grupos de ação para os seus alertas
 
 Uma vez configurados os alertas, pode criar um grupo de ação, que é um grupo de ações a utilizar em vários alertas. As ações podem incluir notificações de e-mail, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../../azure-monitor/alerts/action-groups.md).
 
-1. Selecione um alerta e, em seguida, **selecione Criar Novos** em **Grupos de Ação**.
+1. Selecione um alerta e, em seguida, **selecione Adicionar grupos de ação** em **Ações**. Isto mostrará o **grupo de ação Selecione um grupo de ação para anexar a este painel de regras de alerta.**
 
-2. Insira um nome completo e um nome curto para o grupo de ação. A Atualização Gestão utiliza o nome curto ao enviar notificações utilizando o grupo especificado.
+   :::image type="content" source="./media/manage-updates-for-vm/select-an-action-group.png" alt-text="Utilização e custos estimados.":::
 
-3. Em **Ações**, insira um nome que especifica a ação, por exemplo, **Notificação por E-mail**.
-
-4. Para **o Tipo de Ação**, selecione o tipo apropriado, por exemplo, **Email/SMS/Push/Voice**.
-
-5. Selecione **Editar detalhes**.
-
-6. Preencha o painel para o seu tipo de ação. Por exemplo, se utilizar **o Email/SMS/Push/Voice,** insira um nome de ação, selecione a caixa de verificação **de e-mail,** introduza um endereço de e-mail válido e, em seguida, selecione **OK**.
-
-    ![Configurar um grupo de ações de e-mail](./media/manage-updates-for-vm/configure-email-action-group.png)
-
-7. No painel Adicionar grupo de ações, selecione **OK**.
-
-8. Para um e-mail de alerta, pode personalizar o tema do e-mail. **Selecione Personalizar as ações** sob **regra Criar** e, em seguida, selecione **e-mail assunto**.
-
-9. Quanto terminar, selecione **Criar regra de alerta**.
+1. Selecione a caixa de verificação para o grupo Action para anexar e pressionar Select.
 
 ## <a name="next-steps"></a>Passos seguintes
 

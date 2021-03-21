@@ -8,10 +8,10 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: bd3ba88650161bd11a24697b4ff8575d307120e9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424466"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
@@ -53,7 +53,7 @@ Uma vez no diretório do projeto, **crie um projeto de aplicação de consola .N
 dotnet new console
 ```
 
-Isto irá criar vários ficheiros dentro do seu diretório, incluindo um chamado *Program.cs* onde irá escrever a maior parte do seu código.
+Isto irá criar vários ficheiros dentro do seu diretório, incluindo um chamado *Programa.cs* onde irá escrever a maior parte do seu código.
 
 Mantenha a janela de comando aberta, pois continuará a usá-la durante todo o tutorial.
 
@@ -76,7 +76,7 @@ Nesta secção, começará a escrever o código para o seu novo projeto de aplic
 
 Há também uma secção que mostra o código completo no final do tutorial. Pode usar isto como referência para verificar o seu programa à medida que avança.
 
-Para começar, abra o ficheiro *Program.cs* em qualquer editor de código. Você verá um modelo de código mínimo que se parece com isto:
+Para começar, abra o programa de *ficheiros.cs* em qualquer editor de código. Você verá um modelo de código mínimo que se parece com isto:
 
 :::row:::
     :::column:::
@@ -98,7 +98,7 @@ A primeira coisa que a sua aplicação terá de fazer é autenticar contra o ser
 
 Para autenticar, precisa do *nome de anfitrião* da sua instância Azure Digital Twins.
 
-Em *Program.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desabine o valor do `adtInstanceUrl` seu exemplo Azure Digital Twins *anfitriãoName*.
+No *Programa.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desabine o valor do `adtInstanceUrl` seu exemplo Azure Digital Twins *anfitriãoName*.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
@@ -130,7 +130,7 @@ No diretório onde criou o seu projeto, crie um novo ficheiro *.json* chamado *S
 > [!TIP] 
 > Existe uma [amostra de DTDL Validador](/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-parse-models.md)
 
-Em seguida, adicione mais um código para *Program.cs* para carregar o modelo que acabou de criar na sua instância Azure Digital Twins.
+Em seguida, adicione mais um código ao *Programa.cs* para carregar o modelo que acaba de criar na sua instância Azure Digital Twins.
 
 Primeiro, adicione algumas `using` declarações ao topo do ficheiro:
 
@@ -248,7 +248,7 @@ Na janela de comando, execute o programa com `dotnet run` . Devias ver todos os 
 
 ## <a name="complete-code-example"></a>Exemplo completo de código
 
-Nesta altura do tutorial, tem uma app completa para clientes, capaz de realizar ações básicas contra a Azure Digital Twins. Para referência, o código completo do programa em *Program.cs* é listado abaixo:
+Nesta altura do tutorial, tem uma app completa para clientes, capaz de realizar ações básicas contra a Azure Digital Twins. Para referência, o código completo do programa no *programa.cs* é listado abaixo:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 

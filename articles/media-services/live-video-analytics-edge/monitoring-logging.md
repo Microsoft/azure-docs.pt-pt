@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral da monitorização e início d
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730251"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
@@ -208,7 +208,7 @@ Os tipos de eventos são atribuídos a um espaço de nome de acordo com este esq
 
 #### <a name="event-classes"></a>Classes de eventos
 
-|Nome da classe|Descrição|
+|Nome da classe|Description|
 |---|---|
 |Análise  |Eventos gerados como parte da análise de conteúdo.|
 |Diagnóstico    |Eventos que ajudam no diagnóstico de problemas e desempenho.|
@@ -230,7 +230,7 @@ O tempo do evento é formatado numa corda ISO 8601. Representa o momento em que 
 
 Estas métricas serão reportadas a partir do live video analytics no módulo IoT Edge:  
 
-|Nome da métrica|Tipo|Etiqueta|Descrição|
+|Nome da métrica|Tipo|Etiqueta|Description|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Medidor|Iothub, edge_device, module_name, graph_topology|Número total de gráficos ativos por topologia.|
 |lva_received_bytes_total|Contador|Iothub, edge_device, module_name, graph_topology, graph_instance graph_node|Número total de bytes recebidos por um nó. Suportado apenas para fontes RTSP.|

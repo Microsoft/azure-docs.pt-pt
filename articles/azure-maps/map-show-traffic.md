@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98599550"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
@@ -23,7 +23,7 @@ Existem dois tipos de dados de tráfego disponíveis no Azure Maps:
 - Dados de incidentes - consiste em dados de pontos e linhas para coisas como construção, encerramentos de estradas e acidentes.
 - Flow data - fornece métricas sobre o fluxo de tráfego nas estradas. Muitas vezes, os dados de fluxo de tráfego são usados para colorir as estradas. As cores baseiam-se na quantidade de tráfego que está a abrandar o fluxo, em relação ao limite de velocidade, ou noutra métrica. Há quatro valores que podem ser passados para a opção de tráfego `flow` do mapa.
 
-    |Valor do fluxo | Descrição|
+    |Valor do fluxo | Description|
     | :-- | :-- |
     | `none` | Não exibe dados de tráfego no mapa |
     | `relative` | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |
