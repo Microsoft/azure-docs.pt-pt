@@ -13,10 +13,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
 ms.openlocfilehash: 4f90299daed46d06dad9ab37103e3b8f53763ed4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96454376"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configure a autenticação multi-factor para SQL Server Management Studio e AZure AD
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como utilizar a autenticação multi-factor Azure Ative (
 ## <a name="configuration-steps"></a>Passos de configuração
 
 1. **Configure um Diretório Ativo Azure** - Para mais informações, consulte [administrar o seu diretório AD Azure,](/previous-versions/azure/azure-services/hh967611(v=azure.100)) [integrando as suas identidades no local com o Azure Ative Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Adicione o seu próprio nome de domínio ao Azure AD,](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)o Microsoft [Azure agora suporta a federação com o Windows Server Ative Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), e [Gere a Azure AD utilizando o Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)).
-2. **Configure MFA** - Para instruções passo a passo, consulte [o que é autenticação multi-factor Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md) [Conditional Access (MFA) with Azure SQL Database and Data Warehouse](conditional-access-configure.md) (O acesso condicional completo requer um Diretório Ativo Premium Azure. O MFA limitado está disponível com um Azure AD padrão.)
+2. **Configure MFA** - Para instruções passo a passo, consulte [o que é autenticação multi-factor Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md) [](conditional-access-configure.md) (O acesso condicional completo requer um Diretório Ativo Premium Azure. O MFA limitado está disponível com um Azure AD padrão.)
 3. **Configure Autenticação Ad Ad** - Para instruções passo a passo, consulte [Ligação à Base de Dados SQL, SQL Managed Instance ou Azure Synapse utilizando autenticação do Diretório Ativo Azure](authentication-aad-overview.md).
 4. **Baixar SSMS** - No computador cliente, descarregue os mais recentes SSMS, do [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 

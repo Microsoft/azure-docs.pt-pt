@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: 0414aaad5a1cf6edb9c2152eed70f8753946cca1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546437"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-mysql--single-server"></a>Conecte e consulta visão geral para base de dados Azure para MySQL- Servidor Único
@@ -20,7 +20,7 @@ O documento que se segue inclui links para exemplos que mostram como conectar e 
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Descrição |
+| Início Rápido | Description |
 |---|---|
 |[Bancada mySQL](connect-workbench.md)|Este quickstart demonstra como usar o Cliente de Workbench MySQL para se ligar a uma base de dados. Em seguida, pode utilizar as declarações do MySQL para consultar, inserir, atualizar e eliminar dados na base de dados.|
 |[Azure Cloud Shell](./quickstart-create-mysql-server-database-using-azure-cli.md#connect-to-azure-database-for-mysql-server-using-mysql-command-line-client)|Este artigo mostra como executar **mysql.exe** em [Azure Cloud Shell](../cloud-shell/overview.md) para ligar ao seu servidor e, em seguida, executar declarações para consultar, inserir, atualizar e apagar dados na base de dados.|

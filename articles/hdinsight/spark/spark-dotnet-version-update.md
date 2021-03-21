@@ -7,10 +7,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/05/2021
 ms.openlocfilehash: a1602f29a6d0066ec3c99e990532411621652c47
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788134"
 ---
 # <a name="updating-net-for-apache-spark-to-version-v10--in-hdinsight"></a>Atualização .NET para Apache Spark para a versão v1.0 em HDInsight
@@ -56,6 +56,6 @@ Pode atualizar a sua aplicação .NET para Apache Spark para utilizar uma versã
 
 Os clusters HDI existentes continuarão a ter a mesma versão anterior para .NET para Apache Spark e a sua aplicação existente (tendo versão anterior do Spark .NET) não será afetada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implemente a sua aplicação .NET para Apache Spark em HDInsight](/dotnet/spark/tutorials/hdinsight-deployment)

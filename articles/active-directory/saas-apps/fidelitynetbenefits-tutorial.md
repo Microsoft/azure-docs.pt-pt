@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Fidelity NetBenefits Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Fidelity NetBenefits | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Fidelity NetBenefits.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: ac41bf89a3c2997fe0c179ef1a64787b5fb8d617
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integração do Azure Ative Directory com a Fidelity NetBenefits
@@ -111,7 +111,7 @@ Para configurar o Azure AD com o Fidelity NetBenefits, execute os seguintes pass
 
     b. Na caixa de texto **URL de resposta,** digite um URL que será fornecido pela Fidelidade no momento da implementação ou contacte o gestor de serviço do cliente da Fidelidade.
 
-5. A aplicação Fidelity NetBenefits espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname**. A aplicação Fidelity NetBenefits espera que **o identificador** de nomes seja mapeado com **o employeeid** ou qualquer outra reclamação que seja aplicável à sua Organização como **identificador**de nomes, pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
+5. A aplicação Fidelity NetBenefits espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname**. A aplicação Fidelity NetBenefits espera que **o identificador** de nomes seja mapeado com **o employeeid** ou qualquer outra reclamação que seja aplicável à sua Organização como **identificador** de nomes, pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
     ![image](common/edit-attribute.png)
 

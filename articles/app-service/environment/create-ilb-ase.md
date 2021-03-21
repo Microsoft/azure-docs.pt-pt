@@ -8,10 +8,10 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009556"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e utilizar um Ambiente de Serviço de Aplicação do Balanceador interno 
@@ -48,7 +48,7 @@ Existem algumas coisas que não é possível fazer quando utiliza um ASE de ILB:
 
 Para criar um ASE de ILB:
 
-1. No portal Azure, selecione **Criar um ambiente de** serviço de  >  **Web**  >  **aplicações** web de recurso.
+1. No portal Azure, selecione **Criar um ambiente de** serviço de  >    >  **aplicações** web de recurso.
 
 2. Selecione a sua subscrição.
 
@@ -78,7 +78,7 @@ Para criar um ASE de ILB:
 
 Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação num ASE normalmente.
 
-1. No portal Azure, selecione **Criar uma** Web App  >  **Web**  >  **de** recursos.
+1. No portal Azure, selecione **Criar uma** Web App  >    >  **de** recursos.
 
 1. Introduza o nome da aplicação.
 

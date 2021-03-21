@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
 ms.openlocfilehash: d1931614356a313334d712713965346e843a403d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93425197"
 ---
 ## <a name="invoke-the-function-on-azure"></a>Invocar a função em Azure
@@ -21,7 +21,7 @@ Copie o **URL completo de invocação** mostrado na saída do comando de publica
 
 ![A saída da função executada no Azure num browser](./media/functions-run-remote-azure-cli/function-test-cloud-browser.png)
 
-# <a name="curl"></a>[caracóis](#tab/curl)
+# <a name="curl"></a>[curl](#tab/curl)
 
 Corra [`curl`](https://curl.haxx.se/) com o URL **invocado,** anexando o parâmetro `&name=Functions` . A saída do comando deve ser o texto"Olá Funções".
 

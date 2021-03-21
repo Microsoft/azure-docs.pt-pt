@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 263e45928642aa74d682fc490e424a24deeb8076
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790686"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de colocação para serviços de tecidos de serviço
@@ -161,7 +161,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 > A utilização de um valor elevado de [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) com esta política de colocação pode levar a atualizações de aplicações presas. Por exemplo, se tiver um cluster de cinco nós e definir InstanceCount=10, terá duas instâncias em cada nó. Se definir MinInstanceCount=9, uma tentativa de atualização de aplicações pode ficar presa; com MinInstanceCount=8, isto pode ser evitado.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre serviços de configuração, [Saiba mais sobre a configuração dos serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png

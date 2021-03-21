@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o ThirdLight Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | ThirdLight Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar um único sign-on entre Azure Ative Directory e ThirdLight.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: f15d00f1050177c6255fb5528f03314153c3ed9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Integração do Diretório Ativo Azure com o ThirdLight
@@ -128,7 +128,7 @@ Para configurar o Azure AD single sign-on com ThirdLight, tome estes passos:
 
 1. Numa nova janela do navegador web, inscreva-se no site da empresa ThirdLight como administrador.
 
-1. Ir para a Administração do Sistema **de Configuração**  >  **System Administration**  >  **SAML2:**
+1. Ir para a Administração do Sistema **de Configuração**  >    >  **SAML2:**
 
     ![Administração de Sistema](./media/thirdlight-tutorial/ic805843.png "Administração de Sistema")
 
@@ -162,9 +162,9 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
     1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension> ** (Por exemplo, BrittaSimon@contoso.com .)
+    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension>** (Por exemplo, BrittaSimon@contoso.com .)
 
-    1. Selecione **Mostrar Palavra-Passe**e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
+    1. Selecione **Mostrar Palavra-Passe** e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
 
     1. Selecione **Criar**.
 
@@ -172,7 +172,7 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
 Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo-lhe acesso à ThirdLight.
 
-1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **ThirdLight**.
+1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações** e, em seguida, selecione **ThirdLight**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -184,7 +184,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
     ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+4. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Selecione Adicionar utilizador](common/add-assign-user.png)
 

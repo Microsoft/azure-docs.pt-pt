@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 63f4b28915a932398e5417f8ea9be3fe4d68e705
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397846"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Crie uma sonda personalizada para O Gateway de Aplicações Azure utilizando o PowerShell para O Gestor de Recursos Azure
@@ -92,7 +92,7 @@ Configura todos os itens de configuração antes de criar o gateway de aplicaç�
 | **Configuração de IP do gateway** | Uma configuração IP para um gateway de aplicação.|
 | **Conjunto de back-end** | Um conjunto de endereços IP, FQDN's ou NICs que estão nos servidores de aplicações que hospedam a aplicação web|
 | **Sonda de estado de funcionamento** | Uma sonda personalizada usada para monitorizar a saúde dos membros da piscina backend|
-| **Definições de HTTP** | Uma coleção de configurações incluindo, porta, protocolo, afinidade baseada em cookies, sonda e tempo limite.  Estas definições determinam como o tráfego é encaminhado para os membros da piscina backend|
+| **Definições HTTP** | Uma coleção de configurações incluindo, porta, protocolo, afinidade baseada em cookies, sonda e tempo limite.  Estas definições determinam como o tráfego é encaminhado para os membros da piscina backend|
 | **Porta frontal** | O porto que o gateway de aplicação ouve para o tráfego em|
 | **Serviço de Escuta** | Uma combinação de protocolo, configuração IP frontend e porta frontal. Isto é o que ouve os pedidos de entrada.
 |**Regra**| Encaminha o tráfego para o backend apropriado com base nas definições HTTP.|

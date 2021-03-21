@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
 ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077256"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programadores utilizando o OAuth 2.0 na Azure API Management
@@ -38,7 +38,7 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
 > [!NOTE]
 > Se ainda não criou uma instância de serviço de Gestão API, consulte [criar uma instância de serviço de Gestão API.][Create an API Management service instance]
 
-1. Clique no separador OAuth 2.0 no menu à esquerda e clique em **+Adicionar** .
+1. Clique no separador OAuth 2.0 no menu à esquerda e clique em **+Adicionar**.
 
     ![Menu OAuth 2.0](./media/api-management-howto-oauth2/oauth-01.png)
 
@@ -55,7 +55,7 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
 
     Especifique os **tipos de concessão de autorização** verificando os tipos pretendidos. **O código de autorização** é especificado por predefinição.
 
-    Introduza o **URL do ponto final de autorização** . Para o Azure Ative Directory, este URL será semelhante ao seguinte URL, onde `<tenant_id>` é substituído pelo ID do seu inquilino AZure AD.
+    Introduza o **URL do ponto final de autorização**. Para o Azure Ative Directory, este URL será semelhante ao seguinte URL, onde `<tenant_id>` é substituído pelo ID do seu inquilino AZure AD.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
@@ -69,7 +69,7 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    A definição predefinição dos **métodos de autenticação do Cliente** é **Básica,** e  **o método de envio de ficha de acesso** é **cabeçalho de autorização** . Estes valores estão configurados nesta secção do formulário, juntamente com o **âmbito Padrão** .
+    A definição predefinição dos **métodos de autenticação do Cliente** é **Básica,** e  **o método de envio de ficha de acesso** é **cabeçalho de autorização**. Estes valores estão configurados nesta secção do formulário, juntamente com o **âmbito Padrão**.
 
 6. A secção **de credenciais do Cliente** contém o **ID** do Cliente e o **segredo do Cliente,** que são obtidos durante o processo de criação e configuração do seu servidor OAuth 2.0. Uma vez especificado o **ID do Cliente** e **o segredo do Cliente,** o **redirect_uri** para o código **de autorização** é gerado. Este URI é utilizado para configurar o URL de resposta na configuração do servidor OAuth 2.0.
 
@@ -90,11 +90,11 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
 
     ![OAuth 2.0 APIs](./media/api-management-howto-oauth2/oauth-05.png)
 
-2. Clique no nome da API desejada e clique em **Definições** . Percorra a secção **de Segurança** e, em seguida, verifique a caixa para **OAuth 2.0** .
+2. Clique no nome da API desejada e clique em **Definições**. Percorra a secção **de Segurança** e, em seguida, verifique a caixa para **OAuth 2.0**.
 
     ![Definições OAuth 2.0](./media/api-management-howto-oauth2/oauth-06.png)
 
-3. Selecione o **servidor de Autorização** pretendido da lista de drop-down e clique em **Guardar** .
+3. Selecione o **servidor de Autorização** pretendido da lista de drop-down e clique em **Guardar**.
 
     ![Screenshot que realça o servidor de autorização selecionado e o botão Guardar.](./media/api-management-howto-oauth2/oauth-07.png)
 
@@ -104,7 +104,7 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
 
 Uma vez configurado o seu servidor de autorização OAuth 2.0 e configurado a sua API para usar esse servidor, pode testá-lo indo para o Portal do Desenvolvedor e chamando uma API. Clique no **portal developer (legado)** no menu superior a partir da página de visão geral da sua página **de visão geral** da azure API Management.
 
-Clique em **APIs** no menu superior e selecione **Echo API** .
+Clique em **APIs** no menu superior e selecione **Echo API**.
 
 ![API Eco][api-management-apis-echo-api]
 

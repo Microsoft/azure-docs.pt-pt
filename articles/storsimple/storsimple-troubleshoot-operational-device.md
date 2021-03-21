@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de um dispositivo StorSimple implantado Microsoft Docs
+title: Resolução de problemas um dispositivo StorSimple implantado | Microsoft Docs
 description: Descreve como diagnosticar e corrigir erros que ocorrem num dispositivo StorSimple que está atualmente implantado e operacional.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 6cd1d981737db1e7c852931ecc2449e0afc03530
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956794"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Resolução de problemas de um dispositivo StorSimple operacional
@@ -45,7 +45,7 @@ O assistente de configuração não realiza as operações relacionadas com a re
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>Erros que ocorrem durante as execuções subsequentes do assistente de configuração
 A tabela a seguir descreve os erros que poderá encontrar quando executar o assistente de configuração num dispositivo operacional, possíveis causas para os erros e ações recomendadas para os resolver. 
 
-| Não. | Mensagem de erro ou condição | Possíveis causas | Ação recomendada |
+| N.º | Mensagem de erro ou condição | Possíveis causas | Ação recomendada |
 |:--- |:--- |:--- |:--- |
 | 1 |Erro 350032: Este dispositivo já foi desativado. |Verá este erro se executar o assistente de configuração num dispositivo que está desativado. |[Contacte o Microsoft Support](./storsimple-8000-contact-microsoft-support.md) para os próximos passos. Um dispositivo desativado não pode ser colocado em serviço. Pode ser necessário um reset de fábrica antes de o dispositivo poder ser novamente ativado. |
 | 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION (Exceção da HRESULT: 0x80070001) |A atualização do servidor DNS está a falhar. As definições de DNS são configurações globais e são aplicadas em todas as interfaces de rede ativadas. |Ative a interface e aplique novamente as definições de DNS. Isto pode perturbar a rede para outras interfaces ativadas porque estas definições são globais. |

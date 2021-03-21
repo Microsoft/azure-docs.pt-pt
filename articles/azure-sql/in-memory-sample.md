@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786586"
 ---
 # <a name="in-memory-sample"></a>In-Memory amostra
@@ -74,7 +74,7 @@ Um resultado de **0** significa que In-Memory não é apoiado, e **1** significa
 
 ### <a name="about-the-created-memory-optimized-items"></a>Sobre os itens criados otimizados pela memória
 
-**Tabelas** : A amostra contém as seguintes tabelas otimizadas pela memória:
+**Tabelas**: A amostra contém as seguintes tabelas otimizadas pela memória:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -82,7 +82,7 @@ Um resultado de **0** significa que In-Memory não é apoiado, e **1** significa
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-Pode inspecionar as tabelas otimizadas pela memória através do **Explorador de Objetos** em SSMS. As **definições** do filtro de filtro de tabelas de clique à direita  >  **Filter**  >  **Filter Settings**  >  **estão otimizadas na memória** . O valor é igual a 1.
+Pode inspecionar as tabelas otimizadas pela memória através do **Explorador de Objetos** em SSMS. As **definições** do filtro de filtro de tabelas de clique à direita  >    >    >  **estão otimizadas na memória**. O valor é igual a 1.
 
 Ou pode consultar as vistas do catálogo, tais como:
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Procedimento armazenado nativamente compilado** : Pode inspecionar SalesLT.usp_InsertSalesOrder_inmem através de uma consulta de visualização de catálogo:
+**Procedimento armazenado nativamente compilado**: Pode inspecionar SalesLT.usp_InsertSalesOrder_inmem através de uma consulta de visualização de catálogo:
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-Para fazer a versão *_ondisk* do script T-SQL anterior para ostress.exe, substituiria ambas as ocorrências do *_inmem* substring por *_ondisk* . Estas substituições afetam os nomes das tabelas e dos procedimentos armazenados.
+Para fazer a versão *_ondisk* do script T-SQL anterior para ostress.exe, substituiria ambas as ocorrências do *_inmem* substring por *_ondisk*. Estas substituições afetam os nomes das tabelas e dos procedimentos armazenados.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários RML e `ostress`
 
@@ -215,7 +215,7 @@ Depois de ter o resultado da *_inmem* correr, execute os seguintes passos para a
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Edite a linha de comando ostress.exe para substituir todas as *_inmem* por *_ondisk* .
+2. Edite a linha de comando ostress.exe para substituir todas as *_inmem* por *_ondisk*.
 
 3. Re-run ostress.exe pela segunda vez, e capture o resultado da duração.
 

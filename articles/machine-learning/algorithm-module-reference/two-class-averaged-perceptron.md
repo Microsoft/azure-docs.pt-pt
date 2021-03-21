@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: f1161dc99b84026bcc830c08b63b95d0bf3b0994
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421146"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Two-Class módulo perceptron médio
@@ -22,7 +22,7 @@ Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de aprendizagem automática baseado no algoritmo perceptron médio.  
   
-Este algoritmo de classificação é um método de aprendizagem supervisionado, e requer um *conjunto de dados marcado* , que inclui uma coluna de etiqueta. Pode treinar o modelo fornecendo o modelo e o conjunto de dados marcados como uma entrada para [o Modelo de Comboio.](./train-model.md) O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
+Este algoritmo de classificação é um método de aprendizagem supervisionado, e requer um *conjunto de dados marcado*, que inclui uma coluna de etiqueta. Pode treinar o modelo fornecendo o modelo e o conjunto de dados marcados como uma entrada para [o Modelo de Comboio.](./train-model.md) O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
 
 ### <a name="about-averaged-perceptron-models"></a>Sobre modelos perceptron médios
 
@@ -36,9 +36,9 @@ Os modelos perceptron mais simples são adequados para aprender padrões linearm
 
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único** : Se souber como pretende configurar o modelo, forneça um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: Se souber como pretende configurar o modelo, forneça um conjunto específico de valores como argumentos.
 
-    -   **Intervalo de parâmetros** : Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
+    -   **Intervalo de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
   
 3.  Para **a taxa de aprendizagem,** especifique um valor para a taxa de *aprendizagem.* Os valores da taxa de aprendizagem controlam o tamanho do passo que é usado na descida do gradiente estocástico cada vez que o modelo é testado e corrigido.
   

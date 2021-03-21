@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Problemas de conectividade SQL resolução de problemas Microsoft Docs'
+title: 'Azure AD Connect: Problemas de conectividade SQL de resolução de problemas | Microsoft Docs'
 description: Explica como resolver problemas de conectividade SQL que ocorrem com Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce2525927b38a2d3300d15b7d34324f5ff59e4e5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96457428"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Troubleshoot SQL connectivity issues with Azure AD Connect (Resolver problemas de conectividade do SQL com o Azure AD Connect)

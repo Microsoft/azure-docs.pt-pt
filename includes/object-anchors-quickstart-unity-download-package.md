@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/18/2021
 ms.author: crtreasu
 ms.openlocfilehash: 4345810292896cf88de19baf419eee025ba5853f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044790"
 ---
 O próximo passo é descarregar o pacote Azure Object Anchors para unidade.

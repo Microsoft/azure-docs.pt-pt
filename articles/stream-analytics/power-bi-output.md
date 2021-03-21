@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020065"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Saída de Power BI da Azure Stream Analytics
@@ -23,7 +23,7 @@ A produção de Power BI do Stream Analytics não está atualmente disponível n
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para configurar a sua saída Power BI.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída |Forneça um nome amigável que seja usado em consultas para direcionar a saída de consulta para esta saída Power BI. |
 | Espaço de trabalho em grupo |Para ativar a partilha de dados com outros utilizadores do Power BI, pode selecionar grupos dentro da sua conta Power BI ou escolher **o My Workspace** se não quiser escrever para um grupo. A atualização de um grupo existente requer a renovação da autenticação Power BI. |
@@ -77,7 +77,7 @@ Datetime | Cadeia | Cadeia |  Datetime | String
 
 Para o tamanho do lote de saída, consulte [os limites da API de repouso Power BI](/power-bi/developer/automation/api-rest-api-limitations).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI (pré-visualização)](powerbi-output-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

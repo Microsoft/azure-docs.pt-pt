@@ -1,5 +1,5 @@
 ---
-title: Autorizar o acesso a blobs com AzCopy & Azure Ative Directory [ Microsoft Docs
+title: Autorizar o acesso a blobs com AzCopy & Azure Ative Directory | Microsoft Docs
 description: Pode fornecer credenciais de autorização para operações AzCopy utilizando o Azure Ative Directory (Azure AD).
 author: normesta
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672496"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizar o acesso a blobs com AzCopy e Azure Ative Directory (Azure AD)

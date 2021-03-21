@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: cc58689e30e9b03e490c0871f3decd50372371fa
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421928"
 ---
 # <a name="convert-to-csv-module"></a>Converter para módulo CSV
@@ -48,9 +48,9 @@ Quando converte um conjunto de dados para CSV, o csv é guardado no seu espaço 
 
 Selecione o separador **Saídas** no painel direito de **Converter para CSV** e selecione num destes ícones sob as **saídas** da Porta .  
 
-+ **Registar conjunto de dados** : Selecione o ícone e guarde o ficheiro CSV de volta para o espaço de trabalho Azure ML como um conjunto de dados separado. Pode encontrar o conjunto de dados como um módulo na árvore do módulo sob a secção **My Datasets.**
++ **Registar conjunto de dados**: Selecione o ícone e guarde o ficheiro CSV de volta para o espaço de trabalho Azure ML como um conjunto de dados separado. Pode encontrar o conjunto de dados como um módulo na árvore do módulo sob a secção **My Datasets.**
 
- + **Ver saída** : Selecione o ícone do olho e siga as instruções para navegar na pasta **Results_dataset** e descarregue o ficheiro data.csv.
+ + **Ver saída**: Selecione o ícone do olho e siga as instruções para navegar na pasta **Results_dataset** e descarregue o ficheiro data.csv.
 
 ## <a name="next-steps"></a>Passos seguintes
 

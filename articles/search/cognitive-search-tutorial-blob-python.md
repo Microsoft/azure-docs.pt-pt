@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788088"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use Python e IA para gerar conteúdo pesmável a partir de bolhas Azure
@@ -45,7 +45,7 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 
 1. Abra esta [pasta OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e no canto superior esquerdo, clique em **Baixar** para copiar os ficheiros para o seu computador. 
 
-1. Clique com o botão direito no ficheiro zip e selecione **Extract All** . Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
+1. Clique com o botão direito no ficheiro zip e selecione **Extract All**. Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
 
 ## <a name="1---create-services"></a>1 - Criar serviços
 
@@ -63,13 +63,13 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. No separador Básicos, são necessários os seguintes itens. Aceite os incumprimentos para tudo o resto.
 
-   + **Grupo de recursos** . Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
+   + **Grupo de recursos**. Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
 
-   + **Nome da conta de armazenamento** . Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus* . 
+   + **Nome da conta de armazenamento**. Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus*. 
 
-   + **Localização** . Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
+   + **Localização**. Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
 
-   + **Tipo de Conta** . Escolha o predefinido, *StorageV2 (finalidade geral v2)* .
+   + **Tipo de Conta**. Escolha o predefinido, *StorageV2 (finalidade geral v2)*.
 
 1. Clique **em 'Rever + Criar'** para criar o serviço.
 
@@ -77,11 +77,11 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. Clique no serviço **Blobs.**
 
-1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo* .
+1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo*.
 
 1. Selecione *a demonstração de pesquisa de cog e,* em seguida, clique em **Upload** para abrir a pasta onde guardou os ficheiros de descarregamento. Selecione todos os ficheiros de não imagem. Devia ter 7 ficheiros. Clique **em OK** para carregar.
 
-   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Criar conta de Armazenamento" border="false":::
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Carregar ficheiros de amostras" border="false":::
 
 1. Antes de sair do Azure Storage, obtenha uma cadeia de ligação para que possa formular uma ligação na Pesquisa Cognitiva Azure. 
 
@@ -117,7 +117,7 @@ Tal como acontece com o armazenamento da Azure Blob, aproveite um momento para r
 
    Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Criar conta de Armazenamento" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 Todos os pedidos requerem uma chave API no cabeçalho de cada pedido enviado ao seu serviço. Uma chave válida estabelece confiança, por pedido, entre o pedido de envio do pedido e o serviço que o trata.
 
@@ -190,11 +190,11 @@ O pedido deve devolver um código de estado de 201 confirmando o sucesso.
 
 No portal Azure, na página do dashboard do serviço de pesquisa, verifique se a fonte de dados cogsrch-py aparece na lista de fontes de **dados.** Clique em **Atualizar** para atualizar a página.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Criar conta de Armazenamento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Azulejos de fontes de dados no portal" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Passo 2: Criar um skillset
 
-Neste passo, definirá um conjunto de passos de enriquecimento para aplicar aos seus dados. Um passo de melhoramento é denominado *competência* e o conjunto de passos de melhoramento é denominado *conjunto de competências* . Este tutorial usa [habilidades cognitivas incorporadas](cognitive-search-predefined-skills.md) para o skillset:
+Neste passo, definirá um conjunto de passos de enriquecimento para aplicar aos seus dados. Um passo de melhoramento é denominado *competência* e o conjunto de passos de melhoramento é denominado *conjunto de competências*. Este tutorial usa [habilidades cognitivas incorporadas](cognitive-search-predefined-skills.md) para o skillset:
 
 + [Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md) para extrair os nomes das organizações do conteúdo do recipiente blob.
 
@@ -303,7 +303,7 @@ Cada competência é executada no conteúdo do documento. Durante o processament
 
 Veja a seguir uma representação gráfica do conjunto de competências.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Criar conta de Armazenamento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Compreender um skillset" border="false":::
 
 As saídas podem ser mapeadas para um índice, usado como entrada para uma habilidade a jusante, ou ambos, como é o caso do código linguístico. No índice, o código de idioma é útil para a filtragem. Como entrada, o código de idioma é utilizado pelas competências de análise de texto para informar sobre as regras linguísticas em torno da separação de palavras.
 
@@ -311,7 +311,7 @@ Para obter mais informações acerca das noções básicas do conjunto de compet
 
 ### <a name="step-3-create-an-index"></a>Passo 3: Criar um índice
 
-Nesta secção, define o esquema de índice especificando os campos a incluir no índice pes pes pescável e definindo os atributos de pesquisa para cada campo. Os campos têm um tipo e podem ter atributos que determinam a forma como o campo é utilizado (pesquisável, ordenável e assim por diante). Os nomes dos campos num índice não têm necessariamente de corresponder aos nomes dos campos na origem. Num passo posterior, vai adicionar mapeamentos de campos num indexador para ligar campos de origem-destino. Para este passo, defina o índice com convenções de nomenclatura de campo relevantes para a aplicação de pesquisa.
+Nesta secção, define o esquema de índice especificando os campos a incluir no índice pescável e definindo os atributos de pesquisa para cada campo. Os campos têm um tipo e podem ter atributos que determinam a forma como o campo é utilizado (pesquisável, ordenável e assim por diante). Os nomes dos campos num índice não têm necessariamente de corresponder aos nomes dos campos na origem. Num passo posterior, vai adicionar mapeamentos de campos num indexador para ligar campos de origem-destino. Para este passo, defina o índice com convenções de nomenclatura de campo relevantes para a aplicação de pesquisa.
 
 Neste exercício, utiliza os seguintes campos e tipos de campo:
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 Na resposta, monitorize os `"lastResult"` seus `"status"` `"endTime"` valores e valores. Execute periodicamente o script para verificar o estado. Quando o indexante tiver terminado, o estado será definido como "sucesso", será especificado um "endTime" e a resposta incluirá quaisquer erros e avisos ocorridos durante o enriquecimento.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Criar conta de Armazenamento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Indexer é criado" border="false":::
 
 Os avisos são comuns com algumas combinações de ficheiros de origem e competências e nem sempre indicam um problema. Muitos avisos são benignos. Por exemplo, se indexar um ficheiro JPEG que não tenha texto, verá o aviso nesta imagem.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Criar conta de Armazenamento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Aviso indexante de exemplo" border="false":::
 
 ## <a name="5---search"></a>5 - Pesquisar
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Os resultados devem ser semelhantes ao exemplo seguinte. A imagem mostra apenas uma parte da resposta.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Criar conta de Armazenamento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Índice de consulta para todos os campos" border="false":::
 
 O resultado é o esquema de índice, com o nome, o tipo e os atributos de cada campo.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Os resultados devem ser semelhantes ao exemplo seguinte. A imagem mostra apenas uma parte da resposta.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Criar conta de Armazenamento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Índice de consulta para o conteúdo das organizações" border="false":::
 
 Repita para campos adicionais: `content` , , e neste `languageCode` `keyPhrases` `organizations` exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
 
@@ -522,7 +522,7 @@ Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática p
 
 Pode utilizar o portal para eliminar índices, indexadores, fontes de dados e skillsets. Quando elimina o indexador, pode, opcionalmente, eliminar seletivamente o índice, o skillset e a fonte de dados ao mesmo tempo.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Criar conta de Armazenamento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Eliminar objetos de pesquisa no portal" border="false":::
 
 Também pode eliminá-los usando um script. O seguinte script mostra como apagar um skillset. 
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
 ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93089645"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Como escolher entre produção padrão (manual) e autoescala aussida 
@@ -55,7 +55,7 @@ Se tiver uma aplicação existente utilizando a produção padrão (manual), pod
 
 Em primeiro lugar, encontre a [métrica de consumo unitário de pedido normalizado](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) da sua base de dados ou recipiente. A utilização normalizada é uma medida do quanto está atualmente a utilizar a sua produção padrão (manual) aprovisionada. Quanto mais perto o número estiver a 100%, mais está a utilizar totalmente os seus RU/s provisões. [Saiba mais](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) sobre a métrica.
 
-Em seguida, determinar como a utilização normalizada varia ao longo do tempo. Encontre a utilização normalizada mais alta por cada hora. Em seguida, calcular a utilização normalizada média em todas as horas. Se vir que a sua utilização média é inferior a 66%, considere permitir a sua autoescalação na sua base de dados ou no seu contentor. Em contraste, se a utilização média for superior a 66%, recomenda-se que permaneça na produção normalizada (manual).
+Em seguida, determinar como a utilização normalizada varia ao longo do tempo. Encontre a utilização normalizada mais alta por cada hora. Em seguida, calcular a utilização normalizada média em todas as horas. Se vir que a utilização média é inferior a 66%, considere ativar o Dimensionamento automático na base de dados ou no contentor. Em contrapartida, se a utilização média for superior a 66%, recomenda-se que permaneça no débito aprovisionado padrão (manual).
 
 > [!TIP]
 > Se a sua conta estiver configurada para utilizar escritas multi-regiões e tiver mais de uma região, a taxa por 100 RU/s é a mesma tanto para o manual como para a autoescala. Isto significa que permitir a autoescala não incorre em custos adicionais, independentemente da utilização. Como resultado, é sempre recomendável utilizar autoescala com escritas multi-regiões quando se tem mais de uma região, para aproveitar as poupanças de pagar apenas para as escalas de inscrição ru/s para. Se tiver escritas multi-regiões e uma região, utilize a utilização média para determinar se a autoescala resultará em economia de custos. 
@@ -95,7 +95,7 @@ Note que na hora 1, quando há 6% de utilização, a autoescala cobrará RU/s po
 
 Esta carga de trabalho tem tráfego constante, com o consumo normalizado de RU a variar entre 72% e 100%. Com 30.000 RU/s a provisionados, isto significa que estamos a consumir entre 21.600 e 30.000 RU/s.
 
-:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Carga de trabalho com tráfego variável - consumo ru normalizado entre 6% e 100% para todas as horas":::
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Carga de trabalho com tráfego estável - consumo ru normalizado entre 72% e 100% para todas as horas":::
 
 Comparemos o custo de provisionamento de 30.000 RU/s de produção manual, versus a fixação de max RU/s de autoescala a 30.000 (balanças entre 3000 - 30.000 RU/s).
 
@@ -117,20 +117,20 @@ Em geral, se a utilização média em todas as 730 horas num mês for superior a
 Faturas de autoescala para os RU/s mais altos escalados em uma hora. Ao analisar o consumo de RU normalizado ao longo do tempo, é importante utilizar a utilização mais elevada por hora no cálculo da média. 
 
 Para calcular a média da maior utilização em todas as horas:
-1. Coloque a **agregação** na métrica de consumo de RU noramlizada para **Max** .
+1. Coloque a **agregação** na métrica de consumo de RU noramlizada para **Max**.
 1. Selecione a **granularidade tempo** a 1 hora.
-1. Navegue para **opções de gráficos** .
+1. Navegue para **opções de gráficos**.
 1. Selecione a opção de gráfico de barras. 
-1. Under **Share** , selecione a opção **Download para Excel.** A partir da folha de cálculo gerada, calcule a utilização média em todas as horas. 
+1. Under **Share**, selecione a opção **Download para Excel.** A partir da folha de cálculo gerada, calcule a utilização média em todas as horas. 
 
-:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Carga de trabalho com tráfego variável - consumo ru normalizado entre 6% e 100% para todas as horas":::
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Para ver o consumo normalizado de RU por hora, 1) Selecione a granularidade temporal para 1 hora; 2) Editar as definições do gráfico; 3) Selecione a opção de gráfico de barras; 4) Em Ação, selecione Baixar para Excel para calcular a média em todas as horas. ":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Meça e monitorize o seu uso
 Ao longo do tempo, depois de ter escolhido o tipo de produção, deve monitorizar a sua aplicação e fazer os ajustes conforme necessário. 
 
-Ao utilizar a autoescala, utilize o Azure Monitor para ver o max RU/s de **autoescala (Autoscale Max Throughput)** e o RU/s para o qual o sistema é atualmente dimensionado para ( **Provisioned Throughput** ). Abaixo está um exemplo de uma carga de trabalho variável ou imprevisível usando autoescala. Note que quando não há tráfego, o sistema escala o RU/s para o mínimo de 10% do máximo RU/s, que neste caso é 5000 RU/s e 50.000 RU/s, respectivamente. 
+Ao utilizar a autoescala, utilize o Azure Monitor para ver o max RU/s de **autoescala (Autoscale Max Throughput)** e o RU/s para o qual o sistema é atualmente dimensionado para (**Provisioned Throughput**). Abaixo está um exemplo de uma carga de trabalho variável ou imprevisível usando autoescala. Note que quando não há tráfego, o sistema escala o RU/s para o mínimo de 10% do máximo RU/s, que neste caso é 5000 RU/s e 50.000 RU/s, respectivamente. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Carga de trabalho com tráfego variável - consumo ru normalizado entre 6% e 100% para todas as horas":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Exemplo de carga de trabalho utilizando autoescala, com ru/s de escala automática de 50.000 RU/s e produção que varia de 5000 a 50.000 RU/s":::
 
 > [!NOTE]
 > Quando utiliza a produção padrão (manual) prevista, a métrica **de produção de provisionamento** refere-se ao que você como utilizador definiu. Quando utiliza a produção de autoescala, esta métrica refere-se ao RU/s para o qual o sistema é atualmente dimensionado.

@@ -11,10 +11,10 @@ ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953955"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
@@ -23,7 +23,7 @@ O Azure Ative Directory B2C fornece a identidade entre empresas e clientes como 
 
 ![Infográfico de fornecedores de identidade Azure AD B2C e aplicações a jusante](./media/overview/azureadb2c-overview.png)
 
-O Azure Ative Directory B2C (Azure AD B2C) é uma solução de gestão de acesso à identidade do cliente (CIAM) capaz de suportar milhões de utilizadores e milhares de milhões de autenticações por dia. Trata da escala e segurança da plataforma de autenticação, monitorizando e manuseando automaticamente ameaças como negação de serviço, spray de senha ou ataques de força bruta.
+O Azure Active Directory B2C (AAD B2C) é uma solução de gestão de acesso de identidade do cliente (CIAM) capaz de suportar milhões de utilizadores e milhares de milhões de autenticações por dia. Trata da escala e segurança da plataforma de autenticação, monitorizando e manuseando automaticamente ameaças como negação de serviço, spray de senha ou ataques de força bruta.
 
 ## <a name="custom-branded-identity-solution"></a>Solução de identidade de marca personalizada
 

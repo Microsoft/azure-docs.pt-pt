@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: 206ff6f888229356743bebb816cf03e4f7a7504b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778714"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerir a expiração do armazenamento da Azure Blob na Azure CDN
@@ -47,44 +47,44 @@ O método preferido para definir o cabeçalho de uma bolha `Cache-Control` é us
 > [!NOTE] 
 > As regras de caching estão disponíveis apenas para **Azure CDN Standard da Verizon** e **Azure CDN Standard a partir de** perfis Akamai. Para **o Azure CDN Premium a partir de** perfis Verizon, deve utilizar o motor de [regras Azure CDN](./cdn-verizon-premium-rules-engine.md) no portal **Manage** para obter funcionalidades semelhantes.
 
-**Para navegar na página de regras do caching CDN** :
+**Para navegar na página de regras do caching CDN**:
 
 1. No portal Azure, selecione um perfil CDN e, em seguida, selecione o ponto final para a bolha.
 
-2. No painel esquerdo, em Definições, selecione **Regras de colocação em cache** .
+2. No painel esquerdo, em Definições, selecione **Regras de colocação em cache**.
 
    ![Botão de regras de caching CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
 
-   É apresentada a página **Regras de colocação em cache** .
+   É apresentada a página **Regras de colocação em cache**.
 
    ![Página de caching CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
 **Para definir os cabeçalhos Cache-Control de um serviço blob utilizando regras globais de caching:**
 
-1. De acordo com **as regras globais de caching** , desempenhar **o comportamento de caching de cordas de consulta** para ignorar as cordas de **consulta** e definir o comportamento **de Caching** para **Override** .
+1. De acordo com **as regras globais de caching**, desempenhar **o comportamento de caching de cordas de consulta** para ignorar as cordas de **consulta** e definir o comportamento **de Caching** para **Override**.
       
-2. Para **a duração de validade da Cache** , introduza 3600 na caixa **Seconds** ou 1 na caixa **Horas.** 
+2. Para **a duração de validade da Cache**, introduza 3600 na caixa **Seconds** ou 1 na caixa **Horas.** 
 
    ![CdN global caching regras exemplo](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
 
    Esta regra global de cache define uma duração de cache de uma hora e afeta todos os pedidos para o ponto final. Substitui qualquer `Cache-Control` cabeçalho ou `Expires` HTTP que são enviados pelo servidor de origem especificado pelo ponto final.   
 
-3. Selecione **Guardar** .
+3. Selecione **Guardar**.
  
 **Para definir os cabeçalhos Cache-Control de um ficheiro blob utilizando regras de caching personalizadas:**
 
 1. De acordo com **as regras de caching personalizado,** crie duas condições de jogo:
 
-     A. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/blobcontainer1/*` **introduza o valor de Match** . **Desentuê-lo** para **substituir** e introduza 4 na caixa **Horas.**
+     A. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/blobcontainer1/*` **introduza o valor de Match**. **Desentuê-lo** para **substituir** e introduza 4 na caixa **Horas.**
 
-    B. Para a segunda condição de jogo, desacordo **a condição de jogo** para **Path** e `/blobcontainer1/blob1.txt` **introduza o valor do Match** . **Desentuê-lo** para **substituir** e introduza 2 na caixa **Horas.**
+    B. Para a segunda condição de jogo, desacordo **a condição de jogo** para **Path** e `/blobcontainer1/blob1.txt` **introduza o valor do Match**. **Desentuê-lo** para **substituir** e introduza 2 na caixa **Horas.**
 
     ![CdN costume caching regras exemplo](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-example.png)
 
     A primeira regra de cache personalizada define uma duração de cache de quatro horas para quaisquer ficheiros blob `/blobcontainer1` na pasta no servidor de origem especificado pelo seu ponto final. A segunda regra substitui apenas a primeira regra do `blob1.txt` ficheiro blob e define uma duração de cache de duas horas para o mesmo.
 
-2. Selecione **Guardar** .
+2. Selecione **Guardar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Definição de cabeçalhos Cache-Control utilizando Azure PowerShell
@@ -158,7 +158,7 @@ Com [o Azure Storage Explorer,](https://azure.microsoft.com/features/storage-exp
 Para atualizar a propriedade *CacheControl* de uma bolha com O Explorador de Armazenamento Azure:
    1. Selecione uma bolha e, em seguida, **selecione Propriedades** do menu de contexto. 
    2. Desloque-se até à propriedade *CacheControl.*
-   3. Introduza um valor e, em seguida, **selecione Guardar** .
+   3. Introduza um valor e, em seguida, **selecione Guardar**.
 
 
 ![Propriedades do Azure Storage Explorer](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
@@ -173,7 +173,7 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>Serviços de armazenamento Azure REST API
 Pode utilizar os [serviços de armazenamento Azure REST API](/rest/api/storageservices/) para definir explicitamente a propriedade *x-ms-blob-cache-control,* utilizando as seguintes operações a pedido:
   
-   - [Coloque Blob](/rest/api/storageservices/Put-Blob)
+   - [Colocar o Blob](/rest/api/storageservices/Put-Blob)
    - [Colocar lista de blocos](/rest/api/storageservices/Put-Block-List)
    - [Definir propriedades blob](/rest/api/storageservices/Set-Blob-Properties)
 

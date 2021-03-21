@@ -8,15 +8,15 @@ ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: bd4af178d6e70d910d4643fc30c29fc8eb85303c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93043201"
 ---
 Neste passo, precisa das suas credenciais de subscrição Azure.
 
-O recurso principal para configurar para Azure File Sync é chamado de *Serviço de Sincronização de Armazenamento* . Recomendamos que implemente apenas um para todos os servidores que estejam a sincronizar o mesmo conjunto de ficheiros agora ou no futuro. Crie vários Serviços de Sincronização de Armazenamento apenas se tiver conjuntos distintos de servidores que nunca devem trocar dados. Por exemplo, pode ter servidores que nunca devem sincronizar a mesma partilha de ficheiros Azure. Caso contrário, um único Serviço de Sincronização de Armazenamento é a melhor prática.
+O recurso principal para configurar para Azure File Sync é chamado de *Serviço de Sincronização de Armazenamento*. Recomendamos que implemente apenas um para todos os servidores que estejam a sincronizar o mesmo conjunto de ficheiros agora ou no futuro. Crie vários Serviços de Sincronização de Armazenamento apenas se tiver conjuntos distintos de servidores que nunca devem trocar dados. Por exemplo, pode ter servidores que nunca devem sincronizar a mesma partilha de ficheiros Azure. Caso contrário, um único Serviço de Sincronização de Armazenamento é a melhor prática.
 
 Escolha uma região Azure para o seu Serviço de Sincronização de Armazenamento que esteja perto da sua localização. Todos os outros recursos em nuvem devem ser implantados na mesma região. Para simplificar a gestão, crie um novo grupo de recursos na sua subscrição que aloja recursos de sincronização e armazenamento.
 

@@ -1,13 +1,13 @@
 ---
-title: Gerir laboratórios nos Serviços Azure Lab Microsoft Docs
+title: Gerir laboratórios em Azure Lab Services | Microsoft Docs
 description: Aprenda a criar e configurar um laboratório de sala de aula, ver todos os laboratórios, partilhar a ligação de registo com um utilizador de laboratório ou apagar um laboratório.
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434214"
 ---
 # <a name="manage-labs-in-azure-lab-services"></a>Gerir laboratórios em Azure Lab Services 
@@ -89,7 +89,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 ### <a name="vm-sizes"></a>Tamanhos de VM  
 
-| Tamanho | Núcleos | RAM | Descrição | 
+| Tamanho | Núcleos | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise | 

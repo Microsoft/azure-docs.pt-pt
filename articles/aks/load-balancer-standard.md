@@ -8,10 +8,10 @@ ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: e37c5a748a8e99f49e3535946268427139bbbf44
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102184428"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
@@ -346,7 +346,7 @@ Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a
 4. Avalie se os [padrões adequados são seguidos.](#design-patterns)
 5. Avaliar se o esgotamento da porta SNAT deve ser atenuado com [endereços IP adicionais de saída + portas de saída adicionais atribuídas](#configure-the-allocated-outbound-ports) .
 
-### <a name="design-patterns"></a>Padrões de estrutura
+### <a name="design-patterns"></a>Padrões de design
 Aproveite sempre que possível a reutilização da ligação e a ligação. Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e estruturas de desenvolvimento.
 
 - Os pedidos atómicos (um pedido por ligação) geralmente não são uma boa escolha de design. Tal escala de limites anti-padrão, reduz o desempenho e diminui a fiabilidade. Em vez disso, reutilizar as ligações HTTP/S para reduzir o número de ligações e portas SNAT associadas. A escala de aplicação aumentará e o desempenho melhorará devido à redução dos apertos de mão, sobrecarga e custo de operação criptográfico ao utilizar o TLS.

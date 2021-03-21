@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/08/2020
 ms.openlocfilehash: 636f84c4c6aa097288dc2fb5481dcedd6863409d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942873"
 ---
 # <a name="rest-api-to-query-apache-hbase-in-azure-hdinsight"></a>REST API para consultar Apache HBase em Azure HDInsight
@@ -27,7 +27,7 @@ A API HBase REST só é suportada quando utilizar o espaço de nome predefinido.
 
 Contorne o servidor Gateway/REST implantando a sua aplicação num VM que está localizado no mesmo Azure VNet que o cluster HDInsight. Em seguida, pode comunicar com a HBase diretamente através do RPC (contornando completamente o servidor REST), quer para servidores individuais DO REST que executam nos nós dos trabalhadores que contornam o HDInsight Gateways.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

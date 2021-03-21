@@ -4,10 +4,10 @@ description: Como excluir discos da replicação para Azure com a Recuperação 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008264"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastres
@@ -26,7 +26,7 @@ Pode excluir discos da replicação como resumido na tabela.
 
 **Azure para o Azure** | **VMware para o Azure** | **Hyper-V para o Azure** | **Servidor Físico para Azure**
 --- | --- | --- | ---
-Sim | Sim | Sim | Sim
+Yes | Yes | Yes | Yes
 
 ## <a name="exclude-limitations"></a>Excluir limitações
 
@@ -56,13 +56,13 @@ Exemplos de dados que são grandes candidatos à exclusão incluem escritas para
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: excluir o disco tempdb do SQL Server
 
-Vamos ver como lidar com a exclusão do disco, failover e failover para uma fonte SQL Server Windows VM - **SalesDB** _, para o qual queremos excluir a temperatura. 
+Vamos ver como lidar com a exclusão do disco, failover e failover para uma fonte SQL Server Windows VM - **SalesDB****, para o qual queremos excluir a temperatura. 
 
 ### <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 
 Temos estes discos na fonte Do Windows VM SalesDB.
 
-_ *Nome do disco** | **Disco de SO convidado** | **Letra da unidade** | **Tipo de dados de disco**
+**Nome do disco** | **Disco de SO convidado** | **Letra da unidade** | **Tipo de dados de disco**
 --- | --- | --- | ---
 DB-Disk0-OS | Disco0 | C:\ | Disco do sistema operativo.
 DB-Disk1| Disk1 | D:\ | Base de dados do sistema SQL e Base de Dados de Utilizador1.

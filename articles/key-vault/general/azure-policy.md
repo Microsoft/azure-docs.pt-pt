@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927758"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o Azure Key Vault no Azure Policy
@@ -29,9 +29,9 @@ Exemplo de cenários de utilização:
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Tipos de efeitos e orientações políticas
 
-**Auditoria** : Quando o efeito de uma política estiver definido para a auditoria, a política não provocará alterações no seu ambiente. Irá apenas alertá-lo para componentes como certificados que não cumpram as definições de política dentro de um âmbito especificado, marcando estes componentes como incompatíveis no painel de conformidade da política. A auditoria é padrão se não for selecionado nenhum efeito de política.
+**Auditoria**: Quando o efeito de uma política estiver definido para a auditoria, a política não provocará alterações no seu ambiente. Irá apenas alertá-lo para componentes como certificados que não cumpram as definições de política dentro de um âmbito especificado, marcando estes componentes como incompatíveis no painel de conformidade da política. A auditoria é padrão se não for selecionado nenhum efeito de política.
 
-**Negar** : Quando o efeito de uma política for desatado, a política bloqueará a criação de novos componentes, tais como certificados, bem como bloqueará novas versões de componentes existentes que não cumpram a definição de política. Os recursos existentes não conformes dentro de um cofre chave não são afetados. As capacidades de auditoria continuarão a funcionar.
+**Negar**: Quando o efeito de uma política for desatado, a política bloqueará a criação de novos componentes, tais como certificados, bem como bloqueará novas versões de componentes existentes que não cumpram a definição de política. Os recursos existentes não conformes dentro de um cofre chave não são afetados. As capacidades de auditoria continuarão a funcionar.
 
 ## <a name="available-built-in-policy-definitions"></a>Definições de política "incorporadas" disponíveis
 
@@ -175,15 +175,15 @@ Gere um cofre usado por várias equipas que contém 100 certificados, e quer ter
 ### <a name="select-a-policy-definition"></a>Selecione uma definição de política
 
 1. Inicie sessão no portal do Azure. 
-1. Procure "Política" na Barra **Policy** de Pesquisa e Selecione.
+1. Procure "Política" na Barra de Pesquisa e Selecione.
 
     ![Screenshot que mostra a Barra de Pesquisa.](../media/policy-img1.png)
 
-1. Na janela Política, selecione **Definições** .
+1. Na janela Política, selecione **Definições**.
 
     ![Screenshot que realça a opção Definições.](../media/policy-img2.png)
 
-1. No filtro de categoria, **desescolh-se de tudo** e selecione o Cofre de **Chaves** . 
+1. No filtro de categoria, **desescolh-se de tudo** e selecione o Cofre de **Chaves**. 
 
     ![Screenshot que mostra o Filtro de Categoria e a categoria Key Vault selecionada.](../media/policy-img3.png)
 
@@ -226,7 +226,7 @@ Gere um cofre usado por várias equipas que contém 100 certificados, e quer ter
 
     ![Visão geral de como funciona o Azure Key Vault](../media/policy-img11.png)
 
-## <a name="feature-limitations"></a>Limitações de recursos
+## <a name="feature-limitations"></a>Limitações da Funcionalidade
 
 A atribuição de uma política com efeito de "negação" pode levar até 30 minutos (caso médio) e 1 hora (pior caso) para começar a negar a criação de recursos não conformes. A avaliação política dos componentes existentes num cofre pode demorar até 1 hora (caso médio) e 2 horas (pior caso) antes de os resultados de conformidade serem visualizados no portal UI. Se os resultados da conformidade aparecerem como "Não Iniciados" pode ser devido às seguintes razões:
 - A avaliação política ainda não está concluída. A latência inicial da avaliação pode demorar até 2 horas no pior dos cenários. 

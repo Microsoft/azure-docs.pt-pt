@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
 ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485448"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidade em Base de Dados Azure para PostgreSQL – Servidor Único
@@ -24,7 +24,7 @@ A Azure Database for PostgreSQL é adequada para executar bases de dados crític
 | ------------ | ----------- |
 | <b>Servidor de base de dados postgresql | A Azure Database for PostgreSQL fornece segurança, isolamento, salvaguardas de recursos e capacidade de reinício rápido para servidores de bases de dados. Estas capacidades facilitam operações como a operação de recuperação de servidores de escala e de base de dados após uma paragem em segundos. <br/> As modificações de dados no servidor da base de dados ocorrem normalmente no contexto de uma transação de base de dados. Todas as alterações na base de dados são registadas sincronizadamente sob a forma de registos de escrita antecipada (WAL) no Azure Storage – que está anexado ao servidor de base de dados. Durante o processo [de verificação](https://www.postgresql.org/docs/11/sql-checkpoint.html) da base de dados, as páginas de dados da memória do servidor de base de dados também são lavadas para o armazenamento. |
 | <b>Armazenamento remoto | Todos os ficheiros de dados físicos postgreSQL e ficheiros WAL são armazenados no Azure Storage, que é projetado para armazenar três cópias de dados dentro de uma região para garantir a redundância, disponibilidade e fiabilidade dos dados. A camada de armazenamento também é independente do servidor de base de dados. Pode ser desligado de um servidor de base de dados falhado e religado a um novo servidor de base de dados em poucos segundos. Além disso, o Azure Storage monitoriza continuamente quaisquer falhas de armazenamento. Se for detetada uma corrupção de bloco, é automaticamente corrigida através da instantânea nova cópia de armazenamento. |
-| <b>Porta de entrada | O Gateway funciona como um representante de base de dados, encaminha todas as ligações do cliente para o servidor de base de dados. |
+| <b>Gateway | O Gateway funciona como um representante de base de dados, encaminha todas as ligações do cliente para o servidor de base de dados. |
 
 ## <a name="planned-downtime-mitigation"></a>Mitigação prevista para o tempo de inatividade
 A Azure Database for PostgreSQL é projetado para fornecer alta disponibilidade durante as operações planeadas de inatividade. 
@@ -49,7 +49,7 @@ Aqui estão alguns cenários de manutenção planeados:
 O tempo de inatividade não planeado pode ocorrer em resultado de falhas imprevistas, incluindo falhas subjacentes ao hardware, problemas de rede e bugs de software. Se o servidor de base de dados se avariar inesperadamente, um novo servidor de base de dados é automaticamente a provisionado em segundos. O armazenamento remoto é automaticamente anexado ao novo servidor de base de dados. O motor PostgreSQL executa a operação de recuperação utilizando ficheiros WAL e base de dados e abre o servidor de base de dados para permitir que os clientes se conectem. As transações não autorizadas perdem-se e têm de ser novamente julgadas pelo pedido. Embora não seja possível evitar um tempo de inatividade não planeado, a Base de Dados Azure para PostgreSQL atenua o tempo de inatividade, realizando automaticamente operações de recuperação tanto no servidor de base de dados como nas camadas de armazenamento sem necessidade de intervenção humana. 
 
 
-:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="vista de Elastic Scaling em Azure PostgreSQL":::
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="vista de Alta Disponibilidade em Azure PostgreSQL":::
 
 1. Servidores Azure PostgreSQL com capacidades de escala rápida.
 2. Gateway que funciona como um proxy para encaminhar as ligações do cliente para o servidor de base de dados adequado

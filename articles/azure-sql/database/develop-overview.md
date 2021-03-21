@@ -11,10 +11,10 @@ ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
 ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92782982"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Visão geral do desenvolvimento de aplicações - SQL Database & SQL Managed Instance
@@ -45,7 +45,7 @@ Evite transações de longa duração porque qualquer falha de infraestrutura ou
 
 ## <a name="resiliency"></a>Resiliência
 
-A Azure SQL Database é um serviço de nuvem onde se podem esperar erros transitórios que ocorram na infraestrutura subjacente ou na comunicação entre entidades em nuvem. Embora o Azure SQL Database seja resistente às falhas de infraestrutura transitivas, estas falhas podem afetar a sua conectividade. Quando ocorrer um erro transitório durante a ligação à Base de Dados SQL, o seu código deve [voltar a tentar a chamada](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the service with multiple clients retrying simultaneously. A lógica de recandidúsão depende das mensagens de erro dos programas de [clientes da SQL Database](troubleshoot-common-errors-issues.md).
+A Azure SQL Database é um serviço de nuvem onde se podem esperar erros transitórios que ocorram na infraestrutura subjacente ou na comunicação entre entidades em nuvem. Embora o Azure SQL Database seja resistente às falhas de infraestrutura transitivas, estas falhas podem afetar a sua conectividade. Quando ocorrer um erro transitório durante a ligação à Base de Dados SQL, o seu código deve [voltar a tentar a chamada](troubleshoot-common-connectivity-issues.md). Recomendamos que volte a tentar a lógica de utilização lógica, de modo que não sobreponha o serviço com vários clientes redando simultaneamente. A lógica de recandidúsão depende das mensagens de erro dos programas de [clientes da SQL Database](troubleshoot-common-errors-issues.md).
 
 Para obter mais informações sobre como preparar eventos de manutenção planeados na sua Base de Dados Azure SQL, consulte [o planeamento de eventos de manutenção do Azure na Base de Dados Azure SQL](planned-maintenance.md).
 

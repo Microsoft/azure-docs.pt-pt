@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 5bd52e8865bb704497740851f6a0e3c886ed9d6d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790212"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Tráfego de rede de rotas com uma tabela de rotas usando PowerShell
@@ -327,7 +327,7 @@ Quando já não for necessário, utilize [o Remove-AzResourcegroup](/powershell/
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou uma tabela de rotas e associou-a a uma sub-rede. Criou um simples aparelho virtual de rede que encaminhou o tráfego de uma sub-rede pública para uma sub-rede privada. Implementar uma variedade de aparelhos virtuais de rede pré-configurados que desempenham funções de rede como firewall e otimização WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
 

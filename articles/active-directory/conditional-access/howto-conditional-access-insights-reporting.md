@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574182"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Informações e relatórios de acesso condicional
@@ -91,7 +91,7 @@ Uma vez definidos os parâmetros, o resumo do impacto carrega. O resumo mostra q
 
 Ver a avaria dos utilizadores ou inscrições para cada uma das condições. Pode filtrar as entradas de um resultado específico (por exemplo, Sucesso ou Falha) selecionando os azulejos sumários na parte superior do livro. Pode ver a desagregação de logins para cada uma das condições de Acesso Condicional: estado do dispositivo, plataforma do dispositivo, aplicação do cliente, localização, aplicação e risco de inscrição.  
 
-## <a name="sign-in-details"></a>Detalhes de inscrição 
+## <a name="sign-in-details"></a>Detalhes de início de sessão 
 
 ![Detalhes de inscrição no livro](./media/howto-conditional-access-insights-reporting/workbook-sign-in-details.png)
 

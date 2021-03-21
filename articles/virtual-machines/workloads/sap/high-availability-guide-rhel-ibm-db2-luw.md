@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
 ms.openlocfilehash: 979de230655b4804fa65a4bddb678e21b59c4ea2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101674454"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
@@ -36,7 +36,7 @@ As versões IBM Db2 suportadas são 10.5 e posteriormente, como documentado na n
 
 Antes de iniciar uma instalação, consulte as seguintes notas e documentação SAP:
 
-| Nota SAP | Descrição |
+| Nota SAP | Description |
 | --- | --- |
 | [1928533] | Aplicações SAP no Azure: Produtos suportados e tipos de VM Azure |
 | [2015553] | SAP on Azure: Pré-requisitos de apoio |
@@ -69,7 +69,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) ou em [zonas de disponibilidade Azure.](./sap-ha-availability-zones.md) 
 
 Os gráficos a seguir exibem uma configuração de dois VMs de servidor de base de dados Azure. Ambos os servidores de base de dados Azure VMs têm o seu próprio armazenamento anexado e estão em funcionamento. Em HADR, uma das caixas de dados de uma das VMs do Azure tem o papel da primeira instância. Todos os clientes estão ligados à primeira instância. Todas as alterações nas transações de base de dados são persistiu localmente no registo de transações Db2. À medida que os registos de registo de transações são persistidos localmente, os registos são transferidos via TCP/IP para a caixa de dados no segundo servidor de base de dados, no servidor de espera ou na instância de standby. A instância de espera atualiza a base de dados local, transmitindo os registos de registos de transações transferidos. Desta forma, o servidor de espera é mantido sincronizado com o servidor primário.

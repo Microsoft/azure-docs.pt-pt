@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421350"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
@@ -109,9 +109,9 @@ Para ver os resultados, no pipeline, clique à direita no módulo Modelo Validad
 
 O módulo também inclui as seguintes métricas para cada dobra, dependendo do tipo de modelo que está a avaliar: 
 
-+ **Modelos de classificação** : Precisão, recordação, pontuação F, AUC, precisão  
++ **Modelos de classificação**: Precisão, recordação, pontuação F, AUC, precisão  
 
-+ **Modelos de regressão** : Erro absoluto, erro quadrado de raiz, erro absoluto relativo, erro quadrado relativo e coeficiente de determinação
++ **Modelos de regressão**: Erro absoluto, erro quadrado de raiz, erro absoluto relativo, erro quadrado relativo e coeficiente de determinação
 
 
 ## <a name="technical-notes"></a>Notas técnicas  

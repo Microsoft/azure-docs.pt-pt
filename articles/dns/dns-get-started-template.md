@@ -10,10 +10,10 @@ ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
 ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791006"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Quickstart: Crie uma zona de DNS Azure e grave usando um modelo ARM
@@ -22,7 +22,7 @@ Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (Modelo
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
@@ -66,7 +66,7 @@ Para encontrar mais modelos relacionados com O Gestor de Tráfego Azure, consult
 
 1. Selecione **Copiar** do bloco de código anterior para copiar o script PowerShell.
 
-1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta** .
+1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta**.
 
 1. Insira os valores.
 
@@ -80,7 +80,7 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **grupos** de recursos do painel esquerdo.
 
@@ -88,11 +88,11 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
 1. O grupo de recursos deve conter os seguintes recursos vistos aqui:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Grupo de recursos de implementação de zona DE DNS":::
 
 1. Selecione a zona DNS com o sufixo de `azurequickstart.org` verificar se a zona é criada corretamente com um registo que refere o valor de e `A` `1.2.3.4` `1.2.3.5` .
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Implantação da zona de DNS":::
 
 1. Copie um dos nomes do servidor de nomes do passo anterior.
 
@@ -110,7 +110,7 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
    Deve ver algo como a seguinte imagem:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="ZONA DNS nslookup":::
 
 O nome do hospedeiro `www.2lwynbseszpam.azurequickstart.org` resolve `1.2.3.4` `1.2.3.5` e, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 

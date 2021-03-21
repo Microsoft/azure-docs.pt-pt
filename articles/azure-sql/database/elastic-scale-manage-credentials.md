@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 5b91986d4f94861b87e413c9ff781107c3ed04a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786603"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais utilizadas para aceder à biblioteca de clientes elastic Database
@@ -31,7 +31,7 @@ Consulte também [bases de dados e logins na Base de Dados Azure SQL](logins-cre
 
 ## <a name="about-management-credentials"></a>Sobre credenciais de gestão
 
-As credenciais de gestão são usadas para criar um objeto **ShardMapManager** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET)](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)para aplicações que manipulam mapas de fragmentos. (Por exemplo, ver [Adicionar um fragmento utilizando ferramentas elásticas de base de dados](elastic-scale-add-a-shard.md) e [encaminhamento dependente de dados).](elastic-scale-data-dependent-routing.md) O utilizador da biblioteca de clientes de escala elástica cria os utilizadores SQL e os logins SQL e garante que cada um recebe as permissões de leitura/escrita na base de dados global de mapas de fragmentos e em todas as bases de dados de fragmentos também. Estas credenciais são usadas para manter o mapa global de fragmentos e os mapas de fragmentos locais quando são realizadas alterações ao mapa de fragmentos. Por exemplo, utilize as credenciais de gestão para criar o objeto de gestor de mapas de fragmentos (utilizando **o GetSqlShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
+As credenciais de gestão são usadas para criar um objeto **ShardMapManager** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET)](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)para aplicações que manipulam mapas de fragmentos. (Por exemplo, ver [Adicionar um fragmento utilizando ferramentas elásticas de base de dados](elastic-scale-add-a-shard.md) e [encaminhamento dependente de dados).](elastic-scale-data-dependent-routing.md) O utilizador da biblioteca de clientes de escala elástica cria os utilizadores SQL e os logins SQL e garante que cada um recebe as permissões de leitura/escrita na base de dados global de mapas de fragmentos e em todas as bases de dados de fragmentos também. Estas credenciais são usadas para manter o mapa global de fragmentos e os mapas de fragmentos locais quando são realizadas alterações ao mapa de fragmentos. Por exemplo, utilize as credenciais de gestão para criar o objeto de gestor de mapas de fragmentos (utilizando **o GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
 
 ```java
 // Obtain a shard map manager.

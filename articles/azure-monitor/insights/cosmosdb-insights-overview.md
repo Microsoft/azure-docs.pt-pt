@@ -6,10 +6,10 @@ ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101725805"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para Azure Cosmos DB
@@ -47,7 +47,7 @@ Para visualizar a utilização e desempenho das suas contas de armazenamento em 
 
     ![Screenshot do livro de visão geral da Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 
 Em **visão geral,** a tabela apresenta métricas interativas de Azure Cosmos DB. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
 
@@ -71,7 +71,7 @@ Selecione **Falhas** no topo da página e a parte de **Falhas** do modelo de liv
 
 ![Screenshot de falhas com avaria por tipo de pedido HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Código |  Descrição       | 
+| Código |  Description       | 
 |-----------|:--------------------|
 | `200 OK`  | Uma das seguintes operações REST foi bem sucedida: </br>- Obter um recurso. </br> - Coloque um recurso. </br> - Post num recurso. </br> - POST num recurso de procedimento armazenado para executar o procedimento armazenado.|
 | `201 Created` | Uma operação POST para criar um recurso é bem sucedida. |
