@@ -3,18 +3,21 @@ title: Cenários para usar uma rede virtual
 description: Cenários, recursos e limitações para implantar grupos de contentores numa rede virtual Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033834"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606893"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
 [A Azure Virtual Network](../virtual-network/virtual-networks-overview.md) fornece redes seguras e privadas para os seus recursos Azure e no local. Ao implantar grupos de contentores numa rede virtual Azure, os seus contentores podem comunicar de forma segura com outros recursos na rede virtual. 
 
 Este artigo fornece antecedentes sobre cenários de rede virtuais, limitações e recursos. Para exemplos de implantação utilizando o CLI Azure, consulte [as instâncias de implantação de contentores numa rede virtual Azure](container-instances-vnet.md).
+
+> [!IMPORTANT]
+> A implantação do grupo de contentores para uma rede virtual está geralmente disponível para contentores Linux, na maioria das regiões onde existem instâncias para contentores Azure. Para mais informações, consulte [Regiões e disponibilidade de recursos.](container-instances-region-availability.md) 
 
 ## <a name="scenarios"></a>Cenários
 
@@ -45,12 +48,6 @@ Grupos de contentores implantados numa rede virtual Azure permitem cenários com
 * Se estiver a ligar o seu grupo de contentores a uma Conta de Armazenamento Azure, tem de adicionar um [ponto final](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço a esse recurso.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
-## <a name="where-to-deploy"></a>Onde implantar
-
-Estão disponíveis as seguintes regiões e recursos máximos para implantar um grupo de contentores numa rede virtual Azure.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="required-network-resources"></a>Recursos de rede necessários
 

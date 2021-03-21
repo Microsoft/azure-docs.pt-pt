@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 9f62f262e1baa70982e667379a9bf4357197ecb4
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 0805537fe0791a622eb1814cc233c04d914dbecd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495475"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613021"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -66,6 +66,27 @@ Este quickstart usa webpack para agregar os ativos da aplicação. Executar o se
 npm install webpack webpack-cli webpack-dev-server --save-dev
 ```
 
+Crie um `webpack.config.js` ficheiro no diretório de raiz. Copie a seguinte configuração neste ficheiro:
+
+```
+module.exports = {
+  entry: "./client.js",
+  output: {
+    filename: "bundle.js"
+  },
+  devtool: "inline-source-map",
+  mode: "development"
+}
+```
+
+Adicione um `start` script ao seu , vamos `package.json` usá-lo para executar a aplicação. Dentro da `scripts` secção de adicionar o `package.json` seguinte:
+
+```
+"scripts": {
+  "start": "webpack serve --config ./webpack.config.js"
+}
+```
+
 Crie um **ficheiroindex.html** no diretório de raiz do seu projeto. Usaremos este ficheiro como modelo para adicionar capacidade de chat utilizando a biblioteca de clientes Azure Communication Chat para o JavaScript.
 
 ```html
@@ -111,9 +132,9 @@ console.log('Azure Communication Chat client created!');
 
 ### <a name="run-the-code"></a>Executar o código
 
-Use o `webpack-dev-server` para construir e executar a sua aplicação. Executar o seguinte comando para agregar anfitrião de aplicações em um webserver local:
+Executar o seguinte comando para agregar anfitrião de aplicações em um webserver local:
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npm run start
 ```
 Abra o seu navegador e navegue para http://localhost:8080/ .
 Na consola de ferramentas de desenvolvimento dentro do seu navegador deve ver o seguinte:

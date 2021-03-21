@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461713"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem em Azure Purview

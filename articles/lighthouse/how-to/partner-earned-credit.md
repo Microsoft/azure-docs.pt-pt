@@ -4,15 +4,15 @@ description: Saiba como associar o seu parceiro ID a receber o parceiro de créd
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100372098"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Ligue o seu parceiro de ID para acompanhar o seu impacto em recursos delegados 
 
-Se for membro da [Microsoft Partner Network,](https://partner.microsoft.com/)pode ligar o ID do seu parceiro às credenciais utilizadas para gerir os recursos delegados do cliente, permitindo à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso do cliente da Azure. Este link também permite que os parceiros [da CSP (Cloud Solution Provider)](/partner-center/csp-overview) recebam [crédito adquirido pelos serviços geridos (PEC)](/partner-center/partner-earned-credit) para clientes que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started)
+Se for membro da [Microsoft Partner Network,](https://partner.microsoft.com/)pode ligar o ID do seu parceiro às credenciais utilizadas para gerir os recursos delegados do cliente, permitindo à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso do cliente da Azure. Esta associação também permite que os parceiros [CSP (Fornecedor de Soluções Cloud)](/partner-center/csp-overview) recebam [crédito ganho pelo parceiro por serviços geridos (PEC)](/partner-center/partner-earned-credit) para clientes que tenham [assinado o Contrato de Cliente Microsoft (MCA)](/partner-center/confirm-customer-agreement) e que estão [ao abrigo do plano do Azure](/partner-center/azure-plan-get-started).
 
 Para obter reconhecimento para as atividades do Azure Lighthouse, terá de [ligar o seu ID MPN](../../cost-management-billing/manage/link-partner-id.md) a pelo menos uma conta de utilizador no seu inquilino gerente, e garantir que a conta ligada tem acesso a cada uma das suas subscrições a bordo.
 

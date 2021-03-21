@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 4a159f7fa384a6899fb3cbb4db3bba9e0ed02d52
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102639076"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configure TLS 1.2 em clientes windows que acedam ao dispositivo Azure Stack Edge Pro

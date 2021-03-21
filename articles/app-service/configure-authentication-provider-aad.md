@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0f028f264d02d7300bb888e2053708ef6b06ea51
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563341"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721567"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD
 
@@ -97,8 +97,8 @@ Para registar a aplicação, execute os seguintes passos:
     |-|-|
     |ID de Cliente| Utilize o ID de **Aplicação (cliente)** do registo da aplicação. |
     |Url emitente| Use `<authentication-endpoint>/<tenant-id>/v2.0` , e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para o seu ambiente em nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " para a https://login.microsoftonline.com Azure global), substituindo também *\<tenant-id>* pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é usado para redirecionar os utilizadores para o inquilino AZure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emitente simbólico, por exemplo. Para aplicações que usam Azure AD v1 e para aplicações Azure Functions, `/v2.0` omite no URL.|
-    |Segredo do Cliente (Opcional)| Use o segredo do cliente que gerou no registo da aplicação.|
-    |Audiências token permitidas| Se se trata de uma aplicação de cloud ou servidor e pretender permitir fichas de autenticação a partir de uma aplicação web, adicione aqui o **ID URI** da aplicação web. O **ID do Cliente** configurado é *sempre* implicitamente considerado como um público permitido. |
+    |Segredo do Cliente (Opcional)| Use o segredo do cliente que gerou no registo da aplicação. Com um segredo de cliente, o fluxo híbrido é usado e o Serviço de Aplicações devolverá acesso e atualização de fichas. Quando o segredo do cliente não é definido, o fluxo implícito é usado e apenas um símbolo de identificação é devolvido. Estes tokens são enviados pelo fornecedor e armazenados na loja de token easyAuth.|
+    |Audiências token permitidas| Se se trata de uma aplicação de cloud ou servidor e pretender permitir fichas de autenticação a partir de uma aplicação web, adicione aqui o **ID URI** da aplicação web. O **ID do Cliente** configurado é *sempre* implicitamente considerado como um público permitido.|
 
 2. Selecione **OK** e, em seguida, selecione **Guardar**.
 

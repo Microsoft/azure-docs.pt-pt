@@ -10,10 +10,10 @@ ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036049"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro com GPU 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para a implementação do Azure Stack Edge Pro, tem de preparar primeiro o seu ambiente. Uma vez que o ambiente esteja pronto, siga as etapas necessárias e, se necessário, etapas e procedimentos opcionais para implantar totalmente o dispositivo. As instruções de colocação passo a passo indicam quando deve executar cada uma destas etapas necessárias e opcionais.
 
-| Passo | Descrição |
+| Passo | Description |
 | --- | --- |
 | **Preparação** |Estes passos devem ser concluídos em preparação para a próxima implantação. |
 | **[Lista de verificação de configuração de implementação](#deployment-configuration-checklist)** |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |

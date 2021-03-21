@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: 208bd0fe7f3869cbe15dd27e0b883c467e41c765
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735080"
+ms.locfileid: "104721635"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar uma porta de aplicação para hospedar vários web sites usando o portal Azure
 
@@ -27,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > * Criar piscinas de backend com os servidores backend
 > * Criar serviços de escuta de back-end
 > * Criar regras de encaminhamento
-> * Criar um registo CNAME no seu domínio
+> * Editar ficheiro de anfitriões para resolução de nome
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Gateway de aplicação multi-site":::
 
@@ -212,9 +212,9 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 Aguarde que a colocação esteja concluída antes de avançar para o próximo passo.
 
-## <a name="edit-your-hosts-file"></a>Edite o ficheiro dos anfitriões
+## <a name="edit-your-hosts-file-for-name-resolution"></a>Edite o ficheiro dos anfitriões para resolução de nomes
 
-Após a criação do gateway de aplicações com o seu endereço IP público, pode obter o endereço IP e usá-lo para editar o ficheiro dos seus anfitriões para resolver `www.contoso.com` e `www.fabrikam.com` 
+Após a criação do gateway de aplicações com o seu endereço IP público, pode obter o endereço IP e usá-lo para editar o ficheiro dos anfitriões para resolver `www.contoso.com` e `www.fabrikam.com` . Num ambiente de produção, pode criar um `CNAME` DNS para resolução de nomes.
 
 1. Clique **em Todos os recursos** e, em seguida, clique no **myAGPublicIPAddress**.
 

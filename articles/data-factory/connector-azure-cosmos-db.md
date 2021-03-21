@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 2a084683d99117697657ba8900fcd6534b4a3e95
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: d42f30ebd72dca81255ddc02a9440db19979536d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379952"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608074"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar os dados no Azure Cosmos DB (API SQL) com o Azure Data Factory
 
@@ -209,6 +209,8 @@ As seguintes propriedades são suportadas na secção de **lavatório** Copy Act
 | escrever Comportamento |Descreve como escrever dados para Azure Cosmos DB. Valores permitidos: **inserir** e **aumentar.**<br/><br/>O comportamento do **upsert** é substituir o documento se já existir um documento com o mesmo ID; caso contrário, insira o documento.<br /><br />**Nota:** A Data Factory gera automaticamente um ID para um documento se um ID não for especificado no documento original ou por mapeamento de colunas. Isto significa que deve garantir que, para que **o upsert** funcione como esperado, o seu documento tenha uma identificação. |No<br />(o padrão é **inserir)** |
 | escreverBatchSize | A Data Factory utiliza a [biblioteca de executores a granel Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escrever dados para a Azure Cosmos DB. A **propriedade writeBatchSize** controla o tamanho dos documentos que a ADF fornece à biblioteca. Pode tentar aumentar o valor para **escreverBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do seu documento for grande - veja abaixo as dicas. |No<br />(o padrão é **de 10.000)** |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como Cosmos DB RUs para otimização de desempenho de cópia e recomendações. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
+| maxConcurrentConnections |O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No |
+
 
 >[!TIP]
 >Para importar documentos JSON como é, consulte a secção [de documentos de importação ou exportação de JSON;](#import-and-export-json-documents) para copiar a partir de dados em forma de tabular, consulte [a Migração da base de dados relacional para a Cosmos DB](#migrate-from-relational-database-to-cosmos-db).

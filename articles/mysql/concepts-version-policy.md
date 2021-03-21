@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465662"
 ---
 # <a name="azure-database-for-mysql-version-support-policy"></a>Política de suporte à versão Azure Database para a versão MySQL

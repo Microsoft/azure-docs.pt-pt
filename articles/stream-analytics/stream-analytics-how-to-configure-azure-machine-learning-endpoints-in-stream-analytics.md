@@ -6,14 +6,14 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: a36162d24e18371fdf6b19835e4748e3043d1f24
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1dc85cb10a9e4300c57ad03900d8c8924988c6d5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012530"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588125"
 ---
-# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Azure Machine Learning Studio (clássico) integração em Stream Analytics (Preview)
+# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics"></a>Azure Machine Learning Studio (clássico) integração no Stream Analytics
 O Stream Analytics suporta funções definidas pelo utilizador que chamam ao Azure Machine Learning Studio (clássico) pontos finais. O suporte da API REST para esta funcionalidade é detalhado na [biblioteca API stream Analytics REST](/rest/api/streamanalytics/). Este artigo fornece informações suplementares necessárias para uma implementação bem sucedida desta capacidade no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui.](stream-analytics-machine-learning-integration-tutorial.md)
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Visão geral: Azure Machine Learning Studio (clássico) terminologia
@@ -189,7 +189,7 @@ Agora questione o UDF (aqui nomeado scoreTweet) para cada evento de entrada e es
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

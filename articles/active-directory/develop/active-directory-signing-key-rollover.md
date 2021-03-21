@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: ce4917f968ef1664a1d41f4eaff162df116bda4f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035089"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Assinatura de capotamento de chaves na plataforma de identidade da Microsoft
@@ -68,7 +68,7 @@ A funcionalidade autenticação /Autorização (EasyAuth) da Azure App Services 
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Aplicações web / APIs protegendo recursos usando .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware
 Se a sua aplicação estiver a utilizar o middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication, já tem a lógica necessária para lidar automaticamente com a capotagem da chave.
 
-Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes cortes nos ficheiros Startup.cs ou Startup.Auth.cs da sua aplicação.
+Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes excertos nos ficheiros Startup.cs ou Startup.Auth .cs da sua aplicação.
 
 ```csharp
 app.UseOpenIdConnectAuthentication(
@@ -97,7 +97,7 @@ app.UseWindowsAzureActiveDirectoryBearerAuthentication(
 ### <a name="web-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>Aplicações web / APIs protegendo recursos usando .NET Core OpenID Connect ou JwtBearerAuthentication middleware
 Se a sua aplicação estiver a utilizar o middleware .NET Core OWIN OpenID Ou JwtBearerAuthentication, já tem a lógica necessária para lidar automaticamente com a capotamento da chave.
 
-Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes excertos na Startup.cs ou Startup.Auth.cs da sua aplicação
+Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes excertos no Arranque.cs ou Startup.Auth da sua aplicação.cs
 
 ```
 app.UseOpenIdConnectAuthentication(

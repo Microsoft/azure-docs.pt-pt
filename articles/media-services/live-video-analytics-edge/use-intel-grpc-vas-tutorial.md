@@ -7,10 +7,10 @@ ms.service: media-services
 ms.author: faneerde
 author: fvneerden
 ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465764"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Analise o vídeo ao vivo utilizando Intel OpenVINO™ DL Streamer – Extensão Edge AI 
@@ -46,7 +46,7 @@ Abra uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/
 
 Neste arranque rápido, utilizará o Live Video Analytics no IoT Edge juntamente com o Intel OpenVINO™ DL Streamer – Edge AI Extension da Intel para detetar objetos como veículos, para classificar veículos ou veículos de pista, pessoa ou bicicletas. Publicará os eventos de inferência resultantes no IoT Edge Hub.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.svg" alt-text="Visão geral do MediaGraph LVA":::

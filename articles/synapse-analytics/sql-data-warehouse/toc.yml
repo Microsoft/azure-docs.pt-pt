@@ -13,7 +13,7 @@
     - name: Truques e dicas
       href: cheat-sheet.md
     - name: Melhores práticas
-      href: sql-data-warehouse-best-practices.md
+      href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Limites de capacidade
       href: sql-data-warehouse-service-capacity-limits.md
     - name: FAQ

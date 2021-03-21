@@ -10,10 +10,10 @@ ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103622156"
 ---
 | Recurso | Limite |

@@ -10,18 +10,26 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75e187369eccefb255ae2bbd88de79afbc4fd4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669479"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720394"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Melhores práticas para piscina SQL sem servidor em Azure Synapse Analytics
 
 Neste artigo, você encontrará uma coleção de boas práticas para usar a piscina SQL sem servidor. Serverless SQL pool é um recurso em Azure Synapse Analytics.
 
 O pool SQL sem servidor permite-lhe consultar ficheiros nas suas contas de armazenamento Azure. Não tem capacidades locais de armazenamento ou ingestão. Assim, todos os ficheiros que os alvos de consulta são externos ao pool SQL sem servidor. Tudo relacionado com a leitura de ficheiros de armazenamento pode ter um impacto no desempenho da consulta.
+
+## <a name="client-applications-and-network-connections"></a>Aplicações de clientes e ligações de rede
+
+Certifique-se de que a sua aplicação ao cliente está ligada ao espaço de trabalho sinapse mais próximo possível com a ligação ideal.
+- Apor uma aplicação de cliente com o espaço de trabalho Synapse. Se estiver a utilizar aplicações como Power BI ou Azure Analysis Service, certifique-se de que estão na mesma região onde colocou o seu espaço de trabalho Synapse. Se necessário, crie os espaços de trabalho separados que estejam emparelhados com as aplicações do seu cliente. A colocação de uma aplicação de clientes e o espaço de trabalho da Sinapse em diferentes regiões pode causar maior latência e streaming mais lento de resultados.
+- Se estiver a ler dados da sua aplicação no local, certifique-se de que o espaço de trabalho da Synapse se encontra na região que se encontra perto da sua localização.
+- Certifique-se de que não tem alguns problemas de largura de banda de rede enquanto lê uma grande quantidade de dados.
+- Não utilize o estúdio Synapse para devolver uma grande quantidade de dados. O estúdio Synapse é uma ferramenta web que utiliza o protocolo HTTPS para transferir dados. Utilize o Azure Data Studio ou o SQL Server Management Studio para ler uma grande quantidade de dados.
 
 ## <a name="storage-and-content-layout"></a>Armazenamento e disposição de conteúdo
 
@@ -55,6 +63,10 @@ Se possível, pode preparar ficheiros para um melhor desempenho:
 - Tente manter o tamanho do ficheiro CSV entre 100 MB e 10 GB.
 - É melhor ter ficheiros igualmente dimensionados para um único caminho OPENROWSET ou uma LOCALIZAÇÃO DE tabela externa.
 - Partition seus dados armazenando divisórias em diferentes pastas ou nomes de ficheiros. Consulte [o nome de ficheiro e as funções de filepa para direcionar as divisórias específicas](#use-filename-and-filepath-functions-to-target-specific-partitions).
+
+### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Coloque o seu armazenamento analítico CosmosDB e piscina SQL sem servidor
+
+Certifique-se de que o seu armazenamento analítico CosmosDB é colocado na mesma região que o espaço de trabalho da Synapse. Consultas entre regiões podem causar enormes latências.
 
 ## <a name="csv-optimizations"></a>Otimizações do CSV
 

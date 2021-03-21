@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
 ms.openlocfilehash: ed185413cff155610b2b088b1791169e33f6ce7a
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464483"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-cli"></a>Criar um ambiente Azure Time Series Insights Gen2 utilizando o Azure CLI

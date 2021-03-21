@@ -2,14 +2,14 @@
 author: rothja
 ms.service: app-service
 ms.topic: include
-ms.date: 03/04/2020
+ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: bcbbd133c71b2917b73c200c4453ea57385fcaf1
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 80d295d017b11d86df7a3fe4c14afc7a5665cd96
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102532716"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612941"
 ---
 | Recurso | Gratuito | Partilhado | Básica | Standard | Premium (v1-v3) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -41,22 +41,32 @@ ms.locfileid: "102532716"
 | [Monitorização de ponto final](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slots de encenação](../articles/app-service/deploy-staging-slots.md) por app| | | |5 |20 |20 |
 | [Testes em Produção](../articles/app-service/deploy-staging-slots.md#route-traffic)| | | |X |X |X |
-| [Registos de diagnóstico](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
+| [Registos de Diagnóstico](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
 | Kudu | X | X | X | X | X | X |
 | [Autenticação e Autorização](../articles/app-service/overview-authentication-authorization.md) | X | X | X | X | X | X |
 | [Certificados Geridos do Serviço de Aplicações (Visualização Pública)](https://azure.microsoft.com/updates/secure-your-custom-domains-at-no-cost-with-app-service-managed-certificates-preview/)<sup>12</sup> | |  | X | X | X | X |
-| SLA | |  |99,95%|99,95%|99,95%|99,95%|  
+| SLA | |  |99,95%|99,95%|99,95%|99,95%|
 
-<sup>1</sup> As aplicações e as quotas de armazenamento são por plano de Serviço de Aplicações, salvo indicação em contrário.  
-<sup>2</sup> O número real de aplicações que pode hospedar nestas máquinas depende da atividade das aplicações, do tamanho das instâncias da máquina e da utilização correspondente dos recursos.  
-<sup>3</sup> Casos dedicados podem ser de diferentes tamanhos. Para mais informações, consulte [os preços do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)  
-<sup>4</sup> Mais são permitidos mediante pedido.  
-<sup>5</sup> O limite de armazenamento é o tamanho total do conteúdo em todas as aplicações no mesmo plano de serviço da App. O tamanho total do conteúdo de todas as aplicações em todos os planos de serviço da App num único grupo de recursos e região não pode exceder 500GB.  
-<sup>6</sup> Estes recursos são limitados por recursos físicos nas instâncias dedicadas (a dimensão do caso e o número de ocorrências).  
-<sup>7</sup> Se escalar uma aplicação no nível Básico para duas instâncias, tem 350 ligações simultâneas para cada uma das duas instâncias. Para o nível standard e acima, não existem limites teóricos para tomadas web, mas outros fatores podem limitar o número de tomadas web. Por exemplo, os pedidos simultâneos máximos permitidos (definidos `maxConcurrentRequestsPerCpu` por) são: 7.500 por pequeno VM, 15.000 por VM médio (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).  
-<sup>8</sup> As ligações IP máximas são por instância e dependem do tamanho do exemplo: 1.920 por instância B1/S1/P1V3, 3.968 por instância B2/S2/P2V3, 8.064 por instância B3/S3/P3V3.  
-<sup>9</sup> O limite de quota de quota do Certificado de Serviço de Aplicação por subscrição pode ser aumentado através de um pedido de apoio para um limite máximo de 200.  
-<sup>10</sup> Os SKUs isolados do Serviço de Aplicações podem ser equilibrados internamente (ILB) com o Azure Load Balancer, pelo que não existe conectividade pública a partir da internet. Como resultado, algumas funcionalidades de um Serviço de Aplicações Isolado ILB devem ser utilizadas a partir de máquinas que tenham acesso direto ao ponto final da rede ILB.  
-<sup>11</sup> Execute executáveis personalizados e/ou scripts a pedido, num horário ou continuamente como uma tarefa de fundo dentro da sua instância do Serviço de Aplicações. Always On é necessário para a execução contínua do WebJobs. Não há um limite predefinido no número de WebJobs que podem ser executados numa instância do Serviço de Aplicações. Existem limites práticos que dependem do que o código de aplicação está a tentar fazer.
+<sup>1</sup> Aplicações e quotas de armazenamento são por plano de Serviço de Aplicação, salvo indicação em contrário.
 
-<sup>12</sup> Domínios nus não são suportados. Apenas a emissão de certificados padrão (os certificados wildcard não estão disponíveis). Limitado a apenas um certificado gratuito por domínio personalizado.
+<sup>2</sup> O número real de aplicações que pode hospedar nestas máquinas depende da atividade das aplicações, do tamanho das instâncias da máquina e da utilização correspondente dos recursos.
+
+<sup>3</sup> Casos dedicados podem ser de diferentes tamanhos. Para mais informações, consulte [os preços do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)
+
+<sup>4</sup> São permitidos mais mediante pedido.
+
+<sup>5</sup> O limite de armazenamento é o tamanho total do conteúdo em todas as aplicações no mesmo plano de serviço da App. O tamanho total do conteúdo de todas as aplicações em todos os planos de serviço da App num único grupo de recursos e região não pode exceder 500 GB. A quota do sistema de ficheiros para aplicações hospedadas no Serviço de Aplicações é determinada pelo agregado de planos de Serviço de Aplicações criados numa região e grupo de recursos.
+
+<sup>6</sup> Estes recursos são limitados por recursos físicos nas instâncias dedicadas (a dimensão do caso e o número de ocorrências).
+
+<sup>7</sup> Se escalar uma aplicação no nível Básico para duas instâncias, tem 350 ligações simultâneas para cada uma das duas instâncias. Para o nível standard e acima, não existem limites teóricos para tomadas web, mas outros fatores podem limitar o número de tomadas web. Por exemplo, os pedidos simultâneos máximos permitidos (definidos `maxConcurrentRequestsPerCpu` por) são: 7.500 por pequeno VM, 15.000 por VM médio (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).
+
+<sup>8</sup> As ligações IP máximas são por instância e dependem do tamanho do caso: 1.920 por instância B1/S1/P1V3, 3.968 por instância B2/S2/P2V3, 8.064 por instância B3/S3/P3V3.
+
+<sup>9</sup> O limite de quota de quota do Certificado de Serviço de Aplicação por subscrição pode ser aumentado através de um pedido de apoio para um limite máximo de 200.
+
+<sup>10</sup> App Service SKUs isolados podem ser equilibrados internamente (ILB) com Azure Load Balancer, pelo que não existe conectividade pública a partir da internet. Como resultado, algumas funcionalidades de um Serviço de Aplicações Isolado ILB devem ser utilizadas a partir de máquinas que tenham acesso direto ao ponto final da rede ILB.
+
+<sup>11</sup> Execute os executáveis personalizados e/ou scripts a pedido, num horário ou continuamente como uma tarefa de fundo dentro da sua instância do Serviço de Aplicações. Always On é necessário para a execução contínua do WebJobs. Não há um limite predefinido no número de WebJobs que podem ser executados numa instância do Serviço de Aplicações. Existem limites práticos que dependem do que o código de aplicação está a tentar fazer.
+
+<sup>12</sup> domínios nus não são suportados. Apenas a emissão de certificados padrão (os certificados wildcard não estão disponíveis). Limitado a apenas um certificado gratuito por domínio personalizado.

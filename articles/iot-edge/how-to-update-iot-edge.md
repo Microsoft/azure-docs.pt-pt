@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d4840dcbe67a0bd94c74b43164c24e0c45e9daf
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: feb77339c9c7f36eb17b43dfe2c220dfb54efa25
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200646"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720530"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualizar o daemon de segurança e o tempo de execução do IoT Edge
 
@@ -150,9 +150,9 @@ Verifique a versão dos módulos IoT Edge e hub IoT Edge atualmente no seu dispo
 
 As imagens IoT Edge e IoT Edge estão marcadas com a versão IoT Edge a que estão associadas. Existem duas maneiras diferentes de usar tags com as imagens de tempo de execução:
 
-* **Etiquetas rolantes** - Utilize apenas os dois primeiros valores do número da versão para obter a imagem mais recente que corresponda a esses dígitos. Por exemplo, o 1.0 é atualizado sempre que há um novo lançamento para apontar para a versão mais recente de 1.0.x. Se o tempo de funcionamento do contentor no seu dispositivo IoT Edge voltar a puxar a imagem, os módulos de tempo de execução são atualizados para a versão mais recente. Esta abordagem é sugerida para fins de desenvolvimento. Implementações do portal Azure por defeito para tags rolantes.
+* **Etiquetas rolantes** - Utilize apenas os dois primeiros valores do número da versão para obter a imagem mais recente que corresponda a esses dígitos. Por exemplo, o 1.1 é atualizado sempre que há um novo lançamento para apontar para a versão mais recente de 1.1.x. Se o tempo de funcionamento do contentor no seu dispositivo IoT Edge voltar a puxar a imagem, os módulos de tempo de execução são atualizados para a versão mais recente. Implementações do portal Azure por defeito para tags rolantes. *Esta abordagem é sugerida para fins de desenvolvimento.*
 
-* **Etiquetas específicas** - Utilize os três valores do número da versão para definir explicitamente a versão de imagem. Por exemplo, 1.0.7 não mudará após o lançamento inicial. Pode declarar um novo número de versão no manifesto de implementação quando estiver pronto para atualizar. Esta abordagem é sugerida para fins de produção.
+* **Etiquetas específicas** - Utilize os três valores do número da versão para definir explicitamente a versão de imagem. Por exemplo, 1.1.0 não mudará após o lançamento inicial. Pode declarar um novo número de versão no manifesto de implementação quando estiver pronto para atualizar. *Esta abordagem é sugerida para fins de produção.*
 
 ### <a name="update-a-rolling-tag-image"></a>Atualizar uma imagem de marca rolante
 

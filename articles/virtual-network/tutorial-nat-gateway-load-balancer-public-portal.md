@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 345ccb68ebb31460f4a75b31a7d3a946160da6e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8382dd10536a8c0475444d0cdff30340ad124e9c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657971"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722808"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-a-public-load-balancer-using-the-azure-portal"></a>Tutorial: Integrar uma porta DE NAT com um equilibrador de carga pública utilizando o portal Azure
 
@@ -48,15 +48,18 @@ Nesta secção, irá criar um Balanceador de Carga Standard Azure.
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
+    | **Detalhes do projeto** |   |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | **Selecione Criar novo** e insira **TutorPubLBNAT-rg** na caixa de texto.|
+    | Grupo de recursos         | **Selecione Criar novo** e insira **TutorPubLBNAT-rg** na caixa de texto. </br> Selecione **OK**.|
+    | **Detalhes da instância** |   |
     | Name                   | Insira **o myLoadBalancer**                                   |
     | Region         | Selecione **(EUA) Leste DOS** EUA .                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Deixe o **padrão padrão**. |
     | Escalão de serviço          | Deixe o **padrão Regional**. |
-    | Endereço IP público | Selecione **Criar novo**. Se tiver um IP público existente que gostaria de utilizar, selecione **Utilizar a existência**. |
-    | Nome do endereço IP público | Digite **o myPublicIP-LB** na caixa de texto.|
+    | **Endereço IP público** |   |
+    | Endereço IP público | Selecione **Criar novo**. </br> Se tiver um IP público existente que gostaria de utilizar, selecione **Utilizar a existência**. |
+    | Nome do endereço IP público | **Insira o myPublicIP-LB** na caixa de texto.|
     | Zona de disponibilidade | Selecione **Zona redundante** para criar um equilibrador de carga resistente. Para criar um equilibrador de carga zonal, selecione uma zona específica a partir de 1, 2 ou 3 |
     | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e balanceador de carga, consulte [o que é o IPv6 para a Rede Virtual Azure?](../virtual-network/ipv6-overview.md)  |
     | Preferência de encaminhamento | Deixe o padrão da **rede Microsoft**. </br> Para obter mais informações sobre a preferência de encaminhamento, consulte [o que é a preferência de encaminhamento (pré-visualização)?](../virtual-network/routing-preference-overview.md) |
@@ -135,7 +138,7 @@ Nesta secção, irá criar uma regra do balançador de carga:
     | Porta de back-end | Insira **80**. |
     | Conjunto de back-end | Selecione **myBackendPool**.|
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
-    | Tempo de 20 minutos (minutos) | Mova o deslizador para **15** minutos. |
+    | Tempo de 20 minutos (minutos) | Entre **em 15** minutos. |
     | Reset TCP | Selecione **Ativado**. |
     | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer acesso aos membros do pool de backend à internet.** |
 
@@ -237,7 +240,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
     | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança** de rede Create , insira **o myNSG** em **Nome**. </br> De acordo com **as regras de entrada**, selecione **+Adicione uma regra de entrada**. </br> Nas  **gamas portuárias Destination**, insira **80**. </br> Sob **Prioridade**, insira **100**. </br> Em **Nome**, insira **myHTTPRule** </br> Selecione **Adicionar** </br> Selecione **OK** |
     | **Balanceamento de carga**  |
-    | Colocar esta máquina virtual por trás de uma solução de equilíbrio de carga existente? | Selecione **Sim** |
+    | Colocar esta máquina virtual por trás de uma solução de equilíbrio de carga existente? | Selecione a caixa de verificação.|
     | **Definições de equilíbrio de carga** |
     | Opções de equilíbrio de carga | Selecione **o equilibrador de carga Azure** |
     | Selecione um equilibrador de carga | Selecione **myLoadBalancer**  |
@@ -302,7 +305,7 @@ Nesta secção, vamos testar o portal NAT. Primeiro descobriremos o IP público 
 
 2. Tome nota do endereço IP público:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Descubra o endereço IP público do gateway NAT" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Screenshot descubra o endereço IP público do gateway NAT." border="true":::
 
 3. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, na lista de recursos, selecione **myVM1** que está localizado no grupo de recursos **TutorPubLBNAT-rg.**
 
@@ -318,7 +321,7 @@ Nesta secção, vamos testar o portal NAT. Primeiro descobriremos o IP público 
 
 9. Verifique se o endereço IP apresentado corresponde ao endereço de gateway NAT indicado no passo anterior:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Internet Explorer mostrando IP externo de saída" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Screenshot Internet Explorer mostrando IP de saída externa." border="true":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

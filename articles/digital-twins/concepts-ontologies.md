@@ -8,10 +8,10 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 3393856b25040cff603ea2ef51e8adbcba78dc26
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034698"
 ---
 # <a name="what-is-an-ontology"></a>O que é uma ontologia? 
@@ -40,7 +40,7 @@ Como os modelos em Azure Digital Twins são representados na [Linguagem de Defin
 
 Existem três estratégias possíveis para integrar as práticas padrão da indústria com o DTDL. Pode escolher o que melhor funciona para si, dependendo das suas necessidades:
 
-| Estratégia | Descrição | Recursos |
+| Estratégia | Description | Recursos |
 | --- | --- | --- |
 | **Adotar** | Você pode começar a sua solução com uma ontologia DTDL de código aberto que foi construída com base em padrões da indústria amplamente adotados. Pode utilizar estes conjuntos de modelos fora da caixa ou alargá-los com as suas próprias adições para uma solução personalizada. | [*Conceitos: &nbsp; Adotar &nbsp; as práticas padrão da indústria &nbsp;*](concepts-ontologies-adopt.md)<br><br>[*Conceitos: &nbsp; Alargamento das &nbsp; falas*](concepts-ontologies-extend.md) |
 | **Converter** | Se já tiver os modelos existentes representados noutro formato padrão, pode convertê-los em DTDL para os utilizar com a Azure Digital Twins. | [*Conceitos: &nbsp; Conversão de &nbsp; ontologies*](concepts-ontologies-convert.md)<br><br>[*Conceitos: &nbsp; Alargamento das &nbsp; falas*](concepts-ontologies-extend.md) |

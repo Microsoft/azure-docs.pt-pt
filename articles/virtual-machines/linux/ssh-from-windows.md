@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aeecdcddaeba385c6dc0773356bcd0e36231e1e4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552784"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607471"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como utilizar as chaves SSH com Windows on Azure
 
@@ -97,4 +97,4 @@ Se o VM estiver a utilizar a política de acesso just-in-time, tem de solicitar 
 
 - Também pode utilizar o PowerShell em Azure Cloud Shell para gerar teclas SSH e fazer ligações SSH a VMs Linux. Consulte o [arranque rápido powerShell](../../cloud-shell/quickstart-powershell.md#ssh).
 
-- Se tiver dificuldade em utilizar o SSH para ligar aos seus VMs Linux, consulte [as ligações SSH de resolução de problemas a um VM Azure Linux](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+- Se tiver dificuldade em utilizar o SSH para ligar aos seus VMs Linux, consulte [as ligações SSH de resolução de problemas a um VM Azure Linux](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

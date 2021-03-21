@@ -13,10 +13,10 @@ ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103603106"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuração seletiva de sincronização de hash de palavra-passe para Azure AD Connect

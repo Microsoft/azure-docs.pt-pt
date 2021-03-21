@@ -2,26 +2,26 @@
 title: Encriptação do lado do servidor dos discos geridos pelo Azure
 description: O Azure Storage protege os seus dados encriptando-os em repouso antes de os persistir nos clusters de armazenamento. Pode utilizar as chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves, ou pode confiar nas chaves geridas pela Microsoft para a encriptação dos seus discos geridos.
 author: roygara
-ms.date: 03/02/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ee4dd539119457086c9b109579b7e6ab195fea96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103014388"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721856"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
-A encriptação do lado do servidor (SSE) protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. A SSE encripta automaticamente os seus dados armazenados em discos geridos aZure (OS e discos de dados) em repouso por padrão quando os persiste na nuvem. 
+A maioria dos discos geridos pelo Azure são encriptados com encriptação de Armazenamento Azure, que utiliza encriptação do lado do servidor (SSE) para proteger os seus dados e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. A encriptação do Azure Storage encripta automaticamente os seus dados armazenados em discos geridos Azure (OS e discos de dados) em repouso por padrão quando os persiste na nuvem. Os discos com encriptação no anfitrião ativados, no entanto, não são encriptados através do Azure Storage. Para discos com encriptação no anfitrião ativados, o servidor que hospeda o seu VM fornece a encriptação para os seus dados e que os dados encriptados fluem para o Azure Storage.
 
 Os dados em discos geridos azure são encriptados de forma transparente utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits , uma das cifras de blocos mais fortes disponíveis, e é compatível com FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos geridos pelo Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-A encriptação do lado do servidor não afeta o desempenho dos discos geridos e não há custo adicional. 
+A encriptação de Armazenamento Azure não afeta o desempenho dos discos geridos e não há custo adicional. Para obter mais informações sobre a encriptação do Azure Storage, consulte [a encriptação do Armazenamento Azure](/azure/storage/common/storage-service-encryption).
 
 > [!NOTE]
 > Os discos temporários não são discos geridos e não são encriptados pela SSE, a menos que ative a encriptação no anfitrião.
