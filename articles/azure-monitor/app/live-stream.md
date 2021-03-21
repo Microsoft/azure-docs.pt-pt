@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98679471"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnóstico com latência de 1 segundo
@@ -185,7 +185,7 @@ No ficheiro applicationinsights.config, adicione o AuthenticationApiKey ao Quick
 
 Para ASP.NET aplicações [Core,](./asp-net-core.md) siga as instruções abaixo.
 
-Modificar `ConfigureServices` o seu ficheiro Startup.cs da seguinte forma:
+Modificar `ConfigureServices` o ficheiro .cs Arranque da seguinte forma:
 
 Adicione o seguinte espaço de nome.
 

@@ -4,10 +4,10 @@ description: Com a Azure Backup, pode enviar dados para fora da rede utilizando 
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 0405ab66b7714f00349419e94bb064267ca711a6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98702190"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (versões anteriores)
@@ -99,7 +99,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
 Siga estes passos para enviar manualmente o certificado de cópia de segurança offline para uma aplicação de Diretório Azure Ative anteriormente criada destinada a cópias de segurança offline.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Aceda às inscrições da **Azure Ative Directory**  >  **App**.
 1. No **separador aplicações Possuídas,** localize uma aplicação com o formato de nome de `AzureOfflineBackup _<Azure User Id` exibição.
 
@@ -281,6 +281,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento da próxima cópia de segurança programada, o Azure Backup executa cópia de backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../import-export/storage-import-export-service.md).

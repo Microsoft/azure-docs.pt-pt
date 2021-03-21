@@ -1,5 +1,5 @@
 ---
-title: Configure a sua experiência de Pesquisa Personalizada Bing / Microsoft Docs
+title: Configure a sua experiência de Pesquisa Personalizada Bing | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: O portal permite criar um caso de pesquisa que especifica as fatias da web; domínios, sub-páginas e páginas web.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96338644"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure a sua experiência de Pesquisa Personalizada Bing
@@ -30,7 +30,7 @@ O portal permite criar um caso de pesquisa que especifica as fatias da web: dom�
 
 Utilize o seguinte ao definir as suas fatias da web:
 
-| Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
+| Nome da fatia | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Domínio     | Uma fatia de domínio inclui todos os conteúdos encontrados dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que Bing também procure os subdomínios do domínio. Por exemplo, se `microsoft.com` especificar, Bing também devolve resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Sub-página    | Uma fatia de sub-página inclui todo o conteúdo encontrado na sub-página e caminhos abaixo dela. Pode especificar um máximo de duas sub-páginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
@@ -97,7 +97,7 @@ Pode testar a sua instância de pesquisa utilizando o painel de pré-visualizaç
 
 O portal permite-lhe ajustar o ranking de pesquisa de conteúdos a partir de domínios específicos, sub-páginas e páginas web. Depois de enviar uma consulta de pesquisa no painel de pré-visualização, cada resultado de pesquisa contém uma lista de ajustes que pode fazer para ele:  
 
-| Ajustamento | Descrição |
+| Ajustamento | Description |
 |------------|-------------|
 | Bloquear      | Move o domínio, sub-página ou página web para a lista bloqueada. Bing excluirá o conteúdo do site selecionado de aparecer nos resultados da pesquisa.                    |
 | Impulsionar      | Aumenta o conteúdo do domínio ou sub-página para ser mais elevado nos resultados da pesquisa.                                                                                        |

@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema da Referência de Seguranç
 ms.date: 01/27/2021
 ms.topic: sample
 ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919243"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Amostra de projeto de benchmark de segurança Azure
@@ -114,7 +114,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Versão mais recente do Windows Python|Versão python suportada mais recente para Serviços de Aplicações|
 |Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Última versão Linux Python|Versão python suportada mais recente para Serviços de Aplicações|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

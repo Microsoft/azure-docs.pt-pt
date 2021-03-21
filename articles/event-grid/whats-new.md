@@ -4,15 +4,15 @@ description: Saiba quais as novidades com a Azure Event Grid, como as últimas n
 ms.topic: overview
 ms.date: 07/23/2020
 ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350012"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Quais as novidades na Grelha de Eventos Azure?
 
->Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Event+Grid%22&locale=en-us` no leitor de feed feed feed do leitor de feed ![ RSS. ](./media/whats-new/feed-icon-16x16.png)
+>Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Event+Grid%22&locale=en-us` no leitor de feed do leitor de feed ![ RSS. ](./media/whats-new/feed-icon-16x16.png)
 
 A Azure Event Grid recebe melhorias continuadamente. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre:
 

@@ -5,10 +5,10 @@ ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98917695"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
@@ -168,7 +168,7 @@ request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, opt
 response = client.resources(request)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
 - Consulte utilizações avançadas em [consultas avançadas.](../samples/advanced.md)

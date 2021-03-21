@@ -9,16 +9,16 @@ ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f469664c716ecef6b82de2befa40b33f253e229f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99627722"
 ---
 1. Localize o WAN virtual que criou. Na página WAN virtual, na secção **Conectividade,** selecione **Hubs**.
 2. Na página **Hubs,** selecione **+New Hub** para abrir a página **do hub virtual Create.**
 
-    ![A screenshot mostra o painel de hub virtual Create com o separador Basics selecionado.](./media/virtual-wan-tutorial-hub-include/basics.png "Informações básicas")
+    ![A screenshot mostra o painel de hub virtual Create com o separador Basics selecionado.](./media/virtual-wan-tutorial-hub-include/basics.png "Noções básicas")
 3. No **separador 'Criar** página de centro virtual **Basics',** complete os seguintes campos:
 
    * **Região** (anteriormente designada por Localização)

@@ -1,13 +1,13 @@
 ---
-title: Replicar VMs Azure Stack para Azure usando Azure Site Recovery / Microsoft Docs
+title: Replicar VMs de pilha de Azure para Azure usando Azure Site Recovery | Microsoft Docs
 description: Saiba como configurar a recuperação de desastres para Azure Stack VMs com o serviço de Recuperação do Local Azure.
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016914"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
@@ -161,7 +161,7 @@ Para cada máquina que pretende replicar, encontre o endereço IP:
 
 Configurar a máquina do servidor de configuração, registá-la no cofre e descobrir as máquinas que pretende replicar.
 
-1. Clique **em Preparar Fonte de Infraestrutura**  >  **Source**.
+1. Clique **em Preparar Fonte de Infraestrutura**  >  .
 2. Em **Preparar origem**, clique em **+Servidor de configuração**.
 
     ![Screenshot do diálogo +Servidor de Configuração com a mensagem "Clique em +Servidor de Configuração na barra de comando acima para configurar um...".](./media/azure-stack-site-recovery/plus-config-srv.png)
@@ -186,7 +186,7 @@ Agora instale o servidor de configuração:
 > [!NOTE]
 > O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 >
-> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione o nome do servidor **de servidores de configuração**  >  **_server name_*_ > _* Refresh Server**.
+> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione o nome do servidor **de servidores de configuração**  >  ***_ > _* Refresh Server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente-alvo
 
@@ -286,7 +286,7 @@ Executar um teste de failover para um VM da seguinte forma:
 2. Para esta passagem, vamos selecionar para usar o último ponto de recuperação **processado.**
 3. Em **Test Failover**, selecione a rede Target Azure.
 4. Clique em **OK** para iniciar a ativação pós-falha.
-5. Acompanhe o progresso clicando no VM para abrir as suas propriedades. Ou, clique no teste **de failover** job em *nome de cofre*  >  **Definições Empregos**  >  **Jobs**  > **Empregos Trabalhos de Recuperação** do Local .
+5. Acompanhe o progresso clicando no VM para abrir as suas propriedades. Ou, clique no teste **de failover** job em *nome de cofre*  >  **Definições Empregos**  >    > **Empregos Trabalhos de Recuperação** do Local .
 6. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Verifique se o VM tem o tamanho adequado, ligado à rede certa e em funcionamento.
 7. Deverá conseguir ligar-se à VM replicada no Azure agora. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 8. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, clique em **Limpar ativação pós-falha de teste** na VM. Em **Notas**, guarde quaisquer observações associadas à falha do teste.

@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94991235"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Funções Azure SendGrid
@@ -357,7 +357,7 @@ A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-libr
 
 A tabela que se segue lista as propriedades de configuração de encadernação disponíveis no  *function.jsno* ficheiro e o `SendGrid` atributo/anotação.
 
-| *function.jsna* propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
+| *function.jsna* propriedade | Propriedade de atributo/anotação | Description | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
 | tipo |n/a| Deve ser definido para `sendGrid` .| No |
 | direção |n/a| Deve ser definido para `out` .| No |
@@ -365,7 +365,7 @@ A tabela que se segue lista as propriedades de configuração de encadernação 
 | apiKey | ApiKey | O nome de uma definição de aplicação que contém a sua chave API. Se não for definido, o nome de definição de aplicação predefinido é *AzureWebJobsSendGridApiKey*.| No |
 | para| Para | O endereço de e-mail do destinatário. | Yes |
 | De| De | O endereço de e-mail do remetente. |  Yes |
-| Assunto| Assunto | O assunto do e-mail. | Yes |
+| subject| Assunto | O assunto do e-mail. | Yes |
 | texto| Texto | O conteúdo do e-mail. | Yes |
 
 As propriedades opcionais podem ter valores predefinidos definidos na ligação e adicionados ou ultrapassados programáticamente.
@@ -392,12 +392,12 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```  
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |De|n/a|O endereço de e-mail do remetente em todas as funções.| 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

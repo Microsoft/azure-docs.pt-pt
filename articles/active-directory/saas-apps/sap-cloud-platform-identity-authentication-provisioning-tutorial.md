@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a autenticação de identidade da plataforma de nuvem SAP para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
+title: 'Tutorial: Configurar a autenticação de identidade da plataforma cloud SAP para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para fornecimento e desaconsevisionamento automática de contas de utilizadores à Autenticação de Identidade da Plataforma CLOUD SAP.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: 419f25ee3df471bc2fc4526254f5677b8bd71856
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96342750"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutorial: Configurar a autenticação de identidade da plataforma de nuvem SAP para o fornecimento automático de utilizadores

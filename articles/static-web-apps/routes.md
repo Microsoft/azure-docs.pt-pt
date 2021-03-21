@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739649"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas em Azure Static Web Apps Preview
@@ -59,10 +59,10 @@ As rotas são definidas no _routes.jsarquivado_ como uma série de regras de rot
 
 | Propriedade de regra  | Necessário | Valor predefinido | Comentário                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Sim      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota. Por exemplo, a rota _\* admin/corresponde_ a qualquer rota sob o caminho _administrativo._<li>O ficheiro predefinido de uma rota é _index.html_.</ul>|
-| `serve`        | Não       | n/a          | Define o ficheiro ou caminho devolvido do pedido. O caminho e o nome do ficheiro podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, então o caminho solicitado é usado. Os parâmetros de consulta não são suportados; `serve` os valores devem apontar para ficheiros reais.  |
-| `allowedRoles` | Não       | anónimo     | Uma série de nomes de papéis. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel incorporado `anonymous` aplica-se a todos os utilizadores não autenticados.<li>A função incorporada `authenticated` aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._ Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.<li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
-| `statusCode`   | Não       | 200           | A resposta [do código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para o pedido. |
+| `route`        | Yes      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota. Por exemplo, a rota _\* admin/corresponde_ a qualquer rota sob o caminho _administrativo._<li>O ficheiro predefinido de uma rota é _index.html_.</ul>|
+| `serve`        | No       | n/a          | Define o ficheiro ou caminho devolvido do pedido. O caminho e o nome do ficheiro podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, então o caminho solicitado é usado. Os parâmetros de consulta não são suportados; `serve` os valores devem apontar para ficheiros reais.  |
+| `allowedRoles` | No       | anónimo     | Uma série de nomes de papéis. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel incorporado `anonymous` aplica-se a todos os utilizadores não autenticados.<li>A função incorporada `authenticated` aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._ Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.<li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
+| `statusCode`   | No       | 200           | A resposta [do código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para o pedido. |
 
 ## <a name="securing-routes-with-roles"></a>Assegurar rotas com funções
 

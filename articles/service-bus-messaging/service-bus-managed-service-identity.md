@@ -4,10 +4,10 @@ description: Este artigo descreve como usar identidades geridas para aceder a en
 ms.topic: article
 ms.date: 01/21/2021
 ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954315"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
@@ -15,7 +15,7 @@ ms.locfileid: "98954315"
 
 Com identidades geridas, a plataforma Azure gere esta identidade de tempo de execução. Não precisa de armazenar e proteger as chaves de acesso no seu código de aplicação ou configuração, quer para a própria identidade, quer para os recursos a que necessita. Uma aplicação de clientes Service Bus que funciona dentro de uma aplicação do Azure App Service ou numa máquina virtual com entidades geridas ativadas para suporte a recursos Azure não precisa de lidar com as regras e chaves da SAS, ou quaisquer outros tokens de acesso. A aplicação do cliente só precisa do endereço final do espaço de nome de mensagens de serviço. Quando a aplicação se conecta, a Service Bus liga o contexto da entidade gerida ao cliente numa operação que é mostrada num exemplo mais tarde neste artigo. Uma vez associado a uma identidade gerida, o seu cliente Service Bus pode fazer todas as operações autorizadas. A autorização é concedida associando uma entidade gerida com funções de Service Bus. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Quando um principal de segurança (um utilizador, grupo ou aplicação) tenta aceder a uma entidade do Service Bus, o pedido deve ser autorizado. Com o Azure AD, o acesso a um recurso é um processo em duas etapas. 
 
  1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um token é `https://servicebus.azure.net` .
@@ -125,7 +125,7 @@ Para atribuir uma função a um espaço de nomes de Service Bus, navegue para o 
 ### <a name="run-the-app"></a>Executar a aplicação
 Agora, modifique a página predefinição da aplicação ASP.NET que criou. Pode utilizar o código de aplicação web a partir [deste repositório GitHub.](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet)  
 
-A página padrão.aspx é a sua página de aterragem. O código pode ser encontrado no ficheiro Default.aspx.cs. O resultado é uma aplicação web mínima com alguns campos de entrada, e com botões **de envio** e **receção** que se conectam ao Service Bus para enviar ou receber mensagens.
+A página padrão.aspx é a sua página de aterragem. O código pode ser encontrado no ficheiro Predefinido.aspx.cs. O resultado é uma aplicação web mínima com alguns campos de entrada, e com botões **de envio** e **receção** que se conectam ao Service Bus para enviar ou receber mensagens.
 
 Note como o objeto [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inicializado. Em vez de utilizar o fornecedor de token de acesso partilhado (SAS), o código cria um fornecedor simbólico para a identidade gerida com a `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` chamada. Como tal, não há segredos para reter e usar. O fluxo do contexto de identidade gerido para Service Bus e o aperto de mão de autorização são automaticamente manuseados pelo provedor de fichas. É um modelo mais simples do que usar SAS.
 

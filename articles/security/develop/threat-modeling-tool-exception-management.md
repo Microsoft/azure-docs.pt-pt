@@ -1,5 +1,5 @@
 ---
-title: Gestão de Exceções - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
+title: Gestão de Exceções - Ferramenta de Modelação de Ameaças da Microsoft - Azure | Microsoft Docs
 description: Saiba mais sobre a gestão de exceções na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 41532e554623c47e9728c6ccab92d99500e42021
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94517432"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gestão de Exceções / Mitigações 
+# <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: | de Gestão de Exceções Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF- Não inclua o nó de dedepuração de serviço no ficheiro de configuração](#servicedebug)</li><li>[WCF- Não inclua o nó de serviçoMetadata no ficheiro de configuração](#servicemetadata)</li></ul> |

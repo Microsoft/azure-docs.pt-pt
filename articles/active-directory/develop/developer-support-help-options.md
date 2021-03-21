@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/09/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 22f6e1c8049acd5dbe548bc49955881e05f0ef0e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462767"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579047"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para programadores
 
@@ -44,17 +44,17 @@ Obtenha respostas para as suas questões de desenvolvimento de aplicativos de id
 
 [O Microsoft Q&A](/answers/products/) é a fonte recomendada de apoio à comunidade da Azure.
 
-Se não conseguir encontrar uma resposta para o seu problema pesquisando no Microsoft Q&A, envie uma nova pergunta. Use uma das seguintes etiquetas quando fizer a sua [pergunta de alta qualidade:](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
+Se não conseguir encontrar uma resposta para o seu problema pesquisando no Microsoft Q&A, envie uma nova pergunta. Use uma das seguintes etiquetas quando fizer a sua [pergunta de alta qualidade:](/answers/articles/24951/how-to-write-a-quality-question.html)
 
 | Componente/área| Etiquetas  |
 |------------|---------------------------|
-| Biblioteca de Autenticação do Active Directory (ADAL)                              | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
-| Biblioteca de Autenticação da Microsoft (MSAL)                                     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
-| Interface Web aberta para middleware .NET (OWIN)                               | [[azure-active-directy]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure AD B2B / Identidades Externas](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
-| Todas as outras áreas de autenticação e autorização                            | [[azure-active-directy]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Biblioteca de Autenticação do Active Directory (ADAL)                              | [[adal]](/answers/topics/azure-ad-adal-deprecation.html)                |
+| Biblioteca de Autenticação da Microsoft (MSAL)                                     | [[msal]](/answers/topics/azure-ad-msal.html)                            |
+| Interface Web aberta para middleware .NET (OWIN)                               | [[azure-active-directy]](/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B / Identidades Externas](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
+| Todas as outras áreas de autenticação e autorização                            | [[azure-active-directy]](/answers/topics/azure-active-directory.html) |
 
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 
@@ -98,10 +98,8 @@ Para solicitar novas funcionalidades, publique-as no Azure Feedback. Partilhe as
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Saiba mais sobre atualizações importantes do produto, roteiro e anúncios.
 
-- [Quais as novidades nos docs](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs): Conheça as novidades na documentação da plataforma de identidade da Microsoft.
+- [Quais as novidades nos docs](./whats-new-docs.md): Conheça as novidades na documentação da plataforma de identidade da Microsoft.
 
 - [Azure Ative Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Obtenha notícias e informações sobre a Azure AD.
 
 - [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): Partilhe as suas experiências, envolva-se e aprenda com especialistas.
-
-

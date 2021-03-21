@@ -1,5 +1,5 @@
 ---
-title: Especificações técnicas e conformidade do Microsoft Azure Stack Edge Pro Microsoft Docs
+title: Especificações técnicas e conformidade do Microsoft Azure Stack Edge Pro| Microsoft Docs
 description: Conheça as especificações técnicas e a conformidade com o Azure Stack Edge Pro
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ms.openlocfilehash: 8b36bb34f4c9081d807998cb8287797443625a6b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96460304"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Especificações técnicas Azure Stack Edge Pro
@@ -45,7 +45,7 @@ O dispositivo Azure Stack Edge Pro tem duas unidades de alimentação de 100-240
 | Potência máxima de saída    | 750 W                     |
 | Frequência               | 50/60 Hz                   |
 | Seleção de gama de tensão | Variação automática: 100-240 V AC |
-| Pluggável quente           | Sim                        |
+| Pluggável quente           | Yes                        |
 
 ### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Especificações do cabo de alimentação Azure Stack Edge Pro por região
 
@@ -60,13 +60,13 @@ The following table lists the typical power consumption data (actual values may 
 
 O seu dispositivo Azure Stack Edge Pro tem 6 interfaces de rede, PORT1-PORT6.
 
-| Especificação           | Descrição                 |
+| Especificação           | Description                 |
 |-------------------------|----------------------------|
 |  Interfaces de rede    | 2 interfaces de 1 GbE – 1 de gestão, não configurável pelo utilizador, utilizada para a configuração inicial. A outra interface é configurável pelo utilizador, pode ser usada para transferência de dados, e é DHCP por padrão. <br>2 interfaces de 25 GbE – também podem funcionar como interfaces de 10 GbE. Estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas. <br> 2 interfaces de 25 GbE - estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas.                  |
 
 Os adaptadores de rede utilizados são: 
 
-| Especificação           | Descrição                 |
+| Especificação           | Description                 |
 |-------------------------|----------------------------|
 |Cartão filha de rede (rNDC) |QLogic FastLinQ 41264 Dual Port 25GbE SFP+, Dual Port 1GbE, rNDC|
 |Adaptador de rede PCI |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 Adaptador|

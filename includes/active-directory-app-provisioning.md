@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c400856546142353a7294a03fce6bbff1c258cc0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95558363"
 ---
 No Azure Ative Directory (Azure AD), o termo **provisionamento de aplicações** refere-se à criação automática de identidades e funções de utilizador nas aplicações da cloud [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/)às que os utilizadores precisam de acesso. Além da criação de identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou de funções. Os cenários comuns incluem a disponibilização de um utilizador AZure AD em aplicações como [Dropbox,](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md)e muito mais.

@@ -1,5 +1,5 @@
 ---
-title: Resolver alertas LDAP seguros nos Serviços de Domínio AZure AD / Microsoft Docs
+title: Resolva alertas LDAP seguros em Azure AD Domain Services | Microsoft Docs
 description: Saiba como resolver problemas e resolver alertas comuns com LDAP seguro para serviços de domínio do Diretório Ativo Azure.
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620312"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas de LDAP seguros nos Serviços de Domínio do Diretório Ativo Azure

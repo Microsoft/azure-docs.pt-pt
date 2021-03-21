@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94651317"
 ---
-# <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Acompanhe os dados durante a caça com o Azure Sentinel
+# <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Monitorizar os dados durante a investigação com o Azure Sentinel
 
 A caça a ameaças normalmente requer a revisão de montanhas de dados de registo à procura de evidências de comportamento malicioso. Durante este processo, os investigadores encontram eventos que querem recordar, revisitar e analisar como parte da validação de potenciais hipóteses e compreensão da história completa de um compromisso.
 
-Os marcadores de caça em Azure Sentinel ajudam-no a fazê-lo, preservando as consultas que executou em **Azure Sentinel - Logs,** juntamente com os resultados de consulta que considere relevantes. Também pode registar as suas observações contextuais e fazer referência às suas descobertas adicionando notas e etiquetas. Os dados reservados são visíveis para si e para os seus companheiros de equipa para uma colaboração fácil.
+Os marcadores de caça em Azure Sentinel ajudam-no a fazê-lo, preservando as consultas que executou em **Azure Sentinel - Logs,** juntamente com os resultados de consulta que considere relevantes. Também pode registar as suas observações contextuais e referir as suas descobertas ao adicionar notas e etiquetas. Os dados com marcadores são visíveis para si e para os seus colegas de equipa para uma colaboração fácil.
 
-Pode revisitar os seus dados reservados a qualquer momento no separador **Bookmarks** do painel **de caça.** Pode utilizar opções de filtragem e pesquisa para encontrar rapidamente dados específicos para a sua investigação atual. Em alternativa, pode ver os seus dados marcados diretamente na tabela **HuntingBookmark** no seu espaço de trabalho Log Analytics. Por exemplo:
+Pode revisitar os seus dados reservados a qualquer momento no separador **Bookmarks** do painel **de caça.** Pode utilizar filtros e opções de pesquisa para encontrar rapidamente dados específicos para a sua investigação atual. Em alternativa, pode ver os seus dados marcados diretamente na tabela **HuntingBookmark** no seu espaço de trabalho Log Analytics. Por exemplo:
 
 > [!div class="mx-imgBorder"]
 > ![ver tabela HuntingBookmark](./media/bookmarks/bookmark-table.png)
@@ -36,7 +36,7 @@ Também em pré-visualização, pode visualizar os seus dados reservados, clican
 
 ## <a name="add-a-bookmark"></a>Adicionar um marcador
 
-1. No portal Azure, **Sentinel** navegue até à  >  **gestão da Sentinel Threat**  >  **Hunting** para executar consultas por comportamento suspeito e anómalo.
+1. No portal Azure, navegue até à  >  **gestão da Sentinel Threat**  >  **Hunting** para executar consultas por comportamento suspeito e anómalo.
 
 2. Selecione uma das consultas de caça e à direita, nos detalhes da consulta de caça, selecione **Run Consulta**. 
 
@@ -67,11 +67,11 @@ Também em pré-visualização, pode visualizar os seus dados reservados, clican
 
  
 > [!NOTE]
-> Os resultados da consulta de registo suportam marcadores sempre que este painel é aberto a partir de Azure Sentinel. Por exemplo, **General** seleciona  >  **Registos Gerais** da barra de navegação, selecione links de eventos no gráfico de investigações ou selecione um ID de alerta a partir de todos os detalhes de um incidente (atualmente em pré-visualização). Não é possível criar marcadores quando o painel **de registos** é aberto a partir de outros locais, como é o caso do Azure Monitor.
+> Os resultados da consulta de registo suportam marcadores sempre que este painel é aberto a partir de Azure Sentinel. Por exemplo, seleciona  >  **Registos Gerais** da barra de navegação, selecione links de eventos no gráfico de investigações ou selecione um ID de alerta a partir de todos os detalhes de um incidente (atualmente em pré-visualização). Não é possível criar marcadores quando o painel **de registos** é aberto a partir de outros locais, como é o caso do Azure Monitor.
 
 ## <a name="view-and-update-bookmarks"></a>Ver e atualizar marcadores 
 
-1. No portal Azure, **Sentinel** navegue para a  >  **Sentinel Threat Management**  >  **Hunting**. 
+1. No portal Azure, navegue para a  >  **Sentinel Threat Management**  >  **Hunting**. 
 
 2. Selecione o **separador Marcadores** para ver a lista de marcadores.
 
@@ -88,7 +88,7 @@ Também em pré-visualização, pode visualizar os seus dados reservados, clican
 > Estas características são fornecidas sem um contrato de nível de serviço, e não recomendadas para cargas de trabalho de produção.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. No portal Azure, **Sentinel** navegue no  >  **separador** Hunting Bookmarks de gestão de ameaças  >  **Hunting**  >  **Bookmarks** sentinelas e selecione o marcador ou marcadores que pretende investigar.
+1. No portal Azure, navegue no  >  **separador** Hunting Bookmarks de gestão de ameaças  >    >   sentinelas e selecione o marcador ou marcadores que pretende investigar.
 
 2. Nos detalhes do marcador, certifique-se de que pelo menos uma entidade está mapeada. Por exemplo, para **ENTIDADES**, consulte as entradas para **IP,** **Máquina,** ou **Conta.**
 
@@ -103,7 +103,7 @@ Para obter instruções para utilizar o gráfico de investigação, consulte [us
 > Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. No portal Azure, **Sentinel** navegue no  >  separador Hunting Bookmarks de **gestão de ameaças**  >  **Hunting**  >  **Bookmarks** sentinelas e selecione o marcador ou marcadores que pretende adicionar a um incidente.
+1. No portal Azure, navegue no  >  separador Hunting Bookmarks de **gestão de ameaças**  >    >   sentinelas e selecione o marcador ou marcadores que pretende adicionar a um incidente.
 
 2. Selecione **as ações de incidente (pré-visualização)** da barra de comando:
     
@@ -122,7 +122,7 @@ Para ver o marcador dentro do incidente: Navegue para **a Sentinel**  >  **Threa
 
 ## <a name="view-bookmarked-data-in-logs"></a>Ver dados marcados em registos
 
-Para visualizar consultas, resultados ou históricos com marcadores, selecione o marcador no separador **Marcadores** de Caça  >  **Bookmarks** e utilize os links fornecidos no painel de detalhes: 
+Para visualizar consultas, resultados ou históricos com marcadores, selecione o marcador no separador **Marcadores** de Caça  >   e utilize os links fornecidos no painel de detalhes: 
 
 - Consulte a **consulta de origem** para visualizar a consulta de origem no painel **de registos.**
 
@@ -140,14 +140,14 @@ Esta vista mostra todos os seus marcadores com metadados associados. Pode utiliz
 
 ## <a name="delete-a-bookmark"></a>Apagar um marcador
  
-1.  No portal Azure, **Sentinel** navegue no  >  **separador** Hunting Bookmarks de gestão de ameaças  >  **Hunting**  >  **Bookmarks** sentinelas e selecione o marcador ou marcadores que pretende eliminar. 
+1.  No portal Azure, navegue no  >  **separador** Hunting Bookmarks de gestão de ameaças  >    >   sentinelas e selecione o marcador ou marcadores que pretende eliminar. 
 
 2. Clique com o botão direito nas suas seleções e selecione a opção de eliminar o marcador ou marcadores. Por exemplo, **Elimine o marcador** se selecionar apenas um marcador e **eliminar 2 marcadores** se selecionar dois marcadores.
     
 A eliminação do marcador retira o marcador da lista no **separador Bookmark.** A tabela **HuntingBookmark** para o seu espaço de trabalho Log Analytics continuará a conter entradas de marcadores anteriores, mas a última entrada mudará o valor **softDelete** para verdadeiro, facilitando a filtragem de marcadores antigos. A eliminação de um marcador não retira nenhuma entidade da experiência de investigação que esteja associada a outros marcadores ou alertas. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a dirigir uma investigação de caça usando marcadores em Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

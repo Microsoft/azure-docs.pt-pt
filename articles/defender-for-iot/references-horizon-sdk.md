@@ -8,11 +8,11 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523367"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dissector de protocolo proprietário horizonte
@@ -820,7 +820,7 @@ Esta secção descreve os campos de configuração JSON.
 | Nome do campo | Description | Valores possíveis |
 |--|--|--|
 | **ID** | Representa uma única identificação de alerta. Deve ser único neste contexto. | Valor numérico 0 - 10000 |
-| **Mensagem** | Informação apresentada ao utilizador. Este campo permite-lhe utilizar diferentes campos. | Utilize qualquer campo a partir do seu protocolo ou qualquer protocolo de camada inferior. |
+| **message** | Informação apresentada ao utilizador. Este campo permite-lhe utilizar diferentes campos. | Utilize qualquer campo a partir do seu protocolo ou qualquer protocolo de camada inferior. |
 | **título** | O título de alerta |  |
 | **expression** | Quando quiser que este alerta apareça. | Utilize qualquer campo numérico encontrado em camadas inferiores ou na camada atual.</br></br> Cada campo deve ser embrulhado `{}` com, para que o SDK detetá-lo como um campo, os operadores lógicos apoiados são</br> == - Igual</br> <= - Menos ou igual</br> >= - Mais do que igual</br> > - Mais do que</br> < - Menos de</br> ~= - Não é igual |
 
@@ -1640,6 +1640,6 @@ Para monitorizar:
 
 Selecione o botão Monitor para o seu plugin a partir da visão geral.
 
-## <a name="next-steps"></a>Passos seguintes
+Passos Seguintes
 
 Configurar a sua [API Horizonte](references-horizon-api.md)

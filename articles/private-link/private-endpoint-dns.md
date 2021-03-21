@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
 ms.openlocfilehash: 42c5b315c9c3560c400c685448a11dc61bf64eb6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102215617"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do Ponto Final Privado do Azure
@@ -64,8 +64,8 @@ Para os serviços Azure, utilize os nomes de zona recomendados como descritos no
 | Pesquisa de Azure (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
 | Registo de Contentores Azure (Microsoft.ContainerRegistry/registries) / registo | privatelink.azurecr.io | azurecr.io |
 | Configuração de aplicativos Azure (Microsoft.AppConfiguration/configurationStores) / configurationStore | privatelink.azconfig.io | azconfig.io |
-| Azure Backup (Microsoft.RecoveryServices/vaults) / cofre | privatelink. {region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
-| Recuperação do site Azure (Microsoft.RecoveryServices/cofres) / cofre | {region}.privatelink.siterecovery.windowsazure.com | {região}.hypervrecoverymanager.windowsazure.com |
+| Azure Backup (Microsoft.RecoveryServices/vaults) / cofre | privatelink. {região}.backup.windowsazure.com | {região}.backup.windowsazure.com |
+| Recuperação do site Azure (Microsoft.RecoveryServices/cofres) / cofre | {região}.privatelink.siterecovery.windowsazure.com | {região}.hypervrecoverymanager.windowsazure.com |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Hub Azure IoT (Microsoft.Devices/IotHubs) / iotHubs | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |

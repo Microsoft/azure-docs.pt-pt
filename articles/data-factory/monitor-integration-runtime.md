@@ -7,10 +7,10 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740035"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory
@@ -48,7 +48,7 @@ A tabela a seguir fornece descrições das propriedades devolvidas pelo cmdlet p
 | Localização | Localização do tempo de funcionamento da integração do Azure. Para obter detalhes sobre a localização de um tempo de execução da integração Azure, consulte [Introdução ao tempo de execução da integração.](concepts-integration-runtime.md) |
 | DataFactoryName | Nome da fábrica de dados a que pertence o tempo de integração do Azure. | 
 | ResourceGroupName | Nome do grupo de recursos a que pertence a fábrica de dados.  |
-| Descrição | Descrição do tempo de execução da integração.  |
+| Description | Descrição do tempo de execução da integração.  |
 
 ### <a name="status"></a>Estado
 
@@ -171,7 +171,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet acima para um Azure-SSIS IR.
 
-| Propriedade/Estado              | Descrição                  |
+| Propriedade/Estado              | Description                  |
 | ---------------------------- | ---------------------------- |
 | Criar Tempo                   | O tempo UTC quando o seu Azure-SSIS IR foi criado. |
 | Nós                        | Os nós atribuídos/disponíveis do seu Azure-SSIS IR com estatutos específicos do nó (início/disponível/reciclagem/indisponível) e erros acccionáveis. |
@@ -193,13 +193,13 @@ O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet a
 | ResourceGroupName            | O nome do seu Grupo de Recursos Azure, no qual foram criados os seus ADF e Azure-SSIS IR. |
 | DataFactoryName              | O nome da sua ADF. |
 | Name                         | O nome do seu Azure-SSIS IR. |
-| Descrição                  | A descrição do seu Azure-SSIS IR. |
+| Description                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Estado (por nó IR Azure-SSIS)
 
 O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
-| Estado específico do nó | Descrição |
+| Estado específico do nó | Description |
 | -------------------- | ----------- | 
 | A iniciar             | Este nó está a ser preparado. |
 | Disponível            | Este nó está pronto para implementar/executar pacotes SSIS. |
@@ -210,7 +210,7 @@ O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
 O quadro seguinte fornece possíveis estatutos globais de um Azure-SSIS IR. O estatuto geral, por sua vez, depende dos estatutos combinados de todos os nós que pertencem ao Azure-SSIS IR. 
 
-| Estado geral | Descrição | 
+| Estado geral | Description | 
 | -------------- | ----------- | 
 | Initial (Inicial)        | Os nós do seu Azure-SSIS IR não foram atribuídos/preparados. | 
 | A iniciar       | Os nós do seu Azure-SSIS IR estão a ser atribuídos/preparados e a faturação já começou. |

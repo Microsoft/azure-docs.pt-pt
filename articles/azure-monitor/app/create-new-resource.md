@@ -4,10 +4,10 @@ description: Configurar manualmente a monitorização do Application Insights pa
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102100938"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights

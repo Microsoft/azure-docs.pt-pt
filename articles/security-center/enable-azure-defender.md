@@ -8,10 +8,10 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 02/24/2021
 ms.openlocfilehash: 6496b18c8c22cbbd4fd3344736a4b38b7a998890
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102108920"
 ---
 # <a name="quickstart-enable-azure-defender"></a>Quickstart: Enable Azure Defender

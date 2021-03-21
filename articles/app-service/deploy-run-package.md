@@ -3,12 +3,12 @@ title: Executar a sua aplicação a partir de um pacote ZIP
 description: Implemente o pacote ZIP da sua aplicação com aatólidade. Melhore a previsibilidade e a fiabilidade do comportamento da sua aplicação durante o processo de implementação zip.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 3440653455626af4e3705d89349a66d6bf2fbfc0
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 036dd8c86251af2ed5553939e74a0d85fc303ecb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008134"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577551"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Execute a sua aplicação no Azure App Service diretamente a partir de um pacote ZIP
 
@@ -67,6 +67,7 @@ Se publicar um pacote atualizado com o mesmo nome para o armazenamento Blob, tem
 
 - Correr diretamente de um pacote faz `wwwroot` apenas leitura. A sua aplicação receberá um erro se tentar escrever ficheiros para este diretório.
 - Os formatos TAR e GZIP não são suportados.
+- O ficheiro ZIP pode ser no máximo 1GB
 - Esta função não é compatível com [cache local.](overview-local-cache.md)
 - Para melhorar o desempenho do arranque a frio, utilize a opção Zip local `WEBSITE_RUN_FROM_PACKAGE` (=1).
 

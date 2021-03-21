@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Transforme e proteja a sua API na Azure API Management / Microsoft Docs
+title: Tutorial - Transforme e proteja a sua API na Azure API Management | Microsoft Docs
 description: Neste tutorial, aprende-se a proteger a sua API em Gestão de API com políticas de transformação e estrangulamento (limitação de taxas).
 author: vladvino
 ms.service: api-management
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010236"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutorial: Transforme e proteja a sua API
@@ -20,7 +20,7 @@ O tutorial mostra como transformar a sua API para que não revele informações 
 
 Este tutorial também mostra como é fácil adicionar proteção para a sua API backend, configurando um limite de taxa com a Azure API Management. Por exemplo, pode querer limitar a taxa de chamadas API para que a API não seja sobreutilizada pelos desenvolvedores. Para mais informações, consulte [as políticas de Gestão da API.](api-management-policies.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -103,7 +103,7 @@ Para ver a resposta original:
 
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
 
-1.  Selecione **Demo Conference API**  >  **Todos os projetos de operações.**  >  **Design**
+1.  Selecione **Demo Conference API**  >  **Todos os projetos de operações.**  >  
 1.  Na secção **de processamento outbound,** selecione o ícone do editor de código **</>** ()
 1.  Posicione o cursor dentro do elemento **&lt; de saída &gt;** e selecione Mostrar os **cortes** no canto superior direito.
 1.  Na janela direita, sob as **políticas de transformação,** selecione **URLs de máscara em conteúdo**. 
@@ -113,7 +113,7 @@ Para ver a resposta original:
 
 Esta secção mostra como adicionar proteção à API de back-end através da configuração de limites de taxas. Por exemplo, pode querer limitar a taxa de chamadas API para que a API não seja sobreutilizada pelos desenvolvedores. Neste exemplo, o limite é definido para 3 chamadas por 15 segundos para cada ID de subscrição. Após os 15 segundos, um programador pode tentar chamar a API novamente.
 
-1.  Selecione **Demo Conference API**  >  **Todos os projetos de operações.**  >  **Design**
+1.  Selecione **Demo Conference API**  >  **Todos os projetos de operações.**  >  
 1.  Na secção **de processamento de entrada,** selecione o ícone do editor de código **</>** ()
 1.  Posicione o cursor dentro do elemento **&lt; de entrada &gt;** e selecione Mostrar os **cortes** no canto superior direito.
 

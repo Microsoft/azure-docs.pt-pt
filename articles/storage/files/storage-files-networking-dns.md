@@ -1,5 +1,5 @@
 ---
-title: Configurar o reencaminhamento de DNS para ficheiros Azure / Microsoft Docs
+title: Configurar o reencaminhamento de DNS para a Azure Files | Microsoft Docs
 description: Saiba como configurar o reencaminhamento de DNS para ficheiros Azure.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94630197"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configurar o reencaminhamento de DNS para Ficheiros do Azure
@@ -21,7 +21,7 @@ Para que as ligações à sua conta de armazenamento se debruçassem sobre o seu
 
 Recomendamos vivamente que leia Planeamento para uma implementação de [Ficheiros Azure](storage-files-planning.md) e [considerações de networking de Ficheiros Azure](storage-files-networking-overview.md) antes de completar os passos descritos neste artigo.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 A Azure Files fornece dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
 - Pontos finais públicos, que têm um endereço IP público e podem ser acedidos a partir de qualquer parte do mundo.
 - Pontos finais privados, que existem dentro de uma rede virtual e têm um endereço IP privado a partir do espaço de endereço dessa rede virtual.

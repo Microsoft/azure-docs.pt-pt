@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: c2121f429b928d58a2df7b4e4663341cf600da3e
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102214478"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
@@ -154,7 +154,7 @@ No Visual Studio, crie uma aplicação Core Web ASP.NET chamada "hello-world" co
 
    Os pacotes são para a Steeltoe Service Discovery e para a biblioteca de clientes Azure Spring Cloud. A `Zip` tarefa é a deslocação para Azure. Quando executam o `dotnet publish` comando, gera as binários na pasta *de publicação,* e esta tarefa fecha a pasta de *publicação* num ficheiro *.zip* que envia para a Azure.
 
-3. No ficheiro *Program.cs,* adicione uma `using` diretiva e código que utiliza a biblioteca de clientes Azure Spring Cloud:
+3. No ficheiro *.cs Programa,* adicione uma `using` diretiva e código que utiliza a biblioteca de clientes Azure Spring Cloud:
 
    ```csharp
    using Microsoft.Azure.SpringCloud.Client;
@@ -170,7 +170,7 @@ No Visual Studio, crie uma aplicação Core Web ASP.NET chamada "hello-world" co
                    });
    ```
 
-4. No ficheiro *Startup.cs,* adicione uma `using` diretiva e código que utiliza a Descoberta do Serviço Steeltoe no final do `ConfigureServices` e `Configure` métodos:
+4. No ficheiro *.cs Arranque,* adicione uma `using` diretiva e código que utiliza a Descoberta do Serviço Steeltoe no final do `ConfigureServices` e `Configure` métodos:
 
    ```csharp
    using Steeltoe.Discovery.Client;
