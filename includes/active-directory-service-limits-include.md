@@ -1,26 +1,26 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 9be85a7da67fa659e29d802d1f77fa09008f4428
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 1102bcc18165d3bc705755f1bbb6faecddec4e91
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371322"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612970"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço do serviço do Azure Active Directory (Azure AD).
 
 | Categoria | Limite |
 | --- | --- |
 | Inquilinos | Um único utilizador pode pertencer a um máximo de 500 inquilinos AD Azure como membro ou hóspede.<br/>Um único utilizador pode criar um máximo de 200 diretórios. |
-| Domínios | Pode adicionar um máximo de 900 nomes de domínio gerido. Se configurar todos os seus domínios para federação com diretório ativo no local, não pode adicionar mais de 450 nomes de domínio em cada inquilino. |
+| Domínios | Não pode adicionar mais de 5000 nomes de domínio geridos. Se configurar todos os seus domínios para federação com diretório ativo no local, não pode adicionar mais de 2500 nomes de domínio em cada inquilino. |
 |Recursos |<ul><li>Um máximo de 50.000 recursos Azure AD pode ser criado em um único inquilino pelos utilizadores da edição livre do Azure Ative Diretório por padrão. Se tiver pelo menos um domínio verificado, a quota de serviço Azure AD padrão para a sua organização é alargada a 300.000 recursos Azure AD. A quota de serviço AZure AD para organizações criadas por autosserviço permanece em 50.000 recursos Azure AD mesmo depois de ter realizado uma aquisição interna de administração e a organização é convertida para um inquilino gerido com pelo menos um domínio verificado. Este limite de serviço não está relacionado com o limite de 500.000 recursos na página de preços da Azure AD. Para ir além da quota padrão, tem de contactar o Microsoft Support.</li><li>Um utilizador não administrativo não pode criar mais de 250 recursos Azure AD. Tanto os recursos ativos como os recursos eliminados que estão disponíveis para restaurar a contagem para esta quota. Apenas os recursos Azure AD eliminados que foram eliminados há menos de 30 dias estão disponíveis para restaurar. Recursos AD Azure eliminados que já não estão disponíveis para restaurar a contagem para esta quota no valor de um quarto durante 30 dias. Se tiver programadores que sejam suscetíveis de exceder repetidamente esta quota no decurso das suas funções regulares, pode [criar e atribuir uma função personalizada](../articles/active-directory/roles/quickstart-app-registration-limits.md) com permissão para criar um número ilimitado de registos de aplicações.</li></ul> |
 | Extensões de esquema |<ul><li>As extensões de tipo de cadeia podem ter até 256 carateres. </li><li>As extensões de tipo binário estão limitadas a 256 bytes.</li><li>Apenas 100 valores de extensão, em *todos os* tipos e *aplicações,* podem ser escritos a qualquer recurso AD Azure único.</li><li>Apenas as entidades User, Group, TenantDetail, Device, Application e ServicePrincipal podem ser expandidas com os atributos de valor único do tipo de cadeia ou de tipo de binário.</li><li>As extensões de esquema estão disponíveis apenas na pré-visualização da versão 1.21 da Graph API. A aplicação tem de ter acesso de escrita para registar uma extensão.</li></ul> |
 | Aplicações | <ul><li>No máximo, cem utilizadores podem ser proprietários de uma única aplicação.</li><li>A aplicação SSO baseada em palavras-passe tem um limite de 48 utilizadores, o que significa que existe um limite de 48 chaves para pares de nome de utilizador/palavra-passe por aplicação. Se pretender adicionar utilizadores adicionais, consulte as instruções de resolução de problemas no [único sinal baseado em resolução de palavras-passe baseadas em Azure AD](../articles/active-directory/manage-apps/troubleshoot-password-based-sso.md#i-cant-add-another-user-to-my-password-based-sso-app).</li></ul> |

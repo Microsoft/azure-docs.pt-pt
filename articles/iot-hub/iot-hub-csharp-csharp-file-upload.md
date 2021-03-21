@@ -11,10 +11,10 @@ ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 43cafb8c5efe0581fe7c4136aa41980b3d817be2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99981413"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (.NET)
@@ -70,7 +70,7 @@ Nesta secção, modifica a aplicação do dispositivo que criou no [Enviar mensa
 
     ![Mostrar onde atualizar a propriedade de imagem para Copy to Output Directory](./media/iot-hub-csharp-csharp-file-upload/image-properties.png)
 
-1. No ficheiro **Program.cs,** adicione as seguintes declarações no topo do ficheiro:
+1. No ficheiro **.cs Programa,** adicione as seguintes declarações no topo do ficheiro:
 
     ```csharp
     using System.IO;
@@ -127,7 +127,7 @@ Nesta secção, escreve uma aplicação de consola .NET que recebe mensagens de 
 
     Este passo descarrega, instala e adiciona uma referência ao [pacote SDK NuGet do serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) no projeto **ReadFileUploadNotification.**
 
-1. No **Program.cs** ficheiro para este projeto, adicione a seguinte declaração no topo do ficheiro:
+1. No **ficheiro .cs Programa** para este projeto, adicione a seguinte declaração no topo do ficheiro:
 
     ```csharp
     using Microsoft.Azure.Devices;

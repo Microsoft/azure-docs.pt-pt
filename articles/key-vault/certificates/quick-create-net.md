@@ -9,10 +9,10 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4dd216f4018feca8c3461104a5beb220d90fd743
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97932848"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Quickstart: Azure Key Vault certificate client library for.NET (SDK v4)
@@ -124,7 +124,7 @@ A biblioteca de clientes do Certificado Azure Key Vault para .NET permite-lhe ge
 
 ### <a name="add-directives"></a>Adicionar diretivas
 
-Adicione as seguintes diretivas ao topo de *Program.cs:*
+Adicione as seguintes diretivas ao topo do *Programa.cs:*
 
 ```csharp
 using System;
@@ -183,7 +183,7 @@ await client.PurgeDeletedCertificateAsync("myCertificate");
 
 Modifique a aplicação de consola .NET Core para interagir com o Cofre de Chaves, completando os seguintes passos:
 
-- Substitua o código em *Program.cs* pelo seguinte código:
+- Substitua o código no *programa.cs* pelo seguinte código:
 
     ```csharp
     using System;
@@ -251,7 +251,7 @@ Para saber mais sobre o Key Vault e como integrá-lo com as suas apps, consulte 
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Leia uma [visão geral dos certificados](about-certificates.md)
-- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
+- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações de aplicações de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
 - Veja um [cofre de chave de acesso a partir de tutorial de máquina virtual](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
 ms.openlocfilehash: 67a2799a93141ad84f458642d8499a58784cc19c
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463909"
 ---
 ## <a name="configure-the-sample-project"></a>Configure o projeto da amostra

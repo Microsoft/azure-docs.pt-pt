@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 68114893ed3db858d00ca7811b1a83395ff02507
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: e8efa094ef6bd888c21f71e44f1810614bc87e75
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495339"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719689"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -101,11 +101,11 @@ Os tokens de acesso são credenciais de curta duração que precisam de ser reed
 
 ## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Criar uma identidade e emitir um token de acesso dentro do mesmo pedido
 
-Utilize o `create_user_with_token` método para criar uma identidade dos Serviços de Comunicação e emita um símbolo de acesso para o mesmo. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md)
+Utilize o `create_user_and_token` método para criar uma identidade dos Serviços de Comunicação e emita um símbolo de acesso para o mesmo. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md)
 
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
-identity_token_result = client.create_user_with_token(["voip"])
+identity_token_result = client.create_user_and_token(["voip"])
 identity = identity_token_result[0].identifier
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
 ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204053"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar o certificado autorrotação no Cofre de Chaves

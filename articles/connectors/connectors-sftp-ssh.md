@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/08/2021
 tags: connectors
 ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449633"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
@@ -53,18 +53,18 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | Não | Não aplicável |
-  | **Criar ficheiro** | Sim | Sim |
+  | **Ficheiro de cópia** | No | Não aplicável |
+  | **Criar ficheiro** | Yes | Yes |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar ficheiro** | Não aplicável | Não aplicável |
   | **Extrair arquivo para pasta** | Não aplicável | Não aplicável |
-  | **Obtenha o conteúdo do arquivo** | Sim | Sim |
-  | **Obtenha o conteúdo do ficheiro usando o caminho** | Sim | Sim |
+  | **Obtenha o conteúdo do arquivo** | Yes | Yes |
+  | **Obtenha o conteúdo do ficheiro usando o caminho** | Yes | Yes |
   | **Obtenha metadados de ficheiros** | Não aplicável | Não aplicável |
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | Não | Não aplicável |
+  | **Atualizar ficheiro** | No | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:

@@ -9,15 +9,15 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 02/18/2020
 ms.openlocfilehash: 3ac6937d83bd2d21fefc09878408a54aa0eb41f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102559091"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics virtual machine extension for Linux (Extensão de máquina virtual do Log Analytics para Linux)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Azure Monitor Logs fornece capacidades de monitorização, alerta e alerta de remediação através de ativos de nuvem e no local. A extensão da máquina virtual Log Analytics para Linux é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais Azure e inscreve máquinas virtuais num espaço de trabalho log analytics existente. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão da máquina virtual Log Analytics para o Linux.
 

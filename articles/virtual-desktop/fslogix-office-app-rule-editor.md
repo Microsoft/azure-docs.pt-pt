@@ -7,10 +7,10 @@ ms.date: 02/23/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7d66d370f321323ec1aeb45ad0fe628904b14fe6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747148"
 ---
 # <a name="install-microsoft-office-using-fslogix-application-containers"></a>Instale o Microsoft Office utilizando recipientes de aplicação FSLogix

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: bdfb5f65106f3f8843b4aa52b752f5e563ab03f0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102620123"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Como conectar dispositivos através de um gateway transparente IoT Edge

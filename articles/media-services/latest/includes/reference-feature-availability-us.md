@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8dd84a0c4eb1fd74ef850cb6de4530f50b3bb409
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 54eead8daa6367f9e4869d0d6a19d96c32a2fe3a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331102"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104611967"
 ---
 <!--Feature availability in region-->
 
@@ -17,7 +17,7 @@ ms.locfileid: "93331102"
 
 | Funcionalidade | E.U.A. Central | E.U.A. Leste | E.U.A. Leste 2 | E.U.A. Centro-Norte | E.U.A. Centro-Sul | E.U.A. Oeste | E.U.A. Oeste 2 | E.U.A. Centro-Oeste|
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) | ![Disponibilidade geral do Azure EventGrid Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid East US](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid East US 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid North Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid South Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid US West](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid US West 2](../media/azure-clouds-regions/ga.svg) |  ![Disponibilidade geral do Azure EventGrid West Central](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) | ![Disponibilidade geral do Azure EventGrid Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid East US](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid East US 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid North Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid South Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid US West](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do Azure EventGrid US West 2](../media/azure-clouds-regions/ga.svg) |  ![Disponibilidade geral do Azure EventGrid West Central](../media/azure-clouds-regions/ga.svg) |
 | [VídeoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![VideoAnalyzerPreset Central US Disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do VideoAnalyzerPreset East US](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset East US 2 disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset North Central US Disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset South Central US Disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset US West disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset US West 2 disponibilidade geral](../media/azure-clouds-regions/ga.svg) |  ![Disponibilidade geral do VideoAnalyzerPreset West Central](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![Disponibilidade geral audioAnalyzerPreset Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do AudioAnalyzerPreset East US](../media/azure-clouds-regions/ga.svg) | ![AudioAnalyzerPreset East US 2 disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral audioAnalyzerPreset North Central DOS EUA](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral audioAnalyzerPreset South Central DOS EUA](../media/azure-clouds-regions/ga.svg) |  ![AudioAnalyzerPreset US Disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![AudioAnalyzerPreset US West 2 disponibilidade geral](../media/azure-clouds-regions/ga.svg) |  ![Disponibilidade geral audioAnalyzerPreset West Central](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset Central US disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do StandardEncoderPreset East US](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset East US 2 disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset North Central US disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset South Central US disponibilidade geral](../media/azure-clouds-regions/ga.svg) |  ![StandardEncoderPreset US Disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset US West 2 disponibilidade geral](../media/azure-clouds-regions/ga.svg) |  ![Disponibilidade geral standardEncoderPreset West Central](../media/azure-clouds-regions/ga.svg) |

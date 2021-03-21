@@ -3,14 +3,14 @@ title: Gerir horários na Azure Automation
 description: Este artigo diz como criar e trabalhar com um horário na Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149482"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669564"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Azure Automation
 
@@ -38,7 +38,7 @@ Os cmdlets na tabela seguinte criam e gerem horários de Automação com o Power
 
 ## <a name="create-a-schedule"></a>Criar um horário
 
-Pode criar um novo horário para os seus runbooks no portal Azure ou com o PowerShell. Para evitar afetar os seus runbooks e os processos que automatizam, deve primeiro testar quaisquer livros que tenham agendados ligados a uma conta Automation dedicada a testes. Um teste valida que os seus livros de execução programados continuam a funcionar corretamente. Se vir um problema, pode resolver problemas e aplicar quaisquer alterações necessárias antes de migrar a versão atualizada do runbook para a produção.
+Pode criar um novo horário para os seus runbooks a partir do portal Azure, com o PowerShell, ou utilizando um modelo de Gestor de Recursos Azure (ARM). Para evitar afetar os seus runbooks e os processos que automatizam, deve primeiro testar quaisquer livros que tenham agendados ligados a uma conta Automation dedicada a testes. Um teste valida que os seus livros de execução programados continuam a funcionar corretamente. Se vir um problema, pode resolver problemas e aplicar quaisquer alterações necessárias antes de migrar a versão atualizada do runbook para a produção.
 
 > [!NOTE]
 > A sua conta de Automação não obtém automaticamente novas versões de módulos a menos que os tenha atualizado manualmente selecionando a opção [de módulos Azure de Atualização](../automation-update-azure-modules.md) a partir de **Módulos**. A Azure Automation utiliza os módulos mais recentes da sua conta de Automação quando é executado um novo trabalho programado. 

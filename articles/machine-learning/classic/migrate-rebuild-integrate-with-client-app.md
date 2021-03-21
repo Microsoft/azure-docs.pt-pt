@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
 ms.openlocfilehash: bf0624e0667c9fc6998fb28898a3376ca409180d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103565499"
 ---
 # <a name="consume-pipeline-endpoints-from-client-applications"></a>Consumir pontos finais de gasodutos a partir de aplicações de clientes

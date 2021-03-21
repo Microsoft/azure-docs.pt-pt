@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928737"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com gasodutos Azure
@@ -35,7 +35,7 @@ Existem três passos primários necessários para permitir que os gasodutos Azur
 
 * [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com a função [de Administrador de Política B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) enviadas para o seu inquilino
-* [Aplicação de gestão](microsoft-graph-get-started.md) registada no seu inquilino com a Política de Permissão da API do Microsoft Graph.ReadWrite.TrustFramework *Policy.ReadWrite.TrustFramework*
+* [Aplicação de gestão](microsoft-graph-get-started.md) registada no seu inquilino com a Política de Permissão da API do Microsoft Graph.ReadWrite.TrustFramework 
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), e acesso a um [projeto Azure DevOps Services][devops-create-project]
 
 ## <a name="client-credentials-grant-flow"></a>Fluxo de concessão de credenciais de cliente
@@ -46,7 +46,7 @@ O cenário aqui descrito faz uso de chamadas de serviço-a-serviço entre a Azur
 
 Como mencionado em [Pré-Requisitos,](#prerequisites)precisa de um registo de aplicação que os seus scripts PowerShell - executados pela Azure Pipelines - podem usar para aceder aos recursos do seu inquilino.
 
-Se já tem um registo de aplicação que utiliza para tarefas de automatização, certifique-se de que foi concedida a permissão da **Microsoft Graph**  >  **Policy**  >  **Policy.ReadWrite.TrustFramework** dentro das **permissões API** do registo da aplicação.
+Se já tem um registo de aplicação que utiliza para tarefas de automatização, certifique-se de que foi concedida a permissão da **Microsoft Graph**  >    >  **Policy.ReadWrite.TrustFramework** dentro das **permissões API** do registo da aplicação.
 
 Para obter instruções sobre o registo de uma aplicação de gestão, consulte [Manage Azure AD B2C com o Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -114,7 +114,7 @@ Com o seu repositório inicializado e povoado com os seus ficheiros de política
 ### <a name="create-pipeline"></a>Criar pipeline
 
 1. Inscreva-se na sua organização Azure DevOps Services e navegue para o seu projeto.
-1. No seu projeto, selecione **Pipelines**  >  **Pipelines Releases**  >  **Novo pipeline**.
+1. No seu projeto, selecione   >  **Pipelines Releases**  >  **Novo pipeline**.
 1. Em **Selecione um modelo,** selecione **Trabalho Vazio**.
 1. Introduza um **nome de palco**, por *exemplo, Implementar Políticas,* e feche o painel.
 1. **Selecione Adicione um artefacto**, e sob o tipo **Fonte**, selecione **Azure Repository**.

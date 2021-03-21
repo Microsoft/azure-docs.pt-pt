@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 13d0bdf82052ff2c61c5b2c6010956c8fb27574d
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 30ea75a2df63fa935314fc103fe1e7e092f655b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122472"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612880"
 ---
 Este quickstart mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play de amostra, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a telemetria que envia. O pedido de amostra está escrito em C# e está incluído nas amostras Azure IoT para C#. Um construtor de soluções pode utilizar a ferramenta exploradorA Azure IoT para compreender as capacidades de um dispositivo IoT Plug e Play sem a necessidade de visualizar qualquer código do dispositivo.
 
@@ -42,7 +42,7 @@ Agora pode construir a amostra no Visual Studio e executá-la em modo de depurar
 
     | Name | Valor |
     | ---- | ----- |
-    | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
+    | IOTHUB_DEVICE_SECURITY_TYPE | EP2 |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
     | IOTHUB_DEVICE_DPS_ID_SCOPE | O valor que fez notar quando completou [Configurar o seu ambiente](../articles/iot-pnp/set-up-environment.md) |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-dispositivo |
@@ -52,7 +52,7 @@ Agora pode construir a amostra no Visual Studio e executá-la em modo de depurar
 
 ## <a name="run-the-device-sample"></a>Executar a amostra do dispositivo
 
-Para rastrear a execução de código no Estúdio Visual no Windows, adicione um ponto de rutura à `main` função no ficheiro program.cs.
+Para rastrear a execução de código no Estúdio Visual no Windows, adicione um ponto de rutura à `main` função no ficheiro .cs programa.
 
 O dispositivo está agora pronto para receber comandos e atualizações de propriedade, e começou a enviar dados de telemetria para o hub. Mantenha a amostra a funcionar à medida que completar os próximos passos.
 
@@ -64,7 +64,7 @@ Depois de iniciar a amostra do cliente do dispositivo, utilize a ferramenta expl
 
 ## <a name="review-the-code"></a>Rever o código
 
-Esta amostra implementa um simples dispositivo de termóstato IoT Plug e Play. O modelo que esta amostra implementa não utiliza [componentes](../articles/iot-pnp/concepts-components.md)IoT Plug e Play . O [ficheiro de modelo de definição de Gémeos Digitais (DTDL) para o dispositivo termóstato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) define a telemetria, propriedades e comanda os dispositivos.
+Esta amostra implementa um simples dispositivo de termóstato IoT Plug e Play. O modelo que esta amostra implementa não utiliza [componentes](../articles/iot-pnp/concepts-modeling-guide.md)IoT Plug e Play . O [ficheiro de modelo de definição de Gémeos Digitais (DTDL) para o dispositivo termóstato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) define a telemetria, propriedades e comanda os dispositivos.
 
 O código do dispositivo liga-se ao seu hub IoT utilizando o `CreateFromConnectionString` método padrão. O dispositivo envia o ID modelo do modelo DTDL que implementa no pedido de ligação. Um dispositivo que envia um ID modelo é um dispositivo IoT Plug and Play:
 

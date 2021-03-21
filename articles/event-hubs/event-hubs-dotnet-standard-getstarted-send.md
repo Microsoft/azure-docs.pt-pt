@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 36551a52bc095a37aa5176ab945dd5d27c640954
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504615"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar eventos para e receber eventos dos Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
@@ -58,7 +58,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Escrever códigos para enviar mensagens ao hub de eventos
 
-1. Adicione as `using` seguintes declarações ao topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações ao topo do ficheiro **.cs Programa:**
 
     ```csharp
     using System;
@@ -148,7 +148,7 @@ Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verifi
 
 ### <a name="update-the-main-method"></a>Atualizar o método principal 
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs.**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa.**
 
     ```csharp
     using System;

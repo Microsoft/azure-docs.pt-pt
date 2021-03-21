@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f47a8f1edb4afed41587eac3d539b5ad7cb8180f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488470"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655993"
 ---
 # <a name="quickstart-handle-sms-events"></a>Quickstart: Lidar com eventos DE SMS
 
@@ -27,7 +27,7 @@ Inicie-se com os Serviços de Comunicação Azure utilizando a Azure Event Grid 
 
 ## <a name="about-azure-event-grid"></a>Sobre a grelha de eventos de Azure
 
-[A azure Event Grid](../../../event-grid/overview.md) é um serviço de eventos baseado na nuvem. Neste artigo, você vai aprender a subscrever eventos para [eventos de serviço de comunicação](../../concepts/event-handling.md), e desencadear um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. Neste artigo, enviaremos os eventos para uma aplicação web que recolhe e exibe as mensagens.
+[A azure Event Grid](../../../event-grid/overview.md) é um serviço de eventos baseado na nuvem. Neste artigo, você vai aprender a subscrever eventos para [eventos de serviço de comunicação](../../../event-grid/event-schema-communication-services.md), e desencadear um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. Neste artigo, enviaremos os eventos para uma aplicação web que recolhe e exibe as mensagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -68,7 +68,7 @@ Pode subscrever eventos específicos para dizer à Grade de Eventos quais dos ev
 
 Se lhe for solicitado que forneça um **Nome Tópico do Sistema,** sinta-se à vontade para fornecer uma cadeia única. Este campo não tem impacto na sua experiência e é utilizado para fins de telemetria interna.
 
-Confira a lista completa de [eventos suportados pelos Serviços de Comunicação Azure.](../../concepts/event-handling.md)
+Confira a lista completa de [eventos suportados pelos Serviços de Comunicação Azure.](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot mostrando o relatório de entrega de SMS Recebido e SMS Recebeu tipos de eventos sendo selecionados.":::
 
@@ -93,7 +93,7 @@ Para ver os desencadeadores do evento, temos de gerar eventos em primeiro lugar.
 - `SMS Received` os eventos são gerados quando o número de telefone dos Serviços de Comunicação recebe uma mensagem de texto. Para desencadear um evento, basta enviar uma mensagem do seu telefone para o número de telefone anexado ao seu recurso de Serviços de Comunicação.
 - `SMS Delivery Report Received` os eventos são gerados quando envia um SMS a um utilizador utilizando um número de telefone dos Serviços de Comunicação. Para desencadear um evento, é-lhe exigido que ative `Delivery Report` nas opções do [SMS enviado.](../telephony-sms/send.md) Tente enviar uma mensagem para o seu telefone com `Delivery Report` . Completar esta ação incorre num pequeno custo de alguns usd ou menos na sua conta Azure.
 
-Confira a lista completa de [eventos suportados pelos Serviços de Comunicação Azure.](../../concepts/event-handling.md)
+Confira a lista completa de [eventos suportados pelos Serviços de Comunicação Azure.](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)
 
 ### <a name="receiving-sms-events"></a>Receber eventos de SMS
 
@@ -103,7 +103,7 @@ Assim que completares qualquer ação acima, vais reparar nisso `SMS Received` e
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot mostrando o esquema da grelha de evento para um evento de relatório de entrega de SMS.":::
 
-Saiba mais sobre os esquemas de [eventos e outros conceitos de eventos.](../../concepts/event-handling.md)
+Saiba mais sobre os esquemas de [eventos e outros conceitos de eventos.](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -118,5 +118,5 @@ Neste arranque rápido, aprendeu a consumir eventos de SMS. Pode receber mensage
 
 Também pode querer:
 
- - [Conheça os conceitos de manipulação de eventos](../../concepts/event-handling.md)
+ - [Conheça os conceitos de manipulação de eventos](../../../event-grid/event-schema-communication-services.md)
  - [Saiba mais sobre a Grelha de Eventos](../../../event-grid/overview.md)

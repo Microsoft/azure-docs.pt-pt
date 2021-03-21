@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: 858f006de7425a9fa8bea25e356a148b877aa30d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040605"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
@@ -80,13 +80,13 @@ A Avaliação do Servidor utiliza um [aparelho Azure Migrate](migrate-appliance.
 - Após a descoberta do aparelho, pode recolher máquinas descobertas em grupos e fazer avaliações para cada grupo.
 
 > [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://go.microsoft.com/fwlink/?linkid=2155668) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://go.microsoft.com/fwlink/?linkid=2155668) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate: Ferramenta de migração de servidores
 
 A ferramenta Azure Migrate: Servidor Migração ajuda-o a migrar para Azure:
 
-**Migrar** | **Detalhes**
+**Migrate** | **Detalhes**
 --- | ---
 VMs VMware no local | Migrar VMs para Azure utilizando migração sem agentes ou por agentes.<br/><br/> Para a migração sem agentes, a Migração do Servidor utiliza o mesmo aparelho Azure Migrate que também pode ser usado pela Avaliação do Servidor para a descoberta e avaliação de VMware VMs.<br/><br/> Para a migração baseada em agentes, a Migração do Servidor utiliza um aparelho de replicação.
 VMs de Hyper-V no local | Migrar VMs para Azure.<br/><br/> A Migração do Servidor utiliza agentes de fornecedor instalados no hospedeiro Hyper-V para a migração.

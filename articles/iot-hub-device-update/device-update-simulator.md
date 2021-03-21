@@ -7,10 +7,10 @@ ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102443816"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Atualização do dispositivo para tutorial Azure IoT Hub utilizando o Agente de Referência do Simulador Ubuntu (18,04 x64)

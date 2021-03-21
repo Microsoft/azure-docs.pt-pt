@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
 ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564516"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Sabemos que a segurança é um trabalho na nuvem e como é importante que encontre informações precisas e oportunas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para as suas aplicações e serviços é aproveitar a sua ampla gama de ferramentas e capacidades de segurança. Estas ferramentas e capacidades ajudam a tornar possível a criação de soluções seguras na plataforma Azure segura. O Microsoft Azure fornece confidencialidade, integridade e disponibilidade de dados dos clientes, ao mesmo tempo que permite uma responsabilização transparente.
 

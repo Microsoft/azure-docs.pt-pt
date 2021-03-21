@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589675"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure Traga o seu próprio armazenamento (BYOS) para perfis de aplicações e debugger snapshot
@@ -31,7 +31,7 @@ Com o Bring Your Own Storage, estes artefactos são enviados para uma conta de a
 1. Quando visualizar os vestígios do perfil, ou a análise do depurador instantâneo, o serviço irá buscar os resultados da análise do armazenamento de bolhas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Certifique-se de criar a sua Conta de Armazenamento no mesmo local que o seu Recurso de Insights de Aplicação. Por exemplo: Se o seu recurso Application Insights estiver no West US 2, a sua Conta de Armazenamento também deve estar no West US 2. 
+* Certifique-se de criar a sua Conta de Armazenamento no mesmo local que o seu Recurso de Insights de Aplicação. Ex. Se o seu recurso Application Insights estiver no West US 2, a sua Conta de Armazenamento também deve estar no West US 2. 
 * Conceda a função "Storage Blob Data Contributor" à aplicação AAD "Serviços de Diagnóstico Acesso de Armazenamento Fidedignos" na sua conta de armazenamento através do UI do Controlo de Acesso (IAM).
 * Se o Private Link estiver ativado, configufique a definição adicional para permitir a ligação ao nosso Serviço Microsoft Fidedigno a partir da sua Rede Virtual. 
 

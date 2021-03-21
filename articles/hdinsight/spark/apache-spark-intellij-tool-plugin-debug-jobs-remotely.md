@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
 ms.openlocfilehash: 1daf59c47bf71ad019011036bf42bf6727754345
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98940360"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilize o Azure Toolkit para o IntelliJ para depurar as aplicações Apache Spark remotamente em HDInsight através da VPN
@@ -56,11 +56,11 @@ Recomendamos que também crie um cluster Apache Spark em Azure HDInsight que faz
 
     ![Selecione Anfitriões em Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Vê-se uma lista de nós de cabeça, nós operários e nós de zookeeper. Os nós da cabeça têm um prefixo **hn** _. Selecione o primeiro nó de cabeça.
+1. Vê-se uma lista de nós de cabeça, nós operários e nós de zookeeper. Os nós da cabeça têm um prefixo **hn*** Selecione o primeiro nó de cabeça.
 
     ![Encontre o nó da cabeça em Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
-1. A partir do painel _ *Resumo** na parte inferior da página que abre, copie o **endereço IP** do nó de cabeça e o **nome anfitrião**.
+1. A partir do **painel resumo** na parte inferior da página que abre, copie o **endereço IP** do nó de cabeça e o **nome anfitrião**.
 
     ![Encontre o endereço IP em Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
 
@@ -296,7 +296,7 @@ Recomendamos que também crie um cluster Apache Spark em Azure HDInsight que faz
 
     ![Saída da consola intelliJ IDEA depura](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
 
-## <a name="next-steps"></a><a name="seealso"></a>Próximos passos
+## <a name="next-steps"></a><a name="seealso"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
 ms.openlocfilehash: bd7203aa9c9efe3b4eeefbda6043720c2bbaa066
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449480"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Tutorial: Integrar a Aprendizagem no Trabalho com o Diretório Ativo Azure

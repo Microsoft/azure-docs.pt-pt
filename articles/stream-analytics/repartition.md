@@ -8,10 +8,10 @@ ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 95749f2acea6b605cfdba5a4f3d4f5526e751c5a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182541"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Use a repartição para otimizar o processamento com a Azure Stream Analytics

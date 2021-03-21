@@ -7,17 +7,17 @@ ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 79f3f93338d15562dcc37857d63bc8b2d7e96b05
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100530557"
 ---
 # <a name="remote-rendering-sessions"></a>Sessões do Remote Rendering
 
 Na renderização remota de Azure (ARR), uma *sessão* é um conceito chave. Este artigo explica o que é exatamente uma sessão.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A renderização remota Azure funciona descarregando tarefas complexas de renderização na nuvem. Estas tarefas de renderização não podem ser cumpridas por qualquer servidor, uma vez que a maioria dos servidores de nuvem não tem GPUs. Devido à quantidade de dados envolvidos e à difícil exigência de produzir resultados a taxas de fotogramas interativas, a responsabilidade que o servidor trata que o pedido do utilizador também não pode ser entregue a outra máquina on-the-fly, como pode ser possível para um tráfego web mais comum.
 
