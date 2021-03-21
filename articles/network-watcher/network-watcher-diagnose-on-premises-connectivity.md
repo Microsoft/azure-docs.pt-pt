@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3b8b53446799eec3473d63c89672393a35f9787a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016716"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670960"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar conectividade no local através de gateways VPN
 
@@ -34,11 +34,11 @@ Com a funcionalidade de resolução de problemas do Azure Network Watcher, é ca
 Pretende configurar uma ligação site-to-site entre Azure e no local usando o FortiGate como o VPN Gateway no local. Para alcançar este cenário, seria necessário a seguinte configuração:
 
 1. Gateway de rede virtual - O Gateway VPN em Azure
-1. Gateway de rede local - A representação [do Gateway VPN nas instalações (FortiGate)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) na nuvem de Azure
-1. Conexão local-local (baseada em rotas) - [Ligação entre o Gateway VPN e o router no local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
+1. Gateway de rede local - A representação [do Gateway VPN nas instalações (FortiGate)](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway) na nuvem de Azure
+1. Conexão local-local (baseada em rotas) - [Ligação entre o Gateway VPN e o router no local](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection)
 1. [FortiGate configurante](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Orientações detalhadas passo a passo para configurar uma configuração site-to-site podem ser encontradas visitando: [Criar um VNet com uma ligação Site-to-Site utilizando o portal Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Orientações detalhadas passo a passo para configurar uma configuração site-to-site podem ser encontradas visitando: [Criar um VNet com uma ligação Site-to-Site utilizando o portal Azure](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 Um dos passos críticos de configuração é configurar os parâmetros de comunicação do IPsec, qualquer configuração errada leva à perda de conectividade entre a rede no local e o Azure. Atualmente, os Gateways Azure VPN estão configurados para suportar os seguintes parâmetros IPsec para a Fase 1. Como pode ver na tabela abaixo, os algoritmos de encriptação suportados por Azure VPN Gateway são AES256, AES128 e 3DES.
 
@@ -87,11 +87,11 @@ A funcionalidade de resolução de problemas do Azure Network Watcher permite-lh
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do utilizador está em andamento. Isto pode ser uma operação de redimensionar. | Não |
 | VipUnResponsive | Não consigo chegar ao primeiro caso do Portal. Isto acontece quando a sonda de saúde falha. | Não |
-| PlatformInActive | Existe um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está a funcionar. | Não|
-| NoConnectionsFoundForGateway | Não existem ligações no portal. Isto é só um aviso.| Não|
-| LigaçõesNotConnected | Nenhuma das Ligações está ligada. Isto é só um aviso.| Sim|
-| GatewayCPUUsageExceed | O uso atual do CPU de utilização gateway é > 95%. | Sim |
+| PlatformInActive | Existe um problema com a plataforma. | No|
+| ServiceNotRunning | O serviço subjacente não está a funcionar. | No|
+| NoConnectionsFoundForGateway | Não existem ligações no portal. Isto é só um aviso.| No|
+| LigaçõesNotConnected | Nenhuma das Ligações está ligada. Isto é só um aviso.| Yes|
+| GatewayCPUUsageExceed | O uso atual do CPU de utilização gateway é > 95%. | Yes |
 
 ### <a name="connection"></a>Ligação
 
@@ -101,14 +101,14 @@ A funcionalidade de resolução de problemas do Azure Network Watcher permite-lh
 | GatewayNotFound | Não é possível encontrar Gateway ou Gateway não está a ser a provisionado. |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do utilizador está em andamento. Isto pode ser uma operação de redimensionar.  | Não |
-| VipUnResponsive | Não consigo chegar ao primeiro caso do Portal. Acontece quando a sonda de saúde falha. | Não |
-| Entidade de ConexãoNotFound | Falta a configuração da ligação. | Não |
-| LigaçãoIsMarkedDis ligados | A Ligação está marcada como "desligada". |Não|
-| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a Ligação configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Sim|
-| Autenticação | Incompatibilidade de chave pré-partilhada. | Sim|
-| PeerReachability | O portal dos pares não é alcançável. | Sim|
-| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Sim|
+| VipUnResponsive | Não consigo chegar ao primeiro caso do Portal. Acontece quando a sonda de saúde falha. | No |
+| Entidade de ConexãoNotFound | Falta a configuração da ligação. | No |
+| LigaçãoIsMarkedDis ligados | A Ligação está marcada como "desligada". |No|
+| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a Ligação configurada. | Yes |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Yes|
+| Autenticação | Incompatibilidade de chave pré-partilhada. | Yes|
+| PeerReachability | O portal dos pares não é alcançável. | Yes|
+| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Yes|
 | Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Sim|
 
 ## <a name="next-steps"></a>Próximos passos

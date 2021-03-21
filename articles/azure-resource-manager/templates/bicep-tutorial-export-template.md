@@ -6,10 +6,10 @@ ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102632554"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>Tutorial: Use o modelo JSON exportado a partir do portal Azure

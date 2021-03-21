@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
 ms.openlocfilehash: 51b1f639ada01eda06bdf6c938eef7dce2a379fc
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102448613"
 ---
 # <a name="agent-based-solution-for-device-builders"></a>Solução com base em agente para criadores de dispositivos

@@ -15,10 +15,10 @@ ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
 ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034902"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Compreender e resolver problemas de bloqueio da base de dados Azure SQL
@@ -422,7 +422,7 @@ As `wait_type` `open_transaction_count` colunas , e `status` colunas referem-se 
 * [Início Rápido: Eventos expandidos no SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Insights Inteligentes usando IA para monitorizar e resolver problemas de desempenho da base de dados](intelligent-insights-overview.md)
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Base de Dados Azure SQL: Melhorar a afinação de desempenho com afinação automática](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Melhorar o desempenho da base de dados Azure SQL com afinação automática](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)

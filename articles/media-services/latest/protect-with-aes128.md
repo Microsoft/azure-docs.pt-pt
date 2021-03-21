@@ -2,7 +2,7 @@
 título: Criptografe o vídeo com a AES-128 : Descrição do Azure Media Services: Saiba como encriptar o vídeo com encriptação AES 128-bit e como utilizar o serviço de entrega chave nos Serviços Azure Media.
 serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 03/17/2021 ms.author: inhenkel
 
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutorial: Criptografe o vídeo com a AES-128 e use o serviço de entrega de chaves
@@ -89,7 +89,7 @@ Neste tutorial, criamos a entrada do trabalho com base num ficheiro que é inger
 
 ## <a name="wait-for-the-job-to-complete"></a>Aguardar a conclusão da Tarefa
 
-O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser notificado. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da [Tarefa](/rest/api/media/jobs). As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid. Para obter mais informações, consulte [os eventos da Rota para um ponto final personalizado da web.](job-state-events-cli-how-to.md)
+O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser notificado. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da [Tarefa](/rest/api/media/jobs). As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid. Para obter mais informações, consulte [os eventos da Rota para um ponto final personalizado da web.](monitoring/job-state-events-cli-how-to.md)
 
 Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se o trabalho tiver tido um erro, obtém-se o estado **de Erro.** Se o trabalho está em vias de ser cancelado, você é **cancelado** e **cancelado** quando estiver feito.
 

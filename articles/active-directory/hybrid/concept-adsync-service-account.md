@@ -11,75 +11,100 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fb23d79caa6964c3f61fbb84c8b8f229f475b8ab
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94410900"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722162"
 ---
 # <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)
 O Azure AD Connect instala um serviço no local que orquestra a sincronização entre o Ative Directory e o Azure Ative Directory.  O serviço de sincronização do Microsoft Azure AD Sync (ADSync) funciona num servidor no seu ambiente no local.  As credenciais para o serviço são definidas por padrão nas instalações do Express, mas podem ser personalizadas de acordo com os seus requisitos de segurança organizacional.  Estas credenciais não são usadas para ligar às suas florestas no local ou ao Diretório Ativo Azure.
 
 Escolher a conta de serviço ADSync é uma decisão importante de planeamento a tomar antes de instalar o Azure AD Connect.  Qualquer tentativa de alterar as credenciais após a instalação resultará no facto de o serviço não ter iniciado, perder o acesso à base de dados de sincronização e não autenticar com os seus diretórios conectados (Azure e AD DS).  Não ocorrerá sincronização até que as credenciais originais sejam restauradas.
 
-## <a name="the-default-adsync-service-account"></a>A conta de serviço ADSync predefinido
+O serviço de sincronização pode ser executado em diferentes contas. Pode ser executado numa Conta de Serviço Virtual (VSA), numa Conta de Serviço Gerido (gMSA/sMSA), ou numa Conta de Utilizador regular. As opções suportadas foram alteradas com o lançamento de abril de 2017 e o lançamento de março de 2021 do Azure AD Connect quando faz uma nova instalação. Se atualizar a partir de uma versão anterior do Azure AD Connect, estas opções adicionais não estão disponíveis. 
 
-Quando executado num servidor de membros, o serviço AdSync funciona no contexto de uma Conta de Serviço Virtual (VSA).  Devido a uma limitação do produto, uma conta de serviço personalizada é criada quando instalada num controlador de domínio.  Se a conta de serviço de definições Express não cumprir os seus requisitos de segurança organizacional, implemente o Azure AD Connect escolhendo a opção Personalizar.  Em seguida, escolha a opção de conta de serviço que satisfaça os requisitos da sua organização.
 
->[!NOTE]
->A conta de serviço predefinida quando instalada num controlador de domínio é do formulário Domain\AAD_InstallationIdentifier.  A palavra-passe desta conta é gerada aleatoriamente e apresenta desafios significativos para recuperação e rotação de senha.  A Microsoft recomenda personalizar a conta de serviço durante a instalação inicial num controlador de domínio para utilizar uma conta de serviço gerida autónoma ou de grupo (sMSA/ gMSA)
+|Tipo de conta|Opção de instalação|Description| 
+|-----|------|-----|
+|Conta de Serviço Virtual|Expresso e personalizado, abril de 2017 e mais tarde| Uma Conta de Serviço Virtual é utilizada para todas as instalações expressas, com exceção das instalações num Controlador de Domínio. Ao utilizar a instalação personalizada, é a opção predefinida, a menos que seja utilizada outra opção.| 
+|Conta de Serviço Gerida|Personalizado, abril de 2017 e mais tarde|Se utilizar um Servidor SQL remoto, recomendamos a utilização de uma conta de serviço gerida pelo grupo. |
+|Conta de Serviço Gerida|Expresso e personalizado, 2021 março e mais tarde|Uma conta de serviço gerida autónoma pré-fixado com ADSyncMSA_ é criada durante a instalação para instalações expressas quando instalada num Controlador de Domínio. Ao utilizar a instalação personalizada, é a opção predefinida, a menos que seja utilizada outra opção.|
+|Conta de Utilizador|Expresso e personalizado, abril de 2017 a 2021 março|Uma conta de utilizador pré-fixa com AAD_ é criada durante a instalação para instalações expressas quando instalada num Controlador de Domínio. Ao utilizar a instalação personalizada, é a opção predefinida, a menos que seja utilizada outra opção.|
+|Conta de Utilizador|Expresso e personalizado, março de 2017 e mais cedo|Uma Conta de Utilizador pré-fixa com AAD_ é criada durante a instalação para instalações expressas. Ao utilizar a instalação personalizada, pode especificar outra conta.| 
 
-|Localização de conexão Azure AD|Conta de serviço criada|
-|-----|-----|
-|Servidor de Membros|NT SERVICE\ADSync|
-|Controlador de Domínio|Domínio\AAD_74dc30c01e80 (ver nota)|
+>[!IMPORTANT]
+> Se utilizar o Connect com uma construção a partir de março de 2017 ou mais cedo, então não deverá redefinir a palavra-passe na conta de serviço, uma vez que o Windows destrói as chaves de encriptação por razões de segurança. Não é possível alterar a conta para qualquer outra conta sem reinstalar o Azure AD Connect. Se fizer o upgrade para uma construção a partir de abril de 2017 ou posterior, então é suportado para alterar a palavra-passe na conta de serviço, mas não pode alterar a conta utilizada. 
 
-## <a name="custom-adsync-service-accounts"></a>Contas de serviço ADSync personalizadas
-A Microsoft recomenda a execução do serviço ADSync no contexto de uma Conta de Serviço Virtual ou de uma Conta de Serviço Gerida autónoma ou do grupo.  O seu administrador de domínio também pode optar por criar uma conta de serviço aprovisionada para satisfazer os seus requisitos específicos de segurança organizacional.   Para personalizar a conta de serviço utilizada durante a instalação, escolha a opção Personalizar na página Definições Expressas abaixo.   Estão disponíveis as seguintes opções:
+> [!IMPORTANT]
+> Só pode definir a conta de serviço na primeira instalação. Não é suportado para alterar a conta de serviço depois de concluída a instalação. Se precisar de alterar a palavra-passe da conta de serviço, esta é suportada e as instruções podem ser encontradas [aqui](how-to-connect-sync-change-serviceacct-pass.md).
 
-- conta padrão – Azure AD Connect irá prestar a conta de serviço como descrito acima
-- conta de serviço gerido – utilize um MSA autónomo ou grupo MSA aprovisionado pelo seu administrador
-- conta de domínio – utilize uma conta de serviço de domínio a ser disponibilizada pelo seu administrador
+Segue-se uma tabela das opções de incumprimento, recomendadas e suportadas para a conta de serviço de sincronização. 
 
-![Screenshot da página Azure AD Connect Express Settings com botões de opção "Personalizar" ou "Utilizar definições expressas".](media/concept-adsync-service-account/adsync1.png)
+Legenda: 
 
-![Screenshot da página Azure AD Connect "Instalar componentes necessários" com a opção de utilizar uma conta de serviço gerida existente selecionada.](media/concept-adsync-service-account/adsync2.png)
+- **O negrito** indica a opção predefinição e, na maioria dos casos, a opção recomendada. 
+- *Itálico* indica a opção recomendada quando não é a opção predefinitiva. 
+- Não-arrojado - Opção suportada 
+- Conta local - Conta de utilizador local no servidor 
+- Conta de domínio - Conta de utilizador de domínio 
+- sMSA - [conta de Serviço Gerido Autónomo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [conta de serviço gerido do grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
-## <a name="diagnosing-adsync-service-account-changes"></a>Diagnóstico de alterações na conta de serviço ADSync
-A alteração das credenciais para o serviço ADSync após a instalação resultará na falha do arranque do serviço, na perda de acesso à base de dados de sincronização e na não autenticação com os seus diretórios conectados (Azure e AD DS).  A concessão de acesso à base de dados à nova conta de serviçoSync é insuficiente para recuperar desta edição. Não ocorrerá sincronização até que as credenciais originais sejam restauradas.
+ ||**Expresso </br> LocalDB**|**LocalDB/LocalSQL </br> Costume**|**Personalizado SQL remoto </br>**|
+|-----|-----|-----|-----|
+|**máquina unida ao domínio**|**VSA**|**VSA**</br> *sMSA*</br> *gMSA*</br> Conta local</br> Conta do domínio| *gMSA* </br>Conta do domínio|
+|Controlador de Domínio| **sMSA**|**sMSA** </br>*gMSA*</br> Conta do domínio|*gMSA*</br>Conta do domínio| 
 
-O serviço ADSync emitirá uma mensagem de nível de erro no registo do evento quando não for possível iniciar.  O conteúdo da mensagem variará consoante a base de dados incorporada (localdb) ou o SQL completo esteja em uso.  Seguem-se exemplos das entradas de registo de eventos que podem estar presentes.
+## <a name="virtual-service-account"></a>Conta de Serviço Virtual 
 
-### <a name="example-1"></a>Exemplo 1
+Uma Conta de Serviço Virtual é um tipo especial de conta local gerida que não tem uma senha e é gerida automaticamente pelo Windows. 
 
-As chaves de encriptação de serviço AdSync não foram encontradas e foram recriadas.  A sincronização não ocorrerá até que este problema seja corrigido.
+ ![Conta de serviço virtual](media/concept-adsync-service-account/account-1.png)
 
-Resolução de problemas neste Problema As teclas de encriptação AD Sync do Microsoft Azure tornar-se-ão inacessíveis se as credenciais do serviço AdSync forem alteradas.  Se as credenciais tiverem sido alteradas, utilize o pedido Serviço para alterar a conta Log On de volta ao seu valor originalmente configurado (ex. NT SERVICE\AdSync) e reiniciar o serviço.  Isto irá restaurar imediatamente o correto funcionamento do serviço AdSync.
+A Conta de Serviço Virtual destina-se a ser utilizada com cenários em que o motor de sincronização e o SQL se encontram no mesmo servidor. Se utilizar o SQL remoto, recomendamos a utilização de uma conta de serviço gerida por grupo. 
 
-Consulte o seguinte [artigo](./whatis-hybrid-identity.md) para mais informações.
+A Conta de Serviço Virtual não pode ser utilizada num Controlador de Domínio devido a problemas de [API (DPAPI) de proteção de dados do Windows.](https://msdn.microsoft.com/library/ms995355.aspx) 
 
-### <a name="example-2"></a>Exemplo 2
+## <a name="managed-service-account"></a>Conta de Serviço Gerida 
 
-O serviço não foi possível iniciar porque não foi possível estabelecer uma ligação à base de dados local (localdb).
+Se utilizar um Servidor SQL remoto, recomendamos a utilização de uma conta de serviço gerida pelo grupo. Para obter mais informações sobre como preparar o seu Diretório Ativo para a conta de Serviço Gerido do grupo, consulte a Visão Geral das [Contas de Serviço Geridas pelo Grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
-Resolução de problemas neste problema O serviço Microsoft Azure AD Sync perderá permissão para aceder ao fornecedor de bases de dados local se as credenciais do serviço AdSync forem alteradas.  Se as credenciais tiverem sido alteradas, utilize o pedido serviço para alterar a conta Log On de volta ao seu valor originalmente configurado (ex. NT SERVICE\AdSync) e reiniciar o serviço.  Isto irá restaurar imediatamente o correto funcionamento do serviço AdSync.
+Para utilizar esta opção, na página [de componentes necessários,](how-to-connect-install-custom.md#install-required-components) selecione **Utilize uma conta de serviço existente** e selecione Conta de Serviço **Gerido**. 
 
-Consulte o seguinte [artigo](./whatis-hybrid-identity.md) para mais informações.
+ ![conta de serviço gerido](media/concept-adsync-service-account/account-2.png)
 
-Detalhes Adicionais As seguintes informações de erro foram devolvidas pelo fornecedor:
- 
+Também é suportado para usar uma conta de serviço gerida autónoma. No entanto, estes apenas podem ser utilizados na máquina local e não há qualquer benefício em usá-los sobre a Conta de Serviço Virtual padrão. 
 
-``` 
-OriginalError=0x80004005 OLEDB Provider error(s): 
-Description  = 'Login timeout expired'
-Failure Code = 0x80004005
-Minor Number = 0 
-Description  = 'A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.'
-```
+### <a name="auto-generated-standalone-managed-service-account"></a>Conta de Serviço Gerido Independente Gerada automaticamente 
+
+Se instalar o Azure AD Connect num Controlador de Domínio, uma conta de serviço gerida autónoma é criada pelo assistente de instalação (a menos que especifique a conta a utilizar em definições personalizadas). A conta é pré-fixa **ADSyncMSA_** e usada para o serviço de sincronização real funcionar como. 
+
+Esta conta é uma conta de domínio gerida que não tem uma senha e é gerida automaticamente pelo Windows. 
+
+Esta conta destina-se a ser utilizada com cenários em que o motor de sincronização e o SQL se encontram no Controlador de Domínio. 
+
+## <a name="user-account"></a>Conta de Utilizador 
+
+Uma conta de serviço local é criada pelo assistente de instalação (a menos que especifique a conta a utilizar em configurações personalizadas). A conta é pré-fixa AAD_ e usada para o serviço de sincronização real funcionar como. Se instalar o Azure AD Connect num Controlador de Domínio, a conta é criada no domínio. A conta de serviço AAD_ deve estar localizada no domínio se: 
+- você usa um servidor remoto executando SQL Server 
+- você usa um proxy que requer autenticação 
+
+ ![conta de utilizador](media/concept-adsync-service-account/account-3.png)
+
+A conta é criada com uma senha complexa e longa que não expira. 
+
+Esta conta é utilizada para armazenar senhas para as outras contas de forma segura. Estas outras palavras-passe de contas são armazenadas encriptadas na base de dados. As chaves privadas das chaves de encriptação estão protegidas com a encriptação de chaves secretas dos serviços criptográficos utilizando a API de Proteção de Dados do Windows (DPAPI). 
+
+Se utilizar um SqL Server completo, então a conta de serviço é o DBO da base de dados criada para o motor de sincronização. O serviço não funcionará como pretendido com qualquer outra permissão. Também é criado um login SQL. 
+
+A conta também é autorizada a ficheiros, chaves de registo e outros objetos relacionados com o Motor de Sincronização. 
+
+
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

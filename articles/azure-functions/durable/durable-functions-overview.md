@@ -7,10 +7,10 @@ ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
 ms.openlocfilehash: f6199cb20cd56538823f7f7d0967a9cfe59f7099
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102636662"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
@@ -744,7 +744,7 @@ Você pode começar com Funções Duráveis em menos de 10 minutos completando u
 
 Nestes arranques rápidos, você cria localmente e testa uma função durável "olá mundo". Em seguida, publique o código de função no Azure. A função que cria orquestra e acorrenta em conjunto chama a outras funções.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 O seguinte vídeo destaca os benefícios das Funções Duradouras:
 

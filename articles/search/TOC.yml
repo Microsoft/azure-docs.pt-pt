@@ -44,6 +44,16 @@
       href: search-get-started-arm.md
 - name: Tutoriais
   items:
+    - name: Adicionar Pesquisa ao site
+      items:
+        - name: 1 - Visão geral do site
+          href: tutorial-javascript-overview.md
+        - name: 2 - Criar um índice de pesquisa
+          href: tutorial-javascript-create-load-index.md
+        - name: 3 - Implementar aplicativo web estático
+          href: tutorial-javascript-deploy-static-web-app.md
+        - name: 4 - Compreender a integração da procura
+          href: tutorial-javascript-search-query-integration.md
     - name: Criar uma aplicação C#
       items:
         - name: 1 - Página de pesquisa básica

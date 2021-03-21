@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
 ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035433"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utilize o Logstash para ligar fontes de dados ao Azure Sentinel
@@ -31,7 +31,7 @@ Utilizando o plugin de saída do Azure Sentinel para o motor de recolha de **dad
 
 Para saber mais sobre como trabalhar com o motor de recolha de dados Logstash, consulte [Começar com Logstash.](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 ### <a name="architecture-and-background"></a>Arquitetura e fundo
 
@@ -65,7 +65,7 @@ O plugin de saída Azure Sentinel está disponível na coleção Logstash.
 
 Utilize as informações na Estrutura de Logstash de um documento [de ficheiro config](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html) e adicione o plugin de saída Azure Sentinel à configuração com as seguintes teclas e valores. (A sintaxe de ficheiro config adequada é mostrada após a tabela.)
 
-| Nome do campo | Tipo de dados | Descrição |
+| Nome do campo | Tipo de dados | Description |
 |----------------|---------------|-----------------|
 | `workspace_id` | cadeia (de carateres) | Insira o seu espaço de trabalho ID GUID. * |
 | `workspace_key` | string | Insira a sua chave primária do espaço de trabalho GUID. * |

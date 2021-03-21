@@ -4,10 +4,10 @@ description: Este artigo descreve as definições de tecido e as políticas de u
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232057"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric

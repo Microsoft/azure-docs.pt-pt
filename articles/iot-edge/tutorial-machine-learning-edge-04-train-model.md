@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 16d5fe90be71f39d448e4c1ce10c0373f6bfc86c
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463107"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implemente um modelo de aprendizagem automática Azure
@@ -177,7 +177,7 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
     | Registo de Contentores do Azure | turbofandemoxxxx |
     | Application Insights | turbofaninsightxxxxxx |
     | Azure Key Vault | turbofankeyvaultbxxxxxx |
-    | Storage do Azure | turbofanstoragexxxxxxxx |
+    | Armazenamento do Azure | turbofanstoragexxxxxxxx |
 
 ### <a name="debugging"></a>Depurar
 

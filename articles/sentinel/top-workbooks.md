@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
 ms.openlocfilehash: a37501498a9222025860702a7f29dccc9abfc8f7
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102450070"
 ---
 # <a name="commonly-used-azure-sentinel-workbooks"></a>Livros de Azure Sentinel comumente usados
@@ -28,7 +28,7 @@ A tabela que se segue lista os livros de trabalho Azure Sentinel mais utilizados
 
 Aceda aos livros de trabalho em Azure Sentinel em livros de **gestão** de ameaças  >   à esquerda e, em seguida, procure o livro que pretende utilizar. Para mais informações, consulte [Tutorial: Visualize e monitorize os seus dados.](tutorial-monitor-your-data.md)
 
-|Nome do livro  |Descrição  |
+|Nome do livro  |Description  |
 |---------|---------|
 |**Eficiência analítica**     |  Fornece informações sobre a eficácia das suas regras de análise para ajudá-lo a alcançar um melhor desempenho do SOC. <br><br>Para obter mais informações, consulte [o Toolkit para Data-Driven SOCs](https://techcommunity.microsoft.com/t5/azure-sentinel/the-toolkit-for-data-driven-socs/ba-p/2143152).|
 |**Atividades Azure**     |     Fornece uma visão aprofundada da atividade do Azure da sua organização analisando e correlacionando todas as operações e eventos do utilizador. <br><br>Para obter mais informações, consulte [auditação com registos de AtividadeS Azure](audit-sentinel-data.md#auditing-with-azure-activity-logs).    |

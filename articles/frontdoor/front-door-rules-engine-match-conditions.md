@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: duau
 ms.openlocfilehash: a352624fc802e4224aa1b60768c064c0054cdfd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035879"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Regras da porta dianteira Azure Condições de jogo do motor

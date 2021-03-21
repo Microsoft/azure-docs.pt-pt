@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 519aa158d60eae97eb4c1b792bcecfc8a6c066e0
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008298"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Um trabalho de codificação está associado a um ativo de entrada (ou ativos) no qual pretende executar algumas tarefas de codificação. Por exemplo, codificar um ficheiro MP4 para conjuntos de bitrate adaptativos H.264 MP4; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, é produzido um ativo de saída.  O ativo de saída contém vídeo, áudio, miniaturas, etc. O ativo de saída também contém um ficheiro com metadados sobre o ativo de saída. O nome do ficheiro XML dos metadados tem o seguinte formato: &lt; source_file_name &gt;_manifest.xml (por exemplo, BigBuckBunny_manifest.xml).  
 
 Os Serviços de Mídia não digitalizam preventivamente os ativos de entrada para gerar metadados. Os metadados de entrada são gerados apenas como um artefacto quando um Ativo de entrada é processado num Job. Daí que este artefacto seja escrito para o Ativo de saída. São utilizadas diferentes ferramentas para gerar metadados para ativos de entrada e ativos de saída. Portanto, os metadados de entrada têm um esquema ligeiramente diferente dos metadados de saída.

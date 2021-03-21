@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586374"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721533"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configure a recolha de dados para o agente Azure Monitor (pré-visualização)
 
@@ -72,6 +72,8 @@ Clique **em Adicionar Fonte de Dados** e, em seguida, **Reveja + crie** para rev
 Uma vez que é cobrado por quaisquer dados recolhidos num espaço de trabalho do Log Analytics, deve recolher apenas os dados que necessita. Utilizando a configuração básica no portal Azure, apenas tem capacidade limitada de filtrar eventos para recolher. Para registos de aplicações e sistemas, este é todo o registo com uma gravidade particular. Para registos de segurança, isto é todo o sucesso da auditoria ou todos os registos de falha de auditoria.
 
 Para especificar filtros adicionais, tem de utilizar a configuração personalizada e especificar um XPath que filtra os eventos que não tem. As entradas XPath estão escritas no formulário `LogName!XPathQuery` . Por exemplo, pode querer devolver apenas eventos do registo do evento Application com um ID de evento de 1035. O XPathQuery para estes eventos `*[System[EventID=1035]]` seria. Uma vez que você quer recuperar os eventos do registo de eventos da Aplicação, o XPath seria `Application!*[System[EventID=1035]]`
+
+Consulte [as limitações do XPath 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations) para uma lista de limitações no XPath suportado pelo registo de eventos do Windows.
 
 > [!TIP]
 > Utilize o cmdlet PowerShell `Get-WinEvent` com o parâmetro para testar a `FilterXPath` validade de um XPathQuery. O seguinte guião mostra um exemplo.

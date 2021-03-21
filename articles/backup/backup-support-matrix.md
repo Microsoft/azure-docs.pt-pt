@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
 ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103225552"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure

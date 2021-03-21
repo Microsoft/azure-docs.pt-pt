@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 66bacdf27b2ef9cf624b645cb6e4c123d9c3fa2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de85cad8232d76706358c36806ce19a7c1df893f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88135883"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675010"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registar ativos de dados no Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Neste tutorial, utiliza a ferramenta de registo para registar os ativos de dados da amostra de base de dados com o catálogo. O registo é o processo de extrair metadados estruturais chave, por exemplo, nomes, tipos e localizações, a partir da origem de dados e dos recursos que contém e copiar esses metadados para o catálogo. A origem de dados e os recursos de dados permanecem onde estão, mas os metadados são utilizados pelo catálogo para os tornar mais facilmente detetáveis e compreensíveis.
 
@@ -69,7 +71,7 @@ Pode agora registar os ativos de dados a partir da amostra de base de dados util
 
    1. Na árvore da hierarquia do **servidor,** expanda a amostra da base de dados e selecione **SalesLT**.
 
-   2. Selecione **Produto,** **ProductCategory,** **ProductDescription**e **ProductModel** utilizando ctrl+select.
+   2. Selecione **Produto,** **ProductCategory,** **ProductDescription** e **ProductModel** utilizando ctrl+select.
 
    3. Selecione a **seta selecionada para movimento** **>** (). Esta ação move todos os objetos selecionados para a lista **Objetos a registar**.
 
@@ -127,7 +129,7 @@ A pesquisa básica ajuda-o a pesquisar catálogos com um ou mais termos de pesqu
 
    O painel **Pesquisas** está no lado esquerdo e o painel **Propriedades** no lado direito. No painel **Pesquisas**, pode alterar os critérios de pesquisa e filtrar os resultados. O painel **Propriedades** apresenta as propriedades de um objeto selecionado na grelha ou na lista.
 
-4. Selecione **Produto** nos resultados da pesquisa. selecione os **separadores de pré-visualização,** **colunas,** perfis de **dados**e **documentação,** ou selecione a seta para expandir o painel inferior.  
+4. Selecione **Produto** nos resultados da pesquisa. selecione os **separadores de pré-visualização,** **colunas,** perfis de **dados** e **documentação,** ou selecione a seta para expandir o painel inferior.  
 
    ![Catálogo de Dados do Azure – painel inferior](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
 
@@ -179,7 +181,7 @@ Com os operadores de comparação, pode utilizar comparações além das de igua
 
 3. Pressione **ENTER**.
 
-4. Confirme que vê as tabelas **Produto,** **ProductCategory**e **ProductDescription** e a base de dados SQL que registou nos resultados de pesquisa.
+4. Confirme que vê as tabelas **Produto,** **ProductCategory** e **ProductDescription** e a base de dados SQL que registou nos resultados de pesquisa.
 
    ![Catálogo de Dados do Azure – resultados da pesquisa de comparação](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -250,7 +252,7 @@ Neste exercício, vai abrir os recursos de dados numa ferramenta de cliente inte
 
    ![Catálogo de Dados do Azure – tabela “product” no Excel](media/register-data-assets-tutorial/data-catalog-connect2.png)
 
-### <a name="sql-server-management-studio"></a>O SQL Server Management Studio
+### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
 Neste exercício, ligou a recursos de dados que foram detetados com o Catálogo de Dados do Azure. Com o portal do Catálogo de Dados do Azure, pode ligar diretamente através das aplicações cliente integradas no menu **Abrir em**. Também pode utilizar as informações de localização incluídas nos metadados do recurso para ligar com qualquer aplicação que quiser. Por exemplo, pode utilizar o SQL Server Management Studio para se ligar à Base de Dados Azure SQL para aceder aos dados dos ativos de dados registados neste tutorial.
 
@@ -276,7 +278,7 @@ Pode utilizar o Catálogo de Dados para detetar origens de dados e ver os metada
 
 ### <a name="take-ownership-of-data-assets-and-restrict-visibility"></a>Assumir a propriedade de recursos de dados e restringir a visibilidade
 
-1. Aceda à [home page do Catálogo de Dados do Azure](https://www.azuredatacatalog.com). Na caixa de **Pesquisa**, introduza `tags:cycles` e prima **ENTER**.
+1. Aceda à [home page do Catálogo de Dados do Azure](https://www.azuredatacatalog.com). Na caixa de texto **procurar,** insira `tags:cycles` e prima **ENTER**.
 
 2. Selecione um item na lista de resultados e selecione **Tomar a posse** na barra de ferramentas.
 

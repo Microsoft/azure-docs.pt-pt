@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 2923dea8339df9d5e4b539d21cf83b85cda94a67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee8a192bcfe20c77e47ee9c89dfc3286a979e358
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669768"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722298"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -33,13 +33,14 @@ Para completar os passos deste tutorial, precisa de ter acesso a um grupo de rec
 1. **Selecione Adicionar** para criar um espaço de trabalho.
 
 ## <a name="basics-tab--project-details"></a>Detalhes básicos do separador > projeto
-3. **Separador básico,** em **detalhes do projeto,** preencha os seguintes campos:
+1. **Separador básico,** em **detalhes do projeto,** preencha os seguintes campos:
       1. **Subscrição** - Escolha qualquer subscrição.
       2. **Grupo de recursos** - Utilize qualquer grupo de recursos.
       3. **Grupo de recursos** - Deixe este em branco.
 
+
 ## <a name="basics-tab--workspace-details"></a>Detalhes básicos do separador > do espaço de trabalho
-4. No separador **Básicos,** em **detalhes do Espaço de Trabalho,** preencha os seguintes campos:
+1. No separador **Básicos,** em **detalhes do Espaço de Trabalho,** preencha os seguintes campos:
       1. **Nome do espaço de** trabalho - Escolha qualquer nome globalmente único. Neste tutorial, usaremos **o meu espaço de trabalho.**
       1. **Região** - Escolha qualquer região.
       1. **Selecione Data Lake Storage Gen 2**
@@ -47,6 +48,8 @@ Para completar os passos deste tutorial, precisa de ter acesso a um grupo de rec
         1. Por **nome de conta,** clique em **Criar Novo** e nomeie a nova conta de armazenamento **ou** similar como este nome deve ser único.
         1. Por **nome do sistema de ficheiros,** clique em Criar **Novos** e nomeie **os utilizadores**. Isto criará um recipiente de armazenamento chamado **utilizadores.** O espaço de trabalho utilizará esta conta de armazenamento como a conta de armazenamento "primária" para as tabelas Spark e os registos de aplicações Spark.
         1. Verifique a função "Atribua-me a função de contribuinte de dados de armazenamento na conta Gen2 de armazenamento de dados". 
+
+### <a name="completing-the-process"></a>Completar o processo
 5. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
 
 > [!NOTE]

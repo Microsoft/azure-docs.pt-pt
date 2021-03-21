@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 3a8fe3ded6608059cc6ad50901ffe6df5dcf1b08
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102441593"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Explorador de Armazenamento do Microsoft Azure é uma aplicação autónoma que lhe permite trabalhar facilmente com dados do Armazenamento do Microsoft Azure no Windows, macOS e Linux.
 
@@ -117,13 +117,13 @@ O Storage Explorer permite-lhe conectar-se a recursos individuais, como um recip
 
 | Tipo de recurso    | Azure AD | Nome e chave da conta | Assinatura de Acesso Partilhado (SAS)  | Público (anónimo) |
 |------------------|----------|----------------------|--------------------------------|--------------------|
-| Contas de armazenamento | Sim      | Sim                  | Sim (cadeia de ligação ou URL) | Não                 |
-| Contentores de blobs  | Sim      | Não                   | Sim (URL)                      | Sim                |
-| Contentores Gen2  | Sim      | Não                   | Sim (URL)                      | Sim                |
-| Diretórios da Gen2 | Sim      | Não                   | Sim (URL)                      | Sim                |
-| Partilhas de ficheiros      | Não       | Não                   | Sim (URL)                      | Não                 |
-| Filas           | Sim      | Não                   | Sim (URL)                      | Não                 |
-| Tabelas           | Não       | Não                   | Sim (URL)                      | Não                 |
+| Contas de armazenamento | Yes      | Yes                  | Sim (cadeia de ligação ou URL) | No                 |
+| Contentores de blobs  | Yes      | No                   | Sim (URL)                      | Yes                |
+| Contentores Gen2  | Yes      | No                   | Sim (URL)                      | Yes                |
+| Diretórios da Gen2 | Yes      | No                   | Sim (URL)                      | Yes                |
+| Partilhas de ficheiros      | No       | No                   | Sim (URL)                      | No                 |
+| Filas           | Yes      | No                   | Sim (URL)                      | No                 |
+| Tables           | No       | No                   | Sim (URL)                      | No                 |
  
 O Explorador de Armazenamento também pode ligar-se a um [emulador de armazenamento local](#local-storage-emulator) utilizando as portas configuradas do emulador.
 

@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102636340"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
@@ -69,7 +69,7 @@ Entretanto, ainda pode criar o tipo de aplicação lógica multi-inquilino no po
 
 Com o tipo de aplicação lógica de inquilino único, você pode criar estes tipos de fluxo de trabalho dentro da mesma aplicação lógica:
 
-* *Com monitorização de estado*
+* *Imponente*
 
   Crie fluxos de trabalho estatais quando necessitar de guardar, rever ou fazer dados de referência de eventos anteriores. Estes fluxos de trabalho guardam as entradas e saídas para cada ação e seus estados em armazenamento externo, o que torna possível a revisão dos detalhes de execução e história após cada execução termina. Fluxos de trabalho imponentes proporcionam alta resiliência se as interrupções acontecerem. Após a restauração dos serviços e sistemas, pode reconstruir as execuções interrompidas do estado guardado e refazer os fluxos de trabalho até à conclusão. Fluxos de trabalho imponentes podem continuar a funcionar até um ano.
 

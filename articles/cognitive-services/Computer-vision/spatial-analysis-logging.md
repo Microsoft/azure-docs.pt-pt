@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98186027"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722706"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
@@ -60,7 +60,7 @@ Depois de configurar o Azure Monitor, terá de criar credenciais que permitam ao
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -105,16 +105,16 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 | Nome do Evento | Description|
 |------|---------|
-|archon_exit    |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
-|archon_error   |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
-|InputRate  |A taxa a que o gráfico processa a entrada de vídeo. Reportado a cada 5 minutos. | 
+|archon_exit     |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
+|archon_error     |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
+|InputRate     |A taxa a que o gráfico processa a entrada de vídeo. Reportado a cada 5 minutos. | 
 |Taxa de saída     |A taxa a que o gráfico produz insights de IA. Reportado a cada 5 minutos. |
 |archon_allGraphsStarted | Enviado quando todos os gráficos terminarem de começar. |
-|archon_configchange    | Enviado quando uma configuração de gráfico mudou. |
+|archon_configchange     | Enviado quando uma configuração de gráfico mudou. |
 |archon_graphCreationFailed     |Enviado quando o gráfico com o relato `graphId` não começa. |
-|archon_graphCreationSuccess    |Enviado quando o gráfico com o relatado `graphId` começa com sucesso. |
-|archon_graphCleanup    | Enviado quando o gráfico com o relato `graphId` limpa e sai. |
-|archon_graphHeartbeat  |Batimentos cardíacos enviados a cada minuto por cada gráfico de uma habilidade. |
+|archon_graphCreationSuccess     |Enviado quando o gráfico com o relatado `graphId` começa com sucesso. |
+|archon_graphCleanup     | Enviado quando o gráfico com o relato `graphId` limpa e sai. |
+|archon_graphHeartbeat     |Batimentos cardíacos enviados a cada minuto por cada gráfico de uma habilidade. |
 |archon_apiKeyAuthFail |Enviado quando a tecla de recursos de Visão Por Computador não autentica o recipiente por mais de 24 horas, devido às seguintes razões: Fora de Quota, Inválido, Offline. |
 |VideoIngesterHeartbeat     |Enviado a cada hora para indicar que o vídeo é transmitido a partir da fonte de Vídeo, com o número de erros naquela hora. Reportado para cada gráfico. |
 |Estado do VideoIngester | Relatórios *Parados* ou *Iniciados* para transmissão de vídeo. Reportado para cada gráfico. |
@@ -363,7 +363,7 @@ Após a criação do cluster Kubernetes, pode utilizar a `kubectl` ferramenta da
     New-HcsKubernetesUser -UserName
     ```
 
-3. Adicione o ficheiro *config* à pasta *.kube* no seu perfil de utilizador na máquina local.   
+3. Adicione o ficheiro *config* à pasta *.kube* no seu perfil de utilizador na máquina local.    
 
 4. Associe o espaço de nomes ao utilizador que criou.
 
@@ -400,6 +400,34 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Gera um ficheiro de configuração Kubernetes. Ao utilizar o comando, copie a informação num ficheiro denominado *config*. Não guarde o ficheiro com uma extensão de ficheiro.        |
 | `Get-HcsApplianceInfo` | Devolve informações sobre o seu dispositivo. |
 | `Enable-HcsSupportAccess` | Gera credenciais de acesso para iniciar uma sessão de suporte. |
+
+
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Como arquivar um bilhete de apoio para análise espacial 
+
+Se precisa de mais apoio para encontrar uma solução para um problema que está a ter com o recipiente de análise espacial, siga estes passos para preencher e submeta um bilhete de apoio. A nossa equipa vai ligar-te com orientação adicional. 
+
+### <a name="fill-out-the-basics"></a>Preencha o básico 
+Crie um novo bilhete de apoio na página [de pedido de apoio Novo.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Siga as instruções para preencher os seguintes parâmetros:
+
+![Apoiar o básico](./media/support-ticket-page-1-final.png)
+
+1. Definir **tipo de emissão** para ser `Technical` .
+2. Selecione a subscrição que está a utilizar para implantar o recipiente de análise espacial.
+3. Selecione `My services` e selecione `Cognitive Services` como o serviço.
+4. Selecione o recurso que está a utilizar para implantar o recipiente de análise espacial.
+5. Escreva uma breve descrição detalhando o problema que está a enfrentar. 
+6. Selecione `Spatial Analysis` como o seu tipo de problema.
+7. Selecione o subtipo apropriado a partir da queda para baixo.
+8. Selecione **Seguinte: Soluções** para passar para a página seguinte.
+
+### <a name="recommended-solutions"></a>Soluções recomendadas
+A próxima fase irá oferecer soluções recomendadas para o tipo de problema que selecionou. Estas soluções vão resolver os problemas mais comuns, mas se não for útil para a sua solução, selecione **Next: Details** to go to the next step.
+
+### <a name="details"></a>Detalhes
+Nesta página, adicione alguns detalhes adicionais sobre o problema que tem enfrentado. Certifique-se de incluir o máximo de detalhes possível, pois isso ajudará os nossos engenheiros a reduzir melhor a questão. Inclua o seu método de contacto preferido e a gravidade do problema para que possamos contactá-lo adequadamente, e selecione **Next: Review + create** para passar para o passo seguinte. 
+
+### <a name="review-and-create"></a>Rever e criar 
+Reveja os detalhes do seu pedido de apoio para garantir que tudo está bem e representa o problema de forma eficaz. Assim que estiver pronto, **selecione Criar** para enviar o bilhete para a nossa equipa! Receberá uma confirmação de e-mail assim que o seu bilhete for recebido, e a nossa equipa trabalhará para voltar a contará-lo o mais rapidamente possível. Pode ver o estado do seu bilhete no portal Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
