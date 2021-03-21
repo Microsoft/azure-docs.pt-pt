@@ -10,10 +10,10 @@ ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 528cab915a1ac3918146e428e9ae6b3c401324c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010362"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver uma aplicação web core MVC ASP.NET com a Azure Cosmos DB utilizando .NET SDK
@@ -88,7 +88,7 @@ Agora que temos a maior parte do código-quadro core MVC ASP.NET que precisamos 
 
 1. No **Solution Explorer,** clique com o botão direito do seu projeto e selecione **Gerir pacotes NuGet**.
 
-1. No **NuGet Package Manager,** procure e selecione **Microsoft.Azure.Cosmos**. Selecione **Install** (Instalar).
+1. No **NuGet Package Manager,** procure e selecione **Microsoft.Azure.Cosmos**. Selecione **Instalar**.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Instalar pacote NuGet":::
 
@@ -108,9 +108,9 @@ Agora vamos adicionar os modelos, as vistas e os controladores a esta aplicaçã
 
 1. No **Solution Explorer,** clique à direita na pasta **Modelos,** selecione **Add**  >  **Class**.
 
-1. In **Add New Item**, nomeie a sua nova classe *Item.cs* e selecione **Add**.
+1. No **Add New Item**, nomeie o seu novo item de *classe.cs* e selecione **Adicionar**.
 
-1. Substitua o conteúdo da classe *Item.cs* pelo seguinte código:
+1. Substitua o conteúdo da classe *item.cs* pelo seguinte código:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
@@ -219,19 +219,19 @@ Primeiro, vamos adicionar uma classe que contém a lógica para ligar e usar Azu
 
 1. No **Solution Explorer,** clique com o botão direito do seu projeto e selecione **Adicionar**  >  **Nova Pasta**. Nomeie os *Serviços de* pasta .
 
-1. Clique com o botão **Add** direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *CosmosDbService* e **selecione Add**.
+1. Clique com o botão direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *CosmosDbService* e **selecione Add**.
 
-1. Substitua o conteúdo da *CosmosDbService.cs* pelo seguinte código:
+1. Substitua o conteúdo do *CosmosDbService.cs* pelo seguinte código:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Clique com o botão **Add** direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *ICosmosDbService* e selecione **Add**.
+1. Clique com o botão direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *ICosmosDbService* e selecione **Add**.
 
 1. Adicione o seguinte código à classe *ICosmosDbService:*
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. Abra o ficheiro *Startup.cs* na sua solução e adicione o seguinte método **InitializeCosmosClientInstanceAsync,** que lê a configuração e inicializa o cliente.
+1. Abra o ficheiro *.cs Arranque* na sua solução e adicione o seguinte método **InitializeCosmosClientInstanceAsync,** que lê a configuração e inicializa o cliente.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
 
@@ -267,7 +267,7 @@ Primeiro, vamos adicionar uma classe que contém a lógica para ligar e usar Azu
 
 1. Nomeie o seu novo controlador *ItemController*.
 
-1. Substitua o conteúdo da *ItemController.cs* pelo seguinte código:
+1. Substitua o conteúdo do *ItemController.cs* pelo seguinte código:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 

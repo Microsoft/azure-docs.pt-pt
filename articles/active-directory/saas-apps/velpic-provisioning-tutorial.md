@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Velpic para o provisionamento automático do utilizador com o Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configurar o Velpic para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à Velpic.
 services: active-directory
 author: zhchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: cdd4fb96a42d154ccd8b508950283978ddf58ef4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354908"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutorial: Configurar Velpic para o Provisionamento Automático do Utilizador
@@ -66,7 +66,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
     ![Provisão Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino&Token Secreto** de Velpic. (Pode encontrar estes valores na sua conta Velpic: **Gerir**  >  **Integração**  >  **Plugin**  >  **SCIM** )
+5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino&Token Secreto** de Velpic. (Pode encontrar estes valores na sua conta Velpic: **Gerir**  >  **Integração**  >  **Plugin**  >  **SCIM**)
 
     ![Valores de Autorização](./media/velpic-provisioning-tutorial/Velpic2.png)
 

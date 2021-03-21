@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
 ms.openlocfilehash: 0ba6ee92111da66a2118ba4c490b94e5bc9449e0
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102551390"
 ---
 # <a name="application-development-on-intel-sgx"></a>Desenvolvimento de aplicações na Intel SGX 
@@ -25,7 +25,7 @@ Para aproveitar o poder dos enclaves e ambientes isolados, você precisará usar
 - [O Kit de Desenvolvimento de Software Open Enclave (OE SDK)](#oe-sdk)
 - [O Quadro Confidencial do Consórcio (CCF)](#ccf)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Uma aplicação construída com enclaves é dividida de duas maneiras:
 

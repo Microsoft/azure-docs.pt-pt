@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,10 +9,10 @@ ms.date: 12/07/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d6b8b35b36830568d6ff8c46a381fec0cfc57e84
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854267"
 ---
 :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/overview.png" alt-text="Visão geral da aplicação":::

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789680"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
@@ -44,16 +44,16 @@ A Azure fornece funções incorporadas que concedem permissões para chamadas de
 
 As funções incorporadas que concedem permissões para chamadas de operações de gestão de armazenamento incluem as funções descritas no quadro seguinte:
 
-|    Função do Azure    |    Descrição    |    Inclui acesso às chaves da conta?    |
+|    Função do Azure    |    Description    |    Inclui acesso às chaves da conta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietário** | Pode gerir todos os recursos de armazenamento e acesso a recursos.  | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 | **Contribuinte**  | Pode gerir todos os recursos de armazenamento, mas não consegue gerir o acesso aos recursos. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
-| **Leitor** | Pode ver informações sobre a conta de armazenamento, mas não pode ver as chaves da conta. | Não. |
+| **Leitor** | Pode ver informações sobre a conta de armazenamento, mas não pode ver as chaves da conta. | N.º |
 | **Contribuidor de Conta de Armazenamento** | Pode gerir a conta de armazenamento, obter informações sobre os grupos e recursos de recursos da subscrição, e criar e gerir implementações de grupos de recursos de subscrição. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 | **Administrador de Acesso do Utilizador** | Pode gerir o acesso à conta de armazenamento.   | Sim, permite que um diretor de segurança atribua quaisquer permissões a si mesmos e a outros. |
 | **Contribuidor de Máquina Virtual** | Pode gerir máquinas virtuais, mas não a conta de armazenamento à qual estão ligadas.   | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 
-A terceira coluna da tabela indica se a função incorporada suporta o **Microsoft.Storage/storageAccounts/listkeys/ação** . Esta ação permite a leitura e regeneração das chaves da conta de armazenamento. As permissões de acesso aos recursos de gestão do Azure Storage também não incluem permissões de acesso aos dados. No entanto, se um utilizador tiver acesso às chaves da conta, então pode utilizar as chaves da conta para aceder aos dados do Azure Storage através da autorização da Chave Partilhada.
+A terceira coluna da tabela indica se a função incorporada suporta o **Microsoft.Storage/storageAccounts/listkeys/ação**. Esta ação permite a leitura e regeneração das chaves da conta de armazenamento. As permissões de acesso aos recursos de gestão do Azure Storage também não incluem permissões de acesso aos dados. No entanto, se um utilizador tiver acesso às chaves da conta, então pode utilizar as chaves da conta para aceder aos dados do Azure Storage através da autorização da Chave Partilhada.
 
 ### <a name="custom-roles-for-management-operations"></a>Funções personalizadas para operações de gestão
 

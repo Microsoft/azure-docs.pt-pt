@@ -11,10 +11,10 @@ ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
 ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499361"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Recomendações de segurança para máquinas virtuais em Azure
@@ -58,7 +58,7 @@ Para obter informações gerais sobre o Azure Security Center, veja [o que é o 
 |-|----|--|
 | Monitorize os seus VMs. | Pode utilizar [o Azure Monitor para VMs](../azure-monitor/vm/vminsights-overview.md) para monitorizar o estado dos seus VMs Azure e conjuntos de balanças de máquinas virtuais. Problemas de desempenho com um VM podem levar a uma interrupção do serviço, o que viola o princípio de segurança da disponibilidade. | - |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|

@@ -13,17 +13,17 @@ ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 00a70b585ddf522a25e81703fe5bdf55efbcb7e1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99582779"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicação Daemon que chama APIs web
 
 Aprenda tudo o que precisa para construir uma aplicação daemon que chama APIs web.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A sua aplicação pode adquirir um token para ligar para uma API web em nome de si próprio (não em nome de um utilizador). Este cenário é útil para aplicações daemon. Utiliza a concessão padrão de [credenciais](v2-oauth2-client-creds-grant-flow.md) de cliente 2.0 da OAuth.
 

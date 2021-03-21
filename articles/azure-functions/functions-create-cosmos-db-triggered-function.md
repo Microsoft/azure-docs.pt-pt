@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 621773a84db99dbacfaa163f77189974ba102163
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98034820"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB
@@ -37,7 +37,7 @@ Tem de ter uma conta do Azure Cosmos DB que utilize a API SQL para poder criar 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="create-a-function-app-in-azure"></a>Criar uma aplicação de função em Azure
+## <a name="create-a-function-app-in-azure"></a>Criar uma aplicação de funções no Azure
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -63,7 +63,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
     | **Nome da base de dados** | Tarefas | Nome da base de dados que inclui a recolha a ser monitorizada. |
     | **Nome da coleção** | Itens | Nome da coleção a ser monitorizado. |
     | **Nome da coleção para concessões** | leases | Nome da coleção para armazenar os arrendamentos. |
-    | **Crie a coleção de arrendamento se não existir** | Sim | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
+    | **Crie a coleção de arrendamento se não existir** | Yes | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função acionada do Azure Cosmos DB":::
 

@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push a utilizadores específicos que utilizem os Hubs de Notificação Azure Microsoft Docs
+title: Envie notificações push a utilizadores específicos que utilizem os Hubs de Notificação Azure | Microsoft Docs
 description: Saiba como enviar notificações push para utilizadores específicos do iOS utilizando os Hubs de Notificação Azure.
 documentationcenter: ios
 author: sethmanheim
@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016960"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push a utilizadores específicos usando hubs de notificação do Azure

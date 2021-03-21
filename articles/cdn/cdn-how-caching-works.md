@@ -1,5 +1,5 @@
 ---
-title: Como funciona o caching Microsoft Docs
+title: Como funciona o caching | Microsoft Docs
 description: Caching é o processo de armazenamento de dados localmente para que os futuros pedidos para esses dados possam ser acedidos mais rapidamente.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010168"
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
@@ -126,7 +126,7 @@ A tabela seguinte descreve o comportamento padrão de caching para os produtos A
 
 |    | Microsoft: Entrega geral da web | Verizon: Entrega geral da web | Verizon: DSA | Akamai: Entrega geral da web | Akamai: DSA | Akamai: Grande download de ficheiros | Akamai: streaming de meios de comunicação geral ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Origem de honra**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
+| **Origem de honra**       | Yes    | Yes   | No   | Yes    | No   | Yes   | Yes    |
 | **Duração da cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Origem de honra**: Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.

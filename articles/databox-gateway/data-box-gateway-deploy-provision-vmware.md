@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: 948005942be193c8b15c363282aa06c006eb244e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101727622"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Aprovisionar o Azure Data Box Gateway na VMware
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial descreve como providenciar um Gateway de Caixa de Dados num sistema de anfitriões que executa VMware ESXi 6.0, 6.5 ou 6.7. 
 

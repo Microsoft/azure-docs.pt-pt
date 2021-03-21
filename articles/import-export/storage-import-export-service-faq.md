@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: be6c48efc77880addf814b1609d4a371c7c5c73b
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706743"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação Azure: perguntas frequentes
@@ -29,39 +29,39 @@ Seguem-se perguntas e respostas que poderá ter quando utilizar o seu serviço A
 
 ### <a name="can-i-copy-azure-file-storage-using-the-azure-importexport-service"></a>Posso copiar o armazenamento de ficheiros Azure utilizando o serviço Azure Import/Export?
 
-Yes. O serviço Azure Import/Export suporta a importação para o armazenamento de ficheiros Azure. Não suporta a exportação de Ficheiros Azure neste momento.
+Sim. O serviço Azure Import/Export suporta a importação para o armazenamento de ficheiros Azure. Não suporta a exportação de Ficheiros Azure neste momento.
 
 ### <a name="is-the-azure-importexport-service-available-for-csp-subscriptions"></a>O serviço Azure Import/Export está disponível para assinaturas CSP?
 
-Yes. O serviço Azure Import/Export suporta subscrições de Fornecedores de Soluções Cloud (CSP).
+Sim. O serviço Azure Import/Export suporta subscrições de Fornecedores de Soluções Cloud (CSP).
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-microsoft-365"></a>Posso utilizar o serviço Azure Import/Export para copiar caixas de correio PST e dados do SharePoint para o Microsoft 365?
 
-Yes. Para mais informações, aceda ao [resumo da importação dos ficheiros PST da sua organização.](/microsoft-365/compliance/importing-pst-files-to-office-365)
+Sim. Para mais informações, aceda ao [resumo da importação dos ficheiros PST da sua organização.](/microsoft-365/compliance/importing-pst-files-to-office-365)
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>Posso utilizar o serviço Azure Import/Export para copiar as minhas cópias de segurança offline para o Serviço de Backup Azure?
 
-Yes. Para obter mais informações, aceda ao [fluxo de trabalho de backup offline em Azure Backup](../backup/backup-azure-backup-import-export.md).
+Sim. Para obter mais informações, aceda ao [fluxo de trabalho de backup offline em Azure Backup](../backup/backup-azure-backup-import-export.md).
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>Posso comprar unidades para empregos de importação/exportação da Microsoft?
 
-Não. Tens de enviar os teus próprios discos para trabalhos de importação e exportação.
+N.º Tens de enviar os teus próprios discos para trabalhos de importação e exportação.
 
 ## <a name="preparing-disks-for-importexport"></a>Preparação de discos para importação/exportação
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>Posso saltar o passo de preparação para um trabalho de importação? Posso preparar uma unidade sem copiar?
 
-Não. Qualquer unidade utilizada para importar dados deve ser preparada utilizando a ferramenta Azure WAImportExport. Utilize a ferramenta para também copiar dados para a unidade.
+N.º Qualquer unidade utilizada para importar dados deve ser preparada utilizando a ferramenta Azure WAImportExport. Utilize a ferramenta para também copiar dados para a unidade.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Preciso de fazer alguma preparação em disco quando criar um trabalho de exportação?
 
-Não. Recomenda-se alguns pré-exames. Para verificar o número de discos necessários, utilize o comando PreviewExport da ferramenta WAImport. Para obter mais informações, consulte [pré-visualização do uso da unidade para um trabalho de exportação](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). O comando ajuda-o a visualizar o uso da unidade para as bolhas selecionadas, com base no tamanho das unidades que vai utilizar. Verifique também se pode ler e escrever para o disco rígido que é enviado para o trabalho de exportação.
+N.º Recomenda-se alguns pré-exames. Para verificar o número de discos necessários, utilize o comando PreviewExport da ferramenta WAImport. Para obter mais informações, consulte [pré-visualização do uso da unidade para um trabalho de exportação](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). O comando ajuda-o a visualizar o uso da unidade para as bolhas selecionadas, com base no tamanho das unidades que vai utilizar. Verifique também se pode ler e escrever para o disco rígido que é enviado para o trabalho de exportação.
 
 ## <a name="importexport-jobs"></a>Postos de trabalho nas importações/exportações
 
 ### <a name="can-i-cancel-my-job"></a>Posso cancelar o meu emprego?
 
-Yes. Pode cancelar um trabalho quando o seu estado é **Criar** ou **Enviar.** Para além destas fases, o trabalho não pode ser cancelado e continua até à fase final.
+Sim. Pode cancelar um trabalho quando o seu estado é **Criar** ou **Enviar.** Para além destas fases, o trabalho não pode ser cancelado e continua até à fase final.
 
 ### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>Quanto tempo posso ver o estado dos trabalhos concluídos no portal Azure?
 
@@ -128,7 +128,7 @@ O centro de dados Azure devolverá a unidade que não está em conformidade com 
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>O formato de serviço é o acionamento antes de os devolver?
 
-Não. Todas as unidades estão encriptadas com o BitLocker.
+N.º Todas as unidades estão encriptadas com o BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Como posso aceder aos dados que são importados por este serviço?
 
@@ -144,7 +144,7 @@ Depende. Ao preparar a unidade, pode especificar se os ficheiros de destino deve
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>A ferramenta WAImportExport é compatível com sistemas operativos de 32 bits?
 
-Não. A ferramenta WAImportExport só é compatível com sistemas operativos Windows de 64 bits. Para obter uma lista completa de SISTEMAS Operativos Suportados, aceda a [Sistemas Operativos Suportados.](./storage-import-export-requirements.md)
+N.º A ferramenta WAImportExport só é compatível com sistemas operativos Windows de 64 bits. Para obter uma lista completa de SISTEMAS Operativos Suportados, aceda a [Sistemas Operativos Suportados.](./storage-import-export-requirements.md)
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Qual é o tamanho máximo de blob de bloco e de página suportado pela Azure Import/Export?
 
@@ -153,8 +153,8 @@ Não. A ferramenta WAImportExport só é compatível com sistemas operativos Win
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>A Azure Import/Export suporta a encriptação AES-256?
 
-Yes. O serviço Azure Import/Export utiliza encriptação AES-256 BitLocker.
+Sim. O serviço Azure Import/Export utiliza encriptação AES-256 BitLocker.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o serviço Importar/Exportar do Microsoft Azure?](storage-import-export-service.md)

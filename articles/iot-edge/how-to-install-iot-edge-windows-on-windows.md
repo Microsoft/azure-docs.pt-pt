@@ -11,10 +11,10 @@ ms.date: 12/18/2020
 ms.author: kgremban
 monikerRange: iotedge-2018-06
 ms.openlocfilehash: bb87d09b67658f9a3d7c68f635bfcd9a29de675c
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201636"
 ---
 # <a name="install-and-manage-azure-iot-edge-with-windows-containers"></a>Instale e gere a borda Azure IoT com recipientes Windows

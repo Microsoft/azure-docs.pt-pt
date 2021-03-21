@@ -4,10 +4,10 @@ description: Como utilizar o Java Message Service (JMS) 2.0 API para comunicar c
 ms.topic: article
 ms.date: 01/17/2021
 ms.openlocfilehash: 492da46a5ce4f5955a72972d91a8c56d54c385bb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726959"
 ---
 # <a name="azure-service-bus-jms-20-developer-guide"></a>Guia de desenvolvimento do Azure Service Bus JMS 2.0

@@ -12,10 +12,10 @@ ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101644260"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutorial: Configurar Keyless com Azure Ative Directory B2C
@@ -50,7 +50,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Imagem mostra diagrama de arquitetura keyless](./media/partner-keyless/keyless-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. Os utilizadores selecionam o pré-in/inscrição e introduzem o nome de utilizador
 | 2. | A aplicação envia os atributos do utilizador ao Azure AD B2C para verificação de identidade.

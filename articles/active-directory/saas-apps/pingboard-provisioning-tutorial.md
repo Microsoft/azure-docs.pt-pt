@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: ac36f5d6d1f57fd8453c54bcc8cf19dd964f47f6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357900"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configure Pingboard para fornecimento automático de utilizadores
@@ -69,7 +69,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
     b. Inscreva-se no [Pingboard](https://pingboard.com/) utilizando a sua conta de administração.
 
-    c. Selecione **Add-Ons**  >  **Integrações adicionais**  >  **Azure Ative Directory**.
+    c. Selecione   >  **Integrações adicionais**  >  **Azure Ative Directory**.
 
     d. Vá ao **separador Configurar** e selecione **Ative o fornecimento do utilizador a partir de Azure**.
 
@@ -79,7 +79,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 1. Insira o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de provisionamento no **E-mail de Notificação**. Selecione a caixa de verificação por baixo.
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 1. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Pingboard**.
 

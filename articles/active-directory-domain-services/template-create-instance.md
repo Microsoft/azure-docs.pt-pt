@@ -1,5 +1,5 @@
 ---
-title: Ativar os Serviços de Domínio Azure DS usando um modelo Microsoft Docs
+title: Ativar os serviços de domínio Azure DS usando um modelo | Microsoft Docs
 description: Saiba como configurar e ativar os Serviços de Domínio do Diretório Ativo do Azure utilizando um modelo de Gestor de Recursos Azure
 services: active-directory-ds
 author: justinha
@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618795"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Crie um domínio gerido por Serviços de Domínio de Diretório Ativo Azure usando um modelo de Gestor de Recursos Azure

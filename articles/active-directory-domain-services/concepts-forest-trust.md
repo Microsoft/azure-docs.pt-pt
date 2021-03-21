@@ -1,5 +1,5 @@
 ---
-title: Como os trusts funcionam para os Serviços de Domínio Azure AD Microsoft Docs
+title: Como as fidedignidades funcionam para os Serviços de Domínio AZure AD | Microsoft Docs
 description: Saiba mais sobre como a confiança da floresta funciona com os Serviços de Domínio AZure AD
 services: active-directory-ds
 author: justinha
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620210"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para as florestas de recursos em Azure Ative Directory Domain Services

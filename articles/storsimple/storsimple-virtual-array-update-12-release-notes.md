@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array Update 1.2 notas de lançamento Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array Update 1.2 notas de lançamento| Microsoft Docs
 description: Descreve problemas e resoluções abertos críticos para o StorSimple Virtual Array que executa a Atualização 1.2.
 services: storsimple
 author: alkohli
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
 ms.openlocfilehash: 1118dfcec67a49365f1f6e5e522e98b97694d052
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94960198"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>StorSimple Virtual Array Update 1.2 notas de lançamento
@@ -46,7 +46,7 @@ Baixe o KB4502035 e siga estas instruções para [aplicar a atualização atrav�
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Eliminação| Nas versões anteriores do software, houve um problema quando o uso do dispositivo não mudou mesmo quando os ficheiros foram eliminados. Esta questão é corrigida nesta versão. O caminho do código de tiering tornou-se mais resistente no processamento de ficheiros eliminados.|
 | 2 |Processamento de exceções| Nas versões anteriores do software, havia um problema na sequência do reboot do sistema que poderia potencialmente levar a falhas nas cópias de segurança, restaurar, ler a partir da nuvem e recuperação automática de espaço. Esta versão contém alterações na forma como as exceções foram tratadas na trajetória de arranque.|

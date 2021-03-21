@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/12/2021
 ms.author: jeedes
 ms.openlocfilehash: 48ba2810c0aaf304042580cdf6579df54fd9ccd6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645682"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Azure Ative Directory integração única (SSO) com NetDocuments
@@ -178,7 +178,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no NetDocuments, deve
 
 2. No canto superior direito, selecione o seu nome>**Administrador**.
    
-    ![Administração](./media/netdocuments-tutorial/user-admin.png "Admin")
+    ![Administração](./media/netdocuments-tutorial/user-admin.png "Administrador")
 
 3. Selecione **Utilizadores e grupos**.
    

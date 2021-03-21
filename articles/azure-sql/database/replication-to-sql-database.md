@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780959"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicação para Azure SQL Database
@@ -54,12 +54,12 @@ Existem diferentes [tipos de replicação:](/sql/relational-databases/replicatio
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim | 
-| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
-| [**Fusão de replicação**](/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
-| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas updatable**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes | 
+| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
+| [**Fusão de replicação**](/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Assinaturas updatable**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -127,7 +127,7 @@ As seguintes opções não são suportadas para as subscrições da Base de Dado
 Crie uma publicação e uma subscrição push. Para obter mais informações, consulte:
   
 - [Criar uma Publicação](/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma Subscrição push](/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor como assinante (por **exemplo, N'azuresqldbdns.database.windows.net'** ) e o nome Azure SQL Database como base de dados de destino (por **exemplo, AdventureWorks).**  
+- [Crie uma Subscrição push](/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor como assinante (por **exemplo, N'azuresqldbdns.database.windows.net'**) e o nome Azure SQL Database como base de dados de destino (por **exemplo, AdventureWorks).**  
 
 ## <a name="see-also"></a>Consulte também  
 

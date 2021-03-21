@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 08/19/2020
 ms.custom: include file
 ms.openlocfilehash: efdd4a065e1eab55f5af420585a44754d42a43e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010384"
 ---
 1. A partir do menu do portal Azure ou da **página Inicial,** selecione **Criar um recurso**.
@@ -43,13 +43,13 @@ ms.locfileid: "96010384"
     > - Georredundância
     > - Escritas de várias regiões
     
-    :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" alt-text="A página da nova conta do Azure Cosmos DB":::
+    :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" alt-text="A página de nova conta do Azure Cosmos DB":::
 
 1. Selecione **Rever + criar**. Pode ignorar as secções **Rede** e **Etiquetas**.
 
 1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
 
-    :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png" alt-text="O painel de Notificações do portal do Azure":::
+    :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png" alt-text="O painel Notificações do portal do Azure":::
 
 1. Selecione **Ir para recurso** para aceder à página da conta do Azure Cosmos DB. 
 

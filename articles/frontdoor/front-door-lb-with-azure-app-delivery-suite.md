@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - Load Balanceing com a suite de entrega de aplicações do Azure / Microsoft Docs
+title: Porta frontal Azure - Load Balanceing com a suíte de entrega de aplicações da Azure | Microsoft Docs
 description: Este artigo ajuda-o a aprender como a Azure recomenda o equilíbrio de carga com a sua suíte de entrega de aplicações
 services: frontdoor
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019468"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure

@@ -5,15 +5,15 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: ce4cc68826b39b5707549afc799d2d214e8876c6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001201"
 ---
 Se precisar de configurar um representante HTTP para fazer pedidos de saída, utilize estes dois argumentos:
 
-| Nome | Tipo de dados | Descrição |
+| Name | Tipo de dados | Descrição |
 |--|--|--|
 |HTTPS_PROXY|string|O representante para usar, por exemplo, `https://proxy:8888`<br>`<proxy-url>`|
 |HTTPS_PROXY_CREDS|string|Quaisquer credenciais necessárias para autenticar contra o proxy, por exemplo, nome de utilizador:password.|

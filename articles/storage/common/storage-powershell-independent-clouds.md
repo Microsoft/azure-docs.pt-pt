@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783577"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o Armazenamento nas nuvens independentes do Azure utilizando o PowerShell
@@ -51,7 +51,7 @@ Faça o sômis à sua conta que tenha acesso à nuvem à qual pretende ligar e d
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Para aceder à Nuvem Chinesa, utilize o ambiente **AzureChinaCloud.** Para aceder à Nuvem Alemã, utilize o **AzureGermanCloud** .
+Para aceder à Nuvem Chinesa, utilize o ambiente **AzureChinaCloud.** Para aceder à Nuvem Alemã, utilize o **AzureGermanCloud**.
 
 Neste momento, se necessitar da lista de locais para criar uma conta de armazenamento ou outro recurso, pode consultar as localizações disponíveis para a nuvem selecionada utilizando o [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
 
@@ -69,7 +69,7 @@ A tabela seguinte mostra os locais devolvidos para a nuvem alemã.
 
 ## <a name="endpoint-suffix"></a>Sufixo de ponto final
 
-O sufixo final para cada um destes ambientes é diferente do ponto final do Azure Public. Por exemplo, o sufixo blob endpoint para O Público azul é **blob.core.windows.net** . Para a Nuvem do Governo, o sufixo do ponto final blob é **blob.core.usgovcloudapi.net** .
+O sufixo final para cada um destes ambientes é diferente do ponto final do Azure Public. Por exemplo, o sufixo blob endpoint para O Público azul é **blob.core.windows.net**. Para a Nuvem do Governo, o sufixo do ponto final blob é **blob.core.usgovcloudapi.net**.
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obtenha o ponto final usando Get-AzEnvironment
 
@@ -85,7 +85,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Este comando retorna os seguintes resultados.
 
-| Nome| StorageEndpointSuléix|
+| Name| StorageEndpointSuléix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |

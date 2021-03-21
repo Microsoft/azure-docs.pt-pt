@@ -1,14 +1,14 @@
 ---
-title: Novidades Notas de lançamento - Serviço Azure Blockchain
+title: Novidades? Notas de lançamento - Serviço Azure Blockchain
 description: Saiba quais as novidades com o Azure Blockchain Service, como as últimas notas de lançamento, versões, problemas conhecidos e mudanças futuras.
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94335031"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Quais as novidades no Serviço Azure Blockchain?

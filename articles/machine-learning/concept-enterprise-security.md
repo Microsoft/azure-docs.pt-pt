@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/20/2020
 ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94992034"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governação da empresa para a Azure Machine Learning
@@ -85,7 +85,7 @@ Para obter mais informações, consulte os documentos seguintes:
 * [Ambiente de inferência seguro](how-to-secure-inferencing-vnet.md)
 * [Use o estúdio numa rede virtual segura](how-to-enable-studio-virtual-network.md)
 * [Utilizar DNS personalizado](how-to-custom-dns.md)
-* [Configurar a firewall](how-to-access-azureml-behind-firewall.md)
+* [Firewall de configuração](how-to-access-azureml-behind-firewall.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -97,13 +97,13 @@ Ao implementar modelos como serviços web, pode permitir que a segurança da cam
 
 ## <a name="vulnerability-scanning"></a>Análise de vulnerabilidades
 
-[O Azure Security Center](../security-center/security-center-introduction.md) fornece uma gestão unificada de segurança e proteção avançada de ameaças através de cargas de cloud híbridas. Para a aprendizagem automática Azure, deve permitir a digitalização do seu recurso de registo de [contentores Azure](../container-registry/container-registry-intro.md) e dos recursos do Serviço Azure Kubernetes. Para obter mais informações, consulte [a imagem do Registo de Contentores Azure pelo Security Center](../security-center/defender-for-container-registries-introduction.md) e a [integração dos Serviços Azure Kubernetes com o Security Center](../security-center/defender-for-kubernetes-introduction.md).
+O [Centro de Segurança do Azure](../security-center/security-center-introduction.md) oferece gestão de segurança unificada e proteção contra ameaças avançada entre cargas de trabalho na cloud híbrida. Para a aprendizagem automática Azure, deve permitir a digitalização do seu recurso de registo de [contentores Azure](../container-registry/container-registry-intro.md) e dos recursos do Serviço Azure Kubernetes. Para obter mais informações, consulte [a imagem do Registo de Contentores Azure pelo Security Center](../security-center/defender-for-container-registries-introduction.md) e a [integração dos Serviços Azure Kubernetes com o Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="audit-and-manage-compliance"></a>Auditar e gerir a conformidade
 
 [A Azure Policy](../governance/policy/index.yml) é uma ferramenta de governação que lhe permite garantir que os recursos da Azure estão em conformidade com as suas políticas. Pode definir políticas para permitir ou impor configurações específicas, tais como se o seu espaço de trabalho Azure Machine Learning utiliza um ponto final privado. Para obter mais informações sobre a Política Azure, consulte a documentação da [Política Azure](../governance/policy/overview.md). Para obter mais informações sobre as políticas específicas do Azure Machine Learning, consulte [a Auditoria e gerencie o cumprimento da Política Azure.](how-to-integrate-azure-policy.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Serviços web secure Azure Machine Learning com TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)

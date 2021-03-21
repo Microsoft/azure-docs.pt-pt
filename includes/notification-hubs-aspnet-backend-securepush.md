@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: sethm
 ms.openlocfilehash: fb3c95b74128f1da7b29a290e17fefe21987dd76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019429"
 ---
 ## <a name="webapi-project"></a>Projeto WebAPI
 
 1. No Visual Studio, abra o projeto **AppBackend** que criou no tutorial **de Notifica users.**
-2. Em Notifications.cs, substitua toda a classe **notificações** pelo seguinte código. Certifique-se de que substitui os espaços reservados pela sua cadeia de ligação (com acesso total) para o seu centro de notificação e o nome do hub. Pode obter estes valores a partir do [portal Azure](https://portal.azure.com). Este módulo representa agora as diferentes notificações seguras que serão enviadas. Numa implementação completa, as notificações serão armazenadas numa base de dados; para a simplicidade, neste caso armazenamos na memória.
+2. Em Notificações.cs, substitua toda a classe **notificações** pelo seguinte código. Certifique-se de que substitui os espaços reservados pela sua cadeia de ligação (com acesso total) para o seu centro de notificação e o nome do hub. Pode obter estes valores a partir do [portal Azure](https://portal.azure.com). Este módulo representa agora as diferentes notificações seguras que serão enviadas. Numa implementação completa, as notificações serão armazenadas numa base de dados; para a simplicidade, neste caso armazenamos na memória.
 
    ```csharp
     public class Notification

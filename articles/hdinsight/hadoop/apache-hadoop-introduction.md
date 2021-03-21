@@ -6,10 +6,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
 ms.openlocfilehash: 1e3fc23dd220a8d9764a64c453e9fb856307ac47
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946512"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é Apache Hadoop em Azure HDInsight?
@@ -62,7 +62,7 @@ Para exemplos de utilização do streaming hadoop com HDInsight, consulte o segu
 * [Extrair, transformar e carregar (ETL) em escala](../hadoop/apache-hadoop-etl-at-scale.md)
 * [Operacionalizar um pipeline de análise de dados](../hdinsight-operationalize-data-pipeline.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar cluster Apache Hadoop em HDInsight usando o portal](../hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
 * [Crie o cluster Apache Hadoop em HDInsight usando o modelo ARM](../hadoop/apache-hadoop-linux-tutorial-get-started.md)

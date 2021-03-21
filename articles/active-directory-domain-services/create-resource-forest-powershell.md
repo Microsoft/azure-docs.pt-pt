@@ -1,5 +1,5 @@
 ---
-title: Criar uma floresta de recursos de serviços de domínio Azure AD usando a Azure PowerShell Microsoft Docs
+title: Crie uma floresta de recursos de serviços de domínio Azure AD utilizando a Azure PowerShell | Microsoft Docs
 description: Neste artigo, aprenda a criar e configurar uma floresta de recursos de recursos do Azure Ative Directory Domain Services e floresta de saída para um ambiente de Serviços de Domínio de Diretório Ativo no local utilizando a Azure PowerShell.
 author: justinha
 manager: daveba
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: justinha
 ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619972"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Crie uma floresta de recursos de serviços de diretório ativo Azure e uma confiança florestal de saída para um domínio no local usando a Azure PowerShell
@@ -220,7 +220,7 @@ Add-AaddsResourceForestTrust `
 
 Para resolver corretamente o domínio gerido a partir do ambiente no local, poderá ser necessário adicionar reencaminhadores aos servidores DNS existentes. Se não tiver configurado o ambiente no local para comunicar com o domínio gerido, complete os seguintes passos a partir de uma estação de trabalho de gestão para o domínio AD DS no local:
 
-1. Selecione **Iniciar / Ferramentas Administrativas / DNS**
+1. Selecione **Iniciar | Ferramentas Administrativas | DNS**
 1. Servidor DNS de seleção direita, como *myAD01*, selecione **Properties**
 1. Escolha **forwarders** e, em seguida, **edite** para adicionar reencaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerido, tais como *10.0.1.4* e *10.0.1.5*.
@@ -232,7 +232,7 @@ O domínio AD DS no local precisa de uma confiança florestal para o domínio ge
 
 Para configurar a confiança de entrada no domínio AD DS no local, complete os seguintes passos de uma estação de trabalho de gestão para o domínio DS AD no local:
 
-1. Selecione **Iniciar / Ferramentas Administrativas / Domínios e Fidedignidades do Diretório Ativo**
+1. Selecione **Iniciar | Ferramentas Administrativas | Domínios e Fidedignidades do Diretório Ativo**
 1. Domínio selecionado à direita, como *onprem.contoso.com,* selecione **Properties**
 1. Escolha o separador **Trusts,** em seguida, **New Trust**
 1. Insira o nome do domínio gerido, como *aaddscontoso.com,* em seguida, selecione **Next**
@@ -387,7 +387,7 @@ Se já não precisar da confiança florestal de ida e saída do domínio gerido 
 
 Para remover a confiança de entrada unidirecionais da floresta AD DS no local, ligue-se a um computador de gestão com acesso à floresta AD DS no local e complete os seguintes passos:
 
-1. Selecione **Iniciar / Ferramentas Administrativas / Domínios e Fidedignidades do Diretório Ativo**
+1. Selecione **Iniciar | Ferramentas Administrativas | Domínios e Fidedignidades do Diretório Ativo**
 1. Domínio selecionado à direita, como *onprem.contoso.com,* selecione **Properties**
 1. Escolha o separador **Trusts** e, em seguida, selecione a confiança de entrada existente na floresta de domínio gerida.
 1. Selecione **Remover** e, em seguida, confirme que deseja remover a confiança recebida.
@@ -403,7 +403,7 @@ Neste artigo, aprendeu a:
 > * Criar uma confiança florestal unidireccionária num ambiente de DS AD no local
 > * Teste e valide a relação de confiança para a autenticação e acesso a recursos
 
-Para obter mais informações conceptuais sobre os tipos de floresta em [How do forest trusts work in Azure AD DS?][concepts-trust] Azure AD DS, veja [o que são as florestas de recursos?][concepts-forest]
+Para obter mais informações conceptuais sobre os tipos de floresta em [][concepts-trust] Azure AD DS, veja [o que são as florestas de recursos?][concepts-forest]
 
 <!-- INTERNAL LINKS -->
 [concepts-forest]: concepts-resource-forest.md

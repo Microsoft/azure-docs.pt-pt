@@ -1,5 +1,5 @@
 ---
-title: Escolha uma solução Azure para transferência de dados Microsoft Docs
+title: Escolha uma solução Azure para transferência de dados| Microsoft Docs
 description: Saiba como escolher uma solução Azure para transferência de dados com base em tamanhos de dados e largura de banda de rede disponível no seu ambiente.
 services: storage
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784053"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolher uma solução do Azure para a transferência de dados

@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500891"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Encontre e aplique recomendações de desempenho
@@ -39,7 +39,7 @@ As recomendações de desempenho são apresentadas na tabela semelhantes às apr
 
 As recomendações são ordenadas pelo seu impacto potencial no desempenho nas seguintes categorias:
 
-| Impacto | Descrição |
+| Impacto | Description |
 |:--- |:--- |
 | Alto |Recomendações de alto impacto devem proporcionar o impacto de desempenho mais significativo. |
 | Médio |Recomendações de impacto médio devem melhorar o desempenho, mas não substancialmente. |
@@ -132,7 +132,7 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Pendente |O comando de recomendação foi recebido e está agendado para a execução. |
 | Execução |A recomendação está a ser aplicada. |
 | Validação |A recomendação foi aplicada com sucesso e o serviço está a medir os benefícios. |
-| Success |A recomendação foi aplicada com êxito e os benefícios foram medidos. |
+| Com êxito |A recomendação foi aplicada com êxito e os benefícios foram medidos. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isto pode ser um problema transitório, ou possivelmente uma mudança de esquema para a tabela e o script já não é válido. |
 | Reverter |A recomendação foi aplicada, mas foi considerada não-performante e está a ser automaticamente revertida. |
 | Revertido |A recomendação foi revertida. |

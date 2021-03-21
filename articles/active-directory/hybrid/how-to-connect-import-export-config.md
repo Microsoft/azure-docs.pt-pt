@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681960"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importar e exportar configurações de configuração AZure AD Connect 
@@ -77,10 +77,10 @@ Para migrar as definições:
 
    ![Screenshot que mostra a azure AD Connect diretórios.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Execute o script como mostrado aqui, e guarde todo o diretório de configuração do servidor de nível inferior. Copie este diretório para o novo servidor de encenação. Tem de copiar toda a pasta **Exported-ServerConfiguration** para o novo servidor.
+1. Execute o script como mostrado aqui, e guarde todo o diretório de configuração do servidor de nível inferior. Copie este diretório para o novo servidor de encenação. Tem de copiar toda a pasta **Exported-ServerConfiguration para** o novo servidor.
 
    ![Screenshot que mostra script no Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Screenshot que mostra a cópia da pasta Exported-ServerConfiguration-_ .](media/how-to-connect-import-export-config/migrate3.png)
+    ![ Screenshot que mostra a cópia da pasta Exported-ServerConfiguration-* .](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Inicie **o Azure AD Connect** clicando duas vezes no ícone no ambiente de trabalho. Aceite os Termos de Licença de Software da Microsoft e na página seguinte, **selecione Personalize**.
 1. Selecione a caixa **de verificação das definições de sincronização de Importação.** **Selecione Procurar** para navegar na pasta Exported-ServerConfiguration-* copiada. Selecione a MigratedPolicy.jspara importar as definições migradas.

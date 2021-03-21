@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 99c957e5bf6ffe69c94e109796590f5ab975c3cf
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656891"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Compreender os duplos digitais Plug and Play do IoT
@@ -113,7 +113,7 @@ O seguinte corte mostra o gémeo digital formatado como um objeto JSON:
 
 A tabela a seguir descreve os campos no objeto JSON gémeo digital:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do dispositivo digital twin |
 | `{propertyName}` | O valor de um imóvel em JSON |

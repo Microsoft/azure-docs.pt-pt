@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357254"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -26,7 +26,7 @@ Este artigo descreve as causas e soluções para **erros ioTHubUnautizados 40100
 
 ### <a name="symptom-1"></a>Sintoma 1
 
-Nos registos, vê-se um padrão de dispositivos desligados com **401003 IoTHubUnautized** , seguido de **404104 DeviceConnectionClosedRemotely** , e, em seguida, conectando-se com sucesso pouco depois.
+Nos registos, vê-se um padrão de dispositivos desligados com **401003 IoTHubUnautized**, seguido de **404104 DeviceConnectionClosedRemotely**, e, em seguida, conectando-se com sucesso pouco depois.
 
 ### <a name="symptom-2"></a>Sintoma 2
 
@@ -56,7 +56,7 @@ IoT Hub não podia autenticar o cabeçalho, regra ou chave do auth. Isto pode se
 
 ## <a name="solution"></a>Solução
 
-### <a name="solution-1"></a>Solução 1
+### <a name="solution-1"></a>Solução 1
 
 Não é necessária qualquer ação se utilizar o IoT SDK para ligação utilizando a cadeia de ligação do dispositivo. IoT SDK regenera o novo token para reconectar-se na expiração do token SAS.
 
@@ -64,7 +64,7 @@ O tempo de vida útil do símbolo padrão é de 60 minutos através de SDKs; no 
 
 Para os desenvolvedores de dispositivos, se o volume de erros for uma preocupação, mude para o C SDK, que renova o token SAS antes de expirar. Para AMQP, o token SAS pode refrescar-se sem desconexão.
 
-### <a name="solution-2"></a>Solução 2
+### <a name="solution-2"></a>Solução 2
 
 Em geral, a mensagem de erro apresentada deve explicar como corrigir o erro. Se por alguma razão não tiver acesso ao detalhe da mensagem de erro, certifique-se de que:
 

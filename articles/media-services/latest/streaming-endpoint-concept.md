@@ -37,7 +37,7 @@ O limite máximo da unidade de streaming é geralmente de 10. Contacte-nos [aqui
 
 A tabela descreve os tipos:
 
-|Tipo|Unidades de escala|Descrição|
+|Tipo|Unidades de escala|Description|
 |--------|--------|--------|  
 |**Standard**|0|O ponto final de streaming predefinido é um tipo **standard** — pode ser alterado para o tipo Premium `scaleUnits` ajustando-o .|
 |**Premium**|>0|**Premium** Os pontos finais de streaming são adequados para cargas de trabalho avançadas e fornecem capacidade de largura de banda dedicada e escalável. Move-se para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornecer-lhe uma capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium,** cada unidade ativada fornece uma capacidade de largura de banda adicional à aplicação. |
@@ -151,10 +151,10 @@ Consulte os seguintes artigos:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Empacotamento dinâmico](dynamic-packaging-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir pontos finais de transmissão em fluxo](manage-streaming-endpoints-howto.md)

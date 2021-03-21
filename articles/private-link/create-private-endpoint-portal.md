@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018074"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Quickstart: Criar um ponto final privado utilizando o portal Azure
@@ -90,7 +90,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
 
 Nesta secção, irá criar uma máquina virtual que será usada para testar o ponto final privado.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >  **Compute**  >  **Virtual machine** **Virtual** na caixa de pesquisa.
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >    >   **Virtual** na caixa de pesquisa.
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -132,7 +132,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
 
 Nesta secção, irá criar um Ponto Final Privado para a aplicação web que criou na secção pré-requisitos.
 
-1. No lado superior esquerdo do ecrã no portal, selecione **Criar um Link** Privado de Rede de Recursos , ou na caixa de pesquisa entrar No Link  >  **Networking**  >  **Private Link** **Privado**.
+1. No lado superior esquerdo do ecrã no portal, selecione **Criar um Link** Privado de Rede de Recursos , ou na caixa de pesquisa entrar No Link  >    >   **Privado**.
 
 2. Selecione **Criar**.
 

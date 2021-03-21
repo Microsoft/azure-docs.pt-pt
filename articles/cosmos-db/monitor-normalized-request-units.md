@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 01/07/2021
 ms.openlocfilehash: ec82532b54e7834b62fcc03d3ee7de1345a0f546
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98027813"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Como monitorizar RU/s normalizados para um contentor Azure Cosmos ou uma conta
@@ -22,7 +22,7 @@ A métrica **de consumo RU normalizada** é usada para ver quão bem saturadas s
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>O que esperar e fazer quando RU/s normalizado é maior
 
-Quando o consumo normalizado de RU/s atinge 100% para a gama de chaves de partição dada, e se um cliente ainda fizer pedidos nesse intervalo de tempo de 1 segundo para essa gama específica de chaves de partição - recebe um erro limitado de taxa. O cliente deve respeitar o tempo de espera sugerido e voltar a tentar o pedido. O SDK facilita a vida a esta situação, reformulando os tempos pré-configurados, esperando adequadamente.  Não é necessário que veja o erro de limitação da taxa RU apenas porque o RU normalizado atingiu os 100%. Isto porque o RU normalizado é um único valor que representa o uso máximo em todas as gamas de chaves de partição, uma gama de chaves de partição pode estar ocupada, mas as outras gamas de chaves de partição podem servir os pedidos sem problemas. Por exemplo, uma única operação, como um procedimento armazenado que consome todos os RU/s numa gama de chaves de partição, conduzirá a um curto pico no consumo ru/s normalizado. Nesses casos, não haverá erros de limitação de taxas imediatas se a taxa de pedido for baixa ou se forem feitos pedidos a outras divisórias em diferentes intervalos de chaves de partição. 
+Quando o consumo normalizado de RU/s atinge 100% para a gama de chaves de partição dada, e se um cliente ainda fizer pedidos nesse intervalo de tempo de 1 segundo para essa gama específica de chaves de partição - recebe um erro limitado de taxa. O cliente deve respeitar o tempo de espera sugerido e voltar a tentar o pedido. O SDK facilita a vida a esta situação, reformulando os tempos pré-configurados, esperando adequadamente.  Não é necessário que veja o erro de limitação da taxa RU apenas porque o RU normalizado atingiu os 100%. Isto porque o RU normalizado é um único valor que representa o uso máximo em todas as gamas de chaves de partição, uma gama de chaves de partição pode estar ocupada, mas as outras gamas de chaves de partição podem servir os pedidos sem problemas. Por exemplo, uma única operação, como um procedimento armazenado que consome todos os RU/s numa gama de chaves de partição, conduzirá a um curto pico no consumo ru/s normalizado. Em tais casos, não haverá erros de limitação de taxa imediatos se a taxa do pedido for baixa ou se forem feitos pedidos a outras partições em diferentes intervalos de chaves de partição. 
 
 As métricas do Azure Monitor ajudam-no a encontrar as operações por código de estado para a API SQL utilizando a métrica **Total de Pedidos.** Posteriormente, pode filtrar estes pedidos pelo código de estado 429 e dividi-los por **Operação Tipo**.  
 

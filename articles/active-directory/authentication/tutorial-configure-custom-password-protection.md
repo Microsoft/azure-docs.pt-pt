@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a5f355263b80ef2e5e1c829877dc96ca55787a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 89abdcf4c76c92c2ed967594527d323b2cd8be32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837894"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "96741189"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configurar senhas personalizadas proibidas para proteção de senha do Azure Ative Directory
 
@@ -72,7 +72,7 @@ Para ativar a lista de senhas proibidas personalizadas e adicionar entradas à s
 
     * A lista de palavras-passe proibidas por medida pode conter até 1000 termos.
     * A lista de senhas proibidas por medida é insensidora.
-    * A lista de palavras-passe proibidas personalizadas considera a substituição comum de caracteres, tais como "o" e "0", ou "a" e "@".
+    * A lista de palavras-passe proibidas personalizadas considera a substituição comum de caracteres, tais como "o" e "0", ou "a" e \@ ".
     * O comprimento mínimo da corda é de quatro caracteres, e o máximo é de 16 caracteres.
 
     Especifique as suas próprias palavras-passe personalizadas para proibir, como mostrado no exemplo seguinte
@@ -124,4 +124,4 @@ Neste tutorial, ativou e configurar listas de proteção de senhas personalizada
 > * Teste alterações de senha com senha proibida
 
 > [!div class="nextstepaction"]
-> [Ativar a autenticação multi-factor Azure AD baseada no risco](./tutorial-enable-azure-mfa.md)
+> [Ativar o Multi-Factor Authentication do Azure AD baseado no risco](./tutorial-enable-azure-mfa.md)

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 497e714289c834e026c6b9b767ed2b7af5442783
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780840"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma app SaaS multitenant que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
@@ -49,13 +49,13 @@ Para completar este tutorial, certifique-se de que o Azure PowerShell está inst
 Nos passos desta secção, fornece um valor de utilizador que é usado para garantir que os nomes de recursos são globalmente únicos. Também fornece um nome para o grupo de recursos que contém todos os recursos criados por uma implementação da app. Para uma pessoa fictícia chamada Ann Finley, sugerimos:
 
 - **Utilizador:** *af1* é composto por iniciais de Ann Finley mais um dígito. Se implementar a aplicação uma segunda vez, use um valor diferente. Um exemplo é af2.
-- **Grupo de recursos** : *wingtip-dpt-af1* indica que esta é a aplicação base de dados por inquilino. Anexar o nome de utilizador af1 para correlacionar o nome do grupo de recursos com os nomes dos recursos que contém.
+- **Grupo de recursos**: *wingtip-dpt-af1* indica que esta é a aplicação base de dados por inquilino. Anexar o nome de utilizador af1 para correlacionar o nome do grupo de recursos com os nomes dos recursos que contém.
 
 Escolham os vossos nomes agora e escrevam-nos.
 
 ### <a name="steps"></a>Passos
 
-1. Para abrir o modelo de implantação da base de dados saaS por inquilino no portal Azure, selecione **Implementar para Azure** .
+1. Para abrir o modelo de implantação da base de dados saaS por inquilino no portal Azure, selecione **Implementar para Azure**.
 
    [![Imagem mostrando um botão marcado "Implementar para Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
@@ -64,15 +64,15 @@ Escolham os vossos nomes agora e escrevam-nos.
     > [!IMPORTANT]
     > Algumas firewalls de autenticação e servidores estão intencionalmente despromocuradas para fins de demonstração. Recomendamos que crie um novo grupo de recursos. Não utilize grupos de recursos, servidores ou piscinas existentes. Não utilize esta aplicação, scripts ou quaisquer recursos implantados para produção. Elimine este grupo de recursos quando terminar com a aplicação para parar a faturação relacionada.
 
-    - **Grupo de recursos** : Selecione **Criar novo** , e forneça o nome único que escolheu anteriormente para o grupo de recursos.
-    - **Localização** : Selecione uma localização da lista de drop-down.
+    - **Grupo de recursos**: Selecione **Criar novo**, e forneça o nome único que escolheu anteriormente para o grupo de recursos.
+    - **Localização**: Selecione uma localização da lista de drop-down.
     - **Utilizador:** Utilize o valor do nome de utilizador que escolheu anteriormente.
 
 1. Desdobre a aplicação.
 
     a. Selecione para concordar com os termos e condições.
 
-    b. Selecione **Comprar** .
+    b. Selecione **Comprar**.
 
 1. Para monitorizar o estado de implantação, **selecione Notificações** (o ícone da campainha à direita da caixa de pesquisa). A implementação da aplicação Wingtip Tickets SaaS demora aproximadamente cinco minutos.
 
@@ -83,14 +83,14 @@ Escolham os vossos nomes agora e escrevam-nos.
 Enquanto a aplicação é implementada, descarregue os scripts de código fonte e gestão.
 
 > [!IMPORTANT]
-> Os conteúdos executáveis (scripts e DLLs) podem ser bloqueados pelo Windows quando os ficheiros .zip são descarregados de uma fonte externa e extraídos. Siga os passos para desbloquear o ficheiro .zip antes de extrair os scripts. Desbloqueio garante que os scripts podem ser executados.
+> Os conteúdos executáveis (scripts e DLLs) podem ser bloqueados pelo Windows quando .zip ficheiros são descarregados a partir de uma fonte externa e extraídos. Siga os passos para desbloquear o ficheiro .zip antes de extrair os scripts. Desbloqueio garante que os scripts podem ser executados.
 
 1. Navegue pelo [wingtipTicketsSaaS-DbPerTenant GitHub repo][github-wingtip-dpt].
 1. Selecione **Clone or download** (Clonar ou transferir).
 1. Selecione **Baixar ZIP** e, em seguida, guardar o ficheiro.
-1. Clique com o botão direito no ficheiro **WingtipTicketsSaaS-DbPerTenant-master.zip** e, em seguida, selecione **Propriedades** .
-1. No **separador Geral,** selecione **'Desbloquear'**  >  **Aplicar** .
-1. Selecione **OK** , e extraia os ficheiros
+1. Clique com o botão direito no ficheiro **WingtipTicketsSaaS-DbPerTenant-master.zip** e, em seguida, selecione **Propriedades**.
+1. No **separador Geral,** selecione **'Desbloquear'**  >  **Aplicar**.
+1. Selecione **OK**, e extraia os ficheiros
 
 Os scripts estão localizados no ... \\ Pasta de módulos de aprendizagem WingtipTicketsSaa-DbPerTenant-master. \\
 
@@ -128,7 +128,7 @@ A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager/
 
     As partes do formato anterior são explicadas na tabela seguinte.
 
-    | Parte url        | Descrição       |
+    | Parte url        | Description       |
     | :-------------- | :---------------- |
     | eventos.wingtip-dpt | Os eventos partes da aplicação Wingtip.<br /><br /> *-dpt* distingue a *implementação de bilhetes* wingtip por base de dados de outros. Exemplos são as implementações *de* uma única aplicação por inquilino *(-sa)* ou *uma base de dados multitenante* *(-mt).* |
     | . *&lt; utilizador &gt;* | *af1* no exemplo. |
@@ -181,9 +181,9 @@ Se quiser controlar e monitorizar os trabalhos de fundo, utilize os seguintes cm
 3. *LoadGenerator.ps1* inicia um trabalho de fundo da PowerShell para cada base de dados de inquilinos:
 
     - Por defeito, os trabalhos de fundo duram 120 minutos.
-    - Cada trabalho causa uma carga baseada em CPU numa base de dados de inquilinos executando *sp_CpuLoadGenerator* . A intensidade e a duração da carga variam consoante `$DemoScenario` .
+    - Cada trabalho causa uma carga baseada em CPU numa base de dados de inquilinos executando *sp_CpuLoadGenerator*. A intensidade e a duração da carga variam consoante `$DemoScenario` .
     - *sp_CpuLoadGenerator* loops em torno de uma declaração SQL SELECT que causa uma alta carga de CPU. O intervalo de tempo entre as questões do SELECT varia de acordo com os valores dos parâmetros para criar uma carga cpu controlável. Os níveis de carga e os intervalos são aleatórios para simular cargas mais realistas.
-    - Este ficheiro .sql é armazenado sob *as medidas wingtipTenantDB \\ dbo \\ StoredProcedures \\* .
+    - Este ficheiro .sql é armazenado sob *\\ as medidas \\ \\ de detenção de da WingtipTenantDB.*
 
 4. Se, `$OneTime = $false` o gerador de carga iniciar os trabalhos de fundo e, em seguida, continuar a funcionar. A cada 10 segundos, monitoriza todos os novos inquilinos que são a provisionados. Se `$OneTime = $true` definir, o LoadGenerator inicia os trabalhos de fundo e, em seguida, deixa de funcionar em primeiro plano. Para este tutorial, `$OneTime = $false` saia.
 
@@ -200,7 +200,7 @@ Antes de continuar com a próxima secção, deixe o gerador de carga em funciona
 A implantação inicial cria três inquilinos de amostra. Agora cria outro inquilino para ver o impacto na aplicação implementada. Na aplicação Wingtip, o fluxo de trabalho para a provisionação de novos inquilinos é explicado no [Tutorial de Provisão e catálogo.](saas-dbpertenant-provision-and-catalog.md) Nesta fase, cria-se um novo inquilino, que demora menos de um minuto.
 
 1. Abra um novo PowerShell ISE.
-2. Abrir... \\ Módulos de Aprendizagem\Provisão eDemo-ProvisionAndCatalog.ps1de Catálogo \\  .
+2. Abrir... \\ Módulos de Aprendizagem\Provisão eDemo-ProvisionAndCatalog.ps1de Catálogo \\ **.
 3. Para executar o guião, prima F5. Deixe os valores predefinidos por enquanto.
 
    > [!NOTE]

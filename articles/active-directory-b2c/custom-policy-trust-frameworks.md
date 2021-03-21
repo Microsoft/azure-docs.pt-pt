@@ -11,15 +11,15 @@ ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592845"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Visão geral da política personalizada AZURE AD B2C
 
-As políticas personalizadas são ficheiros de configuração que definem o comportamento do seu inquilino Azure Ative Directory B2C (Azure AD B2C). Embora os [fluxos de utilizador](user-flow-overview.md) estejam predefinidos no portal Azure AD B2C para as tarefas de identidade mais comuns, as políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidade para completar muitas tarefas diferentes.
+As políticas personalizadas são ficheiros de configuração que definem o comportamento do inquilino do Azure Active Directory B2C (AAD B2C). Embora os [fluxos de utilizador](user-flow-overview.md) estejam predefinidos no portal Azure AD B2C para as tarefas de identidade mais comuns, as políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidade para completar muitas tarefas diferentes.
 
 Uma política personalizada é totalmente configurável e orientada pela política. Uma política personalizada orquestra a confiança entre entidades em formatos de protocolo padrão como OpenID Connect, OAuth, SAML e algumas não-standard, por exemplo, trocas de sistema-sistema baseadas em API. A estrutura cria experiências fáceis de utilizar e etiquetas brancas.
 

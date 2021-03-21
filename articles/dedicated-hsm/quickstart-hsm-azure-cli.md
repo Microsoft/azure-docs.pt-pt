@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.date: 01/06/2021
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e07bc758b1ef86b3d8c605cbce72f6db564a355f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020965"
 ---
 # <a name="quickstart-create-an-azure-dedicated-hsm-by-using-the-azure-cli"></a>Quickstart: Criar um HSM dedicado a azure utilizando o CLI Azure
@@ -101,6 +101,6 @@ Se já não precisar do grupo de recursos que criou para o HSM dedicado, pode el
 az group delete --name myRG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Azure Dedicado HSM, consulte [Azure Dedicado HSM](overview.md).

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.openlocfilehash: e491c421f4af256b2e74fa61eb442d269bdb9e34
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102487921"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics a partir de um trabalho de Azure Stream Analytics (Preview)
@@ -19,7 +19,7 @@ O Azure Stream Analytics suporta [a autenticação de identidade gerida](../acti
 
 Uma identidade gerida é uma aplicação gerida registada no Azure Ative Directory que representa um determinado trabalho de Stream Analytics. A aplicação gerida é utilizada para autenticar um recurso direcionado. Este artigo mostra-lhe como ativar a Identidade Gerida para uma Base de Dados Azure SQL ou uma saída Azure Synapse Analytics de um trabalho stream Analytics através do portal Azure.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este artigo mostra-lhe os passos necessários para ligar o seu trabalho stream Analytics à sua Base de Dados Azure SQL ou à piscina Azure Synapse Analytics SQL utilizando o modo de autenticação de identidade gerida. 
 
