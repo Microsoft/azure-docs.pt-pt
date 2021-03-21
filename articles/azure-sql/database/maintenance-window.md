@@ -11,10 +11,10 @@ ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/11/2021
 ms.openlocfilehash: bd91c29ca97c2096c4d8f3df19dbb9eab306b8e7
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149754"
 ---
 # <a name="maintenance-window-preview"></a>Janela de manutenção (Pré-visualização)
@@ -25,7 +25,7 @@ A função de janela de manutenção permite configurar o horário de manutenç�
 > [!Note]
 > A função de janela de manutenção não protege de eventos não planeados, como falhas de hardware, que podem causar interrupções de ligação curtas.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Azure realiza periodicamente a [manutenção planeada](planned-maintenance.md) da Base de Dados SQL e dos recursos de instância geridos pela SQL. Durante o evento de manutenção do Azure SQL, as bases de dados estão totalmente disponíveis, mas podem estar sujeitas a curtos failovers dentro das respetivas disponibilidades SLAs para [a SqL Database](https://azure.microsoft.com/support/legal/sla/sql-database) e [sql gestduation instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance), uma vez que a reconfiguração de recursos é necessária em alguns casos.
 
@@ -131,7 +131,7 @@ Configurar e alterar a janela de manutenção provoca a alteração do endereço
 * [Notificações antecipadas](advance-notifications.md)
 * [Janela de manutenção configurada](maintenance-window-configure.md)
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [FaQ da janela de manutenção](maintenance-window-faq.yml)
 * [Base de Dados SQL do Azure](sql-database-paas-overview.md) 

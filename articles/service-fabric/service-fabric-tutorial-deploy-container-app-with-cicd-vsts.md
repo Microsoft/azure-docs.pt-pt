@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
 ms.openlocfilehash: bb0eb9226a99f139ff10a8da12a1e22017536c67
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018856"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação de contentor com CI/CD num cluster do Service Fabric
@@ -134,7 +134,7 @@ Ative um acionador de implementação contínua para que uma versão seja criada
 
 ![Ativar o acionador][enable-trigger]
 
-Selecione **+**  ->  **Desbloqueie criar um desbloqueio**  ->  **Create** para criar manualmente um desbloqueio. Pode monitorizar o progresso da versão no separador **Versões**.
+Selecione **+**  ->  **Desbloqueie criar um desbloqueio**  ->   para criar manualmente um desbloqueio. Pode monitorizar o progresso da versão no separador **Versões**.
 
 Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3".
 

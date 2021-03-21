@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
 ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98795322"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando cópias de dados automatizadas - Azure SQL Database & SQL Managed Instance
@@ -168,7 +168,7 @@ Complete o processo de criação de uma nova base de dados a partir da cópia de
 
 #### <a name="sql-managed-instance"></a>Instância Gerida do SQL
 
-Para restaurar uma base de dados de instância gerida do portal Azure para um caso gerido existente numa região à sua escolha, selecione uma instância gerida em que deseja que uma base de dados seja restaurada. Siga estes passos.
+Para restaurar uma base de dados de instância gerida do portal Azure para um caso gerido existente numa região à sua escolha, selecione uma instância gerida em que deseja que uma base de dados seja restaurada. Siga estes passos:
 
 1. Selecione **Nova base de dados**.
 2. Digite um nome de base de dados desejado.
@@ -257,7 +257,7 @@ Para restaurar uma base de dados de instância gerida utilizando o Azure CLI, co
 
 As cópias de segurança automáticas protegem as suas bases de dados contra erros de utilizador e aplicação, eliminação acidental da base de dados e interrupções prolongadas. Esta capacidade incorporada está disponível para todos os níveis de serviço e tamanhos de cálculo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da continuidade de negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - [Backups automatizados da Base de Dados SQL](automated-backups-overview.md)

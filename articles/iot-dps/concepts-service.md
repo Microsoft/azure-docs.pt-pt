@@ -1,5 +1,5 @@
 ---
-title: Terminologia utilizada com serviço de provisionamento de dispositivos Azure IoT Hub Microsoft Docs
+title: Terminologia utilizada com serviço de fornecimento de dispositivos Azure IoT Hub | Microsoft Docs
 description: Descreve terminologia comum utilizada com o Serviço de Provisionamento de Dispositivos (DPS) e IoT Hub
 author: wesmc7777
 ms.author: wesmc
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019451"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminologia do Serviço de Provisionamento de Dispositivos IoT Hub (DPS)

@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: 77c8887ac19c6ce4c7d83734bdd2b44d9213914d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151105"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagir aos eventos do Azure SignalR Service
@@ -29,7 +29,7 @@ Os eventos do Serviço Azure SignalR só estão ativos quando as ligações do c
 ## <a name="available-azure-signalr-service-events"></a>Eventos disponíveis do Serviço Azure SignalR
 A grelha de eventos utiliza [subscrições de eventos](../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de evento para assinantes. As subscrições do evento Azure SignalR Service suportam dois tipos de eventos:  
 
-|Nome do Evento|Descrição|
+|Nome do Evento|Description|
 |----------|-----------|
 |`Microsoft.SignalRService.ClientConnectionConnected`|Levantado quando uma ligação com o cliente está ligada.|
 |`Microsoft.SignalRService.ClientConnectionDisconnected`|Levantado quando a ligação do cliente é desligada.|

@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91619751"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize In-Memory OLTP para melhorar o desempenho da sua aplicação na Base de Dados Azure SQL e na Azure SQL Gestd Managing Instance
@@ -95,7 +95,7 @@ Para utilizar esta opção de migração:
 2. Obtenha o roteiro T-SQL completo para a sua tabela e os seus índices.
 
    * Em SSMS, clique com o botão direito do nó de mesa.
-   * Clique na **tabela de scripts como**CREATE para  >  **nova**janela de  >  **consulta**.
+   * Clique na **tabela de scripts como** CREATE para  >  **nova** janela de  >  **consulta**.
 3. Na janela do script, adicione COM (MEMORY_OPTIMIZED = ON) à declaração DE TABELA CREATE.
 4. Se houver um índice CLUSTERED, altere-o para NÃO-DETIDO.
 5. Mude o nome da tabela existente utilizando SP_RENAME.

@@ -1,5 +1,5 @@
 ---
-title: Usando Azure CDN com CORS / Microsoft Docs
+title: Utilização de Azure CDN com | CORS Microsoft Docs
 description: Saiba como utilizar a Rede de Entrega de Conteúdos Azure (CDN) com a Partilha de Recursos de Origem Cruzada (CORS).
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018652"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilização de Azure CDN com CORS

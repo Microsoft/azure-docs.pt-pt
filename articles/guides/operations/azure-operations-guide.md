@@ -9,10 +9,10 @@ ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101093042"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar pelos operadores de TI da Azure
@@ -348,7 +348,7 @@ Gere o acesso à máquina virtual através do endereço IP público utilizando u
 
 Finalmente, tal como acontece com a gestão de qualquer sistema informático, deverá fornecer segurança para uma máquina virtual Azure no sistema operativo, utilizando credenciais de segurança e firewalls de software.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 O Azure Storage é um serviço gerido pela Microsoft que fornece armazenamento durável, escalável e redundante. Pode adicionar uma conta de armazenamento Azure como recurso a qualquer grupo de recursos utilizando qualquer método de implementação de recursos. O Azure inclui quatro tipos de armazenamento: armazenamento de bolhas, armazenamento de ficheiros, armazenamento de mesa e armazenamento de fila. Ao implementar uma conta de armazenamento, estão disponíveis dois tipos de conta, para fins gerais e armazenamento de bolhas. Uma conta de armazenamento para fins gerais dá-lhe acesso a todos os quatro tipos de armazenamento. As contas de armazenamento blob são semelhantes às contas de uso geral, mas contêm bolhas especializadas que incluem níveis de acesso quente e frio. Para obter mais informações sobre o armazenamento de bolhas, consulte [o armazenamento da Azure Blob](../../storage/blobs/storage-blob-storage-tiers.md).
 
