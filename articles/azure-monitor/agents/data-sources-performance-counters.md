@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
 ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036788"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados de desempenho do Windows e do Linux com o agente Log Analytics
@@ -27,7 +27,7 @@ Quando configurar pela primeira vez os contadores Windows ou Linux Performance p
 
 Para os contadores de desempenho do Windows, pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador que escolher aplica-se a todos os contadores de crianças do contador dos pais. A tabela a seguir mostra as instâncias comuns disponíveis tanto para os contadores de desempenho Linux como para o Windows.
 
-| Nome da instância | Descrição |
+| Nome da instância | Description |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -76,7 +76,7 @@ Cada objeto, ou categoria, das métricas de desempenho a recolher deve ser defin
 
 Os parâmetros deste elemento são descritos na tabela seguinte.
 
-| Parâmetros | Descrição |
+| Parâmetros | Description |
 |:--|:--|
 | \_nome objeto | Nome do objeto para a coleção. |
 | instância \_ regex |  Uma *expressão regular* que define quais as instâncias a recolher. O valor: `.*` especifica todas as instâncias. Para recolher as métricas do processador apenas para a \_ instância Total, pode especificar `_Total` . Para recolher métricas de processo apenas para as instâncias crond ou sshd, pode especificar: `(crond\|sshd)` . |
@@ -204,7 +204,7 @@ Os registos de desempenho têm um tipo de **Perf** e têm as propriedades na tab
 ## <a name="log-queries-with-performance-records"></a>Consultas de registo com registos de desempenho
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos de desempenho.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:--- |:--- |
 | Des |Todos os dados de desempenho |
 | Perf &#124; onde computador == "MyComputer" |Todos os dados de desempenho de um determinado computador |

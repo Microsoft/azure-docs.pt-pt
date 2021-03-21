@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
 ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102429855"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique no plugin de recolha automática de analíticos para insights de aplicação JavaScript SDK
@@ -79,7 +79,7 @@ appInsights.loadAppInsights();
 
 ## <a name="configuration"></a>Configuração
 
-| Nome                  | Tipo                               | Predefinição | Descrição                                                                                                                              |
+| Nome                  | Tipo                               | Predefinição | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | autoCapture           | boolean                            | true    | Configuração de captura automática.                                                                                                         |
 | callback              | [IValueCallback](#ivaluecallback)  | nulo    | Configuração de chamadas.                                                                                                                 |
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nome                      | Tipo    | Predefinição   | Etiqueta padrão a utilizar em HTML |   Descrição                                                                                |
+| Nome                      | Tipo    | Predefinição   | Etiqueta padrão a utilizar em HTML |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | N/D         |Recolhe atributo HTML padrão para o nome de conteúdo quando um determinado elemento não está marcado com o Costume DefaultDataPrefix ou quando oDataPrefix personalizado não é fornecido pelo utilizador. |
 | CustomDataPrefixo          | string  | `data-`   | `data-*`| Denominação de conteúdo de captura automática e valor dos elementos que estão marcados com prefixo fornecido. Por `data-*-id` exemplo, `data-<yourcustomattribute>` pode ser utilizado nas tags HTML.   |

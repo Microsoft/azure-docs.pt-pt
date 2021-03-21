@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/06/2021
 ms.author: jafreebe
 ms.openlocfilehash: 404fac634a628da49dee72b10b52785820fe1bf6
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102443782"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Azure App Service como fonte de grade de eventos
@@ -20,7 +20,7 @@ Este artigo fornece as propriedades e esquema para eventos do Azure App Service.
 
 O Azure App Service emite os seguintes tipos de eventos
 
-|    Tipo de Evento                                             |    Descrição                                                     |
+|    Tipo de Evento                                             |    Description                                                     |
 |-----------------------------------------------------------|--------------------------------------------------------------------|
 |    Microsoft.Web/sites. BackupOperationStarted             |    Desencadeado quando uma cópia de segurança começou                             |
 |    Microsoft.Web/sites. BackupOperationCompleted           |    Desencadeado quando uma cópia de segurança está concluída                           |
@@ -128,7 +128,7 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento. Ca
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Tipo      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    `action`                  |    string    |    Tipo de ação da operação                                                                                   |
@@ -194,7 +194,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Tipo      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    `action`                  |    string    |    Tipo de ação da operação                                                                                   |
@@ -260,7 +260,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Tipo      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    `action`                 |    string    |    Tipo de ação da operação                                                                                   |
@@ -327,7 +327,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Tipo      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    `action`                 |    string    |    Tipo de ação da operação                                                                                   |
@@ -393,7 +393,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados tem as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Tipo      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe de ação na app                                                                                       |
 |    `action`                  |    string    |    Tipo de ação da operação                                                                                   |
@@ -477,7 +477,7 @@ O objeto de dados tem as seguintes propriedades:
 
 O objeto de dados tem as seguintes propriedades:
 
-|    Propriedade                         |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                         |    Tipo      |    Description                                                                                                       |
 |-------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appServicePlanEventTypeDetail`    |    objeto    |    Detalhe de ação no plano de serviço de aplicações                                                                          |
 |    `stampKind`                        |    string    |    Tipo de ambiente onde o plano de serviço de aplicações é                                                                     |

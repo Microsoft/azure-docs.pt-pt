@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449616"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
@@ -109,27 +109,27 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 
 | Arquivo de dados | Suportado | 
 | ------------------- | ------------------- | 
-| Armazenamento de Blobs do Azure | Sim |
-| Azure Cognitive Search | Sim | 
-| Azure Cosmos DB (SQL API) \* | Sim | 
-| A API da Azure Cosmos DB para MongoDB \* | Sim |
+| Armazenamento de Blobs do Azure | Yes |
+| Azure Cognitive Search | Yes | 
+| Azure Cosmos DB (SQL API) \* | Yes | 
+| A API da Azure Cosmos DB para MongoDB \* | Yes |
 | Explorador de Dados Azure \* | Sim | 
 | Azure Data Lake Storage Gen1 | Sim | 
 | Azure Data Lake Storage Gen2 | Sim | 
-| Base de Dados Azure para Maria DB \* | Sim | 
-| Base de Dados Azure para MySQL \* | Sim | 
-| Base de Dados Azure para PostgreSQL \* | Sim |
-| Armazenamento de Ficheiros do Azure | Sim | 
-| Base de Dados Azure SQL \* | Sim | 
-| Azure SQL Caso Gerido \* | Sim | 
+| Base de Dados Azure para Maria DB \* | Yes | 
+| Base de Dados Azure para MySQL \* | Yes | 
+| Base de Dados Azure para PostgreSQL \* | Yes |
+| Armazenamento de Ficheiros do Azure | Yes | 
+| Base de Dados Azure SQL \* | Yes | 
+| Azure SQL Caso Gerido \* | Yes | 
 | Azure Synapse Analytics \* | Sim | 
-| Armazenamento de Tabelas do Azure | Sim |
-| Amazon S3 | Sim | 
-| Colmeia \* | Sim | 
-| SAP ECC \* | Sim |
-| Tabela SAP | Sim |
-| Servidor SQL \* | Sim | 
-| Rio Teradata \* | Sim |
+| Armazenamento de Tabelas do Azure | Yes |
+| Amazon S3 | Yes | 
+| Colmeia \* | Yes | 
+| SAP ECC \* | Yes |
+| Tabela SAP | Yes |
+| Servidor SQL \* | Yes | 
+| Rio Teradata \* | Yes |
 
 *\* A Azure Purview atualmente não suporta consulta ou procedimento armazenado para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
 
@@ -155,8 +155,8 @@ Atualmente, se utilizar as seguintes funcionalidades de atividade de cópia, a l
 | Armazenamento de Blobs do Azure | Sim |
 | Azure Data Lake Storage Gen1 | Sim |
 | Azure Data Lake Storage Gen2 | Sim |
-| Base de Dados Azure SQL \* | Sim |
-| Azure Synapse Analytics \* | Sim |
+| Base de Dados Azure SQL \* | Yes |
+| Azure Synapse Analytics \* | Yes |
 
 *\* A Azure Purview atualmente não suporta consulta ou procedimento armazenado para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
 
@@ -167,11 +167,11 @@ Atualmente, se utilizar as seguintes funcionalidades de atividade de cópia, a l
 | Armazenamento de Blobs do Azure | Sim |
 | Azure Data Lake Storage Gen1 | Sim |
 | Azure Data Lake Storage Gen2 | Sim |
-| Armazenamento de Ficheiros do Azure | Sim |
-| Base de Dados Azure SQL \* | Sim |
-| Azure SQL Caso Gerido \*| Sim |
-| Azure Synapse Analytics \* | Sim |
-| Servidor SQL \* | Sim |
+| Armazenamento de Ficheiros do Azure | Yes |
+| Base de Dados Azure SQL \* | Yes |
+| Azure SQL Caso Gerido \*| Yes |
+| Azure Synapse Analytics \* | Yes |
+| Servidor SQL \* | Yes |
 
 *\* A Azure Purview atualmente não suporta consulta ou procedimento armazenado para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
 

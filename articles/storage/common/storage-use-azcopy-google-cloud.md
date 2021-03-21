@@ -9,10 +9,10 @@ ms.date: 03/09/2021
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: c0f030683954ede013f769bf8584e6cf82bab69f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103555671"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>Copie os dados do Google Cloud Storage para o Azure Storage utilizando o AzCopy (pré-visualização)
@@ -145,7 +145,7 @@ O Google Cloud Storage e o Azure permitem diferentes conjuntos de caracteres nos
 
 Como parte de um comando AzCopy, `copy` pode fornecer um valor opcional para a bandeira que especifica como gostaria de lidar com `s2s-handle-invalid-metadata` ficheiros onde os metadados do ficheiro contêm nomes-chave incompatíveis. A tabela a seguir descreve cada valor da bandeira.
 
-| Valor da bandeira | Descrição  |
+| Valor da bandeira | Description  |
 |--------|-----------|
 | **Excluir Não-Izaride** | (Opção predefinição) Os metadados não estão incluídos no objeto transferido. A azCopy regista um aviso. |
 | **FailIfInvalid** | Os objetos não são copiados. O AzCopy regista um erro e inclui esse erro na contagem falhada que aparece no resumo da transferência.  |

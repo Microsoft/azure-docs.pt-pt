@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: cshoe
 ms.openlocfilehash: 324a8e75488d74fc6aa52e499b8dde616cd9beb5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034052"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurar aplicativos web estáticos Azure
@@ -54,13 +54,13 @@ Cada regra é composta por um padrão de rota, juntamente com uma ou mais das pr
 
 | Propriedade de regra  | Necessário | Valor predefinido | Comentário                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Sim      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota.<ul><li>Por exemplo, a rota _\* admin/corresponde_ a qualquer rota sob o caminho _administrativo._</ul></ul>|
-| `rewrite`        | Não       | n/a          | Define o ficheiro ou caminho devolvido do pedido.<ul><li>É mutuamente exclusivo de uma `redirect` regra<li>As regras de reescrita não alteram a localização do navegador.<li>Os valores devem ser relativos à raiz da app</ul>  |
-| `redirect`        | Não       | n/a          | Define o destino de redirecionamento de ficheiro ou caminho para um pedido.<ul><li>É mutuamente exclusivo de uma `rewrite` regra.<li>As regras de redirecionamento alteram a localização do navegador.<li>O código de resposta predefinido é um [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (redirecionamento temporário), mas pode ser sobrepõe-se a um [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (redirecionamento permanente).</ul> |
-| `allowedRoles` | Não       | anónimo     | Define uma lista de nomes de papéis necessários para aceder a uma rota. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel [`anonymous`](./authentication-authorization.md) incorporado, aplica-se a todos os utilizadores não autenticados<li>A função [`authenticated`](./authentication-authorization.md) incorporada, aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._<ul><li>Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.</ul><li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
-| `headers`<a id="route-headers"></a> | Não | n/a | Conjunto de [cabeçalhos HTTP adicionados](https://developer.mozilla.org/docs/Web/HTTP/Headers) à resposta. <ul><li>Os cabeçalhos específicos [`globalHeaders`](#global-headers) da rota sobrepõem-se quando o cabeçalho específico da rota é o mesmo que o cabeçalho global está na resposta.<li>Para remover um cabeçalho, desa um valor para uma corda vazia.</ul> |
-| `statusCode`   | Não       | `200`, `301` ou `302` para redirecionamentos | O código de [estado HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) da resposta. |
-| `methods` | Não | Todos os métodos | Lista de métodos de pedido que correspondem a uma rota. Os métodos disponíveis incluem: `GET` , , , , , , , , `HEAD` e `POST` `PUT` `DELETE` `CONNECT` `OPTIONS` `TRACE` `PATCH` . |
+| `route`        | Yes      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota.<ul><li>Por exemplo, a rota _\* admin/corresponde_ a qualquer rota sob o caminho _administrativo._</ul></ul>|
+| `rewrite`        | No       | n/a          | Define o ficheiro ou caminho devolvido do pedido.<ul><li>É mutuamente exclusivo de uma `redirect` regra<li>As regras de reescrita não alteram a localização do navegador.<li>Os valores devem ser relativos à raiz da app</ul>  |
+| `redirect`        | No       | n/a          | Define o destino de redirecionamento de ficheiro ou caminho para um pedido.<ul><li>É mutuamente exclusivo de uma `rewrite` regra.<li>As regras de redirecionamento alteram a localização do navegador.<li>O código de resposta predefinido é um [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (redirecionamento temporário), mas pode ser sobrepõe-se a um [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (redirecionamento permanente).</ul> |
+| `allowedRoles` | No       | anónimo     | Define uma lista de nomes de papéis necessários para aceder a uma rota. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel [`anonymous`](./authentication-authorization.md) incorporado, aplica-se a todos os utilizadores não autenticados<li>A função [`authenticated`](./authentication-authorization.md) incorporada, aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._<ul><li>Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.</ul><li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
+| `headers`<a id="route-headers"></a> | No | n/a | Conjunto de [cabeçalhos HTTP adicionados](https://developer.mozilla.org/docs/Web/HTTP/Headers) à resposta. <ul><li>Os cabeçalhos específicos [`globalHeaders`](#global-headers) da rota sobrepõem-se quando o cabeçalho específico da rota é o mesmo que o cabeçalho global está na resposta.<li>Para remover um cabeçalho, desa um valor para uma corda vazia.</ul> |
+| `statusCode`   | No       | `200`, `301` ou `302` para redirecionamentos | O código de [estado HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) da resposta. |
+| `methods` | No | Todos os métodos | Lista de métodos de pedido que correspondem a uma rota. Os métodos disponíveis incluem: `GET` , , , , , , , , `HEAD` e `POST` `PUT` `DELETE` `CONNECT` `OPTIONS` `TRACE` `PATCH` . |
 
 Cada imóvel tem um propósito específico no pipeline de pedido/resposta.
 

@@ -1,5 +1,5 @@
 ---
-title: Mover uma API web protegida para a produção Rio Azure
+title: Mover uma API web protegida para a produção | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a construir uma API web protegida (passe para a produção).
 services: active-directory
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bf8eb144ab23d45e57ee8d52f06363ea37b600ec
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 98be47200c12ab3097f9416b5647abf6465a89e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375283"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675979"
 ---
 # <a name="protected-web-api---move-to-production"></a>Protected web API - passe para a produção
 
-Agora que sabe como proteger a sua API web, eis como pode movê-la para a produção.
+Agora que sabe como proteger a sua API web, aqui ficam algumas coisas a ter em conta ao mover a sua aplicação para a produção.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

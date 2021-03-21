@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
 ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573286"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrar cargas de trabalho de um Azure Stack Edge Pro FPGA para um GPU Azure Stack Edge Pro
@@ -38,7 +38,7 @@ Esta secção fornece um resumo comparativo das capacidades entre o GPU Azure St
 | Hardware       | Aceleração do hardware: 1 ou 2 GPUs Nvidia T4 <br> Computação, memória, interface de rede, unidade de alimentação e especificações do cabo de alimentação são idênticas ao dispositivo com a FPGA.  | Aceleração do hardware: Intel Arria 10 FPGA <br> Computação, memória, interface de rede, unidade de alimentação e especificações do cabo de alimentação são idênticas ao dispositivo com GPU.          |
 | Armazenamento utilizável | 4.19 TB <br> Depois de reservar espaço para a resiliência da paridade e uso interno | 12.5 TB <br> Depois de reservar espaço para uso interno |
 | Segurança       | Certificados |                                                     |
-| Cargas de trabalho      | Cargas de trabalho IoT Edge <br> Cargas de trabalho de VM <br> Cargas de trabalho do Kubernetes| Cargas de trabalho IoT Edge |
+| Cargas de Trabalho      | Cargas de trabalho IoT Edge <br> Cargas de trabalho de VM <br> Cargas de trabalho do Kubernetes| Cargas de trabalho IoT Edge |
 | Preços        | [Preços](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Preços](https://azure.microsoft.com/pricing/details/azure-stack/edge/)|
 
 ## <a name="migration-plan"></a>Plano de migração

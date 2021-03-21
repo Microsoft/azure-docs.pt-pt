@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 90addb74811819dec563ba072e9a6aea2cf72ca4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036542"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Descrição geral da extensão do Diagnóstico do Azure
@@ -43,7 +43,7 @@ As tabelas que se seguem listam os dados que podem ser recolhidos pela extensão
 
 ### <a name="windows-diagnostics-extension-wad"></a>Extensão de diagnóstico do Windows (WAD)
 
-| Origem de dados | Descrição |
+| Origem de dados | Description |
 | --- | --- |
 | Registos do Evento Windows   | Eventos do registo de eventos do Windows. |
 | Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
@@ -58,7 +58,7 @@ As tabelas que se seguem listam os dados que podem ser recolhidos pela extensão
 
 ### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico linux (LAD)
 
-| Origem de dados | Descrição |
+| Origem de dados | Description |
 | --- | --- |
 | Syslog | Eventos enviados para o sistema de registo de eventos Linux.   |
 | Contadores de desempenho  | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
@@ -71,7 +71,7 @@ Configure um ou mais *sumidouros de dados* para enviar dados para outros destino
 
 ### <a name="windows-diagnostics-extension-wad"></a>Extensão de diagnóstico do Windows (WAD)
 
-| Destino | Descrição |
+| Destino | Description |
 |:---|:---|
 | Métricas do Azure Monitor | Recolher dados de desempenho para Azure Monitor Metrics. Consulte [as métricas do Guest OS para a base de dados métrica do Azure Monitor](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Hubs de Eventos | Utilize os Hubs de Eventos Azure para enviar dados para fora do Azure. Ver [dados de streaming Azure Diagnostics para Centros de Eventos](diagnostics-extension-stream-event-hubs.md) |
@@ -84,7 +84,7 @@ Também pode recolher dados do WAD do armazenamento num espaço de trabalho do L
 ### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico linux (LAD)
 Lad escreve dados para tabelas no Azure Storage. Suporta os lavatórios na mesa seguinte.
 
-| Destino | Descrição |
+| Destino | Description |
 |:---|:---|
 | Hubs de Eventos | Utilize os Hubs de Eventos Azure para enviar dados para fora do Azure. |
 | Bolhas de armazenamento Azure | Escreva para os dados para bolhas no Azure Storage, além de tabelas. |

@@ -7,10 +7,10 @@ ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232380"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Atualização do dispositivo para IoT Hub (Visualização) Visão geral

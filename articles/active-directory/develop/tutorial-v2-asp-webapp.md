@@ -13,10 +13,10 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
 ms.openlocfilehash: 38def2b5af3a5f0f9a32c2b681bd0ee95ca44086
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174687"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
@@ -48,7 +48,7 @@ A aplicação de amostra que cria baseia-se num cenário em que utiliza o navega
 
 Este guia utiliza as seguintes bibliotecas:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware que permite que uma aplicação utilize o OpenIdConnect para autenticação|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware que permite uma aplicação para manter uma sessão de utilizador usando cookies|
@@ -88,11 +88,11 @@ Os seguintes passos são usados para criar uma classe de startup de middleware O
 > [!TIP]
 > Se o projeto não tiver um ficheiro `Startup.cs` na pasta raiz:
 > 1. Clique com o botão direito na pasta raiz do projeto e, em seguida, **selecione Adicionar** a classe Startup Add New  >  **Item**  >  **OWIN**.<br/>
-> 2. **Diga-lhe Startup.cs.**
+> 2. Nomeie-o **Startup.cs**.
 >
 >> Certifique-se de que a classe selecionada é uma classe OWIN Startup e não uma classe C# padrão. Confirme-o verificando se vê [montagem: OwinStartup(typeof({NameSpace}. Startup))] acima do espaço de nomes.
 
-1. Adicione *referências OWIN* e *Microsoft.IdentityModel* a Startup.cs:
+1. Adicione *referências OWIN* e *Microsoft.IdentityModel* a .cs Startup:
 
     ```csharp
     using Microsoft.Owin;

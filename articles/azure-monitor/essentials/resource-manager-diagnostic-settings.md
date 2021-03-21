@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
 ms.openlocfilehash: ec44c54a00c8532ed082b6e5f9e9cb9ce84f64b5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033032"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para definições de diagnóstico no Azure Monitor

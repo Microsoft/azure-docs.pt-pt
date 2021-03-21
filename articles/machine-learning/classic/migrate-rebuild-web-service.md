@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
 ms.openlocfilehash: 5e467d22cc3230bd9945fb276dc16cf1fa765bb6
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103565506"
 ---
 # <a name="rebuild-a-studio-classic-web-service-in-azure-machine-learning"></a>Reconstruir um serviço web studio (clássico) em Azure Machine Learning
@@ -66,7 +66,7 @@ Existem várias formas de implementar um modelo no Azure Machine Learning. Uma d
 
     A tabela a seguir descreve as suas opções de computação de implantação no designer:
 
-    | Destino de computação | Utilizado para | Descrição | Criação |
+    | Destino de computação | Utilizado para | Description | Criação |
     | ----- |  ----- | ----- | -----  |
     |[Azure Kubernetes Service (AKS)](../how-to-deploy-azure-kubernetes-service.md) |Inferência em tempo real|Implantações de produção em larga escala. Tempo de resposta rápida e autoscalagem de serviço.| Criado pelo utilizador. Para obter mais informações, consulte [Criar metas de computação](../how-to-create-attach-compute-studio.md#inference-clusters). |
     |[Instâncias de contentores Azure ](../how-to-deploy-azure-container-instance.md)|Teste ou desenvolvimento | Cargas de trabalho em pequena escala, baseadas em CPU que requerem menos de 48 GB de RAM.| Criada automaticamente por Azure Machine Learning.

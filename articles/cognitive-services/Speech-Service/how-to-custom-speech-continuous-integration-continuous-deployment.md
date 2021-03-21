@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
 ms.openlocfilehash: f7f11ef097d3abee2b4c18c32a1cb215d9fe8ce8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939893"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Voz Personalizada
@@ -88,7 +88,7 @@ O [repo do modelo DevOps](https://github.com/Azure-Samples/Speech-Service-DevOps
 - Realize testes de precisão automatizados para estabelecer a Taxa de Erro de [Texto](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) de um modelo. Guarde os resultados dos testes em Azure Blob.
 - Execute o fluxo de trabalho do CD para criar um ponto final quando o WER melhorar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre DevOps com Discurso:
 

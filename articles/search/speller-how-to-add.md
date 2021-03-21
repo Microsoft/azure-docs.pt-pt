@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
 ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232363"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adicione verificação ortográfica a consultas na Pesquisa Cognitiva

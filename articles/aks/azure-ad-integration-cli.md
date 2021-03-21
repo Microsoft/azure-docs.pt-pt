@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
 ms.openlocfilehash: 055afe24cb72b331e64e1a2b3d786503ef31a105
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176404"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integre o Azure Ative Directy com o Serviço Azure Kubernetes utilizando o Azure CLI (legado)
