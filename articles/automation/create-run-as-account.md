@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/06/2021
 ms.topic: conceptual
 ms.openlocfilehash: ef6afff30da48b79b42e5fb4b3c72c3500f22dd1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102172308"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Como criar uma Azure Automation Run As account
@@ -47,7 +47,7 @@ A lista a seguir fornece os requisitos para criar uma conta Run As no PowerShell
 
 Para obter os valores para `AutomationAccountName` , e , que são `SubscriptionId` `ResourceGroupName` necessários parâmetros para o script PowerShell, completar os seguintes passos.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 1. Procure e selecione **Contas de Automação.**
 

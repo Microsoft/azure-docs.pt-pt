@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 9/14/2020
 ms.custom: mvc
 ms.openlocfilehash: 4d2b0fbb377beacdb75a1a5552855936bee2b205
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041316"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-server-assessment"></a>Tutorial: Descubra servidores em execução em ambiente VMware com Azure Migrate: Avaliação do servidor
@@ -47,7 +47,7 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 **Servidores** | Todas as versões Windows e Linux OS são suportadas para a descoberta de metadados de configuração e desempenho. <br/><br/> Para realizar a descoberta de aplicações em servidores, todas as versões Windows e Linux OS são suportadas. Consulte [aqui](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) as versões de SO suportadas para análise de dependência sem agentes.<br/><br/> Para realizar a descoberta de aplicações instaladas e análise de dependência sem agentes, as Ferramentas VMware (mais tarde de 10.2.0) devem ser instaladas e em execução nos servidores. Os servidores do Windows devem ter a versão PowerShell 2.0 ou posteriormente instalada.<br/><br/> Para descobrir as instâncias e bases de dados do SQL Server, consulte [aqui](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) as versões e edições suportadas do SQL Server, as versões e mecanismos de autenticação suportados do Windows OS.
 
 > [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de utilizador Azure
 
@@ -274,7 +274,7 @@ No **Passo 3: Fornecer credenciais de servidor para realizar inventário de soft
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Painel 3 no gestor de configuração do aparelho para detalhes do servidor":::
 
 > [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 Se quiser aproveitar estas funcionalidades, pode fornecer credenciais de servidor seguindo os passos abaixo. O aparelho tentará mapear automaticamente as credenciais para os servidores para executar as funcionalidades de descoberta.
 
