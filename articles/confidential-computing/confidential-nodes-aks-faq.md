@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/09/2020
 ms.author: amgowda
 ms.openlocfilehash: 550995f0be3d634e7e9f24a8bf6826916003308e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653402"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre nós de computação confidencial no Serviço Azure Kubernetes (AKS)

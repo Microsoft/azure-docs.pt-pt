@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199497"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607896"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envie mensagens nuvem-para-dispositivo a partir de um hub IoT
 
@@ -91,6 +91,8 @@ Como explicado em [Endpoints,](iot-hub-devguide-endpoints.md)o hub IoT fornece f
 | IDUtilizador       | `{iot hub name}` |
 | ConteúdoType  | `application/vnd.microsoft.iothub.feedback.json` |
 
+O sistema enviará o feedback quando o lote chegar a 64 mensagens, ou em 15 segundos da última enviada, seja qual for a primeira. 
+
 O corpo é um conjunto de registos serializados por JSON, cada um com as seguintes propriedades:
 
 | Propriedade           | Descrição |
@@ -98,7 +100,7 @@ O corpo é um conjunto de registos serializados por JSON, cada um com as seguint
 | EnqueuedTimeUtc    | Um tempotando que indica quando o resultado da mensagem aconteceu (por exemplo, o hub recebeu a mensagem de feedback ou a mensagem original expirou) |
 | OriginalMessageId  | O *MessageId* da mensagem nuvem-para-dispositivo a que esta informação de feedback se relaciona |
 | Código de Estado         | Uma cadeia necessária, usada em mensagens de feedback que são geradas pelo hub IoT: <br/> *Com êxito* <br/> *Expirada* <br/> *DeliveryCountExceeded* <br/> *Rejeitado* <br/> *Purgado* |
-| Descrição        | Valores de cadeia para *StatusCode* |
+| Description        | Valores de cadeia para *StatusCode* |
 | DeviceId           | O *DispositivoId* do dispositivo-alvo da mensagem nuvem-a-dispositivo a que este pedaço de feedback se relaciona |
 | GenerationId do dispositivo | O *DispositivoGenerationId* do dispositivo-alvo da mensagem nuvem-a-dispositivo a que este pedaço de feedback se relaciona |
 

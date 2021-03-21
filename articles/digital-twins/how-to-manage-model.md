@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433255"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
@@ -142,7 +142,7 @@ O estado de desmantelamento de um modelo está incluído nos `ModelData` registo
 
 Pode eliminar todos os modelos no seu caso de uma vez, ou pode fazê-lo individualmente.
 
-Para um exemplo de como eliminar todos os modelos, descarregue a aplicação de amostra utilizada no [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) O *ficheiro CommandLoop.cs* faz isto numa `CommandDeleteAllModels` função.
+Para um exemplo de como eliminar todos os modelos, descarregue a aplicação de amostra utilizada no [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) O ficheiro *.cs CommandLoop* faz isto numa `CommandDeleteAllModels` função.
 
 O resto desta secção decompõe a eliminação do modelo em detalhes mais próximos, e mostra como fazê-lo para um modelo individual.
 

@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
 ms.openlocfilehash: 2966618619aa40ed60c2f3d0fb2c8e080d34a016
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102617051"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificações personalizadas em Azure Purview

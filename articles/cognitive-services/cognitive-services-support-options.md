@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: dbfe4a44f359f8db59ae80e04aae57164d0ccaf7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dd0ceb00b80a045d60de562fbf9ac01b91e41e68
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101736853"
+ms.locfileid: "104720190"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services apoia e ajuda opções
 
@@ -29,6 +29,7 @@ Explore a gama de opções de [suporte do Azure e escolha o plano](https://azure
 
 * [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal Azure para o governo dos Estados Unidos](https://portal.azure.us)
+
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Publique uma pergunta no Microsoft Q&A
 

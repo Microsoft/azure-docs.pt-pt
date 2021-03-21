@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 598451192c44395c28ee6f027e389f1d15cf381c
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e2365fc76ca76423a5e6806f5dd23ef2bd9a4c52
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551135"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720428"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP da Azure Networking
 
@@ -39,7 +39,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços de
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Otimização da rede em Azure: Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
 |[Equinix](https://www.equinix.com/)|[Workshop WAN otimizado em nuvem](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Workshop de Estratégia de Conectividade ExpressRoute;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview) [Tecido de troca de nuvens Equinix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.equinix_ecx_fabric?tab=Overview)||||
 |[Sem fios federado](https://www.federatedwireless.com/caas/)||||[Conectividade Sem Fios Federada-as-a-Service](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/federatedwireless1580839623708.fw_caas?tab=Overview)|
-|[HCL](https://www.hcltech.com/)|||[HCL Azure Virtual WAN Services - Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazurevitualwan?search=vWAN&page=1)|[Oferta LTE privada HCL Azure - Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclazureprivatelteoffering)|
+|[HCL](https://www.hcltech.com/)|[Transformação da Rede nuvem HCL- Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.clo?tab=Overview)|[Briefing de 1 hora do Serviço HCL Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazureexpressroute?tab=Overview)|[HCL Azure Virtual WAN Services - Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazurevitualwan?search=vWAN&page=1)|[Oferta LTE privada HCL Azure - Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclazureprivatelteoffering)|
 |[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[Implementação ExpressRoute: Briefing 1-Hr](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute: Implementação 2-Wk](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Integra+ para Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Avaliação de Networking Azure - 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||

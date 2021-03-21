@@ -12,10 +12,10 @@ ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ms.openlocfilehash: 4e61a15b86d1d2d05889253f615eec0865c87a70
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102520392"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir e aumentar quotas para recursos com Azure Machine Learning
@@ -50,7 +50,7 @@ Nesta secção, você aprende sobre o padrão e limites máximos de quota para o
   + Oleodutos Azure Machine Learning
 + Máquinas virtuais
 + Azure Container Instances
-+ Storage do Azure
++ Armazenamento do Azure
 
 > [!IMPORTANT]
 > Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte  [os limites de serviço na Azure Machine Learning](resource-limits-quotas-capacity.md).

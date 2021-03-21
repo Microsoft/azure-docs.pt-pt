@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
 ms.openlocfilehash: 7302f61fce6763fdbb41c2b4899dea749ac3225f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031077"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure

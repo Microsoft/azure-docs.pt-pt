@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102522398"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box

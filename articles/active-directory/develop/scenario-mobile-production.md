@@ -1,5 +1,5 @@
 ---
-title: Prepare apis web de chamadas de aplicativos móveis para produção Rio Azure
+title: Prepare apis web de chamadas de aplicativos móveis para produção | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação móvel que chame APIs web. (Preparar aplicativos para produção.)
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08243fd06de289941d8e6a9197ccb349614af056
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121039"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675962"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Preparar aplicativos móveis para produção
 
@@ -34,18 +34,9 @@ Para cada tipo de Biblioteca de Autenticação da Microsoft (MSAL), pode encontr
 - [Wiki MSAL iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigate-and-investigate-issues"></a>Mitigar e investigar questões
-
-Para melhor diagnosticar problemas na sua aplicação, recolha dados. Para obter informações sobre os tipos de dados que pode recolher, consulte [registar-se nas aplicações MSAL](./msal-logging.md).
-
-Aqui ficam algumas sugestões para recolha de dados:
-
-- Os utilizadores podem pedir ajuda quando têm problemas. Uma boa prática é capturar e armazenar temporariamente registos. Forneça um local onde os utilizadores possam fazer o upload dos registos. A MSAL fornece extensões de registo para capturar informações detalhadas sobre a autenticação.
-
-- Se a telemetria estiver disponível, permita-o através do MSAL recolher dados sobre como os utilizadores se inscrevem na sua aplicação.
-
-## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar amostras adicionais, consulte [as aplicações de desktop e cliente público móvel.](sample-v2-code.md#desktop-and-mobile-public-client-apps)

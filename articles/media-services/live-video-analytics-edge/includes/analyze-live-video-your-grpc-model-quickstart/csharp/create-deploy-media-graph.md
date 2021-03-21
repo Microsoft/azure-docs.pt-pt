@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 8a9149119bc754ff0715f2841925da01301faecd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101749910"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examine e edite os ficheiros de amostra
@@ -17,7 +17,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
     
     * c2d-console-app.csproj - O ficheiro do projeto para Visual Studio Code.
     * operations.jsem - Uma lista das operações que quer que o programa seja executado.
-    * Program.cs - O código do programa de amostra. Este código:
+    * Programa.cs - O código do programa de amostra. Este código:
 
         * Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus métodos diretos.

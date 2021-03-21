@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608007"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Criar regras de configuração definidas por recursos âmbito

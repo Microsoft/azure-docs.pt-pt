@@ -4,10 +4,10 @@ description: Compreenda os serviços suportados e o esquema de eventos para regi
 ms.topic: reference
 ms.date: 09/01/2020
 ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033100"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para registos de recursos Azure
@@ -22,7 +22,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 ## <a name="top-level-common-schema"></a>Esquema comum de alto nível
 
-| Name | Obrigatório/Opcional | Descrição |
+| Name | Obrigatório/Opcional | Description |
 |---|---|---|
 | hora | Necessário | A hora de jogo (UTC) do evento. |
 | resourceId | Necessário | O ID de recursos do recurso que emitia o evento. Para os serviços de arrendamento, este é do formulário /inquilinos/inquilino-id/provedor/nome de provedor. |
@@ -81,7 +81,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Serviços de Recuperação | [Modelo de dados para backup Azure](../../backup/backup-azure-reports-data-model.md)|
 | Pesquisar |[Ativar e utilizar a Pesquisa traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Registos de ônibus de serviço Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| Base de Dados SQL | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registos de trabalhos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Gestor de Tráfego | [Esquema de registo do gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Redes Virtuais | Schema não está disponível. |

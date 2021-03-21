@@ -5,19 +5,25 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470753"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721299"
 ---
 # <a name="scaling-hpc-applications"></a>Aplicações de escala HPC
 
 O melhor desempenho de escala e escala das aplicações HPC no Azure requer experiências de afinação e otimização de desempenho para a carga de trabalho específica. Esta secção e as páginas específicas da série VM oferecem orientações gerais para o escalonamento das suas aplicações.
+
+## <a name="application-setup"></a>Configuração da aplicação
+O [azurehpc repo](https://github.com/Azure/azurehpc) contém muitos exemplos de:
+- Configurar e executar [as aplicações](https://github.com/Azure/azurehpc/tree/master/apps) da melhor forma.
+- Configuração de sistemas de [ficheiros e clusters](https://github.com/Azure/azurehpc/tree/master/examples).
+- [Tutoriais](https://github.com/Azure/azurehpc/tree/master/tutorials) sobre como começar facilmente com alguns fluxos de trabalho de aplicações comuns.
 
 ## <a name="optimally-scaling-mpi"></a>MPI de escala ideal 
 
@@ -48,6 +54,9 @@ As seguintes sugestões aplicam-se para uma melhor eficiência, desempenho e con
 - Para corridas de escala significativamente maiores, recomenda-se a utilização de transportes UD ou híbridos RC+UD. Muitas bibliotecas mpi/bibliotecas de tempo de execução fazem-no internamente (como UCX ou MVAPICH2). Verifique as configurações de transporte para obter execuções em larga escala.
 
 ## <a name="compiling-applications"></a>Compilação de aplicações
+<br>
+<details>
+<summary>Clique para expandir</summary>
 
 Embora não seja necessário, compilar aplicações com bandeiras de otimização apropriadas proporciona o melhor desempenho de escala em HB e HC série VMs.
 
@@ -96,6 +105,7 @@ Para o HPC, a AMD recomenda o compilador GCC 7.3 ou mais recente. Não são reco
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
+</details>
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.author: ddematheu2
 ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 41d959468e3183af00d2ab514e7c1bf0a134a1f8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bb70f799a308282a20a5b76ea841c3a1ae5e8b49
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490484"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612152"
 ---
 ## <a name="download-code"></a>Código de Descarregamento
 
@@ -27,7 +27,7 @@ Encontre o código finalizado para este arranque rápido no [GitHub](https://git
 - A [extensão das Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para o Visual Studio Code.
 - Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Criar um recurso de Serviços de Comunicação.](../../quickstarts/create-communication-resource.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 :::image type="content" source="../media/trusted-service-architecture.png" alt-text="Diagrama para arquitetura de serviço de confiança":::
 
@@ -104,7 +104,7 @@ const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 
 Em seguida, vamos modificar a nossa função original para `User Access Tokens` gerar.
 
-`User Access Tokens` são gerados criando um utilizador a partir do `createUser` método. Uma vez criado o utilizador, podemos utilizar o `issueToken` método para gerar um símbolo para o utilizador que a Função Azure retorna.
+`User Access Tokens` são gerados criando um utilizador a partir do `createUser` método. Uma vez criado o utilizador, podemos utilizar o `getToken` método para gerar um símbolo para o utilizador que a Função Azure retorna.
 
 Para este exemplo, vamos configurar o âmbito simbólico para `voip` . Outros âmbitos podem ser necessários para a sua aplicação. Saiba mais sobre [âmbitos](../../quickstarts/access-tokens.md)
 
@@ -114,7 +114,7 @@ module.exports = async function (context, req) {
 
     const user = await tokenClient.createUser();
 
-    const userToken = await tokenClient.issueToken(user, ["voip"]);
+    const userToken = await tokenClient.getToken(user, ["voip"]);
 
     context.res = {
         body: userToken

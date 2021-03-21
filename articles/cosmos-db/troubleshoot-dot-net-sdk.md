@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 1f7548b355353eb77419f4d1760b40ba02eeddda
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102442201"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
@@ -63,7 +63,7 @@ Em qualquer falha de E/S, o SDK do Cosmos DB tentará repetir a operação falh
 
 ## <a name="common-error-status-codes"></a>Códigos comuns de estado de erro <a id="error-codes"></a>
 
-| Código de Estado | Descrição | 
+| Código de Estado | Description | 
 |----------|-------------|
 | 400 | Mau pedido (Depende da mensagem de erro)| 
 | 401 | [Não autorizado](troubleshoot-unauthorized.md) | 

@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8487743efd4f18806ae03ed7529927736314988b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505074"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595696"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK Python do Azure Cosmos DB para a API SQL: Notas de versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,17 +38,26 @@ ms.locfileid: "102505074"
 > * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| Página| Ligação |
 |---|---|
 |**Baixar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentação da API**|[Documentação de referência da Python API](/python/api/azure-cosmos/)|
+|**Documentação da API**|[Documentação de referência da Python API](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Instruções de instalação da SDK**|[Instruções de instalação python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introdução**|[Começa com o Python SDK](create-sql-api-python.md)|
 |**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>História do lançamento
 
-### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+## <a name="420"></a>4.2.0
+
+**Correções de bugs**
+- Bug fixo onde o token de continuação não é honrado quando query_iterable é usado para obter resultados por página.
+- Bug fixo onde os tokens de recursos não são honrados para leituras e eliminações de documentos. 
+
+**Novas funcionalidades**
+- Suporte adicional para passar `partitionKey` durante a consulta do Change-Feed.
+
+## <a name="410"></a>4.1.0
 
 - Aviso de depreciação adicionado para o modo de indexação "preguiçoso". O backend já não permite criar recipientes com este modo e irá defini-los de forma consistente.
 
@@ -56,13 +65,14 @@ ms.locfileid: "102505074"
 - Adicionou a capacidade de definir o TTL de armazenamento analítico ao criar um novo recipiente.
 
 **Correções de bugs**
-- Suporte fixo para dicts como entradas para get_client APIs.
+- Suporte fixo `dicts` para como entradas para get_client APIs.
 - Compatibilidade python fixa 2/3 em iteradores de consultas.
-- Erro de sugestão de tipo fixo (Emissão #12570).
-- Bug fixo onde os cabeçalhos de opções não foram adicionados à função upsert_item. Edição #11791 - obrigado @aalapatirvbd .
-- Erro fixo levantado quando um ID de não-cadeia é usado num item. Agora levanta typeError em vez de AttributeError (Emissão #11793).
+- Erro de sugestão de tipo fixo.
+- Bug fixo onde os cabeçalhos de opções não foram adicionados à função upsert_item. 
+- Erro fixo levantado quando um ID não-string é usado num item. Agora levanta o TypeError em vez do AttributeError.
 
-### <a name="400"></a>4.0.0
+
+## <a name="400"></a>4.0.0
 
 * Libertação estável.
 * HttpLoggingPolicy adicionado ao pipeline para permitir a passagem de um madeireiro personalizado para cabeçalhos de pedido e resposta.
@@ -80,8 +90,8 @@ ms.locfileid: "102505074"
 * Consulta adicional Suporte Distinto, Offset e Limit.
 * Contexto de execução de consulta de documento padrão agora usado para
 
-  * Consultas changeFeed
-  * consultas de partição única (partitionkey, partitionKeyRangeId está presente em opções)
+  * Alterar consultas de alimentação
+  * consultas de partição únicas `partitionkey` (, `partitionKeyRangeId` está presente em opções)
   * Consultas não documentais
 
 * Erros para agregados em várias divisórias, com permitir consulta de partição cruzada definida para verdadeiro, mas nenhuma palavra-chave de "valor" presente
@@ -324,6 +334,8 @@ A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência
 
 | Versão | Data da versão: | Data de Extinção |
 | --- | --- | --- |
+| [4.2.0](#420) |09 out, 2020 |--- |
+| [4.1.0](#410) |10 de agosto de 2020 |--- |
 | [4.0.0](#400) |20 de maio de 2020 |--- |
 | [3.0.2](#302) |15 de novembro de 2018 |--- |
 | [3.0.1](#301) |04 out, 2018 |--- |

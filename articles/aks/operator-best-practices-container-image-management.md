@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 1d2f5465356a94b9ad7014e75aa6fe1515411a81
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102564922"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para gestão de imagem de contentores e segurança no Serviço Azure Kubernetes (AKS)

@@ -4,10 +4,10 @@ description: Descreve como ativar o Addon de monitorização AKS utilizando a Az
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101713903"
 ---
 # <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Ativar o addon de monitorização AKS usando a política de Azure

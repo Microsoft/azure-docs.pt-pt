@@ -10,10 +10,10 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
 ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102547854"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração de Git para Azure Machine Learning

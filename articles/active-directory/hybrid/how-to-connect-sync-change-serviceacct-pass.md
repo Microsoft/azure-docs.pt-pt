@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/02/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95996564"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720343"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterar a senha de conta de serviço ADSync
 Se alterar a palavra-passe da conta de serviço ADSync, o Serviço de Sincronização não poderá iniciar-se corretamente até ter abandonado a chave de encriptação e reiniciado a palavra-passe da conta de serviço ADSync. 
+
+>[!IMPORTANT]
+> Se utilizar o Connect com uma construção a partir de março de 2017 ou mais cedo, então não deverá redefinir a palavra-passe na conta de serviço, uma vez que o Windows destrói as chaves de encriptação por razões de segurança. Não é possível alterar a conta para qualquer outra conta sem reinstalar o Azure AD Connect. Se fizer o upgrade para uma construção a partir de abril de 2017 ou posterior, então é suportado para alterar a palavra-passe na conta de serviço, mas não pode alterar a conta utilizada. 
 
 O Azure AD Connect, como parte dos Serviços de Sincronização, utiliza uma chave de encriptação para armazenar as palavras-passe da conta AD DS Connector e da conta de serviço ADSync.  Estas contas são encriptadas antes de serem armazenadas na base de dados. 
 

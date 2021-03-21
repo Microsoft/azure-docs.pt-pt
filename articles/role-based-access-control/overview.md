@@ -11,10 +11,10 @@ ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100650869"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?

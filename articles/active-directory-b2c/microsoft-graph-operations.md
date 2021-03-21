@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033627"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerir Azure AD B2C com o Microsoft Graph
@@ -181,7 +181,7 @@ O código de amostra utiliza o [Microsoft Graph SDK,](/graph/sdks/sdks-overview)
 
 Qualquer pedido à API do Gráfico microsoft requer um token de acesso para autenticação. A solução utiliza o pacote [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet que fornece um invólucro baseado em cenários de autenticação da Microsoft Authentication Library (MSAL) para utilização com o Microsoft Graph SDK.
 
-O `RunAsync` método no ficheiro _Program.cs:_
+O `RunAsync` método no ficheiro .cs _Programa:_
 
 1. Lê as definições de aplicação a partir do _appsettings.jsno_ ficheiro
 1. Inicializa o fornecedor de auth utilizando o fluxo [de concessão de credenciais de cliente OAuth 2.0.](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) Com o fluxo de concessão de credenciais do cliente, a aplicação é capaz de obter um token de acesso para ligar para a Microsoft Graph API.
@@ -203,7 +203,7 @@ O `RunAsync` método no ficheiro _Program.cs:_
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-O *GraphServiceClient* inicializado é então utilizado em _UserService.cs_ para realizar as operações de gestão do utilizador. Por exemplo, obter uma lista das contas de utilizador no arrendatário:
+O *GraphServiceClient* inicializado é então utilizado no _UserService.cs_ para executar as operações de gestão do utilizador. Por exemplo, obter uma lista das contas de utilizador no arrendatário:
 
 ```csharp
 public static async Task ListUsers(GraphServiceClient graphClient)

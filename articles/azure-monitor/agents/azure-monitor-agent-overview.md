@@ -4,13 +4,14 @@ description: Visão geral do agente Azure Monitor (AMA), que recolhe dados de mo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 0487e5bd8109c02605e785e74d45589dd5fde5b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/16/2021
+ms.custom: references_regions
+ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039602"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608219"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente do Azure Monitor (pré-visualização)
 O agente Azure Monitor (AMA) recolhe dados de monitorização do sistema operativo convidado de máquinas virtuais e entrega-os ao Azure Monitor. Estes artigos fornecem uma visão geral do agente Azure Monitor, incluindo como instalá-lo e como configurar a recolha de dados.
@@ -60,6 +61,35 @@ As seguintes limitações aplicam-se durante a visualização pública do Agente
   - *.control.monitor.azure.com
 
 
+## <a name="supported-regions"></a>Regiões suportadas
+O agente Azure Monitor apoia atualmente recursos nas seguintes regiões:
+
+- Ásia Leste
+- Sudeste Asiático
+- Austrália Central
+- Leste da Austrália
+- Austrália Sudeste
+- Canadá Central
+- Europa do Norte
+- Europa Ocidental
+- França Central
+- Alemanha Centro-Oeste
+- Índia Central
+- Leste do Japão
+- Coreia do Sul Central
+- Norte da África do Sul
+- Suíça Norte
+- Sul do Reino Unido
+- Oeste do Reino Unido
+- E.U.A. Central
+- E.U.A. Leste
+- E.U.A. Leste 2
+- E.U.A. Centro-Norte
+- E.U.A. Centro-Sul
+- E.U.A. Oeste
+- E.U.A. Oeste 2
+- E.U.A. Centro-Oeste
+
 ## <a name="coexistence-with-other-agents"></a>Coexistência com outros agentes
 O agente Azure Monitor pode coexistir com os agentes existentes para que possa continuar a utilizar a sua funcionalidade existente durante a avaliação ou migração. Isto é particularmente importante devido às limitações da visualização pública no apoio às soluções existentes. Deve ter cuidado na recolha de dados duplicados, uma vez que isso pode distorcer os resultados da consulta e resultar em encargos adicionais para a ingestão e retenção de dados.
 
@@ -75,7 +105,7 @@ A tabela que se segue lista os tipos de dados que pode recolher atualmente com o
 
 O agente Azure Monitor envia dados para as Métricas do Monitor Azure ou para um espaço de trabalho log analytics que suporta registos do Monitor Azure.
 
-| Origem de dados | Destinos | Descrição |
+| Origem de dados | Destinos | Description |
 |:---|:---|:---|
 | Desempenho        | Métricas do Azure Monitor<br>Área de trabalho do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
 | Registos do Evento Windows | Área de trabalho do Log Analytics | Informação enviada para o sistema de registo de eventos do Windows. |

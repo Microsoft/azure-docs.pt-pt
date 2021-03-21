@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 0f6a8ee7606f8efc49b1ba7da352c5719e13bf4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20f5a34208dbf4a6c0f84567a75673b8eeeb5e79
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92460462"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720326"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-idc"></a>Tutorial: Azure Ative Directory integração única (SSO) com iDC
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar iDC com Azure Ative Direy (Azure A
 * Controlo em Azure AD que tem acesso à IDC.
 * Permitir que os seus utilizadores sejam automaticamente inscritos na IDC com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,24 +37,27 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* IDC apoia **SP e IDP** iniciado SSO
+* A IDC apoia **o SP e o IDP** iniciado sSO.
+
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 ## <a name="adding-idc-from-the-gallery"></a>Adicionar IDC da galeria
 
 Para configurar a integração da IDC no Azure AD, é necessário adicionar iDC da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **digite IDC** na caixa de pesquisa.
 1. Selecione **IDC** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-idc"></a>Configurar e testar Azure AD único sinal para iDC
+## <a name="configure-and-test-azure-ad-sso-for-idc"></a>Configurar e testar Azure AD SSO para iDC
 
 Configure e teste Azure AD SSO com IDC usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na IDC.
 
-Para configurar e testar o Azure AD SSO com a IDC, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com a IDC, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -69,26 +70,26 @@ Para configurar e testar o Azure AD SSO com a IDC, complete os seguintes blocos 
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações da **IDC,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
+1. No portal Azure, na página de integração de aplicações da **IDC,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `urn:idc:authentication:saml2:entity:cas:prod-2016:<ClientCode>`
+    a. Na caixa de texto **identifier,** digite o URL: `https://www.idc.com/sp`
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://cas.idc.com:443/login?client_name=<ClientName>`
 
-    c. Na caixa de texto **do Estado de Retransmissão,** digite um URL: `https://www.idc.com/j_spring_cas_security_check`
+    c. Na caixa de texto **do Estado de Retransmissão,** digite o URL: `https://www.idc.com/j_spring_cas_security_check`
 
 1. Clique **em Definir URLs adicionais** e execute os seguintes passos se desejar configurar a aplicação no modo iniciado **sp:**
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
+    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de suporte do Cliente IDC para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor URL de resposta não é real. Atualizar o valor com o URL de resposta real. Contacte a [equipa de suporte do Cliente IDC](mailto:idc_support@idc.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
@@ -117,20 +118,14 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **IDC**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-idc-sso"></a>Configurar iDC SSO
 
-Para configurar um único sinal no lado da **IDC,** envie o **Metdata XML da Federação** descarregado e urLs copiados apropriados do portal Azure para a equipa de suporte da IDC. A IDC configura esta definição de modo a que a ligação SSO SAML seja corretamente definida em ambos os lados.
+Para configurar um único sinal no lado da **IDC,** envie o **Metdata XML da Federação** descarregado e urLs copiados apropriados do portal Azure para a equipa de suporte da [IDC](mailto:idc_support@idc.com). A IDC configura esta definição de modo a que a ligação SSO SAML seja corretamente definida em ambos os lados.
 
 ### <a name="create-idc-test-user"></a>Criar utilizador de teste IDC
 
@@ -138,16 +133,21 @@ Um utilizador não tem de ser criado na IDC com antecedência. O utilizador ser�
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo IDC no Painel de Acesso, deverá ser automaticamente inscrito no IDC para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para IDC Assinar no URL onde pode iniciar o fluxo de login.  
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Vá diretamente ao URL de inscrição da IDC e inicie o fluxo de login a partir daí.
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no IDC para o qual configura o SSO 
 
-- [Experimente iDC com Azure AD](https://aad.portal.azure.com/)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo IDC nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no IDC para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+ Uma vez configurado o IDC, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

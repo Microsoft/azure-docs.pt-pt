@@ -8,10 +8,10 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 2cca8a93330e5ddd965d27532895ed1d6702c123
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102179651"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e armazenamento de ficheiros 

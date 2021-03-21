@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
 ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653640"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
@@ -118,7 +118,7 @@ As bases de dados de conjunto suportam geralmente as mesmas [funcionalidades de 
 
   A restauração pontual utiliza cópias de dados automáticas para recuperar uma base de dados numa piscina a um ponto específico no tempo. Veja [Restauro para um ponto anterior no tempo](recovery-using-backups.md#point-in-time-restore)
 
-- **Georrestauro**
+- **Geo-restauro**
 
   O geo-restauro fornece a opção de recuperação padrão quando uma base de dados não está disponível devido a um incidente na região onde a base de dados está hospedada. Consulte [restaurar uma base de dados Azure SQL ou falhar para um secundário](disaster-recovery-guidance.md)
 

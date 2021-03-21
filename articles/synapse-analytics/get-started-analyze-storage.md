@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 71ba3d99ceee89464dafdf5bf4c16e70df146bef
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f18977bb92b37546d5980134cba858b1f76b464c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426081"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720020"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
 Neste tutorial, você vai aprender a analisar dados localizados numa conta de armazenamento.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Até agora, cobrimos cenários onde os dados residem em bases de dados no espaço de trabalho. Agora vamos mostrar-lhe como trabalhar com ficheiros em contas de armazenamento. Neste cenário, vamos usar a conta de armazenamento primário do espaço de trabalho e do contentor que especificamos ao criar o espaço de trabalho.
 
@@ -52,7 +52,8 @@ Pode analisar os dados na sua conta ADLS Gen2 padrão do seu espaço de trabalho
 
     ```py
     %%pyspark
-    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
+    df = spark.read.load(abspath, format='parquet')
     display(df.limit(10))
     ```
 

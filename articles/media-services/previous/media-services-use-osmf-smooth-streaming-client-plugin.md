@@ -16,17 +16,17 @@ ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 70042a5c4c27ec5d163e5f05089ae50b92140c28
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011260"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Plugin de streaming suave do Microsoft para o Adobe Open Source Media Framework
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O plugin de streaming da Microsoft Smooth para Open Source Media Framework 2.0 (SS for OSMF) alarga as capacidades padrão do OSMF e adiciona a reprodução de conteúdo sonoro do Microsoft Smooth streaming a novos e existentes jogadores OSMF. O plugin também adiciona capacidades de reprodução de streaming suave à Reprodução de Mídia Strobe (SMP).
 
 SS para OSMF inclui duas versões de plugin:

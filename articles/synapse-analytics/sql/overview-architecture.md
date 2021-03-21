@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102441895"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura do Azure Synapse SQL 
@@ -45,7 +45,7 @@ Com armazenamento e cálculo dissociados, ao utilizar o Synapse SQL pode-se bene
 * Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador seguros. Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. 
 

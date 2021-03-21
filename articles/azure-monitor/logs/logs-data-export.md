@@ -8,16 +8,16 @@ author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
 ms.openlocfilehash: ea33eff30e712c1597c3606d74cb6d56683211ae
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102615589"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Uma vez configurada a exportação de dados para o seu espaço de trabalho Log Analytics, quaisquer novos dados enviados para as tabelas selecionadas no espaço de trabalho são automaticamente exportados para a sua conta de armazenamento em blobs de apêndice de hora em hora ou para o seu centro de eventos em tempo quase real.
 
 ![Visão geral da exportação de dados](media/logs-data-export/data-export-overview.png)

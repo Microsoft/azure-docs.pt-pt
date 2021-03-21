@@ -57,7 +57,7 @@ O ficheiro .gitignore já está configurado para evitar a publicação do conte�
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Examinar o código que efetua a transmissão em fluxo em direto
 
-Esta secção examina as funções definidas no ficheiro [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) do projeto *LiveEventWithDVR.*
+Esta secção examina as funções definidas no ficheiro [.cs Programa](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) do projeto *LiveEventWithDVR.*
 
 A amostra cria um sufixo único para cada recurso para que não tenha colisões de nomes se executar a amostra várias vezes sem limpar.
 

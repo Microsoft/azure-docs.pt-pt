@@ -9,10 +9,10 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: daa89380894a57e58191edd95303a2160846da04
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103492698"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Resolução de problemas nos Serviços de Comunicação da Azure
@@ -161,7 +161,7 @@ No Android Studio, navegue para o Explorador de Ficheiros de Dispositivos seleci
 
 Os Serviços de Comunicação Azure que ligam para a biblioteca de clientes utilizam os seguintes códigos de erro para ajudá-lo a resolver problemas de chamadas. Estes códigos de erro são expostos através da propriedade após o `call.callEndReason` fim de uma chamada.
 
-| Código de erro | Descrição | Medidas a tomar |
+| Código de erro | Description | Medidas a tomar |
 | -------- | ---------------| ---------------|
 | 403 | Falha de autenticação proibida/ proibida. | Certifique-se de que o seu token de Serviços de Comunicação é válido e não caducado. |
 | 404 | Chamada não encontrada. | Certifique-se de que o número que está a ligar (ou ligue para o qual está a aderir) existe. |

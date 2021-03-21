@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 398f11c6e55cb62e0b29c148494cf3d590200b9d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5a8d270ffdef1f9ae68814fa023284c68216d3ff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834213"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612588"
 ---
 Este tutorial mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play com componentes, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a informação que envia para o centro. A aplicação da amostra está escrita em C e está incluída no dispositivo Azure IoT SDK para C. Um construtor de soluções pode utilizar a ferramenta exploradorA Azure IoT para compreender as capacidades de um dispositivo IoT Plug e Play sem a necessidade de visualizar qualquer código do dispositivo.
 
@@ -160,7 +160,7 @@ Depois de iniciar a amostra do cliente do dispositivo, utilize a ferramenta expl
 
 ## <a name="review-the-code"></a>Rever o código
 
-Esta amostra implementa um dispositivo de controlador de temperatura IoT Plug e Play. Esta amostra implementa um modelo com [múltiplos componentes.](../articles/iot-pnp/concepts-components.md) O ficheiro de definição de linguagem de [definição de Gémeos Digitais (DTDL) para o dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define a telemetria, propriedades e comanda os dispositivos.
+Esta amostra implementa um dispositivo de controlador de temperatura IoT Plug e Play. Esta amostra implementa um modelo com [múltiplos componentes.](../articles/iot-pnp/concepts-modeling-guide.md) O ficheiro de definição de linguagem de [definição de Gémeos Digitais (DTDL) para o dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define a telemetria, propriedades e comanda os dispositivos.
 
 ### <a name="iot-plug-and-play-helper-functions"></a>IoT Plug e Play funções de ajudante
 

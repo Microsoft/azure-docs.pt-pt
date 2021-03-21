@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 01/31/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0718a1b211fe6365af30a330fe6a3742cff2ff63
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a74109594eec87dddf637542f6d85091ed49231b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84984439"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720258"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN Gateway de resolução de problemas
 
@@ -27,6 +27,8 @@ As ligações VPN Gateway podem falhar por uma variedade de razões. Este artigo
 * [Ligações Ponto a Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>Este artigo lista problemas comuns de ligação ponto-a-local que poderá experimentar. Aborda igualmente possíveis causas e soluções para estes problemas.
 
 * [Ligações Site a Site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Depois de configurar uma ligação VPN site-to-site entre uma rede no local e uma rede virtual Azure, a ligação VPN para subitamente de funcionar e não pode ser reconectada. Este artigo fornece medidas de resolução de problemas para ajudá-lo a resolver este problema.
+
+* [Resolução de problemas Azure VPN Gateway usando registos de diagnóstico](troubleshoot-vpn-with-azure-diagnostics.md)<br>Utilizando registos de diagnóstico, pode resolver vários eventos relacionados com gateway VPN, incluindo atividade de configuração, conectividade do túnel VPN, registo de registo IPsec, trocas de rotas BGP, registo avançado de pontos para o local. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

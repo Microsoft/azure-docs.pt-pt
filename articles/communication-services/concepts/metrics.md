@@ -10,10 +10,10 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 129a718175fdda80d4d6852e3d3b4cea609da64d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103492422"
 ---
 # <a name="metrics-overview"></a>Métricas panorâmicas
@@ -41,7 +41,7 @@ Mais informações sobre tipos de agregação suportados e agregações de séri
 
 As seguintes operações estão disponíveis nas métricas de pedido da Chat API:
 
-| Operação / Rota    | Descrição                                                                                    |
+| Operação / Rota    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | GetChatMessage       | Recebe uma mensagem por identificação de mensagem. |
 | ListChatMessages     | Recebe uma lista de mensagens de chat de um fio. |
@@ -68,7 +68,7 @@ Se for feito um pedido a uma operação que não seja reconhecida, receberá uma
 
 As seguintes operações estão disponíveis nas métricas de pedido de SMS API:
 
-| Operação / Rota    | Descrição                                                                                    |
+| Operação / Rota    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | SMSMessageSent       | Envia uma mensagem SMS. |
 | SMSDeliveryReportsReceived     | Obtém relatórios de entrega de SMS |
@@ -81,7 +81,7 @@ As seguintes operações estão disponíveis nas métricas de pedido de SMS API:
 
 As seguintes operações estão disponíveis nas métricas de pedido de autenticação da API:
 
-| Operação / Rota    | Descrição                                                                                    |
+| Operação / Rota    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | CreateIdentity       | Cria uma identidade que representa um único utilizador. |
 | DeleteIdentity       | Elimina uma identidade. |

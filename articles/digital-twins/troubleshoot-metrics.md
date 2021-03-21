@@ -8,10 +8,10 @@ ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 63817c8a65678579ce535a3c2e667e4eb0971a63
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434071"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
@@ -55,7 +55,7 @@ Pode configurar estas métricas para acompanhar quando se aproxima de um [limite
 
 Para configurar isto, utilize a função [de alerta](troubleshoot-alerts.md) no Azure Monitor. Pode definir limiares para estas métricas para que receba um alerta quando uma métrica atinge uma determinada percentagem do seu limite publicado.
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
+| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | TwinCount | Contagem de Gémeos (Pré-visualização) | de palavras | Total | Número total de gémeos no caso Azure Digital Twins. Utilize esta métrica para determinar se está a aproximar-se do limite de [serviço](reference-service-limits.md#functional-limits) para o número máximo de gémeos permitido por exemplo. |  Nenhum |
 | ModelCount | Contagem de modelos (Pré-visualização) | de palavras | Total | Número total de modelos na instância Azure Digital Twins. Utilize esta métrica para determinar se está a aproximar-se do limite de [serviço](reference-service-limits.md#functional-limits) para o número máximo de modelos permitidos por exemplo. | Nenhum |
@@ -64,7 +64,7 @@ Para configurar isto, utilize a função [de alerta](troubleshoot-alerts.md) no 
 
 Métricas que têm a ver com pedidos de API:
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
+| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | Pedidos da API | de palavras | Total | O número de Pedidos de API feitos para Gémeos Digitais lêem, escrevem, apagam e consultam as operações. |  Autenticação, <br>Operação, <br>Protocolo, <br>Código de Estado, <br>Classe código de estado, <br>Texto de estado |
 | ApiRequestsFailureRate | Taxa de falha de pedidos da API | Percentagem | Média | A percentagem de pedidos da API que o serviço recebe, por exemplo, que dão um código de resposta de erro interno (500) para as Gémeas Digitais ler, escrever, excluir e consultar operações. | Autenticação, <br>Operação, <br>Protocolo, <br>Código de Estado, <br>Classe código de estado, <br>Texto de estado
@@ -74,7 +74,7 @@ Métricas que têm a ver com pedidos de API:
 
 Métricas que têm a ver com faturação:
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
+| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperações | Operações de Faturação da API | de palavras | Total | Métrica de faturação para a contagem de todos os pedidos da API feitos contra o serviço Azure Digital Twins. | ID do Medidor |
 | BillingMessagesProcessado | Mensagens de faturação processadas | de palavras | Total | Métrica de faturação para o número de mensagens enviadas da Azure Digital Twins para pontos finais externos.<br><br>Para ser considerada uma única mensagem para efeitos de faturação, uma carga útil não deve ser superior a 1 KB. As cargas superiores a esta serão contadas como mensagens adicionais em incrementos de 1 KB (assim, uma mensagem entre 1 e 2 KB será contada como 2 mensagens, entre 2 e 3 KB serão 3 mensagens, e assim por diante).<br>Esta restrição também se aplica às respostas, pelo que uma chamada que devolve 1.5KB no organismo de resposta, por exemplo, será faturada como 2 operações. | ID do Medidor |
@@ -86,7 +86,7 @@ Para mais detalhes sobre a forma como a Azure Digital Twins é cobrada, consulte
 
 Métricas que têm a ver com a entrada de dados:
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
+| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | IngresssEvents | Eventos ingressos | de palavras | Total | O número de eventos de telemetria a entrar em Azure Digital Twins. | Resultado |
 | IngressEventsFailureRate | Taxa de falha de eventos ingress | Percentagem | Média | A percentagem de eventos de telemetria de entrada para os quais o serviço devolve um código de resposta de erro interno (500). | Resultado |
@@ -96,7 +96,7 @@ Métricas que têm a ver com a entrada de dados:
 
 Métricas que têm a ver com o encaminhamento:
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
+| Metric | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | Mensagens Remadas | Mensagens encaminhada | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
 | EncaminhamentoFailureRate | Taxa de falha de encaminhamento | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |

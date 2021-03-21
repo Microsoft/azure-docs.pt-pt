@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: alkohli
 ms.openlocfilehash: bdd44bf81e34b60ee648b71c6dc3bde5a96d3deb
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102443017"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Coleção de registos proactivos no seu dispositivo Azure Stack Edge
@@ -60,7 +60,7 @@ A recolha proativa de registos é ativada por padrão. Pode desativar a recolha 
 Após a ativação da recolha proativa do registo, os registos são carregados automaticamente quando um dos seguintes eventos é detetado no dispositivo:  
 
 
-|Alerta/Erro/Condição  |Descrição  |
+|Alerta/Erro/Condição  |Description  |
 |---------|---------|
 |AcsUnhealthyCondition     |Os Serviços Consistentes Azure não são saudáveis.         |
 |IOTEdgeAgentNotRunningCondição      |O Agente IoT Edge não está a funcionar.         |
