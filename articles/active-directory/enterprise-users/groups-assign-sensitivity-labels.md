@@ -1,5 +1,5 @@
 ---
-title: Atribuir rótulos de sensibilidade a grupos - Azure AD / Microsoft Docs
+title: Atribuir etiquetas de sensibilidade a grupos - Azure AD | Microsoft Docs
 description: Saiba como atribuir rótulos de sensibilidade a grupos. Consulte as informações sobre resolução de problemas e consulte os recursos disponíveis adicionais.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97881401"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade a grupos Microsoft 365 no Azure Ative Directory

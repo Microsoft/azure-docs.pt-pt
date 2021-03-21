@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 36b3666f12b48468467e76f4c281d58d8018478c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102098541"
 ---
 # <a name="show-traffic-data-on-the-map-android-sdk"></a>Mostrar dados de tráfego no mapa (Android SDK)
@@ -31,7 +31,7 @@ Existem dois tipos de dados de tráfego disponíveis no Azure Maps:
 - Dados de incidentes - consiste em dados de pontos e linhas para coisas como construção, encerramentos de estradas e acidentes.
 - Flow data - fornece métricas sobre o fluxo de tráfego nas estradas. Muitas vezes, os dados de fluxo de tráfego são usados para colorir as estradas. As cores baseiam-se na quantidade de tráfego que está a abrandar o fluxo, em relação ao limite de velocidade, ou noutra métrica. Há quatro valores que podem ser passados para a opção de tráfego `flow` do mapa.
 
-    |Valor do fluxo | Descrição|
+    |Valor do fluxo | Description|
     | :-- | :-- |
     | TrafficFlow.NONE | Não exibe dados de tráfego no mapa |
     | TrafficFlow.RELATIVE | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |

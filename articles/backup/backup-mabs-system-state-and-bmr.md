@@ -4,10 +4,10 @@ description: Utilize o Servidor de Backup Azure para fazer backup do estado do s
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021627"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Faça backup do estado do sistema e restaure para o metal nu, utilizando o Servidor de Backup Azure
@@ -23,7 +23,7 @@ O Azure Backup Server confirma o estado do sistema e fornece uma proteção de r
 
 A tabela que se segue resume o que pode recuar e recuperar. Para obter informações sobre as versões de aplicações que o estado do sistema e o BMR podem proteger, veja [o que o Azure Backup Server faz de volta?](backup-mabs-protection-matrix.md)
 
-|Cópia de segurança|Problema|Recuperar do backup do Servidor de Backup do Azure|Recuperar a partir de uma cópia de segurança do estado do sistema|BMR|
+|Backup|Problema|Recuperar do backup do Servidor de Backup do Azure|Recuperar a partir de uma cópia de segurança do estado do sistema|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Dados de ficheiros**<br /><br />Cópia de segurança de dados normal<br /><br />Cópia de segurança do estado do sistema/BMR|Dados de ficheiro perdidos|Y|N|N|
 |**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
@@ -95,9 +95,9 @@ Quando a cópia de segurança terminar, o ficheiro é transferido para o computa
 
     Se mudar de proteção BMR para proteção do estado do sistema, então precisa de espaço no computador protegido. Precisa do espaço porque a proteção do estado do sistema primeiro escreve a réplica para o computador local e depois transfere a réplica para o computador Backup Server.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
-1. **Implementar o servidor de backup Azure**. Verifique se o Servidor de Cópia de Segurança está corretamente implantado. Para obter mais informações, veja:
+1. **Implementar o servidor de backup Azure**. Verifique se o Servidor de Cópia de Segurança está corretamente implantado. Para obter mais informações, consulte:
     * [Requisitos do sistema para O Servidor de Backup Azure](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de proteção do servidor de backup](backup-mabs-protection-matrix.md)
 
@@ -109,7 +109,7 @@ Quando a cópia de segurança terminar, o ficheiro é transferido para o computa
 
 Para apoiar o estado do sistema e o metal nu:
 
-1. Para abrir o Assistente do Grupo de Proteção **Protection** Nova, na consola de administrador do servidor de backup, selecione  >  **Protection Actions** Create Protection  >  **Group**.
+1. Para abrir o Assistente do Grupo de Proteção Nova, na consola de administrador do servidor de backup, selecione  >  **Protection Actions** Create Protection  >  **Group**.
 
 1. Na página **'Tipo de Grupo de Proteção de Protecção' selecione,** selecione **Servidores** e, em seguida, selecione **Seguinte**.
 

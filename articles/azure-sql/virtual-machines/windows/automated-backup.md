@@ -1,5 +1,5 @@
 ---
-title: Backup automatizado v2 para SQL Server 2016/2017 VMs Azure / Microsoft Docs
+title: Cópia de segurança automatizada v2 para SQL Server 2016/2017 VMs Azure | Microsoft Docs
 description: Este artigo explica a funcionalidade de Backup Automatizada para SQL Server 2016/2017 VMs em execução no Azure. Este artigo é específico dos VMs utilizando o Gestor de Recursos.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: f41614d54dc4320f683f406b2882a7b388bb4c3d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358423"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
@@ -57,7 +57,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="basic-settings"></a>Definições Básicas
 
-| Definição | Alcance (Padrão) | Descrição |
+| Definição | Alcance (Padrão) | Description |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Permite ou desativa backup automatizado para um Azure VM que executa o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter reforços. |
@@ -67,7 +67,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="advanced-settings"></a>Definições Avançadas
 
-| Definição | Alcance (Padrão) | Descrição |
+| Definição | Alcance (Padrão) | Description |
 | --- | --- | --- |
 | **Backups de bases de dados do sistema** | Ativar/Desativar (Desativado) | Quando ativado, esta funcionalidade também confirma as bases de dados do sistema: Master, MSDB e Model. Para as bases de dados MSDB e Model, verifique se estão em modo de recuperação total se pretender que sejam tomadas cópias de segurança de registo. Os backups de registo nunca são levados para o Mestre. E não há reforços para o TempDB. |
 | **Horário de backup** | Manual/Automatizado (Automatizado) | Por predefinição, o calendário de backup é automaticamente determinado com base no crescimento do registo. A agenda manual de cópias de segurança permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança só ocorrem na frequência especificada e durante a janela de tempo especificada de um determinado dia. |

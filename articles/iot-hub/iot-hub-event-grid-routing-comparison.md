@@ -1,5 +1,5 @@
 ---
-title: Compare a Grade de Eventos, encaminhamento para IoT Hub Microsoft Docs
+title: Compare a Grelha de Eventos, o encaminhamento para ioT Hub | Microsoft Docs
 description: O IoT Hub oferece o seu próprio serviço de encaminhamento de mensagens, mas também se integra com a Event Grid para a publicação de eventos. Compare as duas características.
 author: kgremban
 manager: philmea
@@ -10,10 +10,10 @@ ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 37b411792ea1a3e21e0f26df0c7905eb8d46310e
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97897710"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Compare o encaminhamento de mensagens e a grelha de eventos para ioT Hub
@@ -35,7 +35,7 @@ Embora tanto o encaminhamento de mensagens como a Grade de Eventos permitam a co
 | **Mensagens e eventos do dispositivo** | Sim, o encaminhamento de mensagens pode ser usado para dados de telemetria, alterações gémeas do dispositivo, eventos de ciclo de vida do dispositivo e eventos de mudança de gémeos digitais. | Sim, a Grelha de Eventos pode ser utilizada para dados de telemetria e eventos de dispositivos como dispositivo criado/eliminado/conectado/desligado. Mas a grelha de eventos não pode ser usada para eventos de mudança de dois dispositivos e eventos de mudança de gémeos digitais. |
 | **Ordenação** | Sim, a ordem dos acontecimentos mantém-se.  | Não, a ordem dos acontecimentos não está garantida. | 
 | **Filtragem** | Filtragem rica nas propriedades da aplicação de mensagens, propriedades do sistema de mensagens, corpo de mensagens, etiquetas gémeas do dispositivo e propriedades gémeas do dispositivo. A filtragem não é aplicada a eventos digitais de mudança de gémeos. Por exemplo, consulte [a Sinaxe de Encaminhamento de Mensagens](iot-hub-devguide-routing-query-syntax.md)de Mensagem . | Filtragem com base no tipo de evento, tipo de sujeito e atributos em cada evento. Por exemplo, consulte [os eventos de filtragem de filtros em Subscrições de Grelha de Eventos.](../event-grid/event-filtering.md) Ao subscrever eventos de telemetria, pode aplicar filtros adicionais nos dados para filtrar as propriedades da mensagem, o corpo da mensagem e o twin do dispositivo no seu Hub IoT, antes de publicar na Grelha de Eventos. Veja [como filtrar eventos.](../iot-hub/iot-hub-event-grid.md#filter-events) |
-| **Pontos Finais** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila do Service Bus</li> <li>Tópicos do Service Bus</li></ul><br>Os SKUs do Hub IoT (S1, S2 e S3) estão limitados a 10 pontos finais personalizados. 100 rotas podem ser criadas por IoT Hub. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Hubs de Eventos</li> <li>Aplicações Lógicas</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Armazenamento de Filas</li> <li>Power Automate</li> <li>Serviços de terceiros através do WebHooks</li></ul><br>São suportados 500 pontos finais por IoT Hub. Para obter a lista mais atualizada de pontos finais, consulte os manipuladores de [eventos Event Grid](../event-grid/overview.md#event-handlers). |
+| **Pontos Finais** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila de ônibus de serviço</li> <li>Tópicos do Service Bus</li></ul><br>Os SKUs do Hub IoT (S1, S2 e S3) estão limitados a 10 pontos finais personalizados. 100 rotas podem ser criadas por IoT Hub. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Hubs de Eventos</li> <li>Logic Apps</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Armazenamento de Filas</li> <li>Power Automate</li> <li>Serviços de terceiros através do WebHooks</li></ul><br>São suportados 500 pontos finais por IoT Hub. Para obter a lista mais atualizada de pontos finais, consulte os manipuladores de [eventos Event Grid](../event-grid/overview.md#event-handlers). |
 | **Custo** | Não existe uma carga separada para o encaminhamento de mensagens. Só é cobrada a entrada de telemetria no IoT Hub. Por exemplo, se tiver uma mensagem encaminhada para três pontos finais diferentes, é faturada apenas por uma mensagem. | Não há nenhuma acusação do IoT Hub. O Event Grid oferece as primeiras 100.000 operações por mês gratuitamente e, em seguida, $0,60 por milhão de operações depois. |
 
 ## <a name="similarities"></a>Semelhanças

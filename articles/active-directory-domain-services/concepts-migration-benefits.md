@@ -1,5 +1,5 @@
 ---
-title: Benefícios da migração clássica de implantação nos Serviços de Domínio Azure AD ! Microsoft Docs
+title: Benefícios da migração clássica de implantação em Azure AD Domain Services | Microsoft Docs
 description: Saiba mais sobre os benefícios de migrar uma implementação clássica dos Serviços de Domínio do Diretório Ativo Azure para o modelo de implementação do Gestor de Recursos
 services: active-directory-ds
 author: justinha
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: justinha
 ms.openlocfilehash: 8cc5f5ebf389d35df02474d0561dc7827cde4d0b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620091"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Benefícios da migração do modelo de implementação clássico para gestor de recursos nos Serviços de Domínio do Diretório Ativo Azure
@@ -36,7 +36,7 @@ Após a migração, o Azure AD DS fornece muitas funcionalidades que só estão 
 
 * [Suporte à política de palavra-passe de grão fino][password-policy].
 * Velocidades de sincronização mais rápidas entre os serviços AZure AD e Azure AD Domain Services.
-* Dois novos [atributos que sincronizam do gestor da AD Azure][attributes]  -  *manager* e *do staffID.*
+* Dois novos [atributos que sincronizam do gestor da AD Azure][attributes]  -   e *do staffID.*
 * Acesso a controladores de domínio de maior potência quando [atualizar o SKU][skus].
 * Proteção de bloqueio de conta AD.
 * [Notificações por e-mail para alertas no seu domínio gerido][email-alerts].

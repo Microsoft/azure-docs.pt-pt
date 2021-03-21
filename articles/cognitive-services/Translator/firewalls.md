@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.openlocfilehash: f5dd72328180574809c812d670f8165ad84963ae
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897752"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-translator"></a>Como traduzir por trás de firewalls IP com Tradutor
@@ -28,6 +28,6 @@ Os endereços IP para api.cognitive.microsofttranslator.com - Tradutor a partir 
 * **Europa:** 40.90.138.4, 40.90.141.99, 51.105.170.64, 52.155.218.251
 * **América do Norte:** 40.90.139.36, 40.90.139.2, 40.119.2.134, 52.224.200.129, 52.249.207.163
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Traduzir por trás de firewalls IP em Tradutor](reference/v3-0-translate.md)

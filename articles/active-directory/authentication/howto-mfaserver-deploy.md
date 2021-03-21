@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7bd9913cccbe077a4deed9a7c5bfdc601f3dd5e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742345"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor Multi-Factor Authentication do Azure
@@ -119,7 +119,7 @@ Siga estes passos para transferir o Servidor Multi-Factor Authentication do Azur
 > Os clientes existentes que ativaram o MFA Server antes de 1 de julho de 2019 podem descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume. Os passos seguintes só funcionam se for um cliente do MFA Server existente.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-2. Procure e selecione *Azure Active Directory*. Selecione **Security**  >  **Segurança MFA**.
+2. Procure e selecione *Azure Active Directory*. Selecione   >  **Segurança MFA**.
 3. No **Servidor MFA do Gestor**, selecione as **definições do Servidor**.
 4. Selecione **Transferir** e siga as instruções na página de transferência para guardar o instalador. 
 

@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
 ms.openlocfilehash: 16cba46d9c0f6a933965366d82eb8e21c4ab1ca6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033910"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos

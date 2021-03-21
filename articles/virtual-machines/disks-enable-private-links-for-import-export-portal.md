@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: b80100216003e91fde54b5e555bafb755c942810
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98682924"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utilize o portal Azure para restringir o acesso à importação/exportação de discos geridos com ligações privadas

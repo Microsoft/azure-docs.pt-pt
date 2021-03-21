@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498868"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Atestado de arranque e hospedeiro medido
@@ -57,5 +57,5 @@ Para saber mais sobre o que fazemos para impulsionar a integridade e segurança 
 - [Segurança do firmware](firmware.md)
 - [Bota segura](secure-boot.md)
 - [Projeto Cerberus](project-cerberus.md)
-- [Encriptação inativa](encryption-atrest.md)
+- [Encriptação de dados inativos](encryption-atrest.md)
 - [Segurança do hipervisor](hypervisor.md)

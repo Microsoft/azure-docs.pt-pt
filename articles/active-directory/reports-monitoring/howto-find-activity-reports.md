@@ -1,5 +1,5 @@
 ---
-title: Encontre relatórios de atividade dos utilizadores no portal Azure ! Microsoft Docs
+title: Encontre relatórios de atividade do utilizador no portal Azure | Microsoft Docs
 description: Saiba onde estão no portal Azure Ative Directory os relatórios de atividade do utilizador.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013036"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Encontrar relatórios de atividade no portal do Azure

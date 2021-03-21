@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
 ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101666509"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights de classificação sobre os seus dados a partir do Azure Purview
@@ -62,7 +62,7 @@ A Purview utiliza os mesmos tipos de informação sensíveis que o Microsoft 365
 
    A página principal **de insights de classificação** apresenta as seguintes áreas:
 
-   |Área  |Descrição  |
+   |Área  |Description  |
    |---------|---------|
    |**Visão geral das fontes com classificações**     |Exibe azulejos que fornecem: <br>- O número de subscrições encontradas nos seus dados <br>- O número de classificações únicas encontradas nos seus dados <br>- O número de fontes classificadas encontradas <br>- O número de ficheiros classificados encontrados <br>- O número de tabelas classificadas encontradas         |
    |**Principais fontes com dados classificados (últimos 30 dias)**     |Mostra a tendência, nos últimos 30 dias, do número de fontes encontradas com dados confidenciais.            |

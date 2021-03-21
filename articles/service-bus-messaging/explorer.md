@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como usar o Azure Service B
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: 0b5274c492a1dfb2523c52d7aea2b7ebf8eae675
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738961"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Utilize o Service Bus Explorer para realizar operações de dados no Service Bus (Preview)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Azure Service Bus permite que as aplicações de clientes remetentes e recetores dissolvam a sua lógica de negócio com o uso da semântica familiar ponto-a-ponto (Fila) e subscreva a semântica de subscrição de tópicos.
 

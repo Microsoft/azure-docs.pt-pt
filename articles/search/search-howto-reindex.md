@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119106"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como reconstruir um índice na Pesquisa Cognitiva Azure
@@ -37,7 +37,7 @@ Desde que não mude a estrutura do índice, pode atualizar um índice utilizando
 
 Largue e recrie um índice se alguma das seguintes condições for verdadeira. 
 
-| Condição | Descrição |
+| Condição | Description |
 |-----------|-------------|
 | Alterar uma definição de campo | A revisão de um nome de campo, tipo de dados ou [atributos](/rest/api/searchservice/create-index) de índice específicos (pescáveis, filtrais, ordenados, facetable) requer uma reconstrução completa. |
 | Atribua um analisador a um campo | [Os analisadores](search-analyzers.md) são definidos num índice e depois atribuídos aos campos. Pode adicionar uma nova definição de analisador a um índice a qualquer momento, mas só pode *atribuir* um analisador quando o campo é criado. Isto é verdade tanto para as propriedades do **analisador** como **do indexAnalyzer.** A **propriedade searchAnalyzer** é uma exceção (você pode atribuir esta propriedade a um campo existente). |
@@ -95,7 +95,7 @@ Pode utilizar [o Search Explorer](search-explorer.md) ou uma ferramenta de teste
 
 Se adicionou ou renomeou um campo, utilize [$select](search-query-odata-select.md) para devolver esse campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Índice grandes conjuntos de dados em escala](search-howto-large-index.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Configure AD DS Connector Account Permisses Microsoft Docs'
+title: 'Azure AD Connect: Configurar permissões de conta de conector AD DS | Microsoft Docs'
 description: Este documento detalha como configurar a conta AD DS Connector com o novo módulo ADSyncConfig PowerShell
 services: active-directory
 author: billmath
@@ -13,10 +13,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349944"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configure AD DS Connector Account Permissions (Azure AD Connect: Configurar as Permissões da Conta do Conector do AD DS) 

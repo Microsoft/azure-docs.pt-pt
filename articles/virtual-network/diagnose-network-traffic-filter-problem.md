@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais Microsoft Docs
+title: Diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais | Microsoft Docs
 description: Saiba como diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais visualizando as regras de segurança eficazes para uma máquina virtual.
 services: virtual-network
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 73562d8d32f265fa43ca80d2f8d4f84b1b631ec6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223674"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais
@@ -28,7 +28,7 @@ Neste artigo, aprende-se a diagnosticar um problema de filtro de tráfego de red
 
 Os NSGs permitem controlar os tipos de tráfego que fluem dentro e fora de um VM. Pode associar um NSG a uma sub-rede numa rede virtual Azure, uma interface de rede anexada a um VM, ou ambos. As regras de segurança eficazes aplicadas a uma interface de rede são uma agregação das regras existentes no NSG associada a uma interface de rede, e a sub-rede em que a interface de rede está. As regras em diferentes NSGs podem, por vezes, entrar em conflito entre si e afetar a conectividade de rede de um VM. Pode ver todas as regras de segurança eficazes dos NSGs que são aplicados nas interfaces de rede dos seus VM. Se não estiver familiarizado com a rede virtual, interface de rede ou conceitos NSG, consulte [a visão geral da rede virtual,](virtual-networks-overview.md) [interface de rede](virtual-network-network-interface.md)e [visão geral dos grupos de segurança da Rede.](./network-security-groups-overview.md)
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Tenta ligar-se a um VM sobre a porta 80 da internet, mas a ligação falha. Para determinar por que não pode aceder à porta 80 a partir da Internet, pode ver as regras de segurança eficazes para uma interface de rede utilizando o [portal](#diagnose-using-azure-portal)Azure, [PowerShell](#diagnose-using-powershell)ou o [Azure CLI](#diagnose-using-azure-cli).
 

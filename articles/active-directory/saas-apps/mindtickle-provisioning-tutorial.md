@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar mindTickle para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar mindTickle para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à MindTickle.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: c158358b1c4fcd72d9189d7a991645cb65a4dc83
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348148"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Tutorial: Configurar mindTickle para fornecimento automático de utilizadores

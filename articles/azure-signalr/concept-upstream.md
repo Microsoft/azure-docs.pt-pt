@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: 6752a9564dc0d9351d1c21f5be14eb626186ac0d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724064"
 ---
 # <a name="upstream-settings"></a>Definições de origem
@@ -34,7 +34,7 @@ Quando o evento especificado acontece, as regras de um item são verificadas uma
 
 Pode parametrizar o URL para suportar vários padrões. Existem três parâmetros predefinidos:
 
-|Parâmetro predefinido|Descrição|
+|Parâmetro predefinido|Description|
 |---------|---------|
 |{hub}| Um hub é um conceito de Serviço Azure SignalR. Um centro é uma unidade de isolamento. O âmbito dos utilizadores e a entrega de mensagens estão limitados a um hub.|
 |{categoria}| Uma categoria pode ser um dos seguintes valores: <ul><li>**conexões**: Eventos de vida de ligação. É disparado quando uma ligação com o cliente está ligada ou desligada. Inclui eventos conectados e desligados.</li><li>**mensagens:** Disparado quando os clientes invocam um método de hub. Inclui todos os outros eventos, exceto os da categoria **de ligações.**</li></ul>|
@@ -158,7 +158,7 @@ Tipo de conteúdo: aplicação/json
 
 Tipo de conteúdo: `application/json`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |Erro |string |A mensagem de erro de uma ligação fechada. Esvazie quando as ligações fecharem sem erro.|
 
@@ -166,7 +166,7 @@ Tipo de conteúdo: `application/json`
 
 Tipo de conteúdo: `application/json` ou `application/x-msgpack`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |InvocationId |string | Uma corda opcional que representa uma mensagem de invocação. Encontre detalhes em [Invocações.](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations)|
 |Destino |string | O mesmo que o evento e o mesmo que o alvo numa [mensagem de invocação.](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) |
@@ -179,7 +179,7 @@ O serviço calculará o código SHA256 para o `X-ASRS-Connection-Id` valor utili
 Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Identidades geridas para o Serviço Azure SignalR](howto-use-managed-identity.md)
 - [Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service](signalr-concept-serverless-development-config.md)

@@ -86,7 +86,7 @@
           href: stream-files-nodejs-quickstart.md
     - name: Python
       items:
-        - name: Python Basic Codificação Quickstart
+        - name: Codificação Básica python
           href: quickstart-basic-encoding-python.md
     - name: Portal do Azure
       items:
@@ -223,9 +223,9 @@
         - name: Monitor com Grelha de Eventos
           items:
             - name: Eventos com o Event Grid
-              href: reacting-to-media-services-events.md
+              href: monitoring/reacting-to-media-services-events.md
             - name: Esquemas do Event Grid
-              href: media-services-event-schemas.md
+              href: monitoring/media-services-event-schemas.md
     - name: Jogadores compatíveis
       items:
         - name: Media players for Media Services
@@ -394,15 +394,15 @@
     - name: Utilizar o Event Grid
       items:
         - name: Monitorizar eventos - Portal
-          href: monitor-events-portal-how-to.md
+          href: monitoring/monitor-events-portal-how-to.md
         - name: Monitorizar eventos - CLI
-          href: job-state-events-cli-how-to.md
+          href: monitoring/job-state-events-cli-how-to.md
     - name: Utilizar o Azure Monitor
       items:
         - name: Monitorizar métricas
-          href: media-services-metrics-howto.md
+          href: monitoring/media-services-metrics-howto.md
         - name: Monitorizar registos de diagnóstico
-          href: media-services-diagnostic-logs-howto.md
+          href: monitoring/media-services-diagnostic-logs-howto.md
     - name: Proteger conteúdo
       items:
         - name: Obter política de chave de conteúdo

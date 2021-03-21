@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/27/2020
 ms.openlocfilehash: b0b2dd9904682121c83b22b9029097e7ee57fb11
-ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96303761"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos na Pesquisa Cognitiva Azure
@@ -160,7 +160,7 @@ Para filtrar num campo de recolha complexo, pode utilizar uma **expressão lambd
 
 Tal como acontece com os campos simples de alto nível, os subtis simples de campos complexos só podem ser incluídos em filtros se tiverem o atributo **filtrado** definido `true` na definição de índice. Para obter mais informações, consulte a [referência API do Índice de Criação](/rest/api/searchservice/create-index).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o [conjunto de dados do Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) no assistente de **dados de importação.** Você precisará da informação de ligação cosmos DB fornecida na leitura para aceder aos dados.
 

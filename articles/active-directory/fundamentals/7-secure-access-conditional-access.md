@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64209a4d9ca200c69783a4ae317b38beef8ded89
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222314"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>Gerir o acesso externo com políticas de Acesso Condicional 
@@ -52,7 +52,7 @@ Seguem-se as melhores práticas relacionadas com o acesso externo com políticas
    > [!NOTE]
    > As políticas de Acesso Condicional podem aplicar-se a um máximo de 250 aplicações. Se mais de 250 Apps tiverem as mesmas necessidades de acesso, crie políticas duplicadas. A política A aplicar-se-á às aplicações 1-250, a política B aplicar-se-á às aplicações 251-500, etc.
 
-* Nomeie claramente políticas específicas do acesso externo a uma convenção de nomeação. Uma convenção de nomeação é *ExternalAccess_actiontaken_AppGroup.* Por exemplo, ExternalAccess_Block_FinanceApps.
+* Nomeie claramente políticas específicas do acesso externo a uma convenção de nomeação. One naming convention is ‎*ExternalAccess_actiontaken_AppGroup*. Por exemplo, ExternalAccess_Block_FinanceApps.
 
 ## <a name="block-all-external-users-from-resources"></a>Bloquear todos os utilizadores externos dos recursos
 

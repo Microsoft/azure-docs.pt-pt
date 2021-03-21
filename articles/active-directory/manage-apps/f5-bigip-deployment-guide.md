@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730662"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar F5 BIG-IP Virtual Edition VM em Azure IaaS para acesso híbrido seguro
@@ -107,7 +107,7 @@ Complete as seguintes tarefas para implantar BIG-IP VE a partir do [Mercado Azur
  |Grupo de Segurança da Rede NIC| Selecione Nenhuma se a sub-rede Azure selecionada nos passos anteriores já estiver associada a um grupo de segurança da Rede (NSG); caso contrário, selecione Básico|
  |Acelerar a rede| Desativado |
  |**Balanceamento de carga**|     |
- |Balanço de carga VM| Não|
+ |Balanço de carga VM| No|
 
 10. Selecione **Seguinte: Gestão** e preencha estas definições.
 
@@ -482,6 +482,6 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 -   [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Selecione um [cenário de implementação](f5-aad-integration.md) e inicie a sua implementação.

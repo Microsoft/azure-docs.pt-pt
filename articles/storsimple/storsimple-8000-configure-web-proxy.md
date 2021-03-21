@@ -1,5 +1,5 @@
 ---
-title: Configurar o dispositivo da série StorSimple 8000 Microsoft Docs
+title: Configurar o dispositivo da série StorSimple 8000 | Microsoft Docs
 description: Saiba como utilizar o Windows PowerShell para storSimple para configurar as definições de procuração web para o seu dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017224"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configure o proxy web para o seu dispositivo StorSimple
@@ -147,11 +147,11 @@ Se as definições de procuração web estiverem configuradas incorretamente, as
 | 4. |0x800706ba - Servidor RPC não disponível |A causa principal é uma das seguintes:</br></br>O aglomerado não está de pé. </br></br>O serviço datapath não está a funcionar.</br></br>O comando é executado a partir do controlador passivo e não é capaz de comunicar com o controlador ativo. |Insaem o Microsoft Support para garantir que o cluster está em funcionamento e o serviço datapath está em execução.</br></br>Executar o comando a partir do controlador ativo. Se pretender executar o comando a partir do controlador passivo, deve certificar-se de que o controlador passivo pode comunicar com o controlador ativo. Tem de ativar o Microsoft Support se esta conectividade estiver quebrada. |
 | 5. |0x800706be - Chamada RPC falhou |O aglomerado está em baixo. |Engate o Microsoft Support para garantir que o cluster está em cima. |
 | 6. |0x8007138f - Recurso de cluster não encontrado |O recurso de cluster de serviço de plataforma não é encontrado. Isto pode acontecer quando a instalação não foi adequada. |Pode ser necessário fazer um reset de fábrica no seu dispositivo. Pode ser necessário criar um recurso de plataforma. Contacte o Suporte da Microsoft para saber quais os próximos passos. |
-| 7. |0x8007138c - Recurso de cluster não online |Os recursos de plataforma ou de cluster datapath não estão online. |Contacte o Microsoft Support para ajudar a garantir que o datapath e o recurso de serviço da plataforma estão online. |
+| 7. |0x8007138c - Recurso cluster não online |Os recursos de plataforma ou de cluster datapath não estão online. |Contacte o Microsoft Support para ajudar a garantir que o datapath e o recurso de serviço da plataforma estão online. |
 
 > [!NOTE]
 > * A lista acima referida de mensagens de erro não é exaustiva.
-> * Erros relacionados com as definições de procuração web não serão apresentados no portal Azure no seu serviço StorSimple Device Manager. Se houver um problema com o proxy da web após a configuração ser concluída, o estado do dispositivo mudará para **Offline** no portal clássico./
+> * Erros relacionados com as definições de procuração web não serão apresentados no portal Azure no seu serviço StorSimple Device Manager. Se houver um problema com o proxy da web após a configuração estar concluída, o estado do dispositivo mudará para **Offline** no portal clássico.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Se sentir algum problema durante a implementação do seu dispositivo ou configurar as definições de procuração web, consulte a [resolução de problemas da implementação do seu dispositivo StorSimple](./storsimple-8000-troubleshoot-deployment.md).

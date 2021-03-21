@@ -12,10 +12,10 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 18720d99bc8cf0e237e25ea13f686970573d5704
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678445"
 ---
 # <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Suporte de colagem de base de dados para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics 

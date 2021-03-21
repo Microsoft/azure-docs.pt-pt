@@ -12,10 +12,10 @@ ms.author: jgao
 ms.reviewer: sstein
 ms.date: 06/24/2020
 ms.openlocfilehash: b7883144509760c9670decd50062d2595b8dc495
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96187090"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Quickstart: Criar uma única base de dados na Base de Dados Azure SQL usando um modelo ARM
@@ -69,7 +69,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 Para consultar a base de dados, consulte [consultar a base de dados.](single-database-create-quickstart.md#query-the-database)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Mantenha este grupo de recursos, servidor e base de dados única se quiser ir aos [próximos passos](#next-steps). Os próximos passos mostram-lhe como conectar e consultar a sua base de dados utilizando diferentes métodos.
 

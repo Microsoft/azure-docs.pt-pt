@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: 60b0a1e07099c48474d6890480be663f2058797f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96468927"
 ---
 1. Abra uma janela do navegador e aceda à IU da Web local do dispositivo em `https://192.168.100.10`. Esta ação pode demorar alguns minutos depois de ligar o dispositivo.
@@ -25,6 +25,6 @@ ms.locfileid: "96468927"
 
 
 1. A pedido, altere a palavra-passe do administrador do dispositivo.  
-    A nova palavra-passe deve conter entre 8 e 16 caracteres. Deve conter três dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais.
+    A nova palavra-passe tem de ter entre 8 e 16 carateres. Tem de incluir três dos seguintes carateres: maiúsculas, minúsculas, números e carateres especiais.
 
 Está agora na página **geral** do seu dispositivo. O próximo passo é configurar as definições de rede para o seu dispositivo.

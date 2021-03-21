@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 91e383b746509000cef74e96c08d1b70316a0527
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.date: 03/17/2021
+ms.openlocfilehash: eae085a73e8f43813aa3f02fa910c7931f10f36c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225256"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597421"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure SQL Managed Instance usando Azure Data Factory
 
@@ -387,6 +387,7 @@ Para copiar dados para a SQL Managed Instance, as seguintes propriedades são su
 | parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes e valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | No |
 | escreverBatchSize |Número de linhas para inserir na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por predefinição, a Azure Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha.  |No |
 | escreverBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção do lote ser concluída antes do tempo de esmutar.<br/>Os valores permitidos são para o tempo. Um exemplo é "00:30:00", que é 30 minutos. |No |
+| maxConcurrentConnections |O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No |
 
 **Exemplo 1: Dados do apêndice**
 

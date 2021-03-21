@@ -5,10 +5,10 @@ ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745830"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
@@ -127,7 +127,7 @@ Para utilizar um dashboard existente como modelo para um novo painel de instrume
 
 1. Certifique-se de que a vista do painel de instrumentos mostra o painel de instrumentos que pretende copiar.
 
-1. No cabeçalho da página, selecione ![ clone do ícone do clone ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
+1. No cabeçalho da página, selecione ![ clone do ícone do clone ](./media/azure-portal-dashboards/dashboard-clone.png) .
 
 1. Uma cópia do painel de instrumentos, chamado **Clone do** seu nome de painel de *instrumentos,* abre-se no modo de edição. Utilize os passos anteriores neste artigo para mudar o nome e personalizar o painel de instrumentos.
 

@@ -6,10 +6,10 @@ author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
 ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093265"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de lançamento para Microsoft.ApplicationInsights.SnapshotCollector
@@ -67,10 +67,10 @@ Um lançamento de ponto para abordar um par de problemas de alto impacto.
 
 ## <a name="135"></a>[1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5)
 - Adicione suporte para nuvens soberanas (versões mais antigas não funcionarão em nuvens soberanas)
-- A adição de um coletor instantâneo facilitada com a utilização do AddSnapshotCollector(). Mais informações podem ser [encontradas aqui.](./snapshot-debugger-appservice.md)
+- A adição de um coletor instantâneo facilitada com a utilização do AddSnapshotCollector(). Pode encontrar mais informações [aqui](./snapshot-debugger-appservice.md).
 - Utilize a definição FISMA MD5 para verificar os blocos de bolhas. Isto evita o algoritmo cripto padrão .NET MD5, que não está disponível quando o SO está definido para o modo compatível com FIPS.
 - Ignore os quadros de quadros .NET ao desoptimizar as chamadas de função. Este comportamento pode ser controlado pela configuração de DeoptimizeIgnoredModules.
-- Adicione `DeoptimizeMethodCount` a definição de configuração que permite a desopimação de mais de uma chamada de função. Pode obter mais informações aqui
+- Adicione `DeoptimizeMethodCount` a definição de configuração que permite a desopimação de mais de uma chamada de função. Mais informações aqui
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - Permitir chaves estruturadas de instrumentação.

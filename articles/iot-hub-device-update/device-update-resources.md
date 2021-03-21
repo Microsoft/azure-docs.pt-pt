@@ -7,10 +7,10 @@ ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: ba43889b885252f68bb3b4b158b5626411aac3d5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101663643"
 ---
 # <a name="device-update-resources"></a>Recursos de atualização de dispositivos
@@ -33,7 +33,7 @@ Para que a Atualização do Dispositivo receba notificações de alteração do 
 
 As seguintes rotas de mensagens são configuradas para a atualização do dispositivo:
 
-|   Nome da rota    | Consulta de encaminhamento  | Descrição  |
+|   Nome da rota    | Consulta de encaminhamento  | Description  |
 | :--------- | :---- |:---- |
 |  DeviceUpdate.DigitalTwinChanges | true |Escutas para eventos de mudanças digitais de gémeos  |
 |  DeviceUpdate.DeviceLifeCycle | opType = 'deleteDeviceIdentity'  | Escutas para dispositivos que foram eliminados |

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091113"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579472"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory
 
@@ -113,13 +113,13 @@ As aplicações e sistemas que suportam a personalização da lista de atributos
 - ServiceNow
 - Dia de trabalho para Diretório Ativo / Dia de Trabalho para Azure Ative Directory
 - SucessoFactors para Diretório Ativo / SuccessFactors para Azure Ative Directory
-- Azure Ative Directy[(São suportados atributos padrão AZURE ADGraph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados)
+- Azure Ative Directory[(Azure ADGraph API atributos padrão](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados são suportados). Saiba mais sobre [a criação de extensões](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) e [limitações conhecidas.](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues) 
 - Aplicativos que [suportam SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - Para a writeback do Azure Ative Directory para Workday ou SuccessFactors, é suportado para atualizar metadados relevantes para atributos suportados (XPATH e JSONPath), mas não é suportado para adicionar novos atributos Workday ou SuccessFactors para além dos incluídos no esquema padrão
 
 
 > [!NOTE]
-> A edição da lista de atributos suportados é apenas recomendada para administradores que personalizaram o esquema das suas aplicações e sistemas, e têm conhecimento em primeira mão de como os seus atributos personalizados foram definidos. Isto por vezes requer familiaridade com as APIs e ferramentas de desenvolvimento fornecidas por uma aplicação ou sistema. A capacidade de editar a lista de atributos suportados é bloqueada por padrão, mas os clientes podem ativar a capacidade navegando para o seguinte URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . Em seguida, pode navegar para a sua aplicação para ver a lista de atributos como [descrito acima](#editing-the-list-of-supported-attributes). 
+> A edição da lista de atributos suportados é apenas recomendada para administradores que tenham personalizado o esquema das suas aplicações e sistemas, e que tenham conhecimento em primeira mão de como os seus atributos personalizados foram definidos ou se um atributo de origem não é exibido automaticamente no Portal Azure UI. Isto por vezes requer familiaridade com as APIs e ferramentas de desenvolvimento fornecidas por uma aplicação ou sistema. A capacidade de editar a lista de atributos suportados é bloqueada por padrão, mas os clientes podem ativar a capacidade navegando para o seguinte URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . Em seguida, pode navegar para a sua aplicação para ver a lista de atributos como [descrito acima](#editing-the-list-of-supported-attributes). 
 
 Ao editar a lista de atributos suportados, são fornecidas as seguintes propriedades:
 

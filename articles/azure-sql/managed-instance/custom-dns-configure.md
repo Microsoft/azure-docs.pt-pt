@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
 ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831506"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurar um DNS personalizado para o Azure SQL Managed Instance
@@ -30,7 +30,7 @@ Como a SQL Managed Instance utiliza o mesmo DNS para o seu funcionamento interno
 > Utilize sempre um nome de domínio totalmente qualificado (FQDN) para o servidor de correio, para a instância do SQL Server e para outros serviços, mesmo que estejam dentro da sua zona privada de DNS. Por exemplo, use `smtp.contoso.com` para o seu servidor de correio eletrónico porque não resolve `smtp` corretamente. A criação de um servidor ou replicação ligado que refira VMs do SQL Server dentro da mesma rede virtual também requer um FQDN e um sufixo DNS predefinido. Por exemplo, `SQLVM.internal.cloudapp.net`. Para obter mais informações, consulte [a resolução Nome que utiliza o seu próprio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
-> A atualização dos servidores DNS de rede virtual não afetará imediatamente a SqL Managed Instance. Veja [como sincronizar a configuração de servidores DNS de rede virtual no cluster virtual SQL Managed Instance](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md) para obter mais detalhes.
+> A atualização dos servidores DNS de rede virtual não afetará imediatamente a SqL Managed Instance. Para obter mais detalhes, veja [como sincronizar a definição dos servidores DNS da rede virtual no cluster virtual do SQL Managed Instance](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
