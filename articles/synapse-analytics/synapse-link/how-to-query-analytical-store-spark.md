@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 32e8ad5028920cefd717cdaa5429786c83367f6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 615998de45c4a9993899065a4aef7a15332a59c8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671280"
+ms.locfileid: "104720411"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interaja com a Azure Cosmos DB usando Apache Spark in Azure Synapse Link
 
@@ -28,6 +28,10 @@ As seguintes capacidades são suportadas enquanto interagem com a Azure Cosmos D
 * O Synapse Apache Spark também suporta o streaming estruturado spark com a Azure Cosmos DB como fonte, bem como uma pia. 
 
 As secções seguintes acompanham-no através da sintaxe das capacidades acima. Os gestos no espaço de trabalho Azure Synapse Analytics são projetados para proporcionar uma experiência fora da caixa fácil para começar. Os gestos são visíveis quando clica à direita num recipiente DB Azure Cosmos no separador **Dados** do espaço de trabalho da Sinapse. Com os gestos, pode gerar rapidamente código e personalizá-lo de acordo com as suas necessidades. Os gestos também são perfeitos para detetar dados com um único clique.
+
+> [!IMPORTANT]
+> Deve estar ciente de alguns constrangimentos no esquema analítico que podem levar ao comportamento inesperado nas operações de carregamento de dados.
+> Como exemplo, apenas as primeiras 1000 propriedades do esquema transacional estão disponíveis no esquema analítico, propriedades com espaços não estão disponíveis, etc. Se estiver a sentir resultados inesperados, verifique as restrições de [esquema da loja analítica](../../cosmos-db/analytical-store-introduction.md#schema-constraints) para obter mais detalhes.
 
 ## <a name="query-azure-cosmos-db-analytical-store"></a>Loja analítica Da Azure Cosmos DB
 

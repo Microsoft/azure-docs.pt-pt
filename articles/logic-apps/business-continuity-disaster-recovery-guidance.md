@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89658211"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade de negócios e recuperação de desastres para Azure Logic Apps
@@ -100,10 +100,10 @@ O recurso de gateway de dados está associado a uma localização ou região de 
 
 Pode configurar as suas localizações primárias e secundárias para que as instâncias de aplicações lógicas nestes locais possam desempenhar estes papéis:
 
-| Papel primário-secundário | Descrição |
+| Papel primário-secundário | Description |
 |------------------------|-------------|
 | *Ativo ativo* | As instâncias de aplicações lógicas primárias e secundárias em ambos os locais lidam ativamente com os pedidos seguindo qualquer um destes padrões: <p><p>- *Equilíbrio de carga*: Pode fazer com que ambas as instâncias ouçam um ponto final e carreguem o tráfego de equilíbrio para cada instância, se necessário. <p>- *Consumidores concorrentes*: Pode fazer com que ambas as instâncias atuem como consumidores concorrentes para que os casos concorram por mensagens de uma fila. Se um caso falhar, o outro caso assume a carga de trabalho. |
-| *Ativa-passiva* | A instância da aplicação lógica primária lida ativamente com toda a carga de trabalho, enquanto a instância secundária é passiva (desativada ou inativa). O secundário aguarda um sinal de que o primário está indisponível ou não funciona devido a perturbação ou falha e assume a carga de trabalho como o caso ativo. |
+| *Ativo-passivo* | A instância da aplicação lógica primária lida ativamente com toda a carga de trabalho, enquanto a instância secundária é passiva (desativada ou inativa). O secundário aguarda um sinal de que o primário está indisponível ou não funciona devido a perturbação ou falha e assume a carga de trabalho como o caso ativo. |
 | Combinação | Algumas aplicações lógicas desempenham um papel ativo, enquanto outras aplicações lógicas desempenham um papel ativo-passivo. |
 |||
 
@@ -249,7 +249,7 @@ Do ponto de vista da recuperação de desastres, quando configurar as instância
   Por exemplo, a leitura de uma fila de mensagens, como uma fila de autocarros do Serviço Azure, utiliza o estado do lado do servidor porque o serviço de fila mantém bloqueios em mensagens para evitar que outros clientes leiam as mesmas mensagens.
 
   > [!NOTE]
-  > Se a sua aplicação lógica precisar de ler mensagens numa ordem específica, por exemplo, a partir de uma fila de Autocarros de Serviço, pode utilizar o padrão de consumidor concorrente, mas apenas quando combinado com sessões de Service Bus, que também é conhecido como o [padrão *de comboio sequencial.* ](/azure/architecture/patterns/sequential-convoy) Caso contrário, deve configurar as suas instâncias de aplicações lógicas com as funções activa-passivas.
+  > Se a sua aplicação lógica precisar de ler mensagens numa ordem específica, por exemplo, a partir de uma fila de Autocarros de Serviço, pode utilizar o padrão de consumidor concorrente, mas apenas quando combinado com sessões de Service Bus, que também é conhecido como o [padrão *de comboio sequencial.*](/azure/architecture/patterns/sequential-convoy) Caso contrário, deve configurar as suas instâncias de aplicações lógicas com as funções activa-passivas.
 
 <a name="request-trigger"></a>
 

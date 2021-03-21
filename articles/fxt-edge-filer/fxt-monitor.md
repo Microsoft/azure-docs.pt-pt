@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 86e1d74d5e4ab9f6e799c73bcf0d807d0d874f21
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219722"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Monitor Azure FXT Edge Filer estado de hardware
@@ -60,7 +60,7 @@ Os indicadores de estado à esquerda mostram uma luz âmbar sólida se houver um
 
 Se ainda tiver o erro depois de experimentar estas soluções, [contacte o suporte](fxt-support-ticket.md) para obter ajuda.
 
-| Ícone | Descrição | Condição de erro | Possíveis soluções |
+| Ícone | Description | Condição de erro | Possíveis soluções |
 |----------------|---------------|--------------------|----------------------|
 | ![ícone de unidade](media/fxt-monitor/fxt-hd-icon.jpg) | Estado da unidade | Erro de unidade | Consulte o Registo de Eventos do Sistema para determinar se a unidade tem um erro, ou <br>Executar o teste de diagnóstico online adequado; reiniciar o sistema e executar diagnósticos incorporados (ePSA), ou <br>Se as unidades estiverem configuradas numa matriz RAID, reinicie o sistema e introduza o programa de utilidade de configuração do adaptador de hospedeiro |
 |![ícone de temperatura](media/fxt-monitor/fxt-temp-icon.jpg) | Estado da temperatura | Erro térmico - por exemplo, uma ventoinha falhou ou a temperatura ambiente está fora de alcance | Verifique as seguintes condições endereçais: <br>Falta uma ventoinha de arrefecimento ou falhou <br>A tampa do sistema, a mortalha de ar, o módulo de memória em branco ou o suporte de enchimento traseiro são removidos <br>A temperatura ambiente é muito alta <br>O fluxo de ar externo está obstruído |

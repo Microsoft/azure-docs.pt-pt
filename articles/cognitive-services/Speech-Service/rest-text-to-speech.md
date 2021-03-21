@@ -12,10 +12,10 @@ ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
 ms.openlocfilehash: 9a5f50588c357b56865bc2a8500dcc250e89d930
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470637"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
@@ -76,7 +76,7 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Descrição | Obrigatório / Opcional |
+| Cabeçalho | Description | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de discurso. | Ou este cabeçalho ou `Authorization` é necessário. |
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
@@ -213,7 +213,7 @@ Estas regiões são apoiadas por texto-a-voz utilizando a API REST. Certifique-s
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Descrição | Obrigatório / Opcional |
+| Cabeçalho | Description | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |

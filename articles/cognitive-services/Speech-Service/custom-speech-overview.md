@@ -12,10 +12,10 @@ ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
 ms.openlocfilehash: 13bf0f2430e0d58dd9ef28061aad897acf94ac3f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493055"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Voz Personalizada?

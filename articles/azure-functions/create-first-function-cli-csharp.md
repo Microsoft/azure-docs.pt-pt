@@ -11,10 +11,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
 ms.openlocfilehash: 08b1f2b112542a4b4772744d122ce1260b0edffd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704774"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função C# em Azure a partir da linha de comando
@@ -93,7 +93,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ``` 
 
-    `func new` cria um ficheiro de código HttpExample.cs.
+    `func new` cria um ficheiro de código httpExample.cs.
 
 ### <a name="optional-examine-the-file-contents"></a>(Opcional) Examine o conteúdo do ficheiro
 
@@ -101,7 +101,7 @@ Se desejar, pode saltar para [Executar a função localmente](#run-the-function-
 
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
-*HttpExample.cs* contém um `Run` método que recebe dados de pedido na `req` variável é um [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) que está decorado com o **HttpTriggerAttribute**, que define o comportamento do gatilho.
+*HttpExample.cs* contém um `Run` método que recebe dados de pedido na `req` variável é um [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) que está decorado com o **HttpTriggerAttribute,** que define o comportamento do gatilho.
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 

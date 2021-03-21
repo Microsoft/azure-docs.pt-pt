@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d3570a22fdd935237e673ea3e43ab5e463b66456
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034766"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590539"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Noções básicas de modelos de um duplo digital do Azure Digital Twins
 
@@ -24,9 +24,13 @@ Os modelos Azure Digital Twins estão representados na **Linguagem de Definiçã
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>Linguagem de definição de gémeos digital (DTDL) para modelos
 
-Os modelos do Azure Digital Twins são definidos com a linguagem Digital Twins Definition (DTDL). A DTDL tem como base JSON-LD e é independente de linguagens de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) 
+Os modelos para Gémeos Digitais Azure são definidos usando a Linguagem de Definição de Gémeos Digitais (DTDL). 
 
-Azure Digital Twins usa **a versão DTDL _2_**. Para obter mais informações sobre esta versão do DTDL, consulte a sua documentação de especificação no GitHub: [*Digital Twins Definition Language (DTDL) - versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). A utilização da versão DTDL _1_ com a Azure Digital Twins foi agora depreciada.
+Pode ver as especificações linguísticas completas para DTDL no GitHub: [**Digital Twins Definition Language (DTDL) - Versão 2**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+
+A DTDL tem como base JSON-LD e é independente de linguagens de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) Azure Digital Twins usa a versão DTDL **2** (a utilização da versão DTDL 1 com a Azure Digital Twins foi agora depreciada). 
+
+O resto deste artigo resume como a linguagem é usada em Azure Digital Twins.
 
 > [!NOTE] 
 > Nem todos os serviços que utilizam o DTDL implementam exatamente as mesmas funcionalidades do DTDL. Por exemplo, o IoT Plug and Play não utiliza as funcionalidades DTDL que são para gráficos, enquanto a Azure Digital Twins não implementa atualmente comandos DTDL.

@@ -9,10 +9,10 @@ ms.date: 07/08/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec7ecb77d37ed1cdf1d13aa7191f5d50e0008c20
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790804"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: Publicar, subscrever eventos na nuvem
@@ -195,7 +195,7 @@ Pode ver o evento entregue no portal Azure sob a opção **Monitor** da sua fun�
 
 * Eliminar a função Azure criada no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um tópico de grelha de eventos, subscrição e eventos publicados. Agora que conhece os passos básicos, veja os seguintes artigos:
 

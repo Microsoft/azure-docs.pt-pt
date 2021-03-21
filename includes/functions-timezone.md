@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/20/2020
 ms.author: glenga
 ms.openlocfilehash: 7d1bf8dd2d1c8feab8b051a8edad7d5e570ee11b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96025489"
 ---
 O fuso horário padrão utilizado com as expressões CRON é Tempo Universal Coordenado (UTC). Para ter a sua expressão CRON baseada em outro fuso horário, crie uma definição de aplicação para a sua aplicação de função chamada `WEBSITE_TIME_ZONE` . 

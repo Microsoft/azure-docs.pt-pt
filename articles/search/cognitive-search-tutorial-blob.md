@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94738055"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesmável a partir de bolhas Azure
@@ -30,7 +30,7 @@ Este tutorial utiliza o Carteiro e as [APIs search REST](/rest/api/searchservice
 
 Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial utiliza C# e o Azure Cognitive Search REST APIs para criar uma fonte de dados, índice, indexante e skillset. Você começará com documentos inteiros (texto não estruturado) como PDF, HTML, DOCX e PPTX no armazenamento Azure Blob, e depois executá-los através de um skillset para extrair entidades, frases-chave e outro texto nos ficheiros de conteúdo.
 
@@ -185,7 +185,7 @@ Um [objeto skillset](/rest/api/searchservice/create-skillset) é um conjunto de 
 
    | Habilidade                 | Description    |
    |-----------------------|----------------|
-   | [Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e locais de conteúdo no recipiente blob. |
+   | [Reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e locais de conteúdo no recipiente blob. |
    | [Deteção de Idioma](cognitive-search-skill-language-detection.md) | Deteta a linguagem do conteúdo. |
    | [Divisão de Texto](cognitive-search-skill-textsplit.md)  | Quebra o conteúdo grande em pedaços menores antes de chamar a habilidade de extração da frase-chave. A extração de expressões-chave aceita entradas de 50 000 carateres ou menos. Alguns dos ficheiros de exemplo precisam de ser divididos para caberem dentro deste limite. |
    | [Extração de Expressões-Chave](cognitive-search-skill-keyphrases.md) | Tira as frases-chave de topo. |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033158"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590216"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Regras de saída Azure Load Balancer
 
@@ -36,11 +36,11 @@ Com as regras de saída, pode definir explicitamente o comportamento **SNAT** de
 As regras de saída permitem-lhe controlar:
 
 * **Quais máquinas virtuais são traduzidas para quais endereços IP públicos.**
-     * Duas regras foram backend pool A usa endereço IP A e B, backend pool B usa endereço IP C e D.
+     * Duas regras foram backend pool 1 usa o endereço IP azul 1 e 2, backend pool 2 usa o prefixo IP amarelo.
 * **Como são atribuídas as portas SNAT de saída.**
-     * Backend pool B é a única piscina que faz ligações de saída, dar a todas as portas SNAT para reencar a piscina B e nenhuma para reencarnar a piscina A.
+     * Se a piscina backend 2 for a única piscina que faz ligações de saída, dê a todas as portas SNAT para reencar a piscina 2 e nenhuma para reencar a piscina 1.
 * **Quais os protocolos para fornecer tradução de saída.**
-     * A piscina de backend B precisa de portas UDP para saída. Backend pool A precisa de TCP. Dê portas TCP para portas A e UDP para B.
+     * Se a piscina de backend 2 necessitar de portas UDP para saída, e a piscina de backend 1 necessitar de TCP, dê portas TCP a 1 e portas UDP a 2.
 * **Que duração utilizar para o intervalo de tempo de ligação de saída (4-120 minutos).**
      * Se houver ligações longas com keepalives, reserve portas inativas para ligações de longo prazo até 120 minutos. Assuma que as ligações velhas são abandonadas e liberte portas em 4 minutos para novas ligações 
 * **Se enviar um Reset TCP no tempo limite de marcha lenta.**

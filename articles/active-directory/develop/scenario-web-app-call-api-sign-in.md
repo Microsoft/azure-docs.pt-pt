@@ -13,10 +13,10 @@ ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 9fc271dfa9edbedac8527009dd2b2180b7c5e7cd
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98756257"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Uma aplicação web que chama APIs web: Remova as contas da cache simbólica no sign-out global
@@ -47,7 +47,7 @@ A amostra python não remove as contas da cache na assinatura global.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

@@ -4,10 +4,10 @@ description: Este artigo mostra como visualizar o tópico do sistema existente, 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86115116"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Criar, ver e gerir tópicos do sistema de Grade de Eventos no portal Azure
@@ -20,7 +20,7 @@ Pode criar um tópico de sistema para um recurso Azure (conta de armazenamento, 
 - Utilizando a página **tópicos do sistema de grelha de evento.** Os seguintes passos são para criar um tópico de sistema utilizando a página **Tópicos do Sistema de Grelha de Eventos.** 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com).
-2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, prima **ENTER**. 
+2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos** e, em seguida, prima **ENTER**. 
 
     ![Pesquisa de tópicos do sistema](./media/create-view-manage-system-topics/search-system-topics.png)
 3. Na página **Tópicos do Sistema de Grelha de Eventos,** selecione **+ Adicione** na barra de ferramentas.
@@ -50,7 +50,7 @@ Pode criar um tópico de sistema para um recurso Azure (conta de armazenamento, 
 Siga estes passos para ver todos os tópicos do sistema de Grelha de Eventos existentes. 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com).
-2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, prima **ENTER**. 
+2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos** e, em seguida, prima **ENTER**. 
 
     ![Pesquisa de tópicos do sistema](./media/create-view-manage-system-topics/search-system-topics.png)
 3. Na página **tópicos do sistema de grelha de eventos,** você vê todos os tópicos do sistema. 
@@ -83,7 +83,7 @@ Siga estes passos para ver todos os tópicos do sistema de Grelha de Eventos exi
 2. Na página **tópico do sistema de grelha de evento,** selecione + **Subscrição** de evento a partir da barra de ferramentas. 
 
     ![Tópico do sistema - adicione botão de subscrição de evento](./media/create-view-manage-system-topics/add-event-subscription-button.png)
-3. Confirme se o **Tipo tópico,** **o recurso de origem**e **o nome tópico** são automaticamente povoados. Introduza um nome, selecione um **Tipo de Ponto final**e especifique o ponto **final**. Em seguida, **selecione Criar** para criar a subscrição do evento. 
+3. Confirme se o **Tipo tópico,** **o recurso de origem** e **o nome tópico** são automaticamente povoados. Introduza um nome, selecione um **Tipo de Ponto final** e especifique o ponto **final**. Em seguida, **selecione Criar** para criar a subscrição do evento. 
 
     ![Tópico do sistema - crie subscrição de eventos](./media/create-view-manage-system-topics/create-event-subscription.png)
 

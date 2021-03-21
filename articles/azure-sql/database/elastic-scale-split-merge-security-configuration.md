@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793437"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de fusão dividida
@@ -336,7 +336,7 @@ Personalização:
 
 * -n com uma ID para o cliente que será autenticado com este certificado
 * -e com a data de validade do certificado
-* MyID.pvk e MyID.cer com nomes de ficheiros exclusivos para este certificado de cliente
+* MyID.pvk e MyID.cer com nomes de ficheiros únicos para este certificado de cliente
 
 Este comando solicitará a criação de uma palavra-passe e depois será utilizada uma vez. Use uma senha forte.
 
@@ -441,11 +441,11 @@ Siga estes passos:
 
 1. Corre mmc.exe.
 2. Arquivo -> Adicionar/Remover Snap-in...
-3. Selecione **Certificados** .
-4. Clique em **Adicionar** .
+3. Selecione **Certificados**.
+4. Clique em **Adicionar**.
 5. Escolha o local da loja de certificados.
-6. Clique em **Concluir** .
-7. Clique em **OK** .
+6. Clique em **Concluir**.
+7. Clique em **OK**.
 8. **Certificados de** Expansão .
 9. Expandir o nó da loja de certificados.
 10. Expandir o nó de criança Certificado.
@@ -454,18 +454,18 @@ Siga estes passos:
 ## <a name="export-certificate"></a>Exportar o certificado
 No **certificado assistente de exportação:**
 
-1. Clique em **Seguinte** .
-2. Selecione **Sim,** em **seguida, Exporte a chave privada** .
-3. Clique em **Seguinte** .
+1. Clique em **Seguinte**.
+2. Selecione **Sim,** em **seguida, Exporte a chave privada**.
+3. Clique em **Seguinte**.
 4. Selecione o formato de ficheiro de saída pretendido.
 5. Verifique as opções desejadas.
 6. Verifique **a palavra-passe.**
 7. Introduza uma senha forte e confirme- a.
-8. Clique em **Seguinte** .
+8. Clique em **Seguinte**.
 9. Digite ou navegue num nome de arquivo onde armazenar o certificado (utilize um . Extensão PFX).
-10. Clique em **Seguinte** .
-11. Clique em **Concluir** .
-12. Clique em **OK** .
+10. Clique em **Seguinte**.
+11. Clique em **Concluir**.
+12. Clique em **OK**.
 
 ## <a name="import-certificate"></a>Importar o certificado
 No Certificado De Importação Assistente:
@@ -474,7 +474,7 @@ No Certificado De Importação Assistente:
    
    * Selecione **o Utilizador Atual** se apenas os processos em execução sob o utilizador atual acederem ao serviço
    * Selecione **Máquina Local** se outros processos neste computador acederem ao serviço
-2. Clique em **Seguinte** .
+2. Clique em **Seguinte**.
 3. Se importar de um ficheiro, confirme o caminho do ficheiro.
 4. Se importar um . Ficheiro PFX:
    1. Introduza a palavra-passe protegendo a chave privada
@@ -482,18 +482,18 @@ No Certificado De Importação Assistente:
 5. Selecione certificados "Place" na seguinte loja
 6. Clique em **Browse** (Procurar).
 7. Selecione a loja desejada.
-8. Clique em **Concluir** .
+8. Clique em **Concluir**.
    
-   * Se a loja Da Autoridade de Certificação de Raiz Fidedigna foi escolhida, clique em **Sim** .
+   * Se a loja Da Autoridade de Certificação de Raiz Fidedigna foi escolhida, clique em **Sim**.
 9. Clique **em OK** em todas as janelas de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar certificado
 No [portal Azure](https://portal.azure.com/)
 
-1. Selecione **Serviços cloud** .
+1. Selecione **Serviços cloud**.
 2. Selecione o serviço de nuvem.
 3. No menu superior, clique em **Certificados.**
-4. Na barra inferior, clique em **Upload** .
+4. Na barra inferior, clique em **Upload**.
 5. Selecione o ficheiro de certificado.
 6. Se for um. Ficheiro PFX, introduza a palavra-passe para a chave privada.
 7. Uma vez concluído, copie a impressão digital do certificado da nova entrada na lista.

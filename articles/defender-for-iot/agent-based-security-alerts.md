@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/16/2021
 ms.author: shhazam
 ms.openlocfilehash: 9e4a65e67200a682313dae8e326128edce3367d1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495764"
 ---
 # <a name="defender-for-iot-devices-security-alerts"></a>Defender para dispositivos IoT alertas de segurança
@@ -33,7 +33,7 @@ Para mais informações, consulte [alertas personalizáveis.](concept-customizab
 
 ## <a name="agent-based-security-alerts"></a>Alertas de segurança baseados em agente
 
-| Name | Gravidade | Origem de dados | Descrição | Medidas de reparação sugeridas |
+| Name | Gravidade | Origem de dados | Description | Medidas de reparação sugeridas |
 |--|--|--|--|--|
 | **Alta** gravidade |  |  |  |
 | Linha de Comando Binário | Alto | Defensor-IoT-micro-agente clássico | La Linux binário sendo chamado/executado a partir da linha de comando foi detetado. Este processo pode ser uma atividade legítima, ou uma indicação de que o seu dispositivo está comprometido. | Reveja o comando com o utilizador que o executou e verifique se se trata de algo que se espera que seja executado no dispositivo. Caso contrário, aumente o alerta para a sua equipa de segurança de informação. |

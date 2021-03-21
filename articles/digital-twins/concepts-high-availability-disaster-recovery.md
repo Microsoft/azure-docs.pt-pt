@@ -8,10 +8,10 @@ ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790821"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins alta disponibilidade e recuperação de desastres
@@ -68,7 +68,7 @@ Para as melhores práticas em HA/DR, consulte as seguintes orientações do Azur
 * O artigo [*Azure Business Continuity Technical Guidance*](/azure/architecture/framework/resiliency/overview) descreve um quadro geral para ajudá-lo a pensar na continuidade do negócio e na recuperação de desastres. 
 * O trabalho [*de recuperação de desastres e alta disponibilidade para aplicações Azure*](/azure/architecture/framework/resiliency/backup-and-recovery) fornece orientação de arquitetura sobre estratégias para aplicações Azure para alcançar alta disponibilidade (HA) e recuperação de desastres (DR).
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 Leia mais sobre como começar com as soluções Azure Digital Twins:
  

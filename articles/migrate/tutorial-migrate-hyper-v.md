@@ -5,16 +5,16 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878177"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604581"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -135,12 +135,7 @@ Com a descoberta concluída, pode começar a replicação de Hiper-VMs para Azur
 ## <a name="provision-for-the-first-time"></a>Provisão pela primeira vez
 
 Se este for o primeiro VM que está a replicar no projeto Azure Migrate, a Azure Migrate: A Migração de Servidores fornece automaticamente estes recursos no mesmo grupo de recursos que o projeto.
-
-- **Autocarro de** serviço : Azure Migrate: A Migração do Servidor utiliza o Service Bus para enviar mensagens de orquestração de replicação para o aparelho.
-- **Conta de armazenamento gateway**: Azure Migrate: A migração do servidor utiliza a conta de armazenamento gateway para armazenar informações estatais sobre os VMs que estão a ser replicados.
-- **Conta de armazenamento de** registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
-- **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação. Devia ter configurado as permissões de que o cofre-chave precisa para aceder à conta de armazenamento quando [preparou o Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) para avaliação e migração de Hiper-VM. 
-
+- **Conta de armazenamento de cache**: O software do fornecedor de recuperação do site Azure instalado em anfitriões Hyper-V envia dados de replicação para os VMs configurados para replicação numa conta de armazenamento (conhecida como conta de armazenamento de cache, ou conta de armazenamento de registo) na sua subscrição. O serviço Azure Migrate copia então os dados de replicação carregados da conta de armazenamento para os discos geridos por réplicas correspondentes ao VM. A conta de armazenamento de cache precisa de ser especificada enquanto configura a replicação para um VM e o portal Azure Migrate cria automaticamente uma para o projeto Azure Migrate quando a replicação é configurada pela primeira vez no projeto.
 
 ## <a name="track-and-monitor"></a>Rastreio e monitor
 
@@ -227,6 +222,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

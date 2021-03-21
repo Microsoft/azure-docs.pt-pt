@@ -7,17 +7,17 @@ author: dcstwh
 ms.author: weetok
 ms.date: 09/08/2020
 ms.openlocfilehash: 704360ac37e016de9efe2248181f7db358f5a7cf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371486"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Autoria visual na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A experiência de interface de utilizador da Azure Data Factory (UX) permite-lhe autoria visual e implanta recursos para a sua fábrica de dados sem ter de escrever nenhum código. Pode arrastar as atividades para uma tela de gasoduto, realizar ensaios, depurar iterativamente e implementar e monitorizar as suas operações de oleoduto.
+A experiência de interface de utilizador da Azure Data Factory (UX) permite-lhe autoria visual e implanta recursos para a sua fábrica de dados sem ter de escrever nenhum código. Pode arrastar as atividades para uma tela do pipeline, executar testes, depurar iterativamente e implementar e monitorizar as execuções de pipelines.
 
 Atualmente, o Azure Data Factory UX só é suportado no Microsoft Edge e no Google Chrome.
 

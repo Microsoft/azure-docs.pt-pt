@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 88ac8bb1bc804604b96d5c90025b8325a6ce4962
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/11/2021
+ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503130"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604258"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -32,10 +32,54 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 
 ## <a name="march-2021"></a>março de 2021
 
-- [Integração de incidentes microsoft 365 Defender](#microsoft-365-defender-incident-integration) (pré-visualização pública)
+- [Regras de automação e livros de jogadas desencadeados por incidentes](#automation-rules-and-incident-triggered-playbooks) (incluindo documentação totalmente nova do livro de jogadas)
+- [Novos enriquecimentos de alerta: mapeamento de entidades melhoradas e detalhes personalizados](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Imprima os seus livros de Azure Sentinel ou guarde como PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [Filtros de incidentes e preferências de classificação agora guardadas na sua sessão (visualização pública)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
+- [Integração de incidentes microsoft 365 Defender (visualização pública)](#microsoft-365-defender-incident-integration-public-preview)
 - [Novos conectores de serviço da Microsoft que utilizam a Política Azure](#new-microsoft-service-connectors-using-azure-policy)
+ 
+### <a name="automation-rules-and-incident-triggered-playbooks"></a>Regras de automação e livros de jogadas desencadeados por incidentes
 
-### <a name="microsoft-365-defender-incident-integration"></a>Integração de incidentes do Microsoft 365 Defender
+As regras de automação são um novo conceito no Azure Sentinel, permitindo-lhe gerir centralmente a automatização do tratamento de incidentes. Além de permitir atribuir playbooks a incidentes (não apenas a alertas como antes), as regras de automação também permitem automatizar respostas para várias regras de análise ao mesmo tempo, marcar, atribuir ou fechar incidentes sem necessidade de playbooks, e controlar a ordem de ações que são executadas. As regras de automação irão simplificar o uso da automatização no Azure Sentinel e permitir-lhe-ão simplificar fluxos de trabalho complexos para os seus processos de orquestração de incidentes.
+
+Saiba mais com esta [explicação completa das regras de automação.](automate-incident-handling-with-automation-rules.md)
+
+Como mencionado acima, os playbooks podem agora ser ativados com o gatilho do incidente, além do gatilho de alerta. O gatilho do incidente fornece aos seus playbooks um conjunto maior de entradas para trabalhar (uma vez que o incidente inclui todos os dados de alerta e entidade também), dando-lhe ainda mais potência e flexibilidade nos seus fluxos de trabalho de resposta. Os livros de jogadas desencadeados por incidentes são ativados por serem chamados das regras de automação.
+
+Saiba mais sobre [as capacidades melhoradas dos playbooks](automate-responses-with-playbooks.md)e como [criar um fluxo de trabalho de resposta](tutorial-respond-threats-playbook.md) utilizando livros de jogadas juntamente com as regras de automação.
+
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Novos enriquecimentos de alerta: mapeamento de entidades melhoradas e detalhes personalizados
+
+Enriqueça os seus alertas de duas novas formas de torná-los mais utilizáveis e mais informativos.
+
+Comece por levar o mapeamento da sua entidade para o próximo nível. Agora é possível mapear quase 20 tipos de entidades, desde utilizadores, anfitriões e endereços IP, até ficheiros e processos, até caixas de correio, recursos Azure e dispositivos IoT. Também pode utilizar vários identificadores para cada entidade, para fortalecer a sua identificação única. Isto dá-lhe um conjunto de dados muito mais rico nos seus incidentes, proporcionando uma correlação mais ampla e uma investigação mais poderosa. [Aprenda a nova forma de mapear entidades](map-data-fields-to-entities.md) nos seus alertas.
+
+[Leia mais sobre as entidades](entities-in-azure-sentinel.md) e veja a [lista completa das entidades disponíveis e dos seus identificadores.](entities-reference.md)
+
+Dê um impulso ainda maior às suas capacidades de investigação e resposta, personalizando os seus alertas para os detalhes da superfície dos seus eventos crus. Traga visibilidade de conteúdo de eventos para os seus incidentes, dando-lhe cada vez mais poder e flexibilidade na resposta e investigação de ameaças à segurança. [Saiba como apresentar detalhes personalizados](surface-custom-details-in-alerts.md) nos seus alertas.
+
+
+
+### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Imprima os seus livros de Azure Sentinel ou guarde como PDF
+
+Agora pode imprimir livros de trabalho do Azure Sentinel, que também lhe permite exportar para PDFs e economizar localmente ou partilhar.
+
+No seu livro, selecione o menu de opções > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Imprimir o conteúdo**. Em seguida, selecione a sua impressora ou **selecione Guardar o PDF** conforme necessário.
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Imprima o seu livro ou guarde como PDF.":::
+
+Para mais informações, consulte [Tutorial: Visualize e monitorize os seus dados.](tutorial-monitor-your-data.md)
+
+### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>Filtros de incidentes e preferências de classificação agora guardadas na sua sessão (visualização pública)
+
+Agora, os filtros e a triagem de incidentes são guardados durante toda a sua sessão do Azure Sentinel, mesmo navegando para outras áreas do produto.
+Enquanto ainda estiver na mesma sessão, navegar de volta à área [de Incidentes](tutorial-investigate-cases.md) em Azure Sentinel mostra os seus filtros e a triagem tal como o deixou.
+
+> [!NOTE]
+> Os filtros e a triagem de incidentes não são guardados depois de deixar o Azure Sentinel ou refrescar o seu navegador.
+
+### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Integração de incidentes microsoft 365 Defender (visualização pública)
 
 A integração de incidentes microsoft [365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) do Azure Sentinel permite transmitir todos os incidentes M365D em Azure Sentinel e mantê-los sincronizados entre ambos os portais. Incidentes de M365D (anteriormente conhecido como Microsoft Threat Protection ou MTP) incluem todos os alertas, entidades e informações relevantes associados, fornecendo-lhe contexto suficiente para realizar triagem e investigação preliminar em Azure Sentinel. Uma vez em Sentinel, os Incidentes permanecerão bi-direccionalmente sincronizados com m365D, permitindo-lhe tirar partido dos benefícios de ambos os portais na sua investigação de incidentes.
 
@@ -60,8 +104,8 @@ Os clientes ainda poderão enviar os registos manualmente para instâncias espec
 
 - [Livro de certificação do modelo de maturidade da cibersegurança (CMMC)](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Conectores de dados de terceiros](#third-party-data-connectors)
-- [Insights da UEBA na página da entidade](#ueba-insights-in-the-entity-page)
-- [Pesquisa melhorada de incidentes](#improved-incident-search)
+- [Insights da UEBA na página da entidade (visualização pública)](#ueba-insights-in-the-entity-page-public-preview)
+- [Melhoria da pesquisa de incidentes (visualização pública)](#improved-incident-search-public-preview)
 
 ### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Livro de certificação do modelo de maturidade da cibersegurança (CMMC)
 
@@ -117,13 +161,13 @@ A nossa coleção de integrações de terceiros continua a crescer, com trinta c
 - [Tendência Micro XDR](connect-data-sources.md)
 - [VMware ESXi](connect-vmware-esxi.md)
 
-### <a name="ueba-insights-in-the-entity-page"></a>Insights da UEBA na página da entidade
+### <a name="ueba-insights-in-the-entity-page-public-preview"></a>Insights da UEBA na página da entidade (visualização pública)
 
 As páginas de detalhes da entidade Azure Sentinel fornecem um [painel insights,](identify-threats-with-entity-behavior-analytics.md#entity-insights)que exibe insights comportamentais sobre a entidade e ajuda a identificar rapidamente anomalias e ameaças à segurança.
 
 Se tiver [a UEBA ativada,](ueba-enrichments.md)e tiver selecionado um prazo de pelo menos quatro dias, este painel de insights incluirá também as seguintes novas secções para insights da UEBA:
 
-|Section  |Descrição  |
+|Section  |Description  |
 |---------|---------|
 |**UEBA Insights**     | Resume as atividades anómalas do utilizador: <br>- Em locais geográficos, dispositivos e ambientes<br>- Através de horizontes de tempo e frequência, em comparação com a história do próprio utilizador <br>- Comparado com o comportamento dos pares <br>- Comparado com o comportamento da organização     |
 |**Pares de utilizadores baseados na adesão ao Grupo de Segurança**     |   Lista os pares do utilizador com base na adesão do Azure AD Security Groups, fornecendo às equipas de operações de segurança uma lista de outros utilizadores que partilham permissões semelhantes.  |
@@ -131,7 +175,7 @@ Se tiver [a UEBA ativada,](ueba-enrichments.md)e tiver selecionado um prazo de p
 |**Indicadores de ameaça relacionados com o utilizador**     |  Lista uma coleção de ameaças conhecidas relativas a endereços IP representados nas atividades do utilizador. As ameaças são listadas por tipo de ameaça e família, e são enriquecidas pelo serviço de inteligência de ameaça da Microsoft.       |
 |     |         |
 
-### <a name="improved-incident-search"></a>Pesquisa melhorada de incidentes
+### <a name="improved-incident-search-public-preview"></a>Melhoria da pesquisa de incidentes (visualização pública)
 
 Melhorámos a experiência de pesquisa de incidentes do Azure Sentinel, permitindo-lhe navegar mais rapidamente através de incidentes enquanto investiga uma ameaça específica.
 
@@ -145,17 +189,17 @@ Ao procurar incidentes em Azure Sentinel, pode agora pesquisar pelos seguintes d
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
-- [Assistente de regras de análise: Experiência de edição de consulta melhorada (pré-visualização pública)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
+- [Assistente de regras de análise: Experiência de edição de consulta melhorada (visualização pública)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Módulo Az.SecurityInsights PowerShell (pré-visualização pública)](#azsecurityinsights-powershell-module-public-preview)
 - [Conector de base de dados SQL](#sql-database-connector)
-- [Conector Dinâmico 365](#dynamics-365-connector)
+- [Conector Dinâmico 365 (Visualização pública)](#dynamics-365-connector-public-preview)
 - [Melhores comentários de incidentes](#improved-incident-comments)
 - [Clusters dedicados log analytics](#dedicated-log-analytics-clusters)
 - [Aplicativos lógicos geridos identidades](#logic-apps-managed-identities)
 - [Melhor afinação de regras com os gráficos de pré-visualização da regra de análise](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Assistente de regras de análise: Experiência de edição de consulta melhorada (pré-visualização pública)
+### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Assistente de regras de análise: Experiência de edição de consulta melhorada (visualização pública)
 
 O assistente de regras de análise Azure Sentinel Agendado agora fornece as seguintes melhorias para consultas de escrita e edição:
 
@@ -183,7 +227,7 @@ O Azure SQL é um motor de base de dados totalmente gerido, Plataforma-as-a-Serv
 
 Para obter mais informações, consulte [os diagnósticos de diagnóstico e registos de auditoria da base de dados Connect Azure SQL](connect-azure-sql-logs.md).
 
-### <a name="dynamics-365-connector"></a>Conector Dinâmico 365
+### <a name="dynamics-365-connector-public-preview"></a>Conector Dinâmico 365 (Visualização pública)
 
 O Azure Sentinel fornece agora um conector para o Microsoft Dynamics 365, que permite recolher o utilizador, administração e suporte de registos de atividades da Dynamics 365 no Azure Sentinel. Pode utilizar estes dados para ajudá-lo a auditar a totalidade das ações de processamento de dados que estão a decorrer e analisá-los para possíveis falhas de segurança.
 

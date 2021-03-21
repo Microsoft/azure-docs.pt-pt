@@ -1,5 +1,5 @@
 ---
-title: Exportar uma aplicação Azure IoT Central / Microsoft Docs
+title: Exportar uma aplicação Azure IoT Central | Microsoft Docs
 description: Como gestor de soluções, quero exportar um modelo de candidatura para poder reutilizá-lo.
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91651841"
 ---
 # <a name="export-your-application"></a>Exportar a aplicação
@@ -74,7 +74,7 @@ Para criar um modelo de aplicação a partir de uma aplicação IoT Central exis
 
 ### <a name="use-an-application-template"></a>Use um modelo de aplicação
 
-Para utilizar um modelo de aplicação para criar uma nova aplicação IoT Central, precisa de um **Link Shareable**previamente criado. Cole o **Link Shareable** na barra de endereços do seu navegador. A **configuração de uma** página de aplicação apresenta com o seu modelo de aplicação personalizado selecionado:
+Para utilizar um modelo de aplicação para criar uma nova aplicação IoT Central, precisa de um **Link Shareable** previamente criado. Cole o **Link Shareable** na barra de endereços do seu navegador. A **configuração de uma** página de aplicação apresenta com o seu modelo de aplicação personalizado selecionado:
 
 ![Criar uma aplicação a partir de um modelo](media/howto-use-app-templates/create-app.png)
 

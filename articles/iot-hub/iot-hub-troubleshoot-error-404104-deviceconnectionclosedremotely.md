@@ -10,10 +10,10 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
 ms.openlocfilehash: 673a76417739fa59a91979cca7c6807a584868f0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538260"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
@@ -62,13 +62,13 @@ O IoT Hub pode estar a passar por um problema transitório. Consulte a [causa do
 
 Ver [solução IoTHubUnautized 401003](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#solution-1)
 
-### <a name="solution-2"></a>Solução 2
+### <a name="solution-2"></a>Solução 2
 
 - Certifique-se de que o dispositivo tem uma boa conectividade com o IoT Hub [testando a ligação](tutorial-connectivity.md). Se a rede não for fiável ou intermitente, não recomendamos o aumento do valor de manter vivo porque pode resultar na deteção (através de alertas do Azure Monitor, por exemplo) demorando mais tempo. 
 
 - Utilize as versões mais recentes dos [SDKs IoT](iot-hub-devguide-sdks.md).
 
-### <a name="solution-3"></a>Solução 3
+### <a name="solution-3"></a>Solução 3
 
 Consulte [soluções para erros internos do servidor IoT Hub](iot-hub-troubleshoot-error-500xxx-internal-errors.md#solution).
 

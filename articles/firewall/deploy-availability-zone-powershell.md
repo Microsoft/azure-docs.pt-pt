@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 46ecc4754a064e26e61365ed6ca167606bef9d81
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94656110"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Implementar uma Firewall do Azure com Zonas de Disponibilidade através do Azure PowerShell
@@ -58,6 +58,6 @@ New-AzFirewall `
   -Zone 1,2,3
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

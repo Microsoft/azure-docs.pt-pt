@@ -6,10 +6,10 @@ ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: ca3a73cde9549bfcdfd47bc4f1955904fac69d1c
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102632361"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-azure-resource-manager-bicep-file"></a>Tutorial: Utilize ficheiros de parâmetros para implementar o ficheiro Bicep do Gestor de Recursos Azure

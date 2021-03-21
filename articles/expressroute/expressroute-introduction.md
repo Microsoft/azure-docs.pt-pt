@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
 ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206956"
 ---
 # <a name="what-is-azure-expressroute"></a>O que é o Azure ExpressRoute?
-O ExpressRoute permite-lhe estender as suas redes no local para a nuvem da Microsoft através de uma ligação privada com a ajuda de um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, como o Microsoft Azure e o Microsoft 365.
+O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada com a ajuda de um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligação aos serviços cloud da Microsoft, como o Microsoft Azure e o Microsoft 365.
 
-A conectividade pode ser a partir de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto, ou uma ligação cruzada virtual através de um provedor de conectividade em uma instalação de coinstalação. As ligações ExpressRoute não passam pela Internet pública. Isto permite que as ligações ExpressRoute ofereçam mais fiabilidade, velocidades mais rápidas, latências consistentes e maior segurança do que as ligações típicas através da Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
+A conectividade pode ser a partir de uma rede any-to-any (VPN IP), uma rede Ethernet ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa instalação de colocalização. As ligações do ExpressRoute não utilizam a Internet pública. Isto permite que as ligações do ExpressRoute ofereçam maior fiabilidade, velocidades mais rápidas, latências consistentes e maior segurança do que as ligações típicas através da Internet. Para obter informações sobre como ligar a sua rede à Microsoft utilizando o ExpressRoute, consulte [os modelos de conectividade ExpressRoute](expressroute-connectivity-models.md).
 
 ![Visão geral da ligação ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -28,7 +28,7 @@ A conectividade pode ser a partir de uma rede de qualquer para qualquer (IP VPN)
 * Conectividade global com os serviços da Microsoft em todas as regiões com o suplemento ExpressRoute Premium.
 * Encaminhamento dinâmico entre a rede e a Microsoft através do BGP.
 * Redundância incorporada em cada localização de peering para maior fiabilidade.
-* Tempo de atividade da ligação [SLA](https://azure.microsoft.com/support/legal/sla/).
+* Ligação tempo [SLA](https://azure.microsoft.com/support/legal/sla/).
 * Suporte QoS para o Skype para empresas.
 
 Para obter mais informações, consulte as [ExpressRoute FAQ (FAQs do ExpressRoute)](expressroute-faqs.md).
@@ -112,7 +112,7 @@ Pode escolher um modelo de faturação que funciona melhor para si. Escolha entr
 ## <a name="faq"></a>FAQ
 Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](expressroute-faqs.md).
 
-## <a name="whats-new"></a><a name="new"></a>Novidades
+## <a name="whats-new"></a><a name="new"></a>O que há de novo?
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade ExpressRoute na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute)
 
