@@ -11,10 +11,10 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9bf1cc197a7d6977ccb6ef69e157d9f8a76a58d5
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470722"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -40,11 +40,11 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 |---------- | -------- | ----------- |
-| PolíticaSesoversão | Sim | A versão do esquema que deve ser usada para executar a apólice. O valor deve ser `0.3.0.0` |
+| PolíticaSesoversão | Yes | A versão do esquema que deve ser usada para executar a apólice. O valor deve ser `0.3.0.0` |
 | TenantObjectId | No | O identificador de objetos único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
-| TenantId | Sim | O identificador único do inquilino a que esta política pertence. |
-| PolicyId | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado por *B2C_1A_* |
-| PublicPolicyUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e a identificação da apólice. |
+| TenantId | Yes | O identificador único do inquilino a que esta política pertence. |
+| PolicyId | Yes | O identificador único para a apólice. Este identificador deve ser pré-fixado por *B2C_1A_* |
+| PublicPolicyUri | Yes | O URI para a apólice, que é a combinação da identificação do inquilino e a identificação da apólice. |
 | Envio de munições | No | Valores possíveis: `Production` , ou `Development` . . `Production` é a predefinição. Use esta propriedade para depurar a sua apólice. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
 | UserJourneyRecorderEndpoint | No | O ponto final que é utilizado para a exploração madeireira. O valor deve ser definido `urn:journeyrecorder:applicationinsights` se o atributo existir. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
 
@@ -64,7 +64,7 @@ O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy:**
 
 O elemento **TrustFrameworkPolicy** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Política de Base| 0:1| O identificador de uma política de base. |
 | [BuildingBlocks](buildingblocks.md) | 0:1 | Os blocos de construção da sua política. |
@@ -76,7 +76,7 @@ Para herdar uma política de outra política, um elemento **basePolicy** deve se
 
 O elemento **BasePolicy** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | O identificador do seu inquilino Azure AD B2C. |
 | PolicyId | 1:1 | O identificador da política dos pais. |

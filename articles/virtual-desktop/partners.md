@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97802716"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de desktop virtual do Windows
@@ -142,7 +142,7 @@ Quando um utilizador assina o seu ambiente de trabalho virtual, o software Fabul
 
 ![Logotipo de TI flexxível](./media/partners/flexxible.png)
 
-Flexxible IT é um parceiro de valor acrescentado do Windows Virtual Desktop que oferece às organizações a capacidade de escalar, monitorizar e gerir eficientemente o Windows Virtual Desktop e a infraestrutura de workspace Citrix. Flexxible/ O SUITE permite que os administradores de TI provisem e gerem inteligentemente as cargas de trabalho do Windows Virtual Desktop no local e acolhidas em Azure.
+Flexxible IT é um parceiro de valor acrescentado do Windows Virtual Desktop que oferece às organizações a capacidade de escalar, monitorizar e gerir eficientemente o Windows Virtual Desktop e a infraestrutura de workspace Citrix. Flexxível| O SUITE permite que os administradores de TI provisem e gerem inteligentemente as cargas de trabalho do Windows Virtual Desktop no local e acolhidas em Azure.
 
 A tecnologia flexxible IT alarga o valor tanto do Windows Virtual Desktop como do Citrix Workspace, automatizando processos comuns para simplificar a configuração da infraestrutura, o fornecimento de ambientes de trabalho e a gestão do dia-a-dia. Sem necessidade de scripts complexos do PowerShell ou processos manuais demorados, o SUITE proporciona uma implementação escalável no ambiente de trabalho, monitorização e reporte extensivo e gestão delegada segura. Estas funcionalidades permitem-lhe focar-se em fornecer níveis de serviço melhorados e uma experiência de ambiente de trabalho virtual do Windows de qualidade para os seus utilizadores.
 

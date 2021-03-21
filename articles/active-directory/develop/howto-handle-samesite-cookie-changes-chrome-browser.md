@@ -1,5 +1,5 @@
 ---
-title: Como lidar com as alterações de cookies SameSite no navegador Chrome Rio Azure
+title: Como lidar com as alterações de cookies SameSite no navegador Chrome | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como lidar com as alterações de cookies SameSite no navegador Chrome.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c4f054259aa7c3f2a9fdfaeeadd64f26dd9bea
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116976"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "94444916"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Processar as alterações de cookies do SameSite no browser do Chrome
 
@@ -81,11 +81,8 @@ para mais detalhes sobre como lidar com os cookies SameSite em ASP.NET e ASP.NET
 
 Saiba mais sobre o SameSite e o cenário da aplicação Web:
 
-> [!div class="nextstepaction"]
-> [FAQ do Google Chrome no SameSite](https://www.chromium.org/updates/same-site/faq)
+- [FAQ do Google Chrome no SameSite](https://www.chromium.org/updates/same-site/faq)
 
-> [!div class="nextstepaction"]
-> [Página SameSite de Crómio](https://www.chromium.org/updates/same-site)
+- [Página SameSite de Crómio](https://www.chromium.org/updates/same-site)
 
-> [!div class="nextstepaction"]
-> [Cenário: aplicação web que assina nos utilizadores](scenario-web-app-sign-user-overview.md)
+- [Cenário: aplicação web que assina nos utilizadores](scenario-web-app-sign-user-overview.md)

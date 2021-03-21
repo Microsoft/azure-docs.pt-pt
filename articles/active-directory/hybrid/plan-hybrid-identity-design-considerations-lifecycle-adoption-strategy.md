@@ -1,5 +1,5 @@
 ---
-title: Design de identidade híbrida - estratégia de adoção de ciclo de vida Azure / Microsoft Docs
+title: Design de identidade híbrida - estratégia de adoção de ciclo de vida Azure | Microsoft Docs
 description: Ajuda a definir as tarefas híbridas de gestão da identidade de acordo com as opções disponíveis para cada fase de ciclo de vida.
 documentationcenter: ''
 services: active-directory
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf68406d4b0806e1d533e0bb8669a01939387989
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997754"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar estratégia híbrida de adoção de ciclo de vida

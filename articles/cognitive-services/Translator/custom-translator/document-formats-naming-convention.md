@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 9598d3c1d339d1c37b02892cc83164acae447434
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895854"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Formatos de documentos e orientação da convenção de nomeação
@@ -22,7 +22,7 @@ Qualquer ficheiro utilizado para tradução personalizada deve ter pelo menos **
 
 Esta tabela inclui todos os formatos de ficheiros suportados que pode utilizar para construir o seu sistema de tradução:
 
-| Formato            | Extensões   | Descrição                                                                                                                                                                                                                                                                    |
+| Formato            | Extensões   | Description                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | XLIFF             | . XLF, . XLIFF | Um formato documental paralelo, exportação de sistemas de memória de tradução. As línguas utilizadas são definidas dentro do ficheiro.                                                                                                                                                              |
 | TMX               | . TMX         | Um formato documental paralelo, exportação de sistemas de memória de tradução. As línguas utilizadas são definidas dentro do ficheiro.                                                                                                                                                              |
@@ -51,6 +51,6 @@ Por exemplo, para carregar dois documentos paralelos dentro de um zip para um si
 
 Os ficheiros de memória de tradução (TMX, XLF, XLIFF, LCL, XLSX) não são obrigados a seguir a convenção específica de nomeação de idiomas.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre o [projeto](workspace-and-project.md#what-is-a-custom-translator-project) para criá-los e geri-los.

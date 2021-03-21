@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94653339"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral das etiquetas FQDN
@@ -28,7 +28,7 @@ A tabela a seguir mostra as atuais etiquetas FQDN que pode utilizar. A Microsoft
 
 ## <a name="current-fqdn-tags"></a>Etiquetas FQDN atuais
 
-|Tag FQDN  |Descrição  |
+|Tag FQDN  |Description  |
 |---------|---------|
 |Windows Update     |Permitir o acesso de saída ao Microsoft Update, conforme descrito em [Como Configurar uma Firewall para atualizações de software](/mem/configmgr/sum/get-started/install-a-software-update-point).|
 |Diagnóstico do Windows|Permitir o acesso de saída a todos os [pontos finais do Windows Diagnostics](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
@@ -37,11 +37,11 @@ A tabela a seguir mostra as atuais etiquetas FQDN que pode utilizar. A Microsoft
 |Azure Backup|Permite o acesso de saída aos serviços de Backup Azure.|
 |Azure HDInsight|Permite o acesso de saída para o tráfego da plataforma HDInsight. Esta etiqueta não cobre o tráfego de Armazenamento ou SQL específico do cliente da HDInsight. Ative estes utilizando [pontos finais de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicione-os manualmente.|
 |WindowsVirtualDesktop (WVD)|Permite o tráfego da plataforma virtual de ambiente de trabalho do Windows. Esta etiqueta não cobre pontos finais específicos de armazenamento e autocarro de serviço criados pela WVD. Além disso, são necessárias regras de rede DNS e KMS. Para obter mais informações sobre a integração do Azure Firewall com o WVD, consulte [use Azure Firewall para proteger as implementações do Ambiente de Trabalho Virtual da Janela](protect-windows-virtual-desktop.md).|
-|Serviço de Kubernetes do Azure (AKS)|Permite o acesso de saída à AKS. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Serviço Azure Kubernetes (AKS).](protect-azure-kubernetes-service.md)|
+|Azure Kubernetes Service (AKS)|Permite o acesso de saída à AKS. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Serviço Azure Kubernetes (AKS).](protect-azure-kubernetes-service.md)|
 
 > [!NOTE]
 > Ao selecionar a Etiqueta FQDN numa regra de aplicação, o campo protocol:porta deve ser definido em **https**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a implantar uma Firewall Azure, consulte [Tutorial: Implemente e configuure Firewall utilizando o portal Azure](tutorial-firewall-deploy-portal.md).

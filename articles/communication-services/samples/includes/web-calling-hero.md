@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: mikben
 ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103487947"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
@@ -27,7 +27,7 @@ Neste quickstart da amostra, vamos aprender como a amostra funciona antes de pas
 
 Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure.
 

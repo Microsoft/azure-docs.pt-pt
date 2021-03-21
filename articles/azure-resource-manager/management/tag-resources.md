@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: fb93673b643fd13efe9ffea148c5fb1d072f9e05
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896228"
 ---
-# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use etiquetas para organizar os seus recursos Azure e hierarquia de gestão
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utilizar etiquetas para organizar os recursos do Azure e a hierarquia de gestão
 
 Aplica etiquetas nos seus recursos Azure, grupos de recursos e subscrições para organizá-las logicamente numa taxonomia. Cada etiqueta é composta por um nome e um par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
@@ -709,7 +709,7 @@ As seguintes limitações aplicam-se às etiquetas:
 * Cada recurso, grupo de recursos e subscrição podem ter um máximo de 50 pares de nome/valor de etiqueta. Se precisar de aplicar mais etiquetas do que o número máximo permitido, utilize uma corda JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Um grupo de recursos ou subscrição pode conter muitos recursos que cada um tem 50 pares de nome/valor de tag.
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
 * As etiquetas não podem ser aplicadas a recursos clássicos como os Cloud Services.
-* Os nomes das etiquetas não podem conter estes caracteres: `<` `>` , `%` `&` `\` `?``/`
+* Os nomes das etiquetas não podem conter estes caracteres: `<` , , , , `>` `%` `&` `\` `?` , `/`
 
    > [!NOTE]
    > Atualmente, as zonas de DNS do Azure e os serviços de Gerente de Tráfego também não permitem a utilização de espaços na etiqueta.
@@ -718,7 +718,7 @@ As seguintes limitações aplicam-se às etiquetas:
    >
    > A Azure Automation e a Azure CDN suportam apenas 15 tags em recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte [o suporte da Tag para os recursos do Azure.](tag-support.md)
 * Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação de recursos e marcação.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)

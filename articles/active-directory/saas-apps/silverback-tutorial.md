@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Silverback Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com silverback | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Silverback.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a70b6bb50b397429af1af41869bbe9ecf7e8bad9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Ative Directory com Silverback
@@ -222,7 +222,7 @@ Para permitir que os utilizadores da Azure AD iniciem sessão em Silverback, dev
     exemplo, Clique em **Guardar**.
 
 > [!NOTE]
-> Se não pretender criar cada utilizador manualmente, Ative a Caixa **de Verificação dinâmica** da criação do utilizador sob o Provedor de Autenticação **Admin**  >  **Authentication Provider**.
+> Se não pretender criar cada utilizador manualmente, Ative a Caixa **de Verificação dinâmica** da criação do utilizador sob o Provedor de Autenticação **Admin**  >  .
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

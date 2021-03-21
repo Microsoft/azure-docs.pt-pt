@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de um objeto que não está a sincronizar com o Azure Ative Directory Microsoft Docs'
+title: Resolva um objeto que não está sincronizado com o Azure Ative Directory | Microsoft Docs'
 description: Resolva um objeto que não está a sincronizar com o Azure Ative Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a0c8a42edad08308095469039c048f8dd8552af
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413467"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Resolução de problemas um objeto que não está sincronizado com o Azure Ative Directory
@@ -104,7 +104,7 @@ Se o separador [**Operações**](#operations) não apresentar erros, siga o obje
 
 ### <a name="searching-for-an-object-in-the-cs"></a>À procura de um objeto no CS
 
-No Gestor de Serviço de Sincronização, selecione **Connectors** , selecione o Conector de Diretório Ativo e selecione **o Espaço do Conector de Busca**.
+No Gestor de Serviço de Sincronização, selecione **Connectors**, selecione o Conector de Diretório Ativo e selecione **o Espaço do Conector de Busca**.
 
 Na caixa **Scope,** selecione **RDN** quando pretender pesquisar no atributo CN, ou selecione **DN ou âncora** quando pretender pesquisar o atributo Nome **distinto.** Introduza um valor e selecione **Pesquisar**. 
  
@@ -143,7 +143,7 @@ Na figura anterior, também pode ver na coluna **PasswordSync** que o espaço do
 A partir do **separador Linhagem,** pode chegar ao metaverso selecionando [**Metaverse Object Properties**](#mv-attributes).
 
 ### <a name="preview"></a>Pré-visualizar
-No canto inferior esquerdo da janela **Connector Space Object Properties** encontra-se o botão **de pré-visualização.** Selecione este botão para abrir a página **de pré-visualização,** onde pode sincronizar um único objeto. Esta página é útil se estiver a resolver algumas regras de sincronização personalizadas e quiser ver o efeito de uma mudança num único objeto. Pode selecionar uma **sincronização Completa** ou uma **sincronização Delta.** Também pode selecionar **''' ''' 'Gerar Pré-visualização',** que apenas mantém a alteração na memória. Ou **selecione 'Commit Preview',** que atualiza o metaverso e encena todas as alterações nos espaços de conector alvo.  
+No canto inferior esquerdo da janela **Connector Space Object Properties** encontra-se o botão **de pré-visualização.** Selecione este botão para abrir a página **de pré-visualização,** onde pode sincronizar um único objeto. Esta página é útil se estiver a resolver algumas regras de sincronização personalizadas e quiser ver o efeito de uma mudança num único objeto. Pode selecionar uma **sincronização Completa** ou uma **sincronização Delta.** Também pode selecionar **''' ' 'Gerar Pré-visualização',** que apenas mantém a alteração na memória. Ou **selecione 'Commit Preview',** que atualiza o metaverso e encena todas as alterações nos espaços de conector alvo.  
 
 ![Screenshot da página de pré-visualização, com pré-visualização de início selecionado](./media/tshoot-connect-object-not-syncing/preview.png)  
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 4d6c77b3e8920cabc397cdcbc235baefa031e5ab
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97655497"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
@@ -111,7 +111,7 @@ Para obter mais informações, reveja a política de privacidade da Microsoft no
 
 As seguintes diretrizes de segurança são implementadas no Data Box:
 
-|Diretriz   |Descrição   |
+|Diretriz   |Description   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | Para proteção contra água e poeira         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Para resistir a condições de transporte adversas          |

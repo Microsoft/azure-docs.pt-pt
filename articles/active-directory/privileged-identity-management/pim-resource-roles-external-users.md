@@ -1,5 +1,5 @@
 ---
-title: Atribuir funções de recursos da Azure aos hóspedes da PIM - Azure AD ! Microsoft Docs
+title: Atribua funções de recurso Azure aos hóspedes da PIM - Azure AD | Microsoft Docs
 description: Saiba como convidar utilizadores convidados externos e atribuir funções de recursos Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010644"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide os utilizadores convidados e atribua funções de recursos da Azure na Gestão de Identidade Privilegiada
@@ -55,7 +55,7 @@ Para se certificar de que pode convidar os hóspedes para a sua organização, d
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 
-1. Selecione as definições do Utilizador **do Diretório Ativo Azure**  >  **User settings**.
+1. Selecione as definições do Utilizador **do Diretório Ativo Azure**  >  .
 
 1. **Selecione Gerir as definições de colaboração externa**.
 
@@ -157,7 +157,7 @@ Pode ver os registos de auditoria para acompanhar o que os hóspedes estão a fa
 
     ![Recursos Azure - Página de auditoria de recursos que enumera o tempo, o solicitador e a ação](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Para ver a atividade para o hóspede, selecione o nome de convidado dos Utilizadores **do Diretório Ativo Azure**  >  **Users**  >  *guest name*.
+1. Para ver a atividade para o hóspede, selecione o nome de convidado dos Utilizadores **do Diretório Ativo Azure**  >    >  .
 
 1. Selecione **registos de auditoria** para ver os registos de auditoria para a organização. Se necessário, pode especificar filtros.
 

@@ -1,5 +1,5 @@
 ---
-title: ReclamaçõesSchema - Azure Ative Directory B2C / Microsoft Docs
+title: ReclamaçõesSchema - Azure Ative Directory B2C | Microsoft Docs
 description: Especificar o elemento ClaimsSchema de uma política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,17 +11,17 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654035"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **ClaimsSchema** define os tipos de reclamação que podem ser referenciados como parte da política. O esquema de reclamações é o lugar onde declaras as tuas reivindicações. Uma reclamação pode ser o primeiro nome, apelido, nome de exibição, número de telefone e muito mais. SinistrosO elemento do Caixa contém lista de elementos **ClaimType.** O elemento **ClaimType** contém o atributo **Id,** que é o nome de reclamação.
+O elemento **ClaimsSchema** define os tipos de afirmações que podem ser referenciados como parte da política. O esquema de afirmações é o lugar onde declaras as afirmações. Uma reclamação pode ser o primeiro nome, apelido, nome de exibição, número de telefone e muito mais. SinistrosO elemento do Caixa contém lista de elementos **ClaimType.** O elemento **ClaimType** contém o atributo **Id,** que é o nome de reclamação.
 
 ```xml
 <BuildingBlocks>
@@ -48,7 +48,7 @@ O elemento **ClaimType** contém o seguinte atributo:
 
 O elemento **ClaimType** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | O título que é apresentado aos utilizadores em vários ecrãs. O valor pode ser [localizado.](localization.md) |
 | DataType | 1:1 | O tipo de reclamação. |
@@ -66,10 +66,10 @@ Pré-arquivação deValidação| 0:1 | Uma referência a um elemento **Predicate
 
 O elemento **DataType** suporta os seguintes valores:
 
-| Tipo | Descrição |
+| Tipo | Description |
 | ------- | ----------- |
 |boolean|Representa um valor Boolean `true` `false` (ou)|
-|date| Representa um instante no tempo, tipicamente expresso como uma data de um dia. O valor da data segue-se à convenção ISO 8601.|
+|data| Representa um instante no tempo, tipicamente expresso como uma data de um dia. O valor da data segue-se à convenção ISO 8601.|
 |dataTime|Representa um instante no tempo, tipicamente expresso como data e hora do dia. O valor da data segue-se à convenção ISO 8601.|
 |duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato de é `PnYnMnDTnHnMnS` , onde `P` indica positivo, ou por valor `N` negativo. `nY` é o número de anos seguido de um literal `Y` . `nMo` é o número de meses seguido de um literal `Mo` . `nD` é o número de dias seguidos por um literal `D` . Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano, e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
 |número de telefone|Representa um número de telefone. |
@@ -84,7 +84,7 @@ O elemento **DataType** suporta os seguintes valores:
 
 Os **DefaultPartnerClaimTypes** podem conter o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Protocolo | 1:n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
 
@@ -171,7 +171,7 @@ O elemento **restrição** pode conter o seguinte atributo:
 
 O elemento **restrição** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Enumeração | 1:n | As opções disponíveis na interface do utilizador para o utilizador selecionar para uma reclamação, como um valor numa queda. |
 | Padrão | 1:1 | A expressão regular a usar. |
@@ -243,7 +243,7 @@ O Azure AD B2C suporta uma variedade de tipos de entrada de utilizador, tais com
 
 O elemento **UserInputType** disponível nos tipos de entrada do utilizador:
 
-| UserInputType | Tip de reclamação suportado | Descrição |
+| UserInputType | Tip de reclamação suportado | Description |
 | --------- | -------- | ----------- |
 |CheckboxMultiSelect| `string` |Caixa de entrega multi-selecção. O valor de reclamação está representado numa cadeia delimiter de vírgula dos valores selecionados. |
 |DataTimeDropdown | `date`, `dateTime` |Drop-downs para selecionar um dia, mês e ano. |

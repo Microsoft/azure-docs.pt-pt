@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Change the ADSync service account / Microsoft Docs'
+title: 'Sincronização Azure AD Connect: Alterar a conta de serviço ADSync | Microsoft Docs'
 description: Este documento tópico descreve a chave de encriptação e como abandoná-la após a alteração da palavra-passe.
 services: active-directory
 keywords: Conta de serviço sincronizado Azure AD, senha
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996564"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterar a senha de conta de serviço ADSync

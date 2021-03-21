@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure PureCloud by Genesys para fornecimento automático de utilizadores com Azure Ative Directory / Microsoft Docs'
+title: 'Tutorial: Configure PureCloud by Genesys para o fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como providenciar e desprovisionar automaticamente as contas de utilizadores do Azure AD para PureCloud by Genesys.
 services: active-directory
 author: Zhchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/05/2020
 ms.author: Zhchia
 ms.openlocfilehash: bbb9b47e42ce195a98801ee08d177efd409c597e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181669"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configurar PureCloud by Genesys para fornecimento automático de utilizadores

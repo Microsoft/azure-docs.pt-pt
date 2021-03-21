@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000033"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para a equipa liderar uma equipa de processos de ciência de dados de equipa
@@ -99,7 +99,7 @@ O projeto de equipa A página **de resumo** abre, com url de página *\/ / \<ser
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Mude o nome do repositório padrão myTeam para TeamUtilities
 
-1. Na **Repos** página **resumo** do projeto **MyTeam,** em que serviço gostaria de **começar?** 
+1. Na página **resumo** do projeto **MyTeam,** em que serviço gostaria de **começar?** 
    
    ![Selecione Repos](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
    
@@ -226,7 +226,7 @@ git push
 ```
 
 > [!NOTE]
-> Se esta for a primeira vez que se compromete com um repositório git, poderá ter de configurar parâmetros globais *user.name* e *user.email* antes de executar o `git commit` comando. Executar os dois comandos seguintes:
+> Se esta for a primeira vez que se compromete com um repositório de Git, poderá ter de configurar parâmetros globais *user.name* e *user.email* antes de executar o `git commit` comando. Executar os dois comandos seguintes:
 > 
 > `git config --global user.name <your name>`
 > 

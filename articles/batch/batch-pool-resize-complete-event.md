@@ -4,10 +4,10 @@ description: Referência para lote pool redimensionar evento completo. Veja um e
 ms.topic: reference
 ms.date: 12/28/2020
 ms.openlocfilehash: 9d3342587b5f6e0e134f4295a8c79deeb23df94b
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97803651"
 ---
 # <a name="pool-resize-complete-event"></a>Evento de conclusão de redimensionamento de conjunto

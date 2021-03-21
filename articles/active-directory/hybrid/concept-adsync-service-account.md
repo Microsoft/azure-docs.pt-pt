@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Conta de serviço ADSync / Microsoft Docs'
+title: 'Azure AD Connect: AdSync conta de serviço | Microsoft Docs'
 description: Este tópico descreve a conta de serviço ADSync e fornece as melhores práticas em relação à conta.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410900"
 ---
 # <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)

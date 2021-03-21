@@ -1,15 +1,15 @@
 ---
-title: Criar um laboratório para gerir e desenvolver com a Azure SQL Database Serviços de Laboratório Azure
+title: Crie um laboratório para gerir e desenvolver com a Azure SQL Database | Serviços de Laboratório Azure
 description: Aprenda a criar um laboratório para gerir e desenvolver com a Base de Dados Azure SQL.
 author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659714"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Crie um laboratório para gerir e desenvolver com o SQL Server
@@ -142,7 +142,7 @@ Aqui está um exemplo de uma possível estimativa de custos para esta classe:
 >[!IMPORTANT]
 >A estimativa de custos é apenas para fins. Para obter detalhes atuais sobre os preços, consulte [o Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

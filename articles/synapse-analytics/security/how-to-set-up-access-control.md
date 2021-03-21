@@ -10,10 +10,10 @@ ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472251"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Como configurar o controlo de acesso para o seu espaço de trabalho Synapse 
@@ -43,7 +43,7 @@ Para garantir um espaço de trabalho da Sinapse, seguirá um padrão de configur
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por nomes à sua escolha.
 
-|Definição | Nome padrão | Descrição |
+|Definição | Nome padrão | Description |
 | :------ | :-------------- | :---------- |
 | **Espaço de trabalho sinapse** | `workspace1` |  O nome que o espaço de trabalho da Sinapse terá. |
 | **Conta ADLSGEN2** | `storage1` | A conta ADLS para usar com o seu espaço de trabalho. |

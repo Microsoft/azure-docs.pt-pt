@@ -9,15 +9,15 @@ ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
 ms.openlocfilehash: 5f2b77c7d8e1a2da9517183043231b717b6cceab
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734078"
 ---
 ### <a name="general-query-limits"></a>Limites gerais de consulta
 
-| Limite | Descrição |
+| Limite | Description |
 |:---|:---|
 | Linguagem da consulta | O Azure Monitor utiliza a mesma [linguagem de consulta kusto que](/azure/kusto/query/) o Azure Data Explorer. Consulte [as diferenças linguísticas de consulta de registo do Azure Monitor](/azure/data-explorer/kusto/query/) para elementos linguísticos KQL não suportados no Azure Monitor. |
 | Regiões do Azure | As consultas de registo podem experimentar sobrecargas excessivas quando os dados abrangem espaços de trabalho log analytics em várias regiões do Azure. Consulte [os limites de consulta](../articles/azure-monitor/logs/scope.md#query-scope-limits) para mais detalhes. |
@@ -27,7 +27,7 @@ ms.locfileid: "101734078"
 O Azure Monitor tem vários limites de estrangulamento para proteger contra os utilizadores que enviam um número excessivo de consultas. Tal comportamento pode potencialmente sobrecarregar os recursos de backend do sistema e comprometer a capacidade de resposta do serviço. Os seguintes limites destinam-se a proteger os clientes de interrupções e a garantir um nível de serviço consistente. O estrangulamento do utilizador e os limites são concebidos para impactar apenas cenários de utilização extremas e não devem ser relevantes para o uso típico.
 
 
-| Medir | Limite por utilizador | Descrição |
+| Medir | Limite por utilizador | Description |
 |:---|:---|:---|
 | Consultas simultâneas | 5 | Se já existem 5 consultas em execução para o utilizador, quaisquer novas consultas são colocadas numa fila de conuncy por utilizador. Quando uma das consultas de execução terminar, a próxima consulta será retirada da fila e iniciada. Isto não inclui consultas de regras de alerta.
 | Tempo na fila da concurrency | 3 minutos | Se uma consulta se sentar na fila por mais de 3 minutos sem ser iniciada, será terminada com uma resposta de erro HTTP com o código 429. |

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 11/23/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1fa4a458a4e3e1df1d84c343a32e3a41a4a25e75
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95759028"
 ---
 # <a name="audit-logs-for-azure-attestation"></a>Registos de auditoria para a Azure Attestation
@@ -47,7 +47,7 @@ Para cada um destes eventos, a Azure Attestation recolhe as seguintes informaç�
 - Operação Sucesso
 - Operação Caller, que pode ser qualquer um dos seguintes:
     - Azure AD UPN
-    - ID de objeto
+    - ID do Objeto
     - Certificado
     - ID de Inquilino do Azure AD
 - Operação Target, que pode ser qualquer um dos seguintes:

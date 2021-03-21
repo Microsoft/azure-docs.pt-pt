@@ -1,5 +1,5 @@
 ---
-title: Serviços de Domínio Azure Seguro / Microsoft Docs
+title: Serviços de domínio Azure AD seguros | Microsoft Docs
 description: Saiba como desativar cifras fracas, protocolos antigos e sincronização de hash de palavra-passe NTLM para um domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: a89c898e150facc9860d86e18a7acc42f5e0f441
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618863"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Desative cifras fracas e sincronização de hash de palavra-passe para garantir um domínio gerido por Serviços de Domínio do Diretório Ativo Azure

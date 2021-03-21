@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migrar serviços web a partir de Bing Maps Microsoft Azure Maps'
+title: 'Tutorial: Migrar serviços web da Bing Maps | Microsoft Azure Maps'
 description: Tutorial sobre como migrar serviços web de Bing Maps para Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97679077"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutorial: Migrar o serviço web a partir de Bing Maps
@@ -163,7 +163,7 @@ A Azure Maps reverse geocoding API tem algumas funcionalidades adicionais não d
 
 A tabela seguinte cruza referências aos valores de tipo de entidade Bing Maps aos nomes de propriedade equivalentes no Azure Maps.
 
-| Tipo de Entidade Bing Maps | Tipo de entidade Azure Maps comparável               | Descrição                                |
+| Tipo de Entidade Bing Maps | Tipo de entidade Azure Maps comparável               | Description                                |
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Endereço*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Bairro*                             |
@@ -234,12 +234,12 @@ A Azure Maps encaminhamento API também suporta o encaminhamento de camiões den
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **N/D**                                    |
+| `vehicleTrailers` (`vt`)                 | **N/A**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **N/D**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **N/D**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **N/D**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **N/D**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **N/A**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **N/A**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **N/A**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **N/A**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -300,12 +300,12 @@ A Azure Maps encaminhamento API também suporta o parâmetro de encaminhamento d
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **N/D**                                    |
+| `vehicleTrailers` (`vt`)                | **N/A**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **N/D**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **N/D**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **N/D**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **N/D**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **N/A**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **N/A**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **N/A**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **N/A**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 
@@ -472,7 +472,7 @@ Por exemplo, no Azure Maps, uma linha azul com 50% de opacidade e uma espessura 
 
 O Azure Maps fornece uma API para calcular os tempos de viagem e distâncias entre um conjunto de locais como matriz de distância. A matriz de distância Azure Maps API é comparável à matriz de distância API em Bing Maps;
 
--   [Matriz de rota](/rest/api/maps/route/postroutematrixpreview): Calcula assíncroticamente os tempos e distâncias de viagem para um conjunto de origens e destinos. Suportam-se até 700 células por pedido (o número de origens multiplicadas pelo número de destinos). Com esse constrangimento em mente, exemplos de possíveis dimensões matricias são: `700x1` `50x10` . `10x10` `28x25` `10x70`
+-   [Matriz de rota](/rest/api/maps/route/postroutematrixpreview): Calcula assíncroticamente os tempos e distâncias de viagem para um conjunto de origens e destinos. Suportam-se até 700 células por pedido (o número de origens multiplicadas pelo número de destinos). Com esse constrangimento em mente, exemplos de possíveis dimensões matricias são: `700x1` `50x10` . . . `10x10` `28x25` . `10x70`
 
 > [!NOTE]
 > Um pedido para a matriz de distância API só pode ser feito usando um pedido POST com a informação de origem e destino no corpo do pedido.</p>

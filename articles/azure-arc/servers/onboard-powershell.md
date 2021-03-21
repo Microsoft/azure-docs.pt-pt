@@ -4,10 +4,10 @@ description: Neste artigo, aprende a instalar o agente e a ligar uma máquina ao
 ms.date: 10/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 07a00de9077378ce3e3f7a7578b66e93d1b04f2b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584948"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Ligue as máquinas híbridas ao Azure utilizando o PowerShell

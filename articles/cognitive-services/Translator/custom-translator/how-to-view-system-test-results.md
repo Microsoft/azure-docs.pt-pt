@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: cae2c95e56312c58d396d1e578f4677ce2b14aa2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895939"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
@@ -100,7 +100,7 @@ Para atualizar as definições de implementação:
 >[!Note]
 >Se selecionar **o "Undeployed"** para todas as regiões, o modelo não é despreocupado de todas as regiões e colocado num estado não desocupado. Está agora indisponível para uso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Comece a utilizar o seu modelo de tradução personalizado implementado através do [Microsoft Tradutor Text API V3](../reference/v3-0-translate.md?tabs=curl).
 - Aprenda [a gerir as definições](how-to-manage-settings.md) para partilhar o seu espaço de trabalho, gerir a chave de subscrição.

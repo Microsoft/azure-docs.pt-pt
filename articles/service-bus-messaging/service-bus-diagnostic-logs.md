@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de todos os registos operacion
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585269"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Ativar registos de diagnóstico para Service Bus

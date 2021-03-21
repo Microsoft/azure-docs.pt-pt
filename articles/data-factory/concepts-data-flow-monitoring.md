@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/22/2020
 ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004886"
 ---
 # <a name="monitor-data-flows"></a>Monitorize fluxos de dados
@@ -47,7 +47,7 @@ Quando o seu Fluxo de Dados é executado em Spark, a Azure Data Factory determin
 
 * Quando seleciona transformações individuais, recebe feedback adicional no painel da direita que mostra estatísticas de partição, contagem de colunas, distorção (quão uniformemente são os dados distribuídos por divisórias) e kurtose (quão espinhosos são os dados).
 
-* Quando selecionar a Pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo do seu fluxo de dados para aterrar na Pia. São:
+* Quando selecionar a Pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo do seu fluxo de dados para aterrar na Pia. A saber:
 
   * Computação: Utiliza a coluna para processamento condicional ou dentro de uma expressão no fluxo de dados, mas não a aterra na Pia
   * Derivado: A coluna é uma nova coluna que gerou no seu fluxo, isto é, não estava presente na Fonte
@@ -58,7 +58,7 @@ Quando o seu Fluxo de Dados é executado em Spark, a Azure Data Factory determin
   
 ![A screenshot mostra a opção Refresh.](media/data-flow/monitornew.png "Monitorização do fluxo de dados novo")
 
-## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo total de processamento de pia vs. Tempo de Processamento de Transformação
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo Total de Processamento de Sinks vs. Tempo de Processamento de Transformações
 
 Cada fase de transformação inclui um tempo total para que essa fase se complete com cada tempo de execução de partição totalizado. Quando clicar na Pia verá "Tempo de Processamento da Pia". Este tempo inclui o total do tempo de transformação *mais* o tempo de E/S que demorou a escrever os seus dados para a sua loja de destino. A diferença entre o tempo de processamento do lavatório e o total da transformação é a hora de E/S para escrever os dados.
 

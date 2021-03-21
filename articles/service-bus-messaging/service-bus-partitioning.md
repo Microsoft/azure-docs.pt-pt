@@ -1,14 +1,14 @@
 ---
-title: Crie filas e tópicos do Azure Service Bus divididos Microsoft Docs
+title: Crie filas e tópicos de autocarro da Azure Service com divisórias | Microsoft Docs
 description: Descreve como dividir filas e tópicos do Service Bus usando vários corretores de mensagens.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97796640"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
