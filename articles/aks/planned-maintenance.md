@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8526d7c1c436074fbf6f838caf232e1abee06339
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201570"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670380"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Utilize a Manutenção Planeada para agendar janelas de manutenção para o seu cluster Azure Kubernetes Service (AKS) (pré-visualização)
 
-O seu cluster AKS tem uma manutenção regular efetuado nele automaticamente. Por defeito, este trabalho pode acontecer a qualquer momento. A Manutenção Planeada permite-lhe agendar janelas de manutenção semanais que irão atualizar o seu plano de controlo e minimizar o impacto da carga de trabalho. Uma vez programado, toda a sua manutenção ocorrerá durante a janela selecionada. Pode agendar uma ou mais janelas semanais no seu cluster especificando um intervalo de dia ou de tempo num dia específico. As janelas de manutenção são configuradas utilizando o Azure CLI.
+O seu cluster AKS tem uma manutenção regular efetuado nele automaticamente. Por defeito, este trabalho pode acontecer a qualquer momento. A Manutenção Planeada permite-lhe agendar janelas de manutenção semanais que irão atualizar o seu plano de controlo, bem como as suas cápsulas de sistema kube numa instância VMSS e minimizar o impacto da carga de trabalho. Uma vez programado, toda a sua manutenção ocorrerá durante a janela selecionada. Pode agendar uma ou mais janelas semanais no seu cluster especificando um intervalo de dia ou de tempo num dia específico. As janelas de manutenção são configuradas utilizando o Azure CLI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -107,7 +107,7 @@ Também pode utilizar um ficheiro JSON para criar uma janela de manutenção em 
         "notAllowedTime": [
           {
             "start": "2021-05-26T03:00:00Z",
-            "end": "2021-05-30T012:00:00Z"
+            "end": "2021-05-30T12:00:00Z"
           }
         ]
 }

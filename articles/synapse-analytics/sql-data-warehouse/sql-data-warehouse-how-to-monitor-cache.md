@@ -2,21 +2,21 @@
 title: Otimize a sua cache Gen2
 description: Aprenda a monitorizar a sua cache Gen2 utilizando o portal Azure.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 041751b5b23dbb3153f1ae638303579a860c0e5b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: fed3ed2c87342d557872e97bfc2a6c4d142b5a3a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020168"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585626"
 ---
 # <a name="how-to-monitor-the-adaptive-cache"></a>Como monitorizar a cache adaptativa
 
@@ -58,5 +58,5 @@ A matriz abaixo descreve cenários baseados nos valores das métricas de cache:
 > [!IMPORTANT]
 > Se a percentagem de cache ou cache utilizada não for atualizada após a reprodução da sua carga de trabalho, o seu conjunto de trabalho já pode estar a residir na memória. Apenas as mesas de loja de colunas agrupadas estão em cache.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a sintonização geral do desempenho da consulta, consulte [a execução da consulta do Monitor](sql-data-warehouse-manage-monitor.md#monitor-query-execution).

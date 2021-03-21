@@ -8,10 +8,10 @@ ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 844530c6d1650b5fddd27b10c775c4364a3f5147
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102124470"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Registo de aplicações estruturado para Azure Spring Cloud
@@ -23,16 +23,16 @@ Para melhorar a experiência de consulta de registo, é necessário um registo d
 
 **Requisitos de esquema JSON:**
 
-| Chave Json      | Tipo de valor Json|  Necessário | Coluna em Log Analytics| Descrição |
+| Chave Json      | Tipo de valor Json|  Necessário | Coluna em Log Analytics| Description |
 | --------------| ------------|-----------|-----------------|--------------------------|
-| carimbo de data/hora     | string      |     Sim   | AppTimestamp    | timetamp em formato UTC  |
+| carimbo de data/hora     | string      |     Yes   | AppTimestamp    | timetamp em formato UTC  |
 | madeireiro        | cadeia (de carateres)      |     No    | Madeir          | madeireiro                   |
 | nível         | cadeia (de carateres)      |     No    | PersonalizadoSLevel     | nível de log                |
 | fio        | cadeia (de carateres)      |     No    | Fio          | fio                   |
 | message       | cadeia (de carateres)      |     No    | Mensagem         | mensagem de log              |
 | stackTrace    | cadeia (de carateres)      |     No    | StackTrace      | traço de pilha de exceção    |
 | exceçãoClass| cadeia (de carateres)      |     No    | Classe de Exceções  | nome de classe exceção     |
-| mdc           | JSON aninhado |     Não    |                 | contexto de diagnóstico mapeado|
+| mdc           | JSON aninhado |     No    |                 | contexto de diagnóstico mapeado|
 | mdc.traceId   | cadeia (de carateres)      |     No    | TraceId         |trace Id para rastreador distribuído|
 | mdc.spanId    | cadeia (de carateres)      |     No    | SpanId          |id de extensão para rastreador distribuído |
 |               |             |           |                 |                          |

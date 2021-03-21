@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: fbe387b3f86dfd10cbc4e80a02ee2528e43c4b67
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103016888"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Azure Media Services
@@ -225,7 +225,7 @@ http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-
 
 * Apple HTTP Live Streaming (HLS) V3
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{localizador ID}/{filename}.ism/Manifest (formato=m3u8-aapl-v3)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest (formato=m3u8-aapl-v3)
 
 http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (formato=m3u8-aapl-v3)
 

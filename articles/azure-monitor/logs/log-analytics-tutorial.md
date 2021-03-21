@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
 ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041149"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial do Log Analytics

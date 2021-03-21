@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93e9d9a552ab1bff16ca15d6bb11faeb5d47a503
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c27916afb0d199bcb32db9d43202e552a4a04f53
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204453"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593140"
 ---
 # <a name="monitor-cloud-tiering"></a>Monitorizar o nível da nuvem
 Existem duas formas de monitorizar a sua política de nivelamento em nuvem: a lâmina de propriedades do ponto final do servidor e o Monitor Azure.
@@ -55,7 +55,7 @@ Para ser mais específico sobre o que pretende que os seus gráficos sejam exibi
  
 Para obter detalhes sobre os diferentes tipos de métricas para Azure File Sync e como usá-las, consulte [Monitor Azure File Sync](storage-sync-files-monitoring.md).
 
-Para mais detalhes sobre como usar métricas, consulte [Começar com o Azure Metrics Explorer.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+Para mais detalhes sobre como usar métricas, consulte [Começar com o Azure Metrics Explorer.](../../azure-monitor/essentials/metrics-getting-started.md)
 
 Se quiser alterar a sua política de nivelamento em nuvem, consulte [as políticas de tiering de nuvens](storage-sync-choose-cloud-tiering-policies.md).
 

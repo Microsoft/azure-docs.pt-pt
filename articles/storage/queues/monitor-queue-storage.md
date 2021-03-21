@@ -11,10 +11,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 8f49485d00379f5845569976e793f06d56a8967d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506825"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitorização do armazenamento da fila Azure
@@ -75,7 +75,7 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 ### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Navegue até à sua conta de armazenamento.
 

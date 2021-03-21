@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
 ms.openlocfilehash: 5fa17083be01a702ebac888eecc17a4969b754ef
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561600"
 ---
 # <a name="azure-storage-partners-for-primary-and-secondary-storage"></a>Parceiros de armazenamento Azure para armazenamento primário e secundário
@@ -21,7 +21,7 @@ Este artigo destaca as empresas parceiras da Microsoft que fornecem uma soluçã
 
 ## <a name="verified-partners"></a>Parceiros verificados
 
-| Parceiro | Descrição | Ligação website/produto |
+| Parceiro | Description | Ligação website/produto |
 | ------- | ----------- | -------------------- |
 | ![Rio Nasuni](./media/nasuni-logo.png) |**Rio Nasuni**<br>Nasuni é uma plataforma de armazenamento de ficheiros que substitui a empresa NAS e servidores de ficheiros, incluindo a infraestrutura associada para BCDR e tiering de disco. Os aparelhos de borda virtual mantêm os ficheiros rapidamente acessíveis e sincronizados com a nuvem. A consola de gestão permite-lhe gerir vários sites de armazenamento a partir de um local, incluindo a capacidade de provisão, monitorização, controlo e relatório da sua infraestrutura de ficheiros. A versão contínua para a nuvem traz tempos de restauração de ficheiros para minutos.<br><br>O armazenamento de ficheiros em nuvem Nasuni construído no Azure elimina os servidores tradicionais de NAS e ficheiros em qualquer número de locais e substitui-o por uma solução de nuvem. O armazenamento de ficheiros em nuvem nasuni fornece armazenamento infinito de ficheiros, backups, recuperação de desastres e partilha de ficheiros em vários locais. Nasuni é um software-as-a-service usado para iniciativas de data-center-to-the-cloud, sincronização de ficheiros de vários localização, partilha e colaboração, e como um companheiro de armazenamento em nuvem para ambientes VDI.|[Página do parceiro](https://www.nasuni.com/partner/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/nasunicorporation.nasuni)|
 | ![Panzura](./media/panzura-logo.png) |**Panzura**<br>Panzura é o tecido que transforma o armazenamento em nuvem Azure num sistema global de ficheiros de alto desempenho. Ao fornecer uma fonte de dados autoritária para todos os utilizadores, a Panzura permite que as empresas utilizem o Azure como um centro de dados globalmente disponível, com toda a funcionalidade e rapidez de um único site NAS, incluindo bloqueio automático de ficheiros, consistência imediata global de dados e desempenho de operação de ficheiros local. |[Página do parceiro](https://panzura.com/partners/microsoft-azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/panzura-file-system.panzura-freedom-filer)|

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 36455b3f6395216bd1ed26c8bd193f0e3ca10b5b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426829"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594602"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar utilizadores usando o Azure Ative Directory
 
@@ -75,7 +75,7 @@ Se tiver um ambiente com o Azure Ative Directory (cloud) e o Windows Server Ativ
 Pode eliminar um utilizador existente utilizando o portal Azure Ative Directory.
 
 >[!Note]
->Tem de ter uma atribuição de função de administrador global ou administrador de utilizador para eliminar os utilizadores na sua organização. Os administradores globais podem eliminar qualquer utilizadores, incluindo outros administradores. Os administradores do utilizador podem eliminar quaisquer utilizadores não administrativos, administradores da Helpdesk e outros administradores do Utilizador. Para obter mais informações, consulte [permissões de função do Administrador em Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+>Tem de ter uma atribuição de função de administrador global ou administrador de utilizador para eliminar os utilizadores na sua organização. Os administradores globais podem eliminar qualquer utilizadores, incluindo outros administradores. Os administradores do utilizador podem eliminar quaisquer utilizadores não administrativos, administradores da Helpdesk e outros administradores do Utilizador. Para obter mais informações, consulte [permissões de função do Administrador em Azure AD](../roles/permissions-reference.md).
 
 Para eliminar um utilizador, siga estes passos:
 

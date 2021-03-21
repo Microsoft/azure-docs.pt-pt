@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520464"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670567"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -73,6 +73,7 @@ Para parar a proteção e eliminar os dados de cópia de segurança, execute os 
 
          ![O painel de dados de cópia de segurança delete.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
+   Esta opção elimina as cópias de segurança programadas, também elimina cópias de segurança a pedido.
 3. Verifique o ícone **de Notificação:** ![ O ícone de Notificação.](./media/backup-azure-delete-vault/messages.png) Após o fim do processo, o serviço apresenta a seguinte mensagem: *Parar a cópia de segurança e eliminar dados de backup para "* Item de cópia de segurança *".* *Concluída com sucesso a operação.*
 4. Selecione **Refresh** no menu **Itens de cópia de segurança,** para se certificar de que o item de cópia de segurança foi eliminado.
 
@@ -150,7 +151,7 @@ Depois de eliminar os itens de backup no local, siga os próximos passos a parti
 
 Existem dois métodos que pode utilizar para eliminar itens de backup da consola de gestão MABS ou DPM.
 
-#### <a name="method-1"></a>Método 1
+#### <a name="method-1"></a>Método 1
 
 Para parar a proteção e eliminar dados de backup, faça os seguintes passos:
 
@@ -170,7 +171,7 @@ Para parar a proteção e eliminar dados de backup, faça os seguintes passos:
 
     ![Apague o armazenamento online.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
-#### <a name="method-2"></a>Método 2
+#### <a name="method-2"></a>Método 2
 
 Abra a **gestão MABS** ou a consola **de gestão DPM.** De acordo com **o método de proteção de dados Select,** limpe a caixa  **de verificação de proteção** on-line.
 

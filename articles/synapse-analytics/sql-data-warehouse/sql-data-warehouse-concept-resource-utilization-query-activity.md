@@ -2,21 +2,21 @@
 title: Gestão e monitorização - atividade de consulta, utilização de recursos
 description: Saiba quais as capacidades disponíveis para gerir e monitorizar o Azure Synapse Analytics. Utilize o portal Azure e os Dynamic Management Views (DMVs) para compreender a atividade de consulta e a utilização de recursos do seu armazém de dados.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/09/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 96a076ef144af1d32e9ef3ec2903557b8edff006
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e7f093860e9962db055a7551f5cdb608ecad9b29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586712"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585677"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta na Azure Synapse Analytics
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: c49a85c71c9b877be7e143f5caf27dc307fe0c12
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 82a5e90221a77b891df78984c7fddfd63b6532aa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381274"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585422"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Ligue VNets de inquilino transversal a um hub Virtual Wan
 
@@ -90,7 +90,7 @@ Nos passos seguintes, irá alternar entre o contexto das duas subscrições à m
 1. Ligue o VNet ao centro.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $remote
    ```
 
 1. Pode ver a nova ligação em PowerShell ou no portal Azure.
@@ -104,7 +104,7 @@ Nos passos seguintes, irá alternar entre o contexto das duas subscrições à m
 * Pode verificar permissões utilizando as definições de IAM do grupo de recursos do inquilino remoto, ou utilizando comandos Azure PowerShell (Get-AzSubscription).
 * Certifique-se de que as cotações estão incluídas em torno dos nomes de grupos de recursos ou de quaisquer outras variáveis específicas do ambiente (por exemplo. "VirtualHub1" ou "VirtualNetwork1").
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o VIRTUAL WAN, consulte:
 

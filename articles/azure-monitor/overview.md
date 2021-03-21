@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
 ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047167"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
@@ -30,7 +30,7 @@ Apenas alguns exemplos do que pode fazer com o Azure Monitor incluem:
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O seguinte diagrama fornece uma visão geral do Azure Monitor. No centro do diagrama estão as lojas de dados para métricas e registos, que são os dois tipos fundamentais de dados utilizados pelo Azure Monitor. À esquerda estão as [fontes de dados de monitorização](agents/data-sources.md) que povoam estas [lojas de dados.](data-platform.md) À direita estão as diferentes funções que o Azure Monitor desempenha com estes dados recolhidos. Isto inclui ações como análise, alerta e streaming para sistemas externos.
 

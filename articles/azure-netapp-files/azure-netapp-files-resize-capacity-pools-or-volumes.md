@@ -1,5 +1,5 @@
 ---
-title: Redimensionar a capacidade de piscina ou um volume para Azure NetApp Files Microsoft Docs
+title: Redimensione o pool de capacidade ou um volume para os ficheiros Azure NetApp | Microsoft Docs
 description: Aprenda a mudar o tamanho de uma piscina de capacidade ou de um volume. A redimensionamento da capacidade muda a capacidade adquirida dos Ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 869f46207b940521ee0b66b5afa9c6e2718ab04f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012481"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594483"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Redimensionar um conjunto de capacidade ou um volume
 Pode alterar o tamanho de uma piscina de capacidade ou de um volume, se necessário. 
@@ -39,6 +39,21 @@ Pode alterar o tamanho de um volume se necessário. O consumo de capacidade de u
 1. A partir da lâmina de conta Manage NetApp, clique em **Volumes**. 
 2. Clique com o botão direito no nome do volume que pretende redimensionar ou clicar no "..." ícone no final da linha do volume para exibir o menu de contexto.
 3. Utilize as opções do menu de contexto para redimensionar ou eliminar o volume.
+
+## <a name="resize-a-cross-region-replication-destination-volume"></a>Redimensionar um volume de destino de replicação transversal 
+
+Numa relação [de replicação entre regiões,](cross-region-replication-introduction.md) um volume de destino é automaticamente redimensionado com base no tamanho do volume de origem. Como tal, não precisa de redimensionar o volume de destino separadamente. Este comportamento de redimensionamento automático é aplicável quando os volumes estão numa relação de replicação ativa, ou quando o espreitamento de replicação é quebrado com a [operação de ressínc .](cross-region-replication-manage-disaster-recovery.md#resync-replication) 
+
+A tabela seguinte descreve o comportamento de redimensionamento do volume de destino com base no [estado do Mirror:](cross-region-replication-display-health-status.md)
+
+|  Estado do espelho  | Comportamento de redimensionamento do volume de destino |
+|-|-|
+| *Espelhada* | Quando o volume de destino foi inicializado e está pronto para receber atualizações espelhadas, o redimensionamento do volume de origem redimensiona automaticamente os volumes de destino. |
+| *Quebrado* | Quando redimensionar o volume de origem e o estado do Espelho estiver *quebrado,* o volume de destino é automaticamente redimensionado com a [operação de resync](cross-region-replication-manage-disaster-recovery.md#resync-replication).  |
+| *Não inicializada* | Quando redimensionar o volume de origem e o estado do Espelho ainda *não estiver ininicializado,* o redimensionamento do volume de destino tem de ser feito manualmente. Como tal, recomenda-se que aguarde que a inicialização esteja concluída (isto é, quando o estado do Espelho fica *espelhado*) para redimensionar o volume de origem. | 
+
+> [!IMPORTANT]
+> Certifique-se de que tem espaço suficiente nas piscinas de capacidade tanto para a fonte como para os volumes de destino da replicação entre regiões. Quando redimensiona o volume de origem, o volume de destino é automaticamente redimensionado. Mas se a capacidade de alojamento do volume de destino não tiver espaço suficiente, o redimensionamento da fonte e dos volumes de destino falhará.
 
 ## <a name="next-steps"></a>Passos seguintes
 

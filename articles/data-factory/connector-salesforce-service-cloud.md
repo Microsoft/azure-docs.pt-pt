@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: 4075552e2070eba653fba54c7db1d021016644c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 6a712ad1924fd73926ff0e62a7d1b9684eb5b1d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369769"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583123"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copie os dados de e para a Salesforce Service Cloud utilizando a Azure Data Factory
 
@@ -231,6 +231,7 @@ Para copiar dados para a Salesforce Service Cloud, as seguintes propriedades sã
 | nome externoIdField | O nome do campo de identificação externo para a operação de upsert. O campo especificado deve ser definido como "Campo de ID Externo" no objeto Cloud de Serviço Salesforce. Não pode ter valores NULOS nos dados de entrada correspondentes. | Sim para "Upsert" |
 | escreverBatchSize | A contagem de dados escrita para a Salesforce Service Cloud em cada lote. | Não (o padrão é 5.000) |
 | ignoreNullValues | Indica se deve ignorar os valores NUS dos dados de entrada durante uma operação de escrita.<br/>Os valores permitidos são **verdadeiros** e **falsos.**<br>- **Verdade**: Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização ou atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NU QUANDO fizer uma operação de atualização ou atualização. Insira um valor NULO quando fizer uma operação de inserção. | Não (o padrão é falso) |
+| maxConcurrentConnections |O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No |
 
 **Exemplo:**
 

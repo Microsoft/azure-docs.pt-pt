@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ac620909996b03a97a311e5f06c31d6dab8f1a60
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7932ad3b30910e539acfbff2329a03f80a4d1a0b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218651"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670363"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Eliminar um grupo de servidores de hiperescala pós-escala Azure
 
@@ -37,6 +37,11 @@ O formato geral do comando de eliminação é:
 ```console
 azdata arc postgres server delete -n <server group name>
 ```
+Quando executar este comando, ser-lhe-á solicitado que confirme a eliminação do grupo de servidores. Se estiver a utilizar scripts para automatizar as supressões, terá de utilizar o parâmetro de força para contornar o pedido de confirmação. Por exemplo, executaria um comando como: 
+```console
+azdata arc postgres server delete -n <server group name> --force
+```
+
 Para mais detalhes sobre o comando de eliminação, corra:
 ```console
 azdata arc postgres server delete --help

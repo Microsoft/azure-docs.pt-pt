@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 555709776c88dd3003e400bbcefe2ec1cfa0f4af
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/17/2021
+ms.openlocfilehash: ac11b7bc7e53c214f872d400565d50009479afcb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934174"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604428"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem a campos de cordas num índice de pesquisa cognitiva Azure
 
@@ -46,91 +46,114 @@ Indexar com os analisadores da Microsoft é, em média, duas a três vezes mais 
 
 ### <a name="english-analyzers"></a>Analisadores ingleses
 
-O analisador padrão é Standard Lucene, que funciona bem para inglês, mas talvez não tão bem como o analisador inglês de Lucene ou o analisador inglês da Microsoft. 
- 
-+ O analisador inglês de Lucene estende o analisador padrão. Remove possessivos (rastos de palavras), aplica-se como algoritmo de Porter Stemming, e remove palavras de paragem inglesas.  
+O analisador padrão é Standard Lucene, que funciona bem para inglês, mas talvez não tão bem como o analisador inglês de Lucene ou o analisador inglês da Microsoft.
+
++ O analisador inglês de Lucene estende o analisador Standard. Remove possessivos (rastos de palavras), aplica-se como algoritmo de Porter Stemming, e remove palavras de paragem inglesas.  
 
 + O analisador inglês da Microsoft executa a lematização em vez de se conter. Isto significa que pode lidar com formas de palavras inflexidas e irregulares muito melhor, o que resulta em resultados de pesquisa mais relevantes 
 
-## <a name="configuring-analyzers"></a>Configurar analisadores
+## <a name="how-to-specify-a-language-analyzer"></a>Como especificar um analisador de idiomas
 
-Os analisadores linguísticos são usados como está. Para cada campo na definição de índice, pode definir a propriedade do **analisador** para um nome de analisador que especifica a pilha de idioma e linguística (Microsoft ou Lucene). O mesmo analisador será aplicado ao indexar e procurar por esse campo. Por exemplo, você pode ter campos separados para descrições de hotéis ingleses, franceses e espanhóis que existem lado a lado no mesmo índice.
+Desajuste um analisador de idiomas em campos "pesmáveis" do tipo Edm.String durante a definição de campo.
 
-> [!NOTE]
-> Não é possível utilizar um analisador de linguagem diferente no tempo de indexação do que no tempo de consulta para um campo. Essa capacidade é reservada para [analisadores personalizados.](index-add-custom-analyzers.md) Por esta razão, se tentar definir as propriedades **de PesquisaNallyzer** ou **IndexAnalyzer** para o nome de um analisador de idiomas, a API REST devolverá uma resposta de erro. Em vez disso, deve utilizar a propriedade **do analisador.**
+Embora as definições de campo tenham várias propriedades relacionadas com o analisador, apenas a propriedade "analisador" pode ser usada para analisadores de idiomas. O valor do "analisador" deve ser um dos analisadores linguísticos da lista de analisadores de suporte.
 
-Utilize o parâmetro de consulta **searchFields** para especificar qual o campo específico da linguagem a procurar nas suas consultas. Pode rever exemplos de consulta que incluem a propriedade do analisador em [Documentos de Busca.](/rest/api/searchservice/search-documents) 
+```json
+{
+  "name": "hotels-sample-index",
+  "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "en.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null
+    },
+    {
+      "name": "Description_fr",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "fr.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null
+    },
+```
 
-Para obter mais informações sobre propriedades de índice, consulte [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index). Para obter mais informações sobre a análise na Pesquisa Cognitiva Azure, consulte [Os Analisadores em Pesquisa Cognitiva Azure.](./search-analyzers.md)
+Para obter mais informações sobre a criação de um índice e definição de propriedades de campo, consulte [Create Index (REST)](/rest/api/searchservice/create-index). Para obter mais informações sobre a análise de texto, consulte [os Analisadores na Pesquisa Cognitiva Azure.](search-analyzers.md)
 
 <a name="language-analyzer-list"></a>
 
-## <a name="language-analyzer-list"></a>Lista de analisadores de idiomas 
- Abaixo está a lista de línguas suportadas juntamente com nomes de analisadores lucene e Microsoft.  
+## <a name="supported-language-analyzers"></a>Analisadores de linguagem apoiados
+
+ Abaixo está a lista de idiomas suportados, com nomes de analisadores lucene e Microsoft.  
 
 | Linguagem | Nome do analisador da Microsoft | Nome do analisador lucene |
-|--|--|--|
-| Árabe | ar.microsoft | ar.lucene |
-| Arménio |  | hy.lucene |  |
-| Bangla | bn.microsoft |  |  |
-| Basco |  | eu.lucene |  |
-| Búlgaro | bg.microsoft | bg.lucene |  |
-| Catalão | ca.microsoft | ca.lucene |  |
-| Chinês simplificado | zh-Hans.microsoft | zh-Hans.lucene |  |
-| Chinês tradicional | zh-Hant.microsoft | zh-Hant.lucene |  |
-| Croata | hr.microsoft |  |  |
-| Checo | cs.microsoft | cs.lucene |  |
-| Dinamarquês | da.microsoft | da.lucene |  |
-| Neerlandês | nl.microsoft | nl.lucene |  |
-| Inglês | en.microsoft | en.lucene |  |
-| Estónio | et.microsoft |  |  |
-| Finlandês | fi.microsoft | fi.lucene |  |
-| Francês | fr.microsoft | fr.lucene |  |
-| Galego |  | gl.lucene |  |
-| Alemão | de.microsoft | de.lucene |  |
-| Grego | el.microsoft | el.lucene |  |
-| Guzerate | gu.microsoft |  |  |
-| Hebraico | he.microsoft |  |  |
-| Hindi | hi.microsoft | hi.lucene |  |
-| Húngaro | hu.microsoft | hu.lucene |  |
-| Islandês | is.microsoft |  |  |
-| Indonésio (Bahasa) | id.microsoft | id.lucene |  |
-| Irlandês |  | ga.lucene |  |
-| Italiano | it.microsoft | it.lucene |  |
-| Japonês | ja.microsoft | ja.lucene |  |
-| Canarês | kn.microsoft |  |  |
-| Coreano | ko.microsoft | ko.lucene |  |
-| Letão | lv.microsoft | lv.lucene |  |
-| Lituano | lt.microsoft |  |  |
-| Malaiala | ml.microsoft |  |  |
-| Malaio (latim) | ms.microsoft |  |  |
-| Marata | mr.microsoft |  |  |
-| Norueguês | nb.microsoft | no.lucene |  |
-| Persa |  | fa.lucene |  |
-| Polaco | pl.microsoft | pl.lucene |  |
-| Português (Brasil) | pt-Br.microsoft | pt-Br.lucene |  |
-| Português (Portugal) | pt-Pt.microsoft | pt-pt.lucene |  |
-| Punjabi | pa.microsoft |  |  |
-| Romeno | ro.microsoft | ro.lucene |  |
-| Russo | ru.microsoft | ru.lucene |  |
-| Sérvio (Cirílico) | sr-cirílico.microsoft |  |  |
-| Sérvio (Latim) | sr-latin.microsoft |  |  |
-| Eslovaco | sk.microsoft |  |  |
-| Esloveno | sl.microsoft |  |  |
-| Espanhol | es.microsoft | es.lucene |  |
-| Sueco | sv.microsoft | sv.lucene |  |
-| Tâmil | ta.microsoft |  |  |
-| Telugu | te.microsoft |  |  |
-| Tailandês | th.microsoft | th.lucene |  |
-| Turco | tr.microsoft | tr.lucene |  |
-| Ucraniano | uk.microsoft |  |  |
-| Urdu | seu.microsoft |  |  |
-| Vietnamita | vi.microsoft |  |  |
+|----------|-------------------------|----------------------|
+| Árabe   | ar.microsoft | ar.lucene |
+| Arménio |           | hy.lucene |
+| Bangla   | bn.microsoft |  |
+| Basco   |  | eu.lucene |
+| Búlgaro | bg.microsoft | bg.lucene |
+| Catalão  | ca.microsoft | ca.lucene |
+| Chinês simplificado | zh-Hans.microsoft | zh-Hans.lucene |
+| Chinês tradicional | zh-Hant.microsoft | zh-Hant.lucene |
+| Croata | hr.microsoft |  |
+| Checo | cs.microsoft | cs.lucene |
+| Dinamarquês | da.microsoft | da.lucene |
+| Neerlandês | nl.microsoft | nl.lucene |
+| Inglês | en.microsoft | en.lucene |
+| Estónio | et.microsoft |  |
+| Finlandês | fi.microsoft | fi.lucene |
+| Francês | fr.microsoft | fr.lucene |
+| Galego |  | gl.lucene |
+| Alemão | de.microsoft | de.lucene |
+| Grego | el.microsoft | el.lucene |
+| Guzerate | gu.microsoft |  |
+| Hebraico | he.microsoft |  |
+| Hindi | hi.microsoft | hi.lucene |
+| Húngaro | hu.microsoft | hu.lucene |
+| Islandês | is.microsoft |  |
+| Indonésio (Bahasa) | id.microsoft | id.lucene |
+| Irlandês |  | ga.lucene |
+| Italiano | it.microsoft | it.lucene |
+| Japonês | ja.microsoft | ja.lucene |
+| Canarês | kn.microsoft |  |
+| Coreano | ko.microsoft | ko.lucene |
+| Letão | lv.microsoft | lv.lucene |
+| Lituano | lt.microsoft |  |
+| Malaiala | ml.microsoft |  |
+| Malaio (latim) | ms.microsoft |  |
+| Marata | mr.microsoft |  |
+| Norueguês | nb.microsoft | no.lucene |
+| Persa |  | fa.lucene |
+| Polaco | pl.microsoft | pl.lucene |
+| Português (Brasil) | pt-Br.microsoft | pt-Br.lucene |
+| Português (Portugal) | pt-Pt.microsoft | pt-pt.lucene |
+| Punjabi | pa.microsoft |  |
+| Romeno | ro.microsoft | ro.lucene |
+| Russo | ru.microsoft | ru.lucene |
+| Sérvio (Cirílico) | sr-cirílico.microsoft |  |
+| Sérvio (Latim) | sr-latin.microsoft |  |
+| Eslovaco | sk.microsoft |  |
+| Esloveno | sl.microsoft |  |
+| Espanhol | es.microsoft | es.lucene |
+| Sueco | sv.microsoft | sv.lucene |
+| Tâmil | ta.microsoft |  |
+| Telugu | te.microsoft |  |
+| Tailandês | th.microsoft | th.lucene |
+| Turco | tr.microsoft | tr.lucene |
+| Ucraniano | uk.microsoft |  |
+| Urdu | seu.microsoft |  |
+| Vietnamita | vi.microsoft |  |
 
  Todos os analisadores com nomes anotados com **Lucene** são alimentados pelos [analisadores linguísticos de Apache Lucene.](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )
 
 ## <a name="see-also"></a>Ver também  
 
-+ [Criar índice &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)  
-
-+ [Aula de Nome LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)
++ [Criar um índice](search-what-is-an-index.md)
++ [Criar um índice de vários idiomas](search-language-support.md)
++ [Criar Índice (REST API)](/rest/api/searchservice/create-index)  
++ [Aula lexicalAnalyzerName (Azure SDK para .NET)](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

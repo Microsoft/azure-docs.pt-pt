@@ -12,10 +12,10 @@ ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
 ms.openlocfilehash: f63d7aed75b14f5f008a639d667d8806b233b9fa
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174603"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Suporte autenticação sem palavras-passe com teclas FIDO2 em apps que desenvolve
@@ -42,7 +42,7 @@ O método de inscrição que foi mais recentemente utilizado por um utilizador s
 
 ## <a name="platform-specific-best-practices"></a>Melhores práticas específicas da plataforma
 
-### <a name="desktop"></a>Ambiente de trabalho
+### <a name="desktop"></a>Ambiente de Trabalho
 
 As opções recomendadas para a implementação da autenticação são, por ordem:
 

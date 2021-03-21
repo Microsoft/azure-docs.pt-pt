@@ -7,10 +7,10 @@ ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
 ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101705165"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
@@ -90,7 +90,7 @@ Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers,
 
 Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers, etc.) não bloqueiem as seguintes portas:
 
-| Porta              | Protocolo | Permitir    | Descrição |
+| Porta              | Protocolo | Permitir    | Description |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | Saída | Ligação inicial (aperto de mão HTTP) |
 | 8266              | UDP      | Saída | Transferência de dados |
