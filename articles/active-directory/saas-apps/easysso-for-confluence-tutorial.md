@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734550"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com easySSO para confluência
@@ -172,7 +172,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
  
     **OR**
 
-    c. Configuração totalmente manual. Abra o Certificado da Federação de Aplicações **(Base64)** para ver o conteúdo (em qualquer editor de texto simples) do ficheiro e copiá-lo na área de transferência. Cole-o no campo de texto **de assinatura de IdP Token.** Em seguida, navegue para separador **geral** e preencha os campos de URL e **ID de** **encadernação** post com os respetivos valores para **URL de Login** e **identificador AD AD que** guardou anteriormente.
+    c. Configuração totalmente manual. Abra o Certificado da Federação de Aplicações **(Base64)** para ver o conteúdo (em qualquer editor de texto simples) do ficheiro e copiá-lo na área de transferência. Cole-o no campo de texto **de assinatura de IdP Token.** Em seguida, navegue para separador **geral** e preencha os campos de URL e **ID de ID** **de ID de encadernação** post com os respetivos valores para **URL de Login** e **identificador AD AD que** guardou anteriormente.
  
 6. Clique em **Guardar** o botão na parte inferior da página. Verá que o conteúdo dos ficheiros Metadados ou Certificado é analisado nos campos de configuração. A configuração EasySSO para confluência está completa.
 
@@ -215,6 +215,6 @@ Neste caso, tem de seguir as [instruções desta página]( https://techtime.co.n
 
 Se tiver algum problema em digerir as mensagens de registo, contacte a [equipa de suporte da EasySSO.](mailto:support@techtime.co.nz)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado EasySSO para Confluência, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64fe4b8c217ec46cbb6dd046339c3ac65eebb121
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724682"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Construa resiliência na sua infraestrutura de gestão de identidade e acessos
@@ -51,7 +51,7 @@ O diagrama que se segue mostra seis formas concretas de aumentar a resiliência.
   
 ![Diagrama mostrando visão geral da resiliência da administração](./media/resilience-in-infrastructure/admin-resilience-overview.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

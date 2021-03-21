@@ -5,10 +5,10 @@ ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: fe38882bd3b025635662e228ae919a24b03dee78
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592471"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Quickstart: Criar um grupo de gestão com o Azure CLI

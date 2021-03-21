@@ -1,14 +1,14 @@
 ---
-title: Configure monitorização para ASP.NET com Azure Application Insights / Microsoft Docs
+title: Configure a monitorização para ASP.NET com a Azure Application Insights | Microsoft Docs
 description: Configure as ferramentas de análise de desempenho, disponibilidade e comportamento do utilizador para o seu website ASP.NET, hospedado no local ou em Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: f9cb5370dcddf783e533664c4c141779402103f0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97028993"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configure insights de aplicações para o seu site ASP.NET

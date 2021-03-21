@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97694706"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob
@@ -53,7 +53,7 @@ Especificar chaves de encriptação no pedido é opcional. No entanto, se especi
 
 As seguintes operações de armazenamento Blob suportam o envio de chaves de encriptação fornecidas pelo cliente a pedido:
 
-- [Coloque Blob](/rest/api/storageservices/put-blob)
+- [Colocar o Blob](/rest/api/storageservices/put-blob)
 - [Colocar lista de blocos](/rest/api/storageservices/put-block-list)
 - [Colocar Bloco](/rest/api/storageservices/put-block)
 - [Coloque o Bloco de URL](/rest/api/storageservices/put-block-from-url)

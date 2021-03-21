@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98805303"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos Recursos dos Hubs de Eventos
@@ -57,8 +57,8 @@ Para atribuir um papel aos recursos do Event Hubs, navegue para esse recurso no 
 1. No portal Azure, navegue no espaço de nomes do Event Hubs e exiba a **Visão Geral** para o espaço de nomes. 
 1. Selecione **Access Control (IAM)** no menu esquerdo para exibir as definições de controlo de acesso para o centro de eventos.
 1.  Selecione o **separador funções** para ver a lista de atribuições de funções.
-3.  **Selecione Adicionar** e, em seguida, selecione **Adicionar a atribuição de função** _.
-4.  Na página _ *Adicionar função** página, siga estes passos:
+3.  **Selecione Adicionar** e, em seguida, selecione **Adicionar a atribuição de função***.
+4.  Na página **de atribuição de funções Adicionar,** siga estes passos:
     1. Para **Role**, selecione o papel de Centros de Eventos que pretende atribuir. Neste exemplo, é **o Azure Event Hubs Data Owner**.
     1. Para o acesso ao campo **de atribuição,** selecione **o Serviço de Aplicações** em **Sistema atribuído à identidade gerida.** 
     1. Selecione a **subscrição** na qual foi criada a identidade gerida para a aplicação web.
@@ -155,7 +155,7 @@ Pode utilizar as aplicações Apache Kafka para enviar mensagens e receber mensa
 - [Event Hubs for Kafka - enviar e receber mensagens usando identidade gerida OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Veja o seguinte artigo para conhecer identidades geridas para recursos Azure: [O que são identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 - Consulte os seguintes artigos relacionados:
     - [Autenticar pedidos aos Azure Event Hubs a partir de uma aplicação utilizando o Azure Ative Directory](authenticate-application.md)

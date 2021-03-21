@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 179e283b1640b49487c38f900de7651226794c65
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97582495"
 ---
 Se desejar implementar o seu próprio projeto de deteção de objetos (ou, em vez disso, experimentar um projeto de [classificação de imagens](../quickstarts/image-classification.md)), deve eliminar o projeto de deteção de bifurcação/tesouras deste exemplo. Uma subscrição gratuita permite dois projetos de Visão Personalizada.

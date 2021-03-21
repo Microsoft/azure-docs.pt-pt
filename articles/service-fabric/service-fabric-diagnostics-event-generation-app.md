@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: a1df5d033701195f4fe5f6b7174f3883b84393ab
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791278"
 ---
 # <a name="application-logging"></a>Registo de aplicação
@@ -32,6 +32,6 @@ Quando cria uma solução de Tecido de Serviço a partir de um modelo no Visual 
 
 É importante planear cuidadosamente como vai instrumentar o seu código. O plano de instrumentação certo pode ajudá-lo a evitar potencialmente desestabilizar a sua base de código e, em seguida, precisar de reinstruir o código. Para reduzir o risco, pode escolher uma biblioteca de instrumentação como [microsoft.extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), que faz parte do Microsoft ASP.NET Core. ASP.NET Core tem uma interface [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) que pode utilizar com o fornecedor à sua escolha, ao mesmo tempo que minimiza o efeito no código existente. Pode utilizar o código em ASP.NET Core no Windows e Linux, e em quadros .NET completos, para que o seu código de instrumentação seja normalizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que tenha escolhido o seu fornecedor de registo para instrumentar as suas aplicações e serviços, os seus registos e eventos precisam de ser agregados antes de poderem ser enviados para qualquer plataforma de análise. Leia sobre [Insights de Aplicações](service-fabric-diagnostics-event-analysis-appinsights.md) e [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) para entender melhor algumas das opções recomendadas pelo Azure Monitor.

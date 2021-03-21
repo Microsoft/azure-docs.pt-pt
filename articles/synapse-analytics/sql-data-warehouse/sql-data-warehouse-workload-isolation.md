@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 506aed16f1b8a6c631a759bb1367aef8242859ac
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734785"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Azure Synapse Analytics, grupo de trabalho de carga de trabalho
@@ -34,7 +34,7 @@ O isolamento da carga de trabalho significa que os recursos são reservados, exc
 
 Configurar o isolamento da carga de trabalho define implicitamente um nível garantido de concordância. Por exemplo, um grupo de carga de trabalho com um `MIN_PERCENTAGE_RESOURCE` conjunto de 30% e `REQUEST_MIN_RESOURCE_GRANT_PERCENT` fixado em 2% é garantido 15 concuncy.  O nível de concordância é garantido porque 15-2% de faixas horárias de recursos são reservadas no grupo de carga de trabalho em todos os momentos (independentemente de como `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` é configurado).  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` for maior do que e for maior do que os recursos `REQUEST_MIN_RESOURCE_GRANT_PERCENT` `CAP_PERCENTAGE_RESOURCE` `MIN_PERCENTAGE_RESOURCE` adicionais são adicionados por pedido.  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` e for igual e for maior do `REQUEST_MIN_RESOURCE_GRANT_PERCENT` `CAP_PERCENTAGE_RESOURCE` `MIN_PERCENTAGE_RESOURCE` que, a concordância adicional é possível.  Considere o método abaixo para determinar a concordância garantida:
 
-[Concurrency garantido] = [ `MIN_PERCENTAGE_RESOURCE` `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
+[Concurrency garantido] = [ `MIN_PERCENTAGE_RESOURCE` [ `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
 
 > [!NOTE]
 > Existem valores mínimos viáveis de nível de serviço específicos para min_percentage_resource.  Para mais informações, consulte [Valores Efetivos](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values) para mais detalhes.
@@ -54,7 +54,7 @@ A contenção da carga de trabalho refere-se à limitação da quantidade de rec
 
 Configurar a contenção da carga de trabalho define implicitamente um nível máximo de concordância.  Com um CAP_PERCENTAGE_RESOURCE definido para 60% e um REQUEST_MIN_RESOURCE_GRANT_PERCENT definido para 1%, até um nível de 60-concuncy é permitido para o grupo de carga de trabalho.  Considere o método abaixo incluído para determinar a máxima concordância:
 
-[Concurrency] = [ `CAP_PERCENTAGE_RESOURCE` `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
+[Concurrency] = [ `CAP_PERCENTAGE_RESOURCE` [ `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
 
 > [!NOTE]
 > A CAP_PERCENTAGE_RESOURCE efetiva de um grupo de trabalho não chegará a 100% quando são criados grupos de carga de trabalho com MIN_PERCENTAGE_RESOURCE a um nível superior a zero.  Consulte [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para obter valores de tempo de execução eficazes.
@@ -85,7 +85,7 @@ Os recursos partilhados do pool são os recursos não configurados para o isolam
 
 O acesso aos recursos na piscina partilhada é atribuído numa base [de importância.](sql-data-warehouse-workload-importance.md)  Os pedidos com o mesmo nível de importância terão acesso aos recursos partilhados do pool numa base inicial de in/first out.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: configurar o isolamento da carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
 - [CRIAR GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

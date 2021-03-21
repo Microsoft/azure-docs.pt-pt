@@ -7,10 +7,10 @@ ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 4fc2426189384856d2d2e95887cdabd2f9e9ebea
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98033783"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Encadernações de entrada de armazenamento de mesa Azure para funções Azure
@@ -590,15 +590,15 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Table` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
 |**nome** | n/a | O nome da variável que representa a tabela ou entidade no código de função. | 
-|**tableName** | **Nome de mesa** | O nome da mesa.| 
+|**nome de mesa** | **TableName** | O nome da mesa.| 
 |**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de mesa para ler. Consulte a secção [de utilização](#usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de mesa para ler. Consulte a secção [de utilização](#usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**tomar** |**Realizar** | Opcional. O número máximo de entidades a ler no JavaScript. Consulte a secção [de utilização](#usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**tomar** |**Tomar** | Opcional. O número máximo de entidades a ler no JavaScript. Consulte a secção [de utilização](#usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**filtro** |**Filtro** | Opcional. Uma expressão de filtro OData para entrada de tabela em JavaScript. Consulte a secção [de utilização](#usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**conexão** |**Ligação** | O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. A definição pode ser o nome de uma definição de aplicação pré-fixa "AzureWebJobs" ou nome de cadeia de ligação. Por exemplo, se o seu nome de definição for "AzureWebJobsMyStorage", pode especificar "MyStorage" aqui. O tempo de execução das Funções procurará automaticamente uma definição de aplicação com o nome de "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
 

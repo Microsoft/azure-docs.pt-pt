@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: c35d5d2f63f4a7abe80a0ff19e5994013355c386
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020524"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integre a Azure Stream Analytics com Azure Machine Learning (Preview)
@@ -186,7 +186,7 @@ No escalonamento ideal, o seu trabalho stream Analytics deve ser capaz de enviar
 
 Para evitar tal latência, certifique-se de que o seu cluster Azure Kubernetes Service (AKS) foi a provisionado com o [número certo de nós e réplicas](../machine-learning/how-to-deploy-azure-kubernetes-service.md#using-the-cli). É fundamental que o seu serviço web esteja altamente disponível e retorne respostas bem sucedidas. Se o seu trabalho receber uma resposta indisponíveis (503) do seu serviço web, ele irá continuamente voltar a tentar com o recuo exponencial. Qualquer resposta que não seja o sucesso (200) e o serviço indisponível (503) fará com que o seu trabalho vá para um estado falhado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Escalar o seu trabalho stream analytics com a função Azure Machine Learning Studio (clássico)](stream-analytics-scale-with-machine-learning-functions.md)

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
 ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98798462"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Gerir listas de relógios em Azure Sentinel usando REST API
@@ -33,7 +33,7 @@ O Azure Sentinel, que está a ser construído em parte no Azure Monitor Log Anal
 
 Seguem-se os parâmetros URI comuns para todos os comandos da API da lista de observação:
 
-| Name | Em | Necessário | Tipo | Descrição |
+| Name | Em | Necessário | Tipo | Description |
 |-|-|-|-|-|
 | **{subscriçãoD}** | caminho | sim | GUID | o ID de assinatura Azure |
 | **{recursoGroupName}** | caminho | sim | string | o nome do grupo de recursos dentro da subscrição |
@@ -58,7 +58,7 @@ Este comando recupera todas as listas de vigilância associadas a um espaço de 
 
 ### <a name="responses"></a>Respostas
 
-| Código de estado | Corpo da resposta | Descrição |
+| Código de estado | Corpo da resposta | Description |
 |-|-|-|
 | 200 / OK | Lista de listas de vigilância existentes, ou vazia se nenhuma lista de observação encontrada |  |
 | 400 / Mau pedido |  | Sintaxe de pedido mal formado, parâmetro de pedido inválido... |
@@ -78,7 +78,7 @@ Este comando recupera uma lista de observação específica associada a um espa�
 
 ### <a name="responses"></a>Respostas
 
-| Código de estado | Corpo da resposta | Descrição |
+| Código de estado | Corpo da resposta | Description |
 |-|-|-|
 | 200 / OK | A lista de observação solicitada |  |
 | 400 / Mau pedido |  | Sintaxe de pedido mal formado, parâmetro de pedido inválido... |
@@ -116,7 +116,7 @@ Aqui está uma amostra do corpo de pedido de uma lista de observação criar ped
 
 ### <a name="responses"></a>Respostas
 
-| Código de estado | Corpo da resposta | Descrição |
+| Código de estado | Corpo da resposta | Description |
 |-|-|-|
 | 200 / OK | A lista de observação criada pelo pedido, sem itens |  |
 | 400 / Mau pedido |  | Sintaxe de pedido mal formado, parâmetro de pedido inválido... |
@@ -137,7 +137,7 @@ Este comando elimina uma lista de observação e os seus itens.
 
 ### <a name="responses"></a>Respostas
 
-| Código de estado | Corpo da resposta | Descrição |
+| Código de estado | Corpo da resposta | Description |
 |-|-|-|
 | 200 / OK | Corpo de resposta vazio |  |
 | 204 / Sem conteúdo | Corpo de resposta vazio | Nada apagado |
@@ -176,7 +176,7 @@ Aqui está uma amostra do corpo de pedido de um pedido de suplemento/atualizaç�
 
 ### <a name="responses"></a>Respostas
 
-| Código de estado | Corpo da resposta | Descrição |
+| Código de estado | Corpo da resposta | Description |
 |-|-|-|
 | 200 / OK | O item da lista de observação criado ou atualizado pelo pedido |  |
 | 400 / Mau pedido |  | Sintaxe de pedido mal formado, parâmetro de pedido inválido... |
@@ -197,14 +197,14 @@ Este comando elimina um item de lista de observação existente.
 
 ### <a name="responses"></a>Respostas
 
-| Código de estado | Corpo da resposta | Descrição |
+| Código de estado | Corpo da resposta | Description |
 |-|-|-|
 | 200 / OK | Corpo de resposta vazio |  |
 | 204 / Sem conteúdo | Corpo de resposta vazio | Nada apagado |
 | 400 / Mau pedido |  | Sintaxe de pedido mal formado, parâmetro de pedido inválido... |
 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a gerir listas de observação e seus itens em Azure Sentinel usando a API log Analytics. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

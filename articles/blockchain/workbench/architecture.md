@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 1fff70ef2eeb1dc27d33769fd48fe5923f56717b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021610"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitetura do Azure Blockchain Workbench
@@ -99,7 +99,7 @@ A base de dados anexa à Blockchain Workbench armazena definições de contrato,
 
 Este armazenamento off-chain fornece a capacidade para as organizações empresariais consultarem dados em SQL e não em um livro de blockchain. Além disso, ao normalizar um esquema padrão que é agnóstico de pilhas de tecnologia blockchain, o armazenamento off-chain permite a reutilização de relatórios e outros artefactos através de projetos, cenários e organizações.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 O Azure Storage é utilizado para armazenar contratos e metadados associados a contratos.
 

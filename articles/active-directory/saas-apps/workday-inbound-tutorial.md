@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
 ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954226"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
@@ -26,7 +26,7 @@ O objetivo deste tutorial é mostrar os passos que você precisa para executar p
 >* Se os utilizadores do Workday apenas precisarem da conta AZure AD (utilizadores apenas na nuvem), consulte o tutorial no dia de trabalho de configuração para o provisionamento do utilizador [Azure AD.](workday-inbound-cloud-only-tutorial.md) 
 >* Para configurar a gravação de atributos como endereço de e-mail, nome de utilizador e número de telefone de Azure AD para Workday, consulte o tutorial sobre configurar a [writeback do Workday](workday-writeback-tutorial.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O [serviço de prestação de serviços de atendimento ao utilizador Azure Ative Directory](../app-provisioning/user-provisioning.md) integra-se com a API de Recursos Humanos do [Workday,](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) a fim de prestar contas de utilizadores. O serviço de fornecimento de utilizadores do Workday suportado pelo serviço de fornecimento de utilizadores Azure AD permite automatizar os seguintes recursos humanos e cenários de gestão do ciclo de vida da identidade:
 
@@ -68,7 +68,7 @@ Esta secção descreve a arquitetura de solução de aprovisionamento de utiliza
 * **Fluxo de dados de RH autoritários – do Dia de Trabalho para o Diretório Ativo:** Neste evento de trabalhadores de fluxo (como Novas Contratações, Transferências, Rescisões) ocorrem primeiro na nuvem de inquilino de RH workday e, em seguida, os dados do evento fluem para o Diretório Ativo no local através da Azure AD e do Agente Provisionante. Dependendo do evento, pode levar a operações de criação/atualização/ativação/desativação em AD.
 * **Fluxo de writeback – do Diretório Ativo para o Workday:** Uma vez que a criação da conta esteja completa no Ative Directory, é sincronizado com Azure AD através do Azure AD Connect e informações como e-mail, nome de utilizador e número de telefone podem ser escritas de volta para o Workday.
 
-![Descrição Geral](./media/workday-inbound-tutorial/wd_overview.png)
+![Descrição geral](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Fluxo de dados de utilizador de ponta a ponta
 

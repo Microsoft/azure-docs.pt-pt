@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
 ms.openlocfilehash: a16d22a49e42408271c91d961bcdb004536e3980
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101659754"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use power BI e sem servidor Piscina SQL synapse para analisar dados DB do Azure Cosmos com Synapse Link 

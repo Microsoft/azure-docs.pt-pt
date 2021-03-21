@@ -4,10 +4,10 @@ description: Aprenda a configurar o número de alunos para um laboratório, regi
 ms.topic: article
 ms.date: 12/01/2020
 ms.openlocfilehash: 380a587eecb276c457b93ca3c3f3ac08b2239275
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791968"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
@@ -238,7 +238,7 @@ Se ainda não ligaram a sua conta GitHub a uma conta da Microsoft, podem fazer o
 
     ![O botão "Exportação CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos:
 

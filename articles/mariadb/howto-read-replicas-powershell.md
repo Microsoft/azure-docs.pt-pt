@@ -3,15 +3,15 @@ title: Gerir réplicas de leitura - Azure PowerShell - Azure Database for MariaD
 description: Saiba como configurar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 43f0de153a19c0ee7ef44539407c0af4fda61c72
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 713f99f67706caded0694d88ece220373920e555
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664992"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando PowerShell

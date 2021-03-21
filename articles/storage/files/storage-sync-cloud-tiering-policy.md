@@ -8,10 +8,10 @@ ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 3020737e91e1fe5c4af3e23a147fa0ea16037d3b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204434"
 ---
 # <a name="cloud-tiering-policies"></a>Políticas de nivelamento em nuvem

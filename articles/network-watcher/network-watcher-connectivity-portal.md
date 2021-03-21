@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.openlocfilehash: f33c5f0fdf69737df0d8bd83499ded1e0e0f4f88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898118"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Ligações de resolução de problemas com o Observador de Redes Azure utilizando o portal Azure
@@ -49,7 +49,7 @@ Uma vez clicada **Verifique-se**, verifica-se a conectividade entre as máquinas
 
 ![Verifique os resultados da conectividade de uma máquina virtual][1]
 
-## <a name="check-remote-endpoint-connectivity"></a>Verifique a conectividade do ponto final remoto
+## <a name="check-remote-endpoint-connectivity"></a>Verificar a conectividade do ponto final remoto
 
 Para verificar a conectividade e a latência num ponto final remoto, escolha o botão de rádio **Specify manualmente** na secção **Destino,** insira o url e a porta e clique em **Verificar**.  Isto é usado para pontos finais remotos como websites e pontos finais de armazenamento.
 

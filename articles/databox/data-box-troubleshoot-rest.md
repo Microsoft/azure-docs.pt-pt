@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: alkohli
 ms.openlocfilehash: 17b8d6de198746a79a50c4fbda805b364212e3c4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98796061"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Problemas relacionados com o armazenamento de blob da caixa de dados Azure
@@ -67,6 +67,6 @@ Estes erros não são específicos de qualquer aplicação.
 |A ligação está fora. |Inscreva-se no dispositivo Data Box e verifique se está desbloqueado. Sempre que o dispositivo reinicia, fica bloqueado até alguém entrar.|
 |A autenticação DA API REST falha com o erro: O Servidor não autuou o pedido. Certifique-se de que o valor do cabeçalho de autorização é formado corretamente, incluindo a assinatura. Código de erro:AutenticaçãoFaificado. |Uma das razões pelas quais isto pode acontecer é quando o tempo do dispositivo não está sincronizado com o de Azure. Se houver um grande desvio de tempo, a autenticação REST API quebrará quando estiver a tentar copiar dados para a Caixa de Dados através da API REST. Nesta situação, pode abrir a porta UDP 123 de saída para permitir o acesso a `time.windows.com` . Uma vez sincronizado o tempo do dispositivo com o de Azure, a autenticação deverá ter sucesso. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os requisitos do [sistema de armazenamento de caixa de dados.](data-box-system-requirements-rest.md)

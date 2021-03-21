@@ -10,10 +10,10 @@ ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: b4c705e65b5b8c4f9e34dc5ff1474e87da5bee02
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102209796"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
@@ -84,7 +84,7 @@ A coluna **de manutenção de autosserviço** aparece agora na lista de conjunto
 | Valor | Descrição |
 |-------|-------------|
 | Sim | Pelo menos um VM no seu conjunto de escala de máquina virtual está numa janela de autosserviço. Pode iniciar a manutenção a qualquer momento durante esta janela de autosserviço. | 
-| Não | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
+| No | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
 | - | Os conjuntos de escala de máquinas virtuais não fazem parte de uma onda de manutenção planeada.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal

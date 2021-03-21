@@ -4,10 +4,10 @@ description: Saiba como o Azure Lighthouse permite implementar uma definição d
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.openlocfilehash: 48354c3cca7574b1d5acf71865218564591bc23e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049785"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementar a Política Azure para delegar subscrições em escala

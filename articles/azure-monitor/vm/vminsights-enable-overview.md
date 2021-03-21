@@ -7,10 +7,10 @@ ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102634163"
 ---
 # <a name="enable-vm-insights-overview"></a>Ativar a visão geral dos conhecimentos do VM

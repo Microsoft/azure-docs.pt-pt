@@ -1,5 +1,5 @@
 ---
-title: Instale e utilize o explorador Azure IoT ! Microsoft Docs
+title: Instale e utilize o explorador Azure IoT | Microsoft Docs
 description: Instale a ferramenta exploradora Azure IoT e utilize-a para interagir com dispositivos IoT Plug e Play ligados ao hub IoT. Embora este artigo se concentre em trabalhar com dispositivos IoT Plug e Play, pode utilizar a ferramenta com qualquer dispositivo ligado ao seu hub.
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: b0a86a32148086a3b644d0bf147d12be0d812536
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97030320"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instale e utilize o explorador Azure IoT

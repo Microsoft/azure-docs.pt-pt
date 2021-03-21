@@ -7,10 +7,10 @@ ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 320668f9596376cf7aa12ed97872671404a07658
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895922"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerir permissões e segurança de funções
@@ -431,7 +431,7 @@ Quando um utilizador atribuído à função de Operador de Automação no âmbit
 
 ![Só tem acesso para começar](media/automation-role-based-access-control/automation-only-start.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o Azure RBAC usando PowerShell, consulte [adicionar ou remover atribuições de funções Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter mais informações sobre os tipos de livros de execução, consulte os tipos de [runbook da Azure Automation](automation-runbook-types.md).

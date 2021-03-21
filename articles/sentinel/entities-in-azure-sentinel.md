@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456301"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Classificar e analisar dados usando entidades no Azure Sentinel

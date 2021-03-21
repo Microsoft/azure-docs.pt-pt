@@ -5,10 +5,10 @@ ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: generated
 ms.openlocfilehash: d7b4be0b35fdfebd2f680a299bc7b90375e36afc
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102633772"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
@@ -91,7 +91,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Hive.Streaming/serviços (Hive Streaming)
 - incapsula.waf/accounts
 - LiveArena.Broadcast/services (LiveArena Broadcast)
-- Mailjet.Email/services (Serviço de Email Mailjet)
+- Mailjet.Email/services (Serviço de E-mail mailjet)
 - Microsoft.AAD/domainServices (Azure AD Domain Services)
 - microsoft.aadiam/azureadmetrics
 - microsoft.aadiam/privateLinkForAzureAD (Private Link for AZure AD)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
 ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688421"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
@@ -53,7 +53,7 @@ Utilize a `cross-domain` política para tornar a API acessível a clientes basea
 
 |Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
-|domínio transversal|Elemento de raiz. Os elementos infantis devem estar em conformidade com a [especificação de ficheiro de política de domínio cruzado da Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
+|domínio transversal|Elemento de raiz. Os elementos infantis devem estar em conformidade com a [especificação de ficheiro de política de domínio cruzado da Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Yes|
 
 ### <a name="usage"></a>Utilização
 Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -127,22 +127,22 @@ Este exemplo demonstra como apoiar pedidos de pré-voo, tais como aqueles com ca
 
 |Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|cors|Elemento de raiz.|Sim|N/D|
-|de origem permitida|Contém `origin` elementos que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins` pode conter um único `origin` elemento que especifica para permitir qualquer `*` origem, ou um ou mais `origin` elementos que contenham um URI.|Sim|N/D|
-|origem|O valor pode ser `*` para permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Sim|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
-|métodos permitidos|Este elemento é necessário se forem permitidos métodos diferentes do GET ou DOM. Contém `method` elementos que especificam os verbos HTTP suportados. O valor `*` indica todos os métodos.|Não|Se esta secção não estiver presente, GET e POST são suportados.|
+|cors|Elemento de raiz.|Yes|N/D|
+|de origem permitida|Contém `origin` elementos que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins` pode conter um único `origin` elemento que especifica para permitir qualquer `*` origem, ou um ou mais `origin` elementos que contenham um URI.|Yes|N/D|
+|origem|O valor pode ser `*` para permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Yes|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
+|métodos permitidos|Este elemento é necessário se forem permitidos métodos diferentes do GET ou DOM. Contém `method` elementos que especificam os verbos HTTP suportados. O valor `*` indica todos os métodos.|No|Se esta secção não estiver presente, GET e POST são suportados.|
 |método|Especifica um verbo HTTP.|É necessário pelo menos um `method` elemento se a secção estiver `allowed-methods` presente.|N/D|
-|cabeçalhos permitidos|Este elemento contém `header` elementos que especificam nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/D|
-|cabeçalhos exposindo|Este elemento contém `header` elementos que especificam nomes dos cabeçalhos que serão acessíveis pelo cliente.|Não|N/D|
+|cabeçalhos permitidos|Este elemento contém `header` elementos que especificam nomes dos cabeçalhos que podem ser incluídos no pedido.|No|N/D|
+|cabeçalhos exposindo|Este elemento contém `header` elementos que especificam nomes dos cabeçalhos que serão acessíveis pelo cliente.|No|N/D|
 |cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um `header` elemento é necessário dentro ou se a secção está `allowed-headers` `expose-headers` presente.|N/D|
 
 ### <a name="attributes"></a>Atributos
 
 |Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|permitir credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do cliente de apresentar credenciais em pedidos de domínio cruzado.|Não|false|
-|pedido de fim-de-jogo|Este atributo controla o processamento de pedidos de origem cruzada que não correspondem às definições da política do CORS. Quando o pedido options é processado como um pedido pré-voo e não corresponde às definições da política cors: Se o atributo for definido `true` para, imediatamente, rescindir o pedido com uma resposta vazia de 200 OK; Se o atributo estiver definido para , verifique a `false` entrada para outras políticas cors de âmbito que são crianças diretas do elemento de entrada e aplique-as.  Se não forem encontradas políticas CORS, encerre o pedido com uma resposta vazia de 200 OK. Quando o pedido GET ou HEAD inclui o cabeçalho Origin (e, portanto, é processado como um pedido de origem cruzada) e não corresponde às definições de política do CORS: Se o atributo estiver definido `true` para, imediatamente, rescindir o pedido com uma resposta vazia de 200 OK; Se o atributo estiver definido para `false` , permita que o pedido proceda normalmente e não adicione cabeçalhos CORS à resposta.|Não|true|
-|pré-voo-resultado-má-idade|O `Access-Control-Max-Age` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do agente utilizador de cache resposta antes do voo.|Não|0|
+|permitir credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do cliente de apresentar credenciais em pedidos de domínio cruzado.|No|false|
+|pedido de fim-de-jogo|Este atributo controla o processamento de pedidos de origem cruzada que não correspondem às definições da política do CORS. Quando o pedido options é processado como um pedido pré-voo e não corresponde às definições da política cors: Se o atributo for definido `true` para, imediatamente, rescindir o pedido com uma resposta vazia de 200 OK; Se o atributo estiver definido para , verifique a `false` entrada para outras políticas cors de âmbito que são crianças diretas do elemento de entrada e aplique-as.  Se não forem encontradas políticas CORS, encerre o pedido com uma resposta vazia de 200 OK. Quando o pedido GET ou HEAD inclui o cabeçalho Origin (e, portanto, é processado como um pedido de origem cruzada) e não corresponde às definições de política do CORS: Se o atributo estiver definido `true` para, imediatamente, rescindir o pedido com uma resposta vazia de 200 OK; Se o atributo estiver definido para `false` , permita que o pedido proceda normalmente e não adicione cabeçalhos CORS à resposta.|No|true|
+|pré-voo-resultado-má-idade|O `Access-Control-Max-Age` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do agente utilizador de cache resposta antes do voo.|No|0|
 
 ### <a name="usage"></a>Utilização
 Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -173,13 +173,13 @@ Se adicionar o parâmetro de `?cb=XXX` retorno, retornará um resultado JSONP, e
 
 |Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
-|jsonp|Elemento de raiz.|Sim|
+|jsonp|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
 |Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|callback-parâmetro-nome|A chamada de função JavaScript de domínio cruzado pré-fixado com o nome de domínio totalmente qualificado onde reside a função.|Sim|N/D|
+|callback-parâmetro-nome|A chamada de função JavaScript de domínio cruzado pré-fixado com o nome de domínio totalmente qualificado onde reside a função.|Yes|N/D|
 
 ### <a name="usage"></a>Utilização
 Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)

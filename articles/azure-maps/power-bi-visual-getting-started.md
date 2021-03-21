@@ -1,5 +1,5 @@
 ---
-title: Começando com o Azure Maps Power BI visual Microsoft Azure Maps
+title: Começando com o Azure Maps Power BI | Microsoft Azure Maps
 description: Neste artigo, você vai aprender a usar o visual do Microsoft Azure Maps para Power BI.
 author: rbrundritt
 ms.author: richbrun
@@ -10,15 +10,15 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904708"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Começando com o Azure Maps Power BI visual
 
-<Token>**APLICA-SE A:** ![ Marca verde de verificação. ](media/power-bi-visual/yes.png) Serviço de BI de energia para **_consumidores_* _ ![ Marca de verificação verde. ](media/power-bi-visual/yes.png) Serviço de Power BI para designers & desenvolvedores ![ Marca de verificação verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X indicando não. ](media/power-bi-visual/no.png) Requer licença Pro ou Premium</Token>
+<Token>**APLICA-SE A:** ![ Marca verde de verificação. ](media/power-bi-visual/yes.png) Serviço de BI de energia para **_consumidores_** ![ Marca de verificação verde. ](media/power-bi-visual/yes.png) Serviço de Power BI para designers & desenvolvedores ![ Marca de verificação verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X indicando não. ](media/power-bi-visual/no.png) Requer licença Pro ou Premium</Token>
 
 Este artigo mostra como utilizar o visual do Microsoft Azure Maps para Power BI.
 
@@ -47,9 +47,9 @@ Para saber mais sobre privacidade e termos de utilização relacionados com o vi
 
 ## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Comportamento e requisitos visuais do Azure Maps (Pré-visualização)
 
-Existem algumas considerações e requisitos para _ *Azure Maps** visual. :
+Existem algumas considerações e requisitos para **o visual do Azure Maps.** :
 
--   O **visual Azure Maps** (Pré-visualização) deve ser ativado no Power BI Desktop. Para ativar **o visual do Azure Maps,** selecione **File** &gt; **opções de ficheiros e** &gt; **opções de** &gt; **visualização,** selecione a caixa de verificação **Azure Maps Visual.** Se o visual do Azure Maps não estiver disponível depois de o fazer, é provável que um interruptor de administração de inquilinos no Portal do Administrador precise de ser ativado.
+-   O **visual Azure Maps** (Pré-visualização) deve ser ativado no Power BI Desktop. Para ativar **o visual do Azure Maps,** selecione  &gt; **opções de ficheiros e** &gt; **opções de** &gt; **visualização,** selecione a caixa de verificação **Azure Maps Visual.** Se o visual do Azure Maps não estiver disponível depois de o fazer, é provável que um interruptor de administração de inquilinos no Portal do Administrador precise de ser ativado.
 -   O conjunto de dados deve ter campos que contenham **informações de latitude** e **longitude.** A geocoding dos campos de localização será adicionada numa futura atualização.
 -   O controlo de lendas incorporado para Power BI não aparece atualmente nesta pré-visualização. Será adicionado numa futura atualização.
 
@@ -135,7 +135,7 @@ O visual Azure Maps está disponível nos seguintes serviços e aplicações:
 | Aplicações móveis do Power BI             | Sim          |
 | Publicar na Web do Power BI                  | Não           |
 | Power BI Embedded                        | Não           |
-| Incorporação do serviço Power BI (PowerBI.com) | Sim          |
+| Incorporação do serviço Power BI (PowerBI.com) | Yes          |
 
 O suporte para serviços/aplicações de Power BI adicionais será adicionado em futuras atualizações.
 

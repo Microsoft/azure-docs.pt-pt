@@ -10,10 +10,10 @@ ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure.
 ms.openlocfilehash: 11c1d76b5784587f234455f81595778897569eb1
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594354"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-r"></a>Tutorial: Rede de configuração para Azure Stack Edge Pro R
@@ -134,7 +134,7 @@ Esta é uma configuração opcional.
 
     1. Na caixa **DE URL de procuração web,** introduza o URL neste formato: `http://host-IP address or FQDN:Port number` . Os URLs HTTPS não são suportados.
 
-    2. Em **Autenticação**, **selecione Nenhum** ou **NTLM**. Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge Pro R, recomendamos que desementa de procuração web a **Nenhum**. **A NTLM** não é suportada.
+    2. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**. Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge Pro R, recomendamos que desementa de procuração web a **Nenhum**. **A NTLM** não é suportada.
 
     3. Se estiver a utilizar a autenticação, insira um nome de utilizador e uma palavra-passe.
 

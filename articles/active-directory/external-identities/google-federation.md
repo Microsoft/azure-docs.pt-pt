@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a397c17821d16594ccfb48175a8a141cb9f390b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687826"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicione o Google como um fornecedor de identidade para utilizadores convidados B2B
@@ -164,7 +164,7 @@ Pode eliminar a configuração da federação do Google. Se o fizer, os utilizad
 
 **Para eliminar a federação do Google utilizando o PowerShell** 
 1. Instale a versão mais recente do Azure AD PowerShell para módulo Graph[(AzureADPreview).](https://www.powershellgallery.com/packages/AzureADPreview)
-2. Execute o `Connect-AzureAD`.  
+2. Execute `Connect-AzureAD`.  
 4. No pedido de inscrição, inscreva-se na conta gerida do Administrador Global.  
 5. Introduza o seguinte comando:
 

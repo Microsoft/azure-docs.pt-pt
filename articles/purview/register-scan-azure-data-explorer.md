@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896117"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registar e digitalizar Azure Data Explorer
@@ -91,7 +91,7 @@ No ecrã **'Registar' (Azure Data Explorer(Kusto),,** faça o seguinte:
 
 [!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

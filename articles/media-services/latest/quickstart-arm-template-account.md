@@ -258,7 +258,7 @@ az group delete --name {name of the resource group}
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a utilização de um modelo ARM seguindo o processo de criação de um modelo com parâmetros, variáveis e muito mais, tente
 

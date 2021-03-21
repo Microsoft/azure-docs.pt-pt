@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
 ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348624"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
@@ -23,7 +23,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação suportados
 
-| Tipos de autenticação | Descrição |
+| Tipos de autenticação | Description |
 | ---------------------|-------------|
 |**Básica** | Terá de ser capaz de fornecer parâmetros básicos para aceder a fontes de dados. Por exemplo, uma cadeia de ligação ou uma chave. Os administradores de feed de dados são capazes de ver estas credenciais. |
 | **AzureManagedIdentity** | [Identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) para recursos Azure é uma característica do Azure Ative Directory. Fornece aos serviços Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar a identidade para autenticar qualquer serviço que suporte a autenticação AZure AD.|
@@ -37,14 +37,14 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 
 | Origens de dados | Tipos de autenticação |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  Básico |
+|[**Insights de Aplicação Azure**](#appinsights)|  Básico |
 |[**Armazenamento Azure Blob (JSON)**](#blob) | Básico<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Básico |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br> |
+|[**Armazenamento do Azure Data Lake Ger2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br> |
 |[**Base de Dados Azure SQL / Servidor SQL**](#sql) | Básico<br>ManagedIdentity<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br>AzuresQLConnectionString
-|[**Table Storage do Azure**](#table) | Básico | 
-|[**Elasticsearch**](#es) | Básico |
+|[**Armazenamento de mesa Azure**](#table) | Básico | 
+|[**ElasticSearch**](#es) | Básico |
 |[**Solicitar**](#http) | Básico | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Básico |
 |[**MongoDB**](#mongodb) | Básico |
@@ -53,7 +53,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 
 Crie uma **entidade credencial** e utilize-a para autenticar as suas fontes de dados. As seguintes secções especificam os parâmetros exigidos para a autenticação *básica.* 
 
-## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
+## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Insights de Aplicação Azure</span>
 
 * **ID de aplicação**: Este é usado para identificar esta aplicação ao utilizar a API de Insights de Aplicação. Para obter o ID da aplicação, faça o seguinte:
 
@@ -184,7 +184,7 @@ The timestamp field must match one of these two formats:
 
     No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment.
 -->
-## <a name="span-idsqlazure-sql-database--sql-serverspan"></a><span id="sql">Base de Dados Azure SQL / Servidor SQL</span>
+## <a name="span-idsqlazure-sql-database--sql-serverspan"></a><span id="sql">| de base de dados Azure SQL Servidor SQL</span>
 
 * **Cadeia de ligação**: O Metrics Advisor aceita uma [ADO.NET Cadeia de Ligação de Estilo](/dotnet/framework/data/adonet/connection-string-syntax) para fonte de dados do servidor sql.
 
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Table Storage do Azure</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Armazenamento de mesa Azure</span>
 
 * **Cadeia de ligação**: Consulte a [Visualização e copie uma cadeia de ligação](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) para obter informações sobre como recuperar a cadeia de ligação do Azure Table Storage.
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 44a05ed5b4386f2787a1c84dfeb61a5d539c7cb5
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789807"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicionar navegação facetada usando o .NET SDK
@@ -87,7 +87,7 @@ Para que uma propriedade modelo seja localizada numa pesquisa de facetas, deve s
     }
     ```
 
-1. Não vamos mudar nenhuma etiqueta como parte deste tutorial, por isso feche o ficheiro hotel.cs inalterada.
+1. Não vamos mudar nenhuma etiqueta como parte deste tutorial, por isso feche o arquivo .cs hotel sem litoral.
 
     > [!Note]
     > Uma pesquisa de faceta lançará um erro se um campo solicitado na pesquisa não for marcado adequadamente.
@@ -102,7 +102,7 @@ Para este exemplo, vamos permitir ao utilizador selecionar uma categoria de hote
 
 ### <a name="add-filter-strings-to-the-searchdata-model"></a>Adicione cordas de filtro ao modelo SearchData
 
-1. Abra o ficheiro SearchData.cs e adicione propriedades de cordas à classe **SearchData,** para segurar as cordas do filtro faceta.
+1. Abra o ficheiro SearchData.cs e adicione propriedades de cordas à classe **SearchData,** para manter as cordas do filtro faceta.
 
     ```cs
     public string categoryFilter { get; set; }
@@ -563,7 +563,7 @@ Considere os seguintes takeaways deste projeto:
 * As facetas são combinadas com filtros para reduzir os resultados.
 * As facetas são cumulativas, com cada edifício de seleção no anterior para mais resultados mais estreitos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo tutorial, olhamos para os resultados da encomenda. Até este ponto, os resultados são encomendados simplesmente na ordem em que estão localizados na base de dados.
 
