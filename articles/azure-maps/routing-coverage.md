@@ -1,5 +1,5 @@
 ---
-title: Cobertura de encaminhamento / Microsoft Azure Maps
+title: cobertura de encaminhamento | Microsoft Azure Maps
 description: Saiba qual o nível de cobertura que o Azure Maps fornece em várias regiões para encaminhamento, encaminhamento com tráfego e encaminhamento de camiões.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896179"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de encaminhamento Azure Maps
@@ -37,7 +37,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 <br>  
 
 
-## <a name="africa"></a>Africa
+## <a name="africa"></a>África
 
 | País/Região                 | Encaminhamento         | Encaminhamento com Tráfego | Encaminhamento de camiões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -152,7 +152,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Vietname                        |        ✓       |         ✓            |             |
 
 
-## <a name="europe"></a>Europe
+## <a name="europe"></a>Europa
 
 | País/Região                 | Encaminhamento         | Encaminhamento com Tráfego | Encaminhamento de camiões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|

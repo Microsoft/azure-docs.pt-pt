@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: alkemper
 ms.openlocfilehash: 03940a86176d0bc93c5066977fdc87de5c456060
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932766"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Use configuração dinâmica numa aplicação .NET Framework
@@ -60,7 +60,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="reload-data-from-app-configuration"></a>Recarregar dados da Configuração de Aplicações
 1. Clique com o botão direito no seu projeto e **selecione Gerir Pacotes NuGet**. No separador **Procurar,** procure e adicione a *Microsoft.Extensions.Configuration. Pacote NuGet AzureAppConfiguration* para o seu projeto. Se não conseguir encontrá-lo, selecione a caixa de verificação **de pré-escoam.**
 
-1. Abra *Program.cs*, e adicione uma referência ao fornecedor de Configuração de Aplicação .NET Core.
+1. *Programa Aberto.cs*, e adicione uma referência ao fornecedor de Configuração de Aplicação .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration;

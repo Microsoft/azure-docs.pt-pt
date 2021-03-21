@@ -4,10 +4,10 @@ description: Funcionalidade de diagnóstico para serviços fiáveis stateful em 
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.openlocfilehash: 774a771d0c9701076a5d6c070963bf6224a571dd
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789335"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico dos Reliable Services com Monitorização de Estado
@@ -93,7 +93,7 @@ No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação
 
 O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Service Fabric Transactional Replicator` categoria
 
- Nome do contador | Descrição |
+ Nome do contador | Description |
 | --- | --- |
 | Iniciar operações txn/seg | O número de novas transações escritas criadas por segundo.|
 | Txn Operações/seg | O número de operações de adição/atualização/eliminação efetuadas em coleções fiáveis por segundo.|
@@ -106,12 +106,12 @@ O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Serv
 
 O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Service Fabric TStore` categoria
 
- Nome do contador | Descrição |
+ Nome do contador | Description |
 | --- | --- |
 | Contagem de artigos | O número de artigos na loja.|
 | Tamanho do Disco | O tamanho total do disco, em bytes, dos ficheiros de verificação da loja.|
 | Checkpoint File Write Bytes/seg | O número de bytes escritos por segundo para o ficheiro de verificação mais recente.|
 | Copy Disk Transfer Bytes/seg | O número de bytes de disco lidos (na réplica primária) ou escritos (numa réplica secundária) por segundo durante uma cópia da loja.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Fornecedores de EventSource em PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

@@ -9,10 +9,10 @@ ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
 ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98796962"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controlo de fontes no Azure Synapse Studio
@@ -111,7 +111,7 @@ O painel de configuração mostra as seguintes definições de repositório GitH
 | **Tipo repositório** | O tipo de repositório de código Azure Repos. | GitHub |
 | **Use GitHub Enterprise** | Caixa de verificação para selecionar GitHub Enterprise | não selecionado (padrão) |
 | **URL da Empresa GitHub** | O URL raiz gitHub Enterprise (deve ser HTTPS para o servidor local gitHub Enterprise). Por exemplo: `https://github.mydomain.com`. Só é necessário se **a Utilização da GitHub Enterprise** for selecionada | `<your GitHub enterprise url>` |                                                           
-| **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repositório}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
+| **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repository name}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
 | **Nome do Repositório**  | O teu nome de repositório de código GitHub. As contas do GitHub contêm repositórios de Git para gerir o seu código fonte. Pode criar um novo repositório ou usar um repositório existente que já está na sua conta. | `<your repository name>` |
 | **Ramo de colaboração** | O seu ramo de colaboração GitHub que é usado para a publicação. Por defeito, o seu mestre. Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch>` |
 | **Pasta raiz** | A sua pasta de raiz no seu ramo de colaboração GitHub. |`<your root folder name>` |
@@ -122,7 +122,7 @@ O painel de configuração mostra as seguintes definições de repositório GitH
 
 A ligação a uma organização do GitHub requer que a organização conceda permissão ao Synapse Studio. Um utilizador com permissões ADMIN na organização deve realizar os passos abaixo.
 
-#### <a name="connecting-to-github-for-the-first-time"></a>Ligação ao GitHub pela primeira vez
+#### <a name="connecting-to-github-for-the-first-time"></a>Primeira ligação ao GitHub
 
 Se estiver a ligar-se ao GitHub do Synapse Studio pela primeira vez, siga estes passos para se ligar a uma organização do GitHub.
 
@@ -238,6 +238,6 @@ Se a sucursal de publicação estiver dessincronizada com o ramo de colaboraçã
 - O Synapse Studio não suporta personalizar a mensagem de compromisso.
 - Por design, apagar ação em Studio será comprometido a git diretamente
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para implementar a integração e implantação contínuas, consulte [integração e entrega contínuas (CI/CD)](continuous-integration-deployment.md).

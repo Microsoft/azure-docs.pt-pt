@@ -1,5 +1,5 @@
 ---
-title: Eliminar replicações ou volumes de replicação de volumes para Azure NetApp Files replicação transversal de regiões Microsoft Docs
+title: Eliminar replicações de volume ou volumes para replicação de transversais | Microsoft Docs
 description: Descreve como eliminar uma ligação de replicação que já não é necessária entre a fonte e os volumes de destino.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
 ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95249899"
 ---
-# <a name="delete-volume-replications-or-volumes"></a>Eliminar replicações ou volumes de volume
+# <a name="delete-volume-replications-or-volumes"></a>Eliminar volumes ou replicações de volume
 
 Este artigo descreve como eliminar as replicações de volume. Também descreve como eliminar o volume de origem ou destino.
 
@@ -34,10 +34,10 @@ Pode terminar a ligação de replicação entre a fonte e os volumes de destino 
     1. Selecione o volume de *destino.* Clique em **Replicação** no Serviço de Armazenamento.  
 
     2.  Verifique os seguintes campos antes de continuar:  
-        * Certifique-se de que o Estado do Espelho aparece ***Espelhado** _.   
-            Não tente quebrar a replicação olhando se o Estado do Espelho mostrar _Uninitialized*.
-        * Certifique-se de que o Estado da Relação mostra ***Idle** _.   
-            Não tente quebrar a replicação espreitando se o Estado da Relação mostrar _Transferring*.   
+        * Certifique-se de que o Estado do Espelho mostra ***espelhado***.   
+            Não tente quebrar a replicação olhando se o Estado-Espelho mostrar *Uniinializado*.
+        * Certifique-se de que o Estado da Relação mostra ***idle***.   
+            Não tente quebrar o olhar de replicação se o Estado da Relação mostrar *a transferência*.   
 
         Ver [Estado de saúde do Display da relação de replicação](cross-region-replication-display-health-status.md). 
 
@@ -66,7 +66,7 @@ Se pretender eliminar o volume de origem ou destino, deve executar os seguintes 
 
     ![Screenshot que mostra o menu de um volume com clique à direita.](../media/azure-netapp-files/cross-region-replication-delete-volume.png)
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)

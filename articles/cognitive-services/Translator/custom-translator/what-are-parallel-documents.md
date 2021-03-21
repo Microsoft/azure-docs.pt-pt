@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 64192014c9dfe5bb958e730dae62e504f0976fa1
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895599"
 ---
 # <a name="what-are-parallel-documents"></a>O que são documentos paralelos?
@@ -21,7 +21,7 @@ ms.locfileid: "98895599"
 Documentos paralelos são pares de documentos onde um é a tradução do outro. Um documento do par contém frases na língua de origem e o outro documento contém estas frases traduzidas para a língua-alvo.
 Não importa qual a língua que é marcada como "fonte" e qual a língua que é marcada como "alvo" – um documento paralelo pode ser usado para formar um sistema de tradução em qualquer direção.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Você precisará de um mínimo de 10.000 frases paralelas únicas alinhadas para treinar um sistema. Esta limitação é uma rede de segurança para garantir que as suas frases paralelas contenham vocabulário único suficiente para treinar com sucesso um modelo de tradução. Como uma boa prática, adicione continuamente mais conteúdo paralelo e retreinar para melhorar a qualidade do seu sistema de tradução. Consulte o [Alinhamento da Frase](./sentence-alignment.md).
 
@@ -44,6 +44,6 @@ Os documentos enviados são privados de cada espaço de trabalho e podem ser usa
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a usar um [dicionário](what-is-dictionary.md) em Tradutor Personalizado.

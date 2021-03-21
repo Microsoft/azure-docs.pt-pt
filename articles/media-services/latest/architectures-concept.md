@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
 ms.openlocfilehash: ad464eb1c0b6dec694c7c40868a0f95fcfeaf6e8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98891493"
 ---
 # <a name="media-services-architectures"></a>Arquiteturas dos Serviços de Multimédia
@@ -44,6 +44,6 @@ O sistema Gridwich incorpora as melhores práticas para o processamento e entreg
 
 Consulte [o sistema de processamento de mídia Gridwich](/azure/architecture/reference-architectures/media-services/gridwich-architecture) no centro de arquitetura Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [Descrição geral dos Serviços de Multimédia do Azure](media-services-overview.md)

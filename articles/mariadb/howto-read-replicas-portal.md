@@ -3,14 +3,14 @@ title: Gerir réplicas de leitura - Portal Azure - Base de Dados Azure para Mari
 description: Este artigo descreve como configurar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o portal
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: fa2afdccf9c8bd6ec7f5808674e6eec968838d10
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665009"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o portal Azure
@@ -31,7 +31,7 @@ Neste artigo, você vai aprender a criar e gerir réplicas de leitura na Base de
 
 Um servidor de réplica de leitura pode ser criado usando os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione a base de dados Azure existente para o servidor MariaDB que pretende utilizar como mestre. Esta ação abre a página **de visão geral.**
 

@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de Bolha a um mapa Microsoft Azure Maps
+title: Adicione uma camada de bolha a um mapa | Microsoft Azure Maps
 description: Aprenda a renderizar pontos em mapas como círculos com tamanhos fixos. Veja como usar o Azure Maps Web SDK para adicionar e personalizar camadas de bolha para este fim.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: cae29dcc0d334a2296199da0d8e3bc4562e275d3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895333"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adicione uma camada de bolha a um mapa

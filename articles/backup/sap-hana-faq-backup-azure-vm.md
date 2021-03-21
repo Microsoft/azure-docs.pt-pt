@@ -4,17 +4,17 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95400212"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes - Apoiar bases de dados SAP HANA em VMs Azure
 
 Este artigo responde a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos reforços completos são suportados por dia?
 
@@ -22,7 +22,7 @@ Apoiamos apenas um reforço completo por dia. Não podes ter apoio diferencial e
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](./backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+N.º Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](./backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
@@ -65,7 +65,7 @@ Atualmente não temos a capacidade de configurar a solução apenas contra um IP
 
 1. Aguarde que a cópia de segurança atualmente em execução esteja concluída na base de dados desejada (verifique a partir do estúdio para conclusão).
 1. Desative as cópias de segurança de registo e descreva a cópia de segurança do catálogo para o **Ficheiro** para o DB pretendido utilizando os seguintes passos:
-1. Configuração de duplo clique **SYSTEMDB**  ->  **configuration**  ->  **Selecione** filtro de base de dados  ->  **(log)**
+1. Configuração de duplo clique **SYSTEMDB**  ->    ->  **Selecione** filtro de base de dados  ->  **(log)**
     1. Desema enable_auto_log_backup para **não.**
     1. Desateia catalog_backup_using_backint **em falso.**
 1. Pegue uma cópia de segurança a pedido (completa/diferencial/ incremental) na base de dados desejada e aguarde a conclusão da cópia de segurança e do catálogo.
@@ -166,6 +166,6 @@ Com estes princípios, pode ler-se a seguinte tabela para compreender as implica
 |Diárias + diferenciais diárias + troncos     |   A retenção semanal anterior é recalculada de acordo com a política mais recente. Os diferenciais anteriores são imediatamente eliminados      |    -     |    Os diferenciais anteriores são imediatamente eliminados     |
 |Diárias + incrementais diários + troncos     |     A retenção semanal anterior é recalculada de acordo com a política mais recente. Os incrementos anteriores são imediatamente eliminados    |     Os incrementos anteriores são imediatamente eliminados    |    -     |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [fazer o back bases de dados SAP HANA](./backup-azure-sap-hana-database.md) em funcionamento em VMs Azure.

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 9c7d466d6e8fd36b4445966b92ee753becf96c64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791766"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para remoting de serviços fiáveis
@@ -74,7 +74,7 @@ No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do méto
 
 O tempo de execução do Serviço Fiável publica os seguintes contadores de desempenho relacionados com a execução de métodos de serviço.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | Description |
 | --- | --- | --- |
 | Método de serviço de serviço de tecido |Invocações/Sec |Número de vezes que o método de serviço é invocado por segundo |
 | Método de serviço de serviço de tecido |Milissegundos médios por invocação |Tempo necessário para executar o método de serviço em milissegundos |
@@ -83,13 +83,13 @@ O tempo de execução do Serviço Fiável publica os seguintes contadores de des
 ### <a name="service-request-processing-performance-counters"></a>Pedido de serviço processamento de contadores de desempenho
 Quando um cliente invoca um método através de um objeto de procuração de serviço, resulta em uma mensagem de pedido enviada através da rede para o serviço de remoting. O serviço processa a mensagem de pedido e envia uma resposta ao cliente. O tempo de execução Reliable ServiceRemoting publica os seguintes contadores de desempenho relacionados com o processamento de pedidos de serviço.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | Description |
 | --- | --- | --- |
 | Serviço de Tecido de Serviço |# de pedidos pendentes |Número de pedidos a ser processados no serviço |
 | Serviço de Tecido de Serviço |Milissegundos médios por pedido |Tempo tomado (em milissegundos) pelo serviço para processar um pedido |
 | Serviço de Tecido de Serviço |Milissegundos médios para pedido de deserialização |Tempo demorado (em milissegundos) para deserializar a mensagem de pedido de serviço quando é recebida no serviço |
 | Serviço de Tecido de Serviço |Milissegundos médios para serialização de resposta |Tempo demorado (em milissegundos) para serializar a mensagem de resposta de serviço no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Código de amostra](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Fornecedores de EventSource em PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

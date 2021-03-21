@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: da2755c1f2c0f9fa891fe1a99b1fed21f64492c8
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102632480"
 ---
 # <a name="tutorial-add-variables-to-azure-resource-manager-bicep-file"></a>Tutorial: Adicionar variáveis ao ficheiro Bicep do Gestor de Recursos Azure

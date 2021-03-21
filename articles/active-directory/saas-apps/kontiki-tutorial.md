@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Kontiki Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Kontiki | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kontiki.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95019845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Diretório Ativo Azure com a Kontiki
@@ -126,7 +126,7 @@ Para configurar um único sign-on no lado Kontiki, envie o ficheiro XML da Feder
 
 Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Azure.
 
-1. No portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. No portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 
     ![As opções dos Utilizadores e de Todos os utilizadores](common/users.png)
 
@@ -182,7 +182,7 @@ Nesta secção, testa a configuração de um único sinal de Azure AD utilizando
 
 Depois de configurar um único sôs-on, quando selecionar **Kontiki** no portal My Apps, você é automaticamente inscrito na Kontiki. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, reveja estes artigos:
 

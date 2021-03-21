@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 8fcda77858b3feb78a04971a7ad1f20c0ea51fa1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019997"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns em Azure Stream Analytics
@@ -414,14 +414,14 @@ A duração de um evento pode ser calculada olhando para o último evento Inicia
 
 **Entrada:**  
 
-| Utilizador | Funcionalidade | Evento | Hora |
+| User | Funcionalidade | Evento | Hora |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Iniciar |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |Fim |2015-01-01T00:00:08.0000000Z |
 
 **Saída:**  
 
-| Utilizador | Funcionalidade | Duração |
+| User | Funcionalidade | Duração |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -933,7 +933,7 @@ Para obter mais informações, consulte os cenários de [agregação geoespacial
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

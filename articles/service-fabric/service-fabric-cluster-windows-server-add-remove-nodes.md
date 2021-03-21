@@ -4,10 +4,10 @@ description: Aprenda a adicionar ou remover nós a um cluster de Tecido de Servi
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: 26945b4785a0591d997139f2427b0ae6b59fa742
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790601"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autónomo em execução no Windows Server
@@ -140,7 +140,7 @@ Antes de remover um tipo de nó, verifique se existem nóles que referenciam o t
 A substituição dos nós primários deve ser executada um nó após o outro, em vez de remover e, em seguida, adicionar em lotes.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Definições de configuração para cluster de Windows autónomo](service-fabric-cluster-manifest.md)
 * [Garantir um cluster autónomo no Windows utilizando certificados X509](service-fabric-windows-cluster-x509-security.md)
 * [Crie um cluster de tecido de serviço autónomo com VMs Azure executando Windows](./service-fabric-cluster-creation-via-arm.md)

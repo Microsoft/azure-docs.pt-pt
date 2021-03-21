@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
 ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202914"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guia de utilizadores do catálogo de dados Azure Purview

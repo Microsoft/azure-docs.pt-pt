@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
 ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728642"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
@@ -271,7 +271,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade Operação) foi concluída com êxito ou não. Os valores possíveis são bem sucedidos, parcialmenteduzidos ou falhados. Para a atividade de administração exchange, o valor é verdadeiro ou falso. |
 | IDUtilizador | A UPN (Nome Principal do Utilizador) do utilizador que realizou a ação que resultou na registo; por exemplo, my_name@my_domain_name . . Note que os registos de atividades realizadas por contas do sistema (tais como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Uma identificação alternativa para o utilizador identificado na propriedade UserId.  Por exemplo, esta propriedade é povoada com o passaporte único ID (PUID) para eventos realizados por utilizadores em SharePoint, OneDrive for Business e Exchange. Esta propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos que ocorrem em outros serviços e eventos realizados por contas do sistema|
-| UserType | O tipo de utilizador que executou a operação.<br><br>Admin<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de utilizador que executou a operação.<br><br>Administrador<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Diretório Ativo Azure
@@ -461,7 +461,7 @@ Estes registos são criados em resposta às operações de ficheiros no SharePoi
 
 A tabela seguinte fornece consultas de registo de amostras para registos de atualização recolhidos por esta solução.
 
-| Consulta | Descrição |
+| Consulta | Description |
 | --- | --- |
 |Conte de todas as operações na subscrição do seu Office 365 |OfficeActivity &#124; resumir a contagem() por Operação |
 |Utilização de sites SharePoint|OfficeActivity &#124; onde OfficeWorkload =~ "sharepoint" &#124; resumir a contagem() por SiteUrl \| sortido por Count asc|

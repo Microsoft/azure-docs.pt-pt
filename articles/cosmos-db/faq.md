@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 81c959467c4bb3700120917cf150773fb18e866d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359834"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
@@ -105,7 +105,7 @@ AZure Cosmos DB está disponível no portal Azure. Primeiro, inscreva-se para um
 
 ### <a name="what-is-a-primary-key"></a>O que é uma chave primária?
 
-Uma chave primária é um sinal de segurança para aceder a todos os recursos para uma conta. Os indivíduos com a chave leram e escreveram acesso a todos os recursos na conta de base de dados. Tenha cuidado quando distribuir as teclas primárias. A chave primária e a chave primária secundária estão disponíveis na lâmina de **Chaves** do [portal Azure][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
+Uma chave primária é um sinal de segurança para aceder a todos os recursos para uma conta. Os indivíduos com a chave leram e escreveram acesso a todos os recursos na conta de base de dados. Tenha cuidado quando distribuir as teclas primárias. A chave primária primária primária e a chave primária secundária estão disponíveis na lâmina de **Chaves** do [portal Azure][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões que as PreferênciasLocações podem definir?
 
@@ -180,7 +180,7 @@ A API SQL suporta a agregação de baixa latência em qualquer escala através d
 
 A API SQL suporta controlo de concência otimista (OCC) através de tags de entidades HTTP, ou ETags. Cada recurso API SQL tem um ETag, e o ETag é definido no servidor sempre que um documento é atualizado. O cabeçalho ETag e o valor atual estão incluídos em todas as mensagens de resposta. Os ETags podem ser utilizados com o cabeçalho If-Match para permitir que o servidor decida se um recurso deve ser atualizado. O valor If-Match é o valor ETag a ser verificado. Se o valor ETag corresponder ao valor ETag do servidor, o recurso é atualizado. Se o ETag já não estiver em funcionamento, o servidor rejeita a operação com um código de resposta "FALHA DE Pré-condição HTTP 412". Em seguida, o cliente refetches o recurso para adquirir o valor ETag atual para o recurso. Além disso, os ETags podem ser utilizados com o cabeçalho Se-Nenhum-Match para determinar se é necessário um refetch de um recurso.
 
-Para utilizar a concordância otimista em .NET, utilize a classe [AccessCondition.](/dotnet/api/microsoft.azure.documents.client.accesscondition) Para obter uma amostra .NET, consulte [Program.cs](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/DocumentManagement/Program.cs) na amostra de DocumentosManagement no GitHub.
+Para utilizar a concordância otimista em .NET, utilize a classe [AccessCondition.](/dotnet/api/microsoft.azure.documents.client.accesscondition) Para obter uma amostra .NET, consulte [o Programa.cs](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/DocumentManagement/Program.cs) na amostra documentManagement no GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Como faço transações na API SQL?
 
@@ -204,7 +204,7 @@ Sim. O [Azure Cosmos DB Emulator](local-emulator.md) proporciona uma emulação 
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que os valores de ponto flutuante longos num documento arredondado quando vistos a partir de data explorer no portal.
 
-Esta é a limitação do JavaScript. O JavaScript utiliza números de formato flutuante de dupla precisão, conforme especificado no IEEE 754 e pode conter números com segurança entre -(2<sup>53</sup> - 1) e 2<sup>53</sup>-1 (i.e., 900719254740991) apenas.
+Trata-se de uma limitação do JavaScript. O JavaScript utiliza números de formato flutuante de dupla precisão, conforme especificado no IEEE 754 e pode conter números com segurança entre -(2<sup>53</sup> - 1) e 2<sup>53</sup>-1 (i.e., 900719254740991) apenas.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Onde são permitidas permissões na hierarquia dos objetos?
 

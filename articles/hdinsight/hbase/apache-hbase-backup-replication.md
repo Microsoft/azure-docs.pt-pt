@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 1d5bcf9c04ad02eaf297f8971aa0f4ff599888c7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942999"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix em HDInsight
@@ -245,7 +245,7 @@ Os passos gerais para configurar a replicação são:
 
 Para ativar a replicação no HDInsight, aplique uma Ação de Script no seu cluster HDInsight de fonte de execução. Para uma passagem de ativação da replicação no seu cluster, ou para experimentar a replicação em agrupamentos de amostras criados em redes virtuais utilizando modelos de Gestão de Recursos Azure, consulte [a replicação Configure Apache HBase](apache-hbase-replication.md). Este artigo também inclui instruções para permitir a replicação de metadados Phoenix.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar a replicação apache HBase](apache-hbase-replication.md)
 * [Trabalhar com a HBase Import and Export Utility](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

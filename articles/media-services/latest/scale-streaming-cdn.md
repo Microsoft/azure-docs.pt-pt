@@ -140,13 +140,13 @@ A `Origin-Assist CDN-Prefetch` funcionalidade suporta os seguintes protocolos de
 
 * Esta funcionalidade funciona com conteúdo UHD/HEVC?
 
-    Yes.
+    Sim.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Certifique-se de rever o documento [streaming Endpoint (origem).](streaming-endpoint-concept.md)
 * A amostra [deste repositório](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) mostra como iniciar o ponto final de streaming padrão com .NET.

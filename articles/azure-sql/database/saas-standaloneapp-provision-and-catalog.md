@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793250"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisão e catálogo de novos inquilinos usando a aplicação por padrão SaaS inquilino
@@ -83,13 +83,13 @@ Nesta tarefa, você aprende a providenciar o catálogo usado para registar todas
 * **Registe as aplicações de inquilinos** que implementou anteriormente.  Cada inquilino é registado usando uma chave construída a partir de um haxixe do nome do inquilino.  O nome do inquilino também está guardado numa mesa de extensão do catálogo.
 
 1. No PowerShell ISE, abra *...\Módulos de aprendizagem\UserConfig.psm* e atualize o **\<user\>** valor utilizado ao implementar as três aplicações de amostra.  **Guarde o ficheiro.**
-1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 1** . Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos.
+1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 1**. Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos.
 
-1. Adicione um breakpoint colocando o cursor em qualquer lugar da linha que `& $PSScriptRoot\New-Catalog.ps1` diga, e, em seguida, pressione **F9** .
+1. Adicione um breakpoint colocando o cursor em qualquer lugar da linha que `& $PSScriptRoot\New-Catalog.ps1` diga, e, em seguida, pressione **F9**.
 
     ![definindo um ponto de rutura para o rastreio](./media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
-1. Executar o script pressionando **F5** .
+1. Executar o script pressionando **F5**.
 1.  Após a execução do guião parar no ponto de rutura, prima **F11** para entrar no New-Catalog.ps1 script.
 1.  Trace a execução do script usando as opções de menu Debug, F10 e F11, para passar por cima ou para funções chamadas.
     *   Para obter mais informações sobre a depuragem dos scripts PowerShell, consulte [dicas sobre trabalhar e depurar scripts PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
@@ -99,7 +99,7 @@ Uma vez que o roteiro esteja concluído, o catálogo existirá e todos os inquil
 Agora olhe para os recursos que criou.
 
 1. Abra o [portal Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo de recursos **wingtip-sa-catalog \<user\>** e note o servidor e base de dados do catálogo.
-1. Abra a base de *dados* no portal e selecione Data Explorer a partir do menu da esquerda.  Clique no comando Iniciar sessão e, em seguida, introduza a Palavra-passe = **\@ Ssword1** .
+1. Abra a base de *dados* no portal e selecione Data Explorer a partir do menu da esquerda.  Clique no comando Iniciar sessão e, em seguida, introduza a Palavra-passe = **\@ Ssword1**.
 
 
 1. Explore o esquema da base de dados de *inquilinos.*
@@ -123,10 +123,10 @@ Nesta tarefa, aprende-se a providenciar um único pedido de inquilino. Irá:
 * **Inicialize a base de dados com informações básicas do inquilino.** Esta ação inclui especificar o tipo de local, que determina a fotografia usada como pano de fundo no seu site de eventos.
 * **Registe a base de dados na base de dados do catálogo.**
 
-1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 2** . Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos
+1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 2**. Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos
 
-1. Adicione um ponto de rutura no script colocando o seu cursor em qualquer lugar da linha 49 que diz, e, em `& $PSScriptRoot\New-TenantApp.ps1` seguida, pressione **F9** .
-1. Executar o script pressionando **F5** .
+1. Adicione um ponto de rutura no script colocando o seu cursor em qualquer lugar da linha 49 que diz, e, em `& $PSScriptRoot\New-TenantApp.ps1` seguida, pressione **F9**.
+1. Executar o script pressionando **F5**.
 1.  Após a execução do guião parar no ponto de rutura, prima **F11** para entrar no New-Catalog.ps1 script.
 1.  Trace a execução do script usando as opções de menu Debug, F10 e F11, para passar por cima ou para funções chamadas.
 

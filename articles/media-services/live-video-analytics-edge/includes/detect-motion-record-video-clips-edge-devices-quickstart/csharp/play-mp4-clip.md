@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dfb887004cd29b5bd9f1d9886b7dfa5f43c83dbe
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99531801"
 ---
 Os ficheiros MP4 são escritos num diretório no dispositivo de borda que configuraste no ficheiro *.env* utilizando a tecla VIDEO_OUTPUT_FOLDER_ON_DEVICE. Se utilizou o valor predefinido, os resultados devem estar na pasta */var/media/.*

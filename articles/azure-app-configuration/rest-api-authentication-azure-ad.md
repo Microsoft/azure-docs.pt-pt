@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: cbf05245768a663e324e9bb6e1ad422eeee3ab1a
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930522"
 ---
 # <a name="azure-active-directory-authentication"></a>Autenticação do Azure Active Directory
@@ -54,7 +54,7 @@ A autoridade AZure AD é o ponto final que usa para adquirir um token AD Azure. 
 
 ### <a name="authentication-libraries"></a>Bibliotecas de autenticação
 
-O Azure fornece um conjunto de bibliotecas, chamadas Bibliotecas de Autenticação de Diretório Ativo Azure, para simplificar o processo de aquisição de um token AD Azure. Azure constrói estas bibliotecas para várias línguas. Para mais informações, consulte a [documentação.](../active-directory/azuread-dev/active-directory-authentication-libraries.md)
+O Azure fornece um conjunto de bibliotecas, chamadas Bibliotecas de Autenticação de Diretório Ativo Azure, para simplificar o processo de aquisição de um token AD Azure. Azure constrói estas bibliotecas para várias línguas. Para obter mais informações, consulte a [documentação](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="errors"></a>Erros
 

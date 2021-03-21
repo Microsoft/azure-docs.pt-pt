@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791143"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na Base de Dados do Azure para PostgreSQL – Servidor Único
@@ -65,7 +65,7 @@ O nível básico não oferece uma garantia de IOPS. Nos níveis de preços otimi
 
 Pode monitorizar o seu consumo de E/S no portal Azure ou utilizando comandos Azure CLI. As métricas relevantes a monitorizar são [o limite de armazenamento, a percentagem de armazenamento, o armazenamento utilizado e a IO por cento](concepts-monitoring.md).
 
-### <a name="reaching-the-storage-limit"></a>Atingindo o limite de armazenamento
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
 Os servidores com um armazenamento com menos de 100 GB de armazenamento forvisionado são marcados apenas de leitura se o armazenamento gratuito for inferior a 512MB ou 5% do tamanho de armazenamento a provisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
 
@@ -104,7 +104,7 @@ O armazenamento de escala e a alteração do período de retenção de backup s�
 
 Para obter as informações de preços mais atualizadas, consulte a [página de preços do](https://azure.microsoft.com/pricing/details/PostgreSQL/)serviço . Para ver o custo da configuração desejada, o [portal Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal no **separador de nível de Preços** com base nas opções selecionadas. Se não tiver uma subscrição do Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da [calculadora de preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expanda a categoria **Base de Dados** e escolha a Base de **Dados Azure para PostgreSQL** para personalizar as opções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
 - Saiba mais sobre [os limites de serviço.](concepts-limits.md)

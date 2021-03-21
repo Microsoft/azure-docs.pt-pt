@@ -10,10 +10,10 @@ ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8a56b325dd5e1180b1229465965167241fab76a8
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101676462"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Quickstart: Criar um espaço de trabalho sinapse Azure com Azure CLI
@@ -38,7 +38,7 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
 
 1. Definir variáveis ambientais necessárias para criar recursos para o espaço de trabalho Azure Synapse.
 
-    | Nome da Variável de Ambiente | Descrição |
+    | Nome da Variável de Ambiente | Description |
     |---|---|---|
     |StorageAccountName| Nome da sua conta de armazenamento ADLS Gen2 existente.|
     |StorageAccountResourceGroup| Nome do seu grupo de recursos de conta de armazenamento ADLS Gen2 existente. |

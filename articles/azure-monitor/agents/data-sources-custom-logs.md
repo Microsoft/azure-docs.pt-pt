@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: b66011ff41e1dd4a7439105862ca61355a95bd71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042713"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Recolha de registos personalizados com o agente do Log Analytics no Azure Monitor
@@ -77,7 +77,7 @@ Por exemplo, uma aplicação pode criar um ficheiro de registo todos os dias com
 
 A tabela seguinte fornece exemplos de padrões válidos para especificar diferentes ficheiros de registo.
 
-| Descrição | Caminho |
+| Description | Caminho |
 |:--- |:--- |
 | Todos os ficheiros em *C:\Logs* com extensão .txt no agente windows |C:\Registos \\ \* .txt |
 | Todos os ficheiros em *C:\Logs* com um nome a começar com log e uma extensão de .txt no agente do Windows |C:\Logs\log \* .txt |

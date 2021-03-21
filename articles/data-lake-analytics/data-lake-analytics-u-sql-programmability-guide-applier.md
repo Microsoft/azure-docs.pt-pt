@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 0842a2cfa021ef8ea45c19ec885c7dec371730de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512642"
 ---
-# <a name="use-user-defined-applier"></a>Utilize o aplicador definido pelo utilizador 
+# <a name="use-user-defined-applier"></a>Utilizar o aplicador definido pelo utilizador 
 
 ## <a name="u-sql-udo-user-defined-applier"></a>U-SQL UDO: aplicador definido pelo utilizador
 Um aplicador definido pelo utilizador U-SQL permite-lhe invocar uma função C# personalizada para cada linha que é devolvida pela expressão exterior da tabela de uma consulta. A entrada direita é avaliada para cada linha a partir da entrada esquerda, e as linhas que são produzidas são combinadas para a saída final. A lista de colunas produzidas pelo operador APPLY é a combinação do conjunto de colunas à esquerda e à entrada direita.

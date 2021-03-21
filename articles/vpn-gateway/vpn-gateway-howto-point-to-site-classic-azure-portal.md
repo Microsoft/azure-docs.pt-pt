@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94657079"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configure uma ligação ponto-a-local utilizando a autenticação de certificado (clássico)
@@ -38,7 +38,7 @@ Utilize uma porta VPN VPN ponto-a-local (P2S) para criar uma ligação segura à
 
 ## <a name="settings-and-requirements"></a>Configurações e requisitos
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 As ligações de autenticação de certificado ponto-a-local requerem os seguintes itens. Há passos neste artigo que o ajudarão a criá-los.
 
@@ -153,7 +153,7 @@ Quando instala um certificado de cliente, precisa da senha criada quando o certi
 
 1. No computador cliente, vá às definições de VPN.
 1. Selecione a VPN que criou. Se utilizar as definições de exemplo, a ligação será rotulada **como Grupo TestRG VNet1**.
-1. Selecione **Connect** (Ligar).
+1. Selecione **Ligar**.
 1. Na caixa de Rede Virtual Windows Azure, selecione **Connect**. Se aparecer uma mensagem pop-up sobre o certificado, **selecione Continue** a utilizar privilégios elevados e **Sim** para aceitar alterações de configuração.
 1. Quando a sua ligação for bem sucedida, verá uma notificação **conectada.**
 
@@ -215,7 +215,7 @@ Depois de concluída a atualização, o certificado já não pode ser utilizado 
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Depois da sua ligação estar concluída, pode adicionar máquinas virtuais às suas redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml).
 

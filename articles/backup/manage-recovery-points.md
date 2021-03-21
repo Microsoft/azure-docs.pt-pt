@@ -4,10 +4,10 @@ description: Saiba como o serviço Azure Backup gere pontos de recuperação par
 ms.topic: conceptual
 ms.date: 11/08/2020
 ms.openlocfilehash: 256df693aba0f799c24bcba6defe846e5c37ccaa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94428709"
 ---
 # <a name="manage-recovery-points"></a>Gerir pontos de recuperação
@@ -82,7 +82,7 @@ Quando o ponto de recuperação inicial expira, funde-se com o próximo ponto de
 
 ### <a name="case-3-on-demand-recovery-point-expires"></a>Caso 3: Ponto de recuperação a pedido expira
 
-Neste exemplo, está prevista uma política de horário (backup diário) com período de retenção *de n* dias.  Se um backup a pedido for acionado no quarto dia antes do próximo backup programado e o seu período de retenção for especificado como 10 dias, então continuará a ser um backup incremental. Um ponto de recuperação *(On-demand RP1* ) será criado após *o Ponto de Recuperação 3* e antes *do Ponto de Recuperação 4*.  No final do dia 14, o ponto de recuperação a pedido ( *On-demand RP1* ) expira, e será fundido com o próximo ponto de recuperação disponível. Os blocos de dados que ainda estão presentes no servidor são fundidos, enquanto os blocos de dados que foram alterados (substituídos ou eliminados) são eliminados do ponto de recuperação expirado.
+Neste exemplo, está prevista uma política de horário (backup diário) com período de retenção *de n* dias.  Se um backup a pedido for acionado no quarto dia antes do próximo backup programado e o seu período de retenção for especificado como 10 dias, então continuará a ser um backup incremental. Um ponto de recuperação *(On-demand RP1*) será criado após *o Ponto de Recuperação 3* e antes *do Ponto de Recuperação 4*.  No final do dia 14, o ponto de recuperação a pedido (*On-demand RP1*) expira, e será fundido com o próximo ponto de recuperação disponível. Os blocos de dados que ainda estão presentes no servidor são fundidos, enquanto os blocos de dados que foram alterados (substituídos ou eliminados) são eliminados do ponto de recuperação expirado.
 
 ![Terceiro caso](./media/manage-recovery-points/third-case.png)
 

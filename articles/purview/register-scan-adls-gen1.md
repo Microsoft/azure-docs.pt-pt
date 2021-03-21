@@ -8,10 +8,10 @@ ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693715"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Registar e digitalizar Azure Data Lake Storage Gen1

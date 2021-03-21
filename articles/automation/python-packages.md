@@ -7,10 +7,10 @@ ms.date: 12/17/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.openlocfilehash: fd830afd5628591019902ca583f9cbc8e2a7ecad
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97683389"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerir pacotes Python 2 em Azure Automation
@@ -88,6 +88,6 @@ for group in groups:
 
 Para desenvolver e testar os seus runbooks Python 2 offline, pode utilizar o módulo [de ativos emulado Azure Automation Python](https://github.com/azureautomation/python_emulated_assets) no GitHub. Este módulo permite-lhe fazer referência aos seus recursos partilhados, tais como credenciais, variáveis, ligações e certificados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para preparar um livro de bordo python, consulte [Criar um livro de bordo Python](learn/automation-tutorial-runbook-textual-python2.md).

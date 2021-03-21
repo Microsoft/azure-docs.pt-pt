@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
 ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092198"
 ---
-# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Use o Caderno Jupyter para caçar ameaças à segurança
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Utilizar o Jupyter Notebook para investigar ameaças de segurança
 
 A fundação do Azure Sentinel é a loja de dados; combina consulta de alto desempenho, esquema dinâmico e escalas a volumes de dados maciços. O portal Azure e todas as ferramentas Azure Sentinel utilizam uma API comum para aceder a esta loja de dados. A mesma API também está disponível para ferramentas externas, como cadernos [Jupyter](https://jupyter.org/) e Python. Embora muitas tarefas comuns possam ser realizadas no portal, Jupyter alarga o âmbito do que você pode fazer com estes dados. Combina a programabilidade total com uma enorme coleção de bibliotecas para machine learning, visualização e análise de dados. Estes atributos fazem de Jupyter uma ferramenta convincente para a investigação de segurança e caça.
 
@@ -66,7 +66,7 @@ Para utilizar os cadernos, tem primeiro de criar um espaço de trabalho para apr
     |Subscrição|Selecione a subscrição do Azure que pretende utilizar.|
     |Grupo de recursos|Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, utilizamos **a AzureMLRG.**|
     |Nome da área de trabalho|Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, utilizamos **o espaço de testes1.** Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros.|
-    |Região|Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.|
+    |Region|Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.|
     |Edição do espaço de trabalho|Selecione **Basic** como o tipo de espaço de trabalho neste exemplo. O tipo de espaço de trabalho (Basic & Enterprise) determina as funcionalidades a que terá acesso e preços.|
 
     > [!div class="mx-imgBorder"]

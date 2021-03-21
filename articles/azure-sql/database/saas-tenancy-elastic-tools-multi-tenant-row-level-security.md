@@ -12,16 +12,16 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793216"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-arrendatários com ferramentas de base de dados elásticas e segurança ao nível da linha
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Ferramentas de base de dados elásticas](elastic-scale-get-started.md) e [segurança ao nível da linha (RLS)][rls] cooperam para permitir a escala do nível de dados de uma aplicação multi-inquilino com Azure SQL Database. Juntas estas tecnologias ajudam-no a construir uma aplicação que tem um nível de dados altamente escalável. O nível de dados suporta fragmentos de vários inquilinos, e utiliza **ADO.NET SqlClient** ou **Entity Framework** . Para obter mais informações, consulte [Padrões de Design para Aplicações SaaS multi-arrendantes com Base de Dados Azure SQL](./saas-tenancy-app-design-patterns.md).
+[Ferramentas de base de dados elásticas](elastic-scale-get-started.md) e [segurança ao nível da linha (RLS)][rls] cooperam para permitir a escala do nível de dados de uma aplicação multi-inquilino com Azure SQL Database. Juntas estas tecnologias ajudam-no a construir uma aplicação que tem um nível de dados altamente escalável. O nível de dados suporta fragmentos de vários inquilinos, e utiliza **ADO.NET SqlClient** ou **Entity Framework**. Para obter mais informações, consulte [Padrões de Design para Aplicações SaaS multi-arrendantes com Base de Dados Azure SQL](./saas-tenancy-app-design-patterns.md).
 
 - **As ferramentas de base de dados elásticas** permitem aos desenvolvedores escalar o nível de dados com práticas padrão de fragmentos, utilizando bibliotecas .NET e modelos de serviço Azure. Gerir fragmentos utilizando a Biblioteca de [Clientes de Base de Dados Elástica][s-d-elastic-database-client-library] ajuda a automatizar e agilizar muitas das tarefas infraestruturais tipicamente associadas ao fragmento.
 - **A segurança ao nível da linha** permite que os desenvolvedores armazenem com segurança dados para vários inquilinos na mesma base de dados. As políticas de segurança RLS filtram linhas que não pertencem ao inquilino que executa uma consulta. Centralizar a lógica do filtro dentro da base de dados simplifica a manutenção e reduz o risco de um erro de segurança. A alternativa de confiar em todo o código do cliente para impor a segurança é arriscada.
@@ -42,7 +42,7 @@ O objetivo é utilizar as APIs [de encaminhamento de dados dependentes de dados 
 - Use o Visual Studio (2012 ou superior)
 - Criar três bases de dados na Base de Dados Azure SQL
 - Projeto de amostra de descarregamento: [Ferramentas Elásticas DB para Azure SQL - Fragmentos multi-inquilinos](https://go.microsoft.com/?linkid=9888163)
-  - Preencha a informação para as suas bases de dados no início de **Program.cs**
+  - Preencha a informação para as suas bases de dados no início do **Programa.cs**
 
 Este projeto alarga o descrito em [Ferramentas Elásticas DB para Azure SQL - Integração-Quadro de Entidades](elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bases de dados de fragmentos de vários inquilinos. O projeto constrói uma aplicação simples de consola para criar blogs e posts. O projeto inclui quatro inquilinos, mais duas bases de dados de estilhaços multi-inquilinos. Esta configuração é ilustrada no diagrama anterior.
 
@@ -54,8 +54,8 @@ Compile e execute a aplicação. Esta corrida de botas testa o gestor de mapas d
 
 Note-se que, como o RLS ainda não foi ativado nas bases de dados de fragmentos, cada um destes testes revela um problema: os inquilinos são capazes de ver blogs que não lhes pertencem, e a aplicação não está impedida de inserir um blog para o inquilino errado. O restante deste artigo descreve como resolver estes problemas, impondo o isolamento dos inquilinos com RLS. Há dois passos:
 
-1. **Nível de aplicação** : Modifique o código de aplicação para definir sempre o atual TenantId no CONTEXTO DE SESSÃO após a \_ abertura de uma ligação. O projeto de amostra já define o TenantId desta forma.
-2. **Nível de dados** : Criar uma política de segurança RLS em cada base de dados de fragmentos para filtrar linhas com base no TenantId armazenado em CONTEXTO DE \_ SESSÃO. Crie uma política para cada uma das suas bases de dados de fragmentos, caso contrário as linhas em fragmentos de vários inquilinos não são filtradas.
+1. **Nível de aplicação**: Modifique o código de aplicação para definir sempre o atual TenantId no CONTEXTO DE SESSÃO após a \_ abertura de uma ligação. O projeto de amostra já define o TenantId desta forma.
+2. **Nível de dados**: Criar uma política de segurança RLS em cada base de dados de fragmentos para filtrar linhas com base no TenantId armazenado em CONTEXTO DE \_ SESSÃO. Crie uma política para cada uma das suas bases de dados de fragmentos, caso contrário as linhas em fragmentos de vários inquilinos não são filtradas.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Nível de aplicação: Definir TenantId no contexto de sessão \_
 
@@ -303,7 +303,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 > [!NOTE]
 > Se utilizar restrições predefinidas para um projeto Entity Framework, recomenda-se que *não* inclua a coluna TenantId no seu modelo de dados EF. Esta recomendação deve-se ao facto de as consultas do Quadro de Entidades fornecerem automaticamente valores predefinidos que substituem os constrangimentos predefinidos criados em T-SQL que utilizam o CONTEXTO DE \_ SESSÃO.
-> Para utilizar constrangimentos predefinidos no projeto da amostra, por exemplo, deve remover o TenantId de DataClasses.cs (e executar Add-Migration na Consola de Gestor de Pacotes) e utilizar o T-SQL para garantir que o campo só existe nas tabelas de bases de dados. Desta forma, a EF fornece automaticamente valores predefinidos incorretos ao inserir dados.
+> Para utilizar constrangimentos predefinidos no projeto da amostra, por exemplo, deve remover o TenantId das DataClasses.cs (e executar Add-Migration na Consola de Gestor de Pacotes) e utilizar o T-SQL para garantir que o campo só existe nas tabelas de bases de dados. Desta forma, a EF fornece automaticamente valores predefinidos incorretos ao inserir dados.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcional) Permitir que um *superuser* aceda a todas as linhas
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenção
 
-- **Adicionar novos fragmentos** : Execute o script T-SQL para permitir o RLS em quaisquer novos fragmentos, caso contrário as consultas sobre estes fragmentos não são filtradas.
-- **Adicionar novas tabelas** : Adicione um filtro e um pré-diabetes à política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito no [Apply Row-Level Security automaticamente para as tabelas recém-criadas (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Adicionar novos fragmentos**: Execute o script T-SQL para permitir o RLS em quaisquer novos fragmentos, caso contrário as consultas sobre estes fragmentos não são filtradas.
+- **Adicionar novas tabelas**: Adicione um filtro e um pré-diabetes à política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito no [Apply Row-Level Security automaticamente para as tabelas recém-criadas (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Resumo
 

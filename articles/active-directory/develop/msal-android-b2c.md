@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 1a9b9481d0b4086505bbfd3c2cd654ce228d1ae2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688880"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Use o MSAL para Android com B2C
@@ -88,7 +88,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 );
 ```
 
-## <a name="interactively-acquire-a-token"></a>Adquirir interativamente um símbolo
+## <a name="interactively-acquire-a-token"></a>Adquirir interativamente um token
 
 Para adquirir um símbolo interativamente com a MSAL, construa uma `AcquireTokenParameters` instância e forneça-a ao `acquireToken` método. O pedido simbólico abaixo usa a `default` autoridade.
 
@@ -119,7 +119,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 pca.acquireToken(parameters);
 ```
 
-## <a name="silently-renew-a-token"></a>Silenciosamente renovar um símbolo
+## <a name="silently-renew-a-token"></a>Renovar silenciosamente um token
 
 Para adquirir um símbolo silenciosamente com a MSAL, construa uma `AcquireTokenSilentParameters` instância e forneça-a ao `acquireTokenSilentAsync` método. Ao contrário do `acquireToken` método, `authority` o deve ser especificado para adquirir um símbolo silenciosamente.
 
@@ -196,7 +196,7 @@ new AuthenticationCallback() {
 
 Uma aquisição de fichas bem sucedida resulta num `IAuthenticationResult` objeto. Contém o token de acesso, reclamações de utilizador e metadados.
 
-### <a name="get-the-access-token-and-related-properties"></a>Obtenha o token de acesso e propriedades relacionadas
+### <a name="get-the-access-token-and-related-properties"></a>Obter o token de acesso e as propriedades relacionadas
 
 ```java
 // Get the raw bearer token

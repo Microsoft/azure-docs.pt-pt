@@ -7,10 +7,10 @@ ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
 ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102489638"
 ---
 # <a name="create-sas-tokens-for-document-translation-processing"></a>Criar fichas SAS para processamento de tradução de documentos
@@ -102,7 +102,7 @@ Vá ao [portal Azure](https://ms.portal.azure.com/#home) e navegue da seguinte f
 
 1. Para construir um URL SAS, adiciem o token SAS (URI) ao URL para um serviço de armazenamento.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Criar fichas SAS para bolhas ou contentores programáticamente](../../../storage/blobs/sas-service-create.md)
 * [Permissões para um diretório, contentor ou bolha](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)

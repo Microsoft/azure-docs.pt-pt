@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 12/17/2020
 ms.author: jovanpop
 ms.openlocfilehash: d1422d029bc2c5d41330e4ac2d21ff14e4fa82ab
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97703976"
 ---
   Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados:
