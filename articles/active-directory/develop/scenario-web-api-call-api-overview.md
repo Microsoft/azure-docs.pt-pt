@@ -13,10 +13,10 @@ ms.date: 03/03/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 376c61f6a5ba94492cac26950465c61e3d8fe4ed
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038565"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Cenário: Uma API web que chama APIs web
@@ -27,7 +27,7 @@ Saiba o que precisa de saber para construir uma API web que chama APIs web.
 
 Este cenário, no qual uma API web protegida chama a outras APIs web, baseia-se no [Cenário: API web protegida](scenario-protected-web-api-overview.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 - Um cliente de aplicação web, desktop, móvel ou de uma página (não representado no diagrama que o acompanha) chama uma API web protegida e fornece um símbolo portador da Web Token (JWT) JSON no seu cabeçalho HTTP "Autorização".
 - A API web protegida valida o token e utiliza o método da Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` para solicitar outro token do Azure Ative Directory (AZure AD) para que a API web protegida possa ligar para uma segunda API web, ou API web a jusante, em nome do utilizador. `AcquireTokenOnBehalfOf` refresca o símbolo quando necessário.

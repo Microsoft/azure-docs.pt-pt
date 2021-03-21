@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: d1d0da70dc1e47d0a1ddb90abbed2eaea83919cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040180"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para ver azulejos do designer no Azure Monitor
@@ -23,7 +23,7 @@ Para mais informações sobre o View Designer, consulte:
 
 Os azulejos disponíveis do View Designer são descritos na tabela seguinte:  
 
-| Mosaico | Descrição |
+| Mosaico | Description |
 |:--- |:--- |
 | [Number](#number-tile) |A contagem de registos de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
@@ -45,7 +45,7 @@ O **azulejo Número** exibe tanto a contagem de registos de uma consulta de regi
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Descrição |O texto que é mostrado sob o nome de azulejo. |
+| Description |O texto que é mostrado sob o nome de azulejo. |
 | **Mosaico** | |
 | Legenda |O texto que é mostrado sob o valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
@@ -63,7 +63,7 @@ Este azulejo apresenta a contagem de registos de duas consultas de log diferente
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Descrição |O texto que é mostrado sob o nome de azulejo. |
+| Description |O texto que é mostrado sob o nome de azulejo. |
 | **Primeiro azulejo** | |
 | Legenda |O texto que é mostrado sob o valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
@@ -84,7 +84,7 @@ O **azulejo Donut** apresenta um único número que resume uma coluna de valor n
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Descrição |O texto que é mostrado sob o nome de azulejo. |
+| Description |O texto que é mostrado sob o nome de azulejo. |
 | **Anel** | |
 | Consulta |A consulta que é executada para o donut. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. |
 | **Anel** |**Centro>** |
@@ -108,7 +108,7 @@ Este azulejo é um gráfico de linha que exibe várias séries a partir de uma c
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Descrição |O texto que é mostrado sob o nome de azulejo. |
+| Description |O texto que é mostrado sob o nome de azulejo. |
 | **Gráfico de linha** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | **Gráfico de linha** |**> eixo Y** |
@@ -129,7 +129,7 @@ Este azulejo tem tanto um gráfico de linha que exibe várias séries a partir d
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Descrição |O texto que é mostrado sob o nome de azulejo. |
+| Description |O texto que é mostrado sob o nome de azulejo. |
 | **Gráfico de linha** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | **Gráfico de linha** |**> Callout** |
@@ -154,7 +154,7 @@ O azulejo **de duas linhas de tempo** exibe os resultados de duas consultas de r
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Descrição |O texto que é mostrado sob o nome de azulejo. |
+| Description |O texto que é mostrado sob o nome de azulejo. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é exibido sob a chamada para a primeira série. |
 | Cor |A cor que é usada para as colunas da primeira série. |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 3107610215d5b37c43124ce4129b2eb5437e3b62
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516856"
 ---
 # <a name="apache-cassandra-and-azure-cosmos-db-cassandra-api-consistency-levels"></a>Apache Cassandra e Azure Cosmos DB Cassandra API níveis de consistência
@@ -53,4 +53,4 @@ Saiba mais sobre os níveis de distribuição e consistência globais para a Azu
 
 * [Descrição geral da distribuição global](distribute-data-globally.md)
 * [Visão geral do nível de consistência](consistency-levels.md)
-* [Alta disponibilidade](high-availability.md)
+* [Elevada disponibilidade](high-availability.md)

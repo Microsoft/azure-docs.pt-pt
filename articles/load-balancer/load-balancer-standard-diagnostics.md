@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
 ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699084"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
@@ -34,7 +34,7 @@ O Azure Load Balancer fornece métricas multidimensionais através das Métricas
 
 As várias configurações standard de balançadores de carga fornecem as seguintes métricas:
 
-| Metric | Tipo de recurso | Descrição | Agregação recomendada |
+| Metric | Tipo de recurso | Description | Agregação recomendada |
 | --- | --- | --- | --- |
 | Disponibilidade do caminho dos dados | Balanceador de carga público e interno | O Balanceador de Carga Standard exerce continuamente o caminho de dados a partir de uma região para o front-end do balanceador de carga, até à pilha SDN que suporta a sua VM. Enquanto se mantiverem casos saudáveis, a medição segue o mesmo caminho que o tráfego equilibrado da sua aplicação. O caminho de dados que os clientes utilizam também é validado. A medição é invisível para a aplicação e não interfere com outras operações.| Média |
 | Estado da sonda de estado de funcionamento | Balanceador de carga público e interno | O Standard Load Balancer utiliza um serviço de sondagem de saúde distribuído que monitoriza a saúde do seu ponto final de aplicação de acordo com as definições de configuração. Esta métrica proporciona uma vista filtrada agregada ou por ponto final de cada ponto final no conjunto do balanceador de carga. Pode ver como o Balanceador de Carga vê o estado de funcionamento da sua aplicação, conforme indicado pela configuração da sonda de estado de funcionamento. |  Média |
@@ -247,7 +247,7 @@ Através de portas SNAT usadas, pode alertar para um maior risco de exaustão SN
 
 O estado de saúde dos recursos do Balanceador de Carga Padrão é exposto através da **saúde dos recursos** existentes no **âmbito do Serviço de > Saúde** do Serviço de Monitorização . É avaliado de **dois em dois minutos** medindo a disponibilidade do caminho de dados que determina se os seus pontos finais de equilíbrio de carga frontal estão disponíveis.
 
-| Estado da saúde dos recursos | Descrição |
+| Estado da saúde dos recursos | Description |
 | --- | --- |
 | Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
 | Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](./troubleshoot-rhc.md) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.

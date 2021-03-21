@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: shhazam
 ms.openlocfilehash: 0e902db38e4145bf94ab6a235bc1210b520327a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99809189"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>Quickstart: Investigar recomendações de segurança

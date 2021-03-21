@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: f81435abbedec25cb8abe0b958065a493c15ce4c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98938805"
 ---
 # <a name="apache-spark-guidelines"></a>Diretrizes apache spark
@@ -63,7 +63,7 @@ Este artigo fornece várias diretrizes para a utilização do Apache Spark no Az
 | Armazenamento do Azure Data Lake Ger1 | [Use Azure Data Lake Storage Gen1 com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Armazenamento de Blobs do Azure | [Utilizar o armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar as definições do Apache Spark](apache-spark-settings.md)
 * [Otimizar os empregos da Apache Spark em HDInsight](apache-spark-perf.md)

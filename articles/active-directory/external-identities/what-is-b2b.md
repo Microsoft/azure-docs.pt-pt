@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/19/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 231d3ab81c2376aa8a2a4bf182e1b5e9799e51d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649296"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669785"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -80,7 +80,7 @@ Traga os seus parceiros externos a bordo de formas personalizadas às necessidad
 
 ## <a name="integrate-with-identity-providers"></a>Integrar-se com fornecedores de identidade
 
-A Azure AD suporta fornecedores de identidade externos como Facebook, contas microsoft, Google ou fornecedores de identidade empresarial. Pode configurar a federação com fornecedores de identidade para que os seus utilizadores externos possam iniciar scontabilidade social ou empresarial em vez de criar uma nova conta apenas para a sua aplicação. Saiba mais sobre fornecedores de identidades externas.
+A Azure AD suporta fornecedores de identidade externos como Facebook, contas microsoft, Google ou fornecedores de identidade empresarial. Pode configurar a federação com fornecedores de identidade para que os seus utilizadores externos possam iniciar scontabilidade social ou empresarial em vez de criar uma nova conta apenas para a sua aplicação. Saiba mais sobre [os fornecedores de identidades externas.](identity-providers.md)
 
 ![Screenshot mostrando a página de fornecedores de identidade](media/what-is-b2b/identity-providers.png)
 

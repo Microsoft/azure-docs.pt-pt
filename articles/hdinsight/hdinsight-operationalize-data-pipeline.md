@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
 ms.openlocfilehash: a306890560497b0c7196f1286de3f73039821ea2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939517"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
@@ -601,6 +601,6 @@ Para executar o oleoduto com um coordenador, proceda de forma semelhante ao flux
 
     Cada ação desta lista corresponde a uma instância do fluxo de trabalho que processa o valor de um dia de dados, onde o início desse dia é indicado pela hora nominal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Documentação Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Adicionar autenticação a uma aplicação web no Azure App Service Rio Azure
+title: Tutorial - Adicionar autenticação a uma aplicação web no Azure App Service | Rio Azure
 description: Neste tutorial, aprende-se a ativar a autenticação e autorização para uma aplicação web em execução no Azure App Service. Limite o acesso à aplicação web aos utilizadores da sua organização.
 services: active-directory, app-service-web
 author: rwike77
@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905575"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Tutorial: Adicione autenticação à sua aplicação web em execução no Azure App Service

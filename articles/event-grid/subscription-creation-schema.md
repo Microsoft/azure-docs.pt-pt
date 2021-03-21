@@ -4,10 +4,10 @@ description: Este artigo descreve as propriedades para subscrever um evento com 
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199956"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrição de Grade de Eventos
@@ -28,21 +28,21 @@ O nome de Subscrição do Evento deve ter 3-64 caracteres de comprimento e só p
  
 ## <a name="event-subscription-properties"></a>Propriedades de subscrição de eventos
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | destino | objeto | O objeto que define o ponto final. |
 | filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | endpointType | string | O tipo de ponto final para a subscrição (webhook/HTTP, Event Hub ou fila). | 
 | endpointUrl | string | O URL de destino para eventos nesta subscrição do evento. | 
 
 ### <a name="filter-object"></a>objeto de filtro
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | incluieeventTypes | matriz | Corresponda quando o tipo de evento na mensagem do evento é uma correspondência exata com um destes nomes do tipo evento. Levanta um erro quando o nome do evento não corresponde aos nomes do tipo de evento registados para a fonte do evento. O predefinição corresponde a todos os tipos de eventos. |
 | assuntoScom | string | Um filtro de pré-jogo para o campo de assunto na mensagem do evento. A corda padrão ou vazia combina com todas. | 

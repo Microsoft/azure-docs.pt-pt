@@ -4,10 +4,10 @@ description: Saiba como utilizar as Instâncias do Contentor Azure para executar
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 49280549fa834b82574f81494f1cf44817d8be5d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102203832"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contentores com políticas de reinício

@@ -1,18 +1,18 @@
 ---
 title: Ativar e configurar a sua consola de gestão no local
-description: A ativação e configuração de consolas de gestão garante que os sensores estão registados no Azure e enviam informações para a consola de gestão no local, e que a consola de gestão no local realiza tarefas de gestão em sensores conectados.
+description: A ativação da consola de gestão garante que os sensores estão registados no Azure e envia informações para a consola de gestão no local, e que a consola de gestão no local realiza tarefas de gestão em sensores conectados.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.service: defender-for-iot
+ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522585"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602761"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar a sua consola de gestão no local 
 
@@ -30,24 +30,32 @@ Ativação e configuração da consola de gestão no local garantem que:
 
 Para iniciar sinsução na consola de gestão:
 
-- Abra um navegador web e introduza o endereço IP e a palavra-passe que recebeu para a consola de gestão no local durante a instalação do sistema. Se esqueceu a sua palavra-passe, selecione **Recuperar a Palavra-passe** e ver [a recuperação da palavra-passe](how-to-manage-the-on-premises-management-console.md#password-recovery).
+1. Navegue para o endereço IP que recebeu para a consola de gestão no local durante a instalação do sistema.
+ 
+1. Introduza o nome de utilizador e a palavra-passe que recebeu para a consola de gestão no local durante a instalação do sistema. 
 
-## <a name="upload-an-activation-file"></a>Faça upload de um ficheiro de ativação
 
-Após o início de sing-in, ative a consola de gestão no local, descarregando um ficheiro de ativação a partir da página de **Preços** do portal Azure Defender para IoT. Este ficheiro contém os dispositivos comprometidos agregados definidos durante o processo de embarque. **Dispositivos comprometidos** indicam o número de dispositivos que o Defender para IoT irá monitorizar por subscrição.
+Se esqueceu da sua palavra-passe, selecione a opção **Recuperar Palavra-Passe**  e consulte a [recuperação da palavra-passe](how-to-manage-the-on-premises-management-console.md#password-recovery) para obter instruções sobre como recuperar a sua palavra-passe.
 
-Para carregar um ficheiro de ativação:
+## <a name="get-and-upload-an-activation-file"></a>Obter e carregar um ficheiro de ativação
 
-1. Vá ao Defender para **a** página de preços IoT.
+Depois de iniciar sôms pela primeira vez, terá de ativar a consola de gestão no local, recebendo e carregando um ficheiro de ativação. 
+
+Para obter um ficheiro de ativação:
+
+1. Navegue para a página de **preços** do Azure Defender para o portal IoT. 
+1. Selecione a subscrição para associar a consola de gestão no local a.
 1. Selecione **o ficheiro de ativação Descarregue para o** separador consola de gestão. O ficheiro de ativação é descarregado.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Descarregue o ficheiro de ativação.":::
 
-1. Selecione **Definições** do Sistema a partir da consola de gestão.
-1. **Selecione ativação**.
-1. **Selecione Escolha um Ficheiro** e selecione o ficheiro que guardou.
+Para carregar um ficheiro de ativação:
 
-Após a ativação inicial, o número de dispositivos monitorizados pode exceder o número de dispositivos comprometidos definidos durante o embarque. Isto pode acontecer, por exemplo, se ligar mais sensores à consola de gestão. Se houver uma discrepância entre o número de dispositivos monitorizados e o número de dispositivos comprometidos, aparece um aviso na consola de gestão. Se isto acontecer, deve carregar um novo ficheiro de ativação.
+1. Navegue para a página **Definições** do Sistema na consola de gestão no local.
+1. Selecione o ícone **de ativação** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false"::: .
+1. **Selecione Escolha um Ficheiro** e selecione o ficheiro que descarregou.
+
+Após a ativação inicial, o número de dispositivos monitorizados pode exceder o número de dispositivos comprometidos definidos durante o embarque. Isto ocorre se ligar mais sensores à consola de gestão. Se houver uma discrepância entre o número de dispositivos monitorizados e o número de dispositivos comprometidos, aparecerá um aviso na consola de gestão. Se isto acontecer, faça o upload de um novo ficheiro de ativação.
 
 ## <a name="set-up-a-certificate"></a>Configurar um certificado
 
@@ -316,6 +324,6 @@ Para não assinar e eliminar um sensor:
 
 3. Para eliminar o sensor não atribuído do site, selecione o sensor da lista de sensores não atribuídos e selecione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Resolver problemas do sensor e da consola de gestão no local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

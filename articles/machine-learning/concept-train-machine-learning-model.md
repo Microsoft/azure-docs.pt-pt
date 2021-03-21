@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500415"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
@@ -23,7 +23,7 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
 
 + [Azure Machine Learning SDK para Python](#python-sdk): O Python SDK oferece várias formas de treinar modelos, cada um com diferentes capacidades.
 
-    | Método de formação | Descrição |
+    | Método de formação | Description |
     | ----- | ----- |
     | [Configuração de execução](#run-configuration) | Uma **forma típica de treinar modelos** é usar um script de treino e configurar de execução. A configuração de execução fornece as informações necessárias para configurar o ambiente de treino utilizado para treinar o seu modelo. Pode especificar o seu script de treino, o alvo do cálculo e o ambiente Azure ML na sua configuração de execução e executar um trabalho de treino. |
     | [Aprendizagem automática automatizada](#automated-machine-learning) | A aprendizagem automática de máquinas **permite-lhe formar modelos sem uma vasta ciência de dados ou conhecimentos de programação.** Para pessoas com um fundo de ciência de dados e programação, ele fornece uma maneira de economizar tempo e recursos automatizando a seleção de algoritmos e afinação hiperparítmica. Não tem de se preocupar em definir uma configuração de execução quando se utiliza aprendizagem automática de máquinas. |

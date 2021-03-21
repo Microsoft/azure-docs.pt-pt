@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 23c2b55fd56677a15f444e1b568517bdf1c32c99
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ad6d5308638b112afe2b51c4e149f876651e429d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200806"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592528"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Azure Ative Directory Single sign-on (SSO) integração com a Cisco Webex
 
@@ -38,7 +38,7 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Cisco Webex suporta SSO iniciado **SP.**
-* A Cisco Webex suporta [**o fornecimento automatizado de utilizadores.**](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
+* A Cisco Webex suporta [**o fornecimento automatizado de utilizadores.**](./cisco-webex-provisioning-tutorial.md)
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Adicionar Cisco Webex da galeria
 
@@ -159,7 +159,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-cisco-webex-test-user"></a>Criar utilizador de teste Cisco Webex
 
-Nesta secção, um utilizador chamado B.Simon é criado na Cisco Webex.Esta aplicação suporta o fornecimento automático de utilizadores, o que permite o fornecimento automático e desprovisionamento com base nas suas regras de negócio.  A Microsoft recomenda a utilização automática de provisões sempre que possível. Veja como permitir o fornecimento automático para [Cisco Webex](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+Nesta secção, um utilizador chamado B.Simon é criado na Cisco Webex.Esta aplicação suporta o fornecimento automático de utilizadores, o que permite o fornecimento automático e desprovisionamento com base nas suas regras de negócio.  A Microsoft recomenda a utilização automática de provisões sempre que possível. Veja como permitir o fornecimento automático para [Cisco Webex](./cisco-webex-provisioning-tutorial.md).
 
 Se precisar de criar um utilizador manualmente, execute os seguintes passos:
 
@@ -195,7 +195,7 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de login da Cisco Webex e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Cisco Webex nas Minhas Apps, este será redirecionado para o URL de assinatura webex da Cisco. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Cisco Webex nas Minhas Apps, este será redirecionado para o URL de assinatura webex da Cisco. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

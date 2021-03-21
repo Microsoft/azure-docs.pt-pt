@@ -7,10 +7,10 @@ ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/15/2021
 ms.openlocfilehash: bc8317e3402fa0185186c06ed1f89e062e99fd5e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100655002"
 ---
 # <a name="getting-started-with-azure-iot-embedded-device-development"></a>Começando com o desenvolvimento de dispositivos incorporados Azure IoT

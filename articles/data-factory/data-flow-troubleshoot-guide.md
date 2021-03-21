@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: fe65a9528e35416d537f3aecd3a44f8b4e568afe
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.date: 03/18/2021
+ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467736"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593860"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 
@@ -26,12 +26,6 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 - **Mensagem**: Pré-visualização de dados, depuragem e execução de fluxo de dados do gasoduto falhou porque o contentor não existe
 - **Causa:** Um conjunto de dados contém um recipiente que não existe no armazenamento.
 - **Recomendação**: Certifique-se de que o recipiente referenciado no seu conjunto de dados existe e pode ser acedido.
-
-### <a name="error-code-df-executor-systemimplicitcartesian"></a>Código de erro: DF-Executor-SystemImplicitCartesian
-
-- **Mensagem**: O produto cartesiano implícito para a junção INNER não é suportado, utilize CROSS JOIN em vez disso. As colunas utilizadas em conjunto devem criar uma chave única para as linhas.
-- **Causa:** Os produtos cartesianos implícitos para o INNER unem-se entre planos lógicos não são suportados. Se estiver a usar colunas na junta, crie uma chave única com pelo menos uma coluna de ambos os lados da relação.
-- **Recomendação**: Para junções baseadas em não igualdade, utilize a junção CUSTOM CROSS.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Código de erro: DF-Executor-SystemInvalidJson
 
@@ -82,11 +76,6 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 - **Causa**: O tipo de dados para o tipo declarado não é compatível com o valor do parâmetro real.
 - **Recomendação**: Verifique se os valores dos parâmetros transmitidos para o fluxo de dados correspondem ao tipo declarado.
 
-### <a name="error-code-df-executor-columnunavailable"></a>Código de erro: DF-Executor-ColumnUn disponível
-- **Mensagem**: Nome da coluna utilizado na expressão não está disponível ou inválido
-- **Causa:** Um nome de coluna inválido ou indisponível usado numa expressão.
-- **Recomendação**: Verifique os nomes das colunas nas expressões.
-
 ### <a name="error-code-df-executor-parseerror"></a>Código de erro: DF-Executor-ParseError
 - **Mensagem**: A expressão não pode ser analisada
 - **Causa**: Uma expressão gerou erros de análise devido a formatação incorreta.
@@ -96,29 +85,6 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 - **Mensagem**: O produto cartesiano implícito para a junção INNER não é suportado, utilize CROSS JOIN em vez disso. As colunas utilizadas em conjunto devem criar uma chave única para as linhas.
 - **Causa:** Os produtos cartesianos implícitos para o INNER unem-se entre planos lógicos não são suportados. Se estiver a usar colunas na junta, crie uma chave única.
 - **Recomendação**: Para aderir a não-igualdade, utilize CROSS JOIN.
-
-### <a name="error-code-df-executor-systeminvalidjson"></a>Código de erro: DF-Executor-SystemInvalidJson
-- **Mensagem**: Erro de análise JSON, codificação não suportada ou multiline
-- **Causa**: Possíveis problemas com o ficheiro JSON: codificação não suportada, bytes corruptos ou utilização da fonte JSON como um único documento em muitas linhas aninhadas.
-- **Recomendação**: Verifique se a codificação do ficheiro JSON é suportada. Sobre a transformação de origem que está a utilizar um conjunto de dados JSON, expanda **as definições JSON** e ligue **o Documento Único**.
-
-
-
-### <a name="error-code-df-executor-conversion"></a>Código de erro: DF-Executor-Conversão
-- **Mensagem**: Converter para uma data ou hora falhou devido a um caráter inválido
-- **Causa:** Os dados não estão no formato esperado.
-- **Recomendação**: Utilize o tipo de dados correto.
-
-
-### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Código de erro: DF-Executor-BlockCountExceedsLimitError
-- **Mensagem**: A contagem de blocos não comprometida não pode exceder o limite máximo de 100.000 blocos. Verifique a configuração do blob.
-- **Causa**: O número máximo de blocos não autorizados numa bolha é de 100.000.
-- **Recomendação**: Contacte a equipa de produtos da Microsoft para obter mais detalhes sobre este problema.
-
-### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de erro: DF-Executor-PartitionDirectoryError
-- **Mensagem**: O caminho de origem especificado tem ou vários diretórios divididos (por *<Source Path> exemplo/<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /<Diretório raiz de partição 2>/c=10/d=30*) ou diretório dividido com outro ficheiro ou diretório não dividido (por *<Source Path> exemplo/<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /Diretório 2/file1*), remover o diretório de raiz de partição do caminho da origem e lê-lo através de uma transformação separada.
-- **Causa**: O caminho de origem tem vários diretórios divididos ou um diretório dividido que tem outro ficheiro ou diretório não dividido. 
-- **Recomendação:** Retire o diretório de raiz dividido do caminho da origem e leia-o através de uma transformação de fonte separada.
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Código de erro: GetCommand OutputAsync falhou
 - **Mensagem**: Durante o depurador de fluxo de dados e pré-visualização de dados: GetCommand OutputAsync falhou com ...
@@ -137,22 +103,10 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 - **Causa**: O nome da conta ou a chave de acesso estão incorretos.
 - **Recomendação**: Certifique-se de que o nome da conta ou a chave de acesso especificada no seu serviço ligado está correto. 
 
-### <a name="error-code-df-executor-invalidtype"></a>Código de erro: DF-Executor-InvalidType
-- **Mensagem**: Certifique-se de que o tipo de parâmetro coincide com o tipo de valor transmitido. A passagem de parâmetros flutuantes dos oleodutos não está suportada atualmente.
-- **Causa**: O tipo de dados para o tipo declarado não é compatível com o valor do parâmetro real. 
-- **Recomendação**: Forneça os tipos de dados corretos.
-
 ### <a name="error-code-df-executor-columnunavailable"></a>Código de erro: DF-Executor-ColumnUn disponível
 - **Mensagem**: O nome da coluna utilizado na expressão não está disponível ou inválido.
 - **Causa**: Um nome de coluna inválido ou indisponível é usado numa expressão.
 - **Recomendação**: Verifique os nomes das colunas utilizadas nas expressões.
-
-
-### <a name="error-code-df-executor-parseerror"></a>Código de erro: DF-Executor-ParseError
-- **Mensagem**: A expressão não pode ser analisada.
-- **Causa**: Uma expressão gerou erros de análise devido a formatação incorreta. 
-- **Recomendação**: Verifique a formatação na expressão.
-
 
  ### <a name="error-code-df-executor-outofdiskspaceerror"></a>Código de erro: DF-Executor-OutOfDiskSpaceError
 - **Mensagem**: Erro interno do servidor

@@ -8,10 +8,10 @@ ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.openlocfilehash: db99fa5caff27a24aa04e4780b25ade3f7c25496
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699934"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planear e gerir os custos dos Serviços Cognitivos da Azure
@@ -74,7 +74,7 @@ Quando utiliza a análise de custos, vê os custos dos Serviços Cognitivos em g
 
 Para visualizar os custos dos Serviços Cognitivos na análise de custos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Abra o âmbito no portal Azure e selecione **análise de custos** no menu. Por exemplo, vá a **Subscrições,** selecione uma subscrição da lista e, em seguida, selecione  **análise de custos** no menu. Selecione **Scope** para mudar para um âmbito diferente na análise de custos.
 3. Por padrão, o custo dos serviços é mostrado na primeira tabela de donuts. Selecione a área na tabela marcada serviços cognitivos.
 

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.openlocfilehash: 79bcca688146b2c2382876b6a61bc0eee34382a1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040962"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
@@ -161,7 +161,7 @@ Os membros da função *Contribuidor do Log Analytics* podem:
 
 A função de Contribuinte Log Analytics inclui as seguintes ações do Azure:
 
-| Permissão | Descrição |
+| Permissão | Description |
 | ---------- | ----------- |
 | `*/read`     | Capacidade para ver todos os recursos e configuração dos mesmos. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, permite que permissões completas e ilimitadas leiam a definição do espaço de trabalho e realizem consultas nos dados. Veja mais opções granulares acima. |
 | `Microsoft.Automation/automationAccounts/*` | Capacidade para criar, e configurar contas de Automatização do Azure, incluindo adicionar e editar runbooks |
@@ -188,7 +188,7 @@ Recomendamos a realização de atribuições ao nível dos recursos (espaço de 
 
 Quando os utilizadores consultam os registos de um espaço de trabalho utilizando o acesso ao contexto de recursos, terão as seguintes permissões no recurso:
 
-| Permissão | Descrição |
+| Permissão | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de visualizar todos os dados de registo para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de configurar a definição de diagnósticos para permitir a configuração de registos para este recurso. |

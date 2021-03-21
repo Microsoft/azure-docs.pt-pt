@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500813"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
@@ -167,7 +167,7 @@ Por vezes, os seus utilizadores de AD no local, UPNs, podem ser diferentes dos s
 
 O quadro abaixo fornece detalhes sobre o suporte para estes UPNs AD no local no Windows 10 Hybrid AD
 
-| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Descrição |
+| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Description |
 | ----- | ----- | ----- | ----- |
 | Roteável | Federados | A partir de 1703 lançamento | Disponível em Geral |
 | Não-encaminhável | Federados | A partir de 1803 lançamento | Disponível em Geral |

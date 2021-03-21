@@ -1,13 +1,13 @@
 ---
-title: Integre com Apache Kafka Connect- Azure Event Hubs Microsoft Docs
+title: Integre com Apache Kafka Connect- Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece informações sobre como usar Kafka Connect com Azure Event Hubs para Kafka.
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935160"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Integrar o suporte do Apache Kafka Connect nos Hubs de Eventos do Azure
@@ -40,7 +40,7 @@ Neste tutorial, siga os seguintes passos:
 Para concluir esta orientação, confirme que tem os seguintes pré-requisitos:
 
 - Subscrição do Azure. Se não tiver uma subscrição, [crie uma conta gratuita](https://azure.microsoft.com/free/).
-- [Rio Git](https://www.git-scm.com/downloads)
+- [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Versão do Kafka (versão 1.1.1, Scala versão 2.11), disponível em [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1).
 - Ler o artigo de introdução dos [Event Hubs for Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md) (Hubs de Eventos para Apache Kafka).

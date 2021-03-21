@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
-ms.openlocfilehash: a6ef2cd62fc14958e8505a03e69e4b20cf6ce49f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556830"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601846"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtual Linux através do portal Azure. Também pode [anexar um disco de dados a um VM do Windows no portal Azure](../windows/attach-managed-disk-portal.md). 
@@ -81,7 +81,7 @@ Neste exemplo, o disco que adicionei é `sdc` . É um LUN 0 e é de 4GB.
 
 Para um exemplo mais complexo, aqui está o que vários discos de dados parecem no portal:
 
-:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Reveja as definições do disco.":::
+:::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Screenshot de vários discos mostrados no portal.":::
 
 Na imagem, pode ver que existem 3 discos de dados: 4 GB em LUN 0, 16GB na LUN 1 e 32G na LUN 2.
 
@@ -227,6 +227,6 @@ Existem duas formas de ativar o suporte TRIM no seu Linux VM. Como sempre, consu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações e para ajudar a resolver problemas de disco, consulte [alterações no nome do dispositivo De resolução de problemas Linux VM](../troubleshooting/troubleshoot-device-names-problems.md).
+Para obter mais informações e para ajudar a resolver problemas de disco, consulte [alterações no nome do dispositivo De resolução de problemas Linux VM](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
 
 Também pode [anexar um disco de dados](add-disk.md) utilizando o Azure CLI.

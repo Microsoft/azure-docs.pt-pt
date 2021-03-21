@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.openlocfilehash: 940813f12d542715db47781731144a75e854a98e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019572"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Integração e implantação contínuas (CI/CD) para Azure Stream Analytics
@@ -40,7 +40,7 @@ Siga os passos deste guia para criar um pipeline CI/CD para stream analytics.
 
 Pode utilizar a linha de comando e as [ferramentas Azure Stream Analytics CI/CD](cicd-tools.md) para construir, testar e implantar automaticamente. Também pode configurar um gasoduto CI/CD em [Gasodutos Azure](set-up-cicd-pipeline.md). Azure Pipelines para permitir capacidades mais avançadas, tais como gestão de gasodutos, visualização e gatilhos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Automatizar construções, testes e implementações de um trabalho Azure Stream Analytics utilizando ferramentas CI/CD](cicd-tools.md)
 * [Crie um pipeline CI/CD para trabalho stream analytics utilizando gasodutos Azure](set-up-cicd-pipeline.md)

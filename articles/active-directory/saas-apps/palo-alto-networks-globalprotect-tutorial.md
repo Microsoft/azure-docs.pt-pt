@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Palo Alto Networks - GlobalProtect Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com a Palo Alto Networks - GlobalProtect | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Palo Alto Networks - GlobalProtect.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 72072feebfcf8dba249d2045a399e09714177698
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963694"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Tutorial: Azure Ative Directy integração única (SSO) com Palo Alto Networks - GlobalProtect

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
 ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711064"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de saúde do agente no Monitor Azure
@@ -37,10 +37,10 @@ Adicione a solução Agent Health ao seu espaço de trabalho Log Analytics utili
 ### <a name="supported-agents"></a>Agentes suportados
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportado | Description |
 | --- | --- | --- |
-| Agentes do Windows | Sim | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
-| Grupo de gestão do System Center Operations Manager | Sim | Os eventos de batimentos cardíacos são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e depois encaminhados para o Azure Monitor. Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Azure Monitor. Os dados do evento heartbeat são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics.|
+| Agentes do Windows | Yes | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
+| Grupo de gestão do System Center Operations Manager | Yes | Os eventos de batimentos cardíacos são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e depois encaminhados para o Azure Monitor. Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Azure Monitor. Os dados do evento heartbeat são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 Quando adicionar a solução ao seu espaço de trabalho Log Analytics, o azulejo **do Agente Saúde** será adicionado ao seu painel de instrumentos. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -89,7 +89,7 @@ Cada agente que reporte a um servidor de gestão de Gestor de Operações enviar
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos que esta solução recolhe.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Contagem de agentes sem resposta nas últimas 24 horas |

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942962"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Construa aplicações Java para Apache HBase
@@ -704,6 +704,6 @@ Os passos seguintes utilizam o módulo Azure PowerShell [AZ](/powershell/azure/n
 
 Utilize o `-showErr` parâmetro para visualizar o erro padrão (STDERR) que é produzido durante a execução do trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como usar o SQLLine com o Apache HBase](apache-hbase-query-with-phoenix.md)

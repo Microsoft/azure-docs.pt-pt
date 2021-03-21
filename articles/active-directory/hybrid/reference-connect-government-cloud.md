@@ -11,11 +11,11 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504360"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbridas para a nuvem do Governo do Azure
@@ -24,9 +24,6 @@ Este artigo descreve considerações para integrar um ambiente híbrido com a nu
 
 > [!NOTE]
 > Para integrar um ambiente de Diretório Ativo do Microsoft (seja no local ou hospedado num IaaS que faça parte da mesma nuvem) com a nuvem do Governo Azure, precisa de atualizar para o mais recente lançamento do [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-
-> [!NOTE]
-> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 Para obter uma lista completa dos pontos finais do Departamento de Defesa do Governo dos Estados Unidos, consulte a [documentação](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
@@ -41,7 +38,7 @@ Antes de implementar o agente de autenticação Pass-through, verifique se exist
 > [!NOTE]
 > As seguintes orientações também se aplicam à instalação do [conector proxy de aplicação AD Azure](../manage-apps/what-is-application-proxy.md) para ambientes do Governo Azure.
 
-|URL |Como é usado|
+|URL |Como é utilizado|
 |-----|-----|
 |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|O agente utiliza estes URLs para comunicar com o serviço de nuvem AZure AD. |
 |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| O agente usa estes URLs para verificar os certificados.|

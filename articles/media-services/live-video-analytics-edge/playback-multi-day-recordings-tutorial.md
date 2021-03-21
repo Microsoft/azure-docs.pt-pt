@@ -4,10 +4,10 @@ description: Neste tutorial, você aprenderá a usar APIs do Azure Media Service
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99492793"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reprodução de gravações de vários dias  
@@ -106,9 +106,9 @@ A fonte para o feed de vídeo no tutorial é um ficheiro MKV. Quando o simulador
 
 ![Resultados](./media/playback-multi-day-recordings-tutorial/assetplayer2.png)
  
-Quando clica em qualquer uma das entradas da lista, a aplicação cria um URL de streaming com o filtro apropriado, tal como https://{hostname}/{locatorId}/content.ism/manifest(formato=mpd-time-csf,startTime=YYYY-MM-MMTHH:MM:SS). O leitor carregará este URL e a reprodução começará no início de tempo desejado.
+Quando clica em qualquer uma das entradas da lista, a aplicação cria um URL de streaming com o filtro apropriado, tal como https://{hostname}/{locatorId}/content.ism/manifest(formato=mpd-time-csf,startTime=YYYY-MM-DDTHH:MM:SS). O leitor carregará este URL e a reprodução começará no início de tempo desejado.
 
-Em alternativa, pode utilizar horários de início e de fim específicos, através dos controlos na parte inferior da página. Pode utilizar os resultados da chamada AvailableMedia, conforme listado no lado direito, como um guia para os valores permitidos dos tempos de início e fim. As restrições detalhadas nos filtros startTime e endTime estão documentadas em [Como-a-Guia: Reprodução de gravações](playback-recordings-how-to.md). Depois de selecionar os valores de tempo, ao clicar em Enviar, a aplicação carregará o leitor com um URL de streaming como: https://{hostname}/{locatorId}/content.ism/manifest(formato=mpd-time-csf,startTime=YYYYY-MM-DDTHH:MM:SS,endTime= YYYY-MM-DDTHH:MM:MM:SS) A reprodução começará no início desejado.
+Em alternativa, pode utilizar horários de início e de fim específicos, através dos controlos na parte inferior da página. Pode utilizar os resultados da chamada AvailableMedia, conforme listado no lado direito, como um guia para os valores permitidos dos tempos de início e fim. As restrições detalhadas nos filtros startTime e endTime estão documentadas em [Como-a-Guia: Reprodução de gravações](playback-recordings-how-to.md). Depois de selecionar os valores de tempo, ao clicar em Enviar, a aplicação carregará o leitor com um URL de streaming como: https://{hostname}/{locatorId}/content.ism/manifest (formato=mpd-time-csf,startTime=YYYY-MM-DDTHH:MM:SS,endTime= YYYY-MM-DDTHH:MMTHH:MM:SS) A reprodução começará no início desejado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

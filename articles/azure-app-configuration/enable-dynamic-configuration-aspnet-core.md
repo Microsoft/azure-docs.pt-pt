@@ -15,10 +15,10 @@ ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979934"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação core ASP.NET
@@ -66,7 +66,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Abra *Program.cs* e atualize o `CreateWebHostBuilder` método para adicionar o `config.AddAzureAppConfiguration()` método.
+1. *Programa Aberto.cs*, e atualize o `CreateWebHostBuilder` método para adicionar o `config.AddAzureAppConfiguration()` método.
 
    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
@@ -142,7 +142,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
     Para desencadear uma operação de atualização, terá de configurar um middleware de atualização para a aplicação para atualizar os dados de configuração quando ocorrer qualquer alteração. Verá como fazer isto mais tarde.
 
-2. Adicione um ficheiro *Settings.cs* no diretório de Controladores que define e implementa uma nova `Settings` classe. Substitua o espaço de nome pelo nome do seu projeto. 
+2. Adicione um ficheiro *.cs Definições* no diretório de controladores que define e implementa uma nova `Settings` classe. Substitua o espaço de nome pelo nome do seu projeto. 
 
     ```csharp
     namespace TestAppConfig
@@ -157,7 +157,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     }
     ```
 
-3. Abra *Startup.cs*, e use no método para ligar os dados de `IServiceCollection.Configure<T>` `ConfigureServices` configuração à `Settings` classe.
+3. *Abrir startup.cs*, e utilizar `IServiceCollection.Configure<T>` no método para ligar `ConfigureServices` dados de configuração à `Settings` classe.
 
     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
@@ -291,7 +291,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 ## <a name="use-the-latest-configuration-data"></a>Utilize os dados de configuração mais recentes
 
-1. Abra *HomeController.cs* no diretório dos controladores e adicione uma referência ao `Microsoft.Extensions.Options` pacote.
+1. Open *HomeController.cs* no diretório de controladores e adicione uma referência ao `Microsoft.Extensions.Options` pacote.
 
     ```csharp
     using Microsoft.Extensions.Options;

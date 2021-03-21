@@ -11,13 +11,13 @@ ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: a9f9e03227bfb75d94ed79cdf858278e2efe4f31
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/17/2021
+ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440399"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594177"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database e Azure SQL Managed Instance connect and consultaer artigos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ O documento que se segue inclui links para exemplos Azure que mostram como conec
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Descrição |
+| Início Rápido | Description |
 |---|---|
 |[O SQL Server Management Studio](connect-query-ssms.md)|Este quickstart demonstra como utilizar o SSMS para ligar a uma base de dados e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Este quickstart demonstra como usar o Azure Data Studio para se conectar a uma base de dados e, em seguida, usar declarações de Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
@@ -118,6 +118,7 @@ A tabela que se segue lista exemplos de quadros de mapeamento relacional de obje
   - [Conecte-se e consultar o Java](connect-query-java.md)
   - [Conecte-se e consultar o Python](connect-query-python.md)
   - [Conecte-se e consultar o Ruby](connect-query-ruby.md)
+  - [Instale as ferramentas de linha de comando SQL Server no Linux](/sql/linux/sql-server-linux-setup-tools) - Para os utilizadores do Linux, tente ligar-se à Base de Dados Azure SQL ou à Azure SQL Managed Instance utilizando [sqlcmd](/sql/ssms/scripting/sqlcmd-use-the-utility).
 - Relem os exemplos de código lógico:
   - [Conecte-se resilientemente com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Conecte-se resilientemente com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]

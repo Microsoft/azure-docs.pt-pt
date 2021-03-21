@@ -4,10 +4,10 @@ description: Este artigo descreve como ativar e configurar insights do Contentor
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708361"
 ---
 # <a name="enable-container-insights"></a>Ativar insights de contentores
@@ -86,7 +86,7 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 A tabela a seguir lista as informações de configuração proxy e firewall para Azure China 21Vianet:
 
-|Recursos do agente|Porta |Descrição | 
+|Recursos do agente|Porta |Description | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.cn` | 443 | OMS a bordo |
@@ -94,7 +94,7 @@ A tabela a seguir lista as informações de configuração proxy e firewall para
 
 A tabela a seguir lista as informações de configuração de procuração e firewall para o Governo dos EUA:
 
-|Recursos do agente|Porta |Descrição | 
+|Recursos do agente|Porta |Description | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.us` | 443 | OMS a bordo |
