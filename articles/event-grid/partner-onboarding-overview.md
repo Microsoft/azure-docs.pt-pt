@@ -4,10 +4,10 @@ description: Fornece uma visão geral de como você pode embarcar como um parcei
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081200"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Visão geral do parceiro no rodapé (Azure Event Grid)
@@ -141,7 +141,7 @@ Depois de publicar no ponto final do espaço de nome do parceiro, recebe uma res
 
 | Resultado                             | Resposta              |
 |------------------------------------|-----------------------|
-| Success                            | 200 OK                |
+| Com êxito                            | 200 OK                |
 | Os dados do evento têm formato incorreto    | 400 Pedido Incorreto       |
 | Chave de acesso inválida                 | 401 Não Autorizado      |
 | Ponto final incorreto                 | 404 Não Encontrado         |

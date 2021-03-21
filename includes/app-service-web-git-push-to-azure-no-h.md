@@ -9,10 +9,10 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 08f4e76869f124d946566f64da394c895d0af308
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102205994"
 ---
 Regresse à janela de terminal local e adicione um remoto do Azure ao seu repositório Git local. *\<deploymentLocalGitUrl-from-create-step>* Substitua-o pelo URL do comando Git que guardou de [criar uma aplicação web](#create-a-web-app).

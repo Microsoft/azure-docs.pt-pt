@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674155"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código nas Funções do Azure
@@ -51,7 +51,7 @@ Cada função requer um exemplo de [ILogger](/dotnet/api/microsoft.extensions.lo
 
 Irá criar uma nova classe com o nome `ListLogger` de uma lista interna de mensagens para avaliar durante um teste. Para implementar a `ILogger` interface necessária, a classe precisa de um âmbito. A classe seguinte ridiculariza uma margem para que os casos de teste passem para a `ListLogger` classe.
 
-Criar uma nova classe em *Funções.Testes* projeto nomeado **NullScope.cs** e introduza o seguinte código:
+Criar uma nova classe em *Funções.Testes* projeto chamado **NullScope.cs** e introduza o seguinte código:
 
 ```csharp
 using System;
@@ -69,7 +69,7 @@ namespace Functions.Tests
 }
 ```
 
-Em seguida, crie uma nova classe em *Funções.Testes* projeto nomeado **ListLogger.cs** e introduza o seguinte código:
+Em seguida, crie uma nova classe em *Funções.Testes* projeto chamado **ListLogger.cs** e introduza o seguinte código:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -115,7 +115,7 @@ A `ListLogger` classe implementa os seguintes membros conforme contratado pela `
 
 A `Logs` coleção é um exemplo de e é `List<string>` inicializada no construtor.
 
-Em seguida, crie um novo ficheiro em *Funções.Testes* projeto denominado **LoggerTypes.cs** e introduza o seguinte código:
+Em seguida, crie um novo ficheiro em *Funções.Testes* projeto chamado **LoggerTypes.cs** e introduza o seguinte código:
 
 ```csharp
 namespace Functions.Tests
@@ -201,7 +201,7 @@ A `TestFactory` classe implementa os seguintes membros:
 
 - **CreateLogger**: Com base no tipo madeirão, este método devolve uma classe de madeireiros utilizada para testes. O `ListLogger` registo de mensagens registadas disponível para avaliação em testes.
 
-Finalmente, crie uma nova classe em *Funções.Testes* projeto nomeado **FunctionsTests.cs** e introduza o seguinte código:
+Finalmente, crie uma nova classe em *Funções.Testes* projeto chamado **FunctionsTests.cs** e introduza o seguinte código:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;

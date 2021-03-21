@@ -4,10 +4,10 @@ description: Neste arranque rápido, você usa a sintaxe Terraform e HCL para cr
 ms.date: 10/27/2020
 ms.topic: quickstart
 ms.openlocfilehash: dc4dae2dc6e43e7532117bf64af3ce97ddc7c496
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93106405"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando a Terraform
@@ -58,7 +58,7 @@ Primeiro, configurar a configuração terraforma, variável e ficheiros de saíd
 
    Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de política será imposta. Pode ir de um grupo de gestão a um recurso individual. Certifique-se de que `{scope}` substitui por um dos seguintes padrões:
 
-   - Assinatura: `/subscriptions/{subscriptionId}`
+   - Subscrição: `/subscriptions/{subscriptionId}`
    - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
    - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 
@@ -94,7 +94,7 @@ Em seguida, inicialize a Terraform para descarregar os fornecedores necessários
    terraform plan -out assignment.tfplan
    ```
 
-   :::image type="content" source="./media/assign-policy-terraform/terraform-plan-out.png" alt-text="Screenshot de executar o comando init terraform que mostra o download do módulo azurerm e uma mensagem de sucesso.":::
+   :::image type="content" source="./media/assign-policy-terraform/terraform-plan-out.png" alt-text="Screenshot de executar o comando do plano terraforme e parâmetro para mostrar o recurso Azure que seria criado.":::
 
    > [!NOTE]
    > Para obter informações sobre planos de execução e segurança persistentes, consulte [Plano Terraform: Aviso de Segurança](https://www.terraform.io/docs/commands/plan.html#security-warning).
@@ -109,7 +109,9 @@ Executar o [comando de aplicação do terraforme](https://www.terraform.io/docs/
 terraform apply assignment.tfplan
 ```
 
-:::image type="content" source="./media/assign-policy-terraform/terraform-apply.png" alt-text="Screenshot de executar o comando init terraform que mostra o download do módulo azurerm e uma mensagem de sucesso." mensagem, a atribuição de política é agora criada. Uma vez que definimos o `outputs.tf` ficheiro, o _\_ id de atribuição_ também é devolvido.
+:::image type="content" source="./media/assign-policy-terraform/terraform-apply.png" alt-text="Screenshot de executar o comando de aplicação do terraforme e a criação de recursos resultantes.":::
+
+Com o "Aplicar completo! Recursos: 1 adicionado, 0 alterado, 0 destruído." mensagem, a atribuição de política é agora criada. Uma vez que definimos o `outputs.tf` ficheiro, o _\_ id de atribuição_ também é devolvido.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos que não estão em conformidade
 
@@ -147,7 +149,7 @@ Os resultados assemelham-se ao seguinte exemplo:
 
 Os resultados são comparáveis aos que normalmente vê listados em **recursos que não estão em conformidade** na vista do portal do Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição criada, utilize o CLI Azure ou inverta o plano de execução Terraform com `terraform destroy` .
 

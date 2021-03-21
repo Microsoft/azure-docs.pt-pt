@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040247"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho e listas de exclusão de pedidos de Web Application Firewall
@@ -38,11 +38,11 @@ Pode especificar um cabeçalho de pedido exato, corpo, cookie ou combinação de
 
 Seguem-se os operadores de critérios de correspondência suportados:
 
-- **Igual** : Este operador é utilizado para uma correspondência exata. Como exemplo, para selecionar um cabeçalho denominado **BearerToken,** utilize o operador de iguales com o seletor definido como **bearerToken** .
+- **Igual**: Este operador é utilizado para uma correspondência exata. Como exemplo, para selecionar um cabeçalho denominado **BearerToken,** utilize o operador de iguales com o seletor definido como **bearerToken**.
 - **Começa por:** Este operador corresponde a todos os campos que começam com o valor do seletor especificado.
 - **Termina com:** Este operador corresponde a todos os campos de pedido que terminam com o valor do seletor especificado.
-- **Contém** : Este operador corresponde a todos os campos de pedido que contêm o valor do seletor especificado.
-- **É igual a qualquer** : Este operador corresponde a todos os campos de pedido. * será o valor do seletor.
+- **Contém**: Este operador corresponde a todos os campos de pedido que contêm o valor do seletor especificado.
+- **É igual a qualquer**: Este operador corresponde a todos os campos de pedido. * será o valor do seletor.
 
 Em todos os casos, a correspondência é caso insensível e a expressão regular não é permitida como selecionadores.
 
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Assim, se o URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passado para a WAF, não avaliará a cadeia **fdafdasfda,** mas ainda avaliará o nome do parâmetro **281%29** . 
+Assim, se o URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passado para a WAF, não avaliará a cadeia **fdafdasfda,** mas ainda avaliará o nome do parâmetro **281%29**. 
 
 ## <a name="waf-request-size-limits"></a>Limites de tamanho do pedido waf
 

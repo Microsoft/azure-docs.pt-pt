@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 9e3aa52323f44e6c1407fe2a542e40ee06370043
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895803"
 ---
 # <a name="create-a-project"></a>Criar um projeto
@@ -62,7 +62,7 @@ Depois de selecionar um projeto, verá o seguinte na página do projeto:
 
     ![Ver detalhes do projeto](media/how-to/how-to-view-project.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como pesquisar, editar, eliminar o projeto.](how-to-search-edit-delete-projects.md)
 - Saiba [como carregar o documento](how-to-upload-document.md) para construir modelos de tradução.

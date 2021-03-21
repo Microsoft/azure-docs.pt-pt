@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98892444"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimentos: Bloquear a autenticação legada ao Azure Active Directory com o Acesso Condicional   
 
 Para facilitar o acesso dos seus utilizadores às suas aplicações na nuvem, o Azure Ative Directory (Azure AD) suporta uma grande variedade de protocolos de autenticação, incluindo a autenticação antiga. No entanto, os protocolos legados não suportam a autenticação de vários fatores (MFA). MFA é em muitos ambientes um requisito comum para abordar o roubo de identidade. 
 
@@ -122,7 +122,7 @@ Pode selecionar todos os controlos de subvenção disponíveis para a condição
 
 Para bloquear o acesso do utilizador B2B através da autenticação do legado ao SharePoint Online, as organizações devem desativar a autenticação do legado no SharePoint utilizando o `Set-SPOTenant` comando PowerShell e definir o `-LegacyAuthProtocolsEnabled` parâmetro para `$false` . Mais informações sobre a definição deste parâmetro podem ser encontradas no documento de referência do SharePoint PowerShell relativo ao [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 - Se ainda não está familiarizado com a configuração das políticas de Acesso Condicional, consulte [o MFA para aplicações específicas com acesso condicional do Azure Ative Directory,](../authentication/tutorial-enable-azure-mfa.md) por exemplo.

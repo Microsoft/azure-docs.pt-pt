@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358427"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurar uma ligação indexante à Base de Dados Azure SQL utilizando uma identidade gerida
@@ -35,7 +35,7 @@ Quando uma identidade gerida atribuída ao sistema está ativada, a Azure cria u
 
 Depois de **selecionar, verá** um ID de objeto que foi atribuído ao seu serviço de pesquisa.
 
-![ID de objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
+![ID do Objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID do Objeto")
 
 ### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 - Provision Azure Ative Directory Admin for SQL Server
 
@@ -103,7 +103,7 @@ Ao criar uma fonte de dados utilizando a [API REST,](/rest/api/searchservice/cre
 * **credenciais**
     * Ao utilizar uma identidade gerida para autenticar, o formato **de credenciais** é diferente do que quando não se usa uma identidade manged. Aqui irá fornecer um nome de Catálogo Inicial ou Base de Dados e um ResourceId que não tenha chave de conta ou senha. O ResourceId deve incluir o ID de subscrição da Base de Dados Azure SQL, o grupo de recursos da Base de Dados SQL e o nome da base de dados SQL. 
     * Formato de cadeia de ligação de identidade gerido:
-        * *Catálogo Inicial Base de **dados= nome da base de dados;** ResourceId=/subscrições/ **o seu ID** de subscrição /grupos de recursos/ o nome do grupo de **recursos** /fornecedores/Microsoft.Sql/servers/ o seu **nome SQL Server** /; Intervalo de tempo de **ligação= tempo de intervalo de ligação** ;*
+        * *Catálogo Inicial| Base de **dados= nome da base de dados;** ResourceId=/subscrições/**o seu ID** de subscrição /grupos de recursos/ o nome do grupo de **recursos**/fornecedores/Microsoft.Sql/servers/ o seu **nome SQL Server**/; Intervalo de tempo de **ligação= tempo de intervalo de ligação**;*
 * **o recipiente** especifica o nome da tabela ou vista que gostaria de indexar.
 
 Exemplo de como criar um objeto de origem de dados Azure SQL utilizando a [API REST](/rest/api/searchservice/create-data-source):

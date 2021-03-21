@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542319"
 ---
 # <a name="tutorial-debug-your-apis-using-request-tracing"></a>Tutorial: Debug seus APIs usando rastreio de pedido
@@ -53,7 +53,7 @@ A **definição de rastreio de permitir** a subscrição utilizada para a sua AP
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configurar o rastreio da API":::
 
 > [!TIP]
-> Se **a chave de subscrição Ocp-Apim não** estiver automaticamente preenchida no pedido HTTP, poderá recuperá-la no portal. Selecione **Subscrições** e abra o menu de contexto **(...** ) para a sua suscriptação. Selecione **as teclas Show/Hide**. Também pode regenerar chaves, se necessário. Em seguida, adicione uma chave ao cabeçalho.
+> Se **a chave de subscrição Ocp-Apim não** estiver automaticamente preenchida no pedido HTTP, poderá recuperá-la no portal. Selecione **Subscrições** e abra o menu de contexto **(...**) para a sua suscriptação. Selecione **as teclas Show/Hide**. Também pode regenerar chaves, se necessário. Em seguida, adicione uma chave ao cabeçalho.
 
 ## <a name="review-trace-information"></a>Rever informações de vestígios
 

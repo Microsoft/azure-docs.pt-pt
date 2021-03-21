@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ) sobre O Observador da Rede Azure Microsoft Docs
+title: Perguntas frequentes (FAQ) sobre Azure Network Watcher | Microsoft Docs
 description: Este artigo responde a perguntas frequentes sobre o serviço Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: e7585880b98f62f819ff344c82846c2cfb1fd620
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019827"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre O Observador de Redes Azure

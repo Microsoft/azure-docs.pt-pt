@@ -15,10 +15,10 @@ ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
 ms.openlocfilehash: 792f4f81d84b61f0f78c53e62168921221b4f330
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503169"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Passo 3 - Configurar para migrar para a V3 REST API ou cliente SDK

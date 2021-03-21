@@ -1,5 +1,5 @@
 ---
-title: Gerir capturas de pacotes com O Observador de Redes Azure - REST API / Microsoft Docs
+title: Gerir capturas de pacotes com O Observador de Redes Azure - REST API | Microsoft Docs
 description: Esta página explica como gerir a funcionalidade de captura de pacotes do Observador de Rede usando Azure REST API
 services: network-watcher
 documentationcenter: na
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: bcdb91d7516acb8f987a3f302c04fbd2d8594fc7
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019776"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerir capturas de pacotes com O Observador de Rede Azure usando AZure REST API
@@ -299,7 +299,7 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 > [!NOTE]
 > A eliminação de uma captura de pacotes não elimina o ficheiro na conta de armazenamento
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 

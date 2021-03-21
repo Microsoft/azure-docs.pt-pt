@@ -13,10 +13,10 @@ ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686585"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API web que chama APIs web: configuração de código
@@ -88,7 +88,7 @@ Microsoft.Identity.Web fornece várias formas de descrever certificados, tanto p
 
 ## <a name="startupcs"></a>Startup.cs
 
-A sua API web terá de adquirir um símbolo para a API a jusante. Especifica-o adicionando a `.EnableTokenAcquisitionToCallDownstreamApi()` linha depois `.AddMicrosoftIdentityWebApi(Configuration)` . Esta linha expõe o `ITokenAcquisition` serviço, que pode utilizar nas ações do seu controlador/páginas. No entanto, como verás nos próximos dois pontos de bala, podes fazer ainda mais simples. Você também precisará escolher uma implementação de cache simbólico, por `.AddInMemoryTokenCaches()` exemplo, em *Startup.cs:*
+A sua API web terá de adquirir um símbolo para a API a jusante. Especifica-o adicionando a `.EnableTokenAcquisitionToCallDownstreamApi()` linha depois `.AddMicrosoftIdentityWebApi(Configuration)` . Esta linha expõe o `ITokenAcquisition` serviço, que pode utilizar nas ações do seu controlador/páginas. No entanto, como verás nos próximos dois pontos de bala, podes fazer ainda mais simples. Você também terá de escolher uma implementação de cache simbólica, por `.AddInMemoryTokenCaches()` exemplo, no *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -116,7 +116,7 @@ Se você não quiser adquirir o token por si mesmo, *Microsoft.Identity.Web* for
 Se pretender ligar para o Microsoft Graph, o Microsoft.Identity.Web permite-lhe utilizar diretamente o `GraphServiceClient` (exposto pelo Microsoft Graph SDK) nas suas ações API. Para expor o Gráfico do Microsoft:
 
 1. Adicione o pacote [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet ao seu projeto.
-1. Adicione `.AddMicrosoftGraph()` depois no ficheiro `.EnableTokenAcquisitionToCallDownstreamApi()` *Startup.cs.* `.AddMicrosoftGraph()` tem vários sobreposições. Utilizando o sobreposição que toma uma secção de configuração como parâmetro, o código torna-se:
+1. Adicione `.AddMicrosoftGraph()` depois no ficheiro .cs `.EnableTokenAcquisitionToCallDownstreamApi()` *Arranque.* `.AddMicrosoftGraph()` tem vários sobreposições. Utilizando o sobreposição que toma uma secção de configuração como parâmetro, o código torna-se:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -164,7 +164,7 @@ public class Startup
 
 Tal como acontece com as aplicações web, pode escolher várias implementações de cache simbólico. Para mais detalhes, consulte [a web de identidade da Microsoft - Serialization cache Token](https://aka.ms/ms-id-web/token-cache-serialization) no GitHub.
 
-A imagem a seguir mostra as várias possibilidades do *Microsoft.Identity.Web* e o seu impacto no ficheiro *Startup.cs:*
+A imagem a seguir mostra as várias possibilidades do *Microsoft.Identity.Web* e o seu impacto no ficheiro *.cs Startup:*
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloco mostrando opções de configuração de serviço no ponto de arranque C S para chamar uma API web e especificar uma implementação de cache de símbolo":::
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 03f1f1659d120a2aa1b827063cb2bc84138f3655
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896075"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Implementar um VM de Serviços Web da Amazon com um livro de bordo
@@ -97,7 +97,7 @@ Certifique-se de que o módulo AWS PowerShell foi importado para a Azure Automat
 7. Pode visualizar o progresso do trabalho e visualizar os fluxos de saída selecionando **Todos os Registos** no painel de trabalho do runbook.<br><br> ![Saída de fluxo](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 8. Para confirmar que o VM está a ser a provisionado, inicie sessão na Consola de Gestão AWS se não estiver a fazer login.<br><br> ![Consola AWS implantada VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 * Para saber quais os livros de execução suportados, consulte os[tipos de runbook da Azure Automation](automation-runbook-types.md).
 * Para trabalhar com runbooks, consulte [Gerir os runbooks na Azure Automation.](manage-runbooks.md)

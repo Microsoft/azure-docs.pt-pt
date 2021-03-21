@@ -7,10 +7,10 @@ ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050125"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Quickstart: Crie a sua primeira função em Azure usando o Visual Studio
@@ -57,7 +57,7 @@ Se quiser criar um <abbr title="Um recipiente lógico para uma ou mais funções
 
 O `FunctionName` atributo método define o nome da função, que por padrão é gerada como `Function1` . Como a ferramenta não permite anular o nome da função predefinida quando criar o seu projeto, despie um minuto para criar um nome melhor para a classe de função, arquivo e metadados.
 
-1. No **File Explorer,** clique com Function1.cs e rebatize-o para *HttpExample.cs*.
+1. No **File Explorer,** clique com o botão direito no ficheiro .cs Função e rebatize-o para *HttpExample.cs*.
 
 1. No código, rebatize a classe Function1 para 'HttpExample'.
 

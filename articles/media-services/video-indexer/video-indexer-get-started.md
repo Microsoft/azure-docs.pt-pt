@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 01/25/2021
 ms.author: juliako
 ms.openlocfilehash: 5b38c731db141052e6700472020cd60b6a4d13a5
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98797792"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Quickstart: Como se inscrever e carregar o seu primeiro vídeo
@@ -62,7 +62,7 @@ Consulte o artigo [de formatos de recipiente/ficheiro](../latest/media-encoder-s
 
 Para mais informações, consulte [os navegadores suportados.](video-indexer-overview.md#supported-browsers)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Consulte [os vídeos de upload e índice](upload-index-videos.md) para obter mais detalhes.
 
@@ -70,7 +70,7 @@ Depois de fazer o upload e indexar um vídeo, pode começar a usar o [website do
 
 [Comece a usar APIs](video-indexer-use-apis.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma introdução detalhada, visite o nosso [laboratório de introdução.](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) 
 

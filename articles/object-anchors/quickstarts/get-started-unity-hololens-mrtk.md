@@ -9,10 +9,10 @@ ms.date: 03/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ms.openlocfilehash: 1fd42f7b2da82da17dc19f2a57ea9b64f78f3fe0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049750"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>Quickstart: Criar uma app HoloLens com âncoras de objetos Azure, em Unidade com MRTK

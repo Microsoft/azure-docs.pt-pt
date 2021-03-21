@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542325"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando PowerShell
@@ -70,7 +70,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 | SslEnforcement             | Ativado          | Se o SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, Desativado.                                                                                                                                                                                                                                                 |
 | ArmazenamentoInMb                | 51200            | A capacidade de armazenamento do servidor (a unidade é megabytes). Armazenamento VálidoInMb é um mínimo de 5120 MB e aumenta em incrementos de 1024 MB. Para obter mais informações sobre os limites do tamanho do armazenamento, consulte [a Base de Dados Azure para os níveis de preços mySQL](./concepts-pricing-tiers.md).                                                                               |
 | Versão                    | 5.7              | A versão principal do MySQL.                                                                                                                                                                                                                                                                                                                 |
-| Nome do AdministradorUser      | myadmin          | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser** , **admin** , **administrador** , **raiz** , **convidado** nem **público**.                                                                                                                                                                                            |
+| Nome do AdministradorUser      | myadmin          | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.                                                                                                                                                                                            |
 | Palavra de Passagem de Administradores | `<securestring>` | A palavra-passe do utilizador do administrador sob a forma de uma cadeia segura. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.                                       |
 
 O valor do parâmetro **Sku** segue os **\_ \_ vCores de geração de cálculo de nível de** preços da convenção, como mostrado nos seguintes exemplos.
@@ -199,7 +199,7 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
 
 1. Inicie a aplicação MySQL Workbench no computador cliente. Para descarregar e instalar a bancada MySQL Workbench, consulte [download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. Na caixa de diálogo **Configurar Ligação Nova** , introduza as informações seguintes no separador **Parâmetros** :
+1. Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
 
    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="configurar ligação nova":::
 
@@ -216,7 +216,7 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
 
 1. Selecione a ligação para ligar ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se os recursos criados neste quickstart não forem necessários para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte exemplo.
 

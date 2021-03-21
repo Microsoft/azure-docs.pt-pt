@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305693"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de deteção de anomalias de aprendizagem automática
@@ -28,9 +28,9 @@ ms.locfileid: "93305693"
 
 Esta API pode detetar os seguintes tipos de padrões anómalos nos dados da série de tempo:
 
-* **Tendências positivas e negativas** : Por exemplo, ao monitorizar a utilização da memória na computação, pode ser interessante, uma vez que pode ser indicativa de uma fuga de memória,
-* **Alterações na gama dinâmica de valores** : Por exemplo, ao monitorizar as exceções lançadas por um serviço de nuvem, quaisquer alterações na gama dinâmica de valores podem indicar instabilidade na saúde do serviço, e
-* **Picos e Dips** : Por exemplo, ao monitorizar o número de falhas de login num serviço ou num número de check-outs num site de e-commerce, picos ou mergulhos podem indicar um comportamento anormal.
+* **Tendências positivas e negativas**: Por exemplo, ao monitorizar a utilização da memória na computação, pode ser interessante, uma vez que pode ser indicativa de uma fuga de memória,
+* **Alterações na gama dinâmica de valores**: Por exemplo, ao monitorizar as exceções lançadas por um serviço de nuvem, quaisquer alterações na gama dinâmica de valores podem indicar instabilidade na saúde do serviço, e
+* **Picos e Dips**: Por exemplo, ao monitorizar o número de falhas de login num serviço ou num número de check-outs num site de e-commerce, picos ou mergulhos podem indicar um comportamento anormal.
 
 Estes detetores de aprendizagem automática acompanham tais mudanças de valores ao longo do tempo e relatam mudanças contínuas nos seus valores como pontuações de anomalias. Não necessitam de afinação do limiar de adhoc e as suas pontuações podem ser usadas para controlar uma taxa falsamente positiva. A API de deteção de anomalias é útil em vários cenários, como monitorização de serviços, rastreando KPI's ao longo do tempo, monitorização de utilização através de métricas como número de pesquisas, números de cliques, monitorização de desempenho através de contadores como memória, CPU, leituras de ficheiros, etc. ao longo do tempo.
 

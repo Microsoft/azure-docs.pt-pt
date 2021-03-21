@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995289"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerir o Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único usando o Portal
@@ -32,7 +32,7 @@ Nesta secção, irá criar rede virtual e a sub-rede para hospedar o VM que é u
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que é utilizado para aceder ao seu recurso De Ligação Privada.
 
-1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  **Virtual network**.
+1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  .
 2. Na **Criar rede virtual,** insira ou selecione esta informação:
 
     | Definição | Valor |
@@ -49,7 +49,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina virtual  >  **compute de** recurso  >  **Virtual Machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina virtual  >  **compute de** recurso  >  .
 
 2. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
@@ -130,7 +130,7 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor PostgreSQL em
 
 Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final privado. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >  **Networking**  >  **ligação privada** de rede de recursos .
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >    >  **ligação privada** de rede de recursos .
 2. No **Private Link Center - Overview,** sobre a opção de construir uma **ligação privada a um serviço**, selecione **Start**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Visão geral do Link Privado":::
@@ -167,7 +167,7 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     | Sub-rede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
     |Integrar com zona DNS privada |Selecione **Yes** (Sim). |
-    |Zona DNS Privada |Selecione *(New)privatelink.postgres.database.azure.com* |
+    |Zona DNS Privada |Selecione *(Nova)privatelink.postgres.database.azure.com* |
     |||
 
     > [!Note] 

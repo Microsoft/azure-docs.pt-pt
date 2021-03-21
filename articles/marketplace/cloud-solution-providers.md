@@ -8,13 +8,13 @@ author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
 ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131178"
 ---
-# <a name="cloud-solution-provider-program"></a>Programa fornecedor de solução de nuvem
+# <a name="cloud-solution-provider-program"></a>Programa Fornecedor de Soluções Cloud
 
 Este artigo explica como configurar a sua oferta para estar disponível para o programa Cloud Solution Provider (CSP). Além de publicar as suas ofertas através de [lojas online de marketplace comercial,](overview.md#commercial-marketplace-online-stores)também pode vender através do programa CSP para chegar a milhões de clientes qualificados da Microsoft que o programa serve.
 
@@ -64,11 +64,11 @@ Para autorizar parceiros, **selecione Parceiros CSP** e aparece um menu que lhe 
 
 ![Selecione menu CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Pode aplicar filtros de pesquisa, tais como **Country,** **Compete,** ou **Skill** .
+Pode aplicar filtros de pesquisa, tais como **Country,** **Compete,** ou **Skill**.
 
 ![Filtros de país/região, competências e competências para pesquisa de parceiros](media/marketplace-publishers-guide/csp-add-resellers.png)
 
-Depois de ter escolhido a lista de parceiros, **selecione Add** .
+Depois de ter escolhido a lista de parceiros, **selecione Add**.
 
 ![Exemplo lista de parceiros autorizados no programa CSP](media/marketplace-publishers-guide/csp-add-resellers-details.png)
 
@@ -83,13 +83,13 @@ Se esta oferta não for publicada, terá de publicar a sua oferta para a disponi
 >[!NOTE]
 >Se autorizar um parceiro no programa CSP numa determinada região, pode vender a oferta a qualquer cliente que pertença a essa região em particular. Para obter mais informações sobre como as ofertas da CSP são classificadas em regiões, consulte [o programa Cloud Solution Provider mercados regionais e moeda.](/partner-center/regional-authorization-overview)
 
-Se estiver a atualizar a lista de CSP de uma oferta já publicada, adicione os parceiros adicionais e selecione **o público do Sync CSP** .
+Se estiver a atualizar a lista de CSP de uma oferta já publicada, adicione os parceiros adicionais e selecione **o público do Sync CSP**.
 
-Se tiver uma oferta que já tenha uma lista de parceiros autorizados e gostaria de usar a mesma lista para outra oferta, use **Import/Export** . Navegue para a oferta que tem a lista de CSP e selecione **Export CSPs** . A função desenvolve um ficheiro .csv que pode ser importado para outra oferta.
+Se tiver uma oferta que já tenha uma lista de parceiros autorizados e gostaria de usar a mesma lista para outra oferta, use **Import/Export**. Navegue para a oferta que tem a lista de CSP e selecione **Export CSPs**. A função desenvolve um ficheiro .csv que pode ser importado para outra oferta.
 
 #### <a name="option-3-no-partners-in-the-csp-program"></a>Opção 3: Sem parceiros no programa CSP
 
-![Sem parceiros no programa CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
+![Nenhum parceiro no programa CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 Ao escolher esta opção, está a optar pela sua oferta fora do programa CSP. Pode alterar esta seleção a qualquer momento.
 
@@ -104,9 +104,9 @@ Se um parceiro no programa CSP não tiver vendido o seu produto aos seus cliente
    > [!NOTE]
    > Não altere as seleções de menus pré-povoados.
 
-2. Para **Selecionar a versão do produto,** selecione **Live offer management** .
+2. Para **Selecionar a versão do produto,** selecione **Live offer management**.
 3. Para **Selecionar uma categoria que melhor descreva o problema,** escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreve o problema** , selecione **Atualização da oferta existente** .
+4. Para **Selecionar um problema que melhor descreve o problema**, selecione **Atualização da oferta existente**.
 5. Selecione **Next** para ser direcionado para a **página de detalhes do Assunto** para introduzir mais detalhes sobre o seu problema.
 6. Utilize **a Deautorize CSP** como título de emissão e preencha as restantes secções necessárias.
 
@@ -123,9 +123,9 @@ Se a sua oferta for atualmente **opção 1: Qualquer parceiro no programa CSP** 
    > [!NOTE]
    > Não altere as seleções de menus pré-povoados.
 
-2. Para **Selecionar a versão do produto,** selecione **Live offer management** .
+2. Para **Selecionar a versão do produto,** selecione **Live offer management**.
 3. Para **Selecionar uma categoria que melhor descreva o problema,** escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreve o problema** , selecione **Atualização da oferta existente** .
+4. Para **Selecionar um problema que melhor descreve o problema**, selecione **Atualização da oferta existente**.
 5. Selecione **Next** para ser direcionado para a **página de detalhes do Assunto** para introduzir mais detalhes sobre o seu problema.
 6. Utilize **a Deautorize CSP** como título de emissão e preencha as restantes secções necessárias.
 
@@ -141,9 +141,9 @@ Se a sua oferta for atualmente **Opção 2: Parceiros específicos no programa C
    > [!NOTE]
    > Não altere as seleções de menus pré-povoados.
 
-2. Para **Selecionar a versão do produto,** selecione **Live offer management** .
+2. Para **Selecionar a versão do produto,** selecione **Live offer management**.
 3. Para **Selecionar uma categoria que melhor descreva o problema,** escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreve o problema** , selecione **Atualização da oferta existente** .
+4. Para **Selecionar um problema que melhor descreve o problema**, selecione **Atualização da oferta existente**.
 5. Selecione **Next** para ser direcionado para a **página de detalhes do Assunto** para introduzir mais detalhes sobre o seu problema.
 6. Utilize **a Deautorize CSP** como título de emissão e preencha as restantes secções necessárias.
 
@@ -154,9 +154,9 @@ Se a sua oferta for atualmente **Opção 2: Parceiros específicos no programa C
    > [!NOTE]
    > Não altere as seleções de menus pré-povoados.
 
-2. Para **Selecionar a versão do produto,** selecione **Live offer management** .
+2. Para **Selecionar a versão do produto,** selecione **Live offer management**.
 3. Para **Selecionar uma categoria que melhor descreva o problema,** escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreve o problema** , selecione **Atualização da oferta existente** .
+4. Para **Selecionar um problema que melhor descreve o problema**, selecione **Atualização da oferta existente**.
 5. Selecione **Next** para ser direcionado para a **página de detalhes do Assunto** para introduzir mais detalhes sobre o seu problema.
 6. Utilize **a Deautorize CSP** como título de emissão e preencha as restantes secções necessárias.
 

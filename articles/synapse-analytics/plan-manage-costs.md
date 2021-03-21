@@ -8,10 +8,10 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
 ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561250"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planear e gerir os custos da Azure Synapse Analytics
@@ -76,7 +76,7 @@ Quando utiliza a análise de custos, vê os custos do Azure Synapse Analytics em
 
 Para visualizar os custos da Azure Synapse na análise de custos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Abra o âmbito, quer a subscrição quer o grupo de recursos, no portal Azure e selecione **a análise de Custos** no menu. Por exemplo, vá a **Subscrições,** selecione uma subscrição da lista e, em seguida, selecione  **análise de custos** no menu. Selecione **Scope** para mudar para um âmbito diferente na análise de custos.
 3. Por padrão, o custo dos serviços é mostrado na primeira tabela de donuts. Selecione a área na tabela marcada Azure Synapse.
 

@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011940"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com Serviços de Media v2
@@ -68,7 +68,7 @@ Nesta secção, cria-se e cria um projeto de Aplicação para consolas C.
 2. Crie a pasta **SupportFiles** no mesmo nível que o ficheiro do projeto **HandleRedundancyForOnDemandStreaming.csproj.** Sob a pasta **SupportFiles,** crie as **pastas Desaquicha** e **MP4Files.** Copie um ficheiro .mp4 na pasta **MP4Files.** (Neste exemplo, é utilizado o **ficheiroignite.mp4.)** 
 3. Utilize **o NuGet** para adicionar referências a DLLs relacionados com os Serviços de Mídia. No **Menu Principal do Estúdio Visual**, selecione **TOOLS**  >  **NuGet Package Manager** Package Manager  >  **Consola**. Na janela da consola, **escreva o Pacote de Instalação windowsazure.mediaservices** e prima Enter.
 4. Adicione outras referências necessárias para este projeto: System.Runtime.Serialization e System.Web.
-5. Substitua **a utilização de** declarações adicionadas ao ficheiro **Programs.cs** por predefinição com as seguintes:
+5. Substitua **a utilização de** declarações adicionadas aos **Programas.cs** ficheiro por predefinição com os seguintes:
 
 ```csharp
 using System;

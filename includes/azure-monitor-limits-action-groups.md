@@ -9,10 +9,10 @@ ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 6f9405e1b402b029b628821824a1727dd825a031
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734049"
 ---
 | Recurso | Limite predefinido | Limite máximo |

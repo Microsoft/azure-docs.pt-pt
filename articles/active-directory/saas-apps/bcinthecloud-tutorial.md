@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com BC na Nuvem Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com BC na cloud | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o BC na Cloud.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 5b8d9cedcc2ca3085f342db0bbf5fe3704ac7242
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97674126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com BC na Nuvem

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 77cc49c1b79e5c24e78a67a69493aa0b0059d565
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791076"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementar um cluster de tecido de serviço Linux numa rede virtual Azure
@@ -169,7 +169,7 @@ sfctl cluster health
 
 Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](./service-fabric-tutorial-delete-cluster.md) para evitar incorrer em custos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a [escalar um Cluster.](service-fabric-tutorial-scale-cluster.md)
 

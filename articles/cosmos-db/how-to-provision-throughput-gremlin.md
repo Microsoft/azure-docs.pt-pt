@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086164"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Base de dados, contentores ou produção de escala automática nos recursos da API API da Azure Cosmos DB Gremlin
@@ -28,13 +28,13 @@ Se estiver a utilizar uma API diferente, consulte [a API SQL,](how-to-provision-
 
 1. [Crie uma nova conta Azure Cosmos,](create-mongodb-dotnet.md#create-a-database-account)ou selecione uma conta Azure Cosmos existente.
 
-1. Abra o painel **do Data Explorer** e selecione Novo **Gráfico** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Data Explorer** e selecione Novo **Gráfico**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente. Selecione a opção **de produção da base de dados De provisionar** se pretender obter a produção no nível da base de dados.
    * Introduza uma identificação de gráfico.
    * Introduza um valor chave de partição (por exemplo, `/ItemID` ).
    * Introduza uma produção que pretende prever (por exemplo, 1000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Screenshot do Data Explorer, ao criar um novo gráfico com produção de nível de base de dados":::
 

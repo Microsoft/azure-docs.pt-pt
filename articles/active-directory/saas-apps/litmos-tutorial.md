@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Litmos Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com Litmos | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Litmos.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
 ms.openlocfilehash: cfdcef2b9adf4e7ce500a9a89a45678a60afffc6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458458"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmos"></a>Tutorial: Azure Ative Directory integração única (SSO) com Litmos
@@ -109,7 +109,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Litmos.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Litmos**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -135,7 +135,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Separador de Integração][23]
 
-4. No separador **Integrações,** desloque-se até à **3ª Integrações partidárias**e, em seguida, clique no separador **SAML 2.0.**
+4. No separador **Integrações,** desloque-se até à **3ª Integrações partidárias** e, em seguida, clique no separador **SAML 2.0.**
 
     ![Secção SAML 2.0][24]
 
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon em Litmos.
 
     ![Separador de Integrações][23]
 
-4. No separador **Integrações,** desloque-se até à **3ª Integrações partidárias**e, em seguida, clique no separador **SAML 2.0.**
+4. No separador **Integrações,** desloque-se até à **3ª Integrações partidárias** e, em seguida, clique no separador **SAML 2.0.**
 
     ![SAML 2.0][24]
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: fc488cecb762ff13bcb2999bb06521ebb70b44fb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946577"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
@@ -53,7 +53,7 @@ Para obter mais informações sobre a Azure Data Factory, consulte a [documenta�
 
 Os ficheiros de dados de origem são normalmente carregados num local no Azure Storage ou no Azure Data Lake Storage. Os ficheiros costumam estar num formato plano, como o CSV. Mas podem estar em qualquer formato.
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 O Azure Storage tem alvos de adaptabilidade específicos. Consulte [os objetivos de escalabilidade e desempenho para armazenamento blob](../../storage/blobs/scalability-targets.md) para obter mais informações. Para a maioria dos nós analíticos, o Azure Storage escala melhor quando lida com muitos ficheiros menores. Enquanto estiver dentro dos limites da sua conta, o Azure Storage garante o mesmo desempenho, não importa quão grandes sejam os ficheiros. Pode armazenar terabytes de dados e ainda obter um desempenho consistente. Esta afirmação é verdadeira quer esteja a usar um subconjunto ou todos os dados.
 
@@ -65,7 +65,7 @@ O Azure Storage tem uma camada API WebHDFS para o armazenamento de bolhas. Todos
 
 Os dados são normalmente ingeridos no Azure Storage através do PowerShell, o Azure Storage SDK ou AZCopy.
 
-### <a name="azure-data-lake-storage"></a>Armazenamento do Azure Data Lake
+### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
 O Azure Data Lake Storage é um repositório gerido e de hiperescala para dados de análise. É compatível e usa um paradigma de design semelhante ao HDFS. O Data Lake Storage oferece uma adaptabilidade ilimitada para a capacidade total e o tamanho dos ficheiros individuais. É uma boa escolha quando se trabalha com ficheiros grandes, porque podem ser armazenados em vários nós. Os dados de partilha no Armazenamento do Lago de Dados são feitos nos bastidores. Obtém-se uma produção massiva para executar empregos analíticos com milhares de executores simultâneos que lêem e escrevem centenas de terabytes de dados.
 
@@ -135,7 +135,7 @@ Apache Flume não pode ser usado com Azure HDInsight. Mas, uma instalação hado
 
 Depois de existirem dados no local escolhido, é necessário limpá-lo, combiná-lo ou prepará-lo para um padrão de utilização específico. Colmeia, Porco e Spark SQL são boas escolhas para este tipo de trabalho. São todos apoiados no HDInsight.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Usando a Colmeia Apache como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 - [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

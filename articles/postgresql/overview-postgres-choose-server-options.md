@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98797236"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Escolha a opção de servidor PostgreSQL certa em Azure
@@ -94,7 +94,7 @@ Além disso, configurar alta disponibilidade para outro centro de dados requer u
 
 - Quando pretende evitar o tempo e a despesa de adquirir novo hardware no local, o PostgreSQL em VMs Azure é a solução certa para aplicações que requerem um controlo granular e personalização do motor PostgreSQL não suportado pelo serviço ou que exijam acesso ao SISTEMA subjacente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a Base de Dados Azure para [preços pós-SQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 - Comece por criar o seu primeiro servidor.

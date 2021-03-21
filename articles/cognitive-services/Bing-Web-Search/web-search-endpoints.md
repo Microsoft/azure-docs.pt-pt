@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
 ms.openlocfilehash: c882e3e4d0cd6ba594a700f4fd53c14103a8d1d1
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94381257"
 ---
 # <a name="web-search-endpoint"></a>Ponto final de pesquisa web
@@ -30,7 +30,7 @@ A **API de Pesquisa Web** devolve páginas web, notícias, imagens, vídeos e [e
 
 Para obter os resultados da pesquisa na Web utilizando a API Bing, envie um `GET` pedido para o seguinte ponto final. Os cabeçalhos e os parâmetros URL definem especificações adicionais.
 
-**Ponto final** : Devolve resultados web relevantes para a consulta de pesquisa do utilizador definida por `?q=""` .
+**Ponto final**: Devolve resultados web relevantes para a consulta de pesquisa do utilizador definida por `?q=""` .
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
@@ -42,7 +42,7 @@ Ponto final: Para mais detalhes sobre cabeçalhos, parâmetros, códigos de merc
 
 A resposta a um pedido de pesquisa na Web inclui todos os resultados como objetos JSON. A análise do resultado requer procedimentos que manuseiem os elementos de cada tipo. Consulte o [tutorial](./tutorial-bing-web-search-single-page-app.md) e [o código fonte,](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) por exemplo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 As **APIs de Bing suportam** ações de pesquisa que devolvem resultados de acordo com o seu tipo. Todos os pontos finais de pesquisa retornam os resultados como objetos de resposta JSON.  Todos os pontos finais suportam consultas que devolvem uma língua e localização específicas por longitude, latitude e raio de pesquisa.
 

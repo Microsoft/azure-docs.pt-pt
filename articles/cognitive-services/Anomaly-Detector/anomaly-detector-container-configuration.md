@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
 ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94363719"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contentores do Detetor de Anomalias
@@ -97,8 +97,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 Os exemplos a seguir utilizam as definições de configuração para ilustrar como escrever e utilizar `docker run` comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](anomaly-detector-container-howto.md#stop-the-container)
 
-* **Carácter de continuação da linha** : Os comandos do Docker nas seguintes secções usam o corte traseiro, `\` como um personagem de continuação de linha para uma casca de bash. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. Por exemplo, o carácter de continuação da linha para janelas é um cuidado, `^` . Substitua o corte traseiro pelo cuidado. 
-* **Ordem de argumento** : Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes docker.
+* **Carácter de continuação da linha**: Os comandos do Docker nas seguintes secções usam o corte traseiro, `\` como um personagem de continuação de linha para uma casca de bash. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. Por exemplo, o carácter de continuação da linha para janelas é um cuidado, `^` . Substitua o corte traseiro pelo cuidado. 
+* **Ordem de argumento**: Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes docker.
 
 Substitua o valor nos parênteses, `{}` com os seus próprios valores:
 

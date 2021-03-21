@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
 ms.openlocfilehash: dde3b95c7997a7f742a9d48a964f4275169f6e9c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92106931"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Cosmos DB gatilho e encadernações para funções Azure 2.x e visão geral superior
@@ -31,7 +31,7 @@ Este conjunto de artigos explica como trabalhar com as ligações [DB da Azure C
 >
 > Esta ligação foi originalmente chamada DocumentDB. Na versão 2.x e superior das Funções, o gatilho, as encadernações e o pacote são todos chamados Cosmos DB.
 
-## <a name="supported-apis"></a>APIs apoiados
+## <a name="supported-apis"></a>APIs suportadas
 
 [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 

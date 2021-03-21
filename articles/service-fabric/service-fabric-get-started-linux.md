@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086895"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
@@ -300,19 +300,19 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 
 1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados selecionando Detalhes de **Instalação de Ajuda** Sobre  >  **Eclipse**  >  **.** Pode atualizar o Buildship com as instruções apresentadas em [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Plug-ins do Eclipse para Gradle).
 
-2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a** instalar  >  **novos softwares** .
+2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a** instalar  >  **novos softwares**.
 
-3. No **Trabalho com** caixa, **insira https: \/ /dl.microsoft.com/eclipse** .
+3. No **Trabalho com** caixa, **insira https: \/ /dl.microsoft.com/eclipse**.
 
-4. Selecione **Adicionar** .
+4. Selecione **Adicionar**.
 
     ![Página Software Disponível][sf-eclipse-plugin]
 
-5. Selecione o plug-in **ServiceFabric** e selecione **Seguinte** .
+5. Selecione o plug-in **ServiceFabric** e selecione **Seguinte**.
 
 6. Execute os passos de instalação. Em seguida, aceite o contrato de licença do utilizador final.
 
-Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique selecionando **Ajuda**  >  **Sobre Detalhes de**  >  **Instalação do Eclipse** . Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se uma versão mais recente estiver disponível.
+Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique selecionando **Ajuda**  >  **Sobre Detalhes de**  >  **Instalação do Eclipse**. Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se uma versão mais recente estiver disponível.
 
 Para obter mais informações, veja [Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse](service-fabric-get-started-eclipse.md).
 

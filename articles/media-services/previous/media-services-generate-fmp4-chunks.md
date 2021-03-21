@@ -15,17 +15,17 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6311aa6d0bfca133925f27b5ea4849769d9e0ec4
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013368"
 ---
 # <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gere pedaços de fMP4
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este artigo mostra como criar uma tarefa de codificação que gere pedaços fragmentados de MP4 (fMP4) em vez de ficheiros MP4 ISO. Para gerar pedaços de fMP4, utilize o codificador de fluxo de trabalho **Standard ou** Media **Encoder Premium** para criar uma tarefa de codificação e especificar também a opção **AssetFormatOption.AdaptiveStreaming,** como mostra este código:  
     

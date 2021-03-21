@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: c4c303a7640454ba0cb6622b21fd161354266068
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94375945"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo florestal de decisão Two-Class
@@ -51,13 +51,13 @@ Para mais informações, consulte [As Florestas de Decisão.](https://go.microso
   
 1.  Adicione o módulo **de floresta de decisão de duas classes** ao seu oleoduto em Azure Machine Learning e abra o painel de **propriedades** do módulo. 
 
-    Pode encontrar o módulo em **Machine Learning**. Expandir **Inicialize** , e, em seguida, **Classificação**.  
+    Pode encontrar o módulo em **Machine Learning**. Expandir **Inicialize**, e, em seguida, **Classificação**.  
   
 2.  Para **o método de resampling,** escolha o método utilizado para criar as árvores individuais.  Pode escolher entre **Embalar** ou **Replicar.**  
   
-    -   **Embalamento** : O embalamento também é chamado de *agregador de botas.* Neste método, cada árvore é cultivada numa nova amostra, criada por amostragem aleatória do conjunto de dados original com substituição até ter um conjunto de dados do tamanho do original.  
+    -   **Embalamento**: O embalamento também é chamado de *agregador de botas.* Neste método, cada árvore é cultivada numa nova amostra, criada por amostragem aleatória do conjunto de dados original com substituição até ter um conjunto de dados do tamanho do original.  
   
-         As saídas dos modelos são combinadas com *o voto* , que é uma forma de agregação. Cada árvore numa decisão de classificação a floresta produz um histograma de frequência não normalizado de rótulos. A agregação é resumir estes histogramas e normalizar para obter as "probabilidades" de cada rótulo. Desta forma, as árvores que têm alta confiança de previsão terão um maior peso na decisão final do conjunto.  
+         As saídas dos modelos são combinadas com *o voto*, que é uma forma de agregação. Cada árvore numa decisão de classificação a floresta produz um histograma de frequência não normalizado de rótulos. A agregação é resumir estes histogramas e normalizar para obter as "probabilidades" de cada rótulo. Desta forma, as árvores que têm alta confiança de previsão terão um maior peso na decisão final do conjunto.  
   
          Para mais informações, consulte a entrada na Wikipédia para a agregação de Bootstrap.  
   
@@ -65,9 +65,9 @@ Para mais informações, consulte [As Florestas de Decisão.](https://go.microso
   
 3.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único** : Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.
 
-    -   **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
   
 4.  Para **o Número de árvores de decisão,** escreva o número máximo de árvores de decisão que podem ser criadas no conjunto. Ao criar mais árvores de decisão, você pode potencialmente obter uma melhor cobertura, mas o tempo de treino aumenta.  
   

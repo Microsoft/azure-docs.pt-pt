@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: lajanuar
 ms.openlocfilehash: e7f0e106c1ca154dcd54990395430b3e0f6c536f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895514"
 ---
 # <a name="translator-30-dictionary-examples"></a>Tradutor 3.0: Exemplos do Dicionário
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 Os parâmetros de pedido passados na cadeia de consulta são:
 
-| Parâmetro de consulta | Descrição |
+| Parâmetro de consulta | Description |
 | --------- | ----------- |
 | api-version <img width=200/> | **Parâmetro requerido**.<br/>Versão da API solicitada pelo cliente. O valor deve `3.0` ser. |
 | De | **Parâmetro requerido**.<br/>Especifica a linguagem do texto de entrada. A língua de origem deve ser uma das [línguas apoiadas incluídas](./v3-0-languages.md) no `dictionary` âmbito. |
@@ -41,7 +41,7 @@ Os parâmetros de pedido passados na cadeia de consulta são:
 
 Os cabeçalhos de pedido incluem:
 
-| Cabeçalhos  | Descrição |
+| Cabeçalhos  | Description |
 | ------ | ----------- |
 | Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
 | Content-Type | **Cabeçalho de pedido necessário**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |

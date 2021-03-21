@@ -8,10 +8,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: e469e9bfd13bf8d89084b66e954cb51b27c2ebc2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020031"
 ---
 # <a name="resize-an-azure-stream-analytics-cluster"></a>Redimensione um cluster Azure Stream Analytics
@@ -30,7 +30,7 @@ A capacidade do cluster pode ser dimensionada para cima e para baixo para corres
 
 A operação de escalagem não afeta quaisquer postos de trabalho atualmente em curso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora sabe escalar para cima e para baixo os seus clusters Stream Analytics. Em seguida, pode aprender sobre a gestão de pontos finais privados e autoscalar os seus empregos:
 

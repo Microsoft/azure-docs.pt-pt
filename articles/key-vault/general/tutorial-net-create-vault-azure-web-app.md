@@ -11,10 +11,10 @@ ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788742"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação web Azure em .NET
@@ -277,7 +277,7 @@ dotnet add package Azure.Security.KeyVault.Secrets
 
 #### <a name="update-the-code"></a>Atualizar o código
 
-Encontre e abra o ficheiro Startup.cs no seu projeto akvwebapp. 
+Encontre e abra o ficheiro .cs Startup no seu projeto akvwebapp. 
 
 Adicione estas linhas ao cabeçalho:
 
@@ -333,7 +333,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 Onde antes de ver "Olá Mundo!", deve agora ver o valor do seu segredo exibido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilize o Cofre de Chaves Azure com aplicações implantadas numa máquina virtual em .NET](./tutorial-net-virtual-machine.md)
 - Saiba mais sobre [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md)
