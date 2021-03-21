@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495118"
 ---
 # <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Coloque um defender-ioT-micro-agente no seu dispositivo IoT Edge

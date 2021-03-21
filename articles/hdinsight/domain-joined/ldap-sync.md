@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: fb9035b4d816c1af84b15e6865335aa1bdf86f5b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933420"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>Sincronização LDAP em Ranger e Apache Ambari em Azure HDInsight
@@ -72,7 +72,7 @@ A sincronização do utilizador ranger pode acontecer fora de qualquer um dos he
 * Se o nome do grupo tiver caracteres unicódigos, a sincronização do Ranger não sincroniza esse objeto. Se um utilizador pertence a um grupo que tem caracteres internacionais, ranger sincroniza a filiação parcial do grupo
 * O nome de utilizador (sAMAccountName) e o nome de grupo (nome) têm de ter 20 caracteres de comprimento ou menos. Se o nome do grupo for mais longo, então o utilizador será tratado como se não pertencesse ao grupo, ao calcular as permissões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Problemas de autenticação no Azure HDInsight](./domain-joined-authentication-issues.md)
 * [Sincronizar utilizadores do Azure AD para um cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

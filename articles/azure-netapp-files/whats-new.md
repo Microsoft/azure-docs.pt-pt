@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 84213832e59c50c85d9731ced39bbce6264df47e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571031"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590913"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp
 
 Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um resumo sobre as novidades e melhorias mais recentes. 
+
+## <a name="march-2021"></a>março de 2021 
+
+* [Redimensionamento automático de um volume de destino de replicação transversal](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    Numa relação de replicação entre regiões, um volume de destino é automaticamente redimensionado com base no tamanho do volume de origem. Como tal, não precisa de redimensionar o volume de destino separadamente. Este comportamento de redimensionamento automático é aplicável quando os volumes estão numa relação de replicação ativa, ou quando o espreitamento de replicação é quebrado com a operação de resync. Para que esta funcionalidade funcione, é necessário garantir espaço suficiente nas piscinas de capacidade tanto para a fonte como para os volumes de destino.
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
 ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698744"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
@@ -267,7 +267,7 @@ Como exemplo, se construir um servidor gRPC utilizando o núcleo .NET, o serviç
 } 
 ``` 
 
-Também pode configurar isto no ficheiro Startup.cs com configuração: 
+Também pode configurar isto no ficheiro .cs Arranque com Configuração: 
 
 ```
 public static IHostBuilder CreateHostBuilder(string[] args) => 

@@ -10,10 +10,10 @@ ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 15e94dac02770bf28aae4cbfc4e337cb68b8be40
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102425329"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilização do executor a granel de gráficos .NET library para realizar operações a granel em Azure Cosmos DB Gremlin API
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Este repositório contém o exemplo GraphBulkExecutor com os seguintes ficheiros:
 
-Ficheiro|Descrição
+Ficheiro|Description
 ---|---
 `App.config`|É aqui que é especificada a aplicação e os parâmetros específicos da mesma. Este ficheiro deve ser modificado primeiro para ligar à base de dados e às coleções de destino.
 `Program.cs`| Este ficheiro contém a lógica por trás da criação da `DocumentClient` coleção, manuseamento das limpezas e envio dos pedidos do executor a granel.

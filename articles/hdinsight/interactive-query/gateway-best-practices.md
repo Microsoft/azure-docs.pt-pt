@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933110"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Gateway mergulho profundo e boas práticas para a Colmeia Apache em Azure HDInsight
@@ -53,9 +53,9 @@ Existem vários locais para atenuar e compreender questões de desempenho satisf
 
 * Utilize a cláusula **LIMIT** ao executar grandes consultas **SELECT.** A cláusula **LIMIT** reduzirá as filas totais comunicadas ao anfitrião do cliente. A cláusula **LIMIT** só afeta a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **LIMIT** ao plano de consulta, utilize a configuração `hive.limit.optimize.enable` . **O LIMIT** pode ser combinado com uma compensação utilizando o formulário de argumento **LIMIT x,y**.
 
-* Nomeie as suas colunas de interesse ao executar consultas **SELECT** em vez de utilizar **SELECT \** _. Selecionar menos colunas diminuirá a quantidade de dados lidos.
+* Nomeie as suas colunas de interesse ao executar consultas **SELECT** em vez de utilizar **SELECT \***. Selecionar menos colunas diminuirá a quantidade de dados lidos.
 
-_ Tente executar a consulta de interesse através da Apache Beeline. Se a recuperação do resultado através do Apache Beeline demorar um longo período de tempo, espere atrasos na recuperação dos mesmos resultados através de ferramentas externas.
+* Tente passar a consulta de interesse através de Apache Beeline. Se a recuperação do resultado através do Apache Beeline demorar um longo período de tempo, espere atrasos na recuperação dos mesmos resultados através de ferramentas externas.
 
 * Teste uma consulta básica da Colmeia para garantir que uma ligação ao Gateway HDInsight pode ser estabelecida. Tente executar uma consulta básica a partir de duas ou mais ferramentas externas para se certificar de que nenhuma ferramenta individual está a ter problemas.
 
@@ -75,7 +75,7 @@ _ Tente executar a consulta de interesse através da Apache Beeline. Se a recupe
 
 * Considere ativar a colmeia de compressão utilizando as configurações `hive.exec.compress.output` e `hive.exec.compress.intermediate` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Apache Beeline em HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md)
 * [Passos de resolução de problemas do gateway HDInsight](./troubleshoot-gateway-timeout.md)

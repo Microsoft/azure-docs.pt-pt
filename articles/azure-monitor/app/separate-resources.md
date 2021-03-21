@@ -4,10 +4,10 @@ description: Telemetria direta a diferentes recursos para desenvolvimento, teste
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424670"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Insights de Aplicação devo implementar
@@ -46,7 +46,7 @@ Cada recurso De Insights de Aplicação vem com métricas que estão disponívei
 
 Para facilitar a alteração do ikey à medida que o código se move entre fases de produção, consulte a chave dinamicamente em código em vez de utilizar um valor codificado/estático.
 
-Desa parte num método de inicialização, como global.aspx.cs num serviço ASP.NET:
+Definir a chave num método de inicialização, como o global.aspx.cs num serviço ASP.NET:
 
 ```csharp
 protected void Application_Start()
@@ -123,7 +123,7 @@ Existem vários métodos diferentes de definir a propriedade Versão aplicação
 
     A etiqueta de construção contém um espaço reservado (AutoGen_...) quando se constrói com o Visual Studio. Mas quando construído com MSBuild, é povoado com o número de versão correta.
 
-    Para permitir que o MSBuild gere números de versão, desave a versão como `1.0.*` em AssemblyReference.cs
+    Para permitir que o MSBuild gere números de versão, desave a versão como `1.0.*` na AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Versão e controlo de versão
 Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No seu `.csproj` ficheiro, adicione:  

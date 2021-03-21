@@ -27,11 +27,11 @@
           href: security-overview.md
 - name: Guias de procedimentos
   items:
-    - name: Ligar ao Azure Arc
+    - name: Implementação
       items:
         - name: Descrição geral do agente Connected Machine
           href: agent-overview.md
-        - name: Plano de implantação em escala
+        - name: Plano de implementação
           href: plan-at-scale-deployment.md
         - name: Ligar computadores ao Azure Arc no portal do Azure
           href: onboard-portal.md

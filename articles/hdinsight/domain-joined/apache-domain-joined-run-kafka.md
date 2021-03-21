@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933680"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar as políticas apache kafka em HDInsight com pacote de segurança empresarial (pré-visualização)
@@ -224,7 +224,7 @@ Se não vai continuar a utilizar esta aplicação, elimine o cluster Kafka que c
 ## <a name="troubleshooting"></a>Resolução de problemas
 Se o kafka-produtor-consumidor.jar não funcionar num cluster de domínios, certifique-se de que está a utilizar o kafka-produtor-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o Producer-Consumer projeto, que é para cenários não de domínio).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encriptação de discos chave gerida pelo cliente](../disk-encryption.md)

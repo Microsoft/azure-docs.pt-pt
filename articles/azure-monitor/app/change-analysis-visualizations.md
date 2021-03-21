@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734626"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655856"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizações para Análise de Alteração de Aplicações (pré-visualização)
 
@@ -22,11 +22,11 @@ Procure a Análise de Alterações na barra de pesquisa no portal Azure para lan
 
 ![Screenshot de pesquisa de Análise de Mudança no portal Azure](./media/change-analysis/search-change-analysis.png)
 
-Todos os recursos sob uma subscrição selecionada são apresentados com alterações das últimas 24 horas. Para otimizar o desempenho da carga da página, o serviço apresenta 10 recursos de cada vez. Selecione a página seguinte para ver mais recursos. Estamos a trabalhar para eliminar esta limitação.
+Todos os recursos sob uma subscrição selecionada são apresentados com alterações das últimas 24 horas. Todas as alterações são apresentadas com valor antigo e novo valor para fornecer insights num só olhar.
 
 ![Screenshot da lâmina de análise de mudança no portal Azure](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Clicando num recurso para ver todas as suas alterações. Se necessário, faça uma alteração para ver detalhes e insights de alteração formatados json.
+Clicar numa alteração para ver o corte completo do Gestor de Recursos e outras propriedades.
 
 ![Screenshot de detalhes de mudança](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ A UI suporta a seleção de várias subscrições para visualizar alterações d
 
 ![Screenshot do filtro de subscrição que suporta a seleção de várias subscrições](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>Diagnóstico e resolução de problemas de aplicações web
-
-No Azure Monitor, a Change Analysis também é integrada no autosserviço Diagnosticar e resolver a experiência de **problemas.** Aceda a esta experiência a partir da página **geral** da sua aplicação Serviço de Aplicações.
-
-![Screenshot do botão "Visão Geral" e do botão "Diagnosticar e resolver problemas"](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Análise de alteração de aplicação na ferramenta diagnosticar e resolver problemas
 
@@ -69,6 +64,13 @@ Application Change Analysis é um detetor autónomo na Web App diagnosticar e re
 5. Os dados de alteração também estão disponíveis em detetores de **aplicações web para baixo** e **de falhas de aplicação** selecionados. Você verá um gráfico que resume o tipo de mudanças ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são apresentadas para ajudar com problemas imediatos.
 
      ![Screenshot da visão de mudança diff](./media/change-analysis/change-view.png)
+
+## <a name="diagnose-and-solve-problems-tool"></a>Ferramenta de diagnóstico e resolução de problemas
+A Análise de Alterações está disponível como um cartão de insight na ferramenta Diagnosticar e Resolver Problemas. Se um recurso tiver problemas e houver alterações descobertas nas últimas 72 horas, o cartão insights apresentará o número de alterações. Clicar na visualização do link de detalhes de alteração levará à vista filtrada da UI autónoma de Change Analysis.
+
+![Screenshot de visualização de visão de mudança na ferramenta Diagnose and Solve Problems.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnóstico e resolução de máquinas virtuais
 

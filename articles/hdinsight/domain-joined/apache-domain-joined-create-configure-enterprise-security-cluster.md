@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: 914acfab3935bc81e7d8382163ca9283c7f71a53
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98934041"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters de pacotes de segurança empresarial em Azure HDInsight
@@ -115,7 +115,7 @@ Os utilizadores serão sincronizados com Azure AD.
 
 ### <a name="create-an-azure-ad-directory"></a>Criar um diretório AD Azure
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Selecione **Criar um recurso** e escrever `directory` . Selecione **Azure Ative Directory**  >  **Create**.
 1. Sob **o nome da Organização,** insira `HDIFabrikam` .
 1. No **nome de domínio inicial,** insira `HDIFabrikamoutlook` .
@@ -205,14 +205,14 @@ Criar um administrador de inquilino do Ative Directory.
    ![A página "Configuração completa"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. Após a conclusão da sincronização, confirme que os utilizadores que criou no diretório iaaS estão sincronizados com o Azure AD.
-   1. Inicie sessão no Portal do Azure.
+   1. Inicie sessão no portal do Azure.
    1. Selecione Utilizadores do **Azure Ative Directory**  >  **HDIFabrikam**  >  .
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
 Crie uma identidade gerida atribuída ao utilizador que possa utilizar para configurar os Serviços de Domínio Azure AD (Azure AD DS). Para obter mais informações, consulte [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Selecione **Criar um recurso** e escrever `managed identity` . Selecione **Utilizador Atribuído Identidade Gerida**  >  **Criar**.
 1. Para o **Nome de Recursos,** insira `HDIFabrikamManagedIdentity` .
 1. Selecione a sua subscrição.
@@ -244,7 +244,7 @@ Siga estes passos para ativar a Azure AD DS. Para obter mais informações, cons
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. **Selecione Criar recurso,** insira `Domain services` e selecione **Azure AD Domain Services**  >  **Create**.
 1. Na página **Basics:**
     1. Sob **o nome do Diretório,** selecione o diretório AD Azure que criou: **HDIFabrikam**.
@@ -421,6 +421,6 @@ Este passo requer os seguintes pré-requisitos:
 
 Se puder iniciar sômpa com esta conta, configura o seu cluster ESP corretamente para sincronizar com o seu caso ative diretório no local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia [Uma introdução à segurança apache Hadoop com ESP.](hdinsight-security-overview.md)

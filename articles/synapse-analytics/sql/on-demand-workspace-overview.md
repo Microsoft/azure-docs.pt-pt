@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101667496"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Piscina SQL sem servidor em Azure Synapse Analytics 
@@ -81,7 +81,7 @@ T-SQL suportado:
 
 O pool SQL sem servidor não tem armazenamento local, apenas os objetos de metadados são armazenados em bases de dados. Portanto, a T-SQL relacionada com os seguintes conceitos não é suportada:
 
-- Tabelas
+- Tables
 - Acionadores
 - Vistas materializadas
 - Declarações DDL que não as relacionadas com vistas e segurança

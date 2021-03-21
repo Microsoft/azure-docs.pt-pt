@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/07/2021
 ms.author: shhazam
 ms.openlocfilehash: 874a783763882a28f2fe7078e3a264d09107808a
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495101"
 ---
 # <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-preview"></a>Configure e personalize o defender-ioT-micro-agente para Azure RTOS (pré-visualização)

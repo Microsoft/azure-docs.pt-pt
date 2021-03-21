@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: c9818bfd2a9519cd14d34ecc810179d66aa57e52
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363989"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformar dados na versão 1 da Azure Data Factory
@@ -25,7 +25,7 @@ ms.locfileid: "100363989"
 > * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > * [.NET personalizado](data-factory-use-custom-activities.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte as atividades de transformação de [dados na Data Factory.](../transform-data.md)
 

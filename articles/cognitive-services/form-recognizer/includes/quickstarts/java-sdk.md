@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/19/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: 2e52bc8e6e41165da2f274d3613337fe603ccc39
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a709f82b04ed5c1fe70f6927b33605cfff20ed6b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444647"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761109"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -79,7 +79,7 @@ dependencies {
 ```
 
 > [!NOTE]
-> O Formulário Reconhecedor 3.1.0 SDK reflete a versão API 2.1
+> O Formulário Reconhecedor 3.1.0 SDK reflete _a versão API 2.1 pré-visualização.2_. Utilize a [**API REST**](../../quickstarts/client-library.md) para _a versão API 2.1 pré-visualização.3_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: c3d81e0de1c20e77278cb718fdcbc21eb6df455d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6407f6af4b142333d2a52f60eb0b05024e64d88e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444413"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761185"
 ---
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ ms.locfileid: "102444413"
 
 ## <a name="setting-up"></a>Configuração
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `formrecognizer-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *program.cs*.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `formrecognizer-quickstart` . Este comando cria um projeto "Hello World" C# simples com um único ficheiro de origem: *programa.cs*.
 
 ```console
 dotnet new console -n formrecognizer-quickstart
@@ -66,7 +66,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 
 > [!NOTE]
-> O Formulário Reconhecedor 3.1.0 SDK reflete a versão API 2.1
+> O Formulário Reconhecedor 3.1.0 SDK reflete _a versão API 2.1 pré-visualização.2_. Utilize a [**API REST**](../../quickstarts/client-library.md) para _a versão API 2.1 pré-visualização.3_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -82,7 +82,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo no [GitHub,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)que contém os exemplos de código neste arranque rápido.
 
-A partir do diretório do projeto, abra o ficheiro *Program.cs* no seu editor preferido ou IDE. Adicione as `using` seguintes diretivas:
+A partir do diretório do projeto, abra o arquivo *program.cs* no seu editor preferido ou IDE. Adicione as `using` seguintes diretivas:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_using)]
 

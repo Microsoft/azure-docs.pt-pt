@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 641ed73f507d35d7af548d0164ef8e80979be217
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96530481"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
@@ -116,7 +116,7 @@ O VNet Peering global fornece um mecanismo para ligar dois VNets em diferentes r
 
 A Azure Virtual WAN fornece a capacidade de encriptar o seu tráfego ExpressRoute. A técnica fornece um trânsito encriptado entre as redes no local e as redes virtuais Azure através do ExpressRoute, sem passar pela internet pública ou usar endereços IP públicos. Para obter mais informações, consulte [o IPsec sobre o ExpressRoute para O WAN Virtual.](vpn-over-expressroute.md)
 
-## <a name="locations"></a><a name="locations"></a>Localizações
+## <a name="locations"></a><a name="locations"></a>Locais
 
 Para obter informações sobre a localização, consulte os [parceiros e locais do Virtual WAN.](virtual-wan-locations-partners.md)
 

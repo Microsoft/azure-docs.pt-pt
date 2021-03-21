@@ -4,10 +4,10 @@ description: Este tutorial mostra-lhe como usar o Live Video Analytics juntament
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.openlocfilehash: b20cdb9bbc64f9adc49cfbde4ff80576b149dbcd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698761"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analise vídeo ao vivo com visão de computador para análise espacial (pré-visualização)
@@ -47,7 +47,7 @@ Seguem-se os pré-requisitos para a ligação do módulo de análise espacial ao
 * [Recipiente Azure Cognitive Service Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise espacial.  
     Para utilizar este recipiente, tem de dispor de um recurso de Visão Computacional para obter a **chave API** associada e um **URI de ponto final.** A chave API está disponível nas páginas visão e chaves do portal Azure. A chave e o ponto final são necessários para iniciar o recipiente.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Visão geral da análise espacial":::
@@ -221,7 +221,7 @@ Para ver estes eventos, siga estes passos:
      
 ## <a name="run-the-program"></a>Execute o programa
 
-Existe um program.cs que invocará os métodos diretos na src/cloud-to-device-console-app/operations.js. Temos de configurar operations.jse fornecer uma topologia para uso de gráficos de mídia.  
+Existe um programa.cs que irá invocar os métodos diretos na src/cloud-to-device-console-app/operations.js. Temos de configurar operations.jse fornecer uma topologia para uso de gráficos de mídia.  
 
 Em operations.jsem:
 

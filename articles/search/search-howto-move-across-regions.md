@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
 ms.openlocfilehash: a5050958f01743ff3c6fdcdecfee3067b1d2073e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98934263"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mude o seu serviço de Pesquisa Cognitiva Azure para outra região do Azure
@@ -51,7 +51,7 @@ Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de pesquis
 
 Elimine o serviço antigo assim que o novo serviço estiver totalmente testado e operacional. A eliminação automática do serviço elimina automaticamente todos os conteúdos associados ao serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes links podem ajudá-lo a localizar mais informações ao completar os passos acima descritos.
 
