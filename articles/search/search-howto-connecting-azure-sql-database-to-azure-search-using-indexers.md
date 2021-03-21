@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358631"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
@@ -360,7 +360,7 @@ Não diretamente. Não recomendamos nem apoiamos uma ligação direta, pois isso
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados que não o SQL Server em funcionamento em IaaS em Azure?**
 
-Não. Não apoiamos este cenário, porque não testámos o indexante com bases de dados que não o SQL Server.  
+N.º Não apoiamos este cenário, porque não testámos o indexante com bases de dados que não o SQL Server.  
 
 **P: Posso criar vários indexadores em execução num horário?**
 

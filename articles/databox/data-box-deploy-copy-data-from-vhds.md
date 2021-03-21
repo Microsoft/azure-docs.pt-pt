@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337683"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Use a Caixa de Dados para importar dados como discos geridos em Azure
@@ -100,7 +100,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     C: \>
     ```
 
-5. Prima Windows + R. Na janela **Executar** , especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
+5. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
@@ -113,7 +113,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
 Se estiver a utilizar um computador anfitrião do Linux, execute os passos seguintes para configurar o Data Box para permitir o acesso aos clientes NFS.
 
-1. Forneça os endereços IP dos clientes permitidos que podem aceder à partilha. Na uI web local, vá à página **'Ligar e copiar'.** Em **Definições de NFS** , clique em **Acesso de cliente NFS**.
+1. Forneça os endereços IP dos clientes permitidos que podem aceder à partilha. Na uI web local, vá à página **'Ligar e copiar'.** Em **Definições de NFS**, clique em **Acesso de cliente NFS**.
 
     ![Configure o acesso ao cliente NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 

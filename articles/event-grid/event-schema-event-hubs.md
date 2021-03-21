@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de centro
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: e9bb4b5a27173181c7295e96a1eb0654a1a929e6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363514"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs como fonte de grade de eventos

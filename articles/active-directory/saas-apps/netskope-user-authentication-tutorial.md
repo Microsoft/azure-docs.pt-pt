@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com autenticação do utilizador netskope Microsoft Docs'
+title: 'Tutorial: Integração única de sign-on (SSO) do Azure Ative Directory com a autenticação do utilizador netskope | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Autenticação do Utilizador netskope.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 1ae9e39f5a23725b17451d7144c8304194d2a1d0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514372"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-user-authentication"></a>Tutorial: Azure Ative Directory integração única (SSO) com autenticação do utilizador netskope
@@ -116,7 +116,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Autenticação do Utilizador netskope.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Netskope User Authentication**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

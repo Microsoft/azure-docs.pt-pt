@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743110"
 ---
-# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Ativar e utilizar autenticação multi-factor Azure AD com aplicações antigas usando senhas de aplicação
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Ativar e utilizar a Autenticação Multifator do Azure Active Directory com aplicações legadas através de palavras-passe de aplicação
 
 Algumas aplicações mais antigas, não-navegadores, como o Office 2010 ou mais cedo e o Apple Mail antes do iOS 11 não entendem pausas ou quebras no processo de autenticação. Se um utilizador estiver habilitado para autenticação multi-factor Azure AD e tentar utilizar uma destas aplicações mais antigas e não-navegadores, não conseguirá autenticar com sucesso. Para utilizar estas aplicações de forma segura com a autenticação multi-factor Azure AD ativada para contas de utilizador, pode utilizar as palavras-passe da aplicação. Estas palavras-passe da aplicação substituíram a sua senha tradicional para permitir que uma aplicação contornasse a autenticação de vários fatores e funcionasse corretamente.
 

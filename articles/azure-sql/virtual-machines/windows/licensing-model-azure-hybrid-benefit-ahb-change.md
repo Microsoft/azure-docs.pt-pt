@@ -15,10 +15,10 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361558"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença de uma máquina virtual do SQL no Azure
@@ -27,7 +27,7 @@ ms.locfileid: "100361558"
 
 Este artigo descreve como alterar o modelo de licença para uma máquina virtual SQL Server (VM) em Azure utilizando a Extensão do [Agente SQL IaaS](./sql-server-iaas-agent-extension-automate-management.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Existem três modelos de licença para um Azure VM que está hospedado no SQL Server: pay-as-you-go, Azure Hybrid Benefit (AHB) e High Availability/Disaster Recovery (HA/DR). Pode modificar o modelo de licença do seu SQL Server VM utilizando o portal Azure, o Azure CLI ou o PowerShell. 
 

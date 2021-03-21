@@ -9,10 +9,10 @@ ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: a805300ac62d0627c9b06188c9764a6887947afe
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94411291"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB Java v4 SDK solicitar exceções no tempo limite
@@ -26,7 +26,7 @@ A lista que se segue contém causas e soluções conhecidas para solicitar exce�
 ### <a name="existing-issues"></a>Questões existentes
 Se estiver a ver pedidos ficando presos por uma duração mais longa ou cronometragem com mais frequência, por favor atualize o Java v4 SDK para a versão mais recente. NOTA: Recomendamos vivamente a utilização da versão 4.7.0 ou superior. Confira as [notas de lançamento java v4 SDK](sql-api-sdk-java-v4.md) para mais detalhes.
 
-### <a name="high-cpu-utilization"></a>Alta utilização do CPU
+### <a name="high-cpu-utilization"></a>Utilização elevada da CPU
 Alta utilização do CPU é o caso mais comum. Para uma latência ótima, o uso do CPU deve ser de aproximadamente 40%. Utilize 10 segundos como intervalo para monitorizar a utilização máxima (não média) do CPU. Os picos de CPU são mais comuns com consultas de divisórias cruzadas onde pode fazer múltiplas ligações para uma única consulta.
 
 #### <a name="solution"></a>Solução:

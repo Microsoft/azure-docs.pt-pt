@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Communifire Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a | Communifire Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Communifire.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 48d09a5ef43e267550dd584a9f6356493887d6d7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integração do Diretório Ativo Azure com a Communifire

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
 ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888815"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS
@@ -28,7 +28,7 @@ Neste arranque rápido, irá configurar os seguintes itens:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 > [!IMPORTANT]
 > É necessário ter acesso ao serviço Azure NetApp Files. Para solicitar o acesso ao serviço, consulte a página de submissão da [lista de espera Azure NetApp Files](https://aka.ms/azurenetappfiles).  Deve aguardar um e-mail oficial de confirmação da equipa do Azure NetApp Files antes de continuar.

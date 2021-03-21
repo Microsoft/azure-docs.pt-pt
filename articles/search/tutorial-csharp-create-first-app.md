@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 02/26/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101695129"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Crie a sua primeira app de pesquisa utilizando o .NET SDK
@@ -47,7 +47,7 @@ Apenas uma chamada consulta o índice e os resultados de retorno.
 
 :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="À procura de *piscina*" border="true":::
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial utiliza o índice de amostras de hotéis, que pode criar rapidamente no seu próprio serviço de pesquisa, através do [quickstart de dados de Importação.](search-get-started-portal.md) O índice contém dados fictícios do hotel, disponíveis como fonte de dados incorporados em todos os serviços de pesquisa.
 
@@ -130,7 +130,7 @@ O conjunto de aulas de **Hotel,** **Endereço** e **Quarto** são conhecidos com
 
 1. No Solution Explorer, **os modelos** de clique à direita  >  **adicionam**  >  **novo item**.
 
-1. Selecione **Class** e nomeie o item Hotel.cs. Substitua todo o conteúdo da Hotel.cs pelo seguinte código. Note os **membros** do **Endereço** e sala da classe, estes campos são as próprias aulas, por isso também vai precisar de modelos para eles.
+1. Selecione **Class** e nomeie o item Hotel.cs. Substitua todos os conteúdos do Hotel.cs pelo seguinte código. Note os **membros** do **Endereço** e sala da classe, estes campos são as próprias aulas, por isso também vai precisar de modelos para eles.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -181,7 +181,7 @@ O conjunto de aulas de **Hotel,** **Endereço** e **Quarto** são conhecidos com
     }
     ```
 
-1. Repita o mesmo processo de criação de um modelo para a classe **Address,** nomeando o ficheiro Address.cs. Substitua o conteúdo pelo seguinte.
+1. Repita o mesmo processo de criação de um modelo para a classe **Address,** nomeando o endereço de ficheiro.cs. Substitua o conteúdo pelo seguinte.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -208,7 +208,7 @@ O conjunto de aulas de **Hotel,** **Endereço** e **Quarto** são conhecidos com
     }
     ```
 
-1. E mais uma vez, siga o mesmo processo para criar a classe **Room,** nomeando o ficheiro Room.cs.
+1. E mais uma vez, siga o mesmo processo para criar a classe **Room,** nomeando a sala de arquivo.cs.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -418,7 +418,7 @@ Isso completa a nossa visão. Neste ponto, tanto os modelos como as vistas estã
 
 Neste passo, modifique o conteúdo do **Home Controller**.
 
-1. Abra o ficheiro HomeController.cs e substitua as declarações **de utilização** com as seguintes.
+1. Abra o ficheiro HomeController.cs e substitua as declarações **de utilização** pelas seguintes.
 
     ```csharp
     using Azure;

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Keeper Password Manager & Cofre Digital para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configure Keeper Password Manager & Cofre Digital para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desavisagem de contas de utilizador ao Keeper Password Manager & Digital Vault.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 2670dc0cb56805a2afa966bee1d2aa52b6c8e46a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358988"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configure Keeper Password Manager & Cofre Digital para fornecimento automático de utilizadores
@@ -53,7 +53,7 @@ Antes de configurar o Keeper Password Manager & Cofre Digital para fornecimento 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira o **Keeper Password Manager & Digital Vault** , selecione Keeper Password Manager & Digital **Vault** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira o **Keeper Password Manager & Digital Vault**, selecione Keeper Password Manager & Digital **Vault** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Keeper Password Manager & Digital Vault na lista de resultados](common/search-new-app.png)
 

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 1228234b6a2904c453ec92f3c09a7b3f55604953
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363768"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Funções personalizadas para o SQL Server para Azure SQL Managed Instance migração on-line

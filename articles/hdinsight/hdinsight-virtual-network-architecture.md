@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: d5b8bdf5577642290cee7250e0f21f8a69dfd248
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931158"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual Azure HDInsight
@@ -19,7 +19,7 @@ Este artigo explica os recursos que estão presentes quando coloca um cluster HD
 
 Os clusters Azure HDInsight têm diferentes tipos de máquinas virtuais, ou nós. Cada tipo de nó desempenha um papel no funcionamento do sistema. A tabela seguinte resume estes tipos de nó e as suas funções no cluster.
 
-| Tipo | Descrição |
+| Tipo | Description |
 | --- | --- |
 | Nó principal |  Para todos os tipos de cluster, exceto Apache Storm, os nós de cabeça acolhem os processos que gerem a execução da aplicação distribuída. O nó da cabeça é também o nó em que se pode entrar e executar aplicações que são então coordenadas para correr através dos recursos do cluster. O número de nós de cabeça é fixado em dois para todos os tipos de cluster. |
 | Nó do ZooKeeper | Zookeeper coordena tarefas entre os nós que estão fazendo o processamento de dados. Também faz a eleição do líder do nó de cabeça, e mantém o rasto de qual nó de cabeça está executando um serviço de mestre específico. O número de nós do ZooKeeper é fixado em três. |
@@ -79,6 +79,6 @@ Os endereços IP públicos também são fornecidos aos dois pontos finais que pe
 1. Um IP público é atribuído ao equilibrador de carga para o nome de domínio totalmente qualificado (FQDN) para utilizar ao ligar ao cluster a partir da internet `CLUSTERNAME.azurehdinsight.net` .
 1. O segundo endereço IP público é utilizado para o único nome de domínio SSH `CLUSTERNAME-ssh.azurehdinsight.net` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tráfego de entrada segura para clusters HDInsight em uma rede virtual com ponto final privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

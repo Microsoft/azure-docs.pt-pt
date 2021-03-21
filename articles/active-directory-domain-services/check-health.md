@@ -1,5 +1,5 @@
 ---
-title: Verifique a saúde dos Serviços de Domínio do Diretório Ativo Azure ! Microsoft Docs
+title: Verifique a saúde dos Serviços de Domínio do Diretório Ativo Azure | Microsoft Docs
 description: Saiba como verificar a saúde de um domínio gerido pelo Azure Ative Directory (Azure AD DS) e compreenda as mensagens de estado utilizando o portal Azure.
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620329"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verifique a saúde de um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure

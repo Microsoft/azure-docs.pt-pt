@@ -9,10 +9,10 @@ ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.openlocfilehash: 57e9d0c584600a8fac90499d72cfac1620052603
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694925"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Erros de instalação da biblioteca de resolução de problemas 

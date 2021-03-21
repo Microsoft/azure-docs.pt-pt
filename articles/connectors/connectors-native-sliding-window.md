@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010423"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Agendar e executar tarefas para dados contíguos utilizando o gatilho da janela deslizante em Azure Logic Apps
@@ -48,9 +48,9 @@ Para diferenças entre este gatilho e o gatilho de Recorrência ou para mais inf
 
    ![Definir intervalo e frequência](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propriedade | Nome JSON | Necessário | Tipo | Descrição |
+   | Propriedade | Nome JSON | Necessário | Tipo | Description |
    |----------|----------|-----------|------|-------------|
-   | **Intervalo** | `interval` | Sim | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1-16 meses <br>- Semana: 1-71 semanas <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
+   | **Intervalo** | `interval` | Yes | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1-16 meses <br>- Semana: 1-71 semanas <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
    | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana** ou **Mês** |
    ||||||
 
@@ -58,11 +58,11 @@ Para diferenças entre este gatilho e o gatilho de Recorrência ou para mais inf
 
    Para obter mais opções de recorrência, abra a nova lista **de parâmetros Adicionar.** Quaisquer opções que selecionar aparecem no gatilho após a seleção.
 
-   | Propriedade | Necessário | Nome JSON | Tipo | Descrição |
+   | Propriedade | Necessário | Nome JSON | Tipo | Description |
    |----------|----------|-----------|------|-------------|
-   | **Atraso** | Não | atraso | String | A duração para atrasar cada recorrência utilizando a especificação de [data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-   | **Fuso horário** | Não | timeZone | String | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita [a compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
-   | **Hora de início** | Não | startTime | String | Fornecer uma data e hora de início neste formato: <p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Assim, por exemplo, se você quiser 18 de setembro de 2017 às 14:00, então especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Horário Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Esta hora de início deve seguir a [especificação de hora de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem uma [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para recorrências avançadas, o gatilho não dispara mais cedo do que a hora de início. [*Quais são as maneiras que posso usar a data de início e a hora?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Atraso** | No | atraso | String | A duração para atrasar cada recorrência utilizando a especificação de [data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Fuso horário** | No | timeZone | String | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita [a compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
+   | **Hora de início** | No | startTime | String | Fornecer uma data e hora de início neste formato: <p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Assim, por exemplo, se você quiser 18 de setembro de 2017 às 14:00, então especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Horário Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Esta hora de início deve seguir a [especificação de hora de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem uma [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para recorrências avançadas, o gatilho não dispara mais cedo do que a hora de início. [*Quais são as maneiras que posso usar a data de início e a hora?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
 1. Agora construa o seu fluxo de trabalho restante com outras ações. Para mais ações que pode adicionar, consulte [Conectores para Aplicações Lógicas Azure.](../connectors/apis-list.md)

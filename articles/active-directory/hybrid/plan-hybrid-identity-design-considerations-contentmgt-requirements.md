@@ -1,5 +1,5 @@
 ---
-title: Design de identidade híbrida - requisitos de gestão de conteúdos Azure / Microsoft Docs
+title: Design de identidade híbrida - requisitos de gestão de conteúdo Azure | Microsoft Docs
 description: Fornece informações sobre como determinar os requisitos de gestão de conteúdos do seu negócio. Normalmente, quando um utilizador tem o seu próprio dispositivo, também pode ter múltiplas credenciais que serão alternadas de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo criado usando credenciais pessoais contra as criadas com recurso a credenciais corporativas. A sua solução de identidade deve ser capaz de interagir com os serviços na nuvem para proporcionar uma experiência perfeita ao utilizador final, garantindo a sua privacidade e aumentando a proteção contra fugas de dados.
 documentationcenter: ''
 services: active-directory
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57990fda7475b95bd6582fa5a495ac8d24aa55d5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94408537"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de gestão de conteúdos para a sua solução de identidade híbrida

@@ -10,17 +10,17 @@ ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008570"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consulta de um índice de pesquisa cognitiva de Power Apps
 
 Aproveite o ambiente de desenvolvimento rápido de aplicações de Power Apps para criar uma aplicação personalizada para o seu conteúdo pesmável em Azure Cognitive Search.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ligue-se à Pesquisa Cognitiva Azure
@@ -43,7 +43,7 @@ Um conector em Power Apps é uma ligação de fonte de dados. Neste passo, irá 
 
 1. [Inscreva-se nas](https://make.powerapps.com) Power Apps.
 
-1. À esquerda, **Data** expanda os  >  **Conectores Personalizados de Dados**.
+1. À esquerda, expanda os  >  **Conectores Personalizados de Dados**.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu de conector personalizado" border="true":::
 

@@ -3,14 +3,14 @@ title: Aceder a registos de consulta lenta - Portal Azure - Base de Dados Azure 
 description: Este artigo descreve como configurar e aceder aos registos de consulta lenta na Base de Dados Azure para MariaDB a partir do portal Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: f3a01d3e80be35d10ef5c163c9ad8956f37283c1
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c5ee948daecafc061910f36d2ac95d15338bfb38
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662513"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Configurar e aceder à Base de Dados de Azure para registos de consulta lenta de Maria DB a partir do portal Azure
@@ -56,7 +56,7 @@ Após o início do registo, pode ver uma lista de registos de consulta lenta dis
    ![Screenshot da página de registos do Servidor, com lista de registos em destaque](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > A convenção de nomeação do registo é **mysql-slow-< o nome do seu servidor>-ymmddh.log**. A data e hora utilizadas no nome do ficheiro é a hora em que o registo foi emitido. Os ficheiros de registo são rodados a cada 24 horas ou 7,5 GB, o que vier primeiro.
+   > A convenção de nomeação do registo é **mysql-slow-< o nome do seu servidor>-yyymmddh.log**. A data e hora utilizadas no nome do ficheiro é a hora em que o registo foi emitido. Os ficheiros de registo são rodados a cada 24 horas ou 7,5 GB, o que vier primeiro.
 
 4. Se necessário, utilize a caixa de pesquisa para reduzir rapidamente a um registo específico, com base na data e hora. A procura está no nome do registo.
 

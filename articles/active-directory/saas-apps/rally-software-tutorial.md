@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Rally Software Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com | de Software de Rali Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Rally Software.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b939f10d2c3bcf3aeba7422809a1038b2a75f123
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutorial: Integração do Azure Ative Directory com o Rally Software
@@ -126,7 +126,7 @@ Para configurar o Azure AD com o Rally Software, execute os seguintes passos:
 
 1. Inscreva-se no seu inquilino **de Rally Software.**
 
-2. Na barra de ferramentas na parte superior, clique em **Configuração**e, em seguida, **selecione Subscrição**.
+2. Na barra de ferramentas na parte superior, clique em **Configuração** e, em seguida, **selecione Subscrição**.
    
     ![Subscrição](./media/rally-software-tutorial/ic769531.png "Subscrição")
 
@@ -170,7 +170,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use a Azure single sign-on, concedendo acesso ao Rally Software.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Rally Software**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Rally Software**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -200,7 +200,7 @@ Para que os utilizadores de Azure AD possam iniciar sação, devem ser adu eles 
 
 1. Inscreva-se no seu inquilino de Rally Software.
 
-2. Vá a **Configurar \> UTILIZADORES**e, em seguida, clique **em + Adicionar Novo**.
+2. Vá a **Configurar \> UTILIZADORES** e, em seguida, clique **em + Adicionar Novo**.
    
     ![Utilizadores](./media/rally-software-tutorial/ic781039.png "Utilizadores")
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Coda para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar Coda para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desaconsebilização automática de contas de utilizadores de Azure AD a Coda.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
 ms.openlocfilehash: 8df1588a78829252d55f82349d6889c754c989e6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673232"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutorial: Configure Coda para o fornecimento automático de utilizadores

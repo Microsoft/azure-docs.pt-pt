@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Montage Online Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com montage online | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Montage Online.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2caf0384a8e55a44f78b37c4ca8776675b6e971d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92504240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integração do Azure Ative Directory com Montage Online
@@ -163,7 +163,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Montage Online.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Montage Online**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Montage Online**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

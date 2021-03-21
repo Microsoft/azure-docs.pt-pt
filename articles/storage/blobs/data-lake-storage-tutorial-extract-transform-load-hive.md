@@ -9,17 +9,17 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: f8210c3bc0437180ace110f8decd9f83e18650ed
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98661937"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados utilizando a Azure HDInsight
 
 Neste tutorial, realiza-se uma operação ETL: extrair, transformar e carregar dados. Pega-se num ficheiro de dados CSV bruto, importa-se num cluster Azure HDInsight, transforma-o com a Hive Apache e coloca-o na Base de Dados Azure SQL com o Apache Sqoop.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Extrair e carregar os dados para um cluster HDInsight.
@@ -226,7 +226,7 @@ Como parte do trabalho da Apache Hive, importa os dados do ficheiro .csv para um
 
 Precisa do nome do servidor da Base de Dados SQL para esta operação. Complete estes passos para encontrar o nome do seu servidor.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
 2. Selecione **bases de dados SQL**.
 

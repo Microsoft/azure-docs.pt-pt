@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Bizagi para a Automatização de Processos Digitais Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com a Bizagi para a Automatização de Processos Digitais | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Bizagi para a Automatização de Processos Digitais.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
 ms.openlocfilehash: efbb8a9ca0d475939d7713fa6a6a4a8245aead90
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92457066"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bizagi-for-digital-process-automation"></a>Tutorial: Azure Ative Directy integração única (SSO) com Bizagi para automatização de processos digitais
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     
     Este URL de metadados deve estar registado nas opções de autenticação do seu projeto Bizagi.
     
-1. No **set up single-on com**a página SAML, clique no ícone edit/pen para **atributos do utilizador & Claims** para editar o Identificador único do utilizador.
+1. No **set up single-on com** a página SAML, clique no ícone edit/pen para **atributos do utilizador & Claims** para editar o Identificador único do utilizador.
     
     Desagrafe o identificador de utilizador único como o utilizador.mail.
 
@@ -114,7 +114,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, concedendo acesso a Bizagi para Automatização de Processos Digitais.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Bizagi para Automatização de Processos Digitais.**
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

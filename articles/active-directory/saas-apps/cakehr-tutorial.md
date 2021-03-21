@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com CakeHR Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com cakehr | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o CakeHR.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 08e028ba057ad57f3d600bc59bf7595c0b1d354c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456581"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Azure Ative Directory integração única (SSO) com CakeHR
@@ -114,7 +114,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao CakeHR.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **CakeHR**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -166,7 +166,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CakeHR, devem ser 
 
 1. Inscreva-se no CakeHR como Administrador de Segurança.
 
-2. Do lado esquerdo da barra de menu, clique em **ADD COMPANY**  >  **ADD**.
+2. Do lado esquerdo da barra de menu, clique em **ADD COMPANY**  >  .
 
     ![A screenshot mostra CakeHR com EMPRESA e ADD selecionados.](./media/cakehr-tutorial/config03.png)
 

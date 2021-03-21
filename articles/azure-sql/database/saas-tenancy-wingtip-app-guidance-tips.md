@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aa9215fa001fb117000eb6a68867ddd46fac9b92
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780330"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Orientação geral para trabalhar com os bilhetes wingtip amostra aplicativos SaaS
@@ -25,7 +25,7 @@ Este artigo contém orientações gerais para a execução das aplicações SaaS
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Descarregue e desbloqueie os scripts SaaS dos Bilhetes Wingtip
 
-Os conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando os ficheiros zip são descarregados de uma fonte externa e extraídos. Ao extrair os scripts de um ficheiro zip, **siga os passos abaixo para desbloquear o ficheiro .zip antes de extrair** . Isto garante que os scripts podem ser executados.
+Os conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando os ficheiros zip são descarregados de uma fonte externa e extraídos. Ao extrair os scripts de um ficheiro zip, **siga os passos abaixo para desbloquear o ficheiro .zip antes de extrair**. Isto garante que os scripts podem ser executados.
 
 1. Navegue pelos bilhetes de ponta da Asa SaaS GitHub para o padrão de arrendamento de base de dados que deseja explorar:
     - [WingtipTicketsSaa-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
@@ -33,9 +33,9 @@ Os conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows qua
     - [WingtipTicketsSaa-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Clique **em Clone ou descarregue.**
 3. Clique **em Baixar o fecho** e guarde o ficheiro.
-4. Clique com o botão direito no ficheiro zip e selecione **Propriedades** . O nome do ficheiro zip corresponderá ao nome do repo. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_
-5. No **separador Geral,** selecione **Desbloqueie** .
-6. Clique em **OK** .
+4. Clique com o botão direito no ficheiro zip e selecione **Propriedades**. O nome do ficheiro zip corresponderá ao nome do repo. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_
+5. No **separador Geral,** selecione **Desbloqueie**.
+6. Clique em **OK**.
 7. Extraia os ficheiros.
 
 Os scripts estão localizados no *.. \\ Pasta de Módulos de Aprendizagem.*
@@ -57,7 +57,7 @@ Definir estes valores aqui simplesmente impede que você tenha que atualizar est
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Execute os scripts pressionando F5
 
-Vários scripts usam *$PSScriptRoot* para navegar em pastas, e *$PSScriptRoot* só é avaliado quando os scripts são executados pressionando **F5** .  Realçar e executar uma seleção **(F8)** pode resultar em erros, por isso prima **F5** ao executar scripts.
+Vários scripts usam *$PSScriptRoot* para navegar em pastas, e *$PSScriptRoot* só é avaliado quando os scripts são executados pressionando **F5**.  Realçar e executar uma seleção **(F8)** pode resultar em erros, por isso prima **F5** ao executar scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Analisar os scripts para examinar a implementação
 
@@ -67,10 +67,10 @@ Dicas para explorar e pisar os scripts PowerShell:
 
 - Open **Demo-** scripts no PowerShell ISE.
 - Execute ou continue com **F5** (a utilização **de F8** não é aconselhada porque *$PSScriptRoot* não é avaliada ao executar seleções de um script).
-- Para colocar os pontos de interrupção, clique ou selecione uma linha e prima **F9** .
-- Para executar o próximo passo numa chamada de função ou script, utilize **F10** .
-- Para avançar para uma chamada de função ou script, utilize **F11** .
-- Para ir até ao fim do procedimento da chamada de função ou script atual, utilize **Shift + F11** .
+- Para colocar os pontos de interrupção, clique ou selecione uma linha e prima **F9**.
+- Para executar o próximo passo numa chamada de função ou script, utilize **F10**.
+- Para avançar para uma chamada de função ou script, utilize **F11**.
+- Para ir até ao fim do procedimento da chamada de função ou script atual, utilize **Shift + F11**.
 
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Explorar o esquema de base de dados e executar consultas SQL com o SSMS
@@ -87,14 +87,14 @@ Para garantir uma ligação de demonstração bem sucedida, todos os servidores 
 
 
 1. Abra *a SSMS* e ligue-se aos inquilinos. O nome do servidor depende do padrão de arrendamento da base de dados que selecionou (ver abaixo para especificações):
-    - **Aplicação autónoma:** servidores de inquilinos individuais (ex. *contosoconcerthall- &lt; Utilizador &gt; .database.windows.net* )
+    - **Aplicação autónoma:** servidores de inquilinos individuais (ex. *contosoconcerthall- &lt; Utilizador &gt; .database.windows.net*)
     - **Base de dados por inquilino:** *inquilinos1-dpt- &lt; Utilizador &gt; .database.windows.net*
     - **Base de dados multi-inquilino:** *inquilinos1-mt- &lt; Utilizador &gt; .database.windows.net*
 2. Clique **no**  >  **motor de base de dados de ligação...**
 
    ![servidor de catálogo](./media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Credenciais de demonstração são: Login = *desenvolvedor* , Password = *P \@ ssword1*
+3. Credenciais de demonstração são: Login = *desenvolvedor*, Password = *P \@ ssword1*
 
     A imagem abaixo demonstra o login para a *Base de Dados por* padrão de inquilino.
     ![conexão](./media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

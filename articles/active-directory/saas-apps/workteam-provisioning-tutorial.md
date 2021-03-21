@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workteam para o fornecimento automático de utilizadores com diretório Azure Ative Microsoft Docs'
+title: 'Tutorial: Configurar a workteam para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionamento de contas de utilizador à Workteam.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354233"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Tutorial: Configure Workteam para o fornecimento automático de utilizadores

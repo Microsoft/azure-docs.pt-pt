@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931758"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de serviço NSG para Azure HDInsight
@@ -121,7 +121,7 @@ Os agrupamentos nas regiões do *Gov Iowa dos EUA* e do Governo dos *EUA, a Virg
 
 Os aglomerados nas regiões da *Alemanha Central* e Alemanha *O Nordeste* tem de permitir duas etiquetas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNortheast` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Grupos de segurança da rede: tags de serviço](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md)

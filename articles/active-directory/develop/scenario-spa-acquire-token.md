@@ -13,10 +13,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: 83896b2599f03961b2dcaf34ea9b55fe16c13b9e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98756438"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicação de uma página: Adquirir um símbolo para chamar uma API
@@ -197,6 +197,6 @@ Este código é o mesmo que descrito anteriormente.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [Chamando uma API web](scenario-spa-call-api.md).

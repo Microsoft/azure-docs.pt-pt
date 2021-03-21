@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: b1be5e903994f0a2c4a3d457f0c2bb5572a889c3
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663034"
 ---
 ## <a name="add-secret-manager"></a>Adicionar Gerente Secreto

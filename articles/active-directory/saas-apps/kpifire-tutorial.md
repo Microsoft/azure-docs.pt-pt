@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com kpifire Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com kpifire | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Kpifire.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/13/2020
 ms.author: jeedes
 ms.openlocfilehash: 2598881d03f5b91683007dbeca0f68856af9320a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458859"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kpifire"></a>Tutorial: Azure Ative Directory integração única (SSO) com kpifire
@@ -115,7 +115,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso ao kpifire.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **kpifire**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

@@ -12,18 +12,19 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256124"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a eliminação das contas de utilizador que ficam fora de alcance
 
 Por predefinição, o motor de provisionamento Azure AD elimina ou desativa os utilizadores que ficam fora de alcance. No entanto, para certos cenários como o Workday to AD User Inbound Provisioning, este comportamento pode não ser o esperado e poderá querer anular este comportamento padrão.  
 
-Este artigo descreve como utilizar a API do Microsoft Graph e o explorador API do Microsoft Graph para definir a bandeira ***SkipOutOfScopeDeletions** _ que controla o processamento de contas que ficam fora de alcance. _ Se ***SkipOutOfScopeDeletions** _ estiver definido para 0 (falso), as contas que ficam fora de alcance serão desativadas no alvo.
-_ Se ***SkipOutOfScopeDeletions** _ estiver definido para 1 (verdadeiro), as contas que ficam fora de alcance não serão desativadas no alvo. Esta bandeira é definida ao nível _Provisioning App* e pode ser configurada usando a API do gráfico. 
+Este artigo descreve como usar a API do Microsoft Graph e o explorador API do Microsoft Graph para definir a bandeira ***SkipOutOfScopeDeletions*** que controla o processamento de contas que ficam fora de alcance. 
+* Se ***o SkipOutOfScopeDeletions*** estiver definido para 0 (falso), as contas que ficam fora de alcance serão desativadas no alvo.
+* Se ***SkipOutOfScopeDeletions** _ estiver definido para 1 (verdadeiro), as contas que ficam fora de alcance não serão desativadas no alvo. Esta bandeira é definida ao nível _Provisioning App* e pode ser configurada usando a API do gráfico. 
 
 Uma vez que esta configuração é amplamente utilizada com a *aplicação de provisionamento do utilizador do Workday to Ative Directory,* os seguintes passos incluem imagens da aplicação Workday. No entanto, a configuração também pode ser utilizada com *todas as outras aplicações*– como o ServiceNow, Salesforce e Dropbox.
 
@@ -68,9 +69,9 @@ Aqui está o bloco JSON para adicionar ao mapeamento.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Passo 4: Atualizar o ponto final dos segredos com a bandeira skipOutOfScopeDeletions
 
-No Graph Explorer, executar o comando abaixo para atualizar o ponto final dos segredos com a bandeira **_SkipOutOfScopeDeletions_* _. 
+No Graph Explorer, execute o comando abaixo para atualizar o ponto final dos segredos com a bandeira ***SkipOutOfScopeDeletions.*** 
 
-No URL abaixo substitua [servicePrincipalId] pelo _ *ServicePrincipalId** extraído do [Passo 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+No URL abaixo substitua [servicePrincipalId] pelo **ServicePrincipalId** extraído do [Passo 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

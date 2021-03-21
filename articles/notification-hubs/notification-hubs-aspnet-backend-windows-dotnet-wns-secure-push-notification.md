@@ -16,10 +16,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019430"
 ---
 # <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Enviar notificações push seguras dos hubs de notificação do Azure
@@ -56,7 +56,7 @@ Este tutorial mostra como enviar uma notificação push de forma segura. O tutor
 
 ## <a name="modify-the-windows-phone-project"></a>Modificar o projeto Windows Phone
 
-1. No projeto **NotifyUserWindowsPhone,** adicione o seguinte código a App.xaml.cs para registar a tarefa de fundo de push. Adicione a seguinte linha de código no final do método `OnLaunched()`:
+1. No projeto **NotifyUserWindowsPhone,** adicione o seguinte código à App.xaml.cs para registar a tarefa de fundo de push. Adicione a seguinte linha de código no final do método `OnLaunched()`:
 
     ```csharp
     RegisterBackgroundTask();
@@ -80,7 +80,7 @@ Este tutorial mostra como enviar uma notificação push de forma segura. O tutor
     }
     ```
 
-3. Adicione as `using` seguintes declarações no topo do ficheiro App.xaml.cs:
+3. Adicione as `using` seguintes declarações no topo do ficheiro app.xaml.cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;

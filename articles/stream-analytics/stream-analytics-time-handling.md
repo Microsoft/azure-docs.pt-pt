@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: f9dbdb3907b376df8de988730c6c48ed01bfccd0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019946"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Compreender o manuseamento do tempo no Azure Stream Analytics
@@ -129,7 +129,7 @@ Os trabalhos da Stream Analytics têm várias opções **de encomendas de Evento
 
 Pode observar uma série de efeitos de tolerância ao tempo através de [métricas](stream-analytics-monitoring.md)de trabalho stream Analytics . São relevantes as seguintes métricas:
 
-|Métrica  | Descrição  |
+|Metric  | Descrição  |
 |---------|---------|
 | **Eventos fora de ordem** | Indica o número de eventos recebidos fora de ordem, que foram retirados ou dado um tempotando ajustado. Esta métrica é diretamente impactada pela configuração dos **eventos out of order** na página **de encomendas** do Evento no trabalho no portal Azure. |
 | **Eventos de entrada tardia** | Indica o número de eventos que chegam atrasados da fonte. Esta métrica inclui eventos que foram abandonados ou tiveram a sua hora marcada foi ajustado. Esta métrica é diretamente impactada pela configuração dos **Eventos que chegam tarde** na página **de encomendas** do Evento no trabalho no portal Azure. |
@@ -219,7 +219,7 @@ Nesta ilustração, são utilizadas as seguintes tolerâncias:
 
    ![Azure Stream Analytics substreams ilustração de marca de água](media/stream-analytics-time-handling/watermark-graph-3.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Considerações de ordem de eventos Azure Stream Analytics]()
 - [Métricas de trabalho stream Analytics](stream-analytics-monitoring.md)

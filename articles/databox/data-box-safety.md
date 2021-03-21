@@ -1,5 +1,5 @@
 ---
-title: Segurança para a sua Caixa de Dados Azure / Microsoft Docs
+title: Segurança para a sua Caixa de Dados Azure | Microsoft Docs
 description: Descreve convenções de segurança, diretrizes e considerações e explica como instalar e operar com segurança a sua Caixa de Dados Azure.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020675"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instale e opere com segurança a sua Caixa de Dados Azure
@@ -24,7 +24,7 @@ Leia todas as informações de segurança deste artigo antes de utilizar a Caixa
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Aqui estão os ícones que encontrará quando revê as precauções de segurança a observar ao configurar e executar a sua Caixa de Dados.
 
-| Ícone | Descrição |
+| Ícone | Description |
 |:--- |:--- |
 | ![Perigo de ícone ](./media/data-box-safety/warning_icon.png) **de perigo!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. Esta palavra de sinal deve limitar-se às situações mais extremas. |
 | ![Aviso ícone ](./media/data-box-safety/warning_icon.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. |

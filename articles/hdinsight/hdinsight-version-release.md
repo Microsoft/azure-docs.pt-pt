@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.openlocfilehash: 694acc0005e90d8299d46528f83ba68ea3fcf1c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931190"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
@@ -102,11 +102,11 @@ Não existe um caminho de upgrade suportado das versões anteriores do HDInsight
 * A integração do Spark SQL Ranger para a segurança da linha e da coluna é depreciada
 * Spark 2.4 e Kafka 2.1 estão disponíveis em HDInsight 4.0, pelo que a Spark 2.3 e a Kafka 1.1 já não estão suportadas. Recomendamos a utilização do Spark 2.4 & Kafka 2.1 e superior em HDInsight 4.0.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Guia de migração HBase](./hbase/apache-hbase-migrate-new-version.md)
 * [Guia de migração da colmeia](./interactive-query/apache-hive-migrate-workloads.md)
 * [Guia de migração kafka](./kafka/migrate-versions.md)
 * [Guia de migração de faíscas](./spark/migrate-versions.md)
 * [Documentação Azure HDInsight](index.yml)
-* [Notas de lançamento](hdinsight-release-notes.md)
+* [Notas de Versão](hdinsight-release-notes.md)

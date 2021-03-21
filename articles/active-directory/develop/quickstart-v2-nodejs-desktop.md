@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: v-doeris
 ms.openlocfilehash: beef869b891fe6e3f0ea2f667763cb310008b2fc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101653274"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>Quickstart: Adquirir um token de acesso e ligar para a Microsoft Graph API a partir de uma aplicação de desktop Electron
@@ -140,7 +140,7 @@ const MSAL_CONFIG = {
 const pca = new PublicClientApplication(MSAL_CONFIG);
 ```
 
-> | Em que: |Descrição |
+> | Em que: |Description |
 > |---------|---------|
 > | `clientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 > | `authority`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}` para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu id do seu inquilino.|
@@ -231,7 +231,7 @@ async function listenForAuthCode(navigateUrl, authWindow) {
 }
 ```
 
-> |Em que:| Descrição |
+> |Em que:| Description |
 > |---------|---------|
 > | `authWindow` | Janela de eletrões atual em processo. |
 > | `tokenRequest` | Contém os âmbitos que estão a ser solicitados, tais como `"User.Read"` para o Microsoft Graph ou para `"api://<Application ID>/access_as_user"` APIs web personalizados. |

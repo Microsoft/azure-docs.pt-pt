@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 91b6d432042aa37a1b929f61e9742f814fb9dc40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370322"
 ---
 # <a name="how-to-configure-your-azure-application-offer-listing-details"></a>Como configurar a sua oferta de oferta de aplicação Azure
@@ -84,7 +84,7 @@ Adicione até cinco imagens que demonstram a sua oferta. Todas as imagens devem 
 
 Pode adicionar links ao YouTube ou vídeos Vimeo que demonstrem a sua oferta. Estes vídeos são mostrados aos clientes juntamente com a sua oferta. Deve introduzir uma imagem miniatura do vídeo, dimensionada para 1280 x 720 pixels em tamanho e em . Formato PNG. Pode adicionar um máximo de quatro vídeos por oferta.
 
-1. Em **Vídeos** , selecione o link **de vídeo Add.**
+1. Em **Vídeos**, selecione o link **de vídeo Add.**
 1. Nas caixas que aparecem, introduza o nome e o link para o seu vídeo.
 1. Arraste e largue um . Ficheiro PNG (1280 x 720 pixels) na caixa de **miniatura** cinzenta.
 1. Para adicionar outro vídeo, repita os passos 1 a 3.

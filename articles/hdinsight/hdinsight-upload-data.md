@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931349"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Upload de dados para empregos apache Hadoop em HDInsight
@@ -118,7 +118,7 @@ O Azure Storage também pode ser acedido através de um Azure SDK a partir das s
 
 Para obter mais informações sobre a instalação dos Azure SDKs, consulte [os downloads do Azure](https://azure.microsoft.com/downloads/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que entende como obter dados em HDInsight, leia os seguintes artigos para aprender a análise:
 
