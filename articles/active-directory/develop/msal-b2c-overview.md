@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
 ms.openlocfilehash: 53294a30b38bed7ab7516443277cac24e4fef4c1
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063727"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utilize a Biblioteca de Autenticação microsoft para o JavaScript funcionar com o Azure AD B2C
@@ -211,10 +211,10 @@ Quando um utilizador **seleciona a palavra-passe Esquecida,** a sua aplicação 
 
     Para obter mais informações sobre códigos de erro e exceções de manuseamento, consulte [códigos de erro e de exceção da MSAL](msal-error-handling-js.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre estes conceitos Azure AD B2C:
 
-- [Fluxos de utilizadores](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Fluxos do utilizador](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md)
 - [Personalização da Experiência do Utilizador](../../active-directory-b2c/configure-user-input.md)

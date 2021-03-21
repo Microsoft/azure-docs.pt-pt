@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 72b4755c6f01a10851e79cf274842f1599bc2c55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349542"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Quais são as APIs de Pesquisa de Bing?
@@ -36,7 +36,7 @@ Considere usar a API de Pesquisa Web Bing em aplicações que possam necessitar 
 
 As APIs de pesquisa bing seguintes devolvem conteúdo específico da web como imagens, notícias, negócios locais e vídeos.
 
-| Bing API | Descrição |
+| Bing API | Description |
 | -- | -- |
 | [Pesquisa de entidades](../Bing-Entities-Search/overview.md) | A API de Pesquisa de Entidade Bing devolve os resultados da pesquisa que contêm entidades, que podem ser pessoas, locais ou coisas. Dependendo da consulta, a API devolverá uma ou mais entidades que satisfaçam a consulta de pesquisa. A consulta de pesquisa pode incluir indivíduos notáveis, empresas locais, marcos, destinos e muito mais. |
 | [Pesquisa de Imagens](../Bing-Image-Search/overview.md) | A API de Pesquisa de Imagem Bing permite-lhe procurar e encontrar imagens estáticas e animadas de alta qualidade semelhantes a [Bing.com/images](https://www.Bing.com/images). Pode refinar pesquisas para incluir ou excluir imagens por atributo, incluindo tamanho, cor, licença e frescura. Também pode pesquisar imagens de tendência, fazer upload de imagens para obter insights sobre elas e exibir pré-visualizações de miniaturas. |

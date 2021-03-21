@@ -1,5 +1,5 @@
 ---
-title: Conceitos arquitetónicos em Azure IoT Central Microsoft Docs
+title: Conceitos arquitetônicos em Azure IoT Central | Microsoft Docs
 description: Este artigo introduz conceitos-chave relacionados com a arquitetura da Azure IoT Central
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97796725"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
@@ -140,7 +140,7 @@ Num modelo de [dispositivo](concepts-device-templates.md) IoT Central contém:
 
 Uma aplicação pode ter um ou mais dispositivos simulados e reais com base em cada modelo de dispositivo.
 
-## <a name="data-export"></a>Exportar dados
+## <a name="data-export"></a>Exportação de dados
 
 Numa aplicação Azure IoT Central, pode [exportar continuamente os seus dados](howto-export-data.md) para os seus próprios centros de eventos Azure e para os casos de Autocarros Azure Service. Também pode exportar periodicamente os seus dados para a sua conta de armazenamento Azure Blob. O IoT Central pode exportar medições, dispositivos e modelos de dispositivos.
 

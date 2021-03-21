@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: d5b5470b30848fd31be63f25c85c23f88cdaf0c6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732229"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticação HMAC - Referência REST API
@@ -49,7 +49,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
-|  Argumento | Descrição  |
+|  Argumento | Description  |
 | ------ | ------ |
 | **HMAC-SHA256** | Esquema de autorização. _(obrigatório)_ |
 | **Credencial** | A identificação da chave de acesso usada para calcular a assinatura. _(obrigatório)_ |
@@ -87,7 +87,7 @@ _String-to-Sign=_
 
 **HTTP_METHOD** + '\n' + **path_and_query** + '\n' + **signed_headers_values**
 
-|  Argumento | Descrição  |
+|  Argumento | Description  |
 | ------ | ------ |
 | **HTTP_METHOD** | Nome do método HTTP maiúscula utilizado com o pedido. Para mais informações, consulte [a secção 9.](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) |
 |**path_and_query** | Concatenação de pedido absoluta caminho URI e cadeia de consulta. Para mais informações, consulte [a secção 3.3](https://tools.ietf.org/html/rfc3986#section-3.3).

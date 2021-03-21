@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899376"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho com redes ampliadas de Camada 2
@@ -57,8 +57,8 @@ As seguintes listas de tabelas suportadas versões vSphere e tipos de adaptador 
 
 | versão vSphere | Fonte vSwitch tipo | Controlador virtual NIC | Tipo alvo vSwitch | Suportada? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Todos | DVS | Todos | DVS | Sim |
-| vSphere 6.7UI ou superior, 6.5P03 ou superior | DVS | VMXNET3 | N-VDS | Sim |
+| Todos | DVS | Todos | DVS | Yes |
+| vSphere 6.7UI ou superior, 6.5P03 ou superior | DVS | VMXNET3 | N-VDS | Yes |
 | vSphere 6.7UI ou superior, 6.5P03 ou superior | DVS | E1000 | N-VDS | [Não suportado por VWware](https://kb.vmware.com/s/article/56991) |
 | vSphere 6.7UI ou 6.5P03, NSX-V ou versões abaixo de NSX-T2.2, 6.5P03 ou superior | Todos | Todos | N-VDS | [Não suportado por VWware](https://kb.vmware.com/s/article/56991) |
 

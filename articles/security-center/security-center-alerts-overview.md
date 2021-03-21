@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: memildin
 ms.openlocfilehash: 5824457a9f2ce411a871b5e76802ecf2e2f106c3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102099510"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Alertas de segurança e incidentes no Centro de Segurança Azure

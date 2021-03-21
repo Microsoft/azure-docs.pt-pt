@@ -7,10 +7,10 @@ ms.date: 12/21/2020
 ms.topic: conceptual
 ms.service: cache
 ms.openlocfilehash: 0a0809076367356739dfeadcf8dd63f88866a987
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99056310"
 ---
 # <a name="azure-cache-for-redis-event-grid-overview"></a>Cache Azure para Redis Event Grid Overview 

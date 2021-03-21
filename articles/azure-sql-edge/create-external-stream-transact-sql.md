@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101659227"
 ---
 # <a name="create-external-stream-transact-sql"></a>CRIAR FLUXO EXTERNO (Transact-SQL)
@@ -24,10 +24,10 @@ Um FLUXO EXTERNO também pode ser especificado e criado como uma saída e entrad
 
 A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como entradas e saídas de fluxo.
 
-| Tipo de fonte de dados | Input | Saída | Descrição |
+| Tipo de fonte de dados | Input | Saída | Description |
 |------------------|-------|--------|------------------|
 | Hub Azure IoT Edge | Y | Y | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](../iot-edge/iot-edge-runtime.md#iot-edge-hub)|
-| SQL Database | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
+| Base de Dados SQL | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
 | Kafka | Y | N | Fonte de dados para ler dados de streaming de um tópico kafka. O suporte kafka não está disponível para a versão ARM64 do Azure SQL Edge.|
 
 

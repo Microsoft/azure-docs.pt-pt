@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
 ms.openlocfilehash: 448b3d93ed58e4cfc73da576f0c5871600400ac6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019844"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Aplicar DevOps ao desenvolvimento de aplicativos LUIS usando ações do GitHub
@@ -35,7 +35,7 @@ O [repo do modelo LUIS DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Temp
 * **Implementar a aplicação LUIS** - Execute um [trabalho de entrega contínua (CD)](luis-concept-devops-automation.md#continuous-delivery-cd) para publicar a aplicação LUIS.
 * **Use o repo com o seu próprio projeto** - Explica como usar o repo com a sua própria aplicação LUIS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Use o [repo de modelo LUIS DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) para aplicar DevOps com o seu próprio projeto.
 * [Estratégias de controlo de fontes e de sucursais para o LUIS](luis-concept-devops-sourcecontrol.md)

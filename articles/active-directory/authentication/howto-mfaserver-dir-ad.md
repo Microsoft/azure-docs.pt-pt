@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b3778ea68edf1fbbb41efb899749e6f35b39bae
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742294"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Servidor MFA do Azure e o Active Directory
@@ -103,7 +103,7 @@ Os atributos podem ser introduzidos manualmente e não precisam de corresponder 
 | Número de telemóvel |Introduza o nome de atributo do atributo que contém o número de telemóvel num registo de utilizador.  A predefinição é mobile. |
 | Fax |Introduza o nome de atributo do atributo que contém o número de fax num registo de utilizador.  A predefinição é facsimileTelephoneNumber. |
 | Número de IP |Introduza o nome de atributo do atributo que contém o número de telefone de IP num registo de utilizador.  A predefinição é ipPhone. |
-| Personalizar |Introduza o nome de atributo do atributo que contém um número de telefone personalizado num registo de utilizador.  A predefinição é blank. |
+| Personalizado |Introduza o nome de atributo do atributo que contém um número de telefone personalizado num registo de utilizador.  A predefinição é blank. |
 | Extensão |Introduza o nome de atributo do atributo que contém a extensão de número de telemóvel num registo de utilizador.  O valor do campo de extensão é utilizado como a extensão apenas do número de telefone principal.  A predefinição é blank. <br><br>Se o atributo Extensão não for especificado, as extensões podem ser incluídas como parte do atributo de telefone. Neste caso, preceda a extensão com um “x”, para que seja analisada corretamente.  Por exemplo, 555-123-4567 x890 resultaria em 555-123-4567 como o número de telefone e 890 como a extensão. |
 | Botão Restaurar Predefinições |Clique no botão **Restaurar Predefinições** para voltar a colocar todos os atributos nos valores predefinidos.  As predefinições devem funcionar corretamente com o esquema normal do Active Directory ou do ADAM. |
 

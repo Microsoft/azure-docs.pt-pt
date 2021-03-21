@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
 ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472203"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com a Azure Machine Learning
@@ -62,7 +62,7 @@ Para especificações de RAM, consulte as páginas correspondentes da série VM,
 
 Se não conseguir adicionar mais RAM à sua máquina, pode aplicar as seguintes técnicas para ajudar a minimizar as cargas de trabalho do CPU e otimizar os tempos de processamento. Estas recomendações dizem respeito a sistemas únicos e distribuídos.
 
-Técnica | Descrição
+Técnica | Description
 ----|----
 Compressão | Utilize uma representação diferente para os seus dados, de uma forma que use menos memória e não tenha um impacto significativo nos resultados do seu cálculo.<br><br>*Exemplo:* Em vez de armazenar entradas como uma corda com cerca de 10 bytes ou mais por entrada, guarde-as como um booleano, Verdadeiro ou Falso, que pode armazenar em 1 byte.
 Chunking | Carregue os dados na memória em subconjuntos (pedaços), processe os dados um subconjunto de cada vez, ou vários subconjuntos em paralelo. Este método funciona melhor se precisar de processar todos os dados, mas não precisa de carregar todos os dados na memória de uma só vez. <br><br>*Exemplo:* Em vez de processar um ano inteiro de dados de uma vez, carregue e processe os dados um mês de cada vez.

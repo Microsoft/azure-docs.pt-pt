@@ -4,10 +4,10 @@ description: Saiba como fazer o back up e restaurar os controladores de domínio
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8db2dab605e90e4748b11a632d6651c23d631b6c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733558"
 ---
 # <a name="back-up-and-restore-active-directory-domain-controllers"></a>Fazer recuar e restaurar controladores de domínio do Ative Directory
@@ -78,6 +78,6 @@ Se estiver a restaurar o último controlador de domínio restante no domínio, o
 
 Para restaurar um controlador de domínio no local, siga as instruções para restaurar o estado do sistema no Windows Server, utilizando as orientações para [considerações especiais para a recuperação do estado do sistema num controlador de domínio](backup-azure-restore-system-state.md#special-considerations-for-system-state-recovery-on-a-domain-controller).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Matriz de suporte para backup Azure](backup-support-matrix.md)

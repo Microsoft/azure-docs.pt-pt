@@ -1,5 +1,5 @@
 ---
-title: Reagir aos eventos do módulo de armazenamento Blob - Azure Event Grid IoT Edge Microsoft Docs
+title: Reagir aos eventos do módulo de armazenamento Blob - Azure Event Grid IoT Edge | Microsoft Docs
 description: Reagir aos eventos do módulo de armazenamento Blob
 author: arduppal
 manager: brymat
@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005066"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reagir aos eventos de armazenamento blob em IoT Edge (Preview)
@@ -324,7 +324,7 @@ Parabéns! Completou o tutorial. As seguintes secções fornecem detalhes sobre 
 
 Aqui está a lista de propriedades de eventos suportados e seus tipos e descrições. 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | subject | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -337,7 +337,7 @@ Aqui está a lista de propriedades de eventos suportados e seus tipos e descriç
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | api | string | A operação que desencadeou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated - valores permitidos são: `PutBlob` e `PutBlockList`</li><li>BlobDeleted - valores permitidos são `DeleteBlob` , `DeleteAfterUpload` e `AutoDelete` . <p>O `DeleteAfterUpload` evento é gerado quando a bolha é automaticamente eliminada porque deleteAfterUpload propriedade desejada é definida como verdadeira. </p><p>`AutoDelete` o evento é gerado quando o blob é automaticamente eliminado porque eliminaMinutes o valor de propriedade desejado expirou.</p></li></ul>|
 | clienteRequestId | string | um ID de pedido fornecido pelo cliente para a operação de API de armazenamento. Este ID pode ser usado para correlacionar com os registos de diagnóstico do Azure Storage utilizando o campo "cliente-pedido-id" nos registos, e pode ser fornecido em pedidos do cliente usando o cabeçalho "x-ms-cliente-pedido-id". Para mais informações, consulte [o Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |

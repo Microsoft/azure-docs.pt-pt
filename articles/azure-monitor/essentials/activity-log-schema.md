@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.openlocfilehash: 721563fa140dfddbfb5984db8465187fb90018e5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049173"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de registo de atividade azure
@@ -140,7 +140,7 @@ Esta categoria contém o registo de todas as operações de criação, atualiza�
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | autorização |Blob of Azure RBAC propriedades do evento. Normalmente inclui as propriedades de "ação", "papel" e "âmbito". |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. |
@@ -287,7 +287,7 @@ Esta categoria contém o registo de quaisquer eventos de saúde de recursos que 
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | canais | Sempre "Administrador, Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -380,7 +380,7 @@ Esta categoria contém o registo de todas as ativações dos alertas clássicos 
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | chamador | Sempre Microsoft.Insights/alertRules |
 | canais | Sempre "Administrador, Operação" |
@@ -406,7 +406,7 @@ Esta categoria contém o registo de todas as ativações dos alertas clássicos 
 O campo de propriedades conterá diferentes valores dependendo da origem do evento de alerta. Dois fornecedores de eventos de alerta comum são alertas de Registo de Atividade e alertas métricos.
 
 #### <a name="properties-for-activity-log-alerts"></a>Imóveis para alertas de Registo de Atividade
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | propriedades.subscriçãoId | O ID de subscrição do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada. |
 | properties.eventDataId | O ID de dados do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada. |
@@ -417,7 +417,7 @@ O campo de propriedades conterá diferentes valores dependendo da origem do even
 | propriedades.status | O estado do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriedades para alertas métricos
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | propriedades. RegraUri | Identificação de recursos da regra de alerta métrico em si. |
 | propriedades. Nome de Regras | O nome da regra de alerta métrico. |
@@ -490,7 +490,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com o funcion
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | chamador | Sempre Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Administrador, Operação" |
@@ -580,7 +580,7 @@ Esta categoria contém o registo de quaisquer alertas gerados pelo Azure Securit
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -661,7 +661,7 @@ Esta categoria contém o registo de quaisquer novas recomendações que sejam ge
 
 ```
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -771,7 +771,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 
 ### <a name="policy-event-property-descriptions"></a>Descrições de propriedade de eventos de política
 
-| Nome do Elemento | Descrição |
+| Nome do Elemento | Description |
 | --- | --- |
 | autorização | Matriz de propriedades RBAC Azure do evento. Para novos recursos, esta é a ação e âmbito do pedido que desencadeou a avaliação. Para os recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
 | chamador | Para novos recursos, a identidade que iniciou uma implantação. Para os recursos existentes, o GUID do Microsoft Azure Policy Insights RP. |

@@ -7,10 +7,10 @@ author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
 ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734592"
 ---
 # <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Exemplos de processadores de telemetria - Azure Monitor Application Insights for Java

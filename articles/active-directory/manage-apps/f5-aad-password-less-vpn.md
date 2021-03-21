@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84e177f1ce55d803f54bb2553078441557e5c191
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730892"
 ---
 # <a name="tutorial-for-azure-active-directory-single-sign-on-integration-with-f5-big-ip-for-password-less-vpn"></a>Tutorial para integração única de sign-on do Azure Ative Directory com F5 BIG-IP para VPN sem palavra-passe
@@ -305,7 +305,7 @@ Com todas as definições no lugar, o APM agora requer um servidor virtual front
 
 - [Cinco passos para integração completa da aplicação com a Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Abra um browser num cliente remoto do Windows e navegue para o url do **serviço BIG-IP VPN**. Depois de autenticar a Azure AD, verá o portal de webtop BIG-IP e o lançador VPN.
 

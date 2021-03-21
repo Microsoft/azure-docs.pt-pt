@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Podbean Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com podbean | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Podbean.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 1e27bd823bd4ad0428773242b5cbc0f9922925ed
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181769"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-podbean"></a>Tutorial: Azure Ative Directory integração única (SSO) com Podbean
@@ -119,7 +119,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela diferente do navegador web, inscreva-se no Podbean como administrador.
 
-1. Clique **Settings** em  ->  **SSO SSO Iniciar sSO** na barra lateral esquerda.
+1. Clique em  ->  **SSO SSO Iniciar sSO** na barra lateral esquerda.
 
 1. Clique no URL, que está mostrando na imagem abaixo para descarregar o **Ficheiro de Metadados SSO podbean** e guardá-lo no seu computador.
 

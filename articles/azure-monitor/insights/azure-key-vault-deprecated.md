@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 24869841a106a68234cfec600d9a98e519f8c6cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734201"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução Azure Key Vault Analytics no Azure Monitor

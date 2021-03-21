@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003825"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta do site usando o Gestor de Tráfego
 
 Este tutorial descreve como usar o Traffic Manager para criar um website altamente responsivo, direcionando o tráfego de utilizadores para o website com a menor latência. Tipicamente, o datacenter com a latência mais baixa é o que está mais próximo na distância geográfica.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar duas VMs que executam um site básico no IIS
@@ -84,7 +84,7 @@ Nesta secção, instale o servidor IIS nos dois VMs *myIISVMEastUS* e *myIISVMWe
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
-6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > **Server Manager**.
+6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > .
 7. Inicie o Windows PowerShell na VM1 e utilize os seguintes comandos para instalar o servidor de ISS e atualizar o ficheiro html predefinido.
 
     ```powershell-interactive
@@ -136,7 +136,7 @@ Nesta secção, você cria um VM (*myVMEastUS* e *myVMWestEurope*) em cada regi�
 
 Crie um perfil de Gestor de Tráfego que direcione o tráfego do utilizador enviando-os para o ponto final com menor latência.
 
-1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
+1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >    >    >  **Criar**.
 2. Em **Criar perfil do Gestor de Tráfego**, introduza ou selecione as informações seguintes, aceite as predefinições das definições restantes e selecione **Criar**:
 
     | Definição                 | Valor                                              |
@@ -161,7 +161,7 @@ Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS*  &  *myIIS
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto final do Azure                                   |
-    | Nome           | myEastUSEndpoint                                        |
+    | Name           | myEastUSEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP Público                          |
     | Recurso de destino          | **Escolha um endereço IP público** para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome *myIISVMEastUS-ip*. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |        |           |

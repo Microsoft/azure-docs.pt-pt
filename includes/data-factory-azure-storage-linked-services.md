@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001752"
 ---
 ### <a name="azure-storage-linked-service"></a>Serviço Ligado do Storage do Azure
@@ -16,8 +16,8 @@ O **serviço ligado ao Azure Storage** permite-lhe ligar uma conta de armazename
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |O tipo de propriedade deve ser definido para: **AzureStorage** |Sim |
-| conexãoStragem |Especifique as informações necessárias para ligar ao armazenamento Azure para a propriedade connectionString. |Sim |
+| tipo |O tipo de propriedade deve ser definido para: **AzureStorage** |Yes |
+| conexãoStragem |Especifique as informações necessárias para ligar ao armazenamento Azure para a propriedade connectionString. |Yes |
 
 Para obter informações sobre como recuperar as chaves de acesso à conta de armazenamento, consulte [as teclas de acesso à conta de armazenamento](../articles/storage/common/storage-account-keys-manage.md).
 
@@ -49,8 +49,8 @@ O serviço Azure Storage SAS permite-lhe ligar uma Conta de Armazenamento Azure 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |O tipo de propriedade deve ser definido para: **AzureStorageSas** |Sim |
-| SasUri |Especifique a assinatura de acesso partilhado URI aos recursos de armazenamento Azure, tais como bolha, recipiente ou mesa.  |Sim |
+| tipo |O tipo de propriedade deve ser definido para: **AzureStorageSas** |Yes |
+| SasUri |Especifique a assinatura de acesso partilhado URI aos recursos de armazenamento Azure, tais como bolha, recipiente ou mesa.  |Yes |
 
 **Exemplo:**
 

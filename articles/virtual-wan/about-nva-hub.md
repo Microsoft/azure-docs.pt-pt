@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 365ed60e73be9bb2098022fa767f4ae54b93c37c
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028085"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Sobre o aparelho virtual de rede num hub Azure Virtual WAN (Pré-visualização)
@@ -101,7 +101,7 @@ Tem de adquirir uma licença para a NVA ao vendedor da NVA.  Para a sua barracud
 
 ### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>Posso colocar um NVA num centro básico?
 
-Não. Tem de utilizar um hub Standard se quiser implantar um NVA.
+N.º Tem de utilizar um hub Standard se quiser implantar um NVA.
 
 ### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>Posso colocar um NVA num centro seguro?
 
@@ -109,7 +109,7 @@ Sim. Barracuda CloudGen WAN pode ser implantado num hub com Azure Firewall.
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>Posso ligar algum dispositivo CPE na minha sucursal à Barracuda CloudGen WAN NVA no centro?
 
-Não. Barracuda CloudGen WAN só é compatível com dispositivos Barracuda CPE. Para saber mais sobre os requisitos da CloudGen WAN, consulte [a página Wan CloudGen da Barracuda.](https://www.barracuda.com/products/cloudgenwan) Para a Cisco, existem vários dispositivos SD-WAN CPE que são compatíveis. Consulte [cisco Cloud OnRamp para](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documenation multi-cloud para CPEs compatáveis.
+N.º Barracuda CloudGen WAN só é compatível com dispositivos Barracuda CPE. Para saber mais sobre os requisitos da CloudGen WAN, consulte [a página Wan CloudGen da Barracuda.](https://www.barracuda.com/products/cloudgenwan) Para a Cisco, existem vários dispositivos SD-WAN CPE que são compatíveis. Consulte [cisco Cloud OnRamp para](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documenation multi-cloud para CPEs compatáveis.
 
 ### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>Que cenários de encaminhamento são suportados com a NVA no centro?
 

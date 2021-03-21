@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 7c65cf6b36af3057fb06c6a6584fa458b1030c72
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98704140"
 ---
 # <a name="overview-of-offline-backup"></a>Visão geral do backup offline
@@ -80,7 +80,7 @@ A tabela seguinte compara as duas opções disponíveis para que possa fazer as 
 
 *Se o seu país/região não tiver um datacenter Azure, precisa enviar os seus discos para um datacenter Azure em outro país/região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Backup Azure backup offline usando Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Fluxo de trabalho de backup offline em Azure Backup](backup-azure-backup-import-export.md)

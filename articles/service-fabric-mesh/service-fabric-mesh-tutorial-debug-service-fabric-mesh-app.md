@@ -7,10 +7,10 @@ ms.date: 10/31/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 9e3dc16481340c0266cd398d0970e2147648e17f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625453"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar uma aplicação do Service Fabric Mesh em execução no cluster de desenvolvimento local
@@ -90,7 +90,7 @@ Se ocorrerem erros de compilação em **service.yaml**, certifique-se de que sã
 
 Ao depurar uma aplicação de malha de tecido de serviço no Estúdio Visual, está a usar um cluster local de desenvolvimento de tecido de serviço. Para ver como os itens de tarefas são obtidos do serviço de back-end, faça a depuração para o método OnGet().
 1. No projeto **WebFrontEnd,** open **Pages**  >  **Index.cshtml**  >  **Index.cshtml.cs** e definir um ponto de rutura no método **OnGet** (linha 17).
-2. No projeto **ToDoService,** abra **TodoController.cs** e desabrofete o método **Get** (linha 15).
+2. No projeto **ToDoService,** abra **todoController.cs** e desabrose um ponto de rutura no método **Get** (linha 15).
 3. Regresse ao seu browser e atualize a página. Atingiu o ponto de interrupção no método de front-end da Web `OnGet()`. Pode inspecionar a variável `backendUrl` para ver como as variáveis de ambiente que definiu no ficheiro **service.yaml** são combinadas para o URL utilizado para contactar o serviço de back-end.
 4. Ignore (F10) a chamada `client.GetAsync(backendUrl).GetAwaiter().GetResult())` e irá atingir o ponto de interrupção do controlador `Get()`. Neste método, pode ver como é obtida a lista de itens de tarefas a partir da lista na memória.
 5. Quando terminar, pare de depurar o seu projeto no Estúdio Visual pressionando **o Shift+F5**.

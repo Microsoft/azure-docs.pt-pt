@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98059386"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
@@ -49,7 +49,7 @@ Neste caso, pode configurar duas organizações ligadas. Cria-se uma organizaç�
 A forma como os utilizadores do diretório AD ou do domínio Azure autenticam depende do tipo de autenticação. Os tipos de autenticação para organizações ligadas são:
 
 - Azure AD
-- [Federação direta](../external-identities/direct-federation.md)
+- [Federação Direta](../external-identities/direct-federation.md)
 - [Senha única](../external-identities/one-time-passcode.md) (domínio)
 
 Para uma demonstração de como adicionar uma organização conectada, veja o seguinte vídeo:

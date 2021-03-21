@@ -7,10 +7,10 @@ ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: a8f673295236d60ec6681bbfaee1201a4659674b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585713"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pistas com OpenCensus Python

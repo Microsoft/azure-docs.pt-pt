@@ -12,10 +12,10 @@ ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
 ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470239"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
@@ -38,8 +38,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Linguagem                 | Local (BCP-47) | Personalizações  | [Deteção linguística](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
-| Árabe (Bahrein), padrão moderno  | `ar-BH` | Texto                                   | Sim                           | 
-| Árabe (Egito)                     | `ar-EG` | Texto                                   | Sim                          |
+| Árabe (Bahrein), padrão moderno  | `ar-BH` | Texto                                   | Yes                           | 
+| Árabe (Egito)                     | `ar-EG` | Texto                                   | Yes                          |
 | Árabe (Iraque)                      | `ar-IQ` | Texto                                   |                           |
 | Árabe (Israel)                    | `ar-IL` | Texto                                   |                           |
 | Árabe (Jordânia)                    | `ar-JO` | Texto                                   |                           |
@@ -47,62 +47,62 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Árabe (Líbano)                   | `ar-LB` | Texto                                   |                           |
 | Árabe (Omã)                      | `ar-OM` | Texto                                   |                           |
 | Árabe (Qatar)                     | `ar-QA` | Texto                                   |                           |
-| Árabe (Arábia Saudita)              | `ar-SA` | Texto                                   | Sim                          |
+| Árabe (Arábia Saudita)              | `ar-SA` | Texto                                   | Yes                          |
 | Árabe (Estado da Palestina)        | `ar-PS` | Texto                                   |                           |
-| Árabe (Síria)                     | `ar-SY` | Texto                                   | Sim                          |
+| Árabe (Síria)                     | `ar-SY` | Texto                                   | Yes                          |
 | Árabe (Emirados Árabes Unidos)      | `ar-AE` | Texto                                   |                           |
 | Búlgaro (Bulgária)               | `bg-BG` | Texto                                   |                           |
-| Catalão (Espanha)                    | `ca-ES` | Texto                                   | Sim                          |
-| Chinês (cantonês, tradicional)   | `zh-HK` | Áudio (20201015)<br>Texto                 |        Sim                   |
-| Chinês (Mandarim, Simplificado)     | `zh-CN` | Áudio (20200910)<br>Texto                 |     Sim                      |
-| Chinês (Mandarim taiwanês)       | `zh-TW` | Áudio (20190701, 20201015)<br>Texto                 |           Sim                |
+| Catalão (Espanha)                    | `ca-ES` | Texto                                   | Yes                          |
+| Chinês (cantonês, tradicional)   | `zh-HK` | Áudio (20201015)<br>Texto                 |        Yes                   |
+| Chinês (Mandarim, Simplificado)     | `zh-CN` | Áudio (20200910)<br>Texto                 |     Yes                      |
+| Chinês (Mandarim taiwanês)       | `zh-TW` | Áudio (20190701, 20201015)<br>Texto                 |           Yes                |
 | Croata (Croácia)                 | `hr-HR` | Texto                                   |                           |
 | Checo (República Checa)             | `cs-CZ` | Texto                                   |                           |
-| Dinamarquês (Dinamarca)                   | `da-DK` | Texto                                   | Sim                          |
-| Neerlandês (Países Baixos)                | `nl-NL` | Áudio (20201015)<br>Texto                                   |    Sim                       |
-| Inglês (Austrália)                | `en-AU` | Áudio (20201019)<br>Texto                 | Sim                          |
-| Inglês (Canadá)                   | `en-CA` | Áudio (20201019)<br>Texto                 | Sim                          |
+| Dinamarquês (Dinamarca)                   | `da-DK` | Texto                                   | Yes                          |
+| Neerlandês (Países Baixos)                | `nl-NL` | Áudio (20201015)<br>Texto                                   |    Yes                       |
+| Inglês (Austrália)                | `en-AU` | Áudio (20201019)<br>Texto                 | Yes                          |
+| Inglês (Canadá)                   | `en-CA` | Áudio (20201019)<br>Texto                 | Yes                          |
 | Inglês (Gana)                    | `en-GH` | Texto                                   |                           |
 | Inglês (Hong Kong)                | `en-HK` | Texto                                   |                           |
-| Inglês (Índia)                    | `en-IN` | Áudio (20200923)<br>Texto                 | Sim                          |
+| Inglês (Índia)                    | `en-IN` | Áudio (20200923)<br>Texto                 | Yes                          |
 | Inglês (Irlanda)                  | `en-IE` | Texto                                   |                           |
 | Inglês (Quénia)                    | `en-KE` | Texto                                   |                           |
-| Inglês (Nova Zelândia)              | `en-NZ` | Áudio (20201019)<br>Texto                 |  Sim                         |
+| Inglês (Nova Zelândia)              | `en-NZ` | Áudio (20201019)<br>Texto                 |  Yes                         |
 | Inglês (Nigéria)                  | `en-NG` | Texto                                   |                           |
 | Inglês (Filipinas)              | `en-PH` | Texto                                   |                           |
 | Inglês (Singapura)                | `en-SG` | Texto                                   |                           |
 | Inglês (África do Sul)             | `en-ZA` | Texto                                   |                           |
 | Inglês (Tanzânia)                 | `en-TZ` | Texto                                   |                           |
-| Inglês (Reino Unido)           | `en-GB` | Áudio (20201019)<br>Texto<br>Pronúncia| Sim                          |
-| Inglês (Estados Unidos)            | `en-US` | Áudio (20201019)<br>Texto<br>Pronúncia| Sim                          |
+| Inglês (Reino Unido)           | `en-GB` | Áudio (20201019)<br>Texto<br>Pronúncia| Yes                          |
+| Inglês (Estados Unidos)            | `en-US` | Áudio (20201019)<br>Texto<br>Pronúncia| Yes                          |
 | Estónia (Estónia)                  | `et-EE` | Texto                                   |                           |
 | Filipino (Filipinas)             | `fil-PH`| Texto                                   |                           |
-| Finlandês (Finlândia)                  | `fi-FI` | Texto                                   |     Sim                      |
-| Francês (Canadá)                    | `fr-CA` | Áudio (20201015)<br>Texto                 |     Sim                      |
-| Francês (França)                    | `fr-FR` | Áudio (20201015)<br>Texto<br>Pronúncia|      Sim                     |
+| Finlandês (Finlândia)                  | `fi-FI` | Texto                                   |     Yes                      |
+| Francês (Canadá)                    | `fr-CA` | Áudio (20201015)<br>Texto                 |     Yes                      |
+| Francês (França)                    | `fr-FR` | Áudio (20201015)<br>Texto<br>Pronúncia|      Yes                     |
 | Francês (Suíça)               | `fr-CH` | Texto                                   |                           |
 | Alemão (Áustria)                   | `de-AT` | Texto                                   |                           |
-| Alemão (Alemanha)                   | `de-DE` | Áudio (20190701, 20200619, 20201127)<br>Texto<br>Pronúncia|  Sim                         |
+| Alemão (Alemanha)                   | `de-DE` | Áudio (20190701, 20200619, 20201127)<br>Texto<br>Pronúncia|  Yes                         |
 | Grego (Grécia)                     | `el-GR` | Texto                                   |                           |
 | Gujarati (indiano)                  | `gu-IN` | Texto                                   |                           |
-| Hindi (Índia)                      | `hi-IN` | Áudio (20200701)<br>Texto                 |     Sim                      |
+| Hindi (Índia)                      | `hi-IN` | Áudio (20200701)<br>Texto                 |     Yes                      |
 | Húngaro (Hungria)                | `hu-HU` | Texto                                   |                           |
 | Indonésio (Indonésia)             | `id-ID` | Texto                                   |                           |
 | Irlanda (Irlanda)                     | `ga-IE` | Texto                                   |                           |
-| Italiano (Itália)                    | `it-IT` | Áudio (20201016)<br>Texto<br>Pronúncia|      Sim                     |
-| Japonês (Japão)                   | `ja-JP` | Texto                                   |      Sim                     |
-| Coreano (Coreia)                     | `ko-KR` | Áudio (20201015)<br>Texto                 |      Sim                     |
+| Italiano (Itália)                    | `it-IT` | Áudio (20201016)<br>Texto<br>Pronúncia|      Yes                     |
+| Japonês (Japão)                   | `ja-JP` | Texto                                   |      Yes                     |
+| Coreano (Coreia)                     | `ko-KR` | Áudio (20201015)<br>Texto                 |      Yes                     |
 | Letão (Letónia)                   | `lv-LV` | Texto                                   |                           |
 | Lituano (Lituânia)             | `lt-LT` | Texto                                   |                           |
 | Malaio (Malásia)                    | `ms-MY` | Texto                                   |                           |
 | Maltês(Malta)                     | `mt-MT` | Texto                                   |                           |
 | Marathi (Índia)                    | `mr-IN` | Texto                                   |                           |
-| Norueguês (Bokmål, Noruega)         | `nb-NO` | Texto                                   |     Sim                      |
-| Polaco (Polónia)                    | `pl-PL` | Texto                                   |       Sim                    |
-| Português (Brasil)                | `pt-BR` | Áudio (20190620, 20201015)<br>Texto<br>Pronúncia|          Sim                 |
-| Português (Portugal)              | `pt-PT` | Texto                                   |             Sim              |
+| Norueguês (Bokmål, Noruega)         | `nb-NO` | Texto                                   |     Yes                      |
+| Polaco (Polónia)                    | `pl-PL` | Texto                                   |       Yes                    |
+| Português (Brasil)                | `pt-BR` | Áudio (20190620, 20201015)<br>Texto<br>Pronúncia|          Yes                 |
+| Português (Portugal)              | `pt-PT` | Texto                                   |             Yes              |
 | Romeno (Roménia)                 | `ro-RO` | Texto                                   |                           |
-| Russo (Rússia)                   | `ru-RU` | Áudio (20200907)<br>Texto                 |                Sim           |
+| Russo (Rússia)                   | `ru-RU` | Áudio (20200907)<br>Texto                 |                Yes           |
 | Eslovaco (Eslováquia)                  | `sk-SK` | Texto                                   |                           |
 | Esloveno (Eslovénia)               | `sl-SI` | Texto                                   |                           |
 | Espanhol (Argentina)                | `es-AR` | Texto                                   |                           |
@@ -117,20 +117,20 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Espanhol (Guiné Equatorial)        | `es-GQ` | Texto                                   |                           |
 | Espanhol (Guatemala)                | `es-GT` | Texto                                   |                           |
 | Espanhol (Honduras)                 | `es-HN` | Texto                                   |                           |
-| Espanhol (México)                   | `es-MX` | Áudio (20200907)<br>Texto                 |    Sim                       |
+| Espanhol (México)                   | `es-MX` | Áudio (20200907)<br>Texto                 |    Yes                       |
 | Espanhol (Nicarágua)                | `es-NI` | Texto                                   |                           |
 | Espanhol (Panamá)                   | `es-PA` | Texto                                   |                           |
 | Espanhol (Paraguai)                 | `es-PY` | Texto                                   |                           |
 | Espanhol (Peru)                     | `es-PE` | Texto                                   |                           |
 | Espanhol (Porto Rico)              | `es-PR` | Texto                                   |                           |
-| Espanhol (Espanha)                    | `es-ES` | Áudio (20201015)<br>Texto                 |  Sim                         |
+| Espanhol (Espanha)                    | `es-ES` | Áudio (20201015)<br>Texto                 |  Yes                         |
 | Espanhol (Uruguai)                  | `es-UY` | Texto                                   |                           |
 | Espanhol (EUA)                      | `es-US` | Texto                                   |                           |
 | Espanhol (Venezuela)                | `es-VE` | Texto                                   |                           |
-| Sueco (Suécia)                   | `sv-SE` | Texto                                   |   Sim                        |
+| Sueco (Suécia)                   | `sv-SE` | Texto                                   |   Yes                        |
 | Tamil (Índia)                      | `ta-IN` | Texto                                   |                           |
 | Telugu (Índia)                     | `te-IN` | Texto                                   |                           |
-| Tailandês (Tailândia)                    | `th-TH` | Texto                                   |      Sim                     |
+| Tailandês (Tailândia)                    | `th-TH` | Texto                                   |      Yes                     |
 | Turco (Turquia)                   | `tr-TR` | Texto                                   |                           |
 | Vietnamita (Vietname)               | `vi-VN` | Texto                                   |                           |
 
@@ -406,21 +406,21 @@ A Voz Personalizada está disponível no padrão e no nível neural. As línguas
 
 | Linguagem | Região | Standard | Neural |
 |--|--|--|--|
-| Chinês (Mandarim, Simplificado) | `zh-CN` | Sim | Sim |
-| Chinês (mandarim, simplificado), inglês bilingue | `zh-CN` bilingue | Sim | Sim |
-| Inglês (Austrália) | `en-AU` | No | Sim |
-| Inglês (Índia) | `en-IN` | Sim | Sim |
-| Inglês (Reino Unido) | `en-GB` | Sim | Sim |
-| Inglês (Estados Unidos) | `en-US` | Sim | Sim |
-| Francês (Canadá) | `fr-CA` | No | Sim |
-| Francês (França) | `fr-FR` | Sim | Sim |
-| Alemão (Alemanha) | `de-DE` | Sim | Sim |
-| Italiano (Itália) | `it-IT` | Sim | Sim |
-| Japonês (Japão) | `ja-JP` | No | Sim |
-| Coreano (Coreia) | `ko-KR` | No | Sim |
-| Português (Brasil) | `pt-BR` | Sim | Sim |
-| Espanhol (México) | `es-MX` | Sim | Sim |
-| Espanhol (Espanha) | `es-ES` | No | Sim |
+| Chinês (Mandarim, Simplificado) | `zh-CN` | Yes | Yes |
+| Chinês (mandarim, simplificado), inglês bilingue | `zh-CN` bilingue | Yes | Yes |
+| Inglês (Austrália) | `en-AU` | No | Yes |
+| Inglês (Índia) | `en-IN` | Yes | Yes |
+| Inglês (Reino Unido) | `en-GB` | Yes | Yes |
+| Inglês (Estados Unidos) | `en-US` | Yes | Yes |
+| Francês (Canadá) | `fr-CA` | No | Yes |
+| Francês (França) | `fr-FR` | Yes | Yes |
+| Alemão (Alemanha) | `de-DE` | Yes | Yes |
+| Italiano (Itália) | `it-IT` | Yes | Yes |
+| Japonês (Japão) | `ja-JP` | No | Yes |
+| Coreano (Coreia) | `ko-KR` | No | Yes |
+| Português (Brasil) | `pt-BR` | Yes | Yes |
+| Espanhol (México) | `es-MX` | Yes | Yes |
+| Espanhol (Espanha) | `es-ES` | No | Yes |
 
 Selecione o local certo que corresponda aos dados de treino que tem para treinar um modelo de voz personalizado. Por exemplo, se os dados de gravação que tem forem falados em inglês com sotaque britânico, selecione `en-GB` .
 

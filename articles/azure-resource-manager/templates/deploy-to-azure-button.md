@@ -4,17 +4,17 @@ description: Utilize o botão para implementar os modelos do Gestor de Recursos 
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028748"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
 Este artigo descreve como usar o botão **Implementar para Azure** para implementar modelos a partir de um repositório GitHub. Pode adicionar o botão diretamente ao ficheiro _README.md_ no seu repositório GitHub. Ou, pode adicionar o botão a uma página web que faz referência ao repositório.
 
-O âmbito de implantação é determinado pelo esquema do modelo. Para obter mais informações, veja:
+O âmbito de implantação é determinado pelo esquema do modelo. Para obter mais informações, consulte:
 
 - [grupos de recursos](deploy-to-resource-group.md)
 - [assinaturas](deploy-to-subscription.md)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
 ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049853"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
@@ -143,7 +143,7 @@ Atualmente, o Azure Digital Twins Explorer está ligado à sua instância origin
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Azure Digital Twins Explorer destacando o ícone Sign In no canto superior direito da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Substitua o **URL ADT** para refletir a sua nova instância. Altere este valor de modo a ler *https://{novo nome de anfitrião de instância}*.
+Substitua o **URL ADT** para refletir a sua nova instância. Altere este valor de modo a que leia *https:// nome do anfitrião de uma nova instância}*.
 
 Selecione **Ligar**. Pode ser-lhe pedido que volte a assinar com as suas credenciais Azure ou conceder este consentimento de pedido para o seu exemplo.
 

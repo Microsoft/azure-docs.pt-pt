@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com AStudio Connect SAML Authentication / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | de autenticação RStudio Connect SAML Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o RStudio Connect SAML Authentication.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 84e8c7fc1d2655ea0685ac79841a9c467bf766cf
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect-saml-authentication"></a>Tutorial: Integração do Diretório Ativo Azure com autenticação RStudio Connect SAML

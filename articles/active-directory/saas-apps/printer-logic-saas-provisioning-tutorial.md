@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a PrinterLogic SaaS para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar a ImpressoraLogic SaaS para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desa provisionamento automática de contas de utilizadores do Azure AD para PrinterLogic SaaS.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/02/2020
 ms.author: Zhchia
 ms.openlocfilehash: 6b00067e7f13e609c2999d6949429038e9a7dfd8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181752"
 ---
 # <a name="tutorial-configure-printerlogic-saas-for-automatic-user-provisioning"></a>Tutorial: Configurar a ImpressoraLogic SaaS para o fornecimento automático de utilizadores

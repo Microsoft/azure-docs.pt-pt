@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899274"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize a cloudSimple Private Cloud para instalar o Oracle RAC
@@ -46,14 +46,14 @@ O exemplo seguinte utiliza os discos definidos na tabela abaixo.
 
 | Disco                                      | Objetivo                                       | Disco Partilhado |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| SO                                        | Disco do sistema operativo                         | Não          |
-| REDE                                      | Instalar localização para o software Oracle Grid     | Não          |
-| BASE DE DADOs                                  | Instalar localização para o software de base de dados da Oracle | Não          |
-| ORAHOME                                   | Localização base para binários de base de dados oracle    | Não          |
-| DATA1, DATA2, DATA3, DATA4                | Disco onde os ficheiros de base de dados da Oracle são armazenados   | Sim         |
-| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Redo discos de log                                | Sim         |
-| OCR1, OCR2, OCR3, OCR4, OCR5              | Discos de votação                                  | Sim         |
-| FRA1                                | Discos de área de recuperação rápida                      | Sim         |
+| SO                                        | Disco do sistema operativo                         | No          |
+| REDE                                      | Instalar localização para o software Oracle Grid     | No          |
+| BASE DE DADOs                                  | Instalar localização para o software de base de dados da Oracle | No          |
+| ORAHOME                                   | Localização base para binários de base de dados oracle    | No          |
+| DATA1, DATA2, DATA3, DATA4                | Disco onde os ficheiros de base de dados da Oracle são armazenados   | Yes         |
+| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Redo discos de log                                | Yes         |
+| OCR1, OCR2, OCR3, OCR4, OCR5              | Discos de votação                                  | Yes         |
+| FRA1                                | Discos de área de recuperação rápida                      | Yes         |
 
 ![Configuração do disco de máquina virtual Oracle](media/oracle-vmdk.png)
 

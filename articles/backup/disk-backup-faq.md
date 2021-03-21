@@ -4,10 +4,10 @@ description: Obtenha respostas para perguntas frequentes sobre backup de disco A
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734567"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Perguntas frequentes sobre backup de disco Azure (na pré-visualização)
@@ -19,7 +19,7 @@ ms.locfileid: "98734567"
 
 Este artigo responde frequentemente a perguntas sobre a cópia de segurança do disco Azure. Para obter mais informações sobre a disponibilidade da região de backup do [Disco Azure,](disk-backup-overview.md) cenários e limitações apoiados, consulte a matriz de [suporte](disk-backup-support-matrix.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="can-i-back-up-the-disk-using-the-azure-disk-backup-solution-if-the-same-disk-is-backed-up-using-azure-virtual-machine-backup"></a>Posso fazer o backup do disco utilizando a solução de Backup do Disco Azure se o mesmo disco for apoiado utilizando a cópia de segurança da máquina virtual Azure?
 
@@ -79,7 +79,7 @@ Sim, pode restaurar o disco numa subscrição diferente da do disco gerido por f
 
 Não, imagens pontuais de vários discos ligados a uma máquina virtual não são suportadas. Para obter mais informações, consulte a cópia de segurança do [Configure](backup-managed-disks.md#configure-backup) e para saber mais sobre limitações, consulte a [matriz de suporte](disk-backup-support-matrix.md).
 
-### <a name="what-are-my-options-to-back-up-disks-across-multiple-subscriptions"></a>Quais são as minhas opções para fazer o back up disks em várias subscrições?
+### <a name="what-are-my-options-to-back-up-disks-across-multiple-subscriptions"></a>Quais são as minhas opções para fazer a cópia de segurança de discos em várias subscrições?
 
 Atualmente, a utilização do portal Azure para configurar a cópia de segurança dos discos está limitada a um máximo de 20 discos da mesma subscrição.
 
@@ -130,6 +130,6 @@ Seguem-se as ações utilizadas na função **do Operador de Restauro** de Disco
 >[!NOTE]
 >As permissões sobre estas funções podem mudar no futuro, com base nas funcionalidades adicionadas pelo serviço Azure Backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Matriz de suporte da Cópia de Segurança de Discos do Azure](disk-backup-support-matrix.md)

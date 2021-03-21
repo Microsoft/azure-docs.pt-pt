@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
 ms.openlocfilehash: a7f4682be2f7fbf308aba32768efa932f27b7a87
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181714"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>Tutorial: Azure Ative Directory integração única (SSO) com Roadmunk
@@ -107,7 +107,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 Nesta secção, irá criar um utilizador de teste no portal Azure. Vai nomear o utilizador *B.Simon.*
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Na parte superior da janela, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
@@ -135,7 +135,7 @@ Nesta secção, você permitirá que B.Simon use Azure SSO, concedendo acesso a 
 
     ![Screenshot mostrando onde selecionar as definições da conta de utilizador.](./media/roadmunk-tutorial/account.png)
 
-1. Aceda **Company** às  >  **Definições de Autenticação da** Empresa .
+1. Aceda às  >  **Definições de Autenticação da** Empresa .
 
 1. Na página **Definições de Autenticação,** siga estes passos:
 

@@ -6,10 +6,10 @@ ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
 ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102055639"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Tutorial: Avaliar os casos sql para migração para Azure SQL
@@ -18,7 +18,7 @@ Como parte da sua viagem de migração para Azure, você avalia as suas cargas d
 Este artigo mostra-lhe como avaliar as bases de dados de casos do SQL Server descobertos em preparação para a migração para Azure SQL, utilizando a ferramenta Azure Migrate: Discovery e assessment.
 
 > [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 Neste tutorial, ficará a saber como:
 
@@ -137,27 +137,27 @@ A estimativa mensal de custos inclui custos de cálculo e armazenamento para con
 
         **Prontidão Azure SQL DB** | **Prontidão Azure SQL MI** | **Tipo de implantação recomendado** | **Configuração Azure SQL e estimativas de custos calculadas?**
          --- | --- | --- | --- |
-        Pronto | Pronto | Azure SQL DB ou Azure SQL MI [Saiba mais](concepts-azure-sql-assessment-calculation.md#recommended-deployment-type) | Sim
-        Pronto | Não pronto ou desconhecido | BD SQL do Azure | Sim
-        Não pronto ou desconhecido | Pronto | Azure SQL MI | Sim
-        Não está pronto. | Não está pronto. | Potencialmente pronto para Azure VM [Saiba mais](concepts-azure-sql-assessment-calculation.md#potentially-ready-for-azure-vm) | Não
-        Não pronto ou desconhecido | Não pronto ou desconhecido | Desconhecido | Não
+        Pronto | Pronto | Azure SQL DB ou Azure SQL MI [Saiba mais](concepts-azure-sql-assessment-calculation.md#recommended-deployment-type) | Yes
+        Pronto | Não pronto ou desconhecido | BD SQL do Azure | Yes
+        Não pronto ou desconhecido | Pronto | Azure SQL MI | Yes
+        Não está pronto. | Não está pronto. | Potencialmente pronto para Azure VM [Saiba mais](concepts-azure-sql-assessment-calculation.md#potentially-ready-for-azure-vm) | No
+        Não pronto ou desconhecido | Não pronto ou desconhecido | Desconhecido | No
     
     - **Tipo de implantação de destino** (selecionado em propriedades de avaliação): **Azure SQL DB**
     
         **Prontidão Azure SQL DB** | **Configuração Azure SQL e estimativas de custos calculadas?**
         --- | --- |
-        Pronto | Sim
+        Pronto | Yes
         Não está pronto. | Não
-        Desconhecido | Não
+        Desconhecido | No
     
     - **Tipo de implantação de destino** (selecionado em propriedades de avaliação): **Azure SQL MI**
     
         **Prontidão Azure SQL MI** | **Configuração Azure SQL e estimativas de custos calculadas?**
          --- | --- |
-        Pronto | Sim
+        Pronto | Yes
         Não está pronto. | Não
-        Desconhecido | Não
+        Desconhecido | No
 
 4. Clique na broca de nome de instância para ver o número de bases de dados dos utilizadores, detalhes de casos incluindo propriedades de instância, cálculo (telescópio em instância) e detalhes de armazenamento de bases de dados de origem.
 5. Clique no número de bases de dados dos utilizadores para rever a lista de bases de dados e os seus dados. Como exemplo (estimativas e custos, por exemplo apenas): :::image type="content" source="./media/tutorial-assess-sql/assessment-db.png" alt-text="detalhes de instâncias SQL":::
