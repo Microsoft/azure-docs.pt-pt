@@ -8,10 +8,10 @@ ms.date: 01/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 52e491c88d3483f21aa74f1a9f176246033bee3c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735797"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>Crie um instantâneo incremental para discos geridos
@@ -108,6 +108,6 @@ Também pode usar modelos do Gestor de Recursos Azure para criar uma imagem incr
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se quiser ver o código de amostra que demonstre a capacidade diferencial de instantâneos incrementais, utilizando .NET, consulte [cópias de segurança dos Discos Geridos copy Azure para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

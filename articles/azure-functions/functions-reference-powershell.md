@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936792"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
@@ -80,7 +80,7 @@ $TriggerMetadata.sys
 | Nome metóddio | O nome da Função que foi desencadeada     | string   |
 | Rio RandGuid   | um guia único para esta execução da função | string   |
 
-Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` for contém o , entre `QueueTrigger` `InsertionTime` `Id` `DequeueCount` outras coisas. Para obter mais informações sobre os metadados do gatilho da fila, aceda à [documentação oficial para os gatilhos da fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação dos [gatilhos](functions-triggers-bindings.md) com que está a trabalhar para ver o que vem dentro dos metadados do gatilho.
+Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` for contém o , , entre `QueueTrigger` `InsertionTime` `Id` `DequeueCount` outras coisas. Para obter mais informações sobre os metadados do gatilho da fila, aceda à [documentação oficial para os gatilhos da fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação dos [gatilhos](functions-triggers-bindings.md) com que está a trabalhar para ver o que vem dentro dos metadados do gatilho.
 
 ## <a name="bindings"></a>Enlaces
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
-| Nome | Tipo | Posição | Descrição |
+| Nome | Tipo | Posição | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
@@ -386,7 +386,7 @@ Quando cria uma aplicação de função utilizando ferramentas, como o Código d
 
 A tabela a seguir mostra as versões PowerShell disponíveis para cada versão principal do tempo de execução das Funções, e a versão .NET necessária:
 
-| Versão de funções | Versão PowerShell                               | Versão .NET  | 
+| Versão de funções | Versão do PowerShell                               | Versão .NET  | 
 |-------------------|--------------------------------------------------|---------------|
 | 3.x (recomendado) | PowerShell 7 (recomendado)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
 | 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
@@ -470,7 +470,7 @@ Quando atualiza o ficheiro requirements.psd1, os módulos atualizados são insta
 
 As seguintes definições de aplicação podem ser usadas para alterar a forma como as dependências geridas são descarregadas e instaladas. A atualização da sua aplicação começa dentro `MDMaxBackgroundUpgradePeriod` de , e o processo de atualização completa dentro de aproximadamente o `MDNewSnapshotCheckPeriod` .
 
-| Definição de aplicativo de função              | Valor predefinido             | Descrição                                         |
+| Definição de aplicativo de função              | Valor predefinido             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dias)     | Cada processo de trabalhador PowerShell inicia a verificação de atualizações de módulos na PowerShell Gallery no início do processo e em todas as `MDMaxBackgroundUpgradePeriod` seguintes. Quando uma nova versão do módulo está disponível na PowerShell Gallery, é instalada no sistema de ficheiros e disponibilizada aos trabalhadores do PowerShell. Diminuir este valor permite que a sua aplicação de função obtenha versões de módulos mais recentes mais cedo, mas também aumenta o uso de recursos da aplicação (rede I/O, CPU, armazenamento). O aumento deste valor diminui o uso de recursos da app, mas também pode atrasar a entrega de novas versões de módulos à sua app. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Depois de serem instaladas novas versões de módulos no sistema de ficheiros, todos os processos de trabalhadores powerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade da sua aplicação, uma vez que pode interromper a execução da função atual. Até que todos os processos do trabalhador powerShell sejam reiniciados, as invocações de função podem usar as versões antigas ou novas do módulo. Reiniciar todos os trabalhadores da PowerShell completos dentro `MDNewSnapshotCheckPeriod` de . Aumentar este valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões antigas ou novas do módulo não deterministicamente. |

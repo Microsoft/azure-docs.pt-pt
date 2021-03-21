@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 6d9f5538d377be1414089e591559344bde4f381a
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98795633"
 ---
 # <a name="security-tokens"></a>Tokens de segurança
@@ -84,7 +84,7 @@ Dependendo da forma como o seu cliente é construído, pode utilizar um (ou vár
 
 Os tokens emitidos através do modo implícito têm uma limitação de comprimento porque são passados de volta para o navegador através do URL, onde `response_mode` está `query` ou `fragment` . Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra de navegador e falhar quando é muito longo. Como resultado, estes tokens não têm `groups` ou `wids` reivindicam.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a autenticação e autorização na plataforma de identidade da Microsoft, consulte os seguintes artigos:
 

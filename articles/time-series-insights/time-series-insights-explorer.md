@@ -1,5 +1,5 @@
 ---
-title: Explore dados utilizando o Explorer - Azure Time Series Insights / Microsoft Docs
+title: Explore dados utilizando o Explorer - Azure Time Series Insights | Microsoft Docs
 description: Saiba como utilizar o Azure Time Series Insights Explorer para ver os seus dados IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020117"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Gen1 Explorer
@@ -111,7 +111,7 @@ A poucos minutos de ligar a fonte do evento ao ambiente Azure Time Series Insigh
 
 1. Utilize o **mapa térmico** para detetar rapidamente séries de dados únicas ou anómalas numa determinada consulta. Apenas um termo de pesquisa pode ser visualizado como um mapa de calor.
 
-    [Time Series Insights explorer heatmap charting](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Time Series Insights explorer heatmap charting](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (media/série-tempo-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Quando explora eventos selecionando ou clicando à direita, o painel **EVENTOS** é disponibilizado. Aqui, pode rever todos os seus eventos crus e exportar os seus eventos como ficheiros JSON ou CSV. A Azure Time Series Insights armazena todos os dados brutos.
 
@@ -126,7 +126,7 @@ A poucos minutos de ligar a fonte do evento ao ambiente Azure Time Series Insigh
 
 Agora que aprendeu sobre as principais funcionalidades, configurações e opções de exibição que estão disponíveis na aplicação web do explorador Azure Time Series Insights.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a [diagnosticar e a resolver problemas](time-series-insights-diagnose-and-solve-problems.md) no seu ambiente Azure Time Series Insights.
 

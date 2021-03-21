@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 3c9679f3d66d58c7a6c847b54c84438c979ecd39
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936871"
 ---
 O [Ponto Final Privado do Azure](../articles/private-link/private-endpoint-overview.md) é uma interface de rede que o liga em privado e com segurança a um serviço com a tecnologia do Azure Private Link.  O Ponto Final Privado utiliza um endereço IP privado a partir da rede virtual, o que leva de forma eficaz o serviço até à sua rede virtual.

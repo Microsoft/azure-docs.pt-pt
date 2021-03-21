@@ -12,10 +12,10 @@ manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f90edd5729ff5229be09bc3798082c33bdeead2
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102632106"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Suporte ao navegador da autenticação sem palavras-passe FIDO2

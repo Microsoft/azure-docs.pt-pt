@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
 ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791532"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
@@ -127,7 +127,7 @@ A sua aplicação deverá agora ter dois serviços: o serviço apátrida *HelloW
 
 Um serviço estatal tem os mesmos pontos de entrada que um serviço apátrida. A principal diferença é a disponibilidade de um *fornecedor estatal* que pode armazenar o Estado de forma fiável. O Service Fabric vem com uma implementação de fornecedor estatal chamada [Reliable Collections,](service-fabric-reliable-services-reliable-collections.md)que permite criar estruturas de dados replicadas através do Gestor estatal fiável. Um Serviço Fidedigna imponente utiliza este fornecedor estatal por defeito.
 
-Abra **HelloWorldStateful.cs** em *HelloWorldStateful,* que contém o seguinte método RunAsync:
+Open **HelloWorldStateful.cs** em *HelloWorldStateful,* que contém o seguinte método RunAsync:
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -209,7 +209,7 @@ Após o início dos serviços, pode visualizar os eventos gerados de rastreio de
 
 ![Ver eventos de diagnóstico em estúdio visual](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Depurar a sua aplicação de Tecido de Serviço no Estúdio Visual](service-fabric-debugging-your-application.md)
 
 [Começar: Serviços de API Web de Tecido de Serviço com auto-hospedagem OWIN](./service-fabric-reliable-services-communication-aspnetcore.md)

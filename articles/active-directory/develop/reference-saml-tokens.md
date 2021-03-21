@@ -1,5 +1,5 @@
 ---
-title: SAML 2.0 token reclama referência / Rio Azure
+title: REFERÊNCIA DE | RECLAMAÇÕES SAML 2.0 Rio Azure
 titleSuffix: Microsoft identity platform
 description: Reclamações referem-se com detalhes sobre as reclamações incluídas nos tokens SAML 2.0 emitidos pela plataforma de identidade da Microsoft, incluindo os seus equivalentes JWT.
 author: kenwith
@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
 ms.openlocfilehash: 9c3132985866a4c245984ef632107c05ca1b3350
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348387"
 ---
 # <a name="saml-token-claims-reference"></a>Referência de reclamações de ficha SAML
@@ -40,7 +40,7 @@ A plataforma de identidade da Microsoft emite vários tipos de fichas de seguran
 > |Emissor | `iss` |Identifica o serviço de símbolos de segurança (STS) que constrói e devolve o token. Nos tokens que a Azure AD retorna, o emitente é sts.windows.net. O valor de reclamação GUID no Emitente é o iD do inquilino do diretório AD Azure. A identificação do inquilino é um identificador imutável e fiável do diretório. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 > |Apelido | `family_name` |Fornece o apelido, apelido ou nome de família do utilizador, conforme definido no objeto de utilizador Azure AD. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
 > |Name | `unique_name` |Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido ser único dentro de um inquilino e é projetado para ser usado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
-> |ID de objeto | `oid` |Contém um identificador único de um objeto em Azure AD. Este valor é imutável e não pode ser reatribuído ou reutilizado. Utilize o ID do objeto para identificar um objeto em consultas ao Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
+> |ID do Objeto | `oid` |Contém um identificador único de um objeto em Azure AD. Este valor é imutável e não pode ser reatribuído ou reutilizado. Utilize o ID do objeto para identificar um objeto em consultas ao Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Funções | `roles` |Representa todas as funções de candidatura que o sujeito foi concedido direta e indiretamente através da adesão ao grupo e pode ser usado para impor o controlo de acesso baseado em funções. As funções de candidatura são definidas por aplicação, através `appRoles` da propriedade do manifesto de aplicação. A `value` propriedade de cada função de candidatura é o valor que aparece na reivindicação de funções. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Assunto | `sub` |Identifica o principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado, pelo que pode ser utilizado para efetuar verificações de autorização com segurança. Como o assunto está sempre presente nos tokens as questões da AD Azure, recomendamos a utilização deste valor num sistema de autorização para fins gerais. <br> `SubjectConfirmation` não é uma reivindicação. Descreve como o objeto do símbolo é verificado. `Bearer` indica que o sujeito é confirmado pela sua posse do símbolo. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |ID do inquilino | `tid` |Um identificador imutável e não reutilizável que identifica o inquilino do diretório que emitiu o símbolo. Você pode usar este valor para aceder a recursos de diretório específicos do inquilino em uma aplicação multi-inquilino. Por exemplo, pode utilizar este valor para identificar o inquilino numa chamada para a API do Gráfico. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|

@@ -4,10 +4,10 @@ description: Saiba como configurar um cluster de tecido de serviço seguro em Az
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791816"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster de tecido de serviço usando O Gestor de Recursos Azure 
@@ -278,7 +278,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parameterFilePath 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste momento, tem um aglomerado seguro em Azure. Em seguida, [ligue-se ao seu cluster](service-fabric-connect-to-secure-cluster.md) e aprenda a gerir segredos de [aplicação.](service-fabric-application-secret-management.md)
 
 Para que a sintaxe JSON e as propriedades utilizem um modelo, consulte a [referência do modelo Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters).

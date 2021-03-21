@@ -7,10 +7,10 @@ ms.date: 10/29/2018
 ms.author: mcoskun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2674d1285544e4bc9b6fcb3d0b2e6f4b607786a2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791616"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Backup e restaurar Serviços Fiáveis e Atores Fiáveis
@@ -254,7 +254,7 @@ Até que um serviço complete esta API com sucesso (devolvendo verdadeiro ou fal
 
 `RestoreAsync` primeiro deixa cair todo o estado existente na réplica primária que foi chamado. Em seguida, o Gestor de Estado Fiável cria todos os objetos fiáveis que existem na pasta de reserva. Em seguida, os objetos Fidedignas são instruídos a restaurar a partir dos seus pontos de verificação na pasta de reserva. Finalmente, o Gestor de Estado Fiável recupera o seu próprio estado a partir dos registos de registos na pasta de backup e realiza a recuperação. Como parte do processo de recuperação, as operações a partir do "ponto de partida" que cometeram registos de registos na pasta de backup são reproduzidas nos objetos Fidedignas. Este passo garante que o estado recuperado é consistente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Arranque rápido de serviços fiáveis](service-fabric-reliable-services-quick-start.md)
   - [Notificações de Serviços Fiáveis](service-fabric-reliable-services-notifications.md)

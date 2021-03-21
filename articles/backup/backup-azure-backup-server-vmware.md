@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer b
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002958"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
@@ -59,7 +59,7 @@ Antes de começar a fazer backup de uma máquina virtual VMware, reveja a seguin
 
 Por predefinição, o Azure Backup Server comunica com servidores VMware através de HTTPS. Para configurar a ligação HTTPS, descarregue o certificado VMware Certificate Authority (CA) e importe-o no Servidor de Backup Azure.
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 - Se não quiser utilizar HTTPS, pode [desativar a validação do certificado HTTPS para todos os servidores VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Normalmente, liga-se de um navegador na máquina Azure Backup Server ao servidor vCenter/ESXi utilizando o cliente web vSphere. A primeira vez que fizer isto, a ligação não é segura e mostrará o seguinte.
@@ -143,7 +143,7 @@ O Azure Backup Server necessita de uma conta de utilizador com permissões para 
 
     ![Administração](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. Em **Funções de Administração,**  >  **Roles** selecione o ícone de função de adicionar (o símbolo +).
+3. Em **Funções de Administração,**  >  selecione o ícone de função de adicionar (o símbolo +).
 
     ![Adicionar papel](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
@@ -213,7 +213,7 @@ A tabela que se segue captura os privilégios que precisa de atribuir à conta d
 | Global.Gerir atributos personalizados | Datastore.AlocarSpace |
 | Global.Definir atributo personalizado | VirtualMachine.Config. ChangeTracking |
 | Host.Operações locais. Criar máquina virtual | VirtualMachine.State.RemoveSnapshot |
-| A rede. Atribuir rede | VirtualMachine.State.CreateSnapshot |
+| Rede. Atribuir rede | VirtualMachine.State.CreateSnapshot |
 | Recurso. Atribuir máquina virtual ao pool de recursos | VirtualMachine.Provisioning.DiskRandomRead |
 | Uration de machine.Configvirtual. Adicionar disco novo | VirtualMachine.Interact.PowerOff |
 | Uration de machine.Configvirtual. Avançado | VirtualMachine.Inventory.Create |
@@ -268,7 +268,7 @@ No **separador 'Gerir'** no painel **De permissões Globais,** a nova conta de u
 
     ![Ícone do servidor de backup Azure](./media/backup-azure-backup-server-vmware/mabs-icon.png)
 
-2. Na consola Azure Backup **Management** Server, selecione  >   **Management Production Servers** Manage  >  **VMware**.
+2. Na consola Azure Backup Server, selecione  >   **Management Production Servers** Manage  >  **VMware**.
 
     ![Consola do servidor de backup Azure](./media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
@@ -288,7 +288,7 @@ No **separador 'Gerir'** no painel **De permissões Globais,** a nova conta de u
 
 Adicione o servidor vCenter ao Servidor de Backup Azure.
 
-1. Na consola Azure Backup **Management** Server, selecione  >  **Management Production Servers**  >  **Add**.
+1. Na consola Azure Backup Server, selecione  >  **Management Production Servers**  >  **Add**.
 
     ![Assistente de adição de servidor de produção aberto](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 

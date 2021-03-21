@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a0486a27d76c978a65c4a3cfd81df52a12e4ea1d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791582"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Remoing de serviço em C# com Serviços Fiáveis
@@ -267,7 +267,7 @@ Construa o conjunto do cliente com o conjunto de interfaces para se certificar d
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Utilize aulas explícitas de remoing para criar uma fábrica de ouvintes/clientes para a versão V2 (compatível com interface)
 
-Siga estes passos.
+Siga estes passos:
 
 1. Adicione um recurso de ponto final com o nome "ServiceEndpointV2_1" no manifesto de serviço.
 
@@ -356,7 +356,7 @@ Este passo garante que o serviço está a ouvir apenas no ouvinte V2.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Use serialização personalizada com uma mensagem embrulhada de remoting
 
 Para uma mensagem embrulhada de remoing, criamos um único objeto embrulhado com todos os parâmetros como campo.
-Siga estes passos.
+Siga estes passos:
 
 1. Implemente a `IServiceRemotingMessageSerializationProvider` interface para fornecer implementação para serialização personalizada.
     Este código mostra como é a implementação.
@@ -546,7 +546,7 @@ Siga estes passos.
       });
       ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Web API com OWIN em Serviços Fiáveis](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Comunicação da Fundação de Comunicação do Windows com Serviços Fiáveis](service-fabric-reliable-services-communication-wcf.md)

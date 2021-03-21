@@ -1,5 +1,5 @@
 ---
-title: Criar uma rede virtual Azure a espreitar - diferentes modelos de implementação - mesma subscrição / Microsoft Docs
+title: Crie uma rede virtual Azure que espreita - diferentes modelos de implementação - a mesma subscrição | Microsoft Docs
 description: Saiba como criar uma rede virtual de observação entre redes virtuais criadas através de diferentes modelos de implementação Azure que existem na mesma subscrição do Azure.
 services: virtual-network
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 1ff9fcbb693f7e606c07985f9bce9acd60c5591a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222977"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um espreitamento de rede virtual - diferentes modelos de implementação, mesma subscrição
@@ -210,7 +210,7 @@ Complete os seguintes passos utilizando o CLI clássico do Azure e o CLI Azure. 
 
 Quando terminar este tutorial, talvez queira apagar os recursos que criou no tutorial, para não incorrer em taxas de utilização. A eliminação de um grupo de recursos também elimina todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
 
 1. Na caixa de pesquisa do portal, insira **o myResourceGroup**. Nos resultados da pesquisa, clique **no myResourceGroup**.
 2. Na lâmina **myResourceGroup,** clique no ícone **Eliminar.**

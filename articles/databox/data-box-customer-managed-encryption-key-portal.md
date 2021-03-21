@@ -9,10 +9,10 @@ ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
 ms.openlocfilehash: e6b588ddea5bf4b4c92e89d9cebb37b09b9a86af
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791549"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Utilize chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box
@@ -27,7 +27,7 @@ Este artigo mostra como ativar uma chave gerida pelo cliente para a sua encomend
 
 Este artigo aplica-se a dispositivos Azure Data Box e Azure Data Box Heavy.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 A chave gerida pelo cliente para uma encomenda de Caixa de Dados deve satisfazer os seguintes requisitos:
 
@@ -199,7 +199,7 @@ Se receber quaisquer erros relacionados com a sua chave gerida pelo cliente, uti
 | SsemUserErrorKeyVaultBadRequestExcepção | Aplicou uma chave gerida pelo cliente, mas o acesso à chave não foi concedido ou foi revogado, ou não foi possível aceder ao cofre de chaves devido à ativação da firewall. | Adicione a identidade selecionada no cofre de chaves para permitir o acesso à chave gerida pelo cliente. Se o cofre-chave tiver a firewall ativada, mude para uma identidade atribuída ao sistema e adicione uma chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
 | Erro genérico  | Não consegui pegar a chave.| Isto é um erro genérico. Contacte o Microsoft Support para resolver o erro e determinar os próximos passos.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o Azure Key Vault?](../key-vault/general/overview.md)
 - [Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure](../key-vault/secrets/quick-create-portal.md)

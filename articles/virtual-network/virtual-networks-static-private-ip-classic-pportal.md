@@ -1,5 +1,5 @@
 ---
-title: Configurar endereços IP privados para VMs (Classic) - Portal Azure / Microsoft Docs
+title: Configure endereços IP privados para VMs (Classic) - Portal Azure | Microsoft Docs
 description: Saiba como configurar endereços IP privados para máquinas virtuais (Classic) utilizando o portal Azure.
 services: virtual-network
 documentationcenter: na
@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6986f6f16cbd32d44223bba4f4be4577fa11258c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222909"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configure endereços IP privados para uma máquina virtual (Classic) usando o portal Azure

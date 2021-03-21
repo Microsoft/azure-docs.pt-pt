@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.openlocfilehash: 8266b585881546b37bbb21b82780ab26d85dada7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048085"
 ---
 # <a name="discover-installed-applications-roles-and-features-software-inventory-and-sql-server-instances-and-databases"></a>Descubra aplicações, funções e funcionalidades instaladas (inventário de software) e instâncias e bases de dados do SQL Server
@@ -20,7 +20,7 @@ Este artigo descreve como descobrir aplicações, funções e funcionalidades in
 A realização de inventário de software ajuda a identificar e adaptar um caminho de migração para Azure para as suas cargas de trabalho. O inventário de software utiliza o aparelho Azure Migrate para realizar a descoberta, utilizando credenciais de servidor. É completamente sem agente, nenhum agente é instalado nos servidores para recolher estes dados.
 
 > [!NOTE]
-> O inventário de software está atualmente em pré-visualização para servidores em execução apenas no ambiente VMware, e está limitado apenas à descoberta. Atualmente não oferecemos avaliação baseada em aplicações.<br/> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> O inventário de software está atualmente em pré-visualização para servidores em execução apenas no ambiente VMware, e está limitado apenas à descoberta. Atualmente não oferecemos avaliação baseada em aplicações.<br/> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 ## <a name="before-you-start"></a>Antes de começar
 

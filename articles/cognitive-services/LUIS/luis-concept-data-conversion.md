@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95019250"
 ---
 # <a name="convert-data-format-of-utterances"></a>Converter formato de dados de expressões
@@ -37,7 +37,7 @@ Esta integração utiliza um modelo [de preços](luis-limits.md#key-limits) dife
 ### <a name="quota-usage"></a>Utilização de quotas
 Consulte [os limites da chave](luis-limits.md#key-limits) para obter informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Extração de dados](luis-concept-data-extraction.md)

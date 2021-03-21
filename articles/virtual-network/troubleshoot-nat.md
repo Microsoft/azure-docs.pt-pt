@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
 ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223436"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Resolução de problemas Azure Rede Virtual NAT conectividade
@@ -51,7 +51,7 @@ Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a
 4. Avalie se os padrões adequados são seguidos.
 5. Avalie se a exaustão da porta SNAT deve ser atenuada com endereços IP adicionais atribuídos ao recurso de gateway NAT.
 
-#### <a name="design-patterns"></a>Padrões de estrutura
+#### <a name="design-patterns"></a>Padrões de design
 
 Aproveite sempre que possível a reutilização da ligação e a ligação.  Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e estruturas de desenvolvimento.
 
@@ -77,7 +77,7 @@ Criar uma nova ligação TCP para cada operação HTTP (também conhecida como "
 
 _**Solução:**_ Conectividade de saída de escala da seguinte forma:
 
-| Cenário | Evidência |Mitigação |
+| Scenario | Evidência |Mitigação |
 |---|---|---|
 | Está a sentir discórdia por portas SNAT e exaustão portuária SNAT durante períodos de alta utilização. | A categoria "Falhada" para [a métrica](nat-metrics.md) de conexões SNAT no Monitor Azure mostra falhas transitórias ou persistentes ao longo do tempo e volume de ligação elevado.  | Determine se pode adicionar recursos adicionais de endereço IP público ou recursos prefixos ip públicos. Esta adição permitirá até 16 endereços IP no total para o seu gateway NAT. Esta adição irá fornecer mais inventário para as portas SNAT disponíveis (64.000 por endereço IP) e permitir-lhe-á escalar ainda mais o seu cenário.|
 | Já deu 16 endereços IP e ainda está a passar pela exaustão da porta SNAT. | A tentativa de adicionar o endereço IP adicional falha. O número total de endereços IP provenientes de recursos de endereços IP públicos ou recursos prefixos IP públicos excede um total de 16. | Distribua o ambiente de aplicação através de várias sub-redes e forneça um recurso de gateway NAT para cada sub-rede.  Reavalie os seus padrões de design para otimizar com base na [orientação](#design-patterns)anterior . |

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 851229e441aa2fbdf7b6eec05390c0ce2b149da2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020473"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escreva uma função definida pelo utilizador C# para o trabalho Azure Stream Analytics (Pré-visualização)
@@ -145,7 +145,7 @@ Após ter testado a sua consulta localmente, selecione **Submeter para o Azure**
 ## <a name="deploy-to-iot-edge-devices"></a>Implementar em dispositivos IoT Edge
 Se optar por construir um trabalho stream Analytics Edge, este pode agora ser implementado como um módulo IoT Edge. Siga o [início rápido do IoT Edge](../iot-edge/quickstart.md) para criar um Hub IoT, registar um dispositivo IoT Edge e instalar e iniciar o runtime do IoT Edge no dispositivo. Em seguida, siga o tutorial [implementar a tarefa](../iot-edge/tutorial-deploy-stream-analytics.md#deploy-the-job) para implementar a sua tarefa do Stream Analytics como um módulo do IoT Edge. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma função simples definida pelo utilizador C# utilizando o CodeBehind, publicou o seu trabalho para o Azure e implementou o trabalho para o dispositivo Azure ou IoT Edge. 
 

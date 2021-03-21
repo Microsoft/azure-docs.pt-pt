@@ -12,10 +12,10 @@ ms.custom: references_regions
 ms.date: 01/07/2021
 ms.author: alexeyo
 ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
-ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98061757"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Serviços de fala em nuvens soberanas

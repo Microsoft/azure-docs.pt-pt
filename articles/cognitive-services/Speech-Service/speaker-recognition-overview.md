@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de colunas, biometria de voz
 ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015329"
 ---
 # <a name="what-is-speaker-recognition-preview"></a>O que é o Reconhecimento de Oradores (Pré-visualização)?
@@ -72,7 +72,7 @@ Tal como acontece com todos os recursos dos Serviços Cognitivos, os desenvolved
 | Pode inscrever um orador várias vezes? | Sim, para verificação dependente de texto, pode inscrever um altifalante até 50 vezes. Para verificação independente de texto ou identificação de altifalantes, pode inscrever-se com até 300 segundos de áudio. |
 | Que dados são armazenados em Azure? | O áudio de inscrição é armazenado no serviço até que o perfil de voz seja [eliminado](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). As amostras de áudio de reconhecimento não são retidas ou armazenadas. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > * Preencha o artigo básico de reconhecimento de [altifalantes](./get-started-speaker-recognition.md) para um ensaio de padrões de design comuns que pode usar nas suas aplicações.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791901"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
@@ -82,7 +82,7 @@ A política de reprovisionamento de uma inscrição determina como a instância 
 Por exemplo, código de envio de pedidos de provisionamento de um dispositivo durante uma sequência de arranque, consulte [o provisionamento automático de um dispositivo simulado](quick-create-simulated-device.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 - Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 

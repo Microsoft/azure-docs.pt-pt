@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021019"
 ---
 # <a name="securing-azure-sql-edge"></a>Segurança Azure SQL Edge
@@ -107,7 +107,7 @@ As informações de segurança são expostas em várias vistas e funções otimi
 O Azure SQL Edge fornece os mesmos mecanismos de auditoria que o SQL Server. Para obter mais informações, consulte [a Auditoria do Servidor SQL (Motor de Base de Dados)](/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Começar com funcionalidades de segurança](/sql/linux/sql-server-linux-security-get-started)
 - [Executando Azure SQL Edge como um utilizador sem raízes](configure.md#run-azure-sql-edge-as-non-root-user)

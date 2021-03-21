@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
 ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561945"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementar modelos de aprendizagem automática para Azure
@@ -316,13 +316,13 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Descrição | Estado final?
+| Estado do serviço web | Description | Estado final?
 | ----- | ----- | ----- |
 | Transição | O serviço está em processo de implantação. | No |
 | Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | No |
 | Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | No |
-| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
-| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
+| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Yes |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Yes |
 
 > [!TIP]
 > Ao implementar, as imagens do Docker para alvos de computação são construídas e carregadas a partir do Registo de Contentores de Azure (ACR). Por predefinição, o Azure Machine Learning cria um ACR que utiliza o nível *básico* de serviço. Mudar o ACR para o seu espaço de trabalho para um nível normal ou premium pode reduzir o tempo que leva para construir e implementar imagens para os seus alvos de computação. Para mais informações, consulte [os níveis de serviço de registo de contentores Azure.](../container-registry/container-registry-skus.md)

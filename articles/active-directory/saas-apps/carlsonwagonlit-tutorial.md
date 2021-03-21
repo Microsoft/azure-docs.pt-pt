@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Carlson Wagonlit Travel Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Carlson Wagonlit Travel | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre a Azure Ative Directory e a Carlson Wagonlit Travel.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 86c2d9585abd546acb3efb22256d3f3b70bfb972
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97674400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: Integração do Azure Ative Directory com Carlson Wagonlit Travel

@@ -1,5 +1,5 @@
 ---
-title: Como usar twilio para voz e SMS (.NET) Microsoft Docs
+title: Como utilizar o Twilio para voz e SMS (.NET) | Microsoft Docs
 description: Saiba como fazer uma chamada telefónica e envie uma mensagem SMS com o serviço API Twilio em Azure. Amostras de código escritas em .NET.
 services: ''
 documentationcenter: .net
@@ -14,10 +14,10 @@ ms.date: 04/24/2015
 ms.author: gwallace
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003769"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como usar twilio para capacidades de voz e SMS do Azure
@@ -84,7 +84,7 @@ Twilio fornece um conjunto de bibliotecas de ajuda .NET que envolvem vários asp
 
 Twilio fornece cinco bibliotecas para desenvolvedores .NET:
 
-| Biblioteca | Descrição |
+| Biblioteca | Description |
 | --- | --- |
 | Twilio.API | A biblioteca central de Twilio que envolve a API Twilio REST numa simpática biblioteca .NET. Esta biblioteca está disponível para .NET, Silverlight e Windows Phone 7. |
 | Twilio.TwiML | Fornece uma forma amigável .NET de gerar marcação TwiML. |
@@ -145,7 +145,7 @@ Para obter mais informações sobre os parâmetros transmitidos para o método *
 Como mencionado, este código utiliza um site fornecido por Twilio para devolver a resposta TwiML. Em vez disso, pode utilizar o seu próprio site para fornecer a resposta TwiML. Para mais informações, consulte [Como: Fornecer respostas TwiML a partir do seu próprio site.](#howto_provide_twiml_responses)
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Como: Enviar uma mensagem SMS
-A imagem que se segue mostra como enviar uma mensagem SMS utilizando a classe **MessageResource.** O **from** número é fornecido pela Twilio para contas de teste para enviar mensagens SMS. O número deve ser verificado para **a** sua conta Twilio antes de executar o código.
+A imagem que se segue mostra como enviar uma mensagem SMS utilizando a classe **MessageResource.** O  número é fornecido pela Twilio para contas de teste para enviar mensagens SMS. O número deve ser verificado para **a** sua conta Twilio antes de executar o código.
 
 ```csharp
 // Use your account SID and authentication token instead

@@ -4,10 +4,10 @@ description: Este artigo descreve como pode configurar a monitorização de clus
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 2958b000ac0dabcd7fddf75a58f553b705a95e9a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731872"
 ---
 # <a name="configure-gpu-monitoring-with-container-insights"></a>Configure a monitorização da GPU com insights de contentores
@@ -27,7 +27,7 @@ Os insights do contentor iniciam automaticamente a monitorização da utilizaç�
 >[!NOTE]
 >Após o provisionamento do cluster com nós GPU, certifique-se de que [o controlador gpu](../../aks/gpu-cluster.md) é instalado conforme exigido pela AKS para executar cargas de trabalho gpu. Os insights dos contentores recolhem métricas de GPU através de cápsulas de condutor da GPU que correm no nó. 
 
-|Nome da métrica |Dimensão métrica (etiquetas) |Descrição |
+|Nome da métrica |Dimensão métrica (etiquetas) |Description |
 |------------|------------------------|------------|
 |containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor|Percentagem de tempo durante o período de amostragem anterior (60 segundos) durante o qual a GPU estava ocupada/ativamente a processar para um recipiente. O ciclo de serviços é um número entre 1 e 100. |
 |containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, nome de contentor |Cada recipiente pode especificar limites como uma ou mais GPUs. Não é possível solicitar ou limitar uma fração de uma GPU. |

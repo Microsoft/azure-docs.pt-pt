@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905201"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Avaliações de moderação de conteúdos, fluxos de trabalho e empregos
@@ -50,7 +50,7 @@ Um fluxo de trabalho é um filtro personalizado à base de nuvem para conteúdo.
 
 ### <a name="view-workflows"></a>Ver fluxos de trabalho
 
-Para ver os fluxos de trabalho existentes, vá à [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com/) e selecione **Admin**  >  **fluxos de trabalho de administração.**
+Para ver os fluxos de trabalho existentes, vá à [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com/) e selecione   >  **fluxos de trabalho de administração.**
 
 > [!div class="mx-imgBorder"]
 > ![Fluxo de trabalho predefinido](images/default-workflow-list.png)

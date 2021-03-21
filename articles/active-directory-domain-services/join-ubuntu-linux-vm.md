@@ -1,5 +1,5 @@
 ---
-title: Junte-se a um Ubuntu VM para Azure AD Domain Services / Microsoft Docs
+title: Junte-se a um Ubuntu VM para Azure AD Domain Services | Microsoft Docs
 description: Aprenda a configurar e junte-se a uma máquina virtual Ubuntu Linux a um domínio gerido por Azure AD Domain Services.
 services: active-directory-ds
 author: justinha
@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: justinha
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619492"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Ubuntu Linux a um domínio gerido por Azure Ative Directory Domain Services

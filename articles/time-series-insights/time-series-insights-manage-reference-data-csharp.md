@@ -1,5 +1,5 @@
 ---
-title: Gerir dados de referência em ambientes GA utilizando C# - Azure Time Series Insights Microsoft Docs
+title: Gerir dados de referência em ambientes GA utilizando C# - Azure Time Series Insights | Microsoft Docs
 description: Saiba como gerir dados de referência para o seu ambiente de GA criando uma aplicação personalizada escrita em C#.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020083"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Gerir dados de referência para um ambiente Azure Time Series Insights Gen 1 utilizando C Sharp
@@ -61,7 +61,7 @@ Complete os seguintes passos antes de compilar e executar o código de amostra:
 
 ## <a name="project-dependencies"></a>Dependências de projetos
 
-Recomenda-se que utilize a versão mais recente do Visual Studio e **NETCore.app:**
+Recomenda-se que utilize a mais recente versão do Visual Studio e **NETCore.app:**
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Versão 16.4.2+
 * [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) - Versão 2.2.8
@@ -311,6 +311,6 @@ namespace CsharpTsiMsalGaSample
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a documentação de referência da [API de Gestão de Dados de Referência](/rest/api/time-series-insights/gen1-reference-data-api) da Gen 1.

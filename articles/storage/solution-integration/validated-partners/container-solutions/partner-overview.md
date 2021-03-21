@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
 ms.openlocfilehash: 8b46ad7a34be99aefeb067591fa1b029dba2361e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561894"
 ---
 # <a name="azure-storage-container-management-partners"></a>Parceiros de gestão de contentores Azure Storage
@@ -21,7 +21,7 @@ Este artigo destaca as soluções parceiras da Microsoft que permitem a automati
 
 ## <a name="verified-partners"></a>Parceiros verificados
 
-| Parceiro | Descrição | Ligação website/produto |
+| Parceiro | Description | Ligação website/produto |
 | ------- | ----------- | -------------------- |
 | ![Logotipo da empresa Kasten](./media/kasten-logo.png) |**Rio Kasten**<br>Kasten by Veeam fornece uma solução para o backup de Kubernetes e recuperação de desastres. A Kasten ajuda as empresas a superar os desafios de gestão de dados do Dia 2 para executar aplicações com confiança em Kubernetes.<br><br>A plataforma de software de gestão de dados Kasten K10 fornece às equipas de operações empresariais um sistema escalável e seguro para o BCDR e mobilidade de aplicações Kubernetes.|[Página do parceiro](https://docs.kasten.io/latest/install/azure/azure.html)|
 | ![Logotipo da empresa Portworx](./media/portworx-logo.png) |**Portworx**<br>Portworx by Pure Storage fornece uma solução para armazenamento persistente, BCDR, segurança de dados, barreiras cruzadas e migrações de dados para aplicações em execução integradas em Kubernetes.|[Página do parceiro](https://portworx.com/azure/)|

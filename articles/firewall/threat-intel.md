@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791464"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em ameaças de Azure Firewall
@@ -51,7 +51,7 @@ O seguinte excerto de registo mostra uma regra desencadeada:
 
 - **Testes de entrada** - Pode esperar ver alertas sobre o tráfego de entrada se as regras de ADN forem configuradas na firewall. Isto é verdade mesmo que apenas fontes específicas sejam permitidas na regra do ADN e o tráfego seja negado de outra forma. A Azure Firewall não alerta em todos os scanners de portas conhecidos; apenas em scanners que são conhecidos por também se envolver em atividades maliciosas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver [amostras do Azure Firewall Log Analytics](./firewall-workbook.md)
 - Saiba como [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md)

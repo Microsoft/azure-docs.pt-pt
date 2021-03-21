@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
 ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98953806"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o provisionamento do utilizador do Ative Directory 
@@ -24,7 +24,7 @@ O objetivo deste tutorial é mostrar os passos que você precisa para executar p
 >Utilize este tutorial se os utilizadores que pretender obter do SuccessFactors necessitarem de uma conta AD no local e opcionalmente uma conta AD AZure. Se os utilizadores do SuccessFactors apenas precisarem da conta AD Azure (utilizadores apenas na nuvem), consulte o tutorial sobre configurar o fornecimento de [utilizadores SAP SuccessFactors para o Azure AD.](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O [serviço de prestação de utilizadores do Azure Ative Directory](../app-provisioning/user-provisioning.md) integra-se com a Centro de [Trabalhadores do SuccessFactors](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) de forma a gerir o ciclo de vida identitária dos utilizadores. 
 
@@ -59,7 +59,7 @@ Esta secção descreve a arquitetura de solução de aprovisionamento de utiliza
 * **Fluxo de dados de RH autoritário – de SuccessFactors a Ative Directory:** Neste evento de trabalhadores de fluxo (como Novas Contratações, Transferências, Rescisões) ocorrem primeiro na nuvem SuccessFactors Employee Central e, em seguida, os dados do evento fluem para o Diretório Ativo no local através da Azure AD e do Agente Provisionante. Dependendo do evento, pode levar a operações de criação/atualização/ativação/desativação em AD.
 * **Email Writeback Flow – do Diretório Ativo para o SuccessFactors:** Uma vez que a criação de conta esteja completa no Ative Directory, é sincronizado com Azure AD através da sincronização Azure AD Connect e o atributo de e-mail pode ser escrito de volta para o SuccessFactors.
 
-  ![Descrição Geral](./media/sap-successfactors-inbound-provisioning/sf2ad-overview.png)
+  ![Descrição geral](./media/sap-successfactors-inbound-provisioning/sf2ad-overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Fluxo de dados de utilizador de ponta a ponta
 
@@ -199,7 +199,7 @@ Neste passo, estabelecemos conectividade com o SuccessFactors e Diretório Ativo
 
    * **Senha de administração –** Introduza a palavra-passe da conta de utilizador da API do SuccessFactors. 
 
-   * **URL do inquilino –** Insira o nome do ponto final dos serviços OData API dos SuccessFactors. Apenas introduza o nome de anfitrião do servidor sem https ou https. Este valor deve ser como: **<nome api-servidor>.successfactors.com**.
+   * **URL do inquilino –** Insira o nome do ponto final dos serviços OData API dos SuccessFactors. Apenas introduza o nome de anfitrião do servidor sem https ou https. Este valor deve parecer: **<nome de servidor api>.successfactors.com**.
 
    * **Floresta de Diretório Ativo -** O "Nome" do seu domínio ative directory, registado no agente. Utilize o dropdown para selecionar o domínio alvo para o provisionamento. Este valor é tipicamente uma cadeia como: *contoso.com*
 

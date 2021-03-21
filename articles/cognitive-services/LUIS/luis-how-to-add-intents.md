@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
 ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018944"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicione intenções para determinar a intenção do utilizador de declarações
@@ -79,6 +79,6 @@ A barra de ferramentas de contexto fornece outras ações:
 
 Depois de adicionar, editar ou remover intenções, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) a sua aplicação para que as suas alterações sejam aplicadas em consultas de ponto final. Não treine depois de cada mudança. Treinar depois de um grupo de mudanças.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a adição [de palavras de exemplo](./luis-how-to-add-entities.md) com entidades.

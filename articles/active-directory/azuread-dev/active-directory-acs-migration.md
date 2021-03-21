@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687401"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
@@ -26,7 +26,7 @@ ms.locfileid: "101687401"
 
 O Microsoft Azure Access Control Service (ACS), um serviço do Azure Ative Directory (Azure AD), será reformado a 7 de novembro de 2018. As aplicações e serviços que atualmente utilizam o Controlo de Acesso devem ser totalmente migrados para um mecanismo de autenticação diferente até lá. Este artigo descreve recomendações para os clientes atuais, uma vez que pretende depreciar o seu uso do Controlo de Acesso. Se não utilizar atualmente o Controlo de Acesso, não precisa de tomar nenhuma medida.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Access Control é um serviço de autenticação em nuvem que oferece uma forma fácil de autenticar e autorizar os utilizadores a acederem às suas aplicações e serviços web. Permite que muitas funcionalidades de autenticação e autorização sejam tidas em conta no seu código. O Access Control é usado principalmente por desenvolvedores e arquitetos de clientes Microsoft .NET, ASP.NET aplicações web e serviços web da Windows Communication Foundation (WCF).
 

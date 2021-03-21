@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018893"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar uma nova app LUIS no portal LUIS
@@ -73,6 +73,6 @@ A barra de ferramentas de contexto fornece outras ações:
 * Registos de pontos finais de exportação, como um `.csv` , para análise offline
 * Excluir app
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se o design da sua aplicação incluir deteção de [intenções, crie novas intenções](luis-how-to-add-intents.md)e adicione palavras de exemplo. Se o design da sua aplicação for apenas a extração de dados, adicione palavras de exemplo à intenção de Zero, em seguida, [crie entidades](./luis-how-to-add-entities.md), e rotule as expressões de exemplo com essas entidades.

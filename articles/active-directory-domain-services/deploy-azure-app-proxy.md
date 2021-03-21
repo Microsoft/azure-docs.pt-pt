@@ -1,5 +1,5 @@
 ---
-title: Implementar Proxy de Aplicação AD AZure para Serviços de Domínio AD Azure / Microsoft Docs
+title: Implementar proxy de aplicação AD Azure para serviços de domínio Azure AD | Microsoft Docs
 description: Saiba como fornecer acesso seguro a aplicações internas para trabalhadores remotos, implantando e configurando o Azure Ative Directory Application Proxy num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: 8305b2190cf3b157973f5844c3237ffe73adba66
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619921"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implementar Proxy de aplicação AD Azure para acesso seguro a aplicações internas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
@@ -26,7 +26,7 @@ Se é novo no Azure AD Application Proxy e quer saber mais, consulte [Como forne
 
 Este artigo mostra-lhe como criar e configurar um conector Proxy aplicação AD Azure para fornecer acesso seguro a aplicações num domínio gerido.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 

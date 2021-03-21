@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010708"
 ---
 Este artigo fornece o próximo nível de detalhe para garantir a infraestrutura internet das coisas (IoT) baseada em Azure IoT. Liga-se aos detalhes do nível de implementação para configurar e implantar cada componente. Também fornece comparações e escolhas entre vários métodos concorrentes.

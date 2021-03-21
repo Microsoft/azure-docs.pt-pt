@@ -1,5 +1,5 @@
 ---
-title: Considerações do navegador do sistema Xamarin Android (MSAL.NET) Rio Azure
+title: Considerações de navegador do sistema Xamarin Android (MSAL.NET) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações para utilizar navegadores de sistema no Xamarin Android com a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063472"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema Xamarin Android para usar MSAL.NET
@@ -71,5 +71,5 @@ Se a autenticação falhar (por exemplo, se a autenticação for lançada com Du
   - **Problema de raiz**: Um navegador que suporta separadores personalizados não foi ativado no dispositivo. A autenticação foi lançada com um browser que não conseguiu completar a autenticação. 
   - **Mitigação:** Peça ao utilizador para ativar um browser no seu dispositivo. Recomendar um navegador que suporte separadores personalizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações e exemplos de código, consulte [Escolher entre um navegador web incorporado e um navegador de sistema no Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) e Incorporado versus sistema web [UI](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2021
 ms.custom: seo-nov-2020
 ms.openlocfilehash: 6bdb167990afeb5c1b6c68185f24a8f930287bed
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102487904"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuir dados globalmente com o Azure Cosmos DB
@@ -47,7 +47,7 @@ Com a Azure Cosmos DB, pode adicionar ou remover as regiões associadas à sua c
 
 **Escolha entre vários modelos de consistência bem definidos.** O protocolo de replicação DB Azure Cosmos oferece cinco modelos de consistência bem definidos, práticos e intuitivos. Cada modelo tem uma troca entre consistência e desempenho. Use estes modelos de consistência para construir aplicações distribuídas globalmente com facilidade.
 
-## <a name="next-steps"></a><a id="Next Steps"></a>Próximos passos
+## <a name="next-steps"></a><a id="Next Steps"></a>Passos seguintes
 
 Leia mais sobre distribuição global nos seguintes artigos:
 

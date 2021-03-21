@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020541"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparação de recursos Azure Stream Analytics
@@ -26,28 +26,28 @@ Com o Azure Stream Analytics, pode criar soluções de streaming na nuvem e no I
 |Funcionalidade  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Plataforma transversal     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
-|Autoria do guião     |Sim         |Sim         |Sim         |
+|Autoria do guião     |Yes         |Yes         |Yes         |
 |Script Intellisense     |Destaque de sintaxe         |Destaque de sintaxe</br>Conclusão do código</br>Marcador de erro         |Destaque de sintaxe</br>Conclusão do código</br>Marcador de erro         |
-|Definir todos os tipos de entradas, saídas e configurações de emprego     |Sim         |Sim         |Sim         |
-|Controlo de código fonte     |Não         |Sim         |Sim         |
-|Suporte ci/CD     |Parcial         |Sim         |Sim         |
-|Partilhar entradas e saídas em várias consultas     |Não         |Sim         |Sim         |
-|Teste de consulta com um ficheiro de amostra     |Sim         |Sim        |Sim         |
-|Testes locais de dados ao vivo     |Não         |Sim       |Sim      |
-|Listar empregos e ver entidades de emprego     |Sim         |Sim        |Sim         |
-|Exportar um emprego para um projeto local     |Não         |Sim         |Sim         |
-|Submeter, iniciar e parar de trabalhar     |Sim         |Sim         |Sim         |
-|Ver métricas de trabalho e diagrama     |Sim         |Sim         |Abrir no Portal         |
-|Ver erros de tempo de execução de trabalho     |Sim         |Sim         |Não         |
-|Registos do recurso     |Sim         |Não         |Não         |
-|Propriedades de mensagens personalizadas     |Sim         |Sim         |Não       |
-|Função de código personalizado C# e Deserializador|Modo apenas de leitura|Sim|Não|
-|JavaScript UDF e UDA     |Sim         |Sim         |Apenas no Windows         |
-|Serviço Machine Learning     |Sim        |Sim         |Não         |
-|Azure Machine Learning Studio (clássico)|Sim, mas a consulta não pode ser testada.        |Sim |Não         |
-|Nível de compatibilidade     |1,0</br>1.1</br>1.2 (padrão)         |1,0</br>1.1</br>1.2 (padrão)           |1,0</br>1.1</br>1.2 (padrão)           |
-|Funções de deteção de anomalias baseadas em ML incorporadas     |Sim         |Sim         |Sim         |
-|Funções GeoSpaciais incorporadas     |Sim         |Sim         |Sim         |
+|Definir todos os tipos de entradas, saídas e configurações de emprego     |Yes         |Yes         |Yes         |
+|Controlo de código fonte     |No         |Yes         |Yes         |
+|Suporte ci/CD     |Parcial         |Yes         |Yes         |
+|Partilhar entradas e saídas em várias consultas     |No         |Yes         |Yes         |
+|Teste de consulta com um ficheiro de amostra     |Yes         |Yes        |Yes         |
+|Testes locais de dados ao vivo     |No         |Yes       |Yes      |
+|Listar empregos e ver entidades de emprego     |Yes         |Yes        |Yes         |
+|Exportar um emprego para um projeto local     |No         |Yes         |Yes         |
+|Submeter, iniciar e parar de trabalhar     |Yes         |Yes         |Yes         |
+|Ver métricas de trabalho e diagrama     |Yes         |Yes         |Abrir no Portal         |
+|Ver erros de tempo de execução de trabalho     |Yes         |Yes         |No         |
+|Registos do recurso     |Yes         |No         |No         |
+|Propriedades de mensagens personalizadas     |Yes         |Yes         |No       |
+|Função de código personalizado C# e Deserializador|Modo apenas de leitura|Yes|No|
+|JavaScript UDF e UDA     |Yes         |Yes         |Apenas no Windows         |
+|Serviço Machine Learning     |Yes        |Yes         |No         |
+|Azure Machine Learning Studio (clássico)|Sim, mas a consulta não pode ser testada.        |Yes |No         |
+|Nível de compatibilidade     |1.0</br>1.1</br>1.2 (padrão)         |1.0</br>1.1</br>1.2 (padrão)           |1.0</br>1.1</br>1.2 (padrão)           |
+|Funções de deteção de anomalias baseadas em ML incorporadas     |Yes         |Yes         |Yes         |
+|Funções GeoSpaciais incorporadas     |Yes         |Yes         |Yes         |
 
 
 
@@ -55,17 +55,17 @@ Com o Azure Stream Analytics, pode criar soluções de streaming na nuvem e no I
 
 |Funcionalidade  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Autoria de emprego     |Sim         |Sim         |Não         |
-|Controlo de código fonte     |Não         |Sim         |Não         |
-|Exportar um emprego para um projeto local     |Não         |Sim         |Não         |
-|Teste de consulta com um ficheiro de amostra     |Sim         |Sim         |Não         |
-|Partilhar entradas e saídas em várias consultas     |Não         |Sim         |Não         |
-|UDF em C#     |Não         |Sim         |Não         |
-|Apresentar postos de trabalho     |Sim         |Sim         |Não         |
-|Listar empregos e ver entidades de emprego     |Sim         |Sim         |Não         |
-|Ver métricas de trabalho e diagrama     |Sim         |Parcial         |Não         |
-|Ver erros de tempo de execução de trabalho     |Sim         |Parcial         |Não         |
-|Suporte ci/CD     |Não         |Não         |Não         |
+|Autoria de emprego     |Yes         |Yes         |No         |
+|Controlo de código fonte     |No         |Yes         |No         |
+|Exportar um emprego para um projeto local     |No         |Yes         |No         |
+|Teste de consulta com um ficheiro de amostra     |Yes         |Yes         |No         |
+|Partilhar entradas e saídas em várias consultas     |No         |Yes         |No         |
+|UDF em C#     |No         |Yes         |No         |
+|Apresentar postos de trabalho     |Yes         |Yes         |No         |
+|Listar empregos e ver entidades de emprego     |Yes         |Yes         |No         |
+|Ver métricas de trabalho e diagrama     |Yes         |Parcial         |No         |
+|Ver erros de tempo de execução de trabalho     |Yes         |Parcial         |No         |
+|Suporte ci/CD     |No         |No         |Não         |
 
 
 ## <a name="next-steps"></a>Próximos passos

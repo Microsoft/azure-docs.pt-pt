@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
 ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99575860"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisitos de armazenamento Azure Stack Edge Blob
@@ -23,7 +23,7 @@ Recomendamos que reveja as informações cuidadosamente antes de ligar ao armaze
 
 ## <a name="storage-differences"></a>Diferenças de armazenamento
 
-|     Funcionalidade                                             |     Storage do Azure                                     |     Armazenamento Azure Stack Edge Blob |
+|     Funcionalidade                                             |     Armazenamento do Azure                                     |     Armazenamento Azure Stack Edge Blob |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Armazenamento de Ficheiros do Azure                                   |    Ações de ficheiro smb baseadas em nuvem suportadas              |    Não suportado      |
 |    Tipo de conta de armazenamento                                 |    Contas de armazenamento geral e Azure Blob    |    Apenas v1 para fins gerais|

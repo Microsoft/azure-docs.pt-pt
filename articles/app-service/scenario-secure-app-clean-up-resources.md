@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Limpar recursos / Rio Azure
+title: Tutorial - Limpar recursos | Rio Azure
 description: Neste tutorial, aprende-se a limpar os recursos Azure atribuídos enquanto cria a aplicação web.
 services: storage, app-service-web
 author: rwike77
@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: bf03fe9d920298d49e79a9a0febf7e09e94eb6ff
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905524"
 ---
 # <a name="tutorial-clean-up-resources"></a>Tutorial: Limpar recursos
