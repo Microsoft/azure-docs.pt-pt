@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 6ea28d61cc142c3191d591721b92e08d651c7ed5
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014405"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Use o Media Encoder Standard para gerar automaticamente uma escada de bitrate
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este artigo mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de bitrate (pares de resolução de bitrate) com base na resolução de entrada e bitrate. A predefinição gerada automaticamente nunca excederá a resolução de entrada e o bitrate. Por exemplo, se a entrada for de 720p a 3 Mbps, a produção permanece 720p na melhor das hipóteses, e começará com taxas inferiores a 3 Mbps.
 

@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.openlocfilehash: f5f1a9a51c4aa68c11f1843424186a727be94621
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99834311"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Arquitetura do modelo de aplicação do centro de distribuição digital IoT Central

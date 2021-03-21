@@ -4,10 +4,10 @@ description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, d
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915646"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Definir e Atribuir uma Planta Azure com REST API
@@ -430,7 +430,7 @@ Para remover o próprio esquema, utilize a seguinte operação da API REST:
   DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou, atribuiu e removeu uma planta com REST API. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

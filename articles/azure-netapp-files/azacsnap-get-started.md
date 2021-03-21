@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 25f555038c1ce0d960266eacc673a62a1ffd5ac0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98736367"
 ---
 # <a name="get-started-with-azure-application-consistent-snapshot-tool-preview"></a>Começa com a ferramenta Azure Application Consistent Snapshot (pré-visualização)
@@ -182,6 +182,6 @@ São fornecidas as seguintes orientações para ilustrar a utilização das ferr
 - [Como monitorizar a replicação de dados do site Primário para DR](azacsnap-disaster-recovery.md#monitor-data-replication-from-primary-to-dr-site)
 - [Como executar um failover para o site DR?](azacsnap-disaster-recovery.md#perform-a-failover-to-dr-site)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Instalar ferramenta instantânea consistente da aplicação Azure](azacsnap-installation.md)

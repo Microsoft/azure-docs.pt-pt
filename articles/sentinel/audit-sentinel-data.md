@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
 ms.openlocfilehash: a8ea32d84da521c8a1af926c6cb5e26bc2738de2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054984"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditoria Azure Sentinel consultas e atividades

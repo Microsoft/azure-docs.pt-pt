@@ -2,14 +2,14 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/11/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 90bc9def9c1a78799f4931b58ad0a661602985e3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 33212f14faa0e7c201c13474af981790c01284f3
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013197"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "104598826"
 ---
 ## <a name="setting-up"></a>Configuração
 

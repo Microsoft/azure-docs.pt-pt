@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596296"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registo de auditoria na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -66,7 +66,7 @@ Uma vez [instalado o pgAudit,](#installing-pgaudit)pode configurar os seus parâ
 
 > [!NOTE]
 > A definição `pgaudit.log_client` para ON irá redirecionar os registos para um processo de cliente (como o psql) em vez de ser escrito para arquivar. Esta definição deve, normalmente, ser deixada desativada. <br> <br>
-> `pgaudit.log_level` só está ativado quando `pgaudit.log_client` está ligado.
+> `pgaudit.log_level` é ativado apenas quando `pgaudit.log_client` está ativado.
 
 > [!NOTE]
 > Na Base de Dados Azure para PostgreSQL, `pgaudit.log` não é possível configurar um `-` atalho de sinal (menos) conforme descrito na documentação pgAudit. Todas as classes de instruções necessárias (LEITURA, ESCRITA, etc.) devem ser especificadas individualmente.

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935145"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Armazenamento de blob e saída do Azure Data Lake Gen2 da Azure Stream Analytics
@@ -23,7 +23,7 @@ O armazenamento Azure Blob oferece uma solução rentável e escalável para arm
 
 A tabela que se segue lista os nomes da propriedade e as suas descrições para a criação de uma saída blob ou ADLS Gen2.
 
-| Nome da propriedade       | Descrição                                                                      |
+| Nome da propriedade       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Alias de saída        | Um nome amigável usado em consultas para direcionar a saída de consulta para este armazenamento de bolhas. |
 | Conta de armazenamento     | O nome da conta de armazenamento para onde está a enviar a sua produção.               |
@@ -60,7 +60,7 @@ Para a tecla de partição, utilize fichas {date} e {time} dos campos de eventos
 
 Para obter o tamanho máximo da mensagem, consulte [os limites de armazenamento do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). O tamanho máximo do bloco blob é de 4 MB e a contagem máxima de bock blob é de 50.000. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize identidade gerida (pré-visualização) para autenticar o seu trabalho Azure Stream Analytics para o armazenamento de blob Azure](blob-output-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

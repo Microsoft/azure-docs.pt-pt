@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 86d1b9ec8a507a5cfaa5502efcb239bceabca665
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102097351"
 ---
 # <a name="interact-with-the-map-android-sdk"></a>Interaja com o mapa (Android SDK)
@@ -24,7 +24,7 @@ Este artigo mostra-lhe como usar o gestor de eventos de mapas.
 
 O mapa gere todos os eventos através da sua `events` propriedade. A tabela que se segue lista todos os eventos de mapas suportados.
 
-| Evento                  | Formato de manipulador de eventos | Descrição |
+| Evento                  | Formato de manipulador de eventos | Description |
 |------------------------|----------------------|-------------|
 | `OnCameraIdle`         | `()`                 | <p>Disparado após o último quadro prestado antes do mapa entrar num estado "ocioso":<ul><li>Não há transições de câmaras em andamento.</li><li>Todos os azulejos atualmente solicitados carregaram.</li><li>Todas as animações de fade/transição completaram.</li></ul></p> |
 | `OnCameraMove`         | `()`                 | Disparado repetidamente durante uma transição animada de uma vista para outra, como resultado da interação ou métodos do utilizador. |

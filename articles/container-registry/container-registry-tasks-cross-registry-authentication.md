@@ -4,10 +4,10 @@ description: Configure uma Tarefa de Registo de Contentores Azure (Tarefa ACR) p
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: 789d2c141f8b7c3f2eb8daa31d99090e3d028a43
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915833"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação de registo cruzado numa tarefa de ACR utilizando uma identidade gerida pelo Azure 
@@ -231,7 +231,7 @@ Exemplo de saída:
 cf10
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [como permitir uma identidade gerida numa tarefa ACR](container-registry-tasks-authentication-managed-identity.md).
 * Consulte a [referência ACR Tasks YAML](container-registry-tasks-reference-yaml.md)

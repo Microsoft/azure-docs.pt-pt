@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932538"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Integração Contínua e Fluxos de Trabalho de Entrega Contínua para DEVOps LUIS
@@ -96,7 +96,7 @@ Outras opções para implementar uma versão de aplicação incluem:
 
 Geralmente recomendamos que faça entregas contínuas apenas aos seus ambientes de não produção, tais como desenvolvimento e encenação. A maioria das equipas requer um processo manual de revisão e aprovação para implantação num ambiente de produção. Para uma implantação de produção, talvez queira certificar-se de que isso acontece quando pessoas-chave da equipa de desenvolvimento estão disponíveis para apoio, ou durante períodos de tráfego reduzido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)
 * Aprenda a escrever um fluxo de [trabalho gitHub actions com nlu. DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template/blob/master/docs/4-pipeline.md)

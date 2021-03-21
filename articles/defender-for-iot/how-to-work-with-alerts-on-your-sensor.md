@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523554"
 ---
 # <a name="work-with-alerts-on-your-sensor"></a>Trabalhe com alertas no seu sensor
@@ -68,9 +68,9 @@ Por exemplo:
 
   - Os eventos de malware detetados em dispositivos de rede são relatados em relatórios de Avaliação de Riscos. Quando os alertas sobre eventos de malware forem *silenciados,* os dispositivos afetados não serão calculados no relatório de Avaliação de Riscos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
-Modos de [Aprendizagem e Aprendizagem de TI Inteligentes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
- [Ver informações fornecidas em alertas](how-to-view-information-provided-in-alerts.md) 
- [Gerir o evento](how-to-manage-the-alert-event.md) 
- de alerta [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)
+- [Modos de Aprendizagem e Aprendizagem de TI Inteligentes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+- [Ver as informações fornecidas pelos alertas](how-to-view-information-provided-in-alerts.md)
+- [Gerir o evento de alerta](how-to-manage-the-alert-event.md)
+- [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)

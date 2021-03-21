@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
 ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249776"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Resolver problemas de latência da replicação na Base de Dados do Azure para MySQL
@@ -95,7 +95,7 @@ Aqui está uma saída típica:
 
 A saída contém muita informação. Normalmente, é preciso concentrar-se apenas nas linhas que a tabela seguinte descreve.
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |---|---|
 |Slave_IO_State| Representa o estado atual do fio IO. Normalmente, o estado é "Esperar que o mestre envie o evento" se o servidor de origem (master) estiver a sincronizar. Um estado como "Ligar a dominar" indica que a réplica perdeu a ligação ao servidor de origem. Certifique-se de que o servidor de origem está em funcionamento ou verifique se uma firewall está a bloquear a ligação.|
 |Master_Log_File| Representa o ficheiro de registo binário ao qual o servidor de origem está a escrever.|
@@ -177,7 +177,7 @@ As seguintes secções descrevem causas comuns deste tipo de latência.
 
 #### <a name="no-primary-key-or-unique-key-on-a-table"></a>Nenhuma chave primária ou chave única em uma mesa
 
-A base de dados Azure para o MySQL utiliza replicação baseada em linha. O servidor de origem escreve eventos para o registo binário, registando alterações em linhas de tabela individuais. O fio SQL replica então essas alterações nas linhas de tabela correspondentes no servidor de réplica. Quando uma tabela carece de uma chave primária ou única, o fio SQL digitaliza todas as linhas da tabela alvo para aplicar as alterações. Este scan pode causar latência de replicação.
+A base de dados Azure para o MySQL utiliza replicação baseada em linha. O servidor de origem escreve eventos para o registo binário, registando alterações em linhas de tabela individuais. O fio SQL replica então essas alterações nas linhas de tabela correspondentes no servidor de réplica. Quando uma tabela carece de uma chave primária ou única, o fio SQL digitaliza todas as linhas da tabela alvo para aplicar as alterações. Esta verificação pode causar latência da replicação.
 
 No MySQL, a chave primária é um índice associado que garante um desempenho de consulta rápida porque não pode incluir valores NUOS. Se utilizar o motor de armazenamento InnoDB, os dados da tabela estão fisicamente organizados para fazer pesquisas e tipos ultrarrápidos com base na chave primária.
 

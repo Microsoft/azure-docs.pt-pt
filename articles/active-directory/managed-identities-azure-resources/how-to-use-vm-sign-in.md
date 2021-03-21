@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99090965"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para o sign-in 
@@ -40,7 +40,7 @@ Se pretender utilizar os exemplos Azure PowerShell ou Azure CLI neste artigo, ce
 > - Todo o script de amostra deste artigo pressupõe que o cliente da linha de comando está a funcionar num VM com identidades geridas para recursos Azure ativados. Utilize a função VM "Connect" no portal Azure, para ligar remotamente ao seu VM. Para obter detalhes sobre como permitir identidades geridas para recursos Azure num VM, consulte [identidades geridas configure para recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (utilizando PowerShell, CLI, um modelo ou um Azure SDK). 
 > - Para evitar erros durante o acesso aos recursos, a identidade gerida do VM deve ser dada pelo menos ao "Leitor" no âmbito apropriado (o VM ou superior) para permitir operações do Azure Resource Manager no VM. Consulte [atribuir identidades geridas para acesso de recursos Azure a um recurso que utilize o portal Azure](howto-assign-access-portal.md) para obter mais detalhes.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Identidades geridas para recursos Azure fornecem um [objeto principal de serviço](../develop/developer-glossary.md#service-principal-object) , que é criado ao permitir [identidades geridas para recursos Azure](overview.md) no VM. O principal de serviço pode ter acesso aos recursos da Azure, e usado como identidade pelos clientes script/linha de comando para acesso de login e recursos. Tradicionalmente, para aceder a recursos seguros sob a sua própria identidade, um cliente de script teria de:  
 

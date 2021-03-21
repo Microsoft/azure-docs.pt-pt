@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: eb37434213dd756ba5d7137b93a1cd37da5bb9ae
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523639"
 ---
 # <a name="the-dashboard"></a>O dashboard
@@ -100,6 +100,6 @@ Selecione a seta **V** para baixo na parte inferior de uma caixa de alerta para 
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="Conectividade não autorizada na Internet detetada":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Trabalhe com alertas no seu sensor](how-to-work-with-alerts-on-your-sensor.md)

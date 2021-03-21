@@ -8,10 +8,10 @@ ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: edf60a5c454d34a2424ef7981b02952ffbfd3bde
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102097232"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modelo de recursos para a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview)
@@ -43,7 +43,7 @@ Esta propriedade indica como a conta foi criada. Os valores possíveis são *Pre
 
 O `RestoreParameters` recurso contém os detalhes da operação de restauro, incluindo, o ID da conta, o tempo para restaurar, e recursos que precisam de ser restaurados.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 |restaurarMode  | O modo de restauro deve ser *PointInTime* |
 |restaurarSource   |  O casoId da conta de origem a partir da qual a restauração será iniciada.       |
@@ -52,7 +52,7 @@ O `RestoreParameters` recurso contém os detalhes da operação de restauro, inc
 
 **DatabaseRestoreResource** - Cada recurso representa uma única base de dados e todas as coleções nessa base de dados.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 |base de dados Nome | O nome da base de dados |
 | coleçõesAmmos| A lista de contentores nesta base de dados |
@@ -134,7 +134,7 @@ Para obter uma lista de todas as contas ressaráveis, consulte [as Contas de Bas
 
 Cada recurso contém informações de um evento de mutação, como criação e eliminação que ocorreu na Base de Dados SQL. Esta informação pode ajudar em cenários onde a base de dados foi acidentalmente eliminada e se você precisa descobrir quando esse evento aconteceu.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 | eventTimestamp | A hora na UTC quando a base de dados é criada ou eliminada. |
 | proprietárioId | O nome da base de dados SQL. |
@@ -148,7 +148,7 @@ Para obter uma lista de todas as mutações da base de dados, consulte [as Bases
 
 Cada recurso contém informações de um evento de mutação, como a criação e eliminação que ocorreram no contentor SQL. Esta informação pode ajudar em cenários onde o recipiente foi modificado ou eliminado, e se você precisa descobrir quando esse evento aconteceu.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 | eventTimestamp    | A hora na UTC quando este evento de contentores aconteceu.|
 | proprietárioId| O nome do contentor SQL.|
@@ -162,7 +162,7 @@ Para obter uma lista de todas as mutações de contentores na mesma base de dado
 
 Cada recurso representa uma única base de dados e todos os contentores debaixo dessa base de dados.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 | base de dados Nome  | O nome da base de dados SQL.
 | coleçõesAmmos   | A lista de contentores SQL nesta base de dados.|
@@ -173,7 +173,7 @@ Para obter uma lista de bases de dados SQL e combinação de contentores que exi
 
 Cada recurso contém informações de um evento de mutação, como criação e eliminação que ocorreram na Base de Dados mongoDB. Estas informações podem ajudar no cenário em que a base de dados foi acidentalmente eliminada e o utilizador precisa de saber quando esse evento aconteceu.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 |eventTimestamp| A hora na UTC quando este evento de base de dados aconteceu.|
 | proprietárioId| O nome da base de dados do MongoDB. |
@@ -186,7 +186,7 @@ Para obter uma lista de todas as mutações na base de [dados, consulte as Bases
 
 Cada recurso contém informações de um evento de mutação, como a criação e a eliminação que ocorreram na Coleção MongoDB. Esta informação pode ajudar em cenários onde a recolha foi modificada ou eliminada, e o utilizador precisa de saber quando esse evento aconteceu.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 | eventTimestamp |A hora na UTC quando este evento de coleção aconteceu. |
 | proprietárioId| O nome da coleção MongoDB. |
@@ -199,7 +199,7 @@ Para obter uma lista de todas as mutações de contentores na mesma base de dado
 
 Cada recurso representa uma única base de dados e todas as coleções nessa base de dados.
 
-|Nome da Propriedade |Descrição  |
+|Nome da Propriedade |Description  |
 |---------|---------|
 | base de dados Nome  |O nome da base de dados do MongoDB. |
 | coleçõesAmmos | A lista de coleções mongoDB nesta base de dados. |

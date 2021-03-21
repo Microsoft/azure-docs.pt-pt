@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933319"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuidade do negócio Azure HDInsight
@@ -121,7 +121,7 @@ Melhorar a continuidade das empresas utilizando a recuperação de desastres de 
 |Funcionalidade do negócio |Exigindo a funcionalidade de negócio completa do primário no secundário |Avalie se pode executar com o subconjunto crítico mínimo da funcionalidade do negócio no secundário.|
 |Conectividade |Que requer todos os sistemas a montante e a jusante do primário para ligar ao secundário também|Limite a conectividade secundária a um subconjunto crítico mínimo.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

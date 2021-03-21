@@ -8,10 +8,10 @@ ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: 16cd4685f513eb628372802cc158195b81bce72a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98736176"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
@@ -324,21 +324,21 @@ Uma aplicação com uma identidade gerida tem duas variáveis ambientais definid
 
 O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solicitar tokens. Para obter um token para um recurso, faça um pedido HTTP GET para este ponto final, incluindo os seguintes parâmetros:
 
-> | Nome do parâmetro    | Em     | Descrição                                                                                                                                                                                                                                                                                                                                |
+> | Nome do parâmetro    | Em     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O recurso AZURE AD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação AD AZure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.    |
 > | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Utilize "2019-08-01" ou mais tarde (a menos que utilize o Linux Consumption, que atualmente apenas oferece "2017-09-01" - ver nota acima).                                                                                                                                                                                                                                                                 |
 > | CABEÇALHO DE IDENTIDADE X | Cabeçalho | O valor da variável ambiente IDENTITY_HEADER. Este cabeçalho é usado para ajudar a atenuar os ataques de falsificação de pedidos do servidor (SSRF).                                                                                                                                                                                                    |
-> | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a ser usada. Não pode ser utilizado num pedido que `principal_id` `mi_res_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` e ) forem `mi_res_id` omitidos, a identidade atribuída ao sistema é utilizada.                                             |
-> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a ser utilizada. `object_id` é um pseudónimo que pode ser usado em vez disso. Não pode ser usado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` e ) forem `mi_res_id` omitidos, a identidade atribuída ao sistema é utilizada. |
-> | mi_res_id         | Consulta  | (Opcional) O ID de recurso Azure da identidade atribuída ao utilizador a ser utilizado. Não pode ser utilizado num pedido que `principal_id` `client_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` e ) forem `mi_res_id` omitidos, a identidade atribuída ao sistema é utilizada.                                      |
+> | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a ser usada. Não pode ser utilizado num pedido que `principal_id` `mi_res_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                             |
+> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a ser utilizada. `object_id` é um pseudónimo que pode ser usado em vez disso. Não pode ser usado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada. |
+> | mi_res_id         | Consulta  | (Opcional) O ID de recurso Azure da identidade atribuída ao utilizador a ser utilizado. Não pode ser utilizado num pedido que `principal_id` `client_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                      |
 
 > [!IMPORTANT]
 > Se estiver a tentar obter fichas para identidades atribuídas ao utilizador, deve incluir uma das propriedades opcionais. Caso contrário, o serviço de token tentará obter um símbolo para uma identidade atribuída ao sistema, que pode ou não existir.
 
 Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
 
-> | Nome da propriedade | Descrição                                                                                                                                                                                                                                        |
+> | Nome da propriedade | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | O sinal de acesso solicitado. O serviço web de chamada pode usar este token para autenticar o serviço web recetor.                                                                                                                               |
 > | client_id     | A identificação do cliente da identidade que foi usada.                                                                                                                                                                                                       |
@@ -520,7 +520,7 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!NOTE]
 > Há também uma configuração de aplicação que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, deixa a identidade no lugar, e a ferramenta ainda mostrará a identidade gerida como "on" ou "ativada". Como resultado, a utilização desta definição não é recomendada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Access SQL Database de forma segura usando uma identidade gerida](app-service-web-tutorial-connect-msi.md)
 - [Aceda a Azure Storage de forma segura usando uma identidade gerida](scenario-secure-app-access-storage.md)

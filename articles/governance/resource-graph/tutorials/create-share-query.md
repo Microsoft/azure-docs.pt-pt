@@ -4,10 +4,10 @@ description: Neste tutorial, cria-se uma Consulta de Gráfico de Recurso e parti
 ms.date: 01/27/2021
 ms.topic: tutorial
 ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916683"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e partilhar uma consulta de Gráfico de Recursos Azure no portal Azure
@@ -152,7 +152,7 @@ Pode eliminar uma consulta partilhada através das seguintes interfaces:
 
 Quando terminar este tutorial, elimine as consultas privadas e partilhadas que criou se já não as quiser.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou consultas privadas e partilhadas. Para saber mais sobre a linguagem de gráfico de recurso, continue na página de detalhes da linguagem de consulta.
 

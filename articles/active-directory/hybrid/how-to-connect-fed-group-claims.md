@@ -1,5 +1,5 @@
 ---
-title: Configure pedidos de candidaturas ao Azure Ative Directory Microsoft Docs
+title: Configure pedidos de pedidos de candidaturas com a Azure Ative Directory | Microsoft Docs
 description: Informações sobre como configurar pedidos de grupo para uso com Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349355"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configure pedidos de pedidos de candidaturas com a Azure Ative Directory
@@ -64,7 +64,7 @@ No entanto, se uma aplicação existente espera consumir informações de grupo 
 
 ## <a name="prerequisites-for-using-group-attributes-synchronized-from-active-directory"></a>Pré-requisitos para a utilização de atributos do Grupo sincronizados a partir do Ative Directory
 
-As reclamações de membros do grupo podem ser emitidas em fichas para qualquer grupo se utilizar o formato ObjectId. Para utilizar as reclamações de grupo em outros formatos que não o grupo ObjectId, os grupos devem ser sincronizados a partir do Ative Directory utilizando o Azure AD Connect.
+Se utilizar o formato ObjectId, poderá emitir as afirmações de associações de grupos em tokens para qualquer grupo. Para utilizar as reclamações de grupo em outros formatos que não o grupo ObjectId, os grupos devem ser sincronizados a partir do Ative Directory utilizando o Azure AD Connect.
 
 Existem dois passos para configurar o Azure Ative Directory para emitir nomes de grupo para grupos de diretórios ativos.
 

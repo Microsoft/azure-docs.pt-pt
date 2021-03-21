@@ -4,10 +4,10 @@ description: Este artigo fornece respostas a algumas das perguntas frequentes so
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98250069"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes de retransmissão de Azure
@@ -119,7 +119,7 @@ Para uma descrição de exceções comuns e ações sugeridas que você pode tom
 As Assinaturas de Acesso Partilhado (SAS) são um mecanismo de autenticação baseado em hashes ou URIs seguros SHA-256. Para obter informações sobre como gerar as suas próprias assinaturas em Node.js, PHP, Python, Java, C e C#, consulte [a autenticação do Service Bus com assinaturas de acesso partilhado][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>É possível permitir apenas alguns pontos finais de retransmissão?
-Yes. O cliente de retransmissão faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` firewalls que suportam a listagem de aprovação de DNS.
+Sim. O cliente de retransmissão faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` firewalls que suportam a listagem de aprovação de DNS.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)

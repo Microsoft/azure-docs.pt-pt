@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502693"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar restrições de acesso ao Serviço de Aplicações Azure
@@ -36,7 +36,7 @@ A capacidade de restringir o acesso à sua aplicação web a partir de uma rede 
 
 Para adicionar uma regra de restrição de acesso à sua aplicação, faça o seguinte:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 1. No painel esquerdo, selecione **Networking**.
 
