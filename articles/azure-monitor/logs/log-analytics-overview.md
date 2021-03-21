@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
 ms.openlocfilehash: d83cc4045f09ed0f704a0d61c6b303406835eb44
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052301"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Visão geral do Log Analytics no Azure Monitor
@@ -54,9 +54,9 @@ Controlos para trabalhar com a consulta na janela de consulta.
 ### <a name="2-sidebar"></a>2. Barra lateral
 Listas de tabelas no espaço de trabalho, consultas de amostra e opções de filtro para a consulta atual.
 
-| Tecla de Tabulação | Descrição |
+| Tecla de Tabulação | Description |
 |:---|:---|
-| Tabelas | Lista as tabelas que fazem parte do âmbito selecionado. Selecione **Grupo para** alterar o agrupamento das tabelas. Passe sobre um nome de mesa para exibir uma caixa de diálogo com uma descrição da tabela e opções para ver a sua documentação e para visualizar os seus dados. Expanda uma tabela para ver as suas colunas. Clique duas vezes numa tabela ou nome de coluna para adicioná-lo à consulta. |
+| Tables | Lista as tabelas que fazem parte do âmbito selecionado. Selecione **Grupo para** alterar o agrupamento das tabelas. Passe sobre um nome de mesa para exibir uma caixa de diálogo com uma descrição da tabela e opções para ver a sua documentação e para visualizar os seus dados. Expanda uma tabela para ver as suas colunas. Clique duas vezes numa tabela ou nome de coluna para adicioná-lo à consulta. |
 | Consultas | Lista de consultas de exemplo que pode abrir na janela de consulta. Esta é a mesma lista que é apresentada quando abre o Log Analytics. Selecione **Grupo para** alterar o agrupamento das consultas. Clique duas vezes numa consulta para adicioná-la à janela de consulta ou pairar sobre ela para outras opções. |
 | Filtro | Cria opções de filtro com base nos resultados de uma consulta. Depois de uma consulta, as colunas serão exibidas com valores diferentes dos resultados. Selecione um ou mais valores e, em seguida, clique em **Aplicar & Executar** para adicionar um comando **onde** a consulta e executá-lo novamente. |
 

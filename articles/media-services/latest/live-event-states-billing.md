@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
 ms.openlocfilehash: c9fa12e1ee3778d0865c75662064bd4067e56d89
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897820"
 ---
 # <a name="live-event-states-and-billing"></a>Estados de evento ao vivo e faturação
@@ -47,7 +47,7 @@ O evento ao vivo pode ser num dos seguintes estados.
 
 Pode optar por ativar transcrições ao vivo quando criar o evento ao vivo. Se o fizer, será cobrado para Transcrições ao Vivo sempre que o evento ao vivo estiver no estado **de Corrida.** Note que será cobrado mesmo que não haja áudio fluindo através do evento ao vivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

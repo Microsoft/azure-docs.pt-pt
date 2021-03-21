@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
 ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734728"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
@@ -61,11 +61,11 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
         
 | Dados | Coleção Básica ASP.NET | coleção recomendada ASP.NET |
 | --- | --- | --- |
-| Adiciona tendências de utilização da CPU, memória e E/S |Sim |Sim |
-| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
-| Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
-| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
+| Adiciona tendências de utilização da CPU, memória e E/S |Yes |Yes |
+| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Yes |Yes |
+| Recolhe exceções sem processamento pelo processo anfitrião | Yes |Yes |
+| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Yes |Yes |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -395,7 +395,7 @@ O quadro abaixo fornece uma explicação mais detalhada do que estes valores sig
 |Valor problemático|Explicação|Correção
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Este valor indica que a extensão detetou que algum aspeto do SDK já está presente na Aplicação, e irá recuar. Pode ser devido a uma referência `System.Diagnostics.DiagnosticSource`  `Microsoft.AspNet.TelemetryCorrelation` a, ou `Microsoft.ApplicationInsights`  | Retire as referências. Algumas destas referências são adicionadas por padrão a partir de certos modelos do Estúdio Visual, e versões mais antigas do Visual Studio podem adicionar referências a `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | Se a aplicação tiver como alvo ASP.NET Núcleo 2.1 ou 2.2, este valor indica que a extensão detetou que algum aspeto do SDK já está presente na Aplicação, e irá recuar | Os clientes em .NET Core 2.1,2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) para usar o meta-pacote Microsoft.AspNetCore.App. Além disso, ligue "Interop with Application Insights SDK" no portal (consulte as instruções acima).|
+|`AppAlreadyInstrumented:true` | Se a aplicação tiver como alvo ASP.NET Núcleo 2.1 ou 2.2, este valor indica que a extensão detetou que algum aspeto do SDK já está presente na Aplicação, e irá recuar | Recomenda-se [aos](https://github.com/aspnet/Announcements/issues/287) clientes em .NET Core 2.1,2.2 que utilizem Microsoft.AspNetCore.App meta-pacote. Além disso, ligue "Interop with Application Insights SDK" no portal (consulte as instruções acima).|
 |`AppAlreadyInstrumented:true` | Este valor também pode ser causado pela presença dos dlls acima na pasta da aplicação a partir de uma implementação anterior. | Limpe a pasta da aplicação para garantir que estes dlls são removidos. Consulte o diretório de lixo da sua aplicação local e o diretório wwwroot no Serviço de Aplicações. (Para verificar o diretório wwwroot da sua aplicação web App Service: Advanced Tools (Kudu) > consola Debug > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Este valor indica que a extensão detetou referências `Microsoft.AspNet.TelemetryCorrelation` na aplicação e irá recuar. | Retire a referência.
 |`AppContainsDiagnosticSourceAssembly**:true`|Este valor indica que a extensão detetou referências `System.Diagnostics.DiagnosticSource` na aplicação e irá recuar.| Para ASP.NET retire a referência. 

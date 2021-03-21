@@ -14,16 +14,16 @@ ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
 ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101690809"
 ---
 # <a name="data-discovery--classification"></a>Deteção e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Data Discovery & Classification é incorporado na Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics. Fornece capacidades básicas para descobrir, classificar, rotular e reportar os dados sensíveis nas suas bases de dados.
+A Deteção e Classificação de Dados está incorporada na Base de Dados SQL do Azure, no Azure SQL Managed Instance e no Azure Synapse Analytics. Proporciona capacidades básicas para detetar, classificar, etiquetar e comunicar dados confidenciais nas bases de dados.
 
 Os seus dados mais sensíveis podem incluir informações empresariais, financeiras, de saúde ou pessoais. Descobrir e classificar estes dados pode desempenhar um papel fundamental na abordagem de proteção de informação da sua organização. Pode funcionar como infraestrutura para:
 
@@ -79,7 +79,7 @@ Depois de definida a política em toda a organização, pode continuar a classif
 
 1. Aceda à **classificação & Data Discovery** sob o título **de Segurança** no seu painel de base de dados Azure SQL. O separador Visão Geral inclui um resumo do estado de classificação atual da base de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que também pode filtrar para mostrar apenas peças de esquemas específicos, tipos de informação e etiquetas. Se ainda não classificou nenhuma coluna, [salte para o passo 4](#step-4).
 
-    ![Descrição Geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
+    ![Descrição geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Para descarregar um relatório no formato Excel, selecione **Export** no menu superior do painel.
 
@@ -138,7 +138,7 @@ Saiba mais sobre permissões baseadas em funções no [Azure RBAC](../../role-ba
 
 Pode utilizar T-SQL, uma API REST ou PowerShell para gerir classificações.
 
-### <a name="use-t-sql"></a>Use T-SQL
+### <a name="use-t-sql"></a>Utilizar o T-SQL
 
 Pode utilizar o T-SQL para adicionar ou remover classificações de colunas e para recuperar todas as classificações para toda a base de dados.
 
@@ -188,7 +188,7 @@ Pode utilizar a API REST para gerir programáticamente classificações e recome
 ## <a name="faq---advanced-classification-capabilities"></a>FAQ - Capacidades de classificação avançadas
 
 **Pergunta**: [A Azure Purview](../../purview/overview.md) substituirá a Classificação de & de descoberta de dados sql ou será que a SqL Data Discovery & Classification será retirada em breve?
-**Resposta**: Continuamos a apoiar a Classificação & classificação de descoberta de dados SQL e encorajamo-lo a adotar [a Azure Purview](../../purview/overview.md) que tem capacidades mais ricas para impulsionar capacidades avançadas de classificação e governação de dados. Se decidirmos retirar qualquer serviço, recurso, API ou SKU, receberá aviso prévio, incluindo uma rota de migração ou transição. Saiba mais sobre as políticas do Microsoft Lifecycle aqui.
+**Resposta**: Continuamos a apoiar a Classificação & classificação de descoberta de dados SQL e encorajamo-lo a adotar [a Azure Purview](../../purview/overview.md) que tem capacidades mais ricas para impulsionar capacidades avançadas de classificação e governação de dados. Se decidirmos descontinuar qualquer serviço, funcionalidade, API ou SKU, receberá um aviso prévio, incluindo uma estratégia de migração ou transição. Saiba mais sobre as políticas do Ciclo de Vida da Microsoft aqui.
 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passos seguintes

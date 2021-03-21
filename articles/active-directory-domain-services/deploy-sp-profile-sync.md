@@ -1,5 +1,5 @@
 ---
-title: Ativar o serviço de perfil de utilizador sharePoint com Azure AD DS ; Microsoft Docs
+title: Ativar o serviço de perfil de utilizador SharePoint com Azure AD DS | Microsoft Docs
 description: Saiba como configurar um Azure Ative Directory Domain Services gerido domínio para suportar a sincronização de perfis para o SharePoint Server
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: 8fbde10ccf5a7f083f5fbddaadd6668d880a1fac
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619832"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configure Azure Ative Directory Domain Services para suportar a sincronização do perfil do utilizador para o SharePoint Server
@@ -24,7 +24,7 @@ O SharePoint Server inclui um serviço para sincronizar os perfis dos utilizador
 
 Este artigo mostra-lhe como configurar Azure AD DS para permitir o serviço de sincronização de perfil de utilizador do SharePoint Server.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 

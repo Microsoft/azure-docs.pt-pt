@@ -1,5 +1,5 @@
 ---
-title: Amostra de script do Azure CLI - Balancee vários websites com o Azure CLI / Microsoft Docs
+title: Amostra de script Azure CLI - Balance vários websites com o Azure CLI | Microsoft Docs
 description: Amostra de script Azure CLI - Carregar equilibrar vários websites para a mesma máquina virtual
 services: load-balancer
 documentationcenter: load-balancer
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
 ms.openlocfilehash: 7a3bd4cab8123814fe360fe4ab724650c785e9f1
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234119"
 ---
 # <a name="load-balance-multiple-websites"></a>Equilibrar vários websites

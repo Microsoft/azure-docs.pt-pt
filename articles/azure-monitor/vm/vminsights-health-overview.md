@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
 ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052131"
 ---
 # <a name="vm-insights-guest-health-preview"></a>VM insights saúde dos hóspedes (pré-visualização)
@@ -34,7 +34,7 @@ Clique no estado de saúde de uma máquina virtual para ver o estado detalhado d
 
 A tabela que se segue lista os monitores agregados e unitários atualmente disponíveis para cada máquina virtual. 
 
-| Monitor | Tipo | Descrição |
+| Monitor | Tipo | Description |
 |:---|:---|:---|
 | Utilização da CPU | Unidade | Utilização percentual do processador. |
 | Sistemas de ficheiros | Agregação | Saúde agregada de todos os sistemas de ficheiros em Linux VM. |
@@ -52,7 +52,7 @@ Cada monitor tem uma janela de olhar e analisa quaisquer amostras recolhidas den
 
 Os monitores têm os potenciais estados de saúde na tabela seguinte e estarão em um e único em cada momento. Quando um monitor é inicializado, começa em um estado saudável.
 
-| Estado de Funcionamento | Descrição |
+| Estado de Funcionamento | Description |
 |:---|:---|
 | Bom estado de funcionamento  | O monitor não excede atualmente o limiar de advertência ou crítico. |
 | Aviso  | O monitor excedeu o limiar de aviso (se definido). |
@@ -65,7 +65,7 @@ Os monitores têm os potenciais estados de saúde na tabela seguinte e estarão 
 
 Existem dois tipos de monitores, como mostrado na tabela seguinte.
 
-| Monitor | Descrição |
+| Monitor | Description |
 |:---|:---|
 | Monitor de unidade | Mede algum aspeto de um recurso ou aplicação. Pode estar a verificar um contador de desempenho para determinar o desempenho do recurso ou a sua disponibilidade. |
 | Monitor de Agregação | Agrupa vários monitores para proporcionar um único estado de funcionamento agregado. Um monitor agregado pode conter um ou mais monitores de unidade e outros monitores agregados. |

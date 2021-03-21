@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4040a81d5b509ddbdd355953e28721a7c9fccfb8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585671"
 ---
 <!-- docutune:casing "Timeout and Server Busy errors" -->
@@ -32,9 +32,9 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 |--|--|--|
 | &nbsp; | Metas de escalabilidade | [Pode conceber a sua aplicação para utilizar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; | Metas de escalabilidade | [Está a evitar aproximar-se dos limites de capacidade e transação?](#capacity-and-transaction-targets) |
-| &nbsp; | Redes | [Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
-| &nbsp; | Redes | [Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
-| &nbsp; | Redes | [O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
+| &nbsp; | Rede | [Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
+| &nbsp; | Rede | [Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
+| &nbsp; | Rede | [O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
 | &nbsp; | Acesso direto ao cliente | [Está a utilizar assinaturas de acesso partilhado (SAS) e partilha de recursos de origem cruzada (CORS) para permitir o acesso direto ao Azure Storage?](#sas-and-cors) |
 | &nbsp; | Configuração .NET | [Está a utilizar .NET Core 2.1 ou mais tarde para um desempenho ótimo?](#use-net-core) |
 | &nbsp; | Configuração .NET | [Configurado o seu cliente para utilizar um número suficiente de ligações simultâneas?](#increase-default-connection-limit) |
@@ -70,7 +70,7 @@ Se a sua aplicação estiver a aproximar-se dos objetivos de escalabilidade de u
 - Se a sua aplicação estiver a aproximar-se dos alvos de largura de banda, considere comprimir dados do lado do cliente para reduzir a largura de banda necessária para enviar os dados para o Azure Storage. Embora a compressão de dados possa salvar a largura de banda e melhorar o desempenho da rede, também pode ter efeitos negativos no desempenho. Avaliar o impacto de desempenho dos requisitos adicionais de processamento para a compressão de dados e descompressão do lado do cliente. Tenha em mente que armazenar dados comprimidos pode dificultar a resolução de problemas, pois pode ser mais desafiante visualizar os dados usando ferramentas padrão.
 - Se a sua aplicação estiver a aproximar-se dos alvos de escalabilidade, certifique-se de que está a utilizar um backoff exponencial para retrações. É melhor tentar evitar atingir os objetivos de escalabilidade implementando as recomendações descritas neste artigo. No entanto, a utilização de um recuo exponencial para as retreições impedirá que a sua aplicação volte rapidamente, o que pode piorar a aceleração. Para obter mais informações, consulte a secção [de erros timeout e Server Busy.](#timeout-and-server-busy-errors)
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Os constrangimentos físicos da rede da aplicação podem ter um impacto significativo no desempenho. As seguintes secções descrevem algumas das limitações que os utilizadores podem encontrar.
 

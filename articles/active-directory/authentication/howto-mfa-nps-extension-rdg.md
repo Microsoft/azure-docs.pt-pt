@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20b0150c18f2c007ed104d34daacd49ab03131a7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743382"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integre a sua infraestrutura Remote Desktop Gateway utilizando a extensão do Network Policy Server (NPS) e a AZure AD
@@ -162,7 +162,7 @@ Se quiser utilizar os seus próprios certificados, tem de associar a chave públ
 Para utilizar o script, forneça a extensão com as suas credenciais Azure AD Admin e o ID do inquilino Azure que copiou anteriormente. Execute o script em cada servidor NPS onde instalou a extensão NPS. Em seguida, faça o seguinte:
 
 1. Abra uma solicitação administrativa do Windows PowerShell.
-1. Na introdução, tipo e introdução do PowerShell `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` . **ENTER**
+1. Na introdução, tipo e introdução do PowerShell `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` . 
 1. Digite `.\AzureMfaNpsExtnConfigSetup.ps1` , e prima **ENTER**. O script verifica se o módulo PowerShell do Diretório Ativo Azure está instalado. Se não for instalado, o script instala o módulo para si.
 
    ![Executando AzureMfaNpsExtnConfigSetup.ps1 em Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)

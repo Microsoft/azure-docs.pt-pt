@@ -7,10 +7,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96302476"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
@@ -146,7 +146,7 @@ Para configurar um recipiente de perfil FSLogix:
 
 3. Assim que o instalador for lançado, **selecione concordo com os termos e condições da licença.** Se aplicável, forneça uma nova chave.
 
-4. Selecione **Install** (Instalar).
+4. Selecione **Instalar**.
 
 5. Open **Drive C**, em seguida, vá a Program **Files**  >  **FSLogix**  >  **Apps** para se certificar de que o agente FSLogix foi corretamente instalado.
 
@@ -155,7 +155,7 @@ Para configurar um recipiente de perfil FSLogix:
 
 6. Executar **Editor de Registo** (RegEdit) como administrador.
 
-7. Navegue para o software de HKEY_LOCAL_MACHINE **de computador**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix,** clique à direita no **FSLogix**, selecione **New** e, em seguida, selecione **Key**.
+7. Navegue para o software de HKEY_LOCAL_MACHINE **de computador**  >    >    >  **FSLogix,** clique à direita no **FSLogix**, selecione **New** e, em seguida, selecione **Key**.
 
 8. Crie uma nova chave chamada **Profiles**.
 
@@ -240,7 +240,7 @@ Para verificar o seu perfil:
 
     Se tudo estiver bem montado, deve ver um **Diretório** com um nome formatado assim: `<user SID>-<username>` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se procura formas alternativas de criar recipientes de perfil FSLogix, confira os seguintes artigos:
 

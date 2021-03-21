@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325184"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de largura de banda do Protocolo remoto de Ambiente de Trabalho (RDP)
@@ -73,7 +73,7 @@ Tenha em mente que o stress colocado na sua rede depende tanto da taxa de produ�
 
 A tabela abaixo guia a estimativa dos dados utilizados pelos diferentes cenários gráficos. Estes números aplicam-se a uma única configuração de monitor com resolução 1920x1080 e com o modo gráfico predefinido e o modo gráfico H.264/AVC 444.
 
-| Cenário | Modo predefinido | Modo H.264/AVC 444 | Miniatura | Descrição do cenário |
+| Scenario | Modo predefinido | Modo H.264/AVC 444 | Miniatura | Descrição do cenário |
 |:---|---:|---:|---|---|
 | Períodos | 0,3 Kbps | 0,3 Kbps |:::image type="content" source="media/idle.png" alt-text="Screenshot da ligação ociosa":::| O utilizador está parado no seu trabalho e não há atualizações de ecrã ativa |
 | Microsoft Word | 100-150 Kbps | 200-300 Kbps |:::image type="content" source="media/word.gif" alt-text="Animação do Microsoft Word":::| O utilizador está a trabalhar ativamente com o Microsoft Word, digitando, colando gráficos e alternando entre documentos |

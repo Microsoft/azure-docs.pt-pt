@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019912"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
@@ -44,7 +44,7 @@ Ativar os registos de recursos para visualizar os detalhes do erro e a mensagem 
 
 ![Informação de aviso de detalhes de entrada](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
-Nos casos em que a carga útil da mensagem seja superior a 32 KB ou se esteja em formato binário, execute o código de CheckMalformedEvents.cs disponível no [repositório de amostras do GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código lê o ID da partição, compensa e imprime os dados que estão localizados nessa offset. 
+Nos casos em que a carga útil da mensagem seja superior a 32 KB ou se encontra em formato binário, execute o código CheckMalformedEvents.cs disponível no [repositório de amostras do GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código lê o ID da partição, compensa e imprime os dados que estão localizados nessa offset. 
 
 ## <a name="job-exceeds-maximum-event-hub-receivers"></a>Job excede os recetores máximos do Event Hub
 
@@ -70,7 +70,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Para adicionar um novo grupo de consumidores na sua instância Event Hubs, siga estes passos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Localize o seu Centro de Eventos.
 
@@ -168,7 +168,7 @@ Os trabalhos de Stream Analytics usam o [ponto de final compatível com o Centro
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

@@ -15,10 +15,10 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 37cb8f5a2ff0916f53ae50f5750664204ab1ba75
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737494"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligue-se a uma máquina virtual SQL Server no Azure
@@ -147,7 +147,7 @@ A tabela que se segue lista os requisitos para ligar ao SQL Server no Azure VM.
 > [!TIP]
 > Os passos na tabela anterior são feitos para si quando configura a conectividade no portal. Utilize estes passos apenas para confirmar a sua configuração ou para configurar a conectividade manualmente para o SQL Server.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter instruções de provisionamento juntamente com estes passos de conectividade, consulte [provisionar uma máquina virtual SQL Server no Azure](create-sql-vm-portal.md).
 

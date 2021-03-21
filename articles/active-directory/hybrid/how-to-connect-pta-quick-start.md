@@ -1,5 +1,5 @@
 ---
-title: Autenticação pass-through AZure AD - Quickstart / Microsoft Docs
+title: Autenticação pass-through Azure AD - Quickstart | Microsoft Docs
 description: Este artigo descreve como começar com a autenticação pass-through do Azure Ative Directory (Azure AD).
 services: active-directory
 keywords: Autenticação pass-through Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792437"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581835"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação pass-through do Azure Ative Directory: Quickstart
 
@@ -65,14 +65,15 @@ Certifique-se de que existem os seguintes pré-requisitos.
 4. Se houver uma firewall entre os seus servidores e a Azure AD, configure os seguintes itens:
    - Certifique-se de que os Agentes de Autenticação podem fazer pedidos *de saída* para a Azure AD nas seguintes portas:
 
-     | Número da porta | Como é usado |
+     | Número da porta | Como é utilizado |
      | --- | --- |
      | **80** | Descarrega as listas de revogação de certificados (CRLs) ao mesmo tempo que valida o certificado TLS/SSL |
-     | **443** | Lida com toda a comunicação de saída com o serviço |
-     | **8080** (opcional) | Os Agentes de Autenticação reportam o seu estado a cada dez minutos sobre a porta 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal AD Azure. A porta 8080 _não_ é utilizada para os pedidos de s presenciar. |
+     | **443** | Processa toda a comunicação de saída com o serviço |
+     | **8080** (opcional) | Os Agentes de Autenticação reportam o seu estado a cada dez minutos sobre a porta 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal do Azure Active Directory. A porta 8080 _não_ é utilizada para os pedidos de s presenciar. |
      
-     Se o seu firewall aplicar as regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
+     Se a firewall impuser regras de acordo com os utilizadores de origem, abra estas portas para o tráfego dos serviços Windows que são executados com um serviço de rede.
    - Se a sua firewall ou proxy permitir que adicione entradas DNS a uma lista de admissões, adicione ligações a **\* .msappproxy.net** e **\* .servicebus.windows.net**. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
+   - Se tiver um representante HTTP de saída, certifique-se de que este URL, autologon.microsoftazuread-sso.com, está na lista branca . Deve especificar este URL explicitamente, uma vez que o wildcard não pode ser aceite. 
    - Os seus Agentes de Autenticação precisam de acesso a **login.windows.net** e **login.microsoftonline.com** para inscrição inicial. Abra a firewall para os URLs também.
     - Para validação de certificados, desbloqueie os seguintes URLs: **crl3.digicert.com:80,** **crl4.digicert.com:80,** **ocsp.digicert.com:80,** **www \. d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80,** **crl.microsoft.com:80,** **oneocsp.microsoft.com:80** e **ocsp.msocsp.com:80**. Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
 

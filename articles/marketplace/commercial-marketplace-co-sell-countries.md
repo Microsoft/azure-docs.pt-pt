@@ -1,5 +1,5 @@
 ---
-title: Co-vender códigos de país e de região Mercado Azure
+title: Co-venda de códigos de país e de região | Mercado Azure
 description: Utilize estes códigos de país/região de duas letras ao fornecer informações de contacto na página de Co-venda da sua oferta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
 ms.openlocfilehash: af110a66bc7ef5737f3d2d97a85ca07525b1d9e7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96744708"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Códigos de país e região de venda conjunta
@@ -53,7 +53,7 @@ Se um contacto abranger mais de um País/Região, insira cada um dos dois códig
 | Bermudas                             | BM        |
 | Butão                              | BT        |
 | Bolívia                             | BO        |
-| Rio Bonaire                             | BQ        |
+| Bonaire                             | BQ        |
 | Bósnia e Herzegovina              | BA        |
 | Botsuana                            | BW        |
 | Ilha Bouvet                       | BV        |
@@ -123,7 +123,7 @@ Se um contacto abranger mais de um País/Região, insira cada um dos dois códig
 | Guiné-Bissau                       | GW        |
 | Guiana                              | GY        |
 | Haiti                               | HT        |
-| Ilha Heard e Ilhas McDonald   | HM        |
+| Ilhas Heard e McDonald   | HM        |
 | Honduras                            | HN        |
 | R.A.E. de Hong Kong                       | HK        |
 | Hungria                             | HU        |
@@ -210,11 +210,11 @@ Se um contacto abranger mais de um País/Região, insira cada um dos dois códig
 | Roménia                             | RO        |
 | Rússia                              | RU        |
 | Ruanda                              | RW        |
-| São Barthélemy                    | BL        |
+| São Bartolomeu                    | BL        |
 | São Cristóvão e Neves               | KN        |
 | Santa Lúcia                         | LC        |
 | São Martinho (Saint Martin)                        | MF        |
-| São Pedro e Miquelon           | PM        |
+| São Pedro e Miquelão           | PM        |
 | São Vicente e Granadinas    | VC        |
 | Samoa                               | WS        |
 | São Marino                          | SM        |
@@ -231,7 +231,7 @@ Se um contacto abranger mais de um País/Região, insira cada um dos dois códig
 | Ilhas Salomão                     | SB        |
 | Somália                             | SO        |
 | África do Sul                        | ZA        |
-| Ilhas da Geórgia do Sul e Sandwich do Sul | GS    |
+| Ilhas Geórgia do Sul e Sandwich do Sul | GS    |
 | Sudão do Sul                         | SS        |
 | Espanha                               | ES        |
 | Sri Lanca                           | LK        |
@@ -249,7 +249,7 @@ Se um contacto abranger mais de um País/Região, insira cada um dos dois códig
 | Timor-Leste                         | TL        |
 | Togo                                | TG        |
 | Toquelau                             | TK        |
-| Tonga                               | Para        |
+| Tonga                               | TO        |
 | Trindade e Tobago                 | TT        |
 | Tunísia                             | TN        |
 | Turquia                              | TR        |
@@ -262,7 +262,7 @@ Se um contacto abranger mais de um País/Região, insira cada um dos dois códig
 | Reino Unido                      | GB        |
 | Estados Unidos da América                       | EUA        |
 | Uruguai                             | UY        |
-| Ilhas Menores Distantes dos EUA               | UM        |
+| Ilhas Desondo dos EUA               | UM        |
 | Ilhas Virgens Americanas                 | VI        |
 | Usbequistão                          | UZ        |
 | Vanuatu                             | VU        |

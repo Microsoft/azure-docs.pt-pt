@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
 ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101695520"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
@@ -640,7 +640,7 @@ No portal Azure, introduza os seguintes parâmetros para o modelo:
       * [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual Azure][storage-premium-storage-preview-portal]
       * [Introdução ao Storage do Microsoft Azure][storage-introduction]
    * **Imagem do utilizador VHD URI** (apenas modelo de imagem de disco não gerido): O URI da imagem privada de SO VHD, por exemplo, https:// &lt; nome de conta>.blob.core.windows.net/vhds/userimage.vhd.
-   * **Conta de armazenamento de imagem do utilizador** (apenas modelo de imagem de disco não gerido): O nome da conta de armazenamento onde a imagem privada do SO é armazenada, por exemplo, o nome de conta> em https:// nome &lt; &lt;>.blob.core.windows.net/vhds/userimage.vhds.
+   * **Conta de armazenamento de imagem do utilizador** (apenas modelo de imagem de disco não gerido): O nome da conta de armazenamento onde a imagem privada de SO é armazenada, por exemplo, o nome de conta> em https:// nome de conta &lt; &lt;>.blob.core.windows.net/vhds/userimage.vhd.
    * **userImageId** (apenas modelo de imagem de disco gerido): ID da imagem do disco gerido que pretende utilizar
    * **Nome de utilizador admin** e **senha de administração**: O nome de utilizador e a palavra-passe.
 
@@ -731,7 +731,7 @@ No portal Azure, introduza os seguintes parâmetros para o modelo:
       * [Estrutura de armazenamento de um VM para implantações RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho da Máquina Virtual Azure][storage-premium-storage-preview-portal]
       * [Introdução ao Storage do Microsoft Azure][storage-introduction]
-   * **Disco de OS VHD URI** (apenas modelo de disco não gerido): O URI do disco privado de OS, por exemplo, https:// &lt; nome de conta>.blob.core.windows.net/vhds/osdisk.vhd.
+   * **Disco de OS VHD URI** (apenas modelo de disco não gerido): O URI do disco privado de SO, por exemplo, https:// &lt; nome de conta>.blob.core.windows.net/vhds/osdisk.vhd.
    * **Disco de OS Gerido ID** (apenas modelo de disco gerido): O ID do disco de disco gerido OS, /subscrições/92d102f7-81a5-4df7-9877-54987ba97d9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
    * **Sub-rede nova ou existente**: Determina se uma nova rede virtual e sub-rede são criadas ou se é utilizada uma sub-rede existente. Se já tem uma rede virtual que está ligada à sua rede no local, selecione **Existing**.
    * **ID da sub-rede**: Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/ &lt; id de subscrição>/resourceGroups/ &lt; nome do grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual>&lt; /sub-redes/ &lt; nome da sub-rede>

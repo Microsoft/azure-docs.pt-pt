@@ -1,5 +1,5 @@
 ---
-title: Tutorial para utilização de configuração dinâmica de configuração de aplicação de aplicação Azure App numa aplicação Azure Functions / Microsoft Docs
+title: Tutorial para usar configuração dinâmica de configuração de configuração de aplicação de aplicação Azure App numa aplicação Azure Functions | Microsoft Docs
 description: Neste tutorial, aprende-se a atualizar dinamicamente os dados de configuração das aplicações Azure Functions
 services: azure-app-configuration
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.author: zhenlwa
 ms.custom: devx-track-csharp, azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: add4b54adb02db09536f4e56a7f039c46245c182
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963569"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutorial: Use configuração dinâmica numa aplicação Azure Functions
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar dados da Configuração de Aplicações
 
-1. Abra *Startup.cs* e atualize o `ConfigureAppConfiguration` método. 
+1. *Abrir startup.cs,* e atualizar o `ConfigureAppConfiguration` método. 
 
    O `ConfigureRefresh` método regista uma definição a verificar para alterações sempre que uma atualização é desencadeada dentro da aplicação, o que fará no passo posterior ao adicionar `_configurationRefresher.TryRefreshAsync()` . O `refreshAll` parâmetro instrui o fornecedor de Configuração de Aplicações a recarregar toda a configuração sempre que for detetada uma alteração na definição registada.
 
@@ -74,7 +74,7 @@ Neste tutorial, ficará a saber como:
     }
     ```
 
-3. Abra *Function1.cs* e adicione os seguintes espaços de nome.
+3. *Abra a Função1.cs*, e adicione os seguintes espaços de nome.
 
     ```csharp
     using System.Linq;

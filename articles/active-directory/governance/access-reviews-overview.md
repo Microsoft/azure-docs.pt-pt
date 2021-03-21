@@ -18,10 +18,10 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98246745"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
@@ -97,7 +97,7 @@ Para obter mais informações sobre licenças, consulte [atribuir ou remover lic
 
 Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar o número de licenças que deve ter.
 
-| Cenário | Cálculo | Número de licenças |
+| Scenario | Cálculo | Número de licenças |
 | --- | --- | --- |
 | Um administrador cria uma revisão de acesso do Grupo A com 75 utilizadores e 1 dono do grupo, e atribui o proprietário do grupo como revisor. | 1 licença para o proprietário do grupo como revisor | 1 |
 | Um administrador cria uma revisão de acesso do Grupo B com 500 utilizadores e 3 proprietários do grupo, e atribui os 3 proprietários do grupo como revisores. | 3 licenças para cada dono do grupo como revisores | 3 |

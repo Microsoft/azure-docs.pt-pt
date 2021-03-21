@@ -4,16 +4,16 @@ description: Saiba mais sobre discos ultra para VMs Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/16/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9c3c1acbc2606d882ad45744457137be5014bc4c
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 43dac1692dd6ee4ed1ab67a9b18ca69738e0a0f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093490"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580508"
 ---
 # <a name="using-azure-ultra-disks"></a>Usando discos ultra Azure
 
@@ -133,31 +133,31 @@ Uma vez que o VM é a provisionado, pode dividir e formatar os discos de dados e
 
 Esta secção abrange a implantação de uma máquina virtual equipada com um disco ultra como disco de dados. Assume que tem familiaridade com a implantação de uma máquina virtual, caso não o faça, consulte o nosso [Quickstart: Criar uma máquina virtual Windows no portal Azure](./windows/quick-create-portal.md).
 
-- Inscreva-se no [portal Azure](https://portal.azure.com/) e navegue para implantar uma máquina virtual (VM).
-- Certifique-se de escolher um [tamanho e região de VM suportados.](#ga-scope-and-limitations)
-- Selecione **zona de disponibilidade** nas **opções de disponibilidade.**
-- Preencha as restantes entradas com as seleções à sua escolha.
-- Selecione os **Discos**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) e navegue para implantar uma máquina virtual (VM).
+1. Certifique-se de escolher um [tamanho e região de VM suportados.](#ga-scope-and-limitations)
+1. Selecione **zona de disponibilidade** nas **opções de disponibilidade.**
+1. Preencha as restantes entradas com as seleções à sua escolha.
+1. Selecione os **Discos**.
 
-![Screenshot do fluxo de criação vm, lâmina básica.](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-create.png" alt-text="Screenshot do fluxo de criação VM, lâmina básica." lightbox="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-create.png":::
 
-- Na lâmina Discos, selecione **Sim** para **Ativar a compatibilidade do Disco Ultra**.
-- Selecione **Criar e prenda um disco novo** para anexar agora um disco ultra.
+1. Na lâmina Discos, selecione **Sim** para **Ativar a compatibilidade do Disco Ultra**.
+1. Selecione **Criar e prenda um disco novo** para anexar agora um disco ultra.
 
-![A screenshot do fluxo de criação vm, lâmina de disco, ultra está ativada e cria e anexa um novo disco é realçado.](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-disk-enable.png" alt-text="A screenshot do fluxo de criação vm, lâmina de disco, ultra está ativada e cria e anexa um novo disco é realçado." :::
 
-- Na nova lâmina de **disco,** introduza um nome e, em seguida, selecione **Alterar o tamanho**.
+1. Na nova lâmina de **disco,** introduza um nome e, em seguida, selecione **Alterar o tamanho**.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-create-new-disk-flow.png" alt-text="Screenshot de criar uma nova lâmina de disco, alterar tamanho realçado.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-create-disk.png" alt-text="Screenshot de criar uma nova lâmina de disco, alterar tamanho realçado.":::
 
 
-- Altere o **tipo de armazenamento** para Ultra **Disk**.
-- Altere os valores do tamanho do **disco personalizado (GiB),** **do Disco IOPS** e da **produção** do disco para os que escolherem.
-- Selecione **OK** em ambas as lâminas.
+1. Altere o **Disco SKU** para **Ultra Disk**.
+1. Altere os valores do tamanho do **disco personalizado (GiB),** **do Disco IOPS** e da **produção** do disco para os que escolherem.
+1. Selecione **OK** em ambas as lâminas.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot da lâmina de tamanho do disco, disco ultra selecionado para o tipo de armazenamento, outros valores destacados.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-select-ultra-disk-size.png" alt-text="Screenshot da lâmina de tamanho do disco, disco ultra selecionado para o tipo de armazenamento, outros valores destacados.":::
 
-- Continue com a implantação de VM, será o mesmo que implementaria qualquer outro VM.
+1. Continue com a implantação de VM, será o mesmo que implementaria qualquer outro VM.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -230,7 +230,21 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-O portal Azure não suporta atualmente a criação de um disco ultra com um tamanho do setor de byte 512. Pode criar um disco ultra com um tamanho do sector 512 byte utilizando o módulo Azure PowerShell ou o Azure CLI, em vez disso.
+1. Inscreva-se no [portal Azure,](https://portal.azure.com/)em seguida, procure e selecione **Discos**.
+1. Selecione **+ Novo** para criar um novo disco.
+1. Selecione uma região que suporte discos ultra e selecione uma zona de disponibilidade, preencha os restantes valores como desejar.
+1. Selecione **Alterar tamanho**.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/create-managed-disk-basics-workflow.png" alt-text="Screenshot de criar lâmina de disco, região, zona de disponibilidade e tamanho de mudança realçado.":::
+
+1. Para **o disco SKU** selecione **Ultra disco,** em seguida, preencha os valores para o desempenho desejado e selecione **OK**.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-disk-size-ultra.png" alt-text="Screenshot de criar ultra disco.":::
+
+1. Na lâmina **Basics,** selecione o **separador Avançado.**
+1. Selecione **512** para **o tamanho do sector lógico** e, em seguida, selecione Review + **Create**.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-different-sector-size-ultra.png" alt-text="Screenshot do seletor para alterar o tamanho do sector lógico ultra disco para 512.":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -303,32 +317,25 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 Em alternativa, se o seu VM existente estiver numa zona de região/disponibilidade capaz de utilizar discos ultra, pode utilizar discos ultra sem ter de criar um novo VM. Ao ativar discos ultra no seu VM existente, em seguida, anexando-os como discos de dados. Para ativar a compatibilidade ultra disco, tem de parar o VM. Depois de parar o VM, poderá ativar a compatibilidade e, em seguida, reiniciar o VM. Uma vez ativada a compatibilidade, pode anexar um disco ultra:
 
-- Navegue para o seu VM e pare- o, espere que se transloja.
-- Uma vez que o seu VM tenha sido transatado, selecione **Discos**.
-- Selecione **Editar**.
+1. Navegue para o seu VM e pare- o, espere que se transloja.
+1. Uma vez que o seu VM tenha sido transatado, selecione **Discos**.
+1. Selecione **definições adicionais**.
 
-![Screenshot de uma lâmina de disco Vm existente, a edição é realçada.](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-disk-additional-settings.png" alt-text="Screenshot da lâmina do disco, definições adicionais realçadas.":::
 
-- Selecione **Sim** para **Ativar a compatibilidade do Disco Ultra**.
+1. Selecione **Sim** para **Ativar a compatibilidade do Disco Ultra**.
 
-![Screenshot de ativar a compatibilidade ultra disco.](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Screenshot de ativar a compatibilidade ultra disco.":::
 
-- Selecione **Guardar**.
-- **Selecione Adicionar o disco de dados** em seguida, no dropdown para selecionar **Nome** **Criar disco**.
+1. Selecione **Guardar**.
+1. Selecione **Criar e anexar um novo disco** e preencha um nome para o seu novo disco.
+1. Para **o tipo de armazenamento** selecione Ultra **Disk**.
+1. Altere os valores de **Tamanho (GiB),** **Max IOPS** e **produção Max** para os da sua escolha.
+1. Depois de ser devolvido à lâmina do disco, **selecione Save**.
 
-![Screenshot da lâmina do disco, adicionando um novo disco.](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-create-ultra-disk-existing-vm.png" alt-text="Screenshot da lâmina do disco, adicionando um novo disco ultra.":::
 
-- Preencha um nome para o seu novo disco e, em seguida, selecione **Alterar o tamanho**.
-- Altere o **tipo de Conta** para Ultra **Disco**.
-- Altere os valores do tamanho do **disco personalizado (GiB),** **do Disco IOPS** e da **produção** do disco para os que escolherem.
-
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot da lâmina de tamanho do disco, disco ultra selecionado para o tipo de armazenamento, outros valores destacados.":::
-
-- Selecione **OK** e, em seguida, selecione **Criar**.
-- Depois de ser devolvido à lâmina do disco, **selecione Save**.
-- Comece o seu VM de novo.
-
-![Screenshot da lâmina dos discos no seu vm.](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+1. Comece o seu VM de novo.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -444,15 +451,15 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 Os discos ultra oferecem uma capacidade única que lhe permite ajustar o seu desempenho. Pode fazer estes ajustes a partir do portal Azure, nos próprios discos.
 
-- Navegue para o seu VM e selecione **Discos**.
-- Selecione o disco ultra que pretende modificar o desempenho de.
+1. Navegue para o seu VM e selecione **Discos**.
+1. Selecione o disco ultra que pretende modificar o desempenho de.
 
-![A imagem da lâmina dos discos no seu vm, ultra disco é realçada.](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-ultra-disk-to-modify.png" alt-text="A imagem da lâmina dos discos no seu vm, ultra disco é realçada.":::
 
-- Selecione **Configuração** e, em seguida, faça as suas modificações.
-- Selecione **Guardar**.
+1. Selecione **Tamanho + desempenho** e, em seguida, faça as suas modificações.
+1. Selecione **Guardar**.
 
-![A screenshot da lâmina de configuração no seu disco ultra, tamanho do disco, iops e saída são realçados, o save é realçado.](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/modify-ultra-disk-performance.png" alt-text="A screenshot da lâmina de configuração no seu disco ultra, tamanho do disco, iops e saída são realçados, o save é realçado.":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

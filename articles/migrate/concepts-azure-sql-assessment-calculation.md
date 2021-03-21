@@ -6,10 +6,10 @@ ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
 ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054992"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Visão geral da avaliação (migrar para Azure SQL)
@@ -17,7 +17,7 @@ ms.locfileid: "102054992"
 Este artigo fornece uma visão geral das avaliações para a migração no local exemplos de servidor SQL de um ambiente VMware para bases de dados Azure SQL ou Instâncias Geridas usando a [ferramenta Azure Migrate: Discovery and assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool)tool .
 
 > [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 ## <a name="whats-an-assessment"></a>O que é uma avaliação?
 Uma avaliação com a ferramenta Discovery e assessment é um ponto no tempo instantâneo de dados e mede a prontidão e estima o efeito da migração de servidores no local para Azure.
@@ -93,7 +93,7 @@ Aqui está o que está incluído nas propriedades de avaliação Azure SQL:
 ## <a name="calculate-readiness"></a>Calcular prontidão
 
 > [!NOTE]
-> A avaliação inclui apenas bases de dados que estão em estado online. Caso a base de dados se encontra em qualquer outro estado, a avaliação ignora a prontidão, o dimensionamento e o cálculo dos custos para essas bases de dados. Caso deseje avaliar essas bases de dados, por favor altere o estado da base de dados e recalcule a avaliação em algum momento.
+> A avaliação inclui apenas bases de dados que estão em estado online. Caso a base de dados esteja em qualquer outro estado, a avaliação ignora o respetivo cálculo de preparação, dimensionamento e custo. Se desejar avaliar essas bases de dados, altere o estado das mesmas e recalcule a avaliação após algum tempo.
 
 ### <a name="azure-sql-readiness"></a>Prontidão Azure SQL
 
@@ -113,11 +113,11 @@ Se selecionar o tipo de implementação de destino como **Recomendado** nas prop
 
  **Prontidão Azure SQL DB** | **Prontidão Azure SQL MI** | **Tipo de implantação recomendado** | **Configuração Azure SQL e estimativas de custos calculadas?**
  --- | --- | --- | --- |
- Pronto | Pronto | Azure SQL DB ou Azure SQL MI | Sim
- Pronto | Não pronto ou desconhecido | BD SQL do Azure | Sim
- Não pronto ou desconhecido | Pronto | Azure SQL MI | Sim
- Não está pronto. | Não está pronto. | Potencialmente pronto para Azure VM | Não
- Não pronto ou desconhecido | Não pronto ou desconhecido | Desconhecido | Não
+ Pronto | Pronto | Azure SQL DB ou Azure SQL MI | Yes
+ Pronto | Não pronto ou desconhecido | BD SQL do Azure | Yes
+ Não pronto ou desconhecido | Pronto | Azure SQL MI | Yes
+ Não está pronto. | Não está pronto. | Potencialmente pronto para Azure VM | No
+ Não pronto ou desconhecido | Não pronto ou desconhecido | Desconhecido | No
 
 > [!NOTE]
 > Se o tipo de implementação recomendado for selecionado como Recomendado em propriedades **de** avaliação e se o servidor SQL de origem for adequado tanto para a base de dados única Azure SQL DB como para a Azure SQL Managed Instance, a avaliação recomenda uma opção específica que otimize o seu custo e se ajuste dentro dos limites de tamanho e desempenho.
@@ -127,7 +127,7 @@ Se selecionar o tipo de implementação de destino como **Recomendado** nas prop
 Se a instância SQL não estiver pronta para a Base de Dados Azure SQL e para a Instância Gerida Azure SQL, o tipo de implementação recomendado está marcado como *potencialmente pronto para Azure VM*.
 - Recomenda-se ao utilizador a criação de uma avaliação em Azure Migrate com o tipo de avaliação como "Azure VM" para determinar se o servidor em que o caso está a decorrer está pronto a migrar para um VM Azure. Tenha em atenção que:
     - As avaliações de Azure VM em Azure Migrate estão atualmente focadas no elevador e na mudança e não considerarão as métricas de desempenho específicas para executar instâncias e bases de dados SQL na máquina virtual Azure. 
-    - Quando executa uma avaliação Azure VM num servidor, as estimativas recomendadas de tamanho e custo serão para todas as instâncias em execução no servidor e podem ser migradas para um VM Azure utilizando a ferramenta de migração do servidor. Antes de migrar, [reveja as diretrizes](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) de desempenho do SQL Server em máquinas virtuais Azure.
+    - Quando executa uma avaliação de VM do Azure num servidor, as estimativas recomendadas de tamanho e custo referem-se a todas as instâncias em execução no servidor e podem ser migradas para uma VM do Azure com a ferramenta de Migração do Servidor. Antes de migrar, [veja as diretrizes de desempenho](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) do SQL Server em máquinas virtuais do Azure.
 
 
 ## <a name="calculate-sizing"></a>Calcular o tamanho
@@ -172,11 +172,11 @@ Este quadro mostra as classificações de confiança da avaliação, que depende
 #### <a name="low-confidence-ratings"></a>Baixas classificações de confiança
 Eis algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
 - Não perfilou o seu ambiente durante a duração pela qual está a criar a avaliação. Por exemplo, se criar a avaliação com a duração de desempenho definida para um dia, deve esperar pelo menos um dia depois de começar a descobrir todos os pontos de dados para ser recolhido.
-- A avaliação não é capaz de recolher os dados de desempenho para alguns ou todos os servidores no período de avaliação. Para uma alta classificação de confiança, certifique-se de que:
+- A avaliação não é capaz de recolher os dados de desempenho de alguns ou todos os servidores no período de avaliação. Para uma alta classificação de confiança, certifique-se de que:
     - Os servidores são ligados durante a duração da avaliação
     - São permitidas ligações de saída nas portas 443
     - Se o estado de ligação Azure Migrate do agente SQL em Azure Migrate estiver 'Conectado' e verificar o último batimento cardíaco 
-    - Se o estado de ligação Azure Migrate para todos os casos SQL estiver "Conectado" na lâmina de instância SQL descoberta
+    - Se o estado de ligação no Azure Migrate de todas as instâncias do SQL é “Ligado” no painel da instância do SQL detetada
 
     “Recalcule” a avaliação para refletir as últimas alterações na classificação de confiança.
 - Algumas bases de dados ou instâncias foram criadas durante o período para o qual a avaliação foi calculada. Por exemplo, assuma que criou uma avaliação para o histórico de desempenho do mês passado, mas algumas bases de dados ou casos foram criados apenas há uma semana. Neste caso, os dados de desempenho dos novos servidores não estarão disponíveis durante toda a duração e a classificação de confiança será baixa.

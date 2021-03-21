@@ -7,10 +7,10 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97937047"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
@@ -185,7 +185,7 @@ O próximo passo é configurar restrições de acesso para garantir que [apenas]
 1. Volte ao grupo de recursos e selecione a máquina virtual previamente criada. Para aceder ao site a partir do VM, é necessário ligar-se ao VM através do serviço Azure Bastion.
 1. Selecione **Connect** e, em seguida, escolha **Bastion**.
 1. Forneça o nome de utilizador e a palavra-passe necessários para iniciar sessão na máquina virtual.
-1. Selecione **Connect** (Ligar). Uma nova janela do navegador irá aparecer para que possa interagir com a máquina virtual.
+1. Selecione **Ligar**. Uma nova janela do navegador irá aparecer para que possa interagir com a máquina virtual.
 É possível aceder ao site a partir do navegador web no VM porque o VM está a aceder ao site através da rede virtual.  Enquanto o site só está acessível a partir da rede virtual designada, permanece uma entrada pública de DNS.
 
 ## <a name="create-a-function"></a>Criar uma função

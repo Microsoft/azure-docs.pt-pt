@@ -5,10 +5,10 @@ keywords: configurações, timeout, linguagem, regional
 ms.date: 08/05/2020
 ms.topic: how-to
 ms.openlocfilehash: 591b1ce6c2c069f9c0266588bf32f7303bf49708
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100588805"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gerir as definições e as preferências do portal do Azure
