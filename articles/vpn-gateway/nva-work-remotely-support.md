@@ -1,5 +1,5 @@
 ---
-title: 'Funcionando remotamente: Considerações de Aparelhos Virtuais de Rede (NVA) para trabalhos remotos Azure VPN Gateway'
+title: 'Funcionando remotamente: Considerações de Aparelho Virtual de Rede (NVA) para trabalho remoto | Azure VPN Gateway'
 description: Este artigo ajuda-o a compreender as coisas que deve ter em conta trabalhando com aparelhos virtuais de rede (NVAs) em Azure durante a pandemia COVID-19.
 services: vpn-gateway
 author: scottnap
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
 ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499684"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Funcionando remotamente: Considerações de Aparelho Virtual de Rede (NVA) para trabalhos remotos

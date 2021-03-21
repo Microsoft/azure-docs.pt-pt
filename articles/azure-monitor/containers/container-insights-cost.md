@@ -4,10 +4,10 @@ description: Este artigo descreve o custo de monitorização das métricas & dad
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728914"
 ---
 # <a name="understand-monitoring-costs-for-container-insights"></a>Compreender os custos de monitorização dos insights do contentor

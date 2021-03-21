@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 Series Update 1.2 notas de lançamento Microsoft Docs
+title: StorSimple 8000 Series Update 1.2 notas de lançamento | Microsoft Docs
 description: Descreve as novas funcionalidades, problemas e soluções alternativas para StorSimple 8000 Series Update 1.2.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a5ba4b27ae19999237edb75c50db36ef57a10f1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956692"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar notas de lançamento 1.2 para o seu dispositivo da série StorSimple 8000
@@ -64,7 +64,7 @@ Estas funcionalidades foram lançadas pela primeira vez com o Update 1 que foi d
 ## <a name="issues-fixed-in-update-12"></a>Problemas fixados na Atualização 1.2
 O quadro seguinte fornece um resumo das questões que foram corrigidas nas Atualizações 1.2, 1.1 e 1.    
 
-| Não. | Funcionalidade | Problema | Fixo em Atualização | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
+| N.º | Funcionalidade | Problema | Fixo em Atualização | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell para StorSimple |Quando um utilizador acedeu remotamente ao dispositivo StorSimple utilizando o Windows PowerShell para StorSimple e, em seguida, iniciou o assistente de configuração, ocorreu uma falha assim que o Data 0 IP foi introduzido. Este bug está agora corrigido no Update 1. |Atualização 1 |Yes |Yes |
 | 2 |Reposição de fábrica |Em alguns casos, quando realizou um reset de fábrica, o dispositivo StorSimple ficou preso e apresentou esta mensagem: **O reset para a fábrica está em andamento (fase 8)**. Isto aconteceu se pressionasse ctRL+C enquanto o cmdlet estava em andamento. Este inseto está agora arranjado. |Atualização 1 |Yes |No |
@@ -82,7 +82,7 @@ O quadro seguinte fornece um resumo das questões que foram corrigidas nas Atual
 ## <a name="known-issues-in-update-12"></a>Problemas conhecidos na Atualização 1.2
 A tabela seguinte fornece um resumo de questões conhecidas nesta versão.
 
-| Não. | Funcionalidade | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
+| N.º | Funcionalidade | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quórum de disco |Em casos raros, se a maioria dos discos no recinto EBOD de um dispositivo 8600 forem desligados, resultando em nenhum quórum de disco, então a piscina de armazenamento estará offline. Permanecerá offline mesmo que os discos estejam novamente ligados. |Terá de reiniciar o dispositivo. Se o problema persistir, contacte o Microsoft Support para os próximos passos. |Yes |No |
 | 2 |ID do controlador incorreto |Quando uma substituição do controlador é efetuada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó de pares, o ID do controlador pode aparecer inicialmente como ID do controlador de pares. Em casos raros, este comportamento também pode ser visto após um reboot do sistema. |Não é necessária qualquer ação do utilizador. Esta situação resolver-se-á após a substituição do controlador. |Yes |No |

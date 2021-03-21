@@ -6,17 +6,17 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.openlocfilehash: a1371e00a6d4c5db609466e25c9d94aad5e73398
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045722"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Azure Monitor
 
 Este artigo mostra-lhe como configurar e desencadear uma aplicação lógica para criar uma conversa nas Equipas da Microsoft quando um alerta dispara.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Quando um alerta do Monitor Azure dispara, chama um [grupo de ação](./action-groups.md). Os grupos de ação permitem-lhe desencadear uma ou mais ações para notificar os outros sobre um alerta e também remediar o mesmo.
 

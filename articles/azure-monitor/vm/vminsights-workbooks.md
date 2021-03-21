@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046521"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Criar relatórios interativos VM insights com livros de trabalho
@@ -25,7 +25,7 @@ Os livros de trabalho são úteis para cenários como:
 
 A tabela seguinte resume os livros de trabalho que os insights de VM incluem para começar.
 
-| Livro | Descrição | Âmbito |
+| Livro | Description | Âmbito |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável da nossa visão top N List e Charts num único livro que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Em escala |
 | Contadores de desempenho | Uma vista de gráfico top N através de um vasto conjunto de contadores de desempenho. | Em escala |

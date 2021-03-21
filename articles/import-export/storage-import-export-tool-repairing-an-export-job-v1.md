@@ -9,10 +9,10 @@ ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: d84f26b2764a103a9b504c1480e88b58fed3c201
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706723"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de uma tarefa de exportação
@@ -150,7 +150,7 @@ G:\pictures\wild\canyon.jpg.properties
 
 Qualquer componente que falhe a verificação será descarregado pela ferramenta e reescrito para o mesmo ficheiro na unidade.  
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   

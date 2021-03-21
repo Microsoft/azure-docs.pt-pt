@@ -1,5 +1,5 @@
 ---
-title: Criar um VM com um endereço IP público estático - Azure CLI / Microsoft Docs
+title: Criar um VM com um endereço IP público estático - Azure CLI | Microsoft Docs
 description: Saiba como criar um VM com um endereço IP público estático utilizando a interface de linha de comando Azure (CLI).
 services: virtual-network
 documentationcenter: na
@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
 ms.openlocfilehash: c4062dd086eeee712376a402da2792352fa3c3ae
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98221347"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Criar uma máquina virtual com um endereço IP público estático usando o Azure CLI
@@ -68,7 +68,7 @@ Pode completar os seguintes passos a partir do seu computador local ou utilizand
 > [!WARNING]
 > Não modifique as definições do endereço IP dentro do sistema operativo da máquina virtual. O sistema operativo desconhece os endereços IP públicos do Azure. Embora possa adicionar definições privadas de endereço IP ao sistema operativo, recomendamos que não o faça a menos que seja necessário, e só depois de ler [Adicione um endereço IP privado a um sistema operativo](virtual-network-network-interface-addresses.md#private).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que contém:
 

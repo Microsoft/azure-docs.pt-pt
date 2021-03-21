@@ -12,10 +12,10 @@ ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f55cfcf6d6ec369cdf871e8ba38bd81774dacd8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092317"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Criar um serviço SAS para um recipiente ou bolha
@@ -122,7 +122,7 @@ Um serviço SAS é assinado com a chave de acesso à conta. Utilize a classe [St
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
+Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsssignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container,
@@ -176,7 +176,7 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
+Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsssignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
 
 Para criar um serviço SAS para uma bolha, ligue para a função [generateBlobSASQueryParameters,](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) fornecendo as opções necessárias.
 

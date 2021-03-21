@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: 85aaf40237b6b6687c54d4b036f280805c98e7b2
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618972"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger os registos e as zonas DNS

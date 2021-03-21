@@ -7,10 +7,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98736739"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série de tempo
@@ -29,7 +29,7 @@ Os seguintes visores de tabela que propriedades são relevantes para cada tipo v
 
 ## <a name="numeric-variables"></a>Variáveis numéricas
 
-| Propriedade variável | Descrição |
+| Propriedade variável | Description |
 | --- | ---|
 | Filtro variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão a ser consideradas para cálculo. |
 | Valor variável | Valores de telemetria utilizados para a computação provenientes do dispositivo ou sensores ou transformados através de Expressões de Séries Tempotacurtas. As variáveis do tipo numérico devem ser do tipo *Double.*|
@@ -59,7 +59,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 
 ## <a name="categorical-variables"></a>Variáveis categóricas
 
-| Propriedade variável | Descrição |
+| Propriedade variável | Description |
 | --- | ---|
 | Filtro variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão a ser consideradas para cálculo. |
 | Valor variável | Valores de telemetria utilizados para a computação provenientes do dispositivo ou dos sensores. As variáveis de tipo categórico devem ser *longas* ou *de corda.* |
@@ -99,7 +99,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 
 ## <a name="aggregate-variables"></a>Variáveis agregadas
 
-| Propriedade variável | Descrição |
+| Propriedade variável | Description |
 | --- | ---|
 | Filtro variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão a ser consideradas para cálculo. |
 | Agregação variável | Execute computações através das funções de agregação suportadas [para tipos variáveis agregados](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
@@ -118,7 +118,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 
 As variáveis são armazenadas na definição tipo de modelo de série sonora e podem ser fornecidas em linha através de APIs para substituir ou complementar a definição armazenada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o Modelo série de tempo.](./concepts-model-overview.md)
 

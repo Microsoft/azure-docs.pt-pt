@@ -4,15 +4,15 @@ description: Crie alertas de registo de atividade utilizando o portal Azure, um 
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045535"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor  
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Os alertas de registo de atividade são os alertas que são ativados quando ocorre um novo evento de registo de atividade que corresponde às condições especificadas no alerta.
 

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97106517"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API Python
@@ -194,7 +194,7 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool)
 ```
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Esta função definida utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) submete o conjunto para o serviço Batch. Inicialmente, o trabalho não tem tarefas.
 

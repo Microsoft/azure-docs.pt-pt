@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94874530"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmitir mensagens em tempo real a partir da aplicação de consola
@@ -139,7 +139,7 @@ Versão | Estado da API | Porta | Específico
 
 A lista de APIs disponíveis para cada versão específica está disponível na lista seguinte.
 
-API | 1.0 pré-visualização | 1,0
+API | 1.0 pré-visualização | 1.0
 --- | --- | ---
 [Difundir para todos](#broadcast) | **&#x2713;** | **&#x2713;**
 [Difundir para um grupo](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -202,7 +202,7 @@ Versão da API | Método HTTP da API | URL do Pedido
 `1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups/<group-name>`
 `1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>` 
 
-Código de Estado da Resposta | Descrição
+Código de Estado da Resposta | Description
 ---|---
 `200` | O utilizador existe
 `404` | O utilizador não existe
@@ -252,7 +252,7 @@ Versão da API | Método HTTP da API | URL do Pedido
 ---|---|---                             
 `1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/health`
 
-Código de Estado da Resposta | Descrição
+Código de Estado da Resposta | Description
 ---|---
 `200` | Bom serviço
 `5xx` | Erro de serviço

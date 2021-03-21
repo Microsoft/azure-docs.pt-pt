@@ -8,10 +8,10 @@ ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101729645"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
@@ -21,10 +21,10 @@ Este artigo fornecerá informações sobre requisitos e opções específicos di
 
 Recomendamos que se leia [considerações de networking do Azure File Sync](storage-sync-files-networking-overview.md) antes de ler este como orientar.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Azure File Sync funciona como um serviço de orquestração entre o seu Windows Server, a sua partilha de ficheiros Azure e vários outros serviços Azure para sincronizar dados como descrito no seu grupo de sincronização. Para que o Azure File Sync funcione corretamente, terá de configurar os seus servidores para comunicar com os seguintes serviços Azure:
 
-- Storage do Azure
+- Armazenamento do Azure
 - Azure File Sync
 - Azure Resource Manager
 - Serviços de autenticação

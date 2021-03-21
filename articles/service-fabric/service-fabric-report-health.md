@@ -7,10 +7,10 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001869"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de saúde personalizados do Service Fabric
@@ -29,7 +29,7 @@ Para conceber e implementar relatórios de saúde, os cães de guarda e os compo
 
 Como mencionado, a comunicação pode ser feita a partir de:
 
-* A réplica de serviço de serviço de serviço de serviço monitorado.
+* A réplica de serviço de serviço monitorado.
 * Cães de guarda internos implantados como um serviço de Tecido de Serviço (por exemplo, um serviço apátrida de Tecido de Serviço que monitoriza as condições e relatórios de problemas). Os cães de guarda podem ser implantados em todos os nós ou podem ser afinados com o serviço monitorizado.
 * Cães de guarda internos que funcionam nos nós do Tecido de Serviço mas *não* são implementados como serviços de Service Fabric.
 * Cães de guarda externos que sondam o recurso de *fora* do cluster de Tecido de Serviço (por exemplo, serviço de monitorização como o Gomez).

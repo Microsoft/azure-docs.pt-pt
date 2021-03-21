@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: fe80a71125d43220e408eab7b07aeedcafa0a526
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102473650"
 ---
 ### <a name="functions-2x-and-higher"></a>Funções 2.x e superior
@@ -32,7 +32,7 @@ ms.locfileid: "102473650"
 }  
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |batchCheckpointFrequency|1|O número de lotes de eventos a processar antes de criar um ponto de verificação do cursor EventHub.|
 |EventProcessorOptions/maxBatchSize|10|A contagem máxima de evento recebida por ciclo de receção.|
@@ -57,7 +57,7 @@ ms.locfileid: "102473650"
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |maxBatchSize|64|A contagem máxima de evento recebida por ciclo de receção.|
 |prefetchCount|n/a|A pré-busca predefinida que será usada pelo subjacente `EventProcessorHost` .| 

@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 ms.openlocfilehash: 3a5afcd8c0ef0c31353cd2369ead332675c9877f
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102453126"
 ---
 # <a name="localization-element"></a>Elemento de localização
@@ -46,7 +46,7 @@ O elemento **de localização** contém os seguintes atributos:
 
 O elemento **de localização** contém elementos XML
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Apoio deGuages | 1:n | Lista de línguas apoiadas. |
 | Recursos Localizados | 0:n | Lista de recursos localizados. |
@@ -64,7 +64,7 @@ O elemento **SuportadoLanguages** contém os seguintes atributos:
 
 O elemento **Suportado Deguages** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Apoio àguagem | 1:n | Exibe conteúdo satisfatório em conformidade com uma etiqueta linguística por RFC 5646 - Tags para Identificar Línguas. |
 
@@ -78,7 +78,7 @@ O elemento **Imagens Locais** contém os seguintes atributos:
 
 O elemento **LocaledResources** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Collections localizadas | 0:n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e diferentes cordas para várias culturas. Exemplos de coleções incluem as enumerações que aparecem nos tipos de reclamações. Por exemplo, uma lista de país/região é mostrada ao utilizador numa lista de abandono. |
 | Padrões Localizados | 0:n | Define todas as cordas, exceto as cordas que aparecem em coleções, em várias culturas. |
@@ -87,7 +87,7 @@ O elemento **LocaledResources** contém os seguintes elementos:
 
 O elemento **LocalizedCollections** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Collecto Localizado | 1:n | Lista de línguas apoiadas. |
 
@@ -103,7 +103,7 @@ O elemento **Decolecção Localizada** contém os seguintes atributos:
 
 O elemento **Decolecção Localizada** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Item | 0:n | Define uma opção disponível para o utilizador selecionar para uma reclamação na interface do utilizador, como um valor numa queda. |
 
@@ -139,7 +139,7 @@ O exemplo a seguir mostra a utilização do elemento **Decollections Localizado.
 
 O elemento **LocalizadoStrings** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Estamos localizados | 1:n | Uma corda localizada. |
 

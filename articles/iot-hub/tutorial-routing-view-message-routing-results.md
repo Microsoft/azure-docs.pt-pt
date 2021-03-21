@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: f441a1cf97c069c4755b436bbb8cb9268b469eb3
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199752"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 - Ver as mensagens encaminhadas
@@ -190,7 +190,7 @@ Esta aplicação envia mensagens para cada um dos diferentes métodos de encamin
 
 Se não descarregou os ficheiros do repositório da Parte 1 deste tutorial, vá em frente e descarregue-os agora a partir da Simulação de [Dispositivos IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). A seleção deste link descarrega um repositório com várias aplicações; a solução que procura é iot-hub/Tutorials/Encaminhamento/IoT_SimulatedDevice.sln. 
 
-Clique duas vezes no ficheiro de solução (IoT_SimulatedDevice.sln) para abrir o código no Visual Studio e, em seguida, abra Program.cs. Substitua `{your hub name}` pelo nome do anfitrião do hub IoT. O formato do nome do anfitrião do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome do anfitrião do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{your device key}` pela chave de dispositivo que guardou anteriormente quando configurou o dispositivo simulado. 
+Clique duas vezes no ficheiro de solução (IoT_SimulatedDevice.sln) para abrir o código no Estúdio Visual e, em seguida, abra o Programa.cs. Substitua `{your hub name}` pelo nome do anfitrião do hub IoT. O formato do nome do anfitrião do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome do anfitrião do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{your device key}` pela chave de dispositivo que guardou anteriormente quando configurou o dispositivo simulado. 
 
    ```csharp
         static string s_myDeviceId = "Contoso-Test-Device";

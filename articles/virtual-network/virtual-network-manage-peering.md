@@ -1,5 +1,5 @@
 ---
-title: Criar, alterar ou apagar uma rede virtual Azure espreitando Microsoft Docs
+title: Criar, alterar ou eliminar uma rede virtual Azure que espreita | Microsoft Docs
 description: Criar, alterar ou eliminar um olhar de rede virtual. Com o olhar de rede virtual, conecta-se redes virtuais na mesma região e em regiões.
 services: virtual-network
 documentationcenter: na
@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: dc8db3f1eccce2bb85f03d51fcfd1c4113823d49
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222671"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar uma rede virtual de espreitar
 
 Aprenda a criar, alterar ou apagar um olhar de rede virtual. O espreitamento de redes virtuais permite-lhe ligar redes virtuais na mesma região e em regiões (também conhecidas como Global VNet Peering) através da rede de espinha dorsal Azure. Uma vez espreitadas, as redes virtuais ainda são geridas como recursos separados. Se é novo na rede virtual a espreitar, pode saber mais sobre isso na rede virtual que espreita a [visão geral](virtual-network-peering-overview.md) ou completando um [tutorial](tutorial-connect-virtual-networks-portal.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -92,7 +92,7 @@ Antes de mudar um espreitamento, familiarize-se com os requisitos e constrangime
 
 **Comandos**
 
-- **Azure CLI**: [lista de observação de vnet de rede az](/cli/azure/network/vnet/peering) para listar os espreiteiros de uma rede virtual, [o programa de observação de vnet de rede az](/cli/azure/network/vnet/peering) para mostrar definições para um espremomento específico, e [a atualização de observação de vnet de rede az](/cli/azure/network/vnet/peering) para alterar definições de peering.]
+- **Azure CLI**: [lista de observação de vnet de rede az](/cli/azure/network/vnet/peering) para listar os espreiteiros de uma rede virtual, [az network vnet peering show](/cli/azure/network/vnet/peering) para mostrar configurações para um esprevamento específico, e a [az rede vnet peering update](/cli/azure/network/vnet/peering) para alterar definições de peering.|
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) para recuperar definições de observação e [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) para alterar definições.
 
 ## <a name="delete-a-peering"></a>Apagar um espreitante

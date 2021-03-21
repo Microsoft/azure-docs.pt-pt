@@ -7,10 +7,10 @@ ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 779b66412319ec8422977a7e56570a4d16f89aa9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98071549"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Ligação de saída DB Azure Cosmos para Funções Azure 2.x e superior
@@ -620,11 +620,11 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `cosmosDB` .        |
 |**direção**     | n/a | Deve ser definido para `out` .         |
-|**name**     | n/a | Nome do parâmetro de ligação que representa o documento na função.  |
+|**nome**     | n/a | Nome do parâmetro de ligação que representa o documento na função.  |
 |**base de dados Nome** | **DatabaseName**|A base de dados que contém a coleção onde o documento é criado.     |
 |**coleçãoName** |**CollectionName**  | O nome da coleção onde o documento é criado. |
 |**criarIfNotExists**  |**CriarExistsIfNotExists**    | Um valor booleano para indicar se a coleção é criada quando não existe. O padrão é *falso* porque novas coleções são criadas com produção reservada, o que tem implicações de custos. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
@@ -670,7 +670,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de ligação utilizado pela função ao ligar-se ao serviço DB Azure Cosmos. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de ligação utilizado pela função quando ligado ao serviço DB Azure Cosmos.  Leia [aqui para uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|

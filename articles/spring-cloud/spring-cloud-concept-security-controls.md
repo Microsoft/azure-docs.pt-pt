@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 25636611795a18761a1fc7135efd4abba5af5fe3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96501112"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controlos de segurança do Serviço Azure Spring Cloud
@@ -26,15 +26,15 @@ Um controlo de segurança é uma qualidade ou característica de um serviço Azu
 
 | Controlo de segurança | Sim/Não | Notas | Documentação |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Sim | Fontes e artefactos carregados pelo utilizador, configurações de servidores config, definições de aplicações e dados em armazenamento persistente são armazenados no Azure Storage, que encripta automaticamente o conteúdo em repouso.<br><br>Cache do servidor Config, binários de tempo de execução construídos a partir de fontes carregadas e registos de aplicações durante o tempo de vida útil da aplicação são guardados para o disco gerido Azure, que encripta automaticamente o conteúdo em repouso.<br><br>As imagens de contentores construídas a partir de uma fonte de carregamento do utilizador são guardadas no Registo do Contentor Azure, que encripta automaticamente o conteúdo da imagem em repouso. | [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)<br><br>[Encriptação do lado do servidor dos discos geridos pelo Azure](../virtual-machines/disk-encryption.md)<br><br>[Armazenamento de imagem de contentor no registo do contentor de Azure](../container-registry/container-registry-storage.md) |
-| Encriptação em transitório | Sim | Os pontos finais públicos da aplicação do utilizador utilizam HTTPS para tráfego de entrada por padrão. |  |
-| Chamadas da API encriptadas | Sim | As chamadas de gestão para configurar o serviço Azure Spring Cloud ocorrem através de chamadas do Azure Resource Manager através de HTTPS. | [Azure Resource Manager](../azure-resource-manager/index.yml) |
+| Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Yes | Fontes e artefactos carregados pelo utilizador, configurações de servidores config, definições de aplicações e dados em armazenamento persistente são armazenados no Azure Storage, que encripta automaticamente o conteúdo em repouso.<br><br>Cache do servidor Config, binários de tempo de execução construídos a partir de fontes carregadas e registos de aplicações durante o tempo de vida útil da aplicação são guardados para o disco gerido Azure, que encripta automaticamente o conteúdo em repouso.<br><br>As imagens de contentores construídas a partir de uma fonte de carregamento do utilizador são guardadas no Registo do Contentor Azure, que encripta automaticamente o conteúdo da imagem em repouso. | [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)<br><br>[Encriptação do lado do servidor dos discos geridos pelo Azure](../virtual-machines/disk-encryption.md)<br><br>[Armazenamento de imagem de contentor no registo do contentor de Azure](../container-registry/container-registry-storage.md) |
+| Encriptação em transitório | Yes | Os pontos finais públicos da aplicação do utilizador utilizam HTTPS para tráfego de entrada por padrão. |  |
+| Chamadas da API encriptadas | Yes | As chamadas de gestão para configurar o serviço Azure Spring Cloud ocorrem através de chamadas do Azure Resource Manager através de HTTPS. | [Azure Resource Manager](../azure-resource-manager/index.yml) |
 
 **Controlos de segurança de acesso à rede**
 
 | Controlo de segurança | Sim/Não | Notas | Documentação |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Etiqueta de serviço | Sim | Utilize a etiqueta de serviço **AzureSpringCloud** para definir controlos de acesso à rede de saída em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md), para permitir o tráfego para aplicações Azure Spring Cloud.<br><br>*Nota:* Atualmente apenas a nova instância de serviço Azure Spring Cloud criada após 2020/07/14 suporta a tag de serviço **AzureSpringCloud.** | [Etiquetas de serviço](../virtual-network/service-tags-overview.md) |
+| Etiqueta de serviço | Yes | Utilize a etiqueta de serviço **AzureSpringCloud** para definir controlos de acesso à rede de saída em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md), para permitir o tráfego para aplicações Azure Spring Cloud.<br><br>*Nota:* Atualmente apenas a nova instância de serviço Azure Spring Cloud criada após 2020/07/14 suporta a tag de serviço **AzureSpringCloud.** | [Etiquetas de serviço](../virtual-network/service-tags-overview.md) |
 
 ## <a name="next-steps"></a>Passos seguintes
 

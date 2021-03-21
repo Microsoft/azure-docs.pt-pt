@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 53dea20e356f735a521dec8c22edf8cb2aa7122d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895871"
 ---
 # <a name="data-filtering"></a>Filtragem de dados
@@ -56,6 +56,6 @@ Filtragem transforma tags nãoscaped em etiquetas escapadas:
 ## <a name="invalid-characters"></a>Caracteres inválidos
 O Custom Tradutor remove as frases que contêm o personagem Unicode U+FFFD. O personagem U+FFFD indica uma conversão de codificação falhada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo](how-to-train-model.md) em Tradutor Personalizado.

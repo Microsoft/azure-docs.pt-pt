@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/25/2020
 ms.author: zhshang
 ms.openlocfilehash: 1f28058a766144ada3326b3ee4ce09ca503d1896
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94873884"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço SignalR usando C\#
@@ -21,7 +21,7 @@ O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tem
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver o Visual Studio 2019 instalado, **free** pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+Se ainda não tiver o Visual Studio 2019 instalado,  pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 
 Pode também executar este tutorial na linha de comando (macOS, Windows ou Linux) utilizando as [Ferramentas Centrais de Funções Azure (v2),](https://github.com/Azure/azure-functions-core-tools#installing)o [.NET Core SDK](https://dotnet.microsoft.com/download)e o seu editor de código favorito.
 

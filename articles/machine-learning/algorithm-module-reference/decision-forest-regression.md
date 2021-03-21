@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 76fd09b5e2c2540cbc1608558800e7897a6cf839
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94375368"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de Regressão Florestal de Decisão
@@ -46,7 +46,7 @@ Para obter mais informações sobre o enquadramento teórico deste algoritmo e a
 
 2. Abra as propriedades do módulo e, para **o método de resampling,** escolha o método utilizado para criar as árvores individuais.  Pode escolher entre **Embalar** ou **Replicar.**
 
-    - **Embalamento** : O embalamento também é chamado de *agregador de botas.* Cada árvore numa decisão de regressão a floresta produz uma distribuição gaussiana por previsão. A agregação é encontrar um gaussiano cujos dois primeiros momentos coincidem com os momentos da mistura de distribuições gaussianas dadas pela combinação de todas as distribuições devolvidas por árvores individuais.
+    - **Embalamento**: O embalamento também é chamado de *agregador de botas.* Cada árvore numa decisão de regressão a floresta produz uma distribuição gaussiana por previsão. A agregação é encontrar um gaussiano cujos dois primeiros momentos coincidem com os momentos da mistura de distribuições gaussianas dadas pela combinação de todas as distribuições devolvidas por árvores individuais.
 
          Para mais informações, consulte a entrada na Wikipédia para [a agregação de Bootstrap.](https://wikipedia.org/wiki/Bootstrap_aggregating)
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre o enquadramento teórico deste algoritmo e a
 
       Se sabe como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos. Pode ter aprendido estes valores experimentando ou recebido como orientação.
 
-    - **Intervalo de parâmetros** : Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados. 
+    - **Intervalo de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados. 
 
 
 

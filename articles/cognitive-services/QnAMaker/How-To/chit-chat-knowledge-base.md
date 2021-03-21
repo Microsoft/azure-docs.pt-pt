@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94376653"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicione chit-chat a uma base de conhecimento
@@ -44,14 +44,14 @@ Os conjuntos de dados de chit-chat são suportados nos seguintes idiomas:
 |Linguagem|
 |--|
 |Chinês|
-|Em inglês|
+|Inglês|
 |Francês|
 |Alemanha|
 |Italiano|
 |Japonês|
 |Coreano|
 |Português|
-|Em espanhol|
+|Espanhol|
 
 
 ## <a name="add-chit-chat-during-kb-creation"></a>Adicione chit-chat durante a criação do KB

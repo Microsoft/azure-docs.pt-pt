@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498154"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
@@ -121,7 +121,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 
 Existem dois tipos básicos de encriptação disponíveis para os serviços de armazenamento principal. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 A encriptação Azure Storage protege e salvaguarda os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. O Azure Storage encripta automaticamente todos os dados antes de persistir na conta de armazenamento e desencripta-os antes da recuperação. A encriptação, desencriptação e os principais processos de gestão são transparentes para os utilizadores. Os clientes também podem optar por gerir as suas próprias chaves usando o Azure Key Vault. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](storage-service-encryption.md).
 
@@ -147,7 +147,7 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 
 ### <a name="azure-storage-data-api-and-library-references"></a>API de dados do Armazenamento do Azure e referências da biblioteca
 
-- [Azure Storage REST API](/rest/api/storageservices/) (API REST do Armazenamento do Azure)
+- [Azure Storage REST API](/rest/api/storageservices/)
 - [Biblioteca de clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage)
 - [Biblioteca de clientes Azure Storage para Java/Android](/java/api/overview/azure/storage)
 - [Biblioteca de clientes Azure Storage para Node.js](/javascript/api/overview/azure/storage-overview)

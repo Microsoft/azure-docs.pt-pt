@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
 ms.openlocfilehash: 69e953f6d2cb9542a589fb2e282ff166c43fc0a8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043614"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Import Azure Monitor regista dados de registo em Power BI
@@ -19,7 +19,7 @@ ms.locfileid: "102043614"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Para importar dados de um espaço de [trabalho Log Analytics](../logs/manage-access.md) em Azure Monitor para o Power BI, cria um conjunto de dados no Power BI com base numa consulta de [registo](../logs/log-query-overview.md) no Azure Monitor.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Em seguida, pode criar relatórios Power BI que utilizam dados a partir do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporta a sua consulta de Log Analytics para [o idioma Power Query (M).](/powerquery-m/power-query-m-language-specification)  Em seguida, utiliza-o para criar uma consulta no Power BI Desktop e depois publicá-lo no Power BI como conjunto de dados.  Os detalhes deste processo são descritos abaixo.
 
 ![Log Analytics para Power BI](media/powerbi/overview.png)

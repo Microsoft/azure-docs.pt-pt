@@ -1,5 +1,5 @@
 ---
-title: Segurança das Bases de Dados paas em Azure Microsoft Docs
+title: Segurança das bases de dados paas em Azure | Microsoft Docs
 description: 'Saiba mais sobre a Azure SQL Database e a Azure Synapse Analytics as melhores práticas de segurança para garantir as suas aplicações web e móveis PaaS. '
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94408078"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para assegurar bases de dados paaS em Azure

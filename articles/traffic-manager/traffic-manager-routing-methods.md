@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2021
 ms.author: duau
 ms.openlocfilehash: eeebded128f636ecba2e4e0dab1bc2f0632aaa6a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730977"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Gestor de Tráfego
@@ -177,6 +177,6 @@ O encaminhamento de sub-redes pode ser usado para oferecer uma experiência dife
 * [O que acontece se um ponto final for desativado num perfil do tipo de encaminhamento sub-rede?](./traffic-manager-faqs.md#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como desenvolver aplicações de alta disponibilidade utilizando [a monitorização do ponto final do Traffic Manager](traffic-manager-monitoring.md)

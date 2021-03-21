@@ -4,15 +4,15 @@ description: Seja notificado via SMS, webhook, SMS, e-mail e muito mais, quando 
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 2762a9fbeef516d62067b670b14ea54f4363d7fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045501"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no registo de atividades
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Os alertas de registo de atividade são alertas que se ativam quando ocorre um novo [evento de registo de atividade](../essentials/activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e volume dos eventos registados no [registo de atividades do Azure,](../essentials/platform-logs-overview.md)a regra de alerta disparará. As regras de alerta de registo de atividade são recursos Azure, para que possam ser criadas usando um modelo de Gestor de Recursos Azure. Também podem ser criados, atualizados ou eliminados no portal Azure. Este artigo introduz os conceitos por trás dos alertas de registo de atividade. Para obter mais informações sobre a criação ou utilização de regras de alerta de registo de atividades, consulte [Criar e gerir alertas de registo de atividades](alerts-activity-log.md).
 

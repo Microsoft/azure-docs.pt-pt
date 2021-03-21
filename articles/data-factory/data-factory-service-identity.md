@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
 ms.openlocfilehash: e0d3b551265a480a700f374ddfcf89dd4d93333f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389166"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
@@ -21,7 +21,7 @@ Este artigo ajuda-o a compreender o que é a identidade gerida para a Data Facto
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Ao criar uma fábrica de dados, pode ser criada uma identidade gerida juntamente com a criação de fábrica. A identidade gerida é uma aplicação gerida registada no Azure Ative Directory, e representa esta fábrica de dados específica.
 

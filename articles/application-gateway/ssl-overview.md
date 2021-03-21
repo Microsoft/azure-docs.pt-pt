@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001291"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral da rescisão de TLS e fim do fim do TLS com Gateway de aplicação
@@ -124,7 +124,7 @@ As tabelas a seguir descrevem as diferenças no SNI entre o V1 e o V2 SKU em ter
 ### <a name="frontend-tls-connection-client-to-application-gateway"></a>Ligação Frontend TLS (cliente para porta de aplicação)
 
 ---
-Cenário | v1 | v2 |
+Scenario | v1 | v2 |
 | --- | --- | --- |
 | Se o cliente especificar o cabeçalho SNI e todos os ouvintes multi-locais estiverem ativados com a bandeira "Require SNI" | Devolva o certificado apropriado e se o site não existir (de acordo com o server_name), então a ligação é reiniciada. | Devolve o certificado adequado se disponível, caso contrário, devolve o certificado do primeiro ouvinte HTTPS configurado (na ordem)|
 | Se o cliente não especificar um cabeçalho SNI e se todos os cabeçalhos multi-locais estiverem ativados com "Require SNI" | Reinicia a ligação | Devolve o certificado do primeiro ouvinte HTTPS configurado (na ordem)
@@ -135,7 +135,7 @@ Cenário | v1 | v2 |
 #### <a name="for-probe-traffic"></a>Para o tráfego de sonda
 
 ---
-Cenário | v1 | v2 |
+Scenario | v1 | v2 |
 | --- | --- | --- |
 | Cabeçalho SNI (server_name) durante o aperto de mão TLS como FQDN | Definido como FQDN a partir da piscina de backend. De acordo com [rfc 6066,](https://tools.ietf.org/html/rfc6066)os endereços IPv4 e IPv6 literais não são permitidos no nome de anfitrião SNI. <br> **Nota:** FQDN no pool de backend caso o DNS resolva reesar o endereço IP do servidor (público ou privado) | O cabeçalho SNI (server_name) é definido como o nome de anfitrião da sonda personalizada anexada às definições HTTP (se configurado), caso contrário, a partir do nome de anfitrião mencionado nas definições HTTP, caso contrário a partir do FQDN mencionado no pool de backend. A ordem de precedência é sonda personalizada > configurações HTTP > pool de backend. <br> **Nota:** Se os nomes de anfitrião configurados nas definições HTTP e na sonda personalizada forem diferentes, então de acordo com a precedência, o SNI será definido como o nome de anfitrião da sonda personalizada.
 | Se o endereço do pool backend for um endereço IP (v1) ou se o nome de anfitrião da sonda personalizada for configurado como endereço IP (v2) | SNI (server_name) não será definido. <br> **Nota:** Neste caso, o servidor backend deverá poder devolver um certificado de incumprimento/recuo, o que deverá permitir a sua cotação nas definições HTTP sob certificado de autenticação. Se não houver nenhum certificado predefinido/recuo configurado no servidor backend e se espera SNI, o servidor pode reiniciar a ligação e levará a falhas na sonda | Na ordem de precedência anteriormente mencionada, se tiverem endereço IP como nome de hospedeiro, então o SNI não será definido de acordo com [o RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Nota:** O SNI também não será definido em sondas V2 se nenhuma sonda personalizada estiver configurada e nenhum nome de anfitrião estiver definido nas definições HTTP ou pool de backend |
@@ -146,7 +146,7 @@ Cenário | v1 | v2 |
 #### <a name="for-live-traffic"></a>Para tráfego ao vivo
 
 ---
-Cenário | v1 | v2 |
+Scenario | v1 | v2 |
 | --- | --- | --- |
 | Cabeçalho SNI (server_name) durante o aperto de mão TLS como FQDN | Definido como FQDN a partir da piscina de backend. De acordo com [rfc 6066,](https://tools.ietf.org/html/rfc6066)os endereços IPv4 e IPv6 literais não são permitidos no nome de anfitrião SNI. <br> **Nota:** FQDN no pool de backend caso o DNS resolva reesar o endereço IP do servidor (público ou privado) | O cabeçalho SNI (server_name) é definido como o nome de anfitrião a partir das definições HTTP, caso contrário, se a opção *PickHostnameFromBackendAddress* for escolhida ou se não for mencionado nenhum nome de anfitrião, então será definido como O FQDN na configuração do pool backend
 | Se o endereço de pool backend for um endereço IP ou o nome de anfitrião não estiver definido nas definições HTTP | SNI não será definido de acordo com [RFC 6066](https://tools.ietf.org/html/rfc6066) se a entrada na piscina de backend não for um FQDN | O SNI será definido como o nome de anfitrião a partir da entrada FQDN do cliente e o certificado de backend CN tem que corresponder com este nome de anfitrião.

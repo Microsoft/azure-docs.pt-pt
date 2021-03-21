@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.openlocfilehash: ccf55e0e3986de8afe23cb646d4df743b576900c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101725327"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilização de Azure CDN com SAS
@@ -134,7 +134,7 @@ Para utilizar a autenticação simbólica de segurança Azure CDN, tem de ter um
 
 Como os parâmetros SAS não são visíveis para a Azure CDN, a Azure CDN não pode alterar o seu comportamento de entrega com base neles. As restrições de parâmetros definidas aplicam-se apenas aos pedidos que a Azure CDN faz ao servidor de origem, e não a pedidos do cliente para a Azure CDN. Esta distinção é importante de considerar quando define os parâmetros SAS. Se estas capacidades avançadas forem necessárias e estiver a utilizar [a Opção 3,](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule)desacorda as restrições adequadas no token de segurança Azure CDN.
 
-| Nome do parâmetro SAS | Descrição |
+| Nome do parâmetro SAS | Description |
 | --- | --- |
 | Iniciar | O tempo que a Azure CDN pode começar a aceder ao ficheiro blob. Devido ao desvio do relógio (quando um sinal do relógio chega em diferentes horas para diferentes componentes), escolha uma hora 15 minutos antes se quiser que o ativo esteja disponível imediatamente. |
 | Fim | O tempo após o qual a Azure CDN já não pode aceder ao ficheiro blob. Os ficheiros previamente em cache no Azure CDN ainda estão acessíveis. Para controlar o prazo de validade do ficheiro, ou desvenda o prazo de validade adequado no token de segurança Azure CDN ou purga o ativo. |

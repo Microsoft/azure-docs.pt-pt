@@ -4,10 +4,10 @@ description: Aprenda a trabalhar com parâmetros de matriz e expressões linguí
 ms.date: 10/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220750"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matrizes em recursos Azure
@@ -629,7 +629,7 @@ Para cada exemplo de condição abaixo, `<field>` substitua por `"field": "Micro
 
 Os seguintes resultados são o resultado da combinação da condição e da regra da política de exemplo e da matriz dos valores existentes acima:
 
-|Condição |Resultado | Cenário |Explicação |
+|Condição |Resultado | Scenario |Explicação |
 |-|-|-|-|
 |`{<field>,"notEquals":"127.0.0.1"}` |Nenhumas |Nenhum combina |Um elemento de matriz avalia como falso (127.0.0.1 != 127.0.0.1) e um como verdadeiro (127.0.0.1 != 192.168.1.1), pelo que a condição **notEquals** é _falsa_ e o efeito não é acionado. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Efeito político |Nenhum combina |Ambos os elementos de matriz avaliam como verdadeiros (10.0.4.1 != 127.0.0.1 e 10.0.4.1 != 192.168.1.1,1), pelo que a condição **notEquals** é _verdadeira_ e o efeito é desencadeado. |

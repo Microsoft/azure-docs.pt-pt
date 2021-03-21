@@ -4,10 +4,10 @@ description: Este artigo fornece orientações sobre como configurar um portão 
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.openlocfilehash: afcec7c03f1353f08b58311278f5a533e0c911bc
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410798"
 ---
 # <a name="configure-a-signal-gate-for-event-based-video-recording"></a>Configurar um portão de sinal para gravação de vídeo baseada em eventos
@@ -58,10 +58,10 @@ As identificações de correlação estão definidas para cada evento. Estes IDs
 
 ### <a name="parameters-based-on-the-physical-time-that-events-arrive-at-the-signal-gate"></a>Parâmetros, com base no tempo físico que os eventos chegam ao portão de sinalização
 
-* **Mínimo de Ativação Tempo (a duração mais curta possível de uma gravação)** : O número mínimo de segundos que o processador do portão de sinal permanece aberto após o seu desencadeamento para receber novos eventos, a menos que seja interrompido pelo Tempo máximo de Ativação.
-* **MáximaActivaçãoTime (duração mais longa possível de uma gravação)** : O número máximo de segundos do evento inicial de que o processador do portão de sinal permanece aberto após ter sido acionado para receber novos eventos, independentemente dos eventos recebidos.
-* **activaçãoSignalOffset** : O número de segundos entre a ativação do processador do portão de sinal e o início da gravação de vídeo. Normalmente, este valor é negativo porque inicia a gravação antes do evento de desencadeamento.
-* **activaçãoEvaluationWindow** : A partir do evento inicial de desencadeamento, o número de segundos em que um evento ocorrido antes do evento inicial, em tempo de mídia, deve chegar ao processador do portão de sinal antes de ser ignorado e considerado uma chegada tardia.
+* **Mínimo de Ativação Tempo (a duração mais curta possível de uma gravação)**: O número mínimo de segundos que o processador do portão de sinal permanece aberto após o seu desencadeamento para receber novos eventos, a menos que seja interrompido pelo Tempo máximo de Ativação.
+* **MáximaActivaçãoTime (duração mais longa possível de uma gravação)**: O número máximo de segundos do evento inicial de que o processador do portão de sinal permanece aberto após ter sido acionado para receber novos eventos, independentemente dos eventos recebidos.
+* **activaçãoSignalOffset**: O número de segundos entre a ativação do processador do portão de sinal e o início da gravação de vídeo. Normalmente, este valor é negativo porque inicia a gravação antes do evento de desencadeamento.
+* **activaçãoEvaluationWindow**: A partir do evento inicial de desencadeamento, o número de segundos em que um evento ocorrido antes do evento inicial, em tempo de mídia, deve chegar ao processador do portão de sinal antes de ser ignorado e considerado uma chegada tardia.
 
 > [!NOTE]
 > Uma *chegada tardia* é qualquer evento que chegue após a janela de avaliação de ativação ter passado, mas que chega antes do evento inicial em tempo de media.
@@ -69,22 +69,22 @@ As identificações de correlação estão definidas para cada evento. Estes IDs
 ### <a name="limits-of-parameters"></a>Limites dos parâmetros
 
 * **activaçãoEvaluationWindow:** 0 segundos a 10 segundos
-* **activationSignalOffset** : -1 minuto a 1 minuto
+* **activationSignalOffset**: -1 minuto a 1 minuto
 * **Mínimo DeActivação Tempo:** 1 segundo a 1 hora
 * **máxima de ativação Tempo** de 1 segundo a 1 hora
 
 
 No caso de utilização, definiria os parâmetros da seguinte forma:
 
-* **activaçãoEvaluationWindow** : *K* segundos
-* **activationSignalOffset** : *-X* segundos
-* **ativação mínimaWindow** : *Y* segundos
-* **máximaActivaçãoWindow** : *Z* segundos
+* **activaçãoEvaluationWindow**: *K* segundos
+* **activationSignalOffset**: *-X* segundos
+* **ativação mínimaWindow**: *Y* segundos
+* **máximaActivaçãoWindow**: *Z* segundos
 
 
 Aqui está um exemplo de como a secção de nó **do processador signal Gate** iria olhar numa topologia de gráficos de mídia para os seguintes valores de parâmetro:
 * **activaçãoEvaluationWindow:** 1 segundo
-* **activaçãoSignalOffset** : -5 segundos
+* **activaçãoSignalOffset**: -5 segundos
 * **Mínimo de Ativação Tempo:** 20 segundos
 * **máxima de ativação Tempo:** 40 segundos
 

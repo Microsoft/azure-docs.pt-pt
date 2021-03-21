@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500772"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
@@ -23,7 +23,7 @@ A azure gere discos atualmente oferece quatro tipos de disco, cada tipo é direc
 
 A tabela seguinte fornece uma comparação de discos ultra, unidades de estado sólido premium (SSD), SSD padrão e drives de disco rígido padrão (HDD) para discos geridos para ajudá-lo a decidir o que usar.
 
-| Detalhe | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Detalhes | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](workloads/sap/hana-vm-operations-storage.md)bases de dados de nível superior (por exemplo, SQL, Oráculo) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco utilizadas e dev/test   |Cópia de segurança, acesso pouco frequente e não crítico   |

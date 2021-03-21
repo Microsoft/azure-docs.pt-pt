@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: radeltch
 ms.openlocfilehash: a4c4631a0a1263e5a5398c44a8570f92571102e8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045841"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP
@@ -86,7 +86,7 @@ Leia primeiro as seguintes notas e artigos SAP:
 > [!IMPORTANT]
 > ATENÇÃO: Tenha em atenção que a instalação de um sistema SAP com SWPM sobre ações SMB, hospedada no volume [SMB dos Ficheiros Azure NetApp,][anf-azure-doc] pode falhar com um erro de instalação por permissões insuficientes como "avisoPerm não está definido". Para evitar o erro, o utilizador em que o contexto SWPM é executado, necessita de um privilégio elevado "Domain Admin" durante a instalação do sistema SAP.  
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A SAP desenvolveu uma nova abordagem, e uma alternativa aos discos partilhados do cluster, para agrupar uma instância SAP ASCS/SCS num cluster de falha do Windows. Em vez de usar discos partilhados de cluster, pode-se usar uma partilha de ficheiros SMB para implementar ficheiros de anfitriões globais SAP. O Azure NetApp Files suporta o SMBv3 (juntamente com o NFS) com a NTFS ACL utilizando o Ative Directory. O Azure NetApp Files está automaticamente altamente disponível (uma vez que é um serviço PaaS). Estas funcionalidades tornam a Azure NetApp Files uma ótima opção para hospedar a partilha de ficheiros SMB para a SAP global.  
 Tanto os [Serviços de Domínio Azure Ative (AD)](../../../active-directory-domain-services/overview.md) como [os Serviços de Domínio do Diretório Ativo (DS AD)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) são suportados. Pode utilizar controladores de domínio ative diretório existentes com ficheiros Azure NetApp. Os controladores de domínio podem estar em Azure como máquinas virtuais, ou nas instalações via ExpressRoute ou S2S VPN. Neste artigo, usaremos o controlador de domínio num VM Azure.  

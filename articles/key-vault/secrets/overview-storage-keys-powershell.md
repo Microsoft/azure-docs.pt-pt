@@ -10,10 +10,10 @@ manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3bced101516e91259ea9018fe3c4aa44f867cbe6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023113"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir chaves de conta de armazenamento com Key Vault e Azure PowerShell
@@ -34,7 +34,7 @@ Quando utilizar a função chave da conta de armazenamento gerida, considere os 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="service-principal-application-id"></a>ID de aplicação principal de serviço
+## <a name="service-principal-application-id"></a>ID de aplicação do principal de serviço
 
 Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](../../active-directory/develop/developer-glossary.md#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via Azure RBAC.
 
@@ -51,7 +51,7 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-az-ps).
-- [Criar um cofre chave](quick-create-powershell.md)
+- [Criar um cofre de chaves](quick-create-powershell.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
 
 

@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
 ms.openlocfilehash: 290a1e8da4e9b3e8eff171ab2d5837bfc9c381b9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552427"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Gerir atualizações da plataforma com o Controlo de Manutenção 
