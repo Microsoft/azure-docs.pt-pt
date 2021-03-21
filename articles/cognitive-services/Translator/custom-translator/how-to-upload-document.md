@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 83cce31d3eee9b5cca7b54e996e41a270fec0030
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896399"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
@@ -84,7 +84,7 @@ Na página de histórico de upload pode ver o histórico de todos os documentos 
 
 3. Clique em qualquer registo histórico de upload. Na página de dados do histórico do upload, pode ver os ficheiros carregados como parte do upload, o estado do upload do ficheiro, o idioma do ficheiro e a mensagem de erro (se houver algum erro no upload).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Use a [página de detalhes](how-to-view-document-details.md) do documento para rever a lista de frases extraídas.
 - [Como treinar um modelo.](how-to-train-model.md)

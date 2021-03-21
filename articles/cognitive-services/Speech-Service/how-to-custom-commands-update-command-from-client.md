@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: nitinme
 ms.openlocfilehash: 08c674a7a7ec060a4273836064cb1c21e979e725
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97560292"
 ---
 # <a name="update-a-command-from-a-client-app"></a>Atualizar um comando a partir de uma aplicação de cliente

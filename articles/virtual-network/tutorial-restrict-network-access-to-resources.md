@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
 ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368298"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso de rede para recursos de PaaS com pontos finais de serviço de rede virtual através do portal do Azure
@@ -53,8 +53,8 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    |----|----|
    |Subscrição| Selecione a sua subscrição|
    |Grupo de recursos | Selecione **Criar novo** e introduza *myResourceGroup*.|
-   |Nome| Insira *myVirtualNetwork* |
-   |Região| Selecione **(EUA) Leste dos EUA** |
+   |Name| Insira *myVirtualNetwork* |
+   |Region| Selecione **(EUA) Leste dos EUA** |
 
    ![Introduza as informações básicas sobre a sua rede virtual](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -114,7 +114,7 @@ Por predefinição, todas as instâncias de máquina virtual numa sub-rede podem
     |----|----|
     |Subscrição| Selecione a sua subscrição|
     |Grupo de recursos | Selecione *myResourceGroup* da lista|
-    |Nome| Insira **myNsgPrivate** |
+    |Name| Insira **myNsgPrivate** |
     |Localização| Selecione **E.U.A. Leste**. |
 
 5. Clique **em Rever + criar**, e quando a verificação de validação for passada, clique em **Criar**.
@@ -147,7 +147,7 @@ Por predefinição, todas as instâncias de máquina virtual numa sub-rede podem
     |Protocolo|Qualquer|
     |Ação|**Alterar o padrão de *Negar*** |
     |Prioridade|110|
-    |Nome|Alteração para *Deny-Internet-All*|
+    |Name|Alteração para *Deny-Internet-All*|
 
 11. Crie uma *regra de segurança de entrada* que permita o tráfego do Protocolo de Ambiente de Trabalho Remoto (RDP) para a sub-rede a partir de qualquer lugar. A regra substitui uma regra de segurança predefinida que nega todo o tráfego de entrada a partir da Internet. As ligações de ambiente de trabalho remoto são permitidas para a sub-rede, para que a conectividade possa ser testada num passo posterior. 
 12. Em **Definições**, selecione **regras de segurança de entrada**.
@@ -162,7 +162,7 @@ Por predefinição, todas as instâncias de máquina virtual numa sub-rede podem
     |Protocolo|Qualquer|
     |Ação|Permitir|
     |Prioridade|120|
-    |Nome|Alteração para *Allow-RDP-All*|
+    |Name|Alteração para *Allow-RDP-All*|
 
    >[!WARNING] 
    > A porta RDP 3389 está exposta à Internet. Isto só é recomendado para testes. Para *ambientes de produção,* recomendamos a utilização de uma ligação VPN ou privada.
@@ -254,7 +254,7 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
    |Subscrição| Selecione a sua subscrição|
    |Grupo de recursos| Selecione **myResourceGroup, que foi criado anteriormente.|
    |Nome da máquina virtual| Insira *myVmPublic*|
-   |Região | (EUA) E.U.A Leste
+   |Region | (EUA) E.U.A Leste
    |Opções de disponibilidade| Zona de disponibilidade|
    |Zona de disponibilidade | 1 |
    |Imagem | Windows Server 2019 Datacenter - Gen1 |

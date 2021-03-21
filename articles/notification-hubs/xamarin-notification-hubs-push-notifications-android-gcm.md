@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push para aplicações Xamarin.Android usando Azure Notification Hubs Microsoft Docs
+title: Envie notificações push para aplicações Xamarin.Android usando Azure Notification Hubs | Microsoft Docs
 description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Xamarin Android.
 author: sethmanheim
 manager: femila
@@ -18,10 +18,10 @@ ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
 ms.openlocfilehash: e7d4206de1e097c30e9f5e96bbd935e94892ce0e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98221039"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações Xamarin.Android usando Centros de Notificação
@@ -91,7 +91,7 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
     1. Selecione **Sim** na caixa de mensagens para continuar a alterar a estrutura-alvo.
 1. Adicione pacotes NuGet necessários ao projeto seguindo estes passos:
     1. Clique com o botão direito do rato no projeto e selecione **Gerir Pacotes NuGet...**.
-    1. Mude para o separador **Instalado,** selecione **Xamarin.Android.Support.Design** e selecione **Update** in the right pane para atualizar o pacote para a versão mais recente.
+    1. Mude para o separador **Instalado,** selecione **Xamarin.Android.Support.Design** e selecione **Update** no painel direito para atualizar o pacote para a versão mais recente.
     1. Mude para o separador **Procurar.** Pesquisa por **Xamarin.GooglePlayServices.Base**. Selecione **Xamarin.GooglePlayServices.Base** na lista de resultados. Em seguida, selecione **Instalar**.
 
         ![NuGet dos Serviços do Google Play](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)

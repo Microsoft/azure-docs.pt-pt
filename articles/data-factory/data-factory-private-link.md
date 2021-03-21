@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
 ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389183"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para o Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Ao utilizar o Azure Private Link, pode ligar-se a várias plataformas como um serviço (PaaS) implementações em Azure através de um ponto final privado. Um ponto final privado é um endereço IP privado dentro de uma rede virtual específica e sub-rede. Para obter uma lista de implementações paaS que suportam a funcionalidade Private Link, consulte [a documentação private link](../private-link/index.yml). 
+Ao utilizar o Azure Private Link, pode ligar-se a várias plataformas como um serviço (PaaS) implementações em Azure através de um ponto final privado. Um ponto final privado é um endereço IP privado numa rede virtual e sub-rede específicas. Para obter uma lista de implementações paaS que suportam a funcionalidade Private Link, consulte [a documentação private link](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Comunicação segura entre as redes de clientes e a Azure Data Factory 
-Pode configurar uma rede virtual Azure como uma representação lógica da sua rede na nuvem. Ao fazê-lo, proporciona os seguintes benefícios:
-* Ajudas a proteger os teus recursos Azure de ataques em redes públicas.
-* Deixa as redes e a Data Factory comunicarem-se de forma segura entre si. 
+Pode configurar uma rede virtual do Azure como uma representação lógica da rede na cloud. Ao fazê-lo, tem as seguintes vantagens:
+* Ajuda a proteger os recursos do Azure contra ataques em redes públicas.
+* Permite que as redes e o Data Factory comuniquem de forma segura entre si. 
 
-Também pode ligar uma rede no local à sua rede virtual através da criação de uma ligação VPN (site-to-site) de segurança do Protocolo de Internet (site-to-site) ou uma ligação Azure ExpressRoute (peering privado). 
+Também pode ligar uma rede no local à rede virtual através da configuração de uma ligação VPN (site a site) de segurança IPsec ou uma ligação do Azure ExpressRoute (peering privado). 
 
-Também pode instalar um tempo de integração auto-hospedado numa máquina no local ou numa máquina virtual na rede virtual. Ao fazê-lo, permite-lhe:
-* Executar atividades de cópia entre uma loja de dados em nuvem e uma loja de dados em uma rede privada.
-* Despachar atividades de transformação contra recursos de computação numa rede no local ou numa rede virtual Azure. 
+Também pode instalar um tempo de integração auto-hospedado numa máquina no local ou numa máquina virtual na rede virtual. Ao fazê-lo, poderá:
+* Executar atividades de cópia entre um arquivo de dados na cloud e um arquivo de dados numa rede privada.
+* Distribuir atividades de transformação nos recursos de computação numa rede no local ou numa rede virtual do Azure. 
 
 São necessários vários canais de comunicação entre a Azure Data Factory e a rede virtual do cliente, como mostra o seguinte quadro:
 
@@ -74,16 +74,16 @@ Para o exemplo ilustrado acima, os registos de recursos DNS para a Data Factory 
 
 | Nome | Tipo | Valor |
 | ---------- | -------- | --------------- |
-| DataFactorya. {region}.datafactory.azure.net | CNAME   | DataFactorya. {region}.privatelink.datafactory.azure.net |
-| DataFactorya. {region}.privatelink.datafactory.azure.net | CNAME   | < serviço de fábrica de dados > |
+| DataFactorya. {região}.datafactory.azure.net | CNAME   | DataFactorya. {região}.privatelink.datafactory.azure.net |
+| DataFactorya. {região}.privatelink.datafactory.azure.net | CNAME   | < serviço de fábrica de dados > |
 | < serviço de fábrica de dados >  | A | < serviço de fábrica de dados > de endereço IP público |
 
 Os registos de recursos DNS para DataFactoryA, quando resolvidos no VNet que alberga o ponto final privado, serão:
 
 | Nome | Tipo | Valor |
 | ---------- | -------- | --------------- |
-| DataFactorya. {region}.datafactory.azure.net | CNAME   | DataFactorya. {region}.privatelink.datafactory.azure.net |
-| DataFactorya. {region}.privatelink.datafactory.azure.net   | A | < endereço IP de ponto final privado > |
+| DataFactorya. {região}.datafactory.azure.net | CNAME   | DataFactorya. {região}.privatelink.datafactory.azure.net |
+| DataFactorya. {região}.privatelink.datafactory.azure.net   | A | < endereço IP de ponto final privado > |
 
 Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o FQDN para o ponto final da Data Factory para o endereço IP do ponto final privado. Deverá configurar o seu servidor DNS para delegar o seu subdomínio de ligação privada para a zona privada de DNS para o VNet, ou configurar os registos A para ' DataFactoryA. {region}.privatelink.datafactory.azure.net' com o endereço IP do ponto final privado.
 

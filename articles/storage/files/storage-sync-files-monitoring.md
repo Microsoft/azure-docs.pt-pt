@@ -8,10 +8,10 @@ ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202506"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
@@ -42,7 +42,7 @@ As métricas do Azure File Sync são ativadas por predefinição e são enviadas
 
 As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sync:
 
-| Nome da métrica | Descrição |
+| Nome da métrica | Description |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregar e transferir).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recuperação de camadas de nuvem | Tamanho dos dados recordados.<br><br>**Nota:** Esta métrica será removida no futuro. Utilize a métrica do tamanho da recolha de camadas cloud para monitorizar o tamanho dos dados recolhidos.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
@@ -118,7 +118,7 @@ Para visualizar a saúde de um **ponto final** do servidor no portal, navegue pa
 
 - As seguintes tabelas métricas são visualizadas no portal do Serviço de Sincronização de Armazenamento:
 
-  | Nome da métrica | Descrição | Nome da lâmina |
+  | Nome da métrica | Description | Nome da lâmina |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo sincronizado, ponto final do servidor |
   | Recuperação de camadas de nuvem | Tamanho dos dados recordados | Servidores registados |
@@ -178,7 +178,7 @@ Para ver os contadores de desempenho do Azure File Sync no servidor, abra o Moni
 
 Os seguintes contadores de desempenho para Azure File Sync estão disponíveis no Monitor de Desempenho:
 
-| Objeto de desempenho\Nome do contador | Descrição |
+| Objeto de desempenho\Nome do contador | Description |
 |-|-|
 | AFS Bytes Transferido\Downloaded Bytes/sec | Número de bytes descarregados por segundo. |
 | AFS Bytes transferido\Uploaded Bytes/sec | Número de bytes carregados por segundo. |

@@ -9,10 +9,10 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936044"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Quickstart: Azure Key Vault Certificate client library for Java (Certificados)
@@ -20,7 +20,7 @@ Começa com a biblioteca de clientes do Azure Key Vault Certificate para a Java.
 
 Recursos adicionais:
 
-* [Código de origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates)
+* [Código fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates)
 * [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java/keyvault.html)
 * [Documentação do produto](index.yml)
 * [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)

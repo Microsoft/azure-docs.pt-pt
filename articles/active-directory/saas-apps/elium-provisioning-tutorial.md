@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Elium para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar Elium para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores ao Elium.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005508"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configure Elium para o fornecimento automático de utilizadores
@@ -51,7 +51,7 @@ Ao atribuir um utilizador a Elium, deve selecionar uma função válida e espec�
 
 Antes de configurar Elium para o fornecimento automático de utilizadores com Azure AD, deve ativar o fornecimento do Sistema de Gestão de Identidade de Domínio Cruzado (SCIM) em Elium. Siga estes passos:
 
-1. Inscreva-se no Elium e vá às **Definições do Meu Perfil**  >  **Settings**.
+1. Inscreva-se no Elium e vá às **Definições do Meu Perfil**  >  .
 
     ![Item do menu de definições em Elium](media/Elium-provisioning-tutorial/setting.png)
 

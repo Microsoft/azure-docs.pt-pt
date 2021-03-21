@@ -8,10 +8,10 @@ ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dc61792da669cd5d2c928eec0fd412d86725fc8c
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204429"
 ---
 # <a name="how-to-manage-tiered-files"></a>Como gerir ficheiros hierárquicos

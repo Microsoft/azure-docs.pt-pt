@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791884"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Funções de chamada de Azure Logic Apps
@@ -313,6 +313,6 @@ Agora está pronto para configurar a autenticação Azure AD para a sua aplicaç
 
 1. Volte ao Designer de Aplicações Lógica e siga os [passos para autenticar o acesso com a identidade gerida.](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais [sobre os conectores de Aplicações Lógicas](../connectors/apis-list.md)

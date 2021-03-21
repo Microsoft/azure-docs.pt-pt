@@ -13,10 +13,10 @@ ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
 ms.openlocfilehash: 32f79f24df6fe705146b39750c710450ef8f1f7b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735946"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configure uma aplicação OpenID/OAuth da galeria de aplicações AZure AD
@@ -158,6 +158,6 @@ O parâmetro *prompt=admin_consent* também pode ser usado por aplicações que 
 
 Imagine que uma aplicação requer consentimento administrativo, e um sinal de administração sem o parâmetro *de prompt=admin_consent* sendo enviado. Quando o administrador consente com sucesso na aplicação, aplica-se apenas à sua conta de utilizador. Os utilizadores regulares continuarão a não conseguir iniciar sê-lo ou consentir a aplicação. Esta funcionalidade é útil se quiser dar ao administrador inquilino a capacidade de explorar a sua aplicação antes de permitir o acesso de outros utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)](../manage-apps/add-application-portal-setup-oidc-sso.md)

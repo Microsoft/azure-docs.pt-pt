@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001529"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
@@ -119,7 +119,7 @@ Para adicionar o armazenamento Blob depois de criar o cluster, siga estes passos
 
    ![Portal Azure GUI para copiar a chave](media/avere-vfxt-copy-storage-key.png)
 
-1. Abra o Painel de Controlo avere para o seu cluster. Clique em **Definições** e, em seguida, abra as **Cluster**  >  **credenciais de nuvem** de cluster no painel de navegação à esquerda. Na página Cloud Credentials, clique **em Adicionar Credencial.**
+1. Abra o Painel de Controlo avere para o seu cluster. Clique em **Definições** e, em seguida, abra as   >  **credenciais de nuvem** de cluster no painel de navegação à esquerda. Na página Cloud Credentials, clique **em Adicionar Credencial.**
 
    ![Clique no botão Adicionar Credencial na página de configuração de Credenciais de Nuvem](media/avere-vfxt-new-credential-button.png)
 
@@ -172,7 +172,7 @@ Mais informações sobre junções podem ser encontradas na [secção de espaço
 
 Siga estes passos na interface do Painel de Controlo avere:
 
-* Clique no espaço de nome **VServer**  >  **Namespace** na parte superior esquerda.
+* Clique no espaço de nome **VServer**  >   na parte superior esquerda.
 * Providenciar um caminho de espaço de nome começando com / (barra para a frente), como ``/vfxt/data`` .
 * Escolha o seu ficheiro principal.
 * Escolha a exportação de filetes principais.

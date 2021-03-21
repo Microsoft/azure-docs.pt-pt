@@ -1,5 +1,5 @@
 ---
-title: Tutorial para filtrar, analisar dados com computação no Azure Stack Edge Pro com GPU Microsoft Docs
+title: Tutorial para filtrar, analisar dados com computação no Azure Stack Edge Pro com GPU | Microsoft Docs
 description: Aprenda a configurar o papel de computação no dispositivo GPU Azure Stack Edge Pro e use-o para transformar dados antes de enviar para o Azure.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935504"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformar dados com Azure Stack Edge Pro
@@ -25,7 +25,7 @@ Este tutorial descreve como configurar um papel computacional no seu dispositivo
 Este procedimento pode demorar cerca de 10 a 15 minutos para ser concluído.
 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure computação
@@ -58,7 +58,7 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
    |--------|---------|
    |Subscrição      | Subscrição utilizada pelo recurso Azure Stack Edge. |
    |Grupo de recursos    | Grupo de recursos utilizado pelo recurso Azure Stack Edge. |
-   |IoT Hub           | Escolha entre **criar novo** ou **utilizar existente.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+   |IoT Hub           | Escolha entre **criar novo** ou **utilizar existente.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT utiliza a mesma subscrição e o mesmo grupo de recursos utilizados pelo recurso do Azure Stack Edge.     |
    |Name              | Se não quiser utilizar o nome padrão fornecido para um novo recurso IoT Hub, insira um nome diferente. |
 
     ![Começar com o compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
@@ -120,7 +120,7 @@ Pode adicionar um módulo personalizado ou pré-construído. Não existem módul
 
 Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que criou no [Develop a C# module para o seu Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Este módulo personalizado retira ficheiros de uma partilha local edge no dispositivo Edge e move-os para uma partilha edge (cloud) no dispositivo. A partilha em nuvem empurra então os ficheiros para a conta de armazenamento Azure que está associada à partilha da nuvem.
 
-1. Vá ao **Edge compute > Começar**. No azulejo dos **módulos Add,** selecione o tipo de cenário como **simples**. Selecione **Add** (Adicionar).
+1. Vá ao **Edge compute > Começar**. No azulejo dos **módulos Add,** selecione o tipo de cenário como **simples**. Selecione **Adicionar**.
 2. No **Configure e adicione** a lâmina do módulo, insira os seguintes valores:
 
     
@@ -137,7 +137,7 @@ Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que cr
 
     ![Adicionar e configurar módulo](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-1.png)
 
-3. Selecione **Add** (Adicionar). O módulo é adicionado. Vá à página **geral.** Os **módulos** de azulejos atualizações para indicar que o módulo está implantado. 
+3. Selecione **Adicionar**. O módulo é adicionado. Vá à página **geral.** Os **módulos** de azulejos atualizações para indicar que o módulo está implantado. 
 
     ![Módulo implantado](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-2.png)
 

@@ -4,10 +4,10 @@ description: Este artigo descreve como pode parar de monitorizar o seu Azure Red
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 09ca05a25ce9bb02b8a3d515acf060e2e9e7e8c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731804"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Como parar de monitorizar o seu cluster Azure e Red Hat OpenShift v4

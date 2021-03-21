@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
 ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585405"
 ---
 # <a name="trusted-storage-for-media-services"></a>Armazenamento fidedigno para Serviços de Mídia

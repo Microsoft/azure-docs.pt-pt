@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96519047"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para MySQL utilizando o Azure CLI
@@ -51,12 +51,12 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
     ```
 
-* A chave deve ter os seguintes atributos para usar como chave gerida pelo cliente:
-  * Sem data de validade
-  * Não incapacitado
+* A chave deve ter os seguintes atributos para a utilizar como uma chave gerida pelo cliente:
+  * Não tem uma data de validade
+  * Não está desativada
   * Executar **obter,** **embrulhar,** **desembrulhar** operações
   * atributo de nível de recuperação definido para **Recuperável** (isto requer eliminação suave ativada com período de retenção definido para 90 dias)
-  * Proteção de purga ativada
+  * Tem a proteção de remoção ativada
 
 Pode verificar os atributos acima da chave utilizando o seguinte comando:
 

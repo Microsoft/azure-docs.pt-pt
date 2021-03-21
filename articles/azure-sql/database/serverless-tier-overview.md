@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 2/22/2021
 ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101658593"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Serverless é um nível de cálculo para bases de dados individuais na Base de Dados Azure SQL que escala automaticamente o cálculo com base na procura de carga de trabalho e contas para a quantidade de cálculo utilizado por segundo. O nível de computação sem servidor também interrompe automaticamente as bases de dados durante períodos inativos quando apenas o armazenamento é faturado e retoma automaticamente as bases de dados quando a atividade retorna.
+Sem servidor é um escalão de computação para bases de dados individuais na Base de Dados Azure SQL do Azure que dimensiona automaticamente a computação com base na procura da carga de trabalho e nas fatura a quantidade de computação utilizada por segundo. O nível de computação sem servidor também coloca automaticamente em pausa as bases de dados durante períodos inativos quando apenas o armazenamento é faturado e retoma automaticamente as bases de dados quando a atividade é retomada.
 
 ## <a name="serverless-compute-tier"></a>Escalão de serviço de computação sem servidor
 

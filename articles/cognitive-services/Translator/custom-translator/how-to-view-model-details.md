@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 11f39aa480e3ba6508bf730c61891e80ea689e8b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895956"
 ---
 # <a name="view-model-details"></a>Ver detalhes do modelo
@@ -91,6 +91,6 @@ A página do modelo tem dois separadores: Detalhes de treino e Teste.
 
 2.  **Teste:** Este separador mostra os detalhes do teste para um treino bem sucedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja [os resultados dos testes](how-to-view-system-test-results.md) e analise os resultados da formação.

@@ -4,10 +4,10 @@ description: Saiba quais as línguas apoiadas (GA) e que estão em pré-visualiz
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98108556"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Línguas apoiadas em Funções Azure

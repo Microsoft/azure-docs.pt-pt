@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: seodec18, has-adal-ref, devx-track-csharp
 ms.openlocfilehash: f6acf23742b8d4c5c31a5ea952aba5c76b64cae0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896736"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas e quotas do Batch com a biblioteca de clientes de Batch Management para .NET
@@ -152,7 +152,7 @@ Para ver a Gestão de Lotes .NET em ação, consulte o projeto de amostra [de Ge
 
 Para executar a aplicação da amostra com sucesso, você deve primeiro registrá-lo com o seu inquilino AZure AD no portal Azure e conceder permissões à API Gestor de Recursos Azure. Siga os passos fornecidos nas [soluções de Gestão de Lotes Autenticados com Diretório Ativo.](batch-aad-auth-management.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes quickstarts guiam-no através de uma aplicação de amostra que utiliza o serviço Batch para executar uma carga de trabalho em múltiplos nós computacionais, utilizando o Azure Storage para a paragem de ficheiros de carga de trabalho e recuperação.git pus

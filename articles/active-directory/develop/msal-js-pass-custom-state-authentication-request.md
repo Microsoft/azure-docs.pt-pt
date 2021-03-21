@@ -1,5 +1,5 @@
 ---
-title: Passe estado personalizado em pedidos de autenticação (MSAL.js) / Rio Azure
+title: Passe o estado personalizado em pedidos de autenticação (MSAL.js) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como passar um valor de parâmetro de estado personalizado no pedido de autenticação utilizando a Biblioteca de Autenticação do Microsoft para JavaScript (MSAL.js).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5c1fad96ea6e3b75b3afdfd4a4d3baac43308541
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063676"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passe o estado personalizado em pedidos de autenticação usando MSAL.js

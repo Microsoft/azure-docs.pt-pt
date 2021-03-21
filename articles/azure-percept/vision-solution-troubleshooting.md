@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: e7351079e7325aa7750dc0d10f0923bc847ccc3c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101663518"
 ---
 # <a name="vision-solution-troubleshooting"></a>Resolução de problemas da solução de visão
@@ -72,7 +72,7 @@ Se o estado de funcionamento do **azureeyemodule** não estiver listado como **f
 
 Veja o fluxo de vídeo RTSP do seu dispositivo no [Azure Percept Studio](./how-to-view-video-stream.md) ou [no leitor de mídia VLC](https://www.videolan.org/vlc/index.html).
 
-Para abrir o stream RTSP no leitor de mídia VLC, vá ao **Media**  ->  **Open stream**  ->  **rtsp://[endereço IP do dispositivo]/resultado**.
+Para abrir o fluxo RTSP no leitor de mídia VLC, vá ao stream de rede **Media**  ->  **Open**  ->  **rtsp://[endereço IP do dispositivo]/resultado**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

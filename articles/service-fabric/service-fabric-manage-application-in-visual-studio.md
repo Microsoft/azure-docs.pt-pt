@@ -4,10 +4,10 @@ description: Utilize o Visual Studio para criar, desenvolver, embalar, implement
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.openlocfilehash: 1fd9295a0dead180767febcc5339ef0a25cb1e48
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574552"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilize o Visual Studio para simplificar a escrita e gerir as suas aplicações de Tecido de Serviço

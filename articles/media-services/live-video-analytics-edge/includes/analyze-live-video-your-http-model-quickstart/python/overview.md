@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 0e800668bea2f744f8862292b21be814858b0c16
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97486842"
 ---
 > [!div class="mx-imgBorder"]

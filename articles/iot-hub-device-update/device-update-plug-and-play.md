@@ -7,10 +7,10 @@ ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 227488f165aaad2f204c647eed17467a4ef561a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101663403"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Atualização do dispositivo para IoT Hub e IoT Plug e Play
@@ -50,7 +50,7 @@ O Agente Metadados contém campos que o agente de atualização do dispositivo o
 
 É o conjunto de propriedades que contêm o fabricante e o modelo.
 
-|Name|Esquema|Direção|Descrição|
+|Name|Esquema|Direção|Description|
 |----|------|---------|-----------|
 |manufacturer|string|dispositivo para nuvem|O fabricante do dispositivo, relatado através `deviceProperties` de . Esta propriedade é lida a partir de um de dois lugares - a interface 'AzureDeviceUpdateCore' tentará primeiro ler o valor 'aduc_manufacturer' a partir do ficheiro [de ficheiros Configuração.](device-update-configuration-file.md)  Se o valor não for preenchido no ficheiro de configuração, por defeito reportará a definição de tempo de compilação para ADUC_DEVICEPROPERTIES_MANUFACTURER. Esta propriedade só será reportada na hora do arranque.|
 |model|string|dispositivo para nuvem|O modelo do dispositivo, relatado através `deviceProperties` de . Esta propriedade é lida a partir de um de dois lugares - a interface AzureDeviceUpdateCore tentará primeiro ler o valor 'aduc_model' a partir do ficheiro [de ficheiros Configuração.](device-update-configuration-file.md)  Se o valor não for preenchido no ficheiro de configuração, por defeito reportará a definição de tempo de compilação para ADUC_DEVICEPROPERTIES_MODEL. Esta propriedade só será reportada na hora do arranque.|
@@ -61,7 +61,7 @@ O Agente Metadados contém campos que o agente de atualização do dispositivo o
 
 Os metadados de serviço contêm campos que os serviços de Atualização do Dispositivo utilizam para comunicar ações e dados ao agente de Atualização do Dispositivo.
 
-|Name|Esquema|Direção|Descrição|
+|Name|Esquema|Direção|Description|
 |----|------|---------|-----------|
 |ação|número inteiro|nuvem para dispositivo|É um inteiro que corresponde a uma ação que o agente deve executar. Valores listados abaixo.|
 |updateManifest|string|nuvem para dispositivo|Usado para descrever o conteúdo de uma atualização. Gerado a partir do [Manifesto de Importação](import-update.md#create-device-update-import-manifest)|

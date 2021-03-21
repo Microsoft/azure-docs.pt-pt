@@ -4,10 +4,10 @@ description: Como montar uma partilha de Ficheiros Azure a partir de nós de com
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: e5682e7ba853973592c3a650a06ce72615cec7b6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735499"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Use uma partilha de ficheiros Azure com uma piscina de Lote
@@ -33,7 +33,7 @@ ms.locfileid: "98735499"
 
 Consulte a documentação sobre como [montar um sistema de ficheiros virtual numa piscina de Lote](virtual-file-mount.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para outras opções para ler e escrever dados em Batch, consulte [a saída de trabalho e tarefa de Persist](batch-task-output.md).
 * Consulte também o conjunto de [ferramentas](https://github.com/Azure/batch-shipyard/tree/master/recipes) [do Estaleiro batch,](https://github.com/Azure/batch-shipyard) que inclui receitas de estaleiro para implantar sistemas de ficheiros para cargas de carga de contentores de lotes.

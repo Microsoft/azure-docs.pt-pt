@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8dd3edd25d21bfcd0fde1bc8b5f103877d968c8a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119990"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: Use a piscina SQL sem servidor com o Power BI Desktop & criar um relatório
@@ -100,7 +100,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 
 População dos EUA por sexo e raça para cada condado dos EUA, proveniente de 2000 e 2010 Censos Decennial em formato parquet.
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /libertação/                                                    | Pasta-mãe para dados na conta de armazenamento de demonstração               |
 | /lançamento/us_population_county/                               | Ficheiros de dados populacionais dos EUA no formato Parquet, divididos por ano usando o esquema de partição hive/Hadoop. |
@@ -151,7 +151,7 @@ Crie o relatório para Power BI Desktop utilizando os seguintes passos:
 
    ![Selecione colunas de interesse para gerar um relatório de mapa.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passos:
 

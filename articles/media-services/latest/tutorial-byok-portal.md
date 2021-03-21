@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
 ms.openlocfilehash: e34649162c7a30d4ab43aa068d2c864b5c2d90e0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98955704"
 ---
 # <a name="tutorial-use-the-azure-portal-to-use-customer-managed-keys-or-byok-with-media-services"></a>Tutorial: Utilize o portal Azure para utilizar chaves geridas pelo cliente ou BYOK com Serviços de Mídia
@@ -19,7 +19,7 @@ Com a API 2020-05-01, pode utilizar uma chave RSA gerida pelo cliente com uma co
 
 Os serviços utilizados são:
 
-- Storage do Azure
+- Armazenamento do Azure
 - Azure Key Vault
 - Serviços de Multimédia do Azure
 

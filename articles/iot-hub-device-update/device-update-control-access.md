@@ -7,10 +7,10 @@ ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 07310a5b6f275d4a35a3649c22aeea68045dde8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101662840"
 ---
 # <a name="azure-role-based-access-control-rbac-and-device-update"></a>Controlo de acesso baseado em funções Azure (RBAC) e atualização do dispositivo
@@ -21,7 +21,7 @@ A Atualização do Dispositivo utiliza o Azure RBAC para fornecer autenticação
 
 Para que outros utilizadores e aplicações tenham acesso à Atualização do Dispositivo, os utilizadores ou aplicações devem ter acesso a este recurso. Aqui estão as funções que são suportadas pela Atualização do Dispositivo
 
-|   Nome da Função   | Descrição  |
+|   Nome da Função   | Description  |
 | :--------- | :---- |
 |  Administrador de atualização de dispositivos | Tem acesso a todos os recursos de atualização de dispositivos  |
 |  Leitor de atualização de dispositivos| Pode ver todas as atualizações e implementações |
