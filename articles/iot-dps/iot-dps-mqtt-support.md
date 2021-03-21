@@ -1,5 +1,5 @@
 ---
-title: Compreenda o suporte do Serviço de Fornecimento de Dispositivos IoT Azure IoT / Microsoft Docs
+title: Compreenda o suporte do serviço de fornecimento de dispositivos Azure IoT MQTT | Microsoft Docs
 description: Guia do programador - suporte para dispositivos que se liguem ao dispositivo Azure IoT Device Provisioning Service (DPS) com o protocolo MQTT.
 author: rajeevmv
 ms.service: iot-dps
@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967130"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunique com o seu DPS utilizando o protocolo MQTT

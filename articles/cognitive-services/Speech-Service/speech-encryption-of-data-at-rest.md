@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015261"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Encriptação do serviço de fala dos dados em repouso
@@ -47,7 +47,7 @@ O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto,
 > [!IMPORTANT]
 > A Microsoft **não** utiliza os dados dos clientes para melhorar os seus modelos De Discurso. Além disso, se a sessão de registo de pontos finais for desativada e não forem utilizadas personalizações, não são armazenados dados do cliente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Serviço de fala - traga o seu próprio formulário de pedido de armazenamento (BYOS)](https://aka.ms/cogsvc-cmk)
 * [O que são identidades geridas.](../../active-directory/managed-identities-azure-resources/overview.md)

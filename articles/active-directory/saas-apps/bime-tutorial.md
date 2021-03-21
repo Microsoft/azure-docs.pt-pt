@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Bime Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Bime | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Bime.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 3bbd18bc7851d4ccffca4f721f6e2aef45ff3c3d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673730"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Diretório Ativo Azure com o Bime
@@ -132,7 +132,7 @@ Para configurar o Azure AD com o Bime, execute os seguintes passos:
 
 2. Na barra de ferramentas, clique em **Administração** e, em seguida, **Conta**.
 
-    ![A screenshot mostra o item de Administração selecionado e a Conta selecionada.](./media/bime-tutorial/ic775558.png "Admin")
+    ![A screenshot mostra o item de Administração selecionado e a Conta selecionada.](./media/bime-tutorial/ic775558.png "Administrador")
 
 3. Na página de configuração da conta, execute os seguintes passos:
 
@@ -207,7 +207,7 @@ Para permitir que os utilizadores da Azure AD iniciem sessão no Bime, devem ser
 
 2. Na barra de ferramentas, clique em **Administração,** e depois **utilizadores**.
 
-    ![A screenshot mostra o item de Administração selecionado e os Utilizadores selecionados.](./media/bime-tutorial/ic775561.png "Admin")
+    ![A screenshot mostra o item de Administração selecionado e os Utilizadores selecionados.](./media/bime-tutorial/ic775561.png "Administrador")
 
 3. Na **Lista de Utilizadores,** clique **em Adicionar Novo Utilizador** ("+").
 

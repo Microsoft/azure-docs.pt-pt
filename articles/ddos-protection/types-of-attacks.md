@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
 ms.openlocfilehash: 8b213755aeed1590df3d1f5e91f44796c13c7711
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94991779"
 ---
 # <a name="types-of-ddos-attacks-overview"></a>Tipos de DDoS atacam visão geral
@@ -30,6 +30,6 @@ A Norma de Proteção DDoS pode atenuar os seguintes tipos de ataques:
 
 A DDoS Protection Standard protege os recursos numa rede virtual, incluindo endereços IP públicos associados a máquinas virtuais, equilibradores de carga e gateways de aplicações. Quando associado à firewall da aplicação web Application Gateway, ou a uma firewall de aplicação web de terceiros implantada numa rede virtual com um IP público, o DDoS Protection Standard pode fornecer capacidade de mitigação da camada completa 3 à camada 7.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um plano de proteção DDoS](manage-ddos-protection.md).

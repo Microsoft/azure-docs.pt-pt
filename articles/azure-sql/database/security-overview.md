@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
 ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94989195"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
@@ -73,7 +73,7 @@ A autorização refere-se às permissões atribuídas a um utilizador dentro de 
 
 Como uma boa prática, crie papéis personalizados quando necessário. Adicione os utilizadores ao papel com os privilégios menos necessários para fazer a sua função de trabalho. Não adtribua permissões diretamente aos utilizadores. A conta de administração do servidor é um membro da função de db_owner incorporada, que tem permissões extensivas e só deve ser concedida a poucos utilizadores com funções administrativas. Para aplicações, utilize o [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo ou utilizar [funções de aplicação](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Esta prática garante que a aplicação que se liga à base de dados tem os privilégios menos necessários pela aplicação. Seguir estas boas práticas também fomenta a separação de deveres.
 
-### <a name="row-level-security"></a>Segurança ao Nível da Linha
+### <a name="row-level-security"></a>Segurança ao nível da linha
 
 Row-Level A Segurança permite que os clientes controlem o acesso a linhas numa tabela de bases de dados com base nas características do utilizador executar uma consulta (por exemplo, membro do grupo ou contexto de execução). Row-Level Security também pode ser usado para implementar conceitos de segurança personalizados baseados em etiquetas. Para obter mais informações, consulte [a segurança de nível de linha.](/sql/relational-databases/security/row-level-security)
 
@@ -152,7 +152,7 @@ Para mais informações, consulte [Começar com a descoberta e classificação d
 
 Além das funcionalidades e funcionalidades acima referidas que podem ajudar a sua aplicação a cumprir vários requisitos de segurança, a Azure SQL Database também participa em auditorias regulares, tendo sido certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview) onde pode encontrar a lista mais atual de certificações de conformidade da Base de Dados SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma discussão sobre a utilização de logins, contas de utilizador, funções de base de dados e permissões na Base de Dados SQL e na SQL Managed Instance, consulte [Gerir logins e contas de utilizador.](logins-create-manage.md)
 - Para uma discussão sobre a auditoria da base de dados, consulte [a auditoria.](../../azure-sql/database/auditing-overview.md)

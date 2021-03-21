@@ -17,15 +17,15 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 4534584144f54618d7f3dd39cf5e40bc0464fb21
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102454990"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementar e gerir os centros de notificação utilizando o PowerShell
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este artigo mostra-lhe como utilizar Criar e Gerir os Centros de Notificação Azure utilizando o PowerShell. Neste artigo são apresentadas as seguintes tarefas comuns de automação.
 

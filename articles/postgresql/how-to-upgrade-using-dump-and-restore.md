@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96493666"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Atualize a sua base de dados PostgreSQL utilizando o despejo e o restauro
@@ -42,7 +42,7 @@ Este guia fornece poucas metodologias e exemplos de migração offline para most
 Para passar por este guia, você precisa:
 
 - Uma base de dados postgreSQL **de origem** que executa 9.5, 9.6 ou 10 que pretende atualizar
-- Um **target** servidor de base de dados postgreSQL alvo com a versão principal desejada [Azure Database para servidor PostgreSQL](quickstart-create-server-database-portal.md). 
+- Um  servidor de base de dados postgreSQL alvo com a versão principal desejada [Azure Database para servidor PostgreSQL](quickstart-create-server-database-portal.md). 
 - Um sistema de clientes PostgreSQL para executar os comandos de despejo e restauro.
   - Pode ser um cliente Linux ou Windows com postgreSQL instalado e tem [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) utilitários de linha de comando instalados. 
   - Em alternativa, pode utilizar [a Azure Cloud Shell](https://shell.azure.com) ou clicando na Casca de Nuvem Azure na barra de menus no canto superior direito do portal [Azure](https://portal.azure.com). Terá de iniciar sessão na sua conta `az login` antes de executar os comandos de despejo e restauro.
@@ -66,7 +66,7 @@ Neste guia, os seguintes servidores de origem e alvo e nomes de bases de dados s
  | ------- | ------- |
  | Servidor de origem (v9.5) | pg-95.postgres.database.azure.com |
  | Base de dados de origem | bench5gb |
- | Tamanho da base de dados de origem | 5 GB |
+ | Tamanho da base de dados de origem | 5 GB |
  | Nome do utilizador da fonte | pg@pg-95 |
  | Servidor-alvo (v11) | pg-11.postgres.database.azure.com |
  | Base de dados-alvo | bench5gb |
@@ -116,7 +116,7 @@ Se não tiver um cliente PostgreSQL ou quiser utilizar a Azure Cloud Shell, ent�
 | **Tamanho da base de dados** | **Aprox. tempo demorado** | 
 | ----- | ------ |
 | 1 GB  | 1-2 minutos |
-| 5 GB | 8-10 minutos |
+| 5 GB | 8-10 minutos |
 | 10 GB | 15-20 minutos |
 | 50 GB | 1-1,5 horas |
 | 100 GB | 2,5-3 horas|

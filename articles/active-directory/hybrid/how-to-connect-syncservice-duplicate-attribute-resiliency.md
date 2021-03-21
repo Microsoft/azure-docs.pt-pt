@@ -1,5 +1,5 @@
 ---
-title: Sincronização de identidade e duplicação de atributos resiliência Microsoft Docs
+title: Sincronização de identidade e duplicação de atributos resiliência | Microsoft Docs
 description: Novo comportamento de como lidar com objetos com conflitos UPN ou ProxyAddress durante a sincronização de diretório usando Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e09dd6a127bd04ae698cb6cad2ffd7f35e3b51c3
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413433"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
@@ -75,7 +75,7 @@ Existem atualmente dois métodos para identificar objetos que têm estes erros d
 Para os cmdlets PowerShell neste tópico, o seguinte é verdade:
 
 * Todos os cmdlets seguintes são sensíveis a maiíssculas.
-* O **-ErrorCategory PropertyConflict** deve ser sempre incluído. Atualmente não existem outros tipos de **ErrorCategoria** , mas este pode ser alargado no futuro.
+* O **-ErrorCategory PropertyConflict** deve ser sempre incluído. Atualmente não existem outros tipos de **ErrorCategoria**, mas este pode ser alargado no futuro.
 
 Primeiro, começa por executar **o Connect-MsolService** e introduzir credenciais para um administrador de inquilino.
 
@@ -140,7 +140,7 @@ As táticas de estratégia e resolução de resolução de problemas para estes 
 O seguinte artigo descreve várias estratégias de resolução e resolução de problemas: [Atributos duplicados ou inválidos impedem a sincronização do diretório no Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Problemas conhecidos
-Nenhum destes problemas conhecidos causa perda de dados ou degradação do serviço. Vários deles são estéticos, outros fazem com que erros duplicados de atributos padrão " *pré-resiliência* " sejam lançados em vez de colocar em quarentena o atributo de conflito, e outro faz com que certos erros exijam uma correção manual extra.
+Nenhum destes problemas conhecidos causa perda de dados ou degradação do serviço. Vários deles são estéticos, outros fazem com que erros duplicados de atributos padrão "*pré-resiliência*" sejam lançados em vez de colocar em quarentena o atributo de conflito, e outro faz com que certos erros exijam uma correção manual extra.
 
 **Comportamento central:**
 

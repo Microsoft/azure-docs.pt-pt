@@ -3,14 +3,14 @@ title: Problemas de conexão resolução de problemas - Base de Dados Azure para
 description: Saiba como resolver problemas de ligação à Base de Dados Azure para MariaDB, incluindo erros transitórios que requerem retrações, problemas de firewall e interrupções.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 50bb6fc008e381855923da801b65198bf712f826
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: b9a670472529dccd51cbfa71e385151bc63cff9b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664737"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Resolver problemas de ligação ao Azure Database for MariaDB
@@ -30,7 +30,7 @@ Geralmente, os problemas de ligação à Base de Dados Azure para MariaDB podem 
 * Erros transitórios (de curta duração ou intermitente)
 * Erros persistentes ou não transitórios (erros que se repetem regularmente)
 
-## <a name="troubleshoot-transient-errors"></a>Erros transitórios de resolução de problemas
+## <a name="troubleshoot-transient-errors"></a>Resolver erros transitórios
 
 Erros transitórios ocorrem quando a manutenção é realizada, o sistema encontra um erro com o hardware ou software, ou altera o nível de vCores ou de serviço do seu servidor. A Base de Dados Azure para o serviço MariaDB tem uma elevada disponibilidade incorporada e foi concebida para mitigar este tipo de problemas automaticamente. No entanto, a sua aplicação perde a ligação ao servidor por um curto período de tempo de menos de 60 segundos, no máximo. Alguns eventos podem ocasionalmente demorar mais tempo a mitigar, como quando uma grande transação causa uma recuperação prolongada.
 

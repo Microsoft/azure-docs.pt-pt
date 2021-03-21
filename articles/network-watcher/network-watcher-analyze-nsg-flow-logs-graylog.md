@@ -1,5 +1,5 @@
 ---
-title: Analise os registos de fluxo do grupo de segurança da rede Azure - Graylog Microsoft Docs
+title: Analise os registos de fluxo do grupo de segurança da rede Azure - | Graylog Microsoft Docs
 description: Aprenda a gerir e analisar os registos de fluxo de grupos de segurança de rede em Azure usando o Network Watcher e o Graylog.
 services: network-watcher
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
 ms.openlocfilehash: 8b363d90d05e95b017c3a655b57dbabc3712a155
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94965549"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar registos de fluxo de grupos de segurança de rede em Azure usando Network Watcher e Graylog
@@ -30,7 +30,7 @@ Pode ter muitos grupos de segurança de rede na sua rede com registo de fluxos a
 > [!Warning]
 > Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais informações, consulte [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Os registos de fluxo do grupo de segurança da rede são ativados utilizando o Network Watcher. Os registos de fluxo fluem para o armazenamento de bolhas Azure. Um plugin logstash é utilizado para ligar e processar registos de fluxo a partir do armazenamento de bolhas e enviá-los para Graylog. Uma vez que os registos de fluxo são armazenados em Graylog, podem ser analisados e visualizados em dashboards personalizados.
 

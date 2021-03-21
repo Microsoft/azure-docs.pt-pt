@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 20cc67d5c6436d7c0f44071509e13af324a88eea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578870"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuais e máquinas virtuais em Azure 

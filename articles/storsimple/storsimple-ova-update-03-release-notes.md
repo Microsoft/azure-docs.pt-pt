@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
 ms.openlocfilehash: 8301b45fe778bd3df7fc665db2662ba81d3e644f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966110"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>StorSimple Virtual Array Update 0.3 notas de lançamento
@@ -40,7 +40,7 @@ A atualização 0.3 é principalmente uma construção de correção de erros. N
 ## <a name="issues-fixed-in-the-update-03"></a>Problemas fixados na Atualização 0.3
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Cópias de segurança |Um problema foi visto no lançamento anterior, onde os backups não seriam concluídos para uma partilha de ficheiros. Se esta questão ocorresse, o trabalho de backup falharia e foi levantado um alerta crítico no serviço StorSimple Manager para notificar o utilizador. Esta questão não afetou os dados sobre as ações nem o acesso aos dados. A causa principal foi identificada e corrigida nesta libertação. <br></br> A correção não se aplica retroativamente às ações que já estão a ver esta questão. Os clientes que estão a ver este problema devem primeiro aplicar o Update 0.3 e, em seguida, contactar o Microsoft Support para executar uma cópia de segurança completa do sistema para corrigir o problema. Em vez de contactar o Microsoft Support, os clientes também podem restaurar uma nova parte de uma cópia de segurança saudável para as ações afetadas. |
 | 2 |iSCSI |Um problema foi visto na versão anterior onde os volumes desapareceriam ao copiar dados para um volume no StorSimple Virtual Array. Esta questão foi corrigida nesta versão. <br></br> As correções só têm efeito nos volumes recém-criados. As correções não se aplicam retroativamente aos volumes que já estão a ver esta questão. Os clientes são aconselhados a trazer os volumes afetados on-line através do portal clássico Azure, realizar uma cópia de segurança para estes volumes e, em seguida, restaurar estes volumes para novos volumes. |
@@ -48,7 +48,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 ## <a name="known-issues-in-the-update-03"></a>Emissões conhecidas na Atualização 0.3
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores. 
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos virtuais criados na versão de pré-visualização não podem ser atualizados para uma versão suportada da Disponibilidade Geral. |Estes dispositivos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazer resulta numa perda de todos os dados nos níveis locais do dispositivo. | |

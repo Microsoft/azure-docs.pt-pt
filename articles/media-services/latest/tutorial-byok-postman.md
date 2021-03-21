@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
 ms.openlocfilehash: c8a5b682e2ac4879d2181bdb069cf554bad512d9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498290"
 ---
 # <a name="tutorial-use-customer-managed-keys-or-byok-with-media-services-rest-api"></a>Tutorial: Utilize chaves geridas pelo cliente ou BYOK com Serviços de Mídia REST API
@@ -19,7 +19,7 @@ Com a API 2020-05-01, pode utilizar uma chave RSA gerida pelo cliente com uma co
 
 - Registo de candidatura de Azure Ative (Azure AD) para Carteiro
 - Microsoft Graph API
-- Storage do Azure
+- Armazenamento do Azure
 - Azure Key Vault
 - Serviços de Multimédia do Azure
 

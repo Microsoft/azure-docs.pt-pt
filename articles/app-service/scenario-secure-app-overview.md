@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Construa uma aplicação web segura no Azure App Service / Rio Azure
+title: Tutorial - Construa uma aplicação web segura no Azure App Service | Rio Azure
 description: Neste tutorial, aprende-se a construir uma aplicação web utilizando o Azure App Service, ativar a autenticação, ligar para o Azure Storage e ligar para o Microsoft Graph.
 services: active-directory, app-service-web, storage, microsoft-graph
 author: rwike77
@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: 17931ee92072059d94cd950e9ce8ef6588f7e891
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905507"
 ---
 # <a name="tutorial-enable-authentication-in-app-service-and-access-storage-and-microsoft-graph"></a>Tutorial: Ativar a autenticação no Serviço de Aplicações e aceder ao armazenamento e gráfico do Microsoft

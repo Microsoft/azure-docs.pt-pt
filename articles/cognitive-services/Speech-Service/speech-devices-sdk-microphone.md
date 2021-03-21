@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015346"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de conjunto de microfone SDK de dispositivos de fala
@@ -109,7 +109,7 @@ Os componentes de hardware, tais como a conversão PDM-to-TDM, devem assegurar q
 
 A classe 2.0 usb audio de alta velocidade 2.0 deve ser suportada em quaisquer MCUs áudio, a fim de fornecer a largura de banda necessária para até sete canais a taxas de amostra mais elevadas e profundidades de bits.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os dispositivos de fala SDK](speech-devices-sdk.md)

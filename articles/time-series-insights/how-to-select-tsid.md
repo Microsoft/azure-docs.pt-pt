@@ -1,5 +1,5 @@
 ---
-title: Melhores práticas para escolher um ID da Série De Tempo - Azure Time Series Insights Microsoft Docs
+title: Melhores práticas para escolher um ID da Série De Tempo - Azure Time Series Insights | Microsoft Docs
 description: Saiba mais sobre as melhores práticas ao escolher um ID da Série De Tempo em Azure Time Series Insights Gen2.
 author: shipramishra
 ms.author: shmishr
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95016756"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para escolher um ID da Série Temporal
@@ -32,11 +32,11 @@ A seleção de um ID de série de tempo apropriado é fundamental. Escolher um I
 > * Uma propriedade *imutável:* uma vez criada não pode ser alterada.
 
 > [!TIP]
-> Se a sua fonte de evento for um hub IoT, o seu ID da Série De Tempo será provavelmente ***iothub-connection-device-id** _.
+> Se a sua fonte de evento for um hub IoT, o seu ID da Série De Tempo será provavelmente ***iothub-connection-device-id***.
 
 As melhores práticas a seguir incluem:
 
-_ Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, este pode ser o ID do dispositivo, iD do sensor ou identificação de etiqueta no seu JSON.
+* Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, este pode ser o ID do dispositivo, iD do sensor ou identificação de etiqueta no seu JSON.
 * O ID da Série De Tempo deve ser único ao nível do nó de folha do seu [modelo de séries de tempo.](./concepts-model-overview.md)
 * O limite de caracteres para a cadeia de nomes de propriedade da Série DeTemporal é 128. Para o valor da propriedade do Time Series ID, o limite de caracteres é de 1.024.
 * Se faltar um valor único de propriedade para o ID da Série De Tempo, é tratado como um valor nulo e segue a mesma regra da restrição de singularidade.
@@ -82,7 +82,7 @@ No portal Azure, pode então introduzir a tecla composta da seguinte forma:
   > No portal Azure, não introduza nomes separados de vírgula de propriedades numa caixa de texbox, caso contrário, será tratado como um único nome de propriedade que contém vírgulas.
   > Insira cada nome de propriedade na sua própria caixa de texbox.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia o [JSON achatando e escapando às regras](./concepts-json-flattening-escaping-rules.md) para entender como os eventos serão armazenados.
 

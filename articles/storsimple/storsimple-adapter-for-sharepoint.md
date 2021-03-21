@@ -1,5 +1,5 @@
 ---
-title: Instalar adaptador StorSimple para SharePoint / Microsoft Docs
+title: Instale o adaptador StorSimple para o SharePoint | Microsoft Docs
 description: Descreve como instalar e configurar ou remover o Adaptador StorSimple para SharePoint numa fazenda de servidores SharePoint.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966297"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instale e configuure o Adaptador StorSimple para SharePoint
@@ -208,7 +208,7 @@ Os seguintes procedimentos descrevem como mover os BLOBs de volta para as bases 
 > Tem de deslocar os BLOBs de volta para as bases de dados de conteúdos antes de desinstalar o software do adaptador.
 
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 Recolher as seguintes informações antes de transferir os dados para as bases de dados de conteúdos do SQL Server e iniciar o processo de remoção do adaptador:
 
 * Os nomes de todas as bases de dados para as quais o RBS está habilitado

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a ClearCompany Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a ClearCompany | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a ClearCompany.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: b3c7fafba99caa15fe9e5adbeb765e8788e61bbf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Tutorial: Integração do Azure Ative Directory com a ClearCompany

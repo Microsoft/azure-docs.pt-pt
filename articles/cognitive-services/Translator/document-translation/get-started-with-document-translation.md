@@ -7,10 +7,10 @@ ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
 ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102486663"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Começar com tradução de documentos (pré-visualização)
@@ -91,8 +91,8 @@ O `sourceUrl` símbolo , e opcional deve incluir um `targetUrl` `glossaryUrl`  t
 ### <a name="c"></a>[C#](#tab/csharp)
 
 * Criar um projeto novo.
-* Substitua Program.cs pelo código C# apresentado abaixo.
-* Estabeleça o seu ponto final. chave de subscrição e valores de URL de contentores em Program.cs.
+* Substitua o Programa.cs pelo código C# apresentado abaixo.
+* Estabeleça o seu ponto final. chave de subscrição e valores de URL de contentores no programa.cs.
 * Para processar os dados do JSON, adicione [Newtonsoft.Jsna embalagem utilizando .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Executar o programa a partir do diretório do projeto.
 
@@ -186,7 +186,7 @@ Um pedido de tradução de documento de lote é submetido ao seu ponto final de 
 
 Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de Documento:
 
-|Cabeçalho HTTP|Descrição|
+|Cabeçalho HTTP|Description|
 |---|--|
 |Ocp-Apim-Subscription-Key|**Obrigatório**: O valor é a chave de subscrição Azure para o seu recurso Tradutor ou Serviços Cognitivos.|
 |Content-Type|**Requerido**: Especifica o tipo de conteúdo da carga útil. Os valores aceites são aplicação/json ou charset=UTF-8.|
@@ -289,7 +289,7 @@ Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de D
 
 |**Cabeçalho de resposta**|**URL de resultados**|
 |-----------------------|----------------|
-Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/tradutor/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
 
 * Também pode utilizar um pedido **GET Jobs** para recuperar um trabalho de Tradução `id` documental.
 
@@ -1259,7 +1259,7 @@ A tabela abaixo lista os limites para os dados que envia para a Tradução docum
 > [!NOTE]
 > Os limites de conteúdo acima referidos estão sujeitos a alterações antes da publicação pública.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Referência API tradutor v3](../reference/v3-0-reference.md)
 * [Suporte de idiomas](../language-support.md)

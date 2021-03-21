@@ -1,5 +1,5 @@
 ---
-title: Implementar dispositivo da série StorSimple 8000 no portal do Governo Microsoft Docs
+title: Implementar dispositivo da série StorSimple 8000 no portal do Governo | Microsoft Docs
 description: Descreve os passos e as melhores práticas para a implementação do dispositivo da série StorSimple 8000 em execução da Atualização 3 e posterior, e o serviço no portal do Governo Azure.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94963186"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Coloque o seu dispositivo StorSimple no portal do Governo
@@ -42,7 +42,7 @@ Necessita de privilégios de administrador para concluir o processo de instalaç
 ## <a name="deployment-steps"></a>Passos da implementação
 Efetue estes passos obrigatórios para configurar o dispositivo StorSimple e ligá-lo ao serviço Gestor de Dispositivos do StorSimple. Além das etapas necessárias, existem etapas e procedimentos opcionais que poderá ter de completar durante a implantação. As instruções passo-a-passo para a implementação indicam quando deve efetuar cada um dos seguintes passos opcionais.
 
-| Passo | Descrição |
+| Passo | Description |
 | --- | --- |
 | **Pré-requisitos** |Estes têm de ser concluídos no processo de preparação para a implementação futura. |
 | [Lista de verificação das configurações de implementação](#deployment-configuration-checklist) |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |

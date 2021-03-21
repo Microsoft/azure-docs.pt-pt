@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
 ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047014"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
@@ -153,7 +153,7 @@ Clique no menu de elipses ao lado do nome de grupo na Lista de Grupos.
 
 Certos processos servem papéis específicos em máquinas: servidores web, servidores de aplicações, base de dados, e assim por diante. O Mapa de Serviço anota o processo e as caixas de máquinas com ícones de função para ajudar a identificar de relance o papel que um processo ou servidor desempenha.
 
-| Ícone de papel | Descrição |
+| Ícone de papel | Description |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicações](media/service-map/role-application-server.png) | Servidor de aplicações |
@@ -570,7 +570,7 @@ Pode ser útil instalar primeiro as [bibliotecas de runtime mais recentes](https
 
 A tabela que se segue lista os números de código e as resoluções sugeridas.
 
-| Código | Descrição | Resolução |
+| Código | Description | Resolução |
 |:--|:--|:--|
 | 0x17 | O instalador da biblioteca requer uma atualização do Windows que não foi instalada. | Veja o registo de instalação da biblioteca mais recente.<br><br>Se uma referência `Windows8.1-KB2999226-x64.msu` for seguida por uma `Error 0x80240017: Failed to execute MSU package,` linha, não tem os pré-requisitos para instalar o KB2999226. Siga as instruções na secção de pré-requisitos no artigo [Universal C Runtime no Windows](https://support.microsoft.com/kb/2999226). Pode ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Volte a executar o instalador do Microsoft Dependency Agent. |
 

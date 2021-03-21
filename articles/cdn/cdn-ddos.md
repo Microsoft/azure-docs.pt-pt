@@ -1,5 +1,5 @@
 ---
-title: Capacidades de Proteção DDoS do Azure CDN Microsoft Docs
+title: Capacidades de proteção DDoS de Azure CDN | Microsoft Docs
 description: O Azure CDN da Microsoft está protegido pela DDoS Protection básico sem custos adicionais
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: ac00491a34e6e7d18c74827afc6647358794a8be
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351695"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Proteção Azure CDN DDos

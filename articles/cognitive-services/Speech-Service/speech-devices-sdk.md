@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
 ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015278"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos Dispositivos de Fala?
@@ -55,7 +55,7 @@ A aplicação é construída com o pacote Speech SDK, e o Eclipse Java IDE (v4) 
 
 Binários adicionais são fornecidos para suportar os dispositivos futuros, [Roobo v2 DDK,](https://aka.ms/sdsdk-download-roobov2) [Urbetter DDK,](https://aka.ms/sdsdk-download-urbetter) [GGEC Speaker,](https://aka.ms/sdsdk-download-speaker) [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32), e [Linux ARM64](https://aka.ms/sdsdk-download-linux-arm64).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Escolha o seu dispositivo de fala](get-speech-devices-sdk.md)

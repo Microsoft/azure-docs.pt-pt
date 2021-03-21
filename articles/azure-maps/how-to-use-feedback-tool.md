@@ -1,5 +1,5 @@
 ---
-title: Fornecer feedback de dados ao Azure Maps Microsoft Azure Maps
+title: Fornecer feedback de dados ao Azure Maps | Microsoft Azure Maps
 description: Forneça feedback de dados utilizando a ferramenta de feedback do Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 4be775d8a6a8c476bcc659a902c7f43c12a6d6d0
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905337"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Fornecer feedback de dados ao Azure Maps

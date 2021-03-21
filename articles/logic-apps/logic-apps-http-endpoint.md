@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 11/19/2020
 ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94981209"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Aplicações lógicas de chamada, gatilho ou ninho utilizando pontos finais HTTPS em Azure Logic Apps
@@ -353,7 +353,7 @@ No corpo de resposta, pode incluir vários cabeçalhos e qualquer tipo de conte�
 
 As respostas têm estas propriedades:
 
-| Propriedade (Exibição) | Propriedade (JSON) | Descrição |
+| Propriedade (Exibição) | Propriedade (JSON) | Description |
 |--------------------|-----------------|-------------|
 | **Código de Estado** | `statusCode` | O código de estado HTTPS a utilizar na resposta ao pedido de entrada. Este código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, não são permitidos códigos de estado 3xx. |
 | **Cabeçalhos** | `headers` | Um ou mais cabeçalhos para incluir na resposta |

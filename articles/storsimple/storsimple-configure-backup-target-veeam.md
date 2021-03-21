@@ -1,5 +1,5 @@
 ---
-title: StorSimple série 8000 como alvo de backup com Veeam Microsoft Docs
+title: Série StorSimple 8000 como alvo de backup com Veeam | Microsoft Docs
 description: Conheça a configuração do alvo de backup StorSimple com o Veeam e as melhores práticas para integrar ambas as soluções.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962557"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como alvo de backup com Veeam
@@ -56,7 +56,7 @@ Como em qualquer solução de armazenamento, uma avaliação cuidadosa do desemp
 
 O StorSimple foi concebido para fornecer armazenamento a aplicações que operam num conjunto de dados de trabalho bem definido (dados quentes). Neste modelo, o conjunto de dados de trabalho é armazenado nos níveis locais, e o restante conjunto de dados não funcionando/frio/arquivado é hierárquico para a nuvem. Este modelo está representado na seguinte figura. A linha verde quase plana representa os dados armazenados nos níveis locais do dispositivo StorSimple. A linha vermelha representa a quantidade total de dados armazenados na solução StorSimple em todos os níveis. O espaço entre a linha verde plana e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-Tiering StorSimple **StorSimple tiering** 
+Tiering StorSimple  
  ![ Diagrama de tiering StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 Com esta arquitetura em mente, você vai descobrir que storSimple é ideal para funcionar como um alvo de backup. Pode utilizar o StorSimple para:
@@ -319,8 +319,8 @@ Aqui está um exemplo de um horário de rotação GFS para quatro semanas, mensa
 | Tipo de frequência/backup | Completa | Incremental (dias 1-5)  |   
 |---|---|---|
 | Semanal (semanas 1-4) | Saturday | Monday-Friday |
-| Mensal  | Saturday  |   |
-| Anual | Saturday  |   |
+| Mensalmente  | Saturday  |   |
+| Anualmente | Saturday  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Atribuir volumes StorSimple a um trabalho de backup da Veeam
@@ -399,8 +399,8 @@ Rotação GFS horário semanal, mensal e anual
 | Semana 2 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2-4 |   |   |   |   |   |
-| Mensal | StorSimple mensalmente |   |   |   |   |   |
-| Anual | StorSimple anualmente  |   |   |   |   |   |
+| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
+| Anualmente | StorSimple anualmente  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Atribuir volumes StorSimple a um trabalho de cópia veeam
 
@@ -410,7 +410,7 @@ Rotação GFS horário semanal, mensal e anual
 
     ![Screenshot que mostra a consola de gestão Veeam com as opções VMware e Hyper-V que pode selecionar.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
-2.  Na caixa de diálogo de trabalho de cópia de cópia de cópia de cópia de cópia de cópia de cópia de cópia de **cópia,** insira um nome e descrição para o trabalho.
+2.  Na caixa de diálogo de trabalho de **cópia de cópia** , insira um nome e descrição para o trabalho.
 
     ![Screenshot que mostra a consola de gestão Veeam onde você insira o nome e descrição para o trabalho.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
@@ -436,9 +436,9 @@ Rotação GFS horário semanal, mensal e anual
 
 7.  Especifique que a transferência de dados é direta.
 
-8.  Defina o calendário da janela de cópia de cópia de cópia de cópia de reserva de acordo com as suas necessidades e, em seguida, termine o assistente.
+8.  Defina o calendário da janela de cópia de cópia de reserva de acordo com as suas necessidades e, em seguida, termine o assistente.
 
-Para obter mais informações, consulte [Criar trabalhos de cópia de cópias de cópias de cópias](https://helpcenter.veeam.com/backup/hyperv/backup_copy_create.html)de reserva.
+Para obter mais informações, consulte [Criar trabalhos de cópia de cópias](https://helpcenter.veeam.com/backup/hyperv/backup_copy_create.html)de reserva.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple fotos em nuvem
 
@@ -500,7 +500,7 @@ Com o Veeam, obtém-se uma recuperação rápida, granular e de nível de fichei
 
 Um desastre pode ser causado por uma variedade de fatores. A tabela que se segue lista cenários comuns de recuperação de desastres.
 
-| Cenário | Impacto | Como recuperar | Notas |
+| Scenario | Impacto | Como recuperar | Notas |
 |---|---|---|---|
 | Falha do dispositivo StorSimple | As operações de backup e restauro são interrompidas. | Substitua o dispositivo falhado e execute [a storSimple failover e a recuperação de desastres](./storsimple-8000-device-failover-disaster-recovery.md). | Se necessitar de efetuar uma restauração após a recuperação do dispositivo, os conjuntos completos de trabalho de dados são recuperados da nuvem para o novo dispositivo. Todas as operações estão a velocidades de nuvem. O processo de rescandisção de índices e catálogos pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local, o que pode ser um processo demorado. |
 | Falha do servidor Veeam | As operações de backup e restauro são interrompidas. | Reconstruir o servidor de backup e executar a restauração da base de dados conforme detalhado no [Centro de Ajuda veeam (Documentação Técnica)](https://www.veeam.com/documentation-guides-datasheets.html).  | Tem de reconstruir ou restaurar o servidor Veeam no local de recuperação de desastres. Restaurar a base de dados até ao ponto mais recente. Se a base de dados Veeam restaurada não estiver sincronizada com os seus últimos trabalhos de backup, é necessário indexar e catalogar. Este processo de rescaning de índice e catálogo pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local. Isto torna-o mais intensivo em tempo. |

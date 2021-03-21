@@ -8,10 +8,10 @@ ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 27056f39885949d52c9fcc0d1472033cfc8f9aa0
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554875"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para partilhas de ficheiros do Azure

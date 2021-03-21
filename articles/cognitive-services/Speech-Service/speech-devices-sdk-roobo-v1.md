@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 73eb1225ffc5fd01f9a27ca99ad2b059d45a36cf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015295"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Roobo Smart Audio Dev Kit
 
-Este artigo fornece informações específicas do dispositivo para o Kit Dev Dev Dev Dev De áudio Inteligente Roobo.
+Este artigo fornece informações específicas do dispositivo para o Kit Dev De áudio Inteligente Roobo.
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 
@@ -71,6 +71,6 @@ Para obter mais informações sobre o desenvolvimento, consulte o [guia de desen
 
 Roobo fornece uma ferramenta que captura todo o áudio para memória flash. Pode ajudá-lo a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração do kit de desenvolvimento. No  [site roobo,](http://ddk.roobo.com/)selecione o seu dispositivo e, em seguida, selecione o link **Roobo Tools** na parte inferior da página.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Executar o aplicativo de amostra Android](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android)

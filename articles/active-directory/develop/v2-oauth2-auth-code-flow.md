@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: aeed031025b9c494b35886861c273e2a7f9d2ac4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101653733"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Clique no link abaixo para executar este pedido! Após a sua sessão, o seu navegador deve ser redirecionado para `https://localhost/myapp/` um na barra de `code` endereços.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parâmetro    | Obrigatório/opcional | Descrição |
+| Parâmetro    | Obrigatório/opcional | Description |
 |--------------|-------------|--------------|
 | `tenant`    | obrigatório    | O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais detalhes, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints)  |
 | `client_id`   | obrigatório    | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app.  |
@@ -124,7 +124,7 @@ error=access_denied
 
 A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro.
 
-| Código de Erro  | Descrição    | Ação do Cliente   |
+| Código de Erro  | Description    | Ação do Cliente   |
 |-------------|----------------|-----------------|
 | `invalid_request` | Erro de protocolo, como um parâmetro exigido em falta. | Corrija e reenvia o pedido. Este é um erro de desenvolvimento tipicamente apanhado durante os testes iniciais. |
 | `unauthorized_client` | O pedido do cliente não está autorizado a solicitar um código de autorização. | Este erro ocorre geralmente quando a aplicação do cliente não está registada no Azure AD ou não é adicionada ao inquilino AZure AD do utilizador. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
@@ -206,7 +206,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Tente executar este pedido no Carteiro! (Não se esqueça de substituir o `code` ) [ ![ Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| Parâmetro  | Obrigatório/opcional | Descrição     |
+| Parâmetro  | Obrigatório/opcional | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | obrigatório   | O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais detalhes, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints)  |
 | `client_id` | obrigatório  | O ID da Aplicação (cliente) que o [portal Azure – Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
@@ -269,7 +269,7 @@ As respostas de erro serão como:
 
 ### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de erro para erros de ponto final simbólicos
 
-| Código de Erro         | Descrição        | Ação do Cliente    |
+| Código de Erro         | Description        | Ação do Cliente    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Erro de protocolo, como um parâmetro exigido em falta. | Corrija o pedido ou registo de aplicações e reenvia o pedido   |
 | `invalid_grant`    | O código de autorização ou verificador de código PKCE é inválido ou expirou. | Experimente um novo pedido para o `/authorize` ponto final e verifique se o parâmetro code_verifier estava correto.  |
@@ -328,7 +328,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Tente executar este pedido no Carteiro! (Não se esqueça de substituir o `refresh_token` ) [ ![ Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 >
 
-| Parâmetro     | Tipo           | Descrição        |
+| Parâmetro     | Tipo           | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | obrigatório     | O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais detalhes, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints)   |
 | `client_id`     | obrigatório    | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |

@@ -7,10 +7,10 @@ ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101680093"
 ---
 # <a name="device-update-apt-manifest"></a>Manifesto APT de atualização de dispositivos
@@ -19,7 +19,7 @@ O APT Manifest é um ficheiro JSON que descreve os detalhes de atualização exi
 
 [Saiba mais](import-update.md) sobre a importação de atualizações para a Atualização do Dispositivo.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Quando um manifesto APT é entregue a um Agente de Atualização de Dispositivos como atualização, o agente processará o manifesto e realizará as operações necessárias. Estas operações incluem o descarregamento e instalação dos pacotes especificados no ficheiro APT Manifesto e suas dependências.
 

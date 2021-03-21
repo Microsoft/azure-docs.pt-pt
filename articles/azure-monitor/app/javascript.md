@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 9b8824a0f73f3a79ab70810c529cb0ed9331a797
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102485491"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
@@ -108,7 +108,7 @@ Cada opção de configuração é mostrada acima numa nova linha, se não preten
 
 As opções de configuração disponíveis são
 
-| Nome | Tipo | Descrição
+| Nome | Tipo | Description
 |------|------|----------------
 | src | corda **[necessária]** | O URL completo para onde carregar o SDK. Este valor é usado para o atributo "src" de um script/tag dinamicamente &lt; &gt; adicionado. Você pode usar a localização pública da CDN ou a sua própria hospedada privada.
 | name | corda *[opcional]* | O nome global para o SDK inicializado, predefine para `appInsights` . Assim ```window.appInsights``` será uma referência à instância inicializada. Nota: se fornecer um valor de nome ou uma instância anterior parece ser atribuído (através da app de nome globalInsightsSDK) então este valor de nome também será definido no espaço de nome global, pois ```window.appInsightsSDK=<name value>``` , isto é exigido pelo código de inicialização SDK para garantir que está a inicializar e atualizar os métodos corretos de esqueleto e procuração.
@@ -171,7 +171,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Name | Predefinição | Descrição |
+| Name | Predefinição | Description |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Obrigatório**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |

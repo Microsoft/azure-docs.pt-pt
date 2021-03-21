@@ -12,10 +12,10 @@ ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconhecimento de intenção
 ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018706"
 ---
 # <a name="what-is-intent-recognition"></a>O que é o reconhecimento de intenções?
@@ -51,7 +51,7 @@ Código de amostra para reconhecimento de intenções:
 
 * [API de Voz](./speech-sdk.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Complete o início rápido do reconhecimento [de intenção](quickstarts/intent-recognition.md)
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)

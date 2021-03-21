@@ -3,14 +3,14 @@ title: Backup e restauro - Portal Azure - Base de Dados Azure para MariaDB
 description: Este artigo descreve como restaurar um servidor na Base de Dados Azure para MariaDB usando o portal Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 06da58b5c82af39abbaa1cbc15a217c25d7808f9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664822"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para MariaDB usando o portal Azure
@@ -37,7 +37,7 @@ Ao criar um servidor através do portal Azure, a janela **Priceing Tier** é ond
 Para obter mais informações sobre a definição destes valores durante a criação, consulte a [Base de Dados Azure para o arranque rápido do servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 O período de retenção de backup pode ser alterado num servidor através dos seguintes passos:
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione a sua Base de Dados Azure para o servidor MariaDB. Esta ação abre a página **de visão geral.**
 

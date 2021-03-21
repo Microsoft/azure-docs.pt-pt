@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: e6f94c006de8914fe3ae27cdb8ac4d75a0ac49cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962999"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Recolocar pacotes SSIS para Azure SQL Database com Serviço de Migração de Bases de Dados Azure
@@ -81,7 +81,7 @@ Para migrar projetos/pacotes SSIS para Azure SQL Database, execute os seguintes 
 8. Selecione **Seguinte**.
 9. Na página **Destino Selecionado,** especifique o destino do seu projeto.
 
-    a. Na caixa de texto do nome do Servidor, introduza o nome do servidor totalmente qualificado (<server_name>.database.windows.net).
+    a. Na caixa de texto do nome do Servidor, insira o nome do servidor totalmente qualificado (<server_name>.database.windows.net).
 
     b. Forneça as informações de autenticação e, em seguida, selecione **Connect**.
 

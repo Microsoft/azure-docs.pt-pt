@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: a0b2c9548f9c1289ae0abd61a72d7146a3bbca29
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94965156"
 ---
 Preencha e envie o formulário de [pedido de Serviços Cognitivos](https://aka.ms/csgate) para solicitar o acesso ao Texto Analytics para pré-visualização do público em saúde.  Esta aplicação aplica-se tanto ao contentor como à pré-visualização pública da API web acolhida.

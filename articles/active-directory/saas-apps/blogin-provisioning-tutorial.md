@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar blogIn para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar blogIn para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desa provisionar automaticamente as contas de utilizadores do Azure AD para o BlogIn.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5d75aeb4771d49266e6cb09286b026054319591b
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97674247"
 ---
 # <a name="tutorial-configure-blogin-for-automatic-user-provisioning"></a>Tutorial: Configurar blogIn para fornecimento automático de utilizadores
@@ -52,7 +52,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 Para configurar o fornecimento de utilizadores no **BlogIn,** faça login na sua conta BlogIn e siga estes passos:
 
-1. Navegar para **definições**  >  **Configuração**  >  **SSO & fornecimento do utilizador**.
+1. Navegar para **definições**  >  **Configurações Configurações Configuração**  >  **SSO & fornecimento do utilizador**.
 2. Mude para o **separador de provisionamento do Utilizador** e altere o estado de provisionamento do utilizador para **On**.
 3. Clique no botão **Guardar alterações.** Após a primeira salvação, o **símbolo secreto (Portador)** será gerado.
 4. Copiar **base (inquilino) URL** e **valores simbólicos secretos (portador).** Estes valores serão introduzidos nos campos URL e Secret Token no separador Provisioning da sua aplicação BlogIn no portal Azure.

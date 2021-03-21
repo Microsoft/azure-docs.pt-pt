@@ -10,10 +10,10 @@ ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 62981686c7aadc713c4abc78075be8613fe0af45
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199311"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorizar a conectividade do dispositivo com a CLI do Azure

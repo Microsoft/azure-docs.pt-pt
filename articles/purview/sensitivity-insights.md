@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
 ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101676556"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights do rótulo de sensibilidade sobre os seus dados em Azure Purview
@@ -78,7 +78,7 @@ A Purview utiliza as mesmas classificações, também conhecidas como [tipos de 
 
    A página principal **de insights de rotulagem de sensibilidade** apresenta as seguintes áreas:
 
-   |Área  |Descrição  |
+   |Área  |Description  |
    |---------|---------|
    |**Visão geral de fontes com rótulos de sensibilidade**     |Exibe azulejos que fornecem: <br>- O número de subscrições encontradas nos seus dados. <br>- O número de rótulos de sensibilidade únicos aplicados nos seus dados <br>- O número de fontes com rótulos de sensibilidade aplicados <br>- O número de ficheiros e tabelas encontrados com etiquetas de sensibilidade aplicadas|
    |**Principais fontes com dados rotulados (últimos 30 dias)**     | Mostra a tendência, nos últimos 30 dias, do número de fontes com rótulos de sensibilidade aplicados.       |

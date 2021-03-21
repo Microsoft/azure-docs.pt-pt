@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645930"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Acompanhe o comportamento do utilizador em Azure AD B2C utilizando insights de aplicação
@@ -38,7 +38,7 @@ No Azure Ative Directory B2C (Azure AD B2C), pode enviar dados de eventos direta
 - Medir o desempenho.
 - Criar notificações a partir de Insights de Aplicação.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para ativar registos de eventos personalizados, adicione um perfil técnico de Insights de Aplicação. No perfil técnico, define-se a chave de instrumentação application Insights, o nome do evento e as alegações para registar. Para publicar um evento, adicione o perfil técnico como um passo de orquestração numa [jornada de utilizador](userjourneys.md).
 

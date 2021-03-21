@@ -1,5 +1,5 @@
 ---
-title: Configure mPIO para o seu dispositivo StorSimple / Microsoft Docs
+title: Configure o MPIO para o seu dispositivo StorSimple | Microsoft Docs
 description: Descreve como configurar o Multipath I/O (MPIO) para o seu dispositivo StorSimple ligado a um anfitrião que executa o Windows Server 2012 R2.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968813"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configure o Multipato I/O para o seu dispositivo StorSimple
@@ -98,7 +98,7 @@ Depois de o MPIO ser configurado no Windows Server, o volume(s) criado no dispos
 #### <a name="to-mount-volumes-on-the-host"></a>Para montar volumes no hospedeiro
 
 1. Abra a janela **iSCSI Initiator Properties** no anfitrião do Windows Server. Clique **em > Dashboard > Tools > iSCSI Initiator**.
-2. Na caixa de diálogo iSCSI Initiator Properties, clique no separador Discovery e, em seguida, clique em **'Descobrir O Portal' ( 'Destino' ('SCSI'**(ISCSI), clique no separador Discovery e, em seguida, clique em "Discover Target Portal". **iSCSI Initiator Properties**
+2. Na caixa de diálogo iSCSI Initiator Properties, clique no separador Discovery e, em seguida, clique em **'Descobrir O Portal' ( 'Destino' ('SCSI'**(ISCSI), clique no separador Discovery e, em seguida, clique em "Discover Target Portal". 
 3. Na caixa de diálogo **Do Portal do Destino Discover,** execute os seguintes passos:
    
    1. Introduza o endereço IP da porta DATA do seu dispositivo StorSimple (por exemplo, introduza os DADOS 0).

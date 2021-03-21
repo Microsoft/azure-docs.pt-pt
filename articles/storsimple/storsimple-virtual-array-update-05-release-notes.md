@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array Update 0.5 notas de lançamento Microsoft Docs
+title: StorSimple Virtual Array Update 0.5 notas de lançamento| Microsoft Docs
 description: Descreve problemas e resoluções abertos críticos para o StorSimple Virtual Array que executa a Atualização 0.5.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f70cf96baed274eaf260832bd83ab0e2c91f3683
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967045"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>StorSimple Virtual Array Update 0.5 notas de lançamento
@@ -47,7 +47,7 @@ A atualização 0.5 é principalmente uma construção de correção de erros. A
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Resiliência de reserva| Nos lançamentos anteriores, os backups foram novamente julgados apenas para certas exceções. Esta versão contém uma correção para tornar as cópias de segurança mais resistentes, reformulando todas as exceções de backup.|
 | 2 |Monitorização| A monitorização do uso de armazenamento para a Série de Dispositivos Virtuais StorSimple será depreciada a partir de 30 de junho de 2017. Esta ação tem impacto nas tabelas de monitorização do serviço StorSimple Device Manager em execução em StorSimple Virtual Arrays (modelo 1200). Esta versão tem atualizações que permitem ao utilizador continuar a utilizar a monitorização do uso de armazenamento nas matrizes virtuais para além de 30 de junho de 2017.|
@@ -58,7 +58,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos virtuais criados na versão de pré-visualização não podem ser atualizados para uma versão suportada da Disponibilidade Geral. |Estes dispositivos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazer resulta numa perda de todos os dados nos níveis locais do dispositivo. | |

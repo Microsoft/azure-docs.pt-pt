@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 5a13993b06d1a7da8ffdb027deb6ade328d48955
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94426753"
 ---
 ## <a name="version-the-device-template"></a>Versão o modelo do dispositivo

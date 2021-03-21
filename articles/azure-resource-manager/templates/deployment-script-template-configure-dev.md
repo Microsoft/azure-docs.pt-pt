@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
 ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102200942"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurar ambiente de desenvolvimento para scripts de implantação em modelos ARM

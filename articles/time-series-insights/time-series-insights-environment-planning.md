@@ -1,5 +1,5 @@
 ---
-title: Planeie o seu ambiente Gen1 - Azure Time Series Insights / Microsoft Docs
+title: Planeie o seu ambiente Gen1 - Azure Time Series Insights | Microsoft Docs
 description: As melhores práticas para preparar, configurar e implementar o seu ambiente Azure Time Series Insights Gen1.
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95016212"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planeie o seu ambiente Azure Time Series Insights Gen1
@@ -124,7 +124,7 @@ Para saber mais sobre como criar, carregar e gerir os seus dados de referência 
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Iniciou-se com a criação [de um novo ambiente Azure Time Series Insights no portal Azure](time-series-insights-get-started.md).
 

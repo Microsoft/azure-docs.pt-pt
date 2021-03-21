@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: manayar
 ms.openlocfilehash: 276762bc2b8624f687cbb77e1af771478791a57b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101680315"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>Pré-visualização: Patching automático de hóspedes VM para VMs Azure

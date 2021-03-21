@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
 ms.openlocfilehash: 8964248bb23b2b615c7e73e26d730fbd79b4e9e7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102184462"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar uma Base de Dados Oráculo num VM Azure

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 927b8c55008c3e01d8ff1dd09c46cfa3c6618026
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946281"
 ---
 # <a name="use-scp-with-apache-hadoop-in-azure-hdinsight"></a>Use SCP com Apache Hadoop em Azure HDInsight
@@ -41,7 +41,7 @@ Para obter informações sobre o carregamento de dados diretamente para o armaze
 * [HDInsight com o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md).
 * [HDInsight usando Azure Data Lake Storage Gen1](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar SSH com o HDInsight](./hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Utilizar nós de extremidade no HDInsight)

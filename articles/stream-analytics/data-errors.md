@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
 ms.openlocfilehash: 2ca289cd52b9a406e486ee9c186be683e71f02d0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020116"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
@@ -291,7 +291,7 @@ Existem vários erros de dados que só podem ser detetados depois de fazer uma c
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas Azure Stream Analytics usando registos de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 

@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
 ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730376"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
@@ -73,7 +73,7 @@ Pode utilizar qualquer nome válido para os seus parâmetros; a unidade de teste
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos de metadados de parâmetros aceites
 
-| Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor da amostra    |
+| Tipo de metadados   | Tipo de parâmetro  | Description     | Valor da amostra    |
 |---|---|---|---|
 | **baseuri**     | string          | Base URI do seu pacote de implantação| `https://<..>.blob.core.windows.net/<..>` |
 | **nome de utilizador**    | string          | Novo nome de utilizador aleatório.| administrador68876      |

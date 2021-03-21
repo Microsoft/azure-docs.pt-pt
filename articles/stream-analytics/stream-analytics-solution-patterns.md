@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 1bd3c1099344bd266d7e3bc153613daaecfb412a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020320"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões da solução Azure Stream Analytics
@@ -179,7 +179,7 @@ Não é difícil imaginar que todos os padrões de solução acima mencionados p
 
 A chave é projetar o seu sistema em padrões compósíveis, para que cada subsistema possa ser construído, testado, atualizado e recuperado de forma independente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Já viu uma variedade de padrões de solução usando a Azure Stream Analytics. Em seguida, pode criar o seu primeiro trabalho do Stream Analytics e experimentá-lo na prática:
 

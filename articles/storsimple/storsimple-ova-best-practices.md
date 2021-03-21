@@ -1,5 +1,5 @@
 ---
-title: Boas práticas para StorSimple Virtual Array Microsoft Docs
+title: Boas práticas para storSimple Virtual Array | Microsoft Docs
 description: Descreve as melhores práticas para implantar e gerir o Array Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94964988"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas da Matriz Virtual do StorSimple
@@ -121,7 +121,7 @@ Por isso, recomendamos que:
 * Certifique-se de que a sua matriz virtual está na sua própria unidade organizacional (OU) para o Ative Directory.
 * Certifique-se de que nenhum objeto de política de grupo (GPOs) é aplicado na sua matriz virtual. Pode bloquear a herança para garantir que a matriz virtual (nó de criança) não herda automaticamente quaisquer GPOs do progenitor. Para mais informações, vá para bloquear a [herança.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11))
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 A configuração de rede para a sua matriz virtual é feita através da UI web local. Uma interface de rede virtual é ativada através do hipervisor no qual a matriz virtual é a provisionada. Utilize a página [Definições de Rede](storsimple-virtual-array-deploy3-fs-setup.md) para configurar o endereço IP, sub-rede e gateway de interface de rede virtual.  Também pode configurar o servidor dSNS primário e secundário, as definições de tempo e as definições de procuração opcionais para o seu dispositivo. A maior parte da configuração da rede é uma configuração única. Reveja os [requisitos de rede StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implementar o array virtual.
 
 Ao implementar a sua matriz virtual, recomendamos que siga estas boas práticas:

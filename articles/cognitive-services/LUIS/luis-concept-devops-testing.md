@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
 ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788456"
 ---
 # <a name="testing-for-luis-devops"></a>Teste para LUIS DevOps
@@ -133,7 +133,7 @@ O resultado desta formação não determinística é que você pode obter uma re
 
 Se pretender desativar a formação não determinística para as versões de aplicações LUIS que está a construir para efeitos de teste, utilize as [definições de versão API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com a `UseAllTrainingData` definição definida para `true` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a implementação de fluxos de trabalho ci/CD](luis-concept-devops-automation.md)
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)

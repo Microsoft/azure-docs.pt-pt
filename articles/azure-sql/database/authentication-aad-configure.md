@@ -13,10 +13,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
 ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201203"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
@@ -344,7 +344,7 @@ Em todas as máquinas clientes, a partir das quais as suas aplicações ou utili
 
 - .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL *(ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
-  - [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+  - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [Controlador ODBC 17 para sql server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
   - [OLE DB Driver 18 para SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
 

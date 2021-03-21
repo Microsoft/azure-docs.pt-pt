@@ -6,16 +6,16 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 6ff45c577e94a8c63bd7cb1e6603e4d5519af5c6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512690"
 ---
-# <a name="use-user-defined-processor"></a>Utilize processador definido pelo utilizador
+# <a name="use-user-defined-processor"></a>Utilizar o processador definido pelo utilizador
 
 ## <a name="u-sql-udo-user-defined-processor"></a>U-SQL UDO: processador definido pelo utilizador
-O processador definido pelo utilizador, ou UDP, é um tipo de UDO UDO UDO U-SQL que lhe permite processar as linhas de entrada aplicando funcionalidades de programabilidade. O UDP permite-lhe combinar colunas, modificar valores e adicionar novas colunas, se necessário. Basicamente, ajuda a processar um conjunto de linhas para produzir elementos de dados necessários.
+O processador definido pelo utilizador, ou UDP, é um tipo de UDO U-SQL que lhe permite processar as linhas de entrada aplicando funcionalidades de programabilidade. O UDP permite-lhe combinar colunas, modificar valores e adicionar novas colunas, se necessário. Basicamente, ajuda a processar um conjunto de linhas para produzir elementos de dados necessários.
 
 ## <a name="how-to-define-and-use-user-defined-processor"></a>Como definir e utilizar o processador definido pelo utilizador
 Para definir uma UDP, precisamos de criar uma `IProcessor` interface com o `SqlUserDefinedProcessor` atributo, que é opcional para a UDP.
