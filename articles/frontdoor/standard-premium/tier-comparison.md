@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
 ms.openlocfilehash: 1753f2bb649e73d7a5fe6c1cc32361a418ea7f63
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181810"
 ---
 # <a name="overview-of-azure-front-door-standardpremium-sku-preview"></a>Visão geral do Azure Front Door Standard/Premium SKU (Pré-visualização)
@@ -50,20 +50,20 @@ A azure Front Door é oferecida para 3 SKUs diferentes, [Azure Front Door,](../f
 
 | Funcionalidade |      Standard      |  Premium |
 |----------|:-------------:|------:|
-| Domínios personalizados | Sim | Sim |
-| Descarga SSL | Sim | Sim |
-| Colocação em cache |  Sim  | Sim |
-| Compressão | Sim | Sim   |
-| Equilíbrio global da carga | Sim  | Sim |
-| Encaminhamento da camada 7 | Sim | Sim |
-| Reescrever URL | Sim | Sim |
-| Motor de Regras | Sim | Sim |
-| Origem Privada (Ligação Privada) | Não | Sim |
-| WAF | Regras personalizadas apenas | Sim |
-| Proteção de Bots | Não | Sim |
-| Métricas e diagnósticos melhorados | Sim | Sim |
-| Relatório de tráfego | Sim | Sim |
-| Relatório de Segurança | Não | Sim | 
+| Domínios personalizados | Yes | Yes |
+| Descarga SSL | Yes | Yes |
+| Colocação em cache |  Yes  | Yes |
+| Compressão | Yes | Yes   |
+| Equilíbrio global da carga | Yes  | Yes |
+| Encaminhamento da camada 7 | Yes | Yes |
+| Reescrever URL | Yes | Yes |
+| Motor de Regras | Yes | Yes |
+| Origem Privada (Ligação Privada) | No | Yes |
+| WAF | Regras personalizadas apenas | Yes |
+| Proteção de Bots | No | Yes |
+| Métricas e diagnósticos melhorados | Yes | Yes |
+| Relatório de tráfego | Yes | Yes |
+| Relatório de Segurança | No | Sim | 
 
 ## <a name="next-steps"></a>Próximos passos
 

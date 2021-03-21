@@ -4,10 +4,10 @@ description: A gestão de recursos delegados Azure permite uma experiência de g
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.openlocfilehash: 4a20f6efde9c3b01b4a2d7a1f111de23aec87647
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177924"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
@@ -46,7 +46,7 @@ Também fornecemos APIs que são específicas para executar tarefas do Farol Azu
 
 ## <a name="enhanced-services-and-scenarios"></a>Serviços e cenários melhorados
 
-A maioria das tarefas e serviços podem ser realizados em recursos delegados entre inquilinos geridos. Abaixo estão alguns dos cenários-chave onde a gestão inter-inquilino pode ser especialmente eficaz.
+A maioria das tarefas e serviços pode ser realizada em recursos delegados entre inquilinos geridos. Abaixo estão alguns dos cenários-chave onde a gestão inter-inquilino pode ser especialmente eficaz.
 
 [Arco azul:](../../azure-arc/index.yml)
 

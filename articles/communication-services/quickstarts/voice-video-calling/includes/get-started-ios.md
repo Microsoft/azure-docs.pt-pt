@@ -1,17 +1,17 @@
 ---
 title: Quickstart - Adicionar chamadas a uma aplicação iOS usando os Serviços de Comunicação Azure
 description: Neste arranque rápido, aprende-se a usar a biblioteca de clientes Azure Communication Services Call para iOS.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 36ec27f3a0e69126a91b52bed26dc645ec89e46e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6cdd38f1e849efc416d62f22bd85ed7efb2e6349
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656650"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719724"
 ---
 Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para iOS.
 
@@ -37,7 +37,8 @@ No Xcode, crie um novo projeto iOS e selecione o modelo **de Aplicação Single 
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instale o pacote e dependências com cacau
 
-1. Crie um Podfile para a sua aplicação, assim:
+1. Para criar um Podfile para a sua aplicação abra o terminal e navegue para a pasta do projeto e corra ```pod init```
+3. Adicione o seguinte código ao Podfile e guarde:
 
    ```
    platform :ios, '13.0'
@@ -50,7 +51,7 @@ No Xcode, crie um novo projeto iOS e selecione o modelo **de Aplicação Single 
    end
    ```
 
-2. Execute o `pod install`.
+3. Execute `pod install`.
 3. Abra o `.xcworkspace` com Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Solicitar acesso ao microfone

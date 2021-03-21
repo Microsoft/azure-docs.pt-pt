@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 06/26/2020
 ms.openlocfilehash: 7757bd765bcb02782b6199f71c4a6e460b7b8143
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102559023"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics virtual machine extension for Windows (Extensão de máquina virtual do Log Analytics para Windows)
@@ -28,7 +28,7 @@ Para obter mais informações sobre os sistemas operativos windows suportados, c
 ### <a name="agent-and-vm-extension-version"></a>Versão de extensão de agente e VM
 A tabela seguinte fornece um mapeamento da versão da extensão VM do Windows Log Analytics e do pacote de agente Log Analytics para cada lançamento. 
 
-| Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data da versão: | Release Notes (Notas de Lançamento) |
+| Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data da versão: | Notas de Versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18053| 1.0.18053.0 | Outubro de 2020   | <ul><li>Novo agente Troubleshooter</li><li>Atualizações da forma como o agente lida com as alterações dos certificados aos serviços da Azure</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resolve um problema no Arco Azure</li></ul> |

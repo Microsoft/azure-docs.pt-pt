@@ -11,10 +11,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
 ms.openlocfilehash: ea418576ab8fe06964a61e48f16393e1a0566ce8
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182252"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Gatilho de aquecimento de funções Azure Functions
@@ -228,7 +228,7 @@ O gatilho de aquecimento não é suportado em Java como um atributo.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `WarmupTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 | **tipo** | n/a| Necessário - deve ser definido para `warmupTrigger` . |
 | **direção** | n/a| Necessário - deve ser definido para `in` . |

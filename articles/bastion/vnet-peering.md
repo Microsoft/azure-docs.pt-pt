@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101710588"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>VNet peering e Azure Bastion (Pré-visualização)

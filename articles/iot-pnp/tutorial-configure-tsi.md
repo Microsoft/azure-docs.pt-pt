@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 55fa10cce038c83f0758a9537a916e2dca7e13f9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181691"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial: Criar e configurar um ambiente de Insights Gen2 da Série Temporal

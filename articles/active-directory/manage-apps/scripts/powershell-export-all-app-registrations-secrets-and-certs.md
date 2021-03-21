@@ -12,10 +12,10 @@ ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
 ms.openlocfilehash: d0de96d0d8a5edc6fbacc25dcbcb868073e57183
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556558"
 ---
 # <a name="export-secrets-and-certificates-for-app-registrations"></a>Segredos de exportação e certificados para registos de aplicações

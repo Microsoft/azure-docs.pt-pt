@@ -8,10 +8,10 @@ ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491304"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
@@ -389,7 +389,7 @@ As sessões de sincronização podem falhar por várias razões, incluindo o ser
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimal)** | -2147012889 | 
 | **Cadeia do erro** | WININET_E_NAME_NOT_RESOLVED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -433,7 +433,7 @@ Este erro normalmente ocorre quando uma aplicação de cópia de segurança cria
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimal)** | -2134364065 |
 | **Cadeia do erro** | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque o agente do Azure File Sync não consegue aceder à partilha de ficheiros do Azure, o que pode dever-se à partilha de ficheiros do Azure ou ao anfitrião da conta de armazenamento já não existir. Pode resolver este erro ao realizar os passos seguintes:
 
@@ -449,7 +449,7 @@ Este erro ocorre porque o agente do Azure File Sync não consegue aceder à part
 | **HRESULT** | 0x80c86044 |
 | **HRESULT (decimal)** | -2134351804 |
 | **Cadeia do erro** | ECS_E_AZURE_AUTHORIZATION_FAILED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque o agente Azure File Sync não está autorizado a aceder à partilha de ficheiros Azure. Pode resolver este erro ao realizar os passos seguintes:
 
@@ -465,7 +465,7 @@ Este erro ocorre porque o agente Azure File Sync não está autorizado a aceder 
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (decimal)** | -2134364064 |
 | **Cadeia do erro** | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 1. Verifique se pode resolver o nome DNS de armazenamento do servidor.
 
@@ -482,7 +482,7 @@ Este erro ocorre porque o agente Azure File Sync não está autorizado a aceder 
 | **HRESULT** | 0x80c8308a |
 | **HRESULT (decimal)** | -2134364022 |
 | **Cadeia do erro** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 1. [Verifique se a conta de armazenamento existe.](#troubleshoot-storage-account)
 2. [Verifique se as definições da rede virtual e da firewall na conta de armazenamento estão configuradas corretamente (se ativadas)](./storage-sync-files-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
@@ -494,7 +494,7 @@ Este erro ocorre porque o agente Azure File Sync não está autorizado a aceder 
 | **HRESULT** | 0x80c83092 |
 | **HRESULT (decimal)** | -2134364014 |
 | **Cadeia do erro** | ECS_E_STORAGE_ACCOUNT_LOCKED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque a conta de armazenamento tem um bloqueio de [recursos](../../azure-resource-manager/management/lock-resources.md)apenas de leitura . Para resolver este problema, remova o bloqueio de recursos apenas de leitura na conta de armazenamento. 
 
@@ -505,7 +505,7 @@ Este erro ocorre porque a conta de armazenamento tem um bloqueio de [recursos](.
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimal)** | -1906441138 |
 | **Cadeia do erro** | JET_errWriteConflict |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre quando existe um problema com a base de dados interna utilizada pelo Azure File Sync. Quando este problema ocorrer, crie um pedido de apoio e entraremos em contato consigo para o ajudar a resolver este problema.
 
@@ -516,7 +516,7 @@ Este erro ocorre quando existe um problema com a base de dados interna utilizada
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (decimal)** | -2134364053 |
 | **Cadeia do erro** | ECS_E_AGENT_VERSION_BLOCKED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorrerá se a versão do Azure File Sync instalada no servidor não for suportada. Para resolver este problema, [atualize]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) para uma [versão de agente suportado]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
@@ -527,7 +527,7 @@ Este erro ocorrerá se a versão do Azure File Sync instalada no servidor não f
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (decimal)** | -2134351810 |
 | **Cadeia do erro** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre quando o limite de armazenamento da partilha de ficheiros do Azure é atingido, o que poderá acontecer se uma quota for aplicada a uma partilha de ficheiros do Azure ou se a utilização exceder os limites de uma partilha de ficheiros do Azure. Para obter mais informações, consulte os [limites atuais para uma partilha de ficheiros Azure](storage-files-scale-targets.md).
 
@@ -553,7 +553,7 @@ Se a partilha de ficheiros estiver cheia e não tiver sido definida uma quota, u
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (decimal)** | -2134351824 |
 | **Cadeia do erro** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre quando a partilha de ficheiros do Azure não está acessível. Para resolver os problemas:
 
@@ -569,7 +569,7 @@ Se a partilha de ficheiros Azure foi eliminada, tem de criar uma nova partilha d
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (decimal)** | -2134364042 |
 | **Cadeia do erro** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre quando a subscrição do Azure é suspensa. A sincronização será reativada quando a subscrição do Azure for restaurada. Vê [porque é que a minha assinatura Azure está desativada e como a reativo para](../../cost-management-billing/manage/subscription-disabled.md) mais informações?
 
@@ -580,7 +580,7 @@ Este erro ocorre quando a subscrição do Azure é suspensa. A sincronização s
 | **HRESULT** | 0x80c8033e |
 | **HRESULT (decimal)** | -2134375618 |
 | **Cadeia do erro** | ECS_E_SERVER_BLOCKED_BY_NETWORK_ACL |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre quando a partilha de ficheiros do Azure está inacessível devido a uma firewall da conta de armazenamento ou devido à conta de armazenamento pertencer a uma rede virtual. Verifique se as definições de firewall e rede virtual na conta de armazenamento estão configuradas corretamente. Para obter mais informações, consulte [as definições de firewall Configure e rede virtual](./storage-sync-files-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
 
@@ -607,7 +607,7 @@ Se este erro persistir por mais de algumas horas, crie um pedido de apoio e entr
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimal)** | -2146762487 |
 | **Cadeia do erro** | CERT_E_UNTRUSTEDROOT |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro pode ocorrer se a sua organização estiver a utilizar um proxy de terminação TLS ou se uma entidade maliciosa estiver a intercetar o tráfego entre o seu servidor e o serviço Azure File Sync. Se tiver a certeza de que isso é esperado (porque a sua organização está a usar um proxy de terminação TLS), não consegue verificar o certificado com uma substituição de registo.
 
@@ -632,7 +632,7 @@ Ao definir este valor de registo, o agente Azure File Sync aceitará qualquer ce
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (decimal)** | -2147012894 |
 | **Cadeia do erro** | WININET_E_TIMEOUT |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -643,7 +643,7 @@ Ao definir este valor de registo, o agente Azure File Sync aceitará qualquer ce
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (decimal)** | -2134375680 |
 | **Cadeia do erro** | ECS_E_SERVER_CREDENTIAL_NEEDED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre normalmente porque a hora do servidor está incorreta. Se o servidor estiver a funcionar numa máquina virtual, verifique se a hora do hospedeiro está correta.
 
@@ -654,7 +654,7 @@ Este erro ocorre normalmente porque a hora do servidor está incorreta. Se o ser
 | **HRESULT** | 0x80c83078 |
 | **HRESULT (decimal)** | -2134364040 |
 | **Cadeia do erro** | ECS_E_AUTH_SRV_CERT_EXPIRED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque o certificado utilizado para a autenticação expirou.
 
@@ -678,7 +678,7 @@ Se o certificado de autenticação de cliente tiver expirado, efetue os seguinte
 | **HRESULT** | 0x80c80228 |
 | **HRESULT (decimal)** | -2134375896 |
 | **Cadeia do erro** | ECS_E_AUTH_SRV_CERT_NOT_FOUND |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque o certificado utilizado para a autenticação não foi localizado.
 
@@ -698,7 +698,7 @@ Para resolver este problema, realize os passos seguintes:
 | **HRESULT** | 0x80c83079 |
 | **HRESULT (decimal)** | -2134364039 |
 | **Cadeia do erro** | ECS_E_AUTH_IDENTITY_NOT_FOUND |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque a eliminação do ponto final do servidor falhou e o ponto final está agora num estado parcialmente eliminado. Para resolver este problema, repita a eliminação do ponto final do servidor.
 
@@ -709,14 +709,14 @@ Este erro ocorre porque a eliminação do ponto final do servidor falhou e o pon
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (decimal)** | -1906441711 |
 | **Cadeia do erro** | JET_errLogDiskFull |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 | | |
 |-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
 | **Cadeia do erro** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque o volume ficou cheio. Este erro geralmente ocorre porque os ficheiros fora do ponto final do servidor estão a utilizar espaço no volume. Liberte o espaço no volume adicionando pontos finais adicionais do servidor, movendo ficheiros para um volume diferente, ou aumentando o tamanho do volume em que o ponto final do servidor está ligado.
 
@@ -738,21 +738,21 @@ Este erro ocorre porque o ponto final da nuvem foi criado com conteúdo já exis
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimal)** | -2134375877 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 | | |
 |-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 | | |
 |-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
 | **Cadeia do erro** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 As sessões de sincronização falham com um destes erros quando existem muitos ficheiros que não estão a sincronizar com erros por item. Execute os passos documentados na [secção Como ver se existem ficheiros ou pastas específicas que não estão a sincronizar?](?tabs=portal1%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) Para ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED de erro sincronizado, abra um caso de suporte.
 
@@ -766,7 +766,7 @@ As sessões de sincronização falham com um destes erros quando existem muitos 
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimal)** | -2134376423 |
 | **Cadeia do erro** | ECS_E_SYNC_INVALID_PATH |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Certifique-se de que o caminho existe, está num volume NTFS local, e não é um ponto de reparse ou ponto final do servidor existente.
 
@@ -777,7 +777,7 @@ Certifique-se de que o caminho existe, está num volume NTFS local, e não é um
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimal)** | -2134375817 |
 | **Cadeia do erro** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque a versão do controlador de filtro de Arrumo na Cloud (StorageSync.sys) carregada não é compatível com o serviço do Agente de Sincronização de Armazenamento (FileSyncSvc). Se o agente do Azure File Sync tiver sido atualizado, reinicie o servidor para concluir a instalação. Se o erro persistir, desinstale o agente, reinicie o servidor e reinstale o agente do Azure File Sync.
 
@@ -810,7 +810,7 @@ Este erro ocorre porque a sincronização falhou devido a uma exceção. Se o er
 | **HRESULT** | 0x80c83073 |
 | **HRESULT (decimal)** | -2134364045 |
 | **Cadeia do erro** | ECS_E_STORAGE_ACCOUNT_FAILED_OVER |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorreu porque a conta de armazenamento efetuou uma ativação pós-falha para outra região. O Azure File Sync não suporta a funcionalidade de ativação pós-falha da conta de armazenamento. As contas de armazenamento que contêm partilhas de ficheiros do Azure e estão a ser utilizadas como pontos finais da cloud no Azure File Sync não devem efetuar a ativação pós-falha. Se a fizer, fará com que a sincronização deixe de funcionar e poderá também causar perdas de dados inesperadas em caso de ficheiros com novo escalão. Para resolver este problema, mova a conta de armazenamento para a região primária.
 
@@ -832,7 +832,7 @@ Esse erro ocorre devido a um problema interno na base de dados de sincronizaçã
 | **HRESULT** | 0x80c83088 |
 | **HRESULT (decimal)** | -2134364024 | 
 | **Cadeia do erro** | ECS_E_INVALID_AAD_TENANT |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Certifique-se de que tem o mais recente agente Azure File Sync. A partir do agente V10, a Azure File Sync suporta mover a subscrição para um inquilino diferente do Azure Ative Directory.
  
@@ -845,7 +845,7 @@ Uma vez que tenha a versão mais recente do agente, tem de dar acesso à aplica�
 | **HRESULT** | 0x80c83096 |
 | **HRESULT (decimal)** | -2134364010 | 
 | **Cadeia do erro** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre se as definições de firewall e rede virtual estiverem ativadas na conta de armazenamento e a exceção "Permitir que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento" não é verificada. Para resolver este problema, siga os passos documentados na secção [Configurar as definições da firewall e da rede virtual](./storage-sync-files-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) no guia de implementação.
 
@@ -856,7 +856,7 @@ Este erro ocorre se as definições de firewall e rede virtual estiverem ativada
 | **HRESULT** | 0x80070005 |
 | **HRESULT (decimal)** | -2147024891 |
 | **Cadeia do erro** | ERROR_ACCESS_DENIED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro poderá ocorrer se a conta NT AUTHORITY\SYSTEM não tiver permissões para a pasta Informações de Volume do Sistema no volume onde o ponto final do servidor está localizado. Note que se os ficheiros individuais não estiverem sincronizados com ERROR_ACCESS_DENIED, execute os passos documentados na secção de erros de [sincronização de ficheiros/diretórios.](?tabs=portal1%252cazure-portal#troubleshooting-per-filedirectory-sync-errors)
 
@@ -875,7 +875,7 @@ Para resolver este problema, realize os passos seguintes:
 | **HRESULT** | 0x80c8027e |
 | **HRESULT (decimal)** | -2134375810 |
 | **Cadeia do erro** | ECS_E_SYNC_REPLICA_ROOT_CHANGED |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque o Azure File Sync não suporta a eliminação e a recriação de uma partilha de ficheiros do Azure no mesmo grupo de sincronização. 
 
@@ -894,7 +894,7 @@ Para resolver este problema, elimine e recrie o grupo de sincronização. Para t
 | **HRESULT** | 0x80190133 |
 | **HRESULT (decimal)** | -2145844941 |
 | **Cadeia do erro** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre porque o Azure File Sync não suporta a reorientação HTTP (código de estado 3xx). Para resolver este problema, desative o reorientação HTTP no seu servidor de procuração ou dispositivo de rede.
 
@@ -916,7 +916,7 @@ Este erro ocorre quando uma operação de ingestão de dados excede o tempo limi
 | **HRESULT** | 0x80c8027a |
 | **HRESULT (decimal)** | -2134375814 |
 | **Cadeia do erro** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
-| **Remediação necessária** | Sim |
+| **Remediação necessária** | Yes |
 
 Este erro ocorre se o diretório utilizado como o caminho do ponto final do servidor for renomeado ou eliminado. Se o diretório tiver sido renomeado, rebatize o diretório de volta ao nome original e reinicie o serviço de Agente de Sincronização de Armazenamento (FileSyncSvc).
 

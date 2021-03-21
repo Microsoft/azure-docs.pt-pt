@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: willzhan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 828895894464eafc53f74e7c8b5798db4db03533
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103016139"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming for Windows 10 (Transmissão em Fluxo Offline do PlayReady para Windows 10)
@@ -38,7 +38,7 @@ Azure Media Services suporta descarregamento/reprodução offline com proteção
 - [Offline FairPlay Streaming for iOS](media-services-protect-hls-with-offline-fairplay.md) (Transmissão Offline do FairPlay para iOS)
 - [Streaming de Widevine offline para Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Esta secção dá algum fundo na reprodução do modo offline, especialmente por que:
 

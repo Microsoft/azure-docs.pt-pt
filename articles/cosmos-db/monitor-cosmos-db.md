@@ -9,10 +9,10 @@ ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
 ms.openlocfilehash: f18d1850cb6ccf28ff70f826e3d4bfe74ae05c40
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102178733"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorizar o Azure Cosmos DB
@@ -176,7 +176,7 @@ Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas 
 
 Por exemplo, a tabela que se segue lista poucas regras de alerta para os seus recursos. Pode encontrar uma lista detalhada de regras de alerta do portal Azure. Para saber mais, veja como configurar o artigo [alertas.](create-alerts.md)  
 
-| Tipo de alerta | Condição | Descrição  |
+| Tipo de alerta | Condição | Description  |
 |:---|:---|:---|
 |Limitação da taxa nas unidades de pedido (alerta métrico) |Nome de dimensão: StatusCode, Operador: Iguais, Valores de dimensão: 429  | Alertas se o contentor ou uma base de dados exceder o limite de produção previsto. |
 |Região falhou mais |Operador: Maior do que, Tipo de Agregação: Contagem, Valor limiar: 1 | Quando uma única região é chumbada. Este alerta é útil se não tiver ativado a falha automática. |

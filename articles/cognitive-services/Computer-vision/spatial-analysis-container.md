@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
 ms.openlocfilehash: 1a107f812ceb46649126bdbefcf3b828e1938ff3
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612903"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)

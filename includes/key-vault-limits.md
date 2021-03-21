@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
 ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103010966"
 ---
 O serviço Azure Key Vault suporta dois tipos de recursos: Cofres e HSMs geridos. As duas secções seguintes descrevem os limites de serviço para cada uma delas, respectivamente.

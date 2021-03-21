@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: ee0587063c0fac67068869c58471ada58354fab7
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102437677"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Crie imagens VM personalizadas para o seu dispositivo Azure Stack Edge Pro
@@ -71,7 +71,7 @@ Faça os seguintes passos para criar uma imagem Linux VM.
 
 Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge Pro. Pode utilizar as seguintes duas imagens do Azure Marketplace para criar imagens personalizadas do Linux:
 
-|Nome do item  |Descrição  |Publisher  |
+|Nome do item  |Description  |Publisher  |
 |---------|---------|---------|
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |O Ubuntu Server é o Linux mais popular do mundo para ambientes em nuvem.|Canónico|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux é uma das distribuições linux mais populares.     |credativ|

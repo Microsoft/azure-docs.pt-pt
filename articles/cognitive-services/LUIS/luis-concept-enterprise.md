@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102609690"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para uma aplicação LUIS

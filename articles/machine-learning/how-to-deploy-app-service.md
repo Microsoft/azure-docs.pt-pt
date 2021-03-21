@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 ms.openlocfilehash: 3b1b416f3fec9e40261a82c88260c041918c1424
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102522007"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementar um modelo de machine learning para o Azure App Service (pré-visualização)

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4454afbe543f374ebd745af7cd59be1ab745036f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658354"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670892"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação VPN local-to-site Azure não pode ligar-se e parar de funcionar
 
@@ -28,7 +28,7 @@ Para resolver o problema, tente primeiro [redefinir o gateway Azure VPN](./reset
 
 Verifique o tipo de gateway Azure VPN.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
 2. Consulte a página **geral** do gateway VPN para obter informações sobre o tipo.
     
@@ -108,7 +108,7 @@ Verifique e remova o encaminhamento definido pelo utilizador (UDR) ou Grupos de 
 
 A funcionalidade de sigilo para a frente perfeita pode causar problemas de desconexão. Se o dispositivo VPN tiver um sigilo avançado perfeito ativado, desative a funcionalidade. Em seguida, atualize a política IPsec de gateway VPN.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
--   [Configure uma ligação site-a-local a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configure uma ligação site-a-local a uma rede virtual](./tutorial-site-to-site-portal.md)
 -   [Configure uma política IPsec/IKE para ligações VPN site-to-site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

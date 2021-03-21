@@ -7,10 +7,10 @@ ms.author: v-jysur
 ms.date: 12/29/2020
 ms.custom: references_regions
 ms.openlocfilehash: 83994c1b6e150342a777a079d79d6a594d30c3ff
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041608"
 ---
 # <a name="data-synced-from-your-itsm-product"></a>Dados sincronizados com o seu produto ITSM
@@ -83,7 +83,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Descrição
+- Description
 - Computador
 
 ## <a name="servicenow-example"></a>Exemplo de ServiceNow 
@@ -131,7 +131,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  | Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Descrição |
+| Description_s | Description |
 | Computador  | Item de configuração |
 
 ## <a name="next-steps"></a>Passos seguintes

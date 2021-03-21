@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/09/2021
 ms.author: apimpm
 ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521548"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na Azure API Management
@@ -272,7 +272,7 @@ A API Management é um serviço de confiança da Microsoft para os seguintes rec
 
 |Serviço Azure | Ligação|
 |---|---|
-|Storage do Azure | [Armazenamento fidedigno de acesso a azul](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Armazenamento do Azure | [Armazenamento fidedigno de acesso a azul](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
 |Service Bus do Azure | [Ônibus de serviço de acesso fidedigno a azul-azure](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
 |Hub de Eventos do Azure | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
 

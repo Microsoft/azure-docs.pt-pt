@@ -7,10 +7,10 @@ ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102179668"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições

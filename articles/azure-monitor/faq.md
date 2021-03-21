@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 5b9b0c6a0fe08ccff9da59539b926270cd0e1d44
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032859"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606961"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -705,6 +705,10 @@ A recolha de registos a partir de contentores no espaço de nomes do sistema kub
 
 Para aprender a atualizar o agente, consulte a [gestão do Agente.](containers/container-insights-manage-agent.md)
 
+### <a name="why-are-log-lines-larger-than-16kb-split-into-multiple-records-in-log-analytics"></a>Porque é que as linhas de registo são maiores do que 16KB divididas em vários registos no Log Analytics?
+
+O agente utiliza o [controlador de registo de ficheiros Docker JSON](https://docs.docker.com/config/containers/logging/json-file/) para capturar a estante e o stderr dos contentores. Este controlador de registo divide linhas de registo [maiores do que 16KB](https://github.com/moby/moby/pull/22982) em várias linhas quando copiado de stdout ou stderr para um ficheiro.
+
 ### <a name="how-do-i-enable-multi-line-logging"></a>Como posso permitir a exploração de madeira em várias linhas?
 
 Atualmente, as informações do Contentor não suportam a exploração de madeira em várias linhas, mas existem soluções alternativas disponíveis. Você pode configurar todos os serviços para escrever em formato JSON e, em seguida, Docker/Moby irá escrevê-los como uma única linha.
@@ -821,6 +825,29 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não estivesse a bordo de insights VM. 
 
+## <a name="sql-insights-preview"></a>Insights SQL (pré-visualização)
+
+### <a name="what-versions-of-sql-server-are-supported"></a>Que versões do SQL Server são suportadas?
+Consulte [versões suportadas](insights/sql-insights-overview.md#supported-versions) para versões suportadas de SQL.
+
+### <a name="what-sql-resource-types-are-supported"></a>Que tipos de recursos SQL são suportados?
+
+- Base de Dados SQL do Azure. Apenas uma base de dados única, não bases de dados numa Piscina Elástica.
+- Instância Gerida do Azure SQL 
+- Máquinas virtuais Azure SQL[(Windows,](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) [Linux)](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)e Azure em que o SQL Server está instalado.
+
+### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>Quais os sistemas operativos para a máquina que funciona o SQL Server?
+Qualquer SISTEMA que suporte a versão suportada em execução de SQL.
+
+### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>Que sistema operativo para o servidor de monitorização remota é suportado?
+
+Ubuntu 18.04 é atualmente o único sistema operativo suportado.
+
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>Onde os dados de monitorização serão armazenados no Log Analytics 
+Todos os dados de monitorização são armazenados na tabela **InsightsMetrics.** A coluna **Origin** tem o valor *solutions.azm.ms/telegraf/SqlInsights*. A coluna **Namespace** tem valores que começam com *sqlserver_*.
+
+### <a name="how-often-is-data-collected"></a>Com que frequência são recolhidos dados? 
+Consulte [os Dados recolhidos por insights SQL](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) para obter detalhes sobre a frequência que diferentes dados são recolhidos.
 
 ## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.

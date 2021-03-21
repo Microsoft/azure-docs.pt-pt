@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 80384662789e9dad979566715672c15a8648ea9a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7dd84b8f2f0834a03b41179531245ebdff35b7ff
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104611945"
+ms.locfileid: "104719602"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -255,9 +255,9 @@ Para mudar para uma voz neural, mude `name` a uma das [opções de voz neural](.
 </speak>
 ```
 
-## <a name="visemes"></a>Visemes
+## <a name="get-facial-pose-events"></a>Obtenha eventos de pose facial
 
-A fala é geralmente tratada como uma boa maneira de impulsionar a animação de expressões faciais.
-Muitas vezes os [visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada (isto é, a posição dos lábios, mandíbula e língua ao produzir um determinado fonme).
-Pode subscrever o evento Viseme em Speech SDK para gerar dados de animação facial. Em seguida, pode aplicar esses dados a um personagem para realizar animação facial.
-Aprenda [a obter saídas visemas](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
+A fala pode ser uma boa maneira de impulsionar a animação de expressões faciais.
+Muitas [vezes os visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada, como a posição dos lábios, mandíbula e língua ao produzir um determinado fonme.
+Você pode subscrever eventos viseme em Speech SDK para obter dados de animação facial e, em seguida, aplicar os dados a um personagem durante a animação facial.
+Saiba [como obter eventos visemes.](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk)

@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
 ms.openlocfilehash: 0a56cfc147d4fb5cbdccf13363ad28bc602d8216
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182762"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados em Azure SQL Gestd Instance para um ponto anterior no tempo
@@ -46,9 +46,9 @@ A tabela a seguir mostra cenários de restauro pontual para a ocorrência gerida
 
 |           |Restaurar a DB existente no mesmo caso de SQL Managed Instance| Restaurar o DB existente para outra sql gestditua instância|Restauro caiu DB para a mesma SQL Managed Instance|Restauro deixou cair DB para outra SqL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal do Azure**| Sim|Não |Sim|Não|
-|**CLI do Azure**|Sim |Sim |Não|Não|
-|**PowerShell**| Sim|Sim |Sim|Sim|
+|**Portal do Azure**| Yes|No |Yes|No|
+|**CLI do Azure**|Yes |Yes |No|No|
+|**PowerShell**| Yes|Yes |Yes|Yes|
 
 ## <a name="restore-an-existing-database"></a>Restaurar uma base de dados existente
 

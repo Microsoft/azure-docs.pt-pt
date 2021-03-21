@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a21b6f5e7d2976bda0efd37577b7cca90469aea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ed101282a69120162d6e3b526693c0a83df45b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686449"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607114"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o Azure Ative Directory assinar em comportamento para uma aplicação usando uma política de Descoberta do Realm Doméstico
 
@@ -91,7 +91,7 @@ Algumas aplicações não fornecem uma forma de configurar o pedido de autentica
 
 ### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>Política de Descoberta do Home Realm para evitar a aceleração automática
 
-Algumas aplicações da Microsoft e do SaaS incluem automaticamente domain_hints (por exemplo, `https://outlook.com/contoso.com` resulta num pedido de login com `&domain_hint=contoso.com` apêndice), o que pode perturbar o lançamento de credenciais geridas como o FIDO.  Pode utilizar a [Home Realm Discovery Policy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) para ignorar sugestões de domínio de determinadas aplicações ou para determinados domínios, durante o lançamento de credenciais geridas.  
+Algumas aplicações da Microsoft e do SaaS incluem automaticamente domain_hints (por exemplo, `https://outlook.com/contoso.com` resulta num pedido de login com `&domain_hint=contoso.com` apêndice), o que pode perturbar o lançamento de credenciais geridas como o FIDO.  Pode utilizar a [Home Realm Discovery Policy](/graph/api/resources/homeRealmDiscoveryPolicy) para ignorar sugestões de domínio de determinadas aplicações ou para determinados domínios, durante o lançamento de credenciais geridas.  
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Ativar a autenticação direta ropc de utilizadores federados para aplicações antigas
 
@@ -129,7 +129,7 @@ Segue-se um exemplo de definição de política de RHD:
    }
 ```
 
-O tipo de política é "[HomeRealmDiscoveryPolicy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy)".
+O tipo de política é "[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)".
 
 **AccelerateToFederatedDomain** é opcional. Se **accelerateToFederatedDomain** é falso, a política não tem qualquer efeito na aceleração automática. Se **accelerateToFederatedDomain** for verdadeiro e houver apenas um domínio verificado e federado no inquilino, então os utilizadores serão levados diretamente para o IdP federado para iniciar sação. Se for verdade e houver mais de um domínio verificado no arrendatário, **a PreferredDomain** deve ser especificada.
 

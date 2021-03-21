@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 2e3f1891a786751365a0bea58097e03bd41f85bb
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489928"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Saiba como implementar módulos e estabelecer rotas no IoT Edge
@@ -258,7 +258,7 @@ A pia define para onde as mensagens são enviadas. Apenas os módulos e o IoT Hu
 
 A propriedade da pia pode ser qualquer um dos seguintes valores:
 
-| Sink | Descrição |
+| Sink | Description |
 | ---- | ----------- |
 | `$upstream` | Envie a mensagem para o IoT Hub |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Envie a mensagem para uma entrada específica de um módulo específico |

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 3b97887e7bbd31fc1bb6ec0a074267aa081184c8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1fad6274b1dbbc4bf255caabd79352b3c836e352
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724902"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606708"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carregue gradualmente os dados de várias tabelas no SQL Server para uma base de dados na Base de Dados Azure SQL utilizando o portal Azure
 
@@ -253,7 +253,7 @@ END
 8. Clique em **Criar**.      
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
    
-   ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página inicial da Fábrica de Dados Azure, com o azulejo do Monitor de autores &.":::
 10. Clique no mosaico **Criar e Monitorizar** para iniciar a interface de utilizador (IU) do Azure Data Factory num separador à parte.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Criar o runtime de integração autoalojado
@@ -291,7 +291,7 @@ Neste passo, ligue a sua base de dados SQL Server à fábrica de dados.
 
 1. Na janela **Ligações**, mude do separador **Runtimes de Integração** para o separador **Serviços Ligados** e clique em **+ Novo**.
 
-   ![Novo serviço ligado](./media/doc-common-process/new-linked-service.png)
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Novo serviço ligado.":::
 1. Na janela **Novo Serviço Ligado**, selecione **SQL Server** e clique em **Continuar**. 
 
 1. Na janela **Novo Serviço Ligado**, siga os passos abaixo:

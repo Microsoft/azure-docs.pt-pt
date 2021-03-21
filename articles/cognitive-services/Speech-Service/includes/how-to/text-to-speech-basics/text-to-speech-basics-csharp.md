@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 278bb106789452d14001da5bd0bab6570d114666
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b1161fdcbed7933c7a8dd0dccadd2e896966b728
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428251"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719785"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -67,14 +67,14 @@ Há algumas maneiras de inicializar [`SpeechConfig`](/dotnet/api/microsoft.cogni
 Neste exemplo, cria-se uma [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) chave de subscrição e uma região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../../../overview.md#try-the-speech-service-for-free). Também cria um código básico de placa de caldeira para usar para o resto deste artigo, que modifica para diferentes personalizações.
 
 ```csharp
-public class Program 
+public class Program
 {
     static async Task Main()
     {
         await SynthesizeAudioAsync();
     }
 
-    static async Task SynthesizeAudioAsync() 
+    static async Task SynthesizeAudioAsync()
     {
         var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     }
@@ -88,7 +88,7 @@ Em seguida, [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech
 Para iniciar, crie uma `AudioConfig` saída para escrever automaticamente a saída para um `.wav` ficheiro, utilizando a `FromWavFileOutput()` função, e instantaneamente com uma `using` declaração. Uma `using` declaração neste contexto elimina automaticamente recursos não geridos e faz com que o objeto fique fora de alcance após a eliminação.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
@@ -98,7 +98,7 @@ static async Task SynthesizeAudioAsync()
 Em seguida, instantâneo um `SpeechSynthesizer` com outra `using` declaração. Passe o seu `config` objeto e o objeto como `audioConfig` params. Em seguida, executar a síntese da fala e escrever para um ficheiro é tão simples como correr `SpeakTextAsync()` com uma série de textos.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
@@ -111,10 +111,10 @@ Execute o programa e um ficheiro sintetizado `.wav` é escrito para o local espe
 
 ## <a name="synthesize-to-speaker-output"></a>Sintetizar para a saída do altifalante
 
-Em alguns casos, pode querer fazer a produção direta do discurso sintetizado diretamente para um orador. Para isso, simplesmente omite o `AudioConfig` param ao criar `SpeechSynthesizer` o exemplo acima. Isto permite obter o dispositivo de saída ativo atual.
+Em alguns casos, pode querer fazer a produção direta do discurso sintetizado diretamente para um orador. Para isso, omita o `AudioConfig` parâmetro ao criar o exemplo `SpeechSynthesizer` acima. Isto sintetiza o dispositivo de saída ativo atual.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config);
@@ -130,7 +130,7 @@ Para muitos cenários no desenvolvimento de aplicações de fala, é provável q
 * Integre o resultado com outros serviços ou serviços da API.
 * Modifique os dados áudio, escreva `.wav` cabeçalhos personalizados, etc.
 
-É simples fazer esta mudança do exemplo anterior. Em primeiro lugar, retire o `AudioConfig` bloco, pois irá gerir manualmente o comportamento da saída a partir deste ponto para um maior controlo. Em seguida, passe `null` para o `AudioConfig` no `SpeechSynthesizer` construtor. 
+É simples fazer esta mudança do exemplo anterior. Em primeiro lugar, retire o `AudioConfig` bloco, pois irá gerir manualmente o comportamento da saída a partir deste ponto para um maior controlo. Em seguida, passe `null` para o `AudioConfig` no `SpeechSynthesizer` construtor.
 
 > [!NOTE]
 > Passar `null` para o , em vez de `AudioConfig` omiti-lo como no exemplo de saída do altifalante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo atual.
@@ -138,11 +138,11 @@ Para muitos cenários no desenvolvimento de aplicações de fala, é provável q
 Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) variável. A `AudioData` propriedade contém um dos `byte []` dados de saída. Pode trabalhar manualmente com `byte []` isto, ou pode utilizar a [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) classe para gerir o fluxo de memória. Neste exemplo, utiliza-se a `AudioDataStream.FromResult()` função estática para obter um fluxo a partir do resultado.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
-    
+
     var result = await synthesizer.SpeakTextAsync("Getting the response as an in-memory stream.");
     using var stream = AudioDataStream.FromResult(result);
 }
@@ -168,7 +168,7 @@ Existem várias opções para diferentes tipos de ficheiros, dependendo dos seus
 Neste exemplo, especifica-se um formato RIFF de alta `Riff24Khz16BitMonoPcm` fidelidade, definindo `SpeechSynthesisOutputFormat` o no `SpeechConfig` objeto. Semelhante ao exemplo na secção anterior, [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) usa-se para obter um fluxo de memória do resultado e, em seguida, escreva-o num ficheiro.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
@@ -204,11 +204,11 @@ Em seguida, tem de alterar o pedido de síntese de fala para fazer referência a
 > Se estiver a utilizar o Visual Studio, a sua build config provavelmente não encontrará o seu ficheiro XML por predefinição. Para corrigir isto, clique no ficheiro XML e selecione **Propriedades.** Alterar **a Ação de Construção** para *Conteúdo* e alterar copy to **Output Directory** para *Copy always*.
 
 ```csharp
-public static async Task SynthesizeAudioAsync() 
+public static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
-    
+
     var ssml = File.ReadAllText("./ssml.xml");
     var result = await synthesizer.SpeakSsmlAsync(ssml);
 
@@ -247,3 +247,10 @@ Para mudar para uma voz neural, mude `name` a uma das [opções de voz neural](.
   </voice>
 </speak>
 ```
+## <a name="get-facial-pose-events"></a>Obtenha eventos de pose facial
+
+A fala pode ser uma boa maneira de impulsionar a animação de expressões faciais.
+Muitas [vezes os visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada, como a posição dos lábios, mandíbula e língua ao produzir um determinado fonme.
+Pode subscrever o evento viseme na Speech SDK.
+Em seguida, você pode aplicar eventos visemes para animar o rosto de uma personagem enquanto o áudio da fala reproduz.
+Saiba [como obter eventos visemes.](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk)

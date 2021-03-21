@@ -10,10 +10,10 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: e9b24e981e472371e477cd4dd895e976f709b2fb
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103490517"
 ---
 # <a name="sign-an-http-request"></a>Assine um pedido HTTP

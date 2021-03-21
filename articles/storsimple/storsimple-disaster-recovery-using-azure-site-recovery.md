@@ -1,5 +1,5 @@
 ---
-title: Automatizar o fileshare DR da StorSimple com a Recuperação do Site Azure Microsoft Docs
+title: Automatizar o fileshare DR da StorSimple com o | de recuperação do site Azure Microsoft Docs
 description: Descreve os passos e as melhores práticas para criar uma solução de recuperação de desastres para ações de ficheiros hospedadas no armazenamento Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6152d4b9ee28554efcb5b08b7a2d161a0723852
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301938"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670909"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução automatizada de recuperação de desastres utilizando a recuperação do site Azure para ações de ficheiros hospedadas no StorSimple
 
@@ -44,7 +44,7 @@ Implementar uma solução de recuperação de desastres de um clique que utiliza
    - Dispositivo de armazenamento StorSimple no local registado com gerente da Azure StorSimple
    - StorSimple Cloud Appliance criado no gestor Azure StorSimple. O aparelho pode ser mantido num estado de paragem.
    - Ações de ficheiros acolhidas nos volumes configurados no dispositivo de armazenamento StorSimple
-   - [Cofre de serviços de recuperação de site Azure](/azure/site-recovery/hyper-v-vmm-azure-tutorial) criado numa subscrição do Microsoft Azure
+   - [Cofre de serviços de recuperação de site Azure](../site-recovery/hyper-v-vmm-azure-tutorial.md) criado numa subscrição do Microsoft Azure
 
 Além disso, se o Azure for o seu local de recuperação, execute a [ferramenta de Avaliação de Prontidão virtual da máquina Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs para garantir que são compatíveis com os serviços de VMs Azure e Azure Site Recovery.
 
@@ -112,7 +112,7 @@ Este passo requer que prepare o ambiente do servidor de ficheiros no local, crie
    1. Utilize a função de Serviços de Ficheiros e Armazenamento para criar ações de ficheiros nestes volumes.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Para criar e preparar um cofre de recuperação do local de Azure
-Consulte a [documentação de recuperação do site Azure](/azure/site-recovery/) para começar com a Recuperação do Site Azure antes de proteger o VM do servidor de ficheiros.
+Consulte a [documentação de recuperação do site Azure](../site-recovery/index.yml) para começar com a Recuperação do Site Azure antes de proteger o VM do servidor de ficheiros.
 
 #### <a name="to-enable-protection"></a>Para permitir a proteção
 1. Desligue o(s) alvo iSCSI dos VMs no local que pretende proteger através da Recuperação do Sítio azul:
@@ -124,7 +124,7 @@ Consulte a [documentação de recuperação do site Azure](/azure/site-recovery/
    > [!NOTE]
    > Isto fará com que as ações dos ficheiros não estejam temporariamente disponíveis.
    
-1. [Ativar a proteção da máquina virtual](/azure/site-recovery/hyper-v-azure-tutorial) do servidor de ficheiros VM a partir do portal de recuperação do site Azure.
+1. [Ativar a proteção da máquina virtual](../site-recovery/hyper-v-azure-tutorial.md) do servidor de ficheiros VM a partir do portal de recuperação do site Azure.
 1. Quando a sincronização inicial começar, pode voltar a ligar o alvo. Vá ao iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Connect**.
 1. Quando a sincronização estiver completa e o estado do VM estiver **protegido,** selecione o VM, selecione o **separador Configure** e atualize a rede do VM em conformidade (esta é a rede da qual a falha sobre VM(s) fará parte). Se a rede não aparecer, significa que a sincronização continua.
 
@@ -170,17 +170,17 @@ Pode criar um plano de recuperação na ASR para automatizar o processo de failo
    
 1. Na conta de automatização, clique em **Variáveis** &gt; **Adicione uma variável** e adicione as seguintes variáveis. Pode optar por encriptar estes ativos. Estas variáveis são específicas do plano de recuperação. Se o seu plano de recuperação, que irá criar no próximo passo, o nome é TestPlan, então as suas variáveis devem ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, e assim por diante.
 
-   - **BaseUrl**: O url do Gestor de Recursos para a nuvem Azure. Utilize **o Get-AzEnvironment / Select-Object Name, ResourceManagerUrl** cmdlet.
+   - **BaseUrl**: O url do Gestor de Recursos para a nuvem Azure. Utilize **o Nome | Select-Object Get-AzEnvironment, Cmdlet ResourceManagerUrl.**
    - _RecoveryPlanName_**-ResourceGroupName**: O grupo gestor de recursos que tem o recurso StorSimple.
    - _RecoveryPlanName_**-ManagerName**: O recurso StorSimple que tem o dispositivo StorSimple.
    - _RecoveryPlanName_**-DeviceName**: O dispositivo StorSimple que tem de ser chumbado.
    - _RecoveryPlanName_**-DeviceIpAddress**: O endereço IP do dispositivo (isto pode ser encontrado no separador **dispositivos** no separador StorSimple Device Manager Do grupo &gt; **Definições** DE &gt; **Rede** &gt; **DNS).**
    - _RecoveryPlanName_**-VolumeContainers**: Uma cadeia separada por vírgula de recipientes de volume presentes no dispositivo que precisa de ser chumbada; por exemplo: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: O aparelho de nuvem StorSimple no qual os recipientes devem ser chumbados.
-   - _RecoveryPlanName_**-TargetDeviceIpAddress**: O endereço IP do dispositivo-alvo (isto pode ser encontrado no separador de rede de configurações do grupo de configurações **da máquina** &gt; **Settings** &gt; **Networking** virtual).
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: O endereço IP do dispositivo-alvo (isto pode ser encontrado no separador de rede de configurações do grupo de configurações **da máquina** &gt;  &gt;  virtual).
    - _RecoveryPlanName_**-StorageAccountName**: O nome da conta de armazenamento em que o script (que tem de ser executado no falhado sobre VM) será armazenado. Esta pode ser qualquer conta de armazenamento que tenha algum espaço para armazenar o script temporariamente.
    - _RecoveryPlanName_**-StorageAccountKey**: A chave de acesso para a conta de armazenamento acima.
-   - _RecoveryPlanName_**-VMGUIDS**: Ao proteger um VM, a Recuperação do Sítio Azure atribui a cada VM um ID único que dá os detalhes do falhado sobre VM. Para obter o VMGUID, selecione o separador **Serviços de Recuperação** e clique em Propriedades de Grupos de Proteção de **Protected Item** &gt; **Protection Groups** &gt; **Artigos Protegidos** &gt; **Properties**. Se tiver vários VMs, adicione os GUIDs como uma corda separada por vírgula.
+   - _RecoveryPlanName_**-VMGUIDS**: Ao proteger um VM, a Recuperação do Sítio Azure atribui a cada VM um ID único que dá os detalhes do falhado sobre VM. Para obter o VMGUID, selecione o separador **Serviços de Recuperação** e clique em Propriedades de Grupos de Proteção de  &gt;  &gt; **Artigos Protegidos** &gt; . Se tiver vários VMs, adicione os GUIDs como uma corda separada por vírgula.
 
      Por exemplo, se o nome do plano de recuperação for ficheiroServerpredayRP, então o separador **Variáveis**, **Ligações** e **Certificados** deverá aparecer da seguinte forma depois de adicionar todos os ativos.
 
@@ -282,7 +282,7 @@ Consulte o guia de acompanhantes [do Diretório Ativo DR Solution](../site-recov
    
    ![Iniciar Failover](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
    
-1. Clique em **OK** para iniciar a ativação pós-falha. Pode acompanhar o progresso clicando no VM para abrir as suas propriedades, ou no **trabalho de failover** test em trabalhos de &gt; **Jobs** &gt; **recuperação do local de empregos** de cofre.
+1. Clique em **OK** para iniciar a ativação pós-falha. Pode acompanhar o progresso clicando no VM para abrir as suas propriedades, ou no **trabalho de failover** test em trabalhos de &gt;  &gt; **recuperação do local de empregos** de cofre.
 1. Após a conclusão do failover, também deverá ser capaz de ver a réplica da máquina Azure aparecer no portal Azure &gt; **Virtual Machines**. Pode realizar as suas validações.
 1. Depois de feitas as validações, clique em **Validações Concluídas.** Isto removerá os Volumes StorSimple e desligará o aparelho de nuvem StorSimple.
 1. Uma vez feito, clique em **teste de limpeza no** plano de recuperação. Em Notas, registe e guarde todas as observações associadas à ativação pós-falha de teste. Isto eliminará a máquina virtual que foi criada durante o teste de failover.
@@ -292,7 +292,7 @@ Consulte o guia de acompanhantes [do Diretório Ativo DR Solution](../site-recov
 
 #### <a name="to-perform-a-planned-failover"></a>Para realizar um fracasso planeado
 1. No portal Azure, selecione Planos de recuperação de **serviços de** &gt; **recuperação de serviços (Recuperação de locais)** &gt; **recoveryplan_name** criados para o servidor de ficheiros VM.
-1. Na lâmina do plano **More** de recuperação, clique &gt; **em "Mais Planeada" falha.**  
+1. Na lâmina do plano  de recuperação, clique &gt; **em "Mais Planeada" falha.**  
 
    ![Screenshot que destaca as opções planeadas de failover e Failover.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Na lâmina **de failover planeada,** escolha as localizações de origem e alvo e selecione a rede alvo e clique no ícone de verificação ✓ para iniciar o processo de failover.
@@ -315,7 +315,7 @@ Durante uma falha, os recipientes de volume StorSimple são ressartados para o d
 
 #### <a name="to-perform-a-failback"></a>Para executar uma falha
 1. No portal Azure, selecione Planos de recuperação de **serviços de** &gt; **recuperação de serviços (Recuperação de locais)** &gt; **recoveryplan_name** criados para o servidor de ficheiros VM.
-1. Na lâmina do plano **More** de recuperação, clique em &gt; **"Falha mais planeada".**  
+1. Na lâmina do plano  de recuperação, clique em &gt; **"Falha mais planeada".**  
 1. Escolha as localizações de origem e alvo, selecione as opções de sincronização de dados e criação de VM apropriadas.
 1. Clique no botão **OK** para iniciar o processo de insusição.
    

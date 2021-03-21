@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: c21ed461280dfa617c852fe6c18c30e5d697b704
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031281"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão de Conector de Insights de Aplicação (Deprecada)
@@ -41,12 +41,12 @@ Quando se utiliza a solução, pode:
 
 Ao contrário da maioria das outras soluções de Log Analytics, os dados não são recolhidos para o Conector de Insights de Aplicação por agentes. Todos os dados utilizados pela solução provêm diretamente do Azure.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportado | Description |
 | --- | --- | --- |
-| [Agentes do Windows](./../agents/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | Não | A solução não recolhe informações dos agentes linux. |
-| [Grupo de gestão SCOM](../agents/om-agents.md) | Não | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
-| [Conta de armazenamento Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Não | A solução não ressoou informações do armazenamento da Azure. |
+| [Agentes do Windows](./../agents/agent-windows.md) | No | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | No | A solução não recolhe informações dos agentes linux. |
+| [Grupo de gestão SCOM](../agents/om-agents.md) | No | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
+| [Conta de armazenamento Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | A solução não ressoou informações do armazenamento da Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

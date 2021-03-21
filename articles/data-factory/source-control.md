@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2021
 ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101719414"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
@@ -23,7 +23,7 @@ Por padrão, a experiência de interface de utilizador da Azure Data Factory (UX
 - O serviço Data Factory não está otimizado para o controlo de colaboração e versão.
 - O modelo do Gestor de Recursos Azure necessário para implementar a própria Data Factory não está incluído.
 
-Para proporcionar uma melhor experiência de autoria, a Azure Data Factory permite-lhe configurar um repositório git com a Azure Repos ou GitHub. Git é um sistema de controlo de versão que permite um rastreio e colaboração de mudanças mais fáceis. Este artigo irá delinear como configurar e trabalhar num repositório de git, juntamente com realçar as melhores práticas e um guia de resolução de problemas.
+Para proporcionar uma melhor experiência de autoria, a Azure Data Factory permite-lhe configurar um repositório git com a Azure Repos ou GitHub. O Git é um sistema de controlo de versões que permite uma colaboração e controlo de alterações mais fáceis. Este artigo irá delinear como configurar e trabalhar num repositório de git, juntamente com realçar as melhores práticas e um guia de resolução de problemas.
 
 > [!NOTE]
 > Para a Azure Government Cloud, apenas a GitHub Enterprise está disponível.
@@ -148,7 +148,7 @@ O painel de configuração mostra as seguintes definições de repositório GitH
 | **Tipo repositório** | O tipo de repositório de código Azure Repos. | GitHub |
 | **Use GitHub Enterprise** | Caixa de verificação para selecionar GitHub Enterprise | não selecionado (padrão) |
 | **URL da Empresa GitHub** | O URL raiz gitHub Enterprise (deve ser HTTPS para o servidor local gitHub Enterprise). Por exemplo: `https://github.mydomain.com`. Só é necessário se **a Utilização da GitHub Enterprise** for selecionada | `<your GitHub enterprise url>` |                                                           
-| **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repositório}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
+| **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repository name}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
 | **Nome do Repositório**  | O teu nome de repositório de código GitHub. As contas do GitHub contêm repositórios de Git para gerir o seu código fonte. Pode criar um novo repositório ou usar um repositório existente que já está na sua conta. | `<your repository name>` |
 | **Ramo de colaboração** | O seu ramo de colaboração GitHub que é usado para a publicação. Por defeito, é principal. Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch>` |
 | **Pasta raiz** | A sua pasta de raiz no seu ramo de colaboração GitHub. |`<your root folder name>` |

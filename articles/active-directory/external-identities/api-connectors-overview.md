@@ -12,15 +12,15 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a5563ff1f57f6b3684834a2488fc0665ac5eddd
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102610047"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Utilize conectores API para personalizar e prolongar o autosserviço de inscrição 
 
-## <a name="overview"></a>Descrição Geral 
+## <a name="overview"></a>Descrição geral 
 Como desenvolvedor ou administrador de TI, pode utilizar conectores API para integrar os [fluxos de utilizador de inscrição de autosserviço](self-service-sign-up-overview.md) com APIs web para personalizar a experiência de inscrição e integrar-se com sistemas externos. Por exemplo, com conectores API, pode:
 
 - [**Integre-se com um fluxo de trabalho de aprovação personalizado.**](self-service-sign-up-add-approvals.md) Conecte-se a um sistema de aprovação personalizado para gerir e limitar a criação de conta.

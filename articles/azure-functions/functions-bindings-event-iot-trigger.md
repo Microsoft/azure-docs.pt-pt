@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 5c9309834b407ee56d29e38afd965ac947fc8a4f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612291"
 ---
 # <a name="azure-iot-hub-trigger-for-azure-functions"></a>Azure IoT Hub trigger for Azure Functions

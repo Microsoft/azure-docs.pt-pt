@@ -12,10 +12,10 @@ ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
 ms.openlocfilehash: 866500e9cd9e3fe6aac6a5bfded0dbb21ab137fc
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614280"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportação para um ficheiro BACPAC - Azure SQL Database e Azure SQL Managed Instance

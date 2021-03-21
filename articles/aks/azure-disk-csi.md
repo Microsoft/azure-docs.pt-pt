@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/27/2020
 author: palma21
 ms.openlocfilehash: 2b4079b6d4eb39b65a7a60cd4d149c7748ab39ce
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102178886"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize os controladores da Interface de Armazenamento de Contentores de Disco Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
