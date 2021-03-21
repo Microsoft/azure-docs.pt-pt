@@ -1,5 +1,5 @@
 ---
-title: Compressão de ficheiros de resolução de problemas em Azure CDN Microsoft Docs
+title: Compressão de ficheiros de resolução de problemas em Azure CDN | Microsoft Docs
 description: Saiba como resolver problemas com a compressão de ficheiros na Rede de Entrega de Conteúdos Azure. Este artigo abrange várias causas possíveis.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996156"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Resolver problemas de compressão de ficheiros CDN

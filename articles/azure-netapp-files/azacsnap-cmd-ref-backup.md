@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730943"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Fazer o back up utilizando a ferramenta Azure Application Consistent Snapshot (pré-visualização)
@@ -145,7 +145,7 @@ O nome *do ficheiro de registo* neste exemplo é `azacsnap-backup-bootVol.log` .
 - Tipo de grande instância HANA: Existem dois valores válidos com `TYPEI` ou `TYPEII` dependentes da Unidade de Grande Instância HANA.
 - Consulte [SKUs disponíveis para HANA Grandes Instâncias](../virtual-machines/workloads/sap/hana-available-skus.md) para confirmar os SKUs disponíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Obtenha detalhes instantâneos](azacsnap-cmd-ref-details.md)
 - [Eliminar instantâneos](azacsnap-cmd-ref-delete.md)

@@ -184,6 +184,6 @@ Para pré-visualização, são conhecidos os seguintes problemas com transcriç�
 - As aplicações precisam de utilizar as APIs de pré-visualização, descritas na [Especificação Do OpenAPI dos Serviços de Mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
 - A proteção da gestão de direitos digitais (DRM) não se aplica à faixa de texto, apenas a encriptação do envelope AES é possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral dos Serviços de Mídia](media-services-overview.md)

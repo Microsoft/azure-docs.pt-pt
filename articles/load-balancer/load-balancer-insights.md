@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
 ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589107"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilização de Insights para monitorizar e configurar o seu Balanceador de Carga Azure
@@ -45,7 +45,7 @@ A partir da lâmina insights do seu Balancer de Carga, pode selecionar métricas
 No início, será apresentado com o separador Visão Geral. Pode navegar através dos separadores disponíveis cada um dos quais contém visuais relevantes para um aspeto específico do seu Balancer de Carga. A orientação explícita para cada um está disponível no painel de instrumentos na parte inferior de cada separador.
 
 Os separadores do painel de instrumentos atualmente disponíveis são:
-* Descrição Geral
+* Descrição geral
 * Disponibilidade de Front-end e Back-end
 * Débito de Dados
 * Distribuição de Fluxos

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169686"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579098"
 ---
 # <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
 
@@ -106,6 +106,8 @@ O controlo da concessão pode desencadear a aplicação de um ou mais controlos.
 - Requera o dispositivo de ad AD híbrido Azure
 - Requera uma aplicação de cliente aprovada
 - Pedir uma política de proteção de aplicações
+- Requerem alteração da palavra-passe
+- Pedir os termos de utilização
 
 Os administradores podem optar por exigir um dos controlos anteriores ou todos os controlos selecionados utilizando as seguintes opções. O padrão para múltiplos controlos é exigir tudo.
 
@@ -150,7 +152,7 @@ O artigo [Políticas comuns de acesso condicional](concept-conditional-access-po
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](../authentication/howto-mfa-getstarted.md)
+[Planear a implementação da Multi-Factor Authentication do Azure AD com base na cloud](../authentication/howto-mfa-getstarted.md)
 
 [Gestão da conformidade do dispositivo com a Intune](/intune/device-compliance-get-started)
 

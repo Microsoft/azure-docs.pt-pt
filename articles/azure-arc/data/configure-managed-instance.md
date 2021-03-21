@@ -9,11 +9,11 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 37ba4f10365fca4292171c3bd2d9a3e7d00045bb
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98985874"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Configure Azure Arc permitiu que o SQL gerissem a instância
@@ -60,13 +60,13 @@ Para alterar qualquer uma destas definições, siga estes passos:
    traceflag0 = 1204
    ```
 
-1. Copiar `mssql-custom.conf` o ficheiro para o recipiente na `/var/opt/mssql` `arc-sqlmi` `master-0` cápsula. `<namespaceName>`Substitua-se pelo espaço de identificação em que este caso está implantado.
+1. Copiar `mssql-custom.conf` o ficheiro para o recipiente na `/var/opt/mssql` `mssql-miaa` `master-0` cápsula. `<namespaceName>`Substitua-o pelo nome do cluster de dados grandes.
 
    ```bash
    kubectl cp mssql-custom.conf master-0:/var/opt/mssql/mssql-custom.conf -c mssql-server -n <namespaceName>
    ```
 
-1. Reinicie a instância gerida pelo SQL.  `<namespaceName>`Substitua-se pelo espaço de identificação em que este caso está implantado.
+1. Reinicie a instância do Servidor SQL.  `<namespaceName>`Substitua-o pelo nome do cluster de dados grandes.
 
    ```bash
    kubectl exec -it master-0  -c mssql-server -n <namespaceName> -- /bin/bash

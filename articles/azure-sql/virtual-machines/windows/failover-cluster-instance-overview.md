@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101690928"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com servidor SQL em Máquinas Virtuais Azure
@@ -25,7 +25,7 @@ ms.locfileid: "101690928"
 
 Este artigo introduz diferenças de funcionalidades quando está a trabalhar com instâncias de cluster failover (FCI) para SQL Server em Azure Virtual Machines (VMs). 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O SQL Server em VMs Azure utiliza a funcionalidade de Clustering failover do Servidor do Windows (WSFC) para fornecer alta disponibilidade local através de redundância ao nível do servidor: uma instância de cluster de failover. Um FCI é uma única instância do SQL Server que é instalado através de nós WSFC (ou simplesmente cluster) e, possivelmente, através de várias sub-redes. Na rede, um FCI parece ser um exemplo de SQL Server a funcionar num único computador. Mas o FCI fornece failover de um nó WSFC para outro se o nó atual ficar indisponível.
 
@@ -52,8 +52,8 @@ O SQL Server em VMs Azure oferece várias opções como solução de armazenamen
 |**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
 |**Versão mínima do SqL Server**|Todos|SQL Server 2012|SQL Server 2016|
 |**Disponibilidade de VM suportada** |Conjuntos de disponibilidade com grupos de colocação de proximidade (Para Premium SSD) </br> Mesma zona de disponibilidade (Para Ultra SSD) |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
-|**Suporta FileStream**|Sim|Não|Sim |
-|**Cache de bolha de Azure**|Não|Não|Sim|
+|**Suporta FileStream**|Yes|No|Yes |
+|**Cache de bolha de Azure**|No|No|Yes|
 
 O resto desta secção lista os benefícios e limitações de cada opção de armazenamento disponível para O SQL Server em VMs Azure. 
 

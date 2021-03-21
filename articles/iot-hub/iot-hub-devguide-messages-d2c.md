@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
 ms.openlocfilehash: d2fe8f32ec854e1e6db644a039e6a249cfbddcaa
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103012892"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais
@@ -43,7 +43,7 @@ Se o seu ponto final personalizado tiver configurações de firewall, considere 
 O IoT Hub suporta atualmente os seguintes pontos finais:
 
  - Ponto final incorporado
- - Storage do Azure
+ - Armazenamento do Azure
  - Filas de autocarros de serviço e tópicos de ônibus de serviço
  - Hubs de Eventos
 

@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 59c8202b03bf1be2be5a68b75a1d7c7404b2213d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998248"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços
@@ -57,10 +57,10 @@ Deve ter o seguinte instalado:
 Os modelos de projeto do Tecido de Serviço no Estúdio Visual contêm código de amostra. Os seguintes passos mostram como pode reportar eventos de saúde personalizados a partir do seu código de serviço. Tais relatórios aparecem automaticamente nas ferramentas padrão de monitorização de saúde que o Service Fabric fornece, tais como Service Fabric Explorer, Azure portal health view e PowerShell.
 
 1. Reabra a aplicação que criou anteriormente no Visual Studio, ou crie uma nova aplicação utilizando o modelo **stateful Service** Visual Studio.
-1. Abra o ficheiro Stateful1.cs e encontre a `myDictionary.TryGetValueAsync` chamada no `RunAsync` método. Pode ver que este método devolve um `result` que detém o valor atual do contador porque a lógica chave desta aplicação é manter uma contagem em execução. Se esta aplicação fosse uma aplicação real, e se a falta de resultado representasse uma falha, você quereria sinalizar esse evento.
+1. Abra o ficheiro stateful1.cs e encontre a `myDictionary.TryGetValueAsync` chamada no `RunAsync` método. Pode ver que este método devolve um `result` que detém o valor atual do contador porque a lógica chave desta aplicação é manter uma contagem em execução. Se esta aplicação fosse uma aplicação real, e se a falta de resultado representasse uma falha, você quereria sinalizar esse evento.
 1. Para reportar um evento de saúde quando a falta de resultados representa uma falha, adicione os seguintes passos.
    
-    a. Adicione o `System.Fabric.Health` espaço de nomes ao ficheiro Stateful1.cs.
+    a. Adicione o `System.Fabric.Health` espaço de nomes ao ficheiro .cs Stateful1.
    
     ```csharp
     using System.Fabric.Health;

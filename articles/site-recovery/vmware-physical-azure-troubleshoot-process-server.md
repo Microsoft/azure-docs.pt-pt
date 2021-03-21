@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999196"
 ---
 # <a name="troubleshoot-the-process-server"></a>Resolução de problemas do servidor de processo
@@ -32,7 +32,7 @@ Antes de começar a resolução de problemas:
 
 Para um melhor desempenho dos servidores de processo, resumimos uma série de boas práticas gerais.
 
-**Melhor prática** | **Detalhes**
+**Melhores práticas** | **Detalhes**
 --- |---
 **Utilização** | Certifique-se de que o servidor de configuração/servidor de processo autónomo só é utilizado para o fim a que se destina. Não coloque mais nada na máquina.
 **Endereço IP** | Certifique-se de que o servidor de processo tem um endereço IPv4 estático e não tem NAT configurado.

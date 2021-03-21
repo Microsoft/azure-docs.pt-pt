@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a12cc3299fbb5916afba48d2608024f28999634
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724632"
 ---
 # <a name="build-resilience-by-using-continuous-access-evaluation"></a>Construa resiliência utilizando a Avaliação contínua de Acesso
@@ -55,7 +55,7 @@ A Microsoft está a trabalhar com a indústria para criar [padrões](https://ope
 * [Otimize as suas instruções de reautorca](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

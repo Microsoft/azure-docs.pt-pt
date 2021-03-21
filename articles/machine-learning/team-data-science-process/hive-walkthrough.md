@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002226"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados da equipa em ação: Use clusters Azure HDInsight Hadoop
@@ -117,23 +117,23 @@ Aqui, descrevemos como usar o AzCopy para transferir os ficheiros que contêm da
 
 Nos seguintes comandos AzCopy, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster Hadoop e desapertar os ficheiros de dados.
 
-* ***\<path_to_data_folder>** _ O diretório (juntamente com o caminho) na sua máquina que contém os ficheiros de dados desapertados.  
-_ _ **\<storage account name of Hadoop cluster>** _ _ A conta de armazenamento associada ao seu cluster HDInsight.
-_ _ **\<default container of Hadoop cluster>** _ _ O recipiente predefinido utilizado pelo seu cluster. O nome do recipiente predefinido é geralmente o mesmo nome que o próprio cluster. Por exemplo, se o cluster for chamado de "abc123.azurehdinsight.net", o recipiente padrão é abc123.
-_ _ **\<storage account key>** _ _ A chave para a conta de armazenamento utilizada pelo seu cluster.
+* ***\<path_to_data_folder>*** O diretório (juntamente com o caminho) na sua máquina que contém os ficheiros de dados desapertados.  
+* ***\<storage account name of Hadoop cluster>*** A conta de armazenamento associada ao seu cluster HDInsight.
+* ***\<default container of Hadoop cluster>*** O recipiente predefinido utilizado pelo seu cluster. O nome do recipiente predefinido é geralmente o mesmo nome que o próprio cluster. Por exemplo, se o cluster for chamado de "abc123.azurehdinsight.net", o recipiente padrão é abc123.
+* ***\<storage account key>*** A chave para a conta de armazenamento usada pelo seu cluster.
 
 A partir de um pedido de comando ou de uma janela Windows PowerShell, executar os dois comandos AzCopy seguintes.
 
-Este comando envia os dados da viagem para o _*_diretório nyctaxitripraw_*_ no contentor padrão do cluster Hadoop.
+Este comando envia os dados da viagem para o ***diretório nyctaxitripraw*** no contentor padrão do cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
 ```
 
-Este comando envia os dados da tarifa para o ***nyctaxifareraw** _ diretório no contentor padrão do cluster Hadoop.
+Este comando envia os dados da tarifa para o ***diretório nyctaxifareraw*** no contentor padrão do cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 ```
 
 Os dados devem agora estar no armazenamento blob, e prontos para serem consumidos dentro do cluster HDInsight.
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Estes dois comandos descarregam todos os ficheiros '.hql' necessários neste walkthrough para o diretório local ***C:\temp&#92;** _ no nó da cabeça.
+Estes dois comandos descarregam todos os ficheiros '.hql' necessários nesta passagem para o diretório local ***C:\temp&#92;*** no nó de cabeça.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar base de dados de Colmeia e tabelas divididas por mês
 > [!NOTE]
@@ -182,7 +182,7 @@ A partir do diretório da Colmeia, executar o seguinte comando na linha de coman
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Aqui está o conteúdo do _ *C:\temp\sample \_ hive \_ create \_ db \_ and \_ tables.hql** que cria a base de dados da Hive **nyctaxidb,** e as tabelas **tropeçam** e **tarifa**.
+Aqui está o conteúdo da **colmeia C:\temp\sample \_ criar \_ \_ db e \_ \_ tabelas.hql** que cria a base de dados da Hive **nyctaxidb,** e as tabelas **viagem** e **tarifa**.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -882,7 +882,7 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
 
   **Aprendiz utilizado:** Regressão logística multiclasse
 
-  a. Para este problema, a nossa etiqueta alvo (ou classe) é **\_ a classe ponta,** que pode levar um dos cinco valores (0,1,2,3,4). Como no caso da classificação binária, temos algumas colunas que são fugas de alvo para esta experiência. Em particular, o **\_ tiped**, o montante da gorjeta e o **\_ montante total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. **tipped** Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
+  a. Para este problema, a nossa etiqueta alvo (ou classe) é **\_ a classe ponta,** que pode levar um dos cinco valores (0,1,2,3,4). Como no caso da classificação binária, temos algumas colunas que são fugas de alvo para esta experiência. Em particular, o **\_ tiped**, o montante da gorjeta e o **\_ montante total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste.  Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
 
   O diagrama seguinte mostra a experiência para prever em que caixote uma ponta é suscetível de cair. Os caixotes são: Classe 0: dica = $0, Classe 1: gorjeta > $0 e dica <= $5, Classe 2: dica > $5 e gorjeta <= $10, Classe 3: gorjeta > $10 e gorjeta <= $20, e Classe 4: gorjeta > $20.
 

@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
 ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101691251"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
@@ -170,7 +170,7 @@ Para monitorizar o estado da base de dados e permitir o alerta para a perda de a
 
 Uma vez que uma base de dados é encriptada com O TDE usando uma chave do Key Vault, quaisquer cópias de segurança recentemente geradas também são encriptadas com o mesmo protetor TDE. Quando o protetor TDE é alterado, as cópias de segurança antigas da base de dados **não são atualizadas** para utilizar o mais recente protetor TDE.
 
-Para restaurar uma cópia de segurança encriptada com um protetor TDE do Key Vault, certifique-se de que o material chave está disponível para o servidor alvo. Por isso, recomendamos que mantenha todas as versões antigas do protetor TDE no cofre de chaves, para que as cópias de segurança da base de dados possam ser restauradas.
+Para restaurar uma cópia de segurança encriptada com um protetor TDE do Key Vault, certifique-se de que o material chave está disponível para o servidor alvo. Por conseguinte, recomendamos que mantenha todas as versões antigas do protetor de Encriptação de Dados Transparente no cofre de chaves, para que possa restaurar as cópias de segurança da base de dados.
 
 > [!IMPORTANT]
 > A qualquer momento, não pode haver mais do que um conjunto de protetor TDE para um servidor. É a chave marcada com "Faça da chave o protetor TDE predefinido" na lâmina do portal Azure. No entanto, várias teclas adicionais podem ser ligadas a um servidor sem as marcar como um protetor TDE. Estas teclas não são utilizadas para proteger o DEK, mas podem ser utilizadas durante a restauração de uma cópia de segurança, se o ficheiro de cópia de segurança for encriptado com a chave com a impressão digital correspondente.

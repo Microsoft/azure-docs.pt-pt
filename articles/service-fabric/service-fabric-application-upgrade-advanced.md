@@ -4,10 +4,10 @@ description: Este artigo abrange alguns tópicos avançados relativos à atualiz
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: 6604300328f2d243077ba341a9028221438dce9d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98792053"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização da aplicação do Tecido de Serviço: Tópicos avançados
@@ -211,7 +211,7 @@ As reversãos podem ser ativadas automaticamente quando as políticas de saúde 
 
 Durante o reversão, o valor do *UpgradeReplicaSetCheckTimeout* e do modo ainda pode ser alterado a qualquer momento utilizando [o Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [A atualização da sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) acompanha-o através de uma atualização de aplicações utilizando o Visual Studio.
 
 [Atualizar a sua aplicação Utilizando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) acompanha-o através de uma atualização de aplicações utilizando o PowerShell.

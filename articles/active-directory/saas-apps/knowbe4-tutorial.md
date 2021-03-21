@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a KnowBe4 Security Awareness Training Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a | de Formação de Sensibilização para a Segurança KnowBe4 Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o KnowBe4 Security Awareness Training.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: jeedes
 ms.openlocfilehash: 77d810fc8327e3777102f2a09f0ca32835aad4b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integração do Diretório Ativo Azure com a Formação de Sensibilização para a Segurança KnowBe4

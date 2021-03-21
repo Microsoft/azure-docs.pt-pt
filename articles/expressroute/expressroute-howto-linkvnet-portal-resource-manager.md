@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998775"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Ligue uma rede virtual a um circuito ExpressRoute utilizando o portal
@@ -27,7 +27,7 @@ ms.locfileid: "95998775"
 
 Este tutorial ajuda-o a criar uma ligação para ligar uma rede virtual a um circuito Azure ExpressRoute utilizando o portal Azure. As redes virtuais que liga ao circuito Azure ExpressRoute podem estar na mesma subscrição ou fazer parte de outra subscrição.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > - Ligue uma rede virtual a um circuito na mesma subscrição.
 > - Ligue uma rede virtual a um circuito numa subscrição diferente.
@@ -63,7 +63,7 @@ Neste tutorial, vai aprender a:
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/express-route-circuit.png" alt-text="Screenshot do circuito ExpressRoute":::
 
-1. Pode agora iniciar a disponibilização de uma ligação para ligar a sua porta de entrada de rede virtual ao circuito ExpressRoute. Selecione **Connection**  >  **Ligação Adicione** para abrir a página **de ligação Adicionar.**
+1. Pode agora iniciar a disponibilização de uma ligação para ligar a sua porta de entrada de rede virtual ao circuito ExpressRoute. Selecione   >  **Ligação Adicione** para abrir a página **de ligação Adicionar.**
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="Adicionar screenshot de conexão":::
 
@@ -157,7 +157,7 @@ O utilizador do circuito precisa do ID do recurso e de uma chave de autorizaçã
 
 Pode eliminar uma ligação e desvincular o seu VNet a um circuito ExpressRoute selecionando o ícone **Eliminar** na página para a sua ligação.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Eliminar a ligação":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Eliminar ligação":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

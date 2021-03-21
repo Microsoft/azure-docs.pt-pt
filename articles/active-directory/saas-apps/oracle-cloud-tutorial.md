@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com consola de infraestruturas de nuvem oracle Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com consola de infraestruturas de nuvem oracle | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Oracle Cloud Infrastructure Console.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181860"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integrar consola de infraestruturas de nuvem oracle com diretório ativo Azure

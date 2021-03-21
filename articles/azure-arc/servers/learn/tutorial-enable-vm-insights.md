@@ -4,10 +4,10 @@ description: Saiba como recolher e analisar dados a partir de uma máquina híbr
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100587699"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutorial: Monitorize uma máquina híbrida com Monitor Azure para VMs

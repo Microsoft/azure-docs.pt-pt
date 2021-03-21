@@ -4,10 +4,10 @@ description: Aprenda as melhores práticas e dicas úteis para melhorar a segura
 ms.date: 12/18/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98723817"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Segurança do lote e boas práticas de conformidade
@@ -162,7 +162,7 @@ Dependendo do modo de atribuição de piscinas e dos recursos a que uma polític
 - Diretamente, utilizando o recurso Microsoft.Batch/batchAccounts. Um subconjunto das propriedades de uma conta Batch pode ser usado. Por exemplo, a sua política pode incluir regiões de conta de Lote válidas, modo de atribuição de piscinas permitido, e se uma rede pública está habilitada para contas.
 - Indiretamente, utilizando o recurso Microsoft.Compute/virtualMachineScaleSets. As contas de lote com o modo de atribuição de pool de subscrição do utilizador podem ter a política definida na escala virtual de recursos definidos na escala de máquinas que são criados na subscrição da conta Batch. Por exemplo, tamanhos de VM permitidos e certifique-se de que certas extensões são executadas em cada nó de piscina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a [linha de base de segurança Azure para o Lote](security-baseline.md).
 - Leia mais [boas práticas para O Lote Azure.](best-practices.md)

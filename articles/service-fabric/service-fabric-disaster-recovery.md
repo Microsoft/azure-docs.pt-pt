@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 8d99b4d1fbf227d850de387b7ca24dcd3fd40646
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791160"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastres no Tecido de Serviço Azure
@@ -204,7 +204,7 @@ Em Azure, o Service Fabric Resource Provider gere as configurações do cluster 
 
 Tanto em clusters de tecido de serviço autónomo como em Azure, o tipo de nó primário é o que executa as sementes. Ao definir um tipo de nó primário, o Service Fabric tirará automaticamente partido do número de nós fornecidos através da criação de até nove nós de sementes e sete réplicas de cada serviço do sistema. Se um conjunto de falhas aleatórias eliminar a maioria dessas réplicas simultaneamente, os serviços do sistema entrarão em perda de quórum. Se a maioria dos nós de sementes forem perdidos, o aglomerado desligar-se-á logo depois.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como simular várias falhas utilizando a [estrutura de testabilidade.](service-fabric-testability-overview.md)
 - Leia outros recursos de recuperação de desastres e alta disponibilidade. A Microsoft publicou uma grande quantidade de orientação sobre estes tópicos. Embora alguns destes recursos se refiram a técnicas específicas de utilização noutros produtos, contêm muitas boas práticas gerais que pode aplicar no contexto do Tecido de Serviço:
   - [Lista de verificação de disponibilidade](/azure/architecture/checklist/resiliency-per-service)

@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175112"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579744"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ Pode configurar o comportamento da sessão Azure AD B2C, incluindo:
   - **Inquilino** - Esta definição é o padrão. A utilização desta definição permite que várias aplicações e fluxos de utilizador no seu inquilino B2C partilhem a mesma sessão de utilizador. Por exemplo, uma vez que um utilizador assina uma aplicação, o utilizador também pode assinar perfeitamente em outra ao aceder à sua aplicação.
   - **Aplicação** - Esta definição permite manter uma sessão de utilizador exclusivamente para uma aplicação, independente de outras aplicações. Por exemplo, pode utilizar esta definição se quiser que o utilizador faça o sôm.
   - **Política** - Esta definição permite manter uma sessão de utilizador exclusivamente para um fluxo de utilizador, independente das aplicações que a utilizam. Por exemplo, se o utilizador já tiver assinado e concluído um passo de autenticação multi-factor (MFA), o utilizador pode ter acesso a partes de segurança superior de várias aplicações, desde que a sessão ligada ao fluxo do utilizador não expire.
-  - **Desativado** - Esta definição obriga o utilizador a executar todo o fluxo do utilizador em cada execução da apólice.
+  - **Suprimido** - Esta definição obriga o utilizador a executar todo o fluxo do utilizador em cada execução da apólice.
 - **Mantenha-me inscrito (KMSI)** - Prolonga a duração da sessão através da utilização de um cookie persistente. Se esta funcionalidade estiver ativada e o utilizador a selecionar, a sessão permanece ativa mesmo depois de o utilizador fechar e reabrir o navegador. A sessão só é revogada quando o utilizador assinar. A funcionalidade KMSI aplica-se apenas ao sinsub-in com contas locais. A funcionalidade KMSI tem precedência ao longo da vida útil da sessão.
 
 ::: zone pivot="b2c-user-flow"
@@ -249,7 +249,7 @@ Após um pedido de sinalização, Azure AD B2C:
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Tentativas de assinatura de fornecedores de identidade federados:
-   - OpenId Connect - Se o ponto final de configuração bem conhecido do fornecedor de identidade especificar uma `end_session_endpoint` localização.
+   - OpenId Connect - Se o ponto final de configuração bem conhecido do fornecedor de identidade especificar uma `end_session_endpoint` localização. O pedido de aprovação não passa no `id_token_hint` parâmetro. Se o fornecedor de identidade federado necessitar deste parâmetro, o pedido de assinatura falhará.
    - OAuth2 - Se os [metadados do fornecedor de identidade](oauth2-technical-profile.md#metadata) contiver a `end_session_endpoint` localização.
    - SAML - Se os [metadados do fornecedor de identidade](identity-provider-generic-saml.md) contiver a `SingleLogoutService` localização.
 4. Opcionalmente, o sinal de saída de outras aplicações. Para mais informações, consulte a secção [de sinalização única.](#single-sign-out)

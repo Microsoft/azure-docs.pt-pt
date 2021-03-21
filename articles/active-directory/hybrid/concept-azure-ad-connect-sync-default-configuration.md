@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Understanding the default configuration / Microsoft Docs'
+title: 'Sincronização Azure AD Connect: Compreender a configuração padrão | Microsoft Docs'
 description: Este artigo descreve a configuração padrão na sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996632"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: entender a configuração predefinida
@@ -55,7 +55,7 @@ Os seguintes objetos do utilizador **não** são sincronizados com a Azure AD:
   Este bitmask (&H21C07000) filtraria os seguintes objetos:
   * Pasta Pública ativada por correio (Em Pré-visualização a partir da versão 1.1.524.0)
   * Caixa de correio do assistente do sistema
-  * Caixa de correio de correio de correio (Caixa de correio do sistema)
+  * Caixa de correio (Caixa de correio do sistema)
   * Universal Security Group (não se candidataria a um utilizador, mas está presente por razões antigas)
   * Grupo Não Universal (não se candidataria a um utilizador, mas está presente por razões antigas)
   * Plano de caixa de correio
@@ -148,7 +148,7 @@ Uma vez que esta regra é uma regra fora de caixa, recebes um aviso quando abres
 
 Uma Regra de Sincronização tem quatro secções de configuração: Descrição, filtro de scoping, regras de junção e transformações.
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 A primeira secção fornece informações básicas, como um nome e descrição.
 
 ![Separador de descrição no editor de regras de Sync](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -220,7 +220,7 @@ A precedência das Regras de Sincronização é definida em grupo pelo assistent
 ### <a name="putting-it-all-together"></a>Juntar tudo
 Agora sabemos o suficiente sobre as Regras de Sincronização para sermos capazes de entender como a configuração funciona com as diferentes Regras de Sincronização. Se olharmos para um utilizador e para os atributos que são contribuídos para o metaverso, as regras são aplicadas na seguinte ordem:
 
-| Nome | Comentário |
+| Name | Comentário |
 |:--- |:--- |
 | In from AD – User Join |Regra para unir objetos espaciais do conector com metaverso. |
 | In a partir de AD – UserAccount Enabled |Atributos necessários para o sômin de S.A. e Microsoft 365. Queremos estes atributos a partir da conta ativada. |

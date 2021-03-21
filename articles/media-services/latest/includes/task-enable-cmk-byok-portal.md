@@ -6,10 +6,10 @@ ms.date: 11/16/2020
 ms.author: inhenkel
 ms.custom: portal
 ms.openlocfilehash: 0d3dd6489c17c7db29ec61fbcb2af4ab72ad445d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013245"
 ---
 <!--Enable customer managed keys on a Media Services account-->

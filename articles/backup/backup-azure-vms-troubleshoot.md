@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831555"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
@@ -134,8 +134,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Passo 3: Se os passos 1 e 2 não resolverem o problema, então a falha pode ser devido ao timing dos escritores vss devido a IOPS limitado.<br>
 
-Para verificar, navegue para * Registos de **aplicação do visualizador de sistema e evento** _ e verifique a seguinte mensagem de erro:<br>
-_The fornecedor de cópias-sombra cronometrado enquanto segurava as gravações para o volume que está a ser copiado. Isto deve-se provavelmente a uma atividade excessiva no volume por uma aplicação ou um serviço de sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
+Para verificar, navegue nos ***registos de aplicações do Visualizador de Sistema e evento*** e verifique a seguinte mensagem de erro:<br>
+*O provedor de cópia-sombra cronometrou enquanto segurava as gravações para o volume que estava a ser copiado. Isto deve-se provavelmente a uma atividade excessiva no volume por uma aplicação ou um serviço de sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
 
 Solução:
 
@@ -415,7 +415,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 * **Se mais de quatro VMs partilharem o mesmo serviço de nuvem, espalhe os VMs através de várias políticas de backup**. Escalonar os tempos de reserva, por isso não mais do que quatro backups VM começam ao mesmo tempo. Tente separar os tempos ini por uma hora nas apólices.
 * **O VM funciona com cpu alto ou memória**. Se a máquina virtual funciona com alta memória ou utilização de CPU, mais de 90%, a sua tarefa instantânea é a sua tarefa de instantâneo estão na fila e atrasadas. Eventualmente, acaba por ser assim. Se este problema acontecer, tente um backup a pedido.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:

@@ -9,10 +9,10 @@ ms.date: 02/03/2020
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: 49c5c8a55f43a0d14ffd1371de65680d8588e067
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004160"
 ---
 > Se o seu administrador tiver ligado a nova experiência de pré-visualização **das Minhas Apps** para a sua organização, verá agora um link quando selecionar o ícone da conta para ver as informações da sua conta no topo da página **My Apps.** Se selecionar **Experimente a nova experiência My Apps!** https://myapplications.microsoft.com) Depois disso, quando voltar à página **My Apps,** irá automaticamente para a nova experiência.<br><br>Para parar de utilizar a nova experiência, pode selecionar **a experiência de pré-visualização do Leave** quando selecionar o ícone da conta para ver as informações da sua conta no topo da página My **Apps.** Você vai voltar imediatamente para a antiga URL (myapps.microsoft.com) e experiência. Depois disso, sempre que voltar à página **My Apps,** irá automaticamente para a experiência antiga.

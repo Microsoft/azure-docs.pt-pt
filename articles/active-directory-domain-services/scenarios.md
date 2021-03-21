@@ -1,5 +1,5 @@
 ---
-title: Cenários comuns de implantação dos Serviços de Domínio AD Azure Microsoft Docs
+title: Cenários comuns de implantação para os serviços de domínio Ad AD Azure | Microsoft Docs
 description: Conheça alguns dos cenários e casos de utilização comuns para os Serviços de Domínio do Diretório Ativo Azure para fornecer valor e atender às necessidades do negócio.
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: justinha
 ms.openlocfilehash: d33698ed2f9ac53aae3c836acd54f19a4b72ceef
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619033"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos e cenários de utilização comuns para serviços de domínio do diretório ativo Azure

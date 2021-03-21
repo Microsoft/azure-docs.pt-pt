@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: 360da015f012822593dbb6390cb7df0017ba85b1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745082"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Executar um recipiente personalizado em Azure
@@ -186,7 +186,7 @@ O Serviço de Aplicações no Linux fornece pilhas de aplicações pré-definida
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [conta Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+* Uma [conta do Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [A extensão do Serviço de Aplicações Azure para o Código VS.](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) Pode utilizar esta extensão para criar, gerir e implementar aplicações Web Linux na Plataforma Azure como um serviço (PaaS).

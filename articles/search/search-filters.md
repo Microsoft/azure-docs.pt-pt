@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a5c8f835d44896a452a945614332dcbc25ca8bb8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694432"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros em Pesquisa Cognitiva Azure 
@@ -158,7 +158,7 @@ As cordas de texto são sensíveis a maiôs. Não há invólucro inferior de pal
 
 ### <a name="approaches-for-filtering-on-text"></a>Abordagens para filtragem em texto
 
-| Abordagem | Descrição | Quando utilizar |
+| Abordagem | Description | Quando utilizar |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Uma função que corresponde a um campo com uma lista delimitada de cordas. | Recomendado para [filtros de segurança](search-security-trimming-for-azure-search.md) e para quaisquer filtros onde muitos valores de texto brutos precisam de ser combinados com um campo de cordas. A função **search.in** é concebida para a velocidade e é muito mais rápida do que comparar explicitamente o campo com cada corda utilizando `eq` e `or` . | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Uma função que permite misturar operações de pesquisa de texto completo com operações estritamente de filtro Boolean na mesma expressão de filtro. | Utilize **search.ismatch** (ou o seu equivalente de pontuação, **search.ismatchscoring**) quando pretender várias combinações de filtros de pesquisa num único pedido. Também pode usá-lo para um filtro *contém* para filtrar uma corda parcial dentro de uma corda maior. |

@@ -10,10 +10,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006103"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerir aplicativos lógicos no portal Azure
@@ -54,7 +54,7 @@ Para encontrar e abrir a sua aplicação lógica, siga estes passos:
 
 1. No painel **Propriedades,** pode ver e copiar as seguintes informações sobre a sua aplicação lógica:
 
-   * **Name**
+   * **Nome**
    * **ID de recursos**
    * **Grupo de recursos**
    * **Localização**
@@ -190,7 +190,7 @@ Pode utilizar o portal Azure para o controlo de versão das suas aplicações l�
 
 <a name="find-version-history"></a>
 
-### <a name="find-and-view-previous-versions"></a>Localizar e ver ver ver versões anteriores
+### <a name="find-and-view-previous-versions"></a>Localizar e ver versões anteriores
 
 1. No portal Azure, [encontre a aplicação lógica que pretende gerir.](#find-logic-app)
 

@@ -1,5 +1,5 @@
 ---
-title: Erros de resolução de problemas no Azure Ative Directory reportando API Microsoft Docs
+title: Erros de resolução de problemas no Azure Ative Directory reportando API | Microsoft Docs
 description: Fornece-lhe uma resolução de erros ao ligar para a Azure Ative Reporty Reporting APIs.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017598"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Erros de resolução de problemas no Azure Ative Directory reportando API

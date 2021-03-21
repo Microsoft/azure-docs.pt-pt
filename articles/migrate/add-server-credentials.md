@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102055000"
 ---
 # <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>Fornecer credenciais de servidor para descobrir aplicações, dependências e instâncias e bases de dados do SQL Server
@@ -18,7 +18,7 @@ ms.locfileid: "102055000"
 Siga este artigo para aprender a adicionar várias credenciais de servidor no gestor de configuração do aparelho para executar o inventário de software (descobrir aplicações instaladas), análise de dependência de agentes e descobrir instâncias e bases de dados do SQL Server.
 
 > [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 O [aparelho Azure Migrate](migrate-appliance.md) é um aparelho leve utilizado pela Azure Migrate:Server Assessment para descobrir servidores no local em funcionamento em ambiente VMware e enviar a configuração do servidor e metadados de desempenho para o Azure. O aparelho também pode ser usado para realizar inventário de software, análise de dependência de agentes e descobrir as instâncias e bases de dados do SQL Server.
 
@@ -32,7 +32,7 @@ Pode adicionar várias credenciais de servidor no gestor de configuração do ap
 
 Os tipos de credenciais de servidor suportadas estão listados na tabela abaixo:
 
-Tipo de credenciais | Descrição
+Tipo de credenciais | Description
 --- | ---
 **Credenciais de domínio** | Pode adicionar **credenciais de Domínio** selecionando a opção a partir do drop-down nas **credenciais Add** modal. <br/><br/> Para fornecer credenciais de domínio, é necessário especificar o **nome de domínio** que deve ser fornecido no formato FQDN (por exemplo, prod.corp.contoso.com). <br/><br/> Também precisa de especificar um nome amigável para credenciais, nome de utilizador e senha. <br/><br/> As credenciais de domínio adicionadas serão automaticamente validadas para autenticidade contra o Diretório Ativo do domínio. Isto é para evitar qualquer bloqueio de conta quando o aparelho tenta mapear as credenciais de domínio contra servidores descobertos. <br/><br/> O aparelho não tentará mapear as credenciais de domínio que falharam na validação. É necessário ter pelo menos uma credencial de domínio validada com sucesso ou pelo menos uma credencial de não domínio para proceder ao inventário de software.<br/><br/>As credenciais de domínio mapeadas automaticamente contra os servidores do Windows serão utilizadas para executar o inventário de software e também podem ser utilizadas para descobrir casos e bases de dados do SQL Server _(se tiver configurado o modo de autenticação do Windows nos seus Servidores SQL)_.<br/> [Saiba mais](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authentication-in-sql-server) sobre os tipos de modos de autenticação suportados nos Servidores SQL.
 **Credenciais de não domínio (Windows/Linux)** | Pode adicionar **Windows (Non-domain)** ou **Linux (Não-domínio)** selecionando a opção necessária a partir da queda nas **credenciais Add** modal. <br/><br/> Tem de especificar um nome amigável para credenciais, nome de utilizador e palavra-passe.

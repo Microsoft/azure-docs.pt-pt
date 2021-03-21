@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256682"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579489"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatório sobre o provisionamento automático da conta de utilizador
 
@@ -48,7 +48,7 @@ A partir daqui, pode aceder tanto à barra de provisão como aos registos de pro
 
 ## <a name="provisioning-progress-bar"></a>Provisão de barras de progresso
 
-A [barra de provisão para progressos](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) é visível no **separador Provisioning** para a aplicação dada. Encontra-se na secção **Estado Atual** por baixo **das Definições**, e mostra o estado do ciclo inicial ou incremental atual. Esta secção também mostra:
+A [barra de provisão para progressos](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) é visível no **separador Provisioning** para um determinado pedido. Está localizado na secção **Estado Atual** e mostra o estado do ciclo inicial ou incremental atual. Esta secção também mostra:
 
 * O número total de utilizadores e/grupos que foram sincronizados e estão atualmente em possibilidade de provisão entre o sistema de origem e o sistema-alvo.
 * A última vez que a sincronização foi executada. As sincronizações ocorrem normalmente a cada 20-40 minutos, depois de concluído um [ciclo inicial.](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental)

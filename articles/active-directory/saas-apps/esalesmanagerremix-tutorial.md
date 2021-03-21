@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o E Sales Manager Remix Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o E Sales Manager Remix | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o E Sales Manager Remix.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995646"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integre o Azure Ative Directy com o E Sales Manager Remix
@@ -166,7 +166,7 @@ Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal 
     h. Selecione **Definição completa**.
 
 > [!TIP]
-> Ao configurar a aplicação, pode ler uma versão concisa das instruções anteriores no [portal Azure](https://portal.azure.com). Depois de ter adicionado a aplicação na secção Aplicações empresariais do **Diretório Ativo,**  >  **Enterprise Applications** selecione o separador **Sign-On único** e, em seguida, aceda à documentação incorporada na secção **Configuração** na parte inferior. Para obter mais informações sobre a documentação incorporada, consulte [a documentação incorporada da Azure AD.]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ao configurar a aplicação, pode ler uma versão concisa das instruções anteriores no [portal Azure](https://portal.azure.com). Depois de ter adicionado a aplicação na secção Aplicações empresariais do **Diretório Ativo,**  >   selecione o separador **Sign-On único** e, em seguida, aceda à documentação incorporada na secção **Configuração** na parte inferior. Para obter mais informações sobre a documentação incorporada, consulte [a documentação incorporada da Azure AD.]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD

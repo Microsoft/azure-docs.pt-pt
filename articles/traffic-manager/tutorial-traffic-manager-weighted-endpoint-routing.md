@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003791"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o encaminhamento de tráfego com pontos finais ponderados com o Gestor de Tráfego
 
 Este tutorial descreve como utilizar o Gestor de Tráfego do Azure para controlar o encaminhamento de tráfego do utilizador entre pontos finais com o método de encaminhamento ponderado. Com este método de encaminhamento, o utilizador atribui ponderações a cada ponto final na configuração do perfil do Gestor de Tráfego. Em seguida, o tráfego do utilizador é encaminhado com base na ponderação atribuída a cada ponto final. A ponderação é um número inteiro entre 1 e 1000. Quanto maior for o valor de ponderação atribuído a um ponto final, maior será a sua prioridade.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar duas VMs que executam um site básico no IIS.
@@ -81,7 +81,7 @@ Nesta secção, instale o servidor IIS nos dois VMs myIISVMEastUS e myIISVMWestE
 3. Abra o ficheiro .rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou quando criou a VM. Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente**, para especificar as credenciais que introduziu quando criou o VM.
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continue** a proceder com a ligação.
-6. No ambiente de trabalho do servidor, consulte o Gestor do Servidor **de Ferramentas Administrativas** do Windows  >  **Server Manager**.
+6. No ambiente de trabalho do servidor, consulte o Gestor do Servidor **de Ferramentas Administrativas** do Windows  >  .
 7. Abra o Windows PowerShell na VM1. Utilize os seguintes comandos para instalar o servidor de ISS e atualizar o ficheiro .htm predefinido.
 
     ```powershell-interactive
@@ -134,7 +134,7 @@ Nesta secção, você cria um VM (*myVMEastUS* e *myVMWestEurope*) em cada regi�
 
 Crie um perfil do Gestor de Tráfego com base no método de encaminhamento **Ponderado**.
 
-1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
+1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >    >    >  **Criar**.
 2. Em **Criar perfil do Gestor de Tráfego**, introduza ou selecione as seguintes informações. Aceite as predefinições para as outras definições e, em seguida, **selecione Criar**.
 
     | Definição                 | Valor                                              |
@@ -158,7 +158,7 @@ Adicione os dois VMs que executam os servidores IIS myIISVMEastUS e myIISVMWestE
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Introduza o ponto final do Azure.                                   |
-    | Nome           | Introduza **myEastUSEndpoint**.                                        |
+    | Name           | Introduza **myEastUSEndpoint**.                                        |
     | Tipo de recurso de destino           | Selecione **Endereço IP público**.                          |
     | Recurso de destino          | Escolha um endereço IP público para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome **myIISVMEastUS-ip**. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |  Peso      | Introduza **100**.        |

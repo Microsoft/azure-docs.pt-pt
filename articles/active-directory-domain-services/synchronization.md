@@ -1,5 +1,5 @@
 ---
-title: Como funciona a sincronização nos Serviços de Domínio Azure AD Microsoft Docs
+title: Como funciona a sincronização nos Serviços de Domínio AZure AD | Microsoft Docs
 description: Saiba como funciona o processo de sincronização para objetos e credenciais de um inquilino AD AZure ou no local Ative Directory Domain Services ambiente para um domínio gerido por Azure Ative Directory Domain Services.
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618812"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e credenciais são sincronizados num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
@@ -78,14 +78,14 @@ A tabela a seguir ilustra como os atributos específicos para objetos do utiliza
 | objectid |msds-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolícias |userAccountControl (define ou limpa a DONT_EXPIRE_PASSWORD bit) |
-| físicoDeliveryOfficeName |físicoDeliveryOfficeName |
-| código postal |código postal |
+| physicalDeliveryOfficeName |physicalDeliveryOfficeName |
+| postalCode |postalCode |
 | preferiuLanguage |preferiuLanguage |
 | proxyAddresses | proxyAddresses |
 | state |SC |
 | streetAddress |streetAddress |
 | surname |sn |
-| número de telefone |número de telefone |
+| telephoneNumber |telephoneNumber |
 | userPrincipalName |userPrincipalName |
 
 ### <a name="attribute-mapping-for-groups"></a>Mapeamento de atributos para grupos

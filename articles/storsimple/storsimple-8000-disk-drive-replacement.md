@@ -1,5 +1,5 @@
 ---
-title: Substitua uma unidade de disco num dispositivo da série StorSimple 8000 Microsoft Docs
+title: Substitua uma unidade de disco num dispositivo da série StorSimple 8000 | Microsoft Docs
 description: Explica como substituir uma unidade de disco num compartimento primário StorSimple ou num compartimento EBOD.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014878"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco no seu dispositivo da série StorSimple 8000

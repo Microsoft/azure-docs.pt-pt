@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
 ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791715"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implementar um cluster gerido por tecido de serviço (pré-visualização)
@@ -54,7 +54,7 @@ Set-AzContext -SubscriptionId <your-subscription>
 Em seguida, crie o grupo de recursos para o cluster Managed Service Fabric, substituindo `<your-rg>` e pelo nome e `<location>` localização de grupo pretendidos.
 
 > [!NOTE]
-> As regiões apoiadas para a pré-visualização pública `centraluseuap` `eastus2euap` incluem, e `eastasia` `northeurope` `westcentralus` `eastus2` .
+> As regiões apoiadas para a pré-visualização pública `centraluseuap` incluem, , , , e `eastus2euap` `eastasia` `northeurope` `westcentralus` `eastus2` .
 
 ```powershell
 $resourceGroup = "myResourceGroup"
@@ -110,7 +110,7 @@ Este comando pode demorar alguns minutos a ser concluído.
 
 Uma vez concluída a implementação, encontre o valor do Explorador de Tecido de Serviço na página de visão geral do cluster gerido pelo Service Fabric no Portal. Quando solicitado para um certificado, utilize o certificado para o qual o polegar do cliente foi fornecido no comando PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste passo criamos e implantamos o nosso primeiro cluster gerido de Tecido de Serviço. Para saber mais sobre como escalar um cluster, consulte:
 

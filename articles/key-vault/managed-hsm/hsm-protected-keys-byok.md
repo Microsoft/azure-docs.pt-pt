@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
 ms.openlocfilehash: dd5b38a858ceba12f5d48f1782da5b85228c4b06
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212115"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importa chaves protegidas pelo HSM para o HSM gerido (BYOK)
@@ -26,7 +26,7 @@ Utilize as informações deste artigo para o ajudar a planear, gerar e transferi
 
 Para mais informações, e para que um tutorial possa começar a utilizar o HSM Gerido, veja [o que é O HSM gerido?](overview.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Aqui está uma visão geral do processo. Os passos específicos a completar são descritos mais tarde no artigo.
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre as opções de login através do CLI, dê um
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Descrição|
+|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Description|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|HSM Gerido|Um par de chaves RSA apoiado pelo HSM gerado em HSM gerido|
 |Chave-alvo|

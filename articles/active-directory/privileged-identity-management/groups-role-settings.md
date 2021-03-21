@@ -1,5 +1,5 @@
 ---
-title: Configurar configurações de grupos de acesso privilegiados em PIM - Azure Ative Directory / Microsoft Docs
+title: Configurar configurar configurações de grupos de acesso privilegiados em PIM - Azure Ative Directory | Microsoft Docs
 description: Saiba como configurar as configurações de grupos atribuíveis por funções na Gestão de Identidade Privilegiada AD Azure (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835395"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurar configurações privilegiadas do grupo de acesso (pré-visualização) na Gestão de Identidade Privilegiada
