@@ -4,10 +4,10 @@ description: Este artigo descreve insights de contentores que monitorizam a solu
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102441521"
 ---
 # <a name="container-insights-overview"></a>Visão geral do contentor

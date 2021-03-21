@@ -8,10 +8,10 @@ ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149316"
 ---
 # <a name="identify-required-appliances"></a>Identificar as aplicações necessárias

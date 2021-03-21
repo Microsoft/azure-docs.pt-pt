@@ -3,12 +3,12 @@ title: 'Erro de resolução de problemas: O tempo de execução das funções Az
 description: Saiba como resolver problemas com uma conta de armazenamento inválida.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: a62001cedd695badc72eb76c93ea9c3cb4507403
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 392882fc2f0394e61aee973a20479d8f1fa9bc92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499633"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606978"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de resolução de problemas: "O tempo de execução das funções Azure é inacessível"
 
@@ -59,6 +59,7 @@ A aplicação de função deve poder aceder à conta de armazenamento. Questões
 * A aplicação de função é implantada no seu Ambiente de Serviço de Aplicações (ASE) sem as regras de rede corretas para permitir o tráfego de e para a conta de armazenamento.
 
 * A firewall da conta de armazenamento está ativada e não configurada para permitir o tráfego de e para funções. Para obter mais informações, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Verifique se a `allowSharedKeyAccess` definição está definida para `true` qual é o seu valor predefinido. Para obter mais informações, consulte [a autorização prevent Shared Key para uma conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## <a name="daily-execution-quota-is-full"></a>A quota de execução diária está cheia
 

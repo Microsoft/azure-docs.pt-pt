@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: ffd3d5c09fe19482a69af2309d8e8d574689e712
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 6361a9c337f5d3897cf15d4739b0410d3e820e57
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199639"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600943"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e aprovisionar o Azure IoT Edge para Linux num dispositivo Windows (Pré-visualização)
 
@@ -44,6 +44,9 @@ Este artigo lista os passos para configurar o IoT Edge num dispositivo Windows. 
   * Edições profissionais, empresariais ou servidoras
   * RAM mínimo: 4 GB (8 GB recomendado)
   * Armazenamento mínimo: 10 GB
+  * Se estiver a criar uma nova implementação utilizando o Windows 10, certifique-se de que ativa o Hyper-V. Para obter mais informações, consulte como [instalar o Hyper-V no Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
+  * Se estiver a criar uma nova implementação utilizando o Windows Server, certifique-se de que instala a função Hyper-V. Para obter mais informações, consulte como [instalar a função Hyper-V no Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * Se estiver a criar uma nova implementação utilizando um VM, certifique-se de que configura corretamente a virtualização aninhada. Para mais informações, consulte o guia [de virtualização aninhado.](nested-virtualization.md)
 
 * Acesso ao Windows Admin Center com a extensão Azure IoT Edge para o Windows Admin Center instalado:
 

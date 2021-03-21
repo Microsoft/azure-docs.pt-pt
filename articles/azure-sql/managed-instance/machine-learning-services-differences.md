@@ -1,5 +1,5 @@
 ---
-title: Principais diferenças para serviços de aprendizagem automática (pré-visualização)
+title: Principais diferenças para serviços de aprendizagem automática
 description: Este artigo descreve diferenças fundamentais entre serviços de aprendizagem automática em Azure SQL Managed Instance e SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-managed-instance
@@ -11,72 +11,77 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 10/26/2020
-ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 03/17/2021
+ms.openlocfilehash: b5ad439a8e10fa9aa44e477ca35f45d65ae40803
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324538"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599549"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principais diferenças entre o Machine Learning Services no SQL Managed Instance e no SQL Server
 
-A funcionalidade dos Serviços de [Aprendizagem automática em Azure SQL Managed Instance (pré-visualização)](machine-learning-services-overview.md) é quase idêntica aos Serviços de [Aprendizagem de Máquinas do Servidor SQL](/sql/advanced-analytics/what-is-sql-server-machine-learning). Seguem-se algumas diferenças fundamentais.
-
-> [!IMPORTANT]
-> Os Serviços de Machine Learning em Azure SQL Managed Instance estão atualmente em pré-visualização pública. Para se inscrever, consulte [inscrever-se para a pré-visualização](machine-learning-services-overview.md#signup).
-
-## <a name="preview-limitations"></a>Limitações de pré-visualização
-
-Durante a pré-visualização, o serviço tem as seguintes limitações:
-
-- As ligações loopback não funcionam (ver [ligação Loopback ao SQL Server a partir de um script Python ou R](/sql/machine-learning/connect/loopback-connection)).
-- Os Agrupamentos de recursos externos não são suportados.
-- Apenas existe suporte para Python e R. Não pode adicionar linguagens externas como Java.
-- Os cenários que utilizam a [Interface de Passagem de Mensagens](/message-passing-interface/microsoft-mpi) (MPI) não são suportados.
-
-Em caso de atualização do Objetivo de Nível de Serviço (SLO), atualize a SLO e levante um bilhete de apoio para reativar os limites de recursos dedicados para r/python.
+Este artigo descreve as poucas diferenças fundamentais na funcionalidade entre serviços de [aprendizagem automática em Azure SQL Managed Instance](machine-learning-services-overview.md) e [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning).
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-Os serviços de machine learning em SQL Managed Instance e SQL Server suportam a [estrutura de extensibilidade](/sql/advanced-analytics/concepts/extensibility-framework)Python e R. As principais diferenças são as seguintes:
+Os serviços de machine learning tanto no SQL Managed Instance como no SQL Server suportam o [quadro de extensibilidade](/sql/machine-learning/concepts/extensibility-framework)Python e R. As principais diferenças em SQL Managed Instance são:
 
-- As versões iniciais de Python e R são diferentes entre serviços de machine learning em SQL Managed Instance e SQL Server:
+- Apenas existe suporte para Python e R. Não pode adicionar linguagens externas como Java.
 
-  | Sistema               | Python | R     |
-  |----------------------|--------|-------|
-  | Instância Gerida do SQL | 3.7.1  | 3.5.2 |
-  | SQL Server           | 3.5.2  | 3.3.3 |
+- As versões iniciais de Python e R são diferentes:
 
-- Não há necessidade de configurar `external scripts enabled` via `sp_configure` . Uma vez [inscrito](machine-learning-services-overview.md#signup) para a pré-visualização, o machine learning está ativado para Azure SQL Managed Instance.
+  | Plataforma                   | Versão de tempo de execução python           | Versões de execução R                   |
+  |----------------------------|----------------------------------|--------------------------------------|
+  | Instância Gerida do Azure SQL | 3.7.2                            | 3.5.2                                |
+  | SQL Server 2019            | 3.7.1                            | 3.5.2                                |
+  | SQL Server 2017            | 3.5.2 e 3.7.2 (CU22 e posteriormente) | 3.3.3 e 3.5.2 (CU22 e posteriormente)     |
+  | SQL Server 2016            | Não disponível                    | 3.2.2 e 3.5.2 (SP2 CU14 e posteriormente) |
 
-## <a name="packages"></a>Pacote
+## <a name="python-and-r-packages"></a>Pacotes Python e R
 
-A gestão de pacotes Python e R funciona de forma diferente entre o SQL Managed Instance e o SQL Server. Estas diferenças são:
-
-- Não existe suporte para pacotes que dependam de tempos de execução externos (como Java) ou que necessitem de acesso a APIs de OS para instalação ou utilização.
-- Os pacotes podem realizar chamadas de rede de saída (alterar a partir de mais cedo na pré-visualização). Pode definir as regras de segurança de saída corretas ao nível do [Grupo de Segurança](../../virtual-network/network-security-groups-overview.md) da Rede para permitir chamadas de rede de saída.
+Não existe suporte em SQL Managed Instance para pacotes que dependam de tempos de execução externos (como Java) ou que necessitem de acesso a APIs de OS para instalação ou utilização.
 
 Para obter mais informações sobre a gestão de pacotes Python e R, consulte:
 
-- [Obter informações de pacotes Python](/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
-- [Obter informações de pacotes R](/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Obter informações de pacotes Python](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Obter informações de pacotes R](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
 
 ## <a name="resource-governance"></a>Gestão de recursos
 
-Não é possível limitar os recursos R através [do Governador de Recursos](/sql/relational-databases/resource-governor/resource-governor) e dos pools de recursos externos.
+Em SQL Managed Instance, não é possível limitar os recursos R através [do Governador de Recursos,](/sql/relational-databases/resource-governor/resource-governor?view=azuresqldb-mi-current&preserve-view=true)e os pools de recursos externos não são suportados.
 
-Durante a pré-visualização pública, os recursos R estão definidos para um máximo de 20% dos recursos do SQL Managed Instance e dependem do escalão de serviço que escolher. Para mais informações, consulte [os modelos de compra da Base de Dados Azure SQL](../database/purchasing-models.md).
+Por padrão, os recursos R são definidos para um máximo de 20% dos recursos de Instância Gerida SQL disponíveis quando a extensibilidade está ativada. Para alterar esta percentagem de incumprimento, crie um bilhete de apoio Azure em [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) .
+
+A extensibilidade é ativada com os seguintes comandos SQL (SQL Managed Instance reiniciará e ficará indisponível por alguns segundos):
+
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
+
+Para desativar a extensibilidade e restaurar 100% dos recursos de memória e CPU para o SQL Server, utilize os seguintes comandos:
+
+```sql
+sp_configure 'external scripts enabled', 0;
+RECONFIGURE WITH OVERRIDE;
+```
+
+Os recursos totais disponíveis para a SQL Managed Instance dependem do nível de serviço que escolher. Para mais informações, consulte [os modelos de compra da Base de Dados Azure SQL](/azure/sql-database/sql-database-service-tiers).
 
 ### <a name="insufficient-memory-error"></a>Erro de memória insuficiente
 
-Se não existir memória suficiente disponível para R, receberá uma mensagem de erro. As mensagens de erro comuns são:
+A utilização da memória depende da quantidade utilizada nos scripts R e do número de consultas paralelas em execução. Se não houver memória suficiente disponível para R, receberá uma mensagem de erro. As mensagens de erro comuns são:
 
 - `Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime`
 - `'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"`
 - `An external script error occurred: Error: cannot allocate vector of size.`
 
-A utilização da memória depende da quantidade utilizada nos scripts R e do número de consultas paralelas em execução. Se receber os erros acima, poderá dimensionar a base de dados para um escalão de serviço mais elevado para resolver o problema.
+Se receber um destes erros, pode resolvê-lo escalando a sua base de dados para um nível de serviço mais elevado.
+
+## <a name="sql-managed-instance-pools"></a>Piscinas de instância gerida SQL
+
+Atualmente, os Serviços de Machine Learning não são suportados em [piscinas de instância gerida Azure SQL (pré-visualização)](instance-pools-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

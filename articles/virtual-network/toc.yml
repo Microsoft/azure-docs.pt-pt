@@ -29,6 +29,8 @@
       href: tutorial-create-nat-gateway-portal.md
     - name: Integrar o equilibrador de carga pública NAT Gateway
       href: tutorial-nat-gateway-load-balancer-public-portal.md
+    - name: Integrar o equilibrador interno de carga do gateway NAT
+      href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Amostras
   items:
     - name: CLI do Azure

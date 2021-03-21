@@ -8,10 +8,10 @@ ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 814a2f7e32f173111e45fff02f00c3e4d2a9a670
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601088"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
@@ -56,7 +56,7 @@ As ações de ficheiros Azure retêm importantes aspetos de fidelidade de fichei
 
 Este artigo centra-se nos passos de migração. Se quiser saber mais sobre o Azure File Sync antes de migrar, consulte os seguintes artigos:
 
-* [Visão geral do Azure File Sync](./storage-sync-files-planning.md "Descrição Geral")
+* [Visão geral do Azure File Sync](./storage-sync-files-planning.md "Descrição geral")
 * [Guia de implementação de Sincronização de Ficheiros Azure](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Chave de encriptação de dados de serviço StorSimple

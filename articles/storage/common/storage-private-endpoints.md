@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601479"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600467"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
 
@@ -53,6 +53,16 @@ Pode proteger a sua conta de armazenamento apenas para aceitar ligações a part
 
 ## <a name="creating-a-private-endpoint"></a>Criação de um ponto final privado
 
+Para criar um ponto final privado utilizando o Portal Azure, consulte [Ligar em privado a uma conta de armazenamento a partir da experiência da Conta de Armazenamento no portal Azure.](../../private-link/tutorial-private-endpoint-storage-portal.md)
+
+Para criar um ponto final privado utilizando o PowerShell ou o Azure CLI, consulte qualquer um destes artigos. Ambos possuem uma aplicação web Azure como o serviço alvo, mas os passos para criar uma ligação privada são os mesmos para uma conta de Armazenamento Azure.
+
+- [Criar um ponto final privado usando O Azure CLI](../../private-link/create-private-endpoint-cli.md)
+
+- [Criar um ponto final privado usando a Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 Quando criar um ponto final privado, deve especificar a conta de armazenamento e o serviço de armazenamento a que se conecta. 
 
 Você precisa de um ponto final privado separado para cada recurso de armazenamento que você precisa para aceder, nomeadamente [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Arquivos, Filas,](../queues/storage-queues-introduction.md) [Tabelas](../tables/table-storage-overview.md)ou [Websites Estáticos.](../blobs/storage-blob-static-website.md) [](../files/storage-files-introduction.md) No ponto final privado, estes serviços de armazenamento são definidos como o **sub-recurso-alvo** da conta de armazenamento associada. 
@@ -64,13 +74,6 @@ Se criar um ponto final privado para o recurso de armazenamento de Data Lake Gen
 > Certifique-se de criar uma conta de armazenamento v2 (Standard ou Premium) para fins gerais.
 
 Para ler o acesso à região secundária com uma conta de armazenamento configurada para armazenamento geo-redundante, precisa de pontos finais privados separados para as instâncias primárias e secundárias do serviço. Não é necessário criar um ponto final privado para a instância secundária para **o failover**. O ponto final privado liga-se automaticamente à nova instância primária após a falha. Para obter mais informações sobre as opções de despedimento de armazenamento, consulte [a redundância do Azure Storage](storage-redundancy.md).
-
-Para obter informações mais detalhadas sobre a criação de um ponto final privado para a sua conta de armazenamento, consulte os seguintes artigos:
-
-- [Conecte-se privadamente a uma conta de armazenamento a partir da experiência da Conta de Armazenamento no portal Azure](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Criar um ponto final privado utilizando o Private Link Center no portal Azure](../../private-link/create-private-endpoint-portal.md)
-- [Criar um ponto final privado usando O Azure CLI](../../private-link/create-private-endpoint-cli.md)
-- [Criar um ponto final privado usando a Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 

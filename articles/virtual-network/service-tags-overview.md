@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 472b0d2886d9177c6507c84d5a8b6da6e99e65e5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455827"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597968"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -75,7 +75,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tem uma dependência da etiqueta **AzureActiveDirectory.** | Saída | Yes | Yes |
 | **AzureLoadBalancer** | O equilibrador de carga de infraestrutura Azure. A etiqueta traduz-se para o [endereço IP virtual do anfitrião](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) de onde provêm as sondas de saúde Azure. Isto inclui apenas o tráfego de sondas, não o tráfego real para o seu recurso backend. Se não estiver a utilizar o Balançador de Carga Azure, pode anular esta regra. | Ambos | No | No |
 | **AzureMachineLearning** | Aprendizagem automática Azure. | Ambos | No | Yes |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon e métricas personalizadas (pontos finais GiG).<br/><br/>*Nota:* Para o Log Analytics, esta etiqueta tem uma dependência da etiqueta **de armazenamento.** | Saída | No | Yes |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon e métricas personalizadas (pontos finais GiG).<br/><br/>*Nota:* Para o Log Analytics, a etiqueta **de armazenamento** também é necessária. Se forem utilizados agentes Linux, também é necessária a etiqueta **GuestAndHybridManagement.** | Saída | No | Yes |
 | **AzureOpenDatasets** | Conjuntos de dados Azure Open.<br/><br/>*Nota:* Esta etiqueta tem uma dependência da etiqueta **AzureFrontDoor.Frontend** e **Storage** tag. | Saída | No | No |
 | **AzurePlatformDNS** | O serviço DNS de infraestrutura básica (padrão).<br/><br>Pode utilizar esta etiqueta para desativar o DNS predefinido. Tenha cuidado quando usar esta etiqueta. Recomendamos que leia considerações da [plataforma Azure.](./network-security-groups-overview.md#azure-platform-considerations) Recomendamos também que efetue testes antes de utilizar esta etiqueta. | Saída | No | No |
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), que é um serviço básico de infraestrutura.<br/><br/>Pode utilizar esta etiqueta para desativar o IMDS predefinido. Tenha cuidado quando usar esta etiqueta. Recomendamos que leia considerações da [plataforma Azure.](./network-security-groups-overview.md#azure-platform-considerations) Recomendamos também que efetue testes antes de utilizar esta etiqueta. | Saída | No | No |

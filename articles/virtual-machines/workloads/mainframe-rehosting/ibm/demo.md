@@ -14,10 +14,10 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: d390cca483444dadd278d783c5f93e09a1bf1ff8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102549452"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma Distribuição Controlada de Desenvolvedores de Aplicações (ADCD) em IBM zD&T v1
@@ -106,7 +106,7 @@ O próximo passo é configurar o zD&T para utilizar o(s) pacote(s) carregado. O 
     /opt/ibm/zDT/bin/startServer
     ```
 2. Note a saída de URL pelo comando e use este URL para aceder ao servidor web. Parece-se com:
-     > https://(o seu nome VM ou endereço IP):9443/ZDTMC/index.html
+     > https:// (o seu nome VM ou endereço IP):9443/ZDTMC/index.html
      >
      > Lembre-se, o seu acesso à web utiliza a porta 9443. Utilize isto para iniciar sessão no servidor web. O ID do utilizador para ZD&T é **zdtadmin** e a palavra-passe é **senha**.
 
@@ -187,7 +187,7 @@ A sua imagem pode agora ser implantada e está pronta para ser montada por um em
 
 Parabéns! Está agora a gerir um ambiente central da IBM em Azure.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 - [Migração do quadro principal: mitos e factos](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale em Azure](ibm-db2-purescale-azure.md)

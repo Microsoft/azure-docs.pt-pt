@@ -1,7 +1,7 @@
 ---
 title: Visão geral do modo do dispositivo partilhado
 titleSuffix: Microsoft identity platform | Azure
-description: Saiba mais sobre o modo de dispositivo partilhado para permitir a partilha de dispositivos para os seus Trabalhadores da Linha Principal.
+description: Saiba mais sobre o modo de dispositivo partilhado para permitir a partilha de dispositivos para os seus Trabalhadores da Linha da Frente.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,27 +13,27 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 3cd7074467332f89d4d6c60830be34f4e2a638c1
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9e48d8f55efa8bc4c82eaa973a6feaeb42390064
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578779"
 ---
 # <a name="overview-of-shared-device-mode"></a>Visão geral do modo de dispositivo partilhado
 
-O modo dispositivo partilhado é uma funcionalidade do Azure Ative Directory que permite construir aplicações que suportem os Trabalhadores da Linha Inicial e que permitam o modo de dispositivo partilhado nos dispositivos que lhes são implantados.
+O modo dispositivo partilhado é uma funcionalidade do Azure Ative Directory que permite construir aplicações que suportem os Trabalhadores da Linha da Frente e que permitam o modo de dispositivo partilhado nos dispositivos que lhes são implantados.
 
 >[!IMPORTANT]
-> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> Modo de dispositivo partilhado para iOS [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-## <a name="what-are-firstline-workers"></a>O que são trabalhadores da Firstline?
+## <a name="what-are-frontline-workers"></a>O que são trabalhadores da linha da frente?
 
-Os trabalhadores da Firstline são empregados de retalho, agentes de manutenção e de campo, pessoal médico e outros utilizadores que não se sentam em frente a um computador ou usam e-mails corporativos para colaboração. As secções seguintes introduzem os aspetos e desafios do suporte aos Trabalhadores da Firstline, seguidos de uma introdução às funcionalidades fornecidas pela Microsoft que permitem a sua aplicação para utilização pelos Trabalhadores da Primeira Linha de uma organização.
+Os trabalhadores da linha da frente são empregados de retalho, agentes de manutenção e de campo, pessoal médico e outros utilizadores que não se sentam em frente a um computador ou usam e-mails corporativos para colaboração. As secções seguintes introduzem os aspetos e desafios do suporte aos Trabalhadores da Linha da Frente, seguidos de uma introdução às funcionalidades fornecidas pela Microsoft que permitem a sua aplicação para utilização pelos Trabalhadores da Linha da Frente de uma organização.
 
-### <a name="challenges-of-supporting-firstline-workers"></a>Desafios do apoio aos trabalhadores da Firstline
+### <a name="challenges-of-supporting-frontline-workers"></a>Desafios do apoio aos trabalhadores da linha da frente
 
-Permitir os fluxos de trabalho do Trabalhador da Firstline inclui desafios que normalmente não são apresentados pelos trabalhadores típicos da informação. Tais desafios podem incluir uma elevada taxa de rotatividade e menos familiaridade com as principais ferramentas de produtividade de uma organização. Para capacitar os seus Trabalhadores da Primeira Linha, as organizações estão a adotar diferentes estratégias. Alguns estão a adotar uma estratégia de bring-your-your-your-device (BYOD) em que os seus colaboradores usam aplicações empresariais no seu telemóvel pessoal, enquanto outros fornecem aos seus colaboradores dispositivos partilhados, como iPads ou tablets Android.
+Permitir fluxos de trabalho da Frontline Worker inclui desafios que normalmente não são apresentados pelos trabalhadores típicos da informação. Tais desafios podem incluir uma elevada taxa de rotatividade e menos familiaridade com as principais ferramentas de produtividade de uma organização. Para capacitar os seus Trabalhadores da Linha da Frente, as organizações estão a adotar diferentes estratégias. Alguns estão a adotar uma estratégia de bring-your-your-your-device (BYOD) em que os seus colaboradores usam aplicações empresariais no seu telemóvel pessoal, enquanto outros fornecem aos seus colaboradores dispositivos partilhados, como iPads ou tablets Android.
 
 ### <a name="supporting-multiple-users-on-devices-designed-for-one-user"></a>Suporte a vários utilizadores em dispositivos concebidos para um utilizador
 
@@ -49,12 +49,12 @@ O Azure Ative Directory permite estes cenários com uma funcionalidade chamada *
 
 Como mencionado, o modo dispositivo partilhado é uma característica do Azure Ative Directory que lhe permite:
 
-* Construir aplicações que suportem trabalhadores da Firstline
-* Implementar dispositivos para os Trabalhadores da Firstline e ligar o modo de dispositivo partilhado
+* Criar aplicações que suportem trabalhadores da linha da frente
+* Implementar dispositivos para os Trabalhadores da Linha da Frente e ligar o modo de dispositivo partilhado
 
-### <a name="build-applications-that-support-firstline-workers"></a>Construir aplicações que suportem trabalhadores da Firstline
+### <a name="build-applications-that-support-frontline-workers"></a>Criar aplicações que suportem trabalhadores da linha da frente
 
-Pode suportar os Trabalhadores da Linha Primeira nas suas aplicações utilizando a aplicação Microsoft Authentication Library (MSAL) e [Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) para ativar um estado de dispositivo chamado *modo de dispositivo partilhado*. Quando um dispositivo está em modo de dispositivo partilhado, a Microsoft fornece à sua aplicação informações que lhe permitam modificar o seu comportamento com base no estado do utilizador no dispositivo, protegendo os dados do utilizador.
+Pode suportar os Trabalhadores da Linha da Frente nas suas aplicações utilizando a aplicação Microsoft Authentication Library (MSAL) e [Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) para ativar um estado de dispositivo chamado *modo de dispositivo partilhado*. Quando um dispositivo está em modo de dispositivo partilhado, a Microsoft fornece à sua aplicação informações que lhe permitam modificar o seu comportamento com base no estado do utilizador no dispositivo, protegendo os dados do utilizador.
 
 As funcionalidades suportadas são:
 
@@ -69,15 +69,15 @@ Os seus utilizadores dependem de si para garantir que os seus dados não são va
 
 Para obter mais informações sobre como modificar as suas aplicações para suportar o modo de dispositivo partilhado, consulte a secção [etapas seguintes](#next-steps) no final deste artigo.
 
-### <a name="deploy-devices-to-firstline-workers-and-turn-on-shared-device-mode"></a>Implementar dispositivos para os Trabalhadores da Firstline e ligar o modo de dispositivo partilhado
+### <a name="deploy-devices-to-frontline-workers-and-turn-on-shared-device-mode"></a>Implementar dispositivos para os Trabalhadores da Linha da Frente e ligar o modo de dispositivo partilhado
 
-Uma vez que as suas aplicações suportam o modo de dispositivo partilhado e incluem os dados e alterações de segurança necessários, pode publicitá-los como sendo utilizáveis pelos Trabalhadores da Firstline.
+Uma vez que as suas aplicações suportam o modo de dispositivo partilhado e incluem os dados e alterações de segurança necessários, pode publicitá-los como sendo utilizáveis pelos Trabalhadores da Linha da Frente.
 
 Os administradores de dispositivos de uma organização são capazes de implementar os seus dispositivos e aplicações nas suas lojas e locais de trabalho através de uma solução de gestão de dispositivos móveis (MDM) como o Microsoft Intune. Parte do processo de provisionamento é marcar o dispositivo como um *Dispositivo Partilhado*. Os administradores configuram o modo de dispositivo partilhado, implantando a aplicação microsoft [Authenticator](../user-help/user-help-auth-app-overview.md) e definindo o modo de dispositivo partilhado através de parâmetros de configuração. Depois de realizar estes passos, todas as aplicações que suportam o modo dispositivo partilhado utilizarão a aplicação Microsoft Authenticator para gerir o seu estado de utilizador e fornecer funcionalidades de segurança para o dispositivo e organização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Apoiamos plataformas iOS e Android para modo dispositivo partilhado. Reveja a documentação abaixo para que a sua plataforma comece a apoiar os Trabalhadores da Firstline nas suas aplicações.
+Apoiamos plataformas iOS e Android para modo dispositivo partilhado. Reveja a documentação abaixo para que a sua plataforma comece a apoiar os Trabalhadores da Linha da Frente nas suas aplicações.
 
 * [Modo de dispositivo partilhado para iOS](msal-ios-shared-devices.md)
 * [Modo de dispositivo partilhado para Android](msal-android-shared-devices.md)

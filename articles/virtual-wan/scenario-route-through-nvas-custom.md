@@ -10,10 +10,10 @@ ms.date: 02/25/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036902"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Cenário: Encaminhar o tráfego através de NVAs utilizando configurações personalizadas
@@ -64,14 +64,14 @@ Existem três padrões distintos de conectividade, que se traduzem em três tabe
 
 Estas rotas estáticas asseguram que o tráfego de e para a rede virtual e sucursal passa pela NVA no VNet de serviço (VNet 4):
 
-| Descrição | Tabela de rota | Rota estática              |
+| Description | Tabela de rota | Rota estática              |
 | ----------- | ----------- | ------------------------- |
 | Ramos    | RT_V2B      | 10.2.0.0/16 -> vnet4conn  |
 | NVA fala  | Predefinição     | 10.1.0.0/16 -> vnet4conn  |
 
 Agora pode utilizar o VIRTUAL WAN para selecionar a ligação correta para enviar os pacotes para. Também precisa de usar o WAN Virtual para selecionar as medidas corretas a tomar ao receber esses pacotes. Utilize as tabelas de rota de ligação para isto, da seguinte forma:
 
-| Descrição | Ligação | Rota estática            |
+| Description | Ligação | Rota estática            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16 -> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16 -> 10.4.0.5 |

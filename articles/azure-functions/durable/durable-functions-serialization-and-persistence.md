@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: azfuncdf
 ms.openlocfilehash: ea4aaa1cdbe10e2db9cf619452558d104a2293ab
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449378"
 ---
 # <a name="data-persistence-and-serialization-in-durable-functions-azure-functions"></a>Persistência de dados e serialização em Funções Duradouras (Funções Azure)
 
 Funções duradouras persistem automaticamente parâmetros de função, valores de retorno e outro estado a um backend durável, a fim de proporcionar uma execução fiável. No entanto, a quantidade e a frequência dos dados persistiram no armazenamento duradouro pode ter impacto nos custos de desempenho e transação de armazenamento da aplicação. Dependendo do tipo de dados que as suas lojas de aplicações, a retenção de dados e as políticas de privacidade também podem ser consideradas.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 Por predefinição, as Funções Duradouras persistem em filas, tabelas e bolhas numa conta [de Armazenamento Azure](https://azure.microsoft.com/services/storage/) que especifique.
 
@@ -26,7 +26,7 @@ Funções Duradouras usam filas de armazenamento Azure para agendar de forma fi�
 
 Dentro de um único centro de [tarefas,](durable-functions-task-hubs.md)as Funções Duráveis criam e adicionam mensagens a uma fila *de artigos de trabalho* nomeada para `<taskhub>-workitem` agendar funções de atividade e uma ou mais filas de *controlo nomeadas* `<taskhub>-control-##` para agendar ou retomar funções de orquestrador e entidade. O número de filas de controlo é igual ao número de divisórias configuradas para a sua aplicação. Para obter mais informações sobre filas e divisórias, consulte a [documentação performance e escalabilidade.](durable-functions-perf-and-scale.md)
 
-### <a name="tables"></a>Tabelas
+### <a name="tables"></a>Tables
 
 Uma vez que as orquestrações processam mensagens com sucesso, os registos das suas ações resultantes são percritos na tabela *História* denominada `<taskhub>History` . As entradas de orquestração, as saídas e os dados de estado personalizado também são persistidos na tabela *Instâncias* denominada `<taskhub>Instances` .
 

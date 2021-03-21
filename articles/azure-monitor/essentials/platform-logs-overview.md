@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.openlocfilehash: 3300b0587cbb6c2193b56c9152af0cb11ea51936
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033304"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Descrição geral dos registos de plataforma Azure
@@ -43,7 +43,7 @@ Existem diferentes opções para visualizar e analisar os diferentes registos da
 ## <a name="destinations"></a>Destinos
 Pode enviar registos de plataforma para um ou mais destinos na tabela seguinte, dependendo dos seus requisitos de monitorização. Configure destinos para registos de plataformas [criando uma definição de Diagnóstico](../essentials/diagnostic-settings.md).
 
-| Destino | Descrição |
+| Destino | Description |
 |:---|:---|
 | Área de trabalho do Log Analytics | Analise os registos de todos os seus recursos Azure em conjunto e aproveite todas as funcionalidades disponíveis para [os Registos do Monitor Azure,](../logs/data-platform-logs.md) incluindo [consultas de registo](../logs/log-query-overview.md) e [alertas de registo.](../alerts/alerts-log.md) Fixar os resultados de uma consulta de registo a um dashboard Azure ou incluí-lo num livro como parte de um relatório interativo. |  |
 | Hub de eventos | Envie dados de registo de plataforma fora do Azure, por exemplo, para uma plataforma de telemetria personalizada ou siem de terceiros.

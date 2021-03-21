@@ -5,10 +5,10 @@ ms.date: 03/12/2021
 ms.topic: reference
 ms.custom: generated
 ms.openlocfilehash: 6b1d3048fdc0945e1ee64e211d2f7b1f9de5e6e6
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419869"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Linha de base de configuração de convidados de política Azure para Linux

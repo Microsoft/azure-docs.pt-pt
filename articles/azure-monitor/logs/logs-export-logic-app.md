@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
 ms.openlocfilehash: fd66aa1f10a32d94d515a1f0aa25c25331796a8d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035692"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Arquivar dados do log analytics espaço de trabalho para o armazenamento do Azure usando a Logic App
@@ -23,7 +23,7 @@ O método descrito neste artigo descreve uma exportação programada de uma cons
 - Uma vez exportar usando uma App Lógica. Consulte [o conector de registos Azure Monitor para aplicações lógicas e automatização de energia](logicapp-flow-connector.md).
 - Uma vez exporta para máquina local usando o script PowerShell. Ver [Invoke-AzOperationalInsightsQueryExport]. https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Este procedimento utiliza o [conector Azure Monitor Logs](/connectors/azuremonitorlogs/) que permite executar uma consulta de registo a partir de uma aplicação lógica e utilizar a sua saída noutras ações do fluxo de trabalho. O [conector de armazenamento Azure Blob](/connectors/azureblob/) é utilizado neste procedimento para enviar a saída de consulta para o armazenamento Azure. As outras ações são descritas nas secções abaixo.
 
 ![Visão geral da aplicação lógica](media/logs-export-logic-app/logic-app-overview.png)

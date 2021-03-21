@@ -3,17 +3,17 @@ title: Níveis de acesso para Azure Blob Storage - quente, fresco e arquivo
 description: Leia sobre os níveis de acesso quentes, frescos e de arquivo para o armazenamento Azure Blob. Reveja as contas de armazenamento que suportam o tiering.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/11/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928810"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656843"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Níveis de acesso para Azure Blob Storage - quente, fresco e arquivo
 
@@ -100,7 +100,9 @@ Apenas os níveis de acesso quente e fresco podem ser definidos como o nível de
 
 O nível de nível de bolha permite-lhe enviar dados para o nível de acesso à sua escolha utilizando as operações [Put Blob](/rest/api/storageservices/put-blob) ou [Put Block List](/rest/api/storageservices/put-block-list) e alterar o nível dos seus dados ao nível do objeto utilizando a operação De Gama [Blob Ou](/rest/api/storageservices/set-blob-tier) a [função de gestão do ciclo de vida.](#blob-lifecycle-management) Pode enviar dados para o seu nível de acesso necessário e, em seguida, alterar facilmente o nível de acesso blob entre os níveis quentes, frescos ou de arquivo à medida que os padrões de utilização mudam, sem ter que mover dados entre contas. Todos os pedidos de mudança de nível ocorrem imediatamente e as alterações de nível entre quente e fresco são instantâneas. Reidratar uma bolha do nível do arquivo pode demorar várias horas.
 
-A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Ao sobrepor uma bolha no nível quente ou fresco, a bolha recém-criada herda o nível da bolha que foi substituída a menos que o novo nível de acesso blob seja explicitamente definido na criação. Se uma bolha estiver no nível de arquivo, não pode ser substituída, por isso carregar a mesma bolha não é permitido neste cenário.
+A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. **Access Tier Change Time** é uma propriedade de nível blob e não é atualizado quando o nível de conta padrão é alterado. As propriedades da conta e as propriedades blob são separadas. Seria proibitivamente caro atualizar o Tempo de **Alteração de Nível** de Acesso em cada bolha de uma conta de armazenamento sempre que o nível de acesso padrão da conta for alterado.
+
+Ao sobrepor uma bolha no nível quente ou fresco, a bolha recém-criada herda o nível da bolha que foi substituída a menos que o novo nível de acesso blob seja explicitamente definido na criação. Se uma bolha estiver no nível de arquivo, não pode ser substituída, por isso carregar a mesma bolha não é permitido neste cenário.
 
 > [!NOTE]
 > O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos.
@@ -178,7 +180,7 @@ Todas as contas de armazenamento utilizam um modelo de preços para armazenament
 
 Diferentes níveis de acesso, juntamente com o nível de nível de bolhas, estão disponíveis em regiões selecionadas. Para obter uma lista completa, veja [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como gerir bolhas e contas através dos níveis de acesso.
 

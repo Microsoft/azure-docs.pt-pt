@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102498902"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Como configurar a indexação online do SharePoint em Pesquisa Cognitiva (pré-visualização)
@@ -263,7 +263,7 @@ Se tiver definido o indexante para indexar metadados documentais, os seguintes m
 > [!NOTE]
 > Os metadados personalizados não estão incluídos na versão atual da pré-visualização.
 
-| Identificador | Tipo | Descrição | 
+| Identificador | Tipo | Description | 
 | ------------- | -------------- | ----------- |
 | metadata_spo_site_library_item_id | Edm.String | A chave combinada do ID do site, iD da biblioteca e iD do item que identifica exclusivamente um item numa biblioteca de documentos para um site. |
 | metadata_spo_site_id | Edm.String | O ID do site SharePoint Online. |

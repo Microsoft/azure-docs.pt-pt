@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397472"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599668"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicações
 
@@ -30,7 +30,7 @@ Este artigo explica como um gateway de aplicação aceita pedidos de entrada e o
 
 4. Se estiver a ser utilizada uma firewall de aplicação web (WAF), o gateway de aplicação verifica os cabeçalhos de pedido e o corpo, se presente, contra as regras da WAF. Esta ação determina se o pedido é um pedido válido ou uma ameaça à segurança. Se o pedido for válido, é encaminhado para o backend. Se o pedido não for válido e a WAF estiver em modo prevenção, está bloqueada como uma ameaça à segurança. Se estiver em modo deteção, o pedido é avaliado e registado, mas ainda reencaminhado para o servidor backend.
 
-O Azure Application Gateway pode ser usado como um equilibrador de carga de aplicação interna ou como um equilibrador de carga de aplicação virado para a Internet. Um portal de aplicações virado para a Internet utiliza endereços IP públicos. O nome DNS de um gateway de aplicações virado para a Internet é publicamente resolúvel para o seu endereço IP público. Como resultado, as portas de aplicação viradas para a Internet podem encaminhar os pedidos dos clientes para a internet.
+O Azure Application Gateway pode ser usado como um equilibrador de carga de aplicação interna ou como um equilibrador de carga de aplicação virado para a Internet. Um portal de aplicações virado para a Internet utiliza endereços IP públicos. O nome DNS de um gateway de aplicações virado para a Internet é publicamente resolúvel para o seu endereço IP público. Como resultado, as portas de aplicação viradas para a Internet podem encaminhar os pedidos dos clientes a partir da internet.
 
 Os gateways de aplicações internas utilizam apenas endereços IP privados. Se estiver a utilizar uma [zona DE DNS](../dns/private-dns-overview.md)personalizada ou privada, o nome de domínio deve ser internamente resolúvel para o endereço IP privado do Gateway de aplicações. Por isso, os equilibradores internos de carga só podem encaminhar pedidos de clientes com acesso a uma rede virtual para o gateway de aplicações.
 

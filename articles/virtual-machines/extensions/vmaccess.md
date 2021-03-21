@@ -9,14 +9,14 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 05/10/2018
 ms.openlocfilehash: e0e63762fc151d93cb34885c04dd4d03285c29f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102557051"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerir utilizadores administrativos, SSH e verificar ou reparar discos em VMs Linux utilizando a Extensão VMAccess com o CLI Azure
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O disco do seu Linux VM está a mostrar erros. De alguma forma, repõe a palavra-passe de raiz para o seu VM Linux ou apagou acidentalmente a sua chave privada SSH. Se isso acontecesse nos dias do datacenter, terias de conduzir até lá e depois abrir o KVM para chegar à consola do servidor. Pense na extensão Azure VMAccess como aquele interruptor KVM que lhe permite aceder à consola para reiniciar o acesso ao Linux ou realizar a manutenção do nível do disco.
 
 Este artigo mostra-lhe como utilizar a Extensão Azure VMAccesss para verificar ou reparar um disco, redefinir o acesso do utilizador, gerir contas administrativas do utilizador ou atualizar a configuração SSH no Linux quando estão a funcionar como máquinas virtuais Azure Resource Manager. Se precisar de gerir máquinas virtuais clássicas - pode seguir as instruções encontradas na [documentação clássica](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic)do VM . 

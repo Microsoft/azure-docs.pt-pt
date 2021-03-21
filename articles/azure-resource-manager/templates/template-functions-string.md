@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: e823acc07ce0618c064f30e103ec52b7133cea18
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731124"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
@@ -58,9 +58,9 @@ Devolve a representação base64 da cadeia de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |O valor para voltar como uma representação base64. |
+| inputString |Yes |string |O valor para voltar como uma representação base64. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -141,9 +141,9 @@ Converte uma representação base64 num objeto JSON.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 para converter-se a um objeto JSON. |
+| base64Value |Yes |string |A representação base64 para converter-se a um objeto JSON. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -225,9 +225,9 @@ Converte uma representação base64 numa corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 para converter-se a uma corda. |
+| base64Value |Yes |string |A representação base64 para converter-se a uma corda. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -310,10 +310,10 @@ Para simplificar a concatenação das cordas, bicep suporta uma sintaxe de inter
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia ou matriz |A primeira corda ou matriz para concatenação. |
-| argumentos adicionais |Não |cadeia ou matriz |Cordas ou matrizes adicionais em ordem sequencial para a concatenação. |
+| arg1 |Yes |cadeia ou matriz |A primeira corda ou matriz para concatenação. |
+| argumentos adicionais |No |cadeia ou matriz |Cordas ou matrizes adicionais em ordem sequencial para a concatenação. |
 
 Esta função pode assumir qualquer número de argumentos, e pode aceitar cordas ou matrizes para os parâmetros. No entanto, não é possível fornecer tanto matrizes como cordas para parâmetros. As cordas só são concatenadas com outras cordas.
 
@@ -441,10 +441,10 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma cor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| contentor |Sim |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
-| itemToFind |Sim |corda ou int |O valor a encontrar. |
+| contentor |Yes |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
+| itemToFind |Yes |corda ou int |O valor a encontrar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -553,9 +553,9 @@ Converte um valor para um dado URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |string |O valor para converter para um dado URI. |
+| stringToConvert |Yes |string |O valor para converter para um dado URI. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -622,9 +622,9 @@ Converte um valor formatado por URI de dados para uma cadeia.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| dadosUriToConvert |Sim |string |O valor URI de dados para converter. |
+| dadosUriToConvert |Yes |string |O valor URI de dados para converter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -691,9 +691,9 @@ Determina se uma matriz, objeto ou corda está vazia.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |matriz, objeto ou corda |O valor para verificar se está vazio. |
+| itemToTest |Yes |matriz, objeto ou corda |O valor para verificar se está vazio. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -772,10 +772,10 @@ Determina se uma corda termina com um valor. A comparação é insensível a cas
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
-| stringToFind |Sim |string |O valor a encontrar. |
+| stringToSearch |Yes |string |O valor que contém o item a encontrar. |
+| stringToFind |Yes |string |O valor a encontrar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -853,9 +853,9 @@ Devolve o primeiro personagem da corda, ou primeiro elemento da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou corda |O valor para recuperar o primeiro elemento ou caráter. |
+| arg1 |Yes |matriz ou corda |O valor para recuperar o primeiro elemento ou caráter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -922,11 +922,11 @@ Cria uma cadeia formatada a partir de valores de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| formatString | Sim | string | A cadeia de formato composto. |
-| arg1 | Sim | corda, inteiro, ou boolean | O valor a incluir na cadeia formatada. |
-| argumentos adicionais | Não | corda, inteiro, ou boolean | Valores adicionais para incluir na cadeia formatada. |
+| formatString | Yes | string | A cadeia de formato composto. |
+| arg1 | Yes | corda, inteiro, ou boolean | O valor a incluir na cadeia formatada. |
+| argumentos adicionais | No | corda, inteiro, ou boolean | Valores adicionais para incluir na cadeia formatada. |
 
 ### <a name="remarks"></a>Observações
 
@@ -993,10 +993,10 @@ Cria um valor no formato de um identificador globalmente único com base nos val
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor utilizado na função hash para criar o GUID. |
-| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o número de cordas necessárias para criar o valor que especifica o nível de singularidade. |
+| baseString |Yes |string |O valor utilizado na função hash para criar o GUID. |
+| parâmetros adicionais, conforme necessário |No |string |Pode adicionar o número de cordas necessárias para criar o valor que especifica o nível de singularidade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -1106,10 +1106,10 @@ Devolve a primeira posição de um valor dentro de uma corda. A comparação é 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
-| stringToFind |Sim |string |O valor a encontrar. |
+| stringToSearch |Yes |string |O valor que contém o item a encontrar. |
+| stringToFind |Yes |string |O valor a encontrar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1189,9 +1189,9 @@ Devolve o último personagem da corda, ou o último elemento da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou corda |O valor para recuperar o último elemento ou caráter. |
+| arg1 |Yes |matriz ou corda |O valor para recuperar o último elemento ou caráter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1258,10 +1258,10 @@ Devolve a última posição de um valor dentro de uma corda. A comparação é i
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
-| stringToFind |Sim |string |O valor a encontrar. |
+| stringToSearch |Yes |string |O valor que contém o item a encontrar. |
+| stringToFind |Yes |string |O valor a encontrar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1333,9 +1333,9 @@ Devolve o número de caracteres numa corda, elementos numa matriz ou propriedade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
+| arg1 |Yes |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1571,11 +1571,11 @@ Devolve uma corda alinhada à direita adicionando caracteres à esquerda até at
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| valorToPad |Sim |corda ou int |O valor para o alinhamento certo. |
-| totalLength |Sim |int |O número total de caracteres na cadeia devolvida. |
-| afiliaçãoCharacter |Não |personagem único |O carácter a utilizar para o acolchoamento esquerdo até atingir o comprimento total. O valor predefinido é um espaço. |
+| valorToPad |Yes |corda ou int |O valor para o alinhamento certo. |
+| totalLength |Yes |int |O número total de caracteres na cadeia devolvida. |
+| afiliaçãoCharacter |No |personagem único |O carácter a utilizar para o acolchoamento esquerdo até atingir o comprimento total. O valor predefinido é um espaço. |
 
 Se a corda original for maior do que o número de caracteres a remar, não são adicionados caracteres.
 
@@ -1633,11 +1633,11 @@ Devolve uma nova corda com todas as instâncias de uma corda substituída por ou
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |string |O valor que tem todos os casos de uma corda substituída por outra corda. |
-| oldString |Sim |string |A corda a ser removida da corda original. |
-| newString |Sim |string |A corda para adicionar no lugar da corda removida. |
+| originalString |Yes |string |O valor que tem todos os casos de uma corda substituída por outra corda. |
+| oldString |Yes |string |A corda a ser removida da corda original. |
+| newString |Yes |string |A corda para adicionar no lugar da corda removida. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1699,10 +1699,10 @@ Retorna uma cadeia com todos os caracteres após o número especificado de carac
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou corda |A matriz ou corda para usar para saltar. |
-| numberToSkip |Sim |int |O número de elementos ou caracteres a saltar. Se este valor for 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou da corda, uma matriz ou corda vazia é devolvida. |
+| originalValue |Yes |matriz ou corda |A matriz ou corda para usar para saltar. |
+| numberToSkip |Yes |int |O número de elementos ou caracteres a saltar. Se este valor for 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou da corda, uma matriz ou corda vazia é devolvida. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1787,10 +1787,10 @@ Devolve uma matriz de cordas que contém os sublutos da cadeia de entrada que s�
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |A corda para dividir. |
-| delimitador |Sim |cadeia ou matriz de cordas |O delimiter para usar para dividir a corda. |
+| inputString |Yes |string |A corda para dividir. |
+| delimitador |Yes |cadeia ou matriz de cordas |O delimiter para usar para dividir a corda. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1865,10 +1865,10 @@ Determina se uma corda começa com um valor. A comparação é insensível a cas
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
-| stringToFind |Sim |string |O valor a encontrar. |
+| stringToSearch |Yes |string |O valor que contém o item a encontrar. |
+| stringToFind |Yes |string |O valor a encontrar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1946,9 +1946,9 @@ Converte o valor especificado para uma cadeia.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| valorToConvert |Sim | Qualquer |O valor para converter em corda. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
+| valorToConvert |Yes | Qualquer |O valor para converter em corda. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2040,11 +2040,11 @@ Devolve um sub-adc de substring que começa na posição de caracteres especific
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |string |A corda original a partir da qual o sublmoão é extraído. |
-| startIndex |Não |int |A posição de caracteres ini por si só para o sub-adiscão. |
-| length |Não |int |O número de caracteres para o sub-adcção. Deve consultar uma localização dentro da cadeia. Deve ser zero ou maior. |
+| stringToParse |Yes |string |A corda original a partir da qual o sublmoão é extraído. |
+| startIndex |No |int |A posição de caracteres ini por si só para o sub-adiscão. |
+| length |No |int |O número de caracteres para o sub-adcção. Deve consultar uma localização dentro da cadeia. Deve ser zero ou maior. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2126,10 +2126,10 @@ Devolve uma cadeia com o número especificado de caracteres desde o início da c
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou corda |A matriz ou corda para tirar os elementos. |
-| numberToTake |Sim |int |O número de elementos ou caracteres a tomar. Se este valor for 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da matriz ou corda dada, todos os elementos da matriz ou da corda são devolvidos. |
+| originalValue |Yes |matriz ou corda |A matriz ou corda para tirar os elementos. |
+| numberToTake |Yes |int |O número de elementos ou caracteres a tomar. Se este valor for 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da matriz ou corda dada, todos os elementos da matriz ou da corda são devolvidos. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2214,9 +2214,9 @@ Converte a cadeia especificada para minúscula.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor para converter para minúsculas. |
+| stringToChange |Yes |string |O valor para converter para minúsculas. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2278,9 +2278,9 @@ Converte a cadeia especificada para a caixa superior.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor para converter em maiúsão. |
+| stringToChange |Yes |string |O valor para converter em maiúsão. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2342,9 +2342,9 @@ Remove todos os caracteres de espaço branco líder e trailing da cadeia especif
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |string |O valor a aparar. |
+| stringToTrim |Yes |string |O valor a aparar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2400,10 +2400,10 @@ Cria uma cadeia de haxixe determinística com base nos valores fornecidos como p
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor usado na função hash para criar uma corda única. |
-| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o número de cordas necessárias para criar o valor que especifica o nível de singularidade. |
+| baseString |Yes |string |O valor usado na função hash para criar uma corda única. |
+| parâmetros adicionais, conforme necessário |No |string |Pode adicionar o número de cordas necessárias para criar o valor que especifica o nível de singularidade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -2532,10 +2532,10 @@ Cria um URI absoluto combinando a baseUri e a cadeiauri relativa.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |string |A corda uri base. Tenha o cuidado de observar o comportamento relativo ao manuseamento do corte de fuga ('/'), conforme descrito na sequência desta tabela.  |
-| relativoUri |Sim |string |A cadeia uri relativa para adicionar à cadeia uri base. |
+| baseUri |Yes |string |A corda uri base. Tenha o cuidado de observar o comportamento relativo ao manuseamento do corte de fuga ('/'), conforme descrito na sequência desta tabela.  |
+| relativoUri |Yes |string |A cadeia uri relativa para adicionar à cadeia uri base. |
 
 * Se **o BaseUri** terminar num corte de fuga, o resultado é simplesmente **baseUri** seguido **poruriuri relativo**.
 
@@ -2637,9 +2637,9 @@ Codifica um URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |string |O valor para codificar. |
+| stringToEncode |Yes |string |O valor para codificar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2707,9 +2707,9 @@ Devolve uma sequência de valor codificado URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |string |O valor codificado uri para converter-se a uma corda. |
+| uriEncodedString |Yes |string |O valor codificado uri para converter-se a uma corda. |
 
 ### <a name="return-value"></a>Valor devolvido
 

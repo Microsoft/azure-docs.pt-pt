@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
 ms.openlocfilehash: b59f8343c9dff07a32accd471f70ddf9f5309b8d
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463090"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>Tutorial: Configurar um dispositivo Azure IoT Edge

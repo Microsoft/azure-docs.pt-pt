@@ -4,19 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 93806eb87c370266e0895e1824dce747c2be495b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b966da89bb81f1c3790afcfabba7bca3077faada
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242726"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612256"
 ---
 <!--Feature availability in region-->
 ## <a name="brazil"></a>Brasil
 
 | Funcionalidade | Sul do Brasil | Sudeste do Brasil |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid Brasil Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Brasil Sudeste](../media/azure-clouds-regions/planned-active.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Brasil Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Brasil Sudeste](../media/azure-clouds-regions/planned-active.svg) |
 | [VídeoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset Brasil Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset Brasil Futuro do Sudeste](../media/azure-clouds-regions/planned-active.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Brasil Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset Brasil Futuro do Sudeste](../media/azure-clouds-regions/planned-active.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset Brasil Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset Brasil Futuro do Sudeste](../media/azure-clouds-regions/planned-active.svg) |

@@ -21,7 +21,7 @@
       href: tutorial-monitor-your-data.md
     - name: Investigar incidentes
       href: tutorial-investigate-cases.md
-    - name: Responder a ameaças
+    - name: Use a automação para responder a ameaças
       href: tutorial-respond-threats-playbook.md
     - name: Criar consultas KQL (Módulo Aprender)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
@@ -37,6 +37,14 @@
           href: resource-context-rbac.md
     - name: Deteção avançada de ataques em várias fases
       href: fusion.md
+    - name: Automação (SOAR)
+      items:
+        - name: SOAR em Sentinela Azure
+          href: automation-in-azure-sentinel.md
+        - name: Regras de automatização para o manuseamento de incidentes
+          href: automate-incident-handling-with-automation-rules.md
+        - name: Automação avançada com playbooks
+          href: automate-responses-with-playbooks.md
     - name: Identificar ameaças avançadas com a UEBA
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Importar informações sobre ameaças para o Azure Sentinel

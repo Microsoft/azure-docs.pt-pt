@@ -4,16 +4,18 @@ description: 'Quickstart: Aprenda a criar um dashboard no portal Azure utilizand
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 12/4/2020
-ms.openlocfilehash: ede915df5cd2967c3b6b700bcb9174c89af8f233
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ddfee1932c6887c6ca7593ca7a28c03e68e09899
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745660"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104613248"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Quickstart: Criar um painel de porta-porta Azure com Azure CLI
 
-Um dashboard no portal Azure é uma visão focada e organizada dos seus recursos em nuvem.
+Um dashboard no portal Azure é uma visão focada e organizada dos seus recursos em nuvem. Este artigo centra-se no processo de utilização do Azure CLI para criar um dashboard.
+O painel de instrumentos mostra o desempenho de uma máquina virtual (VM), bem como algumas informações estáticas e ligações.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -103,21 +105,9 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Verifique se consegue ver dados sobre a máquina virtual a partir do portal Azure.
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
-1. No portal do Azure, selecione **Dashboard**.
-
-   ![Navegação do portal Azure para painel](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Na página do painel de instrumentos, selecione **Simple VM Dashboard**.
-
-   ![Navegue para o simples painel VM](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Reveja o dashboard. Pode ver que alguns dos conteúdos são estáticos, mas também existem gráficos que mostram o desempenho do VM.
-
-   ![Rever simples painel VM](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
-
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a máquina virtual e o painel de instrumentos associado, elimine o grupo de recursos que os contém.
 

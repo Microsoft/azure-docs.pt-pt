@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
 ms.openlocfilehash: 874cb283f0076905393aa529e4ff9e1bad3ae047
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419682"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público

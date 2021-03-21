@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
 ms.openlocfilehash: f8074b69b97a6ef96837e73a1082d2deb67084d9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177866"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista Online do SharePoint utilizando a Azure Data Factory
@@ -76,12 +76,12 @@ As seguintes propriedades são suportadas para um serviço ligado à Lista Onlin
 
 | **Propriedade**        | **Descrição**                                              | **Obrigatório** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| tipo                | A propriedade tipo deve ser definida para: **SharePointOnlineList**.  | Sim          |
-| siteUrl             | O url do site SharePoint Online, por `https://contoso.sharepoint.com/sites/siteName` exemplo. | Sim          |
-| servicePrincipalId  | O ID de Aplicação (cliente) da aplicação registada no Diretório Ativo Azure. | Sim          |
-| servicePrincipalKey | A chave da inscrição. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim          |
-| inquilinoId            | A identificação do inquilino sob a qual a sua candidatura reside.          | Sim          |
-| connectVia          | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais com [Pré-Requisitos](#prerequisites), mais cedo neste artigo. Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. | Não           |
+| tipo                | A propriedade tipo deve ser definida para: **SharePointOnlineList**.  | Yes          |
+| siteUrl             | O url do site SharePoint Online, por `https://contoso.sharepoint.com/sites/siteName` exemplo. | Yes          |
+| servicePrincipalId  | O ID de Aplicação (cliente) da aplicação registada no Diretório Ativo Azure. | Yes          |
+| servicePrincipalKey | A chave da inscrição. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes          |
+| inquilinoId            | A identificação do inquilino sob a qual a sua candidatura reside.          | Yes          |
+| connectVia          | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais com [Pré-Requisitos](#prerequisites), mais cedo neste artigo. Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. | No           |
 
 **Exemplo:**
 
@@ -109,8 +109,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **SharePointOnlineLResource**. | Sim |
-| listName | O nome da Lista Online SharePoint. | Sim |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **SharePointOnlineLResource**. | Yes |
+| listName | O nome da Lista Online SharePoint. | Yes |
 
 **Exemplo**
 
@@ -142,9 +142,9 @@ Para copiar dados da Lista Online do SharePoint, as seguintes propriedades são 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida para **SharePointOnlineListSource**. | Sim |
-| consulta | Opções de consulta personalizadas OData para filtragem de dados. Exemplo: `"$top=10&$select=Title,Number"`. | Não |
-| httpRequestTimeout | O tempo limite (em segundo) para o pedido HTTP para obter uma resposta. O padrão é de 300 (5 minutos). | Não |
+| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida para **SharePointOnlineListSource**. | Yes |
+| consulta | Opções de consulta personalizadas OData para filtragem de dados. Exemplo: `"$top=10&$select=Title,Number"`. | No |
+| httpRequestTimeout | O tempo limite (em segundo) para o pedido HTTP para obter uma resposta. O padrão é de 300 (5 minutos). | No |
 
 **Exemplo**
 

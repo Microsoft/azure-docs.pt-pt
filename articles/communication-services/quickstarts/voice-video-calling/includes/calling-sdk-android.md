@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
 ms.openlocfilehash: 8d4e573cefd595669d9cb2cf9a7b83595eea7971
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103622303"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -204,7 +204,7 @@ public Call retrieveIncomingCall() {
 
 ## <a name="push-notifications"></a>Notificações push
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 As notificações de push mobile são as notificações pop-up que vê nos dispositivos móveis. Para ligar, vamos focar-nos nas notificações push VoIP (Voice over Internet Protocol). Registaremos notificações push, lidaremos com notificações push e, em seguida, descamuramos notificações push.
 
 ### <a name="prerequisites"></a>Pré-requisitos
