@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256903"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 cumprimento do serviço de fornecimento de utilizadores Azure AD
@@ -39,11 +39,11 @@ Na tabela abaixo, qualquer item marcado como fixo significa que o comportamento 
 
 | **Emissão de conformidade SCIM 2.0** |  **Fixo?** | **Data de fixação**  |  **Compatibilidade ao contrário** |
 |---|---|---|
-| A AD AZure exige que "/scim" esteja na raiz do URL do ponto final scim da aplicação  | Sim  |  18 de dezembro de 2018 | downgrade para customappSSO |
-| Atributos de extensão usam ponto "." notação antes de atribuir nomes em vez de cólon ":" notação |  Sim  | 18 de dezembro de 2018  | downgrade para customappSSO |
-| Os pedidos de remendos para atributos de vários valores contêm sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | downgrade para customappSSO |
-| Os pedidos de criação de grupo contêm um esquema inválido URI | Sim  |  18 de dezembro de 2018  |  downgrade para customappSSO |
-| Atualizar o comportamento do PATCH para garantir a conformidade (por exemplo, ativa como remoção de membros booleanos e adequados) | Não | TBD| usar bandeira de pré-visualização |
+| A AD AZure exige que "/scim" esteja na raiz do URL do ponto final scim da aplicação  | Yes  |  18 de dezembro de 2018 | downgrade para customappSSO |
+| Atributos de extensão usam ponto "." notação antes de atribuir nomes em vez de cólon ":" notação |  Yes  | 18 de dezembro de 2018  | downgrade para customappSSO |
+| Os pedidos de remendos para atributos de vários valores contêm sintaxe de filtro de caminho inválido | Yes  |  18 de dezembro de 2018  | downgrade para customappSSO |
+| Os pedidos de criação de grupo contêm um esquema inválido URI | Yes  |  18 de dezembro de 2018  |  downgrade para customappSSO |
+| Atualizar o comportamento do PATCH para garantir a conformidade (por exemplo, ativa como remoção de membros booleanos e adequados) | No | TBD| usar bandeira de pré-visualização |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Bandeiras para alterar o comportamento do SCIM
 Use as bandeiras abaixo no URL do inquilino da sua aplicação para alterar o comportamento padrão do cliente SCIM.

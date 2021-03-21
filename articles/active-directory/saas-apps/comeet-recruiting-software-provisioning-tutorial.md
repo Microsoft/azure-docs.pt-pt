@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Software de Recrutamento de Comeets para o provisionamento automático do utilizador com o Azure Ative Directory [ Microsoft Docs'
+title: 'Tutorial: Configurar o Software de Recrutamento de Comeets para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desa provisionar contas de utilizadores ao Comeet Recruiting Software.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006717"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configurar o Software de Recrutamento de Comeets para o provisionamento automático do utilizador

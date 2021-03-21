@@ -1,5 +1,5 @@
 ---
-title: 'Resumo: O que é Azure Time Series Insights Gen2? - Azure Time Series Insights Gen2 Microsoft Docs'
+title: 'Resumo: O que é Azure Time Series Insights Gen2? - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Saiba mais sobre alterações, melhorias e funcionalidades no Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 12/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: ae5887657e7657e60348217c21aa0ed17f9f4b07
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606305"
 ---
-# <a name="what-is-azure-time-series-insights-gen2"></a>O que é Azure Time Series Insights Gen2
+# <a name="what-is-azure-time-series-insights-gen2"></a>O que é o Azure Time Series Insights Gen2
 
 Azure Time Series Insights Gen2 é um serviço de análise IoT aberto e escalável, com experiências de utilizador de melhor classe e APIs ricos para integrar as suas poderosas capacidades no seu fluxo de trabalho ou aplicação existente.
 

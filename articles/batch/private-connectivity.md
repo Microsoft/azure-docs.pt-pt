@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920008"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Utilizar pontos finais privados com contas do Azure Batch
@@ -108,7 +108,7 @@ Ao criar a sua conta privada Batch, tenha em mente o seguinte:
 - Uma vez criada uma conta Batch com acesso à rede pública, não é possível alterá-la apenas para acesso privado.
 - Os registos DNS na zona privada do DNS não são removidos automaticamente quando elimina um ponto final privado ou quando remove uma região da conta Batch. Deve remover manualmente os registos DNS antes de adicionar um novo ponto final privado ligado a esta zona privada de DNS. Se não limpar os registos do DNS, podem ocorrer problemas inesperados de planos de dados, tais como interrupções de dados em regiões adicionadas após a remoção do ponto final privado ou remoção da região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar piscinas de Lote em redes virtuais.](batch-virtual-network.md)
 - Saiba como [criar piscinas de Lote sem endereços IP públicos](batch-pool-no-public-ip-address.md)

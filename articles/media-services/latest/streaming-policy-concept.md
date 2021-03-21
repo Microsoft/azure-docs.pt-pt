@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
 ms.openlocfilehash: 2873486b95f0bb4a9a27e2e050cc6f6d5473a44e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898177"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo
@@ -83,7 +83,7 @@ Resposta:
 
 Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](entities-overview.md)Social.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](protect-with-aes128.md)

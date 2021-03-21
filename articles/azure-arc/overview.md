@@ -4,10 +4,10 @@ description: Saiba o que é o Azure Arc e como ajuda os clientes a permitir a ge
 ms.date: 03/02/2021
 ms.topic: overview
 ms.openlocfilehash: 33c9d6ca87c3d8d2d8920ff429902f5876bbdc59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101650197"
 ---
 # <a name="azure-arc-overview"></a>Descrição geral do Azure Arc

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Infogix Data3Sixty Govern / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Infogix Data3Sixty Govern | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Infogix Data3Sixty Govern.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ca566c554c02d20d21bd7eba87dfbcbf1f746da
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integração do Azure Ative Directory com Infogix Data3Sixty Govern
@@ -121,7 +121,7 @@ Para configurar o Azure AD um único sinal de inscrição com Infogix Data3Sixty
 
 7. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | -----------| -------------- |
     | nome de primeiro nome  | user.givenname |
     | último nome | utilizador.sobrenome |

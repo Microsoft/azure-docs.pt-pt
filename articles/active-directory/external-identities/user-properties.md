@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/18/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9189b6608b74be6a72dbdfe66276c5050f042f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 08ed02c65db201e18ce710633b421edb5ecb2db0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365468"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655704"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
 
@@ -106,7 +106,7 @@ Pode haver casos em que queira dar aos seus utilizadores convidados privilégios
 ![Screenshot mostrando a opção de utilizadores externos nas definições do utilizador](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso tornar os utilizadores convidados visíveis na Lista de Endereços Globais do Exchange?
-Sim. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte **Posso tornar os objetos convidados visíveis na lista global de endereços?** [](/office365/admin/create-groups/manage-guest-access-in-groups)
+Sim. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte "Adicionar os hóspedes à lista global de endereços" no [artigo de acesso ao hóspede da Microsoft 365 por grupo](/microsoft-365/solutions/per-group-guest-access).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de e-mail de um utilizador convidado?
 

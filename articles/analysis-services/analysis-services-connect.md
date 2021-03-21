@@ -1,5 +1,5 @@
 ---
-title: Ligação aos servidores dos Serviços de Análise Azure Microsoft Docs
+title: Ligação aos servidores dos Serviços de Análise Azure| Microsoft Docs
 description: Saiba como se conectar e obter dados de um servidor de Serviços de Análise em Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 4abe1e9c6f9d7b62792936f816b9c46a937be41a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499429"
 ---
 # <a name="connecting-to-servers"></a>Ligar aos servidores
@@ -39,7 +39,7 @@ Quando cria um servidor de Serviços de Análise em Azure, especifica um nome ú
 
 ### <a name="get-the-server-name"></a>Obtenha o nome do servidor
 
-No **portal Azure** > servidor > nome **do Servidor de Visão Geral**,  >  **Server name** copie todo o nome do servidor. Se outros utilizadores da sua organização também estiverem ligados a este servidor, pode partilhar este nome do servidor com eles. Ao especificar um nome de servidor, todo o caminho deve ser utilizado.
+No **portal Azure** > servidor > nome **do Servidor de Visão Geral**,  >  copie todo o nome do servidor. Se outros utilizadores da sua organização também estiverem ligados a este servidor, pode partilhar este nome do servidor com eles. Ao especificar um nome de servidor, todo o caminho deve ser utilizado.
 
 ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 

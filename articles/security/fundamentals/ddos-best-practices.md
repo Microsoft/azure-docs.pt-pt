@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
 ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498936"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção Azure DDoS - Conceber soluções resilientes
@@ -97,7 +97,7 @@ A DDoS Protection Standard expõe telemetria rica via [Azure Monitor](../../azur
 
 ##### <a name="ddos-mitigation-policies"></a>Políticas de mitigação do DDoS
 
-No portal Azure, **Monitor** selecione  >  **Monitor Metrics**. No painel **Métricas,** selecione o grupo de recursos, selecione um tipo de recurso de **Endereço IP Público** e selecione o seu endereço IP público Azure. As métricas DDoS são visíveis no painel **de métricas disponíveis.**
+No portal Azure, selecione  >  **Monitor Metrics**. No painel **Métricas,** selecione o grupo de recursos, selecione um tipo de recurso de **Endereço IP Público** e selecione o seu endereço IP público Azure. As métricas DDoS são visíveis no painel **de métricas disponíveis.**
 
 A DDoS Protection Standard aplica três políticas de mitigação autofinadas (TCP SYN, TCP e UDP) para cada IP público do recurso protegido, na rede virtual que tem DDoS ativado. Pode ver os limiares de política selecionando os **pacotes métricos de entrada para desencadear a mitigação do DDoS**.
 
@@ -135,13 +135,13 @@ Monitorize as suas aplicações de forma independente. Entenda o comportamento n
 
 Estabelecemos uma parceria com a [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) para construir uma interface onde os clientes do Azure podem gerar tráfego contra pontos finais públicos ativados pela DDoS Protection para simulações. Pode utilizar a simulação [da Cloud BreakingPoint](https://www.ixiacom.com/products/breakingpoint-cloud) para:
 
-- Valide como a Azure DDoS Protection ajuda a proteger os seus recursos Azure de ataques DDoS.
+- Validar como o Azure DDoS Protection ajuda a proteger os recursos do Azure de ataques DDoS.
 
-- Otimize o seu processo de resposta a incidentes sob ataque DDoS.
+- Otimizar o processo de resposta a incidentes sob ataque DDoS.
 
-- Conformidade do DDoS do documento.
+- Documentar a conformidade do DDoS.
 
-- Treine as suas equipas de segurança de rede.
+- Preparar equipas de segurança de rede.
 
 A cibersegurança requer uma inovação constante na defesa. A proteção Azure DDoS Standard é uma oferta de última geração com uma solução eficaz para mitigar ataques DDoS cada vez mais complexos.
 
@@ -189,7 +189,7 @@ A Azure DDoS Protection Standard identifica e atenua os ataques DDoS sem qualque
 
   O serviço de proteção DDoS só inicia a mitigação se a política de valor métrico **para desencadear a mitigação do DDoS (TCP/TCP SYN/UDP)** for inferior ao tráfego recebido no recurso IP público protegido.
 
-- Está a planear um evento viral que aumentará significativamente o tráfego da sua rede.
+- Estiver a planear um evento viral que aumentará significativamente o tráfego.
 
 - Um ator ameaçou lançar um ataque DDoS contra os seus recursos.
 

@@ -1,5 +1,5 @@
 ---
-title: Ligue-se aos Serviços de Análise Azure com o Excel ! Microsoft Docs
+title: Ligue-se aos Serviços de Análise Azure com o Excel | Microsoft Docs
 description: Saiba como ligar-se a um servidor Azure Analysis Services utilizando o Excel. Uma vez conectados, os utilizadores podem criar Tabelas Demômutárias para explorar dados.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,17 +8,17 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: fccb919a7eac79080fefeac70326b8aa7a967622
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499475"
 ---
 # <a name="connect-with-excel"></a>Ligar com o Excel
 
 Uma vez criado um servidor e implantado um modelo tabular, os clientes podem conectar-se e começar a explorar dados. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A conta com que insinou deve pertencer a uma função de base de dados modelo com, pelo menos, permissões de leitura. Para saber mais, veja [Authentication and user permissions](analysis-services-manage-users.md) (Permissões de autenticação e utilizador). 
 

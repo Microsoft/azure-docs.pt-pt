@@ -1,5 +1,5 @@
 ---
-title: Especificações técnicas e conformidade do Microsoft Azure Stack Edge Pro R Microsoft Docs
+title: Especificações técnicas e conformidade do Microsoft Azure Stack Edge Pro R| Microsoft Docs
 description: Conheça as especificações técnicas e a conformidade com o seu dispositivo Azure Stack Edge Pro R
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
 ms.openlocfilehash: 56d301762fde41f727b0b425d6c41a423f08103c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467295"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Especificações técnicas Azure Stack Edge Pro R
@@ -48,14 +48,14 @@ O dispositivo Azure Stack Edge Pro R tem duas unidades de alimentação de 100-2
 | Dissipação de calor (máximo)                   | 2891 BTU/hr                |
 | Frequência               | 50/60 Hz                   |
 | Seleção de gama de tensão | Variação automática: 115-230 V AC |
-| Pluggável quente           | Sim                        |
+| Pluggável quente           | Yes                        |
 
 ## <a name="network-specifications"></a>Especificações de rede
 
 O dispositivo Azure Stack Edge Pro R tem quatro interfaces de rede, PORT1 - PORT4. 
 
 
-|Especificação  |Descrição                              |
+|Especificação  |Description                              |
 |----------------------|----------------------------------|
 |Interfaces de rede    |**2 x 1 Gbe RJ45** <br> O PORT 1 é utilizado como interface de gestão para a configuração inicial e está estático por predefinição. Após a configuração inicial estar concluída, pode utilizar a interface para obter dados com qualquer endereço IP. No entanto, no reset, a interface volta a ip estática. <br>A outra interface PORT 2 é configurável pelo utilizador, pode ser usada para transferência de dados, e é DHCP por padrão.     |
 |Interfaces de rede    |**2 x 25 Gbe SFP28** <br> Estas interfaces de dados PORT 3 e PORT 4 podem ser configuradas como DHCP (padrão) ou estática.            |

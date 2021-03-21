@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Projectplace Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com projectplace | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Projectplace.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 508a3ca02ec6c0475e78d16691f6597e1a389f97
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511857"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Tutorial: Integrar projectplace com diretório ativo Azure
@@ -111,7 +111,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B. Sim
 
 Nesta secção, você permitirá a B. Simon usar a Azure um único sinal de acesso, concedendo acesso ao Projectplace.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Projectplace**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -150,7 +150,7 @@ Para permitir que os utilizadores de Azure AD entrem no Projectplace, é necess�
    
     1. Na caixa dos **Novos Membros,** insira o endereço de e-mail de uma conta Azure AD válida que pretende adicionar.
    
-    1. Selecione **Send** (Enviar).
+    1. Selecione **Enviar**.
 
    Um e-mail contendo um link para confirmar a conta antes de ficar ativa é enviado para o titular da conta Azure AD.
 

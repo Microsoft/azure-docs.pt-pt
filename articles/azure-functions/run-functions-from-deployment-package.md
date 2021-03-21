@@ -3,12 +3,12 @@ title: Executar as suas Funções Azure a partir de um pacote
 description: Faça com que o tempo de execução das Funções Azure execute as suas funções montando um ficheiro pacote de implementação que contenha os ficheiros de projetos de aplicações de função.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad6991d0ddd5c439d03e41adec63837a21db87b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639890"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581597"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar as suas Funções Azure a partir de um ficheiro de pacote
 
@@ -45,7 +45,7 @@ O seguinte mostra uma aplicação de função configurada para ser executada a p
 ![WEBSITE_RUN_FROM_ZIP configuração de aplicativo](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
 
 > [!NOTE]
-> Atualmente, apenas os ficheiros de pacotes .zip são suportados.
+> Atualmente, apenas .zip ficheiros de pacotes são suportados.
 
 ## <a name="integration-with-zip-deployment"></a>Integração com implantação zip
 
@@ -63,6 +63,7 @@ O seguinte mostra uma aplicação de função configurada para ser executada a p
 
 - O Run From Package faz `wwwroot` apenas leitura, para que receba um erro ao escrever ficheiros para este diretório.
 - Os formatos de alcatrão e gzip não são suportados.
+- O ficheiro ZIP pode ser no máximo 1GB.
 - Esta função não compõe com cache local.
 - Para melhorar o desempenho do arranque a frio, utilize a opção Zip local `WEBSITE_RUN_FROM_PACKAGE` (=1).
 - O Run From Package é incompatível com a opção de personalização de implementação `SCM_DO_BUILD_DURING_DEPLOYMENT=true` (), o passo de construção será ignorado durante a implementação.

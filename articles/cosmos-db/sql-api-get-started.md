@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2ece9ed5cb6eb6ea706db1ed615a64d001f2b17c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102423960"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Construa uma aplicação de consola .NET para gerir dados na conta AZure Cosmos DB SQL API
@@ -79,7 +79,7 @@ Excelente! Agora que concluímos a configuração, comecemos a escrever certos c
 
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Passo 3: Ligar a uma conta do Azure Cosmos DB
 
-1. Substitua as referências no início da sua aplicação C# no ficheiro *Program.cs* com estas referências:
+1. Substitua as referências no início da sua aplicação C# no ficheiro *.cs Programa* por estas referências:
 
    ```csharp
    using System;
@@ -124,7 +124,7 @@ Excelente! Agora que concluímos a configuração, comecemos a escrever certos c
 
    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Obtenha as chaves DB do Azure Cosmos do portal Azure":::
 
-1. Em *Program.cs,* `<your endpoint URL>` substitua-se pelo valor da **URI**. `<your primary key>`Substitua-o pelo valor da **CHAVE PRIMÁRIA**.
+1. No *Programa.cs,* `<your endpoint URL>` substitua-o pelo valor da **URI**. `<your primary key>`Substitua-o pelo valor da **CHAVE PRIMÁRIA**.
 
 1. Abaixo do método **Principal,** adicione uma nova tarefa assíncronea chamada **GetStartedDemoAsync,** que instantaneamente o nosso novo `CosmosClient` .
 
@@ -179,7 +179,7 @@ As bases de dados são os contentores lógicos dos itens particionados em conten
     }
     ```
 
-    O seu *Program.cs* deve agora ser assim, com o seu ponto final e a chave primária preenchidas.
+    O seu *programa.cs* deve agora ser assim, com o seu ponto final e a chave primária preenchidas.
 
     ```csharp
     using System;
@@ -311,14 +311,14 @@ Primeiro, vamos criar uma `Family` classe que represente objetos armazenados den
 
 1. Selecione Ctrl+Shift+A para abrir **Adicionar Novo Item**. Adicione uma nova classe `Family.cs` ao seu projeto.
 
-    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Screenshot de adicionar uma nova classe Family.cs no projeto":::
+    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Screenshot de adicionar uma nova classe .cs família no projeto":::
 
 1. Copiar e colar `Family` `Parent` o, `Child` , , e classe em `Pet` `Address` `Family.cs` .
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
 
-1. De volta *Program.cs,* adicione o `AddItemsToContainerAsync` método após o seu `CreateContainerAsync` método.
+1. De volta ao *Programa.cs*, adicione o `AddItemsToContainerAsync` método após o seu `CreateContainerAsync` método.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
 

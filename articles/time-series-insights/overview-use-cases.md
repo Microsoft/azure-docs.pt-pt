@@ -1,5 +1,5 @@
 ---
-title: Casos de uso da Gen2 - Azure Time Series Insights Gen2 Microsoft Docs
+title: Casos de uso da Gen2 - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Saiba mais sobre os casos de utilização da Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: 7d97958c5fd1274495da88c064b63e59e354f691
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606968"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights Gen2 usam casos
@@ -60,7 +60,7 @@ Existem três formas primárias de interagir com os dados armazenados na Azure T
 
   * Saiba mais sobre a partilha de URLs e a nova UI, analisando [dados do Visualize no Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
-* A terceira maneira de começar é usar as poderosas APIs para consultar os dados armazenados em Azure Time Series Insights Gen2. Azure Time Series Insights Gen2 tem operadores temporais `from` `to` como, `first` e `last` . Tem agregações e transformações `average` `sum` como, `min` `max` `time-weighted average` `time-weighted sum` etc. Também permite operadores de filtragem, aritmética e boolean, funções de escala, etc. Todos estes operadores permitem que as aplicações a jusante encontrem rapidamente tendências e padrões interessantes nos seus dados. Use-as para povoar visualizações caseiras para detetar anomalias.
+* A terceira maneira de começar é usar as poderosas APIs para consultar os dados armazenados em Azure Time Series Insights Gen2. Azure Time Series Insights Gen2 tem operadores temporais `from` `to` como, `first` e `last` . Tem agregações e transformações `average` `sum` como, `min` , `max` , , , `time-weighted average` `time-weighted sum` , etc. Também permite operadores de filtragem, aritmética e boolean, funções de escala, etc. Todos estes operadores permitem que as aplicações a jusante encontrem rapidamente tendências e padrões interessantes nos seus dados. Use-as para povoar visualizações caseiras para detetar anomalias.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Análise operacional e eficiência do processo de condução
 

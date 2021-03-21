@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735746"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planeada na Base de Dados do Azure para PostgreSQL – Servidor Único
@@ -76,7 +76,7 @@ Não, todas as regiões de Azure são remendadas durante os tempos de janela sá
 Um erro transitório, também conhecido como falha transitória, é um erro que se resolverá sozinho. Podem ocorrer [erros transitórios](./concepts-connectivity.md#transient-errors) durante a manutenção. A maioria destes eventos são automaticamente atenuados pelo sistema em menos de 60 segundos. Os erros transitórios devem ser manuseados utilizando [a lógica de repetição](./concepts-connectivity.md#handling-transient-errors).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Base de Dados Azure para PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL em AskAzureDBforPostgreSQL@service.microsoft.com
 - Veja [como configurar alertas](howto-alert-on-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101729373"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar telemetria de funções Azure em Insights de Aplicação 
@@ -60,7 +60,7 @@ Para obter informações sobre como utilizar o Application Insights, consulte a 
 
 As seguintes áreas de Insights de Aplicação podem ser úteis na avaliação do comportamento, desempenho e erros nas suas funções:
 
-| Investigar | Descrição |
+| Investigar | Description |
 | ---- | ----------- |
 | **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções ao servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas a menos que implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analise os problemas de desempenho visualizando a utilização de recursos e a produção por **instâncias de função cloud**. Estes dados de desempenho podem ser úteis para depurar cenários onde as funções estão a atrapalhar os seus recursos subjacentes. |

@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para executar a sua primeira
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920104"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Executar a sua primeira consulta de gráfico de recurso usando O Explorador de Gráficos de Recursos Azure
@@ -117,7 +117,7 @@ Se desejar remover os dashboards de gráficos de recursos da amostra do seu ambi
 
 1. Selecione **Eliminar** do menu do painel de instrumentos na parte superior do painel de instrumentos e selecione **Ok** para confirmar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, usou o Azure Resource Graph Explorer para executar a sua primeira consulta e analisou exemplos de dashboards alimentados por Resource Graph. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
 ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606288"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
@@ -19,7 +19,7 @@ Este artigo aborda perguntas frequentes e questões conhecidas sobre o Registo d
 Para orientação de resolução de problemas de registo, consulte:
 * [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md)
 * [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
-* [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
+* [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Gestão de recursos
 
@@ -33,11 +33,11 @@ Para orientação de resolução de problemas de registo, consulte:
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Posso criar um registo de contentores Azure utilizando um modelo de Gestor de Recursos?
 
-Yes. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
+Sim. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe vulnerabilidade de segurança à procura de imagens em ACR?
 
-Yes. Consulte a documentação do [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sim. Consulte a documentação do [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Como posso configurar Kubernetes com registo de contentores Azure?
 
@@ -537,10 +537,10 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 
 | Serviço git | Contexto de origem | Construção manual | Construção automática através do gatilho de comprometimento |
 |---|---|---|---|
-| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Sim |
-| Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Sim |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Não |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | Não |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Yes |
+| Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Yes | Yes |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | No |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | No |
 
 ## <a name="run-error-message-troubleshooting"></a>Executar resolução de problemas de mensagem de erro
 

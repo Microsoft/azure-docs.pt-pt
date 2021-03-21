@@ -13,10 +13,10 @@ ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
 ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918099"
 ---
 # <a name="dynamic-data-masking"></a>Máscara de dados dinâmica 
@@ -84,6 +84,6 @@ Pode utilizar a API REST para gerir programáticamente a política e regras de m
 
 A máscara dinâmica de dados pode ser configurada pela administração da Base de Dados Azure SQL, pela administração do servidor ou pelo controlo de acesso baseado em funções (RBAC) [SQL Security Manager.](../../role-based-access-control/built-in-roles.md#sql-security-manager)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Mascaramento dinâmico de dados](/sql/relational-databases/security/dynamic-data-masking)
+[Mascaramento de Dados Dinâmicos](/sql/relational-databases/security/dynamic-data-masking)

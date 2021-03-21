@@ -8,10 +8,10 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: 198702f619e490e8000e4430aab23a7f6bfb6d85
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102107977"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Criar relatórios ricos e interativos de dados do Centro de Segurança
@@ -31,7 +31,7 @@ Dentro do Centro de Segurança Azure, você pode aceder aos relatórios incorpor
 | Estado de libertação:                  | Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                       |
 | Preços:                        | Gratuito                                                                                                                                         |
 | Funções e permissões necessárias: | Para guardar livros de trabalho, deve ter pelo menos permissões de contribuinte de livros de trabalho no grupo de recursos-alvo                                      |
-| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov) |
+| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov) |
 |                                 |                                                                                                                                              |
 
 ## <a name="workbooks-gallery-in-azure-security-center"></a>Galeria de livros de obras no Centro de Segurança Azure

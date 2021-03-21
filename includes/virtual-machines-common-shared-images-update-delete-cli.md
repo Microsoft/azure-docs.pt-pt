@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: 4392e7f146f13e581f722b94f13038ad8abff0ba
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102244972"
 ---
 ## <a name="update-resources"></a>Atualizar recursos
@@ -20,12 +20,12 @@ ms.locfileid: "102244972"
 Existem algumas limitações sobre o que pode ser atualizado. Os seguintes itens podem ser atualizados: 
 
 Galeria de imagens partilhada:
-- Descrição
+- Description
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Descrição
+- Description
 - Data de fim de vida
 
 Versão de imagem:

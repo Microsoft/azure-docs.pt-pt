@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de regist
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 7e19b223e43f30a532c1cd8bdc86f9a29220f5aa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363581"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Registo de contentores Azure como fonte de grelha de evento

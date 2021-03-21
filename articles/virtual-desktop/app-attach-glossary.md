@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518673"
 ---
 # <a name="msix-app-attach-glossary"></a>App MSIX anexa glossário
@@ -108,7 +108,7 @@ O Destaging notifica o SO de que um pacote ou aplicação MSIX que não está at
 
 ## <a name="cim"></a>CIM
 
-.CIM é uma nova extensão de ficheiro associada ao Sistema de Ficheiros de Imagem Compósito (CimFS). A montagem e desmontagem de ficheiros CIM é mais rápida que os ficheiros VHD. A CIM também consome menos CPU e memória do que o VHD.
+. A CIM é uma nova extensão de ficheiros associada ao Sistema de Ficheiros de Imagem Compósito (CimFS). A montagem e desmontagem de ficheiros CIM é mais rápida que os ficheiros VHD. A CIM também consome menos CPU e memória do que o VHD.
 
 Um ficheiro CIM é um ficheiro com um . Extensão CIM que contém metadados e pelo menos seis ficheiros adicionais que contêm dados reais. Os ficheiros dentro do ficheiro CIM não têm extensões. A tabela a seguir é uma lista de ficheiros de exemplo que encontraria dentro de uma CIM:
 

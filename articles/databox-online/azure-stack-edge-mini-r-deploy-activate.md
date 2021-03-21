@@ -1,5 +1,5 @@
 ---
-title: Tutorial para encriptar e ativar o dispositivo Azure Stack Edge Mini R no portal Azure Microsoft Docs
+title: Tutorial para encriptar e ativar o dispositivo Azure Stack Edge Mini R no portal Azure | Microsoft Docs
 description: Tutorial para implementar O Azure Stack Edge Mini R instrui-o a encriptar e ativar o seu dispositivo físico.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 10/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
 ms.openlocfilehash: e5076888e692ad16e89f30d455e7f8c4e22a41b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96468998"
 ---
 # <a name="tutorial-activate-azure-stack-edge-mini-r"></a>Tutorial: Ativar Azure Stack Edge Mini R

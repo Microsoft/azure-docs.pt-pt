@@ -9,10 +9,10 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 34f54bb30e959ecc2fa27fba5ab7392b9eddc68e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103494517"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
@@ -139,7 +139,7 @@ AWS S3 e Azure permitem diferentes conjuntos de caracteres nos nomes das teclas 
 
 Como parte de um comando AzCopy, `copy` pode fornecer um valor opcional para a bandeira que especifica como gostaria de lidar com `s2s-handle-invalid-metadata` ficheiros onde os metadados do ficheiro contêm nomes-chave incompatíveis. A tabela a seguir descreve cada valor da bandeira.
 
-| Valor da bandeira | Descrição  |
+| Valor da bandeira | Description  |
 |--------|-----------|
 | **Excluir Não-Izaride** | (Opção predefinição) Os metadados não estão incluídos no objeto transferido. A azCopy regista um aviso. |
 | **FailIfInvalid** | Os objetos não são copiados. O AzCopy regista um erro e inclui esse erro na contagem falhada que aparece no resumo da transferência.  |

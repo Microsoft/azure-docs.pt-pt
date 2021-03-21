@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004964"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou eliminar a política de ponto final de serviço utilizando o portal Azure
 
 As políticas de ponto final de serviço permitem filtrar o tráfego de rede virtual para recursos específicos do Azure, sobre os pontos finais do serviço. Se não está familiarizado com as políticas de ponto final de serviço, consulte a [visão geral das políticas de ponto final do serviço](virtual-network-service-endpoint-policies-overview.md) para saber mais.
 
- Neste tutorial, vai aprender a:
+ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma política de ponto final de serviço
@@ -71,7 +71,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    - Tecla : Selecione a sua chave para a apólice. Ex: Dept     
    - Valor : Introduza o par de valor para a chave. Ex: Finanças
 
-6. Selecione **Review + Criar**. Validar a informação e clicar **criar.** Para edição adicional, clique em **Anterior**. 
+6. Selecione **Rever + Criar**. Validar a informação e clicar **criar.** Para edição adicional, clique em **Anterior**. 
 
    ![Criar validações finais da política de ponto final de serviço](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   

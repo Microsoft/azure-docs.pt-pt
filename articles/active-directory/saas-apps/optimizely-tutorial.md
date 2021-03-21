@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Optimizely Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Optimizely | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Optimizely.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: c10681a053631a338bd0b9a7d19c5625151a9a5a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Ative Directory com a Optimizely
@@ -114,7 +114,7 @@ Para configurar o Azure AD com otimização, execute os seguintes passos:
 
 6. Além de acima, a aplicação Optimizely espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | ---------------| --------------- |
     | e-mail | user.mail |
     
@@ -201,7 +201,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Optimizely.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Optimizely**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Optimizely**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

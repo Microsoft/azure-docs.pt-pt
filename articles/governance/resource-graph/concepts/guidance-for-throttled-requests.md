@@ -5,10 +5,10 @@ ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98917712"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
@@ -240,7 +240,7 @@ Indique estes detalhes:
 - Que tipo de recursos está interessado?
 - Qual é o seu padrão de consulta? X consultas por Y segundos, e assim por diante.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
 - Consulte utilizações avançadas em [consultas avançadas.](../samples/advanced.md)

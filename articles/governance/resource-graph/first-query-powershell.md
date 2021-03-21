@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ativar o módulo Gráfi
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 131bed4fe60035682a317e186f11561bc005b298
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98917678"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando a Azure PowerShell
@@ -105,7 +105,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 > [!NOTE]
 > Isto não elimina o ficheiro do módulo descarregado anteriormente. Apenas o remove da sessão do PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, adicionou o módulo Gráfico de Recursos ao seu ambiente Azure PowerShell e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

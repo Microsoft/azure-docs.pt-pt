@@ -7,10 +7,10 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97607954"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Insights de Aplicações para Funções Azure suportados
@@ -27,27 +27,27 @@ Para obter mais informações sobre versões compatíveis de Insights de Aplica�
 |-----------------------------------|---------------|------------------|
 | | | | 
 | **Recolha automática de**        |               |                  |
-| &bull; Pedidos                     | Sim           | Sim              |
-| &bull; Exceções                   | Sim           | Sim              |
-| &bull; Contadores de desempenho         | Sim           | Sim              |
+| &bull; Pedidos                     | Yes           | Yes              |
+| &bull; Exceções                   | Yes           | Yes              |
+| &bull; Contadores de desempenho         | Yes           | Yes              |
 | &bull; Dependências                 |               |                  |
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Sim              |
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | Sim              |
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | Sim              |
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Sim              |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Yes              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | Yes              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | Yes              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Yes              |
 | | | | 
 | **Funcionalidades suportadas**              |               |                  |
-| &bull; QuickPulse/LiveMetrics       | Sim           | Sim              | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de Controlo Seguro |               | Sim | 
-| &bull; Amostragem                     | Sim           | Sim              | 
-| &bull; Batimentos cardíacos                   | | Sim              | 
+| &bull; QuickPulse/LiveMetrics       | Yes           | Yes              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de Controlo Seguro |               | Yes | 
+| &bull; Amostragem                     | Yes           | Yes              | 
+| &bull; Batimentos cardíacos                   | | Yes              | 
 | | | |
 | **Correlação**                    |               |                  |
-| &bull; ServiceBus                  |               | Sim              |
-| &bull; EventHub                    |               | Sim              |
+| &bull; ServiceBus                  |               | Yes              |
+| &bull; EventHub                    |               | Yes              |
 | | | | 
 | **Configurável**                  |               |                  |           
-| &bull;Totalmente configurável.<br/>Consulte [as funções Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.           |               | Sim                 | 
+| &bull;Totalmente configurável.<br/>Consulte [as funções Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.           |               | Yes                 | 
 
 ## <a name="performance-counters"></a>Contadores de Desempenho
 

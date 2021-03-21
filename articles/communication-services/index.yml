@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: 12648dcf8712973149e8e2c1664f82caf0446e78
-  ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+  ms.openlocfilehash: ec491509c80f69e000a67e40288b6e298ba9fb85
+  ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/16/2021
-  ms.locfileid: "103495254"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104655789"
 landingContent:
 - title: Acerca do Azure Communication Services
   linkLists:
@@ -43,7 +43,7 @@ landingContent:
     - text: Autenticação e autorização
       url: concepts/authentication.md
     - text: Manipulação de eventos
-      url: concepts/event-handling.md
+      url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
     - text: Notificações
       url: concepts/notifications.md
 - title: Chamadas de voz e vídeo

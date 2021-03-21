@@ -1,5 +1,5 @@
 ---
-title: Gestão de grupos Azure AD privilegiados em Gestão de Identidade Privilegiada (PIM) Microsoft Docs
+title: Gerir grupos Azure AD privilegiados em Gestão de Identidade Privilegiada (PIM) | Microsoft Docs
 description: Como gerir membros e proprietários de grupos de acesso privilegiados em Gestão de Identidade Privilegiada (PIM)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512397"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Capacidades de gestão para acesso privilegiado Grupos AD de acesso (pré-visualização)
