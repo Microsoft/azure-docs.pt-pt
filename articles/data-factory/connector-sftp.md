@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393467"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592035"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copie os dados de e para o servidor SFTP utilizando a Azure Data Factory
 
@@ -34,7 +34,7 @@ O conector SFTP é suportado para as seguintes atividades:
 
 Especificamente, o conector SFTP suporta:
 
-- Copiar ficheiros de e para o servidor SFTP utilizando a autenticação *Basic* ou *SshPublicKey.*
+- Copiar ficheiros de e para o servidor SFTP utilizando a **autenticação básica, ssh pública** ou **multi-factor.** 
 - Copiar ficheiros como está ou através da análise ou geração de ficheiros com os [formatos de ficheiros suportados e os codecs de compressão](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço ligado SFTP:
 | porta | A porta na qual o servidor SFTP está a ouvir.<br/>O valor permitido é um número inteiro, e o valor padrão é *de 22*. |No |
 | skipHostKeyValidation | Especificar se deve ignorar a validação da chave do anfitrião.<br/>Os valores permitidos são *verdadeiros* e *falsos* (padrão).  | No |
 | hostKeyFingerprint | Especifique a impressão digital da chave hospedeira. | Sim, se o "skipHostKeyValidation" estiver definido como falso.  |
-| authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são *Basic* e *SshPublicKey*. Para obter mais propriedades, consulte a secção [de autenticação básica Utilizar.](#use-basic-authentication) Para os exemplos JSON, consulte a secção [de autenticação da chave pública Use SSH.](#use-ssh-public-key-authentication) |Yes |
+| authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são *Basic,* *SshPublicKey* e *MultiFactor*. Para obter mais propriedades, consulte a secção [de autenticação básica Utilizar.](#use-basic-authentication) Para os exemplos JSON, consulte a secção [de autenticação da chave pública Use SSH.](#use-ssh-public-key-authentication) |Yes |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Para saber mais, consulte a secção [Pré-Requisitos.](#prerequisites) Se o tempo de execução da integração não for especificado, o serviço utiliza o tempo de execução de integração Azure predefinido. |No |
 
 ### <a name="use-basic-authentication"></a>Utilizar a autenticação básica
@@ -75,7 +75,6 @@ Para utilizar a autenticação básica, desaprova a propriedade *autenticaçãoT
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -117,7 +116,6 @@ Para utilizar a autenticação de chaves públicas SSH, descreva a propriedade "
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -161,6 +159,43 @@ Para utilizar a autenticação de chaves públicas SSH, descreva a propriedade "
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-multi-factor-authentication"></a>Use a autenticação de vários fatores
+
+Para utilizar a autenticação multi-factor que é uma combinação de autenticações básicas e SSH de chaves públicas, especifique o nome de utilizador, a palavra-passe e a informação de chave privada descrita nas secções acima.
+
+**Exemplo: autenticação de vários fatores**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
@@ -236,7 +271,7 @@ As seguintes propriedades são suportadas para SFTP sob as `storeSettings` defin
 | modificadoDatetimeEnd      | Mesmo que acima.                                               | No                                            |
 | permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | No                                            |
 | partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | No                                            |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No                                            |
+| maxConcurrentConnections | O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No                                            |
 
 **Exemplo:**
 
@@ -289,7 +324,7 @@ As seguintes propriedades são suportadas para SFTP `storeSettings` em configura
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para *SftpWriteSettings*. | Yes      |
 | copyOportundo             | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- Preservar AHierarquia (predefinição)</b>: Preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro-alvo para a pasta alvo.<br/><b>- FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível da pasta alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | No       |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No       |
+| maxConcurrentConnections | O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas. | No       |
 | useTempFileRename | Indique se deve fazer o upload para ficheiros temporários e renomeá-los, ou escrever diretamente para a pasta alvo ou para a localização do ficheiro. Por predefinição, a Azure Data Factory escreve primeiro para ficheiros temporários e depois rebatiza-os quando o upload está terminado. Esta sequência ajuda a (1) evitar conflitos que possam resultar num ficheiro corrompido se tiver outros processos escritos para o mesmo ficheiro, e (2) garantir que a versão original do ficheiro existe durante a transferência. Se o seu servidor SFTP não suportar uma operação de renome, desative esta opção e certifique-se de que não tem uma escrita simultânea para o ficheiro alvo. Para mais informações, consulte a ponta de resolução de problemas no final desta tabela. | N.º O valor predefinido é *verdadeiro.* |
 | operaçãoTimeout | O tempo de espera antes de cada pedido de escrita para o servidor SFTP horas fora. O valor predefinido é de 60 min (01:00:00).|No |
 
@@ -422,7 +457,7 @@ Para obter informações sobre as propriedades da atividade de Apagar, consulte 
 |:--- |:--- |:--- |
 | tipo | A propriedade *tipo* da fonte de atividade copy deve ser definida para *FileSystemSource* |Yes |
 | recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como *verdadeira* e a pia é uma loja baseada em ficheiros, as pastas vazias e as sub-dobras não serão copiadas ou criadas na pia.<br/>Os valores permitidos são *verdadeiros* (padrão) e *falsos* | No |
-| maxConcurrentConnections | O número de ligações que podem ligar-se a uma loja de armazenamento simultaneamente. Especifique um número apenas quando pretende limitar as ligações simultâneas à loja de dados. | No |
+| maxConcurrentConnections |O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No |
 
 **Exemplo:**
 

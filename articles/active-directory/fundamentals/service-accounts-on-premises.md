@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645621"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Introdução às contas de serviço do Ative Directory
@@ -67,11 +67,11 @@ Uma conta de utilizador local (formato de nome: ".\UserName") existe apenas na b
 | Critérios| gMSA| sMSA| Conta informática| Conta de utilizador |
 | - | - | - | - | - |
 | App é executado em servidor único| Sim| Sim. Use um gMSA, se possível| Sim. Use um MSA, se possível| Sim. Utilize MSA, se possível. |
-| App é executado em vários servidores| Sim| Não| N.º A conta está ligada ao servidor| Sim. Utilize MSA, se possível. |
-| App corre atrás de equilibradores de carga| Sim| Não| Não| Yes. Utilize apenas se não puder utilizar um gMSA |
-| App é executado no Windows Server 2008 R2| Não| Sim| Sim. Utilize MSA, se possível.| Sim. Utilize MSA, se possível. |
+| App é executado em vários servidores| Yes| No| N.º A conta está ligada ao servidor| Sim. Utilize MSA, se possível. |
+| App corre atrás de equilibradores de carga| Yes| No| Não| Yes. Utilize apenas se não puder utilizar um gMSA |
+| App é executado no Windows Server 2008 R2| No| Sim| Sim. Utilize MSA, se possível.| Sim. Utilize MSA, se possível. |
 | Executa no servidor Windows 2012| Sim| Sim. Use gMSA se possível| Sim. Use MSA, se possível| Sim. Utilize MSA, se possível. |
-| Requisito para restringir a conta de serviço a um único servidor| Não| Sim| Sim. Utilizar sMSA se possível| N.º |
+| Requisito para restringir a conta de serviço a um único servidor| No| Sim| Sim. Utilizar sMSA se possível| N.º |
 
 
  

@@ -11,10 +11,10 @@ ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98209207"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse

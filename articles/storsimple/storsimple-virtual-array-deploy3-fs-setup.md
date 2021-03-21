@@ -1,5 +1,5 @@
 ---
-title: Configurar o StorSimple Virtual Array como servidor de ficheiros Microsoft Docs
+title: Configurar o StorSimple Virtual Array como servidor de ficheiros | Microsoft Docs
 description: Este terceiro tutorial na implementação do Array Virtual StorSimple instrui-o a configurar um dispositivo virtual como servidor de ficheiros.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005933"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar StorSimple Virtual Array - Configurar como servidor de ficheiros através do portal Azure

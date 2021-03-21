@@ -73,7 +73,7 @@
     - name: Contentorizar
       items:
         - name: Contentorize aplicações de ASP.NET e migra para a AKS
-          href: tutorial-containerize-aspnet-kubernetes.md
+          href: tutorial-app-containerization-aspnet-kubernetes.md
         - name: Containerize aplicativos web java e migrar para AKS
           href: tutorial-containerize-java-kubernetes.md
 - name: Conceitos

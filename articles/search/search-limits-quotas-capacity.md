@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99509372"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
@@ -107,8 +107,8 @@ Os indexantes podem aceder a outros recursos Azure [através de pontos finais pr
 
 | Recurso | Gratuito | Básico | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Suporte do indexador de pontos finais privados | Não | Sim | Sim | Sim | Sim | Não | Sim | Sim |
-| Suporte de ponto final privado para indexadores com um skillset<sup>1</sup> | Não | Não | Não | Sim | Sim | Não | Sim | Sim |
+| Suporte do indexador de pontos finais privados | No | Yes | Yes | Yes | Yes | No | Yes | Yes |
+| Suporte de ponto final privado para indexadores com um skillset<sup>1</sup> | No | No | No | Yes | Yes | No | Yes | Yes |
 | Pontos finais máximos privados | N/D | 10 ou 30 | 100 | 400 | 400 | N/D | 20 | 20 |
 | Máximo distintos tipos de recursos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
 

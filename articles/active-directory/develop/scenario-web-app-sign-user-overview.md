@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 0bbc799f946d318c305a96d9cb8c6831d9242ff6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573052"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578299"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicação web que assina nos utilizadores
 
@@ -43,6 +43,12 @@ Se você é um desenvolvedor java, experimente o seguinte quickstart:
 
 [Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java](quickstart-v2-java-webapp.md)
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Se for um desenvolvedor Node.js, experimente o seguinte arranque rápido:
+
+[Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web Node.js](quickstart-v2-nodejs-webapp-msal.md)
+
 # <a name="python"></a>[Python](#tab/python)
 
 Se desenvolver com Python, experimente o seguinte quickstart:
@@ -62,7 +68,7 @@ As aplicações web autenticam um utilizador num navegador web. Neste cenário, 
 Como segunda fase, pode ativar a sua aplicação para ligar para APIs web em nome do utilizador inscrito. Esta próxima fase é um cenário diferente, que encontrará na [aplicação Web que chama APIs web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Adicionar o s-in a uma aplicação web é proteger a aplicação web e validar um token do utilizador, que é o que as bibliotecas  **de middleware** fazem. No caso de .NET, este cenário ainda não requer a Microsoft Authentication Library (MSAL), que se trata de adquirir um token para chamar APIs protegidas. As bibliotecas de autenticação serão introduzidas no cenário de seguimento, quando a aplicação web necessitar de chamar APIs web.
+> Adicionar o s-in a uma aplicação web é proteger a aplicação web e validar um token do utilizador, que é o que as bibliotecas  **de middleware** fazem. No caso de .NET, este cenário ainda não requer a Microsoft Authentication Library (MSAL), que se trata de adquirir um token para chamar APIs protegidas. As bibliotecas de autenticação para .NET serão introduzidas no cenário de seguimento, quando a aplicação web precisa de chamar APIs web.
 
 ## <a name="specifics"></a>Especificidades
 
@@ -87,6 +93,10 @@ Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenar
 # <a name="java"></a>[Java](#tab/java)
 
 Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs)
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral da simulação do dispositivo - Azure / Microsoft Docs
+title: Visão geral da simulação do dispositivo - Azure | Microsoft Docs
 description: Uma descrição do acelerador de solução de simulação do dispositivo e das suas capacidades.
 author: dominicbetts
 manager: philmea
@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
 ms.openlocfilehash: 7be0278fd8870395b8495168eb9723780eba4b26
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852375"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções da Simulação de Dispositivos

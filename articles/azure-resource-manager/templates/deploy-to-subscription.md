@@ -4,10 +4,10 @@ description: Descreve como criar um grupo de recursos num modelo de Gestor de Re
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: b5c99e5dc21c2b93f1c9da3977302a2dd311277f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491508"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementações de subscrição com modelos ARM

@@ -1,5 +1,5 @@
 ---
-title: Serviços de Aprendizagem automática em Azure SQL Gestded Instance (pré-visualização)
+title: Serviços de aprendizagem automática em Azure SQL Gestão De Instância
 description: Este artigo fornece uma visão geral ou serviços de aprendizagem automática em Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
@@ -11,26 +11,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 06/03/2020
-ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 03/17/2021
+ms.openlocfilehash: 94495144c64b3770995a5f67e9129b3ba86e741e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324521"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599566"
 ---
-# <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Serviços de Aprendizagem automática em Azure SQL Gestded Instance (pré-visualização)
+# <a name="machine-learning-services-in-azure-sql-managed-instance"></a>Serviços de aprendizagem automática em Azure SQL Gestão De Instância
 
-Machine Learning Services é uma característica do Azure SQL Managed Instance (pré-visualização) que fornece aprendizagem automática na base de dados, suportando scripts Python e R. A funcionalidade inclui pacotes Microsoft Python e R para análise preditiva de alto desempenho e machine learning. Os dados relacionais podem ser utilizados em scripts através de procedimentos armazenados, script T-SQL contendo declarações python ou R, ou código Python ou R contendo T-SQL.
-
-> [!IMPORTANT]
-> O Machine Learning Services é uma funcionalidade do SQL Managed Instance que está atualmente em pré-visualização pública.
-> Esta funcionalidade de pré-visualização está inicialmente disponível num número limitado de regiões dos EUA, Ásia Europa e Austrália, com regiões adicionais a serem adicionadas mais tarde.
->
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> [Inscreva-se para a pré-visualização](#signup) abaixo.
+Machine Learning Services é uma característica do Azure SQL Managed Instance que fornece aprendizagem automática na base de dados, suportando scripts Python e R. A funcionalidade inclui pacotes Microsoft Python e R para análise preditiva de alto desempenho e machine learning. Os dados relacionais podem ser utilizados em scripts através de procedimentos armazenados, script T-SQL contendo declarações python ou R, ou código Python ou R contendo T-SQL.
 
 ## <a name="what-is-machine-learning-services"></a>O que é o Serviço de Aprendizagem automática?
 
@@ -44,47 +35,32 @@ Utilize serviços de aprendizagem automática com suporte R/Python em Azure SQL 
 
 - **Implemente os seus modelos e scripts na produção em procedimentos armazenados** - Os scripts e modelos treinados podem ser operacionalizados simplesmente incorporando-os em procedimentos armazenados T-SQL. As aplicações que se ligam ao Azure SQL Managed Instance podem beneficiar de previsões e inteligência nestes modelos, chamando apenas um procedimento armazenado. Também pode utilizar a função T-SQL PREDICT nativa para operacionalizar modelos para pontuação rápida em cenários de pontuação em tempo real altamente simultâneos.
 
-As distribuições base de Python e R estão incluídas nos Serviços de Aprendizagem Automática. Pode instalar e utilizar pacotes e estruturas de código aberto, tais como PyTorch, TensorFlow e scikit-learn, além dos pacotes microsoft [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) e [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) para Python, e [RevoScaleR,](/sql/advanced-analytics/r/ref-r-revoscaler) [MicrosoftML,](/sql/advanced-analytics/r/ref-r-microsoftml) [olapR](/sql/advanced-analytics/r/ref-r-olapr)e [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) para R.
+As distribuições base de Python e R estão incluídas nos Serviços de Aprendizagem Automática. Pode instalar e utilizar pacotes e estruturas de código aberto, tais como PyTorch, TensorFlow e scikit-learn, além dos pacotes microsoft [revoscalepy](/sql/machine-learning/python/ref-py-revoscalepy) e [microsoftml](/sql/machine-learning/python/ref-py-microsoftml) para Python, e [RevoScaleR,](/sql/machine-learning/r/ref-r-revoscaler) [MicrosoftML,](/sql/machine-learning/r/ref-r-microsoftml) [olapR](/sql/machine-learning/r/ref-r-olapr)e [sqlrutils](/sql/machine-learning/r/ref-r-sqlrutils) para R.
 
-<a name="signup"></a>
+## <a name="how-to-enable-machine-learning-services"></a>Como permitir serviços de aprendizagem automática
 
-## <a name="sign-up-for-the-preview"></a>Inscrever-se na pré-visualização
+Pode ativar os Serviços de Aprendizagem automática em Azure SQL Managed Instance, permitindo a extensibilidade com os seguintes comandos SQL (SQL Managed Instance reiniciará e ficará indisponível por alguns segundos):
 
-Esta pré-visualização pública limitada está sujeita aos [termos de pré-visualização do Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
 
-Se você está interessado em aderir ao programa de pré-visualização e aceitar estes termos, então você pode solicitar a inscrição criando um bilhete de apoio Azure em [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+Para obter mais informações sobre como este comando afeta os recursos da SQL Managed Instance, consulte [a Governação de Recursos](machine-learning-services-differences.md#resource-governance).
 
-1. Na página **'Criar um bilhete de apoio',** clique em **Criar um Incidente.**
+### <a name="enable-machine-learning-services-in-a-failover-group"></a>Ativar serviços de aprendizagem automática num grupo de failover
 
-1. Na página **de suporte Help +,** clique em **Novo pedido de suporte** para criar um novo bilhete.
+Num [grupo de failover,](failover-group-add-instance-tutorial.md)as bases de dados do sistema não são replicadas na instância secundária (ver [Limitações de grupos de failover](../database/auto-failover-group-overview.md#limitations-of-failover-groups) para obter mais informações).
 
-1. Selecione as seguintes opções:
-   - Tipo de emissão - **Técnico**
-   - Subscrição - *selecione a sua subscrição*
-   - Serviço - **SQL Gestdibilly Instance**
-   - Recurso - *selecione a sua instância gerida*
-   - Resumo - *insira uma breve descrição do seu pedido*
-   - Tipo de problema - **Serviços de aprendizagem automática para exemplo gerido do SQL (Pré-visualização)**
-   - Subtipo de problema - **Outras questões ou "Como Fazer"**
+Se a Instância Gerida que está a usar faz parte de um grupo de failover, faça o seguinte:
 
-1. Clique **em seguida: Soluções**.
+- Executar o `sp_configure` e `RECONFIGURE` comandos em cada instância do grupo de failover para ativar serviços de aprendizagem automática.
 
-1. Leia as informações sobre a pré-visualização e, em seguida, clique em **Seguinte: Detalhes**.
-
-1. Nesta página:
-   - Para a pergunta **Está a tentar inscrever-se para a Pré-visualização?** **Yes** 
-   - Para **descrição,** insira as especificidades do seu pedido, incluindo o nome do servidor lógico, região e ID de subscrição que pretende inscrever na pré-visualização. Insira outros detalhes conforme apropriado.
-   - Selecione o seu método de contacto preferido. 
-
-1. Quando terminar, clique em **Seguinte: Review + create** e, em seguida, clique em **Criar**.
-
-Assim que estiver inscrito no programa, a Microsoft vai incluí-lo na pré-visualização pública e ativar o Machine Learning Services para a base de dados existente ou nova.
-
-Durante a pré-visualização pública, o Machine Learning Services no SQL Managed Instance não são recomendados para cargas de trabalho em produção.
+- Instale as bibliotecas R/Python numa base de dados do utilizador e não na base de dados principal.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as [principais diferenças dos serviços de aprendizagem automática de servidores SQL.](machine-learning-services-differences.md)
-- Para aprender a usar Python em serviços de machine learning, consulte [os scripts Run Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- Para aprender a usar R em Serviços de Aprendizagem Automática, consulte [scripts Run R](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- Para obter mais informações sobre machine learning em outras plataformas SQL, consulte a [documentação de aprendizagem automática SQL.](/sql/machine-learning/)
+- Para aprender a usar Python em serviços de machine learning, consulte [os scripts Run Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Para aprender a usar R em Serviços de Aprendizagem Automática, consulte [scripts Run R](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Para obter mais informações sobre machine learning em outras plataformas SQL, consulte a [documentação de aprendizagem automática SQL.](/sql/machine-learning/index)

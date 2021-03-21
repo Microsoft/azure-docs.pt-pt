@@ -1,13 +1,13 @@
 ---
-title: Publique um anúncio a um laboratório em Azure DevTest Labs . Microsoft Docs
+title: Publique um anúncio a um laboratório em Azure DevTest Labs | Microsoft Docs
 description: Saiba como publicar um anúncio personalizado num laboratório existente para notificar os utilizadores sobre alterações ou adições recentes ao laboratório em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 72c6ed7ab691ece094673ff5a158ffa769a9f7a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270772"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publique um anúncio a um laboratório em Azure DevTest Labs
@@ -25,7 +25,7 @@ A funcionalidade de anúncio destina-se a ser utilizada para notificações temp
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Passos para publicar um anúncio num laboratório existente
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Se necessário, selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista. (O seu laboratório pode já estar no Painel de Instrumentos em **Todos os Recursos**).
+1. Se necessário, selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** da lista. (O seu laboratório pode já estar no Painel de Instrumentos em **Todos os Recursos**).
 1. Da lista de laboratórios, selecione o laboratório no qual quer publicar um anúncio.
 1. Na área de **visão geral** do laboratório, selecione **Configuração e políticas**.
 

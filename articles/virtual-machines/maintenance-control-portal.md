@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
 ms.openlocfilehash: 0dea30723a3ebe1598d6304ac3c98bfe1b55b466
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102563018"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Atualizações de controlo com o Controlo de Manutenção e o portal Azure
@@ -21,7 +21,7 @@ O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos
 
 ## <a name="create-a-maintenance-configuration"></a>Criar uma configuração de manutenção
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 1. Procurar **configurações de manutenção**.
 

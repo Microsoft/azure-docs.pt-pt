@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
 ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561182"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de encriptação de disco Azure para VMs Linux
@@ -287,7 +287,7 @@ Para configurar a encriptação para trabalhar com o Azure, faça os seguintes p
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
    ```
 
-3. Apecimento da seguinte linha no início do ficheiro /usr/lib/dracut/modules.d/90crypt/parse-cript.sh:
+3. Apender a seguinte linha no início do ficheiro /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
    ```bash
     DRACUT_SYSTEMD=0
    ```
@@ -299,7 +299,7 @@ Para configurar a encriptação para trabalhar com o Azure, faça os seguintes p
    ```bash
     if [ 1 ]; then
    ```
-4. Editar /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e apedá-lo ao "# Dispositivo LUKS aberto":
+4. Editar /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e apdicê-lo ao "# Dispositivo LUKS aberto":
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -368,7 +368,7 @@ Para configurar a encriptação para trabalhar com o Azure, faça os seguintes p
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
    ```
 
-3. Apecimento da seguinte linha no início do ficheiro /usr/lib/dracut/modules.d/90crypt/parse-cript.sh:
+3. Apender a seguinte linha no início do ficheiro /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
    ```bash
     DRACUT_SYSTEMD=0
    ```

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.openlocfilehash: 5c4a5f5d792a60ed3fef07797fdbdfa0c9cfb8fe
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534335"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ligação do Serviço Azure Kubernetes e base de dados Azure para o MySQL
@@ -43,5 +43,5 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar um cluster de serviço Azure Kubernetes](../aks/kubernetes-walkthrough.md)
+- [Criar um cluster do Azure Kubernetes Service](../aks/kubernetes-walkthrough.md)
 - Saiba como instalar o [WordPress a partir de um gráfico helm usando a BASE de Dados OSBA e Azure para o MySQL](../aks/index.yml)

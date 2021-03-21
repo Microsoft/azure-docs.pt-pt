@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: fa251b80f8e44f48de565685a0841f57f48620f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bfbd83f3f3910e1231bcce4043d9b59ccc512db
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724970"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606655"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server para o armazenamento do Azure Blob
 
@@ -114,7 +114,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
    O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguinte mensagem de erro no campo de nome, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
-   ![Nome da nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nova mensagem de erro da fábrica de dados para nome duplicado.":::
 
 1. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
 1. Em **Grupo de Recursos**, efetue um destes passos:
@@ -130,7 +130,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
 1. Depois de concluída a criação, vê a página **da Data Factory** como mostrado na imagem:
 
-    ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página inicial da Fábrica de Dados Azure, com o azulejo do Monitor de autores &.":::
 1. Selecione o mosaico **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
 
 

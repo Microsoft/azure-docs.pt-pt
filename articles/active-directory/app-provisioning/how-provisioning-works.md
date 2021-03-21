@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988979"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579455"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -138,7 +138,7 @@ Após o ciclo inicial, todos os outros ciclos irão:
 O serviço de prestação continua a funcionar indefinidamente ciclos incrementais, em intervalos definidos no [tutorial específico de cada aplicação.](../saas-apps/tutorial-list.md) Os ciclos incrementais continuam até que ocorra um dos seguintes eventos:
 
 - O serviço é interrompido manualmente utilizando o portal Azure ou utilizando o comando API do Microsoft Graph apropriado.
-- Um novo ciclo inicial é desencadeado utilizando a opção **Clear state e restart** no portal Azure, ou utilizando o comando API do Microsoft Graph apropriado. Esta ação limpa qualquer marca de água armazenada e faz com que todos os objetos de origem sejam novamente avaliados.
+- Um novo ciclo inicial é desencadeado utilizando a opção **de provisionamento Restart** no portal Azure, ou utilizando o comando API do Microsoft Graph apropriado. Esta ação limpa qualquer marca de água armazenada e faz com que todos os objetos de origem sejam novamente avaliados.
 - Um novo ciclo inicial é desencadeado devido a uma alteração nos mapeamentos de atributos ou filtros de scoping. Esta ação também limpa qualquer marca de água armazenada e faz com que todos os objetos de origem sejam novamente avaliados.
 - O processo de provisionamento entra em quarentena (ver abaixo) devido a uma elevada taxa de erro, e permanece em quarentena por mais de quatro semanas. Neste caso, o serviço será automaticamente desativado.
 

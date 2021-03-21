@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008632"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Windows Virtual Desktop (clássico) sessão anfitrião configuração de máquina virtual
@@ -82,7 +82,7 @@ A forma recomendada de providenciar VMs está a usar o Azure Resource Manager **
 
 Siga estas instruções para confirmar a instalação dos componentes e para verificar se existem mensagens de erro.
 
-1. Confirme que os dois componentes estão instalados através da verificação nos Programas e Funcionalidades **dos Programas do Painel de**  >  **Programs**  >  **Controlo.** Se **o Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
+1. Confirme que os dois componentes estão instalados através da verificação nos Programas e Funcionalidades **dos Programas do Painel de**  >    >  **Controlo.** Se **o Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
 2. Abra **o Explorador de Ficheiros** e navegue para **C:\Windows\Temp\ScriptLog.log**. Se o ficheiro faltar, indica que o DSC PowerShell que instalou os dois componentes não foi capaz de funcionar no contexto de segurança fornecido.
 3. Se o ficheiro **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
@@ -316,7 +316,7 @@ Se vir qualquer uma destas mensagens, isto significa que a imagem não tem as at
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desative a definição de política de grupo de modo de licenciamento de ambiente de trabalho remoto
 
-Verifique a definição de política de grupo abrindo o Editor de Política de Grupo no VM e navegando para **os modelos**  >  **administrativos Windows Componentes Componentes**  >  **Remotos Desktop Services Remote Desktop**Session  >  **Host**  >  **Licensing**  >  **Definir o modo de licenciamento de ambiente de trabalho remoto**. Se a definição de política de grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe-o como está.
+Verifique a definição de política de grupo abrindo o Editor de Política de Grupo no VM e navegando para **os modelos**  >  **administrativos Windows Componentes Componentes**  >  **Remotos Desktop Services Remote Desktop** Session  >  **Host**  >  **Licensing**  >  **Definir o modo de licenciamento de ambiente de trabalho remoto**. Se a definição de política de grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe-o como está.
 
 >[!NOTE]
 >Se definir a política de grupo através do seu domínio, desative esta definição em políticas que direcionem estes VMs multi-sessão do Windows 10 Enterprise.

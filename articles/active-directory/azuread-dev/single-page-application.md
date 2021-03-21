@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154751"
 ---
 # <a name="single-page-applications"></a>Aplicações de uma página única
@@ -47,7 +47,7 @@ Neste cenário, quando o utilizador assina, a extremidade frontal javaScript uti
 
 Consulte as [amostras de código para cenários de aplicação de uma só página](sample-v1-code.md#single-page-applications). Certifique-se de que volta com frequência à medida que novas amostras são adicionadas com frequência.
 
-## <a name="app-registration"></a>Registo da aplicação
+## <a name="app-registration"></a>Registo de aplicações
 
 * Inquilino único - Se estiver a construir uma aplicação apenas para a sua organização, deve estar registada no diretório da sua empresa utilizando o portal Azure.
 * Multi-inquilino - Se estiver a construir uma aplicação que pode ser usada por utilizadores fora da sua organização, deve estar registada no diretório da sua empresa, mas também deve estar registada no diretório de cada organização que utilizará a aplicação. Para disponibilizar a sua candidatura no seu diretório, pode incluir um processo de inscrição para os seus clientes que lhes permite consentir a sua aplicação. Quando se inscreverem para a sua aplicação, serão apresentados com um diálogo que mostra as permissões que a aplicação requer e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador da outra organização pode ser obrigado a dar o seu consentimento. Quando o utilizador ou administrador consente, o pedido é registado no seu diretório.

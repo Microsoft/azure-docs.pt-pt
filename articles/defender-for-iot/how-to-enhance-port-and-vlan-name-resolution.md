@@ -8,10 +8,10 @@ ms.date: 12/13/2020
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98803580"
 ---
 # <a name="enhance-port-and-vlan-name-resolution"></a>Melhorar a resolução de nomes de porta e VLAN
@@ -82,7 +82,7 @@ Para configurar VLANs:
 
 3. Adicione um nome único ao lado de cada ID VLAN.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja a informação do dispositivo enriquecido em vários relatórios:
 

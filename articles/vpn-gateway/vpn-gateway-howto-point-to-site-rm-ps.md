@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: ed0a60c88c33af70b7d780d6c4735c5f8e65b35b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660411"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure uma ligação VPN ponto-a-local a um VNet utilizando a autenticação de certificado azure nativo: PowerShell
@@ -160,7 +160,7 @@ Se utilizar certificados autoassinados, eles têm de ser criados com parâmetros
 
 1. [!INCLUDE [Generate a client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-1. Depois de criar [export](vpn-gateway-certificates-point-to-site.md#clientexport) certificado de cliente, exporte-o. O certificado de cliente será distribuído para os computadores clientes que se ligarão.
+1. Depois de criar [](vpn-gateway-certificates-point-to-site.md#clientexport) certificado de cliente, exporte-o. O certificado de cliente será distribuído para os computadores clientes que se ligarão.
 
 ## <a name="7-upload-the-root-certificate-public-key-information"></a><a name="upload"></a>7. Faça o upload do certificado de raiz informações de chaves públicas
 
@@ -383,7 +383,7 @@ Pode restabelecer um certificado de cliente, removendo o thumbprint da lista de 
 
 Para obter informações adicionais ponto a local, consulte as [FAQ ponto a local do Gateway VPN](vpn-gateway-vpn-faq.md#P2S)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/network-overview.md).
 

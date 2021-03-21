@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4b038f4a41ee02960a02c4445b65eb2360a75761
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98792036"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade de aplicação de tecido de serviço usando PowerShell
@@ -139,7 +139,7 @@ Em poucos minutos, o estado que obteve utilizando o comando Anterior PowerShell,
 
 Pode tentar fazer o upgrade da versão 2 para a versão 3, ou da versão 2 para a versão 1 como exercício. Passar da versão 2 para a versão 1 também é considerado uma atualização. Brinque com os intervalos e as políticas de saúde para se familiarizar com eles. Quando estiver a ser implantado num cluster Azure, os parâmetros devem ser definidos adequadamente. É bom definir os intervalos de tempo conservadoramente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [A atualização da sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) acompanha-o através de uma atualização de aplicações utilizando o Visual Studio.
 
 Controle como a sua aplicação atualiza utilizando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com TextMagic Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com TextMagic | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o TextMagic.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: f1e6cd222c9ee8f40f81d4db3750956e8e698e3e
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97607674"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Tutorial: Azure Ative Directory integração única (SSO) com TextMagic
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação TextMagic espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Nome |   Atributo de origem| Espaço de Nomes  |
+    | Name |   Atributo de origem| Espaço de Nomes  |
     | --------------- | --------------- | --------------- |
     | empresa | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | nomePróprio | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |

@@ -1,13 +1,13 @@
 ---
-title: Criar e gerir VMs reclamais em Azure DevTest Labs Microsoft Docs
+title: Criar e gerir VMs reclamais em Azure DevTest Labs | Microsoft Docs
 description: Aprenda a usar o portal Azure para adicionar uma máquina virtual reivindicada em Azure DevTest Labs e veja os processos a seguir para reivindicar/não reclamar uma máquina virtual.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270984"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir VMs reclamais em Azure DevTest Labs
@@ -15,7 +15,7 @@ Adiciona-se um VM reclamado a um laboratório de forma semelhante à forma como 
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Passos para adicionar um VM reclamado a um laboratório em Azure DevTest Labs
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** na secção **DEVOPS.** Se selecionar * (estrela) ao lado **de DevTest Labs** na secção **DEVOPS.** Esta ação adiciona **a DevTest Labs** ao menu de navegação à esquerda para que possa aceder facilmente ao mesmo da próxima vez. Em seguida, pode selecionar **DevTest Labs** no menu de navegação à esquerda.
+1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** na secção **DEVOPS.** Se selecionar * (estrela) ao lado **de DevTest Labs** na secção **DEVOPS.** Esta ação adiciona **a DevTest Labs** ao menu de navegação à esquerda para que possa aceder facilmente ao mesmo da próxima vez. Em seguida, pode selecionar **DevTest Labs** no menu de navegação à esquerda.
 
     ![Todos os serviços - selecione DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
 1. Na lista de laboratórios, selecione o laboratório no qual pretende criar o VM.
@@ -28,7 +28,7 @@ Adiciona-se um VM reclamado a um laboratório de forma semelhante à forma como 
     2. Introduza um **Nome de Utilizador** que seja concedido privilégios de administrador na máquina virtual. O **nome de utilizador** da máquina é pré-preenchido com um nome auto-gerado único. O nome corresponde ao nome de utilizador no seu endereço de e-mail. Esta funcionalidade poupa-lhe tempo para decidir sobre um nome de utilizador sempre que cria uma nova máquina. Mais uma vez, pode substituir este campo preenchido automaticamente com um nome de utilizador à sua escolha, se assim o desejar. Para anular o valor preenchido automaticamente para o nome de utilizador, introduza um valor na caixa de texto **do Nome do Utilizador.** Este utilizador tem privilégios **de administrador** na máquina virtual.
     3. Se estiver a criar o primeiro VM em laboratório, introduza uma **palavra-passe** para o utilizador. Para guardar esta palavra-passe como uma palavra-passe padrão no cofre da chave Azure associado ao laboratório, **selecione Guardar como senha padrão**. A palavra-passe predefinida é guardada no cofre da chave com o nome: **VmPassword**. Quando tenta criar VMs subsequentes em laboratório, o **VmPassword** é automaticamente selecionado para a **palavra-passe**. Para anular o valor, limpe a **caixa de verificação secreta guardada** e introduza uma palavra-passe.
 
-        Você também pode guardar segredos no cofre da chave primeiro e depois usá-lo enquanto cria um VM no laboratório. Para mais informações, consulte [os segredos da Loja num cofre de chaves.](devtest-lab-store-secrets-in-key-vault.md) Para utilizar a palavra-passe armazenada no cofre da chave, selecione **Use um segredo guardado**e especifique um valor chave que corresponda ao seu segredo (palavra-passe).
+        Você também pode guardar segredos no cofre da chave primeiro e depois usá-lo enquanto cria um VM no laboratório. Para mais informações, consulte [os segredos da Loja num cofre de chaves.](devtest-lab-store-secrets-in-key-vault.md) Para utilizar a palavra-passe armazenada no cofre da chave, selecione **Use um segredo guardado** e especifique um valor chave que corresponda ao seu segredo (palavra-passe).
     4. Na secção **Mais opções,** selecione **Alterar o tamanho**. Selecione um dos itens predefinidos que especificam os núcleos do processador, o tamanho do RAM e o tamanho do disco rígido do VM para criar.
     5. Selecione **Adicionar ou Remover Artefactos**. Selecione e configure os artefactos que pretende adicionar à imagem base.
     **Nota:** Se você é novo em DevTest Labs ou configurar artefactos, consulte o Adicionar um artefacto existente a uma secção [VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e, em seguida, volte aqui quando terminar.
@@ -44,7 +44,7 @@ Adiciona-se um VM reclamado a um laboratório de forma semelhante à forma como 
    A página de laboratório exibe o estado da criação do VM - primeiro como **Criar**- e depois como **Running** after the VM foi iniciado.
 
 > [!NOTE]
-> Se implementar VMs de laboratório através [dos modelos Azure Resource Manager,](devtest-lab-create-environment-from-arm.md)pode criar VMs reclamados definindo a propriedade **allowClaim** para ser verdadeira na secção de propriedades.
+> Se implementar VMs de laboratório através [dos modelos Azure Resource Manager,](devtest-lab-create-environment-from-arm.md)pode criar VMs reclamados definindo a propriedade **allowClaim** para ser verdadeira na secção de propriedades.
 
 
 ## <a name="using-a-claimable-vm"></a>Usando um VM reclamavel

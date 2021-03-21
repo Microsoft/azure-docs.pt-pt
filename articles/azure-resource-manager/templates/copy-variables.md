@@ -4,10 +4,10 @@ description: Utilize a operação de cópia num modelo de Gestor de Recursos Azu
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905898"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM
@@ -314,7 +314,7 @@ O próximo exemplo mostra as diferentes formas de usar `copy` com variáveis.
 
 Os exemplos a seguir mostram cenários comuns para criar mais do que um valor para uma variável.
 
-|Modelo  |Descrição  |
+|Modelo  |Description  |
 |---------|---------|
 |[Copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes formas de iterar sobre variáveis. |
 |[Múltiplas regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa várias regras de segurança num grupo de segurança de rede. Constrói as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários ficheiros de parâmetros NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |

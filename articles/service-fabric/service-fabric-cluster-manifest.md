@@ -4,10 +4,10 @@ description: Saiba como configurar o seu cluster de tecido de serviço autónomo
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91843163"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster de Windows autónomo
@@ -197,7 +197,7 @@ Todas as funcionalidades adicionais disponíveis podem ser vistas na [Referênci
 Para permitir o suporte de contentores tanto para recipientes windows server como para recipientes Hiper-V para aglomerados autónomos, a função de complemento dnsService deve ser ativada.
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de ter umaClusterConfig.jscompleta * no* ficheiro configurada de acordo com a configuração do seu cluster autónomo, pode implantar o seu cluster. Siga os passos em [Criar um cluster de tecido de serviço autónomo.](service-fabric-cluster-creation-for-windows-server.md) 
+Depois de ter umaClusterConfig.jscompleta *no* ficheiro configurada de acordo com a configuração do seu cluster autónomo, pode implantar o seu cluster. Siga os passos em [Criar um cluster de tecido de serviço autónomo.](service-fabric-cluster-creation-for-windows-server.md) 
 
 Se tiver um cluster autónomo implantado, também pode [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 

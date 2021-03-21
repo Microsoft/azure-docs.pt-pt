@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630271"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590624"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conecte aplicações de função em Azure para processamento de dados
 
@@ -48,7 +48,7 @@ Selecione o tipo de aplicação de função do *gatilho de Grelha* de Evento e s
 
 :::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Screenshot do Estúdio Visual mostrando o diálogo para criar uma nova aplicação Azure Functions. A opção de gatilho da Grelha de Eventos está em destaque.":::
 
-Uma vez criada a aplicação de função, o Visual Studio gerará uma amostra de código num ficheiro **Function1.cs** na sua pasta de projeto. Esta função curta é usada para registar eventos.
+Uma vez criada a aplicação de função, o Visual Studio gerará uma amostra de código num ficheiro **.cs Function1** na pasta do projeto. Esta função curta é usada para registar eventos.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Screenshot do Visual Studio na janela do projeto para o novo projeto que foi criado. Existe código para uma função de amostra chamada Função1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
@@ -69,7 +69,7 @@ Em seguida, no seu Visual Studio Solution Explorer, abra o ficheiro _Function1.c
 
 ## <a name="add-authentication-code-to-the-function"></a>Adicionar código de autenticação à função
 
-Irá agora declarar variáveis de nível de classe e adicionar código de autenticação que permitirá a função aceder a Azure Digital Twins. Irá adicionar o seguinte à sua função no ficheiro _Function1.cs._
+Irá agora declarar variáveis de nível de classe e adicionar código de autenticação que permitirá a função aceder a Azure Digital Twins. Irá adicionar o seguinte à sua função no ficheiro _.cs Função1._
 
 * Código para ler o URL de serviço Azure Digital Twins como uma **variável ambiental**. É uma boa prática ler o URL de serviço a partir de uma variável ambiental, em vez de codificar duramente na função. Você vai definir o valor desta variável ambiental [mais tarde neste artigo](#set-up-security-access-for-the-function-app). Para obter mais informações sobre variáveis ambientais, consulte [*Gerir a sua aplicação de função.*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)
 
@@ -118,12 +118,14 @@ Pode configurar o acesso de segurança para a aplicação de função utilizando
 # <a name="cli"></a>[CLI](#tab/cli)
 
 Pode executar estes comandos em [Azure Cloud Shell](https://shell.azure.com) ou numa [instalação local do Azure CLI](/cli/azure/install-azure-cli).
+Pode utilizar a identidade gerida pelo sistema da aplicação para lhe conferir o papel _**de Proprietário de Dados de Gémeos Digitais Azure**_ para a sua instância Azure Digital Twins. Isto dará à aplicação de função permissão no caso de realizar atividades de data plane. Em seguida, torne o URL da instância Azure Digital Twins acessível à sua função definindo uma variável ambiental.
 
 ### <a name="assign-access-role"></a>Atribuir função de acesso
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 O esqueleto de função de exemplos anteriores requer que lhe seja passado um símbolo portador, de modo a poder autenticar-se com as Gémeas Digitais Azure. Para se certificar de que este token ao portador é passado, terá de configurar permissões [de Identidade de Serviço Gerido (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para que a aplicação de função aceda a Azure Digital Twins. Isto só precisa de ser feito uma vez para cada aplicação de função.
 
-Pode utilizar a identidade gerida pelo sistema da aplicação para lhe conferir o papel _**de Proprietário de Dados de Gémeos Digitais Azure**_ para a sua instância Azure Digital Twins. Isto dará à aplicação de função permissão no caso de realizar atividades de data plane. Em seguida, torne o URL da instância Azure Digital Twins acessível à sua função definindo uma variável ambiental.
 
 1. Utilize o seguinte comando para ver os detalhes da identidade gerida pelo sistema para a função. Tome nota do campo _principalid_ na saída.
 
@@ -162,6 +164,8 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 Complete os seguintes passos no [portal Azure](https://portal.azure.com/).
 
 ### <a name="assign-access-role"></a>Atribuir função de acesso
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Um sistema atribuído à identidade gerida permite que os recursos do Azure autentem serviços na nuvem (por exemplo, Azure Key Vault) sem armazenar credenciais em código. Uma vez ativados, todas as permissões necessárias podem ser concedidas através do controlo de acesso baseado em funções Azure. O ciclo de vida deste tipo de identidade gerida está ligado ao ciclo de vida deste recurso. Além disso, cada recurso só pode ter um sistema atribuído à identidade gerida.
 
