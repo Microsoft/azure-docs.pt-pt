@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: fb5352b4cc84801296d9e621053672328b02692a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c1c5ddcacfc529f8fc4ab9a70cea540c44da9fa6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017275"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674789"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como visualizar os ativos de dados relacionados no Catálogo de Dados do Azure?
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 O Azure Data Catalog permite-lhe visualizar os ativos de dados relacionados com um ativo de dados selecionado e ver relações entre eles. 
 
 ## <a name="supported-data-sources"></a>Supported data sources (Origens de dados suportadas) 

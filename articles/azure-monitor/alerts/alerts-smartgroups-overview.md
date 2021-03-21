@@ -4,10 +4,10 @@ description: Grupos Inteligentes são agregações de alertas que ajudam a reduz
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: 8a164fe6e5fd5be58da969d9266329755705ea82
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037970"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
@@ -46,7 +46,7 @@ A página de detalhes do grupo Smart é apresentada quando seleciona um grupo in
 
 A página de detalhe do grupo inteligente inclui as seguintes secções.
 
-| Section | Descrição |
+| Section | Description |
 |:---|:---|
 | Alertas | Lista os alertas individuais incluídos no grupo inteligente. Selecione um alerta para abrir a sua página de detalhes de alerta. |
 | Histórico | Enumera cada ação tomada pelo grupo inteligente e quaisquer alterações que lhe sejam feitas. Isto está atualmente limitado a alterações de estado e alterações de adesão de alerta. |

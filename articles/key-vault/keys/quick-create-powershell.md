@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.openlocfilehash: adbf3080367e54147c981c8ccf0bb6236111b8c7
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99071210"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Quickstart: set and recuperar uma chave do Azure Key Vault usando Azure PowerShell
@@ -48,7 +48,7 @@ Digite os comandos abaixo para criar um **chamado ExemploKey** :
 Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-Agora pode fazer referência a esta chave que adicionou ao Azure Key Vault utilizando o seu URI. Utilize **"https://<o seu nome exclusivo-keyvault>.vault.azure.net/keys/ExampleKey"** para obter a versão atual. 
+Agora pode fazer referência a esta chave que adicionou ao Azure Key Vault utilizando o seu URI. Utilize **"https://<o seu nome de chave-C1.vault.azure.net/keys/ExampleKey único para** obter a versão atual. 
 
 Para ver a chave previamente armazenada:
 

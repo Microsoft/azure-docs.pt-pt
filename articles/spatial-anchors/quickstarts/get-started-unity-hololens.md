@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 11d8e8d918b408881f211605ce6c713615f0aa93
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b99c2efcb746a056adc76fdc161c8d8a8e2799e1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96022637"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670125"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Criar uma app Unity HoloLens que usa âncoras espaciais Azure
 
@@ -33,10 +33,10 @@ Vai aprender a:
 
 Para concluir este guia de início rápido:
 
-- Precisa de um computador Windows com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.4 (LTS)</a> e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ou mais tarde são instalados. A instalação do Seu Estúdio Visual deve incluir a carga de trabalho **de desenvolvimento da Plataforma Universal Windows** e o componente Windows **10 SDK (10.0.18362.0 ou mais recente).** Também tem de instalar <a href="https://git-scm.com/download/win" target="_blank">o Git para Windows</a> e Git <a href="https://git-lfs.github.com/">LFS</a>.
+- Precisa de um computador Windows com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade (LTS)</a> e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ou posteriormente instalado. Use **Unity 2020 LTS** com a versão 2.9 ou posterior da ASA SDK (que utiliza o [Quadro Plug-in Unitário XR)](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)ou **Unity 2019 LTS** com a versão 2.8 ou mais cedo da ASA SDK. A instalação do Seu Estúdio Visual deve incluir a carga de trabalho **de desenvolvimento da Plataforma Universal Windows** e o componente Windows **10 SDK (10.0.18362.0 ou mais recente).** Também tem de instalar <a href="https://git-scm.com/download/win" target="_blank">o Git para Windows</a> e Git <a href="https://git-lfs.github.com/">LFS</a>.
 - Precisa de um dispositivo HoloLens em que [modo de desenvolvimento](/windows/mixed-reality/using-visual-studio) está ativado. [A atualização do Windows 10 May 2020](/windows/mixed-reality/whats-new/release-notes-may-2020) deve ser instalada no dispositivo. Para atualizar a versão mais recente do HoloLens, abra a aplicação **Definições,** vá a **Update & Security** e, em seguida, selecione Check for **updates**.
 - Na sua aplicação, precisa de ativar a capacidade **de Perceção Espacial.** Esta definição está em **Configurações de Definições** do leitor de  >  **definições**  >  **de**  >  **definições de configurações de configurações .**
-- Na sua aplicação, precisa de ativar a **realidade virtual suportada** com **o Windows Mixed Reality SDK.** Esta definição está em Definições do leitor **de definições** de definições de  >  **definições**  >  **de definições de definições de definições XR**.
+- Na sua aplicação, precisa de ativar a **realidade virtual suportada** com **o Windows Mixed Reality SDK.** Esta definição está em **Definições do** leitor de  >  **definições**  >  **XR**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -46,7 +46,7 @@ Para concluir este guia de início rápido:
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
-Abrir **definições de construção** selecionando **File**  >  **Definições de construção de ficheiros**.
+Abrir **definições de construção** selecionando   >  **Definições de construção de ficheiros**.
 
 Na secção **Plataforma,** selecione **Universal Windows Platform**. Altere o **dispositivo alvo** para **HoloLens**.
 

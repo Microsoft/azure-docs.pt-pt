@@ -10,10 +10,10 @@ ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
 ms.openlocfilehash: a202ee1d708feebc7643fa6f20aafa9d8603fc38
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100546776"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutorial: Rede de configuração para Azure Stack Edge Mini R
@@ -182,7 +182,7 @@ Esta é uma configuração opcional.
 
     1. Na caixa **DE URL de procuração web,** introduza o URL neste formato: `http://host-IP address or FQDN:Port number` . Os URLs HTTPS não são suportados.
 
-    2. Em **Autenticação**, **selecione Nenhum** ou **NTLM**. Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge Mini R, recomendamos que desementa de procuração web a **Nenhum**. **A NTLM** não é suportada.
+    2. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**. Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge Mini R, recomendamos que desementa de procuração web a **Nenhum**. **A NTLM** não é suportada.
 
     3. Se estiver a utilizar a autenticação, insira um nome de utilizador e uma palavra-passe.
 

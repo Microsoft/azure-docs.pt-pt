@@ -2,17 +2,17 @@
 title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/16/2021
+ms.openlocfilehash: ee8cb054f3f10c3b33d5235b2b03cdfeac266139
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008710"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592166"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
-Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam para os serviços Azure.
+Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam para os serviços Azure. Se não conhece o fornecedor de recursos, consulte o [fornecedor de recursos Find.](#find-resource-provider)
 
 ## <a name="match-resource-provider-to-service"></a>Combine o fornecedor de recursos ao serviço
 
@@ -58,7 +58,7 @@ Os fornecedores de recursos com os que estão marcados **- registados** são reg
 | Microsoft.ClassicSubscription - [registado](#registration) | Modelo de implementação clássica |
 | Microsoft.CognitiveServices | [Serviços Cognitivos](../../cognitive-services/index.yml) |
 | Microsoft.Commerce - [registado](#registration) | núcleo |
-| Microsoft.Compute | [Máquinas Virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Dimensionamento de Máquinas Virtuais](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Compute | [Máquinas Virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de escala de máquina virtual](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft.Consumption - [registado](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
@@ -192,6 +192,42 @@ Os fornecedores de recursos acima com os que estão marcados **- registados** s�
 
 > [!IMPORTANT]
 > Só registe um fornecedor de recursos quando estiver pronto para o utilizar. O passo de registo permite-lhe manter os privilégios mínimos dentro da sua subscrição. Um utilizador malicioso não pode usar fornecedores de recursos que não estejam registados.
+
+## <a name="find-resource-provider"></a>Encontre o fornecedor de recursos
+
+Se tiver infraestruturas existentes em Azure, mas não tiver a certeza de que fornecedor de recursos é utilizado, pode utilizar o Azure CLI ou o PowerShell para encontrar o fornecedor de recursos. Especifique o nome do grupo de recursos que contém os recursos para encontrar.
+
+O exemplo a seguir utiliza o Azure CLI:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+Os resultados incluem o tipo de recurso. O espaço de nome do fornecedor de recursos é a primeira parte do tipo de recurso. O exemplo a seguir mostra o fornecedor de recursos **Microsoft.KeyVault.**
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+O exemplo a seguir utiliza o PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+Os resultados incluem o tipo de recurso. O espaço de nome do fornecedor de recursos é a primeira parte do tipo de recurso. O exemplo a seguir mostra o fornecedor de recursos **Microsoft.KeyVault.**
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

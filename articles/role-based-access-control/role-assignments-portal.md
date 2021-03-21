@@ -11,10 +11,10 @@ ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal
 ms.openlocfilehash: e25bbe4e1a96e4efaaa13732aea571d26d4b006e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555270"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções Azure usando o portal Azure
@@ -82,7 +82,7 @@ Se precisar de atribuir funções de administrador no Azure Ative Directory, con
 
 1. No acesso à lista **de atribuições,** selecione o tipo de princípio de segurança para atribuir acesso.
 
-    | Tipo | Descrição |
+    | Tipo | Description |
     | --- | --- |
     | **Utilizador, grupo ou principal de serviço** | Se pretender atribuir a função a um utilizador, grupo ou principal de serviço (aplicação), selecione este tipo. |
     | **Identidade gerida atribuída pelo utilizador** | Se pretender atribuir a função a uma [identidade gerida atribuída pelo utilizador,](../active-directory/managed-identities-azure-resources/overview.md)selecione este tipo. |

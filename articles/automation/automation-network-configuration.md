@@ -5,10 +5,10 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
 ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708888"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Detalhes da configuração da rede Azure Automation

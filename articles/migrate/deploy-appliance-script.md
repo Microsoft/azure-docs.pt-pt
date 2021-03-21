@@ -7,10 +7,10 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 04/16/2020
 ms.openlocfilehash: abf34a5ea83e74b0bd2a074108c5ef1014941093
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041336"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script

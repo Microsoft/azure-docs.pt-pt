@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
 ms.openlocfilehash: 861463b13c6ce8b29911432ad96f98fed527745b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501061"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para invocar funções Azure a partir de uma aplicação Azure Spring Cloud
@@ -52,7 +52,7 @@ Uma vez criada a Conta de Armazenamento, pode criar a aplicação Função.
 az functionapp create --name <your-functionapp-name> --resource-group myResourceGroup --consumption-plan-location eastus --os-type windows --runtime node --storage-account <your-storageaccount-name> --functions-version 3
 ```
 
-Tome nota dos **hostes devolvidosNames,** que estarão no formato "https://<o seu nome de aplicação>.azurewebsites.net". Será usado num passo seguinte.
+Tome nota dos **hostns devolvidos ,** que estará no formato "https://<your-functionapp-name>.azurewebsites.net". Será usado num passo seguinte.
 
 
 ## <a name="enable-azure-active-directory-authentication"></a>Ativar a autenticação ativa do Diretório Azure

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050554"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104675830"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador com modelos HTML no Azure Ative Directory B2C
 
@@ -363,26 +363,31 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 Pode encontrar modelos de amostra para personalização da UI aqui:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 Este projeto contém os seguintes modelos:
-- [Azul-do-oceano](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Ardósia Cinza](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Azul-do-oceano](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Ardósia Cinza](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Clássico](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Recursos do modelo](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 Para utilizar a amostra:
 
-1. Clone o repo na sua máquina local. Escolha uma pasta de modelo `/ocean_blue` ou `/slate_gray` .
-1. Faça o upload de todos os ficheiros sob a pasta do modelo e da `/assets` pasta, para o armazenamento blob, conforme descrito nas secções anteriores.
-1. Em seguida, abra cada `\*.html` ficheiro na raiz de qualquer um ou `/ocean_blue` `/slate_gray` substitua todas as instâncias de URLs relativos com os URLs dos ficheiros css, imagens e tipos de letra que carregou no passo 2. Por exemplo:
+1. Clone o repo na sua máquina local. Escolha uma pasta de modelo `/AzureBlue` `/MSA` , ou `/classic` .
+1. Faça o upload de todos os ficheiros sob a pasta do modelo e da `/src` pasta, para o armazenamento blob, conforme descrito nas secções anteriores.
+1. Em seguida, abra cada `\*.html` ficheiro na pasta do modelo. Em seguida, substitua todas as instâncias de `https://login.microsoftonline.com` URLs, com o URL que carregou no passo 2. Por exemplo:
+    
+    De:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    Para
+    Para:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
+    
 1. Guarde os `\*.html` ficheiros e faça o upload para o armazenamento da Blob.
 1. Agora modifique a política, apontando para o seu ficheiro HTML, como mencionado anteriormente.
 1. Se vir tipos de letra, imagens ou CSS em falta, verifique as suas referências na política de extensões e nos \* ficheiros .html.

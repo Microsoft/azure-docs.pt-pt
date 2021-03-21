@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
 ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98937551"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore registos de traços .NET/.NET e Python em Insights de Aplicação
@@ -218,7 +218,7 @@ Vários fatores afetam a quantidade de dados que são retidos. Para mais informa
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Não vejo algumas entradas de registo que esperava.
 Se a sua aplicação enviar quantidades volumosas de dados e estiver a utilizar o SDK Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, a função de amostragem adaptativa pode funcionar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](./sampling.md)
 
-## <a name="next-steps"></a><a name="add"></a>Próximos passos
+## <a name="next-steps"></a><a name="add"></a>Passos seguintes
 
 * [Diagnosticar falhas e exceções em ASP.NET][exceptions]
 * [Saiba mais sobre pesquisar][diagnostic]

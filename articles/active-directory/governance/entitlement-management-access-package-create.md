@@ -17,17 +17,17 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011090"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso na gestão de direitos AD da Azure
 
 Um pacote de acesso permite-lhe fazer uma configuração única de recursos e políticas que administra automaticamente o acesso à vida útil do pacote de acesso. Este artigo descreve como criar um novo pacote de acesso.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Todos os pacotes de acesso devem ser colocados num recipiente chamado catálogo. Um catálogo define os recursos que pode adicionar ao seu pacote de acesso. Se não especificar um catálogo, o seu pacote de acesso será colocado no catálogo geral. Atualmente, não é possível mover um pacote de acesso existente para um catálogo diferente.
 

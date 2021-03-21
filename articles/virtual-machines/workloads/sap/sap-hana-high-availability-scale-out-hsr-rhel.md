@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: radeltch
 ms.openlocfilehash: dd000ca36bb0ad586b973b2bcdc638d8992b1a73
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101668644"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade do sistema de escala SAP HANA no Red Hat Enterprise Linux 
@@ -92,7 +92,7 @@ Antes de começar, consulte as seguintes notas e documentos SAP:
 * [Documentação dos Ficheiros Azure NetApp][anf-azure-doc] 
 * [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Um método para alcançar a alta disponibilidade de HANA para instalações de escala HANA, é configurar a replicação do sistema HANA e proteger a solução com o cluster Pacemaker para permitir a falha automática. Quando um nó ativo falha, o cluster falha sobre os recursos HANA para o outro local.  
 A configuração apresentada mostra três nós HANA em cada site, mais nó de fabricante maioritário para evitar cenário de cérebro dividido. As instruções podem ser adaptadas, para incluir mais VMs como nós HANA DB.  

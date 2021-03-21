@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259609"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Visibilidade e controlo de aplicações na cloud
@@ -34,7 +34,7 @@ Utilize o Microsoft Cloud App Discovery (uma funcionalidade Azure Ative Director
 - Relatório avançado de descoberta de TI shadow
 - Controlar aplicações sancionadas
  
-### <a name="learn-more"></a>Saber mais
+### <a name="learn-more"></a>Saiba mais
 
 - [Descubra e gere ti sombra na sua rede ](/cloud-app-security/tutorial-shadow-it)
 - [Aplicativos descobertos com Segurança de Aplicações cloud ](/cloud-app-security/discovered-apps)
@@ -51,7 +51,7 @@ Com este controlo pode:
 - Controlar o acesso aos ficheiros  
 - Proteja os documentos no download  
  
-### <a name="learn-more"></a>Saber mais
+### <a name="learn-more"></a>Saiba mais
 
 - [Proteja aplicativos com controlo de sessão na Segurança da Aplicação cloud ](/cloud-app-security/proxy-intro-aad)
  
@@ -59,7 +59,7 @@ Com este controlo pode:
 
 Os conectores de aplicações utilizam as APIs dos fornecedores de aplicações para permitir uma maior visibilidade e controlo por parte da Microsoft Cloud App Security sobre as aplicações a que se conecta. Cloud App Security aproveita as APIs fornecidas pelo fornecedor de nuvem. Cada serviço tem o seu próprio enquadramento e limitações de API tais como estrangulamento, limites de API, janelas dinâmicas de mudança de tempo API, entre outros. A equipa de produtos cloud App Security trabalhou com estes serviços para otimizar o uso de APIs e proporcionar o melhor desempenho. Tendo em conta as diferentes limitações que os serviços impõem às suas APIs, os motores Cloud App Security utilizam a sua capacidade máxima permitida. Algumas operações, como a digitalização de todos os ficheiros do inquilino, requerem numerosas chamadas de API para que estejam espalhadas por um período mais longo. Espere algumas políticas para funcionar por várias horas ou dias. 
  
-### <a name="learn-more"></a>Saber mais  
+### <a name="learn-more"></a>Saiba mais  
 
 - [Conecte aplicativos em Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 

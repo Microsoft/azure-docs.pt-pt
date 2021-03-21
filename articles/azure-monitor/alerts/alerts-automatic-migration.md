@@ -4,10 +4,10 @@ description: Saiba como funciona o processo de migração automática.
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.openlocfilehash: 92aaffcea7a7c96cd77aade318520b093eed3e14
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045467"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Compreenda o processo de migração automática para as suas regras clássicas de alerta

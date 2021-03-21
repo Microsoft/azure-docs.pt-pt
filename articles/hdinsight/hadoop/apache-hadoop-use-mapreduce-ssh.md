@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/10/2020
 ms.openlocfilehash: 991b91d1feee185d17bbf01266e0392f347e1a66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939642"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Use MapReduce com Apache Hadoop em HDInsight com SSH
@@ -82,7 +82,7 @@ Um aglomerado Apache Hadoop em HDInsight. Consulte [os clusters Apache Hadoop ut
     wriggling       1
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como pode ver, os comandos Hadoop fornecem uma maneira fácil de executar trabalhos MapReduce num cluster HDInsight e, em seguida, ver a saída do trabalho. Para obter informações sobre outras formas de trabalhar com Hadoop em HDInsight:
 
