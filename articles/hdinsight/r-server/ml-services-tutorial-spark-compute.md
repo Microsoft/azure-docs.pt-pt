@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: bd6015529fb521e3b157e46ee808aea43e993dee
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935669"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Use R num contexto computo Spark em Azure HDInsight
@@ -222,14 +222,14 @@ rxSetComputeContext(mySparkCluster)
     Coefficients:
                    Estimate Std. Error t value Pr(>|t|)     | Counts
     DayOfWeek=Mon   3.54210    0.03736   94.80 2.22e-16 *** | 901592
-    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 **_ | 855805
-    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 _*_ | 868505
-    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 _*_ | 891674
-    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 _*_ | 896495
-    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 _*_ | 732944
-    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 _*_ | 858366
+    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 *** | 855805
+    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 *** | 868505
+    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 *** | 891674
+    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 *** | 896495
+    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
+    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
     ---
-    Signif. codes:  0 ‘_*_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)
@@ -358,7 +358,7 @@ Depois de completar o tutorial, é melhor apagar o cluster. Com o HDInsight, os 
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar funções R em Apache Spark que estão a funcionar num cluster de serviços de aprendizagem automática HDInsight. Para obter mais informações, veja os seguintes artigos:
 

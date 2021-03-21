@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: d24527efe6adce6f16b7c890f23c755545f5d5a0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935885"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Otimização de desempenho para os clusters do HDInsight no Apache Kafka
@@ -77,7 +77,7 @@ Recomendamos que utilize pelo menos uma replicação de 3x para Kafka em Azure H
 
 Para obter mais informações sobre a replicação, consulte [Apache Kafka: replicação](https://kafka.apache.org/documentation/#replication) e [Apache Kafka: aumento do fator de replicação](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Processing trillions of events per day with Apache Kafka on Azure](https://azure.microsoft.com/blog/processing-trillions-of-events-per-day-with-apache-kafka-on-azure/) (Processar biliões de eventos por dia com o Apache Kafka no Azure)
 * [O que é o Apache Kafka no HDInsight?](apache-kafka-introduction.md)

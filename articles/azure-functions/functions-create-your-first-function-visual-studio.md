@@ -10,10 +10,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 ms.openlocfilehash: d691ee60f624f75c89e44e905e5343bf9c71fd4d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101701420"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Quickstart: Crie a sua primeira função em Azure usando o Visual Studio
@@ -40,7 +40,7 @@ O Visual Studio cria um projeto e classe que contém código de placa de caldeir
 
 O `FunctionName` atributo método define o nome da função, que por padrão é gerada como `Function1` . Uma vez que a ferramenta não permite que se sobreponha ao nome da função predefinida quando criar o seu projeto, desem um minuto para criar um nome melhor para a classe de função, arquivo e metadados.
 
-1. No **File Explorer,** clique com Function1.cs e rebatize-o para `HttpExample.cs` .
+1. No **File Explorer,** clique à direita no ficheiro Function1.cs e rebatize-o para `HttpExample.cs` .
 
 1. No código, rebatize a classe Function1 para 'HttpExample'.
 

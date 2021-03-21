@@ -9,10 +9,10 @@ ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
 ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99429284"
 ---
 # <a name="basic-concepts"></a>Basic Concepts (Conceitos Básicos)

@@ -7,10 +7,10 @@ ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
 ms.openlocfilehash: c9624e9a23d005185429c82199324ac570cbd63e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102607735"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Visão geral dos SDKs de dispositivoS Azure IoT

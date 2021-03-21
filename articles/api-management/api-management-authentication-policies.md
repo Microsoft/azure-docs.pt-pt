@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/27/2021
 ms.author: apimpm
 ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99492608"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação da Gestão de API
@@ -50,14 +50,14 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 |Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
-|autenticação-básico|Elemento de raiz.|Sim|
+|autenticação-básico|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
 |Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Sim|N/D|
-|palavra-passe|Especifica a palavra-passe da credencial Básica.|Sim|N/D|
+|nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Yes|N/D|
+|palavra-passe|Especifica a palavra-passe da credencial Básica.|Yes|N/D|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -101,7 +101,7 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
   
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
-|certificado de autenticação|Elemento de raiz.|Sim|  
+|certificado de autenticação|Elemento de raiz.|Yes|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -109,7 +109,7 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
 |----------|-----------------|--------------|-------------|  
 |impressão digital|A impressão digital do certificado do cliente.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
 |certificado id|O nome do recurso do certificado.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
-|body|Certificado de cliente como um byte array.|Não|N/D|
+|body|Certificado de cliente como um byte array.|No|N/D|
 |palavra-passe|Senha para o certificado do cliente.|Usado se o certificado especificado é `body` protegido por palavra-passe.|N/D|
   
 ### <a name="usage"></a>Utilização  
@@ -178,16 +178,16 @@ Tanto a identidade atribuída ao sistema como qualquer uma das identidades atrib
   
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
-|identidade gerida por autenticação |Elemento de raiz.|Sim|  
+|identidade gerida por autenticação |Elemento de raiz.|Yes|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Obrigatório|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Sim|N/D|
-|id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|Não|identidade atribuída ao sistema|
-|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |Não|N/D|  
-|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|Não|false|  
+|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Yes|N/D|
+|id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|No|identidade atribuída ao sistema|
+|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |No|N/D|  
+|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|No|false|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)  

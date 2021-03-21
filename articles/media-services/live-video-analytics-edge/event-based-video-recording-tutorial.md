@@ -4,10 +4,10 @@ description: Neste tutorial, você vai aprender a usar Azure Live Video Analytic
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.openlocfilehash: ea98b4c8981be9fffe7911e4c8402a8f522976f9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702322"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação de vídeo baseada em eventos para a nuvem e reprodução da nuvem
@@ -49,7 +49,7 @@ Os pré-requisitos para este tutorial são:
 
 No final destes passos, terá recursos Azure relevantes implantados na sua subscrição Azure:
 
-* Azure IoT Hub
+* Hub IoT do Azure
 * Conta de armazenamento do Azure
 * Conta Azure Media Services
 * Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge.md) instalado

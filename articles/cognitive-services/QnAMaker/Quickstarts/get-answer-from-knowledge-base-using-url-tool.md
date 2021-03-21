@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Use a ferramenta URL para obter resposta da base de conhecimento - QnA Maker'
+title: Use a ferramenta URL para obter resposta da base de conhecimento - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Este quickstart acompanha-o através da obtenção de uma resposta da sua base de conhecimento usando uma ferramenta de teste de URL, como cURL ou Carteiro.
+description: Este artigo acompanha-o através da obtenção de uma resposta da sua base de conhecimento usando uma ferramenta de teste de URL, como cURL ou Carteiro.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: eddae69c0946ab135540b77d3cc89937079e6293
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 46657cfaf513cdd2dd0ecfd284602d2277781626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016258"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583076"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Quickstart: Obtenha uma resposta da base de conhecimento
+# <a name="get-an-answer-from-a-knowledge-base"></a>Obtenha uma resposta de uma base de conhecimento
 
 
 ::: zone pivot="url-test-tool-curl"

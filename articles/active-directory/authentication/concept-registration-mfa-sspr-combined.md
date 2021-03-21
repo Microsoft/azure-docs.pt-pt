@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 112ad0714c84cd3be08788b3277f52372f6d0373
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98938464"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registo combinado de informações de segurança para a visão geral do Azure Ative Directory
@@ -140,7 +140,7 @@ Um utilizador que já criou pelo menos um método navega para [https://aka.ms/my
 
 Um utilizador que já criou pelo menos um método que pode ser utilizado para a autenticação multi-factor para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . O utilizador altera o método de predefinição atual para um método padrão diferente. Quando terminado, o utilizador vê o novo método predefinido na página de informações de Segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte os tutoriais para permitir o [reset da palavra-passe de autosserviço](tutorial-enable-sspr.md) e [ativar a autenticação multi-factor AD Azure](tutorial-enable-azure-mfa.md).
 

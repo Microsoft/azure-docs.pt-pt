@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
 ms.openlocfilehash: d5f6612e22522452efb5eecd14c6c825bf29e6d5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98938674"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Incapaz de criar o Jupyter Notebook em Azure HDInsight
@@ -53,7 +53,7 @@ Uma versão desajustada.
 
 1. Reinicie o serviço Jupyter.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

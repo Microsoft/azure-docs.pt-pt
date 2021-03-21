@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
 ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786009"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que têm dois conjuntos de credenciais de autenticação
@@ -232,7 +232,7 @@ Modelo de funções de rotação para dois conjuntos de credenciais e várias fu
 > [!NOTE]
 > As funções de rotação acima são criadas por um membro da comunidade e não pela Microsoft. As Funções Azure comunitárias não são suportadas ao abrigo de qualquer programa ou serviço de suporte da Microsoft e são disponibilizadas AS IS sem qualquer tipo de garantia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Tutorial: [Rotação de segredos para um conjunto de credenciais](./tutorial-rotation.md)
 - Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](../general/event-grid-overview.md)

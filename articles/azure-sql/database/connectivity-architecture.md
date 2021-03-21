@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
 ms.openlocfilehash: c589f270fe623f1e4e4bbde4fd353ba95249d1b5
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102426512"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitetura de conetividade da Base de Dados SQL do Azure e do Azure Synapse Analytics

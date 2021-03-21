@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/01/2021
 ms.author: yelevin
 ms.openlocfilehash: 3d478a9ac3cf91f3f6815859b8534efff88f07b1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700931"
 ---
 # <a name="connect-your-vmware-esxi-to-azure-sentinel"></a>Ligue o seu VMware ESXi ao Azure Sentinel

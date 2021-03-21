@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700979"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Métricas do Monitor Azure
@@ -29,7 +29,7 @@ A tabela que se segue lista as diferentes formas de utilização de Métricas no
 
 |  |  |
 |:---|:---|
-| **Analisar** | Use [o explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
+| **Análise** | Use [o explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
 | **Alerta** | Configure uma [regra de alerta métrico](../alerts/alerts-metric.md) que envia uma notificação ou toma [medidas automatizadas](../alerts/action-groups.md) quando o valor métrico cruza um limiar. |
 | **Visualizar** | Pin um gráfico de explorador de métricas para um [painel Azure](../app/tutorial-app-dashboards.md).<br>Crie um [livro para](../visualize/workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. Exporte os resultados de uma consulta à [Grafana](../visualize/grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados. |
 | **Automatizar** |  Utilize [a Autoescala](../autoscale/autoscale-overview.md) para aumentar ou diminuir os recursos com base num valor métrico que cruza um limiar. |

@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 670fbeeb006d21e29675f88895018d1a453a1c54
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102120305"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OpenID Connect numa política personalizada do Azure Ative Directory B2C
@@ -76,26 +76,26 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
-| IdTokenAudience | Não | O público do id_token. Se especificado, a Azure AD B2C verifica se a `aud` reclamação num token devolvido pelo fornecedor de identidade é igual à especificada nos metadados IdTokenAudience.  |
-| METADADOS | Sim | Um URL que aponta para um documento de configuração do fornecedor de identidade OpenID Connect, que também é conhecido como ponto final de configuração bem conhecido do OpenID. O URL pode conter a `{tenant}` expressão, que é substituída pelo nome do inquilino.  |
-| authorization_endpoint | Não | Um URL que aponta para um ponto final de autorização de configuração do fornecedor de identidade OpenID Connect. O valor dos metadados authorization_endpoint prevalece sobre o `authorization_endpoint` especificado no ponto final de configuração bem conhecido do OpenID. O URL pode conter a `{tenant}` expressão, que é substituída pelo nome do inquilino. |
-| end_session_endpoint | Não | O URL do ponto final da sessão final. O valor dos metadados authorization_endpoint prevalece sobre o `end_session_endpoint` especificado no ponto final de configuração bem conhecido do OpenID. |
-| issuer | Não | O identificador único de um fornecedor de identidade OpenID Connect. O valor dos metadados emitentes tem precedência sobre o `issuer` especificado no ponto final de configuração bem conhecido do OpenID.  Se especificado, a Azure AD B2C verifica se a `iss` reclamação num token devolvido pelo fornecedor de identidade é igual à especificada nos metadados emitentes. |
-| ProviderName | Não | O nome do fornecedor de identidade.  |
-| response_types | Não | O tipo de resposta de acordo com a especificação OpenID Connect Core 1.0. Valores possíveis: `id_token` `code` , ou . `token` . |
-| response_mode | Não | O método que o fornecedor de identidade utiliza para enviar o resultado de volta para Azure AD B2C. Valores possíveis: `query` `form_post` (padrão), ou `fragment` . |
-| scope | Não | O âmbito do pedido que é definido de acordo com a especificação OpenID Connect Core 1.0. Como, `openid` `profile` `email` e. |
-| HttpBinding | Não | A ligação HTTP esperada ao token de acesso e reclama pontos finais simbólicos. Valores possíveis: `GET` ou `POST` .  |
-| ValidTokenIssuerPrefixes | Não | Uma chave que pode ser usada para iniciar sedutar a cada um dos inquilinos quando se utiliza um fornecedor de identidade multi-inquilino, como o Azure Ative Directory. |
-| UsePolicyInRedirectUri | Não | Indica se deve utilizar uma política ao construir o URI de redirecionamento. Ao configurar a sua aplicação no fornecedor de identidade, tem de especificar o URI de redirecionamento. O redirecionamento URI aponta para Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` .  Se `true` especificar, tem de adicionar um URI de redirecionamento para cada apólice que utilizar. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | Não | Indica se um pedido a um serviço externo deve ser marcado como uma falha se o código de estado http estiver na gama 5xx. A predefinição é `false`. |
-| DiscoverMetadataByTokenIssuer | Não | Indica se os metadados OIDC devem ser descobertos utilizando o emitente no token JWT. |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
-| token_endpoint_auth_method | Não | Especifica como a Azure AD B2C envia o cabeçalho de autenticação para o ponto final simbólico. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para mais informações, consulte [a secção de autenticação do cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-| token_signing_algorithm | Não | O algoritmo de assinatura utilizado para afirmações de clientes quando o **token_endpoint_auth_method** metadados é definido para `private_key_jwt` . Valores possíveis: `RS256` (padrão). |
-| SingleLogoutEnabled | Não | Indica se durante a entrada no perfil técnico tenta-se assinar dos fornecedores de identidade federados. Para mais informações, consulte [a sessão de Sessão Azure AD B2C](./session-behavior.md#sign-out).  Valores possíveis: `true` (padrão), ou `false` . |
-|ReadBodyClaimsOnIdpRedirect| Não| Definir `true` para ler reclamações do organismo de resposta no redirecionamento do fornecedor de identidade. Estes metadados são utilizados com [o Apple ID,](identity-provider-apple-id.md)onde as reclamações regressam na carga útil da resposta.|
+| client_id | Yes | O identificador de aplicação do fornecedor de identidade. |
+| IdTokenAudience | No | O público do id_token. Se especificado, a Azure AD B2C verifica se a `aud` reclamação num token devolvido pelo fornecedor de identidade é igual à especificada nos metadados IdTokenAudience.  |
+| METADADOS | Yes | Um URL que aponta para um documento de configuração do fornecedor de identidade OpenID Connect, que também é conhecido como ponto final de configuração bem conhecido do OpenID. O URL pode conter a `{tenant}` expressão, que é substituída pelo nome do inquilino.  |
+| authorization_endpoint | No | Um URL que aponta para um ponto final de autorização de configuração do fornecedor de identidade OpenID Connect. O valor dos metadados authorization_endpoint prevalece sobre o `authorization_endpoint` especificado no ponto final de configuração bem conhecido do OpenID. O URL pode conter a `{tenant}` expressão, que é substituída pelo nome do inquilino. |
+| end_session_endpoint | No | O URL do ponto final da sessão final. O valor dos metadados authorization_endpoint prevalece sobre o `end_session_endpoint` especificado no ponto final de configuração bem conhecido do OpenID. |
+| issuer | No | O identificador único de um fornecedor de identidade OpenID Connect. O valor dos metadados emitentes tem precedência sobre o `issuer` especificado no ponto final de configuração bem conhecido do OpenID.  Se especificado, a Azure AD B2C verifica se a `iss` reclamação num token devolvido pelo fornecedor de identidade é igual à especificada nos metadados emitentes. |
+| ProviderName | No | O nome do fornecedor de identidade.  |
+| response_types | No | O tipo de resposta de acordo com a especificação OpenID Connect Core 1.0. Valores possíveis: `id_token` `code` , ou . `token` . |
+| response_mode | No | O método que o fornecedor de identidade utiliza para enviar o resultado de volta para Azure AD B2C. Valores possíveis: `query` `form_post` (padrão), ou `fragment` . |
+| scope | No | O âmbito do pedido que é definido de acordo com a especificação OpenID Connect Core 1.0. Como, `openid` `profile` `email` e. |
+| HttpBinding | No | A ligação HTTP esperada ao token de acesso e reclama pontos finais simbólicos. Valores possíveis: `GET` ou `POST` .  |
+| ValidTokenIssuerPrefixes | No | Uma chave que pode ser usada para iniciar sedutar a cada um dos inquilinos quando se utiliza um fornecedor de identidade multi-inquilino, como o Azure Ative Directory. |
+| UsePolicyInRedirectUri | No | Indica se deve utilizar uma política ao construir o URI de redirecionamento. Ao configurar a sua aplicação no fornecedor de identidade, tem de especificar o URI de redirecionamento. O redirecionamento URI aponta para Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` .  Se `true` especificar, tem de adicionar um URI de redirecionamento para cada apólice que utilizar. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
+| MarkAsFailureOnStatusCode5xx | No | Indica se um pedido a um serviço externo deve ser marcado como uma falha se o código de estado http estiver na gama 5xx. A predefinição é `false`. |
+| DiscoverMetadataByTokenIssuer | No | Indica se os metadados OIDC devem ser descobertos utilizando o emitente no token JWT. |
+| IncluirClaimResolvingInClaimsHandling  | No | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| token_endpoint_auth_method | No | Especifica como a Azure AD B2C envia o cabeçalho de autenticação para o ponto final simbólico. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para mais informações, consulte [a secção de autenticação do cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+| token_signing_algorithm | No | O algoritmo de assinatura utilizado para afirmações de clientes quando o **token_endpoint_auth_method** metadados é definido para `private_key_jwt` . Valores possíveis: `RS256` (padrão). |
+| SingleLogoutEnabled | No | Indica se durante a entrada no perfil técnico tenta-se assinar dos fornecedores de identidade federados. Para mais informações, consulte [a sessão de Sessão Azure AD B2C](./session-behavior.md#sign-out).  Valores possíveis: `true` (padrão), ou `false` . |
+|ReadBodyClaimsOnIdpRedirect| No| Definir `true` para ler reclamações do organismo de resposta no redirecionamento do fornecedor de identidade. Estes metadados são utilizados com [o Apple ID,](identity-provider-apple-id.md)onde as reclamações regressam na carga útil da resposta.|
 
 ```xml
 <Metadata>
@@ -116,9 +116,9 @@ As seguintes definições podem ser utilizadas para configurar a mensagem de err
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageIfClaimsPrincipalDoesNotExist | Não | A mensagem a apresentar ao utilizador se uma conta com o nome de utilizador fornecido não for encontrada no diretório. |
-| UserMessageIfInvalidPassword | Não | A mensagem a apresentar ao utilizador se a palavra-passe estiver incorreta. |
-| UserMessageIfOldPasswordUsed| Não |  A mensagem a apresentar ao utilizador se for utilizada uma senha antiga.|
+| UserMessageIfClaimsPrincipalDoesNotExist | No | A mensagem a apresentar ao utilizador se uma conta com o nome de utilizador fornecido não for encontrada no diretório. |
+| UserMessageIfInvalidPassword | No | A mensagem a apresentar ao utilizador se a palavra-passe estiver incorreta. |
+| UserMessageIfOldPasswordUsed| No |  A mensagem a apresentar ao utilizador se for utilizada uma senha antiga.|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -126,8 +126,8 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade. Esta chave criptográfica só é necessária se os **metadados response_types** estiverem definidos `code` e **token_endpoint_auth_method** estiver definido para `client_secret_post` ou `client_secret_basic` . Neste caso, a Azure AD B2C faz outra chamada para trocar o código de autorização por um token de acesso. Se os metadados estiverem definidos, `id_token` pode omitir a tecla criptográfica.  |
-| assertion_signing_key | Sim | A chave privada RSA que será usada para assinar a afirmação do cliente. Esta chave criptográfica só é necessária se os **metadados token_endpoint_auth_method** estiverem definidos para `private_key_jwt` . |
+| client_secret | Yes | O segredo do cliente da aplicação do fornecedor de identidade. Esta chave criptográfica só é necessária se os **metadados response_types** estiverem definidos `code` e **token_endpoint_auth_method** estiver definido para `client_secret_post` ou `client_secret_basic` . Neste caso, a Azure AD B2C faz outra chamada para trocar o código de autorização por um token de acesso. Se os metadados estiverem definidos, `id_token` pode omitir a tecla criptográfica.  |
+| assertion_signing_key | Yes | A chave privada RSA que será usada para assinar a afirmação do cliente. Esta chave criptográfica só é necessária se os **metadados token_endpoint_auth_method** estiverem definidos para `private_key_jwt` . |
 
 ## <a name="redirect-uri"></a>Redirecionar Uri
 

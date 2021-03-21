@@ -9,15 +9,15 @@ ms.author: mlearned
 description: 'Criar um Arco Azure habilitado a bordo principal '
 keywords: Kubernetes, Arc, Azure, contentores
 ms.openlocfilehash: 610b355073473f0e492350753a523b7943666f13
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121750"
 ---
 # <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Criar um diretor de serviço de embarque para a Azure Arc habilitado a Kubernetes
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Você pode ligar clusters Kubernetes a Azure Arc usando diretores de serviço com atribuições de funções de privilégio limitado. Esta capacidade é útil em gasodutos de integração contínua e implementação contínua (CI/CD), como Azure Pipelines e GitHub Actions.
 

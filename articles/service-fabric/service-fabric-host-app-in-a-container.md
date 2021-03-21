@@ -4,10 +4,10 @@ description: Saiba como colocar uma aplicação .NET existente num contentor com
 ms.topic: tutorial
 ms.date: 07/08/2019
 ms.openlocfilehash: 7930651a0faa5f37336c15557e2a0f068d613011
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936709"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric

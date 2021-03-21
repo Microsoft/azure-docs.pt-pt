@@ -10,10 +10,10 @@ ms.date: 03/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199921"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
@@ -228,7 +228,7 @@ Algumas ferramentas Azure oferecem a opção de usar a autorização Azure AD pa
 | Explorador de Armazenamento do Azure | Suportado apenas para armazenamento blob e Azure Data Lake Storage Gen2. O acesso a AD AD ao armazenamento da fila não é suportado. Certifique-se de selecionar o inquilino AD Azure correto. Para mais informações, consulte [Começar com o Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Suportado. Para obter informações sobre como autorizar comandos PowerShell para operações de blob ou fila com Azure AD, consulte [comandos Run PowerShell com credenciais AD AD para aceder a dados blob](../blobs/authorize-data-operations-powershell.md) ou [executar comandos PowerShell com credenciais AD AD Aure para aceder a dados de fila](../queues/authorize-data-operations-powershell.md). |
 | CLI do Azure | Suportado. Para obter informações sobre como autorizar comandos Azure CLI com Azure AD para acesso a dados de blob e fila, consulte [comandos Run Azure CLI com credenciais AD AD para aceder a dados de blob ou fila](../blobs/authorize-data-operations-cli.md). |
-| Azure IoT Hub | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
+| Hub IoT do Azure | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
 | Azure Cloud Shell | Azure Cloud Shell é uma concha integrada no portal Azure. A Azure Cloud Shell acolhe ficheiros para persistência numa partilha de ficheiros Azure numa conta de armazenamento. Estes ficheiros tornar-se-ão inacessíveis se a autorização da Chave Partilhada for proibida para essa conta de armazenamento. Para obter mais informações, consulte [o armazenamento do Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos em Azure Cloud Shell para gerir contas de armazenamento para as quais o acesso de Chave Partilhada é proibido, certifique-se primeiro de que lhe foram concedidas as permissões necessárias a estas contas através do Azure RBAC. Para obter mais informações, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
 ## <a name="transition-azure-files-and-table-storage-workloads"></a>Ficheiros Azure de Transição e cargas de trabalho de armazenamento de mesa

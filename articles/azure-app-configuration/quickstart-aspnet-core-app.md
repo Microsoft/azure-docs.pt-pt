@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
 ms.openlocfilehash: 353a934842fd872d48d091f1df1b6d94ac4599ff
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663439"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
@@ -76,7 +76,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     Aceda a este segredo utilizando a API de Configuração de Núcleo .NET. Um cólon `:` () funciona no nome de configuração com a API de configuração em todas as plataformas suportadas. Para obter mais informações, consulte [as teclas e valores de Configuração](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. Em *Program.cs*, adicione uma referência ao espaço de nomes API de configuração de .NET:
+1. No *Programa.cs*, adicione uma referência ao espaço de nomes API de configuração de .NET:
 
     ```csharp
     using Microsoft.Extensions.Configuration;

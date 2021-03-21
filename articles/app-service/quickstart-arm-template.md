@@ -13,10 +13,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-arm-template-uiex
 ms.openlocfilehash: 8b048127c8a5581a34a62cfb67c19ba7aa50f2d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101701591"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Quickstart: Criar app de Serviço de Aplicações usando um modelo ARM
@@ -53,7 +53,7 @@ Dois recursos Azure são definidos no modelo:
 
 Este modelo contém vários parâmetros que são predefinidos para a sua conveniência. Consulte a tabela abaixo para ver as predefinições dos parâmetros e as suas descrições:
 
-| Parâmetros | Tipo    | Valor predefinido                | Descrição |
+| Parâmetros | Tipo    | Valor predefinido                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
 | localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
@@ -74,7 +74,7 @@ Dois recursos Azure são definidos no modelo:
 
 Este modelo contém vários parâmetros que são predefinidos para a sua conveniência. Consulte a tabela abaixo para ver as predefinições dos parâmetros e as suas descrições:
 
-| Parâmetros | Tipo    | Valor predefinido                | Descrição |
+| Parâmetros | Tipo    | Valor predefinido                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
 | localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |

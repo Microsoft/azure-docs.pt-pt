@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, oldalton
 ms.custom: aaddev
 ms.openlocfilehash: f7f2abadb7586e1b19168eb46a54bad53caa05cc
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98761106"
 ---
 # <a name="handle-errors-and-exceptions-in-msal-for-iosmacos"></a>Lidar com erros e exceções no MSAL para iOS/macOS
@@ -240,6 +240,6 @@ Consulte [pedidos de reclamações personalizadas usando MSAL para iOS e macOS](
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere permitir a [colocação de madeira no MSAL para iOS/macOS](msal-logging-ios.md) para ajudá-lo a diagnosticar e depurar problemas.

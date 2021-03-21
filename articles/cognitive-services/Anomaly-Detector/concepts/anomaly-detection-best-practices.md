@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
 ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936195"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Melhores práticas para a utilização do Detetor de AnomaliaS API
@@ -101,7 +101,7 @@ Para obter os melhores resultados, forneça quatro `period` pontos de dados, mai
 
 Se os seus dados de streaming forem recolhidos num curto intervalo (por exemplo, segundos ou minutos), o envio do número recomendado de pontos de dados pode exceder o número máximo permitido pela API do Detetor de Anomalias (8640 pontos de dados). Se os seus dados mostram um padrão sazonal estável, considere enviar uma amostra dos dados da sua série de tempo num intervalo de tempo maior, como horas. A amostragem dos seus dados desta forma também pode melhorar visivelmente o tempo de resposta da API. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a API do Detetor de Anomalias?](../overview.md)
 * [Quickstart: Detetar anomalias nos dados da série de tempo usando o Detetor de Anomalias](../quickstarts/client-libraries.md)

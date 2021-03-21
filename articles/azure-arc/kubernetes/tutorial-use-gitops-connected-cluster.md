@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121478"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutorial: Implementar configurações usando GitOps num arco Azure habilitado para o cluster Kubernetes 
@@ -235,7 +235,7 @@ Quando uma configuração é criada ou atualizada, algumas coisas acontecem:
 
 Enquanto o processo de provisionamento acontece, o recurso de configuração irá mover-se através de algumas alterações de estado. Monitorize o progresso com o `az k8s-configuration show ...` comando acima:
 
-| Mudança de palco | Descrição |
+| Mudança de palco | Description |
 | ------------- | ------------- |
 | `complianceStatus`-> `Pending` | Representa os estados iniciais e em curso. |
 | `complianceStatus` -> `Installed`  | `config-agent` configurado com sucesso o cluster e implantado `flux` sem erros. |

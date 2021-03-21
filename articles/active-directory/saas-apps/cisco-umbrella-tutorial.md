@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Cisco Umbrella | Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Cisco Umbrella.
+title: 'Tutorial: Integração do Azure Ative Directory com a Cisco Umbrella Admin SSO | Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Cisco Umbrella Admin SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 03/16/2021
 ms.author: jeedes
-ms.openlocfilehash: cfb8ee9972d19ce07e2d681533d30c4794ddca28
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6073142b21a28f1242e0e6ec65ee2945a354b60b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649081"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592511"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Azure Ative Directory com a Cisco Umbrella
+# <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella-admin-sso"></a>Tutorial: Integração do Azure Ative Directory com a Cisco Umbrella Admin SSO
 
-Neste tutorial, você vai aprender a integrar cisco Umbrella com Azure Ative Directory (Azure AD). Quando integrar a Cisco Umbrella com Azure AD, pode:
+Neste tutorial, você vai aprender a integrar Cisco Umbrella Admin SSO com Azure Ative Directory (Azure AD). Quando integrar a Cisco Umbrella Admin SSO com Azure AD, pode:
 
-* Controlo em Azure AD que tem acesso à Cisco Umbrella.
-* Permita que os seus utilizadores sejam automaticamente inscritos na Cisco Umbrella com as suas contas AD AZure.
+* Control em Azure AD que tem acesso à Cisco Umbrella Admin SSO.
+* Permita que os seus utilizadores sejam automaticamente inscritos na Cisco Umbrella Admin SSO com as suas contas AD AZure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,43 +31,43 @@ Neste tutorial, você vai aprender a integrar cisco Umbrella com Azure Ative Dir
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Cisco Umbrella assinatura única (SSO) ativada.
+* Cisco Umbrella Admin SSO assinatura única (SSO) ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Cisco Umbrella apoia **SP e IDP** iniciado SSO.
+* Cisco Umbrella Admin SSO apoia **SP e IDP** iniciado SSO.
 
-## <a name="add-cisco-umbrella-from-the-gallery"></a>Adicione Cisco Umbrella da galeria
+## <a name="add-cisco-umbrella-admin-sso-from-the-gallery"></a>Adicione Cisco Umbrella Admin SSO da galeria
 
-Para configurar a integração da Cisco Umbrella no Azure AD, é necessário adicionar a Cisco Umbrella da galeria à sua lista de aplicações geridas pelo SaaS.
+Para configurar a integração da Cisco Umbrella Admin SSO em Azure AD, você precisa adicionar Cisco Umbrella Admin SSO da galeria à sua lista de aplicações geridas saaS.
 
 1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. Na secção Add da secção **de galeria,** digite **Cisco Umbrella** na caixa de pesquisa.
-1. Selecione **Cisco Umbrella** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Add da secção **de galeria,** **digite Cisco Umbrella Admin SSO** na caixa de pesquisa.
+1. Selecione **Cisco Umbrella Admin SSO** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-sso-for-cisco-umbrella"></a>Configure e teste Azure AD SSO para Cisco Umbrella
+## <a name="configure-and-test-azure-ad-sso-for-cisco-umbrella-admin-sso"></a>Configure e teste Azure AD SSO para Cisco Umbrella Admin SSO
 
-Configure e teste Azure AD SSO com a Cisco Umbrella utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Cisco Umbrella.
+Configure e teste Azure AD SSO com Cisco Umbrella Admin SSO usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Cisco Umbrella Admin SSO.
 
-Para configurar e testar a Azure AD SSO com a Cisco Umbrella, execute os seguintes passos:
+Para configurar e testar o Azure AD SSO com a Cisco Umbrella Admin SSO, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure cisco Umbrella SSO](#configure-cisco-umbrella-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    1. **[Create Cisco Umbrella test user](#create-cisco-umbrella-test-user)** - para ter uma contraparte de B.Simon na Cisco Umbrella que está ligada à representação AD AZure do utilizador.
+1. **[Configure cisco Umbrella Admin SSO SSO](#configure-cisco-umbrella-admin-sso-sso)** - para configurar as definições de sinalização única no lado da aplicação.
+    1. **[Create Cisco Umbrella Admin SSO test user](#create-cisco-umbrella-admin-sso-test-user)** - para ter uma contraparte de B.Simon na Cisco Umbrella Admin SSO que está ligada à representação AD AD Azure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No portal Azure, na página de integração da aplicação **Cisco Umbrella,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. No portal Azure, na página de integração da aplicação **Cisco Umbrella Admin SSO,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-6. Na secção **Configuração da Cisco Umbrella,** copie os URL(s) apropriados de acordo com o seu requisito.
+6. Na secção **Configuração Cisco Umbrella Admin SSO,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -103,19 +103,19 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Cisco Umbrella.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Cisco Umbrella Admin SSO.
 
 1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Cisco Umbrella.**
+1. Na lista de candidaturas, selecione **Cisco Umbrella Admin SSO**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-cisco-umbrella-sso"></a>Configurar cisco umbrella SSO
+## <a name="configure-cisco-umbrella-admin-sso-sso"></a>Configure Cisco Umbrella Admin SSO SSO
 
-1. Numa janela de navegador diferente, inscreva-se no site da empresa Cisco Umbrella como administrador.
+1. Numa janela de navegador diferente, inscreva-se no site da empresa Cisco Umbrella Admin SSO como administrador.
 
 2. A partir do lado esquerdo do menu, clique em **Administração** e navegue para **autenticação** e, em seguida, clique em **SAML**.
 
@@ -125,7 +125,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![O Outro](./media/cisco-umbrella-tutorial/other.png)
 
-4. Nos **Metadados da Cisco Umbrella**, página, clique em **SEGUINTE**.
+4. No **Cisco Umbrella Admin Metadados SSO**, página, clique em **SEGUINTE**.
 
     ![Os metadados](./media/cisco-umbrella-tutorial/metadata.png)
 
@@ -143,14 +143,14 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 8. Clique **em SAVE**.
 
-### <a name="create-cisco-umbrella-test-user"></a>Criar utilizador de teste Cisco Umbrella
+### <a name="create-cisco-umbrella-admin-sso-test-user"></a>Criar utilizador de teste Cisco Umbrella Admin SSO
 
-Para permitir que os utilizadores da Azure AD entrem na Cisco Umbrella, devem ser a provisionados na Cisco Umbrella.  
-No caso da Cisco Umbrella, o provisionamento é uma tarefa manual.
+Para permitir que os utilizadores da Azure AD iniciem sessão na Cisco Umbrella Admin SSO, devem ser adavisionados na Cisco Umbrella Admin SSO.  
+No caso da Cisco Umbrella Admin SSO, o provisionamento é uma tarefa manual.
 
 **Para obter uma conta de utilizador, execute os seguintes passos:**
 
-1. Numa janela de navegador diferente, inscreva-se no site da empresa Cisco Umbrella como administrador.
+1. Numa janela de navegador diferente, inscreva-se no site da empresa Cisco Umbrella Admin SSO como administrador.
 
 2. Do lado esquerdo do menu, clique em **Administração** e navegue para **contas.**
 
@@ -180,16 +180,16 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 #### <a name="sp-initiated"></a>SP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Cisco Umbrella Sign on URL onde pode iniciar o fluxo de login.  
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Cisco Umbrella Admin SSO Assinar no URL onde pode iniciar o fluxo de login.  
 
-* Vá diretamente ao URL de inscrição da Cisco Umbrella e inicie o fluxo de login a partir daí.
+* Vá diretamente ao URL de assinatura SSO da Cisco Umbrella e inicie o fluxo de login a partir daí.
 
 #### <a name="idp-initiated"></a>IDP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Cisco Umbrella para o qual configura o SSO. 
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Cisco Umbrella Admin SSO para o qual configura o SSO. 
 
-Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo da Cisco Umbrella nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Cisco Umbrella para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo Cisco Umbrella Admin SSO nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Cisco Umbrella Admin SSO para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado a Cisco Umbrella, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado Cisco Umbrella Admin SSO, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

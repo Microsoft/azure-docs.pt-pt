@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: cdb028bcd608aa7a19a7c83e5e2c1129386928a0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939786"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar para os aglomerados Apache Hadoop para Azure HDInsight - as melhores práticas de migração de dados
@@ -112,7 +112,7 @@ A metástore da colmeia pode ser migrada usando os scripts ou usando a replicaç
 - Transforme em caminhos específicos de HDFS para WASB/ADLS usando uma ferramenta como o XSLT.
 - Importe as políticas para ranger em execução em HDInsight.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o próximo artigo desta série:
 

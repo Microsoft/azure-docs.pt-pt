@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
 ms.openlocfilehash: 0c396cde38d8cba8e1f3eaf8527429647868a0c8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935952"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Cenário: Junta-se à Colmeia Apache leva a um erro outOfMemory em Azure HDInsight
@@ -35,7 +35,7 @@ Evite que a Colmeia carrene as tabelas na memória em juntas (em vez de executar
 hive.auto.convert.join=false
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se a definição deste valor não resolveu o seu problema, visite um dos seguintes...
 

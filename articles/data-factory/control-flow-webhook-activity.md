@@ -7,18 +7,21 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 59aa395db27c26a7c94eebdc0e3b34d7776ee75f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361490"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592001"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Uma atividade webhook pode controlar a execução de oleodutos através do seu código personalizado. Com a atividade webhook, o código dos clientes pode chamar um ponto final e passar-lhe um URL de retorno de chamada. O gasoduto aguarda a invocação de retorno antes de passar para a próxima atividade.
+
+> [!IMPORTANT]
+> A atividade webHook permite-lhe agora o estado de erro de superfície e as mensagens personalizadas de volta à atividade e ao pipeline. Desabar _o relatórioStatusOnCallBack_ para ser verdadeiro e incluir _StatusCode_ e _Error_ na carga de retorno. Para mais informações, consulte a secção [Notas Adicionais.](#additional-notes)
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,6 +40,7 @@ Uma atividade webhook pode controlar a execução de oleodutos através do seu c
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",
@@ -141,7 +145,7 @@ Quando utilizar o estado do Relatório na propriedade **de retorno,** deve adici
 Consulte as seguintes atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar atividade de gasoduto](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
 - [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)

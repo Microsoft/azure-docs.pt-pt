@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 870c812a68f765f987cfd3d1b953e0afeb3e9055
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364533"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
@@ -22,7 +22,7 @@ ms.locfileid: "100364533"
 
 Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e a utilizá-los para construir fluxos de dados completos e orientados por dados para os seus cenários de movimento de dados e processamento de dados.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que, em conjunto, executam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerem e limpam dados de registos e, em seguida, iniciam um fluxo de dados de mapeamento para analisar os dados de registo. O pipeline permite-lhe gerir as atividades como um conjunto, em vez de cada uma individualmente. Implementa e agenda o pipeline, em vez das atividades de forma independente.
 
 As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para um Azure Blob Storage. Em seguida, utilize uma atividade de fluxo de dados ou uma atividade de Caderno databricks para processar e transformar dados do armazenamento de bolhas para um pool Azure Synapse Analytics em cima do qual são construídas soluções de relatório de inteligência empresarial.
@@ -58,8 +58,8 @@ Atividade de transformação de dados | Ambiente de computação
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Atividade Personalizada](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
-[Atividade Jar do Databricks](transform-data-databricks-jar.md) | Azure Databricks
-[Atividade Python do Databricks](transform-data-databricks-python.md) | Azure Databricks
+[Atividade do frasco de dados](transform-data-databricks-jar.md) | Azure Databricks
+[Atividade python de dados](transform-data-databricks-python.md) | Azure Databricks
 
 Para obter mais informações, veja o artigo [Data Transformation Activities](transform-data.md) (Atividades de Transformação de Dados).
 
@@ -75,7 +75,7 @@ Atividade de controlo | Description
 [Obter Metadados](control-flow-get-metadata-activity.md) | A atividade Obter Metadados pode ser utilizada para obter os metadados de quaisquer dados no Azure Data Factory.
 [Atividade Se Condição](control-flow-if-condition-activity.md) | Se Condição pode ser utilizada com base em ramos numa condição que é avaliada como verdadeira ou falsa. A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição avalia `true` e outro conjunto de atividades quando a condição avalia `false.`
 [Atividade de Pesquisa](control-flow-lookup-activity.md) | A atividade de Pesquisa pode ser utilizada para ler ou procurar registos/nomes de tabelas/valores em qualquer origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes.
-[Variável definida](control-flow-set-variable-activity.md) | Definir o valor de uma variável existente.
+[Definir Variável](control-flow-set-variable-activity.md) | Definir o valor de uma variável existente.
 [Até a Atividade](control-flow-until-activity.md) | Implementa o ciclo Do-Until que é semelhante à estrutura de ciclo Do-Until nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory.
 [Atividade de Validação](control-flow-validation-activity.md) | Certifique-se de que um gasoduto só continua a execução se existir um conjunto de dados de referência, cumprir um critério especificado ou se tiver sido atingido um tempo limite.
 [Aguardar Atividade](control-flow-wait-activity.md) | Quando utiliza uma atividade de espera num oleoduto, o gasoduto aguarda o tempo especificado antes de continuar com a execução das atividades subsequentes.

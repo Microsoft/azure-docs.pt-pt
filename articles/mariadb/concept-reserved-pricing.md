@@ -3,14 +3,14 @@ title: Pré-pagamento para computação com capacidade reservada - Base de Dados
 description: Pré-pagamento da Base de Dados Azure para os recursos de computação MariaDB com capacidade reservada
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 0acdf09da081ee179fb4edc8f2608068fc081dee
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 462ba0ccbd5d7e7048c2c7fcb9c5bece04adaebe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98661768"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pré-pagamento da Base de Dados Azure para os recursos de computação MariaDB com capacidade reservada
@@ -50,9 +50,9 @@ A tabela a seguir descreve os campos necessários.
 
 | Campo | Descrição |
 | :------------ | :------- |
-| Subscrição   | A subscrição utilizada para pagar a Base de Dados Azure para reserva de capacidade reservada MariaDB. O método de pagamento da subscrição é cobrado os custos iniciais da Base de Dados Azure para reserva de capacidade reservada MariaDB. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição de empresa, os encargos são deduzidos do saldo do pré-pagamento Azure (anteriormente chamado de compromisso monetário) ou cobrados como excesso de idade. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
+| Subscrição   | A subscrição utilizada para pagar a Base de Dados Azure para reserva de capacidade reservada MariaDB. O método de pagamento da subscrição é cobrado os custos iniciais da Base de Dados Azure para reserva de capacidade reservada MariaDB. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária) da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
 | Âmbito | O âmbito da reserva vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Compartilhado**, o desconto de reserva vCore é aplicado na Base de Dados Azure para servidores MariaDB que executam em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Subscrição única**, o desconto de reserva vCore é aplicado à Base de Dados Azure para servidores MariaDB nesta subscrição. </br></br> **Grupo único de recursos**, o desconto de reserva é aplicado à Base de Dados Azure para servidores MariaDB na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.
-| Região | A região de Azure que está coberta pela Base de Dados Azure para reserva de capacidade reservada mariaDB.
+| Region | A região de Azure que está coberta pela Base de Dados Azure para reserva de capacidade reservada mariaDB.
 | Tipo de implantação | A Base de Dados Azure para o tipo de recurso MariaDB para o quais pretende comprar a reserva.
 | Nível de desempenho | O nível de serviço para a Base de Dados Azure para servidores MariaDB.
 | Termo | Um ano

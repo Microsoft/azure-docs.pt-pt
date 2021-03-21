@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0d9769a2cfdbd5f552e97a6cd665263cbd488325
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633432"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592970"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -79,7 +79,7 @@ O Passe de Acesso Temporário é uma senha limitada que serve como credenciais f
 **Categoria de serviço:** B2C - Gestão da Identidade do Consumidor  
 **Capacidade do produto:** B2B/B2C
 
-A próxima geração de fluxos de utilizadores B2C suporta agora a funcionalidade [keep me signed in (KMSI)](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) que permite que os clientes prolonguem a duração da sessão para os utilizadores das suas aplicações web e nativas utilizando um cookie persistente.  a funcionalidade mantém a sessão ativa mesmo quando o utilizador fecha e reabre o navegador, e é revogada quando o utilizador assina.
+A próxima geração de fluxos de utilizadores B2C suporta agora a funcionalidade [keep me signed in (KMSI)](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) que permite que os clientes prolonguem a duração da sessão para os utilizadores das suas aplicações web e nativas utilizando um cookie persistente.  a funcionalidade mantém a sessão ativa mesmo quando o utilizador fecha e reabre o navegador, e é revogada quando o utilizador assina.
 
 ---
 
@@ -109,7 +109,7 @@ Os clientes podem agora voltar a convidar os utilizadores de hóspedes externos 
 **Categoria de serviço:** Provisionamento de Aplicativos  
 **Capacidade do produto:** Gestão do ciclo de vida da identidade
  
-Os clientes podem agora utilizar a aplicação.readwrite.ownedby como uma permissão de aplicação para chamar as APIs de sincronização. Note que este é apenas suportado para o provisionamento da Azure AD em aplicações de terceiros (por exemplo, AWS, Data Bricks, etc.). Atualmente não é suportado para provisão de RH (Workday / Successfactors) ou Cloud Sync (AD a Azure AD). [Saiba mais](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+Os clientes podem agora utilizar a aplicação.readwrite.ownedby como uma permissão de aplicação para chamar as APIs de sincronização. Note que este é apenas suportado para o provisionamento da Azure AD em aplicações de terceiros (por exemplo, AWS, Data Bricks, etc.). Atualmente não é suportado para provisão de RH (Workday / Successfactors) ou Cloud Sync (AD a Azure AD). [Saiba mais](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
  
 ---
 
@@ -199,7 +199,7 @@ Pode agora automatizar a criação, atualização e eliminação de contas de ut
 - [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
 - [Precite](../saas-apps/preciate-provisioning-tutorial.md)
 
-Para mais informações, leia [o fornecimento de utilizadores da Automamate para aplicações SaaS com Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Para mais informações, leia [o fornecimento de utilizadores da Automamate para aplicações SaaS com Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -209,7 +209,7 @@ Para mais informações, leia [o fornecimento de utilizadores da Automamate para
 **Categoria de serviço:** RBAC  
 **Capacidade do produto:** Controlo de Acessos
  
-10 As funções AD AD foram renomeadas para que estejam alinhadas através do [centro de administração microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [portal AD AD Azure](https://portal.azure.com/)e [Microsoft Graph](https://developer.microsoft.com/graph/). Para saber mais sobre as novas funções, consulte as [permissões de função de Administrador no Azure Ative Directory](../roles/permissions-reference.md#all-roles).
+10 As funções AD AD foram renomeadas para que estejam alinhadas através do [centro de administração microsoft 365](/microsoft-365/admin/microsoft-365-admin-center-preview), [portal AD AD Azure](https://portal.azure.com/)e [Microsoft Graph](https://developer.microsoft.com/graph/). Para saber mais sobre as novas funções, consulte as [permissões de função de Administrador no Azure Ative Directory](../roles/permissions-reference.md#all-roles).
 
 ![Tabela mostrando nomes de papéis na MS Graph API e no portal Azure, e o nome final proposto através da API, portal Azure e Mac.](media/whats-new/roles-table-rbac.png)
 
@@ -270,20 +270,20 @@ Os clientes podem trabalhar em torno deste requisito para fins de teste usando u
  
 ---
 
-### <a name="public-preview---customize-and-configure-android-shared-devices-for-firstline-workers-at-scale"></a>Antevisão pública - Personalize e configuure dispositivos partilhados android para trabalhadores da Firstline em escala
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>Antevisão pública - Personalize e configuure dispositivos partilhados android para trabalhadores da linha da frente em escala
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Registo e Gestão de Dispositivos  
 **Capacidade do produto:** Proteção & de Segurança de Identidade
  
-As equipas AZure AD e Microsoft Endpoint Manager combinaram-se para trazer a capacidade de personalizar, escalar e proteger os seus dispositivos Firstline Worker.
+As equipas AZure AD e Microsoft Endpoint Manager combinaram-se para trazer a capacidade de personalizar, escalar e proteger os seus dispositivos Frontline Worker.
 
 As seguintes capacidades de pré-visualização permitir-lhe-ão:
 - Provisão de dispositivos partilhados Android em escala com Microsoft Endpoint Manager
 - Garantir o seu acesso a trabalhadores por turnos utilizando acesso condicional baseado em dispositivos
 - Personalize experiências de inscrição para os trabalhadores por turnos com ecrã doméstico gerido
 
-Para saber mais, consulte [personalizar e configurar dispositivos partilhados para trabalhadores da Firstline em escala.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708)
+Para saber mais, consulte [personalizar e configurar dispositivos partilhados para trabalhadores da linha da frente em escala.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708)
 
 ---
 

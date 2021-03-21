@@ -1,5 +1,5 @@
 ---
-title: Guia de desenvolvedores de serviços - IoT Plug and Play ! Microsoft Docs
+title: Guia de desenvolvedores de serviços - IoT Plug and Play | Microsoft Docs
 description: Descrição de IoT Plug and Play para desenvolvedores de serviços
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: df913716ff34a61e5bde4c0771ea8b7599db3d30
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5889be88dfd0870a2eee868c97787ff354cff68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521402"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582736"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>Guia de desenvolvedores de serviço ioT plug e play
 
@@ -61,8 +61,8 @@ Os SDKs de serviço permitem-lhe aceder a informações do dispositivo a partir 
 
 Agora que aprendeu sobre modelação de dispositivos, aqui estão alguns recursos adicionais:
 
-- [Linguagem de definição de gémeos digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [Linguagem Digital Twins Definition (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK de Dispositivo C](/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](/rest/api/iothub/device)
-- [Componentes do modelo](./concepts-components.md)
+- [Guia de modelagem IoT Plug and Play](concepts-modeling-guide.md)
 - [Instale e utilize as ferramentas de autoria DTDL](howto-use-dtdl-authoring-tools.md)

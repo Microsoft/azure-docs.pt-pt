@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103496529"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e coloque um agente de segurança no seu dispositivo IoT
@@ -42,16 +42,16 @@ O agente de segurança baseado em C tem uma pegada de memória mais baixa, e é 
 | --- | ----------- | --------- |
 | **É open-source** | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-c) | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-cs) |
 | **Linguagem de programação**    | C | C# |
-| **Plataformas suportadas do Windows?** | No | Sim |
+| **Plataformas suportadas do Windows?** | No | Yes |
 | **Pré-requisitos do Windows** | --- | [WMI](/windows/desktop/wmisdk/) |
 | **Apoiou plataformas Linux?** | Sim, x64 e x86 | Sim, apenas x64 |
 | **Pré-requisitos linux** | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins, sudo, netstat, iptables |
 | **Pegada de disco** | 10,5 MB | 90 MB |
 | **Pegada de memória (em média)** | 5,5 MB | 33 MB |
-| **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Sim | Sim |
-| **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Sim | Sim |
-| **Agregação de eventos** | Sim | Sim |
-| **Configuração remota através [do gémeo Defender-IoT-micro-agente](concept-security-module.md)** | Sim | Sim |
+| **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Yes | Yes |
+| **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Yes | Yes |
+| **Agregação de eventos** | Yes | Yes |
+| **Configuração remota através [do gémeo Defender-IoT-micro-agente](concept-security-module.md)** | Yes | Yes |
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação de agentes de segurança
 

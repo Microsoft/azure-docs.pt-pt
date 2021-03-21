@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 70d0fc456b3697e3c74a5ec45cc936a02b77e591
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210210"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657659"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Train Vowpal Wabbit Model
 Este artigo descreve como usar o módulo **Modelo Wabbit Train Vowpal** no designer Azure Machine Learning, para criar um modelo de aprendizagem automática utilizando o Vowpal Wabbit.  
@@ -91,6 +91,13 @@ A Vowpal Wabbit suporta a formação incremental adicionando novos dados a um mo
 
 6. Envie o oleoduto.  
 7. Selecione o módulo e **selecione Conjunto de dados de registo** no separador **Outputs+logs** no painel direito, para preservar o modelo atualizado no seu espaço de trabalho Azure Machine Learning.  Se não especificar um novo nome, o modelo atualizado substitui o modelo guardado existente.
+
+## <a name="results"></a>Resultados
+
++ Para gerar pontuações a partir do modelo, utilize o [Modelo Wabbit Score Vowpal](score-vowpal-wabbit-model.md).
+
+> [!NOTE]
+> Se precisar de implementar o modelo treinado no designer, certifique-se de que o [Modelo Wabbit Score Vowpal](score-vowpal-wabbit-model.md) em vez do **Score Model** está ligado à entrada do módulo de saída de serviço [web](web-service-input-output.md) no pipeline de inferência.
 
 ## <a name="technical-notes"></a>Notas técnicas
 

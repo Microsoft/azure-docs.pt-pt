@@ -4,10 +4,10 @@ description: Saiba como mover a nuvem privada de uma subscrição para outra. O 
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.openlocfilehash: 608f46dbd84d6bb899a3e7fcd1f8a63b3a5e85fb
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103555614"
 ---
 # <a name="move-ea-and-csp-azure-vmware-solution-subscriptions"></a>Subscrições move EA e CSP Azure VMware Solution

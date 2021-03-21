@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.openlocfilehash: bc7834a0f8272da3f8954c7dd9f3e18163795cba
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939363"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Secure and isolate Azure HDInsight clusters com Private Link (pré-visualização)
@@ -104,7 +104,7 @@ Para utilizar o PowerShell, consulte o exemplo [aqui.](/powershell/module/az.hdi
 ### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 Para utilizar o Azure CLI, veja o exemplo [aqui.](/cli/azure/hdinsight#az_hdinsight_create-examples)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Pacote de segurança da empresa para Azure HDInsight](enterprise-security-package.md)
 * [Informações e orientações gerais de segurança da empresa em Azure HDInsight](./domain-joined/general-guidelines.md)
