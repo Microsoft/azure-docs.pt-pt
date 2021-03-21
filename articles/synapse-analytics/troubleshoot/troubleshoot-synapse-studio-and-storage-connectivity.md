@@ -8,10 +8,10 @@ ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
 ms.openlocfilehash: d570b4a8df5d59cf8828985bee20852d6bc79b1e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117066"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Resolver problemas de conectividade entre o Synapse Studio do Azure Synapse Analytics e o armazenamento

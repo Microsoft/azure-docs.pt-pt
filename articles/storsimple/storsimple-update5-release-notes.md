@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021049"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notas de lançamento StorSimple 8000 Series Update 5
@@ -46,9 +46,9 @@ A tabela seguinte fornece um resumo das questões que foram corrigidas na Atuali
 
 | No | Destaque | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Remoting De Windows PowerShell |No lançamento anterior, um utilizador receberia um erro ao tentar estabelecer uma ligação remota ao StorSimple Cloud Appliance via Windows PowerShell. Esta questão foi causada por raízes e corrigida nesta versão. |Não |Sim |
-| 2 |Modelos de largura de banda |Em versão anterior, houve um problema com os modelos de largura de banda que resultou numa largura de banda mais baixa do que o dispositivo configurado. Esta questão é resolvida nesta versão. |Sim |Sim |
-| 3 |Ativação pós-falha |Em versão anterior, quando um dispositivo com um grande número de volumes foi falhado em outro dispositivo em execução Atualização 4, o processo falharia ao tentar aplicar os registos de controlo de acesso. Esta questão é corrigida nesta versão. |Sim |Sim |
+| 1 |Remoting De Windows PowerShell |No lançamento anterior, um utilizador receberia um erro ao tentar estabelecer uma ligação remota ao StorSimple Cloud Appliance via Windows PowerShell. Esta questão foi causada por raízes e corrigida nesta versão. |No |Yes |
+| 2 |Modelos de largura de banda |Em versão anterior, houve um problema com os modelos de largura de banda que resultou numa largura de banda mais baixa do que o dispositivo configurado. Esta questão é resolvida nesta versão. |Yes |Yes |
+| 3 |Ativação pós-falha |Em versão anterior, quando um dispositivo com um grande número de volumes foi falhado em outro dispositivo em execução Atualização 4, o processo falharia ao tentar aplicar os registos de controlo de acesso. Esta questão é corrigida nesta versão. |Yes |Yes |
 
 
 

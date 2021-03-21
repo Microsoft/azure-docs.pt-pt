@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895276"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
@@ -198,7 +198,7 @@ As secções seguintes detalham os requisitos para cada objeto.
 
 ### `directoryInfo`
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Necessário | Description |
 |-----------|------|----------|-------------|
 | `name`      | cadeia (de carateres) | true   |  Nome do prédio. |
 | `streetAddress`|    string |    false    | Endereço do edifício. |
@@ -219,7 +219,7 @@ As secções seguintes detalham os requisitos para cada objeto.
 
 O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Necessário | Description |
 |-----------|------|----------|-------------|
 |`levelName`    |cadeia (de carateres)    |true |    Nome de nível descritivo. Por exemplo: Piso 1, Lobby, Estacionamento Azul ou Cave.|
 |`ordinal` | número inteiro |    true | Determina a ordem vertical dos níveis. Todas as instalações devem ter um nível com ordinal 0. |
@@ -251,11 +251,11 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Necessário | Description |
 |-----------|------|----------|-------------|
 |`unitName`    |cadeia (de carateres)    |true    |Nome da unidade para associar a este `unitProperty` registo. Este registo só é válido quando uma etiqueta correspondente `unitName` é encontrada nas `unitLabel` camadas. |
 |`categoryName`|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
-|`navigableBy`| matriz de cadeias (de carateres) |    false    |Indica os tipos de agentes de navegação que podem atravessar a unidade. Esta propriedade informa as capacidades de wayfinding. Os valores permitidos são: `pedestrian` `wheelchair` , e `machine` `bicycle` `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` `disallowed` .|
+|`navigableBy`| matriz de cadeias (de carateres) |    false    |Indica os tipos de agentes de navegação que podem atravessar a unidade. Esta propriedade informa as capacidades de wayfinding. Os valores permitidos são: `pedestrian` , , , , , , , , `wheelchair` , , `machine` , e `bicycle` `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` `disallowed` .|
 |`routeThroughBehavior`|    string|    false    |A rota através do comportamento para a unidade. Os valores permitidos são `disallowed` `allowed` , e `preferred` . O valor predefinido é `allowed`.|
 |`occupants`    |matriz de objetos De directórioInfo |false    |Lista de ocupantes para a unidade. |
 |`nameAlt`|    string|    false|    Nome alternativo da unidade. |
@@ -412,7 +412,7 @@ Abaixo está o ficheiro manifesto para o pacote de desenho da amostra. Para desc
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Quando o seu pacote Desenhá-lo satisfaz os requisitos, pode utilizar o [serviço de Conversão Azure Maps](/rest/api/maps/conversion) para converter o pacote num conjunto de dados do mapa. Em seguida, pode utilizar o conjunto de dados para gerar um mapa interior utilizando o módulo de mapas interiores.
 

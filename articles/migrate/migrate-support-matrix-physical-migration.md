@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
 ms.openlocfilehash: 4ebc363f29ed8956d10e91f41be1d257cbcc492f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98703891"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidores físicos
@@ -91,6 +91,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada. Além disso, adicione um endereço IP público para o VM. |  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Migrar](tutorial-migrate-physical-virtual-machines.md) servidores físicos.

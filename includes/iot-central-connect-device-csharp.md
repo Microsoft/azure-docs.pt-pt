@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/25/2020
 ms.openlocfilehash: f4536beae18a50d3e1d42fc1593cf826c94418f8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033891"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -21,11 +21,11 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 ## <a name="review-the-code"></a>Rever o código
 
-Na cópia do repositório Microsoft Azure IoT Samples for C# que descarregou anteriormente, abra o ficheiro do projeto *azure-iot-samples-csharp-master\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio. No projeto **termóstato,** abra os ficheiros *Program.cs* e *ThermostatSample.cs* para visualizar o código desta amostra.
+Na cópia do repositório Microsoft Azure IoT Samples for C# que descarregou anteriormente, abra o ficheiro do projeto *azure-iot-samples-csharp-master\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio. No projeto **termóstato,** abra o *Programa.cs* e Os ficheiros *ThermostatSample.cs* para visualizar o código desta amostra.
 
 Quando executar a amostra para ligar à IoT Central, utiliza o Serviço de Provisionamento de Dispositivos (DPS) para registar o dispositivo e gerar uma cadeia de ligação. A amostra recolhe a informação de ligação DPS de que necessita do ambiente.
 
-Em *Program.cs,* o `main` método chama `SetupDeviceClientAsync` a:
+No *programa.cs,* o `main` método chama `SetupDeviceClientAsync` a:
 
 * Utilize o ID do modelo `dtmi:com:example:Thermostat;1` quando forissar o dispositivo com DPS. A IoT Central utiliza o ID do modelo para identificar ou gerar o modelo do dispositivo para este dispositivo. Para saber mais, consulte [Associar um dispositivo com um modelo de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Crie um **dispositivo Desaquiente** para ligar à IoT Central.
@@ -57,7 +57,7 @@ private static async Task<DeviceClient> SetupDeviceClientAsync(Parameters parame
 
 O método principal cria então uma instância **TermóstatoSample** e chama o `PerformOperationsAsync` método para lidar com as interações com a IoT Central.
 
-Em *ThermostatSample.cs,* o `PerformOperationsAsync` método:
+No *ThermostatSample.cs,* o `PerformOperationsAsync` método:
 
 * Define um manipulador para receber as atualizações de propriedade desejadas pela temperatura-alvo.
 * Define um manipulador para o comando **GetMaxMinReport.**
@@ -202,9 +202,9 @@ Para executar o pedido de amostragem:
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
-    | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
+    | IOTHUB_DEVICE_SECURITY_TYPE | EP2 |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
     | IOTHUB_DEVICE_DPS_ID_SCOPE | O valor de âmbito de identificação que fez anteriormente. |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | dispositivo de amostra-01 |

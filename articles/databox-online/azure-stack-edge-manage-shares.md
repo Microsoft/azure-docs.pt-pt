@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro - Gestão de ações da FPGA Microsoft Docs
+title: Azure Stack Edge Pro - FPGA | de gestão de ações Microsoft Docs
 description: Descreve como usar o portal Azure para gerir ações no seu Azure Stack Edge Pro - FPGA.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/04/2021
 ms.author: alkohli
 ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898382"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Utilize o portal Azure para gerir ações no Azure Stack Edge Pro FPGA 

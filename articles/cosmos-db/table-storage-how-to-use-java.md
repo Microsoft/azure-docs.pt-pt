@@ -10,10 +10,10 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.custom: devx-track-java
 ms.openlocfilehash: a5da5e1717f897d2236fd73f0fff525e157f7a0e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093694"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
@@ -36,11 +36,11 @@ Este artigo mostra-lhe como criar tabelas, armazenar os seus dados e realizar op
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-**Criar uma conta de armazenamento do Azure**
+**Criar uma conta de armazenamento Azure**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-**Criar uma conta do Azure Cosmos DB**
+**Criar uma conta do Azure Cosmos DB**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -626,7 +626,7 @@ catch (Exception e)
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 * [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java)
 * [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference] (Referência do SDK do Cliente do Armazenamento do Azure)
-* [Azure Storage REST API][Azure Storage REST API] (API REST do Armazenamento do Azure)
+* [Azure Storage REST API][Azure Storage REST API]
 * [Blog da equipa de armazenamento Azure][Azure Storage Team Blog]
 
 Para obter mais informações, visite [Azure para programadores Java](/java/azure).

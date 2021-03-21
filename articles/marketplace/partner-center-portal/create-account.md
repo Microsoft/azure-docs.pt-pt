@@ -9,10 +9,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: d88e2b18d4e4f9df0606832356e383aaaf51cf73
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97028449"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
@@ -22,7 +22,7 @@ Para publicar as suas ofertas no [Microsoft AppSource](https://appsource.microso
 >[!NOTE]
 >Se tinha uma conta no Portal do Parceiro Cloud (CPP), mudámo-la para o Partner Center. Não precisas de criar uma nova conta. Para mais informações, consulte [os Editores que se mudaram do Portal dos Parceiros cloud.](#publishers-who-moved-from-the-cloud-partner-portal)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para criar uma conta no Partner Center, certifique-se de que cumpre os seguintes pré-requisitos. Vamos verificar esta informação durante o processo de criação de conta.
 
@@ -103,7 +103,7 @@ Quando utiliza a sua conta Microsoft Partner Network, liga o domínio da conta d
 
     Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
 
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições**  >  .
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições** de definições  >  .
 
 Criou agora uma conta comercial no Partner Center. Continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
@@ -128,7 +128,7 @@ Quando se regista no programa de marketplace comercial com a mesma conta que o s
 
     Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
 
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições**  >  .
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições** de definições  >  .
 
 Criou agora uma conta comercial no Partner Center. Para ajudar na adição de editores, continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 

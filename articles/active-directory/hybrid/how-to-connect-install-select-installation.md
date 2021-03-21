@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Selecione o seu tipo de instalação / Microsoft Docs'
+title: 'Azure AD Connect: Selecione o seu tipo de instalação | Microsoft Docs'
 description: Este tópico acompanha-o como selecionar o tipo de instalação a utilizar para Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7275d115210100bdd4a3a2eb683c867a6a4a4f4a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996615"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecionar o tipo de instalação a utilizar para o Azure AD Connect
@@ -47,7 +47,7 @@ Opções onde ainda pode utilizar o Express:
 - Se não quiser sincronizar todas as OUs, ainda pode utilizar o Express e na última página, desmarcar **Iniciar o processo de sincronização...***** Em seguida, volte a executar o assistente de instalação e altere as OUs nas [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options) e ative a sincronização programada.
 - Pretende ativar uma das funcionalidades do Azure AD Premium, como a gravação de Password. Primeiro passe pelo expresso para completar a instalação inicial. Em seguida, volte a executar o assistente de instalação e altere as [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
-## <a name="custom"></a>Personalizar
+## <a name="custom"></a>Personalizado
 O caminho personalizado permite muito mais opções do que expresso. Deve ser utilizado em todos os casos em que a configuração descrita na secção anterior para expresso não seja representativa para a sua organização.
 
 Utilize se:

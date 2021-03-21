@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387364"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 utilizando a atividade de cópia da fábrica de dados Azure
@@ -91,7 +91,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tableName** |O nome do quadro na placa de base de dados DB2 a que o serviço ligado se refere. Esta propriedade é sensível a casos. |Não (se for especificada a propriedade de **consulta** de uma atividade de cópia do tipo **RelationalSource)** |
+| **nome de mesa** |O nome do quadro na placa de base de dados DB2 a que o serviço ligado se refere. Esta propriedade é sensível a casos. |Não (se for especificada a propriedade de **consulta** de uma atividade de cópia do tipo **RelationalSource)** |
 
 ## <a name="copy-activity-properties"></a>Propriedades de Atividade de Cópia
 Para obter uma lista das secções e propriedades disponíveis para definir atividades de cópia, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) As propriedades da Copy Activity, tais como **nome,** **descrição,** tabela **de entradas,** tabela **de saídas** e **política,** estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na secção **de tipoProperties** da atividade variam para cada tipo de atividade. Para a Atividade de Cópia, as propriedades variam consoante os tipos de fontes de dados e pias.

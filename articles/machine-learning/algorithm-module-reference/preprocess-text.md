@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/16/2020
 ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659312"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
@@ -53,7 +53,7 @@ O módulo **de texto pré-processamento** suporta apenas inglês.
 
     Este módulo usa uma série de três caracteres de tubo `|||` para representar o exterminador da frase.
 
-1. Execute operações de operação de operação de operação opcional de mente e substituição utilizando expressões regulares. A expressão regular será processada no início, à frente de todas as outras opções incorporadas.
+1. Execute operações de operação opcional de mente e substituição utilizando expressões regulares. A expressão regular será processada no início, à frente de todas as outras opções incorporadas.
 
     * **Expressão regular personalizada**: Defina o texto que procura.
     * **Cadeia de substituição personalizada**: Defina um único valor de substituição.
@@ -71,7 +71,7 @@ O módulo **de texto pré-processamento** suporta apenas inglês.
     * **Remover caracteres duplicados**: Selecione esta opção para remover caracteres extras em quaisquer sequências que se repitam por mais de duas vezes. Por exemplo, uma sequência como "aaaaa" seria reduzida a "aa".
     
     * **Remova os endereços de e-mail**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>` .  
-    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos URL: `http` , , , `https` `ftp` , `www`
+    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos URL: `http` `https` , `ftp` , `www`
     
 1. **Expandir contrações verbos**: Esta opção aplica-se apenas às línguas que utilizam contrações de verbo; atualmente, apenas inglês. 
 
@@ -104,6 +104,6 @@ Também pode usar a expressão regular para obter resultados personalizados:
 |Com apenas `Removing number` selecionados </br> Expressão regular personalizada: `(\s+)*(-|\d+)(\s+)*` </br> Cadeia de substituição personalizada: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="Com a remoção de números selecionados e expressão regular" border="True"::: |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

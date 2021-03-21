@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b01afe60a78a746eb0dc5f03cc7b45989f8cf81e
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898764"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Crie uma máquina virtual em Azure usando modelos VM na infraestrutura VMware
@@ -44,7 +44,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | ------------ | ------------- |
     | Subscrição | Subscrição Azure associada à sua Nuvem Privada.  |
     | Grupo de Recursos | Grupo de recursos ao qual o VM será atribuído. Pode selecionar um grupo existente ou criar um novo. |
-    | Nome | Nome para identificar o VM.  |
+    | Name | Nome para identificar o VM.  |
     | Localização | Região de Azure em que este VM está hospedado.  |
     | Cloud Privada | CloudSimple Private Cloud onde pretende criar a máquina virtual. |
     | Piscina de Recursos | Conjunto de recursos mapeado para o VM. Selecione entre os pools de recursos disponíveis. |
@@ -62,7 +62,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
     Para interfaces de rede, clique em **Adicionar interface de rede** e configufique as seguintes definições.
 
-    | Controlo | Descrição |
+    | Controlar | Descrição |
     | ------------ | ------------- |
     | Nome | Insira um nome para identificar a interface.  |
     | Rede | Selecione a partir da lista de grupos de portas distribuídos configurados na sua Nuvem Privada vSphere.  |

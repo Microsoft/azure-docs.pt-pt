@@ -8,10 +8,10 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 83c39435d2249981a45798ffe0717054fa7b0717
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387330"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando a Azure Data Factory

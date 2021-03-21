@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
 ms.openlocfilehash: a10403b5f26b551458a9e20330bc817512f707de
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386396"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet na Azure Data Factory

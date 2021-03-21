@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
 ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724259"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação Azure Functions
@@ -107,7 +107,7 @@ Este projeto utilizará [a injeção de dependência em Funções Azure .NET](..
     }
     ```
 
-5. Abra *Function1.cs* e adicione os seguintes espaços de nome.
+5. *Abra a Função1.cs*, e adicione os seguintes espaços de nome.
 
     ```csharp
     using System.Linq;
@@ -195,7 +195,7 @@ Este projeto utilizará [a injeção de dependência em Funções Azure .NET](..
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou uma bandeira de recurso e utilizou-a com uma aplicação Azure Functions através da biblioteca [Microsoft.FeatureManagement.](/dotnet/api/microsoft.featuremanagement)
 

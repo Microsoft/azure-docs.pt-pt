@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 ms.openlocfilehash: 15b0413eabcfae7e3a4b28243caf2a708260ccae
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932222"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de Implantação de Azure Kubernetes
@@ -81,7 +81,7 @@ Neste tutorial, vai:
 
     A Azure Pipelines é um serviço de nuvem que pode utilizar para construir e testar automaticamente o seu projeto de código e disponibilizá-lo a outros utilizadores. A Azure Pipelines combina integração contínua e entrega contínua para testar e construir constantemente e de forma consistente o seu código e enviá-lo para qualquer alvo.
 
-    ![Registo de Contentor](media/deployment-center-launcher/container-registry.png)
+    ![Container Registry](media/deployment-center-launcher/container-registry.png)
 
 1. Selecione o link para ver o gasoduto em curso.
 

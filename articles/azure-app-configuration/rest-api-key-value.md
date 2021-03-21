@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932562"
 ---
 # <a name="key-values"></a>Chaves-valor
@@ -30,7 +30,7 @@ Este artigo aplica-se à versão API 1.0.
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -178,13 +178,13 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|Combina rótulos que começam com **prod**|
 |`label=prod,test`|Corresponde a etiquetas **ou** **teste** (limitado a 5 CSV)|
 
-**_Caracteres reservados_* _
+***Caracteres reservados***
 
-`_`, `\`, `,`
+`*`, `\`, `,`
 
 Se um carácter reservado faz parte do valor, então deve ser escapado utilizando `\{Reserved Character}` . Personagens não reservados também podem ser escapados.
 
-***Validação do filtro** _
+***Validação do filtro***
 
 No caso de um erro de validação do filtro, a resposta é HTTP `400` com detalhes de erro:
 
@@ -203,7 +203,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-_ *Exemplos**
+**Exemplos**
 
 - Todos
 

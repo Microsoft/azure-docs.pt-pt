@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Site Recovery / Microsoft Docs
-description: Monitor e resolução de problemas Problemas Problemas Problemas Problemas de recuperação do site problemas e operações usando o portal
+title: Monitor Azure Site Recovery | Microsoft Docs
+description: Monitor e resolução de problemas Problemas de recuperação do site problemas e operações usando o portal
 author: raynew
 manager: carmonm
 ms.service: site-recovery
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023572"
 ---
 # <a name="monitor-site-recovery"></a>Monitorizar o Site Recovery
@@ -109,12 +109,12 @@ Na **visão de Infraestrutura,** monitorize os componentes de infraestrutura env
 
     **Cenário** | **Estado**  | **Vista disponível?**
     --- |--- | ---
-    **Replicação entre locais no local** | Todos os estados | Não 
-    **Replicação Azure VM entre regiões de Azure**  | Replicação ativada/replicação inicial em curso | Sim
-    **Replicação Azure VM entre regiões de Azure** | Falha por cima/falha de volta | Não   
-    **Replicação do VMware para o Azure** | Replicação ativada/replicação inicial em curso | Sim     
-    **Replicação do VMware para o Azure** | Falhou/falhou nas costas | Não      
-    **Replicação do Hyper-V para o Azure** | Falhou/falhou nas costas | Não
+    **Replicação entre locais no local** | Todos os estados | No 
+    **Replicação Azure VM entre regiões de Azure**  | Replicação ativada/replicação inicial em curso | Yes
+    **Replicação Azure VM entre regiões de Azure** | Falha por cima/falha de volta | No   
+    **Replicação do VMware para o Azure** | Replicação ativada/replicação inicial em curso | Yes     
+    **Replicação do VMware para o Azure** | Falhou/falhou nas costas | No      
+    **Replicação do Hyper-V para o Azure** | Falhou/falhou nas costas | No
 
 - Para ver a vista de infraestrutura para uma única máquina de replicação, no menu do cofre, clique em **itens replicados** e selecione um servidor.  
 

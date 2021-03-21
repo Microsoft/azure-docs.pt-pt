@@ -1,5 +1,5 @@
 ---
-title: Tutorial para transferir dados para ações com a Azure Stack Edge Pro Microsoft Docs
+title: Tutorial para transferir dados para ações com a Azure Stack Edge Pro | Microsoft Docs
 description: Neste tutorial, aprenda a adicionar e a ligar-se a ações no seu dispositivo Azure Stack Edge Pro, para que o Azure Stack Edge Pro possa transferir dados para o Azure.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: afedbe739e955499f94d00a8ced940e7a4e9c27c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898694"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutorial: Dados de transferência com Azure Stack Edge Pro
@@ -22,7 +22,7 @@ Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo
 
 Este procedimento pode demorar cerca de 10 minutos a concluir.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma partilha

@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: c19e1156f897873defaba4cebaabb904d034ead3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032750"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
@@ -75,7 +75,7 @@ Para obter mais informações sobre os SKUs de gateway para o Gateway de VPN, ve
 
 Para perguntas mais frequentes sobre o Gateway de Aplicação, veja as [FAQ do Gateway de VPN](vpn-gateway-vpn-faq.md).
 
-## <a name="whats-new"></a><a name="new"></a>Novidades
+## <a name="whats-new"></a><a name="new"></a>O que há de novo?
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade VPN Gateway na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway)
 

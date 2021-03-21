@@ -7,10 +7,10 @@ ms.date: 12/04/2020
 ms.author: apimpm
 ms.service: api-management
 ms.openlocfilehash: 6cace4a02c8d45cacbbc34e9778b5c4a78ada27f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576529"
 ---
 # <a name="troubleshooting-client-response-timeouts-and-errors-with-api-management"></a>Resolução de problemas de tempo de resposta do cliente e erros com a API Management

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899342"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Apoiar VMs de carga de trabalho na CloudSimple Private Cloud usando Veeam B&R
@@ -136,7 +136,7 @@ Crie regras de firewall entre a sub-rede de gestão e a rede de backup para perm
 
 A tabela a seguir fornece uma lista portuária.
 
-| Ícone | Descrição | Ícone | Descrição |
+| Ícone | Description | Ícone | Description |
 | ------------ | ------------- | ------------ | ------------- |
 | Servidor de backup  | vCenter  | HTTPS / TCP  | 443 |
 | Servidor de backup <br> *Necessário para a implementação de componentes de replicação de & de backup do Veeam* | Proxy de reserva  | TCP/UDP  | 135, 137 a 139 e 445 |
@@ -250,7 +250,7 @@ Utilizando a consola Veeam, configuure o software de backup e recuperação da V
 
 6. Configurar trabalhos de cópia suplente.
 
-    * Para configurar trabalhos de cópia de cópias de cópia, siga as instruções no vídeo [Criando um Trabalho de Cópia de Cópia](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s).
+    * Para configurar trabalhos de cópia de cópias de cópia, siga as instruções no vídeo [Criando um Trabalho de Cópia de Cópia de Cópia de Cópia](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s)de Cópia .
     * Ativar a encriptação de ficheiros de cópia de segurança em **Definições Avançadas > Armazenamento**.
 
 ### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>Portal CloudSimple: Configurar o acesso ao Veeam e desescalar privilégios
@@ -291,7 +291,7 @@ Para desescalar os privilégios, veja [os privilégios de De-escalate.](escalate
 * [Criar uma máquina virtual Linux no portal Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Como anexar um disco de dados gerido a um Windows VM no portal Azure](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Começar com Azure Storage - Vídeo](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [Criar Recipiente](/rest/api/storageservices/create-container)
+* [Criar Contentor](/rest/api/storageservices/create-container)
 * [Transferir dados com o AzCopy no Linux](../storage/common/storage-use-azcopy-v10.md)
 
 ### <a name="vmware-references"></a>Referências VMware

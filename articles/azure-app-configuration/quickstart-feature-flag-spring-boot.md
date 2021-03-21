@@ -8,10 +8,10 @@ ms.date: 08/06/2020
 ms.author: alkemper
 ms.custom: devx-track-java
 ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930759"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação De Boot de primavera

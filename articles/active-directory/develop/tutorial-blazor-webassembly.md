@@ -9,10 +9,10 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
 ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552121"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Inscreva-se nos utilizadores e chame uma API protegida a partir de uma aplicação Blazor WebAssembly
@@ -102,7 +102,7 @@ Em seguida, adicione o seguinte ao ficheiro *.csproj* do seu projeto no netstand
 
 Em seguida, modifique o código conforme especificado nos próximos passos. Estas alterações irão adicionar [tokens de acesso](access-tokens.md) aos pedidos de saída enviados para a API do Gráfico da Microsoft. Este padrão é discutido mais detalhadamente em [ASP.NET Core Blazor WebAssembly cenários adicionais de segurança](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-Primeiro, crie um novo ficheiro chamado *GraphAPIAuthorizationMessageHandler.cs* com o seguinte código. Este manipulador será o utilizador a adicionar um token de acesso para os `User.Read` `Mail.Read` e âmbitos de utilização aos pedidos de saída para a API do Gráfico microsoft.
+Em primeiro lugar, crie um novo ficheiro chamado *GraphAPIAuthorizationMessageHandler.cs* com o seguinte código. Este manipulador será o utilizador a adicionar um token de acesso para os `User.Read` `Mail.Read` e âmbitos de utilização aos pedidos de saída para a API do Gráfico microsoft.
 
 ```csharp
 using Microsoft.AspNetCore.Components;
@@ -121,7 +121,7 @@ public class GraphAPIAuthorizationMessageHandler : AuthorizationMessageHandler
 }
 ```
 
-Em seguida, substitua o conteúdo do `Main` método em *Program.cs* pelo seguinte código. Este código faz uso do novo `GraphAPIAuthorizationMessageHandler` e adiciona `User.Read` `Mail.Read` e, como âmbito padrão, a aplicação irá solicitar quando o utilizador entrar pela primeira vez.
+Em seguida, substitua o conteúdo do `Main` método no *Programa.cs* pelo seguinte código. Este código faz uso do novo `GraphAPIAuthorizationMessageHandler` e adiciona `User.Read` `Mail.Read` e, como âmbito padrão, a aplicação irá solicitar quando o utilizador entrar pela primeira vez.
 
 ```csharp
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

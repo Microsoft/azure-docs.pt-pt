@@ -7,10 +7,10 @@ ms.author: harelbr
 ms.date: 02/14/2021
 ms.reviewer: mbullwin
 ms.openlocfilehash: e3a7b71cd8975957754ba014ecc700484c27a6d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726126"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligentes de deteção de aplicações usando modelos de Gestor de Recursos Azure

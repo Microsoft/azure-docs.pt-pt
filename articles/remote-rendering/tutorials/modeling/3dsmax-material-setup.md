@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020284"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutorial: Configurar materiais de renderização fisicamente em 3ds Max
@@ -65,7 +65,7 @@ A imagem que se segue mostra os passos para definir as unidades do sistema em 3d
 
 Agora que temos alguns objetos na nossa cena, neste caso uma série de cubos, podemos começar a configuração do PBR:
 
-1. Na barra de ferramentas principal, selecione o ícone **do Editor de Material** como mostrado na imagem seguinte. Também pode selecionar **M** no seu teclado para abrir o editor. O Editor de Material tem dois modos que pode selecionar na lista de Modos: Modo **Editor de Material Compacto** e modo **Editor de Material de Ardósia.** **Modes** Como esta cena é relativamente simples, vamos usar o modo compacto.
+1. Na barra de ferramentas principal, selecione o ícone **do Editor de Material** como mostrado na imagem seguinte. Também pode selecionar **M** no seu teclado para abrir o editor. O Editor de Material tem dois modos que pode selecionar na lista de Modos: Modo **Editor de Material Compacto** e modo **Editor de Material de Ardósia.**  Como esta cena é relativamente simples, vamos usar o modo compacto.
 
 1. No Editor de Materiais, verás várias esferas. Estas esferas são os materiais. Vamos atribuir um destes materiais a cada objeto (cada caixa) na cena. Para atribuir os materiais, selecione primeiro um dos objetos no porto principal. Em seguida, selecione a primeira esfera no Editor de Material. Depois de atribuído a um objeto, o material selecionado será destacado, como mostra a imagem seguinte.
 
@@ -161,7 +161,7 @@ Esta ação cria uma instância do seu objeto que pode mover, rodar ou escalar i
 
 Uma última coisa a considerar antes de passarmos ao processo de exportação é como você pode querer embalar a sua cena/ativo para compartilhar. Idealmente, se passar o ativo para clientes ou membros da equipa, você vai querer que eles sejam capazes de abrir e ver o ativo como deve ser visto com um mínimo de alarido. Por isso, é importante manter os caminhos de textura do seu ativo em relação ao ficheiro da cena. Se os caminhos de textura do seu ativo apontarem para uma unidade local ou caminho/local absoluto, eles não carregarão na cena se forem abertos em um computador diferente, mesmo que o ficheiro .max esteja na mesma pasta que as texturas. Tornar os caminhos de textura relativos em 3ds Max resolve este problema e é bastante simples.
 
-1. Na barra de ferramentas **File** principal, aceda ao  >  **Reference**  >  **Toggle de Rastreio de Ativos** de Referência de Ficheiros . 
+1. Na barra de ferramentas principal, aceda ao  >    >  **Toggle de Rastreio de Ativos** de Referência de Ficheiros . 
 
 1. Na janela de Rastreio de Ativos, você verá todas ou a maioria das texturas que você aplicou aos seus materiais PBR listados na coluna **Maps/Shaders.**
 

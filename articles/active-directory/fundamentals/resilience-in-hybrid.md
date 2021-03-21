@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de01788c01d4d6dedd9563faaaac07bff30bbd97
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724764"
 ---
 # <a name="build-resilience-in-your-hybrid-architecture"></a>Construa resiliência na sua arquitetura híbrida
@@ -40,7 +40,7 @@ A Microsoft oferece três mecanismos para a autenticação híbrida. As opções
 * Os clientes [da federação](../hybrid/whatis-fed.md) implantam um serviço de federação como o AD FS, e depois a Azure AD valida a afirmação SAML produzida pelo serviço da federação. A Federação tem a maior dependência das infraestruturas no local e, portanto, mais pontos de insucesso. 
 
    
-Pode estar a usar um ou mais destes métodos na sua organização. Para mais informações, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida AZure AD.](../hybrid/choose-ad-authn.md) Este artigo contém uma árvore de decisão que pode ajudá-lo a decidir sobre a sua metodologia.
+‎You may be using one or more of these methods in your organization. Para mais informações, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida AZure AD.](../hybrid/choose-ad-authn.md) Este artigo contém uma árvore de decisão que pode ajudá-lo a decidir sobre a sua metodologia.
 
 ## <a name="password-hash-synchronization"></a>Sincronização de hash de palavra-passe
 
@@ -105,7 +105,7 @@ Se estiver a implementar uma estratégia de autenticação federada ou quiser to
 
 * [Ativar o PHS](../hybrid/tutorial-phs-backup.md) juntamente com a sua federação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

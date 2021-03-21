@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 37990cc4322717f090c7a35c62512ba0e1a04293
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576150"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
@@ -91,7 +91,7 @@ Pode aceder aos espaços de trabalho do Log Analytics no portal Azure ou no Azur
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Acesso Log Analytics em um espaço de trabalho Log Analytics
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Procure por **Log Analytics espaço de trabalho**.
 

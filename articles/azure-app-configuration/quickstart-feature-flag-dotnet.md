@@ -1,5 +1,5 @@
 ---
-title: Quickstart para adicionar bandeiras de recurso às aplicações .NET Framework Microsoft Docs ! Microsoft Docs
+title: Quickstart para adicionar bandeiras de funcionalidades a aplicações .NET Framework | Microsoft Docs | Microsoft Docs
 description: Um quickstart para adicionar bandeiras de funcionalidades a aplicações .NET Framework e geri-las na Configuração de Aplicações Azure
 services: azure-app-configuration
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 10/19/2020
 ms.author: alkemper
 ms.openlocfilehash: 513c826e11ff9dfe6ea94349c67620da9d1bba48
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932052"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação .NET Framework
@@ -62,7 +62,7 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bande
     Microsoft.FeatureManagement
     ```
 
-1. Abra *Program.cs* e adicione as seguintes declarações:
+1. *Programa Aberto.cs* e adicione as seguintes declarações:
 
     ```csharp
     using Microsoft.Extensions.DependencyInjection;

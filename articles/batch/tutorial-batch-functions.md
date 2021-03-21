@@ -7,10 +7,10 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: b441b4c4fcbeb089cef24c3a84fa33021e7840de
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97106387"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Desencadear um trabalho de lote utilizando funções Azure
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a desencadear um trabalho de Batch usando [fun�
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Consulte [a conta Criar um Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e ligar contas.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/)
-* [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
+* [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -50,7 +50,7 @@ Nesta secção, você usará o Batch Explorer para criar o lote de lote e o trab
     1. Escolha `Standard_f2s_v2` como o tamanho da máquina virtual.
     1. Ativar a tarefa inicial e adicionar o comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` . Certifique-se de definir a identidade do utilizador como **utilizador predefinido de tarefa (Administrador)**, o que permite iniciar tarefas para incluir comandos com `sudo` .
     1. Selecione **OK**.
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 1. Crie um trabalho na piscina selecionando **Jobs** na barra lateral esquerda e, em seguida, o botão **Adicionar** acima do formulário de pesquisa. 
     1. Escolha um ID e um nome de exibição. Vamos usar `ocr-job` para este exemplo.

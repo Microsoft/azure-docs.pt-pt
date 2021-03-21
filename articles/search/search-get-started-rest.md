@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/17/2020
 ms.openlocfilehash: b701a80c3c3b7e5a558d875aca2fb34aea89edff
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119633"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure usando APIs de REST
@@ -86,7 +86,7 @@ Para fazer isso no Carteiro:
 
 ### <a name="index-definition"></a>Definição do índice
 
-A recolha de campos define a estrutura documental. Cada documento deve ter estes campos, e cada campo deve ter um tipo de dados. Os campos de cordas são utilizados na pesquisa completa por texto. Se precisar de dados numéricos para ser pes queire, terá de lançar dados numéricos como cordas.
+A recolha de campos define a estrutura documental. Cada documento deve ter estes campos, e cada campo deve ter um tipo de dados. Os campos de cordas são utilizados na pesquisa completa por texto. Se precisar de dados numéricos para ser pes pes queire, terá de lançar dados numéricos como cordas.
 
 Os atributos no campo determinam a ação permitida. As APIs REST permitem muitas ações, por predefinição. Por exemplo, todas as cadeias são pesquisáveis, recuperáveis, filtráveis e facetáveis por predefinição. Muitas vezes, só tens de definir atributos quando precisas de desligar um comportamento.
 
@@ -285,7 +285,7 @@ Adicionar `/stats` ao seu URL retorna informações de índice. No Postman, o pe
 
 Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` caminho de URL separa o caminho do URL da cadeia de consulta, enquanto & separa cada par 'name=value' na cadeia de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

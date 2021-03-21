@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946542"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use funções definidas pelo utilizador C# com Apache Hive e Apache Pig em Apache Hadoop em HDInsight
@@ -57,7 +57,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 4. Na janela do **Configure o seu novo projeto,** insira um nome de **Projeto** da *HiveCSharp,* e navegue para ou crie uma **Localização** para salvar o novo projeto em. Em seguida, selecione **Criar**.
 
-5. No Visual Studio IDE, substitua o conteúdo da *Program.cs* pelo seguinte código:
+5. No Visual Studio IDE, substitua o conteúdo do *Programa.cs* pelo seguinte código:
 
     ```csharp
     using System;
@@ -124,7 +124,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 4. Na **configuração** da sua nova janela de projeto, insira um **nome** de Projeto da *PigUDF,* e vá ou crie uma **Localização** para salvar o novo projeto em. Em seguida, selecione **Criar**.
 
-5. No Visual Studio IDE, substitua o conteúdo da *Program.cs* pelo seguinte código:
+5. No Visual Studio IDE, substitua o conteúdo do *Programa.cs* pelo seguinte código:
 
     ```csharp
     using System;
@@ -266,7 +266,7 @@ Você também pode executar um trabalho de porco que usa a sua aplicação Pig U
 
 5. Use `exit` para sair de porco.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a usar uma aplicação .NET Framework da Hive and Pig on HDInsight. Se você gostaria de aprender a usar Python com Colmeia e Porco, consulte [Use Python com Apache Hive e Apache Pig em HDInsight](python-udf-hdinsight.md).
 

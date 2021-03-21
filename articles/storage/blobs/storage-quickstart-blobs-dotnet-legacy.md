@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: effb193e54be7331c9dc2874a4a34ef55442ed30
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021746"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Quickstart: Azure Blob storage client library v11 for .NET
@@ -54,7 +54,7 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 Em primeiro lugar, crie uma aplicação .NET Core chamada *blob-quickstart*.
 
-1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome *blob-quickstart*. Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs*.
+1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome *blob-quickstart*. Este comando cria um projeto "Hello World" C# com um único ficheiro de origem: *Programa.cs*.
 
    ```console
    dotnet new console -n blob-quickstart
@@ -99,7 +99,7 @@ dotnet add package Microsoft.Azure.Storage.Blob
 
 Do diretório do projeto:
 
-1. Abra o ficheiro *Program.cs* no seu editor
+1. Abra o ficheiro *.cs Programa* no seu editor
 2. Remova a `Console.WriteLine` declaração
 3. Adicionar `using` diretivas
 4. Crie um `ProcessAsync` método onde o código principal para o exemplo resida

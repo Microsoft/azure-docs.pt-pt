@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
 ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790411"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Como migrar a sua base de dados SQLite para o Azure SQL Database sem servidor
@@ -21,13 +21,13 @@ ms.locfileid: "92790411"
 
 Para muitas pessoas, a SQLite proporciona a sua primeira experiência de bases de dados e programação SQL. A sua inclusão em muitos sistemas operativos e aplicações populares faz da SQLite um dos motores de base de dados mais implantados e usados no mundo. E como é provavelmente o primeiro motor de base de dados que muitas pessoas usam, muitas vezes pode acabar como parte central de projetos ou aplicações. Nos casos em que o projeto ou aplicação ultrapassa a implementação inicial da SQLite, os desenvolvedores podem precisar de migrar os seus dados para uma loja de dados centralizada e fiável.
 
-Azure SQL Database Serverless é um nível de cálculo para bases de dados únicas que escala automaticamente o cálculo com base na procura de carga de trabalho, e faturas para a quantidade de cálculo usado por segundo. O nível de computação sem servidor também interrompe automaticamente as bases de dados durante períodos inativos quando apenas o armazenamento é faturado e retoma automaticamente as bases de dados quando a atividade retorna.
+Azure SQL Database Serverless é um nível de cálculo para bases de dados únicas que escala automaticamente o cálculo com base na procura de carga de trabalho, e faturas para a quantidade de cálculo usado por segundo. O nível de computação sem servidor também coloca automaticamente em pausa as bases de dados durante períodos inativos quando apenas o armazenamento é faturado e retoma automaticamente as bases de dados quando a atividade é retomada.
 
 Depois de seguir os passos abaixo, a sua base de dados será migrada para o Azure SQL Database Serverless, permitindo-lhe disponibilizar a sua base de dados a outros utilizadores ou aplicações na nuvem e apenas pagar pelo que utiliza, com alterações mínimas no código de aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura Azure
+- Uma Subscrição do Azure
 - Base de dados SQLite2 ou SQLite3 que deseja migrar
 - Um ambiente windows
   - Se não tiver um ambiente Windows local, pode utilizar um Windows VM em Azure para a migração. Mova e disponibilize o seu ficheiro de base de dados SQLite no VM utilizando ficheiros Azure e Explorador de Armazenamento.
@@ -45,7 +45,7 @@ Depois de seguir os passos abaixo, a sua base de dados será migrada para o Azur
     - Abra o administrador de fonte de dados ODBC no seu ambiente.
     - Clique no separador DSN do sistema e clique em "Adicionar"
     - Selecione o conector SQLite ODBC que instalou e dê à ligação um nome significativo, por exemplo, sqlitemigrationsource
-    - Descreva o nome da base de dados no ficheiro .db
+    - Desave o nome da base de dados no ficheiro .db
     - Salvar e sair
 
 4. Descarregue e instale o tempo de execução de integração auto-hospedado. A forma mais fácil de o fazer é a opção de instalação do Expresso, conforme detalhado na documentação. Se optar por uma instalação manual, terá de fornecer à aplicação uma chave de autenticação, que pode ser localizada na sua instância data Factory por:
@@ -53,13 +53,13 @@ Depois de seguir os passos abaixo, a sua base de dados será migrada para o Azur
     - Arranque da ADF (Autor e Monitor a partir do serviço no portal Azure)
     - Clique no separador "Autor" (lápis azul) à esquerda
     - Clique em Conexões (inferior à esquerda), em seguida, integração tempos de execução
-    - Adicione novos Self-Hosted Prazo de Integração, dê-lhe um nome, selecione *Opção 2* .
+    - Adicione novos Self-Hosted Prazo de Integração, dê-lhe um nome, selecione *Opção 2*.
 
 5. Crie um novo serviço ligado para a base de dados SQLite de origem na sua Fábrica de Dados.
 
     ![Screenshot mostrando lâmina de serviços ligados vazios na Fábrica de Dados Azure](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. Em **Conexões** , em **Serviço Linked** , clique em **New** .
+6. Em **Conexões**, em **Serviço Linked**, clique em **New**.
 
 7. Procure e selecione o conector "ODBC"
 
@@ -98,13 +98,13 @@ Depois de seguir os passos abaixo, a sua base de dados será migrada para o Azur
     c.close()
     ```
 
-13. Crie as tabelas de aterragem no seu ambiente alvo sem servidor SQL copiando as declarações de tabela CREATE do ficheiro CreateTables.sql e executando as declarações SQL no Editor de Consulta no portal Azure.
+13. Crie as tabelas de aterragem no seu ambiente alvo sem servidor SQL copiando as declarações de tabela CREATE a partir do ficheiro CreateTables.sql e executando as declarações SQL no Editor de Consulta no portal Azure.
 
 14. Volte ao ecrã principal da sua Data Factory e clique em "Copiar dados" para passar pelo assistente de criação de emprego.
 
     ![Screenshot mostrando o logotipo do assistente de dados de cópia na Fábrica de Dados Azure](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/copy-data.png)
 
-15. Selecione todas as tabelas da base de dados origem SQLite utilizando as caixas de verificação e mapeeee-as para as tabelas-alvo em Azure SQL. Uma vez executado o trabalho, você conseguiu migrar os seus dados da SQLite para Azure SQL!
+15. Selecione todas as tabelas da base de dados origem SQLite utilizando as caixas de verificação e mapee-as para as tabelas-alvo em Azure SQL. Uma vez executado o trabalho, você conseguiu migrar os seus dados da SQLite para Azure SQL!
 
 ## <a name="next-steps"></a>Passos seguintes
 

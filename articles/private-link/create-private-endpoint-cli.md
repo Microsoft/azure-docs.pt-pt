@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
 ms.openlocfilehash: bba912930a9dff0a79e0b0d81025b7524c238db0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94368683"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Quickstart: Criar um ponto final privado utilizando O Azure CLI
@@ -260,7 +260,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 13. Feche a ligação ao **myVM**.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o ponto final privado e o VM, utilize [o grupo AZ para remover](/cli/azure/group#az_group_delete) o grupo de recursos e todos os recursos que tem:
 
 ```azurecli-interactive

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94380454"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Como utilizar o ranking para exibir os resultados da API de pesquisa web Bing  
@@ -223,7 +223,7 @@ E a barra lateral mostraria os seguintes resultados de pesquisa:
 -   Todas as pesquisas relacionadas  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre a promoção de resultados desclassificados, consulte [Promover respostas que não estejam classificadas.](./filter-answers.md#promoting-answers-that-are-not-ranked)
 

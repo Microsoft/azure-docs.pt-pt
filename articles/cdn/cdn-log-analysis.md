@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/30/2020
 ms.author: allensu
 ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96483993"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analisar padrões de utilização da CDN do Azure
@@ -25,7 +25,7 @@ Depois de ativar a CDN para a sua aplicação, pode monitorizar a utilização d
 ## <a name="raw-logs-for-azure-cdn-from-microsoft"></a>Registos em bruto para Azure CDN da Microsoft
 Com um perfil padrão da Microsoft, pode ativar registos em bruto e selecionar para transmitir registos para:
 
-* Storage do Azure
+* Armazenamento do Azure
 * Hubs de Eventos
 * Azure Log Analytics
 

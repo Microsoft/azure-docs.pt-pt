@@ -9,10 +9,10 @@ ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: af6234a81e8f79424cc3b1ec4178a175d9ff0146
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706712"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de uma tarefa de importação
@@ -97,7 +97,7 @@ A ferramenta escreverá então os caminhos problemáticos do ficheiro para `9WM3
   
 Depois de disponibilizar os ficheiros necessários à ferramenta ou de atualizar o ficheiro do mapa de caminhos, pode voltar a completar a ferramenta para concluir o processo de importação.  
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
