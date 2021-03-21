@@ -4,10 +4,10 @@ description: Este artigo explica como suspender e reativar temporariamente as en
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94543056"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar entidades de mensagens (desativar)
@@ -21,9 +21,9 @@ Uma suspensão ou reativação pode ser realizada pelo utilizador ou pelo sistem
 ## <a name="queue-status"></a>Estado da fila 
 Os estados que podem ser definidos para uma **fila** são:
 
--   **Ativo** : A fila está ativa. Pode enviar mensagens e receber mensagens da fila. 
--   **Desativado** : A fila está suspensa. É equivalente a definir **o SendDisabled** e **o ReceiveDisabled**. 
--   **SendDisabled** : Não é possível enviar mensagens para a fila, mas pode receber mensagens daí enviadas. Receberá uma exceção se tentar enviar mensagens para a fila. 
+-   **Ativo**: A fila está ativa. Pode enviar mensagens e receber mensagens da fila. 
+-   **Desativado**: A fila está suspensa. É equivalente a definir **o SendDisabled** e **o ReceiveDisabled**. 
+-   **SendDisabled**: Não é possível enviar mensagens para a fila, mas pode receber mensagens daí enviadas. Receberá uma exceção se tentar enviar mensagens para a fila. 
 -   **Receber :Pode** enviar mensagens para a fila, mas não pode receber mensagens daí enviadas. Receberá uma exceção se tentar receber mensagens para a fila.
 
 
@@ -57,9 +57,9 @@ Pode alterar o estado de tópico no portal Azure. Selecione o estado atual do t�
 :::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Alterar o estado do tópico":::
 
 Os estados que podem ser definidos para um **tópico** são:
-- **Ativo** : O tópico está ativo. Pode enviar mensagens para o tema. 
-- **Desativado** : O tópico está suspenso. Não pode enviar mensagens para o assunto. 
-- **SendDisabled** : Mesmo efeito **que desativado**. Não pode enviar mensagens para o assunto. Receberá uma exceção se tentar enviar mensagens para o tema. 
+- **Ativo**: O tópico está ativo. Pode enviar mensagens para o tema. 
+- **Desativado**: O tópico está suspenso. Não pode enviar mensagens para o assunto. 
+- **SendDisabled**: Mesmo efeito **que desativado**. Não pode enviar mensagens para o assunto. Receberá uma exceção se tentar enviar mensagens para o tema. 
 
 ## <a name="subscription-status"></a>Estado de subscrição
 Pode alterar o estado de subscrição no portal Azure. Selecione o estado atual da subscrição para ver a página seguinte, que lhe permite alterar o estado. 
@@ -67,9 +67,9 @@ Pode alterar o estado de subscrição no portal Azure. Selecione o estado atual 
 :::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Alterar o estado de subscrição":::
 
 Os estados que podem ser definidos para uma **subscrição** são:
-- **Ativo** : A subscrição está ativa. Pode receber mensagens frm da subscrição.
-- **Desativado** : A subscrição está suspensa. Não pode receber mensagens da subscrição. 
-- **Receber Indisabled** : O mesmo efeito **que o deficiente**. Não pode receber mensagens da subscrição. Receberá uma exceção se tentar receber mensagens para a subscrição.
+- **Ativo**: A subscrição está ativa. Pode receber mensagens frm da subscrição.
+- **Desativado**: A subscrição está suspensa. Não pode receber mensagens da subscrição. 
+- **Receber Indisabled**: O mesmo efeito **que o deficiente**. Não pode receber mensagens da subscrição. Receberá uma exceção se tentar receber mensagens para a subscrição.
 
 | Estado do tópico | Estado de subscrição | Comportamento | 
 | ------------ | ------------------- | -------- | 

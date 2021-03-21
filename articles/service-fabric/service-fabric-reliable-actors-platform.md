@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e204b47b7fa9f528341507c315c926159d524e13
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789587"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os atores fiáveis usam a plataforma de tecido de serviço
@@ -86,7 +86,7 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 Quando se usa GUIDs/UUIDs e cordas, os valores são hashed para um Int64. No entanto, quando você está fornecendo explicitamente um Int64 para um `ActorId` , o Int64 irá mapear diretamente para uma partição sem mais haxixe. Pode usar esta técnica para controlar em que partição os atores são colocados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Gestão do estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleção de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos atores](/dotnet/api/microsoft.servicefabric.actors)

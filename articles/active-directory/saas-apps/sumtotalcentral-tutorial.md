@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o SumTotalCentral Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a SumTotalCentral | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SumTotalCentral.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 929c447d1a19b85ab8e12b45198508e5f5747c12
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Tutorial: Integração do Diretório Ativo Azure com o SumTotalCentral
@@ -127,7 +127,7 @@ Nesta secção, irá criar um utilizador de teste chamado B.Simon no portal Azur
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao SumTotalCentral.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **SumTotalCentral**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

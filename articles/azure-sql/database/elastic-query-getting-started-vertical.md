@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 90f89e72193c26b71859076b99c448a6e2d4c4c6
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98060134"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Começar com consultas de base de dados cruzadas (partição vertical) (pré-visualização)

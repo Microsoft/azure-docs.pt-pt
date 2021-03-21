@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Nuvem Atlassian Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a | da Nuvem Atlassiana Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Atlassian Cloud.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
 ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94330568"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem atlassiana com diretório ativo Azure
@@ -166,7 +166,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
       ![atributos e reclamações](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. A Atlassian Cloud espera que o identificador de **nomes** ( **Identificador único** do utilizador) seja mapeado para o e-mail do utilizador **(user.email).** Editar o **atributo Fonte** e alterá-lo para **user.mail**. Guarde as alterações à reclamação.
+      b. A Atlassian Cloud espera que o **identificador de nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.email).** Editar o **atributo Fonte** e alterá-lo para **user.mail**. Guarde as alterações à reclamação.
 
       ![ID do utilizador único](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -180,7 +180,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
       ![imagem 3](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Embora o Azure não preencha o atributo **user.mail** para utilizadores criados em Azure AD inquilinos sem licenças Microsoft 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** ( **Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte**  e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
+      b. Embora o Azure não preencha o atributo **user.mail** para utilizadores criados em Azure AD inquilinos sem licenças Microsoft 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte**  e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
 
       ![definir e-mail](./media/atlassian-cloud-tutorial/set-email.png)
          
@@ -192,10 +192,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.

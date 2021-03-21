@@ -4,10 +4,10 @@ description: Saiba como usar o CLI Azure para restaurar as ações de ficheiros 
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: a025de7bfb9db037b2008d69be7782feabb482f3
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94562326"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Restaurar ações de ficheiros Azure com o Azure CLI
@@ -27,7 +27,7 @@ No final deste artigo, aprenderá a realizar as seguintes operações com o Azur
 
 Este artigo assume que já tem uma partilha de ficheiros Azure que é apoiada pela Azure Backup. Se não tiver um, consulte [as ações de ficheiros do Back up Azure com o CLI](backup-afs-cli.md) para configurar a cópia de segurança para a sua parte do ficheiro. Para este artigo, utiliza os seguintes recursos:
 
-| Partilha de ficheiros | Conta de armazenamento | Região | Detalhes |
+| Partilha de ficheiros | Conta de armazenamento | Region | Detalhes |
 |---|---|---|---|
 | *azurefiles* | *afsaccount* | Rio Eastus | Fonte original apoiada usando Azure Backup |
 | *azurefiles1* | *afaccount1* | Rio Eastus | Fonte de destino utilizada para recuperação alternativa da localização |
@@ -75,8 +75,8 @@ Pode utilizar esta opção de restauro para restaurar a partilha completa de fic
 
 Definir os seguintes parâmetros para executar operações de restauro:
 
-* **--nome do contentor** : o nome da conta de armazenamento que acolhe a parte original do ficheiro. Para recuperar o nome ou o nome amigável do seu recipiente, utilize o comando [da lista de contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
-* **--nome do item** : O nome da partilha de ficheiros original com ressarçamento que pretende utilizar para a operação de restauro. Para recuperar o nome ou o nome amigável do seu item de reserva, utilize o comando [da lista de produtos de reserva az.](/cli/azure/backup/item#az-backup-item-list)
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte original do ficheiro. Para recuperar o nome ou o nome amigável do seu recipiente, utilize o comando [da lista de contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
+* **--nome do item**: O nome da partilha de ficheiros original com ressarçamento que pretende utilizar para a operação de restauro. Para recuperar o nome ou o nome amigável do seu item de reserva, utilize o comando [da lista de produtos de reserva az.](/cli/azure/backup/item#az-backup-item-list)
 
 ### <a name="restore-a-full-share-to-the-original-location"></a>Restaurar uma parte completa para a localização original
 
@@ -100,9 +100,9 @@ O atributo **Nome** na saída corresponde ao nome do trabalho que é criado pelo
 
 Pode utilizar esta opção para restaurar uma partilha de ficheiros para uma localização alternativa e manter a partilha original do ficheiro tal como está. Especificar os seguintes parâmetros para a recuperação alternativa da localização:
 
-* **--conta-alvo-armazenamento** : a conta de armazenamento à qual o conteúdo de ressarimento é restaurado. A conta de armazenamento do alvo deve estar no mesmo local que o cofre.
-* **--target-file-share** : A parte do ficheiro na conta de armazenamento-alvo para a qual o conteúdo de back-up é restaurado.
-* **--pasta-alvo** : A pasta sob a partilha de ficheiros para a qual os dados são restaurados. Se o conteúdo de apoio for restaurado para uma pasta de raiz, dê os valores da pasta-alvo como uma corda vazia.
+* **--conta-alvo-armazenamento**: a conta de armazenamento à qual o conteúdo de ressarimento é restaurado. A conta de armazenamento do alvo deve estar no mesmo local que o cofre.
+* **--target-file-share**: A parte do ficheiro na conta de armazenamento-alvo para a qual o conteúdo de back-up é restaurado.
+* **--pasta-alvo**: A pasta sob a partilha de ficheiros para a qual os dados são restaurados. Se o conteúdo de apoio for restaurado para uma pasta de raiz, dê os valores da pasta-alvo como uma corda vazia.
 * **--resolver conflito:** instrução se houver um conflito com os dados restaurados. Aceita **Overwrite** ou **Skip**.
 
 O exemplo a seguir utiliza [a az backup restaurar restaurar o restauro-azurefileshare](/cli/azure/backup/restore#az-backup-restore-restore-azurefileshare) com modo de *restauração* como alternativa para restaurar a partilha de ficheiros *azurefiles* na conta de armazenamento *afsaccount* para a parte de *ficheiros azurefiles1"* na conta de armazenamento *afaccount1.*
@@ -125,14 +125,14 @@ Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas indivi
 
 Definir os seguintes parâmetros para executar operações de restauro:
 
-* **--nome do contentor** : o nome da conta de armazenamento que acolhe a parte original do ficheiro. Para recuperar o nome ou o nome amigável do seu recipiente, utilize o comando [da lista de contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
-* **--nome do item** : O nome da partilha de ficheiros original com ressarçamento que pretende utilizar para a operação de restauro. Para recuperar o nome ou o nome amigável do seu item de reserva, utilize o comando [da lista de produtos de reserva az.](/cli/azure/backup/item#az-backup-item-list)
+* **--nome do contentor**: o nome da conta de armazenamento que acolhe a parte original do ficheiro. Para recuperar o nome ou o nome amigável do seu recipiente, utilize o comando [da lista de contentores de reserva az.](/cli/azure/backup/container#az-backup-container-list)
+* **--nome do item**: O nome da partilha de ficheiros original com ressarçamento que pretende utilizar para a operação de restauro. Para recuperar o nome ou o nome amigável do seu item de reserva, utilize o comando [da lista de produtos de reserva az.](/cli/azure/backup/item#az-backup-item-list)
 
 Especifique os seguintes parâmetros para os itens que pretende recuperar:
 
-* **SourceFilePath** : O caminho absoluto do ficheiro, a restaurar dentro da partilha de ficheiros, como uma cadeia. Este caminho é o mesmo caminho usado no download de [ficheiros de armazenamento az](/cli/azure/storage/file#az-storage-file-download) ou [az armazenamento de arquivos](/cli/azure/storage/file#az-storage-file-show) CLI comandos.
-* **SourceFileType** : Escolha se um diretório ou um ficheiro são selecionados. Aceita **Diretório** ou **Arquivo.**
-* **ResolveConflict** : Instrução se houver um conflito com os dados restaurados. Aceita **Overwrite** ou **Skip**.
+* **SourceFilePath**: O caminho absoluto do ficheiro, a restaurar dentro da partilha de ficheiros, como uma cadeia. Este caminho é o mesmo caminho usado no download de [ficheiros de armazenamento az](/cli/azure/storage/file#az-storage-file-download) ou [az armazenamento de arquivos](/cli/azure/storage/file#az-storage-file-show) CLI comandos.
+* **SourceFileType**: Escolha se um diretório ou um ficheiro são selecionados. Aceita **Diretório** ou **Arquivo.**
+* **ResolveConflict**: Instrução se houver um conflito com os dados restaurados. Aceita **Overwrite** ou **Skip**.
 
 ### <a name="restore-individual-files-or-folders-to-the-original-location"></a>Restaurar ficheiros ou pastas individuais para a localização original
 
@@ -156,9 +156,9 @@ O atributo **Nome** na saída corresponde ao nome do trabalho que é criado pelo
 
 Para restaurar ficheiros ou pastas específicos para uma localização alternativa, utilize o cmdlet [restaurar azurefiles de restauro az](/cli/azure/backup/restore#az-backup-restore-restore-azurefiles) com modo de restauro definido para *alternar* e especificar os seguintes parâmetros relacionados com o alvo:
 
-* **--conta-alvo-armazenamento** : a conta de armazenamento à qual o conteúdo de ressarimento é restaurado. A conta de armazenamento do alvo deve estar no mesmo local que o cofre.
-* **--target-file-share** : A parte do ficheiro na conta de armazenamento-alvo para a qual o conteúdo de back-up é restaurado.
-* **--pasta-alvo** : A pasta sob a partilha de ficheiros para a qual os dados são restaurados. Se o conteúdo de apoio for restaurado para uma pasta de raiz, dê o valor da pasta-alvo como uma corda vazia.
+* **--conta-alvo-armazenamento**: a conta de armazenamento à qual o conteúdo de ressarimento é restaurado. A conta de armazenamento do alvo deve estar no mesmo local que o cofre.
+* **--target-file-share**: A parte do ficheiro na conta de armazenamento-alvo para a qual o conteúdo de back-up é restaurado.
+* **--pasta-alvo**: A pasta sob a partilha de ficheiros para a qual os dados são restaurados. Se o conteúdo de apoio for restaurado para uma pasta de raiz, dê o valor da pasta-alvo como uma corda vazia.
 
 O exemplo a seguir restaura o ficheiro *RestoreTest.txt* originalmente presente na partilha de ficheiros *azurefiles* para uma localização alternativa: a pasta *restoredata* na partilha *de ficheiros azurefiles1* hospedada na conta de armazenamento *afaccount1.*
 

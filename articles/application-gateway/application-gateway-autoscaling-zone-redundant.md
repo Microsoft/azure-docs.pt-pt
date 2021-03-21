@@ -9,10 +9,10 @@ ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98059726"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
@@ -27,7 +27,7 @@ O novo V2 SKU inclui as seguintes melhorias:
   O despedimento de zona só está disponível quando as Zonas Azure estiverem disponíveis. Noutras regiões, todas as outras características são apoiadas. Para mais informações, consulte [Regiões e Zonas de Disponibilidade em Azure](../availability-zones/az-overview.md)
 - **Estática VIP**: O Gateway de Aplicação v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicações não muda para o ciclo de vida da implementação, mesmo depois de um reinício.  Não existe um VIP estático em v1, por isso deve utilizar o URL do gateway de aplicação em vez do endereço IP para encaminhamento de nome de domínio para Os Serviços de Aplicação através do gateway de aplicações.
 - **Reescrita do cabeçalho**: O Gateway de aplicações permite-lhe adicionar, remover ou atualizar pedidos HTTP e cabeçalhos de resposta com v2 SKU. Para obter mais informações, consulte [os cabeçalhos HTTP da Reescrita com o Gateway de Aplicações](rewrite-http-headers.md)
-- **Integração do Cofre chave**: O Gateway de Aplicação v2 suporta a integração com o Key Vault para certificados de servidor que estão anexados aos ouvintes com ativação HTTPS. Para obter mais informações, consulte [a rescisão de TLS com certificados Key Vault](key-vault-certs.md).
+- **Integração do Cofre chave**: O Gateway de Aplicação v2 suporta a integração com o Key Vault para certificados de servidor que estão anexados aos ouvintes com ativação HTTPS. Para obter mais informações, veja [Terminação TLS com certificados do Key Vault](key-vault-certs.md).
 - **Controlador de Ingress de Serviço Azure Kubernetes**: O Controlador de Entrada de Aplicação v2 Ingress permite que o Gateway de Aplicação Azure seja usado como entrada para um Serviço Azure Kubernetes (AKS) conhecido como Cluster AKS. Para mais informações, veja o que é o Controlador de Entradas de Gateway de [Aplicação?](ingress-controller-overview.md)
 - **Melhorias de desempenho**: O V2 SKU oferece até 5X melhor desempenho de descarregamento TLS em comparação com o SKU Standard/WAF.
 - **Tempo de implementação e atualização mais rápidos** O V2 SKU fornece um tempo de implementação e atualização mais rápido em comparação com o Standard/WAF SKU. Isto também inclui alterações na configuração DAA.
@@ -36,7 +36,7 @@ O novo V2 SKU inclui as seguintes melhorias:
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-A SKU Standard_v2 e WAF_v2 está disponível nas seguintes regiões: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, Canadá Central, Canadá East, East Asia, Coreia Do Sul, Coreia do Sul. , Reino Unido Sul, Índia Central, Índia Ocidental, Sul da Índia.
+A SKU Standard_v2 e WAF_v2 está disponível nas seguintes regiões: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, Canadá Central, Canadá East, East Asia, Coreia Do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul. , Reino Unido Sul, Índia Central, Índia Ocidental, Sul da Índia.
 
 ## <a name="pricing"></a>Preços
 

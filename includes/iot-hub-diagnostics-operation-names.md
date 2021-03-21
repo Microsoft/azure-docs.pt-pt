@@ -9,15 +9,15 @@ ms.date: 04/28/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 7d6718fb25b3743a50c52f11c8e19d80839b485c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95564282"
 ---
 <!-- operation names for the diag logs for IoT Hub -->
 
-|Nome da Operação|Nível|Descrição|
+|Nome da Operação|Level|Description|
 |------------- |-----|-----------|
 |Não definitadoRouteevaluation|Informações|A mensagem não pode ser avaliada com uma condição de doação. Por exemplo, se um imóvel na condição de consulta de rota estiver ausente na mensagem. Saiba mais sobre [a sintaxe de](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md)consulta de encaminhamento .|
 |RouteEvaluationError|Erro|Houve um erro na avaliação da mensagem devido a um problema com o formato da mensagem. Por exemplo, este erro será registado se o conteúdo codificar não for especificado ou o tipo de conteúdo não for válido na mensagem. Estes devem ser definidos nas propriedades do [sistema.](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties)|

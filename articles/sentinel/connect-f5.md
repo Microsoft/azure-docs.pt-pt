@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados da F5 ASM ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados DAM de F5 ao Azure Sentinel| Microsoft Docs
 description: Aprenda a utilizar o conector de dados F5 ASM para puxar os registos DE F5 ASM para o Azure Sentinel. Ver dados de F5 ASM em livros de trabalho, criar alertas e melhorar a investigação.
 services: sentinel
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 81a0f0e01827c48518f2eb1fba062e9e6536d9df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655702"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Ligue f5 ASM a Azure Sentinel
@@ -40,7 +40,7 @@ Este artigo explica como utilizar o conector de dados F5 ASM para puxar facilmen
 1. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar F5 ASM ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

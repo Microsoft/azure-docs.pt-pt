@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789707"
 ---
 # <a name="package-an-application"></a>Criar pacote de uma aplicação
@@ -225,7 +225,7 @@ Para o fornecimento do pacote, utilize a disposição externa, que requer a info
 >[!NOTE]
 > O provisionamento baseado no caminho relativo da loja de imagens não suporta `sfpkg` ficheiros atualmente. Portanto, o `sfpkg` não deve ser copiado para a loja de imagens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implementar e remover aplicações][10] descreve como usar o PowerShell para gerir instâncias de aplicação
 

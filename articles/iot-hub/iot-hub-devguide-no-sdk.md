@@ -1,5 +1,5 @@
 ---
-title: Desenvolver sem um Azure IoT SDK / Microsoft Docs
+title: Desenvolva-se sem um Azure IoT SDK | Microsoft Docs
 description: Guia do desenvolvedor - informações sobre tópicos que pode usar para construir aplicações de dispositivos e aplicações de back-end sem usar um Azure IoT SDK.
 author: robinsh
 manager: philmea
@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96461704"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Desenvolver sem usar um Azure IoT Hub SDK
@@ -54,4 +54,4 @@ Para dispositivos, recomendamos vivamente a utilização de MQTT se o seu dispos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Suporte MQTT](iot-hub-mqtt-support.md)
+* [Suporte para MQTT](iot-hub-mqtt-support.md)

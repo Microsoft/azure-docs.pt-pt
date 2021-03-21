@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
 ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96463120"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para o Azure Cosmos DB: casos de utilização da análise quase em tempo real
+# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para Azure Cosmos DB: Casos de utilização de análise quase em tempo real
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB é uma capacidade de processamento transacional e analítico híbrido nativo em nuvem (HTAP) que lhe permite executar perto de análises em tempo real sobre dados operacionais. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
@@ -133,7 +133,7 @@ Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operaç
 
 Para saber mais, consulte os seguintes documentos:
 
-* [Ligação Azure Synapse para Azure Cosmos DB](synapse-link.md) 
+* [Azure Synapse Link para o Azure Cosmos DB](synapse-link.md) 
 
 * [Arquivo Analítico do Azure Cosmos DB](analytical-store-introduction.md)
 
@@ -141,6 +141,6 @@ Para saber mais, consulte os seguintes documentos:
 
 * [Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
-* [Faísca Apache em Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
+* [Apache Spark no Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
 * [Suporte de runtime de piscina sem servidor SQL em Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

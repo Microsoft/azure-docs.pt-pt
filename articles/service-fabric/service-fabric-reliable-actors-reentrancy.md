@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 90a8e9146d18d628fbf124307f1b79b912c9cef9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789385"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrada de atores fiáveis
@@ -100,5 +100,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a reentrância na documentação de referência da [API do Ator)](/dotnet/api/microsoft.servicefabric.actors)

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
 ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94654988"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Utilizar o Azure Firewall para proteger implementações de Ambientes de Trabalho Virtuais do Windows
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Utilizar o Azure Firewall para proteger as implementações do Windows Virtual Desktop
 
 O Windows Virtual Desktop é um serviço de virtualização de desktop e aplicações que funciona no Azure. Quando um utilizador final se conecta a um ambiente de ambiente de trabalho virtual do Windows, a sessão é executada por uma piscina de anfitrião. Uma piscina de anfitriões é uma coleção de máquinas virtuais Azure que se registam no Windows Virtual Desktop como anfitriões de sessão. Estas máquinas virtuais funcionam na sua rede virtual e estão sujeitas aos controlos de segurança da rede virtual. Precisam de acesso à Internet de saída ao serviço de desktop virtual do Windows para funcionarem corretamente e podem também necessitar de acesso à Internet de saída para os utilizadores finais. O Azure Firewall pode ajudá-lo a bloquear o seu ambiente e a filtrar o tráfego de saída.
 
@@ -74,6 +74,6 @@ Poderá ser necessário configurar regras adicionais de firewall, dependendo dos
    Por predefinição, as máquinas virtuais que executam o Windows conectam-se a time.windows.com sobre a porta UDP 123 para sincronização de tempo. Crie uma regra de rede para permitir este acesso, ou para um servidor de tempo que utiliza no seu ambiente.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o Windows Virtual Desktop: [O que é o Windows Virtual Desktop?](../virtual-desktop/overview.md)

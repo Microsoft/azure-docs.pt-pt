@@ -4,17 +4,17 @@ description: Saiba como criar uma aplicação lógica que aproveite o esquema de
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 459ac43a6260e046befbe58d3531bac494903d51
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038344"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com apps lógicas
 
 Este artigo mostra-lhe como criar uma aplicação lógica que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O [esquema de alerta comum](./alerts-common-schema.md) fornece um esquema JSON padronizado e extensível em todos os seus diferentes tipos de alerta. O esquema de alerta comum é mais útil quando alavancado programáticamente – através de webhooks, runbooks e aplicações lógicas. Neste artigo, demonstramos como uma única aplicação lógica pode ser da autoria de todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos programáticos. A aplicação lógica descrita neste artigo cria variáveis bem definidas para os [campos 'essenciais'](alerts-common-schema-definitions.md#essentials)e também descreve como pode lidar com a lógica específica [do tipo de alerta.](alerts-common-schema-definitions.md#alert-context)
 

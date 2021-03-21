@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a autenticação do utilizador netskope para o fornecimento automático de utilizadores com diretório ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar a autenticação do utilizador netskope para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para fornecimento e desavisionamento automática de contas de utilizador para a Autenticação do Utilizador netskope.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357477"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Tutorial: Configurar a autenticação do utilizador netskope para o fornecimento automático do utilizador
@@ -88,7 +88,7 @@ Antes de configurar a Autenticação do Utilizador netskope para o fornecimento 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **a Autenticação do Utilizador netskope** , selecione **a Autenticação do Utilizador netskope** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **a Autenticação do Utilizador netskope**, selecione **a Autenticação do Utilizador netskope** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Autenticação do utilizador netskope na lista de resultados](common/search-new-app.png)
 

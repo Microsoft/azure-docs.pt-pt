@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490786"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Utilize o emulador Azurite para o desenvolvimento local do armazenamento Azure
@@ -148,7 +148,7 @@ Este comando diz à Azurite para armazenar todos os dados num determinado diret�
 
 Esta secção detalha os interruptores da linha de comando disponíveis no lançamento do Azurite.
 
-### <a name="help"></a>Ajuda
+### <a name="help"></a>Help
 
 **Opcional** - Obtenha ajuda de linha de comando utilizando o `-h` ou `--help` comutador.
 
@@ -480,7 +480,7 @@ No Explorador de Armazenamento, ligue-se a Azurite seguindo estes passos:
 
 #### <a name="connect-to-azurite-using-https"></a>Ligue-se ao Azurite utilizando HTTPS
 
-Por predefinição, o Storage Explorer não abrirá um ponto final HTTPS que utiliza um certificado auto-assinado. Se estiver a executar a Azurite com HTTPS, provavelmente está a usar um certificado auto-assinado. No Explorador de Armazenamento, importar certificados SSL através do **Edit**  ->  diálogo editar certificados de importação de**certificados.**  ->  **Import Certificates**
+Por predefinição, o Storage Explorer não abrirá um ponto final HTTPS que utiliza um certificado auto-assinado. Se estiver a executar a Azurite com HTTPS, provavelmente está a usar um certificado auto-assinado. No Explorador de Armazenamento, importar certificados SSL através do   ->  diálogo editar certificados de importação de **certificados.**  ->  
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Certificado de importação para explorador de armazenamento
 

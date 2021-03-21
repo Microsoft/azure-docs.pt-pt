@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
 ms.openlocfilehash: cb0a90db0595c655191006969071bc5b9cceaa75
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337598"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutorial: Use APIs de REPOUSO para copiar dados para o armazenamento de blob da caixa de dados Azure  
@@ -85,7 +85,7 @@ Utilize o portal Azure para descarregar o certificado.
 
 1. Inicie sessão no portal do Azure.
 2. Aceda à sua encomenda de Caixa de Dados e navegue para os **detalhes do Dispositivo General >**.
-3. Sob **as credenciais do Dispositivo,** aceda ao acesso da **API** ao dispositivo. Clique **em Baixar**. Esta ação descarrega um ficheiro de certificado **\<your order name> .cer.** **Guarde** este ficheiro. Irá instalar este certificado no cliente ou no computador anfitrião que utilizará para ligar ao dispositivo.
+3. Sob **as credenciais do Dispositivo,** aceda ao acesso da **API** ao dispositivo. Clique em **Transferir**. Esta ação descarrega um ficheiro de certificado **\<your order name> .cer.** **Guarde** este ficheiro. Irá instalar este certificado no cliente ou no computador anfitrião que utilizará para ligar ao dispositivo.
 
     ![Certificado de descarregamento no portal Azure](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
 
@@ -109,7 +109,7 @@ Siga estes passos para importar o `.cer` ficheiro para a loja raiz de um cliente
 #### <a name="use-windows-server-ui"></a>Use o Servidor do Windows UI
 
 1. Clique com o botão direito no `.cer` ficheiro e selecione **o certificado de instalação.** Esta ação inicia o Certificado De Importação De Feiticeiro.
-2. Para **localizar a Loja** , selecione Máquina **Local** e, em seguida, clique em **Seguinte**.
+2. Para **localizar a Loja**, selecione Máquina **Local** e, em seguida, clique em **Seguinte**.
 
     ![Assistente de Importação de Certificado, Servidor do Windows](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
@@ -171,7 +171,7 @@ O primeiro passo é criar um recipiente, porque as bolhas são sempre carregadas
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento na qual deseja criar o recipiente blob.
-3. Clique à direita em **Recipientes Blob** , e a partir do menu de contexto, selecione **Create Blob Container**.
+3. Clique à direita em **Recipientes Blob**, e a partir do menu de contexto, selecione **Create Blob Container**.
 
    ![Menu de contexto de recipientes blob, criar recipiente blob](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 

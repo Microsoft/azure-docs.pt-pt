@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
 ms.openlocfilehash: 439167f29bb53d4a6e90b95826faa56e3c3170da
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94563363"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Amostras de Azure CLI para Azure SQL Database e SQL Managed Instance 
@@ -35,7 +35,7 @@ Pode configurar a Base de Dados Azure SQL e a SQL Managed Instance utilizando o 
 
 A tabela seguinte inclui links para exemplos de scripts Azure CLI para gerir bases de dados individuais e aginhadas na Base de Dados Azure SQL. 
 
-|Área|Descrição|
+|Área|Description|
 |---|---|
 |**Criar bases de dados na Base de Dados Azure SQL**||
 | [Criar uma base de dados e configurar uma regra de firewall](scripts/create-and-configure-database-cli.md) | Cria uma Base de Dados SQL e configura uma regra de firewall ao nível do servidor. |
@@ -63,7 +63,7 @@ Saiba mais sobre a [AZure CLI API de uma única base de dados.](single-database-
 
 A tabela seguinte inclui links para exemplos de scripts Azure CLI para Azure SQL Managed Instance.
 
-|Área|Descrição|
+|Área|Description|
 |---|---|
 | **Criar uma sql gestd managing instance**||
 | [Criar uma sql gestd managing instance](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Cria uma SQL Managed Instance. |

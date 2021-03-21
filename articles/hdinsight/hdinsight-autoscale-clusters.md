@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
 ms.openlocfilehash: 130a5a58fc7dab6f94c011cf9764743f9114e48a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942640"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
@@ -221,7 +221,7 @@ O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as ativ
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Descrição |
+| Estado do cluster | Description |
 |---|---|
 | Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |
@@ -277,6 +277,6 @@ No caso de agrupamentos de consultas interativos com uma escala automática, um 
 
 Se o serviço de consulta interativa for reiniciado manualmente, é necessário alterar manualmente a `num_llap_node` configuração (o número de nós(s) necessários para executar o daemon hive interactive) em *hive-interactive-env avançado* para corresponder à contagem atual do nó de trabalhador ativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre as diretrizes para dimensionamento manualmente em [diretrizes de escala](hdinsight-scaling-best-practices.md)

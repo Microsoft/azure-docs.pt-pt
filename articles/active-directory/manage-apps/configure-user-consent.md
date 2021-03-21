@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101643614"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar a forma como os utilizadores finais concedem consentimento às aplicações
@@ -81,7 +81,7 @@ Para permitir o consentimento do utilizador, escolha qual a política de consent
 
 `{consent-policy-id}`Substitua-o pela identificação da apólice que gostaria de aplicar. Pode escolher uma [política de consentimento de aplicações personalizadas](manage-app-consent-policies.md#create-a-custom-app-consent-policy) que criou ou pode escolher entre as seguintes políticas incorporadas:
 
-| ID | Descrição |
+| ID | Description |
 |:---|:------------|
 | microsoft-user-default-low | **Permitir o consentimento do utilizador para apps de editores verificados, para permissões selecionadas**<br /> Permitir o consentimento limitado do utilizador apenas para apps de editores e aplicações verificadas registadas no seu inquilino, e apenas para permissões que classifica como "Baixo impacto". (Não se esqueça de [classificar permissões](configure-permission-classifications.md) para selecionar quais as permissões a que os utilizadores estão autorizados a consentir.) |
 | microsoft-user-default-legacy | **Permitir o consentimento do utilizador para apps**<br /> Esta opção permite que todos os utilizadores consintam em qualquer permissão que não exija consentimento administrativo, para qualquer aplicação |
@@ -145,7 +145,7 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
 
 1. Compreender o valor das definições:
 
-    | Definição       | Tipo         | Descrição  |
+    | Definição       | Tipo         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Booleano |  Sinalização indicando se o consentimento do utilizador será bloqueado quando for detetado um pedido de risco. |
 

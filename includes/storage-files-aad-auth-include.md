@@ -9,10 +9,10 @@ ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 84fa97ec964d490eb9571c7e030704562a4a81d0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95561808"
 ---
 [A Azure Files](../articles/storage/files/storage-files-introduction.md) suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através [dos serviços de domínio do diretório ativo (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) e [do Azure Ative Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md). Este artigo centra-se na forma como as ações de ficheiros Azure podem usar serviços de domínio, quer no local, quer no Azure, para apoiar o acesso baseado na identidade às ações de ficheiros Azure sobre a SMB. Permitir o acesso baseado na identidade das suas ações de ficheiros Azure permite-lhe substituir os servidores de ficheiros existentes por ações de ficheiros Azure sem substituir o seu serviço de diretório existente, mantendo o acesso sem emenda do utilizador às ações. 

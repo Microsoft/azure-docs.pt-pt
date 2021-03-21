@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678134"
 ---
 # <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Serviços meteorológicos Azure Maps (Pré-visualização) frequentemente questionados (FAQ)
@@ -91,7 +91,7 @@ Planeamos criar um módulo de serviços para Java/Android semelhante ao módulo 
 
 **O Azure Maps Power BI Visual suporta azulejos meteorológicos Azure Maps?**
 
-Yes. Para aprender a migrar radares e azulejos de satélite infravermelhos para o visual do Microsoft Power BI, consulte [Adicione uma camada de azulejo ao power bi visual](./power-bi-visual-add-tile-layer.md). 
+Sim. Para aprender a migrar radares e azulejos de satélite infravermelhos para o visual do Microsoft Power BI, consulte [Adicione uma camada de azulejo ao power bi visual](./power-bi-visual-add-tile-layer.md). 
 
 **Como interpreto as cores usadas para radares e azulejos de satélite?**
 
@@ -99,11 +99,11 @@ O [artigo do conceito](./weather-services-concepts.md#radar-and-satellite-imager
  
 **Posso criar animações de radar e azulejos por satélite?**
 
-Yes. Além de radares em tempo real e azulejos de satélite, os clientes do Azure Maps podem solicitar azulejos passados e futuros para melhorar visualizações de dados com sobreposições de mapas. Isto pode ser feito chamando diretamente [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) ou solicitando azulejos através da web SDK Azure Maps. As telhas de radar estão fornecidas até 1,5 horas no passado, e por até 2 horas no futuro. Os azulejos estão disponíveis em intervalos de 5 minutos. Os azulejos infravermelhos são fornecidos até 3 horas no passado, e estão disponíveis em intervalos de 10 minutos. Para obter mais informações, consulte a amostra de código de animação de azulejos [meteorológicos](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)de código de origem aberta.  
+Sim. Além de radares em tempo real e azulejos de satélite, os clientes do Azure Maps podem solicitar azulejos passados e futuros para melhorar visualizações de dados com sobreposições de mapas. Isto pode ser feito chamando diretamente [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) ou solicitando azulejos através da web SDK Azure Maps. As telhas de radar estão fornecidas até 1,5 horas no passado, e por até 2 horas no futuro. Os azulejos estão disponíveis em intervalos de 5 minutos. Os azulejos infravermelhos são fornecidos até 3 horas no passado, e estão disponíveis em intervalos de 10 minutos. Para obter mais informações, consulte a amostra de código de animação de azulejos [meteorológicos](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)de código de código de código de código de origem aberta.  
 
 **Oferece ícones para diferentes condições meteorológicas?**
 
-Yes. Pode encontrar ícones e respetivos códigos [aqui.](./weather-services-concepts.md#weather-icons) Note que apenas algumas das APIs do serviço meteorológico (pré-visualização), tais como  [Get Current Conditions API,](/rest/api/maps/weather/getcurrentconditionspreview)devolva o *iconCode* na resposta. Para obter mais informações, consulte a amostra de [código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)aberto das Condições Meteorológicas Atuais .
+Sim. Pode encontrar ícones e respetivos códigos [aqui.](./weather-services-concepts.md#weather-icons) Note que apenas algumas das APIs do serviço meteorológico (pré-visualização), tais como  [Get Current Conditions API,](/rest/api/maps/weather/getcurrentconditionspreview)devolva o *iconCode* na resposta. Para obter mais informações, consulte a amostra de código de [código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)de código de código aberto das Condições Meteorológicas Atuais .
 
 ## <a name="next-steps"></a>Passos seguintes
 

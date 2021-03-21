@@ -1,5 +1,5 @@
 ---
-title: Dados Sensíveis - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
+title: Dados sensíveis - Ferramenta de Modelação de Ameaças da Microsoft - Azure | Microsoft Docs
 description: Saiba mais sobre a mitigação de dados sensíveis na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518129"
 ---
-# <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados sensíveis / Mitigações 
+# <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: | de dados sensíveis Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança da máquina** | <ul><li>[Certifique-se de que os binários são obfuscados se contiverem informações sensíveis](#binaries-info)</li><li>[Considere usar o Sistema de Ficheiros Encriptados (EFS) usado para proteger dados confidenciais específicos do utilizador](#efs-user)</li><li>[Certifique-se de que os dados sensíveis armazenados pela aplicação no sistema de ficheiros são encriptados](#filesystem)</li></ul> | 
@@ -173,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Sql Azure, OnPrem |
 | **Atributos**              | Versão SQL - V12, VERSÃO SQL - MsSQL2016 |
-| **Referências**              | [Mascaramento dinâmico de dados](/sql/relational-databases/security/dynamic-data-masking) |
+| **Referências**              | [Mascaramento de Dados Dinâmicos](/sql/relational-databases/security/dynamic-data-masking) |
 | **Passos** | O objetivo da mascaração dinâmica de dados é limitar a exposição de dados sensíveis, impedindo os utilizadores que não devem ter acesso aos dados de visualização dos mesmos. A mascaração dinâmica de dados não visa impedir que os utilizadores de bases de dados se conectem diretamente à base de dados e executem consultas exaustivas que exponham peças dos dados sensíveis. A máscara dinâmica de dados é complementar a outras funcionalidades de segurança do SQL Server (auditoria, encriptação, segurança ao nível da linha...) e é altamente recomendado utilizar esta funcionalidade em conjunto com eles, além de melhor proteger os dados sensíveis na base de dados. Por favor, note que esta funcionalidade é suportada apenas pelo SQL Server a partir de 2016 e Azure SQL Database. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Certifique-se de que as palavras-passe são armazenadas em formato de haxixe salgado

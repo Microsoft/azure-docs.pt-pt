@@ -1,5 +1,5 @@
 ---
-title: Instalar Atualizações no StorSimple Virtual Array Microsoft Docs
+title: Instale atualizações em | de matriz virtual StorSimple Microsoft Docs
 description: Descreve como utilizar o UI web StorSimple Virtual Array para aplicar o Update 0.4 utilizando o portal Azure e o método de correção em calor.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: cc458f91a9b67ddd54e706575d29b8fc8618a2f7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534301"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Instale atualização 0.4 no seu StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este artigo descreve os passos necessários para instalar o Update 0.4 no seu StorSimple Virtual Array através da UI web local e através do portal Azure. Tem de aplicar atualizações de software ou hotfixes para manter o seu StorSimple Virtual Array atualizado. 
 
@@ -62,7 +62,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
 5. Clique em **Ver Cesto**.
 
-6. Clique **em Baixar**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. As atualizações são transferidas para a localização especificada e colocadas numa sub-pasta com o mesmo nome que a atualização. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
+6. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. As atualizações são transferidas para a localização especificada e colocadas numa sub-pasta com o mesmo nome que a atualização. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
 
 7. Abra a pasta copiada, deverá ver um ficheiro pacote autónomo da Microsoft Update `WindowsTH-KB3011067-x64` . Este ficheiro é utilizado para instalar a atualização ou o hotfix.
 
@@ -74,7 +74,7 @@ Utilize este método para instalar atualizações num dispositivo em execução 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou o hotfix
 
-1. Na UI web local, **Maintenance** aceda à  >  **Atualização de Software de** Manutenção .
+1. Na UI web local, aceda à  >  **Atualização de Software de** Manutenção .
    
     ![A screenshot mostra a atualização de Software selecionada a partir do menu Manutenção.](./media/storsimple-virtual-array-install-update/update1m.png)
 
@@ -90,7 +90,7 @@ Utilize este método para instalar atualizações num dispositivo em execução 
    
     ![A screenshot mostra uma mensagem de sucesso para a atualização.](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo se atualizou, na UI web local, vá à **Maintenance**  >  **Atualização de Software** de Manutenção . A versão do software visualizada deve ser **10.0.0.0.0.10289.0** para a atualização 0.4.
+5. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo se atualizou, na UI web local, vá à   >  **Atualização de Software** de Manutenção . A versão do software visualizada deve ser **10.0.0.0.0.10289.0** para a atualização 0.4.
    
    > [!NOTE]
    > Reportamos as versões de software de uma forma ligeiramente diferente na UI web local e no portal Azure. Por exemplo, o web UI local reporta **10.0.0.0.0.10289** e o portal Azure reporta **10.0.10289.0** para a mesma versão.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: eaa44ae9d8bf4d723944da695d9a063937b7e020
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98061075"
 ---
 Quando configura os recursos Azure, um pequeno vídeo de tráfego rodoviário é copiado para o Linux VM em Azure que você está usando como o dispositivo IoT Edge. Este quickstart utiliza o ficheiro de vídeo para simular uma transmissão em direto.

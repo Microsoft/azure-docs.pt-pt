@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94649267"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política IPsec/IKE para ligações VPN S2S ou VNet a VNet
@@ -34,8 +34,9 @@ Este artigo fornece instruções para criar e configurar uma política IPsec/IKE
 
 > [!IMPORTANT]
 > 1. Note que a política IPsec/IKE funciona apenas nos seguintes SKUs de gateway:
->    * ***VpnGw1, VpnGw2, VpnGw3** _ (baseado em rota) _ ***Standard** _ e _*_HighPerformance_*_ (baseado em rotas)
-> 2. Só é possível especificar _*_uma_*_ combinação de política para uma determinada ligação.
+>    * ***VpnGw1, VpnGw2, VpnGw3*** (baseado em rota)
+>    * ***Standard** _ e _ *_HighPerformance_** (baseado em rotas)
+> 2. Só pode especificar ***uma*** combinação de políticas para uma determinada ligação.
 > 3. Deve especificar todos os algoritmos e parâmetros tanto para o IKE (Modo Principal) como para o IPsec (Modo Rápido). Não é permitida a especificação da política parcial.
 > 4. Consulte as especificações do seu fornecedor de dispositivos VPN para garantir que a política é suportada nos seus dispositivos VPN no local. As ligações S2S ou VNet-to-VNet não podem determinar se as políticas são incompatíveis.
 
@@ -55,7 +56,7 @@ As instruções deste artigo ajudam-no a configurar e configurar as políticas I
 
 A tabela a seguir lista os algoritmos criptográficos suportados e os pontos fortes dos clientes:
 
-| _ *IPsec/IKEv2**  | **Opções**    |
+| **IPsec/IKEv2**  | **Opções**    |
 | ---  | --- 
 | Encriptação IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integridade do IKEv2  | SHA384, SHA256, SHA1, MD5  |
@@ -114,7 +115,7 @@ Esta secção acompanha-o através dos passos de criação de uma ligação S2S 
 
 Consulte [Criar uma ligação S2S VPN](vpn-gateway-create-site-to-site-rm-powershell.md) para obter instruções mais detalhadas passo a passo para criar uma ligação S2S VPN.
 
-### <a name="before-you-begin"></a><a name="before"></a>Before you begin
+### <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Instale os cmdlets PowerShell do Gestor de Recursos Azure. Consulte [a visão geral do Azure PowerShell](/powershell/azure/) para obter mais informações sobre a instalação dos cmdlets PowerShell.
@@ -399,7 +400,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 Pode utilizar o mesmo script para verificar se a apólice foi removida da ligação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [os dispositivos VPN baseados em políticas para ligar vários dispositivos VPN baseados em políticas](vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter mais detalhes sobre os seletores de tráfego baseados em políticas.
 

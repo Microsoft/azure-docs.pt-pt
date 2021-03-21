@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016833"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contentor de perfil com ficheiros Azure NetApp e DS AD
@@ -166,7 +166,7 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
 
 5. Selecione a caixa de verificação ao lado **de que concordo com os termos e condições da licença**.
 
-6. Selecione **Install** (Instalar).
+6. Selecione **Instalar**.
 
 7. Navegue para **C: \\ Ficheiros de programa \\ FSLogix \\ Apps** para confirmar o agente instalado.
 

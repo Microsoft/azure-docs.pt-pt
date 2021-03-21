@@ -1,5 +1,5 @@
 ---
-title: Padrão de aplicação web multi-inquilinos / Microsoft Docs
+title: Padrão de aplicação web multi-inquilino | Microsoft Docs
 description: Encontre visões arquitetónicas e padrões de design que descrevem como implementar uma aplicação web multi-inquilino em Azure.
 services: ''
 documentationcenter: .net
@@ -16,10 +16,10 @@ ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95524101"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações Multi-inquilino no Azure
