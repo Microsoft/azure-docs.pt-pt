@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: 89a2a659e195afcae336c930a101ed0c0b470cb4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715416"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar para o local aglomerados Apache Hadoop para Azure HDInsight
@@ -21,7 +21,7 @@ Este artigo dá recomendações para armazenamento de dados em sistemas Azure HD
 
 A estrutura de diretório do Sistema de Ficheiros Apache Hadoop (HDFS) no local pode ser recriada no armazenamento de Azure Blob ou no Azure Data Lake Storage. Em seguida, pode eliminar com segurança os clusters HDInsight que são utilizados para a computação sem perder os dados do utilizador. Ambos os serviços podem ser utilizados como o sistema de ficheiros predefinidos e um sistema de ficheiros adicional para um cluster HDInsight. O cluster HDInsight e a conta de armazenamento devem ser alojados na mesma região.
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 Os clusters HDInsight podem utilizar o recipiente blob no Azure Storage como o sistema de ficheiros predefinido ou um sistema de ficheiros adicional. A conta de armazenamento standard tier é suportada para utilização com clusters HDInsight. O primeiro escalão não é apoiado. O contentor de blobs predefinido armazena informações específicas do cluster, como o histórico de tarefas e os registos. A partilha de um recipiente blob como o sistema de ficheiros predefinidos para vários clusters não é suportado.
 
@@ -31,7 +31,7 @@ O Armazenamento Azure pode ser geo-replicado. Embora a geo-replicação dê recu
 
 Um dos seguintes formatos pode ser usado para aceder a dados armazenados no Azure Storage:
 
-|Formato de Acesso a Dados |Descrição |
+|Formato de Acesso a Dados |Description |
 |---|---|
 |`wasb:///`|Aceder ao armazenamento predefinido utilizando uma comunicação não encriptada.|
 |`wasbs:///`|Aceder ao armazenamento predefinido usando comunicação encriptada.|
@@ -153,7 +153,7 @@ O HDInsight por padrão tem acesso total aos dados nas contas de Armazenamento A
 
 1. Abra o ficheiro  [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e altere os seguintes valores:
 
-    |Propriedade Token|Descrição|
+    |Propriedade Token|Description|
     |---|---|
     |policy_name|O nome a usar para a política armazenada para criar.|
     |storage_account_name|O nome da sua conta de armazenamento.|

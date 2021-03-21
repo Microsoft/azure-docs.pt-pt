@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.openlocfilehash: db8977e484e8d1f2cf4b30427d47ba45969f2147
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101654464"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory (AD) integração única (SSO) com F5
@@ -262,7 +262,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 * **Passo 3: Delegação SPN (para a Conta de Serviço de Aplicações)**
 
     * Configurar a delegação adequada para a conta da delegação F5.
-    * No exemplo abaixo, a conta da delegação APM está a ser configurada para OCD para frp-App1.superdemo.live app.
+    * No exemplo abaixo, a conta da delegação APM está a ser configurada para o KCD para FRP-App1.superdemo.live app.
 
         ![Screenshot que mostra o separador APM Delegatio Account Properties > Delegação.](./media/advance-kerbf5-tutorial/configure25.png)
 

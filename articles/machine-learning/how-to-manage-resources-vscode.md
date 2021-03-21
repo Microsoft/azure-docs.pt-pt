@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 11/16/2020
 ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010678"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
@@ -32,7 +32,7 @@ Saiba como gerir os recursos de Aprendizagem automática Azure com a extensão d
 
 Todos os processos abaixo assumem que está na vista Azure Machine Learning no Código do Estúdio Visual. Para lançar a extensão, selecione o ícone **Azure** na barra de atividade do Código VS.
 
-## <a name="workspaces"></a>Áreas de trabalho
+## <a name="workspaces"></a>Áreas de Trabalho
 
 Para mais informações, consulte [espaços de trabalho.](concept-workspace.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Opções de monitorização - Azure Dedicado HSM / Microsoft Docs
+title: Opções de monitorização - Azure Dedicado HSM | Microsoft Docs
 description: Visão geral das opções de monitorização e monitorização do HSM dedicados à Azure
 services: dedicated-hsm
 author: msmbaldwin
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 4c3d062d615208177fcb9c7df511f598613bf6a6
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092708"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Monitorização dedicada ao HSM da Azure
@@ -40,7 +40,7 @@ Qualquer uma das técnicas disponíveis permitiria a um cliente identificar prob
 
 Recomenda-se que todos os conceitos-chave do serviço, como a alta disponibilidade e segurança, por exemplo, sejam bem compreendidos antes de qualquer fornecimento de dispositivos e design de aplicações ou implementação. Outros tópicos de nível de conceito:
 
-* [Elevada Disponibilidade](high-availability.md)
+* [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
 * [Rede](networking.md)
 * [Suportabilidade](supportability.md)

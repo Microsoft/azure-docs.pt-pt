@@ -12,10 +12,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3f92bfe98a45117264c957481a75493de652abc9
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97508106"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do Azure Ative Directory numa política personalizada do Azure Ative Directory B2C
@@ -248,12 +248,12 @@ O seguinte perfil técnico elimina uma conta de utilizador social utilizando **o
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Sim | A operação a ser realizada. Valores possíveis: `Read` `Write` , , ou `DeleteClaims` `DeleteClaimsPrincipal` . |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Mente um erro se o objeto do utilizador não existir no diretório. Valores possíveis: `true` ou `false` . |
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Levante um erro se o objeto do utilizador já existir. Valores possíveis: `true` ou `false` .|
-| AplicaçãoObjectid | Não | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para obter mais informações, consulte [Utilizar atributos personalizados.](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
-| ClientId | Não | O identificador de cliente para aceder ao inquilino como um terceiro. Para obter mais informações, consulte [Utilizar atributos personalizados numa política de edição de perfil personalizado](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| Operação | Yes | A operação a ser realizada. Valores possíveis: `Read` `Write` , , ou `DeleteClaims` `DeleteClaimsPrincipal` . |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | No | Mente um erro se o objeto do utilizador não existir no diretório. Valores possíveis: `true` ou `false` . |
+| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Levante um erro se o objeto do utilizador já existir. Valores possíveis: `true` ou `false` .|
+| AplicaçãoObjectid | No | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para obter mais informações, consulte [Utilizar atributos personalizados.](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
+| ClientId | No | O identificador de cliente para aceder ao inquilino como um terceiro. Para obter mais informações, consulte [Utilizar atributos personalizados numa política de edição de perfil personalizado](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
+| IncluirClaimResolvingInClaimsHandling  | No | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 
 ### <a name="ui-elements"></a>Elementos da IU
  
@@ -261,8 +261,8 @@ As seguintes definições podem ser utilizadas para configurar a mensagem de err
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageIfClaimsPrincipalAlreadyExists | Não | Se for levantado um erro (ver RaiseErrorIfClaimsPrincipalAlreadyExists atribua descrição), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador já existir. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Não | Se for levantado um erro (ver descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. |
+| UserMessageIfClaimsPrincipalAlreadyExists | No | Se for levantado um erro (ver RaiseErrorIfClaimsPrincipalAlreadyExists atribua descrição), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador já existir. |
+| UserMessageIfClaimsPrincipalDoesNotExist | No | Se for levantado um erro (ver descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

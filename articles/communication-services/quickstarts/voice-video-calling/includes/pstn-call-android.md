@@ -2,14 +2,14 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/14/2020
+ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: ee48311647a73c08f8784792cc5d81cb47279c9d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 96f5fc868d4fa090848096174eb6fcdd34ef8388
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750915"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "104729486"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -1,5 +1,5 @@
 ---
-title: Renderizar dados personalizados num mapa raster Microsoft Azure Maps
+title: Torne os dados personalizados num mapa raster | Microsoft Azure Maps
 description: Aprenda a adicionar pinos, rótulos e formas geométricas a um mapa raster. Veja como utilizar o serviço de imagem estática no Azure Maps para este fim.
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906085"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa raster

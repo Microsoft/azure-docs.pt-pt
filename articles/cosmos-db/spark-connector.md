@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
 ms.openlocfilehash: 06498a27b95a72148497efd2d1e600d802414359
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359562"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelere a análise de big data usando o conector Apache Spark para Azure Cosmos DB
@@ -242,7 +242,7 @@ Crie uma biblioteca utilizando o seu espaço de trabalho Databricks seguindo as 
 
 ### <a name="using-spark-cli"></a>Usando spark-cli
 
-Para trabalhar com o conector utilizando o spark-cli (isto é, `spark-shell` ), pode utilizar o parâmetro com as `pyspark` `spark-submit` `--packages` [coordenadas maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11)do conector .
+Para trabalhar com o conector utilizando o spark-cli (isto é, `spark-shell` , , ), pode utilizar o parâmetro com as `pyspark` `spark-submit` `--packages` [coordenadas maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11)do conector .
 
 ```sh
 spark-shell --master yarn --packages "com.microsoft.azure:azure-cosmosdb-spark_2.4.0_2.11:1.4.0"

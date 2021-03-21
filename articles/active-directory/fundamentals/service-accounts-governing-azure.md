@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418186"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587904"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Contas de serviço AZure AD governando
 
@@ -53,7 +53,7 @@ Recomendamos as seguintes práticas para privilégios de conta de serviço.
 
 * Não atribuir funções incorporadas a contas de serviço. Em vez disso, utilize o [modelo de concessão de permissão OAuth2 para o Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
 
-* Se o diretor de serviço tiver de ser atribuído a um papel privilegiado, considere atribuir um [papel personalizado](https://docs.microsoft.com/azure/active-directory/roles/custom-create) com privilégios específicos e necessários, de forma limitada ao tempo.
+* Se o diretor de serviço tiver de ser atribuído a um papel privilegiado, considere atribuir um [papel personalizado](../roles/custom-create.md) com privilégios específicos e necessários, de forma limitada ao tempo.
 
 * Não inclua contas de serviço como membros de quaisquer grupos com permissões elevadas. 
 
@@ -63,10 +63,10 @@ Recomendamos as seguintes práticas para privilégios de conta de serviço.
    ou usar  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Utilize os âmbitos OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) para limitar a funcionalidade que uma conta de serviço pode aceder a um recurso.
+* [Utilize os âmbitos OAuth 2.0](../develop/v2-permissions-and-consent.md) para limitar a funcionalidade que uma conta de serviço pode aceder a um recurso.
 * Os principais serviços e identidades geridas podem utilizar os âmbitos OAuth 2.0 num contexto delegado que se esteja a fazer passar por um utilizador assinado ou como conta de serviço no contexto da aplicação. No contexto da candidatura não está assinado.
 
-* Verifique o pedido de recursos das contas de serviço de âmbito para garantir que são apropriados. Por exemplo, se uma conta estiver a solicitar Ficheiros.ReadWrite.All, avalie se realmente precisa apenas de File.Read.All. Para obter mais informações sobre permissões, consulte a referência de [permissão do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+* Verifique o pedido de recursos das contas de serviço de âmbito para garantir que são apropriados. Por exemplo, se uma conta estiver a solicitar Ficheiros.ReadWrite.All, avalie se realmente precisa apenas de File.Read.All. Para obter mais informações sobre permissões, consulte a referência de [permissão do Microsoft Graph](/graph/permissions-reference).
 
 * Certifique-se de que confia no desenvolvedor da aplicação ou na API com o acesso solicitado aos seus recursos.
 
@@ -78,9 +78,9 @@ Recomendamos as seguintes práticas para privilégios de conta de serviço.
 
 Assim que tiver uma compreensão clara da finalidade, âmbito e permissões necessárias, crie a sua conta de serviço. 
 
-[Criar e utilizar identidades geridas](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Criar e utilizar identidades geridas](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[Criar e utilizar os principais de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[Criar e utilizar os principais de serviço](../develop/howto-create-service-principal-portal.md)
 
 Use uma identidade gerida sempre que possível. Se não puder utilizar uma identidade gerida, utilize um diretor de serviço. Se não puder utilizar um titular de serviço, então e só então utilize uma conta de utilizador Azure.
 
@@ -100,7 +100,7 @@ Monitorize proativamente as suas contas de serviço para garantir que os padrõe
 
 * Utilizando o Azure AD Sign-In Logs no Portal AD Azure.
 
-* Exportando o Azure AD Sign-In Logs para [Azure Storage](https://docs.microsoft.com/azure/storage/), [Azure Event Hubs,](https://docs.microsoft.com/azure/event-hubs/)ou [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
+* Exportando o Azure AD Sign-In Logs para [Azure Storage](../../storage/index.yml), [Azure Event Hubs,](../../event-hubs/index.yml)ou [Azure Monitor](../../azure-monitor/logs/data-platform-logs.md).
 
 
 ![Imagem de tela mostrando o ecrã principal de inscrição do serviço.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -172,7 +172,7 @@ Estabeleça um processo de revisão para garantir que as contas de serviço são
 
 **Os processos de desprovisionamento devem incluir as seguintes tarefas.**
 
-1. Uma vez desprovisionada a aplicação ou script associado, [monitorize as entradas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) e o acesso aos recursos pela conta de serviço.
+1. Uma vez desprovisionada a aplicação ou script associado, [monitorize as entradas](../reports-monitoring/concept-sign-ins.md#sign-ins-report) e o acesso aos recursos pela conta de serviço.
 
    * Se a conta ainda estiver ativa, determine como está a ser usada antes de tomar os passos subsequentes.
  
@@ -196,4 +196,3 @@ Para obter mais informações sobre a segurança das contas de serviço da Azure
 
  
 
- 

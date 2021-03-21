@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com o WEDO Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o WEDO | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o WEDO.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2020
 ms.author: jeedes
 ms.openlocfilehash: 529c4e6433d16f9d70530ba516b5ec1426806984
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519236"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wedo"></a>Tutorial: Azure Ative Directory integração única (SSO) com o WEDO
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação WEDO espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------ | --------- |
     | e-mail | user.email |
     | nomePróprio | user.firstName |
@@ -124,7 +124,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao WEDO.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **WEDO**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -143,7 +143,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 Siga estes passos para ativar o Azure AD SSO no WEDO.
 
 1. Faça login NO [WEDO](https://login.wedo.swiss/). É preciso ter funções de **administrador.**
-1. Nas definições de Perfil, selecione a **autenticação** do menu nas **definições de rede**de secção .
+1. Nas definições de Perfil, selecione a **autenticação** do menu nas **definições de rede** de secção .
 1. Na página **de autenticação SAML,** execute os seguintes passos:
 
    ![Ligação de autenticação SAML](media/wedo-tutorial/network-security-authentification.png)

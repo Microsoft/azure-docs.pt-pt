@@ -1,13 +1,13 @@
 ---
-title: Adicione proprietários e utilizadores em Azure DevTest Labs Microsoft Docs
+title: Adicione proprietários e utilizadores em Azure DevTest Labs| Microsoft Docs
 description: Adicione proprietários e utilizadores em Azure DevTest Labs usando o portal Azure ou PowerShell
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2ca6a1ffa66ab294e34a1b4866953a393aba4d6d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511982"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar proprietários e utilizadores em Azure DevTest Labs
@@ -29,20 +29,20 @@ A tabela a seguir ilustra as ações que podem ser executadas pelos utilizadores
 | **Ações que os utilizadores neste papel podem desempenhar** | **Utilizador de Laboratórios DevTest** | **Proprietário** | **Contribuinte** |
 | --- | --- | --- | --- |
 | **Tarefas de laboratório** | | | |
-| Adicionar utilizadores a um laboratório |Não |Sim |Não |
-| Atualizar definições de custos |Não |Sim |Sim |
+| Adicionar utilizadores a um laboratório |No |Yes |No |
+| Atualizar definições de custos |No |Yes |Yes |
 | **Tarefas de base VM** | | | |
-| Adicione e remova imagens personalizadas |Não |Sim |Sim |
-| Adicione, atualize e elimine fórmulas |Sim |Sim |Sim |
-| Ativar imagens do Marketplace |Não |Sim |Sim |
+| Adicione e remova imagens personalizadas |No |Yes |Yes |
+| Adicione, atualize e elimine fórmulas |Yes |Yes |Yes |
+| Ativar imagens do Marketplace |No |Yes |Yes |
 | **Tarefas VM** | | | |
-| Criar VMs |Sim |Sim |Sim |
-| Iniciar, parar e apagar VMs |Apenas VMs criados pelo utilizador |Sim |Sim |
-| Atualizar as políticas de VM |Não |Sim |Sim |
-| Adicionar/remover discos de dados de/para VMs |Apenas VMs criados pelo utilizador |Sim |Sim |
+| Criar VMs |Yes |Yes |Yes |
+| Iniciar, parar e apagar VMs |Apenas VMs criados pelo utilizador |Yes |Yes |
+| Atualizar as políticas de VM |No |Yes |Yes |
+| Adicionar/remover discos de dados de/para VMs |Apenas VMs criados pelo utilizador |Yes |Yes |
 | **Tarefas de artefacto** | | | |
-| Adicione e remova repositórios de artefactos |Não |Sim |Sim |
-| Aplicar artefactos |Sim |Sim |Sim |
+| Adicione e remova repositórios de artefactos |No |Yes |Yes |
+| Aplicar artefactos |Yes |Yes |Yes |
 
 > [!NOTE]
 > Quando um utilizador cria um VM, esse utilizador é automaticamente atribuído à função **Proprietário** do VM criado.

@@ -1,5 +1,5 @@
 ---
-title: Proteja a sua implementação Azure Internet of Things (IoT) Microsoft Docs
+title: Proteja a sua implementação Azure Internet of Things (IoT) | Microsoft Docs
 description: Este artigo detalha como proteger a sua implementação Azure IoT. Liga-se aos detalhes do nível de implementação para configurar e implantar cada componente.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f0fbb1214015c088e7e1585840213faba06b59f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010707"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Proteja a sua implementação de Internet of Things (IoT)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Playvox para fornecimento automático de utilizadores através da utilização do Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configurar a Playvox para o fornecimento automático de utilizadores utilizando o Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desavisagem automática de contas de utilizadores do Azure AD para a Playvox.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3c7efca5e052c2d0680aa7ca3e1b6d27bfdd7d11
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96862484"
 ---
 # <a name="tutorial-configure-playvox-for-automatic-user-provisioning"></a>Tutorial: Configurar playvox para fornecimento automático de utilizadores
@@ -130,7 +130,7 @@ Para configurar o fornecimento automático de utilizadores para a Playvox em Azu
    |emails[type eq "work"].value|String|
    |name.givenName|String|
    |name.familyName|String|
-   |nome.formatado|Cadeia|
+   |nome.formatado|String|
    |externalId|String|
 
 10. Para configurar filtros de deteção, consulte as instruções no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

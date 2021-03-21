@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 87cb19daa23c9fcca601771a9fe168b98be02627
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050737"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586272"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recolher registos IIS com agente Log Analytics no Azure Monitor
 O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo agente Log Analytics e armazenados em [Registos do Monitor Azure](../data-platform.md).
@@ -60,11 +60,13 @@ Os registos do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabel
 | sSiteName |Nome do site do IIS. |
 | TimeGenerated |Data e hora a entrada foi registada. |
 | TimeTaken |Duração do tempo para processar o pedido em milissegundos. |
+| csHost | Nome do anfitrião. |
+| csBytes | Número de bytes que o servidor recebeu. |
 
 ## <a name="log-queries-with-iis-logs"></a>Registar consultas com registos IIS
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos de registos IIS.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:--- |:--- |
 | W3CIISLog |Todos os registos do IIS. |
 | W3CIISLog &#124; onde scStatus==500 |Todos os registos do IIS com um estado de devolução de 500. |

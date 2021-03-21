@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89302956"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761222"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Criar um gasoduto de libertação para implantação contínua
 
@@ -25,7 +25,7 @@ Crie um novo oleoduto e adicione uma nova etapa:
 
     ![Comece com um trabalho vazio para o seu oleoduto de libertação](./media/iot-edge-create-release-pipeline-for-continuous-deployment/start-with-empty-release-job.png)
 
-3. O seu novo oleoduto de lançamento iniciaisiza-se com um estágio, chamado **Fase 1**. Mude o nome da Fase 1 para **dev** e trate-o como um oleoduto de implantação contínua para o seu ambiente de desenvolvimento. Normalmente, os gasodutos de implantação contínua têm várias fases, incluindo **dev,** **encenação**e **prod**. Pode utilizar nomes diferentes e criar mais com base na sua prática de DevOps. Feche a janela dos detalhes do palco assim que for renomeada.
+3. O seu novo oleoduto de lançamento iniciaisiza-se com um estágio, chamado **Fase 1**. Mude o nome da Fase 1 para **dev** e trate-o como um oleoduto de implantação contínua para o seu ambiente de desenvolvimento. Normalmente, os gasodutos de implantação contínua têm várias fases, incluindo **dev,** **encenação** e **prod**. Pode utilizar nomes diferentes e criar mais com base na sua prática de DevOps. Feche a janela dos detalhes do palco assim que for renomeada.
 
    Também pode mudar o nome do seu pipeline de lançamento selecionando o texto "Novo pipeline de lançamento" na parte superior.
 
@@ -41,7 +41,7 @@ Crie um novo oleoduto e adicione uma nova etapa:
 
    ![Abra os gatilhos do artefacto e alterne para ativar o gatilho de implantação contínua](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-trigger.png)
 
-7. O **estágio dev** é pré-configurado com um trabalho e zero tarefas. A partir do menu do pipeline, selecione **Tarefas** e escolha o estágio **dev.** Selecione o **trabalho de Agente** e altere o seu nome de **exibição** para **QA**. Pode configurar detalhes sobre o trabalho do agente, mas a tarefa de implementação é insensível à plataforma para que possa utilizar qualquer **especificação de Agente** na piscina do **Agente**escolhido.
+7. O **estágio dev** é pré-configurado com um trabalho e zero tarefas. A partir do menu do pipeline, selecione **Tarefas** e escolha o estágio **dev.** Selecione o **trabalho de Agente** e altere o seu nome de **exibição** para **QA**. Pode configurar detalhes sobre o trabalho do agente, mas a tarefa de implementação é insensível à plataforma para que possa utilizar qualquer **especificação de Agente** na piscina do **Agente** escolhido.
 
    ![Ver as tarefas para o seu estágio dev no separador Tarefas](./media/iot-edge-create-release-pipeline-for-continuous-deployment/view-stage-tasks.png)
 
@@ -63,8 +63,18 @@ Crie um novo oleoduto e adicione uma nova etapa:
     * **ACR_PASSWORD:** A sua senha de registo do contentor Azure.
     * **ACR_USER**: O nome de utilizador do registo do seu registo de contentores Azure.
 
-    Se tiver outras variáveis no seu projeto, pode especificar o nome e o valor neste separador. O **manifesto de implantação de Geração** só pode reconhecer que as variáveis estão no `${VARIABLE}` sabor. Certifique-se de que está a usar este sabor nos seus `*.template.json` ficheiros.
-
+    Se tiver outras variáveis no seu projeto, pode especificar o nome e o valor neste separador. O **manifesto de implantação geração** só pode reconhecer as variáveis que estão no `${VARIABLE}` sabor. Certifique-se de que está a usar este sabor nos seus `*.template.json` ficheiros.
+    
+    ```json-interactive
+    "registryCredentials": {
+      "<ACR name>": { // Your Azure Container Registry **Registry name** value
+        "username": "${ACR_USER}",
+        "password": "${ACR_PASSWORD}",
+        "address": "${ACR_ADDRESS}"
+      }
+    }
+    ```
+    
     ![Configure as variáveis para o seu pipeline de libertação no separador Variáveis](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Selecione a segunda tarefa **Azure IoT Edge** e configuure-a com os seguintes valores:
@@ -76,7 +86,7 @@ Crie um novo oleoduto e adicione uma nova etapa:
     | Ficheiro de implantação | Coloque o `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` caminho. Este caminho é o ficheiro manifesto de implementação IoT Edge. |
     | Subscrição do Azure | Selecione a subscrição que contém o seu Hub IoT.|
     | Nome do Hub IoT | Selecione o seu hub IoT.|
-    | Escolha dispositivo único/múltiplo | Escolha se deseja que o gasoduto de desbloqueio seja implantado num ou em vários dispositivos. Se utilizar para um único dispositivo, introduza o **ID do dispositivo IoT Edge**. Se estiver a ser implantado em vários dispositivos, especifique a **condição de alvo**do dispositivo . A condição do alvo é um filtro que combina com um conjunto de dispositivos IoT Edge no IoT Hub. Se pretender utilizar as etiquetas do dispositivo como condição, tem de atualizar as etiquetas dos dispositivos correspondentes com o ioT Hub de dispositivo twin. Atualize a prioridade de **implementação IoT Edge ID** e **IoT Edge** nas definições avançadas. Para obter mais informações sobre a criação de uma implementação para vários dispositivos, consulte [as implementações automáticas Understand IoT Edge](../articles/iot-edge/module-deployment-monitoring.md). |
+    | Escolha dispositivo único/múltiplo | Escolha se deseja que o gasoduto de desbloqueio seja implantado num ou em vários dispositivos. Se utilizar para um único dispositivo, introduza o **ID do dispositivo IoT Edge**. Se estiver a ser implantado em vários dispositivos, especifique a **condição de alvo** do dispositivo . A condição do alvo é um filtro que combina com um conjunto de dispositivos IoT Edge no IoT Hub. Se pretender utilizar as etiquetas do dispositivo como condição, tem de atualizar as etiquetas dos dispositivos correspondentes com o ioT Hub de dispositivo twin. Atualize a prioridade de **implementação IoT Edge ID** e **IoT Edge** nas definições avançadas. Para obter mais informações sobre a criação de uma implementação para vários dispositivos, consulte [as implementações automáticas Understand IoT Edge](../articles/iot-edge/module-deployment-monitoring.md). |
     | ID do dispositivo ou condição alvo | Dependendo da seleção prévia, especifique uma [identificação](../articles/iot-edge/module-deployment-monitoring.md#target-condition) do dispositivo ou uma condição alvo para implantar em vários dispositivos. |
     | Avançado | Para o IoT Edge deployment ID, especifique `$(System.TeamProject)-$(Release.EnvironmentName)` . Esta variável mapeia o nome do projeto e do lançamento com o seu IoT Edge implementação ID. |
 

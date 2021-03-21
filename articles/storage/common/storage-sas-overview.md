@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802512"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722791"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)
 
@@ -181,6 +181,9 @@ As seguintes recomendações para a utilização de assinaturas de acesso partil
 - **Saiba quando não deve usar um SAS.** Por vezes, os riscos associados a uma determinada operação contra a sua conta de armazenamento superam os benefícios da utilização de um SAS. Para tais operações, crie um serviço de nível médio que escreva para a sua conta de armazenamento após a validação, autenticação e auditoria das regras de negócio. Além disso, às vezes é mais simples gerir o acesso de outras formas. Por exemplo, se quiser tornar publicamente legível todas as bolhas num recipiente, pode tornar o recipiente público, em vez de fornecer um SAS a cada cliente para acesso.
 
 - **Utilize registos de armazenamento Azure Monitor e Azure para monitorizar a sua aplicação.** Podem ocorrer falhas de autorização devido a uma falha no seu serviço de prestadores SAS. Podem também ocorrer a partir de uma remoção inadvertida de uma política de acesso armazenada. Pode utilizar o Azure Monitor e o registo de análises de armazenamento para observar qualquer pico neste tipo de falhas de autorização. Para obter mais informações, consulte as [métricas de Armazenamento Azure em Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) e [Azure Storage Analytics .](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
+> [!NOTE]
+> O armazenamento não rastreia o número de assinaturas de acesso partilhada que foram geradas para uma conta de armazenamento, e nenhuma API pode fornecer este detalhe. Se precisar de saber o número de assinaturas de acesso partilhada que foram geradas para uma conta de armazenamento, deve rastrear o número manualmente.
 
 ## <a name="get-started-with-sas"></a>Começar com SAS
 

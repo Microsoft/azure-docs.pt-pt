@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
 ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518726"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar cadernos Jupyter no seu espaço de trabalho
@@ -273,7 +273,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 
 * Se não conseguir ligar-se a um bloco de notas, certifique-se de que a comunicação da tomada web **não** está desativada. Para que a funcionalidade do Jupyter funcione, a comunicação da tomada web deve ser ativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms. 
 
-* Quando a instância computacional é implantada num espaço de trabalho de ligação privada, só pode ser [acedida a partir de uma rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Se estiver a utilizar o ficheiro DNS ou anfitriões personalizados, por favor adicione uma entrada para < nome de >.< região >.instances.azureml.ms com endereço IP privado do ponto final privado do espaço de trabalho. Para mais informações consulte o artigo [DNS personalizado.](./how-to-custom-dns.md?tabs=azure-cli)
+* Quando a instância computacional é implantada num espaço de trabalho de ligação privada, só pode ser [acedida a partir de uma rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Se estiver a utilizar o ficheiro DNS ou anfitriões personalizado, por favor adicione uma entrada para < nome de instância >.< região >.instances.azureml.ms com endereço IP privado do ponto final privado do espaço de trabalho. Para mais informações consulte o artigo [DNS personalizado.](./how-to-custom-dns.md?tabs=azure-cli)
     
 ## <a name="next-steps"></a>Passos seguintes
 

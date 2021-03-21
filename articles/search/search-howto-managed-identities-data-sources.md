@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519593"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida
@@ -40,7 +40,7 @@ Ao configurar uma fonte de dados utilizando uma identidade gerida, pode alterar 
 As fontes de dados que se seguem suportam a criação de uma ligação indexante utilizando identidades geridas. 
 
 * [Armazenamento Azure Blob, Azure Data Lake Storage Gen2 (pré-visualização), Armazenamento da Mesa Azure](search-howto-managed-identities-storage.md)
-* [BD do Cosmos para o Azure](search-howto-managed-identities-cosmos-db.md)
+* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Base de Dados SQL do Azure](search-howto-managed-identities-sql.md)
 
 As seguintes funcionalidades não suportam atualmente a utilização de identidades geridas para configurar a ligação:
@@ -52,5 +52,5 @@ As seguintes funcionalidades não suportam atualmente a utilização de identida
 Saiba mais sobre como configurar uma ligação indexante utilizando identidades geridas:
 
 * [Armazenamento Azure Blob, Azure Data Lake Storage Gen2 (pré-visualização), Armazenamento da Mesa Azure](search-howto-managed-identities-storage.md)
-* [BD do Cosmos para o Azure](search-howto-managed-identities-cosmos-db.md)
+* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Base de Dados SQL do Azure](search-howto-managed-identities-sql.md)

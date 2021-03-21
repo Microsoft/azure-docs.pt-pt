@@ -7,10 +7,10 @@ ms.date: 12/07/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: a707e3601bb24b2d5c2aa9402edff4a2e8803033
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625909"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Criar políticas de autoescala para uma aplicação de malha de tecido de serviço

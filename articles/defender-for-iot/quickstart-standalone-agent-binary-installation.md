@@ -9,10 +9,10 @@ ms.date: 3/9/2021
 ms.topic: quickstart
 ms.service: azure
 ms.openlocfilehash: 8984b1dbcb9a6aca6d313d8195a75093ae421bbd
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102611680"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Instale o Defender para o micro agente IoT (pré-visualização)

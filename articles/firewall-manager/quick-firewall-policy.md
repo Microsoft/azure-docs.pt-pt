@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 02/17/2021
 ms.author: victorh
 ms.openlocfilehash: 9cc263d311bd550a92a0c8f14ab5ce86d72e9ee3
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100633636"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-a-firewall-policy---arm-template"></a>Quickstart: Crie uma Firewall Azure e uma política de firewall - modelo ARM

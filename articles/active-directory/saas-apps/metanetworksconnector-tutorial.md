@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Meta Networks Connector Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com meta redes connector | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Meta Networks Connector.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: b14a75dba2860c9dee58e40673d3299fdde277e7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Diretório Ativo Azure com o Conector meta networks
@@ -124,7 +124,7 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
     
 7. Além de acima, a aplicação Meta Networks Connector espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
     
-    | Nome | Atributo de origem | Espaço de Nomes|
+    | Name | Atributo de origem | Espaço de Nomes|
     | ---------------| --------------- | -------- |
     | nome de primeiro nome | user.givenname | |
     | último nome | utilizador.sobrenome | |
@@ -236,7 +236,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permitindo o acesso ao Meta Networks Connector.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Meta Networks Connector**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Meta Networks Connector**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

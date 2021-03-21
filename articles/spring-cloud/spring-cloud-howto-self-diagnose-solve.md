@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122872"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Como auto-diagnosticar e resolver problemas na Nuvem de primavera de Azure
@@ -28,7 +28,7 @@ Para concluir este tutorial, precisa de:
 * Pelo menos uma aplicação já criada na sua instância de serviço.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Navegue para a página de diagnósticos
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Vá à sua página de **visão geral da** nuvem de primavera Azure.
 3. Selecione **diagnosticar e resolver problemas** no painel de navegação esquerdo.
 

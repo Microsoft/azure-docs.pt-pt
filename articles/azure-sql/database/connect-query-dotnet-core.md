@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: 1d25f43ef5a694d8b94710055bf1be72a7fcb45c
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97705222"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados
@@ -45,7 +45,7 @@ Para concluir este guia de início rápido, precisa de:
     dotnet new console
     ```
 
-    Este comando cria novos ficheiros de projetos de aplicações, incluindo um ficheiro de código C# inicial **(Program.cs),** um ficheiro de configuração XML **(sqltest.csproj),** e binários necessários.
+    Este comando cria novos ficheiros de projetos de aplicações, incluindo um ficheiro de código C# inicial **(Programa.cs),** um ficheiro de configuração XML **(sqltest.csproj),** e necessário binário.
 
 2. Num editor de texto, abra **sqltest.csproj** e cole o seguinte XML entre as `<Project>` etiquetas. Este XML adiciona `System.Data.SqlClient` como uma dependência.
 
@@ -57,7 +57,7 @@ Para concluir este guia de início rápido, precisa de:
 
 ## <a name="insert-code-to-query-the-database-in-azure-sql-database"></a>Insira código para consultar a base de dados na Base de Dados Azure SQL
 
-1. Num editor de texto, aberto **Program.cs.**
+1. Num editor de texto, **programa aberto.cs**.
 
 2. Substitua o conteúdo pelo seguinte código e adicione os valores adequados para o seu servidor, base de dados, nome de utilizador e senha.
 

@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 8bc9773fa7e1b3db2e249e803f4d2a3cf39edb48
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102551"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Biblioteca de autenticação Microsoft Identity Web
@@ -82,14 +82,14 @@ O Microsoft Identity Web inclui várias funcionalidades não fornecidas se utili
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Inscreva-se nos utilizadores](scenario-web-app-sign-user-app-configuration.md) em aplicações web             | <li>Contas escolares ou profissionais<li>Identidades sociais (com Azure AD B2C) | <li>Contas escolares ou profissionais<li>Contas pessoais da Microsoft<li>Identidades sociais (com Azure AD B2C)     |
 | [Proteja as APIs web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Contas escolares ou profissionais<li>Identidades sociais (com Azure AD B2C) | <li>Contas escolares ou profissionais<li>Contas pessoais da Microsoft<li>Identidades sociais (com Azure AD B2C)     |
-| Validação do emitente em aplicativos multi-inquilinos                                                   | Não                                                                   | Sim, para [todas as nuvens](authentication-national-cloud.md) e [Azure AD B2C](../../active-directory-b2c/index.yml) |
-| Web app/API [chama gráfico da Microsoft][scenario-api-call-graph]                             | Não                                                                   | Sim                                                                                                     |
-| Web app/API [chama a API web][scenario-api-call-api]                                       | Não                                                                   | Sim                                                                                                     |
-| Suporta credenciais de certificado                                                         | Não                                                                   | Sim, incluindo a Azure Key Vault.                                                                          |
-| Consentimento incremental e suporte de acesso condicional em aplicações web                           | Não                                                                   | Sim, em MVC, páginas de navalha, e Blazor                                                                    |
-| Certificados de encriptação token em APIs web                                                | Não                                                                   | Sim                                                                                                     |
-| [Validação de funções de âmbito/aplicação] [cenário-api-validação] em APIs web                        | Não                                                                   | Sim                                                                                                     |
-| `WWW-Authenticate` geração de cabeçalho em APIs web                                         | Não                                                                   | Sim                                                                                                     |
+| Validação do emitente em aplicativos multi-inquilinos                                                   | No                                                                   | Sim, para [todas as nuvens](authentication-national-cloud.md) e [Azure AD B2C](../../active-directory-b2c/index.yml) |
+| Web app/API [chama gráfico da Microsoft][scenario-api-call-graph]                             | No                                                                   | Yes                                                                                                     |
+| Web app/API [chama a API web][scenario-api-call-api]                                       | No                                                                   | Yes                                                                                                     |
+| Suporta credenciais de certificado                                                         | No                                                                   | Sim, incluindo a Azure Key Vault.                                                                          |
+| Consentimento incremental e suporte de acesso condicional em aplicações web                           | No                                                                   | Sim, em MVC, páginas de navalha, e Blazor                                                                    |
+| Certificados de encriptação token em APIs web                                                | No                                                                   | Yes                                                                                                     |
+| [Validação de funções de âmbito/aplicação] [cenário-api-validação] em APIs web                        | No                                                                   | Yes                                                                                                     |
+| `WWW-Authenticate` geração de cabeçalho em APIs web                                         | No                                                                   | Sim                                                                                                     |
 
 ## <a name="next-steps"></a>Próximos passos
 

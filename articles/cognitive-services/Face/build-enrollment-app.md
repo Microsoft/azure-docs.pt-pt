@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
 ms.openlocfilehash: 218579176b807bbdae85646f27eaa7f301d4b9a6
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102428274"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Construa um aplicativo de inscrição para Android com React
