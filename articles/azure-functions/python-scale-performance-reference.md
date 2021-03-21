@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786111"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Melhorar o desempenho das aplicações Python em Funções Azure
@@ -171,7 +171,7 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
 #### <a name="vertical-scaling"></a>Dimensionamento vertical
 Para mais unidades de processamento especialmente em operação ligada à CPU, você pode ser capaz de obter isso através da atualização para plano premium com especificações mais elevadas. Com unidades de processamento mais elevadas, pode ajustar o número de trabalhos de contagem de trabalho de acordo com o número de núcleos disponíveis e obter um maior grau de paralelismo. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o desenvolvimento do Azure Functions Python, consulte os seguintes recursos:
 

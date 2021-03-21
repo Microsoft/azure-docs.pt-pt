@@ -5,13 +5,13 @@ ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: 38306b2fb3c0a51aeedbf1ebd9079dd787783093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364295"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597526"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Synapse Analytics utilizando a Azure Data Factory
 
@@ -390,6 +390,7 @@ Para copiar os dados para a Azure Synapse Analytics, descreva o tipo de pia em A
 | preCopyScript     | Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em Azure Synapse Analytics em cada execução. Utilize esta propriedade para limpar os dados pré-carregados. | No                                            |
 | mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. Os valores permitidos são: `none` (padrão), `autoCreate` . |No |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como Azure Synapse Analytics DWUs para otimização de desempenho de cópia e recomendações, que introduzem acesso adicional ao DB principal. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
+| maxConcurrentConnections |O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Exemplo de pia Azure Synapse Analytics
 
@@ -520,7 +521,7 @@ Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definiç
    4. `nullValue` é deixado como padrão ou definido para **cadeia vazia** (""), e `treatEmptyAsNull` é deixado como padrão ou definido para verdadeiro.
    5. `encodingName` é deixado como padrão ou definido para **utf-8**.
    6. `quoteChar`E `escapeChar` `skipLineCount` não estão especificados. Linha de suporte polyBase salte a linha do cabeçalho, que pode ser configurada como `firstRowAsHeader` em ADF.
-   7. `compression` não pode ser **compressões,** **GZip,** ou **Deflate**.
+   7. `compression` pode não ser **compressões,** **``GZip``** ou **Deflate**.
 
 3. Se a sua fonte for uma pasta, `recursive` a atividade de cópia deve ser definida como verdadeira.
 
@@ -615,7 +616,7 @@ Para utilizar esta funcionalidade, crie um [serviço ligado ao Azure Blob Storag
 
 ### <a name="best-practices-for-using-polybase"></a>Melhores práticas para utilizar o PolyBase
 
-As seguintes secções proporcionam as melhores práticas para além das práticas mencionadas nas [melhores práticas para o Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+As seguintes secções proporcionam as melhores práticas para além das práticas mencionadas nas [melhores práticas para o Azure Synapse Analytics](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### <a name="required-database-permission"></a>Autorização de base de dados necessária
 
@@ -709,7 +710,7 @@ A utilização da declaração COPY suporta a seguinte configuração:
 
 2. As definições do formato são com as seguintes:
 
-   1. Para **Parquet:** `compression` não pode ser **compressões,** **Snappy,** ou **GZip**.
+   1. Para **Parquet:** `compression` não pode ser **compressões,** **Snappy,** ou **``GZip``** .
    2. Para **o ORC:** `compression` não pode ser **compressões,** **```zlib```** ou **Snappy**.
    3. Para **texto delimitado:**
       1. `rowDelimiter` é explicitamente definido como **single character** ou "**\r\n**", o valor padrão não é suportado.
@@ -717,7 +718,7 @@ A utilização da declaração COPY suporta a seguinte configuração:
       3. `encodingName` é deixado como padrão ou definido para **utf-8 ou utf-16**.
       4. `escapeChar` deve ser o mesmo `quoteChar` que , e não é vazio.
       5. `skipLineCount` é deixado como padrão ou definido para 0.
-      6. `compression` não pode ser **compressões** ou **GZip**.
+      6. `compression` não pode ser **compressões** ou **``GZip``** . .
 
 3. Se a sua fonte for uma pasta, `recursive` a atividade de cópia deve ser definida como verdadeira, e tem de ser `wildcardFilename` `*` . 
 
@@ -821,7 +822,7 @@ As definições específicas do Azure Synapse Analytics estão disponíveis no *
 - Recriar: A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.
 - Truncato: Todas as linhas da mesa-alvo serão removidas.
 
-**Ativar a encenação:** Determina se deve ou não utilizar a [PolyBase](/sql/relational-databases/polybase/polybase-guide) ao escrever para o Azure Synapse Analytics. O armazenamento de encenação está configurado na [atividade executar fluxo de dados](control-flow-execute-data-flow-activity.md). 
+**Ativar a encenação:** Isto permite o carregamento em Piscinas SQL Azure Synapse Analytics utilizando o comando de cópia e é recomendado para a maioria dos lavatórios Synpase. O armazenamento de encenação está configurado na [atividade executar fluxo de dados](control-flow-execute-data-flow-activity.md). 
 
 - Quando utilizar a autenticação de identidade gerida para o seu serviço ligado ao armazenamento, aprenda as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
 - Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fb597cc71d228a1daaaa4e52d76b301764ff9292
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899308"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitor VMware Solution by CloudSimple atividade
@@ -54,7 +54,7 @@ As seguintes colunas de informação estão disponíveis para alertas. Clique em
 | Nome do Recurso | Nome atribuído ao recurso, como o nome Private Cloud. |
 | Tipo de Recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
 | ID do Recurso | Identificador do recurso. |
-| Descrição | Descrição do que desencadeou o alerta. |
+| Description | Descrição do que desencadeou o alerta. |
 | Confirmado | Indicação de se o alerta é reconhecido. |
 
 ## <a name="events"></a>Eventos
@@ -70,7 +70,7 @@ As seguintes colunas de informação estão disponíveis para alertas. Clique em
 | Gravidade | Gravidade do evento.|
 | Nome do Recurso | Nome atribuído ao recurso, como o nome Private Cloud. |
 | Tipo de Recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
-| Descrição | Descrição do que desencadeou o alerta. |
+| Description | Descrição do que desencadeou o alerta. |
 
 ## <a name="tasks"></a>Tarefas
 
@@ -82,7 +82,7 @@ As seguintes colunas de informação estão disponíveis para alertas. Clique em
 ------------ | ------------- |
 | ID de tarefa | Identificador único para a tarefa. |
 | Operação | Ação que a tarefa executa. |
-| Utilizador | Utilizador designado para completar a tarefa. |
+| User | Utilizador designado para completar a tarefa. |
 | Nome do Recurso | Nome atribuído ao recurso. |
 | Tipo de Recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
 | ID do Recurso | Identificador do recurso. |
@@ -90,7 +90,7 @@ As seguintes colunas de informação estão disponíveis para alertas. Clique em
 | Fim | Fim do tempo para a tarefa. |
 | Estado | Estado atual da tarefa. |
 | Tempo Decorrido | Tempo que a tarefa demorou a completar (se concluída) ou está atualmente a demorar (se em curso). |
-| Descrição | Descrição da tarefa. |
+| Description | Descrição da tarefa. |
 
 ## <a name="audit"></a>Auditoria
 
@@ -102,13 +102,13 @@ As seguintes colunas de informação estão disponíveis para alertas. Clique em
 ------------ | ------------- |
 | Hora | Hora da entrada na auditoria. |
 | Operação | Ação que a tarefa executa. |
-| Utilizador | Utilizador designado para a tarefa. |
+| User | Utilizador designado para a tarefa. |
 | Nome do Recurso | Nome atribuído ao recurso. |
 | Tipo de Recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
 | ID do Recurso | Identificador do recurso. |
 | Resultado | Resultado da atividade, como o **Sucesso.** |
 | Tempo Decorrido | Hora de completar a tarefa. |
-| Descrição | Descrição da ação. |
+| Description | Descrição da ação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

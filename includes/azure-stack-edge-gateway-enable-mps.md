@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/11/2021
 ms.author: alkohli
 ms.openlocfilehash: b2c1ebe390b1a2dec7be678b5d6f3a991056a23b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517577"
 ---
 1. Antes de começar, certifique-se de que:

@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95908783"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Referência linguística SQL de aceleração de consulta
@@ -60,12 +60,12 @@ SELECT sys.split(split_size)FROM BlobStorage
 |INT      |64 bits de inteiro assinado.                     |
 |FLUTUAR    |Ponto flutuante de 64 bits ("dupla precisão")|
 |CORDA   |Cadeia unicódigo de comprimento variável.            |
-|TIMETAMP|Um ponto no tempo.                           |
+|CARIMBO DE DATA/HORA|Um ponto no tempo.                           |
 |BOOLEANA  |True ou false.                             |
 
 Ao ler os valores a partir de dados formatados pelo CSV, todos os valores são lidos como cordas.  Os valores das cordas podem ser convertidos para outros tipos utilizando expressões CAST.  Os valores podem ser implicitamente lançados para outros tipos dependendo do contexto. para obter mais informações, consulte [precedência do tipo de dados (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
-## <a name="expressions"></a>Expressões
+## <a name="expressions"></a>Expressions (Expressões)
 
 ### <a name="referencing-fields"></a>Campos de referência
 
@@ -122,8 +122,8 @@ A aceleração de consulta O idioma SQL suporta as seguintes funções padrão d
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Devolve uma expressão de caracteres com dados de caracteres minúsculos convertidos em maiúsculas.|
 |[SUB-CORDA](/sql/t-sql/functions/substring-transact-sql)    |Devolve parte de um personagem, binário, texto ou expressão de imagem no SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Remove o carvão do carácter do espaço(32) ou outros caracteres especificados do início e da extremidade de uma corda.|
-|LEVANDO    |Descrição|
-|TRAILING    |Descrição|
+|LEVANDO    |Description|
+|TRAILING    |Description|
 
 Aqui estão alguns exemplos:
 

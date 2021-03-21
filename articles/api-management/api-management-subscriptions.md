@@ -1,5 +1,5 @@
 ---
-title: Assinaturas na Azure API Management / Microsoft Docs
+title: Assinaturas em Azure API Management | Microsoft Docs
 description: Conheça o conceito de subscrições na Azure API Management. Os consumidores têm acesso a APIs utilizando subscrições na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: cdc7668b06308bd5532f4885d0e1365fc34ae989
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511251"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Subscrições na Gestão de API do Azure

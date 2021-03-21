@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: bad4bc4d0016b2898b315bfb9799dc8972be7b12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785874"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicione paging aos resultados da pesquisa usando o .NET SDK
@@ -55,7 +55,7 @@ O sistema tratará os botões de número de página mais à esquerda e à direit
 
 Tenha a solução básica de página de pesquisa aberta.
 
-1. Abra o ficheiro SearchData.cs modelo.
+1. Abra o ficheiro modelo searchData.cs.
 
 1. Adicione variáveis globais para apoiar a paginação. Em MVC, as variáveis globais são declaradas na sua própria classe estática. **ResultsPerPage** define o número de resultados por página. **MaxPageRange** determina o número de números de página visíveis na vista. **O PageRangeDelta** determina quantas páginas devem ser deslocadas para a esquerda ou para a direita, quando o número de página mais à esquerda ou à direita é selecionado. Normalmente, este último número é de cerca de metade do **MaxPageRange.** Adicione o seguinte código no espaço de nomes.
 
@@ -614,7 +614,7 @@ Considere os seguintes takeaways deste projeto:
 * Uma característica chave do scrolling infinito é que os resultados são anexados a uma página existente, não substituindo essa página, que é eficiente.
 * O armazenamento temporário persiste por apenas uma chamada, e precisa ser reposto para sobreviver a chamadas adicionais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A paging é fundamental para uma experiência de pesquisa. Com a paging bem coberta, o próximo passo é melhorar ainda mais a experiência do utilizador, adicionando pesquisas de tipo à frente.
 

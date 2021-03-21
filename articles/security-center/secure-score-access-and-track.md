@@ -8,10 +8,10 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/25/2021
 ms.openlocfilehash: 5efc48d348e9cfceab590bcfba8c621e7721376f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102107966"
 ---
 # <a name="access-and-track-your-secure-score"></a>Aceda e acompanhe a sua pontuação segura

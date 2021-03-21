@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0da54bd28c1d9ea933e88b6c86cf6092c10d036a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785190"
 ---
 # <a name="accidental-delete-prevention"></a>Prevenção acidental de eliminação
@@ -84,7 +84,7 @@ Se não quiser permitir as supressões, tem de fazer o seguinte:
 - corrigir o problema (exemplo, u foi movido para fora do âmbito acidentalmente e agora voltou a adicioná-lo ao âmbito de aplicação)
 - Executar **Reiniciar sincronização** na configuração do agente
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 - [Azure AD Connect cloud sync resolução de problemas?](how-to-troubleshoot.md)
 - [Códigos de erro de sincronização de nuvem Azure AD Connect](reference-error-codes.md)

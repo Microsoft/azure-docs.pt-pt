@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
 ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517638"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Quickstart: Create an Azure data factory and pipeline by using the REST API (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline do Azure com a API REST)

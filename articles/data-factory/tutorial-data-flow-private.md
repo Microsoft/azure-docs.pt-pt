@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249448"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transforme os dados de forma segura utilizando o fluxo de dados de mapeamento
@@ -126,7 +126,7 @@ Neste passo, configuras o Data Lake Storage Gen2 como fonte.
 
     ![Screenshot que mostra a autoria interativa.](./media/tutorial-data-flow-private/interactive-authoring.png)
 
-1. Selecione **a ligação de teste**. Deve falhar porque a conta de armazenamento não permite o acesso à sua sem a criação e aprovação de um ponto final privado. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções [desta secção](#create-a-managed-private-endpoint) para criar um ponto final privado gerido.
+1. Selecione **Testar ligação**. Deve falhar porque a conta de armazenamento não permite o acesso à sua sem a criação e aprovação de um ponto final privado. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções [desta secção](#create-a-managed-private-endpoint) para criar um ponto final privado gerido.
 
 1. Mantenha a caixa de diálogo aberta e, em seguida, vá para a sua conta de armazenamento.
 

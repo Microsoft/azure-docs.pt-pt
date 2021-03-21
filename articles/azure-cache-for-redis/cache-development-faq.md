@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585773"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Cache Azure para redis desenvolvimento FAQs
@@ -45,7 +45,7 @@ Se ainda não tem uma conta Azure, pode:
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>O que fazem as opções de configuração StackExchange.Redis?
 StackExchange.Redis tem muitas opções. Esta secção fala sobre algumas das configurações comuns. Para obter informações mais detalhadas sobre as opções StackExchange.Redis, consulte a [configuração StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Descrição | Recomendação |
+| ConfigurationOptions | Description | Recomendação |
 | --- | --- | --- |
 | AbortOnConnectFail |Quando definido como verdadeiro, a ligação não se reconectará após uma falha de rede. |Definido como falso e deixe o StackExchange.Redis reconectar-se automaticamente. |
 | ConnectRetry |O número de vezes para repetir tentativas de ligação durante a ligação inicial. |Consulte as seguintes notas para obter orientação. |

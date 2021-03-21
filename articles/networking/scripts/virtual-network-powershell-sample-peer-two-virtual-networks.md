@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure PowerShell - Peer duas redes virtuais Microsoft Docs
+title: Amostra de script Azure PowerShell - Peer duas redes virtuais | Microsoft Docs
 description: Criar e ligar duas redes virtuais na mesma região. Utilize o script Azure para duas redes virtuais paritárias para ligar as redes através do Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -14,10 +14,10 @@ ms.date: 05/16/2017
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 63fab50f991a15a38d18dead53d268abca79c811
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98231894"
 ---
 # <a name="peer-two-virtual-networks"></a>Peering de rede de duas redes virtuais

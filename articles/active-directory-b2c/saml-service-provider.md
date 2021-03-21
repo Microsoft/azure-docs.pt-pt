@@ -14,10 +14,10 @@ ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 1035f43642f3884e7cc0f6ab47e9c9afd1f29170
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102107769"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
@@ -34,7 +34,7 @@ Neste artigo, saiba como ligar as suas aplicações de Markup Language (SAML) (p
 
 ::: zone pivot="b2c-custom-policy"
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 As organizações que utilizam o Azure AD B2C como a sua solução de gestão de identidade e acesso podem exigir integração com aplicações que autenticam usando o protocolo SAML. O diagrama seguinte mostra como o Azure AD B2C serve como *um fornecedor* de identidade (IdP) para alcançar um único sign-on (SSO) com aplicações baseadas em SAML.
 
@@ -71,14 +71,14 @@ Para construir uma relação de confiança entre a sua aplicação e o Azure AD 
 
 | Utilização | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Assinatura de pedido saml  | Não | Um certificado com uma chave privada armazenada na sua aplicação web, utilizado pela sua aplicação para assinar pedidos SAML enviados para Azure AD B2C. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C valida a assinatura do pedido SAML utilizando a chave pública a partir dos metadados da aplicação.|
-| Encriptação de afirmação SAML  | Não | Um certificado com uma chave privada armazenada na sua aplicação web. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C pode encriptar afirmações à sua aplicação utilizando a chave pública. A aplicação utiliza a chave privada para desencriptar a afirmação.|
+| Assinatura de pedido saml  | No | Um certificado com uma chave privada armazenada na sua aplicação web, utilizado pela sua aplicação para assinar pedidos SAML enviados para Azure AD B2C. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C valida a assinatura do pedido SAML utilizando a chave pública a partir dos metadados da aplicação.|
+| Encriptação de afirmação SAML  | No | Um certificado com uma chave privada armazenada na sua aplicação web. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C pode encriptar afirmações à sua aplicação utilizando a chave pública. A aplicação utiliza a chave privada para desencriptar a afirmação.|
 
 **Certificados Azure AD B2C**
 
 | Utilização | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Assinatura de resposta SAML | Sim | Um certificado com uma chave privada armazenada em Azure AD B2C. Este certificado é utilizado pela Azure AD B2C para assinar a resposta SAML enviada à sua candidatura. A sua aplicação lê a chave pública de metadados Azure AD B2C para validar a assinatura da resposta SAML. |
+| Assinatura de resposta SAML | Yes | Um certificado com uma chave privada armazenada em Azure AD B2C. Este certificado é utilizado pela Azure AD B2C para assinar a resposta SAML enviada à sua candidatura. A sua aplicação lê a chave pública de metadados Azure AD B2C para validar a assinatura da resposta SAML. |
 
 Num ambiente de produção, recomendamos a utilização de certificados emitidos por uma autoridade de certificados públicos. No entanto, também pode completar este procedimento com certificados auto-assinados.
 

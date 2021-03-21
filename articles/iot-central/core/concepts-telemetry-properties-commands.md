@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: f027b2d41f63b5aa7ea3df87e06224abd629799b
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100535319"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payloads de comandos, propriedades e telemetria
@@ -723,7 +723,7 @@ A IoT Central espera uma resposta do dispositivo para atualizações de propried
 
 `ac` é um campo numérico que utiliza os valores na tabela seguinte:
 
-| Valor | Etiqueta | Descrição |
+| Valor | Etiqueta | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202`  ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso |

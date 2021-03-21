@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100535246"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Quickstart: Criar e configurar norma de proteção Azure DDoS
@@ -83,16 +83,16 @@ Esta [política](https://aka.ms/ddosvnetpolicy) detetará quaisquer redes virtua
 
 Primeiro, verifique os detalhes do seu plano de proteção DDoS:
 
-1. Selecione **Todos os serviços** em cima, à esquerda do portal.
+1. No canto superior esquerdo do portal, selecione **Todos os serviços**.
 2. Introduza *o DDoS* na caixa **do filtro.** Quando **os planos de proteção DDoS** aparecerem nos resultados, selecione-os.
 3. Selecione o seu plano de proteção DDoS da lista.
 
 A rede virtual _MyVnet_ deve ser listada. 
 
-### <a name="view-protected-resources"></a>Ver recursos protegidos
+### <a name="view-protected-resources"></a>Ver os recursos protegidos
 Nos **recursos protegidos,** pode visualizar as suas redes virtuais protegidas e endereços IP públicos ou adicionar mais redes virtuais ao seu plano de proteção DDoS:
 
-![Ver recursos protegidos](./media/manage-ddos-protection/ddos-protected-resources.png)
+![Ver os recursos protegidos](./media/manage-ddos-protection/ddos-protected-resources.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -17,10 +17,10 @@ ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 6ba30436b363353ad183396e07111b33ca912dbf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737443"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Diretrizes de desempenho do SQL Server nas Máquinas Virtuais do Azure
@@ -409,7 +409,7 @@ Os seguintes contadores PerfMon podem ajudar a validar a saúde computacional de
 > [!NOTE] 
 > Idealmente, tente usar 80% do seu cálculo, com picos acima de 90% mas não atingindo 100% durante qualquer período de tempo sustentado. Fundamentalmente, você só quer providenciar o cálculo que a aplicação precisa e, em seguida, planeja escalar para cima ou para baixo como o negócio exige. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter as melhores práticas de segurança, consulte [considerações de segurança para o SQL Server em Azure Virtual Machines](security-considerations-best-practices.md).
 

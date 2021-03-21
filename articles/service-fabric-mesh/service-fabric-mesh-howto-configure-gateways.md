@@ -7,10 +7,10 @@ ms.date: 11/28/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 40bba03c35568c013e383c08f0a13f765c1cc8bd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625859"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configure um recurso Gateway para encaminhar pedidos

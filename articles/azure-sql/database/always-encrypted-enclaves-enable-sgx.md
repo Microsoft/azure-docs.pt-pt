@@ -12,10 +12,10 @@ ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
 ms.openlocfilehash: ded1406c47bb3f00c366da7a5b28319f3712f8a7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733761"
 ---
 # <a name="enable-intel-sgx-for-your-azure-sql-database"></a>Ativar a Intel SGX para a sua Base de Dados Azure SQL 
@@ -37,10 +37,10 @@ Configurar a geração de hardware da série DC para permitir enclaves intel SGX
 
 Para obter instruções detalhadas sobre como configurar uma base de dados nova ou existente para utilizar uma geração de hardware específica, consulte [Selecionar uma geração de hardware](service-tiers-vcore.md#selecting-a-hardware-generation).
    
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure Azure Attestation para o seu servidor de base de dados Azure SQL](always-encrypted-enclaves-configure-attestation.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Tutorial: Começar com Sempre Encriptado com enclaves seguros na Base de Dados Azure SQL](always-encrypted-enclaves-getting-started.md)

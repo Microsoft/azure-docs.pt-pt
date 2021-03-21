@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 4c55c25621df1925b6ed6c374d8af88551eb1e46
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96231434"
 ---
 Metrics Advisor é um serviço de deteção, diagnóstico e análise de anomalias em séries de tempo. Como serviço alimentado por IA, utiliza os seus dados para treinar o modelo utilizado. O serviço aceita tabelas de dados agregados com as seguintes colunas:

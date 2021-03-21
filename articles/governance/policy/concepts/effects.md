@@ -4,10 +4,10 @@ description: As definições de Política Azure têm vários efeitos que determi
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101741825"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
@@ -569,7 +569,7 @@ O conjunto de propriedades **de operações** permite alterar várias tags de di
 
 A **propriedade de operação** tem as seguintes opções:
 
-|Operação |Descrição |
+|Operação |Description |
 |-|-|
 |addOrReplace |Adiciona a propriedade definida ou etiqueta e valor ao recurso, mesmo que o imóvel ou etiqueta já exista com um valor diferente. |
 |Adicionar |Adiciona a propriedade definida ou etiqueta e valor ao recurso. |
