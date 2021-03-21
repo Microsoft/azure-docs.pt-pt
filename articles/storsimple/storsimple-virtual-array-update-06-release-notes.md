@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array Update 0.6 notas de lançamento Microsoft Docs
+title: StorSimple Virtual Array Update 0.6 notas de lançamento| Microsoft Docs
 description: Descreve problemas e resoluções abertos críticos para o StorSimple Virtual Array que executa a Atualização 0.6.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/24/2017
 ms.author: alkohli
 ms.openlocfilehash: 24bddb47a32a7b8ad4ea659d52c2d5b2730be9ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000917"
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>StorSimple Virtual Array Update 0.6 notas de lançamento
@@ -52,7 +52,7 @@ A atualização 0.6 é uma atualização crítica e deve ser implementada imedia
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Segurança| Esta versão contém atualizações críticas do Windows Security. Sugerimos que instale esta atualização imediatamente.|
 | 2 |Restauro| Durante uma restauração, havia uma condição de corrida que impediria o trabalho de restauro de completar. A correção de insetos aborda esta condição de corrida.|
@@ -62,7 +62,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos virtuais criados na versão de pré-visualização não podem ser atualizados para uma versão suportada da Disponibilidade Geral. |Estes dispositivos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazer resulta numa perda de todos os dados nos níveis locais do dispositivo. | |
@@ -80,7 +80,7 @@ A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Vi
 | **14.** |Servidor de ficheiros |Se um ficheiro numa pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não é apoiado ou restaurado através da recuperação de desastres, clone e recuperação do nível de item. | |
 | **15.** |Servidor de ficheiros |As ligações simbólicas não são suportadas. | |
 | **16.** |Servidor de ficheiros |Os ficheiros protegidos pelo Sistema de Ficheiros encriptadores do Windows (EFS) quando copiados ou armazenados no servidor de ficheiros StorSimple Virtual Array resultam numa configuração não suportada.  | |
-| **17.** |Atualizações |Se vir código de erro: 2359302 (hex240006) ao tentar instalar um hotfix através da UI local, então isto implica que o hotfix já está instalado no seu dispositivo.   | |
+| **17.** |Atualizações |Se vir código de erro: 2359302 (hex 0x240006) ao tentar instalar um hotfix através da UI local, então isto implica que o hotfix já está instalado no seu dispositivo.   | |
 
 ## <a name="next-step"></a>Passo seguinte
 [Instale a Atualização 0.6](storsimple-virtual-array-install-update-06.md) no seu StorSimple Virtual Array.

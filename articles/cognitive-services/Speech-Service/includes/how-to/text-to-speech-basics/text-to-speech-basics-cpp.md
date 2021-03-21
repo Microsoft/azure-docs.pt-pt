@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: 78639386c9d836055d80566f4b84565c2c3b8e80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41cf1646d75080bc5b5996504ce8711edfae89fa
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612086"
+ms.locfileid: "104719908"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -115,7 +115,7 @@ Execute o programa e um ficheiro sintetizado `.wav` é escrito para o local espe
 
 ## <a name="synthesize-to-speaker-output"></a>Sintetizar para a saída do altifalante
 
-Em alguns casos, pode querer fazer a produção direta do discurso sintetizado diretamente para um orador. Para isso, simplesmente omite o `AudioConfig` param ao criar `SpeechSynthesizer` o exemplo acima. Isto permite obter o dispositivo de saída ativo atual.
+Em alguns casos, pode querer fazer a produção direta do discurso sintetizado diretamente para um orador. Para isso, omita o `AudioConfig` parâmetro ao criar o exemplo `SpeechSynthesizer` acima. Isto sintetiza o dispositivo de saída ativo atual.
 
 ```cpp
 void synthesizeSpeech()
@@ -255,10 +255,10 @@ Para mudar para uma voz neural, mude `name` a uma das [opções de voz neural](.
 </speak>
 ```
 
-## <a name="visemes"></a>Visemes
+## <a name="get-facial-pose-events"></a>Obtenha eventos de pose facial
 
-A fala é geralmente tratada como uma boa maneira de impulsionar a animação de expressões faciais.
-Muitas vezes os [visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada (isto é, a posição dos lábios, mandíbula e língua ao produzir um determinado fonme).
-Pode subscrever o evento Viseme em Speech SDK para gerar dados de animação facial.
-Em seguida, pode aplicar esses dados a um personagem para realizar animação facial.
-Aprenda [a obter saídas visemas](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
+A fala pode ser uma boa maneira de impulsionar a animação de expressões faciais.
+Muitas [vezes os visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada, como a posição dos lábios, mandíbula e língua ao produzir um determinado fonme.
+Pode subscrever o evento viseme na Speech SDK.
+Em seguida, você pode aplicar eventos visemes para animar o rosto de uma personagem enquanto o áudio da fala reproduz.
+Saiba [como obter eventos visemes.](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk)

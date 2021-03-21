@@ -1,5 +1,5 @@
 ---
-title: Compreenda os gémeos módulos Azure IoT Hub Microsoft Docs
+title: Compreenda os gémeos do módulo Azure IoT Hub | Microsoft Docs
 description: Developer guide - use gémeos módulos para sincronizar dados de estado e de configuração entre o IoT Hub e os seus dispositivos
 author: nehsin
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91996467"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e usar gémeos módulos no IoT Hub

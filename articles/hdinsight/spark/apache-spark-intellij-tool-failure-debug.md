@@ -8,10 +8,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 5abbb26e7582d8ddabb73f3a178cf6d87e24db21
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942546"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Falha no trabalho de depuração com Azure Toolkit para IntelliJ (pré-visualização)
@@ -112,7 +112,7 @@ Se a submissão de emprego falhar, poderá transferir o perfil de trabalho falha
 
 1. Depois de depurar, se o projeto estiver concluído com sucesso, poderá reenviar o trabalho falhado à sua faísca no cluster HDInsight.
 
-## <a name="next-steps"></a><a name="seealso"></a>Próximos passos
+## <a name="next-steps"></a><a name="seealso"></a>Passos seguintes
 
 * [Visão geral: Aplicações Debug Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 

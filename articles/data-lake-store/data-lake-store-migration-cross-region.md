@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Migração transnação da Gen1 Microsoft Docs
+title: Azure Data Lake Storage Gen1 migração inter-região | Microsoft Docs
 description: Saiba o que considerar como planeia e complete uma migração para a Azure Data Lake Storage Gen1 à medida que se torna disponível em novas regiões.
 services: data-lake-store
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: twooley
 ms.openlocfilehash: c6520036f3ddb8799025129391330268b0604886
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97723811"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrar Azure Data Lake Storage Gen1 em regiões
@@ -34,7 +34,7 @@ ms.locfileid: "97723811"
 
 Em primeiro lugar, identifique a estratégia de migração que funciona melhor para a sua aplicação que escreve, lê ou processa dados na Data Lake Storage Gen1. Ao escolher uma estratégia, considere os requisitos de disponibilidade da sua aplicação e o tempo de inatividade que ocorre durante uma migração. Por exemplo, a sua abordagem mais simples pode ser usar o modelo de migração em nuvem "levantar e mudar". Nesta abordagem, você interrompe a aplicação na sua região existente enquanto todos os seus dados são copiados para a nova região. Quando o processo de cópia estiver concluído, retoma a sua aplicação na nova região e, em seguida, apaga a antiga conta Desema de Armazenamento de Data Lake Gen1. É necessário tempo de inatividade durante a migração.
 
-Para reduzir o tempo de inatividade, pode começar imediatamente a ingerir novos dados na nova região. Quando tiver os dados mínimos necessários, execute a sua aplicação na nova região. Em segundo plano, continue a copiar dados mais antigos da conta de Armazenamento de Data Lake Gen1 para a nova conta da Data Lake Storage Gen1 na nova região. Ao utilizar esta abordagem, pode fazer a mudança para a nova região com pouco tempo de inatividade. Quando todos os dados mais antigos tão antigos como a Gen1 de armazenamento de dados.
+Para reduzir o tempo de inatividade, pode começar imediatamente a ingerir novos dados na nova região. Quando tiver os dados mínimos necessários, execute a sua aplicação na nova região. Em segundo plano, continue a copiar dados mais antigos da conta de Armazenamento de Data Lake Gen1 para a nova conta da Data Lake Storage Gen1 na nova região. Ao utilizar esta abordagem, pode fazer a mudança para a nova região com pouco tempo de inatividade. Quando todos os dados mais antigos tão antigos tão antigos tão antigos como a Gen1 de armazenamento de dados.
 
 Outros detalhes importantes a ter em conta no planeamento da sua migração são:
 

@@ -2,14 +2,14 @@
 title: Eliminar grupo de recursos e recursos
 description: Descreve como eliminar grupos de recursos e recursos. Descreve como o Azure Resource Manager ordena a supressão de recursos quando um grupo de recursos elimina um grupo de recursos. Descreve os códigos de resposta e como o Gestor de Recursos os trata para determinar se a eliminação foi bem sucedida.
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 244d59ffc096b5e219e27fd376b07baecde3670e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614415"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587666"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Grupo de recursos Azure Resource Manager e eliminação de recursos
 
@@ -119,6 +119,13 @@ az resource delete \
 
 ---
 
+## <a name="required-access"></a>Acesso obrigatório
+
+Para eliminar um grupo de recursos, precisa de ter acesso à ação de eliminação para o recurso **Microsoft.Resources/subscrições/grupos de recursos.** Também é necessário eliminar todos os recursos do grupo de recursos.
+
+Para obter uma lista de operações, consulte [as operações do fornecedor de recursos Azure](../../role-based-access-control/resource-provider-operations.md). Para obter uma lista de papéis embutidos, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
+
+Se tiver o acesso necessário, mas o pedido de eliminação falhar, pode ser porque há um [bloqueio](lock-resources.md) no grupo de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

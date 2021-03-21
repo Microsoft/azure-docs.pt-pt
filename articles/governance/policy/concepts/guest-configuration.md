@@ -4,10 +4,10 @@ description: Saiba como a Azure Policy utiliza o cliente de Configuração de Co
 ms.date: 01/14/2021
 ms.topic: conceptual
 ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702883"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy

@@ -1,5 +1,5 @@
 ---
-title: Tutorial para encomendar Disco de Caixa de Dados Azure / Microsoft Docs
+title: Tutorial para encomendar | de disco de caixa de dados Azure Microsoft Docs
 description: Utilize este tutorial para saber como inscrever-se e encomendar um disco do Azure Data Box Disk para importar dados para o Azure.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92125274"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Encomende um disco de caixa de dados Azure
@@ -53,7 +53,7 @@ Inscreva-se para:
 
 Tome os seguintes passos para encomendar o Disco de Caixa de Dados.
 
-1. No canto superior esquerdo do portal, clique em **+ Criar um recurso**e procure *Azure Data Box*. Clique em **Azure Data Box**.
+1. No canto superior esquerdo do portal, clique em **+ Criar um recurso** e procure *Azure Data Box*. Clique em **Azure Data Box**.
 
    ![Pesquisar o Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 

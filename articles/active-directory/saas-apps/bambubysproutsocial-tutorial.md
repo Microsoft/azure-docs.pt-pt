@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Bambu by Sprout Social Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Bambu by Sprout Social | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Bambu by Sprout Social.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 403d04039deef7890bdd5dba1ef337a4b26e86ac
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97671782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integração do Diretório Ativo Azure com a Bambu by Sprout Social

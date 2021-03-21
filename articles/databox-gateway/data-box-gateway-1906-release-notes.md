@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Gateway & notas de lançamento da Azure Data Box Edge 1906 Microsoft Docs
+title: Azure Data Box Gateway & notas de lançamento Azure Data Box Edge 1906| Microsoft Docs
 description: Descreve questões e resoluções abertas críticas para o Gateway da Caixa de Dados Azure e para o Azure Data Box Edge em execução de 1906.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/11/2020
 ms.author: alkohli
 ms.openlocfilehash: 51f4995ffd6a86022d95df15ae0eb7694d878c60
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582837"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Azure Data Box Edge e Azure Data Box Gateway 1906 notas de lançamento

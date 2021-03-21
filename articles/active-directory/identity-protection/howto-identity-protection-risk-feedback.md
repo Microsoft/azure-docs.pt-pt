@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 939ffc9e2a8fb8ce3a25dc212e3df34dc6bb2ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88950362"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Como: Dar feedback de risco na Proteção de Identidade AZure AD
@@ -45,7 +45,7 @@ O Azure AD utiliza o seu feedback para atualizar o risco do utilizador subjacent
 
 Aqui estão os cenários e mecanismos para dar feedback de risco ao Azure AD.
 
-| Cenário | Como dar feedback? | O que acontece debaixo do capuz? | Notas |
+| Scenario | Como dar feedback? | O que acontece debaixo do capuz? | Notas |
 | --- | --- | --- | --- |
 | **S-in não comprometido (Falso positivo)** <br> O relatório "Ins de risco" mostra um sinal de risco [Estado de risco = em risco] mas essa inscrição não foi comprometida. | Selecione o sôm-in e clique em 'Confirme o cofre de entrada'. | A Azure AD moverá o risco agregado do sign-in para nenhum [Estado de risco = Seguro confirmado; Nível de risco (Agregado) = -] e reverterá o seu impacto no risco de utilizador. | Atualmente, a opção "Confirmar o aviso seguro" só está disponível no relatório "Entradas arriscadas". |
 | **Inscrição comprometida (Verdadeiro positivo)** <br> O relatório «Ins de risco» mostra um sinal de risco [Estado de risco = em risco] com baixo risco [Nível de risco (agregado) = Baixo] e essa inscrição foi efetivamente comprometida. | Selecione o sômin e clique em 'Confirme o sinal comprometido'. | O Azure AD moverá o risco agregado do sign-in e o risco do utilizador para o estado de alto risco = confirmado comprometido; Nível de risco = Alto]. | Atualmente, a opção "Confirmar a inscrição comprometida" só está disponível no relatório "Entradas arriscadas". |

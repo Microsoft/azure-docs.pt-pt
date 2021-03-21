@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.date: 02/18/2021
 ms.topic: article
 ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702509"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Processar erros e exceções no Azure Logic Apps
@@ -27,7 +27,7 @@ Para obter a exceção mais básica e o tratamento de erros, pode utilizar uma *
 
 Aqui estão os tipos de política de relíndi:
 
-| Tipo | Descrição |
+| Tipo | Description |
 |------|-------------|
 | **Predefinição** | Esta política envia até quatro retrações em intervalos *exponencialmente crescentes,* que escalam 7,5 segundos, mas estão limitadas entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Esta política aguarda um intervalo aleatório selecionado a partir de um intervalo exponencialmente crescente antes de enviar o próximo pedido. |
@@ -69,7 +69,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Obrigatório*
 
-| Valor | Tipo | Descrição |
+| Valor | Tipo | Description |
 |-------|------|-------------|
 | <*retrip-política tipo*> | String | O tipo de política de regata que pretende utilizar: `default` `none` , , `fixed` ou `exponential` |
 | <*retrip-intervalo*> | String | O intervalo de repetição em que o valor deve utilizar [o formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D` . Quando utilizar a política de intervalo exponencial, pode especificar valores mínimos e máximos diferentes. |
@@ -78,7 +78,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Opcional*
 
-| Valor | Tipo | Descrição |
+| Valor | Tipo | Description |
 |-------|------|-------------|
 | <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o intervalo mais pequeno para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |

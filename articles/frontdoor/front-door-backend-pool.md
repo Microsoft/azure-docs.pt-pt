@@ -1,5 +1,5 @@
 ---
-title: Backends e piscinas de backend na Porta frontal Azure/ Microsoft Docs
+title: Backends e piscinas de backend na Porta frontal Azure| Microsoft Docs
 description: Este artigo descreve o que os backends e as piscinas de backend estão na configuração da porta da frente.
 services: front-door
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449293"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Backends e piscinas de backend na Porta frontal Azure

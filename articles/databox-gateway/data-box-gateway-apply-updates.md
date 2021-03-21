@@ -1,5 +1,5 @@
 ---
-title: Instalar Atualização no dispositivo da série Azure Data Box Gateway / Microsoft Docs
+title: Instale a atualização no dispositivo da série Gateway da caixa de dados Azure | Microsoft Docs
 description: Descreve como aplicar atualizações utilizando o portal Azure e o UI web local para o dispositivo da série Azure Data Box Gateway
 services: databox
 author: alkohli
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
 ms.openlocfilehash: 7fda10310a4bac085b248248d80d708dfa7f3ff7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582765"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Atualize o seu Gateway de Caixa de Dados Azure
@@ -63,7 +63,7 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
     ![Screenshot da página inicial da Caixa de Dados Azure com a opção Overview e o banner de notificação de atualizações descarregadas chamados.](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Install** (Instalar).
+    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
   
     ![A screenshot do dispositivo atualiza a caixa de diálogo com a opção de instalação chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 
@@ -131,7 +131,7 @@ Antes da atualização ou instalação do hotfix, certifique-se de que:
 
 Este procedimento leva cerca de 20 minutos para ser concluído. Execute os seguintes passos para instalar a atualização ou hotfix.
 
-1. Na uI web local, **Maintenance** aceda à  >  **atualização do Software** de Manutenção . Tome nota da versão de software que está a executar.
+1. Na uI web local, aceda à  >  **atualização do Software** de Manutenção . Tome nota da versão de software que está a executar.
 
    ![Screenshot da web local Descaixa de Dados Gateway U I com a opção de atualização de Software e a mensagem de versão de software Atual chamada.](./media/data-box-gateway-apply-updates/local-ui-update-2.png)
 
@@ -149,7 +149,7 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
 5. A atualização começa. Depois de o dispositivo ser atualizado com sucesso, reinicia-o. A UI local não é acessível nesta duração.
 
-6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, **Maintenance** na UI web local, aceda à  >  **atualização do Software** de Manutenção . A versão de software apresentada neste exemplo é **1.6.1049.786**.
+6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, na UI web local, aceda à  >  **atualização do Software** de Manutenção . A versão de software apresentada neste exemplo é **1.6.1049.786**.
 
    ![Screenshot da web local Descaixa de Dados Gateway U I com a opção de atualização de Software e a mensagem atualizada da versão do software Current chamada.](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
 

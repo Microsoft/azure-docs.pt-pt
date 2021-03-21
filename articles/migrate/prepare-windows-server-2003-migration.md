@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753757"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Preparar máquinas windows server 2003 para migração
@@ -45,8 +45,8 @@ Antes da migração, verifique se os Serviços de Integração Hiper-V e, em seg
 2. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso**, e monte o ficheiro.
 3. Copie a pasta de instalação para o VMware VM.
 4. A partir da linha de comando na VM, ```gpedit.msc``` corra.
-5. Abrir **configurações de configuração** do computador  >  **Windows Settings**  >  **Scripts Scripts (Iniciar/Desligar)**.
-6. No Nome do Script **De Adicionar a**  >  **Add**  >  **Script Name** Startup, digite o endereço setup.exe.
+5. Abrir **configurações de configuração** do computador  >    >  **Scripts Scripts (Iniciar/Desligar)**.
+6. No Nome do Script **De Adicionar a**  >    >  Startup, digite o endereço setup.exe.
 7. Após a migração para Azure, o script corre a primeira vez que o Azure VM começa.
 8. Reinicie manualmente o Azure VM. Há um pop-up nos diagnósticos de botas que indica que é necessário um recomeço.
 9. Depois de o script ser executado e os Serviços de Integração Hiper-V estiverem instalados no Azure VM, pode remover o script do arranque.

@@ -11,18 +11,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2020
+ms.date: 03/16/2021
 ms.author: kumud
-ms.openlocfilehash: e047f46e110e1f7b1d544545c80bd1097ae65167
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f8090ea9c0d307d1bd290c4cf4dac9bfaabf7c4b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221923"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576358"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
 
-A Azure encaminha o tráfego entre todas as sub-redes dentro de uma rede virtual, por padrão. Pode criar as sua próprias rotas para substituir o encaminhamento predefinido do Azure. As rotas personalizadas são úteis quando, por exemplo, pretender encaminhar o tráfego entre sub-redes através de um aparelho virtual de rede (NVA). Neste tutorial, vai aprender a:
+A Azure encaminha o tráfego entre todas as sub-redes dentro de uma rede virtual, por padrão. Pode criar as sua próprias rotas para substituir o encaminhamento predefinido do Azure. As rotas personalizadas são úteis quando, por exemplo, pretender encaminhar o tráfego entre sub-redes através de um aparelho virtual de rede (NVA). Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma NVA que encaminha o tráfego
@@ -36,222 +36,301 @@ Este tutorial utiliza o [portal Azure.](https://portal.azure.com) Também pode u
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma subscrição do Azure.
+
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
+Inicie sessão no portal do Azure em https://portal.azure.com.
+
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
+
+1. No menu do portal do Azure, selecione **Criar um recurso**. A partir do Azure Marketplace, selecione rede Virtual **de Rede,**  >  ou procure **rede virtual** na caixa de pesquisa.
+
+2. Selecione **Criar**.
+
+2. Na **Criar rede virtual,** insira ou selecione esta informação:
+
+    | Definição | Valor |
+    | ------- | ----- |
+    | Subscrição | Selecione a sua subscrição.|
+    | Grupo de recursos | **Selecione Criar novo,** insira **o myResourceGroup**. </br> Selecione **OK**. |
+    | Name | Insira **a minha RedeTual**. |
+    | Localização | Selecione **(EUA) Leste DOS** EUA .|
+
+3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
+
+4. No **espaço de endereço IPv4**, selecione o espaço de endereço existente e altere-o para **10.0.0.0/16**.
+
+4. **Selecione + Adicionar sub-rede,** em seguida, insira o nome do **sub-rede** e **10.0.0.0/24** para **intervalo de endereços sub-rede**. 
+
+5. Selecione **Adicionar**.
+
+6. **Selecione + Adicionar sub-rede,** em seguida, insira **private** para nome **da sub-rede** e **10.0.0.0/24** para **intervalo de endereços sub-rede**.
+
+7. Selecione **Adicionar**.
+
+8. **Selecione + Adicionar sub-rede,** em seguida, introduza **DMZ** para **o nome da sub-rede** e **10.0.0.0/24** para **a gama de endereços Sub-rede**.
+
+9. Selecione **Adicionar**.
+
+10. Selecione o separador **Segurança** ou selecione o botão **Seguinte: Segurança** na parte inferior da página.
+
+11. Em **BastionHost**, selecione **Enable**. Insira esta informação:
+
+    | Definição            | Valor                      |
+    |--------------------|----------------------------|
+    | Nome de bastião | Insira **myBastionHost** |
+    | Espaço de endereço AzureBastionSubnet | Insira **10.0.3.0/24** |
+    | Endereço IP Público | Selecione **Criar novo**. </br> Para **nome,** insira **myBastionIP**. </br> Selecione **OK**. |
+
+12. Selecione o **separador 'Rever +' ou** selecionar o botão **'Rever +' criar.**
+
+13. Selecione **Criar**.
+
 ## <a name="create-an-nva"></a>Criar uma NVA
 
-Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas funções de rede, tais como o encaminhamento e a otimização de firewall. Este tutorial pressupõe que está a utilizar **o Centro de Dados 2016 do Windows Server**. Pode selecionar um sistema operativo diferente, se quiser.
+Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas funções de rede, tais como o encaminhamento e a otimização de firewall. Este tutorial pressupõe que está a utilizar **o Centro de Dados 2019 do Windows Server 2019.** Pode selecionar um sistema operativo diferente, se quiser.
 
-1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
+   
+2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
-1. Escolha **o Centro** de  >  **Dados 2016 do Security Windows Server**.
+    | Definição | Valor                                          |
+    |-----------------------|----------------------------------|
+    | **Detalhes do projeto** |  |
+    | Subscrição | selecione a subscrição do Azure |
+    | Grupo de Recursos | Selecione **myResourceGroup** |
+    | **Detalhes da instância** |  |
+    | Nome da máquina virtual | Insira **o myVMNVA** |
+    | Region | Selecione **(EUA) Leste dos EUA** |
+    | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
+    | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
+    | Instância do Azure Spot | Selecione **Não** |
+    | Tamanho | Escolha o tamanho VM ou tome a definição predefinida |
+    | **Conta de administrador** |  |
+    | Nome de utilizador | Insira um nome de utilizador |
+    | Palavra-passe | Introduza uma senha |
+    | Confirmar palavra-passe | Reintroduza a palavra-passe |
+    | **Regras portuárias de entrada** |    |
+    | Portas de entrada públicas | Selecione **Nenhuma**. |
+    |
 
-    ![Windows Server 2016 Datacenter, Criar um VM, portal Azure](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
+3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**.
+  
+4. No separador Networking, selecione ou introduza:
 
-1. Na página de **máquina virtual Criar,** em **Básicos, insira** ou selecione estas informações:
-
-    | Section | Definição | Ação |
-    | ------- | ------- | ----- |
-    | **Detalhes do projeto** | Subscrição | Escolha a sua subscrição. |
-    | | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup* e selecione **OK**. |
-    | **Detalhes da instância** | Nome da máquina virtual | Insira *myVmNva*. |
-    | | Region | Escolha **(EUA) Leste DOS EUA.** |
-    | | Opções de disponibilidade | Escolha **Não é necessário um despedimento de infraestrutura**. |
-    | | Imagem | Escolha **o Centro de Dados 2016 do Windows Server**. |
-    | | Tamanho | Mantenha o padrão, **Standard DS1 v2**. |
-    | **Conta de administrador** | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
-    | | Palavra-passe | Introduza uma palavra-passe à sua escolha, que deve ter pelo menos 12 caracteres de comprimento e satisfaça os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). |
-    | | Confirmar Palavra-passe | Introduza a senha novamente. |
-    | **Regras portuárias de entrada** | Portas de entrada públicas | Escolha **Nenhum.** |
-    | **Poupe dinheiro** | Já tem uma licença do Windows Server? | Escolha **nº.** |
-
-    ![Básico, Criar uma máquina virtual, portal Azure](./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png)
-
-    Em seguida, selecione **Seguinte : Discos >**.
-
-1. Em **Discos**, selecione as definições adequadas para as suas necessidades e, em seguida, selecione **Seguinte : Networking >**.
-
-1. Em **rede:**
-
-    1. Para **rede Virtual**, selecione Criar **novo**.
-    
-    1. Na caixa de diálogo **de rede virtual Create,** em **Nome,** insira *a myVirtualNetwork*.
-
-    1. No **espaço Address**, substitua o intervalo de endereços existente por *10.0.0.0/16*.
-
-    1. Nas **sub-redes**, selecione o ícone **Eliminar** para eliminar a sub-rede existente e, em seguida, introduza as seguintes combinações de nome da **Sub-rede** e **intervalo de endereços**. Uma vez introduzido um nome e alcance válidos, uma nova linha vazia aparece por baixo.
-
-        | Nome da sub-rede | Intervalo de endereços |
-        | ----------- | ------------- |
-        | *Público* | *10.0.0.0/24* |
-        | *Privado* | *10.0.1.0/24* |
-        | *Rede de Perímetro* | *10.0.2.0/24* |
-
-    1. Selecione **OK** para sair da caixa de diálogo.
-
-    1. Na **sub-rede,** escolha **DMZ (10.0.2.0/24)**.
-
-    1. Em **IP Público**, escolha **Nenhum,** uma vez que este VM não se liga através da internet.
-
-    1. Selecione **Seguinte : Gestão >**.
-
-1. Sob **Gestão:**
-
-    1. Na **conta de armazenamento de Diagnósticos**, selecione Create **New**.
-    
-    1. Na caixa de diálogo de **conta de armazenamento Criar,** insira ou selecione estas informações:
-
-        | Definição | Valor |
-        | ------- | ----- |
-        | Nome | *conta de mynvastorage* |
-        | Tipo de conta | **Armazenamento (finalidade geral v1)** |
-        | Desempenho | **Standard** |
-        | Replicação | **Armazenamento localmente redundante (LRS)** |
-    
-    1. Selecione **OK** para sair da caixa de diálogo.
-
-    1. Selecione **Rever + criar**. É levado para a página **Review + create,** e o Azure valida a sua configuração.
-
-1. Quando vir a mensagem **A validação passou**, selecione **Criar**.
-
-    A criação da VM demora alguns minutos. Espere até que Azure termine de criar o VM. A **página de implementação está em curso** mostra-lhe detalhes de implementação.
-
-1. Quando o seu VM estiver pronto, selecione **Ir para o recurso**.
+    | Definição | Valor |
+    |-|-|
+    | **Interface de rede** |  |
+    | Rede virtual | Selecione **myVirtualNetwork**. |
+    | Sub-rede | Selecione **DMZ** |
+    | IP público | Selecione **Nenhum** |
+    | Grupo de segurança de rede NIC | Selecione **Basic**|
+    | Rede pública de portos de entrada | Selecione **Nenhuma**. |
+   
+5. Selecione o **separador 'Rever +' ou** selecione o botão **'Avaliação azul+'** na parte inferior da página.
+  
+6. Reveja as definições e, em seguida, **selecione Criar**.
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
 1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
-2. Na caixa de pesquisa, introduza a *tabela Rota*. Quando **a tabela Rota** aparecer nos resultados da pesquisa, selecione-a.
+2. Na caixa de pesquisa, introduza a **tabela Rota**. Quando **a tabela Rota** aparecer nos resultados da pesquisa, selecione-a.
 
 3. Na página da **tabela Rota,** selecione **Criar**.
 
-4. Na **tabela de rotas Create,** insira ou selecione estas informações:
+4. Na **tabela de rotas Criar** no separador **Básicos, insira** ou selecione as seguintes informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | *myRouteTablePublic* |
-    | Subscrição | A sua subscrição |
-    | Grupo de recursos | **myResourceGroup** |
-    | Localização | **(EUA) E.U.A Leste** |
-    | Propagação da rota do gateway de rede virtual | **Ativado** |
+    | **Detalhes do projeto** |   |
+    | Subscrição | Selecione a sua subscrição.|
+    | Grupo de recursos | Selecione **myResourceGroup**. |
+    | **Detalhes da instância** |    |
+    | Region | Selecione **East US**. |
+    | Name | Insira **myRouteTablePublic**. |
+    | Rotas de gateway de propagação | Selecione **Yes** (Sim). |
 
-    ![Criar mesa de rotas, portal Azure](./media/tutorial-create-route-table-portal/create-route-table.png)
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Criar mesa de rota, portal Azure." border="true":::
 
-5. Selecione **Criar**.
+5. Selecione o **separador 'Rever +' ou** selecione o botão **'Avaliação azul+'** na parte inferior da página.
 
 ## <a name="create-a-route"></a>Criar uma rota
 
 1. Vá ao [portal Azure](https://portal.azure.com) para gerir a sua tabela de rotas. Procure e selecione **tabelas de rotas**.
 
-1. Escolha o nome da sua tabela de rotas **(myRouteTablePublic).**
+2. Selecione o nome da sua tabela de rotas **myRouteTablePublic**.
 
-1. Escolha **rotas**  >  **adicionar**.
+3. Na página **myRouteTablePublic,** na secção **Definições,** selecione **Rotas**.
 
-    ![Adicionar rota, tabela de rotas, portal Azure](./media/tutorial-create-route-table-portal/add-route.png)
+4. Na página rotas, selecione o botão **+ Adicionar.**
 
-1. Na **rota Adicionar,** insira ou selecione estas informações:
+5. Na **rota Adicionar,** insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome da rota | *ToPrivateSubnet* |
-    | Prefixo de endereço | *10.0.1.0/24* (intervalo de endereço da sub-rede *privada* criada anteriormente) |
-    | Tipo de salto seguinte | **Aparelho virtual** |
-    | Endereço do próximo salto | *10.0.2.4* (endereço dentro do intervalo de endereços da *sub-rede DMZ)* |
+    | Nome da rota | **Insira toPrivateSubnet** |
+    | Prefixo de endereço | Insira **10.0.1.0/24** (O intervalo de endereços da sub-rede **Privada** criada anteriormente) |
+    | Tipo de salto seguinte | Selecione **Aplicação virtual**. |
+    | Endereço do próximo salto | Insira **10.0.2.4** (Um endereço dentro do intervalo de endereço da **sub-rede DMZ)** |
 
-1. Selecione **OK**.
+6. Selecione **OK**.
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
 1. Vá ao [portal Azure](https://portal.azure.com) para gerir a sua rede virtual. Procure e selecione **redes Virtuais.**
 
-1. Escolha o nome da sua rede virtual **(myVirtualNetwork).**
+2. Selecione o nome da sua rede virtual **myVirtualNetwork**.
 
-1. Na barra de menus da rede virtual, escolha **Subnets**.
+3. Na página **myVirtualNetwork,** na secção **Definições,** selecione **Sub-redes**.
 
-1. Na lista de sub-redes da rede virtual, escolha **Público.**
+4. Na lista de sub-redes da rede virtual, selecione **Public**.
 
-1. Na **tabela Rota,** escolha a tabela de rotas que criou (**myRouteTablePublic**), e, em seguida, selecione **Guardar** para associar a sua tabela de rotas à sub-rede *Pública.*
+5. Na **tabela Route**, escolha a tabela de rotas que criou **myRouteTablePublic**. 
 
-    ![Tabela de rota associada, lista de sub-redes, rede virtual, portal Azure](./media/tutorial-create-route-table-portal/associate-route-table.png)
+6. **Selecione Guardar** para associar a sua tabela de rotas à sub-rede **Pública.**
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table.png" alt-text="Tabela de rotas associada, lista de sub-redes, rede virtual, portal Azure." border="true":::
 
 ## <a name="turn-on-ip-forwarding"></a>Ligue o encaminhamento IP
 
-Em seguida, ligue o encaminhamento IP para a sua nova máquina virtual NVA, *myVmNva*. Quando o Azure envia tráfego de rede para *o myVmNva,* se o tráfego estiver destinado a um endereço IP diferente, o encaminhamento IP envia o tráfego para o local correto.
+Em seguida, ligue o encaminhamento IP para a sua nova máquina virtual NVA, **myVMNVA**. Quando o Azure envia tráfego de rede para **o myVMNVA,** se o tráfego estiver destinado a um endereço IP diferente, o encaminhamento IP envia o tráfego para o local correto.
 
 1. Vá ao [portal Azure](https://portal.azure.com) para gerir o seu VM. Procure e selecione **máquinas Virtuais.**
 
-1. Escolha o nome do seu VM **(myVmNva).**
+2. Selecione o nome da sua máquina virtual **myVMNVA**.
 
-1. Na barra de menus da sua máquina virtual NVA, **selecione Networking**.
+3. Na página de visão geral **myVMNVA,** em **Definições,** selecione **Networking**.
 
-1. Selecione **myvmnva123**. É a interface de rede que o Azure criou para o seu VM. Azure adiciona números para garantir um nome único.
+4. Na página **de networking** do **myVMNVA,** selecione a interface de rede ao lado **da Interface de Rede**.  O nome da interface começará com **myvmnva**.
 
-    ![Máquina virtual de rede, aparelho virtual (NVA) (VM), portal Azure](./media/tutorial-create-route-table-portal/virtual-machine-networking.png)
+    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Máquina virtual de rede, aparelho virtual (NVA) (VM), portal Azure" border="true":::
 
-1. Na barra de menus de interface de rede, selecione **configurações IP**.
+5. Na página geral da interface de rede, em **Definições,** selecione **configurações IP**.
 
-1. Na página de **configurações IP,** despasse **o encaminhamento IP** para **Ativado** e selecione **Guardar**.
+6. Na página de **configurações IP,** despasse **o encaminhamento IP** para **Ativado,** selecione **Guardar**.
 
-    ![Ativar o encaminhamento IP, configurações IP, interface de rede, máquina virtual de aparelho virtual de rede (VM), portal Azure](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Ativar o reencaminhamento de IP" border="true":::
 
 ## <a name="create-public-and-private-virtual-machines"></a>Criar máquinas virtuais públicas e privadas
 
-Crie um VM público e um VM privado na rede virtual. Mais tarde, você vai usá-los para ver que a Azure encaminha o tráfego *público* de sub-rede para a sub-rede *Privada* através da NVA.
+Crie um VM público e um VM privado na rede virtual. Mais tarde, você vai usá-los para ver que a Azure encaminha o tráfego **público** de sub-rede para a sub-rede **Privada** através da NVA.
 
-Para criar o VM público e o VM privado, siga os passos da [Create a NVA](#create-an-nva) mais cedo. Não é preciso esperar que a implementação termine ou vá para o recurso VM. Utilizará a maioria das mesmas definições, exceto como descrito abaixo.
-
-Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas subsecções seguintes ([VM Público](#public-vm) e [VM Privado),](#private-vm)que mostram os valores que têm de ser diferentes. Pode continuar até à secção seguinte[(Encaminhar](#route-traffic-through-an-nva)o tráfego através de uma NVA ) depois de o Azure terminar a implantação de ambos os VMs.
 
 ### <a name="public-vm"></a>VM público
 
-| Tecla de Tabulação | Definição | Valor |
-| --- | ------- | ----- |
-| Informações básicas | Grupo de recursos | **myResourceGroup** |
-| | Nome da máquina virtual | *myVmPublic* |
-| | Portas de entrada públicas | **Permitir portas selecionadas** |
-| | Selecione as portas de entrada | **RDP** |
-| Rede | Rede virtual | **myVirtualNetwork** |
-| | Sub-rede | **Público (10.0.0.0/24)** |
-| | Endereço IP público | O padrão |
-| Gestão | Conta de armazenamento de diagnóstico | **conta de mynvastorage** |
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
+   
+2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
+
+    | Definição | Valor                                          |
+    |-----------------------|----------------------------------|
+    | **Detalhes do projeto** |  |
+    | Subscrição | selecione a subscrição do Azure |
+    | Grupo de Recursos | Selecione **myResourceGroup** |
+    | **Detalhes da instância** |  |
+    | Nome da máquina virtual | Insira **myVMPublic** |
+    | Region | Selecione **(EUA) Leste dos EUA** |
+    | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
+    | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
+    | Instância do Azure Spot | Selecione **Não** |
+    | Tamanho | Escolha o tamanho VM ou tome a definição predefinida |
+    | **Conta de administrador** |  |
+    | Nome de utilizador | Insira um nome de utilizador |
+    | Palavra-passe | Introduza uma senha |
+    | Confirmar palavra-passe | Reintroduza a palavra-passe |
+    | **Regras portuárias de entrada** |    |
+    | Portas de entrada públicas | Selecione **Nenhuma**. |
+    |
+
+3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**.
+  
+4. No separador Networking, selecione ou introduza:
+
+    | Definição | Valor |
+    |-|-|
+    | **Interface de rede** |  |
+    | Rede virtual | Selecione **myVirtualNetwork**. |
+    | Sub-rede | Selecione **Público** |
+    | IP público | Selecione **Nenhum** |
+    | Grupo de segurança de rede NIC | Selecione **Basic**|
+    | Rede pública de portos de entrada | Selecione **Nenhuma**. |
+   
+5. Selecione o **separador 'Rever +' ou** selecione o botão **'Avaliação azul+'** na parte inferior da página.
+  
+6. Reveja as definições e, em seguida, **selecione Criar**.
 
 ### <a name="private-vm"></a>VM privado
 
-| Tecla de Tabulação | Definição | Valor |
-| --- | ------- | ----- |
-| Informações básicas | Grupo de recursos | **myResourceGroup** |
-| | Nome da máquina virtual | *myVmPrivate* |
-| | Portas de entrada públicas | **Permitir portas selecionadas** |
-| | Selecione as portas de entrada | **RDP** |
-| Rede | Rede virtual | **myVirtualNetwork** |
-| | Sub-rede | **Privado (10.0.1.0/24)** |
-| | Endereço IP público | O padrão |
-| Gestão | Conta de armazenamento de diagnóstico | **conta de mynvastorage** |
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
+   
+2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
+
+    | Definição | Valor                                          |
+    |-----------------------|----------------------------------|
+    | **Detalhes do projeto** |  |
+    | Subscrição | selecione a subscrição do Azure |
+    | Grupo de Recursos | Selecione **myResourceGroup** |
+    | **Detalhes da instância** |  |
+    | Nome da máquina virtual | Insira **myVMPrivate** |
+    | Region | Selecione **(EUA) Leste dos EUA** |
+    | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
+    | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
+    | Instância do Azure Spot | Selecione **Não** |
+    | Tamanho | Escolha o tamanho VM ou tome a definição predefinida |
+    | **Conta de administrador** |  |
+    | Nome de utilizador | Insira um nome de utilizador |
+    | Palavra-passe | Introduza uma senha |
+    | Confirmar palavra-passe | Reintroduza a palavra-passe |
+    | **Regras portuárias de entrada** |    |
+    | Portas de entrada públicas | Selecione **Nenhuma**. |
+    |
+
+3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**.
+  
+4. No separador Networking, selecione ou introduza:
+
+    | Definição | Valor |
+    |-|-|
+    | **Interface de rede** |  |
+    | Rede virtual | Selecione **myVirtualNetwork**. |
+    | Sub-rede | Selecione **Privado** |
+    | IP público | Selecione **Nenhum** |
+    | Grupo de segurança de rede NIC | Selecione **Basic**|
+    | Rede pública de portos de entrada | Selecione **Nenhuma**. |
+   
+5. Selecione o **separador 'Rever +' ou** selecione o botão **'Avaliação azul+'** na parte inferior da página.
+  
+6. Reveja as definições e, em seguida, **selecione Criar**.
 
 ## <a name="route-traffic-through-an-nva"></a>Encaminhar o tráfego através de uma NVA
 
-### <a name="sign-in-to-myvmprivate-over-remote-desktop"></a>Inscreva-se no myVmPrivate sobre o ambiente de trabalho remoto
+### <a name="sign-in-to-private-vm"></a>Inscreva-se no vm privado
 
 1. Vá ao [portal Azure](https://portal.azure.com) para gerir o seu VM privado. Procure e selecione **máquinas Virtuais.**
 
-1. Escolha o nome do seu VM privado **(myVmPrivate).**
+2. Escolha o nome da sua máquina virtual privada **myVmPrivate**.
 
-1. Na barra de menus VM, selecione **Connect** para criar uma ligação remota de ambiente de trabalho ao VM privado.
+3. Na barra de menus VM, selecione **Connect** e, em seguida, selecione **Bastion**.
 
-1. Na página **'Ligar com RDP',** selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+4. Na página **'Ligar',** selecione o botão **azul Utilizar bastion.**
 
-1. Abra o ficheiro *.rdp* descarregado. Se lhe for pedido, selecione **Ligar**. Selecione **Mais escolhas**  >  **Utilize uma conta diferente** e, em seguida, insira o nome de utilizador e a palavra-passe que especificou ao criar o VM privado.
+5. Na página **Bastion,** insira o nome de utilizador e a palavra-passe que criou para a máquina virtual anteriormente.
 
-1. Selecione **OK**.
+6. Selecione **Ligar**.
 
-1. Se receber um aviso de certificado durante o processo de inscrição, selecione **Sim** para ligar ao VM.
+### <a name="configure-firewall"></a>Configurar a firewall
 
-### <a name="enable-icmp-through-the-windows-firewall"></a>Ativar o ICMP através da firewall do Windows
+Num passo posterior, utilizará a ferramenta de rota de rastreio para testar o encaminhamento. A rota de rastreio utiliza o Protocolo de Mensagem de Controlo de Internet (ICMP), que o Windows Firewall nega por padrão. 
 
-Num passo posterior, utilizará a ferramenta de rota de rastreio para testar o encaminhamento. A rota de rastreio utiliza o Protocolo de Mensagem de Controlo de Internet (ICMP), que o Windows Firewall nega por padrão. Ativar o ICMP através da firewall do Windows.
+Ativar o ICMP através da firewall do Windows.
 
-1. No Ambiente de Trabalho Remoto do *myVmPrivate,* abra o PowerShell.
+1. Na ligação bastonária do **myVMPrivate,** abra a PowerShell com privilégios administrativos.
 
-1. Insira este comando:
+2. Insira este comando:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -259,34 +338,40 @@ Num passo posterior, utilizará a ferramenta de rota de rastreio para testar o e
 
     Vais usar a rota de rastreio para testar o encaminhamento neste tutorial. Para ambientes de produção, não recomendamos permitir o ICMP através do Windows Firewall.
 
-### <a name="turn-on-ip-forwarding-within-myvmnva"></a>Ligue o encaminhamento IP dentro do myVmNva
+### <a name="turn-on-ip-forwarding-within-myvmnva"></a>Ligue o encaminhamento IP dentro do myVMNVA
 
-Ligou o [encaminhamento IP](#turn-on-ip-forwarding) para a interface de rede do VM utilizando o Azure. O sistema operativo da VM também tem de encaminhar o tráfego de rede. Ligue o encaminhamento IP para o sistema operativo *myVmNva* VM com estes comandos.
+Ligou o [encaminhamento IP](#turn-on-ip-forwarding) para a interface de rede do VM utilizando o Azure. O sistema operativo da máquina virtual também tem de encaminhar o tráfego de rede. 
 
-1. A partir de um pedido de comando no *myVmPrivate* VM, abra um ambiente de trabalho remoto para o *myVmNva* VM:
+Ligue o encaminhamento IP para **o myVMNVA** com estes comandos.
 
-    ```cmd
+1. A partir do PowerShell no **myVMPrivate** VM, abra um ambiente de trabalho remoto para o **myVMNVA** VM:
+
+    ```powershell
     mstsc /v:myvmnva
     ```
 
-1. A partir de PowerShell no *myVmNva* VM, insira este comando para ligar o encaminhamento IP:
+2. A partir de PowerShell no **myVMNVA** VM, insira este comando para ligar o encaminhamento IP:
 
     ```powershell
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Reinicie o *myVmNva* VM: A partir da barra de tarefas, selecione **Start**  >  **Power**, **Other (Planejado)**  >  **Continue**.
+3. Reiniciar **o myVMNVA**.
 
-    Isto também desliga a sessão de ambiente de trabalho remoto.
-
-1. Após o reinício do *myVmNva* VM, crie uma sessão de ambiente de trabalho remota para o *myVmPublic* VM. Enquanto ainda estiver ligado ao *myVmPrivate* VM, abra um pedido de comando e execute este comando:
-
-    ```cmd
-    mstsc /v:myVmPublic
+    ```powershell
+    Restart-Computer
     ```
-1. No ambiente de trabalho remoto do *myVmPublic,* abra o PowerShell.
 
-1. Ativar o ICMP através da firewall do Windows introduzindo este comando:
+4. Depois do **meuVMNVA** reiniciar, crie uma sessão de desktop remota para **o myVMPublic**. 
+    
+    Enquanto ainda estiver ligado ao **myVMPrivate,** abra o PowerShell e execute este comando:
+
+    ```powershell
+    mstsc /v:myvmpublic
+    ```
+5. No ambiente de trabalho remoto do **myVMPublic,** abra o PowerShell.
+
+6. Ativar o ICMP através da firewall do Windows introduzindo este comando:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -294,71 +379,79 @@ Ligou o [encaminhamento IP](#turn-on-ip-forwarding) para a interface de rede do 
 
 ## <a name="test-the-routing-of-network-traffic"></a>Testar o encaminhamento do tráfego de rede
 
-Primeiro, vamos testar o encaminhamento do tráfego de rede do *VM myVmPublic* para o *myVmPrivate* VM.
+Em primeiro lugar, vamos testar o encaminhamento do tráfego de rede do **myVMPublic** para **o myVMPrivate**.
 
-1. A partir de PowerShell no *myVmPublic* VM, insira este comando:
+1. A partir de PowerShell no **myVMPublic,** insira este comando:
 
     ```powershell
-    tracert myVmPrivate
+    tracert myvmprivate
     ```
 
     A resposta é semelhante a este exemplo:
 
     ```powershell
-    Tracing route to myVmPrivate.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.1.4]
+    Tracing route to myvmprivate.q04q2hv50taerlrtdyjz5nza1f.bx.internal.cloudapp.net [10.0.1.4]
     over a maximum of 30 hops:
 
-    1    <1 ms     *        1 ms  10.0.2.4
-    2     1 ms     1 ms     1 ms  10.0.1.4
+      1     1 ms     *        2 ms  myvmnva.internal.cloudapp.net [10.0.2.4]
+      2     2 ms     1 ms     1 ms  myvmprivate.internal.cloudapp.net [10.0.1.4]
 
     Trace complete.
     ```
 
-    Pode ver que o primeiro salto é de 10.0.2.4, que é o endereço IP privado da NVA. O segundo salto é para o endereço IP privado do *myVmPrivate* VM: 10.0.1.4. Anteriormente, adicionou a rota para a tabela de rotas *myRouteTablePublic* e associou-a à sub-rede *Pública.* Como resultado, a Azure enviou o tráfego através da NVA e não diretamente para a sub-rede *Privada.*
+    * Pode ver que o primeiro salto é de 10.0.2.4, que é o endereço IP privado **da myVMNVA.** 
 
-1. Feche a sessão de ambiente de trabalho remoto para a VM *myVmPublic*, o que mantém a ligação à VM *myVmPrivate* ativa.
+    * O segundo salto é para o endereço IP privado do **myVMPrivate:** 10.0.1.4. 
 
-1. A partir de um pedido de comando no *myVmPrivate* VM, insira este comando:
+    Anteriormente, adicionou a rota para a tabela de rotas **myRouteTablePublic** e associou-a à sub-rede *Pública.* A Azure enviou o tráfego através da NVA e não diretamente para a sub-rede *Privada.*
 
-    ```cmd
-    tracert myVmPublic
+2. Feche a sessão de desktop remota ao **myVMPublic,** o que o deixa ainda ligado ao **myVMPrivate**.
+
+3. Open PowerShell no **myVMPrivate,** insira este comando:
+
+    ```powershell
+    tracert myvmpublic
     ```
 
     Este comando testa o encaminhamento do tráfego de rede desde o *myVmPrivate* VM até ao *VM myVmPublic.* A resposta é semelhante a este exemplo:
 
     ```cmd
-    Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.0.4]
+    Tracing route to myvmpublic.q04q2hv50taerlrtdyjz5nza1f.bx.internal.cloudapp.net [10.0.0.4]
     over a maximum of 30 hops:
 
-    1     1 ms     1 ms     1 ms  10.0.0.4
+      1     1 ms     1 ms     1 ms  myvmpublic.internal.cloudapp.net [10.0.0.4]
 
     Trace complete.
     ```
 
-    Pode ver que a Azure encaminha o tráfego diretamente do *myVmPrivate* VM para o *myVmPublic* VM. Por predefinição, o Azure encaminha o tráfego diretamente entre sub-redes.
+    Pode ver que a Azure liga o tráfego diretamente do *myVMPrivate* para *o myVMPublic*. Por predefinição, o Azure encaminha o tráfego diretamente entre sub-redes.
 
-1. Feche a sessão de ambiente de trabalho remoto para a VM *myVmPrivate*.
+4. Feche a sessão de bastião ao **myVMPrivate**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando o grupo de recursos já não for necessário, elimine *o myResourceGroup* e todos os recursos que tenha:
+Quando o grupo de recursos já não for necessário, elimine **o myResourceGroup** e todos os recursos que contém:
 
 1. Vá ao [portal Azure](https://portal.azure.com) para gerir o seu grupo de recursos. Procure e selecione **grupos de recursos.**
 
-1. Escolha o nome do seu grupo de recursos **(myResourceGroup).**
+2. Selecione o nome do seu grupo de recursos **myResourceGroup**.
 
-1. Selecione **Eliminar grupo de recursos**.
+3. Selecione **Eliminar grupo de recursos**.
 
-1. Na caixa de diálogo de confirmação, insira *o myResourceGroup* para **TYPE THE RESOURCE GROUP NAME** e, em seguida, selecione **Delete**. O Azure elimina o *myResourceGroup* e todos os recursos ligados a esse grupo de recursos, incluindo as suas tabelas de rotas, contas de armazenamento, redes virtuais, VMs, interfaces de rede e endereços IP públicos.
+4. Na caixa de diálogo de confirmação, insira **o myResourceGroup** para **TYPE THE RESOURCE GROUP NAME** e, em seguida, selecione **Delete**. 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou uma tabela de rotas e associou-a a uma sub-rede. Criou uma NVA simples que encaminhou o tráfego de uma sub-rede pública para uma privada. Agora pode implementar diferentes NVAs pré-configurados do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking), que fornecem muitas funções de rede úteis. Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
+Neste tutorial:
 
-Embora possa implementar muitos recursos Azure dentro de uma rede virtual, o Azure não pode implementar recursos para alguns serviços PaaS numa rede virtual. É possível restringir o acesso aos recursos de alguns serviços Azure PaaS, embora a restrição desconte apenas no tráfego de uma sub-rede de rede virtual. Para aprender a restringir o acesso à rede aos recursos do Azure PaaS, consulte o próximo tutorial.
+* Criei uma tabela de rotas e associou-a a uma sub-rede.
+* Criou um simples NVA que encaminhou o tráfego de uma sub-rede pública para uma sub-rede privada. 
 
+Pode implementar diferentes NVAs pré-configurados do [Azure Marketplace,](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)que fornecem muitas funções de rede úteis. 
+
+Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
+
+Para filtrar o tráfego de rede numa rede virtual, consulte:
 > [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources.md) (Restringir o acesso de rede a recursos de PaaS)
-
-> [!NOTE] 
-> Os serviços da Azure custam dinheiro. A Azure Cost Management ajuda-o a definir orçamentos e a configurar alertas para manter os gastos sob controlo. Analise, gerencie e otimize os seus custos Azure com a Gestão de Custos. Para saber mais, consulte o [quickstart na análise dos seus custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Tutorial: Filtrar o tráfego da rede com um grupo de segurança de rede utilizando o portal Azure](tutorial-filter-network-traffic.md)

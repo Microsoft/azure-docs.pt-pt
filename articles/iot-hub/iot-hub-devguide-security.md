@@ -1,5 +1,5 @@
 ---
-title: Compreenda a segurança do Azure IoT Hub ! Microsoft Docs
+title: Compreenda a segurança do Azure IoT Hub | Microsoft Docs
 description: Guia do desenvolvedor - como controlar o acesso ao IoT Hub para aplicações de dispositivos e aplicações de back-end. Inclui informações sobre fichas de segurança e suporte para certificados X.509.
 author: wesmc7777
 manager: philmea
@@ -17,10 +17,10 @@ ms.custom:
 - devx-track-js
 - devx-track-csharp
 ms.openlocfilehash: 3ddc8c78bac47ed85266037341328585e3c7cb1c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97825131"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT

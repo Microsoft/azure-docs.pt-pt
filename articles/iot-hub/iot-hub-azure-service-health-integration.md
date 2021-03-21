@@ -1,5 +1,5 @@
 ---
-title: Consulte o serviço Azure IoT Hub e a saúde dos recursos ! Microsoft Docs
+title: Verifique o serviço Azure IoT Hub e a saúde dos recursos | Microsoft Docs
 description: Use a Azure Service Health e Azure Resource Health para monitorizar o seu IoT Hub
 author: robinsh
 ms.service: iot-hub
@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 27fca7b76ab148fc355eb7d52ee0cbcbd3540458
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548581"
 ---
 # <a name="check-iot-hub-service-and-resource-health"></a>Verifique o serviço IoT Hub e a saúde dos recursos
@@ -33,7 +33,7 @@ Para ver o estado e o histórico do seu hub IoT utilizando o portal, siga estes 
 
 1. No [portal Azure,](https://portal.azure.com)vá ao seu hub IoT no portal Azure.
 
-1. No painel esquerdo, em **Suporte + resolução de problemas,** selecione **Resource Health** .
+1. No painel esquerdo, em **Suporte + resolução de problemas,** selecione **Resource Health**.
 
     :::image type="content" source="./media/iot-hub-azure-service-health-integration/iot-hub-resource-health.png" alt-text="Página de saúde de recursos para um hub IoT":::
 
@@ -49,7 +49,7 @@ Para verificar a saúde dos seus centros de IoT, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Navegar para a saúde do **Recurso de Saúde do Serviço.**  >  **Resource health**
+2. Navegar para a saúde do **Recurso de Saúde do Serviço.**  >  
 
 3. A partir das caixas de entrega, selecione a sua subscrição e selecione **O Hub IoT** como o tipo de recurso.
 

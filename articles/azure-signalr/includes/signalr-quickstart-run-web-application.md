@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: anthonychu
 ms.service: signalr
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 2af9c1dfd13d3aeafa7cf1ac76537117ecc15aff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84317675"
 ---
 ## <a name="run-the-web-application"></a>Execute a aplicação Web

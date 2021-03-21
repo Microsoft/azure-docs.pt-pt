@@ -1,5 +1,5 @@
 ---
-title: Aplicativos de clientes públicos e confidenciais (MSAL) Rio Azure
+title: Aplicativos de clientes públicos e confidenciais (MSAL) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Conheça as aplicações de cliente público e confidencial na Biblioteca de Autenticação da Microsoft (MSAL).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2ef29f6fe3403809d01fcea382474c514319b7c0
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063761"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Aplicações de cliente público e confidencial
@@ -45,7 +45,7 @@ Aqui estão algumas semelhanças e diferenças entre cliente público e aplicaç
 
 Se utilizou o ADAL, poderá notar que, ao contrário do contexto de autenticação da ADAL, no MSAL o ID do cliente (também chamado *de ID* de aplicação ou *ID de aplicação)* é aprovado uma vez na construção da aplicação. Não precisa de ser passado novamente quando a app adquire um token. Isto é verdade tanto para aplicações de clientes públicos como confidenciais. Os construtores de aplicações confidenciais de clientes também são passados credenciais de cliente: o segredo que partilham com o fornecedor de identidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre:
 - [Opções de configuração de aplicação de cliente](msal-client-application-configuration.md)
 - [Instantiing aplicações de clientes utilizando MSAL.NET](msal-net-initializing-client-applications.md)

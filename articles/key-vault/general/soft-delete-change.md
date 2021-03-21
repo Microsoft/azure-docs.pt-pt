@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: sudbalas
 ms.openlocfilehash: b96f2ca4f925846bd252e5cfd35088d832f5c216
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98572872"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A eliminação suave será ativada em todos os cofres-chave
@@ -64,7 +64,7 @@ Se a sua organização estiver sujeita a requisitos legais de conformidade e nã
 
 ### <a name="audit-your-key-vaults-to-check-if-soft-delete-is-enabled"></a>Audite os seus cofres-chave para verificar se a eliminação suave está ativada
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Procurar a **Política Azure**.
 1. Selecione **Definições**.
 1. Na **categoria**, selecione **Key Vault** no filtro.
@@ -80,7 +80,7 @@ Agora pode filtrar e ver quais as abóbadas-chave que têm uma eliminação suav
 
 ### <a name="turn-on-soft-delete-for-an-existing-key-vault"></a>Ligue o soft-delete para um cofre de chaves existente
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Procure o cofre da chave.
 1. Selecione **Propriedades** em **Definições**.
 1. Em **Soft-Delete,** selecione a **recuperação ativa deste cofre e a opção de objetos.**
@@ -89,7 +89,7 @@ Agora pode filtrar e ver quais as abóbadas-chave que têm uma eliminação suav
 
 ### <a name="grant-purge-access-policy-permissions-to-a-security-principal"></a>Conceder permissões de política de acesso à purga a um diretor de segurança
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Procure o cofre da chave.
 1. Selecione **Políticas de Acesso** em **Definições**.
 1. Selecione o principal de serviço a que pretende conceder acesso.

@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675346"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Ajude os estudantes a descarregar ferramentas de desenvolvimento de software do Azure Education Hub
@@ -26,7 +26,7 @@ Faça com que os seus alunos sigam este procedimento para descarregar as ferrame
 1. Inscreva-se com as suas credenciais de subscrição Azure for Students.
 1. Selecione qualquer uma das ferramentas de desenvolvedor de software no Education Hub para abrir o painel de descarregamento.
 1. Leia as informações do software para se certificar de que o software é compatível com o seu sistema informático.
-1. Depois de confirmar que o software é compatível com o seu sistema, selecione **Download** .
+1. Depois de confirmar que o software é compatível com o seu sistema, selecione **Download**.
 1. Siga as instruções no ecrã para descarregar e instalar o software.
 
    Azure for Students dá-lhe 100 dólares de crédito por 12 meses. Inclui acesso a mais de 25 serviços gratuitos, incluindo computação, rede, armazenamento e bases de dados. Quaisquer encargos incorridos durante este período são deduzidos do crédito. 
@@ -34,7 +34,7 @@ Faça com que os seus alunos sigam este procedimento para descarregar as ferrame
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Obtenha ajuda com erros de login](troubleshoot-login.md)
-- [Azure for Students](azure-students-program.md)
+- [Microsoft Azure for Students](azure-students-program.md)
 - [Azure for Students Starter](azure-students-starter-program.md)
 - [Microsoft Learn: uma plataforma de aprendizagem online gratuita](/learn/)
 - [Perguntas mais frequentes](program-faq.md#azure-for-students)

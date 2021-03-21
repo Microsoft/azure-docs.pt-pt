@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: cf100861705bf1654b7206445c884b5fe315b06d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792638"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência de API gerida para o Azure SQL Managed Instance
@@ -85,7 +85,7 @@ Para criar e configurar bases de dados de casos após a criação da instância 
 
 | Comando | Descrição |
 | --- | --- |
-|[CRIAR BASE DE DADOs](/sql/t-sql/statements/create-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current)|Cria uma nova base de dados de casos em SQL Managed Instance. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current)|Cria uma nova base de dados de casos em SQL Managed Instance. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current) |Modifica uma base de dados de casos em SQL Managed Instance.|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>REST API: Criar e configurar instâncias geridas

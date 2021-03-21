@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310054"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Quickstart: Criar uma zona de DNS privada Azure utilizando o portal Azure
@@ -40,11 +40,11 @@ Uma zona DNS contém as entradas DNS para um domínio. Para começar a hospedar 
 
 1. Na página **da zona de IdS,** escreva ou selecione os seguintes valores:
 
-   - **Grupo de recursos**: Selecione **Criar novo,** insira *o MyAzureResourceGroup*e selecione **OK**. O nome do grupo de recursos deve ser único dentro da assinatura Azure.
+   - **Grupo de recursos**: Selecione **Criar novo,** insira *o MyAzureResourceGroup* e selecione **OK**. O nome do grupo de recursos deve ser único dentro da assinatura Azure.
    -  **Nome**: Escreva *private.contoso.com* para este exemplo.
 1. Para **a localização do grupo de recursos**, selecione West Central **US**.
 
-1. Selecione **Review + Criar**.
+1. Selecione **Rever + Criar**.
 
 1. Selecione **Criar**.
 
@@ -84,13 +84,13 @@ Para ligar a zona DNS privada a uma rede virtual, crie uma ligação de rede vir
 
 Agora, vai criar duas máquinas virtuais para testar a zona DNS privada:
 
-1. Na página superior esquerda do portal, selecione **Criar um recurso**e, em seguida, selecione o Centro de **Dados do Windows Server 2016**.
+1. Na página superior esquerda do portal, selecione **Criar um recurso** e, em seguida, selecione o Centro de **Dados do Windows Server 2016**.
 1. Selecione **MyAzureResourceGroup** para o grupo de recursos.
 1. Digite **myVM01** - para o nome da máquina virtual.
 1. Selecione **West Central US** para a **Região.**
 1. Insira um nome para o nome de utilizador do administrador.
 2. Introduza uma senha e confirme a senha.
-5. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas**e, em seguida, selecione **RDP (3389)** para **selecionar portas de entrada**.
+5. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas** e, em seguida, selecione **RDP (3389)** para **selecionar portas de entrada**.
 10. Aceite as outras predefinições para a página e, em seguida, clique em **Seguinte: Discos >**.
 11. Aceite as predefinições na página **Discos** e, em seguida, clique em **Seguinte: Networking >**.
 1. Certifique-se de que **o myAzureVNet** está selecionado para a rede virtual.
@@ -180,5 +180,5 @@ Quando já não for necessário, elimine o grupo de recursos **MyAzureResourceGr
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Cenários de Zonas Privadas Azure DNS](private-dns-scenarios.md)
+> [Cenários de Zonas Privadas de DNS do Azure](private-dns-scenarios.md)
 

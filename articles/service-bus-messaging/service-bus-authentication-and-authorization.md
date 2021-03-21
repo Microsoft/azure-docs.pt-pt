@@ -1,13 +1,13 @@
 ---
-title: Autenticação e autorização do Azure Service Bus Microsoft Docs
+title: Autenticação e autorização da Azure Service Bus | Microsoft Docs
 description: Autenticar aplicativos para Service Bus com autenticação de assinatura de acesso partilhado (SAS).
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98060219"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Service Bus

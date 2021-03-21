@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover os proprietários do grupo - Azure Ative Directory / Microsoft Docs
+title: Adicione ou remova os proprietários do grupo - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como adicionar ou remover os proprietários do grupo utilizando o Diretório Azure Ative.
 services: active-directory
 author: ajburnle
@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b255f64547c3bae56d31415dc94a751989ca1f45
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504904"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover os proprietários do grupo no Azure Ative Directory

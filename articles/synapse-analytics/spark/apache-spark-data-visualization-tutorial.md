@@ -9,13 +9,13 @@ ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
 ms.openlocfilehash: 56af49b6fa862c93822293056752182b534ac442
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942266"
 ---
-# <a name="analyze-data-with-apache-spark"></a>Analisar dados com Apache Spark
+# <a name="analyze-data-with-apache-spark"></a>Analisar os dados com o Apache Spark
 
 Neste tutorial, você aprenderá a realizar análises exploratórias de dados usando Azure Open Datasets e Apache Spark. Em seguida, pode visualizar os resultados num caderno do Estúdio Synapse em Azure Synapse Analytics.
 
@@ -169,12 +169,12 @@ Além das opções de gráficos de cadernos incorporados, pode utilizar bibliote
 
 Depois de terminar a execução da aplicação, desligue o caderno para libertar os recursos. Feche o separador ou selecione **Sessão final** do painel de estado na parte inferior do caderno.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Visão geral: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 - [Construa um modelo de aprendizagem automática com o Apache SparkML](../spark/apache-spark-machine-learning-mllib-notebook.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Synapse Analytics](../index.yml)
 - [Documentação oficial da Faísca Apache Spark](https://spark.apache.org/docs/latest/)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b7883d6c541558e26793f94e37014a20b14d761e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102634979"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577262"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -48,7 +48,7 @@ Para trabalhar através do cenário, irá interagir com componentes da aplicaç�
 
 Aqui estão os componentes implementados pela aplicação de amostra do cenário de construção *AdtSampleApp:*
 * Autenticação do dispositivo 
-* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client) de utilização da SDK (encontrados em *CommandLoop.cs*)
+* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client) de utilização da SDK (encontrados no *CommandLoop.cs*)
 * Interface de consola para chamar a AZure Digital Twins API
 * *SampleClientApp* - Uma solução de amostra Azure Digital Twins
 * *SampleFunctionsApp* - Uma app Azure Functions que atualiza o seu gráfico Azure Digital Twins como resultado da telemetria dos eventos IoT Hub e Azure Digital Twins
@@ -121,35 +121,51 @@ De volta à janela do Estúdio Visual onde está aberto o projeto _**AdtE2ESampl
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-Para que a sua aplicação de funções possa aceder ao Azure Digital Twins, terá de ter uma identidade gerida pelo sistema com permissões para aceder à sua instância Azure Digital Twins. Vais marcar isso a seguir.
+Para que a sua aplicação de funções possa aceder ao Azure Digital Twins, terá de ter permissões para aceder à sua instância Azure Digital Twins e ao nome de anfitrião do caso. Vais configurar estes a seguir.
 
-### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões à aplicação de função
+### <a name="configure-permissions-for-the-function-app"></a>Configure permissões para a aplicação de função
 
-Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AD AD gerida pelo sistema, e dar a esta identidade o papel *de Proprietário de Dados Azure Digital Twins* na instância Azure Digital Twins. Esta função é necessária para qualquer utilizador ou função que pretenda realizar muitas atividades de data plane no caso. Pode ler mais sobre segurança e atribuições de papéis em [*Soluções Concepts: Security for Azure Digital Twins.*](concepts-security.md)
+Há duas definições que precisam de ser definidas para que a aplicação de função aceda à sua instância Azure Digital Twins. Ambos podem ser feitos através de comandos na [Azure Cloud Shell](https://shell.azure.com). 
 
-No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância Azure Digital Twins. Preencha os espaços reservados com os detalhes dos seus recursos (lembre-se que o url de exemplo de Azure Digital Twins é o seu nome de anfitrião precedido por *https://).*
+#### <a name="assign-access-role"></a>Atribuir função de acesso
+
+A primeira definição dá à aplicação de função o papel **de Proprietário de Dados Azure Digital Twins** na instância Azure Digital Twins. Esta função é necessária para qualquer utilizador ou função que pretenda realizar muitas atividades de data plane no caso. Pode ler mais sobre segurança e atribuições de papéis em [*Soluções Concepts: Security for Azure Digital Twins.*](concepts-security.md) 
+
+1. Utilize o seguinte comando para ver os detalhes da identidade gerida pelo sistema para a função. Tome nota do campo **principalid** na saída.
+
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
+
+    >[!NOTE]
+    > Se o resultado estiver vazio em vez de mostrar detalhes de uma identidade, crie uma nova identidade gerida pelo sistema para a função utilizando este comando:
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > A saída apresentará então detalhes da identidade, incluindo o valor **principal** necessário para o passo seguinte. 
+
+1. Utilize o valor **principalId** no seguinte comando para atribuir a identidade da aplicação de funções à função **Proprietário dos Dados do Azure Digital Twins** para a sua instância do Azure Digital Twins.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+O resultado deste comando é informação sobre a função que criou. A aplicação de função tem agora permissões para aceder a dados na sua instância Azure Digital Twins.
+
+#### <a name="configure-application-settings"></a>Configurar definições da aplicação
+
+A segunda definição cria uma **variável ambiental** para a função com o URL da sua instância Azure Digital Twins. O código de função utilizará isto para se referir ao seu caso. Para obter mais informações sobre variáveis ambientais, consulte [*Gerir a sua aplicação de função.*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal) 
+
+Executar o comando abaixo, preenchendo os espaços reservados com os detalhes dos seus recursos.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 
 A saída é a lista de definições para a Função Azure, que deve agora conter uma entrada chamada **ADT_SERVICE_URL**.
 
-Utilize o seguinte comando para criar a identidade gerida pelo sistema. Procure o campo **principal na** saída.
-
-```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-Utilize o valor **principal** da saída no seguinte comando, para atribuir a identidade da aplicação de função à função *Azure Digital Twins Data Owner* para a sua instância Azure Digital Twins.
-
-[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
-
-```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-
-O resultado deste comando é informação sobre a função que criou. A aplicação de função tem agora permissões para aceder à sua instância Azure Digital Twins.
 
 ## <a name="process-simulated-telemetry-from-an-iot-hub-device"></a>Processo de telemetria simulada a partir de um dispositivo IoT Hub
 
@@ -242,7 +258,7 @@ Numa nova janela do Estúdio Visual, abra (da pasta de solução descarregada) o
 >[!NOTE]
 > Deverá agora ter duas janelas do Estúdio Visual, uma com _**DeviceSimulator.sln**_ e outra de anterior com _**a AdtE2ESample.sln**_.
 
-A partir do painel *Solution Explorer* nesta nova janela do Estúdio Visual, selecione _DeviceSimulator/AzureIoTHub.cs_ para abri-lo na janela de edição. Altere os seguintes valores de cadeia de ligação para os valores acima recolhidos:
+A partir do painel *Solution Explorer* nesta nova janela do Estúdio Visual, selecione _DeviceSimulator/**AzureIoTHub.cs**_ para abri-lo na janela de edição. Altere os seguintes valores de cadeia de ligação para os valores acima recolhidos:
 
 ```csharp
 iotHubConnectionString = <your-hub-connection-string>

@@ -10,10 +10,10 @@ ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
 ms.openlocfilehash: 70fb956af7ff45c7b54f04d7ed441ec39f9d80a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673812"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitore, crie e gere ficheiros SFTP em Azure Logic Apps
@@ -45,10 +45,10 @@ O conector SFTP só lida com ficheiros com *50 MB ou menores* e não suporta [me
   > O conector SFTP suporta estes formatos chave privados: OpenSSH, ssh.com e PuTTY
   >
   > Quando estiver a criar a sua aplicação lógica, depois de adicionar o gatilho SFTP ou a ação que pretende, terá de fornecer informações de ligação para o seu servidor SFTP. 
-  > Se estiver a utilizar uma chave privada SSH, certifique-se de que **copiar** _ a chave do seu ficheiro de chave privada SSH e _*_colar_*_ essa chave nos detalhes da ligação, _*_não introduza ou edite manualmente a chave, o_*_ que pode fazer com que a ligação falhe. 
+  > Se estiver a utilizar uma chave privada SSH, certifique-se de ***que copia*** a chave do seu ficheiro de chave privada SSH e ***cole*** essa chave nos detalhes da ligação, ***não introduza ou edite manualmente a chave***, o que pode fazer com que a ligação falhe. 
   > Para mais informações, consulte os passos posteriores neste artigo.
 
-_ Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * A aplicação lógica onde pretende aceder à sua conta SFTP. Para começar com um gatilho SFTP, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação SFTP, inicie a sua aplicação lógica com outro gatilho, por exemplo, o gatilho **de Recorrência.**
 
@@ -58,8 +58,8 @@ A SFTP desencadeia o trabalho através da sondagem do sistema de ficheiros SFTP 
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| Winscp | Ir a **Opções**  >  **Preferências**  >  **Transfer**  >  **Transferir Editar**  >  **Preservar horários Desativar**  >  **Disable** |
-| FileZilla | Ir para **transferir**  >  **limites tempos de ficheiros transferidos Desativar**  >  **Disable** |
+| Winscp | Ir a **Opções**  >  **Preferências**  >    >  **Transferir Editar**  >  **Preservar horários Desativar**  >   |
+| FileZilla | Ir para **transferir**  >  **limites tempos de ficheiros transferidos Desativar**  >   |
 |||
 
 Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo ficheiro está completo e não parcialmente escrito. Por exemplo, um ficheiro pode ter alterações em andamento quando o gatilho verifica o servidor de ficheiros. Para evitar a devolução de um ficheiro parcialmente escrito, o gatilho anota o tempo de tempo para o ficheiro que tem alterações recentes, mas não devolve imediatamente esse ficheiro. O gatilho devolve o ficheiro apenas quando volta a sondar o servidor. Às vezes, este comportamento pode causar um atraso que é até o dobro do intervalo de votação do gatilho.
@@ -74,9 +74,9 @@ Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo fichei
 
    -ou-
 
-   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, escolha **Novo passo** . Na caixa de pesquisa, introduza "sftp" como filtro. Na lista de ações, selecione a ação desejada.
+   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, escolha **Novo passo**. Na caixa de pesquisa, introduza "sftp" como filtro. Na lista de ações, selecione a ação desejada.
 
-   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Escolha o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação** .
+   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Escolha o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação**.
 
 1. Forneça os detalhes necessários para a sua ligação.
 
@@ -89,13 +89,13 @@ Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo fichei
 
    1. Abra o seu ficheiro de chave privada SSH num editor de texto. Estes passos usam o Bloco de Notas como exemplo.
 
-   1. No menu **Notepad Edit,** **selecione Select All** .
+   1. No menu **Notepad Edit,** **selecione Select All**.
 
-   1. Selecione **Edit**  >  **Editar Copy** .
+   1. Selecione   >  **Editar Copy**.
 
-   1. No gatilho ou ação SFTP que adicionou, cole a chave *completa* que copiou para a propriedade **chave privada SSH,** que suporta várias linhas. **_Certifique-se de colar_* a chave. _*_Não introduza ou edite manualmente a chave._*_
+   1. No gatilho ou ação SFTP que adicionou, cole a chave *completa* que copiou para a propriedade **chave privada SSH,** que suporta várias linhas. **_Certifique-se de colar_*_ a chave. _* Não _introduza manualmente ou edite a chave_**.
 
-1. Quando terminar de inserir os detalhes da ligação, escolha _*Create**.
+1. Quando terminar de inserir os detalhes da ligação, escolha **Criar**.
 
 1. Forneça os detalhes necessários para o seu gatilho ou ação selecionado e continue a construir o fluxo de trabalho da sua aplicação lógica.
 
@@ -107,7 +107,7 @@ Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo fichei
 
 Este gatilho inicia um fluxo de trabalho de aplicações lógicas quando um ficheiro é adicionado ou alterado num servidor SFTP. Por exemplo, pode adicionar uma condição que verifica o conteúdo do ficheiro e obtém o conteúdo com base no facto de o conteúdo cumprir uma condição especificada. Em seguida, pode adicionar uma ação que obtém o conteúdo do ficheiro e coloca esse conteúdo numa pasta no servidor SFTP.
 
-**Exemplo da empresa** : Pode utilizar este gatilho para monitorizar uma pasta SFTP para novos ficheiros que representem as ordens dos clientes. Em seguida, pode utilizar uma ação SFTP, como **obter conteúdo de ficheiros,** para obter o conteúdo da encomenda para posterior processamento e armazenar essa encomenda numa base de dados de encomendas.
+**Exemplo da empresa**: Pode utilizar este gatilho para monitorizar uma pasta SFTP para novos ficheiros que representem as ordens dos clientes. Em seguida, pode utilizar uma ação SFTP, como **obter conteúdo de ficheiros,** para obter o conteúdo da encomenda para posterior processamento e armazenar essa encomenda numa base de dados de encomendas.
 
 <a name="get-content"></a>
 

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/10/2020
 ms.author: alkohli
 ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92124683"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Problemas relacionados com Azure Data Box e Azure Data Box Heavy
@@ -25,7 +25,7 @@ A informação neste artigo não se aplica às encomendas de exportação criada
 
 Os erros na Caixa de Dados e na Caixa de Dados Pesadas são resumidos da seguinte forma:
 
-| Categoria de erro*        | Descrição        | Ação recomendada    |
+| Categoria de erro*        | Description        | Ação recomendada    |
 |----------------------------------------------|---------|--------------------------------------|
 | Contentor ou nomes de partilha | O contentor ou os nomes de partilha não seguem as regras de nomeação Azure.  |Descarregue as listas de erros. <br> Mude o nome dos recipientes ou partilhas. [Saiba mais](#container-or-share-name-errors).  |
 | Limite de tamanho de contentor ou de partilha | O total de dados em contentores ou ações excede o limite de Azure.   |Descarregue as listas de erros. <br> Reduza os dados globais no recipiente ou partilhe. [Saiba mais](#container-or-share-size-limit-errors).|
@@ -104,7 +104,7 @@ Estes são erros relacionados com o contentor e nomes de partilha.
 - Na página De Ligar e copiar da UI web local, faça o download e reveja os ficheiros de erro para identificar os nomes das pastas com problemas. 
 - Mude o nome do diretório ou dos contentores para garantir que estão em conformidade com as convenções de nomeação Azure.
 
-Para mais informações, consulte as convenções de nomeação Azure para [diretórios](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   e [contentores.](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)
+Para mais informações, consulte as convenções de nomeação Azure para [diretórios](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e [contentores.](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)
 
 ## <a name="container-or-share-size-limit-errors"></a>Erros de limite de tamanho de contentor ou de partilha
 

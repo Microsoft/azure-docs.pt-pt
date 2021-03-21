@@ -10,10 +10,10 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
 ms.openlocfilehash: 373acc30ed652a7f540e840dfad5eeeda65ca179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81759564"
 ---
 # <a name="504101-gatewaytimeout"></a>504101 GatewayTimeout
@@ -26,20 +26,20 @@ Ao tentar invocar um método direto do IoT Hub para um dispositivo, o pedido fal
 
 ## <a name="cause"></a>Causa
 
-### <a name="cause-1"></a>Causa 1
+### <a name="cause-1"></a>Motivo 1
 
 O IoT Hub encontrou um erro e não conseguiu confirmar se o método direto foi concluído antes do tempo de 200.
 
-### <a name="cause-2"></a>Causa 2
+### <a name="cause-2"></a>Motivo 2
 
 Ao utilizar uma versão anterior do Azure IoT C# SDK (<1.19.0), a ligação AMQP entre o dispositivo e o IoT Hub pode ser largada silenciosamente por causa de um bug.
 
 ## <a name="solution"></a>Solução
 
-### <a name="solution-1"></a>Solução 1
+### <a name="solution-1"></a>Solução 1
 
 Emita uma repetição.
 
-### <a name="solution-2"></a>Solução 2
+### <a name="solution-2"></a>Solução 2
 
 Upgrade para a versão mais recente do Azure IOT C# SDK.
