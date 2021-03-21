@@ -4,14 +4,14 @@ description: Saiba como copiar dados de uma fonte HTTP em nuvem ou no local para
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: f3184602bad8aabf654c8fa94d33372d08c11a66
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 247bec30e9933dfd75b7c31cbce15ff043959243
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573205"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588890"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copie os dados de um ponto final HTTP utilizando a Azure Data Factory
 
@@ -66,7 +66,8 @@ As seguintes propriedades são suportadas para o serviço http linked:
 | tipo | A propriedade **tipo** deve ser definida para **HttpServer**. | Yes |
 | url | O URL base para o servidor web. | Yes |
 | enableServerCertificateValidation | Especificar se deve ativar a validação do certificado TLS/SSL do servidor quando ligar a um ponto final HTTP. Se o seu servidor HTTPS utilizar um certificado auto-assinado, descreva esta propriedade **como falsa**. | No<br /> (o padrão é **verdadeiro)** |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows** e **ClientCertificate**. <br><br> Consulte as secções que seguem esta tabela para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Yes |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows** e **ClientCertificate**. O OAuth baseado no utilizador não é suportado. Pode ainda configurar cabeçalhos de autenticação em `authHeader` propriedade. Consulte as secções que seguem esta tabela para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Yes |
+| authHeaders | Cabeçalhos adicionais de pedido DE HTTP para autenticação.<br/> Por exemplo, para utilizar a autenticação da chave API, pode selecionar o tipo de autenticação como "Anónimo" e especificar a tecla API no cabeçalho. | No |
 | connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |No |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Utilização da autenticação Básica, Digest ou Windows
@@ -163,6 +164,35 @@ Se utilizar **o certThumbprint** para autenticação e o certificado estiver ins
 }
 ```
 
+### <a name="using-authentication-headers"></a>Utilização de cabeçalhos de autenticação
+
+Além disso, pode configurar os cabeçalhos de pedido para autenticação juntamente com os tipos de autenticação incorporado.
+
+**Exemplo: Utilização da autenticação da chave API**
+
+```json
+{
+    "name": "HttpLinkedService",
+    "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
+            "url": "<HTTP endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) 
@@ -224,7 +254,7 @@ As seguintes propriedades são suportadas para HTTP em `storeSettings` definiç�
 | cabeçalhos adicionais         | Cabeçalhos de pedido HTTP adicionais.                             | No       |
 | requestCorp              | O corpo para o pedido HTTP.                               | No       |
 | httpRequestTimeout           | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor predefinido é **00:01:40**. | No       |
-| maxConcurrentConnections | O número de ligações a ligar ao armazém simultaneamente. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | No       |
+| maxConcurrentConnections |O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No       |
 
 **Exemplo:**
 

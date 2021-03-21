@@ -4,15 +4,15 @@ description: Questões comuns encontradas ao criar uma máquina virtual no Azure
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-author: iqshahmicrosoft
-ms.author: iqshah
+author: kriti-ms
+ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: a74170af61c05d07a189b5ceb61dc0c9b7e14298
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200430"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593429"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Perguntas comuns sobre VM no Azure Marketplace
 
@@ -56,7 +56,7 @@ Este problema geralmente aparece se você criou um VM a partir de um VHD que tem
 
 Esta secção descreve como criar e implantar uma imagem de máquina virtual (VM) fornecida pelo utilizador. Pode fazê-lo fornecendo imagens VHD do sistema operativo e do disco de dados a partir de um disco rígido virtual implantado no Azure. Estes passos implantam o VM utilizando VHD generalizado.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Faça o upload do seu sistema operativo generalizado VHD e VHDs de disco de dados para a sua conta de Armazenamento Azure.
 3. Na página inicial, selecione Criar um recurso, procurar por "Implementação do Modelo" e selecione Criar.
 4. Escolha Construir o seu próprio modelo no editor.
@@ -470,6 +470,17 @@ $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAdd
 # deploying VM with existing VHD
 New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName"
 ```
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Como posso testar uma imagem de pré-visualização escondida?
+
+Pode implementar imagens de pré-visualização ocultas utilizando modelos de arranque rápido.
+Para implementar uma imagem de pré-visualização, 
+1. Goto o respetivo modelo de arranque rápido para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) ou [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows), selecione "Implementar para Azure". Isto deve levá-lo ao portal Azure.
+2. No portal Azure, selecione "Editar modelo".
+3. No modelo JSON, procure por imagemReference e atualize o publisherid, offerid, skuid e versão da imagem. Para testar a imagem de pré-visualização, apêndice "-PREVIEW" ao ofendedo.
+ ![imagem](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Clicar em Guardar
+5. Preencha o resto dos detalhes. Rever e Criar
 
 
 ## <a name="next-steps"></a>Passos seguintes

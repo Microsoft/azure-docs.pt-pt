@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 7d6f9564328f81b71c62a4243c5f4cc209a29d8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714481"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596030"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorizar instâncias do Serviço de Aplicações usando verificação de saúde
 
@@ -48,7 +48,7 @@ Este artigo utiliza o health check no portal Azure para monitorizar as instânci
 
 Além de configurar as opções de verificação de Saúde, também pode configurar as [seguintes definições de aplicações:](configure-common.md)
 
-| Nome de definição de aplicativo | Valores permitidos | Descrição |
+| Nome de definição de aplicativo | Valores permitidos | Description |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | O número máximo de falhas de ping. Por exemplo, quando programados para `2` , as suas instâncias serão removidas após `2` pings falhados. Além disso, quando está a aumentar ou sair, o Serviço de Aplicações procura a via de verificação da Saúde para garantir que novas instâncias estão prontas. |
 |`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | Para evitar casos de saúde esmagadora, não mais de metade dos casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para quatro instâncias e três não forem saudáveis, no máximo dois serão excluídos. As outras duas instâncias (uma saudável e outra pouco saudável) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Para anular este comportamento, defina a definição da aplicação para um valor entre `0` e `100` . Um valor mais elevado significa que mais casos insalubres serão removidos (o padrão é 50). |
@@ -62,6 +62,10 @@ As grandes equipas de desenvolvimento das empresas precisam frequentemente de ad
 ## <a name="monitoring"></a>Monitorização
 
 Depois de fornecer o caminho de verificação de saúde da sua aplicação, pode monitorizar a saúde do seu site utilizando o Azure Monitor. A partir da lâmina **de verificação de saúde** no Portal, clique nas **Métricas** na barra de ferramentas superior. Isto abrirá uma nova lâmina onde poderá ver o estado histórico de saúde do site e criar uma nova regra de alerta. Para obter mais informações sobre a monitorização dos seus sites, [consulte o guia no Azure Monitor](web-sites-monitor.md).
+
+## <a name="limitations"></a>Limitações
+
+A verificação de saúde não deve ser ativada nos sites de Funções Premium. Devido à rápida escala de Funções Premium, os pedidos de verificação de saúde podem causar flutuações desnecessárias no tráfego HTTP. As Funções Premium têm as suas próprias sondas de saúde internas que são usadas para informar decisões de escala.
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de autoescala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

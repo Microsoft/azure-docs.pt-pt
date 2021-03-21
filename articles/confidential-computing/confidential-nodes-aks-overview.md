@@ -8,17 +8,17 @@ ms.topic: overview
 ms.date: 2/08/2021
 ms.author: amgowda
 ms.openlocfilehash: 9205513c4eb7e377fee0c5d18577d76a82476cf2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553396"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Nódes de computação confidencial no Serviço Azure Kubernetes
 
 [A computação confidencial Azure](overview.md) permite-lhe proteger os seus dados sensíveis enquanto está em uso. A infraestrutura de computação confidencial subjacente protege estes dados de outras aplicações, administradores e fornecedores de nuvem com um ambiente de contentores de execução fidedignos apoiados por hardware. A adição de nós de computação confidencial permite-lhe direcionar a aplicação do contentor para funcionar num ambiente isolado, protegido e atestável.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Azure Kubernetes Service (AKS) suporta a adição de [nós de computação confidencial DCsv2 alimentados](confidential-computing-enclaves.md) pela Intel SGX. Estes gódes permitem executar cargas de trabalho sensíveis dentro de um ambiente de execução fidedigno baseado em hardware (TEE). Tee's permite que o código de nível de utilizador a partir de contentores aloque regiões privadas de memória para executar o código diretamente com CPU. Estas regiões privadas de memória que executam diretamente com CPU são chamadas enclaves. Os enclaves ajudam a proteger a confidencialidade dos dados, a integridade dos dados e a integridade do código de outros processos em execução nos mesmos nós. O modelo de execução Intel SGX também remove as camadas intermédias de Guest OS, Host OS e Hypervisor, reduzindo assim a área da superfície de ataque. O *modelo de execução isolado de hardware por contentor* num nó permite que as aplicações executem diretamente com o CPU, mantendo o bloco especial de memória encriptado por recipiente. Nós de computação confidencial com contentores confidenciais são uma grande adição ao seu planeamento de segurança zero e estratégia de contentores em profundidade.
 

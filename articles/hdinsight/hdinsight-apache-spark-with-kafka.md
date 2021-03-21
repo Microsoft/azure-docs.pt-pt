@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: d14b96843b489b28fc7d83348e39638272c06da5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942754"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark streaming exemplo (DStream) com Apache Kafka em HDInsight
@@ -81,7 +81,7 @@ O código para o exemplo descrito neste documento está disponível em [https://
 
 Uma vez que os passos deste documento criam ambos os clusters no mesmo grupo de recursos Azure, pode eliminar o grupo de recursos no portal Azure. A eliminação do grupo remove todos os recursos criados seguindo este documento, a Rede Virtual Azure e a conta de armazenamento utilizada pelos clusters.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste exemplo, aprendeu a usar Spark para ler e escrever para Kafka. Use os seguintes links para descobrir outras formas de trabalhar com Kafka:
 

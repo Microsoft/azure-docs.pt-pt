@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: duau
 ms.openlocfilehash: 336bd4aaf881b7315921ef374c92a2ac95ff3c8c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102431320"
 ---
 # <a name="configure-expressroute-global-reach-using-the-azure-portal"></a>Configurar ExpressRoute Global Reach usando o portal Azure

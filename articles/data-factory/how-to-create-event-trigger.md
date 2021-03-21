@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 6474cb10cdb516bae0386b92e40ecd6f17250691
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: b559ce31aff7040a61f6a2f788652ffd192420c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225468"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593803"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Crie um gatilho que executa um oleoduto em resposta a um evento de armazenamento
 
@@ -49,7 +49,7 @@ Esta secção mostra-lhe como criar um gatilho de evento de armazenamento dentro
    > O Trigger do Evento de Armazenamento suporta atualmente apenas as contas de armazenamento do Azure Data Lake Storage Gen2 e da versão 2 para fins gerais. Devido a uma limitação da Grelha de Eventos Azure, a Azure Data Factory suporta apenas um máximo de 500 gatilhos de eventos de armazenamento por conta de armazenamento.
 
    > [!NOTE]
-   > Para criar e modificar um novo Trigger de Evento de Armazenamento, a conta Azure utilizada para iniciar sessão na Data Factory e publicar o gatilho do evento de armazenamento deve ter uma permissão adequada de controlo de acesso baseado em funções (Azure RBAC) na conta de armazenamento. Não é necessária qualquer autorização adicional: O diretor de serviço da Fábrica de Dados Azure _não_ necessita de autorização especial para a conta de Armazenamento ou para a Grelha de Eventos. Para obter mais informações sobre o controlo de acesso, consulte a secção [de controlo de acesso baseada em](#role-based-access-control) funções.
+   > Para criar um novo ou modificar um Trigger de Evento de Armazenamento existente, a conta Azure utilizada para iniciar sessão na Data Factory e publicar o gatilho do evento de armazenamento deve ter uma permissão adequada de controlo de acesso baseado em funções (Azure RBAC) na conta de armazenamento. Não é necessária qualquer autorização adicional: O diretor de serviço da Fábrica de Dados Azure _não_ necessita de autorização especial para a conta de Armazenamento ou para a Grelha de Eventos. Para obter mais informações sobre o controlo de acesso, consulte a secção [de controlo de acesso baseada em](#role-based-access-control) funções.
 
 1. O **caminho blob começa** e o caminho **blob termina com** propriedades que lhe permitem especificar os recipientes, pastas e nomes blob para os quais deseja receber eventos. O gatilho do seu evento de armazenamento requer que pelo menos uma destas propriedades seja definida. Você pode usar variedade de padrões para ambos os **caminhos Blob começa com** e o caminho **blob termina com** propriedades, como mostrado nos exemplos mais tarde neste artigo.
 
@@ -67,12 +67,12 @@ Esta secção mostra-lhe como criar um gatilho de evento de armazenamento dentro
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image3.png" alt-text="Screenshot da página de pré-visualização do evento de armazenamento.":::
 
-1. Para anexar um pipeline a este gatilho, vá à tela do gasoduto e clique em **Adicionar gatilho** e selecione **Novo/Editar**. Quando o navegador lateral aparecer, clique no **gatilho Escolha...** dropdown e selecione o gatilho que criou. Clique **em seguida: Pré-visualização de dados** para confirmar que a configuração está correta e, em seguida, a **próxima** para validar a pré-visualização de Dados está correta.
+1. Para anexar um oleoduto a este gatilho, vá à tela do gasoduto e clique em **Trigger** e selecione **Novo/Editar**. Quando o navegador lateral aparecer, clique no **gatilho Escolha...** dropdown e selecione o gatilho que criou. Clique **em seguida: Pré-visualização de dados** para confirmar que a configuração está correta e, em seguida, a **próxima** para validar a pré-visualização de Dados está correta.
 
 1. Se o seu oleoduto tiver parâmetros, pode especirá-los no navegador lateral do gatilho. O gatilho do evento de armazenamento captura o caminho da pasta e o nome do ficheiro da bolha nas propriedades `@triggerBody().folderPath` e `@triggerBody().fileName` . Para utilizar os valores destas propriedades num oleoduto, é necessário mapear as propriedades para os parâmetros do gasoduto. Depois de mapear as propriedades para parâmetros, pode aceder aos valores capturados pelo gatilho através da `@pipeline().parameters.parameterName` expressão em todo o pipeline. Para obter uma explicação detalhada, consulte [metadados de gatilho de referência em pipelines](how-to-use-trigger-parameterization.md)
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot do evento de armazenamento desencadeia propriedades de mapeamento para parâmetros de pipeline.":::
-    
+
     No exemplo anterior, o gatilho é configurado para disparar quando um caminho de bolha que termina em .csv é criado no _teste de eventos da_ pasta nos _dados_ da amostra do recipiente . As **propriedades de pastaPath** e **fileName** captam a localização da nova bolha. Por exemplo, quando MoviesDB.csv é adicionado ao caminho de amostra-dados/testes de eventos, `@triggerBody().folderPath` tem um valor de e tem um valor de `sample-data/event-testing` `@triggerBody().fileName` `moviesDB.csv` . Estes valores são mapeados, no exemplo, para os parâmetros do gasoduto `sourceFolder` `sourceFile` e, que podem ser utilizados em todo o oleoduto como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
 
 1. Clique **em Terminar** assim que terminar.

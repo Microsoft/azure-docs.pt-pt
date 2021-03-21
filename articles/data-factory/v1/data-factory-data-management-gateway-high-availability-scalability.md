@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100391733"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - alta disponibilidade e escalabilidade (Pré-visualização)
@@ -26,7 +26,7 @@ Este artigo ajuda-o a configurar uma solução de alta disponibilidade e escalab
 > 
 > **Esta funcionalidade de pré-visualização é oficialmente suportada na versão 2.12.xxxx.x e acima**. Certifique-se de que está a utilizar a versão 2.12.xxxx.x ou acima. Descarregue [aqui](https://www.microsoft.com/download/details.aspx?id=39717)a versão mais recente do Data Management Gateway .
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Pode associar gateways de gestão de dados que são instalados em várias máquinas no local com um único portal lógico. Estas máquinas são chamadas **nós.** Pode ter até **quatro nós associados** a uma porta lógica. Os benefícios de ter múltiplos nós (máquinas no local com gateway instalado) para um gateway lógico são:  
 
 - Melhorar o desempenho do movimento de dados entre as lojas de dados no local e as lojas de dados em nuvem.  

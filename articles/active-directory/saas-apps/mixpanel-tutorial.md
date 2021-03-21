@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Mixpanel Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a | Mixpanel Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Mixpanel.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.openlocfilehash: dfd262c1dc7aa2e6cfa6ae8835210086dd45e4f6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integração do Diretório Ativo Azure com o Mixpanel
@@ -140,7 +140,7 @@ Para configurar o Azure AD com o Mixpanel, execute os seguintes passos:
    
     ![A screenshot mostra o painel de autenticação U R L de autenticação, onde pode copiar o seu Login U R L.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
-6. Clique em **Done** (Concluído).
+6. Clique em **Concluído**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -171,7 +171,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Mixpanel.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Mixpanel**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Mixpanel**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

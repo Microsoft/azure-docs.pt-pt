@@ -11,10 +11,10 @@ ms.date: 03/05/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
 ms.openlocfilehash: b6b23e792aaef4d70e9ffc9be3667f0abef49e81
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102489553"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
@@ -76,7 +76,7 @@ O espaço de trabalho Azure Machine Learning conta com os seguintes serviços ou
 | ---- | ---- |
 | **Grupo de recursos Azure** | `-g <resource-group-name>`
 | **Conta de Armazenamento Azure** | `--storage-account <service-id>` |
-| **Azure Application Insights** | `--application-insights <service-id>` |
+| **Insights de Aplicação Azure** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 

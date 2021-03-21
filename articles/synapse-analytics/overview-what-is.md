@@ -6,32 +6,30 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 10/28/2020
+ms.date: 03/27/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 37768b994d4b61ee728e04352f027a6f5a478341
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 316a78f4725aa3c33a78b00c6de3b8419aea717e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031621"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600212"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
-A análise empresarial deve funcionar em grande escala em qualquer tipo de dados, sejam brutos, refinados ou altamente curados. Isto normalmente requer que as empresas cosam tecnologias de armazenamento de big data e dados em complexos oleodutos de dados que funcionam em dados em lojas relacionais e lagos de dados. Este tipo de soluções são difíceis de construir, manter e garantir. Os seus atrasos de complexidade em fornecer as empresas de insights precisam.
+**Azure Synapse** é um serviço de análise empresarial que acelera o tempo para conhecer armazéns de dados e grandes sistemas de dados. A Azure Synapse reúne o melhor das tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, **Pipelines** para integração de dados e ETL/ELT, e integração profunda com outros serviços Azure, como **Power BI,** **CosmosDB,** e **AzureML.**
 
-**O Azure Synapse** é um serviço de análise integrado que acelera o tempo para conhecer armazéns de dados e grandes sistemas de dados. A Azure Synapse reúne o melhor das tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, **Pipelines** para integração de dados e ETL/ELT, e integração profunda com outros serviços Azure, como **Power BI,** **CosmosDB,** e **AzureML.**
 
-## <a name="key-features--benefits"></a>Principais funcionalidades & benefícios
+## <a name="industry-leading-sql"></a>SQL líder da indústria
 
-### <a name="industry-leading-sql"></a>SQL líder da indústria
+**O Synapse SQL** é um sistema de consulta distribuído para T-SQL que permite cenários de armazenamento de dados e virtualização de dados e estende o T-SQL para abordar cenários de streaming e machine learning.
 
-* **O Synapse SQL** é um sistema de consulta distribuído para T-SQL que permite cenários de armazenamento de dados e virtualização de dados e estende o T-SQL para abordar cenários de streaming e machine learning.
-* O Synapse SQL oferece modelos de recursos **sem servidor** e **dedicados,** oferecendo opções de consumo e faturação para adequar as suas necessidades. Para obter um desempenho e custo previsíveis, crie conjuntos de SQL dedicados para reservar a capacidade de processamento para dados armazenados em tabelas SQL. Para cargas de trabalho não planeadas ou rebentadas, utilize o ponto final SQL sempre disponível e sem servidor.
+* O Synapse SQL oferece modelos de recursos **sem servidor** e **dedicados.** Para obter um desempenho e custo previsíveis, crie conjuntos de SQL dedicados para reservar a capacidade de processamento para dados armazenados em tabelas SQL. Para cargas de trabalho não planeadas ou rebentadas, utilize o ponto final SQL sempre disponível e sem servidor.
 * Use capacidades de **streaming** incorporadas para obter dados de fontes de dados em nuvem em tabelas SQL
 * Integre a IA com o SQL utilizando modelos **de machine learning** para obter dados utilizando a [função T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
-### <a name="industry-standard-apache-spark"></a>Faísca Apache padrão da indústria
+## <a name="industry-standard-apache-spark"></a>Faísca Apache padrão da indústria
 
 **Apache Spark for Azure Synapse** integra profundamente e sem problemas o Apache Spark -- o mais popular motor de dados de código aberto usado para a preparação de dados, engenharia de dados, ETL e machine learning.
 
@@ -40,7 +38,7 @@ A análise empresarial deve funcionar em grande escala em qualquer tipo de dados
 * Arranque rápido da Spark e autoscalagem agressiva.
 * Suporte incorporado para .NET for Spark permitindo-lhe reutilizar a sua experiência C# e o código .NET existente dentro de uma aplicação Spark.
 
-### <a name="interop-of-sql-and-apache-spark-on-your-data-lake"></a>Interop de SQL e Apache Spark no seu Lago de Dados
+## <a name="working-with-your-data-lake"></a>Trabalhando com o seu Lago de Dados
 
 A Azure Synapse remove as barreiras tecnológicas tradicionais entre a utilização de SQL e Spark juntos. Pode misturar e combinar perfeitamente com base nas suas necessidades e conhecimentos.
 
@@ -48,15 +46,15 @@ A Azure Synapse remove as barreiras tecnológicas tradicionais entre a utilizaç
 * SQL e Spark podem explorar e analisar diretamente os ficheiros Parquet, CSV, TSV e JSON armazenados no lago de dados.
 * Carga e descarga rápida de carga escalável para dados que vão entre bases de dados SQL e Spark
 
-### <a name="built-in-data-integration-via-pipelines"></a>Integração de dados incorporados através de oleodutos
+## <a name="built-in-data-integration-via-pipelines"></a>Integração de dados incorporados através de oleodutos
 
-A Azure Synapse vem integrado com o mesmo motor de integração de dados e experiências como a Azure Data Factory, permitindo-lhe criar oleodutos ETL ricos em escala sem sair da Azure Synapse Analytics.
+O Azure Synapse contém o mesmo motor e experiências de Integração de Dados que a Azure Data Factory, permitindo-lhe criar oleodutos ETL ricos em escala sem sair da Azure Synapse Analytics.
 
 * Ingerir dados de mais de 90 fontes de dados
 * Code-Free ETL com atividades de fluxo de dados
 * Orquestrar Cadernos, Trabalhos de Faísca, Procedimentos Armazenados, Scripts SQL e muito mais
 
-### <a name="unified-management-monitoring-and-security"></a>Gestão, monitorização e segurança unificadas
+## <a name="unified-management-monitoring-and-security"></a>Gestão, monitorização e segurança unificadas
 
 O Azure Synapse fornece uma única forma de as empresas gerirem os recursos analíticos, monitorizarem o uso e a atividade e imporem a segurança.
 
@@ -64,7 +62,7 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 * Controlo de acesso de grãos finos sobre dados e código
 * Um único dashboard para monitorizar recursos, uso e utilizadores em SQL e Spark
 
-### <a name="unified-experience"></a>Experiência unificada
+## <a name="unified-experience"></a>Experiência unificada
 
 **O Synapse Studio** é a experiência do utilizador que une tudo para engenheiros de dados. Permite-lhes fazer todas as tarefas necessárias para construir uma solução de análise completa.
 

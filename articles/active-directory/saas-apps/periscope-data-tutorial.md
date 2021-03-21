@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Dados do Periscópio Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | de dados do Periscope Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Periscope Data.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: deac4dcde51049d744706b7479f5b5f3bbb4d9c0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Diretório Ativo Azure com dados do Periscópio
@@ -121,7 +121,7 @@ Para configurar o Azure AD com dados periscópios, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se em Dados do Periscope como Administrador.
 
-2. Abra o menu de engrenagens na parte inferior esquerda e abra o menu De segurança de **faturação**  >  **Security** e execute os seguintes passos. Só os administradores têm acesso a estas definições.
+2. Abra o menu de engrenagens na parte inferior esquerda e abra o menu De segurança de **faturação**  >   e execute os seguintes passos. Só os administradores têm acesso a estas definições.
 
     ![Screenshot que mostra o diálogo "Segurança" com definições selecionadas.](./media/periscope-data-tutorial/configure01.png)
 
@@ -174,7 +174,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso a Dados do Periscope.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Dados do Periscópio**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Dados do Periscópio**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -216,7 +216,7 @@ Para permitir que os utilizadores de Azure AD iniciem sessão nos Dados do Peris
 
     b. Na caixa de texto **Last Name,** insira o último nome do utilizador como **Simon**.
 
-    c. Na caixa de texto **por e-mail,** insira o e-mail do utilizador como ** \@ brittasimon contoso.com**.
+    c. Na caixa de texto **por e-mail,** insira o e-mail do utilizador como **\@ brittasimon contoso.com**.
 
     d. Clique **em ADD**.
 
