@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
 ms.openlocfilehash: 4e01b1ca9a3858ff31ad9b5da1d1159209c44330
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464071"
 ---
 # <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Tutorial: Desenvolver módulos IoT Edge C# utilizando recipientes Windows

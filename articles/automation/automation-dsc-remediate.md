@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
 ms.openlocfilehash: 98164c20af2a5d6ae7ccac43331a2876c23ccfb7
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500177"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Remediar servidores de configuração do Estado de Azure Automation não conformes

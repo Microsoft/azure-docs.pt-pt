@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
 ms.openlocfilehash: 825204fe40125a65e8e6f27c6973417813700a9e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101746360"
 ---
 # <a name="migrate-default-hive-metastore-db-to-external-metastore-db"></a>Migrar metasteiro-metadeiro de Colmeia DB para DB de metástaria externa

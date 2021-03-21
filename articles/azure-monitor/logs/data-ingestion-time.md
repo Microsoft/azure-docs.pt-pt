@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500432"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Log data ingestion time in Azure Monitor (Tempo de ingestão de dados de registo no Azure Monitor)

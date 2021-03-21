@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 746c7ec91c888d9a55722c00f8765915d0043a98
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e2f6fb167ec8b1ea15f7f08cf77720e705b2e4a3
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666069"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721374"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 
@@ -51,13 +51,13 @@ O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervis
 |-----------------------------|-----------------------|
 | Tamanho do trabalho de MPI Max            | 13200 núcleos (300 VMs numa única escala de máquina virtual definida com singlePlacementGroup=verdadeiro)  |
 | Suporte MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Plataforma MPI  |
-| Quadros Adicionais       | Comunicação Unificada X, libfabric, PGAS |
+| Quadros Adicionais       | UCX, libfabric, PGAS |
 | Suporte de armazenamento Azure       | Discos Standard e Premium (máximo 4 discos) |
-| Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Apoio orquestrador        | CycleCloud, Lote  |
+| Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Apoio orquestrador        | CycleCloud, Lote, AKS; [opções de configuração de cluster](../../sizes-hpc.md#cluster-configuration-options)  |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a arquitetura Intel Xeon SP.](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html)
-- Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os últimos anúncios, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs comunitários Azure Compute Tech.](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)
 - Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).

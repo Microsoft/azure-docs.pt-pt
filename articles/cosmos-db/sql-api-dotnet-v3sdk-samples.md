@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 30ccd5783b3fa9524072235a58b3c8708962ef1c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434020"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) para o SQL API

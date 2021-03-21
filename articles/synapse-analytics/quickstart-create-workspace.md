@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f2ed99af288b72a4c53f07d3cd7ba8b46974c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693633"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600161"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 Este quickstart descreve os passos para criar um espaço de trabalho Azure Synapse utilizando o portal Azure.
@@ -35,7 +35,7 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
 
 > [!NOTE]
 > Depois de criar o seu espaço de trabalho Azure Synapse, não poderá mover o espaço de trabalho para outro inquilino do Azure Ative Directory. Se for feito através da migração de subscrição ou outras ações, o acesso aos artefatos na área de trabalho poderá ser perdido.
-> Além disso, não é possível criar um espaço de trabalho Synapse Analytics numa subscrição [do Cloud Solution Provider (CSP).](https://docs.microsoft.com/partner-center/csp-overview)
+> Além disso, não é possível criar um espaço de trabalho Synapse Analytics numa subscrição [do Cloud Solution Provider (CSP).](/partner-center/csp-overview)
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio
 

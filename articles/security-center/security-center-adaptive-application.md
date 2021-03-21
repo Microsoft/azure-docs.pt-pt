@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/07/2021
 ms.author: memildin
 ms.openlocfilehash: de5c5fbb6673d022517bba2486ed4aa1f739d19b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102439583"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
@@ -48,7 +48,7 @@ Atualmente, não existem opções de aplicação da lei. Os controlos de aplica�
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 

@@ -11,10 +11,10 @@ ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
 ms.openlocfilehash: 330eaf5c12372347917e9f3a4aeafb6a2088c592
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103492579"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>O que é o Azure IoT Edge para Linux no Windows (Pré-visualização)

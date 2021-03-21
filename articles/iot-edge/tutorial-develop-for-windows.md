@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: b5ff515f5a6d25285009f6579570aa3afa5a711f
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463362"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutorial: Desenvolver módulos IoT Edge utilizando recipientes Windows

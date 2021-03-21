@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/12/2021
 ms.author: jeedes
-ms.openlocfilehash: e890ff1cb64961c7747b8865b68504ff0a266a3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d0b9e45dc5de0cd4550cf4b9f944fd33ebd7e7e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599702"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720733"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com AWS Single Sign-on
 
@@ -37,7 +37,7 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* AWS Single Sign-on suporta **SP e IDP** iniciado SSO
+* AWS Single Sign-on suporta **SP e IDP** iniciado SSO.
 
 * A AWS Single Sign-on suporta [**o fornecimento automatizado de utilizadores**](./aws-single-sign-on-provisioning-tutorial.md).
 
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração de aplicações **AWS Single Sign-on,** encontre a secção **'Gerir'** e selecione **um único sinal de sposição**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -80,9 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Clique **em Carregar o ficheiro de metadados**.
 
-    ![image1](common/upload-metadata.png)
-
-    b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
+    b. Clique no **logótipo da pasta** para selecionar o ficheiro de metadados que descarregou a partir da secção **SSO de SSO de assinatura única (ponto** 8) e clique em **Adicionar**.
 
     ![image2](common/browse-upload-metadata.png)
 
@@ -148,15 +146,45 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
 ## <a name="configure-aws-single-sign-on-sso"></a>Configurar SSO único de assinatura AWS
 
-1. Abra a **consola AWS SSO** . 
+1. Para automatizar a configuração dentro do Sign-on Único AWS, é necessário instalar a **extensão do navegador 'As aplicações' Secure'in,** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **Configurar O Sign-on Único AWS** irá direcioná-lo para a aplicação AWS Single Sign-on. A partir daí, forneça as credenciais de administração para assinar em AWS Single Sign-on. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-10.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se pretender configurar manualmente o AWS Single Sign-on, numa janela diferente do navegador web, inscreva-se no seu site da empresa AWS Single Sign-on como administrador.
+
+1. Aceda aos **Serviços -> Segurança, Identidade, & Compliance -> AWS Single Sign-On**.
 2. No painel de navegação à esquerda, escolha **Definições**.
-3. Na página **Definições,** encontrar **fonte de identidade,** escolher **Alterar**.
-4. Na página 'Alterar diretório', escolha **fornecedor de identidade externa.**
-5. Na secção **de metadados do fornecedor de serviço,** encontre **metadados AWS SSO SAML** e selecione descarregue o **ficheiro de metadados** para descarregar o ficheiro de metadados e guardá-lo no seu computador.
-6. Na secção **de metadados do fornecedor de identidade,** escolha **procurar** para carregar o ficheiro de metadados que descarregou a partir do portal Azure.
-7. Escolha **a seguir: Revisão**.
-8. Na caixa de texto, **escreva CONFIRM** para confirmar a alteração do diretório.
-9. Escolha **Acabamento**.
+3. Na página **Definições,** encontre **a fonte de identidade** e clique em **Alterar**.
+
+    ![Screenshot para serviço de mudança de origem de identidade](./media/aws-single-sign-on-tutorial/settings.png)
+
+4. Na fonte de identidade Change, escolha **fornecedor de identidade externa.**
+
+    
+    ![Screenshot para selecionar secção de fornecedor de identidade externa](./media/aws-single-sign-on-tutorial/external-identity-provider.png)
+
+
+1. Execute os passos abaixo na secção **de fornecedor de identidade externa Configure:**
+
+    ![Screenshot para descarregar e carregar seção de metadados](./media/aws-single-sign-on-tutorial/upload-metadata.png)
+
+    a. Na secção **de metadados do fornecedor de serviço,** encontre **metadados AWS SSO SAML** e selecione descarregue o **ficheiro de metadados** para descarregar o ficheiro de metadados e guardá-lo no seu computador e utilize este ficheiro de metadados para carregar no portal Azure.
+
+    b. Copie o valor **URL de inscrição SSO da AWS,** cole este valor na caixa de texto **URL signo na** secção de **configuração SAML básica** no portal Azure.
+
+    c. Na secção **de metadados do fornecedor de identidade,** escolha **procurar** para carregar o ficheiro de metadados que descarregou a partir do portal Azure.
+
+    d. Escolha **a seguir: Revisão**.
+
+8. Na caixa de texto, **escreva ACCEPT** para alterar a fonte de identidade.
+
+    ![Screenshot para confirmar a configuração](./media/aws-single-sign-on-tutorial/accept.png)
+
+9. Clique **em Alterar fonte de identidade**.
 
 ### <a name="create-aws-single-sign-on-test-user"></a>Criar utilizador de teste único de Sessão AWS
 

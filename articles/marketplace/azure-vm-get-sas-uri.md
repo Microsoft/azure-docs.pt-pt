@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 03/10/2021
 ms.openlocfilehash: 976d1dd4044649c9ef5307431c744ff3c2068bca
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103233570"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Como gerar um SAS URI para uma imagem VM
@@ -35,7 +35,7 @@ Para extrair o vhd do seu VM, precisa tirar uma foto do seu disco VM e extrair v
 
 Comece por tirar uma foto do disco VM:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. A partir da parte superior esquerda, selecione Criar um recurso e, em seguida, procurar e selecionar Snapshot.
 3. Na lâmina Snapshot, selecione Criar.
 4. Insira um nome para a foto.

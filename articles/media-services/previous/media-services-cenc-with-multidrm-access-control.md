@@ -16,17 +16,17 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1a4f151b597b57b77fa6517c6ea0d586c1106986
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103017142"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conceção de um sistema de proteção de conteúdos com controlo de acesso usando a Azure Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Conceber e construir um subsistema de gestão de direitos digitais (DRM) para uma solução de streaming (OTT) ou de streaming online é uma tarefa complexa. Os operadores/fornecedores de vídeo online normalmente subcontratam esta tarefa a prestadores de serviços drm especializados. O objetivo deste documento é apresentar um design de referência e implementação de um subsistema de DRM de ponta a ponta numa solução de streaming OTT ou online.
 
@@ -342,7 +342,7 @@ Para registar e configurar a app pointer em Azure AD, tome os seguintes passos:
 
 1. No inquilino da AD AZure:
 
-   * Adicione uma aplicação (recurso) com o URL de inscrição https://[resource_name].azurewebsites.net/. 
+   * Adicione uma aplicação (recurso) com o URL de assinatura https://[resource_name].azurewebsites.net/. 
    * Adicione um ID de aplicação com o URL https://[aad_tenant_name].onmicrosoft.com/[resource_name].
 
 2. Adicione uma nova chave para a aplicação de recursos.

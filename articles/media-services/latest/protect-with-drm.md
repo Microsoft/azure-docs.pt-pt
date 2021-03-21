@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: eeb41967ac7e2b73bfb32933f7f019a5722fdc9b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 72015dd23da60644c3ecb0bbe9616b35ff1acbcb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454437"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596795"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Use encriptação dinâmica DRM e serviço de entrega de licenças
 
@@ -103,7 +103,7 @@ Neste tutorial, criamos a entrada do trabalho com base num ficheiro que é inger
 
 ## <a name="wait-for-the-job-to-complete"></a>Aguardar a conclusão da Tarefa
 
-O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser notificado. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da **Tarefa**. As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid. Veja [Route events to a custom web endpoint](job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
+O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser notificado. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da **Tarefa**. As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid. Veja [Route events to a custom web endpoint](monitoring/job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
 
 Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se o trabalho tiver tido um erro, obtém-se o estado **de Erro.** Se o trabalho está em vias de ser cancelado, você é **cancelado** e **cancelado** quando estiver feito.
 

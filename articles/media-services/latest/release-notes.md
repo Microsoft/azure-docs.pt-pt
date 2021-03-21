@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: d7cfb4cf9b6b061f5fb53667e968cb0403f22bfc
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562574"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596744"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -84,7 +84,7 @@ A versão 3 fornece:
  
 - Suporte ao evento ao vivo 24x7
 - ARM REST APIs, SDKs cliente para .NET core, Node.js, Python, Java, Go e Ruby.
-- Chaves geridas pelo cliente, integração de armazenamento confiável, suporte de ligação privada, e [muito mais](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Chaves geridas pelo cliente, integração de armazenamento confiável, suporte de ligação privada, e [muito mais](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### <a name="action-required"></a>Ação Necessária
 
@@ -123,7 +123,6 @@ Por favor, atualize os SDKs mais recentes do cliente nas suas bases de código u
 - **[Armazenamento Fidedigno](concept-trusted-storage.md)**: Os Serviços de Mídia podem ser configurados para aceder ao Azure Storage utilizando uma Identidade Gerida associada à conta dos Serviços de Comunicação Social. Quando as contas de armazenamento são acedidas usando uma Identidade Gerida, os clientes podem configurar ACLs de rede mais restritivos na conta de armazenamento sem bloquear cenários de Media Services.
 
 - **[Identidades geridas](concept-managed-identities.md)**: Os clientes podem permitir que uma identidade gerida atribuída a um sistema para uma conta de Serviços de Mídia forneça acesso a Cofres-Chave (para Chaves Geridas pelo Cliente) e contas de armazenamento (para armazenamento fidedigno).
-
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Amostras de Node.js de typescript atualizadas usando SDK isomórfico para JavaScript
 
@@ -373,7 +372,7 @@ Agora pode especificar uma lista de filtros de ativos ou de conta, que se aplica
 
 Os Serviços de Comunicação Social v3 são agora apoiados nas nuvens nacionais do Azure. Nem todas as funcionalidades estão disponíveis em todas as nuvens ainda. Para mais detalhes, consulte [Nuvens e regiões em que existem V3 da Azure Media Services](azure-clouds-regions.md).
 
-O evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) foi adicionado aos esquemas da Grelha de Eventos Azure para serviços de media.
+O evento [Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) foi adicionado aos esquemas da Grelha de Eventos Azure para serviços de media.
 
 ## <a name="january-2019"></a>Janeiro de 2019
 

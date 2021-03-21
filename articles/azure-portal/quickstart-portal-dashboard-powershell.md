@@ -4,12 +4,12 @@ description: Saiba como criar um dashboard no portal Azure utilizando a Azure Po
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 07/24/2020
-ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 1b001c8f1ab73d23441697c93202cf1f6ea65687
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745745"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104613329"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Quickstart: Criar um painel de porta-porta Azure com PowerShell
 
@@ -146,21 +146,9 @@ Verifique se o painel foi criado com sucesso.
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Verifique se pode ver dados sobre o VM dentro do portal Azure.
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
-1. No portal do Azure, selecione **Dashboard**.
-
-   ![Navegação do portal Azure para painel](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Na página do painel de instrumentos, selecione **Simple VM Dashboard**.
-
-   ![Navegue para o simples painel VM](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Reveja o dashboard. Pode ver que alguns dos conteúdos são estáticos, mas também existem gráficos que mostram o desempenho do VM.
-
-   ![Rever simples painel VM](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
-
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o VM e o painel de instrumentos associado, elimine o grupo de recursos que os contém.
 

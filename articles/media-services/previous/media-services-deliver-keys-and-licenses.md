@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465713"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize serviços de mídia para entregar licenças DE DRM ou chaves AES
@@ -33,7 +33,7 @@ O Azure Media Services permite-lhe ingerir, codificar, adicionar proteção de c
 
 Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Os Media Services fornecem um serviço de entrega de licenças de gestão de direitos digitais PlayReady e Widevine (DRM) e chaves AES-128. Os Serviços de Comunicação Social também fornecem APIs que permitem configurar os direitos e restrições que deseja para o tempo de execução drm para aplicar quando um utilizador reproduz o conteúdo protegido pela DRM. Quando um utilizador solicita o conteúdo protegido, a aplicação do jogador solicita uma licença do serviço de licença dos Serviços de Comunicação Social. Se a licença for autorizada, o serviço de licença dos Media Services emite a licença ao jogador. As licenças PlayReady e Widevine contêm a chave de desencriptação que pode ser usada pelo leitor cliente para desencriptar e transmitir o conteúdo.
 
 Os Serviços de Comunicação Social suportam múltiplas formas de autorizar utilizadores que façam licença ou pedidos chave. Configura a política de autorização da chave de conteúdo. A apólice pode ter uma ou mais restrições. As opções estão abertas ou a restrição simbólica. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Media Services suportam fichas no formato simples web token (SWT) e no formato JSON Web Token (JWT).

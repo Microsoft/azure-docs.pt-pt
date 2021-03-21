@@ -9,10 +9,10 @@ ms.collection: windows
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: e29d1de976a027e32564a258fd5669b1e54c60f3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102564446"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Quickstart: Criar e encriptar uma máquina virtual do Windows com o portal Azure

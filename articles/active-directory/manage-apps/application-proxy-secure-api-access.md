@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 9341646f32f6a2e05397b072d3f63186964fbd88
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258987"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro às APIs no local com Proxy de Aplicação AD Azure
@@ -24,7 +24,7 @@ Você pode ter APIs de lógica de negócio correndo no local, ou hospedado em m�
 
 Este artigo acompanha-o através da criação de uma solução de Proxy de aplicação AD Azure para hospedar um serviço web API que as aplicações nativas podem aceder.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O diagrama que se segue mostra uma forma tradicional de publicar APIs no local. Esta abordagem requer a abertura das portas de entrada 80 e 443.
 
@@ -136,7 +136,7 @@ Já registou a aplicação AppProxyNativeAppSample no Azure Ative Directory. Par
 
 ## <a name="configure-the-native-app-code"></a>Configure o código de aplicação nativo
 
-O último passo é configurar a aplicação nativa. O seguinte corte do ficheiro *Form1.cs* na aplicação de amostras NativeClient faz com que a biblioteca MSAL adquira o símbolo para solicitar a chamada da API e anexá-lo como portador ao cabeçalho da aplicação.
+O último passo é configurar a aplicação nativa. O seguinte corte do ficheiro *Form1.cs* na aplicação de amostras NativeClient faz com que a biblioteca MSAL adquira o token para solicitar a chamada da API e anexá-lo como portador ao cabeçalho da aplicação.
 
    ```
    // Acquire Access Token from AAD for Proxy Application

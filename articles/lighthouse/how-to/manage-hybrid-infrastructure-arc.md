@@ -4,10 +4,10 @@ description: Aprenda a gerir eficazmente as máquinas dos seus clientes e os clu
 ms.date: 03/12/2021
 ms.topic: how-to
 ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419341"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gerir infraestrutura híbrida em escala com Azure Arc

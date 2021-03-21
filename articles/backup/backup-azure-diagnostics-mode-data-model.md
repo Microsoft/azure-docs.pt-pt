@@ -4,10 +4,10 @@ description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500993"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
@@ -173,7 +173,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 
 Esta tabela fornece detalhes sobre campos relacionados com políticas.
 
-| Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
+| Campo | Tipo de Dados | Versões Aplicáveis | Description |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
@@ -221,7 +221,7 @@ Esta tabela fornece detalhes sobre campos relacionados com políticas.
 
 Esta tabela fornece detalhes sobre associações políticas com várias entidades.
 
-| Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
+| Campo | Tipo de Dados | Versões Aplicáveis | Description |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
@@ -350,7 +350,7 @@ Esta tabela especifica a carga de trabalho(s) a volume a que está associada.
 
 Esta tabela fornece campos básicos protegidos relacionados com casos.
 
-| Campo | Tipo de Dados |Versões Aplicáveis | Descrição |
+| Campo | Tipo de Dados |Versões Aplicáveis | Description |
 | --- | --- | --- | --- |
 | BackupItemUniqueId_s |Texto |v2|ID único usado para identificar o item de backup para VMs apoiado usando DPM, MABS|
 | ProtectedContainerUniqueId_s |Texto |v2|ID único usado para identificar o recipiente protegido para tudo, exceto VMs apoiados usando DPM, MABS|

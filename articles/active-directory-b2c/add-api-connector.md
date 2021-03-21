@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008438"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
