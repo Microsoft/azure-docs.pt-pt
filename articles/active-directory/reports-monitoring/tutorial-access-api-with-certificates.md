@@ -1,5 +1,5 @@
 ---
-title: Tutorial para AD Reportando API com certificados Microsoft Docs
+title: Tutorial para AD Reportando API com certificados | Microsoft Docs
 description: Este tutorial explica como utilizar a Azure AD Reporting API com credenciais de certificado para obter dados de diretórios sem intervenção do utilizador.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: c3443cb73e85fc69349e7293597a5f4a723959d3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130056"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtenha dados utilizando o Diretório Ativo Azure reportando API com certificados
@@ -62,11 +62,11 @@ Neste tutorial, você aprende a usar um certificado de teste para aceder à API 
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obter dados com a API de relatórios do Azure Active Directory com certificados
 
-1. Navegue até ao [portal Azure](https://portal.azure.com), selecione **Azure Ative Directory** , em seguida, selecione **as inscrições da App** e escolha a sua aplicação na lista. 
+1. Navegue até ao [portal Azure](https://portal.azure.com), selecione **Azure Ative Directory**, em seguida, selecione **as inscrições da App** e escolha a sua aplicação na lista. 
 
-2. Selecione **Certificados & segredos** na secção **Gerir** a lâmina de registo da aplicação e selecione **o Certificado de Upload** .
+2. Selecione **Certificados & segredos** na secção **Gerir** a lâmina de registo da aplicação e selecione **o Certificado de Upload**.
 
-3. Selecione o ficheiro de certificado do passo anterior e selecione **Adicionar** . 
+3. Selecione o ficheiro de certificado do passo anterior e selecione **Adicionar**. 
 
 4. Note o ID do formulário de aplicação e a impressão digital do certificado que acabou de registar na sua aplicação. Para encontrar a impressão digital, a partir da sua página de aplicação no portal, vá a **Certificados & segredos** na secção **Manage.** A impressão digital estará na lista **de certificados.**
 

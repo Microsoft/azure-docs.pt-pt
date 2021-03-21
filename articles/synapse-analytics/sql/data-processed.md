@@ -1,5 +1,5 @@
 ---
-title: Gestão de custos para piscina SQL sem servidor
+title: Gestão de custos para o conjunto de SQL sem servidor
 description: Este documento descreve como gerir o custo do pool SQL sem servidor e como os dados processados são calculados ao consultar dados no armazenamento do Azure.
 services: synapse analytics
 author: filippopovic
@@ -10,10 +10,10 @@ ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491589"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Gestão de custos para piscina SQL sem servidor em Azure Synapse Analytics
@@ -71,23 +71,23 @@ Imagine três mesas.
 - A tabela population_parquet tem os mesmos dados que a tabela population_csv. É apoiado por 1 TB de arquivos Parquet. Esta tabela é menor do que a anterior porque os dados são comprimidos no formato Parquet.
 - A tabela very_small_csv é apoiada por 100 KB de ficheiros CSV.
 
-**Consulta 1** : SELECT SUM(população) FROM POPULATION_CSV
+**Consulta 1**: SELECT SUM(população) FROM POPULATION_CSV
 
 Esta consulta lê e analisa ficheiros inteiros para obter valores para a coluna da população. Os nós processam fragmentos desta tabela, e a soma populacional para cada fragmento é transferida entre nós. A soma final é transferida para o seu ponto final. 
 
 Esta consulta processa 5 TB de dados mais uma pequena quantia sobre a sobrecarga para a transferência de somas de fragmentos.
 
-**Consulta 2** : SELECT SUM(população) FROM population_parquet
+**Consulta 2**: SELECT SUM(população) FROM population_parquet
 
 Quando consulta formatos comprimidos e baseados em colunas como o Parquet, menos dados são lidos do que na consulta 1. Você vê este resultado porque a piscina SQL sem servidor lê uma única coluna comprimido em vez de todo o ficheiro. Neste caso, lê-se 0,2 TB. (Cinco colunas de tamanho igual são 0,2 TB cada.) Os nós processam fragmentos desta tabela, e a soma populacional para cada fragmento é transferida entre nós. A soma final é transferida para o seu ponto final. 
 
 Esta consulta processa 0.2 TB mais uma pequena quantidade de despesas gerais para a transferência de somas de fragmentos.
 
-**Consulta 3** : SELECIONE * FROM population_parquet
+**Consulta 3**: SELECIONE * FROM population_parquet
 
 Esta consulta lê todas as colunas e transfere todos os dados num formato não comprimido. Se o formato de compressão for 5:1, então a consulta processa 6 TB porque lê 1 TB e transfere 5 TB de dados não comprimidos.
 
-**Consulta 4** : SELECT COUNT(*) FROM very_small_csv
+**Consulta 4**: SELECT COUNT(*) FROM very_small_csv
 
 Esta consulta lê ficheiros inteiros. O tamanho total dos ficheiros armazenados para esta tabela é de 100 KB. Os nós processam fragmentos desta tabela, e a soma para cada fragmento é transferida entre nós. A soma final é transferida para o seu ponto final. 
 

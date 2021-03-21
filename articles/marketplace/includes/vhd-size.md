@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: f4e34e850391696506beed9f6f386f85528dff24
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92284817"
 ---
 Se selecionou um dos VM pré-configurados com um sistema operativo (e serviços adicionais opcionais), já escolheu um tamanho VM standard. Iniciar a sua solução com um SISTEMA pré-configurado é a abordagem recomendada. No entanto, se estiver a instalar um SO manualmente, deve dimensionar o seu VHD primário na sua imagem VM. Certifique-se de que o tamanho do disco OS está dentro dos limites para Linux ou Windows.

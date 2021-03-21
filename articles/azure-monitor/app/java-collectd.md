@@ -7,10 +7,10 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: 08d8deb4c7769c4f8a202050d7b5515439d691f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100573855"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>recolhido: Métricas de desempenho do Linux em Insights de Aplicação [Deprecado]

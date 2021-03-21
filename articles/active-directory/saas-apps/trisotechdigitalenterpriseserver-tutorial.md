@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Trisotech Digital Enterprise Server Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o | De Servidor De Empresa Digital Trisotech Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Trisotech Digital Enterprise Server.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 05978b7300c401a0658d6c3316f37735fcb70c20
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521956"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Azure Ative Directory com o Trisotech Digital Enterprise Server
@@ -170,7 +170,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permitindo o acesso ao Trisotech Digital Enterprise Server.
 
-1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Trisotech Digital Enterprise Server**.
+1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Trisotech Digital Enterprise Server**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

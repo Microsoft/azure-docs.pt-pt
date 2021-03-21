@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.openlocfilehash: 992cd994f96b5637d5afd91bccfecde8704d2886
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98940625"
 ---
 # <a name="configure-virtual-network-service-endpoint-policies-for-azure-hdinsight"></a>Configure políticas de ponto final de serviço de rede virtual para Azure HDInsight
@@ -126,7 +126,7 @@ Utilize o seguinte processo para criar as políticas de ponto final de serviço 
     Set-AzVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet -AddressPrefix $subnet.AddressPrefix -ServiceEndpointPolicy $sep
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)
 * [Configurar aplicação virtual de rede](./network-virtual-appliance.md)

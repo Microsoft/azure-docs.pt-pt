@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Percolate Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com percolate | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar um único sign-on entre Azure Ative Directory e Percolate.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 913ffc0670e40e749bd28382d492a16891fdc5c9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Diretório Ativo Azure com Percolate
@@ -140,7 +140,7 @@ Para configurar o Azure AD com Percolate, tome estes passos:
 
     1. A **caixa URL de metadados de fornecedor de identidade** é um campo opcional. Se copiou um **Url de Metadados da Federação** de Aplicações do portal Azure, pode colar-o nesta caixa.
 
-    1. Na lista **AuthNRequests deve ser assinada?** **No**
+    1. Na lista **AuthNRequests deve ser assinada?** 
 
     1. Na lista **de provisionamento automático do Enable SSO,** selecione **Nº**.
 
@@ -164,9 +164,9 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
     1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension> ** (Por exemplo, BrittaSimon@contoso.com .)
+    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension>** (Por exemplo, BrittaSimon@contoso.com .)
 
-    1. Selecione **Mostrar Palavra-Passe**e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
+    1. Selecione **Mostrar Palavra-Passe** e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
 
     1. Selecione **Criar**.
 
@@ -174,7 +174,7 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
 Nesta secção, você permitirá que Britta Simon use Azure AD um único sinal de acesso, concedendo-lhe acesso a Percolate.
 
-1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **Percolate**.
+1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações** e, em seguida, selecione **Percolate**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -186,7 +186,7 @@ Nesta secção, você permitirá que Britta Simon use Azure AD um único sinal d
 
     ![Screenshot que mostra "Utilizadores e grupos" selecionados a partir do painel esquerdo.](common/users-groups-blade.png)
 
-4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+4. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Selecionar Utilizadores e grupos](common/add-assign-user.png)
 

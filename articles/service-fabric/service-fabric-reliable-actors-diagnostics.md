@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: ebaedb5369f3b39372262bfde526706e8d069418
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789621"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
@@ -23,7 +23,7 @@ Exemplos de ferramentas e tecnologias que ajudam na recolha e/ou visualização 
 ### <a name="keywords"></a>Palavras-chave
 Todos os eventos que pertencem ao Reliable Actors EventSource estão associados a uma ou mais palavras-chave. Isto permite a filtragem de eventos que são recolhidos. São definidos os seguintes bits de palavra-chave.
 
-| Pouco | Descrição |
+| Pouco | Description |
 | --- | --- |
 | 0x1 |Conjunto de eventos importantes que resumem o funcionamento do tempo de execução dos Atores de Tecido. |
 | 0x2 |Conjunto de eventos que descrevem chamadas de método de ator. Para mais informações, consulte o [tópico introdutório sobre os atores.](service-fabric-reliable-actors-introduction.md) |
@@ -83,7 +83,7 @@ No exemplo acima, `ivoicemailboxactor.leavemessageasync` é o nome do método, �
 ### <a name="actor-method-events-and-performance-counters"></a>Eventos de método de ator e contadores de desempenho
 O runtime dos Reliable Actors emite os seguintes eventos relacionados com os [métodos do ator.](service-fabric-reliable-actors-introduction.md)
 
-| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Description |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Verboso |0x2 |O tempo de execução dos atores está prestes a invocar um método de ator. |
 | ActorMethodStop |8 |Verboso |0x2 |Um método de ator terminou a execução. Ou seja, a chamada assíncrona do tempo de execução para o método do ator regressou, e a tarefa devolvida pelo método do ator terminou. |
@@ -91,7 +91,7 @@ O runtime dos Reliable Actors emite os seguintes eventos relacionados com os [m�
 
 O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com a execução de métodos de ator.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | Description |
 | --- | --- | --- |
 | Método do ator de tecido de serviço |Invocações/Sec |Número de vezes que o método de serviço do ator é invocado por segundo |
 | Método do ator de tecido de serviço |Milissegundos médios por invocação |Tempo de execução do método de serviço do ator em milissegundos |
@@ -100,13 +100,13 @@ O runtime the Reliable Actors publica os seguintes contadores de desempenho rela
 ### <a name="concurrency-events-and-performance-counters"></a>Eventos de concurrency e contadores de desempenho
 O tempo de execução dos Atores Fidedigdos emite os seguintes eventos relacionados com a [concuência.](service-fabric-reliable-actors-introduction.md#concurrency)
 
-| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Description |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Verboso |0x8 |Este evento é escrito no início de cada nova volta num ator. Contém o número de chamadas pendentes de atores que estão à espera para adquirir o bloqueio por ator que impõe a concordância baseada em turnos. |
 
 O tempo de execução dos Atores Fidedigdos publica os seguintes contadores de desempenho relacionados com a concordância.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | Description |
 | --- | --- | --- |
 | Ator de Tecido de Serviço |# de chamadas de ator à espera de bloqueio de ator |Número de chamadas pendentes de ator à espera de adquirir o bloqueio por ator que impõe a concordância baseada em turnos |
 | Ator de Tecido de Serviço |Milissegundos médios por espera de bloqueio |Tempo demorado (em milissegundos) para adquirir o bloqueio por ator que impõe a concordância baseada na viragem |
@@ -115,14 +115,14 @@ O tempo de execução dos Atores Fidedigdos publica os seguintes contadores de d
 ### <a name="actor-state-management-events-and-performance-counters"></a>Eventos de gestão do estado do ator e balcões de desempenho
 O runtime do Reliable Actors emite os seguintes eventos relacionados com a [gestão estatal do ator.](service-fabric-reliable-actors-state-management.md)
 
-| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Description |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Verboso |0x4 |O tempo de execução dos atores está prestes a salvar o estado do ator. |
 | ActorSaveStateStop |11 |Verboso |0x4 |Os atores terminaram de salvar o estado do ator. |
 
 O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com a gestão do estado do ator.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | Description |
 | --- | --- | --- |
 | Ator de Tecido de Serviço |Milissegundos médios por operação do Estado de salvamento |Tempo tomado para salvar estado ator em milissegundos |
 | Ator de Tecido de Serviço |Milissegundos médios por operação do estado de carga |Tempo tomado para carregar estado do ator em milissegundos |
@@ -130,7 +130,7 @@ O runtime the Reliable Actors publica os seguintes contadores de desempenho rela
 ### <a name="events-related-to-actor-replicas"></a>Eventos relacionados com réplicas de atores
 O runtime dos Reliable Actors emite os seguintes eventos relacionados com [réplicas de atores.](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)
 
-| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Description |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Informativo |0x1 |A réplica do ator mudou de papel para Primária. Isto implica que os atores para esta partição serão criados dentro desta réplica. |
 | ReplicaChangeRoleFromPrimary |2 |Informativo |0x1 |A réplica do ator mudou o papel para não-primária. Isto implica que os atores para esta partição não serão mais criados dentro desta réplica. Nenhum novo pedido será entregue aos atores já criados dentro desta réplica. Os atores serão destruídos depois de concluídos os pedidos em curso. |
@@ -138,28 +138,28 @@ O runtime dos Reliable Actors emite os seguintes eventos relacionados com [répl
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Eventos de ativação e desativação de atores e contadores de desempenho
 O tempo de execução dos Atores Fidedigdos emite os seguintes eventos relacionados com a [ativação e desativação do ator.](service-fabric-reliable-actors-lifecycle.md)
 
-| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Description |
 | --- | --- | --- | --- | --- |
 | AtorActivado |5 |Informativo |0x1 |Um ator foi ativado. |
 | Ator Desativado |6 |Informativo |0x1 |Um ator foi desativado. |
 
 O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com a ativação e desativação do ator.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | Description |
 | --- | --- | --- |
 | Ator de Tecido de Serviço |Média onActivateAync milissegundos |Tempo de execução do método OnActivateAsync em milissegundos |
 
 ### <a name="actor-request-processing-performance-counters"></a>Ator solicita processamento de contadores de desempenho
 Quando um cliente invoca um método através de um objeto de procuração de ator, resulta em uma mensagem de pedido enviada através da rede para o serviço de ator. O serviço processa a mensagem de pedido e envia uma resposta ao cliente. O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com o processamento de pedidos de ator.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | Description |
 | --- | --- | --- |
 | Ator de Tecido de Serviço |# de pedidos pendentes |Número de pedidos a ser processados no serviço |
 | Ator de Tecido de Serviço |Milissegundos médios por pedido |Tempo tomado (em milissegundos) pelo serviço para processar um pedido |
 | Ator de Tecido de Serviço |Milissegundos médios para pedido de deserialização |Tempo demorado (em milissegundos) para deserializar a mensagem de pedido do ator quando é recebido no serviço |
 | Ator de Tecido de Serviço |Milissegundos médios para serialização de resposta |Tempo demorado (em milissegundos) para serializar a mensagem de resposta do ator no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Como os atores fiáveis usam a plataforma de tecido de serviço](service-fabric-reliable-actors-platform.md)
 * [Documentação de referência da API do ator](/previous-versions/azure/dn971626(v=azure.100))
 * [Código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)

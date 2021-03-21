@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral da gestão de uma aplicação 
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: 0019f154f301d2b688d4c16c9adb36ec386adef2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790728"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicação de tecido de serviço
@@ -183,7 +183,7 @@ Para eliminar uma aplicação que foi implementada utilizando o modelo de recurs
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Obtenha informações sobre o modelo de recursos de aplicação:
 

@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 55d5594229bccb5fcb6a406e671ed104c1e12378
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101094054"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Descrição geral dos pré-requisitos para utilizar o Azure Database Migration Service

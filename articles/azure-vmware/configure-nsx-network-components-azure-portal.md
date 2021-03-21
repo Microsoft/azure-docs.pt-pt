@@ -4,10 +4,10 @@ description: Aprenda a utilizar a consola Azure VMware Solution para configurar 
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716993"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Configure componentes de rede NSX na Solução VMware Azure

@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941369"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consulta Apache Hive com ODBC e PowerShell
@@ -122,7 +122,7 @@ Get-ODBC-Data -query $query -dsn $dsn
 
 Quando já não for necessário, elimine o grupo de recursos, o cluster HDInsight e a conta de armazenamento. Para tal, selecione o grupo de recursos onde o cluster foi criado e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar o controlador ODBC da Microsoft Hive e o PowerShell para obter dados do seu cluster de consultas interativas Azure HDInsight.
 

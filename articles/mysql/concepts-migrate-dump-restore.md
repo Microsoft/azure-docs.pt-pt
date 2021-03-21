@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94537922"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar a sua base de dados MySQL para a Dase de Dados do Azure para MySQL através da funcionalidade de captura e restauro
@@ -99,7 +99,7 @@ Os parâmetros a fornecer são:
 - [uname] Nome de utilizador da sua base de dados
 - [passe] A palavra-passe da sua base de dados (note que não há espaço entre -p e a palavra-passe)
 - [dbname] O nome da sua base de dados
-- [backupfile.sql] O nome de ficheiro para a sua base de dados
+- [ficheiro de reserva.sql] O nome de ficheiro para a sua cópia de segurança da base de dados
 - [--opt] A opção mysqldump
 
 Por exemplo, para fazer o back-up de uma base de dados chamada 'testdb' no seu servidor MySQL com o nome de utilizador 'testuser' e sem palavra-passe para um ficheiro testdb_backup.sql, utilize o seguinte comando. O comando reensi para `testdb` um ficheiro chamado , que contém todas as `testdb_backup.sql` declarações SQL necessárias para recriar a base de dados. Certifique-se de que o nome de utilizador 'testuser' tem pelo menos o privilégio SELECT para mesas de despejo, SHOW VIEW para vistas despejadas, TRIGGER para gatilhos despejados e TABELAS DE BLOQUEIO se a opção de transação única não for utilizada.

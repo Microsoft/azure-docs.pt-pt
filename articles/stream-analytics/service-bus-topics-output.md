@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: bee6e5547ad78554467f23968230721ba029aba6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102451767"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Saída de tópicos de ônibus de serviço da Azure Stream Analytics
@@ -19,7 +19,7 @@ As filas de autocarros de serviço fornecem um método de comunicação um-para-
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de tópico de Service Bus.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para este tópico de Service Bus. |
 | Espaço de nome de ônibus de serviço |Um contentor para um conjunto de entidades de mensagens. Quando criou um novo centro de eventos, também criou um espaço de nomes de Service Bus. |

@@ -15,10 +15,10 @@ ms.date: 02/18/2021
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 ms.openlocfilehash: 812b54d10ea3cc3c405f534e36ac66abf3466808
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449293"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteja o backend SPA com AAuth 2.0, Azure Ative Directory B2C e Azure API Management
@@ -53,7 +53,7 @@ Para seguir os passos deste artigo, você deve ter:
 
 Embora, na prática, se utilize recursos na mesma região em cargas de trabalho de produção, para este artigo como-artigo a região de implantação não é importante.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Aqui está uma ilustração dos componentes em uso e o fluxo entre eles uma vez que este processo esteja concluído.
 ![Componentes em uso e fluxo](../api-management/media/howto-protect-backend-frontend-azure-ad-b2c/image-arch.png "Componentes em uso e fluxo")
@@ -426,7 +426,7 @@ Terá de adicionar blocos de endereços formatados ciDR ao painel de restriçõe
 1. Selecione index.html blob da lista 
 1. Clique em 'Editar' 
 1. Atualize os valores de auth na secção msal config para corresponder à sua aplicação *frontal* que registou anteriormente em B2C. Utilize os comentários de código para obter pistas sobre como os valores config devem parecer.
-O valor *da autoridade* tem de estar no formato:- https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantname}.onmicrosoft.com}/{signupandsigninpolicyname}, se usou os nossos nomes de amostra e o seu inquilino b2c é chamado de 'contoso' então espera que a autoridade seja https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com}/Frontendapp_signupandsignin '.
+O valor *da autoridade* tem de estar no formato:- https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantname}.onmicrosoft.com}/{signupandsigninpolicyname}, se usou os nossos nomes de amostra e o seu inquilino b2c é chamado de 'contoso', então esperaria que a autoridade fosse ' https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com}/Frontendapp_signupandsignin .
 1. Defina os valores api para corresponder ao seu endereço de backend (O Url base da API que gravou anteriormente, e os valores 'b2cScopes' foram registados anteriormente para a *aplicação backend*).
 1. Clicar em Guardar
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
 ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945816"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux em HDInsight utilizando o portal Azure
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione **Analytics**  >  **Azure HDInsight** para ir à página de **cluster Create HDInsight.**
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções básicas
 
 ![HDInsight criar básicos de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Criação de um novo cluster no portal Azure")
 
@@ -152,7 +152,7 @@ Consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell o
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criou com sucesso um cluster HDInsight. Agora aprende a trabalhar com o teu grupo.
 

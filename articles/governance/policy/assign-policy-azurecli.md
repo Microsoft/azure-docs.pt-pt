@@ -5,10 +5,10 @@ ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9955f911f9a92d7b353a8f3d022af7884b5a6aae
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090159"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes com o Azure CLI
@@ -40,7 +40,7 @@ A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da lin
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste início rápido, vai criar uma atribuição de política e atribuir a definição **VMs de Auditoria que não utilizam discos geridos** . Esta definição de política identifica recursos que não estão em conformidade com as condições definidas na definição de política.
+Neste início rápido, vai criar uma atribuição de política e atribuir a definição **VMs de Auditoria que não utilizam discos geridos**. Esta definição de política identifica recursos que não estão em conformidade com as condições definidas na definição de política.
 
 Execute o seguinte comando para criar uma atribuição de política:
 
@@ -50,9 +50,9 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 O comando anterior utiliza as seguintes informações:
 
-- **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_ .
-- **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está a utilizar _VMs de auditoria sem serviço de discos geridos_ .
-- **Política** – O ID de definição de política, com base no qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política _Audit VMs que não usam discos geridos_ . Para obter o ID de definição de política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_.
+- **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está a utilizar _VMs de auditoria sem serviço de discos geridos_.
+- **Política** – O ID de definição de política, com base no qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política _Audit VMs que não usam discos geridos_. Para obter o ID de definição de política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir desde uma subscrição a grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos que não estão em conformidade
@@ -99,7 +99,7 @@ Os resultados assemelham-se ao seguinte exemplo:
 
 Os resultados são comparáveis aos que normalmente vê listados em **recursos que não estão em conformidade** na vista do portal do Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição criada, utilize o seguinte comando:
 

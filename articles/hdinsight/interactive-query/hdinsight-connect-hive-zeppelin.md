@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
 ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941065"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Execute consultas apache hive em Azure HDInsight com Apache Zeppelin
@@ -111,7 +111,7 @@ Depois de completar o arranque rápido, é possível que queira eliminar o clust
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você aprendeu a usar Apache Zeppelin para executar consultas apache Hive em Azure HDInsight. Para saber mais sobre as consultas da Hive, o próximo artigo irá mostrar-lhe como executar consultas com o Visual Studio.
 

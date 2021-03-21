@@ -8,17 +8,17 @@ author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
 ms.openlocfilehash: 014bcd6fc519c267cdf17e9e98b850425c25ead6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459331"
 ---
 # <a name="prepare-your-azure-container-technical-assets"></a>Prepare os seus ativos técnicos do contentor Azure
 
 Este artigo fornece recursos técnicos e recomendações para ajudá-lo a criar uma oferta de contentores no Azure Marketplace.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para quickstarts, tutoriais e amostras, consulte a [documentação das instâncias do recipiente Azure](../container-instances/index.yml).
 
@@ -43,7 +43,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua i
 
 Recomendamos que adicione estas ferramentas ao seu ambiente de desenvolvimento:
 
-- [Explorador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Explorador do Storage do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

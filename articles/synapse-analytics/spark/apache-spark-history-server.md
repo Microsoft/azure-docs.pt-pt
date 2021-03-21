@@ -10,10 +10,10 @@ ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101670697"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilize o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Apache Spark
@@ -100,7 +100,7 @@ Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Dados
 
 Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Gráfico** no menu de ferramentas para obter a visualização do gráfico de trabalho.
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 
 Pode ver uma visão geral do seu trabalho no gráfico de trabalho gerado. Por defeito, o gráfico mostra todos os trabalhos. Pode filtrar esta vista por **Job ID**.
 
@@ -157,7 +157,7 @@ Passe no nó gráfico para ver a ponta da ferramenta quando houver tarefas falha
 
 No separador gráfico de trabalho, as fases têm uma ponta de ferramenta e um pequeno ícone apresentados se tiverem tarefas que satisfaçam as seguintes condições:
 
-|Condição|Descrição|
+|Condição|Description|
 |-|-|
 |Distorção de dados|tamanho de leitura de dados > tamanho médio de leitura de dados de todas as tarefas dentro desta fase * 2 e tamanho de leitura de dados > 10 MB|
 |Distorção do tempo|tempo de execução > tempo médio de execução de todas as tarefas dentro desta fase * 2 e tempo de execução > 2 minutos|

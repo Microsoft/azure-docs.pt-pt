@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93122848"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
@@ -62,7 +62,7 @@ No menu do [portal Azure,](https://portal.azure.com) selecione **Azure Ative Dir
 
 ![Selecione Azure Ative Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-Em **Monitorização** , selecione **Iniciar sing-ins** para abrir o [relatório de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+Em **Monitorização**, selecione **Iniciar sing-ins** para abrir o [relatório de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
 ![A screenshot mostra os insusimentos selecionados no menu de monitorização.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de início de sessão")
 
@@ -114,7 +114,7 @@ Primeiro, reduzindo os dados reportados a um nível que funcione para si. Em seg
  
 **Estado** - O estado de inscrição que lhe interessa:
 
-- Success
+- Com êxito
 
 - Falha
 
@@ -177,11 +177,11 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 
 **Acesso condicional** - O estado das regras de acesso condicional aplicadas
 
-- **Não aplicada** : Nenhuma política aplicada ao utilizador e à aplicação durante a entrada.
+- **Não aplicada**: Nenhuma política aplicada ao utilizador e à aplicação durante a entrada.
 
-- **Sucesso** : Uma ou mais políticas de acesso condicional aplicadas ao utilizador e à aplicação (mas não necessariamente às outras condições) durante a entrada. 
+- **Sucesso**: Uma ou mais políticas de acesso condicional aplicadas ao utilizador e à aplicação (mas não necessariamente às outras condições) durante a entrada. 
 
-- **Falha** : A inscrição satisfez o estado de utilização e aplicação de pelo menos uma política de acesso condicional e os controlos de concessão não estão satisfeitos ou definidos para bloquear o acesso.
+- **Falha**: A inscrição satisfez o estado de utilização e aplicação de pelo menos uma política de acesso condicional e os controlos de concessão não estão satisfeitos ou definidos para bloquear o acesso.
 
 
 
@@ -228,21 +228,21 @@ Cada linha na lista de atividades de início de sessão mostra:
 Ao clicar num item, obtém mais detalhes sobre a operação de início de sessão:
 
 - ID de Utilizador
-- Utilizador
+- User
 - Nome de utilizador
 - ID da Aplicação
 - Aplicação
 - Cliente
 - Localização
 - Endereço IP
-- Date
+- Data
 - MFA Necessário
 - Estado de início de sessão
 
 > [!NOTE]
 > Os endereços IP são emitidos de forma a que não exista uma ligação definitiva entre um endereço IP e onde o computador com esse endereço esteja fisicamente localizado. O mapeamento de endereços IP é complicado pelo facto de os fornecedores móveis e VPNs emitirem endereços IP a partir de piscinas centrais que muitas vezes estão muito longe de onde o dispositivo cliente é realmente usado. Atualmente nos relatórios AD AZure, converter o endereço IP para uma localização física é um melhor esforço com base em vestígios, dados de registo, análises inversas e outras informações.
 
-Na página **Utilizadores** , pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade** .
+Na página **Utilizadores**, pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade**.
 
 ![A screenshot mostra a secção De Atividades onde pode selecionar ins.](./media/concept-sign-ins/08.png "Atividade de início de sessão")
 
@@ -254,7 +254,7 @@ Com uma vista centrada em aplicações dos seus dados de início de sessão, pod
 * Quais são as três principais aplicações na sua organização?
 * Como está a minha nova aplicação?
 
-O ponto de entrada nestes dados é o top 3 de aplicações na sua organização. Os dados estão contidos no relatório dos últimos 30 dias na secção **Visão Geral** ao abrigo das **aplicações da Enterprise** .
+O ponto de entrada nestes dados é o top 3 de aplicações na sua organização. Os dados estão contidos no relatório dos últimos 30 dias na secção **Visão Geral** ao abrigo das **aplicações da Enterprise**.
 
 ![A screenshot mostra onde pode selecionar o Resumo.](./media/concept-sign-ins/10.png "Atividade de início de sessão")
 

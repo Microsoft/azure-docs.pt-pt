@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93319276"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores e bases de dados individuais na Base de Dados Azure SQL
@@ -123,9 +123,9 @@ Para criar e gerir os servidores, bases de dados e firewalls com Transact-SQL, u
 
 | Comando | Descrição |
 | --- | --- |
-|[CRIAR BASE DE DADOs](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Cria uma nova base de dados única. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Cria uma nova base de dados única. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifica uma base de dados ou piscina elástica. |
-|[BASE DE DADOS DROP](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
+|[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo do serviço (nível de preços) e o nome elástico da piscina, caso existam, para Azure SQL Database ou uma piscina de SQL dedicada em Azure Synapse Analytics. Se for iniciado sessão na base de dados principal de um servidor na Base de Dados SQL, retorna a informação em todas as bases de dados. Para a Azure Synapse Analytics, deve estar ligado à base de dados principal.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devoluções cpu, IO e consumo de memória para uma base de dados na Base de Dados Azure SQL. Existe uma linha por cada 15 segundos, mesmo que não haja atividade na base de dados.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devolve dados de utilização e armazenamento de CPU para uma base de dados na Base de Dados Azure SQL. Os dados são recolhidos e agregados dentro de intervalos de cinco minutos.|

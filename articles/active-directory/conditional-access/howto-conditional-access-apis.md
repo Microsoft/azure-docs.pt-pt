@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d4dd6e64053af41d66e3accbb7fc9b21d951fc6
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860218"
 ---
 # <a name="conditional-access-programmatic-access"></a>Acesso Condicional: Acesso programático
@@ -62,7 +62,7 @@ Este exemplo fornece um mecanismo para executar uma implementação faseada pol�
 
 - [Implementar políticas de acesso condicional a ambientes de produção com fluxos de trabalho de aprovação](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitorizar
+## <a name="monitor"></a>Monitor
 
 Este exemplo fornece um mecanismo para monitorizar as mudanças na política de acesso condicional ao longo do tempo e pode desencadear alertas quando as políticas-chave são alteradas.
 

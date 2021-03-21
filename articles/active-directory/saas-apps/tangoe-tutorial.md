@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Tangoe Command Premium Mobile Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | Móvel Premium De Comando Tangoe Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Tangoe Command Premium Mobile.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.openlocfilehash: fd2923c68aa77a4d17936eaa3a738c963458e8cb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514678"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integração do Diretório Ativo Azure com Tangoe Command Premium Mobile

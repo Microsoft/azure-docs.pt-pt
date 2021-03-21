@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/18/2017
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9123ca6a1bfa90737bb1ce83ee365d1ecf514e1f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220997"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introdução ao Azure Data Lake Analytics com a CLI do Azure

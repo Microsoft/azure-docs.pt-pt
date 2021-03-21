@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
 ms.openlocfilehash: 1478baa889faf84a53d373863961abc92c1fa34a
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449191"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender para arquitetura IoT

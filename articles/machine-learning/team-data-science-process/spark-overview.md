@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93314748"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Visão geral da ciência dos dados usando Spark on Azure HDInsight
@@ -156,13 +156,13 @@ Pode lançar o Caderno Jupyter a partir do portal Azure. Encontre o seu cluster 
 
 ![Painéis de cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Também pode navegar para * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _ para aceder aos Cadernos Jupyter. Substitua a parte clustername deste URL pelo nome do seu próprio cluster. Precisa da senha da sua conta de administração para aceder aos cadernos.
+Também pode navegar para aceder aos ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** Cadernos Jupyter. Substitua a parte clustername deste URL pelo nome do seu próprio cluster. Precisa da senha da sua conta de administração para aceder aos cadernos.
 
 ![Navegue por cadernos jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
 Selecione PySpark para ver um diretório que contém alguns exemplos de cadernos pré-embalados que usam a API PySpark. Os cadernos que contêm as amostras de código para este conjunto de temas Spark estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Pode fazer o upload dos cadernos diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor de cadernos Jupyter no seu cluster Spark. Na página inicial do seu Jupyter, clique no botão _ *Upload* * na parte direita do ecrã. Abre um explorador de ficheiros. Aqui pode colar o URL gitHub (conteúdo bruto) do Caderno e clicar em **Abrir**.
+Pode fazer o upload dos cadernos diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor de cadernos Jupyter no seu cluster Spark. Na página inicial do seu Jupyter, clique no botão **Upload** na parte direita do ecrã. Abre um explorador de ficheiros. Aqui pode colar o URL gitHub (conteúdo bruto) do Caderno e clicar em **Abrir**.
 
 Vê o nome do ficheiro na sua lista de ficheiros Jupyter com um botão **upload** novamente. Clique neste botão **upload.** Agora importaste o caderno. Repita estes passos para carregar os outros cadernos desta passagem.
 
@@ -192,4 +192,4 @@ Agora que foi configurado com um cluster HDInsight Spark e carregou os cadernos 
 
 **Consumo de modelos:** Para aprender a pontuar os modelos de classificação e regressão criados neste tópico, consulte [Score e avalie os modelos de aprendizagem automática construídos pela Spark.](spark-model-consumption.md)
 
-**Varredura de validação cruzada e hiperparímetro** : Consulte [a exploração e modelação avançadas de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a varredura de hiper-parâmetros
+**Varredura de validação cruzada e hiperparímetro**: Consulte [a exploração e modelação avançadas de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a varredura de hiper-parâmetros

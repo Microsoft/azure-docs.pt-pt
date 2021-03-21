@@ -1,5 +1,5 @@
 ---
-title: Resolver alertas de grupo de segurança de rede em Azure AD DS / Microsoft Docs
+title: Resolver alertas de grupos de segurança de rede em Azure AD DS | Microsoft Docs
 description: Saiba como resolver problemas e resolver alertas de configuração do grupo de segurança de rede para serviços de domínio do diretório ativo Azure
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: justinha
 ms.openlocfilehash: 5b48d326efad889adbcf25d487ee27b8200f558f
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693927"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de configuração de rede nos Serviços de Domínio do Diretório Ativo Azure
@@ -38,7 +38,7 @@ As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de
 
 ### <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
-| Prioridade | Nome | Porta | Protocolo | Origem | Destino | Ação |
+| Prioridade | Name | Porta | Protocolo | Origem | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
 | 301      | Permitir aRemotagem de Admissão | 5986| TCP | AzureActiveDirectoryDomainServices | Qualquer | Permitir |
 | 201      | PermitirRD | 3389 | TCP | Serra CorpNet | Qualquer | Negar<sup>1</sup> |
@@ -54,7 +54,7 @@ As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de
 
 ### <a name="outbound-security-rules"></a>Regras de segurança de saída
 
-| Prioridade | Nome | Porta | Protocolo | Origem | Destino | Ação |
+| Prioridade | Name | Porta | Protocolo | Origem | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Permitir |
 | 65001    | Permitir a Entrada de Água | Qualquer | Qualquer |  Qualquer | Internet | Permitir |

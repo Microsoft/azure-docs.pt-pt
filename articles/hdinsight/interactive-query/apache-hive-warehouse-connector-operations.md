@@ -7,10 +7,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.openlocfilehash: 20567a1e38686b5d452a5353bc459e7e1125f499
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941307"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Operações apache spark apoiadas pelo Conector do Armazém da Colmeia em Azure HDInsight
@@ -139,7 +139,7 @@ Siga os passos abaixo para ingerir dados de uma corrente de faísca na porta loc
 
 Utilize **ctrl + C** para parar o netcat na segunda sessão de SSH. Use `:q` para sair da casca de faísca na primeira sessão de SSH.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Integração do HWC no Apache Spark e no Apache Hive](./apache-hive-warehouse-connector.md)
 * [Utilizar uma Consulta Interativa com o HDInsight](./apache-interactive-query-get-started.md).

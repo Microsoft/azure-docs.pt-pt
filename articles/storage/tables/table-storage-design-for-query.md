@@ -1,5 +1,5 @@
 ---
-title: Design Azure Table armazenamento para consultas / Microsoft Docs
+title: Design Azure Table armazenamento para consultas | Microsoft Docs
 description: Tabelas de design para consultas no armazenamento da mesa Azure. Escolha uma chave de partição apropriada, otimize as consultas e sortifique os dados para o serviço Tabela.
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93316159"
 ---
 # <a name="design-for-querying"></a>Design das consultas
@@ -46,13 +46,13 @@ Os exemplos a seguir assumem que o serviço de mesa está a armazenar entidades 
 
 A [visão geral de armazenamento da tabela Azure](table-storage-overview.md) descreve algumas das principais características do serviço Azure Table que têm uma influência direta na conceção para consulta. Estes resultados resultam nas seguintes diretrizes gerais para a conceção de consultas de serviço de tabela. Note que a sintaxe do filtro utilizada nos exemplos abaixo é do serviço de tabela REST API, para mais informações ver [Entidades De Consulta](/rest/api/storageservices/Query-Entities).  
 
-* A * **Point Query** _ é o lookup mais eficiente para usar e é recomendado para ser usado para consultas ou procuras de alto volume que requerem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de forma muito eficiente, especificando tanto os valores _ *PartitionKey* * como **o RowKey.** Por exemplo: $filter=(PartitionKey eq 'Sales') e (RowKey eq '2')  
-* O segundo melhor é uma **_ Range Query** _ que usa o _ *PartitionKey* * e filtra uma gama de valores **RowKey** para devolver mais do que uma entidade. O valor **PartitionKey** identifica uma divisória específica, e os valores **RowKey** identificam um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
-* O terceiro melhor é um * **Partition Scan** _ que usa o _ *PartitionKey* * e filtra em outra propriedade não chave e que pode devolver mais do que uma entidade. O valor **PartitionKey** identifica uma divisória específica, e os valores de propriedade selecionam para um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
-* A * **Table Scan** _ não inclui o _ *PartitionKey* * e é muito ineficiente porque procura todas as divisórias que compõem a sua mesa por sua vez para quaisquer entidades correspondentes. Realizará uma verificação de mesa independentemente de o seu filtro utilizar ou não o **RowKey**. Por exemplo: $filter=LastName eq 'Jones'  
+* A ***Point Query** _ é o lookup mais eficiente para usar e é recomendado para ser usado para consultas ou procuras de alto volume que requerem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de forma muito eficiente, especificando tanto os valores _ *PartitionKey** como **o RowKey.** Por exemplo: $filter=(PartitionKey eq 'Sales') e (RowKey eq '2')  
+* O segundo melhor é uma **_ Range Query** _ que usa o _ *PartitionKey** e filtra uma gama de valores **RowKey** para devolver mais do que uma entidade. O valor **PartitionKey** identifica uma divisória específica, e os valores **RowKey** identificam um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
+* O terceiro melhor é um ***Partition Scan** _ que usa o _ *PartitionKey** e filtra em outra propriedade não chave e que pode devolver mais do que uma entidade. O valor **PartitionKey** identifica uma divisória específica, e os valores de propriedade selecionam para um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
+* A ***Table Scan** _ não inclui o _ *PartitionKey** e é muito ineficiente porque procura todas as divisórias que compõem a sua mesa por sua vez para quaisquer entidades correspondentes. Realizará uma verificação de mesa independentemente de o seu filtro utilizar ou não o **RowKey**. Por exemplo: $filter=LastName eq 'Jones'  
 * Consultas que devolvem várias entidades retorná-las ordenadas na ordem **PartitionKey** e **RowKey.** Para evitar recorrer às entidades do cliente, escolha um **RowKey** que defina a ordem de classificação mais comum.  
 
-Note que usar um " **ou** " para especificar um filtro baseado nos valores **rowKey** resulta numa digitalização de partição e não é tratado como uma consulta de alcance. Por isso, deve evitar consultas que utilizem filtros como: $filter=PartitionKey eq 'Sales' e (RowKey eq '121' ou RowKey eq '322')  
+Note que usar um "**ou**" para especificar um filtro baseado nos valores **rowKey** resulta numa digitalização de partição e não é tratado como uma consulta de alcance. Por isso, deve evitar consultas que utilizem filtros como: $filter=PartitionKey eq 'Sales' e (RowKey eq '121' ou RowKey eq '322')  
 
 Por exemplo, o código do lado do cliente que utiliza a Biblioteca do Cliente de Armazenamento para executar consultas eficientes, consulte:  
 

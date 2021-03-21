@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com Pulse Secure PCS / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com | de PCS Secure Pulse Microsoft Docs'
 description: Saiba como configurar um único sinal de inserção entre o Azure Ative Directory e o Pulse Secure PCS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
 ms.openlocfilehash: d38ff5c8f33bda5b12f6267e7a8cdf477db6c7d7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511448"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Pulse Secure PCS
@@ -110,7 +110,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, concedendo acesso a Pulse Secure PCS.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Pulse Secure PCS**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
@@ -160,7 +160,7 @@ Execute os seguintes passos na seguinte página:
 
     c. Copie o valor **do Id da Entidade Segura Connect** e cole-o na caixa URL do **Identificador** na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
-    d. Selecione valor de Id da Entidade AD Azure da lista de entrega de **Id da Entidade fornecedora**de identidade .
+    d. Selecione valor de Id da Entidade AD Azure da lista de entrega de **Id da Entidade fornecedora** de identidade .
 
     e. Selecione o valor URL de login Azure Ad da lista de lançamento do URL de **serviço de Sign-On único do fornecedor de identidade**.
 

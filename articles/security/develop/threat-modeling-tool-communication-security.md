@@ -18,13 +18,13 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d9a4eabf37101622ac69ae05f3bec232fb8d2fe6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94517534"
 ---
-# <a name="security-frame-communication-security--mitigations"></a>Quadro de Segurança: Segurança de Comunicação / Mitigações 
+# <a name="security-frame-communication-security--mitigations"></a>Quadro de Segurança: | de Segurança de Comunicação Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Hub de Eventos do Azure** | <ul><li>[Comunicação segura para o Centro de Eventos utilizando SSL/TLS](#comm-ssltls)</li></ul> |

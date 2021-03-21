@@ -14,10 +14,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3b9f76eba9697d6ad47ecf8dc51689538923f88
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101094475"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre O Diretório Ativo Azure
@@ -60,7 +60,7 @@ Adicionalmente, a Azure AD pagou serviços como Enterprise Mobility + Security c
 ---
 **P: Existe um relatório que mostra quando as minhas licenças de utilizador do Azure AD expiram?**
 
-**A:** Rio Lol  Esta configuração não está disponível no momento.
+**A:** Não.  Esta configuração não está disponível no momento.
 
 ---
 
@@ -212,4 +212,4 @@ Para obter mais informações, consulte [automatizar o fornecimento e desprovisi
 ---
 **P: Posso configurar uma ligação LDAP segura ao Azure AD?**
 
-**A:**  Rio Lol A Azure AD não suporta diretamente o protocolo de Protocolo de Acesso ao Diretório Leve (LDAP) nem o LDAP Seguro. No entanto, é possível permitir a instância dos Serviços de Domínio AZure AD (Azure AD DS) no seu inquilino AZure AD com grupos de segurança de rede devidamente configurados através do Azure Networking para alcançar a conectividade LDAP. Para obter mais informações, consulte [Configure secure LDAP para um domínio gerido por Serviços de Domínio do Diretório Ativo Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md)
+**A:**  Não. A Azure AD não suporta diretamente o protocolo de Protocolo de Acesso ao Diretório Leve (LDAP) nem o LDAP Seguro. No entanto, é possível permitir a instância dos Serviços de Domínio AZure AD (Azure AD DS) no seu inquilino AZure AD com grupos de segurança de rede devidamente configurados através do Azure Networking para alcançar a conectividade LDAP. Para obter mais informações, consulte [Configure secure LDAP para um domínio gerido por Serviços de Domínio do Diretório Ativo Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md)

@@ -12,10 +12,10 @@ ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452242"
 ---
 # <a name="string-claims-transformations"></a>Cadeia reivindica transformações
@@ -198,7 +198,7 @@ Determinar se uma alegação de corda é igual a outra. O resultado é um novo B
 | InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de alegações foi invocado. |
 
-Utilize esta transformação de sinistros para verificar se uma reclamação é igual a outra reclamação. Por exemplo, a transformação de reclamações seguinte verifica se o valor da reclamação de **e-mail** é igual à **reclamação Verified.Email.**
+Utilize esta transformação de sinistros para verificar se uma reclamação é igual a outra reclamação. Por exemplo, a transformação de reclamações seguinte verifica se o valor da reclamação de **e-mail** é igual ao **Verified.Email** reclamação.
 
 ```xml
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">

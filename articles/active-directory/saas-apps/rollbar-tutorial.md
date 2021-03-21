@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Rollbar Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Rollbar | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Rollbar.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 2d5aedf24034c9ba5ee865dd0d2289169ea5f859
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integração do Diretório Ativo Azure com o Rollbar
@@ -193,7 +193,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao Rollbar.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Rollbar**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Rollbar**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -225,7 +225,7 @@ Para permitir que os utilizadores Azure AD inscrevam-se no Rollbar, devem ser ap
 
 1. Clique nas **Definições** de Perfil no canto superior direito e, em seguida, clique nas **definições de Nome de Conta**.
 
-    ![Utilizador](./media/rollbar-tutorial/general.png)
+    ![User](./media/rollbar-tutorial/general.png)
 
 1. Clique em **Utilizadores**.
 
@@ -235,7 +235,7 @@ Para permitir que os utilizadores Azure AD inscrevam-se no Rollbar, devem ser ap
 
     ![A screenshot mostra a opção de membros da equipa de convite selecionados.](./media/rollbar-tutorial/user2.png)
 
-1. Na caixa de texto, insira o nome do utilizador como ** \@ brittasimon contoso.com** e o clique **Add/Invite**.
+1. Na caixa de texto, insira o nome do utilizador como **\@ brittasimon contoso.com** e o clique **Add/Invite**.
 
     ![A screenshot mostra Add/Invite Members com um endereço fornecido.](./media/rollbar-tutorial/user3.png)
 

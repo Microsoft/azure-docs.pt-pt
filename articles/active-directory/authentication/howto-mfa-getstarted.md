@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861311"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure AD
@@ -35,7 +35,7 @@ Para ver rapidamente a autenticação multi-factor AD Ad em ação e, em seguida
 
 Antes de iniciar uma implementação da Autenticação Multi-Factor Azure AD, existem itens pré-requisitos que devem ser considerados.
 
-| Cenário | Pré-requisito |
+| Scenario | Pré-requisito |
 | --- | --- |
 | Ambiente de identidade **apenas** em nuvem com autenticação moderna | **Sem tarefas pré-requisitos adicionais** |
 | **Cenários de** identidade híbrida | [O Azure AD Connect](../hybrid/whatis-hybrid-identity.md) é implantado e as identidades dos utilizadores são sincronizadas ou federadas com os serviços de domínio do Diretório Ativo no local com o Azure Ative Directory. |
@@ -231,7 +231,7 @@ Para planear a sua estratégia de política de acesso condicional, que determina
 ### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
    ![Criar uma política de acesso condicional para permitir que os utilizadores do portal Azure em grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Forneça um nome significativo para a sua política.
@@ -357,7 +357,7 @@ Relatórios do Azure AD MFA
 
 A Azure AD Multi-Factor Authentication fornece relatórios através do portal Azure:
 
-| Relatório | Localização | Descrição |
+| Relatório | Localização | Description |
 | --- | --- | --- |
 | Alertas de utilização e fraude | Azure AD > inscrições | Fornece informações sobre a utilização geral, o resumo do utilizador e os detalhes do utilizador; bem como um histórico de alertas de fraude apresentados durante o intervalo de datas especificado. |
 

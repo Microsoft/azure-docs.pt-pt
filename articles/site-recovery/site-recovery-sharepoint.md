@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013756"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Confiem a recuperação de desastres para uma aplicação sharePoint multi-nível para recuperação de desastres utilizando a recuperação do site Azure
@@ -62,9 +62,9 @@ A Recuperação do Site é agnóstica de aplicações e deve trabalhar com qualq
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Sim | Sim
-**VMware** | Sim | Sim
-**Servidor físico** | Sim | Sim
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Servidor físico** | Yes | Yes
 **Azure** | ND | Sim
 
 

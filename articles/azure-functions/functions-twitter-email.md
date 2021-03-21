@@ -8,10 +8,10 @@ ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
 ms.openlocfilehash: 5750597d7d4d372be975aa64ce8db11859791da2
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674322"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
@@ -22,7 +22,7 @@ Este tutorial mostra-lhe como usar funções Azure com aplicações lógicas e s
 
 ![imagem dos dois primeiros passos da aplicação no Estruturador de Aplicações Lógicas](media/functions-twitter-email/00-logic-app-overview.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um Recurso de API dos Serviços Cognitivos.

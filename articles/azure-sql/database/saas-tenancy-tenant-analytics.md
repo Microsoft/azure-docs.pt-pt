@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305971"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app de inquilino único
@@ -79,7 +79,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 Neste tutorial, a análise é feita nos dados de venda de bilhetes. No passo atual, gera dados de bilhetes para todos os inquilinos.  Posteriormente, estes dados são extraídos para análise. *Certifique-se de que fornece o lote de inquilinos como descrito anteriormente, para que tenha uma quantidade significativa de dados*. Uma quantidade suficientemente grande de dados pode expor uma gama de diferentes padrões de compra de bilhetes.
 
-1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics Operacional\TenantAnalytics\Demo-TenantAnalytics.ps1* , e definir o seguinte valor:
+1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics Operacional\TenantAnalytics\Demo-TenantAnalytics.ps1*, e definir o seguinte valor:
     - **$DemoScenario**  =  **1** Compre bilhetes para eventos em todos os locais
 2. Prima **F5** para executar o script e criar histórico de compra de bilhetes para cada evento em cada local.  O guião dura vários minutos para gerar dezenas de milhares de bilhetes.
 
@@ -93,7 +93,7 @@ Nos passos seguintes, você implanta a loja de análise, que é chamada **de ten
     - Para utilizar a Base de Dados SQL com a loja de colunas, desempenhe **$DemoScenario**  =  **3**  
 3. Prima **F5** para executar o roteiro de demonstração (que chama o roteiro *Deploy-TenantAnalytics \<XX> .ps1)* que cria a loja de análise do inquilino. 
 
-Agora que implementou a aplicação e a preencheu com dados interessantes do inquilino, utilize [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar **os inquilinos1-dpt- &lt; Utilizador &gt;** e **&lt; &gt; servidores de utilizadores de catálogo** usando Login = *developer* , Password = *P \@ ssword1*. Consulte o [tutorial introdutório](./saas-dbpertenant-wingtip-app-overview.md) para obter mais orientação.
+Agora que implementou a aplicação e a preencheu com dados interessantes do inquilino, utilize [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar **os inquilinos1-dpt- &lt; Utilizador &gt;** e **&lt; &gt; servidores de utilizadores de catálogo** usando Login = *developer*, Password = *P \@ ssword1*. Consulte o [tutorial introdutório](./saas-dbpertenant-wingtip-app-overview.md) para obter mais orientação.
 
 ![Screenshot que mostra as informações necessárias para ligar ao SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -119,7 +119,7 @@ Consulte os seguintes itens de base de dados no SSMS Object Explorer expandindo 
 Antes de prosseguir, certifique-se de que implementou a conta de trabalho e a base de dados de contas de emprego. No próximo conjunto de passos, a Elastic Jobs é usada para extrair dados de cada base de dados de inquilinos e para armazenar os dados na loja de análise. Em seguida, o segundo trabalho destrói os dados e armazena-os em mesas no esquema das estrelas. Estes dois postos de trabalho são contra dois grupos-alvo diferentes, nomeadamente **TenantGroup** e **AnalyticsGroup.** O trabalho de extração é contra o Grupo de Inquilinos, que contém todas as bases de dados dos inquilinos. O trabalho de trituração vai contra o AnalyticsGroup, que contém apenas a loja de análise. Criar os grupos-alvo utilizando os seguintes passos:
 
 1. No SSMS, ligue-se à base **de dados de contas** de trabalho no catálogo-dpt-User &lt; &gt; .
-2. Em SSMS, abra *...\Módulos de aprendizagem\Analytics Operacional\Tenant Analytics\ TargetGroups.sql* 
+2. No SSMS, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics\ TargetGroups.sql* 
 3. Modifique a @User variável no topo do script, substituindo `<User>` pelo valor do utilizador utilizado quando implementou a aplicação Wingtip SaaS.
 4. Prima **F5** para executar o script que cria os dois grupos-alvo.
 
@@ -175,7 +175,7 @@ Use os seguintes passos para ligar ao Power BI e importar as vistas que criou an
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor* , e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
+5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor*, e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
 
     ![A screenshot mostra o diálogo de base de dados SQL Server onde pode introduzir um nome de utilizador e palavra-passe.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

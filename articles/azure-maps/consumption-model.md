@@ -1,5 +1,5 @@
 ---
-title: Modelos de consumo de veículos para encaminhamento Microsoft Azure Maps
+title: Modelos de consumo de veículos para | de encaminhamento Microsoft Azure Maps
 description: 'Conheça os modelos de consumo que a Azure Maps suporta: combustão e elétrico. Veja quais os parâmetros que cada modelo utiliza e veja as restrições dos parâmetros.'
 author: subbarayudukamma
 ms.author: skamma
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b44186d783a249192a8c13ee97063034ee319df7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013144"
 ---
 # <a name="consumption-model"></a>Modelo de consumo

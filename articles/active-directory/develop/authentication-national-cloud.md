@@ -1,5 +1,5 @@
 ---
-title: A autenticação da AD & nuvens nacionais Rio Azure
+title: A autenticação da AD AD & nuvens nacionais | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o registo de aplicações e pontos finais de autenticação para nuvens nacionais.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
 ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96444804"
 ---
 # <a name="national-clouds"></a>Clouds nacionais

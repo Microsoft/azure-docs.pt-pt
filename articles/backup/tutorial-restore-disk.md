@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97694718"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurar uma VM com a CLI do Azure
@@ -72,7 +72,7 @@ Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos 
         --sku Standard_LRS
     ```
 
-2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua *o meu NomeRecoveryPoint por* o nome do ponto de recuperação obtido na saída do comando anterior da lista de pontos de recuperação de backup [az.](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) ***Forneça também o grupo de recursos-alvo ao qual os discos geridos são restaurados em** _.
+2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua *o meu NomeRecoveryPoint por* o nome do ponto de recuperação obtido na saída do comando anterior da lista de pontos de recuperação de backup [az.](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) ***Forneça também o grupo de recursos-alvo ao qual os discos geridos são restaurados em***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos 
     ```
 
     > [!WARNING]
-    > Se _ *grupo de recursos-alvo** não for fornecido, então os discos geridos serão restaurados como discos não geridos para a conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Só terá o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, então não forneça o parâmetro **do grupo de recursos-alvo** e, em vez disso, forneça o parâmetro de restaurar o parâmetro como não **gerido-disco,** como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
+    > Se o **grupo de recursos-alvo** não for fornecido, então os discos geridos serão restaurados como discos não geridos para a conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Só terá o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, então não forneça o parâmetro **do grupo de recursos-alvo** e, em vez disso, forneça o parâmetro de restaurar o parâmetro como não **gerido-disco,** como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
 
     ```azurecli-interactive
     az backup restore restore-disks \

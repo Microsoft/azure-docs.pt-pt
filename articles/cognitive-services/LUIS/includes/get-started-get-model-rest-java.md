@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 5ece29b7189f31654056ec357f522b59ccb16587
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95097672"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
@@ -151,11 +151,11 @@ ms.locfileid: "95097672"
     ]
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este arranque rápido, elimine a pasta do projeto do sistema de ficheiros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Melhores práticas para uma aplicação](../luis-concept-best-practices.md)

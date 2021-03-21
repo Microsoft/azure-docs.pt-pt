@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305673"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase de aceitação do cliente do ciclo de vida do processo de ciência de dados da equipa
@@ -34,12 +34,12 @@ Aqui está uma representação visual do ciclo de vida TDSP:
 
 
 ## <a name="goal"></a>Objetivo
-**Finalizar os resultados do projeto** : Confirme que o gasoduto, o modelo e a sua implantação em ambiente de produção satisfazem os objetivos do cliente.
+**Finalizar os resultados do projeto**: Confirme que o gasoduto, o modelo e a sua implantação em ambiente de produção satisfazem os objetivos do cliente.
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
 Há duas tarefas principais abordadas nesta fase:
 
-   * **Validação do sistema** : Confirme que o modelo e o gasoduto implantados satisfazem as necessidades do cliente.
+   * **Validação do sistema**: Confirme que o modelo e o gasoduto implantados satisfazem as necessidades do cliente.
    * **Entrega o** projeto à entidade que vai gerir o sistema em produção.
 
 O cliente deve validar que o sistema satisfaz as suas necessidades de negócio e que responde às questões com precisão aceitável para implementar o sistema para produção para uso através da aplicação do seu cliente. Toda a documentação é finalizada e revista. O projeto é entregue à entidade responsável pelas operações. Esta entidade pode ser, por exemplo, uma equipa de TI ou de ciência de dados de clientes ou um agente do cliente responsável pela execução do sistema em produção. 

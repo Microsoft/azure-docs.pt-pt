@@ -1,5 +1,5 @@
 ---
-title: Monitorização remota ioT e notificações com Azure Logic Apps Microsoft Docs
+title: Monitorização remota IoT e notificações com aplicações Azure Logic | Microsoft Docs
 description: Utilize aplicativos Azure Logic para monitorização da temperatura IoT no seu hub IoT e envie automaticamente notificações por e-mail para a sua caixa de correio para quaisquer anomalias detetadas.
 author: robinsh
 keywords: iot monitorização, iot notificações, iot monitorização da temperatura
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490327"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio
@@ -70,7 +70,7 @@ Crie um espaço de nomes e uma fila do Service Bus. Mais tarde neste tópico, cr
 
 ### <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
 
-1. No [portal Azure](https://portal.azure.com/), selecione **+ Criar um**  >  **Integration**  >  **ônibus de serviço de**integração de recursos.
+1. No [portal Azure](https://portal.azure.com/), selecione **+ Criar um**  >    >  **ônibus de serviço de** integração de recursos.
 
 1. No painel **de espaços de nome Create,** forneça as seguintes informações:
 
@@ -98,7 +98,7 @@ Crie um espaço de nomes e uma fila do Service Bus. Mais tarde neste tópico, cr
 
 1. De volta ao painel **de nomes** do autocarro de serviço, em **Entidades,** selecione **Filas**. Abra a fila do Service Bus da lista e, em seguida, **selecione Políticas de acesso partilhado**+  >  **Adicionar**.
 
-1. Introduza um nome para a apólice, verifique **Gerir**e, em seguida, selecione **Criar**.
+1. Introduza um nome para a apólice, verifique **Gerir** e, em seguida, selecione **Criar**.
 
    ![Adicione uma política de fila de autocarros de serviço no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
@@ -150,7 +150,7 @@ Na secção anterior, configura o seu hub IoT para encaminhar mensagens que cont
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
 
-1. Selecione **Criar uma**App lógica de  >  **integração**  >  **de**recursos.
+1. Selecione **Criar uma** App lógica de  >  **integração**  >  **de** recursos.
 
 1. Introduza as seguintes informações:
 
@@ -232,7 +232,7 @@ Na secção anterior, configura o seu hub IoT para encaminhar mensagens que cont
 
    1. No painel **de ligação da API SMTP,** em **Geral,** selecione **a ligação API de Edição**.
 
-   1. No painel de ligação da **API de edição,** selecione **Enable SSL?** **Save**
+   1. No painel de ligação da **API de edição,** selecione **Enable SSL?** 
 
       ![Editar a ligação API SMTP na sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 

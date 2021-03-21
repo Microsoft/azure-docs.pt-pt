@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 5c620aa60e134379614a905226caa4a66d179fae
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98673540"
 ---
 # <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Utilização da IDENTIDADE para criar chaves de substituição utilizando piscina SQL dedicada em AzureSynapse Analytics
@@ -166,7 +166,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 
 Para obter mais informações sobre os dados de carregamento, consulte [Designing Extract, Load e Transform (ELT) para piscina SQL dedicada](design-elt-data-loading.md) e [boas práticas de carregamento.](guidance-for-loading-data.md)
 
-## <a name="system-views"></a>Vistas de sistema
+## <a name="system-views"></a>Vistas do sistema
 
 Pode utilizar a [vista de](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) catálogo sys.identity_columns para identificar uma coluna que tenha a propriedade IDENTITY.
 

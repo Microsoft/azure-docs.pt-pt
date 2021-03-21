@@ -10,10 +10,10 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 803bbf485d783fc160d1f2644a56e1339f73690e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678309"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Criar e utilizar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
@@ -29,7 +29,7 @@ Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos abaixo detalham como tomar um VM existente e transformá-lo numa imagem personalizada reutilizável que pode usar para criar um conjunto de escala.
 

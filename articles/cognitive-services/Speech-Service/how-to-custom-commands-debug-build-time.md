@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025706"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Depurar erros ao autorizar uma aplicação de Comandos Personalizados
@@ -95,7 +95,7 @@ Para exportar rapidamente uma aplicação existente e importá-la para uma nova 
 ### <a name="save-button-is-disabled"></a>O botão de poupança está desativado
 Se nunca atribuir um recurso de previsão LUIS à sua aplicação, o botão Guardar será desativado quando tentar alterar o seu recurso de autoria sem adicionar um recurso de previsão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

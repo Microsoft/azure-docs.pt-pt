@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100573216"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registos de diagnóstico - Rede de Entrega de Conteúdos Azure

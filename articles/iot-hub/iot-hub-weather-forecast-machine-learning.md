@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
 ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452342"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Previsão do tempo usando os dados do sensor do seu hub IoT no Azure Machine Learning Studio (clássico)
@@ -231,7 +231,7 @@ Nesta secção, você valida o modelo, configura um serviço web preditivo com b
 
 ### <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
-No trabalho Stream Analytics, selecione **Overview** no painel esquerdo. Em seguida, **selecione Iniciar**  >  **Now**  >  **Agora**. Assim que a tarefa for iniciada com êxito, o estado da tarefa é alterado de **Parado** para **Em execução**.
+No trabalho Stream Analytics, selecione **Overview** no painel esquerdo. Em seguida, **selecione Iniciar**  >    >  **Agora**. Assim que a tarefa for iniciada com êxito, o estado da tarefa é alterado de **Parado** para **Em execução**.
 
 ![Executar a tarefa do Stream Analytics](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 

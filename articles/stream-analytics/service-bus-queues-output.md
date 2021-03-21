@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: ad5bb90a0df68cc6c1c230c234c1f695312da3d8
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102451784"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas de autocarros de serviço a partir de Azure Stream Analytics
@@ -23,7 +23,7 @@ No [nível de compatibilidade 1.2](stream-analytics-compatibility-level.md), o A
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de fila.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta fila de serviço. |
 | Espaço de nome de ônibus de serviço |Um contentor para um conjunto de entidades de mensagens. |

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
 ms.openlocfilehash: 51ceb72d53f78264edcadd2255e20c8fbdac2cae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181215"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?

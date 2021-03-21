@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b5a9d1781bd0498ac6ad74439b1572c52e3c345a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459265"
 ---
 # <a name="optimize-performance-by-upgrading-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Otimizar o desempenho através da atualização da piscina sql dedicada (anteriormente SQL DW) em Azure Synapse Analytics
@@ -31,7 +31,7 @@ Pode agora fazer upgrade para a piscina SQL dedicada (anteriormente SQL DW) Nív
 > [!IMPORTANT]
 > Esta atualização aplica-se a piscinas SQL dedicadas ao nível da Computação Otimizada da Gen1 (fornmerly SQL DW) em [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 1. Verifique se a sua [região](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) é apoiada para a migração GEN1 para GEN2. Note as datas de migração automática. Para evitar conflitos com o processo automatizado, planeie a sua migração manual antes da data de início do processo automatizado.
 2. Se você estiver em uma região que ainda não está apoiada, continue a verificar se a sua região deve ser adicionada ou [upgrade usando o restauro](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) para uma região apoiada.
@@ -61,7 +61,7 @@ Pode agora fazer upgrade para a piscina SQL dedicada (anteriormente SQL DW) Nív
 - A migração da Gen1 para a Gen2 através do portal Azure é permanente. Não há um processo para regressar à Gen1.
 - Piscina SQL dedicada (anteriormente SQL DW) deve estar correndo para migrar para a Gen2
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

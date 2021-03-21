@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
 ms.openlocfilehash: 1f5a9f05b94f43db9e1d883ef5e86f8621f39251
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943035"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escritas Aceleradas do Azure HDInsight para o Apache HBase
@@ -57,7 +57,7 @@ Seguindo estes passos, garantirá uma escala bem sucedida e evitará a possibili
 
 Se o seu nome entrar em modo de segurança após uma escala baixa, utilize comandos hdfs para re-replicar os blocos sub-replicados e tirar os HDFs do modo de segurança. Esta re-replicação permitir-lhe-á reiniciar o HBase com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Documentação oficial do Apache HBase na [funcionalidade Write Ahead Log](https://hbase.apache.org/book.html#wal)
 * Para atualizar o seu cluster HDInsight Apache HBase para utilizar Writes Acelerados, consulte [migrar um cluster Apache HBase para uma nova versão](apache-hbase-migrate-new-version.md).

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
 ms.openlocfilehash: bfe2b21a86f2ce4b4630ba69cde87796fd367f4b
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98029203"
 ---
 # <a name="troubleshoot-azure-load-balancer-backend-traffic-responses"></a>Resolução de problemas Azure Load Balancer backend respostas de tráfego

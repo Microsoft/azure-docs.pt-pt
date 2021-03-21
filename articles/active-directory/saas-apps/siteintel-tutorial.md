@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com siteIntel Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com siteIntel | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o SiteIntel.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 0c8224bf84a2235086d941df7d02ab6f458f3f16
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92510003"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>Tutorial: Azure Ative Directory integração única (SSO) com siteIntel
@@ -48,10 +48,10 @@ Para configurar a integração do SiteIntel no Azure AD, é necessário adiciona
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel esquerdo, selecione **Azure Ative Directory**.
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na caixa de adicionar a partir da caixa **de galeria,** **insira siteIntel**.
-1. Na lista de resultados, selecione **SiteIntel**e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na lista de resultados, selecione **SiteIntel** e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-siteintel"></a>Configurar e testar Azure AD único sign-on para SiteIntel
 
@@ -89,7 +89,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
     c. Na caixa **'Retransmissão' estatal,** digite um URL no seguinte formato: `https://<CLIENT>.siteintel.com`
 
-1. Para configurar a aplicação no modo iniciado pelo SP, selecione **Definir URLs adicionais**e, em seguida, fazer o seguinte:
+1. Para configurar a aplicação no modo iniciado pelo SP, selecione **Definir URLs adicionais** e, em seguida, fazer o seguinte:
 
    * Na caixa **URL de entrada de inscrição,** digite um URL no seguinte formato: `https://<CLIENT>.siteintel.com`
 
@@ -104,7 +104,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. No painel esquerdo do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do painel.
 1. Nas propriedades **do Utilizador,** faça o seguinte:
 
@@ -130,7 +130,7 @@ Nesta secção, permite ao utilizador B.Simon utilizar o Azure single sign-on, c
 
     ![Screenshot do botão "Adicionar utilizador"](common/add-assign-user.png)
 
-1. No painel **de Utilizadores e grupos,** selecione **B.Simon**e, em seguida, selecione o botão **Selecione** na parte inferior do ecrã.
+1. No painel **de Utilizadores e grupos,** selecione **B.Simon** e, em seguida, selecione o botão **Selecione** na parte inferior do ecrã.
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no painel **'Função Seletiva',** selecione a função adequada para o utilizador da lista e, em seguida, selecione o botão **Selecione.**
 1. No painel **'Adicionar Atribuição',** selecione o botão **Atribuir.**
 

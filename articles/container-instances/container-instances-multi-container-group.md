@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: bc956bed8324398c2d60f4641cd0bcb821fb51c2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93091366"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementar um grupo multi-contentores usando um modelo de Gestor de Recursos
