@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
 ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95013643"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API do Discurso do Tradutor para o serviço de Discurso
@@ -39,7 +39,7 @@ Utilize este artigo para migrar as suas aplicações da API do Discurso do Tradu
 | Ligações WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Idiomas API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | O serviço Discurso suporta a mesma gama de línguas descritas no artigo de [referência de línguas tradutoras.]() |
 | Filtro e marcador de profanação                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| .WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| . WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Outros tipos de ficheiros como entrada                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Resultados parciais                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Informação de cronometragem                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
@@ -59,7 +59,7 @@ Se você ou a sua organização tiverem aplicações em desenvolvimento ou produ
 
 * Ao contrário da API de Discurso de Tradutor, o serviço de Fala pode completar traduções em várias línguas num único pedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Experimente o serviço de fala gratuitamente](overview.md#try-the-speech-service-for-free)
 * [Quickstart: Reconhecer o discurso numa aplicação UWP utilizando o Speech SDK](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)

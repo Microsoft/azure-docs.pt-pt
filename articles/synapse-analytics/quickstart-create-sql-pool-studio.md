@@ -10,10 +10,10 @@ ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541849"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Quickstart: Criar uma piscina SQL dedicada usando o Synapse Studio
@@ -103,7 +103,7 @@ Siga os passos abaixo para eliminar a piscina SQL dedicada do espaço de trabalh
 Se pretender eliminar a piscina SQL dedicada, faça o seguinte:
 
 1. Navegue para as piscinas SQL no Centro de Gestão no Estúdio Synapse.
-1. Selecione a elipse na piscina dedicada SQL a eliminar (neste caso, **contosoedw** ) para mostrar os comandos da piscina SQL dedicada:
+1. Selecione a elipse na piscina dedicada SQL a eliminar (neste caso, **contosoedw**) para mostrar os comandos da piscina SQL dedicada:
 
     ![Listagem de piscinas SQL, com a piscina recentemente criada selecionada.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. Prima **para apagar**.

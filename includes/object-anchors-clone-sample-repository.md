@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: crtreasu
 ms.openlocfilehash: d71abc4a8d5b9b42eb320b98a9031ec50b562b49
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044680"
 ---
 Clone o [repositório](https://github.com/Azure/azure-object-anchors) de amostras executando os seguintes comandos:

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7b683029b7fd05078755d4e8cd027f55c805f991
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97107265"
 ---
 # <a name="storage-configuration"></a>Configuração do Armazenamento
@@ -141,11 +141,11 @@ Alguns serviços em Azure Arc para serviços de dados dependem de serem configur
 |**Exemplo SQL controlador**|`<namespace>/logs-controldb`, `<namespace>/data-controldb`|
 |**Serviço API controlador**|`<namespace>/data-controller`|
 
-No momento em que o controlador de dados é a provisionado, a classe de armazenamento a utilizar para cada um destes volumes persistentes é especificada através da passagem da classe --armazenamento / -sc parâmetro para o `azdata arc dc create` comando ou definindo as classes de armazenamento no control.jsno ficheiro de modelo de implantação que é usado.
+No momento em que o controlador de dados é a provisionado, a classe de armazenamento a utilizar para cada um destes volumes persistentes é especificada através da passagem da classe de armazenamento --classe de armazenamento | -sc parâmetro para o `azdata arc dc create` comando ou definindo as classes de armazenamento no control.jsno ficheiro de modelo de implantação que é usado.
 
 Os modelos de implementação fornecidos fora da caixa têm uma classe de armazenamento padrão especificada que é apropriada para o ambiente alvo, mas pode ser ultrapassada durante a implementação. Consulte os passos detalhados para [alterar o perfil de implementação](create-data-controller.md) para alterar a configuração da classe de armazenamento para as cápsulas do controlador de dados no momento de implementação.
 
-Se definir a classe de armazenamento usando a classe de armazenamento / -sc parâmetro a classe de armazenamento será usada tanto para as classes de registo como para armazenamento de dados. Se definir as classes de armazenamento no ficheiro do modelo de implementação, pode especificar diferentes classes de armazenamento para registos e dados.
+Se definir a classe de armazenamento usando a classe de armazenamento | -sc parâmetro a classe de armazenamento será usada tanto para as classes de registo como para armazenamento de dados. Se definir as classes de armazenamento no ficheiro do modelo de implementação, pode especificar diferentes classes de armazenamento para registos e dados.
 
 Fatores importantes a ter em conta na escolha de uma classe de armazenamento para as cápsulas de tratamento de dados:
 
@@ -175,14 +175,14 @@ Ao criar uma instância utilizando `azdata arc sql mi create` `azdata arc postgr
 
 A tabela abaixo lista os caminhos dentro do recipiente Azure SQL Managed Instance que é mapeado para o volume persistente de dados e registos:
 
-|Nome do parâmetro, nome curto|Caminho dentro do recipiente mssql-miaa|Descrição|
+|Nome do parâmetro, nome curto|Caminho dentro do recipiente mssql-miaa|Description|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt|Contém diretórios para a instalação de mssql e outros processos do sistema. O diretório mssql contém dados predefinidos (incluindo registos de transações), registo de erros & diretórios de backup|
 |`--storage-class-logs`, `-scl`|/var/log|Contém diretórios que armazenam a saída da consola (stderr, stdout), outras informações de registo de processos dentro do contentor|
 
 A tabela abaixo lista os caminhos dentro do recipiente de instância PostgreSQL que é mapeado para o volume persistente para dados e registos:
 
-|Nome do parâmetro, nome curto|Caminho dentro do recipiente postgres|Descrição|
+|Nome do parâmetro, nome curto|Caminho dentro do recipiente postgres|Description|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt/postgresql|Contém dados e diretórios de registo para a instalação de postgres|
 |`--storage-class-logs`, `-scl`|/var/log|Contém diretórios que armazenam a saída da consola (stderr, stdout), outras informações de registo de processos dentro do contentor|
@@ -222,7 +222,7 @@ O quadro a seguir indica o número total de volume persistente necessário para 
 |Instância Gerida do Azure SQL|5|5 * 2 = 10|
 |Base de Dados Azure para instância pós-SQL|5| 5 * 2 = 10|
 |Hiperescala Azure PostgresqL|2 (Número de trabalhadores = 4 por exemplo)|2 * 2 * (1 + 4) = 20|
-|***Número total de volumes persistentes** _||8 + 10 + 10 + 20 = 48|
+|***Número total de volumes persistentes***||8 + 10 + 10 + 20 = 48|
 
 Este cálculo pode ser usado para planear o armazenamento do seu cluster Kubernetes com base no provisionador de armazenamento ou ambiente. Por exemplo, se o provisão de armazenamento local for utilizado para um cluster Kubernetes com cinco (5) nós, então para a colocação da amostra acima de cada nó requer pelo menos armazenamento para 10 volumes persistentes. Da mesma forma, ao a provisionar um cluster Azure Kubernetes Service (AKS) com cinco (5) nós escolhendo um tamanho VM apropriado para o conjunto de nós de modo a que 10 discos de dados possam ser ligados é fundamental. Mais detalhes sobre como dimensionar os nós para necessidades de armazenamento para nós AKS podem ser encontrados [aqui.](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs)
 
@@ -238,6 +238,6 @@ Para serviços públicos baseados em nuvem, geridos kubernetes podemos fazer as 
 
 |Serviço público de nuvem|Recomendação|
 |---|---|
-|_ *Serviço Azure Kubernetes (AKS)**|O Azure Kubernetes Service (AKS) tem dois tipos de armazenamento - Ficheiros Azure e Discos Geridos Azure. Cada tipo de armazenamento tem dois níveis de preços/desempenho - standard (HDD) e premium (SSD). Assim, as quatro classes de armazenamento fornecidas em AKS são `azurefile` (nível padrão Azure Files), `azurefile-premium` (nível premium Azure Files), `default` (nível padrão Azure Disks) e `managed-premium` (nível premium Azure Disks). A classe de armazenamento predefinida é `default` (nível padrão de Discos Azure). Existem **[diferenças](https://azure.microsoft.com/en-us/pricing/details/storage/)** de preços substanciais entre os tipos e os níveis que devem ser contabilizados na sua decisão. Para cargas de trabalho de produção com requisitos de alto desempenho, recomendamos a utilização `managed-premium` para todas as classes de armazenamento. Para cargas de trabalho dev/teste, provas de conceito, etc. onde o custo é uma consideração, então `azurefile` é a opção menos dispendiosa. Todas as quatro opções podem ser usadas para situações que exijam armazenamento remoto e partilhado, uma vez que são todos dispositivos de armazenamento ligados à rede em Azure. Leia mais sobre [o Armazenamento AKS.](../../aks/concepts-storage.md)|
+|**Azure Kubernetes Service (AKS)**|O Azure Kubernetes Service (AKS) tem dois tipos de armazenamento - Ficheiros Azure e Discos Geridos Azure. Cada tipo de armazenamento tem dois níveis de preços/desempenho - standard (HDD) e premium (SSD). Assim, as quatro classes de armazenamento fornecidas em AKS são `azurefile` (nível padrão Azure Files), `azurefile-premium` (nível premium Azure Files), `default` (nível padrão Azure Disks) e `managed-premium` (nível premium Azure Disks). A classe de armazenamento predefinida é `default` (nível padrão de Discos Azure). Existem **[diferenças](https://azure.microsoft.com/en-us/pricing/details/storage/)** de preços substanciais entre os tipos e os níveis que devem ser contabilizados na sua decisão. Para cargas de trabalho de produção com requisitos de alto desempenho, recomendamos a utilização `managed-premium` para todas as classes de armazenamento. Para cargas de trabalho dev/teste, provas de conceito, etc. onde o custo é uma consideração, então `azurefile` é a opção menos dispendiosa. Todas as quatro opções podem ser usadas para situações que exijam armazenamento remoto e partilhado, uma vez que são todos dispositivos de armazenamento ligados à rede em Azure. Leia mais sobre [o Armazenamento AKS.](../../aks/concepts-storage.md)|
 |**Elastic Kubernetes Service (EKS) do AWS**| O Serviço Elástico Kubernetes da Amazon tem uma classe primária de armazenamento - baseada no [controlador de armazenamento EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Isto é recomendado para cargas de trabalho de produção. Existe um novo controlador de armazenamento - [o controlador de armazenamento EFS CSI](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) - que pode ser adicionado a um cluster EKS, mas está atualmente numa fase beta e sujeito a alterações. Embora a AWS diga que este controlador de armazenamento é suportado para produção, não recomendamos a sua utilização porque ainda está em fase beta e sujeita a alterações. A classe de armazenamento EBS é o padrão e é chamada `gp2` . Leia mais sobre [o armazenamento EKS.](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)|
 |**Google Kubernetes Engine (GKE)**|O Google Kubernetes Engine (GKE) tem apenas uma classe de armazenamento chamada `standard` , que é usada para discos [persistentes GCE](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Sendo o único, é também o padrão. Embora exista um [provisionador de volume estático local](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) para O GKE que pode usar com SSDs ligados diretamente, não recomendamos a sua utilização, uma vez que não é mantida ou suportada pela Google. Leia mais sobre [o armazenamento de GKE.](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)

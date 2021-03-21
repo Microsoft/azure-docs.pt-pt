@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
 ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793284"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação autónoma de inquilino único que utiliza a Base de Dados Azure SQL
@@ -60,16 +60,16 @@ Implementar a aplicação para os três inquilinos fornecidos:
     > Algumas firewalls de autenticação e servidores estão intencionalmente despromocuradas para fins de demonstração. **Criar um novo grupo de recursos** para cada implementação de aplicação.  Não utilize um grupo de recursos existente. Não utilize esta aplicação, nem quaisquer recursos que crie, para produção. Elimine todos os grupos de recursos quando terminar com as aplicações para parar a faturação relacionada.
 
     É melhor usar apenas letras minúsculas, números e hífens nos nomes dos seus recursos.
-    * Para **o grupo de recursos,** selecione Criar novo e, em seguida, fornecer um nome minúsculo para o grupo de recursos. **wingtip-sa- \<venueName\> - \<user\>** é o padrão recomendado.  Para \<venueName\> , substituir o nome do local sem espaços. Para \<user\> , substituir o valor do utilizador a partir de baixo.  Com este padrão, os nomes de grupos de recursos podem ser *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1,* *wingtip-sa-fabrikamjazzclub-af1* .
+    * Para **o grupo de recursos,** selecione Criar novo e, em seguida, fornecer um nome minúsculo para o grupo de recursos. **wingtip-sa- \<venueName\> - \<user\>** é o padrão recomendado.  Para \<venueName\> , substituir o nome do local sem espaços. Para \<user\> , substituir o valor do utilizador a partir de baixo.  Com este padrão, os nomes de grupos de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1,* *wingtip-sa-fabrikamjazzclub-af1*.
     * Selecione uma **localização** da lista de drop-down.
 
-    * Para **o Utilizador** - Recomendamos um curto valor de utilizador, como as suas iniciais mais um dígito: por exemplo, *af1* .
+    * Para **o Utilizador** - Recomendamos um curto valor de utilizador, como as suas iniciais mais um dígito: por exemplo, *af1*.
 
 
-3. **Implementar a aplicação** .
+3. **Implementar a aplicação**.
 
     * Clique para concordar com os termos e condições.
-    * Clique em **Comprar** .
+    * Clique em **Comprar**.
 
 4. Monitorize o estado das três implementações clicando em **Notificações** (o ícone da campainha à direita da caixa de pesquisa). A implementação das aplicações demora cerca de cinco minutos.
 
@@ -78,7 +78,7 @@ Implementar a aplicação para os três inquilinos fornecidos:
 
 A aplicação apresenta locais que acolhem eventos.  Os locais são os inquilinos da candidatura. Cada local recebe um site personalizado para listar os seus eventos e vender bilhetes. Os locais incluem salas de concertos, clubes de jazz e clubes de esportes. Na amostra, o tipo de local determina a fotografia de fundo mostrada no site do local.   No modelo de aplicações autónomas, cada local tem uma instância de aplicação separada com a sua própria Base de Dados Azure SQL autónoma.
 
-1. Abra a página de eventos para cada um dos três inquilinos em separados separados separados do navegador:
+1. Abra a página de eventos para cada um dos três inquilinos em separados do navegador:
 
    - http://events.contosoconcerthall.&lt;user &gt; .trafficmanager.net
    - http://events.dogwooddojo.&lt;user &gt; .trafficmanager.net

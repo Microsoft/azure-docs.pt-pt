@@ -3,15 +3,15 @@ title: Mover regiões Azure - Portal Azure - Base de Dados Azure para MariaDB
 description: Mova uma base de dados Azure para o servidor MariaDB de uma região de Azure para outra usando uma réplica de leitura e o portal Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: adb82b3ff371bdcdecbd964fef3c1d0c971df71a
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664941"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para o servidor MariaDB para outra região utilizando o portal Azure
@@ -33,7 +33,7 @@ Você pode usar uma base de dados Azure para [réplica de leitura de região mar
 
 Para criar um servidor de réplica de leitura transversal na região alvo utilizando o portal Azure, utilize os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione a Base de Dados Azure existente para o servidor MariaDB que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
 1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
 1. Selecione **Adicionar Réplica**.

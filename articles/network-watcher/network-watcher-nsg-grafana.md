@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
 ms.openlocfilehash: d522d305c70214009b8aa2886d07d2d5403dd2b1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656313"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar os registos de fluxo do Grupo de Segurança de Rede utilizando o Network Watcher e o Grafana
@@ -27,7 +27,7 @@ ms.locfileid: "97656313"
 
 Pode ter muitos NSGs na sua rede com registo de fluxo ativado. Esta quantidade de dados de registo torna difícil analisar e obter informações dos seus registos. Este artigo fornece uma solução para gerir centralmente estes registos de fluxo NSG usando Grafana, uma ferramenta de gráfico de código aberto, ElasticSearch, um motor de pesquisa e análise distribuído, e Logstash, que é um pipeline de processamento de dados do lado do servidor de código aberto.  
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Os registos de fluxo NSG são ativados utilizando o Network Watcher e são armazenados no armazenamento de bolhas Azure. Um plugin logstash é utilizado para ligar e processar registos de fluxo a partir do armazenamento de bolhas e enviá-los para o ElasticSearch.  Uma vez que os registos de fluxo são armazenados em ElasticSearch, eles podem ser analisados e visualizados em dashboards personalizados em Grafana.
 

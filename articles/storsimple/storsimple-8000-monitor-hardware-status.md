@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 componentes de hardware da série e status Microsoft Docs
+title: StorSimple 8000 componentes de hardware da série e | Microsoft Docs
 description: Saiba como monitorizar os componentes de hardware do seu dispositivo StorSimple através do serviço StorSimple Device Manager.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 6b750659bf22e856ee8ad7368e3fea64dd7245df
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94960364"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utilize o serviço StorSimple Device Manager para monitorizar os componentes e o estado do hardware
@@ -79,7 +79,7 @@ Execute os seguintes passos para visualizar o estado de hardware de um component
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes para o recinto primário do dispositivo StorSimple
 A tabela que se segue descreve os componentes físicos e lógicos contidos no recinto primário (presentes em 8100 e 8600) do seu dispositivo StorSimple no local.
 
-| Componente | Módulo | Tipo | Localização | Unidade substituível de campo (FRU)? | Descrição |
+| Componente | Módulo | Tipo | Localização | Unidade substituível de campo (FRU)? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Yes |Uma linha é apresentada para cada uma das unidades SSD ou HDD no recinto primário. |
 | Sensor de temperatura ambiente |Recinto |Físico |Partilhado |No |Mede a temperatura dentro do chassis. |
@@ -120,7 +120,7 @@ A tabela que se segue descreve os componentes físicos e lógicos contidos no re
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes para o recinto EBOD do dispositivo StorSimple
 O quadro que se segue descreve os componentes físicos e lógicos contidos no recinto EBOD (apenas presente no modelo 8600) do seu dispositivo StorSimple no local.
 
-| Componente | Módulo | Tipo | Localização | O FRU? | Descrição |
+| Componente | Módulo | Tipo | Localização | O FRU? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Yes |Uma linha é apresentada para cada uma das unidades HDD na parte da frente do recinto EBOD. |
 | Sensor de temperatura ambiente |Recinto |Físico |Partilhado |No |Mede a temperatura dentro do chassis. |

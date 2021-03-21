@@ -7,10 +7,10 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008248"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Crie a sua primeira função durável em C\#
@@ -88,9 +88,9 @@ Os passos seguintes utilizam um modelo para criar o código de função durável
 
 Uma classe que contenha as novas funções é adicionada ao projeto. O Código VS também adiciona o fio de ligação da conta de armazenamento a *local.settings.js* e uma referência ao [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) pacote NuGet ao ficheiro do projeto *.csproj.*
 
-Abra o novo ficheiro *HelloOrchestration.cs* para ver o conteúdo. Esta função durável é um exemplo simples de acorrentação de funções com os seguintes métodos:  
+Abra o novo ficheiro *HelloOrchestration.cs* para visualizar o conteúdo. Esta função durável é um exemplo simples de acorrentação de funções com os seguintes métodos:  
 
-| Método | Nome de função | Descrição |
+| Método | Nome de função | Description |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `HelloOrchestration` | Gere a orquestração duradoura. Neste caso, a orquestração começa, cria uma lista, e adiciona o resultado de três funções chamadas à lista.  Quando as três chamadas de função estiverem completas, retorna a lista. |
 | **`SayHello`** | `HelloOrchestration_Hello` | A função devolve um olá. É a função que contém a lógica de negócio que está a ser orquestrada. |
@@ -181,7 +181,7 @@ Para concluir este tutorial:
 
 O modelo Azure Functions cria um projeto que pode ser publicado numa aplicação de função em Azure. Uma aplicação de função permite-lhe agrupar funções como uma unidade lógica para facilitar a gestão, implementação, escala e partilha de recursos.
 
-1. No Visual Studio, selecione **New**  >  **Project** a partir do menu **Ficheiro.**
+1. No Visual Studio, selecione **New** > **Project** (Novo Projeto) no menu **File** (Ficheiro).
 
 1. No **Criar um novo** diálogo de projeto, `functions` procure, escolha o modelo **Azure Functions** e selecione **Seguinte**. 
 
@@ -217,7 +217,7 @@ Os passos seguintes utilizam um modelo para criar o código de função durável
 
 Uma nova função durável é adicionada à aplicação.  Abra o novo ficheiro .cs para ver o conteúdo. Esta função durável é um exemplo simples de acorrentação de funções com os seguintes métodos:  
 
-| Método | Nome de função | Descrição |
+| Método | Nome de função | Description |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Gere a orquestração duradoura. Neste caso, a orquestração começa, cria uma lista, e adiciona o resultado de três funções chamadas à lista.  Quando as três chamadas de função estiverem completas, retorna a lista. |
 | **`SayHello`** | `<file-name>_Hello` | A função devolve um olá. É a função que contém a lógica de negócio que está a ser orquestrada. |
@@ -261,7 +261,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
     }
     ```
 
-5. Para parar de depurar, prima **Shift + F5**.
+5. Para parar a depuração, prima **Shift + F5**.
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 

@@ -6,10 +6,10 @@ ms.date: 01/25/2020
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.openlocfilehash: 9516210021ce48f069ae3b3b4e02503527e0db24
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100580884"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Resolver problemas do agente de atualização do Windows

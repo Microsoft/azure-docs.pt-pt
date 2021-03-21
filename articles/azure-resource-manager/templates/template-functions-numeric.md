@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359715"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos ARM
@@ -35,10 +35,10 @@ Devolve a soma dos dois inteiros fornecidos. A `add` função não é suportada 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-|operand1 |Sim |int |Primeiro número a adicionar. |
-|operand2 |Sim |int |Segundo número a adicionar. |
+|operand1 |Yes |int |Primeiro número a adicionar. |
+|operand2 |Yes |int |Segundo número a adicionar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -106,10 +106,10 @@ Devolve o índice de um ciclo de iteração.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| loopName | Não | string | O nome do loop para obter a iteração. |
-| offset |Não |int |O número a adicionar ao valor de iteração de base zero. |
+| loopName | No | string | O nome do loop para obter a iteração. |
+| offset |No |int |O número a adicionar ao valor de iteração de base zero. |
 
 ### <a name="remarks"></a>Observações
 
@@ -180,10 +180,10 @@ Devolve a divisão de inteiros dos dois inteiros fornecidos. A `div` função n�
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número está a ser dividido. |
-| operand2 |Sim |int |O número que é usado para dividir. Não pode ser 0. |
+| operand1 |Yes |int |O número está a ser dividido. |
+| operand2 |Yes |int |O número que é usado para dividir. Não pode ser 0. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -251,9 +251,9 @@ Converte o valor num ponto flutuante. Utilize esta função apenas ao passar par
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |corda ou int |O valor para converter para um número de ponto flutuante. |
+| arg1 |Yes |corda ou int |O valor para converter para um número de ponto flutuante. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -294,9 +294,9 @@ Converte o valor especificado para um inteiro.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| valorToConvert |Sim |corda ou int |O valor para converter para um inteiro. |
+| valorToConvert |Yes |corda ou int |O valor para converter para um inteiro. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -353,9 +353,9 @@ Devolve o valor máximo de uma matriz de inteiros ou de uma lista de inteiros se
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor máximo. |
+| arg1 |Yes |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor máximo. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -423,9 +423,9 @@ Devolve o valor mínimo de uma matriz de inteiros ou de uma lista de inteiros se
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor mínimo. |
+| arg1 |Yes |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor mínimo. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -493,10 +493,10 @@ Devolve o restante da divisão de inteiros usando os dois inteiros fornecidos. A
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número está a ser dividido. |
-| operand2 |Sim |int |O número que é usado para dividir, não pode ser 0. |
+| operand1 |Yes |int |O número está a ser dividido. |
+| operand2 |Yes |int |O número que é usado para dividir, não pode ser 0. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -564,10 +564,10 @@ Devolve a multiplicação dos dois inteiros fornecidos. A `mul` função não é
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |Primeiro número a multiplicar. |
-| operand2 |Sim |int |Segundo número a multiplicar. |
+| operand1 |Yes |int |Primeiro número a multiplicar. |
+| operand2 |Yes |int |Segundo número a multiplicar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -635,10 +635,10 @@ Devolve a subtração dos dois inteiros fornecidos. A `sub` função não é sup
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número que é subtraído. |
-| operand2 |Sim |int |O número que é subtraído. |
+| operand1 |Yes |int |O número que é subtraído. |
+| operand2 |Yes |int |O número que é subtraído. |
 
 ### <a name="return-value"></a>Valor devolvido
 

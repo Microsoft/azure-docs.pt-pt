@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 71625c4b81fc0795c376a89397e98659f4c72ff0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020558"
 ---
 # <a name="azure-stream-analytics-external-availability-error-codes"></a>Códigos de erro de disponibilidade externa Azure Stream Analytics
@@ -27,7 +27,7 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 * **Causa:** Stream Analytics encontrou erro ao comunicar com o EventHub. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas em ligações de entrada](stream-analytics-troubleshoot-input.md)
 * [Resolução de problemas Saídas Azure Stream Analytics](stream-analytics-troubleshoot-output.md)

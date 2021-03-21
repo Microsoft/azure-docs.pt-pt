@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 76e7b061670f603007cefd6d7aed503e0e0d3d6b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941778"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
@@ -178,7 +178,7 @@ Se seguiu todos os passos deste cenário e utilizou a app para implantar os serv
 
 Se planeia criar o seu próprio projeto de deteção de objetos com a Visão Personalizada, é melhor eliminar o projeto de deteção de logotipo que criou neste tutorial. Uma subscrição gratuita para a Custom Vision permite apenas dois projetos. Para eliminar o projeto de deteção de logotipo, no site da [Visão Personalizada,](https://customvision.ai)abra **Projetos** e, em seguida, selecione o ícone do lixo no **âmbito do My New Project**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você montou e explorou uma aplicação full-featured Xamarin.Forms que usa o serviço Custom Vision para detetar logotipos em imagens de câmaras móveis. Em seguida, aprenda as melhores práticas para construir um modelo de Visão Personalizada para que quando criar um para a sua própria app, possa torná-lo poderoso e preciso.
 

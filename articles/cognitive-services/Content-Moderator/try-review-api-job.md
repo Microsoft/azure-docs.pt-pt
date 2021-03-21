@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905181"
 ---
 # <a name="define-and-use-moderation-jobs-api-console"></a>Definir e utilizar trabalhos de moderação (consola API)
@@ -115,7 +115,7 @@ Introduza os parâmetros de chamada REST como na secção acima. Para este passo
 
 ### <a name="examine-the-new-reviews"></a>Examinar a nova revisão(s)
 
-Se o seu trabalho de conteúdo resultou na criação de uma revisão, pode vê-lo na [ferramenta 'Revisão'.](https://contentmoderator.cognitive.microsoft.com) Selecione **Rever**  >  **o** Vídeo de Texto de Imagem / **Text** / **Video** (dependendo do conteúdo utilizado). O conteúdo deve aparecer, pronto para revisão humana. Após um moderador humano rever as etiquetas autoatribuídas e os dados de previsão e submeter uma decisão final de moderação, a API de empregos submete toda esta informação ao ponto final designado de retorno de chamada.
+Se o seu trabalho de conteúdo resultou na criação de uma revisão, pode vê-lo na [ferramenta 'Revisão'.](https://contentmoderator.cognitive.microsoft.com) Selecione **Rever**  >  **o** Vídeo de Texto de Imagem /  /  (dependendo do conteúdo utilizado). O conteúdo deve aparecer, pronto para revisão humana. Após um moderador humano rever as etiquetas autoatribuídas e os dados de previsão e submeter uma decisão final de moderação, a API de empregos submete toda esta informação ao ponto final designado de retorno de chamada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

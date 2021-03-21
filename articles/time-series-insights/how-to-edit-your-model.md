@@ -1,5 +1,5 @@
 ---
-title: Modelação de dados em ambientes da Gen2 - Azure Time Series Insights Microsoft Docs
+title: Modelação de dados em ambientes da Gen2 - Azure Time Series Insights | Microsoft Docs
 description: Saiba mais sobre a modelação de dados na Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95016858"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modelação de dados em Azure Time Series Insights Gen2
@@ -167,7 +167,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 1. Confirme a eliminação selecionando **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o Modelo série de tempo, leia [modelação de dados](./concepts-model-overview.md).
 

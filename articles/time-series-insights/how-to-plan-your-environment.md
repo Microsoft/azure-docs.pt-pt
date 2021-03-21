@@ -1,5 +1,5 @@
 ---
-title: Planeie o seu ambiente Gen2 - Azure Time Series Insights / Microsoft Docs
+title: Planeie o seu ambiente Gen2 - Azure Time Series Insights | Microsoft Docs
 description: As melhores práticas para configurar, gerir, planear e implementar o seu ambiente Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95016790"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeie o seu ambiente Azure Time Series Insights Gen2
@@ -91,7 +91,7 @@ Para obter mais informações e para compreender como os eventos serão achatado
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja [o Azure Advisor](../advisor/advisor-overview.md) para planear as suas opções de configuração de recuperação de negócios.
 * Reveja [o Azure Advisor](../advisor/advisor-overview.md) para planear as suas opções de configuração de recuperação de negócios.

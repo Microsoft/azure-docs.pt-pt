@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 3dda95312a0b9191ddc11de62959f308ee19fff4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94380985"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API estrutura de resposta e tipos de resposta  
@@ -309,7 +309,7 @@ Uma expressão matemática pode conter os seguintes símbolos:
 
 Uma expressão matemática pode conter as seguintes constantes:
 
-|Símbolo|Descrição|
+|Símbolo|Description|
 |------------|-----------------|
 |Pi|3.14159...|
 |Grau|Grau|
@@ -319,7 +319,7 @@ Uma expressão matemática pode conter as seguintes constantes:
 
 Uma expressão matemática pode conter as seguintes funções:
 
-|Símbolo|Descrição|
+|Símbolo|Description|
 |------------|-----------------|
 |Ordenar|Raiz quadrada|
 |Pecado[x], Cos[x], Tan[x]<br />CSC[x], Sec[x], Berço[x]|Funções trigonométricas (com argumentos em radians)|
@@ -440,7 +440,7 @@ Se Bing determinar que o utilizador pode ter pretendido procurar algo diferente,
 
 As respostas da API de Pesquisa Web de Bing podem conter os seguintes cabeçalhos:
 
-| Cabeçalho | Descrição |
+| Cabeçalho | Description |
 |-|-|
 |`X-MSEdge-ClientID`|O ID único que Bing atribuiu ao utilizador|
 |`BingAPIs-Market`|O mercado que foi usado para satisfazer o pedido|
@@ -481,10 +481,10 @@ O seguinte mostra como Bing usa a sugestão ortográfica.
 
 ![Bing exemplo de sugestão ortográfica](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * Reveja a documentação de estrangulamento do pedido de [revisão.](throttling-requests.md)  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Ver também  
 
 * [Bing Web Search API referência](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920454"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funções de objeto para modelos ARM
@@ -33,10 +33,10 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma cor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| contentor |Sim |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
-| itemToFind |Sim |corda ou int |O valor a encontrar. |
+| contentor |Yes |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
+| itemToFind |Yes |corda ou int |O valor a encontrar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -145,12 +145,12 @@ Cria um objeto a partir das teclas e valores. A `createObject` função não é 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| chave1 |Não |string |O nome da chave. |
-| valor1 |Não |int, boolean, string, objeto ou matriz |O valor da chave. |
-| chaves adicionais |Não |string |Nomes adicionais das chaves. |
-| valores adicionais |Não |int, boolean, string, objeto ou matriz |Valores adicionais para as teclas. |
+| chave1 |No |string |O nome da chave. |
+| valor1 |No |int, boolean, string, objeto ou matriz |O valor da chave. |
+| chaves adicionais |No |string |Nomes adicionais das chaves. |
+| valores adicionais |No |int, boolean, string, objeto ou matriz |Valores adicionais para as teclas. |
 
 A função só aceita um número par de parâmetros. Cada chave deve ter um valor correspondente.
 
@@ -219,9 +219,9 @@ Determina se uma matriz, objeto ou corda está vazia.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |matriz, objeto ou corda |O valor para verificar se está vazio. |
+| itemToTest |Yes |matriz, objeto ou corda |O valor para verificar se está vazio. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -300,11 +300,11 @@ Devolve uma única matriz ou objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou objeto |O primeiro valor a ser usado para encontrar elementos comuns. |
-| arg2 |Sim |matriz ou objeto |O segundo valor a ser usado para encontrar elementos comuns. |
-| argumentos adicionais |Não |matriz ou objeto |Valores adicionais a utilizar para encontrar elementos comuns. |
+| arg1 |Yes |matriz ou objeto |O primeiro valor a ser usado para encontrar elementos comuns. |
+| arg2 |Yes |matriz ou objeto |O segundo valor a ser usado para encontrar elementos comuns. |
+| argumentos adicionais |No |matriz ou objeto |Valores adicionais a utilizar para encontrar elementos comuns. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -407,9 +407,9 @@ Converte uma cadeia JSON válida num tipo de dados JSON.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |string |O valor a converter para JSON. A corda deve ser uma corda JSON devidamente formatada. |
+| arg1 |Yes |string |O valor a converter para JSON. A corda deve ser uma corda JSON devidamente formatada. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -538,9 +538,9 @@ Devolve o número de elementos numa matriz, caracteres numa cadeia ou propriedad
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
+| arg1 |Yes |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -690,11 +690,11 @@ Devolve uma única matriz ou objeto com todos os elementos dos parâmetros. Os v
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou objeto |O primeiro valor a utilizar para unir elementos. |
-| arg2 |Sim |matriz ou objeto |O segundo valor a utilizar para unir elementos. |
-| argumentos adicionais |Não |matriz ou objeto |Valores adicionais a utilizar para unir elementos. |
+| arg1 |Yes |matriz ou objeto |O primeiro valor a utilizar para unir elementos. |
+| arg2 |Yes |matriz ou objeto |O segundo valor a utilizar para unir elementos. |
+| argumentos adicionais |No |matriz ou objeto |Valores adicionais a utilizar para unir elementos. |
 
 ### <a name="return-value"></a>Valor devolvido
 

@@ -1,5 +1,5 @@
 ---
-title: Utilize o hub IoT existente com solução de Simulação de Dispositivos - Azure / Microsoft Docs
+title: Utilize o hub IoT existente com solução de simulação de dispositivo - Azure | Microsoft Docs
 description: Este artigo descreve como configurar o acelerador de solução de simulação de dispositivo para utilizar um hub IoT existente.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1f89e23d7bb279e7cce5c104060cc7898517f8b7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009369"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Utilizar um hub IoT existente com o acelerador de soluções de Simulação de Dispositivo

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
 ms.openlocfilehash: 66c1ab1cb5ed478aa34825fb6903e4d06f834097
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94989478"
 ---
 # <a name="fundamental-best-practices"></a>Melhores práticas fundamentais
@@ -48,6 +48,6 @@ Deve implementar os serviços Azure numa [rede virtual](../virtual-network/virtu
 
 Vemos muitas vezes os recursos dos clientes no local a serem atacados juntamente com os seus recursos em Azure. Se estiver a ligar um ambiente no local ao Azure, recomendamos que minimize a exposição dos recursos no local à internet pública. Pode utilizar a escala e as capacidades avançadas de proteção DDoS da Azure, implantando as suas conhecidas entidades públicas em Azure. Como estas entidades acessíveis ao público são muitas vezes um alvo para ataques DDoS, colocá-los em Azure reduz o impacto nos seus recursos no local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um plano de proteção DDoS](manage-ddos-protection.md).

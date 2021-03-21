@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018757"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para v2 Migração para apps LUIS
@@ -165,7 +165,7 @@ V1 permitiu que as expressões rotuladas incluíssem espaços no início ou no f
 ## <a name="common-reasons-for-http-response-status-codes"></a>Razões comuns para códigos de estado de resposta HTTP
 Consulte [os códigos de resposta da API LUIS](luis-reference-response-codes.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize a documentação v2 API para atualizar as chamadas REST existentes para [o ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) da LUIS e para as APIs de [autoria.](https://go.microsoft.com/fwlink/?linkid=2092087)
 

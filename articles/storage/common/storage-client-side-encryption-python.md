@@ -12,17 +12,17 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043750"
 ---
 # <a name="client-side-encryption-with-python"></a>Encriptação do lado do cliente com Python
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 A [Biblioteca do Cliente de Armazenamento Azure para Python](https://pypi.python.org/pypi/azure-storage) suporta encriptar dados dentro das aplicações do cliente antes de fazer o upload para o Azure Storage e desencriptar dados enquanto descarrega para o cliente.
 
 > [!NOTE]
@@ -80,7 +80,7 @@ Durante a encriptação, a biblioteca do cliente gera um IV aleatório de 16 byt
 
 Durante a desencriptação, a chave embrulhada é extraída da mensagem de fila e desembrulhada. O IV também é extraído da mensagem de fila e utilizado juntamente com a chave desembrulhada para desencriptar os dados da mensagem da fila. Note que os metadados de encriptação são pequenos (abaixo de 500 bytes), pelo que, embora conte para o limite de 64KB para uma mensagem de fila, o impacto deve ser gerível.
 
-### <a name="tables"></a>Tabelas
+### <a name="tables"></a>Tables
 A biblioteca do cliente suporta a encriptação das propriedades da entidade para inserir e substituir operações.
 
 > [!NOTE]

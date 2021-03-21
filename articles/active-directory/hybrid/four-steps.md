@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94412379"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro passos para uma forte fundação de identidade com Azure Ative Directory
@@ -83,7 +83,7 @@ Nas empresas modernas, os departamentos de TI muitas vezes não estão cientes d
 
 [O Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) pode ajudá-lo a identificar aplicações úteis que são populares entre os utilizadores que o IT pode sancionar e adicionar à galeria de aplicações da Enterprise para que os utilizadores beneficiem de capacidades como SSO e Acesso Condicional.
 
-<em>" **Cloud App Security** ajuda-nos a garantir que o nosso povo está a usar corretamente as nossas aplicações cloud e SaaS, de forma a apoiar as políticas de segurança fundacionais que ajudam a proteger a Accenture."</em> --- [John Blasi, Diretor-geral, Segurança da Informação, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud App Security** ajuda-nos a garantir que o nosso povo está a usar corretamente as nossas aplicações cloud e SaaS, de forma a apoiar as políticas de segurança fundacionais que ajudam a proteger a Accenture."</em> --- [John Blasi, Diretor-geral, Segurança da Informação, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Além de detetar TI sombra, o MCAS também pode determinar o nível de risco das aplicações, impedir o acesso não autorizado a dados corporativos, possíveis fugas de dados e outros riscos de segurança inerentes às aplicações.
 

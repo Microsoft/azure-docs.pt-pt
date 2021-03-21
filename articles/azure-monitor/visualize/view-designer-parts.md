@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 6e971db01322fc031dd0fa8abe82f76a5b45d256
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045263"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para ver peças de visualização do designer no Azure Monitor
@@ -23,7 +23,7 @@ Para mais informações sobre o View Designer, consulte:
 
 Os tipos de azulejos disponíveis do View Designer são descritos na tabela seguinte:
 
-| Tipo de visualização | Descrição |
+| Tipo de visualização | Description |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Apresenta uma lista de consultas de registo. Pode selecionar cada consulta para mostrar os seus resultados. |
 | [Número e lista](#number-and-list-part) |O cabeçalho apresenta um único número que mostra uma contagem de registos de uma consulta de registo. A lista apresenta os dez primeiros resultados de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a sua alteração ao longo do tempo. |

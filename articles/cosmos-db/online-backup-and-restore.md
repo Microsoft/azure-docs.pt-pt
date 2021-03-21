@@ -8,16 +8,16 @@ ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 2629e9c6e048620d9490a1e091a16c138fd1e615
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99525437"
 ---
-# <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauro de dados on-demand em Azure Cosmos DB
+# <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Cópia de segurança online e restauro de dados a pedido no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-A Azure Cosmos DB recolhe automaticamente cópias de segurança dos seus dados em intervalos regulares. As cópias de segurança automáticas são tomadas sem afetar o desempenho ou disponibilidade das operações de base de dados. Todas as cópias de segurança são armazenadas separadamente num serviço de armazenamento. As cópias de segurança automáticas são úteis em cenários quando acidentalmente elimina ou atualiza a sua conta, base de dados ou contentor Azure Cosmos e, mais tarde, requer a recuperação de dados. Existem dois modos de reserva:
+O Azure Cosmos DB tira automaticamente cópias de segurança dos dados em intervalos regulares. As cópias de segurança automáticas são feitas sem afetar o desempenho ou a disponibilidade das operações da base de dados. Todas as cópias de segurança são armazenadas separadamente num serviço de armazenamento. As cópias de segurança automáticas são úteis em cenários em que tenha eliminado ou atualizado acidentalmente a conta, a base de dados ou o contentor do Azure Cosmos e, mais tarde, precisa de recuperar os dados. Existem dois modos de reserva:
 
 * **Modo de cópia de segurança periódica** - Este modo é o modo de cópia de segurança predefinido para todas as contas existentes. Neste modo, a cópia de segurança é feita num intervalo periódico e os dados são restaurados criando um pedido junto da equipa de suporte. Neste modo, configura um intervalo de backup e retenção para a sua conta. O período máximo de retenção estende-se por um mês. O intervalo mínimo de reserva pode ser de uma hora.  Para saber mais, consulte o artigo do [modo de cópia de segurança periódico.](configure-periodic-backup-restore.md)
 

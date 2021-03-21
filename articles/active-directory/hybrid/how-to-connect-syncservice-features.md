@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync service features and configuration / Microsoft Docs
+title: Funcionalidades e configuração do serviço Azure AD Connect e configuração | Microsoft Docs
 description: Descreve funcionalidades laterais de serviço para o serviço de sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 261ab5d0f039705a2566b7c28ff4c06778bb661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410543"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 
 A função de sincronização do Azure AD Connect tem dois componentes:
 
-* O componente no local chamado **Azure AD Connect sync** , também chamado **sync engine**.
+* O componente no local chamado **Azure AD Connect sync**, também chamado **sync engine**.
 * O serviço residente em Azure AD também conhecido como **Azure AD Connect sync service**
 
 Este tópico explica como funcionam as seguintes funcionalidades do serviço de **sincronização Azure AD Connect** e como pode configurá-las utilizando o Windows PowerShell.

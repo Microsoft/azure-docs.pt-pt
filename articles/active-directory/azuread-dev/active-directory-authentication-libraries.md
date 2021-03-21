@@ -1,5 +1,5 @@
 ---
-title: Bibliotecas de Autenticação do Diretório Ativo Azure Microsoft Docs
+title: Bibliotecas de autenticação de diretório ativo Azure | Microsoft Docs
 description: A Azure AD Authentication Library (ADAL) permite que os desenvolvedores de aplicações do cliente autuçam facilmente os utilizadores para cloud ou on-in Ative Directy (AD) e, em seguida, obter fichas de acesso para garantir chamadas API.
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7b6ffd885e1be2dd59cea87cacd6e5fd5e0f8f49
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861175"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de Autenticação do Azure Active Directory
@@ -37,7 +37,7 @@ A Azure Ative Directory Authentication Library (ADAL) v1.0 permite que os desenv
 
 ## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de clientes suportadas pela Microsoft
 
-| Plataforma | Biblioteca | Download | Código fonte | Sample | Referência
+| Plataforma | Biblioteca | Download | Código Fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
 | .NET Cliente, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplicação de ambiente de trabalho](../develop/quickstart-v2-windows-desktop.md) |[Referência](/dotnet/api/microsoft.identitymodel.clients.activedirectory) |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
@@ -49,7 +49,7 @@ A Azure Ative Directory Authentication Library (ADAL) v1.0 permite que os desenv
 
 ## <a name="microsoft-supported-server-libraries"></a>Bibliotecas de servidores suportadas pela Microsoft
 
-| Plataforma | Biblioteca | Download | Código fonte | Sample | Referência
+| Plataforma | Biblioteca | Download | Código Fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
 | .NET |OWIN para AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[Aplicativo MVC](../develop/quickstart-v2-aspnet-webapp.md) | |
 | .NET |OWIN para OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Aplicação Web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |

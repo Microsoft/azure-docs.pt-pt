@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: crtreasu
 ms.openlocfilehash: 43c8c578587c65b6e0317caf77ff2d0604cb4fa3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044671"
 ---
 ### <a name="build-and-deploy-the-app"></a>Criar e implementar a aplicação

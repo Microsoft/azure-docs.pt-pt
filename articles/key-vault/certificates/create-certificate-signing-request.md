@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
 ms.openlocfilehash: aa631f4c505200c2c8abc67d4e22ffbab23e015c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789031"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Criar e fundir um CSR no Cofre de Chaves
@@ -104,7 +104,7 @@ O pedido de certificado foi agora fundido com êxito.
 ## <a name="add-more-information-to-the-csr"></a>Adicione mais informações à RSE
 
 Se pretender adicionar mais informações ao criar a RSE, defina-a no **Nome de Assunto**. É melhor adicionar informações como:
-- Country
+- País
 - Cidade/localidade
 - Distrito
 - Organização
@@ -143,7 +143,7 @@ Exemplo
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

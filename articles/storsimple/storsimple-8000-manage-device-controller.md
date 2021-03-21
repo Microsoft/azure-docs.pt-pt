@@ -1,5 +1,5 @@
 ---
-title: Gerir controladores de dispositivos da série StorSimple 8000 Microsoft Docs
+title: Gerir controladores de dispositivos da série StorSimple 8000 | Microsoft Docs
 description: Aprenda a parar, reiniciar, desligar ou redefinir os controladores de dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956998"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerir os seus controladores de dispositivo StorSimple

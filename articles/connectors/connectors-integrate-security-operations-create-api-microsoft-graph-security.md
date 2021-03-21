@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888543"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com a Microsoft Graph Security & Azure Logic Apps
@@ -30,7 +30,7 @@ Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o conector Mic
 
 O fluxo de trabalho da sua aplicação lógica pode usar ações que obtenham respostas do conector microsoft Graph Security e disponibilizar essa saída para outras ações no seu fluxo de trabalho. Também pode ter outras ações no seu fluxo de trabalho, utilizar a saída das ações do conector de Segurança do Gráfico microsoft. Por exemplo, se receber alertas de alta gravidade através do conector Microsoft Graph Security, pode enviar esses alertas numa mensagem de correio eletrónico utilizando o conector Outlook. 
 
-Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API de [Segurança de Gráficos da Microsoft](/graph/security-concept-overview). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Se procura Power Automamate ou PowerApps, veja o que [What is Power Apps?](https://powerapps.microsoft.com/) [é Power Automate?](https://flow.microsoft.com/)
+Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API de [Segurança de Gráficos da Microsoft](/graph/security-concept-overview). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Se procura Power Automamate ou PowerApps, veja o que [](https://powerapps.microsoft.com/) [é Power Automate?](https://flow.microsoft.com/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -91,7 +91,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
 1.  No gatilho, forneça informações sobre os alertas que pretende monitorizar. Para mais propriedades, abra a nova lista **de parâmetros adicionar** e selecione um parâmetro para adicionar essa propriedade ao gatilho.
 
-   | Propriedade | Propriedade (JSON) | Necessário | Tipo | Descrição |
+   | Propriedade | Propriedade (JSON) | Necessário | Tipo | Description |
    |----------|-----------------|----------|------|-------------|
    | **Intervalo** | `interval` | Yes | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
    | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana** ou **Mês** |

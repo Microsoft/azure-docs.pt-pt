@@ -1,5 +1,5 @@
 ---
-title: Gerir a Azure Data Box, Caixa de Dados Azure Pesada via Portal Azure Microsoft Docs
+title: Gerir a Caixa de Dados Azure, caixa de dados Azure Pesada através do portal Azure | Microsoft Docs
 description: Descreve como usar o portal Azure para administrar a sua Caixa de Dados Azure e Caixa de Dados Azure Heavy.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97678643"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilize o portal Azure para administrar a sua Caixa de Dados Azure e caixa de dados Azure Heavy
@@ -206,7 +206,7 @@ Quando o estado do dispositivo muda no portal, é notificado através de um e-ma
 
 Aqui estão os estatutos de uma ordem de importação.
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Encomendado     | Fez uma encomenda com êxito. <br>Se o dispositivo estiver disponível, a Microsoft identifica um dispositivo para envio e prepara-o. <br> Se o dispositivo não estiver disponível imediatamente, a encomenda será processada quando o dispositivo estiver disponível. A encomenda pode demorar entre vários dias a alguns meses a ser processada. Se a ordem não puder ser cumprida em 90 dias, a encomenda é cancelada e você é notificado.         |
 |Processado     | O processamento da encomenda está concluído. De acordo com a sua encomenda, o dispositivo está preparado para envio no datacenter.         |
@@ -225,7 +225,7 @@ Aqui estão os estatutos de uma ordem de importação.
 
 Aqui estão os estatutos para uma ordem de exportação.
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Encomendado     | Com sucesso, escruexou uma ordem de exportação. <br>Se o dispositivo estiver disponível, a Microsoft identifica um dispositivo para envio e prepara-o. <br> Se o dispositivo não estiver disponível de imediato, a encomenda será processada quando o dispositivo ficar disponível. A encomenda pode demorar entre vários dias a alguns meses a ser processada. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma será cancelada e o requerente será notificado.         |
 |Cancelado            |A encomenda foi cancelada. <br> Ou cancelou a encomenda (só pode cancelar antes de a encomenda ser processada) ou foi encontrado um erro e o serviço cancelou a encomenda. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma também será cancelada e o requerente será notificado.     |
@@ -248,7 +248,7 @@ Aqui estão os estatutos para uma ordem de exportação.
 
 Se estiver a utilizar o envio auto-gerido, depois de a cópia estar completa e antes de receber o dispositivo, verá os seguintes estados (em vez dos mencionados na tabela anterior):
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Pronto para recolha no Centro de Dados Azure      |O dispositivo está pronto para ser recolhido no datacenter Azure.        |
 |Recolhido    |Pegou o dispositivo.         |

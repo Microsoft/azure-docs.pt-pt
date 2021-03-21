@@ -6,10 +6,10 @@ ms.author: spelluru
 ms.date: 10/07/2020
 ms.topic: article
 ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94427152"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nomes do Azure Service Bus através de pontos finais privados
@@ -78,8 +78,8 @@ Se já tiver um espaço de nome existente, pode criar um ponto final privado seg
 8. Na página **de Recursos,** siga estes passos:
     1. Para o método de ligação, se selecionar **Ligar a um recurso Azure no meu diretório,** siga estes passos:   
         1. Selecione a **subscrição Azure** na qual existe o seu **espaço de nomes service bus.** 
-        2. Para **o tipo de recurso** , selecione **Microsoft.ServiceBus/namespaces** para o tipo de **recurso**.
-        3. Para **obter recursos** , selecione um espaço de nomes de Service Bus da lista de drop-down. 
+        2. Para **o tipo de recurso**, selecione **Microsoft.ServiceBus/namespaces** para o tipo de **recurso**.
+        3. Para **obter recursos**, selecione um espaço de nomes de Service Bus da lista de drop-down. 
         4. Confirme que o **subresource do Target** está definido para **o espaço de nomes**.
         5. Selecione **Seguinte: Configuração >** botão na parte inferior da página. 
         
@@ -187,7 +187,7 @@ Existem quatro estados de provisionamento:
 1. Inicie sessão no portal do Azure.
 1. Na barra de pesquisa, escreva em **Service Bus.**
 1. Selecione o **espaço de nomes** que pretende gerir.
-1. Selecione o **separador 'Rede'.**
+1. Selecione o separador **Rede**.
 5. Vá à secção abaixo com base na operação que pretende: aprovar, rejeitar ou remover. 
 
 ### <a name="approve-a-private-endpoint-connection"></a>Aprovar uma ligação privada de ponto final
@@ -237,8 +237,8 @@ No **separador Networking:**
 
 1. Especificar **rede virtual** e **sub-rede.** Tem de selecionar a Rede Virtual na qual implementou o ponto final privado.
 2. Especifique um recurso **IP público.**
-3. Para **o grupo de segurança da rede NIC** , selecione **Nenhum**.
-4. Para **equilibrar a carga** , selecione **Nº**.
+3. Para **o grupo de segurança da rede NIC**, selecione **Nenhum**.
+4. Para **equilibrar a carga**, selecione **Nº**.
 
 Ligue ao VM, abra a linha de comando e execute o seguinte comando:
 
@@ -257,9 +257,9 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e Considerações de Design
 
-**Preços** : Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Preços**: Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações** : Esta funcionalidade está disponível em todas as regiões públicas do Azure.
+**Limitações**: Esta funcionalidade está disponível em todas as regiões públicas do Azure.
 
 **Número máximo de pontos finais privados por espaço de identificação do Service Bus:** 120.
 
