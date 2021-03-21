@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7357703af41afc913ef63dff6ecae3d230c9eca0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722658"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583297"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Utilize certificados com serviços Azure Cloud (suporte alargado)
 
@@ -41,7 +41,7 @@ O Key Vault é utilizado para armazenar certificados associados aos Serviços Cl
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="A imagem mostra a seleção da opção de geração/importação":::
 
-4.  Preencha as informações necessárias para terminar o upload do certificado. 
+4.  Preencha as informações necessárias para terminar o upload do certificado. O certificado tem de estar dentro **. Formato PFX.**
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="A imagem mostra a janela de importação no portal Azure.":::
 

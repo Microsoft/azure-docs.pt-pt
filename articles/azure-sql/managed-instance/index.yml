@@ -12,12 +12,12 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 05/27/2020
-  ms.openlocfilehash: 7e4f1d42f0b5510d916e4eeebfb17716f9d30141
-  ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+  ms.openlocfilehash: 28155337abbb777dad871253c0aa6ae8513178bb
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/16/2021
-  ms.locfileid: "103601462"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104589043"
 landingContent:
 - title: Instância Gerida do Azure SQL
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: Novidades
       url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
     - text: Comentários? Faça a pesquisa!
-      url: https://aka.ms/AzureSQLSurvey
+      url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456
   - linkListType: quickstart
     links:
     - text: Criar Instância Gerida do SQL

@@ -10,10 +10,10 @@ ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
 ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101670018"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Recue e recupere uma base de dados oracle Database 19c num VM Azure Linux usando o Armazenamento Azure

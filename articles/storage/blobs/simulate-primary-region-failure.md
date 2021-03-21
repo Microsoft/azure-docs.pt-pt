@@ -12,10 +12,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-js
 ms.openlocfilehash: 5a0bef4fbfd4ee9aa720dab430a33bbfcd0b918b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91280356"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simular uma falha na leitura dos dados da região primária

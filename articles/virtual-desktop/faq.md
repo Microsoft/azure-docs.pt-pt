@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613974"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582141"
 ---
 # <a name="windows-virtual-desktop-faq"></a>FAQ do Windows Virtual Desktop
 
@@ -110,7 +110,7 @@ Uma vez que você cria uma piscina de anfitrião, você não pode mudar o seu ti
 
 As limitações ou quotas em FSLogix dependem do tecido de armazenamento utilizado para armazenar ficheiros VHD(X) de perfil do utilizador.
 
-A tabela seguinte dá um exemplo de como qualquer recurso que um perfil FSLogix necessita para suportar cada utilizador. Os requisitos podem variar muito dependendo do utilizador, aplicações e atividade em cada perfil.
+A tabela seguinte dá um exemplo de quantos IOPS um perfil FSLogix precisa para suportar cada utilizador. Os requisitos podem variar muito dependendo do utilizador, aplicações e atividade em cada perfil.
 
 | Recurso | Requisito |
 |---|---|

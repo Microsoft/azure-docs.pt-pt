@@ -1,5 +1,5 @@
 ---
-title: Verifique os âmbitos e as funções de aplicações protegidas da API web Rio Azure
+title: Verifique os âmbitos e as funções de aplicações protegidas da API web | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Verifique se a API só é chamada por aplicações em nome de utilizadores que tenham os âmbitos adequados e por aplicações daemon que tenham as funções de aplicação certas.
 services: active-directory
@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94442910"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Verificar âmbitos e funções de aplicativo
@@ -52,7 +52,7 @@ Mas esta proteção não é suficiente. Garante apenas que ASP.NET e ASP.NET Cor
 
 ## <a name="verify-scopes-in-apis-called-on-behalf-of-users"></a>Verificar âmbitos em APIs chamados em nome dos utilizadores
 
-Se uma aplicação de cliente ligar para a sua API em nome de um utilizador, a API precisa de solicitar um token ao portador que tenha âmbitos específicos para a API. Para mais informações, consulte [a configuração do Código / Ficha do portador.](scenario-protected-web-api-app-configuration.md#bearer-token)
+Se uma aplicação de cliente ligar para a sua API em nome de um utilizador, a API precisa de solicitar um token ao portador que tenha âmbitos específicos para a API. Para mais informações, consulte [a configuração do Código | Ficha do portador.](scenario-protected-web-api-app-configuration.md#bearer-token)
 
 ### <a name="net-core"></a>.NET Core
 

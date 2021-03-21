@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656555"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584504"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como é que a Azure Cosmos DB fornece alta disponibilidade
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -69,12 +69,14 @@ Para os raros casos de paragem regional, a Azure Cosmos DB garante que a sua bas
 
 * Durante uma interrupção da região de escrita, a conta Azure Cosmos promoverá automaticamente uma região secundária para ser a nova região de escrita primária quando **permitir a falha automática** é configurada na conta Azure Cosmos. Quando ativado, o failover ocorrerá para outra região na ordem da prioridade da região que especificou.
 
+* Note que o failover manual não deve ser desencadeado e não terá sucesso na presença de uma paragem da nascente ou da região de destino. Isto deve-se a um controlo de coerência exigido pelo procedimento de caduque que exige a conectividade entre as regiões.
+
 * Quando a região anteriormente impactada está novamente on-line, quaisquer dados de escrita que não foram replicados quando a região falhou, é disponibilizado através dos [conflitos alimentados.](how-to-manage-conflicts.md#read-from-conflict-feed) As aplicações podem ler os conflitos feed, resolver os conflitos com base na lógica específica da aplicação, e escrever os dados atualizados de volta para o recipiente Azure Cosmos conforme apropriado.
 
 * Uma vez que a região de escrita previamente impactada recupere, torna-se automaticamente disponível como uma região de leitura. Pode voltar para a região recuperada como região de escrita. Pode mudar as regiões utilizando o [portal PowerShell, Azure CLI ou Azure](how-to-manage-database-account.md#manual-failover). Não há perda de **dados ou disponibilidade** antes, durante ou depois de mudar a região de escrita e a sua aplicação continua altamente disponível.
 
 > [!IMPORTANT]
-> Recomenda-se vivamente que configuure as contas Azure Cosmos utilizadas para a produção de cargas de trabalho para permitir a **falha automática.** A falha manual requer conectividade entre a região de escrita secundária e primária para completar uma verificação de consistência para garantir que não há perda de dados durante a falha. Se a região primária não estiver disponível, esta verificação de consistência não pode ser completada e o failover manual não será bem sucedido, resultando na perda de disponibilidade por escrito durante a paragem regional.
+> Recomenda-se vivamente que configuure as contas Azure Cosmos utilizadas para a produção de cargas de trabalho para permitir a **falha automática.** Isto permite que a Cosmos DB falhe automaticamente nas bases de dados de conta para regiões de availabile. Na ausência desta configuração, a conta sentirá perda de disponibilidade de escrita durante toda a duração da paragem da região de escrita, uma vez que a falha manual não terá sucesso devido à falta de conectividade da região.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Contas multi-regiões com uma região de escrita única (ler interrupção da região)
 
@@ -138,7 +140,22 @@ As Zonas de Disponibilidade podem ser ativadas através de:
 
 * Mesmo que a sua conta Azure Cosmos esteja altamente disponível, a sua aplicação pode não estar corretamente concebida para permanecer altamente disponível. Para testar a elevada disponibilidade da sua aplicação, como parte dos exercícios de teste de aplicação ou recuperação de desastres (DR), desativar temporariamente a falha automática da conta, invocar a falha manual utilizando o [powerShell, o portal Azure CLI ou a Azure,](how-to-manage-database-account.md#manual-failover)e depois monitorizar a falha da sua aplicação. Uma vez concluído, pode voltar à região primária e restaurar a falha automática da conta.
 
+> [!IMPORTANT]
+> Não invoque o failover manual durante uma paragem de DB cosmos nas regiões de origem ou destino, uma vez que requer conectividade das regiões para manter a consistência dos dados e não terá sucesso.
+
 * Dentro de um ambiente de base de dados distribuído globalmente, existe uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma paralisação a nível regional. À medida que desenvolve o seu plano de continuidade de negócios, precisa entender o tempo máximo aceitável antes que a aplicação recupere totalmente após um evento disruptivo. O tempo necessário para uma aplicação de recuperação total é conhecido como objetivo do tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes que a aplicação pode tolerar perder ao recuperar após um evento disruptivo. O período de tempo de atualizações que poderá perder é conhecido como o objetivo de ponto de recuperação (RPO). Para ver o RPO e o RTO para Azure Cosmos DB, consulte [os níveis de consistência e durabilidade dos dados](./consistency-levels.md#rto)
+
+## <a name="what-to-expect-during-a-region-outage"></a>O que esperar durante uma paragem na região
+
+Para contas de uma região única, os clientes sentirão perda de leitura e disponibilidade de escrita.
+
+As contas multi-regiões experimentarão comportamentos diferentes dependendo da tabela seguinte.
+
+| Escrever regiões | Ativação pós-falha automática | O que esperar | O que fazer |
+| -- | -- | -- | -- |
+| Região de escrita única | Não ativado | Em caso de paralisação numa região de leitura, todos os clientes redirecionarão para outras regiões. Sem ler ou escrever perda de disponibilidade. Sem perda de dados. <p/> Em caso de uma paragem na região de escrita, os clientes sentirão a perda de disponibilidade. A perda de dados dependerá do nível de constisância selecionado. <p/> Cosmos DB restabelecerá a disponibilidade de escrita automaticamente quando a paralisação terminar. | Durante a paralisação, certifique-se de que existe capacidade suficiente nas restantes regiões para apoiar a leitura do tráfego. <p/> *Não* desencadeie uma falha manual durante a paragem, uma vez que não terá sucesso. <p/> Quando a paralisação terminar, rejuste a capacidade a provisionada conforme apropriado. |
+| Região de escrita única | Ativado | Em caso de paralisação numa região de leitura, todos os clientes redirecionarão para outras regiões. Sem ler ou escrever perda de disponibilidade. Sem perda de dados. <p/> Em caso de uma paragem na região de escrita, os clientes sentirão a perda de disponibilidade até que a Cosmos DB eleja automaticamente uma nova região como nova região de escrita de acordo com as suas preferências. A perda de dados dependerá do nível de constisância selecionado. | Durante a paralisação, certifique-se de que existe capacidade suficiente nas restantes regiões para apoiar a leitura do tráfego. <p/> *Não* desencadeie uma falha manual durante a paragem, uma vez que não terá sucesso. <p/> Quando a paralisação terminar, poderá recuperar os dados não replicados na região falhada do feed de [conflitos,](how-to-manage-conflicts.md#read-from-conflict-feed)mover a região de escrita de volta para a região original e reajustar a capacidade a provisionada conforme apropriado. |
+| Múltiplas regiões de escrita | Não aplicável | Sem ler ou escrever perda de disponibilidade. <p/> Perda de dados por nível de consistência selecionado. | Durante a paralisação, assegurará a capacidade suficiente nas restantes regiões para apoiar o tráfego adicional. <p/> Quando a paralisação terminar, poderá recuperar os dados não replicados na região falhada a partir do feed de [conflitos](how-to-manage-conflicts.md#read-from-conflict-feed) e reajustar a capacidade a provisionada conforme apropriado. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

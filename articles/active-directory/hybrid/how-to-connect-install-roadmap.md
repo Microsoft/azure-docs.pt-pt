@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94873272"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
@@ -29,7 +29,7 @@ ms.locfileid: "94873272"
 
 Pode encontrar a transferência do Azure AD Connect no [Centro de Transferências da Microsoft](https://go.microsoft.com/fwlink/?LinkId=615771).
 
-| Solução | Cenário |
+| Solução | Scenario |
 | --- | --- |
 | Antes de iniciar – [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) |<li>Passos a completar antes de iniciar a instalação do Azure AD Connect.</li> |
 | [Definições expressas](how-to-connect-install-express.md) |<li>Se tiver uma única floresta do AD, é esta a opção que se recomenda utilizar.</li> <li>Início de sessão do utilizador com a mesma palavra-passe, utilizando a sincronização de palavra-passe.</li> |

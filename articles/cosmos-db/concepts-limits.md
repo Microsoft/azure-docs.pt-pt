@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611037"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
@@ -62,15 +62,15 @@ Exemplo: Suponha que tenha um recipiente a provisionado com 400 RU/s e 0 GB de a
 
 **Nota:** a produção mínima de 10 RU/s por GB de armazenamento pode ser reduzida se a sua conta for elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program)
 
-#### <a name="minimum-throughput-on-shared-throughput-database"></a>Produção mínima na base de dados de produção partilhada 
-Para estimar o rendimento mínimo exigido de uma base de dados de produção partilhada com produção manual, encontre o máximo de:
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Débito mínimo na base de dados de débito partilhada 
+Para estimar o débito mínimo necessário de uma base de dados de débito partilhada com débito manual, calcule o máximo de:
 
 * 400 RU/s 
 * Armazenamento atual em GB * 10 RU/s
 * RU/s mais elevado a provisionado na base de dados / 100
 * 400 + MAX (Contagem de contentores - 25,0) * 100 RU/s
 
-Exemplo: Suponha que tenha uma base de dados a provisionada com 400 RU/s, 15 GB de armazenamento e 10 contentores. O RU/s mínimo é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Se houvesse 30 contentores na base de dados, o RU/s mínimo seria `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
+Exemplo: imagine que tem uma base de dados aprovisionada com 400 RU/s, 15 GB de armazenamento e 10 contentores. O RU/s mínimo é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Se houvesse 30 contentores na base de dados, o RU/s mínimo seria `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
 
 **Nota:** a produção mínima de 10 RU/s por GB de armazenamento pode ser reduzida se a sua conta for elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program)
 

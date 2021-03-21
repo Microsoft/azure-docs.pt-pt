@@ -13,10 +13,10 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4, azuread-video-2020
 ms.openlocfilehash: 7b43cf23b3f01e64c0be31ed013aa990ff80d3db
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98938342"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
@@ -93,7 +93,7 @@ Os clientes com [licenças Microsoft 365 Business Premium](/office365/servicedes
 
 [O risco de acesso](concept-conditional-access-conditions.md#sign-in-risk) requer acesso à [Proteção de Identidade](../identity-protection/overview-identity-protection.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Construção de uma política de acesso condicional peça por peça](concept-conditional-access-policies.md)
 - [Planear a implementação do Acesso Condicional](plan-conditional-access.md)

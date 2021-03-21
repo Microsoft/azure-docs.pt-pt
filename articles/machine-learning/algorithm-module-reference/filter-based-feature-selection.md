@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
 ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91945707"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
@@ -99,7 +99,7 @@ Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação e
 > [!div class="mx-imgBorder"]
 > ![Gasoduto de amostra](media/module/filter-based-feature-selection-score.png)
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o processamento estar concluído:
 
@@ -139,7 +139,7 @@ Se utilizar a correlação Pearson numa característica numérica e num rótulo 
 -   Se uma coluna designada como coluna de recurso tiver todos os valores em falta, o módulo atribui uma pontuação zero.   
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

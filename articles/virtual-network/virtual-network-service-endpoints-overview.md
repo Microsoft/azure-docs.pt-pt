@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576672"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
@@ -42,7 +42,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões Azu
 - **[Azure App Service](../app-service/app-service-ip-restrictions.md)** *(Microsoft.Web*): Geralmente disponível em todas as regiões Azure onde o serviço de aplicações está disponível.
 - **[Azure Cognitive Services](../cognitive-services/cognitive-services-virtual-networks.md?tabs=portal)** *(Microsoft.CognitiveServices*): Geralmente disponível em todas as regiões do Azure onde os serviços cognitivos estão disponíveis.
 
-**Pré-visualização pública**
+**Pré-visualização Pública**
 
 - **[Registo de contentores Azure](../container-registry/container-registry-vnet.md)** *(Microsoft.ContainerRegistry*): Pré-visualização disponível em regiões limitadas de Azure onde o Registo de Contentores Azure está disponível.
 

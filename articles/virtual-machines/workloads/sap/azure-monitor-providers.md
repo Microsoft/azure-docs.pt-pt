@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101668993"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitor Azure para fornecedores de soluções SAP (pré-visualização)
 
-## <a name="overview"></a>Descrição Geral  
+## <a name="overview"></a>Descrição geral  
 
 No contexto do Azure Monitor for SAP Solutions, um *tipo de fornecedor* refere-se a um *fornecedor* específico. Por *exemplo, SAP HANA*, que é configurado para um componente específico dentro da paisagem SAP, como base de dados SAP HANA. Um fornecedor contém as informações de ligação para o componente correspondente e ajuda a recolher dados de telemetria a partir desse componente. Um recurso Azure Monitor for SAP Solutions (também conhecido como recurso de monitor SAP) pode ser configurado com vários fornecedores do mesmo tipo de fornecedor ou vários fornecedores de vários tipos de fornecedores.
    

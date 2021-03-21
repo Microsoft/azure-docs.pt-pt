@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 25320fb8cde0cc5a38f1edf4019a2f0e07cefe14
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461101"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente
@@ -121,7 +121,7 @@ A saída do módulo avroFileWriter pode ser facilmente observada olhando para o 
 
 1. Uma vez decorridos os 10 minutos, o módulo deve carregar os ficheiros. Se o upload for bem sucedido, elimina os ficheiros do disco.
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 Podemos observar os resultados do nosso dispositivo de folha enviando dados olhando para as contas de armazenamento onde esperamos que os dados sejam encaminhados.
 

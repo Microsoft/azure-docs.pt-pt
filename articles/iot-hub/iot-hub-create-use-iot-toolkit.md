@@ -1,5 +1,5 @@
 ---
-title: Criar um Hub Azure IoT utilizando ferramentas Azure IoT para código VS ! Microsoft Docs
+title: Crie um Hub Azure IoT utilizando ferramentas Azure IoT para código VS | Microsoft Docs
 description: Aprenda a usar as ferramentas Azure IoT para o Código do Estúdio Visual para criar um hub Azure IoT num grupo de recursos.
 author: formulahendry
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: 668087ae596688e86b7b84a16bc5c0fd0f9fcef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75912252"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>Criar um hub IoT utilizando as ferramentas Azure IoT para código de estúdio visual
@@ -30,7 +30,7 @@ Para completar este artigo, precisa do seguinte:
 
 - [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) para Código de Estúdio Visual.
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 1. No Código do Estúdio Visual, abra a vista **explorer.**
 

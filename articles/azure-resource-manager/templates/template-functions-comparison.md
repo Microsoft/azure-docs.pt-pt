@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99834005"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos ARM
@@ -33,8 +33,8 @@ Devolve o primeiro valor não nulo dos parâmetros. Cordas vazias, matrizes vazi
 
 | Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, matriz ou objeto |O primeiro valor a testar para nulo. |
-| args adicionais |Não |int, string, matriz ou objeto |Valores adicionais para testar para nulo. |
+| arg1 |Yes |int, string, matriz ou objeto |O primeiro valor a testar para nulo. |
+| args adicionais |No |int, string, matriz ou objeto |Valores adicionais para testar para nulo. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -135,8 +135,8 @@ Verifica se dois valores são iguais uns aos outros. A `equals` função não é
 
 | Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, matriz ou objeto |O primeiro valor a verificar a igualdade. |
-| arg2 |Sim |int, string, matriz ou objeto |O segundo valor para verificar a igualdade. |
+| arg1 |Yes |int, string, matriz ou objeto |O primeiro valor a verificar a igualdade. |
+| arg2 |Yes |int, string, matriz ou objeto |O segundo valor para verificar a igualdade. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -319,8 +319,8 @@ Verifica se o primeiro valor é maior do que o segundo valor. A `greater` funç�
 
 | Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor para uma maior comparação. |
-| arg2 |Sim |int ou string |O segundo valor para uma maior comparação. |
+| arg1 |Yes |int ou string |O primeiro valor para uma maior comparação. |
+| arg2 |Yes |int ou string |O segundo valor para uma maior comparação. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -400,8 +400,8 @@ Verifica se o primeiro valor é superior ou igual ao segundo valor. A `greaterOr
 
 | Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor para a comparação maior ou igual. |
-| arg2 |Sim |int ou string |O segundo valor para a comparação maior ou igual. |
+| arg1 |Yes |int ou string |O primeiro valor para a comparação maior ou igual. |
+| arg2 |Yes |int ou string |O segundo valor para a comparação maior ou igual. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -481,8 +481,8 @@ Verifica se o primeiro valor é inferior ao segundo valor. A `less` função nã
 
 | Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor para menos comparação. |
-| arg2 |Sim |int ou string |O segundo valor para menos comparação. |
+| arg1 |Yes |int ou string |O primeiro valor para menos comparação. |
+| arg2 |Yes |int ou string |O segundo valor para menos comparação. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -562,8 +562,8 @@ Verifica se o primeiro valor é inferior ou igual ao segundo valor. A `lessOrEqu
 
 | Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor para a comparação menos ou igual. |
-| arg2 |Sim |int ou string |O segundo valor para a comparação menos ou igual. |
+| arg1 |Yes |int ou string |O primeiro valor para a comparação menos ou igual. |
+| arg2 |Yes |int ou string |O segundo valor para a comparação menos ou igual. |
 
 ### <a name="return-value"></a>Valor devolvido
 

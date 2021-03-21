@@ -8,10 +8,10 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 8c375c3dc9f4c5fdb20270797eb55b3a20a6e214
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698285"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud

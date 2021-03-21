@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
 ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419937"
 ---
 # <a name="what-is-azure-purview"></a>O que é o Azure Purview?

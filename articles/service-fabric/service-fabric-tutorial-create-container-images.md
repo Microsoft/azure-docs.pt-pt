@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 31b5f870465bc1dff9d6ff7827a4efed084bcf62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92739066"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
@@ -51,7 +51,7 @@ A solução contém duas pastas e um ficheiro "docker-compose.yml". A pasta "azu
 
 ## <a name="create-container-images"></a>Criar imagens de contentor
 
-No diretório **azure-vote** , execute o seguinte comando para criar a imagem para o componente Web do front-end. Este comando utiliza o Dockerfile neste diretório para criar a imagem.
+No diretório **azure-vote**, execute o seguinte comando para criar a imagem para o componente Web do front-end. Este comando utiliza o Dockerfile neste diretório para criar a imagem.
 
 ```bash
 docker build -t azure-vote-front .
@@ -90,7 +90,7 @@ az account set --subscription <subscription_id>
 
 Ao implementar um Azure Container Registry, tem de começar por obter um grupo de recursos. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando **az group create** . Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *westus* .
+Crie um grupo de recursos com o comando **az group create**. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *westus*.
 
 ```azurecli
 az group create --name <myResourceGroup> --location westus

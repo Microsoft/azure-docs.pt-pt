@@ -1,15 +1,15 @@
 ---
-title: Criar um laboratório para ensinar ciência de dados com pítons e cadernos jupyter Microsoft Docs
+title: Crie um laboratório para ensinar ciência de dados com os cadernos Python e Jupyter | Microsoft Docs
 description: Aprenda a criar um laboratório para ensinar ciência de dados usando os cadernos Python e Jupyter.
 author: emaher
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
 ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94648026"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Crie um laboratório para ensinar ciência de dados com pítons e cadernos jupyter
@@ -172,7 +172,7 @@ Mais detalhes sobre os preços, consulte o [Azure Lab Services Pricing](https://
 ## <a name="conclusion"></a>Conclusão
 Neste artigo, percorremos os degraus para criar um laboratório para uma aula de Cadernos Jupyter. Você pode usar uma configuração semelhante para outras aulas de machine learning.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

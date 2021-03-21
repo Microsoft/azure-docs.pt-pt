@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77019558"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Quickstart - Consumir VMware VMs em Azure
@@ -42,7 +42,7 @@ Crie uma máquina virtual na sua Nuvem Privada a partir do uI do vCenter. Para c
     | ------------ | ------------- |
     | Subscrição | Subscrição Azure associada à sua Nuvem Privada.  |
     | Grupo de Recursos | Grupo de recursos ao qual o VM será atribuído. Pode selecionar um grupo existente ou criar um novo. |
-    | Nome | Nome para identificar o VM.  |
+    | Name | Nome para identificar o VM.  |
     | Localização | Região de Azure em que este VM está hospedado.  |
     | Cloud Privada | CloudSimple Private Cloud onde pretende criar a máquina virtual. |
     | Piscina de Recursos | Conjunto de recursos mapeado para o VM. Selecione entre os pools de recursos disponíveis. |
@@ -61,7 +61,7 @@ Crie uma máquina virtual na sua Nuvem Privada a partir do uI do vCenter. Para c
 
     Para interfaces de rede, clique em **Adicionar interface de rede** e configufique as seguintes definições.
 
-    | Controlo | Descrição |
+    | Controlar | Descrição |
     | ------------ | ------------- |
     | Nome | Insira um nome para identificar a interface.  |
     | Rede | Selecione a partir da lista de grupos de portas distribuídos configurados na sua Nuvem Privada vSphere.  |

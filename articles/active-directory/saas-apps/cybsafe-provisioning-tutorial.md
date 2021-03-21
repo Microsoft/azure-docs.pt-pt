@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
 ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100527127"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutorial: Configurar CybSafe para o provisionamento automático do utilizador
