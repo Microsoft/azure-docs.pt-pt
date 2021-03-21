@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016155"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Construa uma solução IoT utilizando o Stream Analytics
@@ -42,7 +42,7 @@ Esta solução funciona com dois fluxos de dados. Os sensores instalados na entr
 ### <a name="entry-data-stream"></a>Fluxo de dados de entrada
 O fluxo de dados de entrada contém informações sobre carros à medida que entram nas estações de portagem. Os eventos de dados de saída são transmitidos em direto para uma fila do Event Hub a partir de uma Aplicação Web incluída na aplicação da amostra.
 
-| TollID | Tempo de Entrada | Placa de Licença | Estado | Criação | Modelo | VehicleType | Peso do veículo | Portagem | Etiqueta |
+| TollID | Tempo de Entrada | Placa de Licença | Estado | Criação | Modelação | VehicleType | Peso do veículo | Portagem | Etiqueta |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Rio Camry |1 |0 |4 |123456789 |
@@ -60,7 +60,7 @@ Aqui está uma breve descrição das colunas:
 | Placa de Licença |O número da matrícula do veículo |
 | Estado |Um estado nos Estados Unidos |
 | Criação |O fabricante do automóvel |
-| Modelo |O número de modelo do automóvel |
+| Modelação |O número de modelo do automóvel |
 | VehicleType |1 para veículos de passageiros ou 2 para veículos comerciais |
 | Type de peso |Peso do veículo em toneladas; 0 para veículos de passageiros |
 | Portagem |O valor das portagens em USD |
@@ -302,7 +302,7 @@ Para aumentar o trabalho de streaming para mais unidades de streaming:
 
 3. Sob o título CONFIGURE no trabalho de streaming, selecione **Scale**.
 
-4. Deslize o deslizador das **unidades** de streaming de 1 para 6. As unidades de streaming definem a quantidade de poder de computação que o trabalho pode receber. Selecione **Save** (Guardar).
+4. Deslize o deslizador das **unidades** de streaming de 1 para 6. As unidades de streaming definem a quantidade de poder de computação que o trabalho pode receber. Selecione **Guardar**.
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho através de mais recursos computacional e consegue uma melhor produção, dividindo o trabalho através dos recursos utilizando a coluna designada na cláusula PARTITION BY.
 

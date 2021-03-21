@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
 ms.openlocfilehash: a03f71adc99063fee4374b1436b08adf5bab783d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102511050"
 ---
 As entradas no mapa do `inferenceconfig.json` documento aos parâmetros para a classe [InferenceConfig.](/python/api/azureml-core/azureml.core.model.inferenceconfig) A tabela a seguir descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
 
-| Entidade JSON | Parâmetro do método | Descrição |
+| Entidade JSON | Parâmetro do método | Description |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Caminho para um ficheiro local que contenha o código para correr para a imagem. |
 | `sourceDirectory` | `source_directory` | Opcional. Caminho para pastas que contenham todos os ficheiros para criar a imagem, o que facilita o acesso a quaisquer ficheiros dentro desta pasta ou sub-dobragem. Pode carregar uma pasta inteira a partir da sua máquina local como dependências para o Webservice. Nota: os seus caminhos entry_script, conda_file e extra_docker_file_steps são caminhos relativos para o caminho source_directory. |

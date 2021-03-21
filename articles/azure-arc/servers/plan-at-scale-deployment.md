@@ -1,18 +1,18 @@
 ---
-title: Como planear uma implantação em escala de servidores ativados pelo Azure Arc
+title: Como planear e implementar servidores ativados pelo Azure Arc
 description: Saiba como permitir que um grande número de máquinas para o Azure Arc permitiu que os servidores simplificassem a configuração das capacidades essenciais de segurança, gestão e monitorização em Azure.
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 401725dcfed85a6675c95434270dd7dbff482b6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103461305"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591185"
 ---
-# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Planeie e implemente os servidores ativados pelo Arc em escala
+# <a name="plan-and-deploy-arc-enabled-servers"></a>Planeie e implemente servidores ativados pelo Arc
 
-A implantação de um serviço de infraestrutura de TI ou de uma aplicação de negócios é um desafio para qualquer empresa. Para executá-lo bem e evitar quaisquer surpresas indesejáveis e custos não planeados, você precisa planejar cuidadosamente para que ele garanta que está o mais pronto possível. Para planear a implementação de servidores ativados pelo Azure Arc em escala, deve cobrir os critérios de conceção e implementação que precisam de ser cumpridos para completar com sucesso as tarefas de suporte a uma implementação em escala.
+A implantação de um serviço de infraestrutura de TI ou de uma aplicação de negócios é um desafio para qualquer empresa. Para executá-lo bem e evitar quaisquer surpresas indesejáveis e custos não planeados, você precisa planejar cuidadosamente para que ele garanta que está o mais pronto possível. Para planear a implementação de servidores ativados pelo Azure Arc em qualquer escala, deve cobrir os critérios de conceção e implementação que precisam de ser cumpridos para completar com sucesso as tarefas.
 
 Para que a implantação decorra sem problemas, o seu plano deve estabelecer uma compreensão clara de:
 
@@ -71,7 +71,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, preparando e impla
 
 |Tarefa |Detalhes |Duração |
 |-----|-------|---------|
-| Descarregue o script de instalação pré-definido | Reveja e personalize o script de instalação pré-definido para a implantação à escala do agente da Máquina Conectada para suportar os seus requisitos de implementação automatizados.<br><br> Amostra de recursos de bordo à escala:<br><br> <ul><li> [Script de implementação básica em escala](onboard-service-principal.md)</ul></li> <ul><li>[VMware vMware vS de vMware vS de vMware do Windows à escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[PMware vSMware vSphere Linux VMs à escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Instâncias AWS EC2 de bordo à escala utilizando ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Implementação em escala utilizando o remoting PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (apenas windows)</ul></li>| Um ou mais dias dependendo dos requisitos, processos organizacionais (por exemplo, Gestão de Alterações e Libertação) e método de automatização utilizado. |
+| Descarregue o script de instalação pré-definido | Reveja e personalize o script de instalação pré-definido para a implantação à escala do agente da Máquina Conectada para suportar os seus requisitos de implementação automatizados.<br><br> Amostra em escala de recursos de bordo:<br><br> <ul><li> [Na escala, script de implementação básica](onboard-service-principal.md)</ul></li> <ul><li>[Em escala no bordo VMware vSphere Windows Server VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Em escala a bordo VMware vSphere Linux VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Em escala a bordo de instâncias AWS EC2 utilizando Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Na implementação em escala utilizando o remoting PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (apenas para windows)</ul></li>| Um ou mais dias dependendo dos requisitos, processos organizacionais (por exemplo, Gestão de Alterações e Libertação) e método de automatização utilizado. |
 | [Criar um principal de serviço](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Crie um principal de serviço para ligar máquinas não interativamente usando a Azure PowerShell ou a partir do portal.| Uma hora |
 | Implemente o agente 'Máquina Conectada' nos servidores e máquinas-alvo |Utilize a sua ferramenta de automatização para implantar os scripts nos seus servidores e conectá-los ao Azure.| Um ou mais dias dependendo do seu plano de libertação e se seguir um lançamento faseado. |
 

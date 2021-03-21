@@ -9,16 +9,26 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 62035b2fe6c3db71e392a05946ea3f230dfa030e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503918"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604663"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Como permitir a exploração do Cofre de Chaves
 
 Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar como e quando os seus cofres chave são acedidos, e por quem. Para obter todos os detalhes sobre a funcionalidade, consulte a [sessão de registo do Key Vault](logging.md).
+
+O que está registado:
+
+* Todos os pedidos autenticados da API, incluindo pedidos falhados como resultado de permissões de acesso, erros do sistema ou maus pedidos.
+* Operações no cofre principal em si, incluindo criação, eliminação, definição de políticas de acesso ao cofre chave, e atualização de atributos chave do cofre, tais como tags.
+* Operações com chaves e segredos no cofre, incluindo:
+  * Criar, modificar ou apagar estas chaves ou segredos.
+  * Assinar, verificar, encriptar, desencriptar, embrulhar e desembrulhar chaves, obter segredos e listar chaves e segredos (e as suas versões).
+* Pedidos não autenticados que resultam numa resposta 401. Exemplos são pedidos que não têm um símbolo ao portador, que são mal formados ou expirados, ou que têm um token inválido.  
+* Eventos de notificação para quase expiração, política de acesso expirado e de acesso ao cofre alterado (o novo evento de versão não está registado). Os eventos são registados independentemente de existir uma subscrição de eventos criada no cofre de chaves. Para mais informações ver, [esquema de eventos da Grade de Eventos para Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +68,7 @@ Para facilitar a gestão adicional, também usaremos o mesmo grupo de recursos q
 
 Também precisamos fornecer um nome de conta de armazenamento. Os nomes das contas de armazenamento devem ser únicos, entre 3 e 24 caracteres de comprimento, e usar apenas números e letras minúsculas.  Por último, vamos criar uma conta de armazenamento do SKU "Standard_LRS".
 
-Com o Azure CLI, utilize a [conta de armazenamento az criar](/cli/azure/storage/account#az_storage_account_create) comando.
+Com o Azure CLI, utilize a [conta de armazenamento az criar](/cli/azure/storage/account#az_storage_account_create) comando. 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -100,44 +110,67 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 O ID de recursos do seu cofre chave estará no formato "/subscrições/<o seu ID de subscrição->ID /resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<o seu nome de chave-> único". Reparem no próximo passo.
 
-## <a name="enable-logging-using-azure-powershell"></a>Ativar o registo utilizando o Azure PowerShell
+## <a name="enable-logging"></a>Ativar a exploração madeireira
 
-Para ativar o registo do Key Vault, utilizaremos as [definições de diagnóstico](/cli/azure/monitor/diagnostic-settings) do monitor Azure CLI az criar um comando, ou o cmdlet [Set-AzDiagnosticSetting,](/powershell/module/az.monitor/set-azdiagnosticsetting) juntamente com o ID da conta de armazenamento e o ID do cofre chave.
+Pode ativar o registo do Key Vault utilizando o Azure CLI, a Azure PowerShell ou o portal Azure.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+### <a name="azure-cli"></a>CLI do Azure
+
+Utilize as [definições de diagnóstico](/cli/azure/monitor/diagnostic-settings) do monitor Azure CLI az criar comando juntamente com o ID da conta de armazenamento e o ID do cofre de chaves.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Com a Azure PowerShell, utilizaremos o [cmdlet Set-AzDiagnosticSetting,](/powershell/module/az.monitor/set-azdiagnosticsetting) com a bandeira **ativada definida** para **$true** e a categoria definida para `AuditEvent` (a única categoria para a marcação do cofre de chaves):
+Opcionalmente, pode definir uma política de retenção para os seus registos, de modo a que os registos mais antigos sejam automaticamente eliminados após um período de tempo especificado. Por exemplo, pode definir uma política de retenção que elimina automaticamente registos com mais de 90 dias.
+
+Com o Azure CLI, utilize o comando [de atualização de definições de diagnóstico do monitor az.](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) 
+
+```azurecli-interactive
+az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Utilize o [cmdlet Set-AzDiagnosticSetting,](/powershell/module/az.monitor/set-azdiagnosticsetting) com a bandeira **ativada** definida para **$true** e a categoria definida para `AuditEvent` (a única categoria para a marcação do cofre de chaves):
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
 ```
 
-Opcionalmente, pode definir uma política de retenção para os seus registos, de modo a que os registos mais antigos sejam automaticamente eliminados após um período de tempo especificado. Por exemplo, pode definir a política de retenção que elimina automaticamente os registos com mais de 90 dias.
+Opcionalmente, pode definir uma política de retenção para os seus registos, de modo a que os registos mais antigos sejam automaticamente eliminados após um período de tempo especificado. Por exemplo, pode definir uma política de retenção que elimina automaticamente registos com mais de 90 dias.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
-
-```azurecli-interactive
-az monitor diagnostic-settings update 
-```
--->
-
-Com a Azure PowerShell, utilize o [cmdlet set-AzDiagnosticSetting.](/powershell/module/az.monitor/set-azdiagnosticsetting) 
+Com a Azure PowerShell, utilize o [cmdlet set-AzDiagnosticSetting.](/powershell/module/az.monitor/set-azdiagnosticsetting)
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-O que está registado:
+# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
-* Todos os pedidos autenticados da API, incluindo pedidos falhados como resultado de permissões de acesso, erros do sistema ou maus pedidos.
-* Operações no cofre principal em si, incluindo criação, eliminação, definição de políticas de acesso ao cofre chave, e atualização de atributos chave do cofre, tais como tags.
-* Operações com chaves e segredos no cofre, incluindo:
-  * Criar, modificar ou apagar estas chaves ou segredos.
-  * Assinar, verificar, encriptar, desencriptar, embrulhar e desembrulhar chaves, obter segredos e listar chaves e segredos (e as suas versões).
-* Pedidos não autenticados que resultam numa resposta 401. Exemplos são pedidos que não têm um símbolo ao portador, que são mal formados ou expirados, ou que têm um token inválido.  
-* Eventos de notificação para quase expiração, política de acesso expirado e de acesso ao cofre alterado (o novo evento de versão não está registado). Os eventos são registados independentemente de existir uma subscrição de eventos criada no cofre de chaves. Para mais informações ver, [esquema de eventos da Grade de Eventos para Key Vault](../../event-grid/event-schema-key-vault.md)
+Para configurar as definições de Diagnóstico no portal, siga estes passos.
+
+1. Selecione as definições de Diagnóstico do menu da lâmina de recurso.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Portal de Diagnóstico 1":::
+
+1. Clique na definição de diagnóstico "+ Adicionar"
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Portal de Diagnóstico 2":::
+ 
+1. Selecione um nome para ligar para a sua definição de diagnóstico. Para configurar o registo de registos para O Azure Monitor para Key Vault, selecione a opção "AuditEvent" e "Enviar para log analytics espaço de trabalho". Em seguida, escolha a subscrição e o espaço de trabalho Log Analytics que pretende enviar os seus registos.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Portal de Diagnóstico 3":::
+
+    Caso contrário, selecione as opções que dizem respeito aos registos que deseja selecionar
+
+1. Depois de selecionar as opções desejadas, selecione guardar.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Portal de Diagnóstico 4":::
+
+---
 
 ## <a name="access-your-logs"></a>Aceder aos seus registos
 

@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
 ms.openlocfilehash: 5d69aacb6e3f25e3414aa446c4c5ae7852cabdfc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101720907"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Conceitos de rede para Azure Red Hat OpenShift (ARO)

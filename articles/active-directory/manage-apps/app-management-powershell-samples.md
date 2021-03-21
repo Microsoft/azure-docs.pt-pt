@@ -12,10 +12,10 @@ ms.date: 02/18/2021
 ms.author: kenwith
 ms.reviewer: mifarca
 ms.openlocfilehash: f5f7ec8245a43440a400b9ca6b55bf1093eb62cc
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102636193"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>Exemplos de PowerShell de Diretório Ativo Azure para Gestão de Aplicações

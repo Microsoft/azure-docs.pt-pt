@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
 ms.openlocfilehash: 26485c84749b7d4c91159476b3f683c2b0f3831b
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103555681"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilidade de Link Privado Azure
@@ -75,7 +75,7 @@ As tabelas a seguir listam os serviços de Private Link e as regiões onde estã
 
 |Serviços suportados  |Regiões disponíveis | Outras considerações | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
-| Azure IoT Hub | Todas as regiões públicas    |  | GA   <br/> [Aprenda a criar um ponto final privado para o Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
+| Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Aprenda a criar um ponto final privado para o Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
 |  Azure Digital Twins         | Todas as regiões públicas apoiadas por Azure Digital Twins     |  | Pré-visualizar <br/> [Saiba como criar um ponto final privado para a Azure Digital Twins.](../digital-twins/how-to-enable-private-link-portal.md)      |
 
 ### <a name="management-and-governance"></a>Gestão e Governação

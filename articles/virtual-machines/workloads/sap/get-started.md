@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a212975817eefe75443bad98ccb72e0a8c3bf58c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5ab23b9c2ba4b4ef3c20188b2207d7718c30cfe6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038633"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599889"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -82,7 +82,8 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 
 ## <a name="change-log"></a>Alterar Registo
-
+- 03/17/2021: Alteração em [HA para SAP HANA em VMs Azure em SLES](./sap-hana-high-availability.md), [HA para SAP HANA em VMs Azure em RHEL](./sap-hana-high-availability-rhel.md) e [HA para escala SAP HANA com ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) para adicionar instruções para replicação do sistema HANA Ative/Read-enabled no cluster Pacemaker
+- 03/15/2021: Alteração da [instância SAP ASCS/SCS com o WSFC e partilha de ficheiros](./sap-high-availability-guide-wsfc-file-share.md),[Instale a instância SAP ASCS/SCS com o WSFC e a partilha de ficheiros](./sap-high-availability-installation-wsfc-file-share.md) e [a MULTI-SID SAP ASCS/SCS com a WSFC e a partilha de ficheiros](./sap-ascs-ha-multi-sid-wsfc-file-share.md) para clarificar que as instâncias SAP ASCS/SCS e a partilha sofs devem ser implantadas em clusters separados
 - 03/03/2021: Alteração no [guia HA para SAP ASCS/SCS com ficheiros WSFC e Azure NetApp (SMB)](./high-availability-guide-windows-netapp-files-smb.md) para adicionar uma declaração cautelosa de que são necessários privilégios elevados para o utilizador que executa o SWPM, durante a instalação do sistema SAP
 - 02/11/2021: Alterações na [alta disponibilidade da IBM Db2 LUW em VMs Azure enterprise linux](./high-availability-guide-rhel-ibm-db2-luw.md) server para alterar comandos de cluster pacemaker para RHEL 8.x
 - 02/03/2021: Alteração na configuração do [Pacemaker na RHEL em Azure](./high-availability-guide-rhel-pacemaker.md) para atualizar pcmk_host_map no comando de criação de apedrejamento

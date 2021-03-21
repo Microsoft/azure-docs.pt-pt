@@ -1,5 +1,5 @@
 ---
-title: Gerir palavras-passe e números de telefone com o Meu Pessoal (pré-visualização) - Azure AD / Microsoft Docs
+title: Gerir senhas e números de telefone com o My Staff - Azure AD | Microsoft Docs
 description: Gerir palavras-passe e números de telefone para os seus utilizadores com o Meu Pessoal
 services: active-directory
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537095"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583603"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>Delegar gestão de utilizadores com o Meu Pessoal (pré-visualização)
+# <a name="delegate-user-management-with-my-staff"></a>Delegar gestão de utilizadores com o Meu Pessoal
 
 A sua organização pode usar **o My Staff** para delegar tarefas de gestão de utilizadores a figuras de autoridade, como um gestor de loja ou líder de equipa, para ajudar os seus colaboradores a acederem às aplicações de que necessitam. Se o seu membro da equipa não consegue aceder a uma aplicação porque esquece uma palavra-passe, perde-se a produtividade. Isto também aumenta os custos de apoio e causa um estrangulamento nos seus processos administrativos.  Com o My Staff, um membro da equipa que não consiga aceder à sua conta pode recuperar o acesso em apenas alguns cliques, sem necessidade de ajuda do administrador.
 

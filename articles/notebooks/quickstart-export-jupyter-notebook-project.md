@@ -4,10 +4,10 @@ description: Saiba como os Cadernos Jupyter podem ser usados com as ofertas da M
 ms.topic: quickstart
 ms.date: 02/01/2021
 ms.openlocfilehash: 5679c28d9cc8a4f1893ffad72002b66ad59861e6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99507382"
 ---
 # <a name="use-a-jupyter-notebook-with-microsoft-offerings"></a>Use um Bloco de Notas Jupyter com ofertas da Microsoft

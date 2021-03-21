@@ -12,10 +12,10 @@ ms.date: 02/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 62bae22b6a4bb06b1e97c18e52ad614fd2439902
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489326"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -63,11 +63,11 @@ O elemento **ContentDefinition** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na secção **IDs** de definição de conteúdo mais tarde nesta página. |
+| Id | Yes | Um identificador para uma definição de conteúdo. O valor é especificado na secção **IDs** de definição de conteúdo mais tarde nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Uma cadeia que contém o URL da página HTML5 para a definição de conteúdo. |
 | RecoveryUri | 1:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionado com a definição de conteúdo. Não atualmente utilizado, o valor deve `~/common/default_page_error.html` ser. |
@@ -79,7 +79,7 @@ O elemento **ContentDefinition** contém os seguintes elementos:
 
 O elemento **DataUri** é utilizado para especificar o identificador de página. Azure AD B2C utiliza o identificador de página para carregar e iniciar elementos de UI e javaScript do lado do cliente. O formato do valor `urn:com:microsoft:aad:b2c:elements:page-name:version` é. A tabela que se segue lista os identificadores de página que pode utilizar.
 
-| Identificador de página | Descrição |
+| Identificador de página | Description |
 | ----- | ----------- |
 | `globalexception` | Apresenta uma página de erro quando se encontra uma exceção ou um erro. |
 | `providerselection`, `idpselection` | Lista os fornecedores de identidade que os utilizadores podem escolher durante a sin-in.  |
@@ -168,7 +168,7 @@ O exemplo a seguir mostra os identificadores de definição de conteúdo e os **
 
 Um elemento **metadados** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Item | 0:n | Os metadados que se relacionam com a definição de conteúdo. |
 
@@ -176,7 +176,7 @@ O elemento **item** do elemento **Metadados** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Chave | Sim | A chave dos metadados.  |
+| Chave | Yes | A chave dos metadados.  |
 
 #### <a name="metadata-keys"></a>Chaves de metadados
 
@@ -190,7 +190,7 @@ A definição de conteúdo suporta os seguintes itens de metadados:
 
 O elemento **LocalresourcesReferences** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Referência de Recursos Fontes Localizadas | 1:n | Uma lista de referências de recursos localizadas para a definição de conteúdo. |
 
@@ -198,8 +198,8 @@ O elemento **LocalresourcesReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Linguagem | Sim | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
-| Resources LocalizadoreferenceId | Sim | O identificador do elemento **Recursos Locais.** |
+| Linguagem | Yes | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
+| Resources LocalizadoreferenceId | Yes | O identificador do elemento **Recursos Locais.** |
 
 O exemplo a seguir mostra uma definição de conteúdo de inscrição ou de inscrição com referência à localização para inglês, francês e espanhol:
 
@@ -225,7 +225,7 @@ Para aprender a adicionar suporte de localização às definições de conteúdo
 
 O atributo ID do elemento **ContentDefinition** especifica o tipo de página que se relaciona com a definição de conteúdo. O elemento define o contexto que um modelo html5/CSS personalizado vai aplicar. A tabela seguinte descreve o conjunto de IDs de definição de conteúdo que é reconhecido pelo Quadro de Experiência de Identidade, e os tipos de página que se relacionam com eles. Pode criar as suas próprias definições de conteúdo com um ID arbitrário.
 
-| ID | Modelo de padrão | Descrição |
+| ID | Modelo de padrão | Description |
 | -- | ---------------- | ----------- |
 | **api.erro** | [exceção.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro** - Apresenta uma página de erro quando uma exceção ou um erro é encontrado. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção do fornecedor** de identidade - Lista os fornecedores de identidade que os utilizadores podem escolher durante a sindução. As opções são geralmente fornecedores de identidade empresarial, fornecedores de identidade social, como Facebook e Google+, ou contas locais. |

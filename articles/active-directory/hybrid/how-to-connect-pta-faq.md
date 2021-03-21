@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Autenticação pass-through - Perguntas frequentes Microsoft Docs'
+title: 'Azure AD Connect: Authentication Pass-through - Perguntas frequentes | Microsoft Docs'
 description: Respostas a perguntas frequentes sobre autenticação passativa de diretório ativo Azure
 services: active-directory
 keywords: Autenticação pass-through Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368482"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Ative Directory: Perguntas frequentes
@@ -44,7 +44,7 @@ Sim, o sing-in utilizando um valor não UPN, como um e-mail alternativo, é supo
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de palavra-passe funciona como um recuo para a autenticação pass-through?
 
-Não. A autenticação pass-through _não_ falha automaticamente na sincronização de hash de palavra-passe. Para evitar falhas de inscrição no utilizador, deve configurar a autenticação pass-through para [uma elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+N.º A autenticação pass-through _não_ falha automaticamente na sincronização de hash de palavra-passe. Para evitar falhas de inscrição no utilizador, deve configurar a autenticação pass-through para [uma elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando mudo de sincronização de hash de palavra-passe para autenticação pass-through?
 

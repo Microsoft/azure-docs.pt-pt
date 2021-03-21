@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 0f6599bb9f379cf471dafbb83a7deefbb05c0dbe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6bda6c9e5f6e23e9e15c12fd507645fc72159302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052216"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583450"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configure a monitorização em Saúde dos hóspedes (pré-visualização)
 A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinida utilizando o portal Azure. Descreve também conceitos fundamentais de monitores necessários para [configurar a monitorização utilizando uma regra de recolha de dados.](vminsights-health-configure-dcr.md)
 
 ## <a name="open-monitor-configuration"></a>Configuração do monitor aberto
-Abra a configuração do monitor, desabrose o portal Azure selecionando o monitor e, em seguida, o **separador Configuração.**
+Abra a configuração do monitor no portal Azure selecionando o monitor e, em seguida, o **separador Configuração.**
 
 [![Configuração de detalhes do monitor](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 

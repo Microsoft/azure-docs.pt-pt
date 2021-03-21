@@ -8,10 +8,10 @@ author: nabhishek
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 05717352936bed888e108277d0163e43bc5a37af
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368766"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade do procedimento armazenado do servidor SQL
@@ -30,7 +30,7 @@ ms.locfileid: "100368766"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Azure Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte os dados de [transformação utilizando a atividade de procedimento armazenado na Data Factory](../transform-data-using-stored-procedure.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Utiliza atividades de transformação de dados num [oleoduto](data-factory-create-pipelines.md) da Data Factory para transformar e processar dados brutos em previsões e insights. A Atividade procedimentos armazenadas é uma das atividades de transformação que a Data Factory suporta. Este artigo baseia-se no artigo de atividades de [transformação](data-factory-data-transformation-activities.md) de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas na Data Factory.
 
 Pode utilizar a Atividade De Procedimento Armazenada para invocar um procedimento armazenado numa das seguintes lojas de dados na sua empresa ou numa máquina virtual Azure (VM):

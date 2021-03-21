@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python-swift-android
 ms.openlocfilehash: a62c25aa5fd9d25b7330dde89c8544e79785b9d0
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495452"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Quickstart: Adicione chat à sua App

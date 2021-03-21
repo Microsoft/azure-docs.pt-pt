@@ -4,19 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 00523d557afaf23ba2de0d33165efe6beb11cba2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 8f69eacac3f3ed60ed09d431455eb9e3c54b96ad
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242738"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612837"
 ---
 <!--Feature availability in region-->
 ## <a name="europe"></a>Europa
 
 | Funcionalidade | Europa do Norte | Europa Ocidental |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Disponibilidade geral do Azure EventGrid North Europe](../media/azure-clouds-regions/ga.svg)  |![Disponibilidade geral da Azure EventGrid West Europe](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Disponibilidade geral do Azure EventGrid North Europe](../media/azure-clouds-regions/ga.svg)  |![Disponibilidade geral da Azure EventGrid West Europe](../media/azure-clouds-regions/ga.svg) |
 | [VídeoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset Disponibilidade geral do Norte da Europa](../media/azure-clouds-regions/ga.svg)  | ![Disponibilidade geral do VideoAnalyzerPreset West Europe](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Disponibilidade geral do Norte da Europa](../media/azure-clouds-regions/ga.svg)  | ![Disponibilidade geral do AudioAnalyzerPreset West Europe](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![Disponibilidade geral standardEncoderPreset North Europe](../media/azure-clouds-regions/ga.svg)  | ![Disponibilidade geral do StandardEncoderPreset West Europe](../media/azure-clouds-regions/ga.svg) |

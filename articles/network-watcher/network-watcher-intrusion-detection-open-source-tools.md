@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: b4b38112e32a55739ea14d5ff06e327819171557
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014557"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realize deteção de intrusão de rede com o Network Watcher e ferramentas open source
@@ -280,7 +280,7 @@ Para obter mais documentação sobre a criação de visualizações personalizad
 
 Ao combinar capturas de pacotes fornecidas pelo Network Watcher e ferramentas IDS de código aberto, como a Suricata, pode realizar a deteção de intrusões de rede para uma ampla gama de ameaças. Estes dashboards permitem identificar rapidamente tendências e anomalias dentro da sua rede, bem como pesquisar os dados para descobrir as causas de alertas como agentes de utilizadores maliciosos ou portas vulneráveis. Com estes dados extraídos, pode tomar decisões informadas sobre como reagir e proteger a sua rede de quaisquer tentativas de intrusão prejudiciais e criar regras para evitar futuras intrusões na sua rede.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como desencadear capturas de pacotes com base em alertas visitando a captura de [pacotes de uso para fazer monitorização proativa da rede com funções Azure](network-watcher-alert-triggered-packet-capture.md)
 

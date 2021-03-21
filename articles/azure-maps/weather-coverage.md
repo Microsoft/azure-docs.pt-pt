@@ -10,10 +10,10 @@ services: azure-maps
 ms.custom: references_regions
 manager: philmea
 ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905490"
 ---
 # <a name="azure-maps-weather-services-preview-coverage"></a>Cobertura dos serviços Azure Maps Weather (Pré-visualização)
@@ -48,7 +48,7 @@ A tabela seguinte fornece informações sobre que tipo de informações meteorol
 | Belize                                   | ✓ |   | |✓| 
 | Bermudas                                  | ✓ |   | |✓| 
 | Bolívia                                  | ✓ |   | |✓| 
-| Rio Bonaire                                  | ✓ |   | |✓| 
+| Bonaire                                  | ✓ |   | |✓| 
 | Brasil                                   | ✓ |   | ✓ |✓| 
 | Ilhas Virgens Britânicas                   | ✓ |   | |✓| 
 | Canadá                                   | ✓ | ✓ | ✓ | ✓| 
@@ -80,19 +80,19 @@ A tabela seguinte fornece informações sobre que tipo de informações meteorol
 | Paraguai                                 | ✓ |   | |✓| 
 | Peru                                     | ✓ |   | |✓| 
 | Porto Rico                              | ✓ |   | ✓ |✓| 
-| São Barthélemy                         | ✓ |   | |✓| 
+| São Bartolomeu                         | ✓ |   | |✓| 
 | São Cristóvão e Neves                    | ✓ |   | |✓| 
 | Santa Lúcia                              | ✓ |   | |✓| 
 | São Martinho (Saint Martin)                             | ✓ |   | |✓| 
-| São Pedro e Miquelon                | ✓ |   | |✓| 
+| São Pedro e Miquelão                | ✓ |   | |✓| 
 | São Vicente e Granadinas         | ✓ |   | |✓| 
-| Sint Eustatius                           | ✓ |   | |✓|  
+| Santo Eustáquio                           | ✓ |   | |✓|  
 | São Martinho (Sint Maarten)                             | ✓ |   | |✓| 
-| Ilhas da Geórgia do Sul e Sandwich do Sul | ✓ |   | |✓| 
+| Ilhas Geórgia do Sul e Sandwich do Sul | ✓ |   | |✓| 
 | Suriname                                 | ✓ |   | |✓| 
 | Trindade e Tobago                      | ✓ |   | |✓| 
 | Ilhas Turcas e Caicos                 | ✓ |   | |✓| 
-| Ilhas Menores Distantes dos EUA                    | ✓ |   | |✓| 
+| Ilhas Desondo dos EUA                    | ✓ |   | |✓| 
 | Ilhas Virgens Americanas                      | ✓ |   | ✓|✓| 
 | Estados Unidos da América                            | ✓ | ✓ | ✓| ✓| 
 | Uruguai                                  | ✓ |   | |✓| 
@@ -196,7 +196,7 @@ A tabela seguinte fornece informações sobre que tipo de informações meteorol
 | Fiji                              | ✓ |   | | ✓| 
 | Polinésia Francesa                  | ✓ |   | | ✓| 
 | Guame                              | ✓ |   |  ✓| ✓| 
-| Ilha Heard e Ilhas McDonald | ✓ |   | | ✓| 
+| Ilhas Heard e McDonald | ✓ |   | | ✓| 
 | R.A.E. de Hong Kong                     | ✓ |   | | ✓| 
 | Índia                             | ✓ |   | | ✓| 
 | Indonésia                         | ✓ |   | | ✓| 

@@ -14,10 +14,10 @@ ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726432"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
@@ -99,7 +99,7 @@ Em vez de codificar duramente as suas bandeiras de recurso na sua aplicação, r
 
 A forma mais fácil de ligar a sua aplicação Core ASP.NET à Configuração de Aplicações é através do fornecedor de configuração incluído no `Microsoft.Azure.AppConfiguration.AspNetCore` pacote NuGet. Depois de incluir uma referência ao pacote, siga estes passos para utilizar este pacote NuGet.
 
-1. Abra *Program.cs* ficheiro e adicione o seguinte código.
+1. Abrir o ficheiro *.cs Programa* e adicionar o seguinte código.
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.x. Selecione a sintaxe correta com base no seu ambiente.
 
@@ -151,7 +151,7 @@ A forma mais fácil de ligar a sua aplicação Core ASP.NET à Configuração de
     ```
     ---
 
-2. Abra *Startup.cs* e atualize o `Configure` método e método para adicionar o `ConfigureServices` middleware incorporado chamado `UseAzureAppConfiguration` . Este middleware permite que os valores da bandeira de funcionalidade sejam atualizados num intervalo recorrente enquanto a aplicação web core ASP.NET continua a receber pedidos.
+2. *Open Startup.cs* e atualizar o `Configure` e método para adicionar o `ConfigureServices` middleware incorporado chamado `UseAzureAppConfiguration` . Este middleware permite que os valores da bandeira de funcionalidade sejam atualizados num intervalo recorrente enquanto a aplicação web core ASP.NET continua a receber pedidos.
 
 
 

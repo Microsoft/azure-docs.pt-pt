@@ -1,24 +1,18 @@
 ---
 title: Validação de alerta no Centro de Segurança Azure | Microsoft Docs
 description: Saiba como validar que os seus alertas de segurança estão corretamente configurados no Azure Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 74323c63ab8985dee2391a546d82258dcb8d0114
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b90ca39d7bf01b84400464240bb581a5e7bc922a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099527"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602388"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -39,7 +33,7 @@ Utilize alertas de amostra para:
 
 Para criar alertas de amostragem:
 
-1. A partir da barra de ferramentas na página de alertas, **selecione Criar alertas de amostras**. 
+1. Como utilizador com a função **Administrador de Segurança** ou Colaborador de **Subscrição,** a partir da barra de ferramentas na página de alertas, selecione **Criar alertas de amostra .**
 1. Selecione uma subscrição.
 1. Selecione o plano/s do Azure Defender relevante para o qual deseja ver alertas. 
 1. Selecione **Criar alertas de amostras**.

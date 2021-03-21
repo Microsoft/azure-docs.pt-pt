@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
 ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122158"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Alavancar o tipo de conteúdo para armazenar valores-chave JSON na Configuração de Aplicações
@@ -22,7 +22,7 @@ ms.locfileid: "102122158"
 Os dados são armazenados na Configuração da Aplicação como valores-chave, onde os valores são tratados como o tipo de corda por padrão. No entanto, pode especificar um tipo personalizado aproveitando a propriedade do tipo de conteúdo associada a cada valor-chave, para que possa preservar o tipo original dos seus dados ou ter a sua aplicação a comportar-se de forma diferente com base no tipo de conteúdo.
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Na Configuração de Aplicações, pode utilizar o tipo de mídia JSON como o tipo de conteúdo dos seus valores-chave para obter benefícios como:
 - **Gestão de dados mais simples**: Gerir valores-chave, como matrizes, tornar-se-á muito mais fácil no portal Azure.

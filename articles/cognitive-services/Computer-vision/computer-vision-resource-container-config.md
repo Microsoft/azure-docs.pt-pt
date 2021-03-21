@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102611900"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configure Ler recipientes OCR Docker

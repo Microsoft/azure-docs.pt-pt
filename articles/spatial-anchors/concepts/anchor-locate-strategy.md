@@ -9,10 +9,10 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102617408"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Compreender a classe AnchorLocateCriteria

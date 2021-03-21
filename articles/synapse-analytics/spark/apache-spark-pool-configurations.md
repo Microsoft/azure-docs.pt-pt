@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 12/2/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: e68b8aff700519b6bef31e5126c91fa8bc4a3593
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 6422c33f17879aa8ec4844cc6de63411528a388b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202561"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606162"
 ---
 # <a name="apache-spark-pool-configurations-in-azure-synapse-analytics"></a>Configurações da piscina Apache Spark em Azure Synapse Analytics
 
@@ -49,5 +49,5 @@ A função de pausa automática liberta recursos após um período de inatividad
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Azure Synapse Analytics](/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)
 * [Documentação de faíscas apache](https://spark.apache.org/docs/2.4.5/)

@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174585"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade microsoft e credenciais de senha do proprietário de recursos OAuth 2.0
@@ -111,6 +111,6 @@ Se o utilizador não tiver fornecido o nome de utilizador ou palavra-passe corre
 | `invalid_grant` | A autenticação falhou | As credenciais estavam incorretas ou o cliente não tem consentimento para os âmbitos solicitados. Se os telescópios não forem concedidos, será devolvido um `consent_required` erro. Se isso ocorrer, o cliente deve enviar o utilizador para um pedido interativo usando uma webview ou browser. |
 | `invalid_request` | O pedido foi mal construído | O tipo de subvenção não é suportado nos `/common` contextos ou `/consumers` autenticação.  Use `/organizations` ou uma identificação de inquilino em vez disso. |
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 Para um exemplo de utilização do ROPC, consulte a amostra de código de [aplicação da consola .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) no GitHub.

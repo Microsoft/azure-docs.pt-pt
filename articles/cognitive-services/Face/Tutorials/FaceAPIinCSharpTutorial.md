@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7a9caf1c1785055cbc81ef56958fe8ce2aca229c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102428308"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar uma aplicação do Windows Presentation Framework (WPF) para exibir dados faciais numa imagem
@@ -68,7 +68,7 @@ Abra *MainWindow.xaml* e substitua o conteúdo pelo seguinte &mdash; código, es
 
 ### <a name="create-the-main-class"></a>Criar a classe principal
 
-Abra *MainWindow.xaml.cs* e adicione os espaços de nome da biblioteca do cliente, juntamente com outros espaços de nome necessários. 
+Abra *mainWindow.xaml.cs* e adicione os espaços de nome da biblioteca do cliente, juntamente com outros espaços de nome necessários. 
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_using)]
 

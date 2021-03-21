@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 02/04/2021
 ms.openlocfilehash: 4c04dd5a2b41b3db54b20c9e514767453951cc35
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103565299"
 ---
 # <a name="migrate-a-studio-classic-dataset-to-azure-machine-learning"></a>Migrar um conjunto de dados (clássico) para Azure Machine Learning
@@ -101,7 +101,7 @@ Depois de descarregar o ficheiro de dados, pode registar o conjunto de dados no 
 
 Se os seus dados já estiverem num serviço de armazenamento em nuvem, e pretende manter os seus dados na sua localização nativa. Pode utilizar qualquer uma das seguintes opções:
 
-|Método de ingestão|Descrição|
+|Método de ingestão|Description|
 |---| --- |
 |Registar um conjunto de dados de aprendizagem de máquinas Azure|Ingerir dados de fontes de dados locais e online (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). <br><br>Cria uma referência à fonte de dados, que é preguiçosamente avaliada em tempo de execução. Utilize esta opção se aceder repetidamente a este conjunto de dados e pretender ativar funcionalidades avançadas de dados como a versão e monitorização de dados.
 |Módulo de Dados de Importação|Ingerir dados de fontes de dados online (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). <br><br> O conjunto de dados é importado apenas para o atual pipeline de design.

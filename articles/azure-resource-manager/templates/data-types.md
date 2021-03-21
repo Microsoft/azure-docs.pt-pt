@@ -6,10 +6,10 @@ ms.author: tomfitz
 author: tfitzmac
 ms.date: 03/04/2021
 ms.openlocfilehash: 7d3f15c8852e6e25c621baad9bc6f20c303ffdb9
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102125141"
 ---
 # <a name="data-types-in-arm-templates"></a>Tipos de dados em modelos ARM

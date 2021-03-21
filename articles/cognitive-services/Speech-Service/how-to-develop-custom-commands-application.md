@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
 ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935823"
 ---
 # <a name="develop-custom-commands-applications"></a>Desenvolver aplicações de comandos personalizados
@@ -365,7 +365,7 @@ Para mover o conteúdo, comece por adicionar um novo ponto final web. No painel 
 |----|----|
 | **Nome** | `getDevices` |
 | **URL** | `https://aka.ms/speech/cc-sampledevices` |
-| **Método** | **GET** |
+| **Método** | **Obter** |
 
 
 Se o valor sugerido para o URL não funcionar para si, configuure e acolhia um ponto final web que devolve um ficheiro JSON que consiste na lista dos dispositivos que podem ser controlados. O ponto final da web deve devolver um ficheiro JSON formatado da seguinte forma:
@@ -396,7 +396,7 @@ Em seguida, aceda à página de definições de parâmetros **SubjectDevice.** C
 | ----| ---- |
 | **Configuração** | **Aceitar entradas pré-indefinidas de catálogo externo** |                               
 | **Ponto final do catálogo** | `getDevices` |
-| **Método** | **GET** |
+| **Método** | **Obter** |
 
 Em seguida, selecione **Guardar**.
 

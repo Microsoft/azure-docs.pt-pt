@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Zscaler ZSCloud para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar Zscaler ZSCloud para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar o Azure Ative Directory para provisão automática e desprovisionar contas de utilizadores para zscaler ZSCloud.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: fa90cbf1e467416010ae0ba83e9344a84ce52e21
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936503"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler ZSCloud para fornecimento automático de utilizadores

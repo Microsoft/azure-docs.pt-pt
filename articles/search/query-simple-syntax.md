@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: f679d6fbab57bcbcccc09b722f6b2f670df49eb2
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516588"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta simples na Pesquisa Cognitiva Azure
@@ -54,7 +54,7 @@ Por padrão, todos os termos ou frases passados no **`search`** parâmetro são 
 
 Qualquer texto com um ou mais termos é considerado um ponto de partida válido para a execução de consultas. A Azure Cognitive Search corresponderá a documentos que contenham qualquer ou todos os termos, incluindo quaisquer variações encontradas durante a análise do texto.
 
-Por mais simples que isto pareça, existe um aspeto de execução de consulta na Pesquisa Cognitiva Azure que *pode* produzir resultados inesperados, aumentando em vez de diminuir os resultados de pesquisa à medida que mais termos e operadores são adicionados à cadeia de entrada. Se esta expansão realmente ocorre depende da inclusão de um operador NÃO, combinado com uma definição de **`searchMode`** parâmetro que determina como NÃO é interpretado em termos de e ou comportamentos. Para obter mais informações, consulte o operador NÃO sob [os operadores Boolean.](#boolean-operators)
+Por mais simples que isto pareça, existe um aspeto de execução de consulta na Pesquisa Cognitiva Azure que *pode* produzir resultados inesperados, aumentando em vez de diminuir os resultados de pesquisa à medida que mais termos e operadores são adicionados à cadeia de entrada. Se esta expansão realmente ocorre depende da inclusão de um operador NÃO, combinado com uma definição de **`searchMode`** parâmetro que determina como NÃO é interpretado em termos de e ou ou ou comportamentos. Para obter mais informações, consulte o operador NÃO sob [os operadores Boolean.](#boolean-operators)
 
 ## <a name="boolean-operators"></a>Operadores booleanos
 
