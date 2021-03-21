@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 9/3/2019
 ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100373611"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrar cargas de trabalho SSIS no local para ssis em ADF
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Quando migra as suas cargas de dados do SQL Server nas instalações para os serviços de base de dados Azure, nomeadamente Azure SQL Database ou Azure SQL Managed Instance, as suas cargas de trabalho ETL nos Serviços de Integração de Servidores SQL (SSIS) como um dos serviços de valor acrescentado primários também terão de ser migradas.
 

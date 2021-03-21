@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: 72caca47cde960eb7298ec2cf0c6994755cb3159
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121614"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementar CI/CD com GitOps utilizando clusters Kubernetes ativados pelo Arco Azure
@@ -119,7 +119,7 @@ Agora que sincronizou uma ligação gitOps, terá de importar os oleodutos CI/CD
 
 O repo de aplicação contém uma `.pipeline` pasta com os oleodutos que utilizará para PRs, CI e CD. Importar e renomear os três oleodutos previstos no repo da amostra:
 
-| Nome do ficheiro do pipeline | Descrição |
+| Nome do ficheiro do pipeline | Description |
 | ------------- | ------------- |
 | [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-pr-pipeline.yaml)  | O pipeline de pr da aplicação, denominado **arc-cicd-demo-src PR** |
 | [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-ci-pipeline.yaml) | O pipeline ci da aplicação, denominado **arc-cicd-demo-src CI** |

@@ -16,11 +16,11 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: addb90ed3929847612fd423e3af01c1b3982c2d6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100369650"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Ative Directory Single Sign-On: Mergulho profundo técnico
@@ -67,10 +67,6 @@ O fluxo de entrada de entrada num navegador web é o seguinte:
 6. Ative Directory localiza a conta do computador e devolve um bilhete Kerberos para o navegador encriptado com o segredo da conta do computador.
 7. O navegador remete o bilhete Kerberos que adquiriu do Ative Directory para a Azure AD.
 8. A Azure AD desencripta o bilhete Kerberos, que inclui a identidade do utilizador assinado no dispositivo corporativo, utilizando a chave anteriormente partilhada.
-
-   >[!NOTE]
-   >O Azure AD tentará comparar a UPN do utilizador do bilhete Kerberos a um objeto de utilizador AZure AD que tenha um valor correspondente no atributo UserPrincipalName. Se isso não for bem sucedido, o Azure AD voltará a corresponder ao nome samAccountName do bilhete Kerberos para um objeto de utilizador AD Azure que tem um valor correspondente no atributo onPremisesSamAccountName.
-   
 9. Após avaliação, a Azure AD devolve um símbolo à aplicação ou pede ao utilizador para efetuar provas adicionais, como a Autenticação Multi-Factor.
 10. Se o pedido de sômed in do utilizador for bem sucedido, o utilizador poderá aceder à aplicação.
 

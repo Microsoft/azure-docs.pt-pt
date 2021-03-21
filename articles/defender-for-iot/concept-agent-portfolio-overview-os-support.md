@@ -1,5 +1,5 @@
 ---
-title: Visão geral do portfólio de agentes e suporte do SO
+title: Visão geral do portfólio de agentes e suporte ao OS (Pré-visualização)
 description: O Azure Defender for IoT fornece um grande portfólio de agentes com base no tipo de dispositivo.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: e2897018d1695bde665e1d1aca180e5268851a0b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: f731b034b5d4f795bae51107e9ff4e2e90788d7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102120152"
 ---
-# <a name="agent-portfolio-overview-and-os-support"></a>Visão geral do portfólio de agentes e suporte do SO 
+# <a name="agent-portfolio-overview-and-os-support-preview"></a>Visão geral do portfólio de agentes e suporte ao OS (Pré-visualização)
 
 O Azure Defender for IoT fornece um grande portfólio de agentes com base no tipo de dispositivo. 
 
@@ -38,4 +38,4 @@ O Azure Defender para micro-agente IoT vem integrado como parte do componente Az
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a visão geral do [micro-agente autónomo ](concept-standalone-micro-agent-overview.md).
+Saiba mais sobre a visão geral do [micro-agente autónomo (Preview)](concept-standalone-micro-agent-overview.md).

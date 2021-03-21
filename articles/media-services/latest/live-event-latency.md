@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f9f4476e932df9a5f4c093968b2e7c4840e7ff39
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122906"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência do Evento Ao Vivo
@@ -47,13 +47,13 @@ As tabelas que se seguem mostram resultados típicos de latência (quando a band
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
 |**DASH em AMP**|10|8s|
-|**HLS no jogador nativo do iOS**|14s|10|
+|**HLS no jogador nativo do iOS**|341|10|
 
 ### <a name="live-encoding"></a>Live Encoding
 
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|**DASH em AMP**|14s|10|
+|**DASH em AMP**|341|10|
 |**HLS no jogador nativo do iOS**|18s|13s|
 
 > [!NOTE]

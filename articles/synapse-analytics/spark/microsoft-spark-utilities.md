@@ -11,10 +11,10 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368664"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos Utilitários Microsoft Spark
@@ -331,7 +331,7 @@ FS.Head("file path", maxBytes to read)
 
 ::: zone-end
 
-### <a name="move-file"></a>Arquivo de movimento
+### <a name="move-file"></a>Ficheiro de movimento
 
 Move um ficheiro ou diretório. Os suportes movem-se através dos sistemas de ficheiros.
 

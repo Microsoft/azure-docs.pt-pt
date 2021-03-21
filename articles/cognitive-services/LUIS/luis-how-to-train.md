@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98762704"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Treine a sua versão ativa da app LUIS
@@ -62,7 +62,7 @@ A formação no portal LUIS é um único passo para pressionar o botão **Train.
 
 Para saber quando o treino está completo, tem de fazer uma sondagem até que todos os modelos sejam treinados com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Testes interativos](luis-interactive-test.md)
 * [Testes em lote](luis-how-to-batch-test.md)

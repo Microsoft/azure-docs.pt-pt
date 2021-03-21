@@ -216,8 +216,6 @@
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
             - name: Criar subscrições MPA através de programação
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Criar subscrições - Modelo do ARM
-              href: manage/create-subscription-template.md
             - name: Criar subscrições através de programação - APIs de pré-visualização
               href: manage/programmatically-create-subscription-preview.md
         - name: Gerir as subscrições do Contrato Enterprise

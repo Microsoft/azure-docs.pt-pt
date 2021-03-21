@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0eaa73fa7e0a9896a875af7e3a3aab22db2a37d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036605"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657064"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados de registo de eventos do Windows com o agente Log Analytics
 Os registos do Windows Event são uma das fontes de dados mais [comuns](../agents/agent-data-sources.md) para agentes do Log Analytics em máquinas virtuais windows, uma vez que muitas aplicações escrevem no registo de eventos do Windows.  Pode recolher eventos a partir de registos padrão, como Sistema e Aplicação, além de especificar quaisquer registos personalizados criados pelas aplicações que precisa de monitorizar.
@@ -28,6 +28,10 @@ O Azure Monitor recolhe apenas eventos a partir dos registos de eventos do Windo
 Ao escrever o nome de um registo de eventos, o Azure Monitor fornece sugestões de nomes comuns de registo de eventos. Se o registo que pretende adicionar não aparecer na lista, ainda pode adicioná-lo digitando o nome completo do registo. Pode encontrar o nome completo do registo utilizando o visualizador do evento. No espectador de eventos, abra a página *Propriedades* para o registo e copie a cadeia do campo *Nome Completo.*
 
 [![Configurar eventos windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
+
+> [!IMPORTANT]
+> Não se pode configurar a recolha de eventos de segurança do espaço de trabalho. Você deve usar [O Centro de Segurança Azure](../../security-center/security-center-enable-data-collection.md) ou [Azure Sentinel](../../sentinel/connect-windows-security-events.md) para recolher eventos de segurança.
+
 
 > [!NOTE]
 > Os eventos críticos do registo de eventos do Windows terão uma gravidade de "Erro" nos Registos do Monitor Azure.
@@ -62,7 +66,7 @@ Os registos de eventos do Windows têm um tipo de **Evento** e têm as proprieda
 ## <a name="log-queries-with-windows-events"></a>Consultas de registo com eventos do Windows
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos do Windows Event.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:---|:---|
 | Evento |Todos os eventos do Windows. |
 | Evento &#124; onde EventLevelName == "erro" |Todos os eventos do Windows com gravidade de erro. |

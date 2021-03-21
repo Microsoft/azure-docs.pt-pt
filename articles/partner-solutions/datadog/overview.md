@@ -7,15 +7,15 @@ ms.service: partner-services
 ms.date: 02/19/2021
 ms.author: tomfitz
 ms.openlocfilehash: 2e5c55c4f9b30bb30be9bee84ea00971c70fdc84
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101746978"
 ---
 # <a name="what-is-datadog"></a>O que é Datadog?
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Datadog é uma plataforma de monitorização e análise para aplicações em larga escala. Engloba a monitorização das infraestruturas, a monitorização do desempenho da aplicação, a gestão de registos e a monitorização da experiência do utilizador. O Datadog agrega dados em toda a sua stack com mais de 400 integrações para resolução de problemas, alerta e gráfico. Você pode usá-lo como uma única fonte para resolução de problemas, otimização de desempenho e colaboração entre equipas.
 

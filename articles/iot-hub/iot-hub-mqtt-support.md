@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: cbc4bbf73c65d4d7eddad556f3776bc0bbd653ba
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cedf861594903cd160c24ea35545d388bf1f6ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431266"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582719"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -81,11 +81,11 @@ De forma a garantir que uma ligação cliente/IoT Hub permanece viva, tanto o se
 
 |Linguagem  |Intervalo padrão de manter vivo  |Configurável  |
 |---------|---------|---------|
-|Node.js     |   180 segundos      |     Não    |
-|Java     |    230 segundos     |     Não    |
+|Node.js     |   180 segundos      |     No    |
+|Java     |    230 segundos     |     No    |
 |C     | 240 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python   | 60 segundos |  Não   |
+|Python   | 60 segundos |  No   |
 
 Seguindo a [especificação MQTT,](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)o intervalo de ping do IoT Hub é 1,5 vezes o valor de manter vivo o cliente. No entanto, o IoT Hub limita o tempo limite máximo do servidor para 29,45 minutos (1767 segundos) porque todos os serviços Azure estão ligados ao tempo limite de marcha lenta TCP, que é de 29,45 minutos. 
 
@@ -151,6 +151,8 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    É fortemente recomendado incluir a versão api no campo. Caso contrário, pode causar comportamentos inesperados. 
+    
 * Para o campo **Palavra-Passe,** utilize um token SAS. O formato do token SAS é o mesmo que para os protocolos HTTPS e AMQP:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
@@ -317,7 +319,7 @@ O IoT Hub entrega mensagens com o **Nome Tópico,** `devices/{device_id}/message
 
 Nas mensagens nuvem-dispositivo, os valores no saco de propriedade são representados como na tabela seguinte:
 
-| Valor patrimonial | Representação | Descrição |
+| Valor patrimonial | Representação | Description |
 |----|----|----|
 | `null` | `key` | Apenas a chave aparece no saco da propriedade |
 | corda vazia | `key=` | A chave seguida por um sinal igual sem valor |

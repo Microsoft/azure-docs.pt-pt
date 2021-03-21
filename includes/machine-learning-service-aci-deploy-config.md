@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 4983c1e1e7f235fa7a5b748a0ce5b1c79176c849
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102511128"
 ---
 As entradas no mapa do `deploymentconfig.json` documento aos parâmetros para [AciWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration). A tabela a seguir descreve o mapeamento entre as entidades do documento JSON e os parâmetros para o método:
 
-| Entidade JSON | Parâmetro do método | Descrição |
+| Entidade JSON | Parâmetro do método | Description |
 | ----- | ----- | ----- |
 | `computeType` | ND | O destino de computação. Para a ACI, o valor deve `ACI` ser. |
 | `containerResourceRequirements` | ND | Contentor para a CPU e entidades de memória. |

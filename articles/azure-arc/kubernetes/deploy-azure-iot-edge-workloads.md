@@ -9,15 +9,15 @@ ms.author: mlearned
 description: Implementar cargas de trabalho de borda IoTure Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.openlocfilehash: e77446170e5a6adac995394d66640fd183f453b8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121733"
 ---
 # <a name="deploy-azure-iot-edge-workloads"></a>Implementar cargas de trabalho de borda IoTure Azure
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Azure Arc e Azure IoT Edge complementam facilmente as capacidades uns dos outros. 
 

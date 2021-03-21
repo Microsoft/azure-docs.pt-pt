@@ -10,10 +10,10 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: 3ab861caca0ef6f58c2c1bc722412774deb725ce
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936678"
 ---
 # <a name="tutorial-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Tutorial: Pré-requisitos para a utilização de Serviços Cognitivos em Azure Synapse Analytics
@@ -77,9 +77,9 @@ Pode criar um recurso [de Detetor de Anomalias](https://ms.portal.azure.com/#cre
 
 Está agora pronto para continuar com um dos tutoriais para usar a experiência Azure Cognitive Services no Azure Synapse Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Análise de sentimento com serviços cognitivos Azure](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Deteção de anomalias com serviços cognitivos Azure](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Modelo de machine learning pontuação em Azure Synapse dedicada SQL Pools](tutorial-sql-pool-model-scoring-wizard.md).
-- [Capacidades de aprendizagem automática em Azure Synapse Analytics](what-is-machine-learning.md)
+- [Capacidades de Machine Learning no Azure Synapse Analytics](what-is-machine-learning.md)
