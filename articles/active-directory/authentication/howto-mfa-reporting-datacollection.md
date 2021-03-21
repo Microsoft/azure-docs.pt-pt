@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742798"
 ---
 # <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Recolha de dados de autenticação multi-factor Azure AD
@@ -26,11 +26,11 @@ Este documento explica como encontrar informações do utilizador recolhidas pel
 
 ## <a name="information-collected"></a>Informação recolhida
 
-O MFA Server, a Extensão NPS e o Adaptador AD AD FS AD AD AD AD Azure Ad FS recolhem e armazenam as seguintes informações durante 90 dias.
+O MFA Server, a Extensão NPS e o Adaptador AD AD FS AD Azure Ad FS recolhem e armazenam as seguintes informações durante 90 dias.
 
 Tentativas de autenticação (utilizadas para reportar e resolver problemas):
 
-- Timestamp
+- CarimboDeDataEHora
 - Nome de utilizador
 - Nome Próprio
 - Apelido
@@ -58,20 +58,20 @@ Tentativas de autenticação (utilizadas para reportar e resolver problemas):
 - Resultado Global
 - Resultados
 - Autenticado
-- Result
+- Resultado
 - Endereço IP iniciador
 - Dispositivos
 - Token do dispositivo
 - Tipo de Dispositivo
 - Versão de aplicativo móvel
 - Versão do SO
-- Result
+- Resultado
 - Verificação usada para notificação
 
 Ativações (tentativas de ativar uma conta na aplicação móvel Microsoft Authenticator):
 - Nome de utilizador
 - Nome da Conta
-- Timestamp
+- CarimboDeDataEHora
 - Obtenha resultado do código de ativação
 - Ativar o sucesso
 - Ativar erro

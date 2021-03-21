@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 7e02bfb295460797edf46eac57afa628cd1544be
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212931"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação Azure Spring Cloud
@@ -45,7 +45,7 @@ Para criar um Cofre de Chaves, utilize o teclado de comando [az create](/cli/azu
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Tome nota da devolvida `vaultUri` , que estará no formato "https://<o seu nome keyvault>.vault.azure.net". Será usado no passo seguinte.
+Tome nota do devolvido `vaultUri` , que estará no formato "https://<o seu nome de keyvault>.vault.azure.net". Será usado no passo seguinte.
 
 Agora pode colocar um segredo no seu Cofre de Chaves com o conjunto secreto de comando [az keyvault](/cli/azure/keyvault/secret#az-keyvault-secret-set):
 
@@ -165,7 +165,7 @@ Esta aplicação terá acesso para obter segredos do Azure Key Vault. Utilize a 
     curl https://myspringcloud-springapp.azuremicroservices.io/get
     ```
 
-    Verá a mensagem "Obteve com sucesso o valor da conexão secreta A partir de Key Vault https://<o seu nome keyvault>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;".
+    Verá a mensagem "Obteve com sucesso o valor da conexão secreta A partir de Key Vault https://<o seu nome de keyvault>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;".
 
 ## <a name="build-sample-spring-boot-app-with-java-sdk"></a>Construa a aplicação De Boot de primavera de amostra com Java SDK
 
@@ -218,7 +218,7 @@ A biblioteca de clientes Azure Key Vault Secret permite-lhe armazenar e controla
     curl https://myspringcloud-springapp.azuremicroservices.io/secrets/connectionString
     ```
 
-    Verá a mensagem "Obteve com sucesso o valor da conexão secreta A partir de Key Vault https://<o seu nome keyvault>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;".
+    Verá a mensagem "Obteve com sucesso o valor da conexão secreta A partir de Key Vault https://<o seu nome de keyvault>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;".
 
     Agora cria um segredo e depois recupera-o usando o SDK Java. 
     ```azurecli
@@ -227,7 +227,7 @@ A biblioteca de clientes Azure Key Vault Secret permite-lhe armazenar e controla
     curl https://myspringcloud-springapp.azuremicroservices.io/secrets/test
     ```
 
-    Você verá a mensagem "Conseguiu o valor do teste secreto do Key Vault https://<o seu nome keyvault>.vault.azure.net: sucesso". 
+    Você verá a mensagem "Conseguiu o valor do teste secreto do Key Vault https://<o seu nome de keyvault>.vault.azure.net: sucesso". 
 
 ## <a name="next-steps"></a>Passos seguintes
 

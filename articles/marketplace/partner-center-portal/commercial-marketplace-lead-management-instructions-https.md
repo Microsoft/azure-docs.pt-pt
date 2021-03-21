@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
 ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98247187"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utilize um ponto final HTTPS para gerir os leads de marketplace comercial
@@ -160,7 +160,7 @@ Este artigo explica como criar um novo fluxo no Power Automamate para gerar o UR
 1. No separador **Ações,** selecione **Enviar um e-mail (Office 365 Outlook)**.
 
     >[!NOTE]
-    >Se quiser utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo 200.
+    >Se quiser utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo Enviar por email o artigo Enviar por email o artigo 200.
 
     ![Adicione uma ação de e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 

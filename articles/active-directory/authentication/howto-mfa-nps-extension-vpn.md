@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c4c5c4e632943ebbe68003f663aebbeaab9ebaf
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743450"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integre a sua infraestrutura VPN com Azure AD MFA utilizando a extensão do Servidor de Política de Rede para O Azure
@@ -350,7 +350,7 @@ A extensão NPS deve ser instalada num servidor que tenha a função de Polític
 
     ![A janela "Extensão NPS para Azure AD MFA Setup"](./media/howto-mfa-nps-extension-vpn/image36.png)
 
-5. Na **extensão NPS para a janela de configuração AD AD AD,** selecione **Fechar**.  
+5. Na **extensão NPS para a janela de configuração AD** , selecione **Fechar**.  
 
     ![A janela de confirmação "Setup Successful"](./media/howto-mfa-nps-extension-vpn/image37.png)
 

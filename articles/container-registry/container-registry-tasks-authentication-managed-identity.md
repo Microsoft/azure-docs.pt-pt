@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: 8f2749a18a5ac6aed0822553d59beaacc9060228
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915952"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Utilize uma identidade gerida pelo Azure em Tarefas ACR 
@@ -131,7 +131,7 @@ Pode obter a identificação do cliente da identidade, executando o comando [de 
 
 Depois de configurar uma tarefa com uma identidade gerida, executar a tarefa. Por exemplo, para testar uma das tarefas criadas neste artigo, desencadeie-a manualmente utilizando o comando de execução de [tarefas az acr.][az-acr-task-run] Se configurar gatilhos de tarefas adicionais e automatizados, a tarefa é executada quando ativada automaticamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ativar e a utilizar uma identidade gerida atribuída pelo utilizador ou atribuída ao sistema numa tarefa ACR. Para cenários de acesso a recursos seguros a partir de uma tarefa ACR utilizando uma identidade gerida, consulte:
 

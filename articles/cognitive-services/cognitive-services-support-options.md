@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
 ms.openlocfilehash: dbfe4a44f359f8db59ae80e04aae57164d0ccaf7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101736853"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services apoia e ajuda opções
@@ -46,7 +46,7 @@ Se não conseguir encontrar uma resposta para o seu problema usando a pesquisa, 
 * [Reconhecedor de Formato](/answers/topics/azure-form-recognizer.html)
 * [Video Indexer](/answers/topics/azure-media-services.html)
 
-**Idioma**
+**Linguagem**
 
 * [Leitura Avançada](/answers/topics/azure-immersive-reader.html)
 * [Compreensão de Idiomas (LUIS)](/answers/topics/azure-language-understanding.html)
@@ -86,7 +86,7 @@ Se submeter uma nova pergunta ao Stack Overflow, utilize uma ou mais das seguint
 * [Reconhecedor de Formato](https://stackoverflow.com/search?q=azure+form+recognizer)
 * [Video Indexer](https://stackoverflow.com/search?q=azure+video+indexer)
 
-**Idioma**
+**Linguagem**
 
 * [Leitura Avançada](https://stackoverflow.com/search?q=azure+immersive+reader)
 * [Compreensão de Idiomas (LUIS)](https://stackoverflow.com/search?q=azure+luis+language+understanding)
@@ -123,7 +123,7 @@ Para solicitar novas funcionalidades, publique-as no UserVoice. Partilhe as suas
 * [Reconhecedor de Formato](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
 * [Video Indexer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
 
-**Idioma**
+**Linguagem**
 
 * [Leitura Avançada](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
 * [Compreensão de Idiomas (LUIS)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)

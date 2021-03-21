@@ -10,10 +10,10 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 7462c78ecad718c30980a98ff7659a2a4d2ea020
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222161"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Quickstart: Ligue-se à Ligação Sinapse Azure para Azure Cosmos DB
@@ -41,16 +41,16 @@ A ligação de uma base de dados DB Azure Cosmos é feita como serviço ligado. 
 
 A partir do Data Object Explorer, pode ligar diretamente uma base de dados DB Azure Cosmos, fazendo os seguintes passos:
 
-1. Selecione * *_+_* _ ícone perto de Dados
-2. Selecione _ *Conecte-se a dados externos**
+1. Selecione ***+*** ícone perto de Dados
+2. Selecione **Ligar aos dados externos**
 3. Selecione a API a que pretende ligar: SQL ou MongoDB
-4. Selecione **_Continue_* _
+4. Selecione ***Continuar***
 5. Diga o nome do serviço ligado. O nome será apresentado no Object Explorer e utilizado pela Synapse para ligar à base de dados e aos contentores. Recomendamos a utilização de um nome amigável.
-6. Selecione o nome da *conta _ Cosmos DB** e **nome da base de dados**
+6. Selecione o nome da conta e **nome da base de dados** **cosmos DB**
 7. (Opcional) Se nenhuma região for especificada, as operações de tempo de execução da Synapse serão encaminhadas para a região mais próxima, onde a loja analítica está ativada. No entanto, pode definir manualmente qual a região a que os seus utilizadores pretendem aceder à loja analítica Cosmos DB. Selecione **propriedades de ligação adicionais** e, em seguida, **Nova**. Em **Nome da Propriedade,** escreva **_As Regiões Preferenciais_ _ e *descreva o valor _*** para a região desejada (exemplo: WestUS2, não há espaço entre palavras e números)
-8. Selecione **_Criar_* _
+8. Selecione ***Criar***
 
-As bases de dados DB do Azure Cosmos são visíveis no separador _ *Ligado** na secção DB do Azure Cosmos. Pode diferenciar um recipiente DB Azure Cosmos ativado ativado por HTAP a partir de um recipiente OLTP apenas com os seguintes ícones:
+As bases de dados DB do Azure Cosmos são visíveis no separador **Ligado** na secção DB do Azure Cosmos. Pode diferenciar um recipiente DB Azure Cosmos ativado ativado por HTAP a partir de um recipiente OLTP apenas com os seguintes ícones:
 
 **Recipiente de sinapse:**
 

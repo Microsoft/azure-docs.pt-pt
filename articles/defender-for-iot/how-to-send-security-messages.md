@@ -15,10 +15,10 @@ ms.date: 2/8/2021
 ms.author: shhazam
 ms.custom: devx-track-js
 ms.openlocfilehash: d59121f2dbae208ba045a9c2e6d66245296537a0
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99820692"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança SDK

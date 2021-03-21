@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
 ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841466"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configure Sempre Encriptado usando o Cofre da Chave Azure 
@@ -124,7 +124,7 @@ Nesta secção, irá criar uma tabela para conter os dados do paciente. Não est
 
 1. Expandir **bases de dados.**
 2. Clique com o botão direito na base de dados e clique em **Nova Consulta.**
-3. Cole o seguinte Transact-SQL (T-SQL) na nova **Execute** janela de consulta e execute-a.
+3. Cole o seguinte Transact-SQL (T-SQL) na nova  janela de consulta e execute-a.
 
 ```sql
 CREATE TABLE [dbo].[Patients](
@@ -146,7 +146,7 @@ GO
 
 O SSMS fornece um assistente que o ajuda a configurar facilmente Sempre Encriptado, configurando a chave principal da coluna, a chave de encriptação da coluna e colunas encriptadas para si.
 
-1. Expandir **tabelas clínicas de bases de**  >  **Clinic**  >  **dados.**
+1. Expandir **tabelas clínicas de bases de**  >    >  **dados.**
 2. Clique com o botão direito na tabela **'Pacientes'** e **selecione Encrypt Columns** para abrir o assistente sempre encriptado:
 
     ![Screenshot que destaca as Colunas encriptadas... opção menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
@@ -193,7 +193,7 @@ Depois de terminado o assistente, a sua base de dados é configurada para "Alway
 - Criei uma chave de encriptação de colunas e guardou-a no Cofre da Chave Azure.
 - Configurar as colunas selecionadas para encriptação. A tabela Pacientes não tem dados, mas quaisquer dados existentes nas colunas selecionadas estão agora encriptados.
 
-Pode verificar a criação das chaves no SSMS expandindo as chaves sempre **Clinic**  >  **Security**  >  **encriptadas** da Clinic Security .
+Pode verificar a criação das chaves no SSMS expandindo as chaves sempre   >    >  **encriptadas** da Clinic Security .
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Criar uma aplicação de cliente que funcione com os dados encriptados
 
@@ -266,7 +266,7 @@ Esta amostra demonstra como:
 - Insira os dados nas colunas encriptadas.
 - Selecione um registo filtrando um valor específico numa coluna encriptada.
 
-Substitua o conteúdo da *Program.cs* pelo seguinte código. Substitua a cadeia de ligação para a variável de ligação global Adceding na linha que precede diretamente o método Principal com a sua cadeia de ligação válida a partir do portal Azure. Esta é a única mudança que precisa fazer a este código.
+Substitua o conteúdo do *Programa.cs* pelo seguinte código. Substitua a cadeia de ligação para a variável de ligação global Adceding na linha que precede diretamente o método Principal com a sua cadeia de ligação válida a partir do portal Azure. Esta é a única mudança que precisa fazer a este código.
 
 Execute a aplicação para ver Always Encrypted em ação.
 

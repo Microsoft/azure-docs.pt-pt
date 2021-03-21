@@ -4,10 +4,10 @@ description: Faça fila com uma tarefa ACR para construir uma imagem usando um m
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916070"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Executar tarefas ACR usando modelos de gestor de recursos
@@ -233,7 +233,7 @@ basetask
 
 Para visualizar o registo de execução, consulte os passos na [secção anterior](#view-run-log).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * Veja mais exemplos de modelo no [repo ACR GitHub](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment).
  * Para obter detalhes sobre as propriedades do modelo, consulte a referência do modelo para execuções de [tarefas](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/taskruns) e [tarefas](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/tasks).

@@ -7,10 +7,10 @@ ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: bafebcc54e4cbde87e8deb776eff227fc99035cc
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98623859"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutorial: Construir uma aplicação ASP.NET de base de dados core e Azure SQL em Azure App Service
@@ -29,7 +29,7 @@ ms.locfileid: "98623859"
 
 ![aplicação em execução no Serviço de Aplicações](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma Base de Dados SQL no Azure
@@ -462,7 +462,7 @@ Enquanto a aplicação core ASP.NET é executada no Azure App Service, pode obte
 O projeto da amostra já segue a orientação em [ASP.NET Core Logging in Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) com duas alterações de configuração:
 
 - Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` *DotNetCoreSqlDb.csproj*.
-- Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` em *Program.cs.*
+- Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` no *Programa.cs*. .
 
 Para definir o [nível](/aspnet/core/fundamentals/logging#log-level) de registo de ASP.NET Core no Serviço de Aplicações para `Information` a partir do nível predefinido, `Error` utilize o comando na Cloud [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) Shell.
 

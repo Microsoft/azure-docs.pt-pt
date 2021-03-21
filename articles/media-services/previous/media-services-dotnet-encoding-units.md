@@ -17,10 +17,10 @@ ms.author: inhenkel
 ms.reviewer: milangada
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6feb28858271f11bef0933a352f86d7545ee5bd3
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014082"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o .NET SDK
@@ -36,7 +36,7 @@ ms.locfileid: "103014082"
 > 
 > 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 > [!IMPORTANT]
 > Certifique-se de rever a [Visão Geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o processamento de mídia de escala.
 > 

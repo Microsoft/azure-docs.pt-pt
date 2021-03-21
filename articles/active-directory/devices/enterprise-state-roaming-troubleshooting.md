@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94837214"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas das configurações do roaming do estado da empresa no Diretório Ativo do Azure
@@ -54,7 +54,7 @@ Esta secção dá sugestões sobre como resolver problemas e diagnosticar proble
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Verifique a sincronização e a página de definições "Sincronizar as definições" 
 
-1. Depois de juntar o seu PC do Windows 10 a um domínio configurado para permitir o Roaming do Estado da Empresa, inscreva-se na sua conta de trabalho. Vá a **Definições**  >  **Accounts**  >  **Sync As Suas Definições** e confirme que a sincronização e as definições individuais estão acesas, e que o topo da página de definições indica que está a sincronizar com a sua conta de trabalho. Confirme que a mesma conta também é utilizada como conta de login em **Definições**  >  **Contas**  >  **O Seu Info**. 
+1. Depois de juntar o seu PC do Windows 10 a um domínio configurado para permitir o Roaming do Estado da Empresa, inscreva-se na sua conta de trabalho. Vá a **Definições**  >    >  **Sync As Suas Definições** e confirme que a sincronização e as definições individuais estão acesas, e que o topo da página de definições indica que está a sincronizar com a sua conta de trabalho. Confirme que a mesma conta também é utilizada como conta de login em **Definições**  >  **Contas**  >  **O Seu Info**. 
 1. Verifique se a sincronização funciona em várias máquinas, fazendo algumas alterações na máquina original, tais como mover a barra de tarefas para o lado direito ou superior do ecrã. Observe a mudança propagar-se para a segunda máquina dentro de cinco minutos. 
 
    * Bloquear e desbloquear o ecrã (Win + L) pode ajudar a desencadear uma sincronização.
@@ -156,7 +156,7 @@ Ligue o dispositivo a uma rede corporativa para que a sincronização possa ser 
 Se o utilizador tiver uma UPN de caixa mista (por exemplo, Nome do Utilizador em vez de nome de utilizador) e o utilizador estiver num dispositivo AZure AD Joined, que foi atualizado do Windows 10 Build 10586 para 14393, o dispositivo do utilizador pode não sincronizar. 
 
 **Ação recomendada**  
-O utilizador terá de se juntar e voltar a juntar o dispositivo à nuvem. Para isso, inicie sessão como utilizador do Administrador Local e desacose o dispositivo indo para o Sistema **de Definições**  >  **System**  >  **Sobre** e selecione "Gerir ou desligar do trabalho ou da escola". Limpe os ficheiros abaixo e, em seguida, Azure AD Junte o dispositivo novamente no Sistema **de Definições**  >  **System**  >  **Sobre** e selecione "Connect to Work or School". Continue a juntar o dispositivo ao Azure Ative Directory e complete o fluxo.
+O utilizador terá de se juntar e voltar a juntar o dispositivo à nuvem. Para isso, inicie sessão como utilizador do Administrador Local e desacose o dispositivo indo para o Sistema **de Definições**  >    >  **Sobre** e selecione "Gerir ou desligar do trabalho ou da escola". Limpe os ficheiros abaixo e, em seguida, Azure AD Junte o dispositivo novamente no Sistema **de Definições**  >    >  **Sobre** e selecione "Connect to Work or School". Continue a juntar o dispositivo ao Azure Ative Directory e complete o fluxo.
 
 Na etapa de limpeza, limpe os seguintes ficheiros:
 - Configurações.dat em `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
@@ -173,9 +173,9 @@ No primeiro caso, tenha o utilizador a atualizar as suas credenciais e faça log
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID do evento 1098: Erro: 0xCAA5001C Operação de corretor de token falhou  
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID do evento 1098: Erro: 0xCAA5001C operação de corretor token falhou  
 
-No Visualizador de Eventos sob os registos AAD/Operacional, este erro pode ser visto com o Evento 1104: AAD Cloud AP plugin call Get token return error: 0xC00005F. Este problema ocorre se houver permissões em falta ou atributos de propriedade.  
+No Visualizador de Eventos sob os registos AAD/Operacional, este erro pode ser visto com o Evento 1104: AAD Cloud AP call Get token return error: 0xC000005F. Este problema ocorre se houver permissões em falta ou atributos de propriedade.  
 
 **Ação recomendada**  
 Prossiga com os passos listados [KB3196528](https://support.microsoft.com/kb/3196528).  

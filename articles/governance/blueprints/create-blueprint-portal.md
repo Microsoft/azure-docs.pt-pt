@@ -4,10 +4,10 @@ description: Neste arranque rápido, você usa Azure Blueprints para criar, defi
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 75a4e9deca4859ac8b9f302fcb62ecc1d12dd8c9
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918335"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Definir e atribuir uma planta no portal
@@ -206,7 +206,7 @@ Depois de publicado um projeto, pode ser atribuído a uma subscrição. Atribua 
 
 1. Na página **de blueprint 'Atribuir',** na lista de entrega de **assinaturas,** selecione as subscrições para as quais pretende implementar esta planta.
 
-   Se houver ofertas empresariais suportadas disponíveis a partir de [Azure Billing,](../../cost-management-billing/index.yml)um novo link **Create** é ativado na caixa **de Subscrição.** Siga estes passos.
+   Se houver ofertas empresariais suportadas disponíveis a partir de [Azure Billing,](../../cost-management-billing/index.yml)um novo link **Create** é ativado na caixa **de Subscrição.** Siga estes passos:
 
    1. Selecione o novo link **Criar** uma nova subscrição em vez de selecionar as existentes.
 
@@ -291,7 +291,7 @@ Se já não precisar de uma atribuição de planta, remova-a de uma subscrição
 > A eliminação de uma planta neste método também elimina todas as versões publicadas da planta selecionada.
 > Para eliminar uma única versão, abra a planta, selecione o separador **versões Publicado,** selecione a versão que pretende eliminar e, em seguida, **selecione Eliminar Esta Versão**. Além disso, não podes apagar uma planta até teres apagado toda a definição de planta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o portal Azure. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 01/16/2021
 ms.author: allensu
 ms.openlocfilehash: 8901dffb752409acd7fb08a2025bed9a4cc70132
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98539477"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Restringir o conteúdo do Azure CDN por país/região
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Quando um utilizador solicita o seu conteúdo, o conteúdo é servido aos utilizadores em todos os locais. Pode pretender restringir o acesso ao seu conteúdo por país/região. 
 
 Com a *função de geo-filtragem,* pode criar regras sobre caminhos específicos no seu ponto final CDN. Pode definir as regras para permitir ou bloquear conteúdos em países/regiões selecionados.
@@ -67,7 +67,7 @@ Depois de ter terminado a seleção dos países/regiões, **selecione Guardar** 
 
 ![A screenshot mostra códigos de país para usar para bloquear ou permitir países ou regiões.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar uma regra, selecione-a da lista na página **de geo-filtragem** e, em seguida, escolha **Eliminar**.
 
@@ -95,7 +95,7 @@ Para **o Azure CDN Premium dos** perfis Verizon, a interface do utilizador para 
     
     :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium-rules.png" alt-text="A screenshot mostra onde a regra aparece na filtragem do país." border="true":::
  
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Na tabela de regras de filtragem país/região, selecione o ícone de eliminação ao lado de uma regra para eliminá-lo ou o ícone de edição para modificá-lo.
 
 ## <a name="considerations"></a>Considerações

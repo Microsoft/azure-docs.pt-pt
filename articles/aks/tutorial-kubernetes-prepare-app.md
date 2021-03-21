@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc
 ms.openlocfilehash: 349bf90ea0b344d5232c885358814f39fba4c19f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98251964"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar uma aplicação para o Azure Kubernetes Service (AKS)
@@ -27,7 +27,7 @@ Depois de concluída, a aplicação seguinte é executada no seu ambiente de des
 
 Em tutoriais posteriores, a imagem do contentor é enviada para um registo de contentores Azure, e depois implantada num cluster AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos do `docker`. Para obter noções básicas sobre os contentores, veja [Introdução ao Docker][docker-get-started].
 
@@ -119,7 +119,7 @@ Para ver a aplicação em execução, introduza `http://localhost:8080` num nave
 
 :::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Screenshot mostrando a imagem do contentor Azure Vote App que funciona localmente aberto em um navegador web local" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que a funcionalidade da aplicação foi validada, os contentores em execução podem ser parados e removidos. ***Não apague as imagens do recipiente** _ - no tutor seguinte, a imagem _azure-vote-front* é enviada para uma instância do Registo do Contentor de Azure.
 

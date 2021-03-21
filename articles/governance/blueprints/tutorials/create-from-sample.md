@@ -4,10 +4,10 @@ description: Neste tutorial, você usa uma amostra de planta para criar uma defi
 ms.date: 01/27/2021
 ms.topic: tutorial
 ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915561"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de uma amostra de planta
@@ -181,7 +181,7 @@ Quando terminar com este tutorial, elimine os seguintes recursos:
 - Grupo de recursos _Pré-ProduçãoRG_
 - Definição de _planta dois rgs-com-função-atribuições_
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar uma nova planta a partir de uma definição de amostra. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

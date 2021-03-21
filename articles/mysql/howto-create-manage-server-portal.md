@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 1/26/2021
 ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897990"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerir uma base de dados Azure para servidor MySQL utilizando o portal Azure
@@ -90,7 +90,7 @@ Pode alterar a palavra-passe da função do administrador utilizando o portal Az
  
 
 > [!IMPORTANT]
-> A redefinição da palavra-passe de administração do servidor irá redefinir automaticamente os privilégios de administração do servidor para o predefinimento. Considere redefinir a palavra-passe de administração do servidor se revogou acidentalmente um ou mais privilégios de administração do servidor.
+> A reposição da palavra-passe de administrador do servidor reporá automaticamente os privilégios de administrador do servidor para a predefinição. Considere redefinir a palavra-passe de administração do servidor se revogou acidentalmente um ou mais privilégios de administração do servidor.
    
 > [!NOTE]
 > O utilizador de administração do servidor tem os seguintes privilégios por predefinição: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, CREATE USER, EVENT, TRIGGER

@@ -7,10 +7,10 @@ ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 097c97d16cf62793d03ac42662267e0553383bc1
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98539620"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas do cliente de ambiente de trabalho remoto
@@ -93,7 +93,7 @@ Se o feed do cliente do Windows não mostrar aplicações virtual desktop (clás
 
 Se não conseguir encontrar a aplicação ID 9cdead84-a844-4324-93f2-b2e6bb768d07 na lista, terá de registar o fornecedor de recursos virtual desktop do Windows. Para registar o fornecedor de recursos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Vá à **Subscrição** e, em seguida, selecione a sua subscrição.
 3. No menu do lado esquerdo da página, selecione **Fornecedor de Recursos**.
 4. Localizar e selecionar **Microsoft.DesktopVirtualization** e, em seguida, selecionar **Re-registrar**.

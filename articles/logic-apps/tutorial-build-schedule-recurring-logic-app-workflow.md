@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
 ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99054064"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho de automatização baseados em horários e recorrentes com apps Azure Logic
@@ -151,7 +151,7 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
 1. Na ação, abra a **nova lista de parâmetros Add** e selecione estas propriedades.
 
-   * **Otimização**
+   * **Otimizar**
    * **Distance unit**
    * **Travel mode**
 
@@ -165,7 +165,7 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
    |----------|----------|-------|-------------|
    | **Waypoint 1** | Yes | <*localização inicial*> | A origem da sua rota. Este exemplo especifica um endereço inicial de exemplo. |
    | **Waypoint 2** | Yes | <*localização final*> | O destino da sua rota. Este exemplo especifica um endereço de destino exemplo. |
-   | **Otimização** | No | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o valor do parâmetro, **timeWithTraffic**. |
+   | **Otimizar** | No | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o valor do parâmetro, **timeWithTraffic**. |
    | **Distance unit** | No | <*sua preferência*> | A unidade de distância do percurso. Este exemplo usa **Mile** como unidade. |
    | **Travel mode** | No | Driving | O modo de deslocação para o percurso. Selecione o modo **de condução.** |
    |||||

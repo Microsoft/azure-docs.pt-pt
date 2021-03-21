@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: b30e08a2739000d2a7ec14a95742f2654e1d2ea1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916239"
 ---
 # <a name="harden-your-docker-hosts"></a>Proteger os anfitriões do Docker
@@ -61,7 +61,7 @@ Quando as vulnerabilidades são encontradas, são agrupadas dentro de uma única
 1. Quando tiver a certeza de que o comando é adequado e pronto para o seu anfitrião, selecione **Run**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O endurecimento do Docker é apenas um aspeto das funcionalidades de segurança do Centro de Segurança. 
 

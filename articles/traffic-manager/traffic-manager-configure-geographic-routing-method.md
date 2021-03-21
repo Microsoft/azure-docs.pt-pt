@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 29b3cdde328a994e5806df810db15b529a6da9af
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96188671"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configurar o método de encaminhamento de tráfego geográfico usando o Gestor de Tráfego
 
 O método de encaminhamento de tráfego geográfico permite-lhe direcionar o tráfego para pontos finais específicos com base na localização geográfica de onde os pedidos são originários. Este tutorial mostra-lhe como criar um perfil de Gestor de Tráfego com este método de encaminhamento e configurar os pontos finais para receber tráfego de geografias específicas.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > - Crie um perfil de Gestor de Tráfego com encaminhamento geográfico.
 > - Configurar um ponto final aninhado.
@@ -95,7 +95,7 @@ Neste tutorial, vai aprender a:
 
     :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Visão geral do Gestor de Tráfego Geográfico":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar do perfil do Gestor de Tráfego, localize o perfil e selecione **Excluir o perfil**.
 

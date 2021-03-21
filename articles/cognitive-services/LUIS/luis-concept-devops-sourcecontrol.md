@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932515"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
@@ -211,7 +211,7 @@ Quando estiver a trabalhar com uma aplicação LUIS 'dev branch' que criou para 
 
 Quando as alterações no seu PR são fundidas em principal, é quando a versão deve ser aplicada, de modo que todas as atualizações para o principal são versadas de forma independente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais [sobre testes para LUIS DevOps](luis-concept-devops-testing.md)
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)

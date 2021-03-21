@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 3126cbf4f9d87e9baa7267e309210b751a47069d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897803"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de eventos ao vivo
@@ -130,6 +130,6 @@ Por exemplo, se enviar um feed de contribuição a 720p para um Evento Ao Vivo c
 
 O codificante ao vivo está configurado para honrar as definições de bitrate na predefinição, independentemente do bitrate do feed de contribuição. Como resultado, o bitrate das camadas de saída pode exceder a do alimento para a contribuição. Por exemplo, se enviar um feed de contribuição com uma resolução de 720p a 1 Mbps, as camadas de saída permanecerão as mesmas que na [tabela](live-event-types-comparison.md#output-video-streams-for-default720p) acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral do streaming ao vivo](live-streaming-overview.md)

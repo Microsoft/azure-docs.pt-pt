@@ -11,10 +11,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 0abda0307e3cdbd0e73e131bee072172375198eb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898058"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um espaço de trabalho de tradutor personalizado?
@@ -45,6 +45,6 @@ Por exemplo, se quisesse permitir traduções no domínio tecnológico do inglê
 
 Se você é um prestador de serviços linguísticos e quer servir vários clientes com diferentes modelos que mantêm a mesma categoria e par de idiomas, então usar um rótulo de projeto para diferenciar entre clientes seria uma decisão sábia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre [Formação e modelo](training-and-model.md) para saber, como construir eficientemente um modelo de tradução.

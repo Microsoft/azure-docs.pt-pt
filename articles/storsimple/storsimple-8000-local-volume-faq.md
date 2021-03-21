@@ -1,5 +1,5 @@
 ---
-title: StorSimple volumes fixados localmente FAQ / Microsoft Docs
+title: StorSimple volumes fixados localmente FAQ| Microsoft Docs
 description: Fornece respostas a perguntas frequentes sobre volumes fixados localmente pela StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002719"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple volumes fixados localmente: perguntas frequentes (FAQ)

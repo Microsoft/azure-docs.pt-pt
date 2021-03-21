@@ -12,10 +12,10 @@ ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101689339"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: Desenvolver uma amostra scim ponto final
@@ -104,7 +104,7 @@ O código de validação por defeito é configurado para usar um token AD Azure 
 
 Depois de implantar o ponto final do SCIM, pode testar para garantir que está em conformidade com o SCIM RFC. Este exemplo fornece um conjunto de testes no Carteiro que validam operações CRUD (criar, ler, atualizar e excluir) operações em utilizadores e grupos, filtragem, atualizações para membros do grupo e utilizadores incapacitados.
 
-Os pontos finais estão no `{host}/scim/` diretório, e pode utilizar pedidos HTTP padrão para interagir com eles. Para modificar a `/scim/` rota, consulte *ControllerConstant.cs* nos Controladores ScimReferenceApi da **AzureADProvisioningSCIMreference**  >    >  .
+Os pontos finais estão no `{host}/scim/` diretório, e pode utilizar pedidos HTTP padrão para interagir com eles. Para modificar a `/scim/` rota, consulte *ControllerConstant.cs* em **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **Controllers**.
 
 > [!NOTE]
 > Só pode utilizar pontos finais HTTP para testes locais. O serviço de fornecimento de Azure AD requer que o seu suporte ao ponto final HTTPS.

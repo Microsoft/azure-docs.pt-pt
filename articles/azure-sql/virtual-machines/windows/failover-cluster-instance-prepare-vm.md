@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737800"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs Azure)
@@ -126,7 +126,7 @@ Também precisa de juntar as suas máquinas virtuais ao domínio. Pode fazê-lo 
 As máquinas virtuais criadas a partir do Azure Marketplace vêm com armazenamento anexo. Se planeia configurar o seu armazenamento FCI utilizando ações de ficheiros Premium ou discos partilhados Azure, pode remover o armazenamento anexado para economizar custos, uma vez que o armazenamento local não é utilizado para a instância de cluster failover. No entanto, é possível utilizar o armazenamento anexado para os espaços de armazenamento soluções FCI diretas, por isso removê-las neste caso pode não ser útil. Reveja a sua solução de armazenamento FCI para determinar se a remoção do armazenamento anexado é ótima para poupar custos. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que preparou o seu ambiente de máquina virtual, está pronto para configurar o seu caso de aglomerado de falhas. 
 

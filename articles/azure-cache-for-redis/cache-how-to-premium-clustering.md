@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: f1e84c838d310721cba604274388ae2767eb1502
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389676"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>Configurar o agrupamento Redis para uma Cache Premium Azure para a instância Redis
@@ -82,7 +82,7 @@ Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure 
 > 
 > 
 
-Para obter o código de amostra sobre o trabalho de agrupamento com o cliente StackExchange.Redis, consulte a [parte clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) da amostra [Hello World.](https://github.com/rustd/RedisSamples/tree/master/HelloWorld)
+Para obter o código de amostra sobre o trabalho de agrupamento com o cliente StackExchange.Redis, consulte o [agrupamento.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) porção da amostra [Hello World.](https://github.com/rustd/RedisSamples/tree/master/HelloWorld)
 
 <a name="cluster-size"></a>
 
@@ -135,7 +135,7 @@ Para melhor desempenho e produção, recomendamos distribuir as chaves uniformem
 
 Para obter mais informações, consulte [o modelo de distribuição keys,](https://redis.io/topics/cluster-spec#keys-distribution-model)o fragmento de [dados do Redis Cluster](https://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)e as [etiquetas de hash keys](https://redis.io/topics/cluster-spec#keys-hash-tags).
 
-Para obter o código de amostra sobre o trabalho com as chaves de agrupamento e localização no mesmo fragmento com o cliente StackExchange.Redis, consulte a parte [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) da amostra [Hello World.](https://github.com/rustd/RedisSamples/tree/master/HelloWorld)
+Para obter o código de amostra sobre o trabalho com as chaves de agrupamento e localização no mesmo fragmento com o cliente StackExchange.Redis, consulte o [agrupamento.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) porção da amostra [Hello World.](https://github.com/rustd/RedisSamples/tree/master/HelloWorld)
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>Qual é o maior tamanho de cache que posso criar?
 O maior tamanho de cache premium é de 120 GB. Pode criar até 10 fragmentos dando-lhe um tamanho máximo de 1,2TB GB. Se precisar de um tamanho maior, pode [solicitar mais.](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) Para mais informações, consulte [a Cache Azure para redis pricing](https://azure.microsoft.com/pricing/details/cache/).

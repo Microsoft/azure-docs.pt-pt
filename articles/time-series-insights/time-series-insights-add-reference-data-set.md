@@ -1,5 +1,5 @@
 ---
-title: Como adicionar conjuntos de dados de referência ao seu ambiente - Azure Time Series Insights Microsoft Docs
+title: Como adicionar conjuntos de dados de referência ao seu ambiente - Azure Time Series Insights | Microsoft Docs
 description: Este artigo descreve como adicionar um conjunto de dados de referência para aumentar os dados no seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001835"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Crie um conjunto de dados de referência para o seu ambiente Azure Time Series Insights Gen1 utilizando o portal Azure
@@ -77,7 +77,7 @@ Os dados de referência não são unidos retroativamente. Assim, apenas os dados
 
    [![Rever dados de referência](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Reveja cada coluna para entender o tipo de dados assumido e altere o tipo de dados se necessário.  Selecione o símbolo do tipo de dados no título da coluna: **#** para duplo (dados numéricos), **T/ F** para boolean, ou **Abc** para cordas.
+1. Reveja cada coluna para entender o tipo de dados assumido e altere o tipo de dados se necessário.  Selecione o símbolo do tipo de dados no título da coluna: **#** para duplo (dados numéricos), **T| F** para boolean, ou **Abc** para cordas.
 
    [![Escolha tipos de dados nas rubricas da coluna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
