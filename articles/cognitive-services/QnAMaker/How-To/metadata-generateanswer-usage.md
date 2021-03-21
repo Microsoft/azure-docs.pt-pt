@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232210"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>Obtenha uma resposta com a API GenerateAnswer

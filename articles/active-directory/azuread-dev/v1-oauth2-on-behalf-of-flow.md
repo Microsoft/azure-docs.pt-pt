@@ -1,5 +1,5 @@
 ---
-title: Autenticação de serviço-a-serviço com OAuth2.0 em nome do fluxo Microsoft Docs
+title: Autenticação de serviço-a-serviço com OAuth2.0 em nome do fluxo | Microsoft Docs
 description: Este artigo descreve como utilizar mensagens HTTP para implementar a autenticação de serviço-a-serviço com o fluxo OAuth2.0 On-Behalf-Of.
 services: active-directory
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88117741"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço para serviço que utilizam a identidade de utilizador delegada no fluxo On-Behalf-Of
@@ -105,13 +105,13 @@ O pedido do cliente é garantido por um segredo partilhado ou por um certificado
 
 Ao utilizar um segredo partilhado, um pedido de sinal de acesso de serviço contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo de pedido simbólico. Um pedido da OBO utiliza um JSON Web Token (JWT) pelo que o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
 | afirmação |obrigatório | O valor do token de acesso utilizado no pedido. |
 | client_id |obrigatório | O ID da aplicação atribuído ao serviço de chamadas durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
 | client_secret |obrigatório | A chave registada para o serviço de chamadas em Azure AD. Este valor deveria ter sido anotado no momento da inscrição. |
-| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições**e, em seguida, selecione **Propriedades**. |
+| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições** e, em seguida, selecione **Propriedades**. |
 | requested_token_use |obrigatório | Especifica como o pedido deve ser processado. No fluxo em nome do be, o valor deve ser **on_behalf_of**. |
 | scope |obrigatório | Uma lista de âmbitos separados para o pedido simbólico. Para o OpenID Connect, o **âmbito de abertura** deve ser especificado.|
 
@@ -139,14 +139,14 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Um pedido de sinal de acesso de serviço ao serviço com um certificado contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo de pedido simbólico. Um pedido da OBO utiliza um token de acesso JWT, pelo que o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
 | afirmação |obrigatório | O valor do símbolo utilizado no pedido. |
 | client_id |obrigatório | O ID da aplicação atribuído ao serviço de chamadas durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
 | client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |obrigatório | Um Token Web JSON que cria e assina com o certificado que registou como credenciais para a sua aplicação. Consulte  [as credenciais de certificado](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para saber sobre o formato de afirmação e sobre como registar o seu certificado.|
-| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições**e, em seguida, selecione **Propriedades**. |
+| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições** e, em seguida, selecione **Propriedades**. |
 | requested_token_use |obrigatório | Especifica como o pedido deve ser processado. No fluxo em nome do be, o valor deve ser **on_behalf_of**. |
 | scope |obrigatório | Uma lista de âmbitos separados para o pedido simbólico. Para o OpenID Connect, o **âmbito de abertura** deve ser especificado.|
 
@@ -249,13 +249,13 @@ Alguns serviços web baseados em OAuth precisam de aceder a outros APIs de servi
 
 Um pedido de serviço-a-serviço para uma afirmação SAML contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Tipo | Description |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo de pedido simbólico. Para um pedido que utilize um JWT, o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
 | afirmação |obrigatório | O valor do token de acesso utilizado no pedido.|
 | client_id |obrigatório | O ID da aplicação atribuído ao serviço de chamadas durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
 | client_secret |obrigatório | A chave registada para o serviço de chamadas em Azure AD. Este valor deveria ter sido anotado no momento da inscrição. |
-| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Este é o recurso que será o Público do símbolo DA SAML. Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições**e, em seguida, selecione **Propriedades**. |
+| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Este é o recurso que será o Público do símbolo DA SAML. Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições** e, em seguida, selecione **Propriedades**. |
 | requested_token_use |obrigatório | Especifica como o pedido deve ser processado. No fluxo em nome do be, o valor deve ser **on_behalf_of**. |
 | requested_token_type | obrigatório | Especifica o tipo de ficha solicitada. O valor pode ser **urna:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1** dependendo dos requisitos do recurso acedido. |
 

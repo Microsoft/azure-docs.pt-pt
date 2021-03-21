@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.openlocfilehash: c671d3989fa46fa7546ba042b9132e19d80265a1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020507"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador no Azure Stream Analytics
@@ -51,7 +51,7 @@ Quaisquer erros de tempo de execução são considerados fatais e são surgidos 
 
 Qualquer exceção durante o processamento de dados é considerada uma falha catastrófica ao consumir dados no Azure Stream Analytics. As funções definidas pelo utilizador têm um potencial maior para lançar exceções e fazer com que o processamento pare. Para evitar este problema, utilize um bloco *de capturas* em JavaScript ou C# para apanhar exceções durante a execução do código. As exceções que são capturadas podem ser registadas e tratadas sem causar uma falha no sistema. É encorajado a embrulhar sempre o seu código personalizado num bloco *de capturas* para evitar abrir exceções inesperadas ao motor de processamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Funções definidas pelo utilizador JavaScript no Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Azure Stream Analytics JavaScript agregados definidos pelo utilizador](stream-analytics-javascript-user-defined-aggregates.md)

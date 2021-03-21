@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 11/27/2020
 ms.openlocfilehash: 6876cf1e5044246492e249d8a61060cbeac46f96
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98217962"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>Aplicar atualizações de segurança aos nós do Serviço Azure Kubernetes (AKS) utilizando automaticamente as ações do GitHub
@@ -29,7 +29,7 @@ Este processo é melhor do que atualizar os núcleos baseados em Linux manualmen
 
 Este artigo mostra-lhe como pode automatizar o processo de atualização dos nós AKS. Utilizará As ações do GitHub e o Azure CLI para criar uma tarefa de atualização baseada na `cron` que funciona automaticamente.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

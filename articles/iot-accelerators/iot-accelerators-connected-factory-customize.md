@@ -1,5 +1,5 @@
 ---
-title: Personalize a solução De Fábrica Conectada - Azure / Microsoft Docs
+title: Personalize a solução de Fábrica Conectada - Azure | Microsoft Docs
 description: Uma descrição de como personalizar o comportamento do acelerador de solução Connected Factory.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011205"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalize como a solução De Fábrica Conectada exibe dados dos seus servidores OPC UA
@@ -83,7 +83,7 @@ O repositório **de fábrica ligado a azul-iot** inclui um script **powerShellbu
 Saiba mais sobre o acelerador de solução Connected Factory lendo os seguintes artigos:
 
 * [Permissões no site azureiotsolutions.com][lnk-permissions]
-* [FAQ de fábrica conectada](iot-accelerators-faq-cf.md)
+* [FAQ de Fábrica Ligada](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
 
 

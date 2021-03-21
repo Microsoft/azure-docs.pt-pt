@@ -11,10 +11,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: security-recommendations
 ms.openlocfilehash: db0e033adf553c25c6b7b401f8d0df1a2cd5995f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97592165"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendações de segurança para armazenamento de filas
@@ -45,7 +45,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Tenha um plano de revogação em vigor para qualquer SAS que emite aos clientes | Se um SAS estiver comprometido, irá querer revogar o SAS o mais rapidamente possível. Para revogar uma delegação de utilizadores SAS, revogue a chave da delegação do utilizador para invalidar rapidamente todas as assinaturas associadas a essa chave. Para revogar um serviço SAS que esteja associado a uma política de acesso armazenada, pode eliminar a política de acesso armazenada, mudar o nome da apólice ou alterar o seu prazo de validade para um tempo que está no passado. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).  | - |
 | Se um serviço SAS não estiver associado a uma política de acesso armazenada, então decida o prazo de validade para uma hora ou menos | Um serviço SAS que não esteja associado a uma política de acesso armazenada não pode ser revogado. Por esta razão, recomenda-se a limitação do tempo de validade para que o SAS seja válido por uma hora ou menos. | - |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|

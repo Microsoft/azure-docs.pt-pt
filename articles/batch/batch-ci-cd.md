@@ -6,10 +6,10 @@ ms.author: chredd
 ms.date: 03/04/2021
 ms.topic: how-to
 ms.openlocfilehash: 7170044af58a508ff5a43751cc376f8b8d498444
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102435550"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize gasodutos Azure para construir e implementar soluções HPC

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001198"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar recipientes de estiva de linguagem 
@@ -28,14 +28,14 @@ Este recipiente tem as seguintes definições de configuração:
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|Sim|[ApiKey](#apikey-setting)|Usado para rastrear informação de faturação.|
-|Não|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](/azure/application-insights) ao seu recipiente.|
-|Sim|[Faturação](#billing-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
-|Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
-|Não|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|
-|Não|[Http Proxy](#http-proxy-credentials-settings)|Configure um representante HTTP para fazer pedidos de saída.|
-|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de registo de registo do núcleo para o seu recipiente. |
-|Sim|[Montes](#mount-settings)|Leia e escreva dados do computador anfitrião para o recipiente e do recipiente de volta ao computador anfitrião.|
+|Yes|[ApiKey](#apikey-setting)|Usado para rastrear informação de faturação.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](/azure/application-insights) ao seu recipiente.|
+|Yes|[Faturação](#billing-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
+|Yes|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
+|No|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|
+|No|[Http Proxy](#http-proxy-credentials-settings)|Configure um representante HTTP para fazer pedidos de saída.|
+|No|[Registo](#logging-settings)|Fornece ASP.NET suporte de registo de registo do núcleo para o seu recipiente. |
+|Yes|[Montes](#mount-settings)|Leia e escreva dados do computador anfitrião para o recipiente e do recipiente de volta ao computador anfitrião.|
 
 > [!IMPORTANT]
 > As [`ApiKey`](#apikey-setting) [`Billing`](#billing-setting) definições , e [`Eula`](#eula-setting) configurações são utilizadas em conjunto, e deve fornecer valores válidos para os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas configurações para instantaneaizar um recipiente, consulte [Billing](luis-container-howto.md#billing).
@@ -64,7 +64,7 @@ Esta definição pode ser encontrada nos seguintes locais:
 * Portal Azure: Visão geral **dos Serviços Cognitivos,** rotulada `Endpoint`
 * Portal LUIS: **Página de definições de chaves e ponto final,** como parte do ponto final URI.
 
-| Necessário | Nome | Tipo de dados | Descrição |
+| Necessário | Name | Tipo de dados | Descrição |
 |----------|------|-----------|-------------|
 | Sim      | `Billing` | string | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](luis-container-howto.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -94,7 +94,7 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 A tabela seguinte descreve as definições suportadas.
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Sim| `Input` | String | O alvo do suporte de entrada. O valor predefinido é `/input`. Esta é a localização dos ficheiros do pacote LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Não| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de consulta LUIS e troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|

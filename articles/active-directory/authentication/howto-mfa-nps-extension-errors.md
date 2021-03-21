@@ -13,15 +13,15 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: fa3a2366f007ff1481e7c84f049e606586392037
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742957"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Resolver mensagens de erro a partir da extensão NPS para autenticação multi-factor Azure AD
 
-Se encontrar erros com a extensão NPS para autenticação multi-factor Azure AD, utilize este artigo para chegar a uma resolução mais rapidamente. Os registos de extensão NPS são encontrados no Espectador de Eventos sob a política de política de funções do servidor de **visualizações**  >  **Server Roles**  >  **personalizadas e serviços** de acesso no servidor onde a extensão NPS está instalada.
+Se encontrar erros com a extensão NPS para autenticação multi-factor Azure AD, utilize este artigo para chegar a uma resolução mais rapidamente. Os registos de extensão NPS são encontrados no Espectador de Eventos sob a política de política de funções do servidor de **visualizações**  >    >  **personalizadas e serviços** de acesso no servidor onde a extensão NPS está instalada.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Etapas de resolução de problemas para erros comuns
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313693"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Como configurar o encaminhamento do hub virtual
@@ -30,7 +30,7 @@ Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](
 3. Selecione **+Criar tabela de rotas** para abrir a página **'Tabela de Rotas' Criar.**
 4. No separador 'Quadro de Rota' **'Criar',** preencha os seguintes campos.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Página de encaminhamento":::
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Separador básico":::
 
    * **Nome**
    * **Rotas**
@@ -41,20 +41,20 @@ Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](
 
      Se selecionar uma ligação de rede virtual, verá **rotas estáticas de configuração**. Esta é uma configuração opcional. Para obter mais informações, consulte [as rotas estáticas de configuração.](about-virtual-hub-routing.md#static)
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Página de encaminhamento":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Próximo salto":::
 
 5. Selecione o **separador Etiquetas** para configurar os nomes das etiquetas. As etiquetas fornecem um mecanismo para agrupar logicamente as tabelas de rotas.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Página de encaminhamento":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Configurar nomes de etiquetas":::
 
 6. Selecione o separador **Associações** para associar ligações à tabela de rotas.
-Verá **Os Balcões,** **Redes Virtuais**e as **definições de Corrente** das ligações.
+Verá **Os Balcões,** **Redes Virtuais** e as **definições de Corrente** das ligações.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Página de encaminhamento":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Ligações de associação à tabela de rotas":::
 
 7. Selecione o **separador Propagações** para propagar rotas das ligações à tabela de rotas.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Página de encaminhamento":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Rotas de propagação":::
 
 8. Selecione **Criar** para criar a tabela de rotas.
 
@@ -70,7 +70,7 @@ No portal Azure, localize a tabela de rotas do seu hub virtual. Não é possíve
 
 No portal Azure, localize a tabela de rotas do seu hub virtual. Clique **em "..."** e selecione **Rotas Eficazes** para visualizar rotas aprendidas pela tabela de rotas selecionada. As rotas propagadas da ligação à tabela de rotas são automaticamente povoadas em **Rotas Eficazes** do quadro de rotas. Para mais informações, consulte [Rotas eficazes.](effective-routes-virtual-hub.md)
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Página de encaminhamento" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Ver Rotas Eficazes" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
 ## <a name="to-set-up-routing-configuration-for-a-virtual-network-connection"></a><a name="routing-configuration"></a>Para configurar a configuração de encaminhamento para uma ligação de rede virtual
 
@@ -82,7 +82,7 @@ No portal Azure, localize a tabela de rotas do seu hub virtual. Clique **em "...
 1. Para **rotas estáticas,** configure rotas estáticas para aparelhos virtuais de rede (se aplicável). O WAN virtual suporta um único IP de lúpulo próximo para uma rota estática numa ligação de rede virtual. Por exemplo, se tiver um aparelho virtual separado para fluxos de tráfego de entrada e saída, seria melhor ter os aparelhos virtuais em VNETs separados e anexar os VNETs ao centro virtual.
 
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Página de encaminhamento" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Configurar configuração de encaminhamento" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

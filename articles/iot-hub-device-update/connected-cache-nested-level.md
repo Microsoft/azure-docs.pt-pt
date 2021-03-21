@@ -8,10 +8,10 @@ ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102615385"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Amostra do cenário de visualização da cache conectada da Microsoft: Dois níveis aninhado Azure IoT Edge Gateway com procuração não autenticada de saída

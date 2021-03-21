@@ -3,11 +3,11 @@ title: Aceder a registo restrito de rede utilizando o serviço fidedigno Azure
 description: Permitir que uma instância de serviço fidedigna Azure aceda de forma segura a um registo restrito de contentores em rede para puxar ou empurrar imagens
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 3cc32630ea689891e7ba75163c33bc499a38becd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716487"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir serviços fidedignos para aceder de forma segura a um registo restrito de contentores em rede (pré-visualização)
@@ -41,6 +41,7 @@ Os casos dos seguintes serviços podem aceder a um registo restrito de contentor
 |Serviço de confiança  |Cenários de utilização apoiados  |
 |---------|---------|
 |Tarefas ACR     | [Aceda a um registo diferente de uma tarefa ACR](container-registry-tasks-cross-registry-authentication.md)       |
+|Machine Learning | [Implementar](../machine-learning/how-to-deploy-custom-docker-image.md) ou [treinar](../machine-learning/how-to-train-with-custom-image.md) um modelo num espaço de trabalho machine learning usando uma imagem personalizada do recipiente Docker |
 |Registo de Contentores do Azure | [Importar imagens de outro registo de contentores Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]

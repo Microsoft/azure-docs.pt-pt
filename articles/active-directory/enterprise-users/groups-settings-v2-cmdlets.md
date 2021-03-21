@@ -1,5 +1,5 @@
 ---
-title: Exemplos powerShell V2 para gestão de grupos - Azure AD / Microsoft Docs
+title: Exemplos powerShell V2 para gestão de grupos - Azure AD | Microsoft Docs
 description: Esta página fornece exemplos powerShell para ajudá-lo a gerir os seus grupos no Azure Ative Directory
 keywords: Azure AD, Diretório Ativo Azure, PowerShell, Grupos, Gestão de Grupos
 services: active-directory
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860648"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Ative Directory versão 2 cmdlets para gestão de grupos

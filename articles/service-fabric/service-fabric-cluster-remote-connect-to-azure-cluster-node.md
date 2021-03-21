@@ -4,10 +4,10 @@ description: Aprenda a ligar-se remotamente a uma instância definida em escala 
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012549"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Ligação remota a uma placa de conjunto de escala de máquina virtual ou um nó de cluster
@@ -19,7 +19,7 @@ Para encontrar um endereço IP e uma porta que possa utilizar para ligar remotam
 
     Normalmente, cada tipo de nó definido no seu cluster tem o seu próprio endereço IP virtual e um equilibrador de carga dedicado. Por predefinição, o balançador de carga para um tipo de nó é nomeado com o seguinte formato: *LB-{cluster-name}-{node-type}*; por exemplo, *LB-mycluster-FrontEnd*. 
     
-    Na página para o seu equilibrador de **Settings** carga no portal Azure, selecione  >  **Definições Inbound NAT regras**: 
+    Na página para o seu equilibrador de carga no portal Azure, selecione  >  **Definições Inbound NAT regras**: 
 
     ![Screenshot de uma página de balanço de carga no portal Azure. No menu à esquerda, em DEFINIÇÕES, são selecionadas as regras INBOUND NAT.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 

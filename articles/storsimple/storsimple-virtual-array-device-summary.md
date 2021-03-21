@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array dispositivo sumário blade / Microsoft Docs
+title: StorSimple Virtual Array | Microsoft Docs
 description: Descreve a lâmina de resumo do dispositivo para O Gestor de Dispositivos StorSimple e explica como usá-la para monitorizar a saúde do seu StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 1ab72788c768568366f2627055015c74028330b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005882"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utilize a lâmina de resumo do dispositivo para o Gestor de Dispositivos StorSimple ligado ao StorSimple Virtual Array

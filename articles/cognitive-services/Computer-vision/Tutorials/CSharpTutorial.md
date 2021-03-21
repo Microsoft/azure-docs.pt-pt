@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 0a1878268beb135151a23b87d03839f3a51f4a96
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102432592"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Amostra: Explore uma aplicação de processamento de imagem com C #
@@ -124,13 +124,13 @@ A solução Visual Studio para a aplicação de amostras de Visão De Computador
     A página de cenário para o cenário de Imagem de Análise.
   * DescreverPage.xaml  
     A página de cenário para o cenário de Imagem de Descrever.
-  * ImageScenarioPage.cs  
+  * ImagemScenarioPage.cs  
     A aula imageScenarioPage, a partir da qual são derivadas todas as páginas de cenário na aplicação da amostra. Esta classe gere a funcionalidade, como fornecer credenciais e resultados de formatação, partilhados por todas as páginas de cenário.
   * MainWindow.xaml  
     A janela principal para a aplicação da amostra, utiliza o controlo SampleScenarios para apresentar o SubscriptionKeyPage e as páginas de cenário.
   * OCRPage.xaml  
     A página de cenário para o cenário do Texto Reconhecido (OCR).
-  * RecognizeLanguage.cs  
+  * Reconhecer aguagem.cs  
     A classe RecogniseLanguage, que fornece informações sobre os idiomas suportados pelos vários métodos da aplicação da amostra.
   * TagsPage.xaml  
     A página de cenário para o cenário De gerar Tags.

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
 ms.openlocfilehash: 2cf72da8f7ca82c37088cd6456f094ada2580982
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103418968"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS

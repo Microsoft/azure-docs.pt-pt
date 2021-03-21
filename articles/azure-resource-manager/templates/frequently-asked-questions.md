@@ -6,10 +6,10 @@ ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
 ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419410"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM

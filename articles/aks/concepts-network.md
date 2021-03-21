@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88243909"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)
@@ -26,7 +26,7 @@ Este artigo introduz os conceitos fundamentais que fornecem networking às suas 
 
 Para permitir o acesso às suas aplicações, ou para que os componentes de aplicação se comuniquem entre si, a Kubernetes fornece uma camada de abstração para o networking virtual. Os nós kubernetes estão ligados a uma rede virtual, e podem fornecer conectividade de entrada e saída para cápsulas. O componente *kube-proxy* funciona em cada nó para fornecer estas funcionalidades de rede.
 
-Em Kubernetes, *os serviços* logicamente agrupam cápsulas para permitir o acesso direto através de um endereço IP ou nome DNS e numa porta específica. Também pode distribuir o tráfego através de um *equilibrador de carga.* O encaminhamento mais complexo do tráfego de aplicações também pode ser alcançado com *controladores ingress*. A segurança e a filtragem do tráfego de rede para cápsulas é possível com *as políticas de rede*Kubernetes .
+Em Kubernetes, *os serviços* logicamente agrupam cápsulas para permitir o acesso direto através de um endereço IP ou nome DNS e numa porta específica. Também pode distribuir o tráfego através de um *equilibrador de carga.* O encaminhamento mais complexo do tráfego de aplicações também pode ser alcançado com *controladores ingress*. A segurança e a filtragem do tráfego de rede para cápsulas é possível com *as políticas de rede* Kubernetes .
 
 A plataforma Azure também ajuda a simplificar a rede virtual para clusters AKS. Quando cria um equilibrador de carga Kubernetes, o recurso de balançador de carga Azure subjacente é criado e configurado. À medida que abre portas de rede a cápsulas, as respetivas regras do grupo de segurança da rede Azure estão configuradas. Para o encaminhamento de aplicações HTTP, o Azure também pode configurar *DNS externos* à medida que novas rotas de entrada são configuradas.
 
@@ -135,7 +135,7 @@ O addon do Controlador de Entradas de Gateway de Aplicação (AGIC) permite que 
 
 Outra característica comum da Ingress é a rescisão SSL/TLS. Nas grandes aplicações web acedidas via HTTPS, a rescisão de TLS pode ser tratada pelo recurso Ingress e não dentro da própria aplicação. Para fornecer a geração e configuração automáticas de certificação TLS, pode configurar o recurso Ingress para utilizar fornecedores como o Let's Encrypt. Para obter mais informações sobre a configuração de um controlador NGINX Ingress com Let's Encrypt, consulte [Ingress e TLS][aks-ingress-tls].
 
-Também pode configurar o seu controlador de entrada para preservar o IP de origem do cliente em pedidos de contentores no seu cluster AKS. Quando o pedido de um cliente é encaminhado para um contentor no seu cluster AKS através do seu controlador de entrada, o IP de origem original desse pedido não estará disponível para o contentor-alvo. Quando ativa a *preservação ip de fonte*de cliente, o IP de origem para o cliente está disponível no cabeçalho de pedido sob *X-Forwarded-For*. Se estiver a utilizar a preservação IP de fonte de cliente no seu controlador de entrada, não pode utilizar a passagem do TLS. A preservação IP de fonte de cliente e o pass-through TLS podem ser utilizados com outros serviços, como o tipo *LoadBalancer.*
+Também pode configurar o seu controlador de entrada para preservar o IP de origem do cliente em pedidos de contentores no seu cluster AKS. Quando o pedido de um cliente é encaminhado para um contentor no seu cluster AKS através do seu controlador de entrada, o IP de origem original desse pedido não estará disponível para o contentor-alvo. Quando ativa a *preservação ip de fonte* de cliente, o IP de origem para o cliente está disponível no cabeçalho de pedido sob *X-Forwarded-For*. Se estiver a utilizar a preservação IP de fonte de cliente no seu controlador de entrada, não pode utilizar a passagem do TLS. A preservação IP de fonte de cliente e o pass-through TLS podem ser utilizados com outros serviços, como o tipo *LoadBalancer.*
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 

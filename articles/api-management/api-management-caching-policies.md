@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/08/2021
 ms.author: apimpm
 ms.openlocfilehash: 9888627bed0fbf90abc75c81564dacc0d1aac18e
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103233471"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de colocação em cache da Gestão de API

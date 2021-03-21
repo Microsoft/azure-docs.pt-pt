@@ -18,10 +18,10 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 9ce1e320a93a834a938ce95f3931d885d2214faa
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98216874"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerir a exfiltração de dados para contas de armazenamento de Azure com políticas de ponto final de serviço de rede virtual utilizando o Azure CLI
@@ -353,7 +353,7 @@ O acesso é negado e você recebe um `mount error(13): Permission denied` erro, 
 
 Saia da sessão SSH para o *myVmPublic* VM.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure) o grupo de recursos e todos os recursos que contém.
 

@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
 ms.openlocfilehash: f0cf89a755090010bb80507c52f90baa2a4e804a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102617629"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Formatos e códigos Standard Encoder
