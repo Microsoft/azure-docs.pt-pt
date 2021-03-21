@@ -1,5 +1,5 @@
 ---
-title: Gerir serviços de análise da Azure / Microsoft Docs
+title: Gerir os serviços de análise Azure | Microsoft Docs
 description: Este artigo descreve as ferramentas utilizadas para gerir tarefas de administração e gestão para um servidor Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078905"
 ---
 # <a name="manage-analysis-services"></a>Gerir o Analysis Services
@@ -36,10 +36,10 @@ Para obter todas as funcionalidades mais recentes e a experiência mais suave ao
 ### <a name="to-connect-with-ssms"></a>Para ligar com sSMS
  Quando utilizar o SSMS, antes de ligar ao seu servidor pela primeira vez, certifique-se de que o seu nome de utilizador está incluído no grupo de Administração de Serviços de Análise. Para saber mais, consulte [os administradores do Servidor e os utilizadores de bases de dados](#server-administrators-and-database-users) mais tarde neste artigo.
 
-1. Antes de se ligar, tem de obter o nome do servidor. No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor** , copie o nome do servidor.
+1. Antes de se ligar, tem de obter o nome do servidor. No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**, copie o nome do servidor.
    
     ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. No SSMS > **Object Explorer** , clique em **Ligar** > **Analysis Services** .
+2. No SSMS > **Object Explorer**, clique em **Ligar** > **Analysis Services**.
 3. Na caixa de diálogo **'Ligar ao Servidor',** colar no nome do servidor e, em seguida, na **Autenticação),** escolha um dos seguintes tipos de autenticação:   
     > [!NOTE]
     > Recomenda-se o tipo de autenticação, **Diretório Ativo - Universal com suporte MFA.**

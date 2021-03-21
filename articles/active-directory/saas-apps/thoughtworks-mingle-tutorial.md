@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Thoughtworks Mingle Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Thoughtworks Mingle | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Thoughtworks Mingle.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: c3eeb1577e628965e3e5a35fa20c072224383149
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Diretório Ativo Azure com o Thoughtworks Mingle

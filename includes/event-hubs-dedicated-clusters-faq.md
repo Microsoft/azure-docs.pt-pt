@@ -9,10 +9,10 @@ ms.date: 10/23/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0335481566ae3f28ac0f1e6bddce7050a65e7dc2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92517004"
 ---
 ### <a name="what-can-i-achieve-with-a-cluster"></a>O que posso conseguir com um aglomerado?
@@ -35,7 +35,7 @@ No ensaio, foram utilizados os seguintes critérios:
 
 ### <a name="can-i-scale-updown-my-cluster"></a>Posso escalar para cima/para baixo o meu aglomerado?
 
-Após a criação, os clusters são faturados para um mínimo de 4 horas de uso. No lançamento de Pré-visualização da experiência de autosserviço, pode submeter um pedido de [apoio](https://ms.portal.azure.com/#create/Microsoft.Support) à equipa de Centros de Eventos ao abrigo do Pedido **de**Quota Técnica para escalar para cima ou para baixo  >  **Quota**  >  **Cluster dedicado** para escalar o seu cluster para cima ou para baixo. Pode levar até 7 dias para completar o pedido para reduzir o seu cluster. 
+Após a criação, os clusters são faturados para um mínimo de 4 horas de uso. No lançamento de Pré-visualização da experiência de autosserviço, pode submeter um pedido de [apoio](https://ms.portal.azure.com/#create/Microsoft.Support) à equipa de Centros de Eventos ao abrigo do Pedido **de** Quota Técnica para escalar para cima ou para baixo  >    >  **Cluster dedicado** para escalar o seu cluster para cima ou para baixo. Pode levar até 7 dias para completar o pedido para reduzir o seu cluster. 
 
 ### <a name="how-does-geo-dr-work-with-my-cluster"></a>Como funciona o Geo-DR com o meu agrupamento?
 

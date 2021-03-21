@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ab484e8caaffaf57f19f1fcd1e65f4b8e723f86
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077902"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem
@@ -54,35 +54,35 @@ Esta secção fornece-lhe os passos para criar uma amostra de ToU. Ao criar uma 
 **Para criar os seus termos de utilização:**
 
 1. No Microsoft Word, crie um novo documento.
-1. Digite **os meus termos de utilização** e guarde o documento no seu computador como **mytou.pdf** .
+1. Digite **os meus termos de utilização** e guarde o documento no seu computador como **mytou.pdf**.
 1. Inscreva-se no seu [portal Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. No portal Azure, na navbar esquerda, clique no **Diretório Ativo Azure** .
+1. No portal Azure, na navbar esquerda, clique no **Diretório Ativo Azure**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. Na página **Azure Ative Directory,** na secção **Segurança,** clique em **Acesso Condicional** .
+1. Na página **Azure Ative Directory,** na secção **Segurança,** clique em **Acesso Condicional**.
 
    ![Acesso Condicional](./media/require-tou/03.png)
 
-1. Na secção **Gerir,** clique em **Termos de utilização** .
+1. Na secção **Gerir,** clique em **Termos de utilização**.
 
-   :::image type="content" source="./media/require-tou/04.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+   :::image type="content" source="./media/require-tou/04.png" alt-text="Screenshot da secção Gestão da página Azure Ative Directory. Destaca-se o artigo Termos de Utilização." border="false":::
 
 1. No menu em cima, clique em **Novos termos.**
 
-   :::image type="content" source="./media/require-tou/05.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+   :::image type="content" source="./media/require-tou/05.png" alt-text="Screenshot de um menu na página do Diretório Ativo Azure. O item novos termos está em destaque." border="false":::
 
 1. Na página **novos termos de utilização:**
 
-   :::image type="content" source="./media/require-tou/112.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+   :::image type="content" source="./media/require-tou/112.png" alt-text="Screenshot da página novos termos de uso, com o nome, nome de exibição, documento, idioma, acesso condicional e termos de expansão destacados." border="false":::
 
    1. Na caixa de texto **Name,** **digite A Minha TOU.**
-   1. Na caixa de texto **do nome do Visor,** **digite A Minha TOU** .
+   1. Na caixa de texto **do nome do Visor,** **digite A Minha TOU**.
    1. Faça upload dos seus termos de utilização do ficheiro PDF.
-   1. Como **Língua** , selecione **Inglês** .
-   1. Como **Exigir que os utilizadores expandam os termos de utilização** , selecione **On** .
-   1. Como **Impor com modelos de política de acesso condicional,** selecione **Política personalizada** .
-   1. Clique em **Criar** .
+   1. Como **Língua**, selecione **Inglês**.
+   1. Como **Exigir que os utilizadores expandam os termos de utilização**, selecione **On**.
+   1. Como **Impor com modelos de política de acesso condicional,** selecione **Política personalizada**.
+   1. Clique em **Criar**.
 
 ## <a name="create-your-conditional-access-policy"></a>Crie a sua política de Acesso Condicional
 
@@ -99,39 +99,39 @@ Na sua política, desa um set:
 | Aplicações na cloud | Microsoft Azure Management |
 | Conceder acesso | O meu TOU |
 
-:::image type="content" source="./media/require-tou/1234.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+:::image type="content" source="./media/require-tou/1234.png" alt-text="Screenshot de um painel do portal Azure que define uma política. As setas indicam que a apólice dá acesso ao My T O you e inclui um utilizador e uma aplicação." border="false":::
 
 **Para configurar a sua política de acesso condicional:**
 
-1. Na **nova** página, na caixa de texto **Name,** tipo **Exigir TOU para Isabella** .
+1. Na **nova** página, na caixa de texto **Name,** tipo **Exigir TOU para Isabella**.
 
    ![Name](./media/require-tou/71.png)
 
-1. Na secção **Atribuição,** clique em **Utilizadores e grupos** .
+1. Na secção **Atribuição,** clique em **Utilizadores e grupos**.
 
-   :::image type="content" source="./media/require-tou/06.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+   :::image type="content" source="./media/require-tou/06.png" alt-text="Screenshot da secção atribuições de um painel do portal Azure que define uma política. O item Utilizadores e grupos é visível, sem nenhum selecionado." border="false":::
 
 1. Na página **de Utilizadores e grupos:**
 
-   :::image type="content" source="./media/require-tou/24.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+   :::image type="content" source="./media/require-tou/24.png" alt-text="Screenshot do separador Incluir a página de Utilizadores e grupos. Selecione utilizadores e grupos selecionados, assim como Utilizadores e grupos. O selete está em destaque." border="false":::
 
-   1. Clique **em Selecionar utilizadores e grupos** e, em seguida, selecione **Utilizadores e grupos** .
-   1. Clique em **Selecionar** .
-   1. Na página **Select,** selecione **Isabella Simonsen** e, em seguida, clique em **Select** .
+   1. Clique **em Selecionar utilizadores e grupos** e, em seguida, selecione **Utilizadores e grupos**.
+   1. Clique em **Selecionar**.
+   1. Na página **Select,** selecione **Isabella Simonsen** e, em seguida, clique em **Select**.
    1. Na página **de Utilizadores e grupos,** clique em **'Fazer'.**
-1. Clique **em aplicativos Cloud** .
+1. Clique **em aplicativos Cloud**.
 
-   :::image type="content" source="./media/require-tou/08.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+   :::image type="content" source="./media/require-tou/08.png" alt-text="Screenshot da secção atribuições de um painel do portal Azure que define uma política. O item de aplicações Cloud é visível, sem nenhum selecionado." border="false":::
 
 1. Na página de **aplicativos Cloud:**
 
    ![Selecione aplicativos de nuvem](./media/require-tou/26.png)
 
-   1. Clique **em Selecionar apps** .
-   1. Clique em **Selecionar** .
-   1. Na página **Select,** selecione **Microsoft Azure Management** e, em seguida, clique em **Select** .
+   1. Clique **em Selecionar apps**.
+   1. Clique em **Selecionar**.
+   1. Na página **Select,** selecione **Microsoft Azure Management** e, em seguida, clique em **Select**.
    1. Na página de **aplicativos Cloud,** clique em **'Fazer'.**
-1. Na secção **controlos de acesso,** clique em **Grant** .
+1. Na secção **controlos de acesso,** clique em **Grant**.
 
    ![Controlos de acesso](./media/require-tou/10.png)
 
@@ -139,14 +139,14 @@ Na sua política, desa um set:
 
    ![Concessão](./media/require-tou/111.png)
 
-   1. Selecione **Conceder acesso** .
-   1. Selecione **o meu TOU** .
-   1. Clique em **Selecionar** .
-1. Na secção **De Ativação,** clique **em On** .
+   1. Selecione **Conceder acesso**.
+   1. Selecione **o meu TOU**.
+   1. Clique em **Selecionar**.
+1. Na secção **De Ativação,** clique **em On**.
 
    ![Ativar política](./media/require-tou/18.png)
 
-1. Clique em **Criar** .
+1. Clique em **Criar**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um sinal simulado
 
@@ -166,45 +166,45 @@ Clicar **em E Se** criar um relatório de simulação que mostra:
 
 **Para avaliar a sua política de Acesso Condicional:**
 
-1. Na página [Acesso Condicional - Políticas,](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) no menu em cima, clique em **E Se** .  
+1. Na página [Acesso Condicional - Políticas,](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) no menu em cima, clique em **E Se**.  
 
    ![Hipótese](./media/require-tou/14.png)
 
-1. Clique **em Utilizadores,** selecione **Isabella Simonsen** e, em seguida, clique em **Select** .
+1. Clique **em Utilizadores,** selecione **Isabella Simonsen** e, em seguida, clique em **Select**.
 
-   ![Utilizador](./media/require-tou/15.png)
+   ![User](./media/require-tou/15.png)
 
 1. Para selecionar uma aplicação em nuvem:
 
-   :::image type="content" source="./media/require-tou/16.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+   :::image type="content" source="./media/require-tou/16.png" alt-text="Screenshot da secção de aplicativos Cloud. O texto indica que uma aplicação é selecionada." border="false":::
 
-   1. Clique **em aplicativos Cloud** .
-   1. Na página de **aplicações cloud** , clique **em Selecionar apps** .
-   1. Clique em **Selecionar** .
-   1. Na página **Select,** selecione **Microsoft Azure Management** e, em seguida, clique em **Select** .
+   1. Clique **em aplicativos Cloud**.
+   1. Na página de **aplicações cloud**, clique **em Selecionar apps**.
+   1. Clique em **Selecionar**.
+   1. Na página **Select,** selecione **Microsoft Azure Management** e, em seguida, clique em **Select**.
    1. Na página de aplicativos na nuvem, clique em **'Fazer'.**
-1. Clique **em E Se** .
+1. Clique **em E Se**.
 
-## <a name="test-your-conditional-access-policy"></a>Teste a sua política de Acesso Condicional
+## <a name="test-your-conditional-access-policy"></a>Testar a política de Acesso Condicional
 
 Na secção anterior, aprendeu a avaliar um s-in simulado. Além de uma simulação, deve também testar a sua política de Acesso Condicional para garantir que funciona como esperado.
 
 Para testar a sua política, tente entrar no seu [portal Azure](https://portal.azure.com) utilizando a sua conta de teste **Isabella Simonsen.** Deve ver um diálogo que o exija a aceitar os seus termos de utilização.
 
-:::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+:::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot de uma caixa de diálogo intitulada Termos de Proteção de Segurança de Identidade, com botões de Declínio e Aceitação e um botão com a etiqueta My T O U." border="false":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o utilizador de teste e a política de acesso condicional:
 
 - Se não souber eliminar um utilizador AD Azure, consulte [eliminar os utilizadores do AZure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Para eliminar a sua política, selecione a sua política e, em seguida, clique em **Eliminar** na barra de ferramentas de acesso rápido.
 
-    :::image type="content" source="./media/require-tou/33.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+    :::image type="content" source="./media/require-tou/33.png" alt-text="Screenshot mostrando uma política chamada Require M F A para utilizadores do portal Azure. O menu de atalho é visível, com Delete em destaque." border="false":::
 
 - Para eliminar os seus termos de utilização, selecione-o e, em seguida, clique em **Eliminar os termos** na barra de ferramentas em cima.
 
-    :::image type="content" source="./media/require-tou/29.png" alt-text="Screenshot do portal Azure. Um painel que define uma política chamada Require T O U para Isabella é visível." border="false":::
+    :::image type="content" source="./media/require-tou/29.png" alt-text="Screenshot mostrando parte de uma tabela listando termos de documentos de uso. O documento My T O U é visível. No menu, destacam-se os termos de Eliminação." border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

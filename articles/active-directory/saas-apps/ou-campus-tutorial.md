@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Campus da OU Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Campus da OU | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Campus da U.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: af80d68f384869e79ef540d41a6707040dd19f2b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Tutorial: Integração do Diretório Ativo Azure com o Campus da OU

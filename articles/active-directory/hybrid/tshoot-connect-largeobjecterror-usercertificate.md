@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Erros de LargeObject causados pelo atributo userCertificate / Microsoft Docs
+title: Azure AD Connect - Erros de LargeObject causados pelo atributo userCertificate | Microsoft Docs
 description: Este tópico fornece os passos de reparação para erros do LargeObject causados pelo atributo userCertificate.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d33b419e0f24201d661ad0f5f1373022ea6e9e9f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861753"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect sync: Handling LargeObject erros causados pelo atributo userCertificate
@@ -107,7 +107,7 @@ Deve existir uma regra de sincronização existente que esteja ativada e configu
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | IGUAL | Utilizador |
+    | sourceObjectType | IGUAL | User |
     | cloudMastered | NOTAQUAL | Verdadeiro |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Passo 3. Criar a regra de sincronização de saída necessária
@@ -117,8 +117,8 @@ A nova regra de sincronização deve ter o mesmo **filtro de deteção** e **pre
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, *"out to AAD – Substituição personalizada para o utilizadorCertificate"* |
-    | Descrição | *Fornecer uma descrição* | Por exemplo, *"Se o atributo userCertificate tiver mais de 15 valores, exporte NU."* |
+    | Name | *Fornecer um nome* | Por exemplo, *"out to AAD – Substituição personalizada para o utilizadorCertificate"* |
+    | Description | *Fornecer uma descrição* | Por exemplo, *"Se o atributo userCertificate tiver mais de 15 valores, exporte NU."* |
     | Sistema Conectado | *Selecione o Conector AD Azure* |
     | Tipo de objeto de sistema conectado | **utilizador** | |
     | Tipo de objeto metaverso | **pessoa** | |

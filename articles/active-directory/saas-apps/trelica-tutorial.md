@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Trelica Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com a Trelica | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Trelica.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.openlocfilehash: a674f5f653ad420ab8f28ff73c6b86f9c18b154e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92517757"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Trelica
@@ -51,7 +51,7 @@ Para configurar a integração da Trelica em Azure AD, precisa adicionar a Treli
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel de navegação mais à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** insira **a Trelica** na caixa de pesquisa.
 1. Selecione **Trelica** a partir dos resultados da pesquisa e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -98,7 +98,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 Nesta secção, cria-se um utilizador de teste chamado B.Simon no portal Azure.
 
-1. No painel mais à esquerda do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. No painel mais à esquerda do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Na parte superior do ecrã, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome,** insira **B.Simon**.

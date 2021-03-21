@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308238"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning
@@ -123,7 +123,7 @@ Os algoritmos lineares de regressão assumem que as tendências de dados seguem 
 
 ![Limite de classe nonlinear](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-**_Limite de classe nonlinear_* _: _Relying num algoritmo de classificação linear resultaria em baixa precisão.*
+***Limite de classe nonlinear** _: _Relying num algoritmo de classificação linear resultaria em baixa precisão.*
 
 ![Dados com tendência não linear](./media/how-to-select-algorithms/nonlinear-trend.png)
 

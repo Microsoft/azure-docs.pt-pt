@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df7dcf9859b6942662ae447af836f59985e2d11a
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99509507"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Índice de várias fontes de dados utilizando o .NET SDK
@@ -33,7 +33,7 @@ Neste tutorial, realizará as seguintes tarefas:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial utiliza a nova biblioteca de [ clientes,Azure.Search.Documents](/dotnet/api/overview/azure/search), versão 11.x, para criar e executar vários indexantes. Neste tutorial, irá configurar duas fontes de dados Azure para que possa configurar um indexer que puxa de ambos para preencher um único índice de pesquisa. Os dois conjuntos de dados devem ter um valor em comum para suportar a fusão. Nesta amostra, este campo é uma identificação. Enquanto houver um campo em comum para suportar o mapeamento, um indexante pode fundir dados de recursos diferentes: dados estruturados do Azure SQL, dados não estruturados do armazenamento blob, ou qualquer combinação de fontes de [dados suportadas](search-indexer-overview.md#supported-data-sources) no Azure.
 
@@ -175,7 +175,7 @@ Esta simples aplicação de consola C#/.NET executa as seguintes tarefas:
  Antes de executar o programa, desemo minuto para estudar o código e as definições de índice e indexante para esta amostra. O código relevante está em dois ficheiros:
 
   + **Hotel.cs** contém o esquema que define o índice
-  + **Program.cs** contém funções que criam o índice de Pesquisa Cognitiva Azure, fontes de dados e indexadores, e carregam os resultados combinados no índice.
+  + **Programa.cs** contém funções que criam o índice de Pesquisa Cognitiva Azure, fontes de dados e indexadores, e carregam os resultados combinados no índice.
 
 ### <a name="create-an-index"></a>Criar um índice
 
@@ -185,7 +185,7 @@ O modelo de dados é definido pela classe Hotel, que também contém referência
 
 O programa eliminará qualquer índice existente com o mesmo nome antes de criar o novo, caso pretenda executar este exemplo mais de uma vez.
 
-Os seguintes excertos do ficheiro **Hotel.cs** mostram campos únicos, seguidos de uma referência a outra classe de modelo de dados, a Room[], que por sua vez é definida em **Room.cs** ficheiro (não mostrado).
+Os seguintes excertos do ficheiro **.cs Hotel** mostram campos únicos, seguidos de uma referência a outra classe de modelo de dados, a Room[], que por sua vez é definida no ficheiro **Room.cs** (não mostrado).
 
 ```csharp
 . . .
@@ -199,7 +199,7 @@ public Room[] Rooms { get; set; }
 . . .
 ```
 
-No ficheiro **Program.cs,** um [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) é definido com um nome e uma coleção de campo gerada pelo `FieldBuilder.Build` método, e depois criada da seguinte forma:
+No ficheiro **.cs Programa,** um [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) é definido com um nome e uma coleção de campo gerada pelo `FieldBuilder.Build` método, e depois criada da seguinte forma:
 
 ```csharp
 private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)

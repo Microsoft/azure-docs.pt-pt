@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/17/2021
 ms.author: ambapat
 ms.openlocfilehash: 3c4bb61217c7b972220a55a4837c2b3db980f2ca
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095996"
 ---
 # <a name="about-keys"></a>Acerca de chaves

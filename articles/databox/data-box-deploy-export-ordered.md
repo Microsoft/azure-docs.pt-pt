@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789200"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Criar ordem de exportação para Azure Data Box
@@ -330,7 +330,7 @@ Alguns pontos importantes no que diz respeito aos ficheiros XML:
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Descrição |
+   | Seletor | Caminho da Bolha | Description |
    | --- | --- | --- |
    | Starts with |/ |Exporta todas as bolhas na conta de armazenamento |
    | Starts with |/$root/ |Exporta todas as bolhas no recipiente raiz |

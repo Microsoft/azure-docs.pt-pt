@@ -6,10 +6,10 @@ ms.topic: article
 ms.author: danlep
 ms.date: 11/20/2020
 ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024743"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerir conteúdos públicos com registo de contentores Azure
@@ -96,7 +96,7 @@ Para um exemplo detalhado, consulte [como consumir e manter o conteúdo público
 > [!NOTE]
 > Uma única tarefa pré-configurada pode reconstruir automaticamente todas as imagens de aplicação que referenciam uma imagem base dependente. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 * Saiba mais sobre [as tarefas ACR](container-registry-tasks-overview.md) para construir, executar, empurrar e remendar imagens de contentores em Azure.
 * Veja [como consumir e manter o conteúdo público com as Tarefas de Registo de Contentores Azure](tasks-consume-public-content.md) para um fluxo de trabalho de gating automatizado para atualizar imagens base para o seu ambiente. 

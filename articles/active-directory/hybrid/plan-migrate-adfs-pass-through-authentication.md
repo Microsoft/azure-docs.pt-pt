@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a10c4c0e6e40636e4803e054155d6fdaa12a9366
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96858557"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação pass-through para o Azure Ative Directory
@@ -54,7 +54,7 @@ Pode escolher entre dois métodos para migrar da gestão de identidade federada 
 
 * **Azure AD Connect**. Se configurar originalmente o AD FS utilizando o Azure AD Connect, *tem* de alterar para autenticação de passagem utilizando o assistente Azure AD Connect.
 
-   O Azure AD Connect executa automaticamente o **cmdlet de set-MsolDomainAuthentication** quando altera o método de entrada do utilizador. A azure AD Connect não mantém automaticamente todos os domínios federados verificados no seu inquilino AD Azure.
+   ‎Azure AD Connect automatically runs the **Set-MsolDomainAuthentication** cmdlet when you change the user sign-in method. A azure AD Connect não mantém automaticamente todos os domínios federados verificados no seu inquilino AD Azure.
 
    > [!NOTE]
    > Atualmente, se usou originalmente o Azure AD Connect para configurar o AD FS, não pode evitar desaumar todos os domínios do seu inquilino quando muda o pedido de inscrição do utilizador para a autenticação de passagem.
@@ -315,7 +315,7 @@ Primeiro, ativar a autenticação pass-through:
 
 6. Na página **Pronto para configurar,** certifique-se de que o **processo de sincronização iniciar quando a configuração completar a** caixa de verificação é selecionado. Em seguida, selecione **Configure**.<br />
 
-   ![Screenshot que mostra a página Ready to configure e o botão Configure](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)<br />
+   ‎ ![ Screenshot that shows the Ready to configure page and the Configure button](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)<br />
    Os seguintes passos ocorrem quando seleciona **configurar:**
 
    1. O primeiro agente de autenticação pass-through está instalado.

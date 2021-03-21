@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090516"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connect to Azure Cosmos DB Cassandra API from Spark (Ligar à API para Cassandra do Azure Cosmos DB a partir do Spark)
@@ -23,7 +23,7 @@ Este artigo é um entre uma série de artigos sobre a integração da Azure Cosm
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Fornece uma conta Azure Cosmos DB Cassandra API.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Provisão da sua escolha do ambiente Spark [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) ! Outros].
+* Provisão da sua escolha do ambiente Spark [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Outros].
 
 ## <a name="dependencies-for-connectivity"></a>Dependências da conectividade
 * **Conector de faísca para Cassandra:** O conector de faíscas é utilizado para ligar à Azure Cosmos DB Cassandra API.  Identifique e utilize a versão do conector localizado na [central de Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) que é compatível com as versões Spark e Scala do seu ambiente Spark.
@@ -41,7 +41,7 @@ Este artigo é um entre uma série de artigos sobre a integração da Azure Cosm
 
 A tabela que se segue lista os parâmetros de configuração de produção específicos da API Azure Cosmos DB Cassandra fornecidos pelo conector. Para obter uma lista detalhada de todos os parâmetros de configuração, consulte a página de referência de [configuração](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) do repositório Do Conector De Faíscas GitHub.
 
-| **Nome da propriedade** | **Valor predefinido** | **Descrição** |
+| **Nome da Propriedade** | **Valor predefinido** | **Descrição** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |Número de linhas por único lote. Desa um parâmetro para 1. Este parâmetro é usado para obter uma produção mais elevada para cargas de trabalho pesadas. |
 | spark.cassandra.connection.connections_per_executor_max  | Nenhum | Número máximo de ligações por nó por executor. 10*n é equivalente a 10 ligações por nó num aglomerado de Cassandra n-node. Assim, se necessitar de 5 ligações por nó por executor para um cluster Cassandra de 5 nós, então deve definir esta configuração para 25. Modifique este valor com base no grau de paralelismo ou no número de executores para os quais os seus trabalhos de faísca estão configurados.   |

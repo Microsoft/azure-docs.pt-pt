@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/30/2017
 ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218022"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Código C# definido pelo utilizador para trabalhos falhados de U-SQL
@@ -83,7 +83,7 @@ Se o código de utilizador não estiver incluído no ficheiro code-behind ou se 
 Depois destas definições, comece a depurar com **F5** e breakpoints. Também pode utilizar as ferramentas de depuração do Estúdio Visual (relógio, variáveis, etc.) para resolver problemas.
 
 > [!NOTE]
-> Reconstrua o projeto de código fonte de montagem cada vez depois de modificar o código para gerar ficheiros .pdb atualizados.
+> Reconstrua o projeto de código fonte de montagem sempre que modificar o código para gerar ficheiros .pdb atualizados.
 
 ## <a name="resubmit-the-job"></a>Reenviar o trabalho
 
@@ -97,13 +97,13 @@ Para reenviar o trabalho falhado:
 
 1. Para trabalhos com soluções por detrás de códigos, copie o código C# no ficheiro de origem por trás do código `Script.usql.cs` (normalmente).
 
-2. Para trabalhos com conjuntos, clique com razão no projeto de código fonte de montagem na solução de depuração e registe as assembléias .dll atualizadas no seu catálogo Azure Data Lake.
+2. Para trabalhos com conjuntos, clique com razão no projeto de código fonte de montagem na solução de depuração e registe as assembléias de .dll atualizadas no seu catálogo Azure Data Lake.
 
 3. Reenviar o trabalho da U-SQL.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Guia de programabilidade U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+- [Guia de programação da linguagem U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Desenvolver operadores definidos pelo utilizador U-SQL para empregos Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 - [Testar e depurar tarefas U-SQL utilizando a execução local e o SDK U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 - [Como resolver um trabalho anormal recorrente](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

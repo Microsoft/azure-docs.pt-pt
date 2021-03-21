@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
 ms.openlocfilehash: fcb8090427530271600a6699fafa5c488c426784
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680872"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>Tutorial: Migrar uma aplicação web do Google Maps
@@ -1030,7 +1030,7 @@ Adicione e gerencie os dados numa fonte de dados. Ligue fontes de dados e camada
 
 Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados agrupados e não agrupados para camadas para renderização. A fonte de dados é capaz de agrupar centenas de milhares de pontos de dados. Um ponto de dados agrupado tem as seguintes propriedades:
 
-| Nome da propriedade             | Tipo    | Descrição   |
+| Nome da propriedade             | Tipo    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
 | `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
@@ -1039,7 +1039,7 @@ Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados 
 
 A `DataSource` classe tem a seguinte função de ajudante para aceder a informações adicionais sobre um cluster utilizando o `cluster_id` .
 
-| Método | Tipo de retorno | Descrição |
+| Método | Tipo de retorno | Description |
 |--------|-------------|-------------|
 | `getClusterChildren(clusterId: number)` | Prometa &lt; &lt; geometria de característica &lt; de matriz, qualquer &gt; \| forma&gt;&gt; | Recupera as crianças do aglomerado dado no próximo nível de zoom. Estas crianças podem ser uma combinação de formas e subclusters. Os subclusters serão funcionalidades com propriedades correspondentes a ClusteredProperties. |
 | `getClusterExpansionZoom(clusterId: number)` | &lt;Número de promessa&gt; | Calcula um nível de zoom no qual o cluster começará a expandir-se ou a separar-se. |

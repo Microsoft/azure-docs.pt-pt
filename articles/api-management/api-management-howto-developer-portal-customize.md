@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Acesso e personalização do portal de desenvolvimento - Azure API Management / Microsoft Docs
+title: Tutorial - Acesso e personalização do portal de desenvolvimento - Azure API Management | Microsoft Docs
 description: Siga este para tutorial para aprender a personalizar o portal de desenvolvimento da API Management, um website gerado automaticamente e totalmente personalizável com a documentação das suas APIs.
 services: api-management
 author: mikebudzynski
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 11/16/2020
 ms.author: apimpm
 ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012987"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutorial: Aceda e personalize o portal do desenvolvedor
 
 O *portal do desenvolvedor* é um website gerado automaticamente e totalmente personalizável com a documentação das suas APIs. É onde os consumidores da API podem descobrir as suas APIs, aprender a usá-las e solicitar acesso.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Aceda à versão gerida do portal do programador
@@ -89,7 +89,7 @@ Sempre que fizer uma alteração no portal, tem de guardá-lo manualmente seleci
 Antes de disponibilizar o seu portal aos visitantes, deverá personalizar o conteúdo gerado automaticamente. As alterações recomendadas incluem os layouts, estilos e o conteúdo da página inicial.
 
 > [!NOTE]
-> Devido a considerações de integração, as seguintes páginas não podem ser removidas ou movidas sob um URL diferente: , , , , , , , , , , `/404` `/500` , , , , `/captcha` , , `/change-password` , , , , `/config.json` , , , , `/confirm/invitation` , , , , , , , , , `/confirm-v2/identities/basic/signup` , , , , , , , , `/confirm-v2/password` , , , , , , , , , `/internal-status-0123456789abcdef` , , , , , , , , `/publish` , , , , , , , , , , , , `/signin` , , , , , , , , `/signin-sso` `/signup` ,
+> Devido a considerações de integração, as seguintes páginas não podem ser removidas ou movidas sob um URL `/404` diferente: , `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin` `/signin-sso` `/signup`
 
 ### <a name="home-page"></a>Página de boas-vindas
 
@@ -144,5 +144,5 @@ Para que os visitantes do seu portal testem as APIs através da consola interati
 
 Saiba mais sobre o portal de desenvolvedores:
 
-- [Visão geral do portal de desenvolvimento da AZure API Management](api-management-howto-developer-portal.md)
+- [Descrição geral do portal do programador da Gestão de API do Azure](api-management-howto-developer-portal.md)
 - [Migrar para o novo portal](developer-portal-deprecated-migration.md) de desenvolvedores a partir do portal do legado deprecado.

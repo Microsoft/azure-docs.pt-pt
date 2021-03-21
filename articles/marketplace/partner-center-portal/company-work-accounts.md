@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
 ms.openlocfilehash: 5b4aadc506b2f4a251ccef5e9488066b609ba5a5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130532"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas de trabalho da empresa e Partner Center
@@ -24,7 +24,7 @@ Se a sua empresa subscreveu um serviço de cloud da Microsoft como a Azure, Micr
 
 Siga estes passos para verificar:
 1. Inscreva-se no portal de administração Azure em https://portal.azure.com .
-2. Selecione **O Diretório Ativo Azure** a partir do menu de navegação à esquerda e, em seguida, selecione **nomes de domínio personalizados** .
+2. Selecione **O Diretório Ativo Azure** a partir do menu de navegação à esquerda e, em seguida, selecione **nomes de domínio personalizados**.
 3. Se já tiver uma conta de trabalho, o seu nome de domínio será listado.
 
 Se a sua empresa ainda não tiver uma conta de trabalho, uma será criada para si durante o processo de inscrição do Partner Center.
@@ -38,11 +38,11 @@ Antes de decidir utilizar uma conta de trabalho existente, considere quantos uti
 Para criar uma nova conta de trabalho para a sua empresa, siga os passos abaixo. Poderá ter de solicitar assistência a quem tiver permissões administrativas na conta Microsoft Azure da sua empresa.
 
 1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
-2. A partir do menu de navegação à esquerda, selecione os Utilizadores **do Diretório Ativo Azure**  ->  **Users** .
+2. A partir do menu de navegação à esquerda, selecione os Utilizadores **do Diretório Ativo Azure**  ->  .
 3. Selecione **Novo utilizador** e crie uma nova conta de trabalho Azure introduzindo um nome e endereço de e-mail. Certifique-se de que a **função de Diretório** está definida para **Utilizador** e selecione a caixa de verificação **'Mostrar Palavra-passe'** na parte inferior para visualizar e tome nota da palavra-passe autogerada.
 4. Selecione **Criar** para salvar o novo utilizador.
 
-O endereço de e-mail para a conta de utilizador deve ser um nome de domínio verificado no seu diretório. Pode listar todos os domínios verificados no seu diretório selecionando nomes de domínio personalizado do **Azure Ative Directory**  ->  **Custom domain names** no menu de navegação à esquerda.
+O endereço de e-mail para a conta de utilizador deve ser um nome de domínio verificado no seu diretório. Pode listar todos os domínios verificados no seu diretório selecionando nomes de domínio personalizado do **Azure Ative Directory**  ->   no menu de navegação à esquerda.
 
 Para saber mais sobre a adição de domínios personalizados no Azure Ative Directory, consulte [Adicionar ou associar um domínio em Azure AD](../../active-directory/fundamentals/add-custom-domain.md).
 

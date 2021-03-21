@@ -1,5 +1,5 @@
 ---
-title: Criar um volume NFS para ficheiros Azure NetApp Microsoft Docs
+title: Crie um volume NFS para ficheiros Azure NetApp | Microsoft Docs
 description: Este artigo mostra-lhe como criar um volume NFS em Ficheiros Azure NetApp. Conheça as considerações, como qual a versão a usar e as melhores práticas.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
 ms.openlocfilehash: 2cc9d3e0fb711a0662852ce4f2c5a08dc626f246
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854738"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
 O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume NFS. 
 
-## <a name="before-you-begin"></a>Before you begin 
+## <a name="before-you-begin"></a>Antes de começar 
 * Tem de ter um conjunto de capacidade já configurado.  
     Consulte [configurar uma piscina de capacidade.](azure-netapp-files-set-up-capacity-pool.md)   
 * Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.  

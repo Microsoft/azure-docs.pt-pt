@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/01/2018
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
 ms.openlocfilehash: d1f66177b1939d612a5ee80c99109c397b56cb37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91532198"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Crie uma aplicação com um serviço frontal java API e um serviço de back-end imponente no Azure Service Fabric
@@ -47,7 +47,7 @@ Em primeiro lugar, crie o front-end para a Web da aplicação de Voto. Uma UI we
 
 1. Abra o Eclipse.
 
-2. Criar um projeto com **file**  >  **new**  >  **Other**  >  **service fabric**fabric  >  **project.**
+2. Criar um projeto com **file**  >  **new**  >    >  **service fabric** fabric  >  **project.**
 
     ![Novo projeto de tecido de serviço em Eclipse](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
@@ -397,7 +397,7 @@ Agora que a estrutura do serviço de API Web em Java está concluída, vamos ava
 
 O Service Fabric permite-lhe armazenar de forma consistente e fiável os seus dados diretamente dentro do seu serviço através das Reliable Collections. As coleções fiáveis são um conjunto de classes de coleção de elevada disponibilidade e fiáveis. A utilização destas classes é familiar para qualquer pessoa que tenha utilizado coleções de Java.
 
-1. In Package Explorer, right-click **Voting** within the application project and select **Service Fabric**  >  **Add Service Fabric Service**.
+1. No Package Explorer, clique à direita **Votando** dentro do projeto de aplicação e selecione **Service Fabric**  >  **Add Service Fabric Service**
 
 2. No diálogo **'Add Service',** selecione **Stateful Service** e nomeie o Serviço **de Voto** de Voto e selecione **Add Service**.
 
@@ -722,7 +722,7 @@ Quando efetua uma ação na aplicação (adicionar item, votar, remover item) oc
 
 Nesta secção, vai configurar os scripts de Gradle para o projeto. 
 
-1. Substitua os conteúdos do ficheiro*Voto/build.gradle* pelo seguinte.
+1. Substitua os conteúdos do ficheiro *Voto/build.gradle* pelo seguinte.
 
     ```gradle
     apply plugin: 'java'
@@ -880,7 +880,7 @@ Nesta secção, vai configurar os scripts de Gradle para o projeto.
 
 Neste momento, a aplicação está pronta para ser implementada num cluster do Service Fabric local.
 
-1. Clique com o botão direito no projeto **de votação** no Explorador de Pacotes e selecione a Aplicação de Construção **de Tecidos**de Serviço para construir a sua  >  **Build Application** aplicação.
+1. Clique com o botão direito no projeto **de votação** no Explorador de Pacotes e selecione a Aplicação de Construção **de Tecidos** de Serviço para construir a sua  >   aplicação.
 
 2. Execute o seu cluster do Service Fabric local. Este passo depende do seu ambiente de desenvolvimento (Mac ou Linux).
 
@@ -898,7 +898,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
     ```
     Consulte instruções mais detalhadas no [guia de configuração do Linux.](service-fabric-get-started-linux.md)
 
-4. No Package Explorer for Eclipse, clique à direita no projeto **de votação** e selecione a Aplicação de Publicação **de Tecidos de Serviço**  >  **Publish Application** 
+4. No Package Explorer for Eclipse, clique à direita no projeto **de votação** e selecione a Aplicação de Publicação **de Tecidos de Serviço**  >   
 5. Na janela **'Aplicação de publicação',** selecione **Local.js** a partir do dropdown e selecione **Publicar**.
 6. Vá ao seu navegador web e aceda http: \/ /localhost:8080 para ver a sua aplicação de execução no cluster de Tecido de Serviço local. 
 

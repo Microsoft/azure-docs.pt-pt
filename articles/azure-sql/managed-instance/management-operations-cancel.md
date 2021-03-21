@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861549"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelamento de operações de gestão de instância gerida da Azure SQL
@@ -38,14 +38,14 @@ O quadro que se segue resume as operações de gestão, quer possa ou não cance
 
 Categoria  |Operação  |Cancelável  |Duração estimada do cancelamento  |
 |---------|---------|---------|---------|
-|Implementação |Criação de exemplos |Sim |90% das operações terminam em 5 minutos. |
-|Atualizar |Armazenamento de instâncias para cima/para baixo (Final geral) |Não |  |
-|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral) |Sim |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
-|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa) |Sim |90% das operações terminam em 5 minutos. |
-|Eliminar |Eliminação da instância |Não |  |
-|Eliminar |Eliminação de clusters virtuais (como operação iniciada pelo utilizador) |Não |  |
+|Implementação |Criação de exemplos |Yes |90% das operações terminam em 5 minutos. |
+|Atualizar |Armazenamento de instâncias para cima/para baixo (Final geral) |No |  |
+|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (Business Critical) |Yes |90% das operações terminam em 5 minutos. |
+|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral) |Yes |90% das operações terminam em 5 minutos. |
+|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical) |Yes |90% das operações terminam em 5 minutos. |
+|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa) |Yes |90% das operações terminam em 5 minutos. |
+|Eliminar |Eliminação da instância |No |  |
+|Eliminar |Eliminação de clusters virtuais (como operação iniciada pelo utilizador) |No |  |
 
 ## <a name="cancel-management-operation"></a>Cancelar operação de gestão
 

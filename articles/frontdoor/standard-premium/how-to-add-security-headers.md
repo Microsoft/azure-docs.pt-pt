@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: c08ba57f43969bb2f0ee9c66b6cb4e92879ed258
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099902"
 ---
 # <a name="configure-security-headers-with-azure-front-door-standardpremium-preview-rule-set"></a>Configure cabeçalhos de segurança com Azure Front Door Standard/Premium (Preview) Conjunto de regras

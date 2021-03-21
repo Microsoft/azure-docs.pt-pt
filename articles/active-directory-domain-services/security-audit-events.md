@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: caf46850b3d8d6946225575b8a9a732a90847482
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574149"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Permitir auditorias de segurança para serviços de domínio de diretório ativo Azure
@@ -38,7 +38,7 @@ A tabela seguinte descreve cenários para cada tipo de recurso de destino.
 
 | Recurso-alvo | Scenario |
 |:---|:---|
-|Storage do Azure| Este alvo deve ser utilizado quando a sua necessidade principal é armazenar eventos de auditoria de segurança para fins de arquivo. Outros alvos podem ser usados para fins de arquivo, no entanto esses alvos fornecem capacidades para além da necessidade primária de arquivamento. <br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, primeiro [Crie uma conta de Armazenamento Azure](../storage/common/storage-account-create.md).|
+|Armazenamento do Azure| Este alvo deve ser utilizado quando a sua necessidade principal é armazenar eventos de auditoria de segurança para fins de arquivo. Outros alvos podem ser usados para fins de arquivo, no entanto esses alvos fornecem capacidades para além da necessidade primária de arquivamento. <br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, primeiro [Crie uma conta de Armazenamento Azure](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| Este alvo deve ser utilizado quando a sua necessidade principal é partilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gestão de eventos (SIEM).<br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, [Crie um centro de eventos usando o portal Azure](../event-hubs/event-hubs-create.md)|
 |Espaço de trabalho Azure Log Analytics| Este alvo deve ser utilizado quando a sua necessidade principal é analisar e rever diretamente auditorias seguras do portal Azure.<br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, [Crie um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/logs/quick-create-workspace.md)|
 

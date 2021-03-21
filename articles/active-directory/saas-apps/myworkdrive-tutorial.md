@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o MyWorkDrive Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o MyWorkDrive | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o MyWorkDrive.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b639ee45bfa6356054d93a1b6fcc8a7959173acd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516091"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integrar o MyWorkDrive com o Azure Ative Directory
@@ -45,14 +45,14 @@ Para configurar a integração do MyWorkDrive no AD Azure, é necessário adicio
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** digite **MyWorkDrive** na caixa de pesquisa.
 1. Selecione **MyWorkDrive** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Configure e teste Azure AD SSO com MyWorkDrive usando um utilizador de teste chamado **Britta Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no MyWorkDrive.
+Configure e teste Azure AD SSO com MyWorkDrive usando um utilizador de teste chamado **Britta Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no MyWorkDrive.
 
 Para configurar e testar o Azure AD SSO com o MyWorkDrive, complete os seguintes blocos de construção:
 
@@ -67,8 +67,8 @@ Para configurar e testar o Azure AD SSO com o MyWorkDrive, complete os seguintes
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **MyWorkDrive,** encontre a secção **Gerir** e selecione **Single sign-on** .
-1. Na página **de método de inscrição única,** selecione **SAML** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **MyWorkDrive,** encontre a secção **Gerir** e selecione **Single sign-on**.
+1. Na página **de método de inscrição única,** selecione **SAML**.
 1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 ### <a name="configure-myworkdrive-sso"></a>Configure MyWorkDrive SSO
 
-1. Para automatizar a configuração dentro do MyWorkDrive, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
+1. Para automatizar a configuração dentro do MyWorkDrive, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
@@ -110,7 +110,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![O Administrador](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 
-    a. Ativar **a SSO SAML/ADFS** .
+    a. Ativar **a SSO SAML/ADFS**.
 
     b. Selecione **SAML - Ad Azure**
 
@@ -125,21 +125,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `Britta Simon`.  
+   1. No campo **Nome**, introduza `Britta Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `BrittaSimon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo acesso ao MyWorkDrive.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de aplicações, selecione **MyWorkDrive** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **MyWorkDrive**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

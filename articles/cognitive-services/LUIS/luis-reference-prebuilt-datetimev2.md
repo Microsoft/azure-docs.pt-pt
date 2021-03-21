@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013076"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída DatetimeV2 para uma aplicação LUIS
@@ -145,7 +145,7 @@ Cada elemento da `values` matriz pode ter os seguintes campos:
 |--|--|
 |timex|intervalo de tempo, data ou data expresso no formato TIMEX que segue a [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos TIMEX3 para anotação utilizando o idioma TimeML.|
 |mod|termo usado para descrever como usar o valor `before` como, `after` . .|
-|tipo|O subtipo, que pode ser um dos seguintes itens: `datetime` , , , , , , , , , `date` , `time` `daterange` `timerange` `datetimerange` `duration` `set` .|
+|tipo|O subtipo, que pode ser um dos seguintes itens: `datetime` , , , , , , , , `date` `time` `daterange` `timerange` `datetimerange` `duration` `set` .|
 |valor|**É opcional.** Um objeto de data no Formato yyyy-MM-dd (data), HH:mm:ss (tempo) yyyy-MM-dd HH:mm:mm (data). Se `type` for , o valor é o número de `duration` segundos (duração) <br/> Só utilizado se `type` for `datetime` `date` `time` ou, ou duração.|
 
 ## <a name="valid-date-values"></a>Valores de data válidos

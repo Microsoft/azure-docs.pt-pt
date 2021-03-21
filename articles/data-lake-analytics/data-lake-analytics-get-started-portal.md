@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: 6e51c6848476147073626119689407ebc02c036d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220963"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introdução ao Azure Data Lake Analytics com o portal do Azure
@@ -26,7 +26,7 @@ Antes de começar este tutorial, tem de ter uma **subscrição do Azure**. Consu
 Agora, você vai criar um Data Lake Analytics e uma conta Azure Data Lake Storage Gen1 ao mesmo tempo.  Este passo é simples e leva apenas cerca de 60 segundos para concluir.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique **em Criar um recurso**Data +  >   **Analytics**Data Lake  >  **Analytics**.
+2. Clique **em Criar um recurso** Data +  >   **Analytics** Data Lake  >  **Analytics**.
 3. Selecione os valores para os seguintes itens:
    * **Nome**: nome da conta do Data Lake Analytics (Apenas são permitidas letras minúsculas e números).
    * **Subscrição**: selecione a subscrição do Azure utilizada para a conta da Análise.

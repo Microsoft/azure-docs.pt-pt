@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
 ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716623"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de conceção de divulgação
 Agora que&#39;determinou o [nível](concepts-disclosure-guidelines.md#disclosure-assessment) certo de divulgação para a sua experiência de voz sintética,&#39;é uma boa altura para explorar potenciais padrões de design.
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Há um espectro de padrões de design de divulgação que pode aplicar à sua experiência de voz sintética. Se o resultado da sua avaliação de divulgação foi "Alta Divulgação", recomendamos [**a divulgação explícita,**](#explicit-disclosure)o que significa comunicar as origens da voz sintética. [**A divulgação implícita**](#implicit-disclosure) inclui pistas e padrões de interação que beneficiam experiências de voz, quer os níveis de divulgação necessários sejam ou não elevados ou baixos.
 ![Espectro de padrões de divulgação](media/responsible-ai/disclosure-patterns/affordances.png)
 
@@ -38,7 +38,7 @@ Utilize o gráfico seguinte para se referir diretamente aos padrões que se apli
 
 
 
-| Se a sua experiência de voz sintética... | Recomendações | Padrões de estrutura |
+| Se a sua experiência de voz sintética... | Recomendações | Padrões de design |
 | --- | --- | --- |
 | Requer alta divulgação  | Use pelo menos um padrão explícito e pistas implícitas na frente para ajudar os utilizadores a construir associações. |[Divulgação Explícita](#explicit-disclosure)<br>[Divulgação Implícita](#implicit-disclosure)  |
 | Requer baixa divulgação | A divulgação pode ser mínima ou desnecessária, mas pode beneficiar de alguns padrões implícitos. | [Divulgação de capacidades](#capability-disclosure)<br>[Transparência de Conversação](#conversational-transparency)  |

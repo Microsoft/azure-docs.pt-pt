@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Understanding Users, Groups e Contacts Microsoft Docs'
+title: 'Azure AD Connect sync: Understanding Users, Groups e Contacts | Microsoft Docs'
 description: Explica os utilizadores, grupos e contactos na sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861787"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect sync: Understanding Users, Groups e Contacts
@@ -58,7 +58,7 @@ Pontos importantes a ter em conta quando sincronizar grupos do Ative Directory p
 ## <a name="contacts"></a>Contactos
 Ter contactos que representem um utilizador numa floresta diferente é comum após uma fusão & aquisição em que uma solução GALSync está a fazer a ponte entre duas ou mais florestas de intercâmbio. O objeto de contacto está sempre a unir-se do espaço do conector ao metaverso utilizando o atributo de correio. Se já existir um objeto de contacto ou objeto de utilizador com o mesmo endereço de correio, os objetos são unidos. Isto está configurado na regra **In a partir da AD – Contact Join**. Existe também uma regra chamada **In from AD – Contact Common** com um fluxo de atributos para o atributo metaverso **fonteObjectType** com o **contacto** constante . Esta regra tem uma precedência muito baixa, pelo que se algum objeto de utilizador for associado ao mesmo objeto metaverso, então a regra **In from AD – User Common** contribuirá com o valor Do Utilizador para este atributo. Com esta regra, este atributo terá o valor Contacto se nenhum utilizador tiver sido associado e o valor Utilizador se pelo menos um utilizador tiver sido encontrado.
 
-Para a provisionação de um objeto a Azure AD, a regra de saída **out to AAD – Contact Join** criará um objeto de contacto se a fonte de atributo metaversoObjectType estiver definida como **Contacto**. **sourceObjectType** Se este atributo for definido para **Utilizador,** então a regra **out to AAD – User Join** criará um objeto de utilizador.
+Para a provisionação de um objeto a Azure AD, a regra de saída **out to AAD – Contact Join** criará um objeto de contacto se a fonte de atributo metaversoObjectType estiver definida como **Contacto**.  Se este atributo for definido para **Utilizador,** então a regra **out to AAD – User Join** criará um objeto de utilizador.
 É possível que um objeto seja promovido de Contacto para Utilizador quando mais diretórios ativos de origem são importados e sincronizados.
 
 Por exemplo, numa topologia GALSync encontraremos objetos de contacto para todos na segunda floresta quando importamos a primeira floresta. Isto irá encenar novos objetos de contacto no Conector AAD. Quando mais tarde importarmos e sincronizarmos a segunda floresta, encontraremos os verdadeiros utilizadores e juntaremos-os aos objetos metaversos existentes. Em seguida, eliminaremos o objeto de contacto em AAD e criaremos um novo objeto de utilizador.

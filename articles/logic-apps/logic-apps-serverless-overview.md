@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
 ms.openlocfilehash: 470857883144f4bf8c21a1921afacb7ba3f5ca00
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788100"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure Serverless: Visão geral para a construção de apps e soluções baseadas na nuvem com apps e funções Azure Logic
@@ -41,7 +41,7 @@ Para começar com as Funções Azure, comece por [Criar a sua primeira Função 
 
 O Azure fornece ferramentas ricas para desenvolver, implementar e gerir aplicações sem servidor. Pode construir aplicações diretamente no portal Azure, com [ferramentas no Visual Studio,](logic-apps-serverless-get-started-vs.md)ou [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md). Depois de construir a sua aplicação, pode [implementar essa aplicação rapidamente com modelos do Azure Resource Manager.](logic-apps-deploy-azure-resource-manager-templates.md) O Azure também fornece monitorização, a que pode aceder através do portal Azure, através da API ou SDKs, ou com ferramentas integradas para registos do Monitor Azure e Insights de Aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Construa uma aplicação sem servidor no Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Crie um dashboard de insights de cliente com servidor sem servidor](logic-apps-scenario-social-serverless.md)

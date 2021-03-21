@@ -9,10 +9,10 @@ ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98051076"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure
@@ -152,8 +152,8 @@ Agora, insi(implantado a firewall na rede virtual do hub de firewall.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**FW-Hybrid-Test** |
-   |Nome     |**AzFW01**|
-   |Região     |**E.U.A. Leste**|
+   |Name     |**AzFW01**|
+   |Region     |**E.U.A. Leste**|
    |Escolher uma rede virtual     |**Utilização existente:**<br> **VNet-hub**|
    |Endereço IP público     |Adicione novo: <br>**fw-pip**. |
 

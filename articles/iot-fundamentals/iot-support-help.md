@@ -1,5 +1,5 @@
 ---
-title: Azure IoT apoiar e ajudar opções / Microsoft Docs
+title: Azure IoT apoiar e ajudar opções | Microsoft Docs
 description: Como obter ajuda e suporte para questões ou problemas quando cria soluções utilizando os Serviços Azure IoT.
 author: philmea
 ms.author: phil
@@ -8,10 +8,10 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 6/10/2020
 ms.openlocfilehash: b9b3b30592237e1bbe1b08b0ed1d118131b15a26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206055"
 ---
 # <a name="what-are-the-azure-iot-support-and-help-options"></a>Quais são as opções de suporte e ajuda do Azure IoT?
@@ -101,4 +101,4 @@ Além disso, partilhe as suas experiências, envolva-se e aprenda com especialis
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[O que é o Azure IoT?](iot-introduction.md)
+[O que é o IoT do Azure?](iot-introduction.md)

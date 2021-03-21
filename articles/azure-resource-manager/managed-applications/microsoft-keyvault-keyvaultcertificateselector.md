@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1ac6fd5a3f1e581fc9a676fe7f8f27b9742e1581
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101226"
 ---
 # <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>Microsoft.KeyVault.KeyVaultCertificateSelector UI elemento
@@ -24,11 +24,11 @@ O utilizador é apresentado com a opção de selecionar um certificado disponív
 
 Depois de selecionar **Selecionar um certificado,** o utilizador pode especificar um cofre e certificado chave a partir do cofre da chave.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft.keyVault.KeyVaultCertificateselector":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector certificado":::
 
 O controlo é atualizado para exibir o cofre de teclas selecionado e o nome do certificado.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="Microsoft.keyVault.KeyVaultCertificateselector":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector mostram certificado selecionado":::
 
 ## <a name="schema"></a>Esquema
 

@@ -10,10 +10,10 @@ ms.author: cgronlun
 author: cjgronlund
 ms.date: 11/12/2019
 ms.openlocfilehash: 37cb70bdbd1e3c87eeb994e0959c6214822d22ad
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322968"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Melhores práticas de código seguro com Azure Machine Learning
@@ -29,8 +29,8 @@ O desenvolvimento com a Azure Machine Learning envolve frequentemente ambientes 
 
 * [Scripting cross site (XSS)](https://owasp.org/www-community/attacks/xss/)
 
-    * __Injeção DOM__ : Este tipo de ataque pode modificar o UI exibido no navegador. Por exemplo, alterando o comportamento do botão de funcionação num Bloco de Notas Jupyter.
-    * __Acesso a token/cookies__ : Os ataques XSS também podem aceder a armazenamento local e cookies de navegador. O seu token de autenticação Azure Ative (AAD) está armazenado no armazenamento local. Um ataque XSS poderia usar este token para fazer chamadas de API em seu nome e, em seguida, enviar os dados para um sistema externo ou API.
+    * __Injeção DOM__: Este tipo de ataque pode modificar o UI exibido no navegador. Por exemplo, alterando o comportamento do botão de funcionação num Bloco de Notas Jupyter.
+    * __Acesso a token/cookies__: Os ataques XSS também podem aceder a armazenamento local e cookies de navegador. O seu token de autenticação Azure Ative (AAD) está armazenado no armazenamento local. Um ataque XSS poderia usar este token para fazer chamadas de API em seu nome e, em seguida, enviar os dados para um sistema externo ou API.
 
 * [Falsificação de pedido de cross site (CSRF)](https://owasp.org/www-community/attacks/csrf): Este ataque pode substituir o URL de uma imagem ou ligação com o URL de um script malicioso ou API. Quando a imagem é carregada, ou o link clicado, uma chamada é feita para o URL.
 

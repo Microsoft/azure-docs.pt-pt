@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: e876ca028532bb3721146e90a91d68c4c12bf79f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096085"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
@@ -67,13 +67,13 @@ Utilize as seguintes opções de origem ao definir o Armazenamento de Tabelas do
 * **/s.Filtro:** É opcional. Cadeia de filtro para aplicar
 * **/s.Projeção:** É opcional. Lista de colunas para selecionar
 
-Para recuperar a cadeia de ligação de origem ao importar do armazenamento da tabela Azure, abra o portal Azure e clique nas **teclas de** Acesso à conta de armazenamento  >  **Account**  >  **Access keys** e, em seguida, utilize o botão de cópia para copiar a **cadeia De ligação** .
+Para recuperar a cadeia de ligação de origem ao importar do armazenamento da tabela Azure, abra o portal Azure e clique nas **teclas de** Acesso à conta de armazenamento  >    >  e, em seguida, utilize o botão de cópia para copiar a **cadeia De ligação**.
 
 :::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Screenshot que mostra contas de Armazenamento > Opções de > De acesso de conta e realça o botão de cópia.":::
 
-Para recuperar a cadeia de ligação de origem ao importar de uma conta API de tabela API (pré-visualização) da Tabela Azure Cosmos, abra o portal Azure, clique na Cadeia de Ligação da Conta **Azure Cosmos**  >  **Account**  >  **Connection String** DB e utilize o botão de cópia para copiar a **Cadeia de Ligação** .
+Para recuperar a cadeia de ligação de origem ao importar de uma conta API de tabela API (pré-visualização) da Tabela Azure Cosmos, abra o portal Azure, clique na Cadeia de Ligação da Conta **Azure Cosmos**  >    >   DB e utilize o botão de cópia para copiar a **Cadeia de Ligação**.
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Screenshot que mostra contas de Armazenamento > Opções de > De acesso de conta e realça o botão de cópia.":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Captura de ecrã das opções de origem do HBase":::
 
 [Comando de Armazenamento de Tabelas do Azure](#azure-table-storage)
 

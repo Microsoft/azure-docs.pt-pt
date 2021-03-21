@@ -9,10 +9,10 @@ ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.openlocfilehash: 378bb891c8539a6cf3d61f6511a0f58377d2bfd2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93091145"
 ---
 # <a name="azure-cosmos-db-sql-api-spring-data-azure-cosmos-db-v3-examples"></a>Azure Cosmos DB SQL API: Dados de primavera Azure Cosmos DB v3 exemplos
@@ -113,7 +113,7 @@ O ficheiro [de amostras](https://github.com/Azure-Samples/azure-spring-data-cosm
 ## <a name="derived-query-method-examples"></a>Exemplos de métodos de consulta derivados
 O ficheiro [de amostras](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) mostra como executar as seguintes tarefas. Para saber mais sobre as consultas de Azure Cosmos DB antes de executar as seguintes amostras, você pode achar útil ler [os Métodos de Consulta Derivada de Baeldung no](https://www.baeldung.com/spring-data-derived-queries) artigo da primavera.
 
-| [Consulta de documentos](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L73-L77) CosmosRepository.derivedQueryMethod
+| [Consulta de documentos](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L73-L77) | CosmosRepository.rivedQueryMethod |
 
 ## <a name="custom-query-examples"></a>Exemplos de consulta personalizada
 O ficheiro [de amostras](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) mostra como fazer as seguintes tarefas utilizando a gramática de consulta SQL. Para saber mais sobre a referência de consulta SQL em Azure Cosmos DB antes de executar as [seguintes amostras, consulte exemplos de consulta SQL para Azure Cosmos DB](./sql-query-getting-started.md). 

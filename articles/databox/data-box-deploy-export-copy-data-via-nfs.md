@@ -1,5 +1,5 @@
 ---
-title: Tutorial para copiar dados da Caixa de Dados do Azure via NFS Microsoft Docs
+title: Tutorial para copiar dados da Caixa de Dados Azure via NFS| Microsoft Docs
 description: Saiba como copiar dados da sua Caixa de Dados Azure via NFS
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 64bb5e94c4b18626d1f85d7e61252aae74202eb9
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680622"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-nfs"></a>Tutorial: Copiar dados da Caixa de Dados do Azure via NFS

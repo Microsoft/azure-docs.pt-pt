@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/07/2021
 ms.author: alkohli
 ms.openlocfilehash: c51577882e75facb1d8eb03c7cfab82467c5ec51
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99524923"
 ---
 Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso IoT Hub através do portal Azure.
@@ -27,7 +27,7 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
     |---------|---------|
     |Subscrição     |Selecione uma subscrição para o seu recurso IoT Hub. Pode utilizar a mesma subscrição que a utilizada pelo recurso Azure Stack Edge.         |
     |Grupo de recursos     |Selecione um grupo de recursos para o seu recurso IoT Hub. Pode utilizar o mesmo grupo de recursos que o utilizado pelo recurso Azure Stack Edge.         |
-    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT utiliza a mesma subscrição e o mesmo grupo de recursos utilizados pelo recurso do Azure Stack Edge.     |
     |Name     |Aceite o nome predefinido ou insira um nome para o seu recurso IoT Hub.         |
 
    ![Começar com o compute 2](./media/azure-stack-edge-gateway-configure-compute/configure-compute-3.png)

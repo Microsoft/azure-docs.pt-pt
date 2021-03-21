@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c3bf8e5f81ae7bf35ff34039fa1e81c9fd4a406b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324553"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implantação do ciclo de vida do processo de ciência de dados da equipa
@@ -39,7 +39,7 @@ Implementar modelos com um pipeline de dados para um ambiente de produção ou p
 ## <a name="how-to-do-it"></a>Como fazê-lo
 A principal tarefa abordada nesta fase:
 
-**Operacionalizar o modelo** : Implantar o modelo e o gasoduto num ambiente de produção ou produção para consumo de aplicações.
+**Operacionalizar o modelo**: Implantar o modelo e o gasoduto num ambiente de produção ou produção para consumo de aplicações.
 
 ### <a name="operationalize-a-model"></a>Operacionalizar um modelo
 Depois de ter um conjunto de modelos que funcionam bem, pode operacionalizá-los para outras aplicações consumirem. Dependendo dos requisitos do negócio, as previsões são feitas em tempo real ou em lote. Para implementar modelos, expõe-nos com uma interface API aberta. A interface permite que o modelo seja facilmente consumido a partir de várias aplicações, tais como:

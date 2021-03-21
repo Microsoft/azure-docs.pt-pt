@@ -4,10 +4,10 @@ description: As aplicações Azure Service Fabric podem ser executadas em cluste
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.openlocfilehash: c907540c03788ab5f4087a96e301f18ab7ced4ca
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787982"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerir as aplicações para vários ambientes
@@ -42,7 +42,7 @@ Ao criar uma aplicação nomeada em Service Fabric, tem a opção de passar em p
   - Utilizando sfctl, o [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) comando toma os parâmetros como uma corda JSON. O install.sh script usa sfctl.
   - O Visual Studio fornece-lhe um conjunto de ficheiros de parâmetros na pasta Parâmetros no projeto de aplicação. Estes ficheiros de parâmetros são utilizados na publicação do Visual Studio, utilizando os Serviços Azure DevOps ou o Azure DevOps Server. No Estúdio Visual, os ficheiros dos parâmetros estão a ser transmitidos para o Deploy-FabricApplication.ps1 script.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os seguintes artigos mostram-lhe como utilizar alguns dos conceitos aqui descritos:
 
 - [Como especificar variáveis ambientais para serviços em Tecido de Serviço](service-fabric-how-to-specify-environment-variables.md)

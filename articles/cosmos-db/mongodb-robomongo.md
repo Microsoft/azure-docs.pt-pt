@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
 ms.openlocfilehash: e096de5eea9bf5bbd47b976976192e62eb6aa33e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096415"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar o Robo 3T da API do Azure Cosmos DB para MongoDB
@@ -38,15 +38,15 @@ Para adicionar a sua conta Cosmos ao gestor de conexão Robo 3T, execute os segu
 
 4. Na janela **Definições de Ligação,** escolha um nome. Em seguida, encontre o **Anfitrião** e o **Porto** a partir das suas informações de ligação no Passo 1 e insira-as no **Endereço** e **Porto,** respectivamente.
 
-    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Screenshot da lâmina de corda de ligação":::
-5. No **separador Autenticação,** clique em **Realizar autenticação.** Em seguida, introduza a sua Base de Dados (por defeito é *Administrador),* **Nome de Utilizador** e **Palavra-passe** .
+    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Screenshot das Ligações de Gestão robomongo":::
+5. No **separador Autenticação,** clique em **Realizar autenticação.** Em seguida, introduza a sua Base de Dados (por defeito é *Administrador),* **Nome de Utilizador** e **Palavra-passe**.
 Tanto **o Nome de Utilizador** como a **Palavra-Passe** podem ser encontrados nas informações de ligação no Passo 1.
 
-    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Screenshot da lâmina de corda de ligação":::
-6. No separador **SSL,** verifique **o protocolo Utilizar SSL** e, em seguida, alterar o **Método de Autenticação** para **Certificado auto-assinado** .
+    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Screenshot do Separador de Autenticação robomongo":::
+6. No separador **SSL,** verifique **o protocolo Utilizar SSL** e, em seguida, alterar o **Método de Autenticação** para **Certificado auto-assinado**.
 
-    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Screenshot da lâmina de corda de ligação":::
-7. Por fim, clique em **Test** para verificar se é capaz de se conectar e, em seguida, **Guardar** .
+    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Screenshot do Separador Robomongo SSL":::
+7. Por fim, clique em **Test** para verificar se é capaz de se conectar e, em seguida, **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

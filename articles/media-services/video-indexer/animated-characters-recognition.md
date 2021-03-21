@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: f1b19f178a60671108ec32ef6fbed1afe73a0cee
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854755"
 ---
 # <a name="animated-character-detection-preview"></a>Deteção de carateres animados (pré-visualização)
@@ -40,7 +40,7 @@ Dependendo de um tipo da sua conta de Indexer de Vídeo, estão disponíveis dif
 
 ### <a name="trial-vs-paid"></a>Julgamento vs. pago
 
-|Funcionalidade|Avaliação|Pago|
+|Funcionalidade|Avaliação|Paga|
 |---|---|---|
 |Conta Visão Personalizada|Gerido nos bastidores por Video Indexer. |A sua conta De Visão Personalizada está ligada ao Indexador de Vídeo.|
 |Número de modelos de animação|Um|Até 100 modelos por conta (limitação de Visão Personalizada).|

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025998"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados do texto de expressão com intenções e entidades
@@ -264,6 +264,6 @@ Se uma palavra ou frase corresponder a mais de uma entidade de lista, a consulta
 
 Para a consulta `when is the best time to go to red rock?` , e a app tem a palavra em mais de uma `red` lista, a LUIS reconhece todas as entidades e devolve um conjunto de entidades como parte da resposta do ponto final da JSON.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [entidades Add](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua app LUIS.

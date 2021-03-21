@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
 ms.openlocfilehash: b9dda384e2ef30808559d10012dea2909b2af0fd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206939"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutorial: Ligue uma rede virtual a um circuito ExpressRoute utilizando o CLI
@@ -26,7 +26,7 @@ Este tutorial mostra-lhe como ligar redes virtuais (VNets) aos circuitos Azure E
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 > 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > - Ligue uma rede virtual na mesma subscrição a um circuito
 > - Ligar uma rede virtual de uma subscrição diferente a um circuito
@@ -168,7 +168,7 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar da ligação ExpressRoute, a partir da subscrição onde se encontra o gateway, utilize o `az network vpn-connection delete` comando para remover a ligação entre o gateway e o circuito.
 

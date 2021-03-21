@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 401754436739e5594c0d7baac6507f9d9984fc31
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221286"
 ---
 # <a name="use-powershell-to-set-azure-data-share-synchronization-settings"></a>Utilize o PowerShell para definir as definições de sincronização de partilha de dados do Azure

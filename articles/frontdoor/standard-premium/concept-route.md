@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: db026c4903aa30a0a4c8154af8ad6eeb4b72b706
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101100052"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview-route"></a>O que é Azure Front Door Standard/Premium (Preview) Route?
