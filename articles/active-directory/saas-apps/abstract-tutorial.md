@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Resumo Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | Abstrato Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Abstract.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587830"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutorial: Integrar Resumo com Diretório Ativo Azure

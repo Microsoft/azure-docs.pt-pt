@@ -1,5 +1,5 @@
 ---
-title: Upload a granel para adicionar ou criar membros de um grupo - Azure Ative Directory / Microsoft Docs
+title: Upload a granel para adicionar ou criar membros de um grupo - Azure Ative Directory | Microsoft Docs
 description: Adicione membros do grupo a granel no centro de administração Azure Ative.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22d39a2ee66f2c63612ad2cb3cf9ae61f1660de3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547751"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>A granel adiciona membros do grupo no Azure Ative Directory

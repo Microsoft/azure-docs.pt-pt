@@ -16,10 +16,10 @@ ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: f6e9009040d2d02702f8a71c352716491d07d1f7
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98704309"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migrar uma base de dados do SQL Server para o SQL Server numa máquina virtual Azure
@@ -108,7 +108,7 @@ Utilize este método para migrar todas as bases de dados do sistema e dos utiliz
 
 Utilize o [método do Windows Import/Export Service](../../../import-export/storage-import-export-service.md) para transferir grandes quantidades de dados de ficheiros para o armazenamento do Azure Blob em situações em que o upload da rede é proibitivamente caro ou não é viável. Com este serviço, envia um ou mais discos rígidos contendo esses dados para um centro de dados Azure onde os seus dados serão enviados para a sua conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [o SQL Server na visão geral das máquinas virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
 

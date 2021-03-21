@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Rackspace SSO / Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com rackspace SSO | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Rackspace SSO.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: eed0ea075c5e9eb39810259be2aa6781a59f2f22
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Ative Directory com Rackspace SSO

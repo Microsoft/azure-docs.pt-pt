@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 28b23555f97e58dde038c5e3e12a4b741b81776d
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98059046"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>Copie uma bolha com bibliotecas de clientes do Azure Storage
@@ -192,5 +192,5 @@ Obtenha mais informações sobre Azure SDKs:
 
 Os seguintes tópicos contêm informações sobre a cópia de blobs e o aborto das operações de cópia em curso utilizando as APIs do Azure REST.
 
-- [Bolha de cópia](/rest/api/storageservices/copy-blob)
+- [Copiar Blob](/rest/api/storageservices/copy-blob)
 - [Abortar Bolha de Cópia](/rest/api/storageservices/abort-copy-blob)

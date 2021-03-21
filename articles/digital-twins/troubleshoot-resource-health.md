@@ -8,10 +8,10 @@ ms.date: 10/6/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: b64ee4d1538276bbbcab3fe09054f399ad20c162
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94616554"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Resolução de problemas Azure Digital Twins: Saúde de recursos
@@ -32,7 +32,7 @@ Para verificar a saúde do seu caso, siga estes passos:
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot mostrando a página 'Resource health'. Há uma secção de &quot;história da saúde&quot; que mostra um relatório diário dos últimos nove dias. Cada dia mostra um estado de 'Disponível'.":::
 
-Na imagem acima, este caso está a mostrar-se *como Disponível* , e tem sido nos últimos nove dias. Para saber mais sobre o estado *disponível* e os outros tipos de estado que possam aparecer, consulte [*a visão geral da saúde dos recursos Azure*](../service-health/resource-health-overview.md).
+Na imagem acima, este caso está a mostrar-se *como Disponível*, e tem sido nos últimos nove dias. Para saber mais sobre o estado *disponível* e os outros tipos de estado que possam aparecer, consulte [*a visão geral da saúde dos recursos Azure*](../service-health/resource-health-overview.md).
 
 Também pode aprender mais sobre os diferentes controlos que vão para a saúde dos recursos para diferentes tipos de recursos Azure em tipos de [*recursos e verificações de saúde na saúde dos recursos Azure.*](../service-health/resource-health-checks-resource-types.md)
 

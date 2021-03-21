@@ -1,5 +1,5 @@
 ---
-title: Obtenha & remover as contas da cache simbólica (MSAL4j) Rio Azure
+title: Obtenha & remova as contas da cache simbólica (MSAL4j) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como visualizar e remover contas da cache simbólica utilizando a Biblioteca de Autenticação da Microsoft para Java.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev, devx-track-java
 ms.openlocfilehash: fc039e06c8c9d75608b60c2f48e86bc5503e5aec
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96344866"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Obtenha e remova as contas da cache simbólica usando MSAL para Java

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
 ms.openlocfilehash: c0dc68bd7dacf0cd7f4be9732d45831e2dbb712c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897008"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Ativar a configuração do estado da automação Azure
@@ -321,7 +321,7 @@ Para visualizar o estado da extensão de configuração do estado Azure VM desej
 3. Agora selecione **DSC** ou **DSCForLinux,** dependendo do seu sistema operativo. 
 4. Para mais detalhes, clique em **Ver estado detalhado.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).
 - Para saber sobre a compilação de configurações de DSC para que possa atribuí-las aos nós-alvo, consulte [as configurações do Compile DSC na Configuração do Estado da Automação Azure](automation-dsc-compile.md).

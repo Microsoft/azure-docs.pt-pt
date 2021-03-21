@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 2bfb700ac5c220b780c05c8d415a4506c7a2f871
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001203"
 ---
 As `Logging` definições gerem ASP.NET suporte de registo do Núcleo para o seu recipiente. Pode utilizar as mesmas definições e valores de configuração para o seu recipiente que utiliza para uma aplicação Core ASP.NET. 
@@ -50,7 +50,7 @@ Logging:Console:LogLevel:Default=Debug
 
 O `Disk` fornecedor de registos suporta as seguintes definições de configuração:
 
-| Nome | Tipo de dados | Descrição |
+| Name | Tipo de dados | Descrição |
 |------|-----------|-------------|
 | `Format` | String | O formato de saída para ficheiros de registo.<br/> **Nota:** Este valor deve ser definido `json` para permitir o fornecedor de registos. Se este valor for especificado sem especificar também um suporte de saída durante a instantânea de um recipiente, ocorre um erro. |
 | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um ficheiro de log. Quando o tamanho do ficheiro de registo atual se encontra ou excede este valor, um novo ficheiro de registo é iniciado pelo fornecedor de registo. Se for especificado -1, o tamanho do ficheiro de registo é limitado apenas pelo tamanho máximo do ficheiro, se houver, para o suporte de saída. O valor predefinido é 1. |

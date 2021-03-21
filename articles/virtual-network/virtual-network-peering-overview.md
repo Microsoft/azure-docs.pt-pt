@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98216755"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual

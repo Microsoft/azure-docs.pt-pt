@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575742"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia para converter funções web e trabalhadoras para serviços apátridas de tecido de serviço
@@ -31,10 +31,10 @@ Semelhante ao Papel dos Trabalhadores, um Papel Web também representa uma carga
 
 | **Aplicação** | **Suportado** | **Caminho de migração** |
 | --- | --- | --- |
-| ASP.NET Formas Web |Não |Converter para ASP.NET Core 1 MVC |
+| ASP.NET Formas Web |No |Converter para ASP.NET Core 1 MVC |
 | ASP.NET MVC |Com a migração |Upgrade para ASP.NET Core 1 MVC |
 | API Web ASP.NET |Com a migração |Utilize servidor auto-hospedado ou ASP.NET Core 1 |
-| ASP.NET Core 1 |Sim |N/D |
+| ASP.NET Core 1 |Yes |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API ponto de entrada e ciclo de vida
 Os APIs de serviço de função de trabalhador e de tecido de serviço oferecem pontos de entrada semelhantes: 

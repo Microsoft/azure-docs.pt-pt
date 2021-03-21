@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e0c5f3ecf0334ad2190d8542e54388a2a25d30fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999812"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar o Service Fabric Reliable Services e o Reliable Actors em contentores no Windows
@@ -24,7 +24,7 @@ Este documento fornece orientações para que o seu serviço seja funcionado den
 
 1. Abra a sua aplicação de Tecido de Serviço no Estúdio Visual.
 
-2. Adicione [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) de classe ao seu projeto. O código desta classe é um ajudante para carregar corretamente os binários de tempo de execução do Tecido de Serviço no interior da sua aplicação quando estiver a correr dentro de um recipiente.
+2. Adicione a classe [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) ao seu projeto. O código desta classe é um ajudante para carregar corretamente os binários de tempo de execução do Tecido de Serviço no interior da sua aplicação quando estiver a correr dentro de um recipiente.
 
 3. Para cada pacote de código que pretende contentorizar, inicialize o carregador no ponto de entrada do programa. Adicione o construtor estático mostrado no seguinte corte de código no ficheiro de ponto de entrada do programa.
 

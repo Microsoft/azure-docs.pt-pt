@@ -4,10 +4,10 @@ description: Aqui está como permitir o suporte de identidades geridas em um nov
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: ae4fec452a2342a68843d874ba955b594014c46d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574671"
 ---
 # <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configurar suporte de identidade gerido para um novo cluster de Tecidos de Serviço

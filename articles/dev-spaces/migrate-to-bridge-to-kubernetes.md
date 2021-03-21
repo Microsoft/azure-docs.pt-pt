@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve o processo de migração de Azure Dev Spaces para Bridge to Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, Ponte para Kubernetes
 ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888526"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrar para o Bridge to Kubernetes

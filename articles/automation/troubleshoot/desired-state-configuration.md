@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896533"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Problemas de resolução de problemas Problemas de Configuração do Estado da Automação Azure
@@ -107,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Esta questão é causada por um certificado mau ou caducado. Consulte [re-registar um nó](../automation-dsc-onboarding.md#re-register-a-node).
 
-Este problema também pode ser causado por uma configuração de procuração que não permite o acesso a **_.azure-automation.net_*. Para obter mais informações, consulte [configuração de redes privadas.](../automation-dsc-overview.md#network-planning) 
+Este problema também pode ser causado por uma configuração de procuração que não permite o acesso a ***.azure-automation.net**. Para obter mais informações, consulte [configuração de redes privadas.](../automation-dsc-overview.md#network-planning) 
 
 ### <a name="resolution"></a>Resolução
 
@@ -336,7 +336,7 @@ As configurações de DSC que demoram muito tempo a compilar podem causar este e
 
 Pode fazer com que as suas configurações DSC analisem mais rapidamente, incluindo explicitamente o `ModuleName` parâmetro para quaisquer chamadas [Import-DSCResource.](/powershell/scripting/dsc/configurations/import-dscresource)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

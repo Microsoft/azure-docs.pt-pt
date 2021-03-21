@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101093997"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: | de autorização Mitigações 
@@ -277,7 +277,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Storage do Azure | 
+| **Componente**               | Armazenamento do Azure | 
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | StorageType - Tabela |
@@ -288,7 +288,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Storage do Azure | 
+| **Componente**               | Armazenamento do Azure | 
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |

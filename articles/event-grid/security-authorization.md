@@ -3,12 +3,12 @@ title: Segurança e autenticação da Grelha de Eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 326fa00645302eb4b9c9bc59f17c1ca153bdb0b7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e9bcf00e832e4deaaf9c5f81ba5af51609a1c412
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371725"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601045"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
 O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de **gestão,** tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções Azure (Azure RBAC).
@@ -31,80 +31,23 @@ As seguintes operações devolvem informações potencialmente secretas, que sã
 
 
 ## <a name="built-in-roles"></a>Funções incorporadas
+A Grade de Eventos fornece os seguintes três papéis incorporados. 
 
-O Event Grid oferece duas funções incorporadas para gerir subscrições de eventos. São importantes na implementação [de domínios de eventos](event-domains.md) porque dão aos utilizadores as permissões necessárias para subscreverem tópicos no domínio do evento. Estas funções estão focadas em subscrições de eventos e não dão acesso a ações como a criação de tópicos.
+As funções de leitor de subscrição de grelha de eventos e colaborador de subscrição de grade de eventos destinam-se à gestão de subscrições de eventos. São importantes na implementação [de domínios de eventos](event-domains.md) porque dão aos utilizadores as permissões necessárias para subscreverem tópicos no domínio do evento. Estas funções estão focadas em subscrições de eventos e não dão acesso a ações como a criação de tópicos.
 
-Pode [atribuir estas funções a um utilizador ou grupo.](../role-based-access-control/quickstart-assign-role-user-portal.md)
+A função de Contribuinte de Grelha de Eventos permite-lhe criar e gerir os recursos da Grade de Eventos. 
 
-**Colaborador de eventosSSubscription**: gerir operações de subscrição de Event Grid
 
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+| Função | Description |
+| ---- | ----------- | 
+| [Leitor de subscrição de grelha de evento](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Permite-lhe gerir as operações de subscrição de eventos da Event Grid. |
+| [Colaborador de subscrição de grelha de evento](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Permite-lhe ler subscrições de eventos Grid. |
+| [Colaborador da Grelha de Eventos](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Permite criar e gerir os recursos da Grade de Eventos. |
 
-**EventGrid EventSubscription Reader**: leia subscrições da Grade de Eventos
 
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+> [!NOTE]
+> Selecione links na primeira coluna para navegar para um artigo que forneça mais detalhes sobre o papel. Para obter instruções sobre como atribuir utilizadores ou grupos às funções de RBAC, consulte [este artigo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
 
 ## <a name="custom-roles"></a>Funções personalizadas
 

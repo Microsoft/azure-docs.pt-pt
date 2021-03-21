@@ -12,10 +12,10 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 26a8a865a787a9c9b17031f94456272c93380704
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117049"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Quickstart: Computação em escala para piscina Sinaapse SQL com o portal Azure
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Você pode escalar uma piscina SQL que você já tem ou usar [Quickstart: criar e ligar - portal](create-data-warehouse-portal.md) para criar uma piscina SQL chamada **mySampleDataWarehouse**. Este início rápido dimensiona **mySampleDataWarehouse**.
 

@@ -1,5 +1,5 @@
 ---
-title: Escolha uma solução Azure para transferência periódica de dados Microsoft Docs
+title: Escolha uma solução Azure para transferência periódica de dados| Microsoft Docs
 description: Saiba como escolher uma solução Azure para transferência de dados quando estiver a transferir dados periodicamente.
 services: storage
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573923"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions for periodic data transfer (Soluções para a transferência de dados periódica)
@@ -58,9 +58,9 @@ A tabela seguinte resume as diferenças entre as principais capacidades.
 | Hardware                                      | O seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
 | Esforço inicial de configuração                          | Baixo (<30 minutos.)            | Moderado (~duas horas) | Grande (~dias)                                                 |
 | Formato de Dados                                   | Azure Blobs, Ficheiros Azure   | Azure Blobs, Ficheiros Azure | [Suporta mais de 70 conectores de dados para lojas de dados e formatos](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
-| Pré-processamento de dados                           | Não                         | Sim, via edge compute    | Sim                                                           |
-| Cache local<br>(para armazenar dados no local)    | Sim                        | Sim                      | Não                                                            |
-| Transferência de outras nuvens                    | Não                         | Não                       | Sim                                                           |
+| Pré-processamento de dados                           | No                         | Sim, via edge compute    | Yes                                                           |
+| Cache local<br>(para armazenar dados no local)    | Yes                        | Yes                      | No                                                            |
+| Transferência de outras nuvens                    | No                         | No                       | Yes                                                           |
 | Preços                                       | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Passos seguintes

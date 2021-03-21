@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 01/29/2021
-  ms.openlocfilehash: 9f9d2c694196b48aa4905a3783cb16609727b951
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+  ms.date: 03/16/2021
+  ms.openlocfilehash: 2a4890f19eb02f4021af9a82ccbe9e385a6b320d
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100099137"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104601011"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -137,20 +137,8 @@ additionalContent:
         url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
         note: (Configuração de Convidado)
       - text: REST
-        url: /rest/api/policy-insights/
-        note: (Informações da Política)
-      - text: REST
-        url: /rest/api/resources/policyassignments
-        note: (Atribuições)
-      - text: REST
-        url: /rest/api/resources/policydefinitions
-        note: (Definições)
-      - text: REST
-        url: /rest/api/resources/policyexemptions
-        note: (Isenções)
-      - text: REST
-        url: /rest/api/resources/policysetdefinitions
-        note: (Iniciativas)
+        url: /rest/api/policy/
+        note: (Política)
       - text: REST
         url: /rest/api/guestconfiguration/
         note: (Configuração de Convidado)

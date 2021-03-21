@@ -7,17 +7,17 @@ ms.date: 02/11/2020
 ms.topic: reference
 ms.custom: references_regions
 ms.openlocfilehash: 1b20f7134f1b39853a78ee5b709e732ccf35acac
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571118"
 ---
 # <a name="regions"></a>Regiões
 
 Esta página lista as regiões atualmente disponíveis para utilização com renderização remota Azure. Para obter melhores resultados, utilize sempre a região mais próxima da sua localização física.
 
-| Name | Região | URL |
+| Name | Region | URL |
 |-----------|:-----------|:-----------|
 | Leste da Austrália | australiaeast | `https://remoterendering.australiaeast.mixedreality.azure.com` |
 | E.U.A. Leste | eastus | `https://remoterendering.eastus.mixedreality.azure.com` |

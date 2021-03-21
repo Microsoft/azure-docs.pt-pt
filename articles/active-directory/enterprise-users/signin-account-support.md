@@ -1,5 +1,5 @@
 ---
-title: A minha página de ad AD Azure aceita as contas da Microsoft ? Microsoft Docs
+title: A minha página de ad AD Azure aceita contas da Microsoft | Microsoft Docs
 description: Como as mensagens no ecrã refletem a pesquisa do nome de utilizador durante o pré-in
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c3b1c8d35c24d78abb8a519ddc8790649eb5f2b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547870"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opções de inscrição para contas da Microsoft no Azure Ative Directory

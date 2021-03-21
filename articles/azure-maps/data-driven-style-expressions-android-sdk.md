@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 1babf1feb550109486089c45469ab4ce32f72cb3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102097419"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expressões de estilo orientadas por dados (Android SDK)
@@ -24,7 +24,7 @@ Os estilos orientados por dados reduzem a quantidade de código necessária para
 
 O Azure Maps Android SDK suporta quase todas as expressões de estilo do Azure Maps Web SDK, pelo que todos os mesmos conceitos delineados nas [Expressões de Estilo orientadas por Dados (Web SDK)](data-driven-style-expressions-web-sdk.md) podem ser transportados para uma aplicação Android. Todas as expressões de estilo no Azure Maps Android SDK estão disponíveis no espaço de `com.microsoft.azure.maps.mapcontrol.options.Expression` nomes. Existem muitos tipos diferentes de expressões de estilo.
 
-| Tipo de expressões | Descrição |
+| Tipo de expressões | Description |
 |---------------------|-------------|
 | [Expressões booleanas](#boolean-expressions) | Expressões booleanas fornecem um conjunto de expressões de operadores booleanos para avaliar comparações booleanas. |
 | [Expressões de cor](#color-expressions) | Expressões de cor facilitam a criação e manipulação dos valores de cor. |
@@ -219,7 +219,7 @@ Este vídeo fornece uma visão geral do estilo baseado em dados no Azure Maps.
 
 As expressões de dados fornecem acesso aos dados da propriedade numa funcionalidade.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `accumulated()` | número | Obtém o valor de uma propriedade de cluster acumulada até agora. |
 | `at(number | Expression, Expression)` | valor | Recupera um item de uma matriz. |
@@ -380,7 +380,7 @@ has("fillColor", get("_style"))
 
 As expressões matemáticas fornecem aos operadores matemáticos a realização de cálculos orientados para dados dentro do quadro de expressão.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `abs(number | Expression)` | número | Calcula o valor absoluto do número especificado. |
 | `acos(number | Expression)` | número | Calcula a arccosina do número especificado. |
@@ -415,7 +415,7 @@ Expressões booleanas fornecem um conjunto de expressões de operadores booleano
 
 Ao comparar valores, a comparação é estritamente dactilografada. Valores de diferentes tipos são sempre considerados desiguais. Os casos em que os tipos são conhecidos por serem diferentes no momento da análise são considerados inválidos e produzirão um erro de análise.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `all(Expression...)` | boolean | Devoluções `true` se todas as entradas `true` forem, caso `false` contrário. |
 | `any(Expression...)` | boolean | Devoluções `true` se alguma das entradas `true` for, caso `false` contrário. |
@@ -680,7 +680,7 @@ val layer = SymbolLayer(source,
 
 As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cordas, números e valores booleanos.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `array(Expression)` | Objeto[] | Afirma que a entrada é uma matriz. |
 | `bool(Expression)` | boolean | Afirma que o valor de entrada é um boolean. |
@@ -699,7 +699,7 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 
 Expressões de cor facilitam a criação e manipulação dos valores de cor.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `color(int)` | color | Converte um valor inteiro de cor numa expressão de cor. |
 | `rgb(Expression red, Expression green, Expression blue)` \| `rgb(number red, number green, number blue)` | color | Cria um valor de cor a partir de componentes *vermelhos,* *verdes* e *azuis* que devem variar entre `0` `255` e, e um componente alfa de `1` . Se algum componente estiver fora de alcance, a expressão é um erro. |
@@ -806,7 +806,7 @@ val layer = BubbleLayer(source,
 
 As expressões do operador de cordas executam operações de conversão em cordas como concatenatos e convertendo a caixa.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `concat(string...)` \| `concat(Expression...)` | string | Concatenates várias cordas juntas. Cada valor deve ser uma corda. Utilize a `toString` expressão tipo para converter outros tipos de valor para corda, se necessário. |
 | `downcase(string)` \| `downcase(Expression)` | string | Converte a cadeia especificada para minúscula. |
@@ -1286,7 +1286,7 @@ val layer = HeatMapLayer(source,
 
 Expressões de ligação variável armazenam os resultados de um cálculo numa variável. Assim, que os resultados do cálculo podem ser referenciados em outros lugares numa expressão várias vezes. É uma otimização útil para expressões que envolvem muitos cálculos.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |--------------|---------------|--------------|
 | `let(Expression... input)` | | Armazena um ou mais valores como variáveis para utilização pela `var` expressão na expressão da criança que devolve o resultado. |
 | `var(Expression expression)` \| `var(string variableName)` | Objeto | Refere uma variável que foi criada usando a `let` expressão. |

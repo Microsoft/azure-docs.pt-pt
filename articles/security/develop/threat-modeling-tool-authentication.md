@@ -1,5 +1,5 @@
 ---
-title: Autenticação - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
+title: Autenticação - Ferramenta de Modelação de Ameaças da Microsoft - Azure | Microsoft Docs
 description: Saiba mais sobre a mitigação da autenticação na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94832535"
 ---
-# <a name="security-frame-authentication--mitigations"></a>Quadro de Segurança: Autenticação / Mitigações
+# <a name="security-frame-authentication--mitigations"></a>Quadro de segurança: | de autenticação Mitigações
 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
@@ -181,7 +181,7 @@ ms.locfileid: "94832535"
 | **Fase SDL**               | Implementação |
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [O que é a autenticação multi-factor Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Referências**              | [O que é a Multi-Factor Authentication do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Passos** | <p>A autenticação multi-factor (MFA) é um método de autenticação que requer mais do que um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. Funciona exigindo dois ou mais dos seguintes métodos de verificação:</p><ul><li>Algo que você sabe (tipicamente uma palavra-passe)</li><li>Algo que você tem (um dispositivo de confiança que não é facilmente duplicado, como um telefone)</li><li>Algo que és (biometria)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Restringir o acesso anónimo ao Cluster de Tecidos de Serviço

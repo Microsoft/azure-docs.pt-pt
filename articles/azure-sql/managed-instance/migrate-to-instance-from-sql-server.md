@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
 ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102565828"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de casos de servidor SQL para Azure SQL Caso Gerido

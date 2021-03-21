@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99092637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
@@ -248,7 +248,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     1. Inscreva-se na sua aplicação ServiceNow como administrador.
 
-       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por predefinição e dá o valor **do Script Sign-On único** como **MultiSSOv2_SAML2_custom**. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos.
+       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por predefinição e dá o valor **do Script Sign-On único** como **MultiSSOv2_SAML2_custom**. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos:
 
          1. No painel esquerdo, procure a secção **SSO multi-fornecedor** da caixa de pesquisa e selecione **Fornecedores de Identidade**.
 

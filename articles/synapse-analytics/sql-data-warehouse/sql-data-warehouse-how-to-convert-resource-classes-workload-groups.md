@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1207f4856882d8aa0e6d1e41712071536bfecf29
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728561"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos em grupos de carga de trabalho
@@ -86,7 +86,7 @@ SELECT request_id, [label], classifier_name, group_name, command
   ORDER BY submit_time DESC
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Isolamento da carga de trabalho](sql-data-warehouse-workload-isolation.md)
 - [Como criar um grupo de trabalho](quickstart-configure-workload-isolation-tsql.md)

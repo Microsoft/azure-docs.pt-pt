@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o SciQuest Spend Diretor Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Diretor de Gastos sciQuest | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SciQuest Spend Diretor.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a828f945c459142febbc2cee7a14d40a3d534435
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: Integração do Azure Ative Directory com o SciQuest Spend Diretor

@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 71c322385c9b70eb46e1c478c1322752ee4561e5
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706753"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação
@@ -104,6 +104,6 @@ Se receber quaisquer erros relacionados com a tecla gerida pelo seu cliente, uti
 | CmkErrorKeyNotFound      | Não é possível encontrar a chave gerida pelo cliente. | Sim, se a chave tiver sido eliminada, mas ainda estiver dentro da duração da purga, utilizando [a remoção da chave do cofre do Undo Key](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Senão, <ol><li>Sim, se o cliente tiver a chave apoiada e a restaurar.</li><li>Não, caso contrário.</li></ol>
 | CmkErrorVaultNotFound |Não é possível encontrar o cofre chave da chave gerida pelo cliente. |   Se o cofre da chave tiver sido apagado:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../key-vault/general/soft-delete-overview.md#key-vault-recovery)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Senão, se o cofre chave foi migrado para outro inquilino, sim, pode ser recuperado usando um dos passos abaixo:<ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol>|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é Azure Key Vault?](../key-vault/general/overview.md)

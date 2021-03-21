@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e24e1afa0116bc1f240bddef47783b06f4f800d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879263"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581308"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
-Este artigo explica as diferentes opções e requisitos para a publicação de um software como um serviço (SaaS) ao mercado comercial da Microsoft. A SaaS oferece soluções de software de entrega e licença aos seus clientes através de uma subscrição online em vez de instalação local em computadores individuais. Este artigo irá ajudá-lo a preparar a sua oferta de publicação no mercado comercial com o Partner Center.
+Este artigo explica as diferentes opções e requisitos para a publicação de software como um serviço (SaaS) oferece ao mercado comercial da Microsoft. A SaaS oferece soluções de software de entrega e licença aos seus clientes através de subscrições online. Como editor da SaaS, gere e paga a infraestrutura necessária para apoiar o uso da sua oferta pelos seus clientes. Este artigo irá ajudá-lo a preparar a sua oferta de publicação no mercado comercial com o Partner Center.
 
 ## <a name="listing-options"></a>Opções de listagem
 
@@ -150,7 +150,7 @@ Quando [criar uma nova oferta SaaS](create-new-saas-offer.md) no Partner Center,
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Descrição
+9. Description
 10. Screenshots/vídeos
 11. Documentos
 
@@ -260,7 +260,7 @@ Pode optar por optar por canais de marketing e vendas suportados pela Microsoft.
 
 - **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Para obter mais informações sobre a elegibilidade de co-venda, consulte [os requisitos para o estatuto de co-venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para obter informações detalhadas sobre como preparar a sua oferta para avaliação, consulte [a opção Co-venda no Partner Center](commercial-marketplace-co-sell.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)
 - [Melhores práticas de listagem de ofertas](gtm-offer-listing-best-practices.md)

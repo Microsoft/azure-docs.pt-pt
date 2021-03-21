@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 42aa07ccf8d886dc7eb7109bc405c730331b2c3b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095634"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure Defender para Armazenamento
@@ -27,7 +27,7 @@ Os alertas de segurança são acionados quando ocorrem anomalias de atividade. E
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|**Azure Defender for Storage** é faturado como mostrado nos [preços do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/)|
 |Tipos de armazenamento protegidos:|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Ficheiros do Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Armazenamento do Azure Data Lake Gen2)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 

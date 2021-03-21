@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Infinite Campus Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | do Campus Infinito Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Infinite Campus.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 08cee87d94b20e99bcc46d42cbac7eb4272561bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Diretório Ativo Azure com o Infinite Campus
@@ -120,7 +120,7 @@ Para configurar o Azure AD com o Infinite Campus, execute os seguintes passos:
 
     ![O Administrador](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
 
-3. Navegue para a configuração **do**fornecedor de  >  **SAML Management**  >  **serviços SSO de**gestão de segurança do utilizador.
+3. Navegue para a configuração **do** fornecedor de  >    >  **serviços SSO de** gestão de segurança do utilizador.
 
     ![O saml](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
 
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Infinite Campus.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Infinite Campus**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Infinite Campus**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

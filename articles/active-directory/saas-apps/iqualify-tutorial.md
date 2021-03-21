@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com iQualify LMS / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com iQualify LMS | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o iQualify LMS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Diretório Ativo Azure com iQualify LMS
@@ -133,7 +133,7 @@ Para configurar o Azure AD single sign-on com iQualify LMS, execute os seguintes
 
 7. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | --- | --- |
     | e-mail | user.userprincipalname |
     | first_name | user.givenname |

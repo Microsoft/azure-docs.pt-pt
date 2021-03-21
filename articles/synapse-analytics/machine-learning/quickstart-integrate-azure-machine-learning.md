@@ -10,10 +10,10 @@ ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98219458"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Quickstart: Criar um novo serviço de aprendizagem automática Azure em Synapse
@@ -80,4 +80,4 @@ Este passo vai criar um novo diretor de serviços. Se quiser utilizar um diretor
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Assistente de pontuação de modelo de machine learning - piscina de SQL dedicada](tutorial-sql-pool-model-scoring-wizard.md)
-- [Capacidades de aprendizagem automática em Azure Synapse Analytics](what-is-machine-learning.md)
+- [Capacidades de Machine Learning no Azure Synapse Analytics](what-is-machine-learning.md)

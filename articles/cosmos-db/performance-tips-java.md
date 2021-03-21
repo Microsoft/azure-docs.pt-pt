@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 6e7b01ae88645d8b16c3a43e21e40b53d242fdde
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96549247"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Sync Java SDK v2
@@ -37,7 +37,7 @@ Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala
 
 Então, se está a perguntar"Como posso melhorar o desempenho da minha base de dados?" Considerar as seguintes opções:
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
 
 1. **Modo de ligação: Utilize directHttps**
@@ -70,7 +70,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
       :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="O diagrama mostra a política de conexão Azure Cosmos D B." border="false":::
 
    <a id="same-region"></a>
-2. **Clientes collocados na mesma região de Azure para desempenho**
+2. **Coloque os clientes na mesma região do Azure para garantir desempenho**
 
     Quando possível, coloque quaisquer aplicações que chamem Azure Cosmos DB na mesma região que a base de dados Azure Cosmos. Para uma comparação aproximada, as chamadas para Azure Cosmos DB dentro da mesma região completam dentro de 1-2 ms, mas a latência entre a costa oeste e leste dos EUA é >50 ms. Esta latência pode provavelmente variar de pedido a pedido dependendo da rota tomada pelo pedido, uma vez que passa do cliente para o limite do datacenter Azure. A latência mais baixa possível é conseguida garantindo que o pedido de chamada está localizado na mesma região de Azure que o ponto final Azure Cosmos DB. Para obter uma lista das regiões disponíveis, consulte [as Regiões Azure.](https://azure.microsoft.com/regions/#services)
 
@@ -93,15 +93,15 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     Azure Cosmos DB Sync Java SDK versão 1.9.0 e acima suportam consultas paralelas, que permitem consultar uma coleção dividida em paralelo. Para obter mais informações, consulte [amostras de código relacionadas](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) com o trabalho com os SDKs. Consultas paralelas são projetadas para melhorar a latência da consulta e a produção sobre a sua contraparte em série.
 
-    (a) **_Conjunto de \: afinaçãoMaxDegreeOfParallelism_* _ Consultas paralelas funcionam consultando várias divisórias em paralelo. No entanto, os dados de uma recolha individual dividida são recolhidos em série no que diz respeito à consulta. Assim, utilize [o setMaxDegreeOfParallelism](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) para definir o número de divisórias que têm a maior probabilidade de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode utilizar o setMaxDegreeOfParallelism para definir um número elevado, e o sistema escolhe o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau máximo de paralelismo. 
+    a ***Afinação do \: conjuntoMaxDegreeOfParallelism*** As consultas paralelas funcionam consultando várias divisórias em paralelo. No entanto, os dados de uma recolha individual dividida são recolhidos em série no que diz respeito à consulta. Assim, utilize [o setMaxDegreeOfParallelism](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) para definir o número de divisórias que têm a maior probabilidade de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode utilizar o setMaxDegreeOfParallelism para definir um número elevado, e o sistema escolhe o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau máximo de paralelismo. 
 
     É importante notar que as consultas paralelas produzem os melhores benefícios se os dados forem distribuídos uniformemente em todas as divisórias no que diz respeito à consulta. Se a recolha dividida for dividida de modo a que a maioria ou a maioria dos dados devolvidos por uma consulta se concentre em algumas divisórias (uma partição no pior dos casos), então o desempenho da consulta seria engarrafado por essas divisórias.
 
-    (b) _*_A consulta paralela do conjunto \: DefinaçãoMaxBufferedItemCount_*_ destina-se a obter resultados pré-rápidos enquanto o atual lote de resultados está a ser processado pelo cliente. A pré-obtenção ajuda na melhoria geral da latência de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-recedidos. Ao definir [o conjuntoMaxBufferedItemCount](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) para o número esperado de resultados devolvidos (ou um número mais elevado), isto permite que a consulta receba o máximo benefício da pré-obtenção.
+    (b) ***A consulta paralela do conjunto \: DefinaçãoMaxBufferedItemCount*** destina-se a obter resultados pré-rápidos enquanto o atual lote de resultados está a ser processado pelo cliente. A pré-obtenção ajuda na melhoria geral da latência de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-recedidos. Ao definir [o conjuntoMaxBufferedItemCount](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) para o número esperado de resultados devolvidos (ou um número mais elevado), isto permite que a consulta receba o máximo benefício da pré-obtenção.
 
     A pré-rebusção funciona da mesma forma, independentemente do MaxDegreeOfParallelismo, e há um único tampão para os dados de todas as divisórias.  
 
-5. _ *Implementar backoff nos intervalos getRetryAfterInMilliseconds**
+5. **Implementar backoff nos intervalos getRetryAfterInMilliseconds**
 
     Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos seja acelerada. Se for acelerada, a aplicação do cliente deve recuar no acelerador para o intervalo de retagem especificado pelo servidor. Respeitar o recuo garante que passa o mínimo de tempo à espera entre as retrações. O suporte político de recandidúza está incluído na versão 1.8.0 e acima do [Azure Cosmos DB Sync Java SDK](./sql-api-sdk-java.md). Para obter mais informações, [consulte getRetryAfterInMilisconds](/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
@@ -181,7 +181,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
     Se tiver mais de um cliente a operar cumulativamente acima da taxa de pedido, a contagem de retíria por defeito atualmente definida para 9 internamente pelo cliente pode não ser suficiente; neste caso, o cliente lança um [DocumentClientException](/java/api/com.microsoft.azure.documentdb.documentclientexception) com o código de estado 429 para a aplicação. A contagem de repetições por defeito pode ser alterada utilizando [setRetryOptions](/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) no caso [ConnectionPolicy.](/java/api/com.microsoft.azure.documentdb.connectionpolicy) Por predefinição, o DocumentClientException com o código de estado 429 é devolvido após um tempo de espera acumulado de 30 segundos se o pedido continuar a funcionar acima da taxa de pedido. Isto ocorre mesmo quando a contagem de repetição atual é inferior à contagem máxima de repetição, seja o padrão de 9 ou um valor definido pelo utilizador.
 
     Embora o comportamento de relemisão automatizado ajude a melhorar a resiliência e a usabilidade para a maioria das aplicações, pode estar em desacordo ao fazer referenciais de desempenho, especialmente ao medir a latência.  A latência observada pelo cliente aumentará se a experiência atingir o acelerador do servidor e fizer com que o cliente SDK volte a tentar silenciosamente. Para evitar picos de latência durante as experiências de desempenho, meça a carga devolvida por cada operação e certifique-se de que os pedidos estão a funcionar abaixo da taxa de pedido reservada. Para mais informações, consulte [unidades request](request-units.md).
-3. **Design para documentos menores para maior produção**
+3. **Conceba tendo em vista documentos mais pequenos para um maior débito**
 
     A taxa de pedido (custo de processamento do pedido) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações para pequenos documentos.
 

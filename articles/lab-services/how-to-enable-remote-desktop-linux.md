@@ -1,13 +1,13 @@
 ---
-title: Ativar o ambiente de trabalho remoto gráfico para o Linux nos Serviços Azure Lab ; Microsoft Docs
+title: Ativar o ambiente de trabalho remoto gráfico para Linux em Azure Lab Services | Microsoft Docs
 description: Saiba como permitir o ambiente de trabalho remoto para máquinas virtuais Linux em um laboratório em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647958"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Ativar o ambiente de trabalho remoto gráfico para máquinas virtuais Linux nos Serviços Azure Lab
@@ -103,8 +103,8 @@ Siga os passos abaixo com base no tipo de computador utilizado para ligar ao mod
 
 O cliente X2Go é utilizado para ligar a um modelo VM que tem X2Go configurado.  Utilizando as informações de ligação SSH do modelo VM, siga os passos no artigo de como [ligar a um VM utilizando X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de um instrutor configurar RDP ou X2Go no seu modelo VM e publicar, os alunos podem ligar-se aos seus VMs através do ambiente de trabalho remoto gui ou SSH.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
  - [Ligar a uma VM do Linux](how-to-use-remote-desktop-linux-student.md)
