@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
 ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046810"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>Como criar alertas a partir de insights VM

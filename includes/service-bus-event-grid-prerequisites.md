@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d12df7197945a514ed8d3d0dca77271fb4bd0903
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96509404"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,7 +31,7 @@ Neste passo, utilize uma aplicação de amostra para enviar mensagens para o tó
 
 1. Clone o [repositório gitHub-service-bus](https://github.com/Azure/azure-service-bus/).
 2. No Estúdio Visual, vá à pasta *\samples\DotNet\Azure.Messaging.ServiceBus\ServiceBusEventGridIntegration* e, em seguida, abra o ficheiro *SBEventGridIntegration.sln.*
-3. Na janela Solution Explorer, expanda o projeto **MessageSender** e selecione **Program.cs**.
+3. Na janela Solution Explorer, expanda o projeto **MessageSender** e selecione **Programa.cs**.
 4. `<SERVICE BUS NAMESPACE - CONNECTION STRING>`Substitua-a pelo fio de ligação ao seu espaço de nomes service bus e `<TOPIC NAME>` pelo nome do tópico. 
 
     ```csharp

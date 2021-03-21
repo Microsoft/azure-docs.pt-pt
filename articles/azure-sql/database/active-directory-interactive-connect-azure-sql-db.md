@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841653"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Ligue à Base de Dados Azure SQL com autenticação multi-factor Azure AD
@@ -143,7 +143,7 @@ Executar SSMS novamente, desta vez com **autenticação** definida para **Azure 
 Para obter mais informações, consulte [a autenticação multi-factor configure para SSMS e AD AZure](authentication-mfa-ssms-configure.md).
 
 > [!NOTE]
-> Se for um utilizador convidado na base de dados, também precisa de fornecer **Options** o nome de domínio AZure AD para a base de dados: Selecione  >  **Opções Nome de domínio AD ou ID do inquilino**. Para encontrar o nome de domínio no portal Azure, selecione **Azure Ative Directory**  >  **Custom nomes de domínio**. No programa de exemplo C#, não é necessário fornecer um nome de domínio.
+> Se for um utilizador convidado na base de dados, também precisa de fornecer o nome de domínio AZure AD para a base de dados: Selecione  >  **Opções Nome de domínio AD ou ID do inquilino**. Para encontrar o nome de domínio no portal Azure, selecione **Azure Ative Directory**  >  **Custom nomes de domínio**. No programa de exemplo C#, não é necessário fornecer um nome de domínio.
 
 ## <a name="c-code-example"></a>Exemplo de código C#
 

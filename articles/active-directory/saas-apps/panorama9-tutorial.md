@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Panorama9 Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Panorama9 | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Panorama9.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: e79d8584a7c760fa0a50a614390370ee7ff8ae15
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92512485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Diretório Ativo Azure com o Panorama9
@@ -49,7 +49,7 @@ Para configurar a integração do Panorama9 no Azure AD, é necessário adiciona
 
 **Para adicionar Panorama9 da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Panorama9 no Azure AD, é necessário adiciona
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite Panorama9** , selecione **Panorama9** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, **digite Panorama9**, selecione **Panorama9** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
      ![Panorama9 na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Panorama9 baseado em um utilizador de teste chamado **Britta Simon** .
+Nesta secção, você configura e testa Azure AD single sign-on com Panorama9 baseado em um utilizador de teste chamado **Britta Simon**.
 Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Panorama9.
 
 Para configurar e testar o Azure AD com o Panorama9, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o Panorama9, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Panorama9,** selecione **Single sign-on** .
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Panorama9,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -130,11 +130,11 @@ Para configurar o Azure AD com o Panorama9, execute os seguintes passos:
 
 1. Numa janela diferente do navegador, inscreva-se no site da empresa Panorama9 como administrador.
 
-2. Na barra de ferramentas na parte superior, clique em **Gerir** e, em seguida, clique em **Extensões** .
+2. Na barra de ferramentas na parte superior, clique em **Gerir** e, em seguida, clique em **Extensões**.
    
     ![Extensões](./media/panorama9-tutorial/ic790023.png "Extensões")
 
-3. No diálogo **extensões,** clique em **'Sign-On' único** .
+3. No diálogo **extensões,** clique em **'Sign-On' único**.
    
     ![Único sign-on](./media/panorama9-tutorial/ic790024.png "Início de Sessão Único")
 
@@ -146,13 +146,13 @@ Para configurar o Azure AD com o Panorama9, execute os seguintes passos:
    
     b. Na caixa de texto **de impressão digital certificado,** cole o valor de **impressão digital** do certificado, que copiou do portal Azure.    
          
-5. Clique em **Guardar** .
+5. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -164,27 +164,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Panorama9.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **Panorama9** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Panorama9**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Panorama9** .
+2. Na lista de candidaturas, selecione **Panorama9**.
 
     ![O link Panorama9 na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -208,7 +208,7 @@ No caso do Panorama9, o provisionamento é uma tarefa manual.
 
 1. Inscreva-se no site da empresa **Panorama9** como administrador.
 
-2. No menu em cima, clique em **Gerir** e, em seguida, clique em **Utilizadores** .
+2. No menu em cima, clique em **Gerir** e, em seguida, clique em **Utilizadores**.
    
     ![Screenshot que mostra os separadores "Gerir" e "Utilizadores" selecionados.](./media/panorama9-tutorial/ic790027.png "Utilizadores")
 
@@ -218,7 +218,7 @@ No caso do Panorama9, o provisionamento é uma tarefa manual.
 
 4. Aceda à secção de dados do Utilizador, digite o endereço de e-mail de um utilizador válido do Azure Ative Directory que pretende obter na caixa de texto **de Email.**
 
-5. Venha à secção de Utilizadores, Clique **em Guardar** .
+5. Venha à secção de Utilizadores, Clique **em Guardar**.
    
     > [!NOTE]
     > O titular da conta Azure Ative Directory recebe um e-mail e segue um link para confirmar a sua conta antes de ficar ativa.

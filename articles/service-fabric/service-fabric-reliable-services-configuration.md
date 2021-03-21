@@ -7,10 +7,10 @@ ms.date: 10/02/2017
 ms.author: sumukhs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023589"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configure serviços fidedigcos estatais
@@ -20,7 +20,7 @@ Existem dois conjuntos de configurações para serviços fiáveis. Um conjunto �
 A configuração global de serviço fiável é especificada no manifesto de cluster para o cluster sob a secção KtlLogger. Permite a configuração da localização e tamanho do registo partilhado, além dos limites globais de memória utilizados pelo madeirão. O manifesto de cluster é um único ficheiro XML que contém configurações e configurações que se aplicam a todos os nós e serviços do cluster. O ficheiro é normalmente chamado ClusterManifest.xml. Pode ver o manifesto de cluster para o seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor predefinido | Observações |
+| Name | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB para alocar no modo kernel para o logger escrever piscina de memória tampão. Este conjunto de memórias é utilizado para cache informações do estado antes de escrever no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobytes |Sem Limite |Tamanho máximo ao qual o madeireiro escreve piscina de memória tampão pode crescer. |
@@ -103,7 +103,7 @@ ReplicadorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor predefinido | Observações |
+| Name | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | BatchAckAckNownowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta um aviso para o primário. Quaisquer outros avisos a serem enviados para operações processadas dentro deste intervalo são enviados como uma resposta. |
 | Ponto de réplica |N/D |Sem parâmetro padrão-necessário |Endereço IP e porta que o replicador primário/secundário utilizará para comunicar com outros replicadores no conjunto de réplicas. Isto deve fazer referência a um ponto final de recurso TCP no manifesto de serviço. Consulte os [recursos manifestos do Serviço](service-fabric-service-manifest-resources.md) para ler mais sobre a definição de recursos de ponto final num manifesto de serviço. |

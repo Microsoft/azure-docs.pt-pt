@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835973"
 ---
 # <a name="identity-protection-policies"></a>Políticas do Identity Protection
@@ -58,7 +58,7 @@ Se o risco for detetado, os utilizadores podem efetuar a autoassistência de aut
 
 - [Ativar o reset da palavra-passe de autosserviço AZure AD](../authentication/howto-sspr-deployment.md)
 
-- [Ativar a autenticação de vários fatores Azure Ad](../authentication/howto-mfa-getstarted.md)
+- [Ativar o Multi-Factor Authentication do Azure AD](../authentication/howto-mfa-getstarted.md)
 
 - [Ativar a política de registo de autenticação multi-factor Azure AD](howto-identity-protection-configure-mfa-policy.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial implantado numa rede virtual existente utilizando PowerShell - Azure Dedicado HSM / Microsoft Docs
+title: Tutorial implantado numa rede virtual existente utilizando o PowerShell - Azure Dedicado HSM | Microsoft Docs
 description: Tutorial mostrando como implementar um HSM dedicado usando o PowerShell numa rede virtual existente
 services: dedicated-hsm
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/14/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98108607"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantação de HSMs numa rede virtual existente utilizando o PowerShell
@@ -261,6 +261,6 @@ Após completar os passos no tutorial, os recursos dedicados do HSM são a provi
 
 * [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 * [Monitorização](monitoring.md)
 * [Suportabilidade](supportability.md)

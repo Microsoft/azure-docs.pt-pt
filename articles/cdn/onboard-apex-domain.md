@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/07/2020
 ms.author: allensu
 ms.openlocfilehash: 8ab4f698c7149d8d57f790e221ccbe35ec090fe6
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370352"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>Bordo de um domínio de raiz ou ápice para um ponto final Azure CDN existente
@@ -41,7 +41,7 @@ Pode utilizar o portal Azure para embarcar num domínio ápice no seu CDN e ativ
     | ------- | ------|
     | Nome | Insira **@** . |
     | Tipo | **Selecione A**. |
-    | Conjunto de registos de alias | Selecione **Sim**. |
+    | Conjunto de registos de alias | Selecione **Yes** (Sim). |
     | Tipo de alias | Selecione **recurso Azure**. |
     | Escolha uma subscrição | Selecione a sua subscrição. |
     | Recurso do Azure | Selecione o seu ponto de terminação CDN. |
@@ -62,7 +62,7 @@ Depois de registar o domínio personalizado, pode, então, adicioná-lo ao ponto
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/) e navegue para o perfil da CDN que contém o ponto final que pretende mapear para um domínio personalizado.
     
-2. Na página **perfil da CDN** , selecione o ponto final da CDN que vai ser associado ao domínio personalizado.
+2. Na página **perfil da CDN**, selecione o ponto final da CDN que vai ser associado ao domínio personalizado.
 
     :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="Seleção de pontos finais CDN" border="true":::
     
@@ -70,21 +70,21 @@ Depois de registar o domínio personalizado, pode, então, adicioná-lo ao ponto
 
    :::image type="content" source="media/onboard-apex-domain/cdn-custom-domain-button.png" alt-text="Adicionar botão de domínio personalizado" border="true":::
 
-4. In **Add a custom domain** , **Endpoint hostname** , é pré-preenchido e é derivado do seu URL de ponto final CDN: **\<endpoint-hostname>** .azureedge.net. Não pode ser alterado.
+4. In **Add a custom domain**, **Endpoint hostname**, é pré-preenchido e é derivado do seu URL de ponto final CDN: **\<endpoint-hostname>** .azureedge.net. Não pode ser alterado.
 
 5. Para **o nome de anfitrião personalizado,** insira o seu domínio de raiz ou ápice personalizado para utilizar como domínio de origem do seu registo CNAME. 
     1. Por exemplo, **contoso.com**. **Não utilize o nome de subdomínio cdnver.**
 
     :::image type="content" source="media/onboard-apex-domain/cdn-add-custom-domain.png" alt-text="Adicionar domínio personalizado" border="true":::
 
-6. Selecione **Add** (Adicionar).
+6. Selecione **Adicionar**.
 
    O Azure verifica se o registo CNAME existe para o nome de domínio personalizado que introduziu. Se o CNAME estiver correto, o seu domínio personalizado vai ser validado. 
 
    Pode demorar algum tempo para que as novas definições de domínios personalizados se propaguem a todos os nós periféricos da CDN: 
-    - Para os perfis **CDN do Azure Standard da Microsoft** , a propagação normalmente fica concluída em 10 minutos. 
-    - Para os perfis **CDN do Azure Standard da Akamai** , a propagação normalmente fica concluída num minuto. 
-    - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** , a propagação normalmente fica concluída em 10 minutos.   
+    - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
+    - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
+    - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída em 10 minutos.   
 
 ## <a name="enable-https-on-your-custom-domain"></a>Ative HTTPS no seu domínio personalizado
 

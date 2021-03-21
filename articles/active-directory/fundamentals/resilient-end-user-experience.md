@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724446"
 ---
 # <a name="resilient-end-user-experience"></a>Experiência resiliente do utilizador final
@@ -95,7 +95,7 @@ As redes de entrega de conteúdos (CDNs) são melhores performantes e menos disp
 
 Teste periodicamente a disponibilidade do seu CDN e o desempenho da distribuição de conteúdos através de cenários de ponta a ponta e testes de carga. Se está a planear um próximo aumento devido à promoção ou tráfego de férias, reveja as suas estimativas para testes de carga.
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recursos de resiliência para desenvolvedores Azure AD B2C](resilience-b2c.md)
   

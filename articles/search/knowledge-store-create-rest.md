@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/18/2020
 ms.openlocfilehash: 6af9b8f97d622ae10cfdbcaa8ca50abb42ec7332
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94889059"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimentos usando REST e Carteiro
@@ -70,7 +70,7 @@ Instale e instale o Carteiro.
 
 No separador **Variáveis,** pode adicionar valores que o Carteiro troca sempre que encontra uma variável específica dentro de aparelhos duplos. Por exemplo, o Carteiro substitui o símbolo `{{admin-key}}` pelo valor atual que definiu para `admin-key` . O carteiro faz a substituição em URLs, cabeçalhos, o corpo de pedido, e assim por diante. 
 
-Para obter o valor `admin-key` para , vá ao serviço de Pesquisa Cognitiva Azure e selecione o separador **Chaves.** `search-service-name` `storage-account-name` [Create services](#create-services-and-load-data) Desa `storage-connection-string` cos para o valor do separador Chaves de Acesso da conta de **armazenamento.** Pode deixar os padrão para os outros valores.
+Para obter o valor `admin-key` para , vá ao serviço de Pesquisa Cognitiva Azure e selecione o separador **Chaves.** `search-service-name` `storage-account-name` [](#create-services-and-load-data) Desa `storage-connection-string` cos para o valor do separador Chaves de Acesso da conta de **armazenamento.** Pode deixar os padrão para os outros valores.
 
 ![Separador de variáveis de aplicativo do carteiro](media/knowledge-store-create-rest/postman-variables-window.png "Janela de variáveis do carteiro")
 

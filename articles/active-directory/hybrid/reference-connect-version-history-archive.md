@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Versão lança arquivo histórico de lançamento / Microsoft Docs'
+title: 'Azure AD Connect: Versão lança arquivo de histórico | Microsoft Docs'
 description: Este artigo lista todas as versões arquivadas de Azure AD Connect e Azure AD Sync
 services: active-directory
 author: billmath
@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 859a4f199e65dd0c3aee9424029f6060683d5fbd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94836092"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: Versão lança arquivo histórico
@@ -362,7 +362,7 @@ Bloquear o acesso à conta DS da AD implementando as seguintes alterações de p
 *   Remova todos os ACEs no objeto específico, exceto ACEs específicos de SELF. Queremos manter as permissões por defeito intactas quando se trata de SELF.
 *   Atribua estas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se A
+Tipo     | Name                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
 Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |
@@ -705,7 +705,7 @@ O problema que se coloca é que a **opção Sync todos os domínios e OUs** é s
   * CertPublicKeyParametersOid
   * CertVersion
   * CertSignatureAlgorithmOid
-  * Selecionar
+  * Selecione
   * CertKeyAlgorithmParams
   * CertHashString
   * Onde

@@ -1,5 +1,5 @@
 ---
-title: Gerir zonas de DNS em Azure DNS - Portal Azure Microsoft Docs
+title: Gerir zonas DNS em Azure DNS - Portal Azure | Microsoft Docs
 description: Pode gerir as zonas DNS utilizando o portal Azure. Este artigo descreve como atualizar, excluir e criar zonas DNS no Azure DNS
 services: dns
 documentationcenter: na
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 51e17812e1116f1e625685d5a818c18e25cdb2da
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94965804"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerir as Zonas DNS no portal Azure
@@ -40,7 +40,7 @@ Este artigo mostra-lhe como gerir as suas zonas de DNS utilizando o portal Azure
 
    | **Definição** | **Valor** | **Detalhes** |
    |---|---|---|
-   |**Name**|contoso.com|O nome da zona DNS|
+   |**Nome**|contoso.com|O nome da zona DNS|
    |**Subscrição**|[A sua subscrição]|Selecione uma subscrição para criar a zona DNS.|
    |**Grupo de recursos**|**Criar novo:** contosoDNSRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou. Para saber mais sobre grupos de recursos, leia o artigo Visão geral do [Gestor de Recursos.](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups)|
    |**Localização**|E.U.A. Oeste||

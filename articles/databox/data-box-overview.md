@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 13c07da7393c70bb1fc61930dd1179994c68ed75
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389812"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?

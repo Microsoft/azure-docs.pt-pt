@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Resolver problemas comuns com o Arc permitiu que os aglomerados de Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.openlocfilehash: e1f4e84f16c6b584f1ffbd918a86c251f47efcca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101654005"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Azure Arc permitiu a resolução de problemas de Kubernetes

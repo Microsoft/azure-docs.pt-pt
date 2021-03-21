@@ -1,5 +1,5 @@
 ---
-title: StorSimple série 8000 como alvo de backup com Backup Exec Microsoft Docs
+title: Série StorSimple 8000 como alvo de backup com backup Exec | Microsoft Docs
 description: Descreve a configuração do alvo de backup StorSimple com o Veritas Backup Exec.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 66a1e22282864d0425173504735d6beb42b76ad7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967266"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como alvo de backup com Backup Exec
@@ -55,7 +55,7 @@ Como em qualquer solução de armazenamento, uma avaliação cuidadosa do desemp
 
 O StorSimple foi concebido para fornecer armazenamento a aplicações que operam num conjunto de dados de trabalho bem definido (dados quentes). Neste modelo, o conjunto de dados de trabalho é armazenado nos níveis locais, e o restante conjunto de dados não funcionando/frio/arquivado é hierárquico para a nuvem. Este modelo está representado na seguinte figura. A linha verde quase plana representa os dados armazenados nos níveis locais do dispositivo StorSimple. A linha vermelha representa a quantidade total de dados armazenados na solução StorSimple em todos os níveis. O espaço entre a linha verde plana e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-Tiering StorSimple **StorSimple tiering** 
+Tiering StorSimple  
  ![ Diagrama de tiering StorSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 Com esta arquitetura em mente, você vai descobrir que storSimple é ideal para funcionar como um alvo de backup. Pode utilizar o StorSimple para:
@@ -233,7 +233,7 @@ Desacione a sua solução de acordo com as diretrizes nas seguintes secções.
 -   StorSimple suporta backups completos e incrementais do Backup Exec. Recomendamos que não utilize cópias de segurança sintéticas e diferenciais.
 -   Os ficheiros de dados de backup devem conter apenas dados para um trabalho específico. Por exemplo, não são permitidos apêndices de meios de comunicação em diferentes postos de trabalho.
 -   Desativar a verificação do emprego. Se necessário, a verificação deve ser agendada após o último trabalho de reserva. É importante entender que este trabalho afeta a sua janela de reserva.
--   Selecione **armazenamento** As propriedades de detalhes  >  **do**  >  **Details**  >  **Properties** disco. Desligue **o espaço do disco pré-alocar.**
+-   Selecione **armazenamento** As propriedades de detalhes  >  **do**  >    >  disco. Desligue **o espaço do disco pré-alocar.**
 
 Para obter as definições e as melhores práticas do Backup Exec para a implementação destes requisitos, consulte [o site da Veritas](https://www.veritas.com).
 
@@ -313,8 +313,8 @@ Aqui está um exemplo de um horário de rotação GFS para quatro semanas, mensa
 | Tipo de frequência/backup | Completa | Incremental (dias 1-5)  |   
 |---|---|---|
 | Semanal (semanas 1-4) | Saturday | Monday-Friday |
-| Mensal  | Saturday  |   |
-| Anual | Saturday  |   |
+| Mensalmente  | Saturday  |   |
+| Anualmente | Saturday  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Atribuir volumes StorSimple a um trabalho de backup do Executivo de backup
@@ -323,7 +323,7 @@ A seguinte sequência pressupõe que o Backup Exec e o anfitrião-alvo estão co
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Para atribuir volumes StorSimple a um trabalho de backup do Executivo de backup
 
-1.  Na consola de gestão backup Exec, selecione Backup backup do **anfitrião**  >  **Backup**  >  **para o disco**.
+1.  Na consola de gestão backup Exec, selecione Backup backup do **anfitrião**  >    >  **para o disco**.
 
     ![Consola de gestão backup Exec, selecione host, backup e backup para o disco](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -387,8 +387,8 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 | Semana 2 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2-4 |   |   |   |   |   |
-| Mensal | StorSimple mensalmente |   |   |   |   |   |
-| Anual | StorSimple anualmente  |   |   |   |   |   |
+| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
+| Anualmente | StorSimple anualmente  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Atribuir volumes StorSimple a um arquivo executivo de backup e trabalho de desduplica
@@ -399,7 +399,7 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 
     ![Consola de gestão de backup Exec, separador Backup Definition Properties](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Selecione **Adicionar Duplicado de Fase** para  >  **Duplicate to Disk**  >  **Editar** O Disco .
+2.  Selecione **Adicionar Duplicado de Fase** para  >    >  **Editar** O Disco .
 
     ![Backup Exec consola de gestão, adicionar estágio](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
@@ -472,7 +472,7 @@ Os restauros de um dispositivo StorSimple funcionam como restauros de qualquer d
 
 Um desastre pode ser causado por uma variedade de fatores. A tabela que se segue lista cenários comuns de recuperação de desastres.
 
-| Cenário | Impacto | Como recuperar | Notas |
+| Scenario | Impacto | Como recuperar | Notas |
 |---|---|---|---|
 | Falha do dispositivo StorSimple | As operações de backup e restauro são interrompidas. | Substitua o dispositivo falhado e execute [a storSimple failover e a recuperação de desastres](./storsimple-8000-device-failover-disaster-recovery.md). | Se necessitar de efetuar uma restauração após a recuperação do dispositivo, os conjuntos completos de trabalho de dados são recuperados da nuvem para o novo dispositivo. Todas as operações estão a velocidades de nuvem. O processo de indexação e catalogação de rescanning pode fazer com que todos os conjuntos de backup sejam digitalizados e puxados do nível de nuvem para o nível do dispositivo local, o que pode ser um processo demorado. |
 | Falha do servidor do Backup Exec | As operações de backup e restauro são interrompidas. | Reconstruir o servidor de backup e executar a restauração da base de dados conforme detalhado em [Como fazer uma base de dados manual de Backup e Restaurar o Backup Exec (BEDB).](http://www.veritas.com/docs/000041083) | Tem de reconstruir ou restaurar o servidor Backup Exec no local de recuperação de desastres. Restaurar a base de dados até ao ponto mais recente. Se a base de dados do Backup Exec restaurada não estiver sincronizada com os seus últimos trabalhos de backup, é necessário indexar e catalogar. Este processo de rescaning de índice e catálogo pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local. Isto torna-o mais intensivo em tempo. |

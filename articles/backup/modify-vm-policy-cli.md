@@ -4,10 +4,10 @@ description: Saiba como atualizar a política de backup VM existente utilizando 
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728583"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>Atualizar a política de backup VM existente usando o CLI
@@ -110,6 +110,6 @@ Para modificar uma política de backup VM existente, siga estes passos:
 >[!NOTE]
 >Também pode recuperar a política JSON da amostra executando o comando [get-by-vm da política de backup az.](/cli/azure/backup/policy#az_backup_policy_get_default_for_vm)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir backups Azure VM com o serviço de backup Azure](backup-azure-manage-vms.md)

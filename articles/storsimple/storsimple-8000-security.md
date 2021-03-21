@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 série segurança Microsoft Docs
+title: StorSimple série 8000 | de segurança Microsoft Docs
 description: Descreve as funcionalidades de segurança e privacidade que protegem o seu serviço, dispositivo e dados StorSimple nas instalações e na nuvem.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966212"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple segurança e proteção de dados
@@ -219,7 +219,7 @@ O Gestor de Dispositivos StorSimple para séries físicas e virtuais recolhe inf
 
 Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 Seguem-se algumas perguntas e respostas sobre segurança e Microsoft Azure StorSimple.
 

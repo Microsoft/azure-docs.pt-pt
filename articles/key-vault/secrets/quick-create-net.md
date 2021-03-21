@@ -9,10 +9,10 @@ ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a82c2cdf7084b31eb6ba861e48ecffb81e6d1363
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102453704"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para .NET (SDK v4)
@@ -123,7 +123,7 @@ A biblioteca secreta do Azure Key Vault para .NET permite-lhe gerir segredos. A 
 
 ### <a name="add-directives"></a>Adicionar diretivas
 
-Adicione as seguintes diretivas ao topo de *Program.cs:*
+Adicione as seguintes diretivas ao topo do *Programa.cs:*
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
 
@@ -173,7 +173,7 @@ await client.PurgeDeletedKeyAsync("mySecret");
 
 Modifique a aplicação de consola .NET Core para interagir com o Cofre de Chaves, completando os seguintes passos:
 
-1. Substitua o código em *Program.cs* pelo seguinte código:
+1. Substitua o código no *programa.cs* pelo seguinte código:
 
     ```csharp
     using System;

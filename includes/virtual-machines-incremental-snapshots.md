@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96027570"
 ---
 ## <a name="overview"></a>Descrição geral
@@ -74,7 +74,7 @@ Pode implementar uma cópia instantânea incremental fazendo o seguinte,
 
 Na secção seguinte, descreveremos com mais pormenor como pode manter cópias de segurança dos discos utilizando cópia snapshot incremental
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 Nesta secção, descrevemos um cenário que envolve uma estratégia de backup personalizada para discos de máquinas virtuais usando instantâneos.
 
 Considere um Azure VM da série DS com um disco P30 de armazenamento premium ligado. O disco P30 chamado *mypremiumdisk* está guardado numa conta de armazenamento premium chamada *mypremiumaccount*. Uma conta de armazenamento padrão chamada *mybackupstdaccount* é usada para armazenar a cópia de segurança do *mypremiumdisk*. Gostaríamos de ter uma foto do *mypremiumdisk* a cada 12 horas.
@@ -104,7 +104,7 @@ Os seguintes passos, descreva como restaurar o disco premium, *mypremiumdisk* pa
 3. Tire uma foto desta bolha de página de reserva restaurada, chamada *mybackupstdpageblobrestored_ss1*.
 4. Copie a página restaurada blob *mybackupstdpageblobrestored* from *mybackupstdaccount* to *mypremiumaccount* as the new premium disk *mypremiumdiskrestored*.
 5. Tire uma foto do *mypremiumdiskrestored,* chamado *mypremiumdiskrestored_ss1* para fazer futuras cópias de segurança incrementais.
-6. Aponte a série DS VM para o disco restaurado *mypremiumdiskrestored* e despremiumdisk do VM. *mypremiumdisk*
+6. Aponte a série DS VM para o disco restaurado *mypremiumdiskrestored* e despremiumdisk do VM. 
 7. Inicie o processo de Cópia de Segurança descrito na secção anterior para o disco restaurado *mypremiumdiskrestored*, utilizando o *mybackupstdpageblobrestored* como a bolha da página de reserva.
 
 ![Restaurar o disco a partir de instantâneos](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)

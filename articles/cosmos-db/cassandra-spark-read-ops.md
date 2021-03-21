@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: ceede96cbf3be12a6129e27d34e318e4c4163458
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93073501"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Leia os dados das tabelas Azure Cosmos DB Cassandra API usando Spark
@@ -99,7 +99,7 @@ readBooksDF.show
 
 A secção PushFilters do plano físico inclui o filtro push Down GreaterThan. 
 
-:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates.png" alt-text="divisórias":::
+:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates.png" alt-text="partições":::
 
 ## <a name="rdd-api"></a>RDD API
 

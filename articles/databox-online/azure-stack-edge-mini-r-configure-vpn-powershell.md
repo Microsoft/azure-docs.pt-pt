@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
 ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102630967"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Configure VPN no seu dispositivo Azure Stack Edge Mini R via Azure PowerShell

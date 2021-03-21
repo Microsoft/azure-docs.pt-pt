@@ -1,5 +1,5 @@
 ---
-title: Gerir dispositivos com StorSimple Snapshot Manager / Microsoft Docs
+title: Gerir dispositivos com StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como utilizar o snap-in StorSimple Snapshot Manager MMC para ligar e gerir dispositivos StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96022977"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilize o StorSimple Snapshot Manager para ligar e gerir dispositivos StorSimple
@@ -46,7 +46,7 @@ Se clicar no nó **dispositivos** no painel **De alcance,** pode selecionar a pa
 * Ligue um dispositivo e verifique as importações
 * Atualizar dispositivos conectados
 
-Se clicar no nó dispositivos e clicar no nome do dispositivo no painel **de resultados,** pode selecionar a partir das seguintes ações: **Devices**
+Se clicar no nó dispositivos e clicar no nome do dispositivo no painel **de resultados,** pode selecionar a partir das seguintes ações: 
 
 * Autenticar um dispositivo
 * Ver detalhes do dispositivo
@@ -166,7 +166,7 @@ Tem de introduzir uma palavra-passe para autenticar um dispositivo StorSimple co
 
 #### <a name="to-change-the-expired-password"></a>Para alterar a senha expirada
 1. No portal clássico Azure, inicie o serviço StorSimple Manager.
-2. Clique em **Configurar dispositivos**  >  **Configure** para o dispositivo.
+2. Clique em **Configurar dispositivos**  >   para o dispositivo.
 3. Desloque-se até à secção StorSimple Snapshot Manager. Introduza uma palavra-passe com 14-15 caracteres. Certifique-se de que a palavra-passe contém uma mistura de caracteres maiúsculas, minúsculas, numéricas e especiais.
 4. Reintrodir a senha para confirmar.
 5. Clique em **Guardar** na parte inferior da página.
