@@ -1,5 +1,5 @@
 ---
-title: Guia de versão blob do Azure Storage Explorer Microsoft Docs
+title: Guia de versão blob do Azure Storage Explorer | Microsoft Docs
 description: Orientação de versão blob para Azure Storage Explorer
 services: storage
 author: chuye
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
 ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783832"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guia de versão blob do Azure Storage Explorer
@@ -36,10 +36,10 @@ O Storage Explorer suporta quatro vistas diferentes para visualizar bolhas.
 
 | Vista | Bolhas não-versão ativas | Bolhas de versão não eliminadas com soft-apagado | Versões blob |
 | ---- | :----------: | :-----------: | :------------------: |
-| Bolhas ativas | Sim | Não | Versão atual apenas |
-| Bolhas ativas e bolhas comvidade | Sim | Sim | Versão atual apenas |
-| Bolhas e bolhas ativas sem versão atual | Sim | Não | Versão atual ou versão ativa mais recente |
-| Todas as bolhas e bolhas sem versão atual | Sim | Sim | Versão atual ou versão mais recente |
+| Bolhas ativas | Yes | No | Versão atual apenas |
+| Bolhas ativas e bolhas comvidade | Yes | Yes | Versão atual apenas |
+| Bolhas e bolhas ativas sem versão atual | Yes | No | Versão atual ou versão ativa mais recente |
+| Todas as bolhas e bolhas sem versão atual | Yes | Yes | Versão atual ou versão mais recente |
 
 ### <a name="active-blobs"></a>Bolhas ativas
 

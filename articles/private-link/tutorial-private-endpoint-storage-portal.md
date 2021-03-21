@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96484826"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta de armazenamento usando um Azure Private Endpoint
@@ -53,7 +53,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     | Grupo de Recursos   | Selecione **myResourceGroup** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **E.U.A. Leste**. |
+    | Region           | Selecione **E.U.A. Leste**. |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -94,7 +94,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
 Nesta secção, irá criar uma máquina virtual que será usada para testar o ponto final privado.
 
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >  **Compute**  >  **Virtual machine** **Virtual** na caixa de pesquisa.
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >    >   **Virtual** na caixa de pesquisa.
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -105,7 +105,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Grupo de Recursos | Selecione **myResourceGroup** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Região | Selecione **E.U.A. Leste**. |
+    | Region | Selecione **E.U.A. Leste**. |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **Windows Server 2019 Datacenter - Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -136,7 +136,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
 
 Nesta secção, você vai criar uma conta de armazenamento e configurar o ponto final privado.
 
-1. No menu à esquerda, selecione **Criar uma** conta de Armazenamento de Recursos  >  **Storage**  >  **Storage account** ou procurar conta **de Armazenamento** na caixa de pesquisa.
+1. No menu à esquerda, selecione **Criar uma** conta de Armazenamento de Recursos  >    >  ou procurar conta **de Armazenamento** na caixa de pesquisa.
 
 2. No separador Básicos da conta de **armazenamento** insira ou selecione as **seguintes** informações:
 
@@ -238,7 +238,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 16. Verifique se as definições estão corretas no **Resumo da Ligação**.  
 
-17. Selecione **Connect** (Ligar).
+17. Selecione **Ligar**.
 
 18. Feche a ligação ao **myVM**.
 

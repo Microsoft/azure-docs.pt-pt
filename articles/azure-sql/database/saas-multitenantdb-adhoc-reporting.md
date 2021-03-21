@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
 ms.openlocfilehash: 800592b7a8b263fea2883fdd3e030f78f72647dd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459922"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Executar consultas ad hoc analíticas em várias bases de dados (Azure SQL Database)
@@ -119,7 +119,7 @@ Ao inspecionar o plano de execução, paire sobre os ícones do plano para obter
 1. Em *SSMS,* aberto... \\ Módulos \\ de Aprendizagem Analíticos Operacionais \\ Adhoc \\ *Reportando Demo-AdhocReportingQueries.sql*.
 2. Certifique-se de que está ligado à base de dados **de denúncias.**
 3. Selecione o menu **de consulta** e clique **em Incluir Plano de Execução Real**
-4. Destaque para quais os **F5** *locais que estão registados atualmente?*
+4. Destaque para quais os  *locais que estão registados atualmente?*
 
    A consulta devolve toda a lista de locais, ilustrando a rapidez e facilidade com que é consulta em todos os inquilinos e devolver dados de cada inquilino.
 

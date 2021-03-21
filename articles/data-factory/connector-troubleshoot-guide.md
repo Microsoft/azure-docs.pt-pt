@@ -1,5 +1,5 @@
 ---
-title: Resolver Problemas dos conectores do Azure Data Factory
+title: Conectores da Fábrica de Dados Azure de resolução de problemas
 description: Saiba como resolver problemas de conector na Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
@@ -8,13 +8,13 @@ ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
 ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042441"
 ---
-# <a name="troubleshoot-azure-data-factory-connectors"></a>Resolver Problemas dos conectores do Azure Data Factory
+# <a name="troubleshoot-azure-data-factory-connectors"></a>Conectores da Fábrica de Dados Azure de resolução de problemas
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -175,7 +175,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 - **Causa**: O problema é causado pelo erro de tempo limite de tempo da Azure Data Lake Storage Gen2, que ocorre geralmente na máquina de tempo de execução de integração auto-hospedada (IR).
 
-- **Recomendação:** 
+- **Recomendação**: 
 
     - Coloque a sua máquina de INFRAVERMELHOs auto-hospedada e direcione a conta Azure Data Lake Storage Gen2 na mesma região, se possível. Isto pode ajudar a evitar um erro de tempo limite aleatório e produzir um melhor desempenho.
 
@@ -525,7 +525,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 - **Causa:** A coluna-alvo não existe na fonte ou no mapeamento da coluna.
 
-- **Recomendação:**  
+- **Recomendação**:  
   1. Certifique-se de que a fonte contém a coluna-alvo. 
   2. Adicione a coluna-alvo no mapeamento da coluna. Certifique-se de que a coluna da pia está no formato *{fieldName} @EntityReference*.
 
@@ -587,7 +587,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 - **Causa**: Na Fábrica de Dados, os valores datatime são suportados no intervalo de 0001-01-01 00:00:00-999-12-31 23:59:59. No entanto, a Oracle suporta uma gama mais alargada de valores datetime, como o século A.C. ou min/seg>59, o que leva à falha na Data Factory.
 
-- **Recomendação:** 
+- **Recomendação**: 
 
     Para ver se o valor na Oracle está na gama de Data Factory, `select dump(<column name>)` corra. 
 
@@ -827,7 +827,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 - **Causa:** O conteúdo da chave privada é recolhido do cofre da chave Azure ou SDK, mas não está codificado corretamente.
 
-- **Recomendação:**  
+- **Recomendação**:  
 
     Se o conteúdo da chave privada for do cofre da chave, o ficheiro original da chave pode funcionar se o enviar diretamente para o serviço ligado à SFTP.
 
@@ -858,7 +858,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 - **Causa**: O formato de conteúdo chave errado foi escolhido.
 
-- **Recomendação:**  
+- **Recomendação**:  
 
     A tecla privada SSH em formato PKCS#8 (a partir de "-----BEGIN ENCRYPTED PRIVATE KEY-----") não é atualmente suportada para aceder ao servidor SFTP na Data Factory. 
 
@@ -895,7 +895,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 - **Causa**: Se a mensagem de erro contiver a cadeia "A resposta do servidor não contém identificação do protocolo SSH", uma causa possível é que o servidor SFTP estrangulou a ligação. A Data Factory criará múltiplas ligações para descarregar a partir do servidor SFTP em paralelo, e por vezes irá encontrar estrangulamento do servidor SFTP. Normalmente, diferentes servidores retornam erros diferentes quando encontram estrangulamento.
 
-- **Recomendação:**  
+- **Recomendação**:  
 
     Especifique o número máximo de ligações simultâneas do conjunto de dados SFTP como 1 e reexplique a atividade da cópia. Se a atividade for bem sucedida, pode ter a certeza de que estrangular é a causa.
 

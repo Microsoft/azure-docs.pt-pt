@@ -1,13 +1,13 @@
 ---
-title: Módulo PowerShell para Serviços Azure Lab Microsoft Docs
+title: Módulo PowerShell para | de Serviços de Laboratório Azure Microsoft Docs
 description: Este artigo fornece informações sobre um módulo PowerShell que ajuda na gestão de artefactos nos Serviços Azure Lab.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4f990b35a41f040d34fab156d3f3d450ad7561a2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94646530"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Módulo do PowerShell Az.LabServices (pré-visualização)
@@ -37,5 +37,5 @@ Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
     Get-AzLabAccount | Get-AzLab
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).

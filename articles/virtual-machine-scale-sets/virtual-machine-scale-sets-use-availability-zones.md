@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016663"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Crie um conjunto de escala de máquina virtual que utilize Zonas de Disponibilidade
@@ -58,7 +58,7 @@ Para utilizar o melhor equilíbrio da zona de esforço, deslobre *a zonaBalança
 
 Quando implementar um conjunto de escala de máquina virtual, pode optar por utilizar uma única Zona de Disponibilidade numa região ou em várias zonas.
 
-Quando se cria uma escala definida numa única zona, controla-se em que zona todas as instâncias VM funcionam, e o conjunto de escala é gerido e as escalas automáticas apenas dentro dessa zona. Um conjunto de escala redundante de zona permite criar um conjunto de escala única que se estende por várias zonas. À medida que os casos de VM são criados, por padrão são equilibrados em todas as zonas. Se ocorrer uma interrupção numa das zonas, um conjunto de escala não escala automaticamente para aumentar a capacidade. Uma boa prática seria configurar regras de autoescalação baseadas no USO OU OU OU OU OU. As regras de autoescala permitiriam que a escala definida respondesse a uma perda das instâncias VM nessa zona, escalando novos casos nas zonas operacionais restantes.
+Quando se cria uma escala definida numa única zona, controla-se em que zona todas as instâncias VM funcionam, e o conjunto de escala é gerido e as escalas automáticas apenas dentro dessa zona. Um conjunto de escala redundante de zona permite criar um conjunto de escala única que se estende por várias zonas. À medida que os casos de VM são criados, por padrão são equilibrados em todas as zonas. Se ocorrer uma interrupção numa das zonas, um conjunto de escala não escala automaticamente para aumentar a capacidade. Uma boa prática seria configurar regras de autoescalação baseadas no USO OU OU. As regras de autoescala permitiriam que a escala definida respondesse a uma perda das instâncias VM nessa zona, escalando novos casos nas zonas operacionais restantes.
 
 Para utilizar Zonas de Disponibilidade, o seu conjunto de escalas deve ser criado numa [região de Azure suportada.](../availability-zones/az-region.md) Pode criar um conjunto de escala que utilize Zonas de Disponibilidade com um dos seguintes métodos:
 
@@ -134,7 +134,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escala redundante de zona
 
-Para criar um conjunto de escala de zona redundante, especifique várias zonas com o `-Zone` parâmetro. O exemplo a seguir cria um conjunto de escala redundante de zona chamado *myScaleSet* através das zonas *1, 2, 3*. *East US 2* Os recursos de rede Azure redundantes para rede virtual, endereço IP público e balanceador de carga são automaticamente criados. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
+Para criar um conjunto de escala de zona redundante, especifique várias zonas com o `-Zone` parâmetro. O exemplo a seguir cria um conjunto de escala redundante de zona chamado *myScaleSet* através das zonas *1, 2, 3*.  Os recursos de rede Azure redundantes para rede virtual, endereço IP público e balanceador de carga são automaticamente criados. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
 New-AzVmss `

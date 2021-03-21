@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do Windows Defender Firewall ao Azure Sentinel ! Microsoft Docs
+title: Ligue os dados do Windows Defender Firewall ao | do Azure Sentinel Microsoft Docs
 description: Ativar o conector de firewall do Windows no Azure Sentinel para transmitir facilmente eventos de firewall a partir de máquinas windows que tenham agentes do Log Analytics instalados.
 services: sentinel
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
 ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655345"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Ligue firewall do Windows Defender com Segurança Avançada a Azure Sentinel
@@ -83,7 +83,7 @@ A solução recolhe eventos de firewall do Windows a partir das máquinas do Win
  
 Uma vez que os registos do Windows Firewall são enviados para o Azure Sentinel apenas quando o ficheiro de registo local atingir a capacidade, deixando o registo no seu tamanho padrão de 4096 KB provavelmente resultará em alta latência de recolha. Pode baixar a latência baixando o tamanho do ficheiro de registo. Consulte as instruções para [configurar o registo do Windows Firewall](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note que ao definir o tamanho mínimo possível de log (1 KB) irá praticamente eliminar a latência da recolha, podendo também afetar negativamente o desempenho da máquina local. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar firewall do Windows ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

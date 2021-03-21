@@ -9,10 +9,10 @@ ms.date: 12/09/2020
 ms.author: barclayn
 ms.custom: include file
 ms.openlocfilehash: e2ad18e0853df169911f42fb6649099ccd0264b0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101102840"
 ---
 - Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](../articles/active-directory/managed-identities-azure-resources/overview.md). 

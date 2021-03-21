@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, estúdio visual 2017, estúdio visual 2019, nuget
 ms.openlocfilehash: fd71f0d327b8c828cc9ddac5810757cccdffbcea
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359617"
 ---
 # <a name="add-azure-kinect-library-to-your-visual-studio-project"></a>Adicione a biblioteca Azure Kinect ao seu projeto visual Studio

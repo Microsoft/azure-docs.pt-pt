@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/27/2020
 ms.author: alkohli
 ms.openlocfilehash: fa65a7354112a2b220686372459b348d45832dd9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467374"
 ---
 Faça os seguintes passos na UI web local do seu dispositivo. Este passo demora cerca de 15 minutos, incluindo o upload do ficheiro de configuração VPN (ou o ficheiro de marca de serviço). 

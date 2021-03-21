@@ -4,10 +4,10 @@ description: Controlo do mapeamento da amostra de planta SWIFT CSP-CSCF v2020. C
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 466b37b287d79a891fba39b133ab5fa79dbd147e
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98048798"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapeamento de controlo da amostra de planta SWIFT CSP-CSCF v2020
@@ -29,7 +29,7 @@ Este projeto ajuda-o a rever contas que podem não cumprir os requisitos de gest
 - As contas externas com permissões de leitura devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2.6, 5.1, 6.4 e 6.5A Gestão de Contas / Regimes Role-Based
+## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2.6, 5.1, 6.4 e 6.5A Gestão de Contas | Regimes Role-Based
 
 [Azure controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (Azure RBAC) para ajudá-lo a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Além disso, este projeto atribui uma definição de Política Azure para auditar o uso de regras Azure RBAC personalizadas. Compreender onde as regras Azure RBAC personalizadas são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros.
 
@@ -37,7 +37,7 @@ Este projeto ajuda-o a rever contas que podem não cumprir os requisitos de gest
 - VMs de auditoria que não usam discos geridos
 - Os clusters de tecido de serviço só devem utilizar o Azure Ative Directy para a autenticação do cliente
 
-## <a name="29a--account-management--account-monitoring--atypical-usage"></a>2.9A Gestão de Conta / Monitorização de Conta / Utilização Atípica
+## <a name="29a--account-management--account-monitoring--atypical-usage"></a>2.9A Gestão de Contas | Monitorização de Conta / Utilização Atípica
 
 O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. Todos os pedidos de JIT para aceder a máquinas virtuais estão registados no Registo de Atividades que lhe permite monitorizar para uma utilização atípica. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar o acesso just-in-time mas ainda não foram configuradas.
 
@@ -52,7 +52,7 @@ Ter apenas um proprietário de assinatura Azure não permite despedimento admini
 - Implementar pré-requisitos para auditar VMs do Windows em que o grupo de administradores não contém todos os membros especificados
 - Deve haver mais de um proprietário atribuído à sua subscrição
 
-## <a name="13-51-and-64-least-privilege--review-of-user-privileges"></a>1.3, 5.1 e 6.4 Menos Privilégio Revisão dos Privilégios de Utilização
+## <a name="13-51-and-64-least-privilege--review-of-user-privileges"></a>1.3, 5.1 e 6.4 Menor Privilégio | Revisão dos Privilégios de Utilização
 
 [O controlo de acesso baseado em funções (Azure RBAC) ajuda-o](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto atribui definições [de Política Azure](../../../policy/overview.md) a contas de auditoria que devem ser priorizadas para revisão. Rever estes indicadores de conta pode ajudá-lo a garantir que os controlos de privilégios são implementados.
 
@@ -68,7 +68,7 @@ A capacidade de descoberta e classificação de dados de segurança avançada de
 - A segurança avançada dos dados deve ser ativada nos seus servidores SQL
 - Implementar segurança de dados avançada em servidores SQL
 
-## <a name="22-27-41-and-61-remote-access--automated-monitoring--control"></a>2.2, 2.7, 4.1 e 6.1 Acesso remoto Monitorização automatizada / Controlo
+## <a name="22-27-41-and-61-remote-access--automated-monitoring--control"></a>2.2, 2.7, 4.1 e 6.1 Acesso remoto | Monitorização automatizada / Controlo
 
 Esta planta ajuda-o a monitorizar e a controlar o acesso remoto, atribuindo definições [de Política Azure](../../../policy/overview.md) aos monitores que a depuração remota para a aplicação do Azure App Service é desligada e definições de política que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem palavras-passe. Esta planta também atribui uma definição de Política Azure que o ajuda a monitorizar o acesso ilimitado às contas de armazenamento. A monitorização destes indicadores pode ajudá-lo a garantir que os métodos de acesso remoto cumpram a sua política de segurança.
 
@@ -79,7 +79,7 @@ Esta planta ajuda-o a monitorizar e a controlar o acesso remoto, atribuindo defi
 - Depuragem remota deve ser desligada para a App de Função
 - Depuragem remota deve ser desligada para aplicação web
 
-## <a name="13-and-64-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>1.3 e 6.4 Conteúdo dos Registos de Auditoria ! Gestão Centralizada do Conteúdo Recorde de Auditoria Planeada
+## <a name="13-and-64-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>1.3 e 6.4 Conteúdo dos Registos de Auditoria | Gestão Centralizada do Conteúdo Recorde de Auditoria Planeada
 
 Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho log Analytics que permite a configuração e gestão centralizadas. Esta planta ajuda-o a garantir que os eventos são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam e impõem a implementação do agente Log Analytics em máquinas virtuais Azure.
 
@@ -95,7 +95,7 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 - Definição de diagnóstico de auditoria
 - A auditoria no servidor SQL deve ser ativada
 
-## <a name="13-and-64-audit-review-analysis-and-reporting--central-review-and-analysis"></a>1.3 e 6.4 Revisão, Análise e Reporte de Auditoria Análise e Análise Central
+## <a name="13-and-64-audit-review-analysis-and-reporting--central-review-and-analysis"></a>1.3 e 6.4 Análise, Análise e Reporte | Análise e Análise Central
 
 Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho do Log Analytics que permite relatórios e análises centralizados. Esta planta ajuda-o a garantir que os eventos são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam e impõem a implementação do agente Log Analytics em máquinas virtuais Azure.
 
@@ -120,13 +120,13 @@ Estas definições de política auditam e impõem a implantação do agente Log 
 - A auditoria no servidor SQL deve ser ativada
 - Implementar definições de diagnóstico para grupos de segurança de rede
 
-## <a name="11-least-functionality--prevent-program-execution"></a>1.1 Menor Funcionalidade / Impedir a execução do programa
+## <a name="11-least-functionality--prevent-program-execution"></a>1.1 Menos funcionalidade | Impedir a execução do programa
 
 O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo da aplicação pode ser executado num modo de execução que proíbe a execução de aplicações não aprovadas. Esta planta atribui uma definição de Política Azure que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
 - Os controlos de aplicação adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas
 
-## <a name="11-least-functionality--authorized-software--whitelisting"></a>1.1 Menor Funcionalidade / Software autorizado / Whitelisting
+## <a name="11-least-functionality--authorized-software--whitelisting"></a>1.1 Menos funcionalidade | Software autorizado / Whitelisting
 
 O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo de aplicações ajuda-o a criar listas de candidaturas aprovadas para as suas máquinas virtuais. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
@@ -139,14 +139,14 @@ O controlo de aplicações adaptativas no Azure Security Center é uma solução
 - Os controlos de aplicação adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas
 - Máquinas virtuais devem ser migradas para novos recursos do Azure Resource Manager
 
-## <a name="42-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>4.2 Identificação e Autenticação (Utilizadores Organizacionais) / Acesso à Rede a Contas Privilegiadas
+## <a name="42-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>4.2 Identificação e Autenticação (Utilizadores Organizacionais) | Acesso à Rede a Contas Privilegiadas
 
 Este projeto ajuda-o a restringir e a controlar o acesso privilegiado atribuindo definições [da Azure Policy](../../../policy/overview.md) a contas de auditoria com o proprietário e/ou a escrever permissões que não tenham autenticação de vários fatores ativadas. A autenticação multi-factor ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação esteja comprometida. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - O MFA deve ser ativado em contas com permissões de escrita na sua subscrição
 
-## <a name="42-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>4.2 Identificação e Autenticação (Utilizadores Organizacionais) / Acesso à Rede a Contas Não Privilegiadas
+## <a name="42-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>4.2 Identificação e Autenticação (Utilizadores Organizacionais) | Acesso à Rede a Contas Não Privilegiadas
 
 Este plano ajuda-o a restringir e a controlar o acesso, atribuindo uma definição [de Política Azure](../../../policy/overview.md) a contas de auditoria com permissões de leitura que não têm autenticação multi-factor ativada. A autenticação multi-factor ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação esteja comprometida. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
@@ -163,7 +163,7 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 - Mostrar resultados de auditoria de VMs do Windows que não armazenam senhas usando encriptação reversível
 - Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 
-## <a name="23-and-41-authenticator-management--password-based-authentication"></a>2.3 e 4.1 Gestão de Autenticadores / Autenticação Password-Based
+## <a name="23-and-41-authenticator-management--password-based-authentication"></a>2.3 e 4.1 | de Gestão de Autenticadores Autenticação Password-Based
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A sensibilização das máquinas virtuais em violação da política de força de senha ajuda-o a tomar ações corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumprem a política de senha da sua organização.
 
@@ -205,19 +205,19 @@ Esta planta ajuda-o a gerir e a controlar a fronteira do sistema, atribuindo uma
 - O acesso através da Internet face ao ponto final deve ser restringido
 - Auditoria acesso ilimitado à rede a contas de armazenamento
 
-## <a name="29a-boundary-protection--access-points"></a>2.9A Proteção de Fronteiras / Pontos de Acesso
+## <a name="29a-boundary-protection--access-points"></a>2.9A Proteção de Fronteiras | Pontos de Acesso
 
 O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. O acesso virtual à máquina JIT ajuda-o a limitar o número de ligações externas aos seus recursos em Azure. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar o acesso just-in-time mas ainda não foram configuradas.
 
 - As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time
 
-## <a name="29a-boundary-protection--external-telecommunications-services"></a>2.9A Proteção de Fronteiras / Serviços externos de Telecomunicações
+## <a name="29a-boundary-protection--external-telecommunications-services"></a>2.9A Proteção de Fronteiras | Serviços externos de Telecomunicações
 
 O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. O acesso a máquinas virtuais JIT ajuda-o a gerir exceções à sua política de fluxo de tráfego, facilitando os processos de pedido de acesso e aprovação. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar o acesso just-in-time mas ainda não foram configuradas.
 
 - As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time
 
-## <a name="21-24-24a-25a-and-26-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>2.1, 2.4, 2.4A, 2.5A e 2.6 Transmissão Confidencialidade e Integridade ! Proteção Física Criptográfica ou Alternativa
+## <a name="21-24-24a-25a-and-26-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>2.1, 2.4, 2.4A, 2.5A e 2.6 Transmissão Confidencialidade e Integridade | Proteção Física Criptográfica ou Alternativa
 
 Esta planta ajuda-o a proteger a confidencialidade e a integridade das informações transmitidas, atribuindo definições [da Política Azure](../../../policy/overview.md) que o ajudam a monitorizar o mecanismo criptográfico implementado para protocolos de comunicações. Garantir que as comunicações estão devidamente encriptadas pode ajudá-lo a satisfazer os requisitos da sua organização ou proteger informações de divulgação e modificação não autorizadas.
 
@@ -229,7 +229,7 @@ Esta planta ajuda-o a proteger a confidencialidade e a integridade das informaç
 - A transferência segura para contas de armazenamento deve ser ativada
 - A Aplicação Web só deve ser acessível em HTTPS
 
-## <a name="22-23-25-41-and-27-protection-of-information-at-rest--cryptographic-protection"></a>2.2, 2.3, 2.5, 4.1 e 2.7 Proteção da Informação em Repouso / Proteção Criptográfica
+## <a name="22-23-25-41-and-27-protection-of-information-at-rest--cryptographic-protection"></a>2.2, 2.3, 2.5, 4.1 e 2.7 Proteção da Informação em Repouso | Proteção Criptográfica
 
 Esta planta ajuda-o a aplicar a sua política sobre a utilização de controlos criptógrafos para proteger a informação em repouso, atribuindo definições [de Política Azure](../../../policy/overview.md) que impõem controlos criptógrafos específicos e auditam o uso de configurações criptográficas fracas. Compreender onde os seus recursos Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos são configurados de acordo com a sua política de segurança de informação. Especificamente, as definições de política atribuídas por esta planta requerem encriptação para contas de armazenamento de lagos de dados; requerer encriptação de dados transparentes nas bases de dados SQL; e auditoria falta de encriptação em bases de dados SQL, discos de máquinas virtuais e variáveis de conta de automação.
 
@@ -260,7 +260,7 @@ Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo a proteçã
 - Monitor que falta proteção de ponto final no Centro de Segurança Azure
 - As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure
 
-## <a name="61-malicious-code-protection--central-management"></a>6.1 Proteção de Código Malicioso / Gestão Central
+## <a name="61-malicious-code-protection--central-management"></a>6.1 Proteção de código malicioso | Gestão Central
 
 Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo a proteção de código malicioso, atribuindo definições [de Política Azure](../../../policy/overview.md) que monitorizam a falta de proteção de pontos finais em máquinas virtuais no Azure Security Center. O Azure Security Center fornece capacidades de gestão e reporte centralizadas que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos Azure implantados.
 
@@ -284,7 +284,7 @@ Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a seguran�
 - Implementar o observador de rede quando as redes virtuais forem criadas
 - Implementar deteção de ameaças em servidores SQL
 
-## <a name="22-and-28-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>2.2 e 2.8 Monitorização do Sistema de Informação Analisar Tráfego / Exfiltração Secreta
+## <a name="22-and-28-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>2.2 e 2.8 | de Monitorização do Sistema de Informação Analisar Tráfego / Exfiltração Secreta
 
 A Advanced Threat Protection for Azure Storage deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de proteção incluem padrões de acesso anómalos, extratos/uploads anómalos e atividade de armazenamento suspeito. Estes indicadores podem ajudá-lo a detetar a exfiltração secreta de informação.
 

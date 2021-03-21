@@ -9,10 +9,10 @@ author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
 ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95741666"
 ---
 # <a name="publishing-guide-for-azure-container-offers"></a>Guia de publicação de ofertas de contentores Azure
@@ -35,7 +35,7 @@ A Microsoft suporta atualmente modelos de licenciamento gratuitos e de trazer a 
 | Faturação e medição | Apoie o modelo de faturação gratuito ou BYOL.<br><br> |  
 | Imagem construída a partir de um Dockerfile | As imagens do contentor devem basear-se na especificação de imagem do Docker e construídas a partir de um Dockerfile.<br> <br>Para obter mais informações sobre a construção de imagens Docker, consulte a secção "Utilização" da [referência Dockerfile](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
 | Hospedagem num repositório de registo de contentores Azure | As imagens do contentor devem ser acolhidas num repositório de registo de contentores Azure.<br> <br>Para obter mais informações sobre o trabalho com o Registo do Contentor Azure, consulte [Quickstart: Criar um registo privado de contentores utilizando o portal Azure](../container-registry/container-registry-get-started-portal.md).<br><br> |  
-| Identificação de imagens | As imagens do recipiente devem conter pelo menos uma etiqueta (número máximo de etiquetas: 16).<br><br>Para obter mais informações sobre a marcação de uma imagem, consulte a `docker tag` página no site da [Documentação do Docker.](https://docs.docker.com/engine/reference/commandline/tag)<br><br> |  
+| Etiquetagem de imagens | As imagens do recipiente devem conter pelo menos uma etiqueta (número máximo de etiquetas: 16).<br><br>Para obter mais informações sobre a marcação de uma imagem, consulte a `docker tag` página no site da [Documentação do Docker.](https://docs.docker.com/engine/reference/commandline/tag)<br><br> |  
 
 ## <a name="next-steps"></a>Passos seguintes
 

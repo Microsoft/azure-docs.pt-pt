@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
 ms.openlocfilehash: fe38ddc594060c78a2d26e9b25476e38736b4cf7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946055"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurar clusters HDInsight com um DB Ambari personalizado
@@ -76,6 +76,6 @@ A tabela a seguir fornece diretrizes sobre as quais o nível DB Azure SQL para s
 | >64 && <=128 | P2 |
 | >128 | Contactar o Suporte |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use external metadata stores in Azure HDInsight](hdinsight-use-external-metadata-stores.md) (Utilizar arquivos de metadados externos no Azure HDInsight)

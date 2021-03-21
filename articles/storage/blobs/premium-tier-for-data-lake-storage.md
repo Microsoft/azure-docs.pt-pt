@@ -1,5 +1,5 @@
 ---
-title: Nível premium para armazenamento do Lago de Dados Azure / Microsoft Docs
+title: Nível premium para Azure Data Lake Storage | Microsoft Docs
 description: Use o nível de desempenho premium com Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
 ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324216"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Nível premium para armazenamento de lago de dados Azure

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 11/05/2020
 ms.openlocfilehash: 4f243ca5be0878cde3b28f5b7a7c3eea0cf9b8d0
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94631585"
 ---
 # <a name="how-to-resell-your-offer-through-csp"></a>Como revender a sua oferta através da CSP
@@ -24,7 +24,7 @@ Selecione quais os parceiros que devem ser capazes de revender a sua oferta:
 
 - Qualquer parceiro no programa CSP
 - Parceiros específicos no programa CSP eu seleciono
-- Sem parceiros no programa CSP
+- Nenhum parceiro no programa CSP
 
 **Selecione Guardar o rascunho** antes de continuar para o separador seguinte no menu de navegação à esquerda, test **drive**.
 

@@ -1,5 +1,5 @@
 ---
-title: Limites Azure Stack Edge Mini R / Microsoft Docs
+title: Azure Stack Edge Mini R limita | Microsoft Docs
 description: Descreve os limites do sistema e os tamanhos recomendados para o Azure Stack Edge Mini R.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: alkohli
 ms.openlocfilehash: 6f01d62d1d11f5ff90661482ffd2db112657eee5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467850"
 ---
 # <a name="azure-stack-edge-mini-r-limits"></a>Limites Azure Stack Edge Mini R
@@ -28,10 +28,10 @@ Considere estes limites à medida que implementa e opera a sua solução Azure S
 
 A tabela seguinte descreve os limites para o dispositivo Azure Stack Edge Mini R.
 
-| Descrição | Limite|
+| Description | Limite|
 |---|---:|
-|Não. de ficheiros por dispositivo | 100 milhões <!--check with devs-->|
-|Não. de ações por contentor | 1|
+|N.º de ficheiros por dispositivo | 100 milhões <!--check with devs-->|
+|N.º de ações por contentor | 1|
 |Máximo não. de pontos finais de ações e pontos finais DE REST por dispositivo| 24 |
 |Máximo não. de contas de armazenamento hierárquico por dispositivo| 24|
 |Tamanho máximo do ficheiro escrito para uma partilha| 500 GB|

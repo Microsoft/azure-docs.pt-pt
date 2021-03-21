@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
 ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102551475"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
@@ -36,7 +36,7 @@ As tabelas seguintes proporcionam uma comparação rápida dos agentes do Monito
 | **Ambientes apoiados** | Azure<br>Outra nuvem (Arco azul)<br>No local (Azure Arc)  | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local | 
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente log analytics |
 | **Dados recolhidos** | Registos de Eventos<br>Desempenho | Registos de Eventos<br>Eventos da ETW<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>Registos de aplicações .NET<br>Informações de falha de sistema<br>Registos de diagnóstico de agentes | Registos de Eventos<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>Insights e soluções<br>Outros serviços | Dependências de processos<br>Métricas de ligação de rede |
-| **Dados enviados para** | Registos do Azure Monitor<br>Métricas do Azure Monitor | Storage do Azure<br>Métricas do Azure Monitor<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor<br>(através do agente Log Analytics) |
+| **Dados enviados para** | Registos do Azure Monitor<br>Métricas do Azure Monitor | Armazenamento do Azure<br>Métricas do Azure Monitor<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor<br>(através do agente Log Analytics) |
 | **Serviços e**<br>**características**<br>**apoiado** | Log Analytics<br>Explorador de Métricas | Explorador de Métricas | Insights VM<br>Log Analytics<br>Automatização do Azure<br>Centro de Segurança do Azure<br>Azure Sentinel | Insights VM<br>Mapa de Serviços |
 
 ### <a name="linux-agents"></a>Agentes do Linux
@@ -46,7 +46,7 @@ As tabelas seguintes proporcionam uma comparação rápida dos agentes do Monito
 | **Ambientes apoiados** | Azure<br>Outra nuvem (Arco azul)<br>No local (Azure Arc) | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local |
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Nenhum | Requer agente log analytics |
 | **Dados recolhidos** | Syslog<br>Desempenho | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Dependências de processos<br>Métricas de ligação de rede |
-| **Dados enviados para** | Registos do Azure Monitor<br>Métricas do Azure Monitor | Storage do Azure<br>Hub de Eventos | Métricas do Azure Monitor | Registos do Azure Monitor | Registos do Azure Monitor<br>(através do agente Log Analytics) |
+| **Dados enviados para** | Registos do Azure Monitor<br>Métricas do Azure Monitor | Armazenamento do Azure<br>Hub de Eventos | Métricas do Azure Monitor | Registos do Azure Monitor | Registos do Azure Monitor<br>(através do agente Log Analytics) |
 | **Serviços e**<br>**características**<br>**apoiado** | Log Analytics<br>Explorador de Métricas | | Explorador de Métricas | Insights VM<br>Log Analytics<br>Automatização do Azure<br>Centro de Segurança do Azure<br>Azure Sentinel | Insights VM<br>Mapa de Serviços |
 
 

@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017889"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster de serviço Azure Kubernetes
@@ -39,7 +39,7 @@ ms.locfileid: "96017889"
 
     |Definição|Valor|
     |--|--|
-    |Encaminhamento de aplicações de HTTP|Não|
+    |Encaminhamento de aplicações de HTTP|No|
     |Configuração da rede|Básico|
 
 1. No separador **Integrações,** certifique-se de que **a monitorização do contentor** está definida como **Ativada**, e deixe o **espaço de trabalho do Log Analytics** como o valor predefinido.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Zendesk para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar Zendesk para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisá-lo e desprovisionar automaticamente as contas dos utilizadores para o Zendesk.
 services: active-directory
 author: zhchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 620dd8fd586352ebeaf097a8f870a606f8e06c01
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359719"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar Zendesk para o provisionamento automático do utilizador
@@ -78,7 +78,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para Zendesk em Azure AD
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zendesk**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zendesk**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    * Na caixa de **domínio,** preencha o subdomínio do seu inquilino Zendesk. Por exemplo, para uma conta com uma URL de inquilino `https://my-tenant.zendesk.com` de, o seu subdomínio é **o meu inquilino.**
 
-6. O símbolo secreto da sua conta Zendesk está localizado nas Definições **ADMIN**  >  **API**  >  **Settings**. Certifique-se de que **o Acesso Token** está definido para **Ativado**.
+6. O símbolo secreto da sua conta Zendesk está localizado nas Definições **ADMIN**  >  **API**  >  . Certifique-se de que **o Acesso Token** está definido para **Ativado**.
 
     ![Configurações de administração Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 
@@ -116,7 +116,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
-9. Selecione **Save** (Guardar).
+9. Selecione **Guardar**.
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para Zendesk**.
 

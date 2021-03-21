@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o OnTrack Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com onTrack | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o OnTrack.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 8470455f3d72ea101336e8368b420a9340aac317
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integração do Azure Ative Directory com o OnTrack
@@ -99,7 +99,7 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
 4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
-    ![Informações de súmis de súmis e URLs on on on](common/idp-intiated.png)
+    ![Informações de súmis de súmis e URLs on](common/idp-intiated.png)
 
     a. Na caixa de texto **do Identificador:**
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
 6. Além de acima, a aplicação OnTrack espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | -------------- | ----------------|    
     | User-Role      | "42F432" |
     | Hyperion-Code  | "12345" |
@@ -195,7 +195,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, concedendo acesso ao OnTrack.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **OnTrack**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **OnTrack**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

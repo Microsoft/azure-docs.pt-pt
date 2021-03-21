@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o módulo IO espacial Azure Maps Microsoft Azure Maps
+title: Como utilizar o módulo IO espacial Azure Maps | Microsoft Azure Maps
 description: Saiba como utilizar o módulo Spatial IO fornecido pelo Azure Maps Web SDK. Este módulo fornece funcionalidades robustas para facilitar aos desenvolvedores a integração de dados espaciais com o SdK web Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: cd64c80acceb1542c080fc45efbce59f287d448a
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680693"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como utilizar o módulo Azure Maps Spatial IO

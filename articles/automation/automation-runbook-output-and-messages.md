@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: beed3ec50d0c7990168ee75976c732796cdbe246
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324430"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configurar saídas de runbook e streams de mensagens
@@ -277,7 +277,7 @@ No entanto, a menos que você requeira esta informação para acompanhar o progr
 1. No portal do Azure, abra a sua conta da Automatização.
 2. Selecione **Runbooks** em **Automação de Processos** para abrir a lista de runbooks.
 3. Na página Runbooks, selecione um runbook gráfico da sua lista de runbooks.
-4. Em **Definições** , clique em **Registar e rastrear**.
+4. Em **Definições**, clique em **Registar e rastrear**.
 5. Na página 'Registar e Rastrear', nos **registos verbosos do Log,** clique **em Ligar** para permitir a registo verboso.
 6. No **rastreio ao nível da atividade,** altere o nível de rastreio para **Básico** ou **Detalhado,** com base no nível de rastreio que necessita.<br>
 

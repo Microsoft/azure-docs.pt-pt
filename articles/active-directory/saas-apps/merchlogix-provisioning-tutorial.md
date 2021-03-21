@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure MerchLogix para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configure MerchLogix para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à MerchLogix.
 services: active-directory
 author: zhchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: 4d0a52f06a751fba57a00615e2d57485ff740d04
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359702"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: Configure MerchLogix para o fornecimento automático de utilizadores
@@ -39,7 +39,7 @@ Antes de configurar a MerchLogix para o fornecimento automático de utilizadores
 
 **Para adicionar MerchLogix da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
 
     ![O botão Azure Ative Directory][1]
 

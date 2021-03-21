@@ -1,5 +1,5 @@
 ---
-title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge Pro R no portal Azure Microsoft Docs
+title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge Pro R no portal Azure | Microsoft Docs
 description: Saiba como pode ligar-se ao seu dispositivo Azure Stack Edge Pro R utilizando a UI web local.
 services: databox
 author: alkohli
@@ -10,17 +10,17 @@ ms.date: 10/15/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure.
 ms.openlocfilehash: ce97c22cf4bfbe5cca01183574597706a8c239e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96468729"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-pro-r"></a>Tutorial: Conecte-se ao Azure Stack Edge Pro R
 
 Este tutorial descreve como pode ligar-se ao seu dispositivo Azure Stack Edge Pro R utilizando a UI web local.
 
-O processo de ligação pode demorar cerca de 5 minutos a ser concluído.
+A conclusão do processo de ligação pode demorar cerca de 5 minutos.
 
 Neste tutorial, ficará a saber mais sobre:
 
@@ -39,9 +39,9 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge Pro R, certi
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Conecte-se à configuração local do UI web
 
-1. Configure o adaptador Ethernet no seu computador para ligar ao dispositivo Azure Stack Edge Pro R com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
+1. Configure o adaptador Ethernet no computador para estabelecer ligação ao dispositivo Azure Stack Edge Pro R com um endereço IP estático 192.168.100.5 e sub-rede 255.255.255.0.
 
-2. Ligue o computador ao PORTO 1 no seu dispositivo. Se ligar o computador diretamente ao dispositivo (sem um interruptor), utilize um cabo de cruzamento ou um adaptador USB Ethernet. Utilize a seguinte ilustração para identificar a PORTA 1 no seu dispositivo.
+2. Ligue o computador à PORTA 1 no dispositivo. Se ligar o computador ao dispositivo diretamente (sem um comutador), utilize um cabo cruzado ou um adaptador Ethernet USB. Utilize a seguinte ilustração para identificar a PORTA 1 no dispositivo.
 
     ![Painel posterior de um dispositivo ligado por cabo](./media/azure-stack-edge-pro-r-deploy-install/backplane-cabled.png)
 
@@ -62,7 +62,7 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge Pro R, certi
     ![Página de entrada do dispositivo Azure Stack Edge](media/azure-stack-edge-pro-r-deploy-connect/connect-web-ui-3.png)
 
 6. A pedido, altere a palavra-passe do administrador do dispositivo.  
-    A nova palavra-passe deve conter entre 8 e 16 caracteres. Deve conter três dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais.
+    A nova palavra-passe tem de ter entre 8 e 16 carateres. Tem de incluir três dos seguintes carateres: maiúsculas, minúsculas, números e carateres especiais.
 
 Está agora na página **geral** do seu dispositivo. O próximo passo é configurar as definições de rede para o seu dispositivo.
 
