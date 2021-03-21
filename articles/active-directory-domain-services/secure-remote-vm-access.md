@@ -1,5 +1,5 @@
 ---
-title: Acesso remoto seguro em VM em Serviços de Domínio Azure AD / Microsoft Docs
+title: Acesso remoto seguro VM em Azure AD Domain Services | Microsoft Docs
 description: Saiba como garantir o acesso remoto aos VMs utilizando o Network Policy Server (NPS) e a Autenticação Multi-Factor AD Azure com uma implementação de Serviços de Ambiente de Trabalho remoto num domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
 services: active-directory-ds
 author: justinha
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: f0605cbd81d8131014a1f6a6bf30e3db0ce9aa90
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618931"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Acesso remoto seguro a máquinas virtuais em Azure Ative Directory Domain Services

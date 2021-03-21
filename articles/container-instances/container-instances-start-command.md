@@ -4,10 +4,10 @@ description: Desloque uma linha de comando para anular o ponto de entrada numa i
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169634"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando numa instância de contentor para anular a operação da linha de comando predefinido
@@ -98,7 +98,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Mais uma vez, uma vez *terminado*o contentor, veja a saída mostrando os troncos do contentor:
+Mais uma vez, uma vez *terminado* o contentor, veja a saída mostrando os troncos do contentor:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2

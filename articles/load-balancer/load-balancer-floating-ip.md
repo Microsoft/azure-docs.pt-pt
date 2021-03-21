@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
 ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94699411"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Configuração IP flutuante do balançador de carga Azure
@@ -32,7 +32,7 @@ Alguns cenários de aplicação preferem ou exigem que a mesma porta seja usada 
 - Um esquema de mapeamento de endereços IP
 
 A nível da plataforma, o Azure Load Balancer opera sempre numa topologia de fluxo DSR, independentemente de o IP flutuante estar ou não ativado. Isto significa que a parte de saída de um fluxo é sempre corretamente reescrita para fluir diretamente de volta à origem.
-Sem IP flutuante, o Azure expõe um sistema tradicional de mapeamento de endereço IP de equilíbrio de carga para facilitar a utilização (o IP das instâncias VM). Ativar o IP flutuante altera o mapeamento do endereço IP para o Frontend IP do Balanceador de carga para permitir uma flexibilidade adicional. Sabia mais [aqui](load-balancer-multivip-overview.md).
+Sem IP flutuante, o Azure expõe um sistema tradicional de mapeamento de endereço IP de equilíbrio de carga para facilitar a utilização (o IP das instâncias VM). Ativar o IP flutuante altera o mapeamento do endereço IP para o Frontend IP do Balanceador de carga para permitir uma flexibilidade adicional. Saiba mais [aqui.](load-balancer-multivip-overview.md)
 
 ## <a name="limitations"></a><a name = "limitations"></a>Limitações
 

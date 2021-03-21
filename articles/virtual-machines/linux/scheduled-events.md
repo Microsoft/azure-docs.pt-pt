@@ -11,10 +11,10 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
 ms.openlocfilehash: 8b4f8b064ab19a578ce5854697a1ed9bb0195759
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505397"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events for Linux VMs (Azure Metadata Service: Scheduled Events para VMs do Linux)
@@ -75,7 +75,7 @@ Se o VM não for criado dentro de uma Rede Virtual, os casos padrão para servi�
 ### <a name="version-and-region-availability"></a>Disponibilidade de versão e região
 O serviço Eventos Agendados é versão. As versões são obrigatórias; a versão atual é `2019-08-01` .
 
-| Versão | Tipo de libertação | Regiões | Release Notes (Notas de Lançamento) | 
+| Versão | Tipo de libertação | Regiões | Notas de Versão | 
 | - | - | - | - | 
 | 2019-08-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para EventSource |
 | 2019-04-01 | Disponibilidade Geral | Todos | <li> Apoio adicional para descrição do evento |
@@ -140,7 +140,7 @@ No caso de existirem eventos agendados, a resposta contém uma série de eventos
 | Recursos| Lista de recursos que este evento afeta. A lista é garantida para conter máquinas de um domínio de [atualização](../availability.md)no máximo , mas pode não conter todas as máquinas na UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para começar após o tempo especificado na `NotBefore` propriedade.<li>`Started`: Este evento já começou.</ul> Nenhum `Completed` estatuto ou estatuto semelhante é fornecido. O evento já não é devolvido quando o evento estiver terminado.
 | NotBefore| Tempo após o qual este evento pode começar. <br><br> Exemplo: <br><ul><li> Seg, 19 set 2016 18:29:47 GMT  |
-| Descrição | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |
+| Description | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |
 | Fonte de Eventos | Iniciador do evento. <br><br> Exemplo: <br><ul><li> `Platform`: Este evento é iniciado por plataforma. <li>`User`: Este evento é iniciado pelo utilizador. |
 
 ### <a name="event-scheduling"></a>Agendamento de eventos

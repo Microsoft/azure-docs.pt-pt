@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: memildin
 ms.openlocfilehash: 2f37a59d5db3883754b602b2b2525e07b57206b7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102099357"
 ---
 # <a name="quickstart-set-up-azure-security-center"></a>Quickstart: Criar o Centro de Segurança Azure

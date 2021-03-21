@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
 ms.openlocfilehash: 404cd8652a4daf602f3326696ef5df2c3a23a548
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943323"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o Pacote de Segurança Enterprise no HDInsight
@@ -109,7 +109,7 @@ Se a federação estiver a ser utilizada e as hashes de palavra-passe estiverem 
         -refObjectID $policy.ID
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar clusters HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md)
 - [Configure as políticas de Colmeia Apache para clusters HDInsight com ESP](apache-domain-joined-run-hive.md)

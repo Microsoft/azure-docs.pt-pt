@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
 ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954009"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar a gravação do atributo Azure AD para o Workday
@@ -26,7 +26,7 @@ O objetivo deste tutorial é mostrar os passos que precisa de executar para escr
 * Número de telemóvel de trabalho (incluindo código de país, código de área, número)
 * Trabalhar bandeira primária móvel
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Depois de configurar a integração de provisionamento de entrada utilizando a aplicação de provisionamento [de AD no local](workday-inbound-tutorial.md) ou a aplicação de provisionamento do [Workday a Azure,](workday-inbound-cloud-only-tutorial.md) pode configurar opcionalmente a aplicação Workday Writeback para escrever informações de contacto, como e-mail de trabalho e número de telefone para Workday. 
 

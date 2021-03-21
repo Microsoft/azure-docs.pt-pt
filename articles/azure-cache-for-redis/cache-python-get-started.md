@@ -12,10 +12,10 @@ ms.custom:
 - devx-track-python
 ms.date: 11/05/2019
 ms.openlocfilehash: 048c31bedb56bdb66dc3b80d12c3014652e34625
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121155"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Quickstart: Use Azure Cache para Redis em Python

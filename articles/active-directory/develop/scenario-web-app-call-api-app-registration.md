@@ -13,10 +13,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: bb9a1ca6c2c81e3b0d5dbeff06f4de012446cf79
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98756321"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>Uma aplicação web que chama APIs web: Registo de aplicações
@@ -31,6 +31,6 @@ No entanto, como a aplicação web agora também chama APIs web, torna-se uma ap
 
 As aplicações web chamam APIs em nome do utilizador inscrito. Para isso, devem solicitar *permissões delegadas.* Para mais informações, consulte [permissões adicionais para aceder à sua API web.](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [configuração de código](scenario-web-app-call-api-app-configuration.md).

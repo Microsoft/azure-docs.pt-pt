@@ -8,10 +8,10 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 20926988d554d562f36587734bd99c34b4731e69
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92088725"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Ligue uma base de dados DB do Azure Cosmos à sua aplicação Azure Spring Cloud
@@ -87,7 +87,7 @@ A Azure Cosmos DB tem cinco tipos diferentes de API que suportam a ligação. O 
 
 1. Aceda à sua página de serviço Azure Spring Cloud no portal Azure. Vá ao **Painel de Aplicações** e selecione a aplicação para ligar ao Azure Cosmos DB. Esta aplicação é a mesma que atualizou ou implementou no passo anterior.
 
-1. Selecione **a ligação de serviços**e selecione **Criar ligação de serviço**. Para preencher o formulário, selecione:
+1. Selecione **a ligação de serviços** e selecione **Criar ligação de serviço**. Para preencher o formulário, selecione:
    * O valor **do tipo de ligação** **Azure Cosmos DB**.
    * O tipo API.
    * O nome da sua base de dados.

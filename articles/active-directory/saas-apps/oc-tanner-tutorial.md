@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com O.C. Tanner - AppreciateHub / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com O.C. Tanner - AppreciateHub | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o O.C. Tanner - AppreciateHub.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 683cfc65e8154d4f409f5d4a33bf7ccf61c6f7c6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518590"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com O.C. Tanner - AppreciateHub
@@ -23,7 +23,7 @@ ms.locfileid: "92518590"
 Neste tutorial, aprenderá a integrar o O.C. Tanner - AppreciateHub com Azure Ative Directory (Azure AD). Quando integrares o O.C. Tanner - AppreciateHub com Azure AD, você pode:
 
 * Controlo em Azure AD que tem acesso a O.C. Tanner - AppreciateHub.
-* Ativar os seus utilizadores para serem automaticamente inscritos na O.C. Tanner - AppreciateHub com as suas contas AD Azure.
+* Ative os seus utilizadores para serem automaticamente inscritos no O.C. Tanner - AppreciateHub com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
 Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
@@ -41,20 +41,20 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * O.C. Tanner - AppreciateHub suporta **IDP** iniciado SSO
 
-* Assim que configurar o O.C. Tanner - AppreciateHub pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurar o O.C. Tanner - AppreciateHub pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-oc-tanner---appreciatehub-from-the-gallery"></a>Adicionando O.C. Tanner - AppreciateHub da galeria
 
-Para configurar a integração da O.C. Tanner - AppreciateHub em Azure AD, você precisa adicionar O.C. Tanner - AppreciateHub da galeria para a sua lista de aplicações geridas para o SaaS.
+Para configurar a integração de O.C. Tanner - AppreciateHub em Azure AD, você precisa adicionar O.C. Tanner - AppreciateHub da galeria para a sua lista de aplicações geridas para o SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. Na secção Add da secção **da galeria,** **escreva O.C. Tanner - AppreciateHub** na caixa de pesquisa.
+1. Na secção Add da secção **de galeria,** tipo **O.C. Tanner - AppreciateHub** na caixa de pesquisa.
 1. Selecione **O.C. Tanner - AppreciateHub** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-oc-tanner---appreciatehub"></a>Configure e teste Azure AD único sign-on para O.C. Tanner - AppreciateHub
+## <a name="configure-and-test-azure-ad-single-sign-on-for-oc-tanner---appreciatehub"></a>Configure e teste Azure AD único sinal de inscrição para O.C. Tanner - AppreciateHub
 
 Configure e teste Azure AD SSO com O.C. Tanner - AppreciateHub usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em O.C. Tanner - AppreciateHub.
 
@@ -71,7 +71,7 @@ Para configurar e testar Azure AD SSO com O.C. Tanner - AppreciateHub, complete 
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **O.C. Tanner - AppreciateHub,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **O.C. Tanner - AppreciateHub,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
@@ -107,9 +107,9 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a O.C. Tanner - AppreciateHub.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso a O.C. Tanner - AppreciateHub.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **O.C. Tanner - AppreciateHub**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -125,13 +125,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-oc-tanner---appreciatehub-sso"></a>Configuure O.C. Tanner - AppreciateHub SSO
 
-Para configurar um único sign-on no **lado O.C. Tanner - AppreciateHub,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para [O.C. Tanner - Equipa de apoio AppreciateHub](mailto:sso@octanner.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on em **O.C. Tanner - Do** lado do AppreciateHub, é necessário enviar os **metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para [O.C. Tanner - Equipa de apoio do AppreciateHub](mailto:sso@octanner.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-oc-tanner---appreciatehub-test-user"></a>Criar O.C. Tanner - Utilizador de teste AppreciateHub
 
 O objetivo desta secção é criar um utilizador chamado Britta Simon em O.C. Tanner - AppreciateHub.
 
-**Para criar um utilizador chamado Britta Simon em O.C. Tanner - AppreciateHub, execute os seguintes passos:**
+**Para criar um utilizador chamado Britta Simon in O.C. Tanner - AppreciateHub, execute os seguintes passos:**
 
 Peça à sua [equipa de suporte O.C. Tanner - AppreciateHub](mailto:sso@octanner.com) para criar um utilizador que tenha como nomeID atribuir o mesmo valor que o nome de utilizador de Britta Simon em Azure AD.
 

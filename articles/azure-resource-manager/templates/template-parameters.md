@@ -4,10 +4,10 @@ description: Descreve como definir parâmetros num modelo de Gestor de Recursos 
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102123399"
 ---
 # <a name="parameters-in-arm-templates"></a>Parâmetros em modelos ARM
@@ -281,7 +281,7 @@ param month int
 
 ---
 
-## <a name="description"></a>Descrição
+## <a name="description"></a>Description
 
 Pode adicionar uma descrição a um parâmetro para ajudar os utilizadores do seu modelo a compreender o valor a fornecer. Ao implementar o modelo através do portal, o texto que fornece na descrição é automaticamente utilizado como uma dica para esse parâmetro. Adicione apenas uma descrição quando o texto fornecer mais informações do que pode ser deduzido a partir do nome do parâmetro.
 
@@ -473,7 +473,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
 
 Os exemplos a seguir demonstram cenários para a utilização de parâmetros.
 
-|Modelo  |Descrição  |
+|Modelo  |Description  |
 |---------|---------|
 |[parâmetros com funções para valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar as funções do modelo ao definir valores predefinidos para parâmetros. O modelo não implementa recursos. Constrói valores de parâmetros e devolve esses valores. |
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra usar um objeto para um parâmetro. O modelo não implementa recursos. Constrói valores de parâmetros e devolve esses valores. |

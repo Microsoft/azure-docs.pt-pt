@@ -4,14 +4,14 @@ description: Descreve problemas e resoluções abertos críticos para o Azure St
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e50f866c0bd44ca54c2f4df78b9507aa7077169
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452565"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657557"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>StorSimple Virtual Array Update 1.3 notas de lançamento
 
@@ -31,6 +31,11 @@ A atualização 1.3 corresponde à versão do software 10.0.10319.0.
 Esta atualização contém as seguintes melhorias:KB4540725
 
 - A Segurança da Camada de Transporte (TLS) 1.2 é uma atualização obrigatória e deve ser instalada. A partir desta versão, o TLS 1.2 torna-se o protocolo padrão para toda a comunicação do portal Azure.
+  
+   Se vir o seguinte aviso, deve atualizar o software do dispositivo antes de prosseguir:
+
+   Um ou mais dispositivos StorSimple estão a executar uma versão de software mais antiga. A mais recente atualização disponível para OLS 1.2 é uma atualização obrigatória e deve ser instalada imediatamente nestes dispositivos. O TLS 1.2 é utilizado para toda a comunicação do portal Azure e sem esta atualização, o dispositivo não será capaz de comunicar com o serviço StorSimple.
+
 - As correções de bugs de recolha de lixo melhoram o desempenho do ciclo de recolha de lixo quando o dispositivo e a conta de armazenamento estão em duas regiões distantes.
 - Correção para falhas de backup devido a intervalos de tempo de bolhas.
 - Patches de segurança de quadros atualizados OS/NET:
@@ -65,4 +70,4 @@ Baixe o KB4575898 e [aplique a atualização através da web UI local](./storsim
 - [StorSimple Virtual Array Update 0.4 Notas de lançamento](./storsimple-virtual-array-update-04-release-notes.md)
 - [StorSimple Virtual Array Update 0.3 Notas de lançamento](./storsimple-ova-update-03-release-notes.md)
 - [StorSimple Virtual Array Update 0.1 e 0.2 Notas de lançamento](./storsimple-ova-update-01-release-notes.md)
-- [StorSimple Notas de lançamento de disponibilidade geral de matriz virtual](/azure/storsimple/storsimple-ova-pp-release-notes)
+- [StorSimple Notas de lançamento de disponibilidade geral de matriz virtual](./storsimple-virtual-array-update-06-release-notes.md)

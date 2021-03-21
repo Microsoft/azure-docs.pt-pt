@@ -1,5 +1,5 @@
 ---
-title: Os pré-requisitos incluem ficheiro partilhado por dois separadores no mesmo ficheiro Microsoft Docs
+title: Os pré-requisitos incluem ficheiro partilhado por dois separadores no mesmo ficheiro | Microsoft Docs
 description: Azure Data Box implementa pré-requisitos encomendados
 services: databox
 author: priestlg
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: v-grpr
 ms.openlocfilehash: 6aaf57d9bcdfb1f350e1d54937e9c705dd32116e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85392488"
 ---
 ### <a name="for-service"></a>Para o serviço

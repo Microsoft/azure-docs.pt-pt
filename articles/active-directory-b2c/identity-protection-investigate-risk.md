@@ -12,10 +12,10 @@ author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 8919285f31e04a51ce10afe3313b28cf86b64ee0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102055720"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Investigar risco com proteção de identidade em Azure AD B2C
@@ -24,7 +24,7 @@ ms.locfileid: "102055720"
 
 A Proteção de Identidade fornece uma deteção contínua de riscos para o seu inquilino Azure AD B2C. Permite que as organizações descubram, investiguem e remediam riscos baseados na identidade. A Proteção de Identidade vem com relatórios de risco que podem ser usados para investigar riscos de identidade em inquilinos Azure AD B2C. Neste artigo, aprende-se a investigar e a mitigar riscos.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Azure AD B2C Identity Protection fornece dois relatórios. O relatório *dos utilizadores arriscados* é onde os administradores podem descobrir quais os utilizadores que estão em risco e detalhes sobre deteções. O relatório *de deteção de riscos* fornece informações sobre cada deteção de risco, incluindo o tipo, outros riscos desencadeados ao mesmo tempo, localização de tentativa de inscrição, e muito mais.
 
@@ -38,7 +38,7 @@ Ao utilizar a Proteção de Identidade, considere o seguinte:
 - A Proteção de Identidade está disponível para identidades locais e sociais, como google ou Facebook. Para identidades sociais, o Acesso Condicional deve ser ativado. A deteção é limitada porque as credenciais de conta social são geridas pelo fornecedor de identidade externa.
 - Nos inquilinos Azure AD B2C, apenas está disponível um subconjunto das deteções de [risco de proteção de identidade Azure AD.](../active-directory/identity-protection/overview-identity-protection.md) As seguintes deteções de risco são suportadas pela Azure AD B2C:  
 
-|Tipo de deteção de risco  |Descrição  |
+|Tipo de deteção de risco  |Description  |
 |---------|---------|
 | Viagem atípica     | Iniciar sômposições a partir de um local atípico baseado nas recentes insusagens do utilizador.        |
 |Endereço IP anónimo     | Iniciar sôs-in a partir de um endereço IP anónimo (por exemplo: navegador Tor, VPNs anonimizadores).        |

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 04f793f78cef938c31e7a30aad5569a54eb461a1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021763"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613112"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, transferir e listar bolhas com Azure CLI
 
@@ -145,7 +145,7 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>Transferência de dados com o AzCopy
 
-O utilitário da linha de comando AzCopy oferece transferência de dados scriptable de alto desempenho para armazenamento Azure. Pode utilizar o AzCopy para transferir dados de e para o armazenamento blob e ficheiros Azure. Para mais informações sobre a AzCopy v10, a versão mais recente do AzCopy, consulte [Começar com a AzCopy](../common/storage-use-azcopy-v10.md). Para saber sobre a utilização do AzCopy v10 com armazenamento Blob, consulte [os dados de Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md).
+O utilitário da linha de comando AzCopy oferece transferência de dados scriptable de alto desempenho para armazenamento Azure. Pode utilizar o AzCopy para transferir dados de e para o armazenamento blob e ficheiros Azure. Para mais informações sobre a AzCopy v10, a versão mais recente do AzCopy, consulte [Começar com a AzCopy](../common/storage-use-azcopy-v10.md). Para saber sobre a utilização do AzCopy v10 com armazenamento Blob, consulte [os dados de Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-v10.md#transfer-data).
 
 O exemplo a seguir utiliza o AzCopy para enviar um ficheiro local para uma bolha. Lembre-se de substituir os valores da amostra pelos seus próprios valores:
 

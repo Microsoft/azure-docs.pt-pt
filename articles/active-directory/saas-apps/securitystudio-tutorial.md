@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: jeedes
 ms.openlocfilehash: 5c0601e087c5059d3a4d4a73d64ee8786d02ab8f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102055473"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-securitystudio"></a>Tutorial: Azure Ative Directory integração única (SSO) com SecurityStudio

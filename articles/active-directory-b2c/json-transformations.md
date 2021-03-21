@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c5c8e21f2ce3f6907547bf1b2fe4681eb937864b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102119880"
 ---
 # <a name="json-claims-transformations"></a>JSON reivindica transformações
@@ -58,11 +58,11 @@ O exemplo a seguir gera uma cadeia JSON com base no valor de reclamação de "em
 As seguintes alegações de transformação de resultados uma alegação de cadeia JSON que será o corpo do pedido enviado à SendGrid (um fornecedor de e-mail de terceiros). A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos TransformationClaimTypes dos InputClaims. Números na notação de pontos implicam matrizes. Os valores provêm dos valores do InputClaims e das propriedades "Valor" dos InputParameters.
 
 - Reclamações de entrada:
-  - **e-mail**, transformação reivindicação  **personalizações tipo.0.to.0.email**: someone@example.com "
+  - **e-mail**,  **personalizations.0.to.0.email** tipo de reivindicação de transformação: someone@example.com "
   - **otp**, tipo de reivindicação de transformação **personalizations.0.dynamic_template_data.otp** "346349"
 - Parâmetro de entrada:
   - **template_id**: "d-4c56ffb40fa648b1aaaa6822283f94f60"
-  - **a partir de.email:** service@contoso.com "
+  - **from.email:** service@contoso.com "
   - **personalizações.0.subject** "Código de verificação de conta Contoso"
 - Reclamação de saída:
   - **requestBody**: Valor JSON
@@ -115,7 +115,7 @@ O exemplo a seguir gera uma cadeia JSON baseada nos valores de reivindicação, 
 As seguintes alegações de transformação de resultados uma alegação de cadeia JSON que será o corpo do pedido enviado a uma API REST. A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos TransformationClaimTypes dos InputClaims. Os valores provêm dos valores do InputClaims e das propriedades "Valor" dos InputParameters.
 
 - Reclamações de entrada:
-  - **e-mail**, pedido de transformação tipo  **cliente Entidade.email**: john.s@contoso.com "
+  - **e-mail**, customerEntity.email  **tipo** de reivindicação de transformação: john.s@contoso.com "
   - **objectId**, pedido de reclamação de transformação **tipo cliente Entidade.userObjectIda** "01234567-89ab-cdef-0123-456789abcdef"
   - **dadoName**, design de reivindicação de transformação **tipo cliente Entidade.firstName** "John"
   - **sobrenome**, substituição tipo **cliente Entidade.lastName** "Smith"

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Aplicação TLS 1.2 para Azure Ative Directory Connect / Microsoft Docs'
+title: 'Azure AD Connect: Aplicação TLS 1.2 para Azure Ative Directory Connect| Microsoft Docs'
 description: Saiba como forçar o seu servidor Azure AD Connect a utilizar apenas a Segurança da Camada de Transporte (TLS) 1.2.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c610eb8fe6caf308117fa7adfc6e2f2a35c6352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91325900"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Aplicação TLS 1.2 para Azure AD Connect

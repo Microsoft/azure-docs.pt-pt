@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
 ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94874547"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Quickstart: Criar uma sala de chat com ASP.NET e serviço SignalR
@@ -83,7 +83,7 @@ Tendo problemas? Experimente o [guia de resolução de problemas](signalr-howto-
     </configuration>
     ```
 
-1. Em *Startup.cs*, em vez de `MapSignalR()` ligar, é necessário ligar e passar no `MapAzureSignalR({YourApplicationName})` fio de ligação para fazer a aplicação ligar-se ao serviço em vez de hospedar o SignalR por si só. Substitua `{YourApplicationName}` o nome da sua candidatura. Este nome é um nome único para distinguir esta aplicação das suas outras aplicações. Pode usar `this.GetType().FullName` como valor.
+1. No *Arranque.cs*, em vez de ligar `MapSignalR()` , é necessário ligar e passar no fio de `MapAzureSignalR({YourApplicationName})` ligação para que a aplicação se conecte ao serviço em vez de hospedar o SignalR por si só. Substitua `{YourApplicationName}` o nome da sua candidatura. Este nome é um nome único para distinguir esta aplicação das suas outras aplicações. Pode usar `this.GetType().FullName` como valor.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -93,7 +93,7 @@ Tendo problemas? Experimente o [guia de resolução de problemas](signalr-howto-
     }
     ```
 
-    Também precisa de fazer referência ao serviço SDK antes de utilizar estes APIs. Abra as **Ferramentas ! Gestor de pacotes NuGet Consola do gestor de pacotes** e comando de execução:
+    Também precisa de fazer referência ao serviço SDK antes de utilizar estes APIs. Abra as **ferramentas | | do Gestor de Pacotes NuGet Consola do gestor de pacotes** e comando de execução:
 
     ```powershell
     Install-Package Microsoft.Azure.SignalR.AspNet

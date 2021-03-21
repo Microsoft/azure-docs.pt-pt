@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health instruções de recuperação de dados Microsoft Docs
+title: Azure AD Connect Health instruções de recuperação de dados | Microsoft Docs
 description: Esta página descreve como recuperar dados do Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 09/02/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d147d2c094923e971e52e1dbfe3f7a19776d38c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89463656"
 ---
 # <a name="azure-ad-connect-health-instructions-for-data-retrieval"></a>Azure AD Ligar instruções de saúde para a recuperação de dados

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84ee65b05af4393f49696875bda41df39e283d5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85980094"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiar dados de Azure Storage Blobs para Azure Data Lake Storage Gen1
@@ -180,10 +180,10 @@ Ao copiar dados na gama de terabytes, usar o AdlCopy com a sua própria conta Az
 
 ## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>Use o AdlCopy para copiar dados usando a correspondência de padrões
 
-Nesta secção, você aprende a usar a AdlCopy para copiar dados de uma fonte (no nosso exemplo abaixo usamos Azure Storage Blob) para uma conta de armazenamento de data lake de destino Gen1 usando padrão correspondente. Por exemplo, pode utilizar os passos abaixo para copiar todos os ficheiros com extensão .csv da bolha de origem para o destino.
+Nesta secção, você aprende a usar a AdlCopy para copiar dados de uma fonte (no nosso exemplo abaixo usamos Azure Storage Blob) para uma conta de armazenamento de data lake de destino Gen1 usando padrão correspondente. Por exemplo, pode utilizar os passos abaixo para copiar todos os ficheiros com .csv extensão da bolha de origem para o destino.
 
 1. Abra uma solicitação de comando e navegue para o diretório onde o AdlCopy está instalado, normalmente `%HOMEPATH%\Documents\adlcopy` .
-1. Executar o seguinte comando para copiar todos os ficheiros com extensão *.csv de uma bolha específica do recipiente de origem para uma pasta Gen1 de armazenamento de dados:
+1. Executar o seguinte comando para copiar todos os ficheiros com *.csv extensão de uma bolha específica do recipiente de origem para uma pasta Gen1 de armazenamento de dados:
 
     ```console
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv

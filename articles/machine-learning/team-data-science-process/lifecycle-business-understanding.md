@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76710331"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>A fase de compreensão do negócio do ciclo de vida do Processo de Ciência de Dados da Equipa
@@ -61,10 +61,10 @@ Há duas tarefas principais abordadas nesta fase:
 4. Defina as métricas de sucesso. Por exemplo, é melhor conseguir uma previsão de churn de clientes. Precisa de uma taxa de precisão de "x" por cento até ao final deste projeto de três meses. Com estes dados, pode oferecer promoções ao cliente para reduzir o impacto. As métricas devem ser **SMART:** 
 
    * **Pecific S** 
-   * **M**easurável
-   * **Um**chievable 
-   * **R**elevant 
-   * **T**ime-bound 
+   * **M** easurável
+   * **Um** chievable 
+   * **R** elevant 
+   * **T** ime-bound 
 
 ### <a name="identify-data-sources"></a>Identificar as origens de dados
 Identifique fontes de dados que contenham exemplos conhecidos de respostas às suas perguntas afiadas. Procure os seguintes dados:

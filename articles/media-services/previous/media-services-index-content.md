@@ -17,10 +17,10 @@ ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c575904d994232726cf8d0d9152b02130fd29cea
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013258"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexação de ficheiros de mídia com indexador de mídia Azure

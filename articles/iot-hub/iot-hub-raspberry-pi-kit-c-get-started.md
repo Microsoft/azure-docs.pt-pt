@@ -1,5 +1,5 @@
 ---
-title: Ligue Raspberry Pi a Azure IoT Hub usando C ; Microsoft Docs
+title: Ligue raspberry Pi ao Azure IoT Hub usando C | Microsoft Docs
 description: Saiba como configurar e ligar Raspberry Pi ao Azure IoT Hub para Raspberry Pi para enviar dados para a plataforma cloud Azure
 author: wesmc7777
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97804059"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligue raspberry Pi ao Azure IoT Hub (C)
@@ -203,7 +203,7 @@ Ligue pi utilizando o cabo MICRO USB e a fonte de alimentação. Utilize o cabo 
    ```
 
    > [!NOTE] 
-   > Se **não tiver um BME280 físico,** pode utilizar '-dados simulados' como parâmetro da linha de comando para simular dados de temperatura&humidade. `sudo ./setup.sh --simulated-data`
+   > Se **não tiver um BME280 físico,** pode utilizar '---dados simulados' como parâmetro da linha de comando para simular dados de temperatura&humidade. `sudo ./setup.sh --simulated-data`
    >
 
 ### <a name="build-and-run-the-sample-application"></a>Construa e execute a aplicação da amostra

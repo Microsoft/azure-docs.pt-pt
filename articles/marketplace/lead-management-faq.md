@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 10/01/2020
 ms.openlocfilehash: 681498073a5f111e3babd50443623589ffeec02f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330925"
 ---
 # <a name="common-questions-and-troubleshooting-for-lead-configuration"></a>Perguntas comuns e resolução de problemas para a configuração do chumbo
@@ -22,7 +22,7 @@ Este artigo responde a algumas questões comuns sobre gestão de chumbo para as 
 
 #### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Onde posso conseguir ajuda para preparar o meu destino principal?
 
-Consulte [os leads do Cliente da sua oferta de mercado comercial](partner-center-portal/commercial-marketplace-get-customer-leads.md) para uma visão geral de como ligar o seu sistema CRM às suas ofertas de mercado comercial. Se tiver um erro, reveja a orientação de resolução de problemas abaixo. Para obter mais apoio, envie um bilhete de apoio através [da Ajuda do Centro de Parceiros e suporte.](https://aka.ms/marketplacepublishersupport) Em seguida, **selecione Criar Oferta**O seu tipo de  >  **configuração de**  >  **gestão de chumbo**de oferta .
+Consulte [os leads do Cliente da sua oferta de mercado comercial](partner-center-portal/commercial-marketplace-get-customer-leads.md) para uma visão geral de como ligar o seu sistema CRM às suas ofertas de mercado comercial. Se tiver um erro, reveja a orientação de resolução de problemas abaixo. Para obter mais apoio, envie um bilhete de apoio através [da Ajuda do Centro de Parceiros e suporte.](https://aka.ms/marketplacepublishersupport) Em seguida, **selecione Criar Oferta** O seu tipo de  >  **configuração de**  >  **gestão de chumbo** de oferta .
 
 #### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Sou obrigado a configurar um destino principal para publicar uma oferta no mercado comercial?
 
@@ -52,7 +52,7 @@ Procure `"MSFT_TEST"` no seu destino principal. Abaixo está um chumbo de teste 
 
 #### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Tenho uma oferta ao vivo, mas por que não vejo pistas?
 
-Certifique-se de que a sua ligação ao destino de chumbo é válida. Enviaremos um teste depois de selecionar **Publicar** a sua oferta no Partner Center. Se vir o chumbo do teste, a ligação é válida. Também pode testar a sua ligação de chumbo tentando adquirir a pré-visualização da oferta durante o passo de pré-visualização. Selecione **Get It Now**, **Contacte-me**ou **Teste Gratuito** na listagem no mercado comercial.
+Certifique-se de que a sua ligação ao destino de chumbo é válida. Enviaremos um teste depois de selecionar **Publicar** a sua oferta no Partner Center. Se vir o chumbo do teste, a ligação é válida. Também pode testar a sua ligação de chumbo tentando adquirir a pré-visualização da oferta durante o passo de pré-visualização. Selecione **Get It Now**, **Contacte-me** ou **Teste Gratuito** na listagem no mercado comercial.
 
 Além disso, certifique-se de que procura os dados certos. Consulte [os dados de chumbo](partner-center-portal/commercial-marketplace-get-customer-leads.md) para obter uma explicação dos dados de chumbo que enviamos para o seu destino principal.
 
@@ -84,11 +84,11 @@ Devido às políticas de informação pessoal, não podemos partilhar informaç�
 
 Os dados da geração de chumbo são baixos. É menos de 1 GB para quase todos os editores. O custo depende do número de pistas recebidas. Por exemplo, se 1.000 leads forem recebidos num mês, o custo é de cerca de 50 cêntimos. Para obter mais informações sobre os preços de armazenamento, consulte [os preços gerais do Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Se a sua pergunta não for respondida, contacte o Microsoft Support através da [Ajuda do Centro de Parceiros e suporte](https://aka.ms/marketplacepublishersupport). Em seguida, **selecione Criar Oferta**O seu tipo de  >  **configuração de**  >  **gestão de chumbo**de oferta .
+Se a sua pergunta não for respondida, contacte o Microsoft Support através da [Ajuda do Centro de Parceiros e suporte](https://aka.ms/marketplacepublishersupport). Em seguida, **selecione Criar Oferta** O seu tipo de  >  **configuração de**  >  **gestão de chumbo** de oferta .
 
 #### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Estou a receber notificações por e-mail quando novas pistas de clientes são recebidas. Como posso configurar outra pessoa para receber estes e-mails?
 
-Aceda à sua oferta no Partner Center e vá à página **de configuração da Oferta** > Dição de **Gestão de Chumbo.**  >  **Edit** Atualize os endereços de e-mail no campo **de e-mail de Contato.**
+Aceda à sua oferta no Partner Center e vá à página **de configuração da Oferta** > Dição de **Gestão de Chumbo.**  >   Atualize os endereços de e-mail no campo **de e-mail de Contato.**
 
 ## <a name="troubleshooting-lead-configuration-errors"></a><a id="publishing-config-errors"></a> Erros de configuração de chumbo de resolução de problemas
 

@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
 ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94873510"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Quickstart: Criar uma sala de chat utilizando o Serviço SignalR
@@ -107,7 +107,7 @@ Tendo problemas? Experimente o [guia de resolução de problemas](signalr-howto-
     Este segredo é acedido com a API de Configuração. Um cólon (:) funciona no nome de configuração com a API de configuração em todas as plataformas suportadas. Ver [Configuração por ambiente](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Abra *Startup.cs* e atualize o `ConfigureServices` método de utilização do Serviço Azure SignalR, ligando para os `AddSignalR()` `AddAzureSignalR()` métodos:
+4. *Abrir startup.cs* e atualizar o método para utilizar o `ConfigureServices` Serviço Azure SignalR, ligando para os e `AddSignalR()` `AddAzureSignalR()` métodos:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -119,7 +119,7 @@ Tendo problemas? Experimente o [guia de resolução de problemas](signalr-howto-
 
     Ao não passar um parâmetro para `AddAzureSignalR()` , este código utiliza a chave de configuração predefinida para a cadeia de ligação de recursos SignalR Service. A chave de configuração predefinida é *Azure:SignalR:ConnectionString*.
 
-5. Em *Startup.cs,* atualize o `Configure` método substituindo-o pelo seguinte código.
+5. No *Arranque.cs*, atualize o `Configure` método substituindo-o pelo seguinte código.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -142,9 +142,9 @@ No SignalR, um hub é um componente central que expõe um conjunto de métodos q
 
 Ambos os métodos utilizam a `Clients` interface que o ASP.NET Core SignalR SDK fornece. Esta interface dá-lhe acesso a todos os clientes conectados, para que possa empurrar o conteúdo para os seus clientes.
 
-1. No diretório do projeto, adicione uma pasta nova designada *Hub*. Adicione um novo ficheiro de código do hub nomeado *ChatHub.cs* à nova pasta.
+1. No diretório do projeto, adicione uma pasta nova designada *Hub*. Adicione um novo ficheiro de código hub chamado *ChatHub.cs* à nova pasta.
 
-2. Adicione o seguinte código à *ChatHub.cs* para definir a classe do hub e guardar o ficheiro.
+2. Adicione o seguinte código ao *ChatHub.cs* para definir a sua classe de hub e guardar o ficheiro.
 
     Atualize o espaço de nomes para esta classe se utilizar um nome de projeto que difere do *SignalR.Mvc*.
 

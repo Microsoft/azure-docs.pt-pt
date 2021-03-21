@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023776"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substituir um módulo de bateria de reserva no seu dispositivo StorSimple
@@ -76,7 +76,7 @@ Execute os seguintes passos para instalar o módulo de bateria de substituição
 1. Coloque o módulo de bateria de reserva na orientação adequada no PCM.
 2. Pressione a pega do módulo da bateria até ao assento do conector.
 3. Substitua o PCM no compartimento primário seguindo as diretrizes em [Substituir um Módulo de Alimentação e Arrefecimento no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md).
-4. Depois de concluída a substituição, vá **Monitor** ao seu dispositivo e, em seguida, vá para a  >  **saúde** do Hardware Monitor no portal Azure. Verifique o estado da bateria para se certificar de que a instalação foi bem sucedida. Um estado verde indica que a bateria está saudável.
+4. Depois de concluída a substituição, vá ao seu dispositivo e, em seguida, vá para a  >  **saúde** do Hardware Monitor no portal Azure. Verifique o estado da bateria para se certificar de que a instalação foi bem sucedida. Um estado verde indica que a bateria está saudável.
 
 ## <a name="maintain-the-backup-battery-module"></a>Mantenha o módulo de bateria de reserva
 No seu dispositivo StorSimple, o módulo de bateria de reserva fornece energia ao controlador durante um evento de perda de energia. Permite que o dispositivo StorSimple guarde dados críticos antes de desligar de forma controlada. Com duas baterias totalmente carregadas nos PCMs, o sistema pode lidar com dois eventos de perda consecutiva.
