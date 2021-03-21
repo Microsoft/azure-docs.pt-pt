@@ -4,10 +4,10 @@ description: Aprenda a analisar tendências históricas e a obter informações 
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506021"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtenha insights usando o backup center

@@ -11,10 +11,10 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.openlocfilehash: 56e51d74358bcda96a6859a481e53710a6f78ec3
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99072426"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Quickstart: set and recuperar um certificado do Azure Key Vault usando Azure CLI
@@ -45,7 +45,7 @@ Digite os comandos abaixo para criar um certificado auto-assinado com política 
 az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-Pode agora fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Utilize **'https://<o seu nome exclusivo-keyvault>.vault.azure.net/certificates/ExampleCertificate'** para obter a versão atual. 
+Pode agora fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Utilize **'https://<o seu nome>.vault.azure.net/certificates/ExampleCertificate exclusivo-keyvault'** para obter a versão atual. 
 
 Para ver o certificado previamente armazenado:
 

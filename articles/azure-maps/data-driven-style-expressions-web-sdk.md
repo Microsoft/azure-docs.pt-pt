@@ -1,5 +1,5 @@
 ---
-title: Expressões de estilo orientados por dados no Azure Maps Web SDK Microsoft Azure Maps
+title: Expressões de estilo orientadas por dados no Azure Maps Web SDK | Microsoft Azure Maps
 description: Saiba mais sobre expressões de estilo baseadas em dados. Veja como usar estas expressões no Azure Maps Web SDK para ajustar estilos em mapas.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680057"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientadas por dados (Web SDK)
@@ -41,7 +41,7 @@ As expressões são representadas como matrizes JSON. O primeiro elemento de uma
 
 O Azure Maps Web SDK suporta muitos tipos de expressões. Expressões podem ser usadas por si próprias ou em combinação com outras expressões.
 
-| Tipo de expressões | Descrição |
+| Tipo de expressões | Description |
 |---------------------|-------------|
 | [Expressão agregada](#aggregate-expression) | Uma expressão que define um cálculo que é processado sobre um conjunto de dados e pode ser usado com a `clusterProperties` opção de a `DataSource` . |
 | [Expressões booleanas](#boolean-expressions) | Expressões booleanas fornecem um conjunto de expressões de operadores booleanos para avaliar comparações booleanas. |
@@ -86,7 +86,7 @@ Todos os exemplos deste documento utilizam a seguinte característica para demon
 
 As expressões de dados fornecem acesso aos dados da propriedade numa funcionalidade. 
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | valor | Recupera um item de uma matriz. |
 | `['geometry-type']` | string | Obtém o tipo de geometria da funcionalidade: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
@@ -179,7 +179,7 @@ Aqui estão alguns exemplos adicionais de como usar expressões de dados:
 
 As expressões matemáticas fornecem aos operadores matemáticos a realização de cálculos orientados para dados dentro do quadro de expressão.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | número | Calcula a soma dos números especificados. |
 | `['-', number]` | número | Subtrai 0 pelo número especificado. |
@@ -244,7 +244,7 @@ Expressões booleanas fornecem um conjunto de expressões de operadores booleano
 
 Ao comparar valores, a comparação é estritamente dactilografada. Valores de diferentes tipos são sempre considerados desiguais. Os casos em que os tipos são conhecidos por serem diferentes no momento da análise são considerados inválidos e produzirão um erro de análise. 
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['!', boolean]` | boolean | Negação lógica. Retorna `true` se a entrada for , e se a entrada for `false` `false` `true` . |
 | `['!=', value, value]` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
@@ -426,7 +426,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cordas, números e valores booleanos.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['array', value]` \| `['array', type: "string" | "number" | "boolean", value]` | Objeto[] | Afirma que a entrada é uma matriz. |
 | `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | boolean | Afirma que o valor de entrada é um boolean. Se forem fornecidos vários valores, cada um deles é avaliado por ordem até obter um booleano. Se nenhuma das entradas for booleans, a expressão é um erro. |
@@ -436,7 +436,7 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 | `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | número | Afirma que o valor de entrada é um número. Se forem fornecidos vários valores, cada um é avaliado por ordem até que um número seja obtido. Se nenhuma das entradas for números, a expressão é um erro. |
 | `['object', value]`  \| `["object", value, fallback: value, fallback: value, ...]` | Objeto | Afirma que o valor de entrada é um objeto.  Se forem fornecidos vários valores, cada um é avaliado por ordem até que um objeto seja obtido. Se nenhuma das entradas for objetos, a expressão é um erro. |
 | `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | string | Afirma que o valor de entrada é uma corda. Se forem fornecidos vários valores, cada um é avaliado por ordem até que uma cadeia seja obtida. Se nenhuma das entradas for cordas, a expressão é um erro. |
-| `['to-boolean', value]` | boolean | Converte o valor de entrada num booleano. O resultado é `false` quando a entrada é uma corda vazia, ou `0` , caso contrário a sua `false` `null` `NaN` `true` . |
+| `['to-boolean', value]` | boolean | Converte o valor de entrada num booleano. O resultado é `false` quando a entrada é uma corda vazia, , , ou `0` , caso contrário a sua `false` `null` `NaN` `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte o valor de entrada para uma cor. Se forem fornecidos vários valores, cada um é avaliado por ordem até obter a primeira conversão bem sucedida. Se nenhuma das entradas puder ser convertida, a expressão é um erro. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada num número, se possível. Se a entrada for `null` `false` ou, o resultado é 0. Se a entrada `true` for, o resultado é 1. Se a entrada for uma cadeia, é convertida para um número utilizando a função de cadeia [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) da Especificação de Idioma ECMAScript. Se forem fornecidos vários valores, cada um é avaliado por ordem até obter a primeira conversão bem sucedida. Se nenhuma das entradas puder ser convertida, a expressão é um erro. |
 | `['to-string', value]` | string | Converte o valor de entrada numa cadeia. Se a entrada for `null` , o resultado é `""` . Se a entrada for um boolean, o resultado é `"true"` ou `"false"` . Se a entrada for um número, é convertido para uma cadeia utilizando a função número [tostring](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação de idioma ECMAScript. Se a entrada for uma cor, é convertida para cordão de cores CSS RGBA `"rgba(r,g,b,a)"` . Caso contrário, a entrada é convertida numa cadeia utilizando a função [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da Especificação de Idioma ECMAScript. |
@@ -468,7 +468,7 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 
 Expressões de cor facilitam a criação e manipulação dos valores de cor.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Cria um valor de cor a partir de componentes *vermelhos,* *verdes* e *azuis* que devem variar entre `0` `255` e, e um componente alfa de `1` . Se algum componente estiver fora de alcance, a expressão é um erro. |
 | `['rgba', number, number, number, number]` | color | Cria um valor de cor a partir de componentes *vermelhos,* *verdes,* *azuis* que devem variar entre `0` `255` e, e um componente alfa dentro de uma gama de `0` e . `1` . Se algum componente estiver fora de alcance, a expressão é um erro. |
@@ -885,7 +885,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Expressões de ligação variável armazenam os resultados de um cálculo numa variável. Assim, que os resultados do cálculo podem ser referenciados em outros lugares numa expressão várias vezes. É uma otimização útil para expressões que envolvem muitos cálculos.
 
-| Expression | Tipo de retorno | Descrição |
+| Expression | Tipo de retorno | Description |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Vamos",<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome1: cadeia,<br/>&nbsp;&nbsp;&nbsp;&nbsp;valor1: qualquer,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: cadeia,<br/>&nbsp;&nbsp;&nbsp;&nbsp;valor2: qualquer,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;expressão infantil<br/>\] | | Armazena um ou mais valores como variáveis para utilização pela `var` expressão na expressão da criança que devolve o resultado. |
 | `['var', name: string]` | qualquer | Refere uma variável que foi criada usando a `let` expressão. |

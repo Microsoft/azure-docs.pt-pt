@@ -11,10 +11,10 @@ ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1be8afb58b22435f4f43b2d6884332a38b7f1e11
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467481"
 ---
 # <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalar e executar recipientes de reconhecimento de formulários (aposentação)

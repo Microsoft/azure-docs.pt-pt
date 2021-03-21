@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar RFPIO para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
+title: 'Tutorial: Configurar RFPIO para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores ao RFPIO.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: ff859e7d77fd19cd006cf45a6faa737297fdb9a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349644"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Tutorial: Configurar RFPIO para o provisionamento automático do utilizador
@@ -60,7 +60,7 @@ Antes de configurar o RFPIO para o fornecimento automático do utilizador com a 
     
     ![Administrador RFPIO](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Navegar para a **segurança da gestão** do utilizador  >  **SECURITY**  >  **SCIM**.
+3.  Navegar para a **segurança da gestão** do utilizador  >    >  **SCIM**.
 
     ![RFPIO Adicionar SCIM](media/rfpio-provisioning-tutorial/scim.png)
 

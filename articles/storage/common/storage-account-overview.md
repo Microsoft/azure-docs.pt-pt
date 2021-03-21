@@ -10,10 +10,10 @@ ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561896"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento

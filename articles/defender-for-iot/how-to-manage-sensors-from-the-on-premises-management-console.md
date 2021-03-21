@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523962"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerir sensores a partir da consola de gestão
@@ -315,6 +315,6 @@ Para configurar um servidor SMB para que possa guardar uma cópia de segurança 
 
 9. Definir `Backup.shared_location` para `<backup_folder_name_on_cyberx_server>` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Gerir sensores individuais](how-to-manage-individual-sensors.md)

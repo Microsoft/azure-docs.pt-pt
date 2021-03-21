@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Tutorial: Azure Ative Directory Single sign-on (SSO) integração com SAP NetWeaver / Microsoft Docs'
+title: 'Tutorial: Tutorial: Azure Ative Directory Integração única (SSO) com SAP NetWeaver | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o SAP NetWeaver.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/11/2020
 ms.author: jeedes
 ms.openlocfilehash: b6b8dab3472473082562f1e4c0216886191e4a59
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97962810"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutorial: Azure Ative Directory Single sign-on (SSO) integração com SAP NetWeaver

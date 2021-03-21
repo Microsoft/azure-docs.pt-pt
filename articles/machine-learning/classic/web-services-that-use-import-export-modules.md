@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100520566"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web do Azure Machine Learning Studio (clássicos) que utilizam módulos de importação de dados e exportação de dados
@@ -104,7 +104,7 @@ Para implementar como um Serviço Web Clássico e criar uma aplicação para con
 4. Na tabela **Ponto final predefinido,** clique no link **de execução** do lote para abrir a Página de Ajuda da API.
 5. No Visual Studio, crie uma aplicação para consola C#: **Novo**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop** Console  >  **App (.NET Framework)**.
 6. Na página de ajuda da API, encontre a secção **código de amostra** na parte inferior da página.
-7. Copie e cole o código de amostra C# no seu ficheiro Program.cs e remova todas as referências ao armazenamento do blob.
+7. Copie e cole o código de amostra C# no seu ficheiro .cs Programa e remova todas as referências ao armazenamento do blob.
 8. Atualize o valor da variável *apiKey* com a chave API guardada anteriormente.
 9. Localize a declaração de pedido e atualize os valores dos Parâmetros do Serviço Web que são transmitidos aos módulos *de Dados de Importação* e *Exportação.* Neste caso, você usa a consulta original, mas define um novo nome de mesa.
 
@@ -134,7 +134,7 @@ Para implementar como um Novo Serviço Web e criar uma aplicação para consumi-
 4. Na página **Quickstart,** clique em **Consumir**.
 5. Na secção **Código amostra,** clique em **Lote**.
 6. No Visual Studio, crie uma aplicação para consola C#: **Novo**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop** Console  >  **App (.NET Framework)**.
-7. Copie e cole o código de amostra C# no seu ficheiro Program.cs.
+7. Copie e cole o código de amostra C# no ficheiro .cs programa.
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na secção **informações de consumo básico.**
 9. Localize a declaração *de pontuaçãoRequest* e atualize os valores dos Parâmetros do Serviço Web que são transmitidos aos módulos *de Dados de Importação* e *Exportação.* Neste caso, você usa a consulta original, mas define um novo nome de mesa.
 

@@ -8,10 +8,10 @@ ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
 ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526906"
 ---
 # <a name="manage-alert-events"></a>Gerir eventos de alerta

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831222"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Ligue um módulo IoT Plug and Play (C#)
@@ -114,18 +114,18 @@ Para abrir e preparar o projeto da amostra:
 
 Para modificar o código para funcionar como um módulo em vez de um dispositivo:
 
-1. No Visual Studio, abra *Parameter.cs* e modifique a linha que define a variável **PrimaryConnectionString** da seguinte forma:
+1. No Estúdio Visual, abra *o Parâmetro.cs* e modifique a linha que define a variável **PrimaryConnectionString** da seguinte forma:
 
     ```csharp
     public string PrimaryConnectionString { get; set; } = Environment.GetEnvironmentVariable("IOTHUB_MODULE_CONNECTION_STRING");
     ```
 
-1. No Visual Studio, abra *Program.cs* e substitua as sete instâncias da `DeviceClient` aula pela `ModuleClient` turma.
+1. No Visual Studio, abra *o Programa.cs* e substitua as sete instâncias da `DeviceClient` aula pela `ModuleClient` turma.
 
     > [!TIP]
     > Utilize a pesquisa do Estúdio Visual e substitua a funcionalidade por **Match case** e Match toda a **palavra** ativada para substituir `DeviceClient` por `ModuleClient` .
 
-1. No Visual Studio, abra *Thermostat.cs* e substitua ambas as instâncias da `DeviceClient` classe pela classe da seguinte `ModuleClient` forma.
+1. No Visual Studio, abra *o termóstato.cs* e substitua ambas as instâncias da `DeviceClient` classe pela classe da seguinte `ModuleClient` forma.
 
 1. Guarde as alterações nos ficheiros modificados.
 
@@ -186,13 +186,13 @@ Os SDKs de serviço permitem-lhe recuperar o ID do modelo de dispositivos e mód
     > [!TIP]
     > Também pode encontrar a sua cadeia de ligação do hub IoT na ferramenta exploradora Azure IoT.
 
-1. Abra o ficheiro *Program.cs* e modifique a linha que chama um comando da seguinte forma:
+1. Abra o ficheiro *.cs Programa* e modifique a linha que chama um comando da seguinte forma:
 
     ```csharp
     CloudToDeviceMethodResult result = await s_serviceClient.InvokeDeviceMethodAsync(s_deviceId, "my-module", commandInvocation);
     ```
 
-1. No ficheiro *Program.cs,* modifique a linha que recupera o dispositivo gémeo da seguinte forma:
+1. No ficheiro *Program.cs,* modifique a linha que recupera o twin do dispositivo da seguinte forma:
 
     ```csharp
     Twin twin = await s_registryManager.GetTwinAsync(s_deviceId, "my-module");

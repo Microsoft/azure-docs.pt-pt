@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
 ms.openlocfilehash: 40ef380cd2bd4743b92daf44a0a5b70ade1cbb35
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933011"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Exceção ao executar consultas de Apache Ambari Hive View em Azure HDInsight
@@ -61,7 +61,7 @@ Algumas recomendações gerais para melhorar a situação:
 
 * Certifique-se de que a consulta da Colmeia está bem afinada. Para obter mais informações, consulte [as consultas de Otimize Apache Hive em Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

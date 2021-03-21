@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 1/29/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f97a99bf2d055805ee665ab51aff8cff12dc5a69
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99094197"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Otimizar a indexação com a API push
@@ -104,10 +104,10 @@ Esta simples aplicação de consola C#/.NET executa as seguintes tarefas:
 
  Antes de executar o programa, desem um minuto para estudar o código e as definições de índice para esta amostra. O código relevante está em vários ficheiros:
 
-  + **Hotel.cs** e **Address.cs** contém o esquema que define o índice
+  + **Hotel.cs** e **Endereço.cs** contém o esquema que define o índice
   + **DataGenerator.cs** contém uma classe simples para facilitar a criação de grandes quantidades de dados do hotel
-  + **ExponentialBackoff.cs** contém código para otimizar o processo de indexação, conforme descrito abaixo
-  + **Program.cs** contém funções que criam e eliminam o índice de Pesquisa Cognitiva Azure, indexa lotes de dados e testa diferentes tamanhos de lote
+  + **ExponencialBackoff.cs** contém código para otimizar o processo de indexação como descrito abaixo
+  + **Programa.cs** contém funções que criam e eliminam o índice de Pesquisa Cognitiva Azure, indexa lotes de dados e testa diferentes tamanhos de lote
 
 ### <a name="creating-the-index"></a>Criar o índice
 
@@ -115,7 +115,7 @@ Este programa de amostragem utiliza o .NET SDK para definir e criar um índice d
 
 O modelo de dados é definido pela classe Hotel, que também contém referências à classe Address. O FieldBuilder perfura através de múltiplas definições de classe para gerar uma estrutura de dados complexa para o índice. As tags de metadados são usadas para definir os atributos de cada campo, tais como se é pesmável ou ordenado.
 
-Os seguintes excertos do ficheiro **Hotel.cs** mostram como um único campo, e uma referência a outra classe de modelo de dados, podem ser especificados.
+Os seguintes excertos do ficheiro **.cs Hotel** mostram como um único campo, e uma referência a outra classe de modelo de dados, podem ser especificados.
 
 ```csharp
 . . .
@@ -126,7 +126,7 @@ public Address Address { get; set; }
 . . .
 ```
 
-No ficheiro **Program.cs,** o índice é definido com um nome e uma coleção de campo gerada pelo `FieldBuilder.Build(typeof(Hotel))` método, e depois criado da seguinte forma:
+No ficheiro **.cs Programa,** o índice é definido com um nome e uma coleção de campo gerada pelo `FieldBuilder.Build(typeof(Hotel))` método, e depois criado da seguinte forma:
 
 ```csharp
 private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
@@ -345,7 +345,7 @@ do
 
 A partir daqui, embrulhamos o código exponencial de backoff numa função para que possa ser facilmente chamado.
 
-Outra função é então criada para gerir os fios ativos. Para a simplicidade, esta função não está incluída aqui, mas pode ser encontrada em [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). A função pode ser chamada com o seguinte comando onde `hotels` estão os dados que queremos carregar, `1000` é o tamanho do lote, e é o número de fios `8` simultâneos:
+Outra função é então criada para gerir os fios ativos. Para simplificar, esta função não está incluída aqui, mas pode ser encontrada no [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). A função pode ser chamada com o seguinte comando onde `hotels` estão os dados que queremos carregar, `1000` é o tamanho do lote, e é o número de fios `8` simultâneos:
 
 ```csharp
 await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
