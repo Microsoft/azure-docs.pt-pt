@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
 ms.openlocfilehash: aae64cad3603725a4062d5afb42df974bbf8ac40
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102438796"
 ---
 # <a name="monitor-your-azure-stack-edge-pro"></a>Monitorize o seu Azure Stack Edge Pro
@@ -58,12 +58,12 @@ Esta secção descreve as métricas de monitorização do seu dispositivo. As m�
 
 Uma lista completa das métricas é mostrada na tabela seguinte:
 
-|Métricas de capacidade                     |Descrição  |
+|Métricas de capacidade                     |Description  |
 |-------------------------------------|-------------|
 |**Capacidade disponível**               | Refere-se ao tamanho dos dados que podem ser escritos ao dispositivo. Por outras palavras, esta métrica é a capacidade que pode ser disponibilizada no dispositivo. <br></br>Pode libertar a capacidade do dispositivo eliminando a cópia local de ficheiros que têm uma cópia tanto no dispositivo como na nuvem.        |
 |**Capacidade total**                   | Refere-se ao total de bytes no dispositivo para escrever dados, que também é referido como o tamanho total da cache local. <br></br> Agora pode aumentar a capacidade de um dispositivo virtual existente adicionando um disco de dados. Adicione um disco de dados através da gestão do hipervisor para o VM e, em seguida, reinicie o seu VM. O conjunto de armazenamento local do dispositivo Gateway expandir-se-á para acomodar o novo disco de dados adicionado. <br></br>Para obter mais informações, aceda a [Adicionar um disco rígido para máquina virtual Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
 
-|Métricas de transação              | Descrição         |
+|Métricas de transação              | Description         |
 |-------------------------------------|---------|
 |**Bytes de nuvem carregados (dispositivo)**    | Soma de todos os bytes carregados em todas as ações do seu dispositivo        |
 |**Bytes de nuvem carregados (partilhar)**     | Bytes carregados por ação. Esta métrica pode ser: <br></br> Avg, que é a (Soma de todos os bytes carregados por ação / Número de ações),  <br></br>Max, que é o número máximo de bytes carregados a partir de uma ação <br></br>Min, que é o número mínimo de bytes carregados a partir de uma parte      |
@@ -74,7 +74,7 @@ Uma lista completa das métricas é mostrada na tabela seguinte:
 |**Ler a produção (rede)**           | Inclui a produção da rede de sistema para todos os bytes lidos a partir da nuvem. Esta visão pode incluir dados que não se limitam a ações. <br></br>A divisão mostrará o tráfego em todos os adaptadores de rede do dispositivo, incluindo adaptadores que não estão ligados ou ativados.      |
 |**Escrever produção (rede)**       | Inclui a produção da rede de sistema para todos os bytes escritos na nuvem. Esta visão pode incluir dados que não se limitam a ações. <br></br>A divisão mostrará o tráfego em todos os adaptadores de rede do dispositivo, incluindo adaptadores que não estão ligados ou ativados.          |
 
-| Métricas de computação de borda              | Descrição         |
+| Métricas de computação de borda              | Description         |
 |-------------------------------------|---------|
 |**Edge compute - utilização da memória**      |           |
 |**Edge compute - cpu percentual**    |         |

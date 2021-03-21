@@ -9,10 +9,10 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 40dacdf243505447e9831239ef1252602a3e0f99
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491695"
 ---
 # <a name="what-is-azure-communication-services"></a>O que é o Azure Communication Services?
@@ -61,7 +61,7 @@ Os seguintes recursos são um ótimo lugar para começar se você é novo nos Se
 As seguintes amostras demonstram a utilização de ponta a ponta das bibliotecas dos serviços de comunicação Azure. Sinta-se à vontade para usar estas amostras para arrancar as suas próprias soluções de Serviços de Comunicação.
 <br>
 
-| Nome da amostra                               | Descrição                           |
+| Nome da amostra                               | Description                           |
 |---                                    |---                                   |
 |**[O Grupo Chamando a Amostra de Herói](./samples/calling-hero-sample.md)**|Veja como as bibliotecas de clientes dos Serviços de Comunicação podem ser usadas para construir uma experiência de chamada em grupo.|
 |**[A amostra de herói de chat do grupo](./samples/chat-hero-sample.md)**|Veja como as bibliotecas de clientes dos Serviços de Comunicação podem ser usadas para construir uma experiência de chat em grupo.|

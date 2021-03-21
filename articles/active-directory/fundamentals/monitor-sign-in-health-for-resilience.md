@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/10/2021
+ms.date: 03/17/2021
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f2092c3f6402d5c6e7a0bc8c93015d3a900b9e38
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650996"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588008"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorização da saúde de inscrição do pedido de resiliência
 
@@ -43,7 +43,7 @@ Durante um evento de impacto, duas coisas podem acontecer:
 
 Este artigo percorre a criação do livro de saúde de inscrição para monitorizar as interrupções nas inscrições dos seus utilizadores.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um inquilino do Azure AD.
 
@@ -56,8 +56,6 @@ Este artigo percorre a criação do livro de saúde de inscrição para monitori
 * Registos AD AD azure integrados com registos do Azure Monitor
 
    * Saiba como integrar o [sinal AD Ad Azure em Logs com Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-
- 
 
 ## <a name="configure-the-app-sign-in-health-workbook"></a>Configurar o sinal da App no livro de saúde 
 
@@ -78,11 +76,11 @@ Por predefinição, o livro apresenta dois gráficos. Estes gráficos comparam o
 
 **O primeiro gráfico é a utilização horária (número de utilizadores bem sucedidos)**. Comparar o seu número atual de utilizadores bem sucedidos com um período de utilização típico ajuda-o a detetar uma queda no uso que pode exigir uma investigação. Uma queda na taxa de utilização bem sucedida pode ajudar a detetar problemas de desempenho e utilização que a taxa de falha não consegue. Por exemplo, se os utilizadores não conseguirem chegar à sua aplicação para tentar iniciar sação, não haverá falhas, apenas uma queda no uso. Uma consulta de amostra para estes dados pode ser encontrada na secção seguinte.
 
-O segundo gráfico é a taxa de falha horária. Um aumento na taxa de avaria pode indicar um problema com os seus mecanismos de autenticação. A taxa de avaria só pode ser medida se os utilizadores puderem tentar autenticar. Se os utilizadores não conseguirem aceder à tentativa, as falhas não aparecerão.
+**O segundo gráfico é a taxa de falha horária.** Um aumento na taxa de avaria pode indicar um problema com os seus mecanismos de autenticação. A taxa de avaria só pode ser medida se os utilizadores puderem tentar autenticar. Se os utilizadores não conseguirem aceder à tentativa, as falhas não aparecerão.
 
 Pode configurar um alerta que notifica um grupo específico quando a taxa de utilização ou falha excede um limiar especificado. Uma consulta de amostra para estes dados pode ser encontrada na secção seguinte.
 
- ## <a name="configure-the-query-and-alerts"></a>Configurar a consulta e os alertas
+## <a name="configure-the-query-and-alerts"></a>Configurar a consulta e os alertas
 
 Cria regras de alerta no Azure Monitor e pode executar automaticamente consultas guardadas ou pesquisas de registo personalizados em intervalos regulares.
 
@@ -96,116 +94,18 @@ Utilize as seguintes instruções para criar alertas de e-mail com base nas cons
 
 Para obter mais informações sobre como criar, visualizar e gerir alertas de registo usando o Azure Monitor consulte [Gerir os alertas de registo .](../../azure-monitor/alerts/alerts-log.md)
 
- 
 1. No livro de trabalhos, **selecione Editar,** em seguida, selecione o ícone de **consulta** logo acima do lado direito do gráfico.   
 
    [![Screenshot mostrando o livro de edição.](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
 
    O registo de consulta abre.
 
-  [![Screenshot mostrando o registo de consulta.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![Screenshot mostrando o registo de consulta.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
-2. Copie um dos seguintes scripts de amostra para uma nova consulta kusto.
-
-**Consulta de Kusto para queda no uso**
-
-```Kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1h)
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1h) - totimespan(2d))..(now() - totimespan(2d)))
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize usersPriorWeek = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join
-
-(
-
- lastWeek
-
-)
-
-on rn
-
-| project TimeGenerated, users, usersPriorWeek, difference = abs(users - usersPriorWeek), max = max_of(users, usersPriorWeek)
-
-| where (difference * 2.0) / max > 0.9
-
-```
-
- 
-
-**Consulta de Kusto para aumento da taxa de insucesso**
-
-
-```kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1 h)
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1 h) - totimespan(2d))..(ago(1h) - totimespan(2d)))
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRatePriorWeek = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join (lastWeek) on rn
-
-| project TimeGenerated, failureRate, failureRatePriorWeek
-
-| where abs(failureRate – failureRatePriorWeek) > **THRESHOLD VALUE**
-
-```
+2. Copie um dos scripts da amostra para uma nova consulta kusto.  
+   * [Consulta de Kusto para aumento da taxa de insucesso](#kusto-query-for-increase-in-failure-rate)
+   * [Consulta de Kusto para queda no uso](#kusto-query-for-drop-in-usage)
 
 3. Cole a consulta na janela e selecione **Executar**. Certifique-se de que vê a mensagem concluída mostrada na imagem abaixo e os resultados abaixo dessa mensagem.
 
@@ -222,7 +122,7 @@ thisWeek
  
    * **Valor limiar:** 0. Este valor alertará para quaisquer resultados.
 
-   * **Período de avaliação (em minutos):** 60. Este valor olha para uma hora de tempo
+   * **Período de avaliação (em minutos):** 2880. Este valor olha para uma hora de tempo
 
    * **Frequência (em minutos)**: 60. Este valor define o período de avaliação para uma vez por hora na hora anterior.
 
@@ -254,9 +154,8 @@ thisWeek
 
    [![Screenshot mostrando o botão de consulta de poupança.](./media/monitor-sign-in-health-for-resilience/save-query.png)](./media/monitor-sign-in-health-for-resilience/save-query.png)
 
-
-
 ### <a name="refine-your-queries-and-alerts"></a>Refine as suas consultas e alertas
+
 Modifique as suas consultas e alertas para obter a máxima eficácia.
 
 * Certifique-se de testar os seus alertas.
@@ -267,11 +166,135 @@ Modifique as suas consultas e alertas para obter a máxima eficácia.
 
 * A consulta de alertas no Azure Monitor só pode incluir resultados de últimas 48 horas. [Esta é uma limitação atual por design.](https://github.com/MicrosoftDocs/azure-docs/issues/22637)
 
+## <a name="sample-scripts"></a>Scripts de exemplo
+
+### <a name="kusto-query-for-increase-in-failure-rate"></a>Consulta de Kusto para aumento da taxa de insucesso
+
+   O rácio na parte inferior pode ser ajustado conforme necessário e representa a variação percentual do tráfego na última hora em comparação com a mesma hora de ontem. 0,5 significa que há uma diferença de 50% no tráfego.
+
+```kusto
+
+let today = SigninLogs
+
+| where TimeGenerated > ago(1h) // Query failure rate in the last hour
+ 
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate
+
+| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+
+let yesterday = SigninLogs
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Query failure rate at the same time yesterday
+
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate at same time yesterday
+
+| project TimeGenerated, failureRateYesterday = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+today
+| join (yesterday) on rowNumber // join data from same time today and yesterday
+
+| project TimeGenerated, failureRate, failureRateYesterday
+
+// Set threshold to be the percent difference in failure rate in the last hour as compared to the same time yesterday
+
+| where abs(failureRate - failureRateYesterday) > 0.5
+
+```
+
+### <a name="kusto-query-for-drop-in-usage"></a>Consulta de Kusto para queda no uso
+
+Na seguinte consulta, estamos a comparar o tráfego na última hora com a mesma hora de ontem.
+Estamos excluindo sábado, domingo e segunda-feira porque é esperado nesses dias que haveria uma grande variabilidade no tráfego à mesma hora do dia anterior. 
+
+O rácio na parte inferior pode ser ajustado conforme necessário e representa a variação percentual do tráfego na última hora em comparação com a mesma hora de ontem. 0,5 significa que há uma diferença de 50% no tráfego.
+
+*Deve ajustar estes valores de forma a adequar-se ao seu modelo de operação de negócio.*
+
+```Kusto
+ let today = SigninLogs // Query traffic in the last hour
+
+| where TimeGenerated > ago(1h)
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr) // Count distinct users in the last hour
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+let yesterday = SigninLogs // Query traffic at the same hour yesterday
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Count distinct users in the same hour yesterday
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize usersYesterday = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+today
+| join // Join data from today and yesterday together
+(
+yesterday
+)
+on rn
+
+// Calculate the difference in number of users in the last hour compared to the same time yesterday
+
+| project TimeGenerated, users, usersYesterday, difference = abs(users - usersYesterday), max = max_of(users, usersYesterday)
+
+ extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
+
+// Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
+
+| extend day = dayofweek(now())
+
+| where day != time(6.00:00:00) // exclude Sat
+
+| where day != time(0.00:00:00) // exclude Sun
+
+| where day != time(1.00:00:00) // exclude Mon
+
+| where ratio > 0.7 // Threshold percent difference in sign-in traffic as compared to same hour yesterday
+
+```
+
 ## <a name="create-processes-to-manage-alerts"></a>Criar processos para gerir alertas
 
 Depois de configurar a consulta e alertas, crie processos de negócio para gerir os alertas.
 
 * Quem vai monitorizar o livro e quando?
+
 * Quando um alerta é gerado, quem vai investigar?
 
 * Quais são as necessidades de comunicação? Quem vai criar as comunicações e quem as receberá?
@@ -281,8 +304,3 @@ Depois de configurar a consulta e alertas, crie processos de negócio para gerir
 ## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre livros de trabalho](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
-
- 
-
- 
-

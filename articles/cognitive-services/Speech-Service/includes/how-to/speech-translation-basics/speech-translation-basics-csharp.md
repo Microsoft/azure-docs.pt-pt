@@ -6,10 +6,10 @@ ms.date: 04/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5efe6e9cf3227857300d649a8c2ecb4973627335
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102445310"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras línguas. Neste arranque rápido aprende-se a usar o Speech SDK nas suas apps e produtos para realizar tradução de fala de alta qualidade. Este arranque rápido abrange temas como:
@@ -32,7 +32,7 @@ Antes de poder fazer qualquer coisa, terá de instalar o SDK do Discurso. Depend
 
 ## <a name="import-dependencies"></a>Dependências de importação
 
-Para executar os exemplos neste artigo, inclua as seguintes `using` declarações no topo do ficheiro *Program.cs.*
+Para executar os exemplos neste artigo, inclua as seguintes `using` declarações no topo do ficheiro *.cs Programa.*
 
 ```csharp
 using System;

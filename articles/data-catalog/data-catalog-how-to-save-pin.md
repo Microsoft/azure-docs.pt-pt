@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 2d0baed53441893ec294784f0f8092fe89a347c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a8d8fcd0b9b9ee1ff918ead250c88b83f86cb7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523711"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674840"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Guardar pesquisas e pin ativos de dados no Catálogo de Dados Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introdução
 O Azure Data Catalog fornece capacidades para a descoberta de fontes de dados. Pode pesquisar e filtrar rapidamente o catálogo para localizar fontes de dados e compreender o propósito pretendido, facilitando a procura dos dados certos para o trabalho em questão.
 
@@ -49,7 +52,7 @@ Siga um dos seguintes procedimentos:
 
 * Para introduzir um novo nome para a pesquisa guardada, **selecione Rename**. A definição de pesquisa não é alterada.
 
-* Para remover a procura guardada da sua lista, **selecione Delete**e, em seguida, confirme a eliminação.
+* Para remover a procura guardada da sua lista, **selecione Delete** e, em seguida, confirme a eliminação.
 
 * Para marcar a procura guardada como a sua pesquisa predefinitiva, **selecione 'Guardar como padrão'.** Se efetuar uma pesquisa "vazia" na página inicial do Catálogo de Dados do Azure, a sua pesquisa padrão é executada. Além disso, a procura marcada como a pesquisa predefinida é exibida no topo da lista **de Pesquisas Salvas.**
 

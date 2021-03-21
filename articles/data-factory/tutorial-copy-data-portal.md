@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 17f3c31334517ad560cd40fd22b4def031279ca5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 08ab3c9181f4fdcfc9b55bf80c53f88ff26f90ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741060"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584414"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copie os dados do armazenamento do Azure Blob para uma base de dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -90,7 +90,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
-     ![Nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nova mensagem de erro da fábrica de dados para nome duplicado.":::
 
 7. Em **Versão**, selecione **V2**.
 8. Selecione o **separador de configuração Git** na parte superior e selecione a caixa de verificação **de Configure Git posteriormente.**

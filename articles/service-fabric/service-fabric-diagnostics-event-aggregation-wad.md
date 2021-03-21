@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: eaf40bafb68820b56fc9bf00dd4c11fbb337406f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102613464"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e recolha de eventos usando o Windows Azure Diagnostics
@@ -282,7 +282,7 @@ Para ativar o **Canal Operacional base** a nossa recomendação para o registo c
 
 Para atualizar diagnósticos para recolher registos de novos canais EventSource que representam uma nova aplicação que está prestes a implementar, execute os mesmos passos que previamente descrito para a configuração de Diagnóstico para um cluster existente.
 
-Atualize a `EtwEventSourceProviderConfiguration` secção no template.jsno ficheiro para adicionar entradas para os novos canais EventSource antes de aplicar a atualização de configuração utilizando o `New-AzResourceGroupDeployment` comando PowerShell. O nome da fonte do evento é definido como parte do seu código no ficheiro ServiceEventSource.cs gerado pelo Estúdio Visual.
+Atualize a `EtwEventSourceProviderConfiguration` secção no template.jsno ficheiro para adicionar entradas para os novos canais EventSource antes de aplicar a atualização de configuração utilizando o `New-AzResourceGroupDeployment` comando PowerShell. O nome da fonte do evento é definido como parte do seu código no ficheiro .cs ServiceEventSource gerado pelo Estúdio Visual.
 
 Por exemplo, se a sua fonte de eventos for chamada My-Eventsource, adicione o seguinte código para colocar os eventos de My-Eventsource numa tabela chamada MyDestinationTableName.
 

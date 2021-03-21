@@ -11,10 +11,10 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102488278"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Visão geral da migração: SQL Server para SQL Database
@@ -32,7 +32,7 @@ Pode migrar o SQL Server a funcionar no local ou em:
 
 Para outros cenários, consulte o [Guia de Migração da Base de Dados.](https://datamigration.microsoft.com/) 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 [A Azure SQL Database](../../database/sql-database-paas-overview.md) é uma opção-alvo recomendada para cargas de trabalho do SQL Server que requerem uma Plataforma totalmente gerida como um Serviço (PaaS). A SQL Database lida com a maioria das funções de gestão de bases de dados, juntamente com alta disponibilidade, processamento inteligente de consultas, escalabilidade e capacidades de desempenho incorporadas para atender a muitos tipos de aplicação diferentes. 
 
@@ -195,7 +195,7 @@ Além de funcionalidades avançadas de gestão e segurança, a SQL Database forn
 
 Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
 
-|Recurso  |Descrição  |
+|Recurso  |Description  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo um processo de decisão de plataforma-alvo automatizado e uniforme.|
 |[Utilidade DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|O DBLoader pode ser usado para carregar dados de ficheiros de texto delimitados para o SQL Server. Este utilitário de consola Windows utiliza a interface de volume de pessoal do cliente nativo do SQL Server, que funciona em todas as versões do SQL Server, incluindo a Base de Dados Azure SQL.|

@@ -8,10 +8,10 @@ ms.service: azure-resource-manager
 ms.subservice: templates
 ms.date: 03/02/2021
 ms.openlocfilehash: b0cb51c9a79d1100de7f1ef32fe326eddcdd6dcc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101746918"
 ---
 # <a name="any-function-for-bicep"></a>Qualquer função para Bicep
@@ -30,9 +30,9 @@ Devolve um valor compatível com qualquer tipo de dado.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| valor | Sim | todos os tipos | O valor a converter para um tipo compatível. |
+| valor | Yes | todos os tipos | O valor a converter para um tipo compatível. |
 
 ### <a name="return-value"></a>Valor devolvido
 

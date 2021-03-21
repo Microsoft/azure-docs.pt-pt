@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b0e8e2e0ee7ce730f6bf00d7e5ef4bd4eae65ce7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfaab3f095dbf2f1657f5ebb587a3de958d11cda
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666933"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721185"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Visão geral das máquinas virtuais da série HB
 
@@ -51,13 +51,13 @@ O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervis
 |-----------------------------|-----------------------|
 | Tamanho do trabalho de MPI Max            | 18000 núcleos (300 VMs numa única escala de máquina virtual definida com singlePlacementGroup=verdadeiro)  |
 | Suporte MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Plataforma MPI  |
-| Quadros Adicionais       | Comunicação Unificada X, libfabric, PGAS |
+| Quadros Adicionais       | UCX, libfabric, PGAS |
 | Suporte de armazenamento Azure       | Discos Standard e Premium (máximo 4 discos) |
-| Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Apoio orquestrador        | CycleCloud, Lote  |
+| Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Apoio orquestrador        | CycleCloud, Lote, AKS; [opções de configuração de cluster](../../sizes-hpc.md#cluster-configuration-options) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [arquitetura AMD EPYC](https://bit.ly/2Epv3kC) e [arquiteturas multi-chip.](https://bit.ly/2GpQIMb) Para obter informações mais detalhadas, consulte o [Guia de Afinação do HPC para processadores AMD EPYC](https://bit.ly/2T3AWZ9).
-- Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os últimos anúncios, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs comunitários Azure Compute Tech.](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)
 - Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).

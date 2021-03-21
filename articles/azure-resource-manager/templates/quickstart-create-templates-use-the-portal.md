@@ -6,10 +6,10 @@ ms.date: 03/09/2021
 ms.topic: quickstart
 ms.author: jgao
 ms.openlocfilehash: 20b1bf47ae2fd63e91a11c8cccd1f03cf3464899
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102548176"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Quickstart: Criar e implementar modelos ARM utilizando o portal Azure

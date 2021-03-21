@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
 ms.openlocfilehash: 3f0ec053d806208b4a3c15604714f6bdb87399e7
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102613226"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução híbrida de armazenamento em nuvem
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Bem-vindo ao Microsoft Azure StorSimple, uma solução de armazenamento integrada que gere tarefas de armazenamento entre dispositivos no local e armazenamento em nuvem Microsoft Azure. A StorSimple é uma solução eficiente, rentável e fácil de gerir a rede de área de armazenamento (SAN) que elimina muitas das questões e despesas associadas ao armazenamento e proteção de dados da empresa. Utiliza o dispositivo de série StorSimple 8000 patenteado, está integrado com serviços cloud e fornece um conjunto de ferramentas de gestão para uma visão totalmente integrada de todo o armazenamento empresarial, incluindo o armazenamento na cloud. (As informações de implementação StorSimple publicadas no website da Microsoft Azure aplicam-se apenas aos dispositivos da série StorSimple 8000. Se estiver a utilizar um dispositivo da série StorSimple 5000/7000, vá à [StorSimple Help](http://onlinehelp.storsimple.com/).)
 
 A StorSimple utiliza [o tiering de armazenamento](#automatic-storage-tiering) para gerir dados armazenados em vários meios de armazenamento. O conjunto de trabalho atual é armazenado no local em unidades de estado sólido (SSDs). Os dados que são utilizados com menos frequência são armazenados em discos rígidos (HDDs) e os dados de arquivo são empurrados para a nuvem. Além disso, a StorSimple utiliza a deduplicação e a compressão para reduzir a quantidade de armazenamento que os dados consomem. Para mais informações, aceda à [Deduplicação e compressão.](#deduplication-and-compression) Para definições de outros termos e conceitos-chave que são usados na documentação da série StorSimple 8000, vá à [terminologia StorSimple](#storsimple-terminology) no final deste artigo.

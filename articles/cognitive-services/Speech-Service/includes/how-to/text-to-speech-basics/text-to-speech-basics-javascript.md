@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 3fa47935721ccfccdfe18d60a66d5cc480582e7d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: bfaa9f649fd4d44e45b6d4a513e74e12e169c4f8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428261"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719820"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -30,7 +30,7 @@ Este artigo pressupõe que tem uma conta Azure e recurso de serviço de fala. Se
 ## <a name="install-the-speech-sdk"></a>Instale o SDK de discurso
 
 Antes de poder fazer qualquer coisa, terá de instalar o <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK </a>de voz para JavaScript . Dependendo da sua plataforma, utilize as seguintes instruções:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
 class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navegador Web </a>
 
@@ -162,14 +162,14 @@ Para muitos cenários no desenvolvimento de aplicações de fala, é provável q
 * Integre o resultado com outros serviços ou serviços da API.
 * Modifique os dados áudio, escreva `.wav` cabeçalhos personalizados, etc.
 
-É simples fazer esta mudança do exemplo anterior. Em primeiro lugar, retire o `AudioConfig` bloco, pois irá gerir manualmente o comportamento da saída a partir deste ponto para um maior controlo. Em seguida, passe `undefined` para o `AudioConfig` no `SpeechSynthesizer` construtor. 
+É simples fazer esta mudança do exemplo anterior. Em primeiro lugar, retire o `AudioConfig` bloco, pois irá gerir manualmente o comportamento da saída a partir deste ponto para um maior controlo. Em seguida, passe `undefined` para o `AudioConfig` no `SpeechSynthesizer` construtor.
 
 > [!NOTE]
 > Passar `undefined` para o , em vez de `AudioConfig` omiti-lo como no exemplo de saída do altifalante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo atual.
 
-Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variável. A `SpeechSynthesisResult.audioData` propriedade devolve um dos `ArrayBuffer` dados de saída, o tipo de fluxo de navegador predefinido. Para o código do servidor, converta o arrayBuffer num fluxo de tampão. 
+Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variável. A `SpeechSynthesisResult.audioData` propriedade devolve um dos `ArrayBuffer` dados de saída, o tipo de fluxo de navegador predefinido. Para o código do servidor, converta o arrayBuffer num fluxo de tampão.
 
-O seguinte código funciona para o código do lado do cliente. 
+O seguinte código funciona para o código do lado do cliente.
 
 ```javascript
 function synthesizeSpeech() {
@@ -189,9 +189,9 @@ function synthesizeSpeech() {
 }
 ```
 
-A partir daqui pode implementar qualquer comportamento personalizado usando o `ArrayBuffer` objeto resultante. O ArrayBuffer é um tipo comum para receber num navegador e jogar a partir deste formato. 
+A partir daqui pode implementar qualquer comportamento personalizado usando o `ArrayBuffer` objeto resultante. O ArrayBuffer é um tipo comum para receber num navegador e jogar a partir deste formato.
 
-Para qualquer código baseado em servidor, se precisar de trabalhar com os dados como um stream, em vez de um ArrayBuffer, precisa converter o objeto num fluxo. 
+Para qualquer código baseado em servidor, se precisar de trabalhar com os dados como um stream, em vez de um ArrayBuffer, precisa converter o objeto num fluxo.
 
 ```javascript
 function synthesizeSpeech() {
@@ -342,3 +342,11 @@ Para mudar para uma voz neural, mude `name` a uma das [opções de voz neural](.
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>Obtenha eventos de pose facial
+
+A fala pode ser uma boa maneira de impulsionar a animação de expressões faciais.
+Muitas [vezes os visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada, como a posição dos lábios, mandíbula e língua ao produzir um determinado fonme.
+Pode subscrever o evento viseme na Speech SDK.
+Em seguida, você pode aplicar eventos visemes para animar o rosto de uma personagem enquanto o áudio da fala reproduz.
+Saiba [como obter eventos visemes.](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk)

@@ -11,10 +11,10 @@ ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 2af82734fb9e1571242eec016f36f691411a8f2e
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518760"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar corridas e métricas de experimentação com TensorBoard e Azure Machine Learning

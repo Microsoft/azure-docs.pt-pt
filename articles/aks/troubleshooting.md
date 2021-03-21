@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 5a0e907ef27f125a9903b3d9e6079e3c8a288a97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: adb6a28d8024c96d55c4e1bb8bc953d34a7c187e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714532"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605890"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -253,7 +253,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>

@@ -10,10 +10,10 @@ ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102179090"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Quickstart: Criar app de Serviço de Aplicações usando um modelo ARM
@@ -55,7 +55,7 @@ Dois recursos Azure são definidos no modelo:
 
 Os seguintes detalhes da tabela predefinições parâmetros e suas descrições:
 
-| Parâmetros | Tipo    | Valor predefinido                | Descrição |
+| Parâmetros | Tipo    | Valor predefinido                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
 | localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
@@ -85,7 +85,7 @@ Dois recursos Azure são definidos no modelo:
 
 Os seguintes detalhes da tabela predefinições parâmetros e suas descrições:
 
-| Parâmetros | Tipo    | Valor predefinido                | Descrição |
+| Parâmetros | Tipo    | Valor predefinido                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
 | localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
@@ -142,7 +142,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>Como posso implantar uma pilha de linguagem diferente?</summary>
 Para implementar uma pilha de linguagem diferente, atualização <abbr title="Este modelo é compatível com aplicações .NET Core, .NET Framework, PHP, Node.js e Static HTML. "> parâmetro da linguagem</abbr> com valores apropriados. Para Java, consulte <a href="/azure/app-service/quickstart-java-uiex">a aplicação Create Java.</a>
 
-| Parâmetros | Tipo    | Valor predefinido                | Descrição |
+| Parâmetros | Tipo    | Valor predefinido                | Description |
 |------------|---------|------------------------------|-------------|
 | language   | string  | ".net"                       | Pilha de linguagem de programação (.net, php, nó, html) |
 

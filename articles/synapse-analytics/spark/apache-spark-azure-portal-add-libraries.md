@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176421"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598019"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. 
@@ -60,10 +60,6 @@ Para saber mais sobre estas capacidades, visite a documentação sobre a [gestã
 Muitas vezes, ao fazer análises interativas de dados ou machine learning, poderá descobrir que pretende experimentar pacotes mais recentes ou pode precisar de pacotes que ainda não estão disponíveis na sua piscina Apache Spark. Em vez de atualizar a configuração da piscina, os utilizadores podem agora usar pacotes com âmbito de sessão para adicionar, gerir e atualizar as dependências da sessão.
 
 Os pacotes com âmbito de sessão permitem aos utilizadores definir as dependências dos pacotes no início da sessão. Quando instala um pacote com âmbito de sessão, apenas a sessão atual tem acesso às embalagens especificadas. Como resultado, estes pacotes de sessão não terão impacto em outras sessões ou empregos utilizando a mesma piscina Apache Spark. Além disso, estas bibliotecas são instaladas em cima dos pacotes de tempo de funcionaamento e de nível de piscina. 
-
-Estes pacotes são adicionados automaticamente ao seu ambiente Python. Os pacotes não devem ser mencionados no seu *ficheirorequirements.txt.*
-
-Note que este método atualmente suporta apenas `*.whl` ficheiros. Não adicione `*.tar.gz` quaisquer ficheiros ao recipiente.
 
 Para saber mais sobre como gerir pacotes com âmbito de sessão, visite os seguintes guias de como fazer:
 

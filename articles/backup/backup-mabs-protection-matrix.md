@@ -4,10 +4,10 @@ description: Este artigo fornece uma matriz de suporte que lista todas as cargas
 ms.date: 03/19/2020
 ms.topic: conceptual
 ms.openlocfilehash: d8f2a38db468ec57cdc0a4f0813fe7ae8e341d52
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102609775"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de proteção MABS (Azure Backup Server) V3 UR1

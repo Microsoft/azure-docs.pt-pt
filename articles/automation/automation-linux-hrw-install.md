@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182337"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
@@ -93,9 +93,9 @@ Os Trabalhadores de Runbook Híbridos Linux suportam um conjunto limitado de tip
 |Python 3 (pré-visualização)|Sim, necessário apenas para estes distros: SUSE LES 15, RHEL 8 e CentOS 8|
 |Python 2 |Sim, para qualquer distro que não requer Python<sup>31</sup> |
 |PowerShell |Sim<sup>2</sup> |
-|Fluxo de Trabalho do PowerShell |Não |
-|Gráficos |Não |
-|Fluxo de trabalho gráfico powershell |Não |
+|Fluxo de Trabalho do PowerShell |No |
+|Gráficos |No |
+|Fluxo de trabalho gráfico powershell |No |
 
 <sup>1</sup> Ver [sistemas operativos Linux suportados](#supported-linux-operating-systems).
 

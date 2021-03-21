@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
 ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102178546"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na Azure Data Factory
@@ -70,7 +70,7 @@ Tenha em atenção o seguinte:
 
 Pode especificar os seguintes tipos de metadados na lista de atividades do Get Metadata para recuperar as informações correspondentes:
 
-| Tipo de metadados | Descrição |
+| Tipo de metadados | Description |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
 | itemType | Tipo de ficheiro ou pasta. O valor devolvido é `File` `Folder` ou. |
@@ -165,10 +165,10 @@ Atualmente, a atividade Get Metadata pode devolver os seguintes tipos de informa
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-fieldList | Os tipos de informação de metadados necessários. Para obter mais informações sobre metadados suportados, consulte a secção de opções de [metadados](#metadata-options) deste artigo. | Sim 
-conjunto de dados | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadados. Consulte a secção [Capabilities](#supported-capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Sim
-formatoStas | Aplicar quando utilizar o conjunto de dados do tipo de formato. | Não
-lojaSs | Aplicar quando utilizar o conjunto de dados do tipo de formato. | Não
+fieldList | Os tipos de informação de metadados necessários. Para obter mais informações sobre metadados suportados, consulte a secção de opções de [metadados](#metadata-options) deste artigo. | Yes 
+conjunto de dados | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadados. Consulte a secção [Capabilities](#supported-capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Yes
+formatoStas | Aplicar quando utilizar o conjunto de dados do tipo de formato. | No
+lojaSs | Aplicar quando utilizar o conjunto de dados do tipo de formato. | No
 
 ## <a name="sample-output"></a>Saída de exemplo
 

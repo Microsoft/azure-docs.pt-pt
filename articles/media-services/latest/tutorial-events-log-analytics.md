@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571868"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596710"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Armazenar eventos da Azure Media Services em Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventos Azure Media Services
 
-Azure Media Services v3 emite eventos na [Azure Event Grid](media-services-event-schemas.md). Pode subscrever eventos de várias maneiras e armazená-los em lojas de dados. Neste tutorial, irá subscrever eventos de Serviços de Mídia utilizando um [Fluxo de Aplicações de Registo.](https://azure.microsoft.com/services/logic-apps/) A Aplicação Lógica será ativada para cada evento e armazenará o corpo do evento no Azure Log Analytics. Uma vez que os eventos estejam no Azure Log Analytics, você pode usar outros serviços Azure para criar um dashboard, monitor e alerta sobre estes eventos, embora não estejamos cobrindo isso neste tutorial.
+Azure Media Services v3 emite eventos na [Azure Event Grid](monitoring/media-services-event-schemas.md). Pode subscrever eventos de várias maneiras e armazená-los em lojas de dados. Neste tutorial, irá subscrever eventos de Serviços de Mídia utilizando um [Fluxo de Aplicações de Registo.](https://azure.microsoft.com/services/logic-apps/) A Aplicação Lógica será ativada para cada evento e armazenará o corpo do evento no Azure Log Analytics. Uma vez que os eventos estejam no Azure Log Analytics, você pode usar outros serviços Azure para criar um dashboard, monitor e alerta sobre estes eventos, embora não estejamos cobrindo isso neste tutorial.
 
 > [!NOTE]
 > Seria útil se já estivesse familiarizado com o uso do FFmpeg como codificadora no local.  Se não, tudo bem. A linha de comando e as instruções para o streaming de um vídeo estão incluídas abaixo.

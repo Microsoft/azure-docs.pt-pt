@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 5954c3083afc73fb25c796086f8fb8809af03ec1
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200673"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
@@ -293,7 +293,7 @@ Sem apoio:
 
 Este módulo Azure Blob Storage on IoT Edge proporciona agora integração com a Grade de Eventos em IoT Edge. Para obter informações detalhadas sobre esta integração, consulte o [tutorial para implementar os módulos, publicar eventos e verificar a entrega do evento.](../event-grid/edge/react-blob-storage-events-locally.md)
 
-## <a name="release-notes"></a>Release Notes (Notas de Lançamento)
+## <a name="release-notes"></a>Notas de Versão
 
 Aqui estão as [notas de lançamento no estivador hub](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo. Poderá encontrar mais informações relacionadas com correções de erros e remediação nas notas de lançamento de uma versão específica.
 

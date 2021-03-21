@@ -10,10 +10,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102431062"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault
@@ -49,7 +49,7 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 |Azure Information Protection|Permitir o acesso à chave do inquilino para [a Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 |Serviço de Aplicações do Azure|[Implementar o Certificado de Aplicação Web Azure através do Cofre de Chaves](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Base de Dados SQL do Azure|[Encriptação de dados transparente com suporte de chave própria para Azure SQL Database e Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&preserve-view=true&viewFallbackFrom=azuresqldb-current).|
-|Storage do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/customer-managed-keys-configure-key-vault.md).|
+|Armazenamento do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Encriptação de dados na Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|
 |Azure Synapse Analytics|[Encriptação de dados utilizando chaves geridas pelo cliente no Cofre da Chave Azure](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[Serviço de análise rápido, fácil e colaborativo apache spark baseado em Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|

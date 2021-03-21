@@ -17,10 +17,10 @@ ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b1a29b0f94c5009d0535ca92363c25ad5c6c884
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493497"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Falha de Falha do Servidor do Windows e partilha de ficheiros no Azure

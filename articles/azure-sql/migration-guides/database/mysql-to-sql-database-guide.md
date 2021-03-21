@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: d59a4fc2cbf52d95e6b5a5100b5ffe06c5dbed7e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ff7b2115b396bf42cdeffa9c58bffb1802e980d1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565339"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721890"
 ---
 # <a name="migration-guide--mysql-to-azure-sql-database"></a>Guia de migração: MySQL para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -42,10 +42,18 @@ Ao utilizar [o SqL Server Migration Assistant para o MySQL,](https://www.microso
 Para criar uma avaliação, execute os seguintes passos.
 
 1. Abra o Assistente de Migração do Servidor SQL para o MySQL. 
-1. Selecione **File** no menu e, em seguida, escolha **Novo Projeto.** Forneça o nome do projeto, um local para salvar o seu projeto.
-1. Escolha **a Base de Dados Azure SQL** como o alvo da migração. 
+1. Selecione **File** no menu e, em seguida, escolha **Novo Projeto.** Forneça o nome do projeto, um local para salvar o seu projeto. Escolha **a Base de Dados Azure SQL** como o alvo da migração. 
+
+   ![Novo Projeto](./media/mysql-to-sql-database-guide/new-project.png)
+
 1. Escolha **Ligar ao MySQL** e fornecer detalhes de conexão para ligar o seu servidor MySQL. 
+
+   ![Ligue-se ao MySQL](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
+
 1. Clique com o botão direito no esquema MySQL no **MySQL Metadata Explorer** e escolha **Criar relatório**. Em alternativa, pode selecionar **Criar relatório** a partir da barra de navegação de primeira linha. 
+
+   ![Criar Relatório](./media/mysql-to-sql-database-guide/create-report.png)
+
 1. Reveja o relatório HTML para estatísticas de conversão, bem como erros e avisos. Analise-o para compreender questões e resoluções de conversão. 
 
    Este relatório também pode ser acedido a partir da pasta de projetos SSMA, tal como selecionado no primeiro ecrã. Do exemplo acima, localize o ficheiro report.xml a partir de:
@@ -54,9 +62,19 @@ Para criar uma avaliação, execute os seguintes passos.
  
    e abri-lo no Excel para obter um inventário de objetos MySQL e o esforço necessário para realizar conversões de esquemas.
 
+    ![Relatório de Conversão](./media/mysql-to-sql-database-guide/conversion-report.png)
+
 ### <a name="validate-data-types"></a>Validar tipos de dados
 
-Antes de efetuar a conversão de esquemas valide os mapeamentos de tipo de dados predefinidos ou altere-os com base nos requisitos. Pode fazê-lo navegando no menu "Ferramentas" e escolhendo "Definições de Projeto" ou pode alterar o mapeamento do tipo para cada mesa selecionando a tabela no "MySQL Metadata Explorer".
+Valide os mapeamentos do tipo de dados predefinidos e altere-os com base nos requisitos, se necessário. Para tal, siga estes passos: 
+
+1. Selecione **Ferramentas** do menu. 
+1. Selecione **Definições de projetos**. 
+1. Selecione o **separador de mapeamentos Tipo.** 
+
+   ![Mapeamentos de tipo](./media/mysql-to-sql-database-guide/type-mappings.png)
+
+1. Pode alterar o mapeamento do tipo para cada tabela selecionando a tabela no **explorador de metadados MySQL**. 
 
 ### <a name="convert-schema"></a>Converter esquema 
 
@@ -64,9 +82,22 @@ Para converter o esquema, siga estes passos:
 
 1. (Opcional) Para converter consultas dinâmicas ou ad-hoc, clique no nó à direita e escolha **Adicionar a declaração**. 
 1. Escolha **Ligar à Base de Dados Azure SQL** a partir da barra de navegação de primeira linha e fornecer detalhes de conexão. Pode optar por ligar-se a uma base de dados existente ou fornecer um novo nome, caso em que será criada uma base de dados no servidor alvo.
+
+   ![Ligue-se ao SQL](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
+ 
 1. Clique com o botão direito no esquema e escolha **Converter o esquema**. 
+
+   ![Converter Schema](./media/mysql-to-sql-database-guide/convert-schema.png)
+
 1. Depois de ter terminado a conversão do esquema, compare o código convertido com o código original para identificar potenciais problemas. 
 
+   Compare objetos convertidos com objetos originais: 
+
+   ![ Comparar e rever objeto ](./media/mysql-to-sql-database-guide/table-comparison.png)
+
+   Compare os procedimentos convertidos com os procedimentos originais: 
+
+   ![Compare e reveja o código do objeto](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
 
 ## <a name="migrate"></a>Migrate 
@@ -76,9 +107,25 @@ Depois de ter concluído a avaliação das suas bases de dados e de abordar even
 Para publicar o esquema e migrar os dados, siga estes passos: 
 
 1. Clique com o botão direito na base de dados a partir do **Azure SQL Database Metadata Explorer** e escolha **Sincronizar com Base de Dados**. Esta ação publica o esquema MySQL para a Base de Dados Azure SQL.
+
+   ![Sincronizar com base de dados](./media/mysql-to-sql-database-guide/synchronize-database.png)
+
+   Reveja o mapeamento entre o seu projeto de origem e o seu alvo:
+
+   ![Sincronizar com a Revisão da Base de Dados](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
+
 1. Clique com o botão direito no esquema MySQL do **MySQL Metadata Explorer** e escolha **Dados Migratórios**. Em alternativa, pode **selecionar Dados Migratórios** a partir da navegação de primeira linha. 
+
+   ![Migrar dados](./media/mysql-to-sql-database-guide/migrate-data.png)
+
 1. Após a conclusão da migração, consulte o relatório **sobre migração de dados:** 
+
+   ![Relatório de Migração de Dados](./media/mysql-to-sql-database-guide/data-migration-report.png)
+
 1.  Validar a migração através da revisão dos dados e esquemas na Base de Dados Azure SQL utilizando o SQL Server Management Studio (SSMS).
+
+    ![Validar em SSMA](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
+
 
 
 ## <a name="post-migration"></a>Pós-migração 
@@ -111,7 +158,7 @@ Para mais detalhes sobre estas questões e medidas específicas para os mitigar,
 
 Para obter assistência adicional para completar este cenário de migração, consulte os seguintes recursos, que foram desenvolvidos em apoio de um envolvimento de projetos de migração no mundo real.
 
-| Título/ligação     | Descrição    |
+| Título/ligação     | Description    |
 | ---------------------------------------------- | ---------------------------------------------------- |
 | [Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda muito a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo. |
 

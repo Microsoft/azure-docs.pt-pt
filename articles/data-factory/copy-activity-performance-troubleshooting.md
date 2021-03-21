@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: 07be5d29ccb55fe97f38123ff4a850d28cd39ead
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387687"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584423"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -168,7 +168,7 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
   - Considere afinar gradualmente as [cópias paralelas,](copy-activity-performance-features.md)note que muitas cópias paralelas podem até prejudicar o desempenho.
 
 
-## <a name="connector-and-ir-performance"></a>Desempenho do conector e do IR
+## <a name="connector-and-ir-performance"></a>Desempenho do conector e do IR 
 
 Esta secção explora alguns guias de resolução de problemas de desempenho para determinado tipo de conector ou tempo de execução de integração.
 
@@ -176,9 +176,11 @@ Esta secção explora alguns guias de resolução de problemas de desempenho par
 
 O tempo de execução da atividade varia quando o conjunto de dados é baseado em diferentes tempos de execução de integração.
 
-- **Sintomas**: Basta toggling o serviço linked dropdown no conjunto de dados executa as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de dados é baseado no tempo de execução de integração da rede virtual gerido, leva mais de 2 minutos, em média, para completar o funcionado, mas leva aproximadamente 20 segundos para ser concluído quando baseado no Tempo de Execução de Integração Padrão.
+- **Sintomas**: Basta toggling o serviço linked dropdown no conjunto de dados executa as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de dados é baseado no tempo de execução de integração de rede virtual gerido, leva mais tempo em média do que a execução quando baseado no Tempo de Execução de Integração Padrão.  
 
-- **Causa**: Verificando os detalhes das correções do gasoduto, pode ver que o gasoduto lento está a funcionar no Ir Managed VNet (Rede Virtual) enquanto o normal está a funcionar no Azure IR. Por design, o Managed VNet IR demora mais tempo na fila do que o Azure IR, uma vez que não estamos a reservar um nó de computação por fábrica de dados, pelo que existe um aquecimento de cerca de 2 minutos para cada atividade de cópia iniciar, e ocorre principalmente na adesão da VNet em vez do Azure IR.
+- **Causa**: Verificando os detalhes das correções do gasoduto, pode ver que o gasoduto lento está a funcionar no Ir Managed VNet (Rede Virtual) enquanto o normal está a funcionar no Azure IR. Por design, o Managed VNet IR demora mais tempo na fila do que o Azure IR, uma vez que não estamos a reservar um nó de computação por fábrica de dados, pelo que existe um aquecimento para cada atividade de cópia a iniciar, e ocorre principalmente na adesão da VNet em vez do Azure IR. 
+
+
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Baixo desempenho ao carregar dados na Base de Dados Azure SQL

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: 56810cffcb9665810c452276be34e6924fd992b2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033287"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Quickstart: Enviar log de atividade azure para log analytics espaço de trabalho usando um modelo ARM

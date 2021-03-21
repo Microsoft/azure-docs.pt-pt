@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955298"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598291"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenário de streaming ao vivo
 
@@ -42,7 +42,7 @@ Teste a nova forma de entregar eventos ao vivo com serviços de mídia antes de 
 - Se necessitar de um rápido início de eventos ao vivo, explore as novas funcionalidades do [modo Standby.](live-events-outputs-concept.md#standby-mode)
 - Se quiser transcrever o seu evento ao vivo enquanto está a acontecer, explore a nova funcionalidade [de transcrição ao vivo.](live-transcription.md)
 - Crie eventos ao vivo 24x7x365 em V3 se precisar de uma duração de streaming mais longa.
-- Use a [Grade de Eventos](monitor-events-portal-how-to.md) para monitorizar os seus eventos ao vivo.
+- Use a [Grade de Eventos](monitoring/monitor-events-portal-how-to.md) para monitorizar os seus eventos ao vivo.
 
 Veja conceitos de eventos ao vivo, tutoriais e como guiar abaixo para etapas específicas.
 

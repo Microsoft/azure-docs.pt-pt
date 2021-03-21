@@ -8,10 +8,10 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721349"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Tutorial: Criar um balanceador de carga Azure de região transversal usando Azure PowerShell

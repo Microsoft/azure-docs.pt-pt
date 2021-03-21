@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d68a9539420c77cc23722e1b7b7175d08459e9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439089"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674636"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados suportadas no Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo de cliques ou introduzindo manualmente informações diretamente no portal web do Catálogo de Dados do Azure. A tabela seguinte resume todas as fontes de dados que são suportadas pelo catálogo de hoje, e as capacidades de publicação para cada um. Também estão listadas as ferramentas de dados externas que cada fonte de dados pode lançar a partir da nossa experiência "open-in" do nosso portal. A segunda tabela contém uma especificação mais técnica de cada propriedade de ligação de fonte de dados.
 
@@ -87,7 +89,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Mesa de colmeia</td>
+      <td>Tabela do Hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

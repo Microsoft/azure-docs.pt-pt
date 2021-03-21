@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
 ms.openlocfilehash: c3ef6a764123f52583f081a3b152651b9bb8b8b7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554195"
 ---
 # <a name="confidential-computing-on-azure"></a>Computação confidencial em Azure
@@ -25,7 +25,7 @@ A computação confidencial Azure permite isolar os seus dados sensíveis enquan
 - Executar algoritmos em conjuntos de dados encriptados de várias fontes
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 <p><p>
 
 
@@ -87,7 +87,7 @@ Certifique-se de que as suas cargas de trabalho estão seguras através de méto
 - Atestado: [Microsoft Azure Atesstation (Preview)](../attestation/overview.md)
 - Gestão chave: Managed-HSM (Pré-visualização)
 
-### <a name="develop"></a>Programar
+### <a name="develop"></a>Desenvolver
 Comece a usar aplicações conscientes do enclave e implemente algoritmos confidenciais usando o quadro de inferenculação confidencial.
 - Escrever aplicações para executar em DCsv2 VMs: [Open-enclave SDK](https://github.com/openenclave/openenclave)
 - Modelos ML confidenciais em tempo de execução ONNX: [Inferencing confidencial (beta)](https://aka.ms/confidentialinference)

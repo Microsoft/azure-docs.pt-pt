@@ -131,6 +131,8 @@
           href: how-to-update-iot-edge.md
         - name: Gerir certificados de dispositivo
           href: how-to-manage-device-certificates.md
+        - name: Configurar virtualização aninhada para VMs windows
+          href: nested-virtualization.md
     - name: Cenários alternativos do dispositivo
       items:
         - name: Executar IoT Edge com recipientes Windows

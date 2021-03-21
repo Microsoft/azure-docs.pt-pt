@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.openlocfilehash: c1ca594626d4384c9dfb62990ee2017d2094fca4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371860"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Pedidos de informação para aplicações de serviços de trabalhadores (aplicações não-HTTP)
@@ -227,7 +227,7 @@ O exemplo completo é partilhado [aqui](https://github.com/microsoft/Application
 
 1. Instale o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 
-2. Modifique Program.cs como exemplo abaixo.
+2. Modificar o Programa.cs como exemplo abaixo.
 
 ```csharp
     using Microsoft.ApplicationInsights;
