@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
 ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087490"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como utilizar o passo do perfil de execução para avaliar as consultas do Gremlin
@@ -139,12 +139,12 @@ Segue-se um exemplo anotado da saída que será devolvida:
 ## <a name="execution-profile-response-objects"></a>Objetos de resposta de perfil de execução
 
 A resposta de uma função de execuçãoProfile() produzirá uma hierarquia de objetos JSON com a seguinte estrutura:
-  - **Objeto de operação Gremlin** : Representa toda a operação Gremlin que foi executada. Contém as seguintes propriedades.
+  - **Objeto de operação Gremlin**: Representa toda a operação Gremlin que foi executada. Contém as seguintes propriedades.
     - `gremlin`: A declaração explícita de Gremlin que foi executada.
     - `totalTime`: O tempo, em milissegundos, em que a execução do passo incorreu. 
     - `metrics`: Uma matriz que contém cada um dos operadores de tempo de execução da Cosmos DB que foram executados para cumprir a consulta. Esta lista está ordenada por ordem de execução.
     
-  - **Operadores de tempo de execução Cosmos DB** : Representa cada um dos componentes de toda a operação Gremlin. Esta lista está ordenada por ordem de execução. Cada objeto contém as seguintes propriedades:
+  - **Operadores de tempo de execução Cosmos DB**: Representa cada um dos componentes de toda a operação Gremlin. Esta lista está ordenada por ordem de execução. Cada objeto contém as seguintes propriedades:
     - `name`: Nome do operador. Este é o tipo de passo que foi avaliado e executado. Leia mais na tabela abaixo.
     - `time`: Quantidade de tempo, em milissegundos, que um determinado operador demorou.
     - `annotations`: Contém informações adicionais, específicas do operador que foi executado.

@@ -1,5 +1,5 @@
 ---
-title: Compreender a versão do modelo do dispositivo para as suas aplicações Azure IoT Central ! Microsoft Docs
+title: Compreender a versão do modelo do dispositivo para as suas aplicações Azure IoT Central | Microsoft Docs
 description: Iterate sobre os modelos do seu dispositivo criando novas versões e sem afetar os seus dispositivos conectados ao vivo
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: 93545c63013c95e3db498b079061da3d9b189efd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995765"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo do dispositivo

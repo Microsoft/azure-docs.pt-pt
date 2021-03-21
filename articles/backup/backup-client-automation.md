@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a usar o PowerShell para configurar o Azure B
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90987110"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
@@ -97,7 +97,7 @@ MARSAgentInstaller.exe /q
 
 Isto instala o agente com todas as opções predefinidos. A instalação demora alguns minutos em segundo plano. Se não especificar a opção */nu,* a janela **De Atualização** do Windows abrir-se-á no final da instalação para verificar se há atualizações. Uma vez instalado, o agente aparecerá na lista de programas instalados.
 
-Para ver a lista de programas instalados, vá a Programas e Funcionalidades de **Programas do Painel de**  >  **Programs**  >  **Programs and Features**Controlo.
+Para ver a lista de programas instalados, vá a Programas e Funcionalidades de **Programas do Painel de**  >    >  Controlo.
 
 ![Agente instalado](./media/backup-client-automation/installed-agent-listing.png)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
 ms.openlocfilehash: 9e7f407ecda1fec8d8ae02e21f3b5a5ea4b0befb
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561503"
 ---
 # <a name="azure-storage-archive-backup-and-disaster-recovery-partners"></a>Azure Storage archive, backup e parceiros de recuperação de desastres
@@ -21,7 +21,7 @@ Este artigo destaca os parceiros da Microsoft que estão integrados com o Azure 
 
 ## <a name="verified-partners"></a>Parceiros verificados
 
-| Parceiro | Descrição | Ligação website/produto |
+| Parceiro | Description | Ligação website/produto |
 | ------- | ----------- | -------------------- |
 |![Logotipo da empresa commvault](./media/commvault-logo.jpg) |**Commvault**<br>Otimize, proteja, migrar e indexe os seus dados utilizando a infraestrutura da Microsoft com a Commvault. Assuma o controlo dos seus dados com a Commvault Complete Data Protection, a solução de gestão de dados centrada na Microsoft e centrada no Azure. A Commvault fornece as ferramentas necessárias para gerir, migrar, aceder e recuperar os seus dados, independentemente do local onde resida, reduzindo ao mesmo tempo o custo e o risco.|[Página do parceiro](https://www.commvault.com/complete-data-protection)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault)<br>[Guia de introdução](./commvault/commvault-solution-guide.md)|
 |![Logotipo da empresa Datadobi](./media/datadob-logo.png) |**Datadobi**<br> O Datadobi pode otimizar os seus ambientes de armazenamento não estruturados. O DobiProtect ajuda-o a manter uma "cópia dourada" dos dados de armazenamento (NAS) mais críticos da rede de negócios no Azure. Isto ajuda a proteger contra ameaças cibernéticas, ransomware, eliminações acidentais e vulnerabilidades de software. Para manter os custos de armazenamento no mínimo, selecione apenas os dados de que precisa quando o desastre atingir. Quando ocorrer um desastre, recupere completamente os seus dados, restaure apenas um subconjunto de dados ou falhe na sua cópia dourada. |[Página do parceiro](https://datadobi.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobiprotect?tab=Overview)|

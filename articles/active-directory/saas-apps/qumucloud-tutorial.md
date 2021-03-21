@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Qumu Cloud Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Qumu Cloud | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Qumu Cloud.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 3547de9ce307686e8796b1b3ad0f4fdfff18c9c2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com Qumu Cloud
@@ -122,7 +122,7 @@ Para configurar o Azure AD com o Qumu Cloud, execute os seguintes passos:
 
 7. Além de acima, a aplicação Qumu Cloud espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |    
     | urn:oid:2.5.4.42 | user.givenname |
     | urn:oid:2.5.4.4 | utilizador.sobrenome |
@@ -191,7 +191,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Qumu Cloud.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Qumu Cloud**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Qumu Cloud**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

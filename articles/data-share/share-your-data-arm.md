@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487692"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Quickstart: Partilhar dados usando o modelo Azure Data Share e ARM
@@ -77,7 +77,7 @@ Este modelo é criado para fins de aprendizagem. Na prática, normalmente tem al
     * **Email do Convite**: insira o endereço de e-mail de login do destinatário da partilha de dados.  E-mail pseudónimo não funciona.
 
     Utilize o valor predefinido para o resto das definições.
-1. selecionar **Concordo com os termos e condições acima indicados,** e com a **aquisição**selecionada .
+1. selecionar **Concordo com os termos e condições acima indicados,** e com a **aquisição** selecionada .
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 

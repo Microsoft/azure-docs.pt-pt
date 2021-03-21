@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
 ms.openlocfilehash: 19bbeba3db7e3df5ea5120d3562f24b447848f7f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044039"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para regras de alerta de registo no Azure Monitor

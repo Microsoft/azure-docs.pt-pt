@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
 ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91250075"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Upgrade Servidor do Servidor do Windows/Centro do Sistema 2012 R2 VMM para Windows Server/VMM 2016 
@@ -42,10 +42,10 @@ Antes de atualizar, tome nota do seguinte: -
 
 - Se estiver a utilizar o System Center 2012 R2 VMM, 
 
-    - Consulte as informações da base de dados em VMM: Definições de **consola VMM**  ->  **settings**  ->  **General**  ->  **Ligação Geral base de dados**
+    - Consulte as informações da base de dados em VMM: Definições de **consola VMM**  ->    ->    ->  **Ligação Geral base de dados**
     - Verifique as contas de serviço que estão a ser utilizadas para o serviço de agente de gestor de máquinas virtuais do System Center
     - Certifique-se de que tem uma cópia de segurança da Base de Dados VMM.
-    - Note o nome da base de dados dos servidores SCVMM envolvidos. Isto pode ser feito navegando para a **consola VMM**  ->  **Definições**  ->  **General**  ->  **Ligação Geral de Base de Dados**
+    - Note o nome da base de dados dos servidores SCVMM envolvidos. Isto pode ser feito navegando para a **consola VMM**  ->  **Definições**  ->    ->  **Ligação Geral de Base de Dados**
     - Note para baixo o ID VMM dos servidores VMM primário e de recuperação de 2012R2. O ID VMM pode ser encontrado a partir do registo "HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup".
     - Certifique-se de que os novos SCVMMs que adiciona ao cluster têm os mesmos nomes que antes. 
 
@@ -75,7 +75,7 @@ Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o
 
 1.  Desinstale o fornecedor ASR navegando para Control Panel -> Programas e Funcionalidades -> ->Recuperação do Site microsoft Azure , e clique em Desinstalar
 2. [Reter a base de dados SCVMM e atualizar o sistema operativo](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#back-up-and-upgrade-the-operating-system)
-3. In **Adicionar programas de remoção**, selecione **VMM**  >  **Desinstalar**. b. Selecione **Remover Funcionalidades**e, em seguida, selecione**V MM management Server e VMM Console**. c. Nas **Opções de Base de Dados,** selecione **Retena a base de dados**. d. Reveja o resumo e clique em **Desinstalar**.
+3. In **Adicionar programas de remoção**, selecione **VMM**  >  **Desinstalar**. b. Selecione **Remover Funcionalidades** e, em seguida, selecione **V MM management Server e VMM Console**. c. Nas **Opções de Base de Dados,** selecione **Retena a base de dados**. d. Reveja o resumo e clique em **Desinstalar**.
 
 4. [Instalar VMM 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
 5. Lance o SCVMM e verifique o estado de verificação de cada anfitrião no **separador Tecidos.** Clique **em Refresh** para obter o estado mais recente. Devia ver o estatuto de "Precisa de atenção". 

@@ -4,10 +4,10 @@ description: Saiba como implementar e gerir o Azure Backup para o Gestor de Prot
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 176cbffe5152462055c4ffdb2367cf9c0ab97c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90968296"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
@@ -113,7 +113,7 @@ MARSAgentInstaller.exe /q
 
 Isto instala o agente com todas as opções predefinidos. A instalação demora alguns minutos em segundo plano. Se não especificar a opção */nu,* a janela **Do Windows Update** abre no final da instalação para verificar se há atualizações.
 
-O agente aparece na lista de programas instalados. Para ver a lista de programas instalados, vá a Programas e Funcionalidades de **Programas do Painel de**  >  **Programs**  >  **Programs and Features**Controlo.
+O agente aparece na lista de programas instalados. Para ver a lista de programas instalados, vá a Programas e Funcionalidades de **Programas do Painel de**  >    >  Controlo.
 
 ![Agente instalado](./media/backup-dpm-automation/installed-agent-listing.png)
 
@@ -183,7 +183,7 @@ Todas as modificações são feitas neste objeto Local PowerShell ```$setting```
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting) Neste exemplo, não há nenhum servidor proxy, por isso estamos a limpar explicitamente qualquer informação relacionada com procuração.
 

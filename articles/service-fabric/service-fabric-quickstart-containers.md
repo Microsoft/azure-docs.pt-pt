@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87089622"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
@@ -76,7 +76,7 @@ A Microsoft publica imagens diferentes para as versões do IIS criadas em difere
 
 O manifesto de serviço continua a especificar apenas uma imagem para o Nano Server, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`.
 
-Também no ficheiro *ApplicationManifest.xml, * **altere o PasswordEncrypted** para **falso**. A conta e a palavra-passe estão em branco para a imagem do contentor público que está no Docker Hub, por isso desligamos a encriptação porque encriptar uma palavra-passe em branco gerará um erro de construção.
+Também no ficheiro *ApplicationManifest.xml,* **altere o PasswordEncrypted** para **falso**. A conta e a palavra-passe estão em branco para a imagem do contentor público que está no Docker Hub, por isso desligamos a encriptação porque encriptar uma palavra-passe em branco gerará um erro de construção.
 
 ```xml
 <RepositoryCredentials AccountName="" Password="" PasswordEncrypted="false" />

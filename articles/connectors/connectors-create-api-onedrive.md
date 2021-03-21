@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
 ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87040252"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Aceda e gere ficheiros no conector OneDrive utilizando apps Azure Logic
@@ -28,7 +28,7 @@ Para saber mais sobre as Aplicações Lógicas, consulte [o que são aplicaçõe
 
 ## <a name="connect-to-onedrive"></a>Ligar ao OneDrive
 
-Antes de a sua aplicação lógica poder aceder a qualquer serviço, cria primeiro uma *ligação* ao serviço. Uma ligação proporciona conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar ao OneDrive, primeiro precisa de uma *ligação*OneDrive . Para criar uma ligação, insira as credenciais que normalmente utiliza para aceder ao serviço a que pretende ligar. Assim, com o OneDrive, insira as credenciais na sua conta OneDrive para criar a ligação.
+Antes de a sua aplicação lógica poder aceder a qualquer serviço, cria primeiro uma *ligação* ao serviço. Uma ligação proporciona conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar ao OneDrive, primeiro precisa de uma *ligação* OneDrive . Para criar uma ligação, insira as credenciais que normalmente utiliza para aceder ao serviço a que pretende ligar. Assim, com o OneDrive, insira as credenciais na sua conta OneDrive para criar a ligação.
 
 ### <a name="create-the-connection"></a>Criar a ligação
 
@@ -70,7 +70,7 @@ Uma ação é uma operação realizada pelo fluxo de trabalho definido numa apli
 
    ![Uma caixa de diálogo intitulada "Show Microsoft managed A P I's" tem uma caixa que contém "onedrive". Abaixo está uma lista de oito ações. O primeiro é "OneDrive - Criar ficheiro", e é selecionado.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
-4. No nosso exemplo, escolha **OneDrive - Criar ficheiro**. Se já existir uma ligação, então selecione o Caminho da **Pasta** para colocar o ficheiro, introduza o **Nome do Ficheiro**e escolha o Conteúdo de **Ficheiro** que pretende:  
+4. No nosso exemplo, escolha **OneDrive - Criar ficheiro**. Se já existir uma ligação, então selecione o Caminho da **Pasta** para colocar o ficheiro, introduza o **Nome do Ficheiro** e escolha o Conteúdo de **Ficheiro** que pretende:  
 
    ![Uma caixa de diálogo intitulada "Criar ficheiro" mostra três caixas com a etiqueta "FOLDER PATH", "FILE NAME" e "FOLDER CONTENT". Existe um botão de navegação de diretório ao lado da caixa "FOLDER PATH".](./media/connectors-create-api-onedrive/sample-action.png)
 

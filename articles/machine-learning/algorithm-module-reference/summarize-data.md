@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898215"
 ---
 # <a name="summarize-data"></a>Resumir Dados
@@ -42,11 +42,11 @@ O módulo calcula as pontuações importantes para cada coluna e devolve uma lin
 
 1. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 O relatório do módulo pode incluir as seguintes estatísticas. 
 
-|Nome da coluna|Descrição|
+|Nome da coluna|Description|
 |------|------|  
 |**Funcionalidade**|Nome da coluna|
 |**Contagem**|Contagem de todas as linhas|

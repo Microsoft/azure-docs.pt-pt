@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: ff14bb1daeef6fc54ee5d11632ad98a29db2a172
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90947379"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para o MySQL - Servidor Flexível
@@ -81,7 +81,7 @@ Para cada exemplo de código neste artigo:
 1. Para executar o código, abra uma visão de comando ou `bash` de concha e altere o diretório na pasta do projeto, por exemplo `cd pythonmysql` . Digite o `python` comando seguido pelo nome do ficheiro, por `python createtable.py` exemplo, e prima Enter. 
    
    > [!NOTE]
-   > No Windows, se não for encontrado *python.exe, * poderá ter de adicionar o caminho Python à variável ambiente PATH, ou fornecer o caminho completo para *python.exe*, por `C:\python27\python.exe createtable.py` exemplo.
+   > No Windows, se não for encontrado *python.exe,* poderá ter de adicionar o caminho Python à variável ambiente PATH, ou fornecer o caminho completo para *python.exe*, por `C:\python27\python.exe createtable.py` exemplo.
 
 ### <a name="create-a-table-and-insert-data"></a>Criar uma tabela e inserir dados
 

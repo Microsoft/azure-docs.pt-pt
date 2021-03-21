@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079712"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
@@ -58,7 +58,7 @@ Para utilizar o Armazenamento do Azure ou o Azure Cosmos DB, necessita do Azure 
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
    ```
 
-3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **node_modules** . Nessa pasta, encontrará o pacote **azure-storage** , que contém as bibliotecas de que precisa para aceder ao armazenamento.
+3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **node_modules**. Nessa pasta, encontrará o pacote **azure-storage**, que contém as bibliotecas de que precisa para aceder ao armazenamento.
 
 ### <a name="import-the-package"></a>Importar o pacote
 
@@ -82,7 +82,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação do Azure Cosmos DB
 
-Para adicionar uma ligação DB Azure Cosmos, crie um `TableService` objeto e especifique o nome da sua conta, chave primária e ponto final. Pode copiar estes **valores** a partir da Cadeia de Ligação de Definições  >  **Connection String** no portal Azure para a sua conta Cosmos DB. Por exemplo:
+Para adicionar uma ligação DB Azure Cosmos, crie um `TableService` objeto e especifique o nome da sua conta, chave primária e ponto final. Pode copiar estes **valores** a partir da Cadeia de Ligação de Definições  >   no portal Azure para a sua conta Cosmos DB. Por exemplo:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -116,7 +116,7 @@ Pode aplicar filtragem opcional às operações efetuadas utilizando `TableServi
 function handle (requestOptions, next)
 ```
 
-Depois de efetuar o pré-processamentos nas opções do pedido, o método tem de chamar **next** , transmitindo uma chamada de retorno com a seguinte assinatura:
+Depois de efetuar o pré-processamentos nas opções do pedido, o método tem de chamar **next**, transmitindo uma chamada de retorno com a seguinte assinatura:
 
 ```javascript
 function (returnObject, finalCallback, next)
@@ -133,7 +133,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade, crie primeiro um objeto que defina as propriedades da sua entidade. Todas as entidades têm de conter **PartitionKey** e **RowKey** , que são identificadores exclusivos da entidade.
+Para adicionar uma entidade, crie primeiro um objeto que defina as propriedades da sua entidade. Todas as entidades têm de conter **PartitionKey** e **RowKey**, que são identificadores exclusivos da entidade.
 
 * **PartitionKey** - determina a partição na qual a entidade é armazenada.
 * **RowKey** - identifica exclusivamente a entidade na partição.
@@ -269,7 +269,7 @@ Pode inspecionar as operações adicionadas a um batch visualizando a propriedad
 
 ## <a name="retrieve-an-entity-by-key"></a>Obter uma entidade por chave
 
-Para devolver uma entidade específica com base em **PartitionKey** e **RowKey** , utilize o método **retrieveEntity** .
+Para devolver uma entidade específica com base em **PartitionKey** e **RowKey**, utilize o método **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -300,7 +300,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Dado que não utiliza **select** , são devolvidos todos os campos. Para executar a consulta em relação a uma tabela, utilize **queryEntities** . O exemplo seguinte utiliza esta consulta para consultar as entidades de 'mytable'.
+Dado que não utiliza **select**, são devolvidos todos os campos. Para executar a consulta em relação a uma tabela, utilize **queryEntities**. O exemplo seguinte utiliza esta consulta para consultar as entidades de 'mytable'.
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -315,7 +315,7 @@ Se tiver êxito, `result.entries` contém uma matriz de entidades que correspond
 ### <a name="query-a-subset-of-entity-properties"></a>Consultar um subconjunto de propriedades de entidade
 
 Uma consulta a uma tabela pode obter apenas alguns campos de uma entidade.
-Isto reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. Utilize a cláusula **select** e transmita os nomes dos campos a devolver. Por exemplo, a consulta seguinte devolve apenas os campos **description** e **dueDate** .
+Isto reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. Utilize a cláusula **select** e transmita os nomes dos campos a devolver. Por exemplo, a consulta seguinte devolve apenas os campos **description** e **dueDate**.
 
 ```javascript
 var query = new azure.TableQuery()
@@ -326,7 +326,7 @@ var query = new azure.TableQuery()
 
 ## <a name="delete-an-entity"></a>Eliminar uma entidade
 
-Pode eliminar uma entidade ao utilizar as chaves de partição e linha. Neste exemplo, o objeto **task1** contém os valores **RowKey** e **PartitionKey** da entidade a eliminar. Em seguida, o objeto é transmitido ao método **deleteEntity** .
+Pode eliminar uma entidade ao utilizar as chaves de partição e linha. Neste exemplo, o objeto **task1** contém os valores **RowKey** e **PartitionKey** da entidade a eliminar. Em seguida, o objeto é transmitido ao método **deleteEntity**.
 
 ```javascript
 var task = {
@@ -358,7 +358,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Se não tiver a certeza se a tabela existe, utilize **deleteTableIfExists** .
+Se não tiver a certeza se a tabela existe, utilize **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Utilizar tokens de continuação
 
@@ -456,7 +456,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-O exemplo seguinte obtém a ACL atual para a tabela **hometasks** e, em seguida, adiciona as novas políticas utilizando **setTableAcl** . Esta abordagem permite:
+O exemplo seguinte obtém a ACL atual para a tabela **hometasks** e, em seguida, adiciona as novas políticas utilizando **setTableAcl**. Esta abordagem permite:
 
 ```javascript
 var extend = require('extend');

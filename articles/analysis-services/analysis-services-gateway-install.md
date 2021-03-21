@@ -1,5 +1,5 @@
 ---
-title: Instalar porta de dados no local para serviços de análise do Azure Microsoft Docs
+title: Instalar porta de dados no local para serviços de análise Azure | Microsoft Docs
 description: Saiba como instalar e configurar uma porta de dados no local para ligar a fontes de dados no local a partir de um servidor de Serviços de Análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081149"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
@@ -52,11 +52,11 @@ Para saber mais sobre como funciona o Azure Analysis Services com o gateway, con
 
 1. Executar a configuração.
 
-2. Selecione **Gateway de dados no local** .
+2. Selecione **Gateway de dados no local**.
 
-   ![Selecionar](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![Selecione](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
-2. Selecione uma localização, aceite os termos e, em seguida, clique em **Instalar** .
+2. Selecione uma localização, aceite os termos e, em seguida, clique em **Instalar**.
 
    ![Instalar termos de localização e licença](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
@@ -71,11 +71,11 @@ Para saber mais sobre como funciona o Azure Analysis Services com o gateway, con
 
 Para criar um recurso de gateway em Azure, deve registar a instância local que instalou com o Gateway Cloud Service. 
 
-1.  **Selecione Registar uma nova porta de entrada neste computador** .
+1.  **Selecione Registar uma nova porta de entrada neste computador**.
 
     ![Screenshot que realça o Registo um novo portal nesta opção de computador.](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. Digite um nome e chave de recuperação para o seu gateway. Por predefinição, o gateway utiliza a região padrão da sua subscrição. Se precisar de selecionar uma região diferente, selecione **Change Region** .
+2. Digite um nome e chave de recuperação para o seu gateway. Por predefinição, o gateway utiliza a região padrão da sua subscrição. Se precisar de selecionar uma região diferente, selecione **Change Region**.
 
     > [!IMPORTANT]
     > Guarde a chave de recuperação num lugar seguro. A chave de recuperação é necessária para poder assumir, migrar ou restaurar uma porta de entrada. 
@@ -87,25 +87,25 @@ Para criar um recurso de gateway em Azure, deve registar a instância local que 
 
 Depois de ter instalado e registado o seu portal, precisa de criar um recurso de gateway em Azure. Inscreva-se no Azure com a mesma conta que usou ao registar o gateway.
 
-1. No portal Azure, clique em **Criar um recurso,** em seguida, procure **por gateway de dados no local** e, em seguida, clique em **Criar** .
+1. No portal Azure, clique em **Criar um recurso,** em seguida, procure **por gateway de dados no local** e, em seguida, clique em **Criar**.
 
    ![Criar um recurso de gateway](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
 2. In **Create connection gateway,** insira estas definições:
 
-   * **Nome** : Introduza um nome para o seu recurso gateway. 
+   * **Nome**: Introduza um nome para o seu recurso gateway. 
 
-   * **Subscrição** : Selecione a subscrição Azure para associar-se ao seu recurso gateway. 
+   * **Subscrição**: Selecione a subscrição Azure para associar-se ao seu recurso gateway. 
    
      A subscrição por defeito baseia-se na conta Azure que usou para iniciar scontabilidade.
 
-   * **Grupo de recursos** : crie um grupo de recursos ou selecione um existente.
+   * **Grupo de recursos**: crie um grupo de recursos ou selecione um existente.
 
-   * **Localização** : Selecione a região onde registou o seu portal.
+   * **Localização**: Selecione a região onde registou o seu portal.
 
-   * **Nome de instalação** : Se a instalação do gateway ainda não estiver selecionada, selecione o portal que instalou no seu computador e está registado. 
+   * **Nome de instalação**: Se a instalação do gateway ainda não estiver selecionada, selecione o portal que instalou no seu computador e está registado. 
 
-     Quando terminar, clique em **Criar** .
+     Quando terminar, clique em **Criar**.
 
 ## <a name="connect-gateway-resource-to-server"></a>Conecte o recurso gateway ao servidor
 
@@ -118,14 +118,14 @@ Depois de ter instalado e registado o seu portal, precisa de criar um recurso de
 
    ![Ligue o servidor ao gateway](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. Em **Pick a On-Premises Data Gateway para ligar,** selecione o seu recurso gateway e, em seguida, clique em **Ligar o gateway selecionado** .
+2. Em **Pick a On-Premises Data Gateway para ligar,** selecione o seu recurso gateway e, em seguida, clique em **Ligar o gateway selecionado**.
 
    ![Ligue o servidor ao recurso gateway](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
     > Se o seu gateway não aparecer na lista, é provável que o seu servidor não esteja na mesma região que a região especificada ao registar o gateway.
 
-    Quando a ligação entre o seu servidor e o recurso gateway for bem sucedida, o estado mostrará **O Connected** .
+    Quando a ligação entre o seu servidor e o recurso gateway for bem sucedida, o estado mostrará **O Connected**.
 
 
     ![Conecte o servidor ao sucesso do recurso gateway](media/analysis-services-gateway-install/aas-gateway-connect-success.png)

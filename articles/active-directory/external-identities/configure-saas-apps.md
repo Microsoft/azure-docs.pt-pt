@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90705515"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicações SaaS para colaboração B2B
@@ -48,7 +48,7 @@ Para permitir que os utilizadores entrem a trabalhar na sua conta de organizaç�
 
    ![Configurar um único sinal para a aplicação](media/configure-saas-apps/configure-app-sso.png)
 
-4. Para descarregar o certificado para utilizar para a configuração dropbox, selecione **Configure DropBox**e, em seguida, selecione **SAML Single Sign On Service URL** na lista.
+4. Para descarregar o certificado para utilizar para a configuração dropbox, selecione **Configure DropBox** e, em seguida, selecione **SAML Single Sign On Service URL** na lista.
 
    ![Descarregar o certificado para configuração Dropbox](media/configure-saas-apps/download-certificate.png)
 
@@ -92,7 +92,7 @@ Pode permitir que os utilizadores autentiquem os utilizadores da Box com a sua c
 
    e. Encaminhe o ficheiro de metadados para a equipa de suporte da Caixa, que configura um único sinal para si.
 
-3. Para configuração automática do utilizador Azure AD, no painel esquerdo, selecione **Provisioning**e, em seguida, **selecione Authorize**.
+3. Para configuração automática do utilizador Azure AD, no painel esquerdo, selecione **Provisioning** e, em seguida, **selecione Authorize**.
 
    ![Autorizar a Azure AD a ligar-se à Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 

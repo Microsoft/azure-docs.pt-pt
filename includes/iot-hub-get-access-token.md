@@ -5,16 +5,16 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 7f7dc1483002c2bdfe3227a8aade8dbf2a8da417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "70803011"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Obtenha um token Azure Resource Manager
 O Azure Ative Directory deve autenticar todas as tarefas que executa nos recursos utilizando o Gestor de Recursos Azure. O exemplo aqui mostrado utiliza a autenticação de palavra-passe, para outras abordagens ver [pedidos autenticadores do Gestor de Recursos Azure][lnk-authenticate-arm].
 
-1. Adicione o seguinte código ao método **Principal** em Program.cs para obter um token do AD Azure usando o id e senha da aplicação.
+1. Adicione o seguinte código ao método **principal** do Programa.cs para obter um token do AD Azure usando o id e senha da aplicação.
    
     ```csharp
     var authContext = new AuthenticationContext(string.Format  

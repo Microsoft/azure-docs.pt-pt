@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: bcc9ca0175e0e03c62c2ce2b91d8ec337756a3cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490106"
 ---
 # <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>Tutorial: Implementar aplicativo Django com Serviço de Aplicações e Base de Dados Azure para PostgreSQL - Servidor Flexível (Pré-visualização)
@@ -57,7 +57,7 @@ cd djangoapp
 
 # <a name="download"></a>[Transferência](#tab/download)
 
-Visite [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , selecione **Clone**e, em seguida, selecione **Download ZIP**.
+Visite [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , selecione **Clone** e, em seguida, selecione **Download ZIP**.
 
 Desembale o ficheiro ZIP numa pasta chamada *djangoapp*.
 
@@ -69,7 +69,7 @@ A amostra do Djangoapp contém a aplicação de sondagens Django orientada por d
 
 A amostra também é modificada para funcionar num ambiente de produção como o App Service:
 
-- As definições de produção estão no ficheiro *azuresite/production.py.* Os detalhes do desenvolvimento estão em *azuresite/definições.py*.
+- As definições de produção estão no ficheiro *azuresite/produção.py.* Os detalhes do desenvolvimento estão em *azuresite/configurações.py*.
 - A aplicação utiliza definições de produção quando a `DJANGO_ENV` variável ambiente está definida para "produção". Você cria esta variável de ambiente mais tarde no tutorial juntamente com outros usados para a configuração da base de dados PostgreSQL.
 
 Estas alterações são específicas para configurar o Django para funcionar em qualquer ambiente de produção e não são particulares para o App Service. Para mais informações, consulte a [lista de verificação de implementação do Django.](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/)
@@ -270,11 +270,11 @@ Navegue para *http: \/ / \<app-name> .azurewebsites.net* e testar novamente a ap
 
 No [portal Azure,](https://portal.azure.com)procure o nome da aplicação e selecione a aplicação nos resultados.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Exemplo, saída do servidor de desenvolvimento de Django":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Navegue para a sua app Python Django no portal Azure":::
 
 Por predefinição, o portal mostra a página **geral** da sua aplicação, que fornece uma visão geral do desempenho. Aqui, também pode executar tarefas básicas de gestão como navegar, parar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Exemplo, saída do servidor de desenvolvimento de Django":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Gerencie a sua app Python Django na página Overview no portal Azure":::
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

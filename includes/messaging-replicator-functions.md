@@ -9,10 +9,10 @@ ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 1ce983ee739a4a124a93c7913f092b23dfec3cbd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98901133"
 ---
 ## <a name="what-is-a-replication-task"></a>O que é uma tarefa de replicação?
@@ -135,9 +135,9 @@ Uma ferramenta visual particularmente útil para monitorizar tarefas de replica�
 
 Para obter informações imediatas de diagnóstico, pode trabalhar com a ferramenta do portal [Live Metrics,](../articles/azure-monitor/app/live-stream.md) que fornece uma visualização de baixa latência dos detalhes do registo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementações de funções Azure](../articles/azure-functions/functions-deployment-technologies.md)
 * [Diagnóstico de Funções Azure](../articles/azure-functions/functions-diagnostics.md)
 * [Opções de networking de funções Azure](../articles/azure-functions/functions-networking-options.md)
-* [Azure Application Insights](../articles/azure-monitor/app/app-insights-overview.md)
+* [Insights de Aplicação Azure](../articles/azure-monitor/app/app-insights-overview.md)

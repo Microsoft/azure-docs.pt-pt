@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
 ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93284450"
 ---
 # <a name="azure-functions-error-handling-and-retries"></a>Azure Functions manipulação de erros e retrações
@@ -26,7 +26,7 @@ Este artigo descreve estratégias gerais de manipulação de erros, juntamente c
 
 Ao integrar-se com os serviços Azure, os erros podem ter origem nas APIs dos serviços subjacentes. As informações relativas a erros específicos vinculativos estão disponíveis na secção **"Exceções" e "códigos de devolução"** dos seguintes artigos:
 
-+ [BD do Cosmos para o Azure](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
++ [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
 + [Armazenamento de blobs](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 

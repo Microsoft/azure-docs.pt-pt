@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: c3c8495b7355ee5d9ee8c28b4e0097a0080964d4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046644"
 ---
 # <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>Ativar insights em VM para uma máquina virtual híbrida
@@ -24,7 +24,7 @@ Este artigo descreve como permitir insights de VM para uma máquina virtual fora
 - Consulte [sistemas operativos suportados](./vminsights-enable-overview.md#supported-operating-systems) para garantir que o sistema operativo da máquina virtual ou da balança de máquinas virtuais que está a ativar é suportado. 
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Máquinas virtuais fora de Azure requerem o mesmo agente log analytics e agente de dependência que são usados para VMs Azure. Uma vez que não é possível utilizar extensões VM para instalar os agentes, deve instalá-los manualmente no sistema operativo do hóspede ou instalá-los através de outro método. 
 
 Consulte [os computadores Do Windows ao Azure Monitor](../agents/agent-windows.md) ou ligue os [computadores Linux ao Azure Monitor](../agents/agent-linux.md) para obter mais informações sobre a implementação do agente Log Analytics. Os detalhes para o agente de Dependência são fornecidos neste artigo. 

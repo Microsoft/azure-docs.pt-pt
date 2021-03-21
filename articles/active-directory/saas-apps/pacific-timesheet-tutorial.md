@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Folha de Horários do Pacífico Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a | da Folha de Horários do Pacífico Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Pacific Timesheet.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 0763dd238dcbc361e693aef893c10af9304e9f25
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92513930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Diretório Ativo Azure com a Folha de Horários do Pacífico
@@ -61,7 +61,7 @@ Para configurar a integração da Timesheet do Pacífico em Azure AD, você prec
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **a folha de tempo**do Pacífico , selecione a folha de tempo do **Pacífico** a partir do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, escreva **a folha de tempo** do Pacífico , selecione a folha de tempo do **Pacífico** a partir do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
 
      ![Folha de horário do Pacífico na lista de resultados](common/search-new-app.png)
 
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Folha de Horário do Pacífico.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Pacific Timesheet**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Pacific Timesheet**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

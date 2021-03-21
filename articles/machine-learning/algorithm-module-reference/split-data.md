@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a4c93b12ad654e54a7f3c7ee0e75507d5cb45e90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907817"
 ---
 # <a name="split-data-module"></a>Módulo de dados divididos
@@ -115,7 +115,7 @@ O primeiro conjunto de dados de resultados contém todas as linhas onde a coluna
    - A coluna contém números de qualquer tipo de dados numéricos, incluindo tipos de dados de data e hora.
    - A expressão pode referenciar um máximo de um nome de coluna.
    - Utilize o carácter ampersand, `&` para o funcionamento e. Utilize o caractere do `|` tubo, para o funcionamento do BO.
-   - Os seguintes operadores são apoiados: `<` , , , , , , `>` `<=` `>=` `==` . `!=`
+   - Os seguintes operadores são apoiados: `<` , , , , `>` `<=` `>=` `==` . `!=`
    - Não se pode agrupar operações usando `(` e `)` .
    
    Para **a coluna string:**

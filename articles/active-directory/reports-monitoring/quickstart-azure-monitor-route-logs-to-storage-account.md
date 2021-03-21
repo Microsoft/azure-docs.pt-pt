@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Registos de diretório de arquivo para uma conta de armazenamento / Microsoft Docs
+title: Tutorial - Registos de diretório de arquivo para uma conta de armazenamento | Microsoft Docs
 description: Saiba como configurar o Azure Diagnostics para empurrar os registos do Azure Ative Directory para uma conta de armazenamento
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74007850"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Arquivo Azure AD regista para uma conta de armazenamento Azure
@@ -40,7 +40,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-2. Selecione registos de auditoria de atividade **do diretório ativo**  >  **Activity**  >  **Azure**. 
+2. Selecione registos de auditoria de atividade **do diretório ativo**  >    >  **Azure**. 
 
 3. Selecione **Exportar Definições**. 
 
@@ -67,7 +67,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 11. Selecione **Guardar** para guardar a definição.
 
-    ![Definições de diagnósticos](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
+    ![Definições de diagnóstico](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
 12. Depois de cerca de 15 minutos, confirme que os registos são enviados para a sua conta de armazenamento. Aceda ao [portal do Azure](https://portal.azure.com), selecione **Contas de armazenamento**, selecione a conta de armazenamento que utilizou antes e, por fim, selecione **Blobs**. Em **Registos de auditoria**, selecione **insights-log-audit**. Em **Registos de início de sessão**, selecione **insights-log-signin**.
 

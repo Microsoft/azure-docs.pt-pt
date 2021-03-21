@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.openlocfilehash: 5a0e04772cfc1c9be77c0ad8b32b0e93be8b9f54
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046725"
 ---
 # <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configurar log analytics espaço de trabalho para insights VM
 Os conhecimentos VM recolhem os seus dados a partir de um ou mais espaços de trabalho do Log Analytics no Azure Monitor. Antes dos agentes de bordo, deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e configura-o para insights VM.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Uma única subscrição pode utilizar qualquer número de espaços de trabalho dependendo dos seus requisitos. A única exigência do espaço de trabalho é que esteja localizado num local suportado e configurado com a solução *VMInsights.*
 
 Uma vez configurado o espaço de trabalho, pode utilizar qualquer uma das opções disponíveis para instalar os agentes necessários na máquina virtual e no conjunto de escala de máquina virtual e especificar um espaço de trabalho para que eles enviem os seus dados. Os conhecimentos VM recolherão dados de qualquer espaço de trabalho configurado na sua subscrição.
