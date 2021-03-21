@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/17/2021
 ms.author: banders
-ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c666602f764e8274cb2a30df204e97479c85ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050346"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583059"
 ---
 # <a name="view-azure-reservations"></a>Ver as reservas do Azure
 
@@ -39,7 +39,7 @@ Para permitir que outras pessoas façam a gestão de reservas, tem duas opções
     1. Selecione o utilizador e, em seguida, selecione **Guardar**.
 
 - Adicionar um utilizador como administrador de faturação a um Contrato Enterprise ou Contrato de Cliente Microsoft:
-    - Num Contrato Enterprise, adicione utilizadores com a função _Administrador do Enterprise_ para ver e gerir todas as encomendas de reservas que se aplicam a esse Contrato Enterprise. Os utilizadores com a função _Administrador do Enterprise (só de leitura)_ só podem ver a reserva. Os administradores de departamentos e os proprietários de conta não podem ver as reservas, _a não ser_ que sejam adicionados explicitamente às mesmas com o Controlo de acesso (IAM). Para obter mais informações, veja [Gerir funções empresariais do Azure](../manage/understand-ea-roles.md).
+    - Num Contrato Enterprise, adicione utilizadores com a função _Administrador do Enterprise_ para ver e gerir todas as encomendas de reservas que se aplicam a esse Contrato Enterprise. Os administradores da empresa vêem e gerem reservas em **Gestão de Custos + Faturação,** não **Reservas.** Os utilizadores com a função _Administrador do Enterprise (só de leitura)_ só podem ver a reserva. Os administradores de departamentos e os proprietários de conta não podem ver as reservas, _a não ser_ que sejam adicionados explicitamente às mesmas com o Controlo de acesso (IAM). Para obter mais informações, veja [Gerir funções empresariais do Azure](../manage/understand-ea-roles.md).
 
         _Os administradores Enterprise podem assumir a propriedade de uma encomenda de reserva e podem adicionar outros utilizadores a uma reserva com o Controlo de acesso (IAM)._
     - Num Contrato de Cliente Microsoft, os utilizadores com a função de proprietário de perfil de faturação ou a função contribuidor de perfil de faturação podem gerir todas as compras de reservas feitas com o perfil de faturação. Os leitores de perfil de faturação e os gestores de faturas podem ver todas as reservas que são pagas com o perfil de faturação. No entanto, não podem fazer alterações às reservas.

@@ -78,7 +78,7 @@ Os guias de como fazer contêm amostras de código que demonstram como completar
 * [Criar uma conta - CLI](./create-account-howto.md)
 * [Aceder a APIs - CLI](./access-api-howto.md)
 * [Codificar com HTTPS como entrada de trabalho - .NET](job-input-from-http-how-to.md)  
-* [Monitorizar eventos - Portal](monitor-events-portal-how-to.md)
+* [Monitorizar eventos - Portal](monitoring/monitor-events-portal-how-to.md)
 * [Criptografe dinamicamente com multi-DRM - .NET](protect-with-drm.md) 
 * [Como codificar com uma transformação personalizada - CLI](custom-preset-cli-howto.md)
 

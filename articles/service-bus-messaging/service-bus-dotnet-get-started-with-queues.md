@@ -6,10 +6,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec3f53e6f69614028c013efa5f0e6852cbc3f8ae
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631645"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Enviar mensagens para e receber mensagens das filas do Azure Service Bus (.NET)
@@ -38,7 +38,7 @@ Lançar Visual Studio e criar um novo projeto **de App de Consola (.NET Core)** 
 
 ### <a name="add-code-to-send-messages-to-the-queue"></a>Adicione código para enviar mensagens para a fila
 
-1. Em *Program.cs*, adicione as `using` seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
+1. No *Programa.cs*, adicione as `using` seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
 
     ```csharp
     using System;
@@ -271,5 +271,5 @@ Verifique o portal de novo.
 Consulte a seguinte documentação e amostras:
 
 - [Biblioteca de clientes Azure Service Bus para .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
-- [Exemplos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
+- [Amostras no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
 - [Referência da API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

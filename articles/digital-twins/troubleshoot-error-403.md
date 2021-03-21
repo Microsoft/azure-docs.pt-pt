@@ -7,10 +7,10 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
 ms.openlocfilehash: ad28b3300e9107c7f6d4b1987205583ef60ed658
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100545705"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>O pedido de serviço falhou. Estado: 403 (Proibido)

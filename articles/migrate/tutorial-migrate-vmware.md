@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: bebc2e629193944c840948c9c573462a43e3032e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 0dcb750871eeae504ddb3d4e3851c834bcad125c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201707"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604550"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
 
@@ -202,6 +202,8 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 - Para uma maior resiliência:
     - Mantenha os dados seguros ao fazer uma cópia de segurança das VMs do Azure através do serviço Azure Backup. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+- Para um desempenho acrescido:
+    - Por predefinição, os discos de dados são criados com o conjunto de cache do anfitrião para "Nenhum". Reveja e ajuste o cache do disco de dados às suas necessidades de carga de trabalho. [Saiba mais](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - Para uma maior segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
     - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).

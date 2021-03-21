@@ -4,10 +4,10 @@ description: Saiba como o plano de consumo de funções Azure permite executar o
 ms.date: 8/31/2020
 ms.topic: conceptual
 ms.openlocfilehash: d292a70a8dfaa4cebdb99f2bcb5420c8b8ab9cd8
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98760544"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Azure Funções Plano de Consumo
@@ -42,7 +42,7 @@ Também pode criar aplicações de função num plano de consumo quando publicar
 
 As aplicações de função na mesma região podem ser atribuídas ao mesmo plano de Consumo. Não há nenhuma desvantagem ou impacto em ter várias aplicações a funcionar no mesmo plano de Consumo. Atribuir várias aplicações ao mesmo plano de Consumo não tem impacto na resiliência, escalabilidade ou fiabilidade de cada app.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Opções de hospedagem de funções Azure Functions](functions-scale.md)
 + [Escalamento orientado para eventos em Funções Azure](event-driven-scaling.md)

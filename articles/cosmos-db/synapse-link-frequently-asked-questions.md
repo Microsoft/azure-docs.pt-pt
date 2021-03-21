@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 120bec65c92e2a13022682265b83bfe0f69d8ed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692271"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592094"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,6 +33,10 @@ Ao planear configurar uma conta DB Azure Cosmos multi-região com suporte analí
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Posso optar por permitir o Azure Synapse Link apenas para determinadas regiões e não para todas as regiões numa configuração de contas multi-região?
 
 Quando o Azure Synapse Link está ativado para uma conta multi-região, a loja analítica é criada em todas as regiões. Os dados subjacentes são otimizados para a produção e consistência transacional na loja transacional.
+
+### <a name="is-analytical-store-supported-in-all-azure-cosmos-db-regions"></a>A loja analítica é suportada em todas as regiões da Azure Cosmos DB?
+
+Sim.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>A cópia de segurança e a restauração são suportadas para contas ativadas pelo Azure Synapse Link?
 
@@ -165,6 +169,10 @@ Atualmente, esta funcionalidade não se encontra disponível.
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>Posso fazer o streaming estruturado spark da loja de analítica?
 
 Atualmente, o suporte de streaming estruturado pela Spark para a Azure Cosmos DB é implementado utilizando a funcionalidade de feed de mudança da loja transacional e ainda não é suportado a partir da loja analítica.
+
+### <a name="is-streaming-supported"></a>O streaming está suportado?
+
+Não apoiamos o streaming de dados da loja analítica.
 
 ## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 

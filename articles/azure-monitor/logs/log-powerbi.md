@@ -6,10 +6,10 @@ author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
 ms.openlocfilehash: 894b87bfa17a59db20b424199a4021ad75b182fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041064"
 ---
 # <a name="log-analytics-integration-with-power-bi"></a>Log Analytics integração com Power BI
@@ -25,7 +25,7 @@ O Microsoft Power BI é a plataforma de visualização de dados da Microsoft. Pa
 
 Em geral, pode utilizar funcionalidades power bi gratuitas para integrar e criar relatórios e dashboards visualmente apelativos.
 
-Funcionalidades mais avançadas podem exigir a compra de uma conta Power BI Pro ou premium. Estas funcionalidades incluem: 
+Funcionalidades mais avançadas podem exigir a compra de uma conta Power BI Pro ou premium. Essas funcionalidades incluem: 
  - compartilhando o seu trabalho 
  - atualizações agendadas
  - Aplicações do Power BI 

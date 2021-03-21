@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033783"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de reset de palavra-passe de força no Azure Ative Directory B2C
@@ -25,7 +25,7 @@ ms.locfileid: "102033783"
 
 Como administrador, pode [redefinir a palavra-passe de um utilizador](manage-users-portal.md#reset-a-users-password) se o utilizador esquecer a sua palavra-passe. Ou gostaria de forçá-los a redefinir a senha. Neste artigo, você vai aprender a forçar uma palavra-passe reset nestes cenários.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Quando um administrador reinicia a palavra-passe de um utilizador através do portal Azure, o valor do atributo [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) é definido para `true` .
 

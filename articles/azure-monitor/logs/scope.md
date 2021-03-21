@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
 ms.openlocfilehash: 43e4e861905352c2818dfb08b8cb442bd70481c1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047184"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Log consulta e intervalo de tempo em Azure Monitor Log Analytics
@@ -47,7 +47,7 @@ Quando o âmbito de consulta é um espaço de trabalho log analytics ou uma apli
 Não é possível utilizar os seguintes comandos numa consulta quando se aplica a um recurso, uma vez que o âmbito de consulta já incluirá quaisquer espaços de trabalho com dados para esse recurso ou conjunto de recursos:
 
 - [app](../logs/app-expression.md)
-- [área de trabalho](../logs/workspace-expression.md)
+- [espaço de trabalho](../logs/workspace-expression.md)
  
 
 ## <a name="query-scope-limits"></a>Limites de âmbito de consulta

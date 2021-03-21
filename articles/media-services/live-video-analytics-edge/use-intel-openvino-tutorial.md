@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
 ms.openlocfilehash: 68b5b7561cc31e156a745bcfb07e3203de10d425
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702220"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analise o vídeo ao vivo utilizando o OpenVINO™ Model Server – Extensão de IA da Intel 
@@ -44,7 +44,7 @@ Abra uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/
 
 Neste arranque rápido, utilizará o Live Video Analytics no IoT Edge juntamente com o OpenVINO™ Model Server – Extensão de IA da Intel para detetar objetos como veículos ou classificá-los. Publicará os eventos de inferência resultantes no IoT Edge Hub.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Descrição geral":::
@@ -67,9 +67,9 @@ Para construir soluções complexas e de vídeo ao vivo de alta performance, o m
 
 Na versão inicial deste servidor de inferência, tem acesso aos [seguintes modelos:](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_models)
 
-- Deteção de veículos (URL de inferência: http://{módulo-nome}:4000/vehicleDetection)
+- Deteção do veículo (URL de inferência: http://{módulo-nome}:4000/veículoDetecção)
 - Deteção de pessoa/veículo/bicicleta (URL de inferência: http://{módulo-nome}:4000/personVehicleBikeDetection)
-- Classificação do veículo (URL de inferência: http://{módulo-nome}:4000/vehicleClassification)
+- Classificação do veículo (URL de inferência: http://{módulo-nome}:4000/vehicleClassificação)
 - Deteção facial (URL de inferência: http://{módulo-nome}:4000/faceDetecção)
 
 > [!NOTE]
@@ -90,7 +90,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
     * ***c2d-console-app.csproj*** - O ficheiro do projeto para Visual Studio Code.
     * ***operations.jsem*** - Uma lista das operações que quer que o programa seja executado.
-    * ***Program.cs*** - O código do programa de amostra. Este código:
+    * ***Programa.cs*** - O código do programa de amostra. Este código:
 
         * Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](direct-methods.md)

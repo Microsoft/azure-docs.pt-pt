@@ -1,20 +1,20 @@
 ---
 title: Criar programaticamente subscrições do Azure para um Contrato de Parceiro da Microsoft com as APIs mais recentes
-description: Saiba como criar subscrições do Azure para um Contrato de Parceiro da Microsoft através de programação com as versões mais recentes da API REST, da CLI do Azure e do Azure PowerShell.
+description: Saiba como criar subscrições Azure para um Acordo de Parceiros da Microsoft utilizando programáticamente as versões mais recentes dos modelos REST API, Azure CLI, Azure PowerShell e Azure Resource Manager.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 03/12/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: de1183c1364fcb7e5483559899c2939df15d26b6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 5a731aab924e63eac468a22862f35aeff76bc068
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215787"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593974"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Criar programaticamente subscrições do Azure para um Contrato de Parceiro da Microsoft com as APIs mais recentes
 
@@ -38,7 +38,7 @@ Os exemplos que se seguem utilizam APIs REST. Atualmente, o PowerShell e a CLI d
 
 Faça o pedido seguinte para listar todas as contas de faturação às quais tem acesso.
 
-### <a name="rest"></a>[REST](#tab/rest-getBillingAccount-MPA)
+### <a name="rest"></a>[REST](#tab/rest)
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?api-version=2020-05-01
@@ -70,18 +70,16 @@ A resposta da API lista as contas de faturação.
 
 Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftPartnerAgreement*. Copie o `name` para a conta. Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
-<!--
-### [PowerShell](#tab/azure-powershell-getBillingAccounts-MPA)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+Por favor, utilize a Azure CLI ou a REST API para obter este valor.
 
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-getBillingAccounts-MPA)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-> az billing account list
+az billing account list
 ```
-Receberá de volta uma lista de todas as contas de faturação a que tem acesso 
+Receberá uma lista de todas as contas de faturação a que tem acesso.
 
 ```json
 [
@@ -114,7 +112,7 @@ Utilize a propriedade displayName para identificar a conta de faturação para a
 
 Faça o pedido seguinte, com o `name` copiado no primeiro passo (```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) para listar todos os clientes na conta de faturação para quem pode criar subscrições do Azure.
 
-### <a name="rest"></a>[REST](#tab/rest-getCustomers)
+### <a name="rest"></a>[REST](#tab/rest)
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers?api-version=2020-05-01
@@ -153,17 +151,14 @@ A resposta da API lista os clientes na conta de faturação com planos do Azure.
 
 Use a propriedade `displayName` para identificar o cliente para o qual pretende criar subscrições. Copie o `id` para o cliente. Por exemplo, para criar uma subscrição para `Fabrikam toys`, copie `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Cole o valor algures para utilizá-lo em passos posteriores.
 
-<!--
-### [PowerShell](#tab/azure-powershell-getCustomers)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+Por favor, utilize a Azure CLI ou a REST API para obter este valor.
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-getCustomers)
-
-```json
-> az billing customer list --account-name 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+```azurecli
+az billing customer list --account-name 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
 A resposta da API lista os clientes na conta de faturação com planos do Azure. Pode criar subscrições para estes clientes.
@@ -202,7 +197,7 @@ Esta secção é opcional apenas para os Fornecedores indiretos.
 
 Se for um Fornecedor indireto no modelo de duas camadas do CSP, pode especificar um revendedor quando criar subscrições para os clientes.
 
-### <a name="rest"></a>[REST](#tab/rest-getIndirectResellers)
+### <a name="rest"></a>[REST](#tab/rest)
 
 Faça o pedido seguinte, com o `id` copiado no segundo passo (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) para listar todos os revendedores disponíveis para um cliente.
 
@@ -234,18 +229,16 @@ A resposta da API lista os revendedores do cliente:
 
 Utilize a propriedade `description` para identificar o revendedor que está associado à subscrição. Copie o `resellerId` para o revendedor. Por exemplo, para associar `Wingtip`, copie `3xxxxx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
-<!--
-### [PowerShell](#tab/azure-powershell-getIndirectResellers)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+Por favor, utilize a Azure CLI ou a REST API para obter este valor.
 
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-getIndirectResellers)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Faça o seguinte pedido, com o `name` copiado do primeiro passo ( ```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx``` ) e o cliente `name` copiado do passo anterior ( ```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ).
 
-```azurecli-interactive
- > az billing customer show --expand "enabledAzurePlans,resellers" --account-name "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --name "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```azurecli
+ az billing customer show --expand "enabledAzurePlans,resellers" --account-name "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --name "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 A resposta da API lista os revendedores do cliente:
@@ -282,7 +275,7 @@ Utilize a propriedade `description` para identificar o revendedor que está asso
 
 O exemplo seguinte cria uma subscrição denominada *Subscrição da Equipa de Desenvolvimento* para a *Fabrikam Toys* e associa o revendedor *Wingtip* à subscrição. Utilizará o âmbito da faturação copiado do passo anterior: `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
-### <a name="rest"></a>[REST](#tab/rest-MPA)
+### <a name="rest"></a>[REST](#tab/rest)
 
 ```json
 PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
@@ -340,19 +333,19 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 Transmita o *resellerId* opcional copiado no segundo passo no corpo do pedido da API.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-MPA)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para instalar a versão mais recente do módulo que contém o cmdlet `New-AzSubscriptionAlias`, execute `Install-Module Az.Subscription`. Para instalar uma versão recente do PowerShellGet, veja [Obter o Módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 Execute o comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) através do âmbito da faturação `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
 ```
 
 Obtém o subscriptionId como parte da resposta do comando.
 
-```azurepowershell
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -366,19 +359,19 @@ Obtém o subscriptionId como parte da resposta do comando.
 
 Transmita o *resellerId* opcional copiado no segundo passo na chamada `New-AzSubscriptionAlias`.
 
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-MPA)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Primeiro, instale a extensão ao executar `az extension add --name account` e `az extension add --name alias`.
 
 Execute o comando [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create). 
 
-```azurecli-interactive
+```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"
 ```
 
 Obtém o subscriptionId como parte da resposta do comando.
 
-```azurecli
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -391,6 +384,113 @@ Obtém o subscriptionId como parte da resposta do comando.
 ```
 
 Transmita o *resellerId* opcional copiado no segundo passo na chamada `az account alias create`.
+
+---
+
+## <a name="use-arm-template"></a>Utilizar o modelo do Resource Manager
+
+A secção anterior mostrou como criar uma subscrição com PowerShell, CLI ou REST API. Se precisar automatizar a criação de subscrições, considere utilizar um modelo de Gestor de Recursos Azure (modelo ARM).
+
+O modelo a seguir cria uma subscrição. Para `billingScope` , fornecer a identificação do cliente. Para `targetManagementGroup` , forneça o grupo de gestão onde pretende criar a subscrição.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionAliasName": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide a name for the alias. This name will also be the display name of the subscription."
+            }
+        },
+        "billingScope": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the full resource ID of billing scope to use for subscription creation."
+            }
+        },
+        "targetManagementGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the target management group to place the subscription."
+            }
+        }
+    },
+    "resources": [
+        {
+            "scope": "/", 
+            "name": "[parameters('subscriptionAliasName')]",
+            "type": "Microsoft.Subscription/aliases",
+            "apiVersion": "2020-09-01",
+            "properties": {
+                "workLoad": "Production",
+                "displayName": "[parameters('subscriptionAliasName')]",
+                "billingScope": "[parameters('billingScope')]",
+                "managementGroupId": "[tenantResourceId('Microsoft.Management/managementGroups/', parameters('targetManagementGroup'))]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Implemente o modelo ao nível do [grupo de gestão.](../../azure-resource-manager/templates/deploy-to-management-group.md)
+
+### <a name="rest"></a>[REST](#tab/rest)
+
+```json
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Resources/deployments/exampledeployment?api-version=2020-06-01
+```
+
+Com um corpo de pedido:
+
+```json
+{
+  "location": "eastus",
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json"
+    },
+    "parameters": {
+      "subscriptionAliasName": {
+        "value": "sampleAlias"
+      },
+      "billingScope": {
+        "value": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      },
+      "targetManagementGroup": {
+        "value": "mg2"
+      }
+    },
+    "mode": "Incremental"
+  }
+}
+```
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzManagementGroupDeployment `
+  -Name exampledeployment `
+  -Location eastus `
+  -ManagementGroupId mg1 `
+  -TemplateFile azuredeploy.json `
+  -subscriptionAliasName sampleAlias `
+  -billingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
+  -targetManagementGroup mg2
+```
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az deployment mg create \
+  --name exampledeployment \
+  --location eastus \
+  --management-group-id mg1 \
+  --template-file azuredeploy.json \
+  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx' targetManagementGroup=mg2
+```
 
 ---
 

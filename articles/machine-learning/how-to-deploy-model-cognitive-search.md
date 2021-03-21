@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 03/11/2021
 ms.custom: deploy
 ms.openlocfilehash: 22c8880cbcde1f1a55fa66beee0323e0348e1164
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149618"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para utilizar com o Cognitive Search

@@ -6,16 +6,21 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713019"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656010"
 ---
 # <a name="what-is-document-translation-preview"></a>O que é Tradução de Documentos (Pré-visualização)?
 
 Document Translation é uma característica baseada na nuvem do serviço [Azure Tradutor](../translator-info-overview.md) e faz parte da família Azure Cognitive Service das APIs REST. A API de Tradução documental traduz documentos de e para 90 línguas e dialetos, preservando a estrutura documental e o formato de dados.
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* [**Os quickstarts**](get-started-with-document-translation.md) estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.
+* [**Os guias de como**](create-sas-tokens.md) fazer contêm instruções para utilizar a funcionalidade de formas mais específicas ou personalizadas.  
 
 ## <a name="document-translation-key-features"></a>Características-chave da tradução de documentos
 
@@ -38,7 +43,7 @@ No nosso guia de como fazer, aprenderá a começar rapidamente a usar o Document
 
 Os seguintes tipos de ficheiros de documentos são suportados pela Tradução documental:
 
-| Tipo de arquivo| Extensão de nome de ficheiro|Descrição|
+| Tipo de arquivo| Extensão de nome de ficheiro|Description|
 |---|---|--|
 |Adobe PDF|.pdf|Adobe Acrobat formato de documento portátil|
 |HTML|.html|Linguagem de marcação de texto hiper.|
@@ -55,7 +60,7 @@ Os seguintes tipos de ficheiros de documentos são suportados pela Tradução do
 
 Os seguintes tipos de ficheiros glossários são suportados pela Tradução documental:
 
-| Tipo de arquivo| Extensão de nome de ficheiro|Descrição|
+| Tipo de arquivo| Extensão de nome de ficheiro|Description|
 |---|---|--|
 |Formato de ficheiro de intercâmbio de localização|.xlf. , xliff| Um formato documental paralelo, exportação de sistemas de memória de tradução. As línguas utilizadas são definidas dentro do ficheiro.|
 |Separados valores/SEPARADOS|.tsv/.tab| um ficheiro de dados brutos delimitado por separadores utilizado por programas de folha de cálculo.|
@@ -64,5 +69,3 @@ Os seguintes tipos de ficheiros glossários são suportados pela Tradução docu
 
 > [!div class="nextstepaction"]
 > [Começar com tradução de documentos](get-started-with-document-translation.md)
->
->

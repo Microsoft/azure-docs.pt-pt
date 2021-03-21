@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: 574340825567dcd512a5da1b311c57fe12954e34
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030550"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>O que é Azure Front Door Standard/Premium (Preview)?

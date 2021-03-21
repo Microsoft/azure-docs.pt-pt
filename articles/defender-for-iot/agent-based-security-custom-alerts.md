@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/16/2021
 ms.author: shhazam
 ms.openlocfilehash: 5d0eeb046d7a4ba474a1ed4a2cfb07a07f1c3888
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493310"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>Defender para dispositivos IoT alertas de segurança personalizados
@@ -31,7 +31,7 @@ As seguintes listas de alertas Defender para IoT são definíveis por si com bas
 
 ## <a name="agent-based-security-custom-alerts"></a>Alertas personalizados de segurança baseados em agente
 
-| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida |
+| Gravidade | Nome do alerta | Origem de dados | Description | Remediação sugerida |
 |--|--|--|--|--|
 | Baixo | Alerta personalizado - O número de ligações ativas está fora do alcance permitido | Defensor-IoT-micro-agente, Azure RTOS | O número de ligações ativas dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível. | Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de ligação permitida. |
 | Baixo | Alerta personalizado - A ligação de saída criada para um IP que não é permitido | Defensor-IoT-micro-agente, Azure RTOS | Uma ligação de saída foi criada para um IP que está fora da sua lista de IP permitida. | Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de IP permitida. |

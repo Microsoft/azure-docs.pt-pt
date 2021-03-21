@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595265"
+ms.locfileid: "104656996"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e estrangulamento
 
@@ -87,7 +87,7 @@ Por exemplo, utiliza um dispositivo simulado para enviar 200 mensagens de dispos
 
 As operações de registo de identidade do dispositivo destinam-se a utilização a tempo de funcionamento em cenários de gestão e provisionamento de dispositivos. A leitura ou a atualização de um grande número de identidades de dispositivos é apoiada através de postos de [trabalho de importação e exportação.](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)
 
-Ao iniciar operações de identidade através de [operações de dispositivos](iot-hub-bulk-identity-mgmt.md)a granel, aplicam-se os mesmos limites de aceleração. Por exemplo, se pretender submeter a operação a granel para criar 50 dispositivos, e tiver um Hub S1 IoT com 1 unidade, apenas dois destes pedidos em massa são aceites por minuto. Isto porque o acelerador de operação de identidade para um Hub S1 IoT com 1 unidade é de 100/min/unidade. Também neste caso, um terceiro pedido (e não só) no mesmo minuto seria rejeitado porque o limite já tinha sido atingido. 
+Ao iniciar operações de identidade através de [operações de atualização do registo a granel](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) *(não* de importação a granel e de empregos de exportação), aplicam-se os mesmos limites de aceleração. Por exemplo, se pretender submeter a operação a granel para criar 50 dispositivos, e tiver um Hub S1 IoT com 1 unidade, apenas dois destes pedidos em massa são aceites por minuto. Isto porque o acelerador de operação de identidade para um Hub S1 IoT com 1 unidade é de 100/min/unidade. Também neste caso, um terceiro pedido (e não só) no mesmo minuto seria rejeitado porque o limite já tinha sido atingido. 
 
 ### <a name="device-connections-throttle"></a>Acelerador de ligações ao dispositivo
 

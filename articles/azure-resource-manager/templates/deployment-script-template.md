@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/18/2021
 ms.author: jgao
-ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175656"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594247"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Use scripts de implementação em modelos ARM
 
@@ -162,11 +162,11 @@ Detalhes do valor da propriedade:
   > [!NOTE]
   > O portal Azure não consegue analisar um script de implantação com várias linhas. Para implementar um modelo com script de implementação a partir do portal Azure, pode acorrentar os comandos PowerShell utilizando pontos de ligação numa única linha ou utilizar a `primaryScriptUri` propriedade com um ficheiro de script externo.
 
-- `primaryScriptUri`: Especifique um url acessível ao público para o script de implementação primária com extensões de ficheiros suportadas.
-- `supportingScriptUris`: Especifique uma série de urls acessíveis ao público para apoiar ficheiros que são chamados em `scriptContent` ambos ou `primaryScriptUri` .
+- `primaryScriptUri`: Especifique um URL acessível ao público para o script de implantação primária com extensões de ficheiros suportadas. Para obter mais informações, consulte [utilizar scripts externos.](#use-external-scripts)
+- `supportingScriptUris`: Especifique uma série de URLs acessíveis ao público para suportar ficheiros que são chamados em `scriptContent` ambos ou `primaryScriptUri` . Para obter mais informações, consulte [utilizar scripts externos.](#use-external-scripts)
 - `timeout`: Especificar o tempo máximo de execução do script permitido especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D.**
 - `cleanupPreference`. Especifique a preferência de limpar os recursos de implantação quando a execução do script chegar a um estado terminal. A definição predefinida é **sempre**, o que significa eliminar os recursos apesar do estado terminal (Bem sucedido, Falhado, Cancelado). Para saber mais, consulte [Limpar os recursos do script de implementação](#clean-up-deployment-script-resources).
-- `retentionInterval`: Especifique o intervalo para o qual o serviço mantém os recursos de script de implantação após a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão eliminados quando esta duração expirar. A duração baseia-se no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção é entre 1 e 26 horas (PT26H). Esta propriedade é usada quando `cleanupPreference` é definida para **OnExpiration**. A propriedade **OnExpiration** não está ativada atualmente. Para saber mais, consulte [Limpar os recursos do script de implementação](#clean-up-deployment-script-resources).
+- `retentionInterval`: Especifique o intervalo para o qual o serviço mantém os recursos de script de implantação após a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão eliminados quando esta duração expirar. A duração baseia-se no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção é entre 1 e 26 horas (PT26H). Esta propriedade é usada quando `cleanupPreference` é definida para **OnExpiration**. Para saber mais, consulte [Limpar os recursos do script de implementação](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Amostras adicionais
 
@@ -212,7 +212,7 @@ Além dos scripts inline, também pode utilizar ficheiros de scripts externos. A
 
 Para obter mais informações, consulte o [modelo de exemplo.](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json)
 
-Os ficheiros de script externos devem estar acessíveis. Para proteger os seus ficheiros de scripts que são armazenados em contas de armazenamento Azure, consulte [o modelo ARM privado com ficha SAS](./secure-template-with-sas-token.md).
+Os ficheiros de script externos devem estar acessíveis. Para proteger os seus ficheiros de scripts que são armazenados em contas de armazenamento Azure, gere um token SAS e inclua-o no URI para o modelo. Desavenda o prazo de validade para permitir tempo suficiente para completar a implantação. Para obter mais informações, consulte [implementar o modelo ARM privado com o token SAS](./secure-template-with-sas-token.md).
 
 Você é responsável por garantir a integridade dos scripts que são referenciados por script de implementação, ou `primaryScriptUri` `supportingScriptUris` . Referência apenas scripts em que confia.
 
@@ -313,7 +313,7 @@ O serviço de script define o estado de fornecimento de recursos para **Falhado*
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passe cordas seguras para script de implementação
 
-Definir variáveis ambientais (EnvironmentVariable) nas instâncias do seu contentor permite-lhe fornecer uma configuração dinâmica da aplicação ou do script executado pelo recipiente. O script de implementação lida com variáveis ambientais não seguras e seguras da mesma forma que a Instância do Contentor Azure. Para obter mais informações, consulte [variáveis ambientais definidas em casos de recipientes](../../container-instances/container-instances-environment-variables.md#secure-values).
+Definir variáveis ambientais (EnvironmentVariable) nas instâncias do seu contentor permite-lhe fornecer uma configuração dinâmica da aplicação ou do script executado pelo recipiente. O script de implementação lida com variáveis ambientais não seguras e seguras da mesma forma que a Instância do Contentor Azure. Para obter mais informações, consulte [variáveis ambientais definidas em casos de recipientes](../../container-instances/container-instances-environment-variables.md#secure-values). Por exemplo, consulte [os modelos de amostra.](#sample-templates)
 
 O tamanho máximo permitido para variáveis ambientais é de 64 KB.
 
@@ -566,7 +566,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 
 ## <a name="deployment-script-error-codes"></a>Códigos de erro de script de implementação
 
-| Código de erro | Descrição |
+| Código de erro | Description |
 |------------|-------------|
 | ImplementaçãoScriptInvalidOperação | A definição de recursos de script de implementação no modelo contém nomes de propriedade inválidos. |
 | ImplementaçãoScriptResourceConflict | Não é possível apagar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode refazer o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo. |

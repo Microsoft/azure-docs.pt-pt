@@ -12,10 +12,10 @@ ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c8d3c5b10c670e7aa4f1fd00f47ef47e772416cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706865"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar os dados do seu rosto para uma subscrição diferente do Face
@@ -42,7 +42,7 @@ Este guia utiliza uma aplicação de consola simples para executar a migração 
 
 ## <a name="create-face-clients"></a>Criar clientes faciais
 
-No método **Principal** em *Program.cs,* crie dois [exemplos de FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) para as suas subscrições de origem e alvo. Este exemplo utiliza uma subscrição face na região da Ásia Oriental como fonte e uma subscrição dos EUA ocidentais como alvo. Este exemplo demonstra como migrar dados de uma região de Azure para outra. 
+No método **principal** do *Programa.cs,* crie dois exemplos [de FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) para as suas subscrições de origem e alvo. Este exemplo utiliza uma subscrição face na região da Ásia Oriental como fonte e uma subscrição dos EUA ocidentais como alvo. Este exemplo demonstra como migrar dados de uma região de Azure para outra. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

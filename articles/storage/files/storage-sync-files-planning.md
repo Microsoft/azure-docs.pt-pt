@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564225"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593208"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -247,7 +247,7 @@ Nenhuma outra solução HSM deve ser utilizada com a Azure File Sync.
 
 Uma vez que o agente Azure File Sync funciona numa máquina do Windows Server que se conecta às partilhas de ficheiros Azure, o desempenho sincronizado eficaz depende de uma série de fatores na sua infraestrutura: Windows Server e a configuração subjacente do disco, largura de banda de rede entre o servidor e o armazenamento do Azure, tamanho do ficheiro, tamanho total do conjunto de dados e a atividade no conjunto de dados. Uma vez que o Azure File Sync funciona ao nível do ficheiro, as características de desempenho de uma solução baseada em Azure File Sync são melhor medidas no número de objetos (ficheiros e diretórios) processados por segundo.
 
-As alterações efetuadas na partilha de ficheiros Azure utilizando o portal Azure ou SMB não são imediatamente detetadas e replicadas como alterações no ponto final do servidor. O Azure Files ainda não tem notificações ou diários alterados, pelo que não há forma de iniciar automaticamente uma sessão de sincronização quando os ficheiros são alterados. No Windows Server, o Azure File Sync utiliza [o diário USN do Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) para iniciar automaticamente uma sessão de sincronização quando os ficheiros mudam
+As alterações efetuadas na partilha de ficheiros Azure utilizando o portal Azure ou SMB não são imediatamente detetadas e replicadas como alterações no ponto final do servidor. O Azure Files ainda não tem notificações ou diários alterados, pelo que não há forma de iniciar automaticamente uma sessão de sincronização quando os ficheiros são alterados. No Windows Server, o Azure File Sync utiliza [o diário USN do Windows](/windows/win32/fileio/change-journals) para iniciar automaticamente uma sessão de sincronização quando os ficheiros mudam
 
 Para detetar alterações na partilha de ficheiros Azure, o Azure File Sync tem um trabalho programado chamado de trabalho de deteção de alterações. Um trabalho de deteção de alterações enumera todos os ficheiros da partilha de ficheiros e, em seguida, compara-o com a versão sincronizada desse ficheiro. Quando o trabalho de deteção de alterações determina que os ficheiros foram alterados, o Azure File Sync inicia uma sessão de sincronização. O trabalho de deteção de alterações é iniciado a cada 24 horas. Como o trabalho de deteção de alterações funciona enumerando todos os ficheiros na partilha de ficheiros Azure, a deteção de alterações demora mais tempo em espaços de nome maiores do que em espaços de nome mais pequenos. Para grandes espaços de nome, pode levar mais do que uma vez a cada 24 horas para determinar quais os ficheiros que mudaram.
 

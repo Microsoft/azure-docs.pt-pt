@@ -4,12 +4,12 @@ description: Saiba como instrumentar uma aplicação Azure Batch .NET utilizando
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 04/05/2018
-ms.openlocfilehash: d06e2b61725f05d025acd8a2995ea041f138ae4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9decb99c3de798df43dedc2441208066d18e3a13
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933567"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605788"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitore e depure uma aplicação Azure Batch .NET com Insights de Aplicação
 
@@ -30,9 +30,9 @@ Uma solução de amostra C# com código para acompanhar este artigo está dispon
 
 * [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Utilize o portal Azure para criar um *recurso*Application Insights . Selecione o **tipo de Aplicação** *Geral* .
+   * Utilize o portal Azure para criar um *recurso* Application Insights . Selecione o **tipo de Aplicação** *Geral* .
 
-   * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do portal. É necessário mais tarde neste artigo.
+   * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) do portal. É necessário mais tarde neste artigo.
   
   > [!NOTE]
   > Pode ser [cobrado](https://azure.microsoft.com/pricing/details/application-insights/) pelos dados armazenados no Application Insights. Isto inclui os dados de diagnóstico e monitorização discutidos neste artigo.
@@ -56,7 +56,7 @@ Para instrumentar o seu código, a sua solução precisa de criar um [Telemetria
 ```
 Adicione também a chave de instrumentação no ficheiro TopNWords.cs.
 
-O exemplo em TopNWords.cs utiliza as seguintes chamadas de [instrumentação](../azure-monitor/app/api-custom-events-metrics.md) da API application insights:
+O exemplo no TopNWords.cs utiliza as seguintes chamadas de [instrumentação](../azure-monitor/app/api-custom-events-metrics.md) da API de Insights de Aplicação:
 * `TrackMetric()` - Rastreia o tempo, em média, de um nó computacional para descarregar o ficheiro de texto necessário.
 * `TrackTrace()` - Adiciona chamadas de depuragem ao seu código.
 * `TrackEvent()` - Rastreia eventos interessantes para capturar.

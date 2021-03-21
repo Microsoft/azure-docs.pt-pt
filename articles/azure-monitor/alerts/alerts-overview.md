@@ -4,10 +4,10 @@ description: Visão geral do alerta no Azure Monitor
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038055"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
@@ -18,7 +18,7 @@ Este artigo descreve quais são os alertas, os seus benefícios e como começar 
 
 Os alertas notificam-no proativamente quando forem encontrados problemas com a sua infraestrutura ou aplicação utilizando os seus dados de monitorização no Azure Monitor. Permitem identificar e resolver problemas antes que os utilizadores do seu sistema os notem. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O diagrama abaixo representa o fluxo de alertas. 
 
@@ -166,7 +166,7 @@ Ao selecionar um alerta, esta página fornece detalhes do alerta e permite-lhe a
 
 A página de detalhes do alerta inclui as seguintes secções:
 
-| Section | Descrição |
+| Section | Description |
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Enumera cada ação tomada pelo alerta e quaisquer alterações feitas ao alerta. Atualmente limitado a alterações de estado. |

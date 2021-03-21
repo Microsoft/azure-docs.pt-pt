@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: fc16c9e0d47cfe015f7ec5ceb766053635840abb
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99475340"
 ---
 # <a name="retrieve-information-about-your-azure-cloud-service-extended-support-deployments"></a>Recupere informações sobre as suas implementações do Azure Cloud Service (suporte alargado)

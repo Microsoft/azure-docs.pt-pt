@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/12/2021
-ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 3/17/2021
+ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225069"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593395"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de co-venda
 
-Este artigo fornece os requisitos para os vários níveis de estatuto de co-venda. Para obter a mais recente lista de tipos de oferta que suportam a co-venda, consulte [a Configure Co-sell para uma oferta de mercado comercial.](commercial-marketplace-co-sell.md) Para obter uma visão geral da co-venda, consulte [Co-vender com as equipas de vendas da Microsoft e a visão geral dos parceiros.](marketplace-co-sell.md)
+Este artigo fornece os requisitos para os vários níveis de estatuto de co-venda. Para obter a mais recente lista de tipos de oferta que suportam a co-venda, consulte [a Configure Co-sell para uma oferta de mercado comercial.](co-sell-configure.md) Para obter uma visão geral da co-venda, consulte [Co-vender com as equipas de vendas da Microsoft e a visão geral dos parceiros.](co-sell-overview.md)
 
 Esta tabela mostra todos os possíveis estatutos de co-venda:
 
@@ -25,7 +26,7 @@ Esta tabela mostra todos os possíveis estatutos de co-venda:
 | Não co-vender pronto | Os [requisitos mínimos para o estatuto de co-venda pronta](#requirements-for-co-sell-ready-status) não foram cumpridos. |
 | Co-vender pronto | Todos os [requisitos para o estatuto de co-venda pronta](#requirements-for-co-sell-ready-status) foram cumpridos. |
 | Azure IP Co-venda incentivado | Os requisitos de co-venda prontos foram cumpridos para além [destes requisitos adicionais.](#requirements-for-azure-ip-co-sell-incentivized-status) |
-| Biz Apps ISV Connect Premium incentivo  | Este estatuto aplica-se às ofertas da Dynamics 365 e power apps e indica que todos os requisitos para este estatuto foram [cumpridos.](#requirements-for-biz-apps-isv-connect-premium-incentive-status) |
+| Aplicações empresariais Co-vender incentivado | Este estatuto aplica-se às ofertas de Dynamics 365 e Power Apps no [Programa ISV Connect de aplicações empresariais](business-applications-isv-program.md) da Microsoft e indica que todos os requisitos para este estatuto foram [cumpridos.](#requirements-for-business-applications-co-sell-incentivized-status) |
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Requisitos para o estatuto de co-venda de prontos
@@ -37,15 +38,15 @@ Para uma oferta para obter o estatuto de co-venda, deve cumprir os seguintes req
 - Tenha uma identificação mpn e uma conta de mercado comercial ativa [no Partner Center.](./partner-center-portal/create-account.md)
 - Certifique-se de que tem um [perfil de negócio](/partner-center/create-a-marketing-profile) completo no Partner Center. Como parceiro qualificado da Microsoft, o seu perfil de negócio ajuda a mostrar o seu negócio a clientes que procuram as suas soluções e conhecimentos únicos para responder às suas necessidades de negócio, resultando em [referências.](/partner-center/referrals)
 - Complete a **Co-venda com** o separador Microsoft e publique a oferta no mercado comercial.
-- Fornecer um contacto de vendas para cada co-venda de geografia elegível e fatura de materiais exigidos)
+- Fornecer um contacto de vendas para cada co-venda de geografia elegível e fatura de materiais necessários.
 
 **Parceiros de serviços:**
 
 - Para ofertas do tipo _de solução de Serviço,_ você deve ter uma competência de ouro ativo em qualquer área de competência.
- 
+
 **IsVs de Aplicações Empresariais:**
 
-- Dinâmica 365 Envolvimento com clientes & PowerApps e Dynamics 365 Finance & Ops (exceto Dynamics 365 business central) e as soluções PowerApps requerem inscrição ISV Connect.
+- A dinâmica 365 & powerApps (exceto a Dynamics 365 Business Central) requer a inscrição do ISV Connect.
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Complete a Co-venda com separador Microsoft
 
@@ -82,13 +83,9 @@ Requisito 2 - Passe a validação técnica da Microsoft para uma solução basea
 Requisito 3 - Fornecer um diagrama de arquitetura de referência:
 - Faça o upload de um diagrama de arquitetura de referência com os seus documentos de Co-venda no Partner Center para revisão. Para obter orientações sobre a criação deste diagrama, consulte [o diagrama de arquitetura de referência.](reference-architecture-diagram.md) Para obter informações sobre o upload do diagrama, consulte [a Configure Co-sell para uma oferta de mercado comercial.](commercial-marketplace-co-sell.md)
 
-## <a name="requirements-for-biz-apps-isv-connect-premium-incentive-status"></a>Requisitos para o estatuto de incentivo ISV Connect Premium das apps Biz
+## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Requisitos para aplicações empresariais Co-venda estatuto incentivado
 
-Este estatuto aplica-se a soluções, apps e serviços baseados em IP construídos em Dynamics 365 ou Power Apps.
-
-Não precisa de obter o estatuto de co-venda de pronto (listado acima) para obter o incentivo Biz Apps ISV Connect Standard. Mas, depois de uma aplicação conseguir o estatuto de co-venda de prontos, pode ser considerado para o estatuto de incentivo ISV Connect Premium biz apps com base nos últimos 12 meses de ações de receitas e co-venda de resultados/limiares.
-
-Requisito - Você deve ter uma inscrição ativa no nível premium [ISV Connect.](business-applications-isv-program.md)
+Este estatuto aplica-se a soluções baseadas em IP construídas em Dynamics 365 ou Power Apps (exceto a Dynamics 365 Business Central) que estão inscritas no programa ISV Connect. No entanto, as ofertas também devem preencher os requisitos para o estado de co-venda pronto (descrito acima) para que os vendedores da Microsoft possam co-vender a oferta consigo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
