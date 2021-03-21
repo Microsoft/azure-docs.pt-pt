@@ -11,10 +11,10 @@ author: luisquintanilla
 ms.date: 01/26/2021
 ms.custom: responsible-ml
 ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101659686"
 ---
 # <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Mitigar a injustiça nos modelos de aprendizagem automática (pré-visualização)
@@ -100,7 +100,7 @@ O pacote fairlearn open-source fornece algoritmos de mitigação pós-processame
 - Redução: Estes algoritmos tomam um estimador padrão de aprendizagem de máquinas de caixa preta (por exemplo, um modelo LightGBM) e geram um conjunto de modelos retreinados usando uma sequência de conjuntos de dados de treino re-ponderados. Por exemplo, os candidatos de um determinado género podem ser ponderados ou ponderados para reformular modelos e reduzir as disparidades entre diferentes grupos de género. Os utilizadores podem então escolher um modelo que proporcione a melhor compensação entre precisão (ou outra métrica de desempenho) e disparidade, que geralmente teria de se basear em regras de negócio e cálculos de custos.  
 - Pós-processamento: Estes algoritmos tomam um classificador existente e a característica sensível como entrada. Em seguida, derivam uma transformação da previsão do classificador para impor as restrições de equidade especificadas. A maior vantagem da otimização dos limiares é a sua simplicidade e flexibilidade, uma vez que não necessita de reconverter o modelo. 
 
-| Algoritmo | Descrição | Tarefa de aprendizagem automática | Características sensíveis | Restrições de paridade apoiadas | Tipo de algoritmo |
+| Algoritmo | Description | Tarefa de aprendizagem automática | Características sensíveis | Restrições de paridade apoiadas | Tipo de algoritmo |
 | --- | --- | --- | --- | --- | --- |
 | `ExponentiatedGradient` | Abordagem da caixa preta para uma classificação justa descrita na [Abordagem de Reduções A para classificação justa](https://arxiv.org/abs/1803.02453) | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |
 | `GridSearch` | Abordagem da caixa preta descrita na [abordagem de reduções a uma classificação justa](https://arxiv.org/abs/1803.02453)| Classificação binária | Binário | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |

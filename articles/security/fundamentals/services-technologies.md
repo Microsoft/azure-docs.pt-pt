@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585418"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e tecnologias disponíveis no Azure
@@ -92,4 +92,4 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 | [Procuração de aplicação Azure](../../active-directory/manage-apps/application-proxy.md)| Uma linha frontal autenticadora usada para garantir o acesso remoto para aplicações web hospedadas no local. |
 |[Azure Firewall](../../firewall/overview.md)|Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure.|
 |[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
-|[Pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estende o espaço de endereço privado da sua rede virtual e a identidade do seu VNet aos serviços Azure, através de uma ligação direta.|
+|[Pontos finais de serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estende o espaço de endereço privado da sua rede virtual e a identidade do seu VNet aos serviços Azure, através de uma ligação direta.|

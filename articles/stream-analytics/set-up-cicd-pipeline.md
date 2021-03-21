@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466427"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Utilize Azure DevOps para criar um pipeline CI/CD para um trabalho de Stream Analytics
@@ -188,7 +188,7 @@ Abra um navegador web e navegue para o seu projeto Azure Stream Analytics Visual
    |Modelo| $(System.DefaultWorkingDirect)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.json |
    |Parâmetros do modelo|$(System.DefaultWorkingDirect)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.parameters.json |
    |Substituir os parâmetros do modelo|- <arm_template_parameter> "o seu valor". Pode definir os parâmetros utilizando **variáveis.**|
-   |Modo de implantação|Incremental|
+   |Modo de Implementação|Incremental|
 
 3. A partir do abandono das tarefas, **selecione Implementar trabalho para o ambiente de produção**.
 
@@ -205,7 +205,7 @@ Abra um navegador web e navegue para o seu projeto Azure Stream Analytics Visual
    |Modelo| $(System.DefaultWorkingDirect)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.json |
    |Parâmetros do modelo|$(System.DefaultWorkingDirect)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.parameters.json |
    |Substituir os parâmetros do modelo|- <arm_template_parameter> "o seu valor"|
-   |Modo de implantação|Incremental|
+   |Modo de Implementação|Incremental|
 
 ### <a name="create-a-release"></a>Criar um lançamento
 

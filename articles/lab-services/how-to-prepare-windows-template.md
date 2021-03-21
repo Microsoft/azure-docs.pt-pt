@@ -1,15 +1,15 @@
 ---
-title: Guia para configurar uma máquina de modelos Windows Microsoft Docs
+title: Guia para configurar uma máquina de modelos Windows | Microsoft Docs
 description: Passos genéricos para preparar uma máquina de modelos Windows em Serviços de Laboratório.  Estes passos incluem a definição do calendário de atualização do Windows, a instalação do OneDrive e a instalação do Office.
 author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647907"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelos Windows nos serviços do Azure Lab
@@ -230,5 +230,5 @@ Instale outras aplicações comumente utilizadas para o ensino através da aplic
 
 Este artigo mostrou-lhe passos opcionais para preparar o seu VM modelo windows para uma classe eficaz.  Os passos incluem instalar o OneDrive e instalar o Microsoft 365, instalar as atualizações para o Windows e instalar atualizações para aplicações da Microsoft Store.  Também discutimos como definir atualizações para um horário que funciona melhor para a sua aula.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte o artigo sobre como controlar o comportamento de paragem do Windows para ajudar na gestão de custos: [Guia para controlar o comportamento de paragem do Windows](how-to-windows-shutdown.md)

@@ -10,10 +10,10 @@ ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
 ms.openlocfilehash: 640b9b40295ae9b9aea865f7b6159da6ff4a3251
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898312"
 ---
 # <a name="media-services-migration-code-sample-comparison"></a>Comparação de amostra de código de migração de serviços de mídia
@@ -35,6 +35,6 @@ Segue-se uma lista de amostras para comparação entre v2 e v3 para cenários co
 |Publique um ativo com encriptação AES |1. Criar `ContentKeyAuthorizationPolicyOption`<br/>2. Criar `ContentKeyAuthorizationPolicy`<br/>3. Criar `AssetDeliveryPolicy`<br/>4. Criar `Asset` e carregar conteúdo OU submeter e `Job` utilizar `OutputAsset`<br/>5. `AssetDeliveryPolicy` Associar-se com `Asset`<br/>6. Criar `ContentKey`<br/>7. Anexar `ContentKey` a `Asset`<br/>8. Criar `AccessPolicy`<br/>9. Criar `Locator`<br/><br/>[v2 .NET exemplo](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar `ContentKeyPolicy`<br/>2. Criar `Asset`<br/>3. Carregar conteúdo ou utilizar `Asset` como `JobOutput`<br/>4. Criar `StreamingLocator`<br/><br/>[v3 .NET exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |Obter detalhes de emprego e gerir empregos |[Gerir empregos com v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gerir empregos com v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

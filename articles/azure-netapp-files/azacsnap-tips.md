@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 08edd86fd19e7698a791e411f42a2a89084a91f7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737138"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Dicas e truques para utilizar a ferramenta Azure Application Consistent Snapshot (pré-visualização)
@@ -273,6 +273,6 @@ Principais atributos de instantâneos de volume de armazenamento:
 - **Tamanho do instantâneo:** Depende do tamanho/alterações no nível de base de dados.
 - **Localização do ficheiro de registo:** Os ficheiros de registo gerados pelos comandos são saídas em pastas tal como definidas no ficheiro de configuração JSON, que por predefinição é uma sub-dobragem sob a qual o comando é executado (por exemplo, `./logs` ).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas](azacsnap-troubleshoot.md)

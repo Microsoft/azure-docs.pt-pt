@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 24c7aaf08b4d22706bee8f37025b12a656ceaff5
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895905"
 ---
 # <a name="handle-errors-in-graphical-runbooks"></a>Processamento de erros em runbooks gráficos
@@ -63,6 +63,6 @@ A `Get-AutomationVariable` atividade e o cmdlet [Start-AzVM](/powershell/module/
 
 As ligações de erro fluem destas atividades para uma `error management` única atividade de código. Esta atividade é configurada com uma expressão simples PowerShell que usa a `throw` palavra-chave para parar o processamento, juntamente com `$Error.Exception.Message` para obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de manipulação de erro de verificação de código de verificação de executo por automação](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a resolução de erros gráficos do [runbook, consulte os problemas do livro de contas de resolução de problemas](troubleshoot/runbooks.md).

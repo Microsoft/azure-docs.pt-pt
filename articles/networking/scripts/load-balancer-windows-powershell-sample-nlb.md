@@ -14,10 +14,10 @@ ms.date: 05/16/2017
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: eff2a4a0dd0b1541639de0126d0dd7c5c8dddd10
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234123"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Carregar o tráfego de equilíbrio para VMs para uma elevada disponibilidade

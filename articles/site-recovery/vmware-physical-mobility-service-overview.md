@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: 8c90427e2dd4ecf23cb803c4f75dbee34c38f992
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898584"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade de VMware VMs e servidores físicos
@@ -259,6 +259,6 @@ Como **pré-requisito para atualizar ou proteger as máquinas Debian 7** a parti
 1. **Por exemplo**, se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
     1. C:\Ficheiros de programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repositório
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Instale a instalação push para o serviço mobility](vmware-azure-install-mobility-service.md).

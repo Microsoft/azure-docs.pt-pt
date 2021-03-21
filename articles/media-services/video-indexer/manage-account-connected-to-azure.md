@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
 ms.openlocfilehash: 25025efe5254442c4862563ce329cfae69e7d033
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898448"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerir uma conta do Video Indexer ligada ao Azure
@@ -85,7 +85,7 @@ Se a sua conta necessitar de alguns ajustes, vê erros e avisos relevantes sobre
 
     Tem de alocar Unidades Reservadas de Mídia no seu recurso Media Service para indexar vídeos. Para um melhor desempenho de indexação, recomenda-se alocar pelo menos 10 Unidades Reservadas S3. Para obter informações sobre preços, consulte a secção faq da página [de preços dos Serviços de Mídia.](https://azure.microsoft.com/pricing/details/media-services/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode interagir programáticamente com a sua conta experimental ou contas de Indexer de Vídeo que estão ligadas ao Azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 

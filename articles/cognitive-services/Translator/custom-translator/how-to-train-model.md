@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 5c17f842b93fb99a6a06b94f84ae26126794b776
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896431"
 ---
 # <a name="train-a-model"></a>Preparar um modelo
@@ -72,6 +72,6 @@ Pode modificar um nome de modelo a partir da página 'Detalhes do Modelo'.
 
 6. Clique em Guardar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como ver detalhes do modelo.](how-to-view-model-details.md)

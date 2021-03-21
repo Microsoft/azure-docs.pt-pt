@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com direto Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | direto Microsoft Docs'
 description: Saiba como configurar um único sinal de entrada entre o Azure Ative Directory e o direct.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a3b9ae91118f714ce15f56cde0f79faa4fb4d640
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97586691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Azure Ative Directory com direto

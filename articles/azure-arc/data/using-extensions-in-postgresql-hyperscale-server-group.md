@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 6586375d7db71274f40eb62aeb24f9daad0d7c2e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688302"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Utilize extensões PostgreSQL no seu grupo de servidores de hiperescala pós-escala do Arco Azure
@@ -46,11 +46,11 @@ Este guia terá um cenário para utilizar duas destas extensões:
 
 |Extensões   |Requer ser adicionado a shared_preload_libraries  |Requer ser criado |
 |-------------|--------------------------------------------------|---------------------- |
-|`pg_cron`      |Não       |Sim        |
-|`pg_audit`     |Sim       |Sim        |
-|`plpgsql`      |Sim       |Sim        |
-|`postgis`      |Não       |Sim        |
-|`plv8`      |Não       |Sim        |
+|`pg_cron`      |No       |Yes        |
+|`pg_audit`     |Yes       |Yes        |
+|`plpgsql`      |Yes       |Yes        |
+|`postgis`      |No       |Yes        |
+|`plv8`      |No       |Yes        |
 
 ## <a name="add-extensions-to-the-shared_preload_libraries"></a>Adicione extensões ao shared_preload_libraries
 Para mais informações sobre isso são shared_preload_libraries leia a documentação do PostgreSQL [aqui:](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES)

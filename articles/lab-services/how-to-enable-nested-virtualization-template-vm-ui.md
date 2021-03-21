@@ -1,15 +1,15 @@
 ---
-title: Ativar a virtualização aninhada num modelo VM em Azure Lab Services (UI) Microsoft Docs
+title: Ativar a virtualização aninhada num modelo VM em Azure Lab Services (UI) | Microsoft Docs
 description: Aprenda a criar um VM modelo com vários VMs no interior.  Por outras palavras, ative a virtualização aninhada num modelo VM em Azure Lab Services.
 author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647924"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Ativar a virtualização aninhada numa máquina virtual de modelo nos Serviços Azure Lab manualmente
@@ -158,7 +158,7 @@ Os seguintes passos são instruções para adicionar o âmbito DHCP.  Neste arti
 
 Agora a sua máquina de modelo está pronta para criar máquinas virtuais Hyper-V.   Consulte [Criar uma máquina virtual em Hiper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obter instruções sobre como criar máquinas virtuais Hiper-V.  Consulte também o [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) para verificar os sistemas operativos e o software disponíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

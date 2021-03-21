@@ -7,10 +7,10 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
 ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389515"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
@@ -19,7 +19,7 @@ ms.locfileid: "100389515"
 
 O tempo de integração (IR) é a infraestrutura de computação que a Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para mais detalhes sobre o IR, consulte [a visão geral do tempo de execução da Integração](concepts-integration-runtime.md).
 
-Um tempo de integração auto-hospedado pode executar atividades de cópia entre uma loja de dados em nuvem e uma loja de dados em uma rede privada. Também pode despachar atividades de transformação contra recursos computacional numa rede no local ou numa rede virtual Azure. A instalação de um tempo de integração auto-hospedado necessita de uma máquina no local ou de uma máquina virtual dentro de uma rede privada.  
+Um runtime de integração autoalojado pode executar atividades de cópia entre um arquivo de dados da cloud e um arquivo de dados numa rede privada. Também pode distribuir atividades de transformação em relação aos recursos de computação numa rede no local ou numa rede virtual do Azure. A instalação de um runtime de integração autoalojado tem de ser num computador no local ou numa máquina virtual que esteja numa rede privada.  
 
 Este artigo descreve como pode criar e configurar um IR auto-hospedado.
 

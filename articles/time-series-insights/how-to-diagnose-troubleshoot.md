@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar e resolver problemas num ambiente da Gen2 - Azure Time Series Insights Microsoft Docs
+title: Diagnosticar e resolver problemas num ambiente da Gen2 - Azure Time Series Insights | Microsoft Docs
 description: Aprenda a diagnosticar e resolver problemas num ambiente Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98108794"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticar e resolver problemas num ambiente Azure Time Series Insights Gen2

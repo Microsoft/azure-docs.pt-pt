@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.openlocfilehash: 9f389d669e69dbfa6ec6d4d0b4716d2367443f17
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896804"
 ---
 # <a name="add-profanity-filtering-with-the-translator"></a>Adicione filtragem de profanação com o Tradutor
@@ -32,6 +32,6 @@ O método Translate() toma o parâmetro "opções", que contém o novo elemento 
 | Marcado | Palavras profanas estão rodeadas por tags \<profanity> XML... \</profanity> . | 彼は変態です。 | É um \<profanity> \</profanity> idiota. |
 | Eliminado | Palavras profanas são removidas da saída sem substituição. | 彼は。 | É um. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Aplicar filtragem de profanidade com a sua chamada de Tradutor](reference/v3-0-translate.md)

@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94700951"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Service Fabric
@@ -132,7 +132,7 @@ O certificado deve satisfazer os seguintes requisitos relativos aos certificados
 -   O nome do certificado deve corresponder ao nome de domínio utilizado para aceder ao seu serviço na nuvem.
 
     - Adquira um nome de domínio personalizado para usar para aceder ao seu serviço na nuvem.
-    - Solicite um certificado a um CA com um nome de sujeito que corresponda ao nome de domínio personalizado do seu serviço. Por exemplo, se o seu nome de domínio personalizado for __contoso__**.com,** o certificado da sua AC deve ter o nome **de assunto .contoso.com** ou **www.contoso.com**. __www__
+    - Solicite um certificado a um CA com um nome de sujeito que corresponda ao nome de domínio personalizado do seu serviço. Por exemplo, se o seu nome de domínio personalizado for __contoso__**.com,** o certificado da sua AC deve ter o nome **de assunto .contoso.com** ou **www.contoso.com**. 
 
     >[!NOTE]
     >Não é possível obter um certificado SSL/TLS de um CA para o domínio __cloudapp__**.net.**

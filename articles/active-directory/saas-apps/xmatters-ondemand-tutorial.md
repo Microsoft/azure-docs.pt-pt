@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 762bd1c536df0ca307149ba7c201f08f5bdfded5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Ative Directory com xMatters OnDemand
@@ -141,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Clique em **Administração** e, em seguida, clique em **Detalhes da Empresa**.
 
-    ![Página de administração](./media/xmatters-ondemand-tutorial/admin.png "Admin")
+    ![Página de administração](./media/xmatters-ondemand-tutorial/admin.png "Administrador")
 
 3. Na página **de Configuração SAML,** execute os seguintes passos:
 
@@ -183,6 +183,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo xMatters OnDemand nas Minhas Apps, deverá ser automaticamente inscrito no xMatters OnDemand para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado xMatters OnDemand, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

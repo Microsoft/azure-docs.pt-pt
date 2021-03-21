@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/22/2020
 ms.author: baanders
 ms.openlocfilehash: fb148551db798207a52bd7aef629da79dd3341e1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212824"
 ---
 Com `DefaultAzureCredential` , a amostra procurará credenciais no seu ambiente local, como um azure in in em um [Azure CLI](/cli/azure/install-azure-cli) local ou em Visual Studio ou Visual Studio Code. Por esta razão, deverá *inscrever-se localmente no Azure* através de um destes mecanismos para configurar credenciais para a amostra.

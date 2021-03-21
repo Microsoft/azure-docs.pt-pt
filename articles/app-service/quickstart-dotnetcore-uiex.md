@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102214240"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
@@ -304,7 +304,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="7-update-and-redeploy-the-code"></a>7. Atualizar e recolocar o código
 
-1. **Abra o ficheiro _Startup.cs_** no diretório local. 
+1. **Abra o ficheiro _.cs Arranque_** no diretório local. 
 
 1. **Faça uma pequena alteração** ao texto na chamada de método `context.Response.WriteAsync` .
 

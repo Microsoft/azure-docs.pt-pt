@@ -4,10 +4,10 @@ description: Saiba mais sobre a solução de backup do Disco Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915513"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Visão geral da cópia de segurança do disco Azure (na pré-visualização)
@@ -73,6 +73,6 @@ Considere a cópia de segurança do disco Azure em cenários onde:
 
 O Azure Backup oferece uma solução de gestão de ciclo de vida instantânea para proteger os Discos Azure. As imagens de disco criadas pela Azure Backup são armazenadas no grupo de recursos dentro da sua subscrição Azure e incorrem em custos **de Armazenamento Instantâneo.** Pode visitar [o Preço do Disco Gerido](https://azure.microsoft.com/pricing/details/managed-disks/) para obter mais detalhes sobre o preço do instantâneo. Como as imagens não são copiadas para o Cofre de Reserva, o Azure Backup não cobra uma taxa **de instância protegida** e o custo de armazenamento de **backup** não se aplica. Além disso, os instantâneos incrementais ocupam alterações delta desde o último instantâneo e são sempre armazenados em armazenamento padrão, independentemente do tipo de armazenamento dos discos geridos pelos pais e são cobrados de acordo com o preço do armazenamento padrão. Isto faz do Azure Disk Backup uma solução rentável.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Matriz de suporte da Cópia de Segurança de Discos do Azure](disk-backup-support-matrix.md)

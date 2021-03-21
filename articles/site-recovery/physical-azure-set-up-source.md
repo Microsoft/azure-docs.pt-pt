@@ -1,5 +1,5 @@
 ---
-title: Configurar o servidor de configuração para a recuperação de desastres de servidores físicos para o Azure usando a Recuperação do Site Azure Microsoft Docs'
+title: Configurar o servidor de configuração para a recuperação de desastres dos servidores físicos para o Azure utilizando o Azure Site Recovery | Microsoft Docs'
 description: Este artigo descreve como configurar o servidor de configuração no local para a recuperação de desastres de servidores físicos no local para Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001570"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre dos servidores físicos para Azure

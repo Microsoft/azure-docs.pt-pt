@@ -1,5 +1,5 @@
 ---
-title: Desinstalar Ad Connect Azure
+title: Desinstalar Azure AD Connect
 description: Este documento descreve como desinstalar o Azure AD Connect.
 services: active-directory
 author: billmath
@@ -12,13 +12,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5eb537a70c69745c8067ffb71cfb895a0875945
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96934188"
 ---
-# <a name="uninstall-azure-ad-connect"></a>Desinstalar Ad Connect Azure
+# <a name="uninstall-azure-ad-connect"></a>Desinstalar Azure AD Connect
 
 Este documento descreve como desinstalar corretamente o Azure AD Connect.
 
