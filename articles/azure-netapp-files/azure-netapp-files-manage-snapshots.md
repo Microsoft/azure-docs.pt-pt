@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/20/2021
 ms.author: b-juche
 ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174364"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: d4353e6be313d61716933879efa930e22472781b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493956"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver as Funções do Azure com o Visual Studio Code
@@ -496,7 +496,7 @@ Depois de completar estes passos, as chamadas feitas para as Ferramentas Core su
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com as suas aplicações de função em Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes comandos Azure Functions estão disponíveis:
 
-|Comando de Funções Azure  | Descrição  |
+|Comando de Funções Azure  | Description  |
 |---------|---------|
 |**Adicionar novas definições**  |  Cria uma nova definição de aplicação em Azure. Para saber mais, consulte [as definições de aplicação da Publicação](#publish-application-settings). Também poderá ter de [descarregar esta definição para as suas definições locais](#download-settings-from-azure). |
 | **Configure Fonte de Implantação** | Liga a sua aplicação de função em Azure a um repositório local de Git. Para saber mais, consulte [a implementação contínua para Funções Azure](functions-continuous-deployment.md). |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
 ms.openlocfilehash: 6c0ea6664c7f86a2672cb22091970ef727969dc2
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103562523"
 ---
 # <a name="azure-storage-analytics-and-big-data-partners"></a>Azure Storage analytics e grandes parceiros de dados
@@ -21,7 +21,7 @@ Este artigo destaca as empresas parceiras da Microsoft que estão integradas com
 
 ## <a name="verified-partners"></a>Parceiros verificados
 
-| Parceiro | Descrição | Ligação website/produto |
+| Parceiro | Description | Ligação website/produto |
 | ------- | ----------- | -------------------- |
 |![Logotipo da empresa Dremio](./media/dremio-logo.png) |**Dremio**<br>Analistas e cientistas de dados podem descobrir, explorar e curar dados, enquanto o seu departamento de tecnologias da informação (TI) mantém a governação e a segurança. O Dremio facilita a junção do Armazenamento do Lago de Dados com o Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight, entre outros. Com o Dremio, os analistas do Power BI podem pesquisar novos conjuntos de dados armazenados no Armazenamento de Data Lake, aceder imediatamente a esses dados no Power BI, criar visualizações e refinar relatórios iterativamente em tempo real. Os analistas também podem criar novos relatórios que combinem dados entre o Armazenamento do Lago de Dados e outras bases de dados.|[Página do parceiro](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br>|
 ![Logotipo da empresa Informatica](./media/informatica-logo.png) |**Informatica**<br>A plataforma de gestão de dados em escala empresarial da Informatica automatiza e acelera a descoberta, entrega, qualidade e governação dos dados empresariais no Azure. A integração de dados alimentada por IA, orientada por metadados e capacidades de qualidade e governação de dados permitem-lhe modernizar a análise e acelerar a sua mudança para um armazém de dados ou para um lago de dados em Azure.|[Página do parceiro](https://www.informatica.com/azure)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.annualiics?tab=Overview)|

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
 ms.openlocfilehash: 5ac0f0677be6b641d496a941c5a8e1343fd017bc
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103562563"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC

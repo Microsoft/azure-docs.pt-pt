@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: fa6a4a8686fe5a33a6f240a8e972a687e872732a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939745"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar para os centros apache Hadoop para Azure HDInsight - segurança e devOps melhores práticas
@@ -118,6 +118,6 @@ Para obter mais informações, consulte o artigo: [correção de SISTEMAS para H
 2. **Realizar Testes** - Executar iterativamente testes funcionais e de desempenho.
 3. **Otimize** - Aborde quaisquer problemas de desempenho com base nos resultados dos testes acima e, em seguida, reteste para confirmar as melhorias de desempenho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre [HDInsight 4.0](./apache-hadoop-introduction.md).

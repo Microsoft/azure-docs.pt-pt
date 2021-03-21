@@ -6,10 +6,10 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 2a2e9d429d494c35c49a5b0a3e10b291fd8f24a6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100633942"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Azure geriu aplicações com notificações

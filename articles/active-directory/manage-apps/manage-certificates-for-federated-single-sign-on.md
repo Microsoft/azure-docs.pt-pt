@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259224"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604003"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para inscrição única federada no Azure Ative Directory
 
@@ -89,6 +89,8 @@ A Azure AD enviará uma notificação por e-mail 60, 30 e 7 dias antes do termo 
 1. Repita o passo anterior para cada endereço de e-mail que pretende adicionar.
 1. Para cada endereço de e-mail que pretende eliminar, selecione o ícone **Eliminar** (uma lata de lixo) ao lado do endereço de e-mail.
 1. Selecione **Guardar**.
+
+Pode adicionar até 5 endereços de e-mail à lista de Notificações (incluindo o endereço de e-mail do administrador que adicionou a aplicação). Se precisar de mais pessoas para ser notificado, use os e-mails da lista de distribuição.
 
 Receberá o e-mail de notificação de aadnotification@microsoft.com . Para evitar que o e-mail vá para a sua localização de spam, adicione este e-mail aos seus contactos.
 

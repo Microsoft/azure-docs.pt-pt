@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: 9ade5a51e2251669daee6fbaca9aa4c50f7e9bfc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704366"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de Monitorização VMware (Preprecada) no Azure Monitor
@@ -74,7 +74,7 @@ A solução VMware Monitoring recolhe várias métricas de desempenho e regista 
 
 A tabela seguinte mostra métodos de recolha de dados e outros detalhes sobre a forma como os dados são recolhidos.
 
-| plataforma | Agente de Log Analytics para Linux | Agente gestor de operações do Centro de Sistema | Storage do Azure | Diretor de Operações necessário? | Dados de agente do Gestor de Operações enviados através do grupo de gestão | frequência de coleção |
+| plataforma | Agente de Log Analytics para Linux | Agente gestor de operações do Centro de Sistema | Armazenamento do Azure | Diretor de Operações necessário? | Dados de agente do Gestor de Operações enviados através do grupo de gestão | frequência de coleção |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |a cada 3 minutos |
 

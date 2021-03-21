@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
 ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100547275"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Respostas da API falsas
@@ -84,7 +84,7 @@ Uma API expõe uma ou mais operações. Nesta secção, adicione uma operação 
 Embora não sejam necessárias para este exemplo, as definições adicionais para uma operação API podem ser configuradas em outros separadores, incluindo:
 
 
-|Tecla de Tabulação      |Descrição  |
+|Tecla de Tabulação      |Description  |
 |---------|---------|
 |**Query**     |  Adicione parâmetros de consulta. Além de fornecer um nome e descrição, pode fornecer valores que são atribuídos a um parâmetro de consulta. Um dos valores pode ser marcado como predefinição (opcional).        |
 |**Pedir**     |  Defina tipos de conteúdo de pedido, exemplos e esquemas.       |

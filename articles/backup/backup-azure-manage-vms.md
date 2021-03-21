@@ -4,10 +4,10 @@ description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM uti
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100635082"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure

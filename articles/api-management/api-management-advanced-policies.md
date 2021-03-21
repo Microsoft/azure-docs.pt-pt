@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103562489"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gestão de API
@@ -128,15 +128,15 @@ Este exemplo mostra como executar a filtragem de conteúdos removendo elementos 
 
 | Elemento   | Descrição                                                                                                                                                                                                                                                               | Obrigatório |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| escolher    | Elemento de raiz.                                                                                                                                                                                                                                                             | Sim      |
-| quando      | A condição a usar para a `if` ou `ifelse` partes da `choose` apólice. Se a `choose` apólice tiver `when` várias secções, são avaliadas sequencialmente. Uma vez que o `condition` elemento de um quando o elemento `true` avalia, não são avaliadas mais `when` condições. | Sim      |
+| escolher    | Elemento de raiz.                                                                                                                                                                                                                                                             | Yes      |
+| quando      | A condição a usar para a `if` ou `ifelse` partes da `choose` apólice. Se a `choose` apólice tiver `when` várias secções, são avaliadas sequencialmente. Uma vez que o `condition` elemento de um quando o elemento `true` avalia, não são avaliadas mais `when` condições. | Yes      |
 | caso contrário | Contém o corte de política a utilizar se nenhuma das `when` condições avaliar `true` .                                                                                                                                                                               | No       |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo                                              | Descrição                                                                                               | Obrigatório |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| condition="Expressão booleana &#124; constante booleana" | A expressão booleana ou constante para ser avaliada quando a declaração de política contendo `when` é avaliada. | Sim      |
+| condition="Expressão booleana &#124; constante booleana" | A expressão booleana ou constante para ser avaliada quando a declaração de política contendo `when` é avaliada. | Yes      |
 
 ### <a name="usage"></a><a name="ChooseUsage"></a> Utilização
 
@@ -246,7 +246,7 @@ Esta política de nível de funcionamento não encaminha pedidos para o serviço
 
 | Elemento         | Descrição   | Obrigatório |
 | --------------- | ------------- | -------- |
-| pedido para o futuro | Elemento de raiz. | Sim      |
+| pedido para o futuro | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
@@ -299,14 +299,14 @@ O exemplo a seguir demonstra como limitar o número de pedidos reencaminhados pa
 
 | Elemento           | Descrição   | Obrigatório |
 | ----------------- | ------------- | -------- |
-| limitação da concordância | Elemento de raiz. | Sim      |
+| limitação da concordância | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                                                        | Obrigatório | Predefinição |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | Uma corda. Expressão permitida. Especifica o âmbito de concordância. Pode ser partilhado por várias políticas. | Sim      | N/D     |
-| contagem máxima | Um número inteiro. Especifica um número máximo de pedidos que são autorizados a entrar na apólice.           | Sim      | N/D     |
+| key       | Uma corda. Expressão permitida. Especifica o âmbito de concordância. Pode ser partilhado por várias políticas. | Yes      | N/D     |
+| contagem máxima | Um número inteiro. Especifica um número máximo de pedidos que são autorizados a entrar na apólice.           | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
@@ -352,13 +352,13 @@ Qualquer string pode ser usado como o valor a ser registado em Centros de Evento
 
 | Elemento         | Descrição                                                                     | Obrigatório |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
-| log-to-eventhub | Elemento de raiz. O valor deste elemento é a cadeia para iniciar sessão no seu centro de eventos. | Sim      |
+| log-to-eventhub | Elemento de raiz. O valor deste elemento é a cadeia para iniciar sessão no seu centro de eventos. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo     | Descrição                                                               | Obrigatório                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| logger-id     | A identificação do Madeireiro registou-se no seu serviço de Gestão API.         | Sim                                                                  |
+| logger-id     | A identificação do Madeireiro registou-se no seu serviço de Gestão API.         | Yes                                                                  |
 | partição id  | Especifica o índice da partição onde as mensagens são enviadas.             | Opcional. Este atributo não pode ser utilizado se `partition-key` for utilizado. |
 | chave de partição | Especifica o valor utilizado para a atribuição de divisórias quando as mensagens são enviadas. | Opcional. Este atributo não pode ser utilizado se `partition-id` for utilizado.  |
 
@@ -397,7 +397,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 | Elemento       | Descrição   | Obrigatório |
 | ------------- | ------------- | -------- |
-| mock-response | Elemento de raiz. | Sim      |
+| mock-response | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
@@ -456,15 +456,15 @@ No exemplo seguinte, o reencaminhamento de pedidos é novamente experimentado at
 
 | Elemento | Descrição                                                         | Obrigatório |
 | ------- | ------------------------------------------------------------------- | -------- |
-| retry   | Elemento de raiz. Pode conter quaisquer outras políticas como elementos infantis. | Sim      |
+| retry   | Elemento de raiz. Pode conter quaisquer outras políticas como elementos infantis. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo        | Descrição                                                                                                                                           | Obrigatório | Predefinição |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condição        | Um literal ou [expressão](api-management-policy-expressions.md) booleano especificando se as retrósias devem ser paradas `false` () ou continuadas ( `true` ).      | Sim      | N/D     |
-| count            | Um número positivo que especifica o número máximo de tentativas.                                                                                | Sim      | N/D     |
-| interval         | Um número positivo em segundos especificando o intervalo de espera entre as tentativas de repetição.                                                                 | Sim      | N/D     |
+| condição        | Um literal ou [expressão](api-management-policy-expressions.md) booleano especificando se as retrósias devem ser paradas `false` () ou continuadas ( `true` ).      | Yes      | N/D     |
+| count            | Um número positivo que especifica o número máximo de tentativas.                                                                                | Yes      | N/D     |
+| interval         | Um número positivo em segundos especificando o intervalo de espera entre as tentativas de repetição.                                                                 | Yes      | N/D     |
 | intervalo máximo     | Um número positivo em segundos especificando o intervalo máximo de espera entre as tentativas de repetição. É usado para implementar um algoritmo exponencial de retíria. | No       | N/D     |
 | delta            | Um número positivo em segundos especificando o incremento do intervalo de espera. É usado para implementar os algoritmos lineares e exponenciais de retíria.             | No       | N/D     |
 | primeira-rápida retry | Se estiver `true` definido, a primeira tentativa de repetição é executada imediatamente.                                                                                  | No       | `false` |
@@ -513,7 +513,7 @@ A `return-response` apólice aborta a execução do gasoduto e devolve uma respo
 
 | Elemento         | Descrição                                                                               | Obrigatório |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
-| resposta de retorno | Elemento de raiz.                                                                             | Sim      |
+| resposta de retorno | Elemento de raiz.                                                                             | Yes      |
 | set-header      | Uma declaração [política de cabeçalho.](api-management-transformation-policies.md#SetHTTPheader) | No       |
 | conjunto de corpo        | Uma [declaração política de corpo definido.](api-management-transformation-policies.md#SetBody)         | No       |
 | estado de conjunto      | Uma declaração de política [de definição.](api-management-advanced-policies.md#SetStatus)           | No       |
@@ -583,7 +583,7 @@ Esta política de amostra mostra um exemplo de utilização da `send-one-way-req
 
 | Elemento                    | Descrição                                                                                                 | Obrigatório                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| enviar-um-pedido de ida       | Elemento de raiz.                                                                                               | Sim                             |
+| enviar-um-pedido de ida       | Elemento de raiz.                                                                                               | Yes                             |
 | url                        | A URL do pedido.                                                                                     | Não se mode=copy; caso contrário, sim. |
 | método                     | O método HTTP para o pedido.                                                                            | Não se mode=copy; caso contrário, sim. |
 | cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | No                              |
@@ -595,7 +595,7 @@ Esta política de amostra mostra um exemplo de utilização da `send-one-way-req
 | Atributo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Predefinição  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Novo      |
-| name          | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
+| name          | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes      | N/D      |
 | existe-ação | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | No       | sobreposição |
 
 ### <a name="usage"></a>Utilização
@@ -667,7 +667,7 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 
 | Elemento                    | Descrição                                                                                                 | Obrigatório                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| envio-pedido               | Elemento de raiz.                                                                                               | Sim                             |
+| envio-pedido               | Elemento de raiz.                                                                                               | Yes                             |
 | url                        | A URL do pedido.                                                                                     | Não se mode=copy; caso contrário, sim. |
 | método                     | O método HTTP para o pedido.                                                                            | Não se mode=copy; caso contrário, sim. |
 | cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | No                              |
@@ -679,10 +679,10 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 | Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Predefinição  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Novo      |
-| resposta-variável-nome="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, será criada após a execução bem sucedida da apólice e tornar-se-á acessível através da [`context.Variable`](api-management-policy-expressions.md#ContextVariables) recolha.                                                                                                                                                                                                                                                                                                                          | Sim      | N/D      |
+| resposta-variável-nome="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, será criada após a execução bem sucedida da apólice e tornar-se-á acessível através da [`context.Variable`](api-management-policy-expressions.md#ContextVariables) recolha.                                                                                                                                                                                                                                                                                                                          | Yes      | N/D      |
 | timeout="inteiro"               | O intervalo de tempo em segundos antes da chamada para o URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
 | ignorar erro                    | Se for verdade e o pedido resultar em erro:<br /><br /> - Se o nome variável de resposta for especificado, conterá um valor nulo.<br />- Se não for especificado o nome variável de resposta, o contexto. O pedido não será atualizado.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
-| name                            | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
+| name                            | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes      | N/D      |
 | existe-ação                   | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | No       | sobreposição |
 
 ### <a name="usage"></a>Utilização
@@ -717,13 +717,13 @@ Note a utilização de [propriedades](api-management-howto-properties.md) como v
 
 | Elemento | Descrição  | Obrigatório |
 | ------- | ------------ | -------- |
-| proxy   | Elemento de raiz | Sim      |
+| proxy   | Elemento de raiz | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo         | Descrição                                            | Obrigatório | Predefinição |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url="string"      | URL de procuração na forma de http://host:port .             | Sim      | N/D     |
+| url="string"      | URL de procuração na forma de http://host:port .             | Yes      | N/D     |
 | username="string" | Nome de utilizador para ser utilizado para autenticação com o representante. | No       | N/D     |
 | palavra-passe="cadeia" | Palavra-passe para ser usada para autenticação com o representante. | No       | N/D     |
 
@@ -780,7 +780,7 @@ Esta política de amostras que utiliza a `set-method` política mostra um exempl
 
 | Elemento    | Descrição                                                       | Obrigatório |
 | ---------- | ----------------------------------------------------------------- | -------- |
-| método de conjunto | Elemento de raiz. O valor do elemento especifica o método HTTP. | Sim      |
+| método de conjunto | Elemento de raiz. O valor do elemento especifica o método HTTP. | Yes      |
 
 ### <a name="usage"></a>Utilização
 
@@ -823,14 +823,14 @@ Este exemplo mostra como devolver uma resposta 401 se o sinal de autorização f
 
 | Elemento    | Descrição   | Obrigatório |
 | ---------- | ------------- | -------- |
-| estado de conjunto | Elemento de raiz. | Sim      |
+| estado de conjunto | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo       | Descrição                                                | Obrigatório | Predefinição |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| código="inteiro"  | O código de estado HTTP para devolver.                            | Sim      | N/D     |
-| reason="string" | Uma descrição do motivo para devolver o código de estado. | Sim      | N/D     |
+| código="inteiro"  | O código de estado HTTP para devolver.                            | Yes      | N/D     |
+| reason="string" | Uma descrição do motivo para devolver o código de estado. | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
@@ -861,14 +861,14 @@ O exemplo a seguir demonstra uma política variável definida na secção de ent
 
 | Elemento      | Descrição   | Obrigatório |
 | ------------ | ------------- | -------- |
-| conjunto-variável | Elemento de raiz. | Sim      |
+| conjunto-variável | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                              | Necessário |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| name      | O nome da variável.                                                | Sim      |
-| valor     | O valor da variável. Isto pode ser uma expressão ou um valor literal. | Sim      |
+| name      | O nome da variável.                                                | Yes      |
+| valor     | O valor da variável. Isto pode ser uma expressão ou um valor literal. | Yes      |
 
 ### <a name="usage"></a>Utilização
 
@@ -945,18 +945,18 @@ A `trace` política adiciona um traço personalizado na saída do Inspetor API, 
 
 | Elemento  | Descrição                                                                                                                                          | Obrigatório |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| traço    | Elemento de raiz.                                                                                                                                        | Sim      |
-| message  | Uma corda ou expressão a ser registada.                                                                                                                 | Sim      |
+| traço    | Elemento de raiz.                                                                                                                                        | Yes      |
+| message  | Uma corda ou expressão a ser registada.                                                                                                                 | Yes      |
 | do IdP | Adiciona uma propriedade personalizada à telemetria Application Insights [Trace.](../azure-monitor/app/data-model-trace-telemetry.md) | No       |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                                                                               | Obrigatório | Predefinição |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | String literal significativo para o observador de vestígios e especificando a origem da mensagem.                                   | Sim      | N/D     |
+| source    | String literal significativo para o observador de vestígios e especificando a origem da mensagem.                                   | Yes      | N/D     |
 | gravidade  | Especifica o nível de gravidade do vestígio. Os valores permitidos `verbose` `information` são, `error` (do mais baixo ao mais alto). | No       | Verboso |
-| name      | Nome da propriedade.                                                                                                     | Sim      | N/D     |
-| valor     | Valor do imóvel.                                                                                                    | Sim      | N/D     |
+| name      | Nome da propriedade.                                                                                                     | Yes      | N/D     |
+| valor     | Valor do imóvel.                                                                                                    | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
@@ -1020,7 +1020,7 @@ No exemplo seguinte, existem duas `choose` políticas como políticas imediatas 
 
 | Elemento | Descrição                                                                                                   | Obrigatório |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-| esperar    | Elemento de raiz. Pode conter apenas como elementos infantis `send-request` `cache-lookup-value` , e `choose` políticas. | Sim      |
+| esperar    | Elemento de raiz. Pode conter apenas como elementos infantis `send-request` `cache-lookup-value` , e `choose` políticas. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 

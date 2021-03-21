@@ -8,10 +8,10 @@ ms.date: 02/22/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ms.openlocfilehash: 69d23b9d02eb176a2e42985ef5c3673e83d9bb7e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102607905"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>Quickstart: Criar um modelo de âncora de objetos a partir de um modelo 3D

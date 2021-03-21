@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   ms.date: 09/02/2021
   ms.custom: contperf-fy21q3
-  ms.openlocfilehash: 4b18c599dec89cf7ac5bc594ff6bd47b9919b5eb
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: 8043b906cff5af5acd41ea08a8a38bb7c75b42c1
+  ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102212642"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104669411"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -88,6 +88,10 @@ landingContent:
       url: /rest/api/iotcentral/
 - title: Faça a gestão dos seus dispositivos
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral para operadores
+      url: core/overview-iot-central-operator.md
   - linkListType: tutorial
     links:
     - text: Utilizar grupos de dispositivos

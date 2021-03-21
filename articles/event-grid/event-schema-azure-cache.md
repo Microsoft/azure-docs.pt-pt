@@ -6,10 +6,10 @@ ms.date: 02/11/2021
 author: curib
 ms.author: cauribeg
 ms.openlocfilehash: 1a2995bc9ef40cd4eab320ce1bb4c5faf61e0e6e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371282"
 ---
 # <a name="azure-cache-for-redis-as-an-event-grid-source"></a>Cache Azure para Redis como fonte de grade de eventos

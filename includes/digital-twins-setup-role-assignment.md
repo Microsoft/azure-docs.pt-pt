@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: a905bb3b4effb0381facfbfaa37c8ea412b81287
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100552497"
 ---
 A Azure Digital Twins usa [o Azure Ative Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) para controlo de acesso baseado em funções (RBAC). Isto significa que antes de um utilizador poder fazer chamadas de avião de dados para a sua instância Azure Digital Twins, esse utilizador precisa de ser atribuído a uma função com permissões apropriadas para o mesmo.

@@ -3,12 +3,12 @@ title: Implementar amostra de amostra de carga de carga DE CARGA ISO 27001 ASE/S
 description: Implementar etapas da amostra de projeto de projeto de projeto de modelo de tipo de modelo de serviço de aplicações ISO 27001/SQL Database, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 60867c117c9f1fda6f8ba33333c19a7bd764d219
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627487"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669649"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementar a amostra de amostra de carga de carga de trabalho do serviço de aplicações ISO 27001/SQL Database
 
@@ -133,7 +133,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Grupo de recursos de base de dados Azure SQL|Grupo de recursos|Name|**Locked** - Concatenates o **nome da Organização** para tornar o grupo de recursos `-workload-azsql-rg` único.|
 |Grupo de recursos de base de dados Azure SQL|O grupo de recursos|A localização|**Bloqueado** - Usa o parâmetro da planta.|
 |Modelo de base de dados Azure SQL|Modelo do Resource Manager|Nome de utilizador de administração Azure SQL Server|Nome de utilizador para o Azure SQL Server. Deve corresponder ao mesmo valor de propriedade no **modelo key vault**. O valor predefinido é _sql-administrador-utilizador_.|
-|Modelo de base de dados Azure SQL|Modelo do Resource Manager|Senha de administração do Azure SQL Server (ID de recurso do cofre de chaves)|A identificação de recursos do Cofre de Chaves. Utilize "/subscrição/{subscriçãoId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e `{subscriptionId}` substitua-o pelo seu ID de subscrição e `{orgName}` pelo parâmetro de planta do nome da **Organização.**|
+|Modelo de base de dados Azure SQL|Modelo do Resource Manager|Senha de administração do Azure SQL Server (ID de recurso do cofre de chaves)|A identificação de recursos do Cofre de Chaves. Utilize "/subscrições/{subscriçãoId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e `{subscriptionId}` substitua-o pelo seu ID de subscrição e `{orgName}` pelo parâmetro de plantação do nome da **Organização.**|
 |Modelo de base de dados Azure SQL|Modelo do Resource Manager|Senha de administração do Azure SQL Server (Key Vault Secret Name)|Nome de utilizador do administrador do SQL Server. Deve corresponder o valor na propriedade **do modelo do Cofre de Chaves** **Azure SQL Server nome de utilizador** de administração .|
 |Modelo de base de dados Azure SQL|Modelo do Resource Manager|Retenção de registos em dias|Retenção de dados em dias. O valor predefinido é _de 365_.|
 |Modelo de base de dados Azure SQL|Modelo do Resource Manager|ID de objeto de administração AAD|ID de objeto AAD do utilizador que será designado como administrador do Ative Directory. Sem valor padrão e não pode ser deixado em branco. Para localizar este valor a partir do portal Azure, procure e selecione "Utilizadores" em _Serviços_. Utilize a caixa _Nome_ para filtrar o nome da conta e selecione essa conta. Na página de perfil do _Utilizador,_ selecione o ícone "Clique para copiar" ao lado do ID do _objeto._|

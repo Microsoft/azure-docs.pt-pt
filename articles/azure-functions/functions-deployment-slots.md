@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102172414"
 ---
 # <a name="azure-functions-deployment-slots"></a>Slots de implementação de funções Azure
@@ -183,7 +183,7 @@ Pode remover uma ranhura através do [CLI](/cli/azure/functionapp/deployment/slo
 Utilizando o [Azure CLI,](/cli/azure/functionapp/deployment/slot)pode automatizar as seguintes ações para uma ranhura:
 
 - [criar](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
+- [eliminar](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
 - [lista](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list)
 - [troca](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap)
 - [troca automática](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-auto-swap)

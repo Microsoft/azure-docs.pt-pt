@@ -3,14 +3,14 @@ title: Escalões de preço – Azure Database for MariaDB
 description: Saiba mais sobre os vários níveis de preços para Azure Database para MariaDB, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 6c786ea80ecbe2f174d8c3b701316791e1b6104f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664253"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para os níveis de preços mariaDB
@@ -76,9 +76,9 @@ Estamos a aumentar os limites de armazenamento nos nossos níveis otimizados de 
 > Todas as outras regiões suportam até 4TB de armazenamento e até 6000 IOPS.
 >
 
-### <a name="reaching-the-storage-limit"></a>Atingindo o limite de armazenamento
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
-Os servidores com menos de 100 GB de armazenamento a provisionado só são marcados de leitura se o armazenamento gratuito for inferior a 5% do tamanho de armazenamento a provisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
+Os servidores com armazenamento aprovisionado igual ou inferior a 100 GB são marcados como só de leitura se o armazenamento livre for inferior a 5% do tamanho de armazenamento aprovisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
 
 Por exemplo, se tiver provisionado 110 GB de armazenamento, e a utilização real ultrapassar os 105 GB, o servidor está marcado apenas para leitura. Alternativamente, se tiver disponibilizado 5 GB de armazenamento, o servidor só está marcado quando o armazenamento gratuito atinge menos de 256 MB.
 

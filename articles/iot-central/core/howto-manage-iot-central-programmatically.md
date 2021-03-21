@@ -1,18 +1,18 @@
 ---
-title: Gerir o IoT Central programáticamente Microsoft Docs
+title: Gerir o IoT Central programáticamente | Microsoft Docs
 description: Este artigo descreve como criar e gerir o seu IoT Central programáticamente. Pode visualizar, modificar e remover a aplicação utilizando múltiplos SDKs de linguagem, tais como JavaScript, Python, C#, Ruby e Go.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/19/2020
+ms.date: 12/23/2020
 ms.topic: how-to
-ms.openlocfilehash: 773793c7681890098fea1a37cc5b9912c0ecb75c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 2feb4d85e7be4076eef8b2796d15b622f6b17c3a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122999"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104658306"
 ---
 # <a name="manage-iot-central-programmatically"></a>Gerir o IoT Central programáticamente
 
@@ -36,6 +36,8 @@ A tabela que se segue lista os repositórios SDK e os comandos de instalação d
 ## <a name="samples"></a>Amostras
 
 O repositório [de amostras Azure IoT Central ARM SDK](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) tem amostras de código para várias linguagens de programação que mostram como criar, atualizar, listar e eliminar aplicações Azure IoT Central.
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

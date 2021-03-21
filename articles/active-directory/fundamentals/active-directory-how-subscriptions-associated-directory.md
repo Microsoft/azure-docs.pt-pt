@@ -1,6 +1,6 @@
 ---
 title: Adicione uma subscrição Azure existente ao seu inquilino - Azure AD
-description: Instruções sobre como adicionar uma assinatura Azure existente ao seu inquilino Azure Ative Directory.
+description: Instruções sobre como adicionar uma subscrição Azure existente ao seu inquilino Azure Ative (Azure AD).
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094288"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594636"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -43,11 +43,11 @@ Antes de poder associar ou adicionar a sua subscrição, faça as seguintes tare
 
 - Reveja a seguinte lista de alterações que ocorrerão após associar ou adicionar a sua subscrição e como poderá ser afetado:
 
-  - Os utilizadores que tenham sido atribuídos funções usando o Azure RBAC perderão o seu acesso
-  - Administrador de serviço e Co-Administrators perderão acesso
-  - Se tiveres cofres chave, eles ficarão inacessíveis e terás de os arranjar depois da associação.
-  - Se tiver identidades geridas para recursos como Máquinas Virtuais ou Aplicações Lógicas, deve ree capacitá-las ou recriá-las após a associação
-  - Se tiver um Azure Stack registado, terá de re-registrá-lo após associação
+  - Os utilizadores que tenham sido atribuídos funções usando o Azure RBAC perderão o seu acesso.
+  - O Administrador de Serviço e Co-Administrators perderão o acesso.
+  - Se tiveres cofres chave, eles ficam inacessíveis e terás de os arranjar depois da associação.
+  - Se tiver identidades geridas para recursos como Máquinas Virtuais ou Aplicações Lógicas, deve ree capacitá-las ou recriá-las após a associação.
+  - Se tiver um Azure Stack registado, terá de re-registrá-lo após associação.
   - Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 - Inscreva-se usando uma conta que:
@@ -55,7 +55,7 @@ Antes de poder associar ou adicionar a sua subscrição, faça as seguintes tare
   - Tem uma atribuição de função [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a subscrição. Para obter informações sobre como atribuir a função de Proprietário, consulte [as funções De Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
   - Existe tanto no diretório atual como no novo diretório. O diretório atual está associado à subscrição. Vai associar o novo diretório à assinatura. Para obter mais informações sobre o acesso a outro diretório, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../external-identities/add-users-administrator.md).
 
-- Certifique-se de que não está a utilizar uma subscrição dos Fornecedores de Serviços em Nuvem (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma subscrição da Microsoft Internal (MS-AZR-0015P), ou uma subscrição da Microsoft Imagine (MS-AZR-0144P).
+- Certifique-se de que não está a utilizar uma subscrição dos Fornecedores de Serviços em Nuvem (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma subscrição da Microsoft Internal (MS-AZR-0015P), ou uma subscrição do Microsoft Azure for Students Starter (MS-AZR-0144P).
 
 ## <a name="associate-a-subscription-to-a-directory"></a>Associar uma subscrição a um diretório<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
@@ -65,17 +65,17 @@ Para associar uma subscrição existente ao seu diretório AD Azure, siga estes 
 
 1. Selecione **Diretório de Alteração**.
 
-   ![Página de subscrições, com opção de diretório change em destaque](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Screenshot que mostra a página de Subscrições, com a opção de diretório Change em destaque.":::
 
 1. Reveja quaisquer avisos que apareçam e, em seguida, selecione **Alterar**.
 
-   ![Alterar a página do diretório, mostrando o diretório a mudar para](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Screenshot que mostra a página Change the directy com um diretório de amostra e o botão Mudar realçado.":::
 
    Depois de o diretório ser alterado para a subscrição, receberá uma mensagem de sucesso.
 
 1. Selecione **os diretórios** da Switch na página de subscrição para ir ao seu novo diretório.
 
-   ![Página do comutador de diretório, com informações de amostra](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="Screenshot que mostra a página do comutador de diretório com informações de amostra.":::
 
    Pode levar várias horas para que tudo apareça corretamente. Se parecer estar a demorar muito tempo, verifique o **filtro de subscrição Global**. Certifique-se de que a subscrição em 2019 não está escondida. Poderá ter de assinar fora do portal Azure e voltar a entrar para ver o novo diretório.
 
@@ -87,9 +87,9 @@ Depois de associar uma subscrição a um diretório diferente, poderá ter de fa
 
 - Se tem cofres chave, tem de mudar a identificação do inquilino do cofre. Para obter mais informações, consulte [Change a key vault tenant ID after a subscription move](../../key-vault/general/move-subscription.md).
 
-- Se utilizou identidades geridas atribuídas pelo sistema para recursos, deve ree capacitar estas identidades. Se utilizar identidades geridas atribuídas pelo utilizador, deve recriar estas identidades. Após a re-habilitação ou recriação das Identidades Geridas, deve restabelecer as permissões atribuídas a essas identidades. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)
+- Se utilizou identidades geridas atribuídas pelo sistema para recursos, deve ree capacitar estas identidades. Se utilizar identidades geridas atribuídas pelo utilizador, deve recriar estas identidades. Após a re-habilitação ou recriação das Identidades Geridas, deve restabelecer as permissões atribuídas a essas identidades. Para obter mais informações, veja [O que são identidades geridas para os recursos do Azure?](../managed-identities-azure-resources/overview.md).
 
-- Se registou uma Stack Azure usando esta subscrição, deve voltar a registar-se. Para mais informações, consulte [o Register Azure Stack com Azure](/azure-stack/operator/azure-stack-registration).
+- Se registou uma Stack Azure usando esta subscrição, deve voltar a registar-se. Para mais informações, consulte [Register Azure Stack Hub com Azure](/azure-stack/operator/azure-stack-registration).
 
 - Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD](../../role-based-access-control/transfer-subscription.md).
 

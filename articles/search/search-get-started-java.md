@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/04/2021
 ms.custom: devx-track-java
 ms.openlocfilehash: f833c0539d4aa28033cd6f76c1ca7cec7f11f6b5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102124572"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java
