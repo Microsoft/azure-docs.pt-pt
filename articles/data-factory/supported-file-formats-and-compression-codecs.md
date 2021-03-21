@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jingwang
 ms.openlocfilehash: bb773d01124b99b4837f393b610e00ecbfa510fb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364618"
 ---
 # <a name="supported-file-formats-and-compression-codecs-by-copy-activity-in-azure-data-factory"></a>Formatos de ficheiros suportados e codecs de compressão por atividade de cópia na Azure Data Factory

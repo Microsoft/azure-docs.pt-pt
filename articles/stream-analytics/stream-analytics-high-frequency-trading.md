@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 03/16/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f632c916c3de61b94532e96be23da511ad5863ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020422"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593038"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de negociação de elevada frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções definidas pelo utilizador (UDFs) e dos agregados definidos pelo utilizador (UDAs) de JavaScript no Azure Stream Analytics permite aos utilizadores realizar análises avançadas. As análises avançadas podem incluir preparação e classificação de machine learning online, bem como simulação de processos sem estado. Este artigo descreve como realizar uma regressão linear num trabalho do Azure Stream Analytics que faz preparação e classificação contínua num cenário comercial de elevada frequência.
@@ -349,7 +349,7 @@ O UDA de JavaScript inicializa todos os acumuladores na função `init`, calcula
 - Vender ações quando é recebido um sinal de venda e são detidas ações.
 - Posição curta, se não forem detidas ações. 
 
-Se a posição for curta e for recebido um sinal de compra, comprar para cobrir. Nesta simulação, nunca detemos nem fazemos vendas curtas de dez ações de um valor mobiliário. O custo de transação são sempre 8 $.
+Se a posição for curta e for recebido um sinal de compra, comprar para cobrir. Temos ou menos 10 ações de uma ação nesta simulação. O custo de transação são sempre 8 $.
 
 ```javascript
 function main() {

@@ -10,10 +10,10 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 468f1b91d6c6157cd2af6de9599bad7f43c1ad8f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103492562"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestor de segurança Azure IoT Edge

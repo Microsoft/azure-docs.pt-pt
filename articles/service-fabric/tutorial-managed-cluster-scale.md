@@ -4,10 +4,10 @@ description: Neste tutorial, aprenda a escalar um tipo de nó de um cluster geri
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785435"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Tutorial: Escale um cluster gerido por tecido de serviço (pré-visualização)
@@ -47,7 +47,7 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 
 O cluster começará a atualizar-se automaticamente e, passados alguns minutos, verá os nós adicionais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste passo, escalamos um tipo de nó num cluster gerido por Tecido de Serviço. Para saber mais sobre a adição e remoção de tipos de nó, consulte:
 

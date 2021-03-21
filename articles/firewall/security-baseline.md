@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f7766b57b5a3b9ffc73691303b5d8bcaa63fce4c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721672"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Linha de segurança Azure para Azure Firewall
@@ -214,7 +214,7 @@ Os registos do Azure Monitor podem ser utilizados para monitorização geral em 
 
 - [Registos e métricas do Azure Firewall](logs-and-metrics.md)
 
-- [Registos de diagnóstico](https://docs.microsoft.com/azure/firewall/logs-and-metrics#diagnostic-logs)
+- [Registos de Diagnóstico](https://docs.microsoft.com/azure/firewall/logs-and-metrics#diagnostic-logs)
 
 **Responsabilidade**: Cliente
 

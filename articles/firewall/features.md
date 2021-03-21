@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: victorh
 ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612852"
 ---
 # <a name="azure-firewall-features"></a>Funcionalidades do Azure Firewall

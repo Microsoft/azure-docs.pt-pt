@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
-ms.date: 01/29/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581963"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604870"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -89,6 +89,9 @@ Este campo deve ser o nome completo de uma definição de política ou de uma de
 ## <a name="non-compliance-messages"></a>Mensagens de incumprimento
 
 Para definir uma mensagem personalizada que descreva por que um recurso não está em conformidade com a definição de política ou iniciativa, definida `nonComplianceMessages` na definição de atribuição. Este nó é uma variedade de `message` entradas. Esta mensagem personalizada é além da mensagem de erro por defeito para incumprimento e é opcional.
+
+> [!IMPORTANT]
+> As mensagens personalizadas para incumprimento são suportadas apenas em definições ou iniciativas com [definições de modos gestor de recursos.](./definition-structure.md#resource-manager-modes)
 
 ```json
 "nonComplianceMessages": [

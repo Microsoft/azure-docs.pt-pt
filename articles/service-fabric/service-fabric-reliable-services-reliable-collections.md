@@ -4,10 +4,10 @@ description: Serviços estatais de tecido fornecem coleções fiáveis que lhe p
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 7d705f81b4ad31559886e43226febcd4cf1d345d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784381"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução a Coleções Fiáveis em Serviços Azure Fabric serviços estatais
@@ -44,13 +44,13 @@ Hoje, **microsoft.serviceFabric.Data.Collections** contém três coleções:
 * [Fila fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1): Representa uma fila replicada, transacional e assíncronda e rígida de primeira para a primeira e primeira saída (FIFO). Semelhante ao **ConcurrentQueue,** o valor pode ser de qualquer tipo.
 * [Fila simultânea fiável](service-fabric-reliable-services-reliable-concurrent-queue.md): Representa uma fila replicada, transacional e assíncronea de encomenda para alta produção. Semelhante ao **ConcurrentQueue,** o valor pode ser de qualquer tipo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Diretrizes de cobrança fiáveis & recomendações](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e Fechaduras](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestão de Dados
-  * [Cópia de Segurança e Restauro](service-fabric-reliable-services-backup-restore.md)
+  * [Backup e Restauro](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização das Reliable Collections](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialização e Atualização](service-fabric-application-upgrade-data-serialization.md)

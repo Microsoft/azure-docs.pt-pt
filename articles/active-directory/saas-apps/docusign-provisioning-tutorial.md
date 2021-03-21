@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 71f95b08584a46fccb0975cd9285150573ac02d4
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102218524"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: Configurar docuSign para o fornecimento automático de utilizadores

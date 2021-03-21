@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 ms.openlocfilehash: 68d07481e228b1d1b2f4571a783f925add261cff
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102520018"
 ---
 # <a name="connect-to-storage-with-identity-based-data-access-preview"></a>Conecte-se ao armazenamento com acesso de dados baseado em identidade (pré-visualização)

@@ -10,16 +10,16 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 578f0d1ca742fe4445b8aeed6876d1a73fd3f79e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378123"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669513"
 ---
 # <a name="upload-usage-data-to-azure-monitor"></a>Faça upload de dados de utilização para o Azure Monitor
 
-Periodicamente, pode exportar informações de utilização. A exportação e upload desta informação cria e atualiza o controlador de dados, a instância gerida pelo SQL e os recursos do grupo de servidores de hiperescala PostgreSQL em Azure.
+Periodicamente, pode exportar informações de utilização. A exportação e upload desta informação cria e atualiza o controlador de dados, o exemplo gerido pelo SQL e os recursos do grupo de servidores de hiperescala PostgreSQL em Azure.
 
 > [!NOTE] 
 > Durante o período de pré-visualização, não há qualquer custo para a utilização de serviços de dados ativados pelo Azure Arc.
@@ -64,7 +64,7 @@ As informações de utilização, tais como o inventário e a utilização de re
 
 Se quiser carregar métricas e registos numa base programada, pode criar um script e executá-lo num temporizador a cada poucos minutos. Abaixo está um exemplo de automatização dos uploads usando um script linux shell.
 
-No seu editor de texto/código favorito, adicione o seguinte script ao ficheiro e guarde como um ficheiro executável de scripts como .sh (Linux/Mac) ou .cmd, .bat, .ps1.
+No seu editor de texto/código favorito, adicione o seguinte script ao ficheiro e guarde como um ficheiro executável de scripts como `.sh` (Linux/Mac) ou `.cmd` `.bat` , ou `.ps1` .
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force

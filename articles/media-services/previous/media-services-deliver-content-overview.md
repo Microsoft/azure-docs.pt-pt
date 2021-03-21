@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 1ad89345a2779766fde4559758e61dff92023741
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103016616"
 ---
 # <a name="deliver-content-to-customers"></a>Entregar conteúdo aos clientes
@@ -99,7 +99,7 @@ http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-
 http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (formato=m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Formato V3 de streaming ao vivo (HLS) da Apple HTTP
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{localizador ID}/{filename}.ism/Manifest (formato=m3u8-aapl-v3)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest (formato=m3u8-aapl-v3)
 
 http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (formato=m3u8-aapl-v3)
 
@@ -120,7 +120,7 @@ http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-
 ### <a name="smooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Smooth Streaming 2.0 manifesto (manifesto legado)
 Por predefinição, o formato manifesto de streaming suave contém a etiqueta de repetição (r-tag). No entanto, alguns jogadores não apoiam a marca r-tag. Os clientes com estes jogadores podem utilizar um formato que desativa a marca r:00:
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{localizador ID}/{filename}.ism/Manifest (formato=fmp4-v20)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest (formato=fmp4-v20)
 
 `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)`
 

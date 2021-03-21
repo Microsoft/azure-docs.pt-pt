@@ -4,10 +4,10 @@ description: Descreve como implementar recursos num modelo de Gestor de Recursos
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491559"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementações de grupos de recursos com modelos ARM

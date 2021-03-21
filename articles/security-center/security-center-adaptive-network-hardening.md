@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: memildin
 ms.openlocfilehash: 14523e814c85469aa02a860e87b86defd7823c16
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102439600"
 ---
 # <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>Melhore a sua postura de segurança de rede com endurecimento adaptativo da rede
@@ -23,7 +23,7 @@ Aprenda a configurar o endurecimento adaptativo da rede no Centro de Segurança.
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>O que é o endurecimento adaptativo da rede?

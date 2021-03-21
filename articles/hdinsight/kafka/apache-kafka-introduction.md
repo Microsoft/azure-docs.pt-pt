@@ -6,10 +6,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: fbe4041b74f90b2ef8a9ef4384e83c7aa2d56461
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939275"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é Apache Kafka em Azure HDInsight
@@ -58,7 +58,7 @@ A replicação é utilizada para duplicar as partições nos nós, ao proteger c
 
 Seguem-se as tarefas comuns e os padrões que podem ser efetuados com o Kafka no HDInsight:
 
-|Utilização |Descrição |
+|Utilização |Description |
 |---|---|
 |Replicação dos dados de Apache Kafka|Kafka fornece o utilitário MirrorMaker, que replica dados entre clusters Kafka. Para obter informações sobre a utilização do MirrorMaker, consulte [os tópicos De Replicar Apache Kafka com Apache Kafka em HDInsight](apache-kafka-mirroring.md).|
 |Padrão de mensagens de subscrição de publicação|Kafka fornece uma API de produtor para publicar registos para um tema Kafka. A API de Consumidor é utilizada ao subscrever um tópico. Para obter mais informações, consulte [Start with Apache Kafka em HDInsight](apache-kafka-get-started.md).|
@@ -70,7 +70,7 @@ Seguem-se as tarefas comuns e os padrões que podem ser efetuados com o Kafka no
 |Agregação|Utilizando o processamento de fluxo, pode agregar informações de diferentes fluxos para combinar e centralizar a informação em dados operacionais.|
 |Transformação|Utilizando o processamento de fluxo, pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDInsight:
 

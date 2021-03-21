@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/16/2020
 ms.openlocfilehash: 56024fd0aac2f9fbefb7fe919eef2481550e573f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367831"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>Transformação da janela no fluxo de dados de mapeamento

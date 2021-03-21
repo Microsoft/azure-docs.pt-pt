@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
 ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100545161"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Tutorial: Criar e publicar um produto  
@@ -45,7 +45,7 @@ Neste tutorial, ficará a saber como:
     | Nome                     | Descrição                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nome a apresentar             | O nome que pretende que seja mostrado no portal do [desenvolvedor](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-    | Descrição              | Fornecer informações sobre o produto, como o seu propósito, as APIs a que fornece acesso, e outros detalhes.                                                                                                                                               |
+    | Description              | Fornecer informações sobre o produto, como o seu propósito, as APIs a que fornece acesso, e outros detalhes.                                                                                                                                               |
     | Estado                    | Selecione **Publicado** se quiser publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por padrão, os novos produtos não são publicados e são visíveis apenas para o grupo **de Administradores.**                                                                                      |
     | Exige subscrição    | Selecione se um utilizador é obrigado a subscrever a utilização do produto.                                                                                                                                                                                                                                   |
     | Requer aprovação        | Selecione se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição deste produto. Se não forem selecionadas, as tentativas de subscrição são aprovadas automaticamente.                                                                                                                         |

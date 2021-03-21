@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 3b596d14ea770bfcd7560903a234d2ab77b66201
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614331"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589876"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Análises de desempenho do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Blob Azure (pré-visualização)
 
@@ -46,7 +46,7 @@ Cada barra no gráfico seguinte mostra a diferença na largura de banda alcança
 > [!div class="mx-imgBorder"]
 > ![Desempenho relativo](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
-## <a name="avoid-frequent-overwrites-on-date"></a>Evite substituições frequentes na data
+## <a name="avoid-frequent-overwrites-on-data"></a>Evite sobreposições frequentes em dados
 
 Demora mais tempo a concluir uma operação de substituição do que uma nova operação de escrita. Isto porque uma operação de substituição de NFS, especialmente uma edição parcial de ficheiros no local, é uma combinação de várias operações de bolhas subjacentes: uma leitura, uma modificação e uma operação de escrita. Portanto, uma aplicação que requer edições frequentes no local não é adequada para contas de armazenamento de blob ativadas por NFS. 
 

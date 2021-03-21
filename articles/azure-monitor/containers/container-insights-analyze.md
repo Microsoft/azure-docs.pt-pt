@@ -4,10 +4,10 @@ description: Este artigo descreve como pode ver e analisar o desempenho de um cl
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102124317"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Monitorize o desempenho do cluster Kubernetes com insights de contentores

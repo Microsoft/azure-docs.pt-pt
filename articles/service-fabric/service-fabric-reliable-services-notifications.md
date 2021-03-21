@@ -7,10 +7,10 @@ ms.date: 6/29/2017
 ms.author: mcoskun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f5b48cc6cca2e143c48ed7bdfc99de936be2a227
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784584"
 ---
 # <a name="reliable-services-notifications"></a>Notificações de Serviços Fiáveis
@@ -207,7 +207,7 @@ Eis algumas coisas a ter em mente:
 * Para transações que contenham múltiplas operações, as operações são aplicadas na ordem em que foram recebidas na réplica primária do utilizador.
 * Como parte do processamento de falsos progressos, algumas operações podem ser desfeitas. As notificações são levantadas para tais operações de desfazer, revirando o estado da réplica para um ponto estável. Uma diferença importante das notificações de desfazer é que os eventos que têm chaves duplicadas são agregados. Por exemplo, se a transação T1 estiver a ser desfeita, verá uma única notificação para Apagar(X).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Início rápido dos Serviços Fiáveis](service-fabric-reliable-services-quick-start.md)
 * [Backup e restauro dos Serviços Fiáveis (recuperação de desastres)](service-fabric-reliable-services-backup-restore.md)

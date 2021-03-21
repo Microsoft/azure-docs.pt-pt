@@ -10,10 +10,10 @@ ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102609146"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhadas

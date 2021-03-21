@@ -4,10 +4,10 @@ description: Descreve o desenvolvimento, implementação, teste, upgrade, manute
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: ae0c79cdaafc8fc016d463a01046f0a02121330a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785740"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida da aplicação do Service Fabric
@@ -23,7 +23,7 @@ As funções do modelo de serviço são:
 * **Administrador de aplicação**: Toma decisões sobre a configuração da aplicação (preenchendo os parâmetros do modelo de configuração), implementação (mapeamento aos recursos disponíveis) e qualidade de serviço. Por exemplo, um administrador de aplicação decide a língua local (inglês para os Estados Unidos ou japonês para o Japão, por exemplo) da aplicação. Uma aplicação diferente pode ter configurações diferentes.
 * **Operador**: Implementa aplicações com base na configuração e requisitos de aplicação especificados pelo administrador de aplicação. Por exemplo, um operador fornece e implementa a aplicação e assegura que está a funcionar em Azure. Os operadores monitorizam a saúde da aplicação e a informação de desempenho e mantêm a infraestrutura física conforme necessário.
 
-## <a name="develop"></a>Programar
+## <a name="develop"></a>Desenvolver
 1. Um *desenvolvedor de serviços* desenvolve diferentes tipos de serviços usando o modelo de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) ou [Reliable Services.](service-fabric-reliable-services-introduction.md)
 2. Um *desenvolvedor de serviços* descreve declarativamente os tipos de serviço desenvolvidos num ficheiro manifesto de serviço constituído por um ou mais pacotes de código, configuração e dados.
 3. Um *desenvolvedor de aplicações* constrói então uma aplicação utilizando diferentes tipos de serviço.
@@ -77,7 +77,7 @@ Consulte o tutorial de upgrade da [Aplicação,](service-fabric-application-upgr
 
 Consulte [implementar uma aplicação](service-fabric-deploy-remove-applications.md) para exemplos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o desenvolvimento, teste e gestão de aplicações e serviços do Service Fabric, consulte:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)

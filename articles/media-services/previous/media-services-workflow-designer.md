@@ -16,17 +16,17 @@ ms.date: 3/10/2021
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ms.openlocfilehash: 8173da37792948e267aae2078fee9f864bf7bdc9
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011158"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O **Workflow Designer** é uma ferramenta de ambiente de trabalho do Windows que é usada para conceber e construir fluxos de trabalho personalizados para codificação com o fluxo de **trabalho Premium Media Encoder**.
 Ao utilizar a potência da ferramenta de design de fluxo de trabalho, pode projetar e criar fluxos de trabalho complexos que irão funcionar no **Media Encoder Premium.**  
 

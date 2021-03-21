@@ -7,15 +7,15 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.openlocfilehash: e46517865ba01a0d4d113696fbadabf5ae7b0105
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037936"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento de alerta de SMS em grupos de ação
 
-## <a name="overview"></a>Descrição Geral 
+## <a name="overview"></a>Descrição geral 
 Os grupos de ação permitem-lhe configurar uma lista de ações. Estes grupos são utilizados na definição de alertas; assegurar que um determinado grupo de ação seja notificado quando o alerta é acionado. Uma das ações apoiadas é o SMS; As notificações SMS suportam a comunicação bidis. Um utilizador pode responder a um SMS para:
 
 - **Cancelar a subscrição de alertas:** Um utilizador pode cancelar a subscrição de todos os alertas SMS para todos os grupos de ação ou de um único grupo de ação.
@@ -29,7 +29,7 @@ Um recetor SMS configurado como parte de um grupo de ação recebe um SMS quando
 * Nome curto do grupo de ação este alerta foi enviado para
 * Título do alerta
 
-| RESPONDER | Descrição |
+| RESPONDER | Description |
 | ----- | ----------- |
 | DESATIVAR `<Action Group Short name>` | Desativa mais SMS do Grupo de Ação |
 | ATIVAR `<Action Group Short name>` | Re-habilita SMS do Grupo de Ação |

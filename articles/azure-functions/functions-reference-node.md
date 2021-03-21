@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/07/2021
 ms.custom: devx-track-js
 ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614909"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores

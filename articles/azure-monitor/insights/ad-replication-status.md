@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: c99ad16e119c4262aa6d9d645b2457cdd46061b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700682"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitor Ative Directory replication status with Azure Monitor
@@ -51,7 +51,7 @@ Se não quiser ligar nenhum dos seus controladores de domínio diretamente ao Az
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes da recolha de dados do estado de replicação de AD
 A tabela seguinte mostra métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Estado de Replicação de AD.
 
-| plataforma | Agente Direto | Agente SCOM | Storage do Azure | SCOM necessário? | Dados de agente SCOM enviados através do grupo de gestão | frequência de coleção |
+| plataforma | Agente Direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Dados de agente SCOM enviados através do grupo de gestão | frequência de coleção |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |a cada cinco dias |
 

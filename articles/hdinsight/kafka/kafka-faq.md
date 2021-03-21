@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: 851d7ceb44d2466ed31e26c1442fde9acea9fd22
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939103"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Perguntas mais frequentes sobre o Apache Kafka no Azure HDInsight
@@ -91,7 +91,7 @@ Atualmente, não apoiamos atualizações de versão de cluster no local. Para at
 
 Utilize o monitor Azure para analisar os seus [registos Kafka](./apache-kafka-log-analytics-operations-management.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar encriptação e autenticação TLS para Apache Kafka em Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
 * [Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight](./apache-kafka-mirroring.md) (Utilizar o MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight)
