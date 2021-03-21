@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915987"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Gerir atualizações e patches para os seus VMs
@@ -54,7 +54,7 @@ Depois de rever os resultados da conformidade, a fase de implementação da atua
 
 Após a implementação estar concluída, reveja o processo para determinar o sucesso da implementação da atualização por máquina ou grupo alvo. Consulte [o estado de implementação da revisão](deploy-updates.md#check-deployment-status) para saber como pode monitorizar o estado de implantação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a criar alertas para o notificar sobre os resultados da atualização, consulte [criar alertas para a Gestão de Atualização.](configure-alerts.md)
 

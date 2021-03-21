@@ -1,19 +1,19 @@
 ---
-title: Visão geral das APIs do Nó de Relé Azure Microsoft Docs
+title: Visão geral das APIs do nó de relé Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral da API Node.js para o serviço Azure Relay. Também mostra como usar o pacote hyco-ws Node.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91263492"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API do relé híbrido de ligações híbridas
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pacote de nó para ligações híbridas Azure Relay é construído e estende o pacote [NPM 'ws'.](https://www.npmjs.com/package/ws) Este pacote reenca exporta todas as exportações desse pacote base e adiciona novas exportações que permitem a integração com o recurso Azure Relay Hybrid Connections. 
 

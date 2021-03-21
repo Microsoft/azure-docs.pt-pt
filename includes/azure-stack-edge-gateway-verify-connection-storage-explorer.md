@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
 ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96185577"
 ---
 Se esta for a primeira vez que utiliza o Storage Explorer, tem de executar os seguintes passos.
@@ -41,7 +41,7 @@ Siga estes passos para ligar à conta de armazenamento e verificar a ligação.
 
     ![Configure Explorador de Armazenamento 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
 
-3. No diálogo 'Resumo de **Ligação',** reveja as informações fornecidas. Selecione **Connect** (Ligar).
+3. No diálogo 'Resumo de **Ligação',** reveja as informações fornecidas. Selecione **Ligar**.
 
     ![Configure Explorador de Armazenamento 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
 
@@ -76,7 +76,7 @@ Tome os seguintes passos para carregar os dados na sua conta de armazenamento Ed
     ![Verificar transferência de dados 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
 
 
-5. No diálogo 'Resumo de **Ligação',** reveja as informações fornecidas. Selecione **Connect** (Ligar).
+5. No diálogo 'Resumo de **Ligação',** reveja as informações fornecidas. Selecione **Ligar**.
 
     ![Verificar transferência de dados 6](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
 

@@ -16,10 +16,10 @@ ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101712322"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorização da conectividade da rede com monitor de ligação
@@ -287,7 +287,7 @@ Nos monitores de ligação que foram criados antes da experiência do Monitor de
 
 Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors
 
-| Metric | Nome a apresentar | Unidade | Tipo de agregação | Descrição | Dimensões |
+| Metric | Nome a apresentar | Unidade | Tipo de agregação | Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent (clássico) | % Sondas Falhadas (clássica) | Percentagem | Média | A percentagem de sondas de monitorização de conectividade falhou. | Sem dimensões |
 | MédiasRoundtripMs (clássico) | Avg. Tempo de ida e volta (ms) (clássico) | Milissegundos | Média | Rede média RTT para sondas de monitorização de conectividade enviadas entre a fonte e o destino. |             Sem dimensões |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487138"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 referência
@@ -55,7 +55,7 @@ O pedido tem de utilizar o protocolo HTTPS.
 ## <a name="headers"></a>Cabeçalhos  
 Seguem-se os cabeçalhos que um pedido e resposta podem incluir.  
   
-|Cabeçalho|Descrição|  
+|Cabeçalho|Description|  
 |------------|-----------------|  
 |Aceitar|Cabeçalho de pedido opcional.<br /><br /> O tipo de mídia predefinido é aplicação/json. Para especificar que a utilização da resposta [JSON-LD,](https://json-ld.org/)desa estale o cabeçalho Aceitar para aplicação/ld+json.|  
 |<a name="acceptlanguage"></a>Accept-Language|Cabeçalho de pedido opcional.<br /><br /> Uma lista separada por vírgulas dos idiomas que vão ser utilizados nas cadeias da interface de utilizador. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, veja [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este cabeçalho e o parâmetro de consulta [setLang](#setlang) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> Se definir este cabeçalho, também tem de especificar o parâmetro de consulta cc. Para determinar o mercado do qual devolver resultados, o Bing utiliza o primeiro idioma suportado que encontra na lista e combina-o com o valor do parâmetro `cc`. Se a lista não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido ou utiliza um mercado agregado ou predefinido para devolver os resultados. Para determinar o mercado que o Bing utiliza, veja o cabeçalho BingAPIs-Market.<br /><br /> Utilize este cabeçalho o parâmetro de consulta `cc` apenas se especificar vários idiomas. Caso contrário, utilize os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|  
@@ -78,21 +78,21 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna re
   
 |Name|Valor|Tipo|Necessário|  
 |----------|-----------|----------|--------------|
-|<a name="count"></a>contar|O número de resultados a devolver, a começar pelo índice especificado pelo `offset` parâmetro.|String|Não|   
-|<a name="localCategories"></a>localCategorias|Lista de opções que definem pesquisa por categoria de negócio.  Consulte [a pesquisa das Categorias de Negócios Locais](local-categories.md)|String|Não|  
-|<a name="mkt"></a>mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API local de pesquisa de negócios suporta apenas o mercado e a linguagem.<br /><br />|String|Sim|
-|<a name="offset"></a>compensar|O índice para iniciar os resultados especificados pelo `count` parâmetro.|Número inteiro|Não|  
-|<a name="query"></a>q|O termo de pesquisa do utilizador.|String|Não|  
-|<a name="responseformat"></a>respostaFormat|O tipo de mídia a usar para a resposta. Seguem-se os possíveis valores caso-insensíveis.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON que a resposta contém, consulte [Objetos de Resposta](#response-objects).<br /><br />  Se especificar JsonLd, o corpo de resposta inclui objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON-LD](https://json-ld.org/).|String|Não|  
-|<a name="safesearch"></a>safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Off &mdash; Devolver páginas web com texto adulto, imagens ou vídeos.<br /><br/></li><li>Páginas de retorno moderado &mdash; com texto adulto, mas não imagens ou vídeos adultos.<br /><br/></li><li>Estrita &mdash; Não devolva páginas web com texto adulto, imagens ou vídeos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se o pedido vier de um mercado que a política de adultos de Bing requer que `safeSearch` seja definido como Strict, Bing ignora o `safeSearch` valor e usa Strict.<br/><br/>**NOTA:** se utilizar o operador de consulta `site:`, existe a possibilidade de a resposta poder conter conteúdos para adultos, independentemente da definição do parâmetro de consulta `safeSearch`. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |String|Não|  
-|<a name="setlang"></a>setLang|O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma com o código de idioma ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|Não| 
+|<a name="count"></a>count|O número de resultados a devolver, a começar pelo índice especificado pelo `offset` parâmetro.|String|No|   
+|<a name="localCategories"></a>localCategorias|Lista de opções que definem pesquisa por categoria de negócio.  Consulte [a pesquisa das Categorias de Negócios Locais](local-categories.md)|String|No|  
+|<a name="mkt"></a>mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API local de pesquisa de negócios suporta apenas o mercado e a linguagem.<br /><br />|String|Yes|
+|<a name="offset"></a>offset|O índice para iniciar os resultados especificados pelo `count` parâmetro.|Número inteiro|No|  
+|<a name="query"></a>q|O termo de pesquisa do utilizador.|String|No|  
+|<a name="responseformat"></a>respostaFormat|O tipo de mídia a usar para a resposta. Seguem-se os possíveis valores caso-insensíveis.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON que a resposta contém, consulte [Objetos de Resposta](#response-objects).<br /><br />  Se especificar JsonLd, o corpo de resposta inclui objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON-LD](https://json-ld.org/).|String|No|  
+|<a name="safesearch"></a>safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Off &mdash; Devolver páginas web com texto adulto, imagens ou vídeos.<br /><br/></li><li>Páginas de retorno moderado &mdash; com texto adulto, mas não imagens ou vídeos adultos.<br /><br/></li><li>Estrita &mdash; Não devolva páginas web com texto adulto, imagens ou vídeos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se o pedido vier de um mercado que a política de adultos de Bing requer que `safeSearch` seja definido como Strict, Bing ignora o `safeSearch` valor e usa Strict.<br/><br/>**NOTA:** se utilizar o operador de consulta `site:`, existe a possibilidade de a resposta poder conter conteúdos para adultos, independentemente da definição do parâmetro de consulta `safeSearch`. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |String|No|  
+|<a name="setlang"></a>setLang|O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma com o código de idioma ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|No| 
 
 
 ## <a name="response-objects"></a>Objetos de resposta  
 Seguem-se os objetos de resposta JSON que a resposta pode incluir. Se o pedido for bem sucedido, o objeto de nível superior na resposta é o objeto [SearchResponse.](#searchresponse) Se o pedido falhar, o objeto de nível superior é o objeto [ErrorResponse.](#errorresponse)
 
 
-|Objeto|Descrição|  
+|Objeto|Description|  
 |------------|-----------------|  
 |[Lugar](#place)|Define informações sobre um negócio local, como um restaurante ou hotel.|  
 
@@ -103,7 +103,7 @@ Define o erro que ocorreu.
 |Elemento|Descrição|Tipo|  
 |-------------|-----------------|----------|  
 |<a name="error-code"></a>código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [Códigos de Erro](#error-codes).|String|  
-|<a name="error-message"></a>Mensagem|Descrição do erro.|String|  
+|<a name="error-message"></a>message|Descrição do erro.|String|  
 |<a name="error-moredetails"></a>moreDetails|Uma descrição que fornece informações adicionais sobre o erro.|String|  
 |<a name="error-parameter"></a>parâmetro|O parâmetro de consulta no pedido que causou o erro.|String|  
 |<a name="error-subcode"></a>subCódigo|O código de erro que identifica o erro. Por exemplo, se `code` for InválidaRequest, `subCode` pode ser ParâmetroInvalid ou ParameterInvalidValue. |String|  
@@ -226,7 +226,7 @@ Note que se o serviço suspeitar de um ataque de negação de serviço, o pedido
 
 Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.  
   
-|Código de Estado|Descrição|  
+|Código de Estado|Description|  
 |-----------------|-----------------|  
 |200|Com êxito.|  
 |400|Um dos parâmetros de consulta está em falta ou não é válido.|  
@@ -266,7 +266,7 @@ Se o pedido falhar, a resposta contém um objeto [ErrorResponse,](#errorresponse
 
 Seguem-se os possíveis valores de código de erro e de sub-erro.
 
-|Código|SubCódes|Descrição
+|Código|SubCódes|Description
 |-|-|-
 |ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|O código de estado HTTP é 500.
 |InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se utilizar o protocolo HTTP em vez de HTTPS, bing devolve HttpNotAllowed e o código de estado HTTP é 410.

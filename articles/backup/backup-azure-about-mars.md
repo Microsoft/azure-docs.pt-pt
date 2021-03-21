@@ -4,10 +4,10 @@ description: Saiba como o Agente MARS suporta os cenários de backup
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562604"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
@@ -30,7 +30,7 @@ O agente MARS suporta os seguintes cenários de backup:
 
 - **Sementeira offline**: As cópias de segurança completas iniciais dos dados para o Azure normalmente transferem grandes quantidades de dados e requerem mais largura de banda de rede. As cópias de segurança subsequentes transferem apenas a quantidade de dados delta, ou incremental. O Azure Backup comprime as cópias de segurança iniciais. Através do processo de *sementeira offline,* o Azure Backup pode utilizar discos para enviar os dados de backup iniciais comprimidos offline para Azure. Para obter mais informações, consulte [a cópia de segurança offline do Azure Backup utilizando a Caixa de Dados Azure](offline-backup-azure-data-box.md).
 
-## <a name="restore-scenarios"></a>Restaurar cenários
+## <a name="restore-scenarios"></a>Cenários de restauro
 
 O agente MARS suporta os seguintes cenários de restauro:
 

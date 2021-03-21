@@ -1,15 +1,15 @@
 ---
-title: Criar um laboratório com GPUs nos Serviços de Laboratório Azure Microsoft Docs
+title: Crie um laboratório com GPUs em Azure Lab Services | Microsoft Docs
 description: Saiba como configurar um laboratório com máquinas virtuais de unidade de processamento de gráficos (GPU).
 author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452375"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Criar um laboratório com máquinas virtuais gpu
@@ -28,13 +28,13 @@ Neste processo, tem a opção de selecionar GPUs **de Visualização** ou **Comp
 
 Tal como descrito na tabela seguinte, o tamanho da GPU *do cálculo* destina-se a aplicações intensivas de computação.  Por exemplo, o [tipo de classe de aprendizagem profunda em linguagem natural](./class-type-deep-learning-natural-language-processing.md) utiliza o tamanho da Pequena **GPU (Compute).**  A GPU computacional é adequada para este tipo de aula, porque os alunos usam quadros de aprendizagem profunda e ferramentas que são fornecidas pela [imagem da Máquina Virtual de Ciência de Dados](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) para treinar modelos de aprendizagem profunda com grandes conjuntos de dados.
 
-| Tamanho | Núcleos | RAM | Descrição | 
+| Tamanho | Núcleos | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Pequena GPU (Computação) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NC6](../virtual-machines/nc-series.md) |Este tamanho é mais adequado para aplicações computacionalmente intensivas, como inteligência artificial (IA) e aprendizagem profunda. |
 
 Os tamanhos de GPU *de visualização* destinam-se a aplicações com grande intensidade gráfica.  Por exemplo, o tipo de [classe de engenharia SOLIDWORKS](./class-type-solidworks.md) mostra usando o tamanho **de GPU pequeno (Visualização).**  A GPU de visualização é adequada para este tipo de aula, porque os alunos interagem com o ambiente de design 3D assistido por computador SOLIDWORKS (CAD) para modelar e visualizar objetos sólidos.
 
-| Tamanho | Núcleos | RAM | Descrição | 
+| Tamanho | Núcleos | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Pequeno GPU (Visualização) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | Este tamanho é mais adequado para visualização remota, streaming, jogos e codificação que utilizam quadros como OpenGL e DirectX. |
 | GPU médio (Visualização) | -&nbsp;12 &nbsp; núcleos<br>-&nbsp;112 &nbsp; GB &nbsp; DE RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Este tamanho é mais adequado para visualização remota, streaming, jogos e codificação que utilizam quadros como OpenGL e DirectX. |

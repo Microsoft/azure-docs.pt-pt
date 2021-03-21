@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
 ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341243"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a Tabela API em Azure Cosmos DB
@@ -197,7 +197,7 @@ Sim, a Azure Cosmos DB Table API fornece indexação automática de todos os atr
 
 Sim, pode alterar a política de indexação fornecendo a definição de índice. É necessário codificar e escapar corretamente às definições.
 
-Para os non-.NET SDKs, a política de indexação só pode ser definida no portal do **Data Explorer,** navegar para a tabela específica que pretende alterar e, em seguida, ir para a Política de Indexação **de Definições &** ->, fazer a alteração desejada e, em seguida, **Guardar**.
+Para os non-.NET SDKs, a política de indexação só pode ser definida no portal do **Data Explorer,** navegar para a tabela específica que pretende alterar e, em seguida, ir para a Política de Indexação **de Definições &**->, fazer a alteração desejada e, em seguida, **Guardar**.
 
 A partir do .NET SDK pode ser submetido no ficheiro app.config:
 

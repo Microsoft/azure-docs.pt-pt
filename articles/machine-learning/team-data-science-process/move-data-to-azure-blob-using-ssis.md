@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9572d612e7ee8e2fd72850ba14447e8449f0f371
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322004"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados para ou de Azure Blob Storage usando conectores SSIS
@@ -42,8 +42,8 @@ Para executar as tarefas descritas neste artigo, tem de ter uma subscrição Azu
 
 Para utilizar os **conectores SSIS,** tem de baixar:
 
-* **SQL Server 2014 ou 2016 Standard (ou acima)** : A instalação inclui serviços de integração de servidores SQL.
-* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack for Azure** : Estes conectores podem ser descarregados, respectivamente, a partir dos Serviços de [Integração do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=47366) e das páginas [dos Serviços de Integração do SQL Server 2016.](https://www.microsoft.com/download/details.aspx?id=49492)
+* **SQL Server 2014 ou 2016 Standard (ou acima)**: A instalação inclui serviços de integração de servidores SQL.
+* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack for Azure**: Estes conectores podem ser descarregados, respectivamente, a partir dos Serviços de [Integração do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=47366) e das páginas [dos Serviços de Integração do SQL Server 2016.](https://www.microsoft.com/download/details.aspx?id=49492)
 
 > [!NOTE]
 > O SSIS está instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicações estão incluídas em várias edições do SQL Server, consulte [edições de servidor SQL](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)

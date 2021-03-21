@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392083"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Implementar borda Azure SQL com Docker
@@ -83,7 +83,7 @@ O comando anterior retira as imagens mais recentes do contentor Azure SQL Edge. 
     sudo docker ps -a
    ```
 
-4. Se a coluna **STATUS** mostrar um estado de **Up** , então a Borda Azure SQL está a funcionar no recipiente e a ouvir na porta especificada na coluna **PORTS.** Se a coluna **STATUS** do seu recipiente Azure SQL Edge mostrar **Saída** , consulte a secção de resolução de problemas da Documentação do Aresta Azure SQL.
+4. Se a coluna **STATUS** mostrar um estado de **Up**, então a Borda Azure SQL está a funcionar no recipiente e a ouvir na porta especificada na coluna **PORTS.** Se a coluna **STATUS** do seu recipiente Azure SQL Edge mostrar **Saída**, consulte a secção de resolução de problemas da Documentação do Aresta Azure SQL.
 
     O `-h` parâmetro (nome hospedeiro) também é útil, mas não é usado neste tutorial para a simplicidade. Isto altera o nome interno do recipiente para um valor personalizado. Este é o nome que verá devolvido na seguinte consulta Transact-SQL:
 

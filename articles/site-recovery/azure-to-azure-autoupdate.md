@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
 ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96187345"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação Azure-to-Azure
@@ -57,7 +57,7 @@ Quando ativa a replicação de um VM a [partir da vista VM](azure-to-azure-quick
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Alternar as definições de atualização de extensão dentro do cofre
 
 1. A partir do cofre dos Serviços de Recuperação, vá para **a**  >  **Infraestrutura de Recuperação do Local.**
-1. Em **Baixo para Azure Configurações de** atualização de extensão de máquinas virtuais permitem a  >  **Extension Update Settings**  >  **recuperação do site para gerir**, selecione **On**.
+1. Em **Baixo para Azure Configurações de** atualização de extensão de máquinas virtuais permitem a  >    >  **recuperação do site para gerir**, selecione **On**.
 
    Para gerir a extensão manualmente, selecione **Off**.
 

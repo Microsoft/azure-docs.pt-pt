@@ -4,10 +4,10 @@ description: Descreve como pode usar filas e tópicos de Service Bus como manipu
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97399864"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Filas de autocarros de serviço e tópicos como manipuladores de eventos para eventos Azure Event Grid
@@ -58,7 +58,7 @@ O ID do sistema interno para a mensagem será mantido em toda a reentrega do eve
 
 ## <a name="rest-examples-for-put"></a>Exemplos de REPOUSO (para PUT)
 
-### <a name="service-bus-queue"></a>Fila do Service Bus
+### <a name="service-bus-queue"></a>Fila de ônibus de serviço
 
 ```json
 {
@@ -102,7 +102,7 @@ O ID do sistema interno para a mensagem será mantido em toda a reentrega do eve
 }
 ```
 
-### <a name="service-bus-topic"></a>Tópico do Service Bus
+### <a name="service-bus-topic"></a>Tópico de ônibus de serviço
 
 ```json
 {

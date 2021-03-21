@@ -15,10 +15,10 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 319bca74c8e781e5dc5022e9fb901b2edca24a80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87485648"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Criar um papel personalizado Azure usando O Azure CLI
@@ -52,7 +52,7 @@ A forma mais fácil de criar uma função personalizada é começar com um model
 
 1. Reveja a lista de operações para o [fornecedor de recursos Microsoft.Support](resource-provider-operations.md#microsoftsupport). É útil conhecer as operações disponíveis para criar as suas permissões.
 
-    | Operação | Descrição |
+    | Operação | Description |
     | --- | --- |
     | Microsoft.Support/register/action | Regista para o Fornecedor de Recursos de Suporte |
     | Microsoft.Support/supportTickets/read | Obtém os detalhes do Pedido de Suporte (incluindo o estado, gravidade, detalhes de contacto e comunicações) ou obtém a lista dos Pedidos de Suporte nas subscrições. |

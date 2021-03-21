@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929157"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para a Tempestade Apache utilizando as ferramentas data lake para o Estúdio Visual
@@ -132,11 +132,11 @@ Para criar um projeto de topologia C# no Estúdio Visual:
 
 Depois de ter criado o projeto, deverá ter os seguintes ficheiros:
 
-* *Program.cs*: A definição de topologia para o seu projeto. Uma topologia padrão que consiste de um bico e um parafuso é criado por padrão.
+* *Programa.cs*: A definição de topologia para o seu projeto. Uma topologia padrão que consiste de um bico e um parafuso é criado por padrão.
 
-* *Spout.cs*: Um bico de exemplo que emite números aleatórios.
+* *Bico.cs*: Um bico de exemplo que emite números aleatórios.
 
-* *Bolt.cs*: Um parafuso de exemplo que mantém uma contagem de números emitidos pelo bico.
+* *Parafuso.cs*: Um parafuso de exemplo que mantém uma contagem de números emitidos pelo bico.
 
 Ao criar o projeto, o NuGet descarrega o mais recente [pacote de SCP.NET.](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)
 
@@ -144,7 +144,7 @@ Ao criar o projeto, o NuGet descarrega o mais recente [pacote de SCP.NET.](https
 
 Em seguida, adicione o código para o bico, que é usado para ler dados numa topologia de uma fonte externa. Este bico emite aleatoriamente uma frase na topologia.
 
-1. Abra *Spout.cs.* Os principais componentes para um bico são:
+1. Open *Spout.cs*. Os principais componentes para um bico são:
 
    * `NextTuple`: Chamado por tempestade quando o bico é permitido emitir novos tuples.
 
@@ -216,18 +216,18 @@ Em seguida, adicione o código para o bico, que é usado para ler dados numa top
 
 Agora crie dois parafusos storm neste exemplo:
 
-1. Elimine o ficheiro *de Bolt.cs* existente do projeto.
+1. Elimine o ficheiro *bolt.cs* existente do projeto.
 
-2. No **Solution Explorer,** clique com o botão direito no projeto e selecione **Adicionar**  >  **Novo item**. Da lista, selecione **Storm Bolt**, e introduza *Splitter.cs* como o nome. No código do novo ficheiro, altere o nome do espaço de nome para `WordCount` . Em seguida, repita este processo para criar um segundo parafuso chamado *Counter.cs*.
+2. No **Solution Explorer,** clique com o botão direito no projeto e selecione **Adicionar**  >  **Novo item**. Da lista, selecione **Storm Bolt**, e *introduza Splitter.cs* como o nome. No código do novo ficheiro, altere o nome do espaço de nome para `WordCount` . Em seguida, repita este processo para criar um segundo parafuso chamado *Counter.cs*.
 
-   * *Splitter.cs*: Implementa um parafuso que divide frases em palavras individuais e emite um novo fluxo de palavras.
+   * *Splitter.cs*: Implementa um parafuso que divide frases em palavras individuais, e emite um novo fluxo de palavras.
 
-   * *Counter.cs*: Implementa um parafuso que conta cada palavra e emite um novo fluxo de palavras e a contagem para cada palavra.
+   * *Contra.cs*: Implementa um parafuso que conta cada palavra e emite um novo fluxo de palavras e a contagem para cada palavra.
 
      > [!NOTE]  
      > Estes parafusos lêem e escrevem para streams, mas também pode usar um parafuso para comunicar com fontes como uma base de dados ou um serviço.
 
-3. Abra *Splitter.cs.* Tem apenas um método por defeito: `Execute` . O `Execute` método é chamado quando o parafuso recebe um tuple para processamento. Aqui, você pode ler e processar tuples de entrada, e emitir tuples de saída.
+3. Open *Splitter.cs*. Tem apenas um método por defeito: `Execute` . O `Execute` método é chamado quando o parafuso recebe um tuple para processamento. Aqui, você pode ler e processar tuples de entrada, e emitir tuples de saída.
 
 4. Substitua o conteúdo da `Splitter` classe pelo seguinte código:
 
@@ -275,7 +275,7 @@ Agora crie dois parafusos storm neste exemplo:
     }
     ```
 
-5. Abra *Counter.cs*, e substitua o conteúdo da classe pelo seguinte código:
+5. Abrir *o contador.cs*, e substituir o conteúdo da classe pelo seguinte código:
 
     ```csharp
     private Context ctx;
@@ -572,9 +572,9 @@ Embora seja fácil implantar uma topologia num cluster, em alguns casos, você p
    > [!NOTE]
    > Lembre-se de mudar o **tipo de saída** de volta para a Biblioteca de **Classes** antes de colocar a topologia num cluster.
 
-1. No **Solution Explorer,** clique com o botão direito no projeto e, em seguida, selecione **Adicionar**  >  **Novo Item**. Selecione **Class**, e insira *LocalTest.cs* como o nome da classe. Finalmente, **selecione Adicionar**.
+1. No **Solution Explorer,** clique com o botão direito no projeto e, em seguida, selecione **Adicionar**  >  **Novo Item**. Selecione **Class**, e *insira LocalTest.cs* como o nome da classe. Finalmente, **selecione Adicionar**.
 
-1. Abra *LocalTest.cs*, e adicione a seguinte `using` declaração no topo:
+1. Abra *o LocalTest.cs*, e adicione a seguinte `using` declaração no topo:
 
     ```csharp
     using Microsoft.SCP;
@@ -661,7 +661,7 @@ Embora seja fácil implantar uma topologia num cluster, em alguns casos, você p
 
     Tire um momento para ler os comentários de código. Este código utiliza `LocalContext` para executar os componentes no ambiente de desenvolvimento. Persiste o fluxo de dados entre os componentes e os ficheiros de texto na unidade local.
 
-1. Abra *Program.cs*, e adicione o seguinte código ao `Main` método:
+1. *Programa Aberto.cs*, e adicione o seguinte código ao `Main` método:
 
     ```csharp
     Console.WriteLine("Starting tests");
@@ -737,7 +737,7 @@ Se o ficheiro de registo *hdinsight-scpwebapi.out* contiver `FileNotFoundExcepti
 * O JDK não está no caminho do ambiente de desenvolvimento. Verifique se o JDK está instalado no ambiente de desenvolvimento, e que `%JAVA_HOME%/bin` está no caminho.
 * Falta-te uma dependência java. Certifique-se de que está a incluir quaisquer ficheiros .jar necessários como parte da submissão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um exemplo de processamento de dados de Centros de Eventos, consulte [eventos de processo de Azure Event Hubs com Storm on HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

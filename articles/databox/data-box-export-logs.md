@@ -1,5 +1,5 @@
 ---
-title: Track and log Azure Data Box, Azure Data Box Eventos pesados para encomenda de exportação Microsoft Docs
+title: Rastrear e registar Azure Data Box, Azure Data Box Eventos pesados para encomenda de exportação| Microsoft Docs
 description: Descreve como rastrear e registar eventos nas várias fases da sua caixa de dados Azure e da encomenda de exportação pesada da Caixa de Dados Azure.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337513"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Caixa de Dados Azure Encomendas de exportação pesadas

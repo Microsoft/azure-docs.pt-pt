@@ -10,20 +10,20 @@ ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: b2563a9af0e0ca6943059698e29d139143780d93
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340979"
 ---
-# <a name="javascript-query-api-in-azure-cosmos-db"></a>Consulta JavaScript API em Azure Cosmos DB
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>API de consulta do JavaScript no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Além de emitir consultas utilizando o SQL API em Azure Cosmos DB, o [Cosmos DB server-side SDK](https://github.com/Azure/azure-cosmosdb-js-server/) fornece uma interface JavaScript para realizar consultas otimizadas em Procedimentos e Gatilhos Armazenados cosmos. Não é preciso estar atento ao idioma SQL para utilizar esta interface JavaScript. A consulta JavaScript API permite-lhe construir programáticamente consultas, passando funções predicados em sequência de chamadas de função, com uma sintaxe familiar à matriz incorporada do ECMAScript5 e às populares bibliotecas JavaScript como Lodash. As consultas são analisadas pelo tempo de execução javaScript e executadas de forma eficiente usando índices DB Azure Cosmos.
 
 ## <a name="supported-javascript-functions"></a>Funções JavaScript suportadas
 
-| **Função** | **Descrição** |
+| **Function** | **Descrição** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|Inicia uma chamada acorrentada que deve ser terminada com valor().|
 |`filter(predicateFunction [, options] [, callback])`|Filtra a entrada utilizando uma função predicado que devolve verdadeiro/falso para filtrar os documentos de entrada dentro/fora no conjunto resultante. Esta função comporta-se com um comportamento semelhante a uma cláusula WHERE em SQL.|

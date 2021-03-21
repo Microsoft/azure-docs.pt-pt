@@ -1,5 +1,5 @@
 ---
-title: Boas práticas e padrões de segurança - Microsoft Azure Microsoft Docs
+title: Melhores práticas e padrões de segurança - Microsoft Azure | Microsoft Docs
 description: Este artigo liga-o às melhores práticas e padrões de segurança para diferentes recursos Azure.
 services: azure-security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: f4a3b2afd8b1a5ffdbb1fe0db1c3e345a9c99154
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94412617"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Melhores práticas e padrões de segurança azul

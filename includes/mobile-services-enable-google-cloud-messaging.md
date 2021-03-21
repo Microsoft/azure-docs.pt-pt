@@ -9,27 +9,27 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93375823"
 ---
 1. Navegue até à [Consola do Google Cloud](https://console.developers.google.com/cloud-resource-manager) e inicie sessão com as credenciais da conta Google. 
 2. Selecione **Criar Projeto** na barra de ferramentas. 
    
     ![Criar novo projeto](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
-3. Para **Nome do projeto** , introduza um nome para o seu projeto e clique em **Criar**.
+3. Para **Nome do projeto**, introduza um nome para o seu projeto e clique em **Criar**.
 4. Selecione o botão **alertas** na barra de ferramentas e selecione o seu projeto na lista. Verá o dashboard para o seu projeto. Também pode navegar diretamente para o dashboard com o URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Selecionar o projeto nos alertas](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Anote o **Número do projeto** no mosaico **Informações do projeto** do dashboard. 
 
     ![ID do Projeto](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
-6. No dashboard, no mosaico **APIs** , selecione **Aceder à descrição geral das APIs**. 
+6. No dashboard, no mosaico **APIs**, selecione **Aceder à descrição geral das APIs**. 
 
     ![Ligação da descrição geral da API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)
-7. Na página **API** , selecione **ATIVAR APIS E SERVIÇOS**. 
+7. Na página **API**, selecione **ATIVAR APIS E SERVIÇOS**. 
 
     ![Botão Ativar APIs e Serviços](./media/mobile-services-enable-google-cloud-messaging/enable-api-services-button.png)
 8. Procure e selecione **Google Cloud Messaging**. 
@@ -41,10 +41,10 @@ ms.locfileid: "93375823"
 10. Selecione **Criar credenciais** na barra de ferramentas. 
 
     ![Botão Criar credenciais](./media/mobile-services-enable-google-cloud-messaging/create-credentials-button.png)
-11. Na página **Adicionar credenciais ao projeto** , selecione a ligação **Chave de API**. 
+11. Na página **Adicionar credenciais ao projeto**, selecione a ligação **Chave de API**. 
 
     ![Adicionar credenciais](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
-12. Na página **Chave de API** , selecione **Criar/Guardar**. No exemplo seguinte, a opção **Endereços IP** está selecionada e é introduzido **0.0.0.0/0** para os endereços IP permitidos. Deverá restringir a chave de API adequadamente. 
+12. Na página **Chave de API**, selecione **Criar/Guardar**. No exemplo seguinte, a opção **Endereços IP** está selecionada e é introduzido **0.0.0.0/0** para os endereços IP permitidos. Deverá restringir a chave de API adequadamente. 
 
     ![Chave de API - botão Criar](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)
 13. Copie a **Chave de API** para a área de transferência e guarde-a algures. 

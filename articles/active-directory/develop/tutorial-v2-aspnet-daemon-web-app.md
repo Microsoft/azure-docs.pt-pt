@@ -13,10 +13,10 @@ ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.openlocfilehash: 5816bc542ff550accedd33ba9a7fd9d98583b3d1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101653767"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
@@ -178,14 +178,14 @@ O código relevante para esta amostra encontra-se nos seguintes ficheiros:
    - Microsoft.Owin.Security.OpenIdConnect
    - Microsoft.Identity.Client
 1. Na pasta **App_Start:**
-   1. Criar uma classe chamada **Startup.Auth.cs.**
+   1. Crie uma classe chamada **Startup.Auth.cs**.
    1. Remover **. App_Start** do nome do espaço.
    1. Substitua o código da classe **Startup** pelo código do mesmo ficheiro da aplicação da amostra.
    Certifique-se de tomar toda a definição de classe. A definição muda de **classe pública Startup** para classe parcial pública **Startup.**
-1. Em **Startup.Auth.cs**, resolva referências em falta adicionando **declarações** como sugerido pelo Visual Studio IntelliSense.
+1. No **Startup.Auth.cs**, resolva referências em falta adicionando **declarações** como sugerido pelo Visual Studio IntelliSense.
 1. Clique com o botão direito no projeto, **selecione Add** e, em seguida, selecione **Class**.
 1. Na caixa de pesquisa, **insira OWIN**. **A classe OWIN Startup** aparece como uma seleção. Selecione-o e nomeie a classe **Startup.cs**.
-1. Em **Startup.cs**, substitua o código da classe **Startup** pelo código do mesmo ficheiro da aplicação da amostra. Mais uma vez, note que a definição muda de **classe pública Startup** para classe parcial pública **Startup**.
+1. No **Startup.cs**, substitua o código da classe **Startup** pelo código do mesmo ficheiro da aplicação da amostra. Mais uma vez, note que a definição muda de **classe pública Startup** para classe parcial pública **Startup**.
 1. Na pasta **Modelos,** adicione uma nova classe chamada **MsGraphUser.cs**. Substitua a implementação pelo conteúdo do ficheiro com o mesmo nome da amostra.
 1. Adicione um novo **Controlador MVC 5 -** Instância vazia chamada **Controlador de Conta**. Substitua a implementação pelo conteúdo do ficheiro com o mesmo nome da amostra.
 1. Adicione um novo **controlador MVC 5 -** Instância vazia chamada **UserController**. Substitua a implementação pelo conteúdo do ficheiro com o mesmo nome da amostra.

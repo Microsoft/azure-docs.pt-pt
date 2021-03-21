@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: alkohli
 ms.openlocfilehash: 0c0ef6157ebf70c896fbac5ff692246e4fad2c14
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98937205"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Dados de transferência com gateway da caixa de dados Azure
@@ -139,7 +139,7 @@ No seu cliente Linux ligado ao seu dispositivo, faça o seguinte procedimento:
 > - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
 > - Se `rsync` utilizar para copiar dados, a `rsync -a` opção não é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

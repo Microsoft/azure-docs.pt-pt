@@ -4,10 +4,10 @@ description: Este artigo descreve como converter o seu esquema personalizado par
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 34381782c9337631b0aa04e47eb5897a8071139a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97109203"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados no esquema do Event Grid
@@ -38,7 +38,7 @@ Ao criar um tópico personalizado, especifique como mapear campos do seu evento 
 
 * A propriedade **de valores prefondo** de mapeamento especifica valores predefinidos para campos no esquema da Grelha de Evento. Pode definir valores predefinidos para `subject` `eventtype` , e `dataversion` . Normalmente, você usa este parâmetro quando o seu esquema personalizado não inclui um campo que corresponde a um desses três campos. Por exemplo, pode especificar que a versão de dados está sempre definida para **1.0**.
 
-* Os **campos de mapeamento valorizam** os campos de mapas desde o seu esquema até ao esquema da grelha do evento. Especificar valores em pares de chave/valor separados pelo espaço. Para o nome chave, utilize o nome do campo de grelha de evento. Pelo valor, use o nome do seu campo. Pode usar nomes-chave para `id` , `topic` e `eventtime` `subject` `eventtype` `dataversion` .
+* Os **campos de mapeamento valorizam** os campos de mapas desde o seu esquema até ao esquema da grelha do evento. Especificar valores em pares de chave/valor separados pelo espaço. Para o nome chave, utilize o nome do campo de grelha de evento. Pelo valor, use o nome do seu campo. Pode usar nomes-chave para `id` , , , e `topic` `eventtime` `subject` `eventtype` `dataversion` .
 
 Para criar um tópico personalizado com o Azure CLI, utilize:
 

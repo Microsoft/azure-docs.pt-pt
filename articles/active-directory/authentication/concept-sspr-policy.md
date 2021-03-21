@@ -13,10 +13,10 @@ ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918048"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
@@ -49,7 +49,7 @@ A política de palavra-passe AD AD não se aplica às contas de utilizador sincr
 
 São definidas as seguintes opções de política de palavra-passe AZure AD. A menos que seja notado, não pode alterar estas definições:
 
-| Propriedade | Requirements |
+| Propriedade | Requisitos |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li># $ % ^ & * - _ ! + = { { } &#124; \ : '' . ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
 | Caracteres não são permitidos | Caracteres unicódigo. |
@@ -179,7 +179,7 @@ Depois de instalar o módulo, utilize os seguintes passos para completar cada ta
    > [!WARNING]
    > As palavras-passe definidas `-PasswordPolicies DisablePasswordExpiration` para a idade ainda com base no `pwdLastSet` atributo. Com base no `pwdLastSet` atributo, se alterar a expiração para `-PasswordPolicies None` , todas as palavras-passe com `pwdLastSet` mais de 90 dias exigem que o utilizador as altere da próxima vez que iniciar sôs. Esta alteração pode afetar um grande número de utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com o SSPR, consulte [Tutorial: Ative os utilizadores para desbloquearem a sua conta ou redefinirem as palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory](tutorial-enable-sspr.md).
 
