@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
 ms.openlocfilehash: 8cdf95dd3c0e801896328136b15e4bd4efe53005
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102563817"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na Base de Dados Azure SQL
@@ -48,7 +48,7 @@ Para saber mais, consulte a visão geral de segurança da [Base de Dados Azure S
 
 Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
-- [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um [servidor](logical-servers.md) e uma única base de dados
   - Crie-os com o [portal Azure,](single-database-create-quickstart.md) [CLI](az-cli-script-samples-content-guide.md)ou [PowerShell](powershell-script-content-guide.md)
 

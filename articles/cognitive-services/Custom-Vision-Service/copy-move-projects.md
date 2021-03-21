@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
 ms.openlocfilehash: 7d58a8239c728f70efe3584c2649e196dffd791f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501095"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copie e mova os seus projetos de Visão Personalizada
