@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: 937f0d1feb0c45c1c158b5e88daf268aeb383509
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034749"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Especificações técnicas e conformidade para Azure Stack Edge Pro com GPU 
@@ -47,14 +47,14 @@ O dispositivo Azure Stack Edge Pro tem duas unidades de alimentação de 100-240
 | Potência máxima de saída    | 750 W                     |
 | Frequência               | 50/60 Hz                   |
 | Seleção de gama de tensão | Variação automática: 100-240 V AC |
-| Pluggável quente           | Sim                        |
+| Pluggável quente           | Yes                        |
 
 
 ## <a name="network-interface-specifications"></a>Especificações de interface de rede
 
 O seu dispositivo Azure Stack Edge Pro tem seis interfaces de rede, PORT1-PORT6.
 
-| Especificação           | Descrição                 |
+| Especificação           | Description                 |
 |-------------------------|----------------------------|
 |  Interfaces de rede    | **2 interfaces X 1 GbE** – 1 interface de gestão A Porta 1 é utilizada para a configuração inicial e está estática por predefinição. Após a configuração inicial estar concluída, pode utilizar a interface para obter dados com qualquer endereço IP. No entanto, no reset, a interface volta a ip estática. <br>A outra interface A Porta 2 é configurável pelo utilizador, pode ser usada para transferência de dados, e é DHCP por padrão. <br>**4 X 25 Interfaces GbE** – Estas interfaces de dados, Porta 3 até à Porta 6, podem ser configuradas pelo utilizador como DHCP (padrão) ou estática. Também podem funcionar como interfaces de 10 GbE.  | 
 

@@ -8,29 +8,27 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 62417b575e142d044e599249a529328a41c9b8d7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: a2167d573871481c99b755fc713e18543d74c5bf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102639168"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602687"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Definir palavra-passe do Gestor de Recursos Azure no dispositivo GPU Azure Stack Edge Pro
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Este artigo descreve como definir a sua senha do Gestor de Recursos Azure. Tem de definir esta palavra-passe quando estiver a ligar-se às APIs locais do dispositivo através do Gestor de Recursos Azure.
+Este artigo descreve como definir a sua senha do Gestor de Recursos Azure. Tem de definir esta palavra-passe quando estiver [a ligar-se às APIs locais do dispositivo através do Gestor de Recursos Azure](azure-stack-edge-gpu-connect-resource-manager.md). 
 
 <!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Redefinir a palavra-passe através do portal Azure
 
-1. No portal Azure, aceda ao recurso Azure Stack Edge que criou para gerir o seu dispositivo. Aceda aos **serviços Edge > gateway de armazenamento cloud**.
+1. No portal Azure, aceda ao recurso Azure Stack Edge que criou para gerir o seu dispositivo. 
 
-    ![Redefinir a palavra-passe do utilizador EdgeARM 1](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-1.png)
-
-2. No painel direito, na barra de comandos, selecione **Repor palavra-passe do ARM Edge**. 
+2. Ir para **propriedades**. No painel direito, na barra de comandos, selecione **Repor palavra-passe do ARM Edge**. 
 
     ![Redefinir a senha de utilizador do EdgeARM 2](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-2.png)
 

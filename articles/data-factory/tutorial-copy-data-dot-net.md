@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jingwang
 ms.openlocfilehash: 2a9e19f24c4889a194c85e33317860db1d3a68d2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101736564"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
@@ -112,7 +112,7 @@ Em seguida, instale os pacotes de biblioteca necessários utilizando o gestor de
 
 Siga estes passos para criar um cliente de fábrica de dados.
 
-1. Abra *Program.cs*, em seguida, substitua as `using` declarações existentes com o seguinte código para adicionar referências aos espaços de nome.
+1. *Programa Aberto.cs*, em seguida, substitua as `using` declarações existentes com o seguinte código para adicionar referências aos espaços de nome.
 
     ```csharp
     using System;

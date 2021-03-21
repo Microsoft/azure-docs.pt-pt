@@ -4,10 +4,10 @@ description: A API de Alerta de Log Analytics permite-lhe criar e gerir alertas 
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 33f5ce86a21a9aad110db162849ff3e3c7bbb2b4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037494"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta em Log Analytics com REST API 
@@ -135,7 +135,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 ### <a name="alert-actions"></a>Ações de Alerta
 A Agenda deve ter uma e única ação de alerta.  As ações de alerta têm uma ou mais secções na tabela seguinte.  Cada um é descrito em mais detalhes abaixo.
 
-| Section | Descrição | Utilização |
+| Section | Description | Utilização |
 |:--- |:--- |:--- |
 | Limite |Critérios para quando a ação é executada.| Necessário para cada alerta, antes ou depois de estendidos ao Azure. |
 | Gravidade |Etiqueta usada para classificar o alerta quando acionado.| Necessário para cada alerta, antes ou depois de estendidos ao Azure. |

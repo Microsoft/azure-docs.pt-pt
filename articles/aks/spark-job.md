@@ -7,10 +7,10 @@ ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 74a3fe79291f3a5c7f5bbd664bf6d55a5fb77eae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181198"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executando apache spark empregos em AKS

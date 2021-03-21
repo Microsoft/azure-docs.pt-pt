@@ -10,15 +10,15 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: c6b038297945ca900508a822460e1358a2524d23
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455923"
 ---
 O gatilho blob fornece várias propriedades de metadados. Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. Estes valores têm a mesma semântica que o tipo [CloudBlob.](/dotnet/api/microsoft.azure.storage.blob.cloudblob)
 
-|Propriedade  |Tipo  |Descrição  |
+|Propriedade  |Tipo  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho para a bolha de desencadeamento.|
 |`Uri`|`System.Uri`|O URI da bolha para a localização primária.|

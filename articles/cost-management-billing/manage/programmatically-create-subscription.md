@@ -1,20 +1,20 @@
 ---
-title: Criar subscrições do Azure através de programação
+title: Criar subscrições Azure programáticamente
 description: Este artigo ajuda-o a compreender as opções disponíveis para criar subscrições do Azure através de programação.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 546ed24b5f9e7892f40c9d425b668f60ad705f8f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 9ec0ffeb930fd9285f34ad9ba9e6aa606b15b5a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493893"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593893"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>Criar subscrições Azure programáticamente
 
@@ -26,7 +26,7 @@ Com as várias APIs REST, pode criar uma subscrição para os seguintes tipos de
 - Contrato de Cliente da Microsoft (MCA)
 - Contrato de Parceiro da Microsoft (MPA)
 
-Não pode criar subscrições adicionais através de programação para outros tipos de contrato com as APIs REST.
+Não é possível criar subscrições adicionais para outros tipos de acordo com APIs REST.
 
 Os requisitos e detalhes para criar subscrições diferem consoante os contratos e as versões de API. Veja os seguintes artigos que se aplicam à sua situação:
 
@@ -36,9 +36,9 @@ APIs mais recentes:
 - [Criar subscrições MCA](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Criar subscrições MPA](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-Se ainda estiver a utilizar [APIs de pré-visualização](programmatically-create-subscription-preview.md), pode continuar a criar subscrições com as mesmas. 
+Estes artigos também mostram como criar subscrições com um modelo de Gestor de Recursos Azure (modelo ARM). Um modelo ARM ajuda a automatizar o processo de criação de subscrição.
 
-Além disso, pode [criar subscrições com um modelo do ARM](create-subscription-template.md). Os modelos do ARM ajudam a automatizar o processo de criação de subscrições com APIs REST. 
+Se ainda estiver a utilizar [APIs de pré-visualização,](programmatically-create-subscription-preview.md)pode continuar a criar subscrições com elas. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

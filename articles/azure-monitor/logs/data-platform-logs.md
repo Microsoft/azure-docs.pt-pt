@@ -7,10 +7,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
 ms.openlocfilehash: 5066264777c66369205489fb27a6f9206c5da521
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708004"
 ---
 # <a name="azure-monitor-logs-overview"></a>Descrição geral dos Registos do Azure Monitor
@@ -25,7 +25,7 @@ A tabela a seguir descreve algumas das diferentes formas de utilização de Regi
 
 |  |  |
 |:---|:---|
-| **Analisar** | Use [o Log Analytics](./log-analytics-tutorial.md) no portal Azure para escrever consultas de [registo](./log-query-overview.md) e analise interativamente dados de registo usando um poderoso motor de análise |
+| **Análise** | Use [o Log Analytics](./log-analytics-tutorial.md) no portal Azure para escrever consultas de [registo](./log-query-overview.md) e analise interativamente dados de registo usando um poderoso motor de análise |
 | **Alerta** | Configure uma [regra de alerta de registo](../alerts/alerts-log.md) que envia uma notificação ou toma [medidas automatizadas](../alerts/action-groups.md) quando os resultados da consulta correspondem a um resultado específico. |
 | **Visualizar** | Resultados da consulta de pinos renderizados como tabelas ou gráficos para um [painel de instrumentos Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie um [livro para](../visualize/workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exporte os resultados de uma consulta ao [Power BI](../visualize/powerbi.md) para utilizar diferentes visualizações e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta à [Grafana](../visualize/grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados.|
 | **Informações** | Informações [de](../monitor-reference.md#insights-and-core-solutions) suporte que proporcionam uma experiência de monitorização personalizada para aplicações e serviços específicos.  |

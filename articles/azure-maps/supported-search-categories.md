@@ -1,5 +1,5 @@
 ---
-title: Categorias de Pesquisa / Microsoft Azure Maps
+title: Categorias de Pesquisa | Microsoft Azure Maps
 description: Saiba quais categorias de pesquisa são suportadas no Azure Maps. Veja todos os códigos de categoria suportados e os tipos de pontos de interesse que cada um representa.
 author: sataneja
 ms.author: sataneja
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b9cf9e031c73b1412ab9fc20f5ffe94736d28eb4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896910"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps apoiou categorias

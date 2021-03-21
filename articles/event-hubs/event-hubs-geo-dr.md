@@ -3,12 +3,12 @@ title: Recuperação de geo-desastres - Azure Event Hubs| Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: eb6ef1a7536b819d1bc973740a0da6fdf3d756d5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f3b74b89f47582fbb3f1640f315f413ab86b26b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042373"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602643"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
 
@@ -52,10 +52,10 @@ São suportadas as seguintes combinações de espaços de nome primário e secun
 
 | Espaço de nome primário | Espaço de nome secundário | Suportado | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Sim | 
-| Standard | Dedicada | Sim | 
-| Dedicada | Dedicada | Sim | 
-| Dedicada | Standard | Não | 
+| Standard | Standard | Yes | 
+| Standard | Dedicada | Yes | 
+| Dedicada | Dedicada | Yes | 
+| Dedicada | Standard | No | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nomes que estão em aglomerados separados. 
@@ -204,7 +204,7 @@ Para obter mais informações sobre os Hubs de Eventos, visite as seguintes liga
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 * [Aplicações de exemplo que utilizam Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

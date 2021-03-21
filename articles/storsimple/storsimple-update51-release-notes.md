@@ -5,18 +5,18 @@ author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/18/2021
 ms.author: alkohli
-ms.openlocfilehash: a6a359888e782751892f2a034a8d92a014fd3a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdb971851ba678ce18f5a1c7954e5620740f3a4c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055848"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657574"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>StorSimple 8000 Series Update 5.1 notas de lançamento
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As seguintes notas de lançamento descrevem as novas funcionalidades e identificam as questões abertas críticas para storSimple 8000 Series Update 5.1. Também contêm uma lista das atualizações de software StorSimple incluídas nesta versão.
 
@@ -34,7 +34,11 @@ Reveja as informações contidas nas notas de lançamento antes de implementar a
 
 As seguintes melhorias-chave e correções de erros foram feitas na Atualização 5.1:
 
-* **TLS 1.2** - Esta atualização StorSimple irá impor o TLS 1.2 a todos os clientes. Esta é uma atualização obrigatória para todos os dispositivos da série StorSimple 8000.
+* **TLS 1.2** - Esta atualização StorSimple irá impor o TLS 1.2 a todos os clientes. Esta é uma atualização obrigatória para todos os dispositivos da série 8000 do StorSimple.
+
+   Se vir o seguinte aviso, deve atualizar o software do dispositivo antes de prosseguir:
+
+   Um ou mais dispositivos StorSimple estão a executar uma versão de software mais antiga. A mais recente atualização disponível para OLS 1.2 é uma atualização obrigatória e deve ser instalada imediatamente nestes dispositivos. O TLS 1.2 é utilizado para toda a comunicação do portal Azure e sem esta atualização, o dispositivo não será capaz de comunicar com o serviço StorSimple.
 
 ## <a name="known-issues-in-update-51-from-previous-releases"></a>Problemas conhecidos no Update 5.1 de lançamentos anteriores
 

@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 954712c2056a4251bc92b71c5b7cd2f1309804b2
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
-  ms.translationtype: HT
+  ms.openlocfilehash: c0f391c5d6ab281c505cb81a1c8a3e32d09d3ac4
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91962025"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104578860"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -66,6 +66,8 @@ landingContent:
       url: quickstart-v2-aspnet-core-webapp.md
     - text: Blazor Server
       url: tutorial-blazor-server.md
+    - text: expresso Node.js &
+      url: tutorial-v2-nodejs-webapp-msal.md
 - title: Aplicações móveis/nativas
   linkLists:
   - linkListType: get-started

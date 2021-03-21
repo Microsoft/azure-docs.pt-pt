@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467022"
 ---
 # <a name="form-recognizer-layout-service"></a>Serviço de Layout do Reconhecimento de Formulários
@@ -95,7 +95,7 @@ A saída JSON tem duas partes:
 
 Layout API extrai texto de documentos (PDF, TIFF) e imagens (JPG, PNG, BMP) com múltiplos ângulos de texto e cores. Aceita fotos de documentos, faxes, texto impresso e/ou manuscrito (apenas inglês) e modos mistos. O texto é extraído com informações fornecidas sobre linhas, palavras, caixas de delimitação, pontuações de confiança e estilo (manuscrito ou outro). Todas as informações de texto estão incluídas na `readResults` secção da saída JSON. 
 
-### <a name="tables"></a>Tabelas
+### <a name="tables"></a>Tables
 
 Layout API extrai tabelas de documentos (PDF, TIFF) e imagens (JPG, PNG, BMP). Os documentos podem ser digitalizados, fotografados ou digitalizados. As tabelas podem ser complexas com células ou colunas fundidas, com ou sem fronteiras, e com ângulos estranhos. As informações de tabela extraídas incluem o número de colunas e linhas, o vão da linha e o período de colunas. Cada célula é extraída com a sua caixa de delimitação e referência ao texto extraído na `readResults` secção. As informações sobre a tabela estão localizadas na `pageResults` secção da saída JSON. 
 

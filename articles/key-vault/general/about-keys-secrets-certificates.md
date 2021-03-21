@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
 ms.openlocfilehash: f2a33b4011b0bb89ca17010fc787aebe8c17fc92
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102183935"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Chaves, segredos e certificados do Azure Key Vault

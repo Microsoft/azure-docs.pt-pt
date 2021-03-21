@@ -7,10 +7,10 @@ ms.date: 10/30/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: bb0ee52d37fe901a610723d5864240b8778d8b17
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574599"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinar a latência da ligação do utilizador no Windows Virtual Desktop

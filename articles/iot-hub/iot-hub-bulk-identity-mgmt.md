@@ -1,5 +1,5 @@
 ---
-title: Identidades do dispositivo Azure IoT Hub Microsoft Docs
+title: Importação/Exportação de identidades do dispositivo Azure IoT Hub | Microsoft Docs
 description: Como utilizar o serviço Azure IoT SDK para executar operações a granel contra o registo de identidade para importar e exportar identidades de dispositivos. As operações de importação permitem-lhe criar, atualizar e eliminar identidades do dispositivo a granel.
 author: robinsh
 manager: philmea
@@ -10,10 +10,10 @@ ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536084"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades do dispositivo do Hub IoT em massa
@@ -61,7 +61,7 @@ Para encontrar a cadeia de ligação para o seu hub IoT, no portal Azure:
 
 - Navegue até ao seu hub IoT.
 
-- Selecione **políticas de acesso compartilhado** .
+- Selecione **políticas de acesso compartilhado**.
 
 - Selecione uma apólice, tendo em conta as permissões necessárias.
 
@@ -134,7 +134,7 @@ while(true)
 }
 ```
 
-O trabalho armazena a sua produção no recipiente de bolhas fornecido como uma bolha de bloco com o nome **devices.txt** . Os dados de saída consistem em dados de dispositivo serializados JSON, com um dispositivo por linha.
+O trabalho armazena a sua produção no recipiente de bolhas fornecido como uma bolha de bloco com o nome **devices.txt**. Os dados de saída consistem em dados de dispositivo serializados JSON, com um dispositivo por linha.
 
 O exemplo a seguir mostra os dados de saída:
 
@@ -226,7 +226,7 @@ O método **ImportDevicesAsync** tem dois parâmetros:
    SharedAccessBlobPermissions.Read
    ```
 
-* Uma *corda* que contém um URI de um recipiente de bolhas [de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/) para usar como *saída* do trabalho. O trabalho cria uma bolha de bloco neste recipiente para armazenar qualquer informação de erro a partir da importação concluída **Job** . O token SAS deve incluir estas permissões:
+* Uma *corda* que contém um URI de um recipiente de bolhas [de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/) para usar como *saída* do trabalho. O trabalho cria uma bolha de bloco neste recipiente para armazenar qualquer informação de erro a partir da importação concluída **Job**. O token SAS deve incluir estas permissões:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -262,14 +262,14 @@ Se o ficheiro de importação incluir metadados duplos, então este metadados su
 
 Utilize a importação opcional **PropriedadeMode** nos dados de serialização de importação para cada dispositivo para controlar o processo de importação por dispositivo. A **propriedade importMode** tem as seguintes opções:
 
-| importMode | Descrição |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |Se um dispositivo não existir com o **ID** especificado, está recentemente registado. <br/>Se o dispositivo já existir, as informações existentes são substituídas com os dados de entrada fornecidos sem ter em conta o valor **ETag.** <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
 | **criar** |Se um dispositivo não existir com o **ID** especificado, está recentemente registado. <br/>Se o dispositivo já existir, é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
 | **atualizar** |Se um dispositivo já existir com o **ID** especificado, as informações existentes são substituídas com os dados de entrada fornecidos sem ter em conta o valor **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
 | **atualizaçãoIfMatchETag** |Se um dispositivo já existir com o **ID** especificado, as informações existentes só são substituídas com os dados de entrada fornecidos se houver uma correspondência **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. <br/>Se houver uma incompatibilidade **do ETag,** é escrito um erro no ficheiro de registo. |
 | **createOrUpdateIfMatchETag** |Se um dispositivo não existir com o **ID** especificado, está recentemente registado. <br/>Se o dispositivo já existir, as informações existentes só são substituídas com os dados de entrada fornecidos se houver uma correspondência **ETag.** <br/>Se houver uma incompatibilidade **do ETag,** é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
-| **delete** |Se já existir um dispositivo com o **ID** especificado, é eliminado sem ter em conta o valor **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
+| **eliminar** |Se já existir um dispositivo com o **ID** especificado, é eliminado sem ter em conta o valor **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
 | **deleteIfMatchETag** |Se já existir um dispositivo com o **ID** especificado, este só é eliminado se houver uma correspondência **ETag.** Se o dispositivo não existir, é escrito um erro no ficheiro de registo. <br/>Se houver uma incompatibilidade do ETag, é escrito um erro no ficheiro de registo. |
 
 > [!NOTE]
@@ -432,7 +432,7 @@ O artigo de clonagem tem uma amostra de trabalho associada a ele, que está loca
 
 Para saber mais sobre a gestão do Azure IoT Hub, confira os seguintes artigos:
 
-* [Monitor IoT Hub](monitor-iot-hub.md)
+* [Monitorizar o Hub IoT](monitor-iot-hub.md)
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 

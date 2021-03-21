@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471689"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
@@ -65,14 +65,14 @@ Os seguintes contornos da tabela quando um método de autenticação pode ser ut
 
 | Método                         | Autenticação primária | Autenticação secundária  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Windows Hello para empresas     | Sim                    | MFA                       |
-| Aplicação Microsoft Authenticator    | Sim                    | MFA e SSPR              |
-| Chave de segurança FIDO2             | Sim                    | MFA                       |
+| Windows Hello para empresas     | Yes                    | MFA                       |
+| Aplicação Microsoft Authenticator    | Yes                    | MFA e SSPR              |
+| Chave de segurança FIDO2             | Yes                    | MFA                       |
 | Fichas de hardware do OATH (pré-visualização) | No                     | MFA                       |
 | Fichas de software OATH           | No                     | MFA                       |
-| SMS                            | Sim                    | MFA e SSPR              |
+| SMS                            | Yes                    | MFA e SSPR              |
 | Chamada de voz                     | No                     | MFA e SSPR              |
-| Palavra-passe                       | Sim                    |                           |
+| Palavra-passe                       | Yes                    |                           |
 
 Todos estes métodos de autenticação podem ser configurados no portal Azure e, cada vez mais, utilizando a beta API do [Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 

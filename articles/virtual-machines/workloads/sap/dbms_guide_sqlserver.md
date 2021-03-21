@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4eb7e64065e311dc18f33dffb169d5c27a34008d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101673045"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Sql Server Azure Virtual Machines DBMS implantação para SAP NetWeaver
@@ -481,7 +481,7 @@ A funcionalidade de envio de registos SQL Server dificilmente foi utilizada no A
 
 
 
-### <a name="database-mirroring"></a>Espelhamento da Base de Dados
+### <a name="database-mirroring"></a>Espelhamento de Bases de Dados
 O "Database Mirroring" suportado pelo SAP (ver NOTA [SAP 965908)]baseia-se na definição de um parceiro de failover na cadeia de ligação SAP. Para os casos de Cross-Premis, assumimos que os dois VMs estão no mesmo domínio e que o contexto do utilizador as duas instâncias do SQL Server também estão a funcionar sob um utilizador de domínio e têm privilégios suficientes nas duas instâncias do SQL Server envolvidas. Por conseguinte, a configuração do "Database Mirroring" em Azure não difere entre uma configuração/configuração típica no local.
 
 A partir de Cloud-Only implementações, o método mais fácil é ter outra configuração de domínio em Azure para ter esses VMs DBMS (e idealmente dedicados VMs SAP) dentro de um domínio.

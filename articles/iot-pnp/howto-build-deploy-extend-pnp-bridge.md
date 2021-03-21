@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: c89427f83600d3b8091d5293b1757fa6f1a15ef1
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202489"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Construa e implemente a ponte IoT Plug and Play
@@ -81,8 +81,8 @@ Quando a ponte funciona como um módulo IoT Edge num tempo de execução IoT Edg
 
 | Plataforma | Suportado |
 | :-----------: | :-----------: |
-| Windows |  Sim |
-| Linux | Sim |
+| Windows |  Yes |
+| Linux | Yes |
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -203,8 +203,8 @@ Debug\pnpbridge_bin.exe
 
 | Plataforma | Suportado |
 | :-----------: | :-----------: |
-| Windows |  Não |
-| Linux | Sim |
+| Windows |  No |
+| Linux | Yes |
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
 ms.openlocfilehash: 6f2268ae9a86978e9266ea0e35411727b238d4b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101671648"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando O Balançador de Carga Padrão Azure em cenários de alta disponibilidade SAP
@@ -28,7 +28,7 @@ O âmbito deste artigo é descrever configurações que permitirão a conectivid
 
 Se estiver a utilizar o Pacemaker com o agente de cerca Azure na sua solução de alta disponibilidade, então os VMs devem ter conectividade de saída com a API de gestão Azure. O artigo apresenta várias opções para que possa selecionar a opção mais adequada para o seu cenário.  
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Ao implementar uma elevada disponibilidade para soluções SAP através de clustering, um dos componentes necessários é o [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). A Azure oferece dois SKUs de balançadores de carga: standard e básico.
 

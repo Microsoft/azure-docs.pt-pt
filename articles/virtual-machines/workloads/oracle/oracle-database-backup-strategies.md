@@ -10,10 +10,10 @@ ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
 ms.openlocfilehash: 8a1eb1c21663e0294cd384daa0ba644adf78007a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101673211"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Oracle Database em estratégias de backup VM Azure Linux
@@ -22,7 +22,7 @@ As cópias de segurança da base de dados protegem a base de dados contra a perd
 
 Em Azure, uma vez que todo o armazenamento é altamente redundante e a perda de um ou mais discos não conduzirá a uma interrupção da base de dados, as cópias de segurança são mais frequentemente utilizadas para proteger contra erros humanos, para operações de clonagem ou preservação de dados para fins regulamentares. São também um meio de proteção contra falhas regionais onde uma tecnologia de recuperação de desastres como o DataGuard não está a ser utilizada. Neste caso, os backups devem ser armazenados em diferentes regiões do Azure utilizando replicações geo-redundantes, de modo a estarem disponíveis fora da região de base de dados primária.
 
-## <a name="azure-storage"></a>Storage do Azure 
+## <a name="azure-storage"></a>Armazenamento do Azure 
 
 Os [serviços de Armazenamento Azure](../../../storage/common/storage-introduction.md) são a solução de armazenamento em nuvem da Microsoft para cenários modernos de armazenamento de dados. O Azure Storage oferece uma série de serviços que podem ser usados para montar armazenamento externo ao Azure Linux VM, adequado como suporte de reserva para bases de dados Oracle. Uma ferramenta de backup, como a Oracle RMAN, é necessária para iniciar uma operação de backup ou restaurar e copiar a cópia de segurança para/a partir do serviço de Armazenamento Azure.
  

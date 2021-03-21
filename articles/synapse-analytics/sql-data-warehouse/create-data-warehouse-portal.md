@@ -2,7 +2,7 @@
 title: 'Quickstart: Criar e consultar uma piscina SQL dedicada (anteriormente SQL DW) (portal Azure)'
 description: Criar e consultar uma piscina SQL dedicada (anteriormente SQL DW) utilizando o portal Azure
 services: synapse-analytics
-author: kevinvngo
+author: pimorano
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a14aa2d73e35008675819c07fa96f34b088f26a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: dd9d66683d5f2349807915651c50bf9eedd285c1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672829"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602235"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina SQL dedicada (anteriormente SQL DW) em Azure synapse Analytics usando o portal Azure
 
@@ -29,7 +29,7 @@ Crie e questione rapidamente uma piscina SQL dedicada (anteriormente SQL DW) em 
    > [!NOTE]
    > A criação de uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse pode resultar num novo serviço de faturação. Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS). Nota: O SSMS só está disponível nas plataformas baseadas no Windows, consulte a [lista completa de plataformas suportadas.](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15#supported-operating-systems-ssms-185)
+2. Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS). Nota: O SSMS só está disponível nas plataformas baseadas no Windows, consulte a [lista completa de plataformas suportadas.](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15&preserve-view=true#supported-operating-systems-ssms-185t)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

@@ -8,17 +8,17 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: c17ef939b8d27035e5b28f4a651b9be2db8f2279
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382944"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Use modelos para criar entidades da Azure Data Factory
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Ao utilizar a Azure Data Factory para as suas necessidades de integração de dados, poderá encontrar-se a reutilizar o mesmo padrão em diferentes ambientes ou a implementar a mesma tarefa repetidamente dentro da mesma solução. Os modelos ajudam-no a implementar e gerir estes cenários de forma fácil. Os modelos na Azure Data Factory são ideais para cenários que envolvem reutilização e repetição.
 
 Considere a situação em que uma organização tem 10 fábricas em todo o mundo. Os registos de cada planta são armazenados numa base de dados separada do SQL Server. A empresa quer construir um único armazém de dados na nuvem para análise ad hoc. Também quer ter a mesma lógica, mas diferentes configurações para ambientes de desenvolvimento, teste e produção.

@@ -3,13 +3,13 @@ title: Endereços IP de entrada/saída
 description: Saiba como os endereços IP de entrada e saída são usados no Azure App Service, quando eles mudam, e como encontrar os endereços para a sua aplicação.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18
+ms.openlocfilehash: 4237e51251a7ece05800aa7efa328a9c6cf65e76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746155"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591372"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saída no Serviço de Aplicações Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "92746155"
 
 ## <a name="how-ip-addresses-work-in-app-service"></a>Como os endereços IP funcionam no Serviço de Aplicações
 
-Uma aplicação do Serviço de Aplicações funciona num plano de Serviço de Aplicações e os planos do Serviço de Aplicações são implantados numa das unidades de implantação da infraestrutura Azure (chamada internamente de espaço web). Cada unidade de implantação é atribuída até cinco endereços IP virtuais, que inclui um endereço IP de entrada pública e quatro endereços IP de saída. Todos os planos do Serviço de Aplicações na mesma unidade de implementação, e as instâncias de aplicação que nelas funcionam, partilham o mesmo conjunto de endereços IP virtuais. Para um Ambiente de Serviço de Aplicações (um plano de Serviço de Aplicações em [nível isolado),](https://azure.microsoft.com/pricing/details/app-service/)o plano de Serviço de Aplicações é a própria unidade de implantação, pelo que os endereços IP virtuais são dedicados a ele como resultado.
+Uma aplicação do Serviço de Aplicações funciona num plano de Serviço de Aplicações e os planos do Serviço de Aplicações são implantados numa das unidades de implantação da infraestrutura Azure (chamada internamente de espaço web). A cada unidade de implantação é atribuído um conjunto de endereços IP virtuais, que inclui um endereço IP de entrada pública e um conjunto de [endereços IP de saída](#find-outbound-ips). Todos os planos do Serviço de Aplicações na mesma unidade de implementação, e as instâncias de aplicação que nelas funcionam, partilham o mesmo conjunto de endereços IP virtuais. Para um Ambiente de Serviço de Aplicações (um plano de Serviço de Aplicações em [nível isolado),](https://azure.microsoft.com/pricing/details/app-service/)o plano de Serviço de Aplicações é a própria unidade de implantação, pelo que os endereços IP virtuais são dedicados a ele como resultado.
 
 Como não está autorizado a mover um plano de Serviço de Aplicações entre unidades de implementação, os endereços IP virtuais atribuídos à sua app geralmente permanecem os mesmos, mas existem exceções.
 
@@ -86,4 +86,4 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 Saiba como restringir o tráfego de entrada através de endereços IP de origem.
 
 > [!div class="nextstepaction"]
-> [Restrições estáticas de IP](app-service-ip-restrictions.md)
+> [Restrições de IP estático](app-service-ip-restrictions.md)

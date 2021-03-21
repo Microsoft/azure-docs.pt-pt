@@ -6,15 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 080f444d50dcdf17be15d940002b745624b2f6a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f1824a1e4754dddea26484c836df79e95246d5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708531"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580985"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrar a sua base de dados PostgreSQL utilizando exportação e importação
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
+
 Pode utilizar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extrair uma base de dados PostgreSQL num ficheiro de script e [psql](https://www.postgresql.org/docs/current/static/app-psql.html) para importar os dados para a base de dados-alvo a partir desse ficheiro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,7 +43,7 @@ Pode utilizar a linha de comando psql e o parâmetro --dbname (-d) para importar
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user> --dbname=<target database name>
 ```
-Este exemplo utiliza o utilitário psql e um ficheiro de script nomeado **testdb.sq** do passo anterior para importar dados para a base de **dados mypgsqldb** no servidor alvo **mydemoserver.postgres.database.azure.com**.
+Este exemplo utiliza utilitário psql e um ficheiro de script nomeado **testdb.sql** do passo anterior para importar dados para a base de **dados mypgsqldb** no servidor alvo **mydemoserver.postgres.database.azure.com**.
 
 Para **um servidor único,** utilize este comando 
 ```bash

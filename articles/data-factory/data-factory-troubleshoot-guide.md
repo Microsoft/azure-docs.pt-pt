@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
 ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382808"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Resolver Problemas do Azure Data Factory
@@ -614,7 +614,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Causa**: O trabalho foi submetido ao cluster HDI e falhou lá.
 
-- **Recomendação:** 
+- **Recomendação**: 
 
  1. Verifique a Ambari UI:
     1. Certifique-se de que todos os serviços ainda estão em funcionamento.
@@ -636,7 +636,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Causa**: O trabalho foi submetido ao cluster HDI e falhou lá.
 
-- **Recomendação:** 
+- **Recomendação**: 
 
  1. Verifique a Ambari UI:
     1. Certifique-se de que todos os serviços ainda estão em funcionamento.
@@ -754,7 +754,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Causa:** Ou as credenciais fornecidas estão erradas para o cluster, ou houve um problema de configuração ou ligação de rede, ou o IR está a ter problemas de ligação ao cluster.
 
-- **Recomendação:** 
+- **Recomendação**: 
     1. Verifique se as credenciais estão corretas abrindo o Ambari UI do cluster HDInsight num browser.
     1. Se o cluster estiver na Rede Virtual (VNet) e estiver a ser utilizado um IR auto-hospedado, o URL HDI deve ser o URL privado em VNets, e deve ter 'int' listado após o nome do cluster.
     
@@ -788,7 +788,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Causa**: A ADF tentou estabelecer uma ligação de conectividade de base de dados aberta (ODBC) ao cluster HDI, falhando com um erro.
 
-- **Recomendação:** 
+- **Recomendação**: 
 
    1. Confirme que configura corretamente a sua ligação de conectividade ODBC/Java Database (JDBC).
       1. Para o JDBC, se estiver a utilizar a mesma rede virtual, pode obter esta ligação a partir de:<br>
@@ -808,7 +808,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Causa**: A ADF submeteu o script da colmeia para execução ao cluster HDI através da ligação ODBC, e o script falhou no HDI.
 
-- **Recomendação:** 
+- **Recomendação**: 
 
    1. Confirme que configura corretamente a sua ligação de conectividade ODBC/Java Database (JDBC).
       1. Para o JDBC, se estiver a utilizar a mesma rede virtual, pode obter esta ligação a partir de:<br>

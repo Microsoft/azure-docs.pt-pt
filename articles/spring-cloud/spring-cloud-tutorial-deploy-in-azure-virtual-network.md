@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031808"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementar Azure Spring Cloud numa rede virtual

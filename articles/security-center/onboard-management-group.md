@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: memildin
 ms.openlocfilehash: 01036343e2585adf7c09ad3f0d236948a537fc29
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103016564"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Ativar o Centro de Segurança em todas as subscrições de um grupo de gestão
