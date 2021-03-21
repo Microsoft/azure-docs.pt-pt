@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
 ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101701523"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Tutorial: Utilize configuração dinâmica utilizando atualização push numa aplicação .NET Core
@@ -85,7 +85,7 @@ Uma vez criados os recursos, adicione as seguintes variáveis ambientais. Estes 
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>Registar o manipulador de eventos para recarregar dados da Configuração de Aplicações
 
-Abra *Program.cs* e atualize o ficheiro com o seguinte código.
+*Programa Aberto.cs* e atualize o ficheiro com o seguinte código.
 
 ```csharp
 using Microsoft.Azure.ServiceBus;

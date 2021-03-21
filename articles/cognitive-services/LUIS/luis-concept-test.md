@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: b33f765e936d7c0db301a5b2fcf38ccaf137f771
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787558"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Teste de palavras de exemplo em LUIS
@@ -54,6 +54,6 @@ Lembre-se de [treinar](luis-how-to-train.md) o LUIS depois de fazer alterações
 ## <a name="best-practices"></a>Melhores práticas
 Aprenda as [melhores práticas.](luis-concept-best-practices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [testar](luis-interactive-test.md) as suas expressões.

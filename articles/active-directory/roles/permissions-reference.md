@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c327154e2f4eae735e7078be3b057b1d8cf1c5
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490879"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585320"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
@@ -36,7 +36,7 @@ Como uma boa prática, recomendamos que atribua este papel a menos de cinco pess
 ## <a name="all-roles"></a>Todos os papéis
 
 > [!div class="mx-tableFixed"]
-> | Função | Descrição | ID do Modelo |
+> | Função | Description | ID do Modelo |
 > | --- | --- | --- |
 > | [Administrador de Aplicações](#application-administrator) | Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais. | 9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3 |
 > | [Programador de Aplicações](#application-developer) | Pode criar registos de aplicações independentemente da definição de "Os Utilizadores podem registar as aplicações". | cf1c38e5-3621-4004-a7cb-879624dced7c |
@@ -229,7 +229,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No |No | Sim | Sim | Sim |
+| Administrador de política de autenticação | No |No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -264,7 +264,7 @@ As funções [de administrador de autenticação](#authentication-administrator)
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No | No | Sim | Sim | Sim |
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Esta função não é atualmente capaz de gerir as definições de MFA no antigo portal de gestão de MFA.
@@ -1402,7 +1402,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No | No | Sim | Sim | Sim |
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -1415,7 +1415,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 
 
 > [!IMPORTANT]
-> Esta função não é atualmente capaz de gerir o MFA por utilizador no antigo portal de gestão de MFA. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](https://docs.microsoft.com/powershell/module/msonline/set-msoluser)
+> Esta função não é atualmente capaz de gerir o MFA por utilizador no antigo portal de gestão de MFA. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](/powershell/module/msonline/set-msoluser)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

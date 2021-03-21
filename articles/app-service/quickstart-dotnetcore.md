@@ -11,10 +11,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 ms.openlocfilehash: 77e0768a617ef79ab8510f88bfdcd41d5647f9bf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101701642"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
@@ -111,7 +111,7 @@ Siga estes passos para criar o seu Serviço de Aplicações e publique a sua apl
 
 1. No **Plano de Hospedagem: Criar novo** diálogo, introduzir os valores especificados no quadro seguinte:
 
-   | Definição  | Valor sugerido | Descrição |
+   | Definição  | Valor sugerido | Description |
    | -------- | --------------- | ----------- |
    | **Plano de Alojamento**  | *myFirstAzureWebAppPlan* | Nome do plano de serviço de aplicações. |
    | **Localização**      | *Europa Ocidental* | O centro de dados onde o a aplicação Web está alojada. |

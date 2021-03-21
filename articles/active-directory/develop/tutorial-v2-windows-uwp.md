@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
 ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102653"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
@@ -107,7 +107,7 @@ O Visual Studio cria *o MainPage.xaml* como parte do seu modelo de projeto. Abra
 
 Esta secção mostra como usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Gráfico microsoft. Faça alterações no ficheiro *MainPage.xaml.cs.*
 
-1. Em *MainPage.xaml.cs*, adicione as seguintes referências:
+1. No *MainPage.xaml.cs*, adicione as seguintes referências:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -239,7 +239,7 @@ Eventualmente, o `AcquireTokenSilent` método falha. As razões para a falha inc
 
 ### <a name="instantiate-the-microsoft-graph-service-client-by-obtaining-the-token-from-the-signinuserandgettokenusingmsal-method"></a>Instantaneamente o Cliente de Serviço de Gráficos da Microsoft obtendo o token a partir do método SignInUserAndGetTokenUsingMSAL
 
-Adicione o seguinte novo método à *MainPage.xaml.cs:*
+Adicione o seguinte novo método ao *MainPage.xaml.cs*:
 
 ```csharp
       /// <summary>
@@ -264,7 +264,7 @@ Nesta aplicação de amostra, o `GetGraphServiceClient` método instantaneamente
 
 ### <a name="add-a-method-to-sign-out-the-user"></a>Adicione um método para assinar o utilizador
 
-Para assinar o utilizador, adicione o seguinte método à *MainPage.xaml.cs:*
+Para assinar o utilizador, adicione o seguinte método ao *MainPage.xaml.cs*:
 
 ```csharp
 /// <summary>
@@ -302,7 +302,7 @@ A aplicação nesta amostra suporta um único utilizador. A Microsoft Authentica
 
 ### <a name="display-basic-token-information"></a>Mostrar informações básicas de token
 
-Adicione o seguinte método para *MainPage.xaml.cs* para apresentar informações básicas sobre o token:
+Adicione o seguinte método ao *MainPage.xaml.cs* para apresentar informações básicas sobre o token:
 
 ```csharp
 /// <summary>
@@ -325,7 +325,7 @@ Os tokens de ID adquiridos através do **OpenID Connect** também contêm um peq
 
 ### <a name="display-message"></a>Mensagem de exibição
 
-Adicione o seguinte novo método à *MainPage.xaml.cs:*
+Adicione o seguinte novo método ao *MainPage.xaml.cs*:
 
 ```csharp
 /// <summary>
@@ -352,7 +352,7 @@ Agora, registe a sua candidatura:
 1. Introduza um **Nome** para a sua aplicação, por `UWP-App-calling-MSGraph` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 1. Nos **tipos de contas suportadas**, selecione Contas em qualquer **diretório organizacional (qualquer diretório AD AZure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**. 
 1. Selecione **Registar**.
-1. Na página geral, encontre o valor **de ID da Aplicação (cliente)** e copie-o. Volte ao Visual Studio, abra *MainPage.xaml.cs,* e substitua o valor `ClientId` deste valor.
+1. Na página geral, encontre o valor **de ID da Aplicação (cliente)** e copie-o. Volte ao Visual Studio, abra *o MainPage.xaml.cs,* e substitua o valor `ClientId` deste valor.
 
 Configure a autenticação para a sua aplicação:
 
@@ -385,7 +385,7 @@ Para ativar a autenticação integrada do Windows quando é utilizado com um dom
 
 Na amostra atual, o `WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")` método é utilizado. Para `WithDefaultRedirectURI()` utilizar, complete estes passos:
 
-1. Em *MainPage.XAML.cs,* `WithRedirectUri` substitua `WithDefaultRedirectUri` por:
+1. No *MainPage.XAML.cs*, `WithRedirectUri` substitua `WithDefaultRedirectUri` por:
 
    **Código atual**
 
@@ -418,7 +418,7 @@ Na amostra atual, o `WithRedirectUri("https://login.microsoftonline.com/common/o
        .Build();
    ```
 
-2.  Encontre o URI de retorno de chamada para a sua aplicação adicionando o `redirectURI` campo em *MainPage.xaml.cs* e definindo um ponto de rutura nele:
+2.  Encontre o URI de retorno para a sua aplicação adicionando o `redirectURI` campo em *MainPage.xaml.cs* e definindo um ponto de rutura nele:
 
     ```csharp
 

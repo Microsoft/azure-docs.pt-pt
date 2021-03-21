@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
 ms.openlocfilehash: 3292f337a39e2adb7dc5e78f12785ead8759f5d1
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102611951"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Windows PowerShell para StorSimple fornece uma interface de linha de comando que pode utilizar para gerir o seu dispositivo Microsoft Azure StorSimple. Como o nome sugere, é uma interface baseada em windows PowerShell, linha de comando que é construída num espaço de execução restrito. Do ponto de vista do utilizador na linha de comando, um espaço de execução limitado aparece como uma versão restrita do Windows PowerShell. Apesar de manter algumas das capacidades básicas do Windows PowerShell, esta interface possui outros cmdlets dedicados que estão vocacionados para a gestão do seu dispositivo Microsoft Azure StorSimple.
 

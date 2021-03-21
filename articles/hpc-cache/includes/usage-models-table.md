@@ -5,10 +5,10 @@ ms.date: 03/15/2021
 author: ekpgh
 ms.author: v-erkel
 ms.openlocfilehash: 2804b3bb36a31c9cfbf4cce8db94b7469c8975c7
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563248"
 ---
 | Modelo de utilização | Modo caching | Verificação de back-end | Atraso máximo de desatrada |

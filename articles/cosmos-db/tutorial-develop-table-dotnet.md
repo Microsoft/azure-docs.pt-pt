@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c641e24a498a6263d6a7c2325eed099b75a82caa
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102426438"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
@@ -53,7 +53,7 @@ No Visual Studio, crie uma nova aplicação de consola .NET. Os passos seguintes
 
 1. Selecione **Criar**.
 
-Todos os exemplos de código desta amostra podem ser adicionados ao método principal do ficheiro **Program.cs** da sua aplicação de consola.
+Todos os exemplos de código desta amostra podem ser adicionados ao método Principal do ficheiro **.cs programa** da sua aplicação da consola.
 
 ## <a name="install-the-required-nuget-package"></a>Instale o pacote NuGet necessário
 
@@ -85,7 +85,7 @@ Para obter o pacote NuGet, siga estes passos:
 
 1. Clique à direita no seu projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe chamada **AppSettings.cs**.
 
-1. Adicione o seguinte código ao ficheiro AppSettings.cs. Este ficheiro lê a cadeia de ligação a partir de Settings.jsno ficheiro e atribui-a ao parâmetro de configuração:
+1. Adicione o seguinte código ao ficheiro .cs AppSettings. Este ficheiro lê a cadeia de ligação a partir de Settings.jsno ficheiro e atribui-a ao parâmetro de configuração:
 
   :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/AppSettings.cs":::
 
@@ -113,7 +113,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 As entidades mapeiam para objetos C# utilizando uma classe personalizada derivada da [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). Para adicionar uma entidade a uma tabela, crie uma classe que define as propriedades de entidade.
 
-Clique à direita no seu projeto **CosmosTableSamples**. **Selecione Adicionar**, **Nova Pasta** e nomeie-a como **Modelo**. Dentro da pasta Modelo adicione uma classe chamada **CustomerEntity.cs** e adicione-lhe o seguinte código.
+Clique à direita no seu projeto **CosmosTableSamples**. **Selecione Adicionar**, **Nova Pasta** e nomeie-a como **Modelo**. Dentro da pasta Modelo adicione uma classe **denominada CustomerEntity.cs** e adicione-lhe o seguinte código.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
@@ -129,19 +129,19 @@ Clique à direita no seu projeto **CosmosTableSamples**. Selecione **Adicionar**
 
 ## <a name="get-an-entity-from-a-partition"></a>Obter uma entidade de uma partição
 
-Pode obter a entidade a partir de uma partição utilizando o método Recuperar sob a classe [TableOperation.](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) O exemplo de código a seguir obtém a chave de partição, o e-mail e o número de telefone de uma entidade cliente. Este exemplo também imprime as unidades de pedido consumidas para consulta da entidade. Para consultar uma entidade, apencha o seguinte código para **SamplesUtils.cs** ficheiro:
+Pode obter a entidade a partir de uma partição utilizando o método Recuperar sob a classe [TableOperation.](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) O exemplo de código a seguir obtém a chave de partição, o e-mail e o número de telefone de uma entidade cliente. Este exemplo também imprime as unidades de pedido consumidas para consulta da entidade. Para consultar uma entidade, apencha o seguinte código à **samplesUtils.cs** ficheiro:
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
 ## <a name="delete-an-entity"></a>Eliminar uma entidade
 
-Pode facilmente eliminar uma entidade depois de a ter obtido através do mesmo padrão mostrado para atualizar uma entidade. O código seguinte obtém e elimina uma entidade de cliente. Para eliminar uma entidade, apencha o seguinte código para **SamplesUtils.cs** ficheiro: 
+Pode facilmente eliminar uma entidade depois de a ter obtido através do mesmo padrão mostrado para atualizar uma entidade. O código seguinte obtém e elimina uma entidade de cliente. Para eliminar uma entidade, apencha o seguinte código à **samplesUtils.cs** ficheiro: 
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>Executar as operações CRUD em dados de amostra
 
-Depois de definir os métodos para criar entidades de mesa, inserção ou fusão, execute estes métodos nos dados da amostra. Para tal, clique em clique no seu projeto **CosmosTableSamples**. **Selecione Adicionar**, **Novo Item** e adicione uma classe nomeada **BasicSamples.cs** e adicione-lhe o seguinte código. Este código cria uma tabela, acrescenta-lhe entidades.
+Depois de definir os métodos para criar entidades de mesa, inserção ou fusão, execute estes métodos nos dados da amostra. Para tal, clique em clique no seu projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe chamada **BasicSamples.cs** e adicione-lhe o seguinte código. Este código cria uma tabela, acrescenta-lhe entidades.
 
 Se não quiser eliminar a entidade e a mesa no final do projeto, comente os `await table.DeleteIfExistsAsync()` `SamplesUtils.DeleteEntityAsync(table, customer)` e métodos a partir do seguinte código. É melhor comentar estes métodos e validar os dados antes de apagar a tabela.
 
@@ -149,11 +149,11 @@ Se não quiser eliminar a entidade e a mesa no final do projeto, comente os `awa
 
 O código anterior cria uma tabela que começa com "demo" e o GUID gerado é anexado ao nome da mesa. Em seguida, adiciona uma entidade cliente com o primeiro e último nome como "Harp Walter" e posteriormente atualiza o número de telefone deste utilizador. 
 
-Neste tutorial, criou um código para realizar operações básicas da CRUD nos dados armazenados na conta API da tabela. Também pode efetuar operações avançadas, tais como – dados de inserção de lotes, consulta de todos os dados dentro de uma partição, consultar uma série de dados dentro de uma partição, Listar tabelas na conta cujos nomes começam com o prefixo especificado. Você pode baixar o formulário de amostra completo [azure-cosmos-table-dotnet-core-start-start-tory](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub. A [classe AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/main/CosmosTableSamples/AdvancedSamples.cs) tem mais operações que pode realizar nos dados.  
+Neste tutorial, criou um código para realizar operações básicas da CRUD nos dados armazenados na conta API da tabela. Também pode efetuar operações avançadas, tais como – dados de inserção de lotes, consulta de todos os dados dentro de uma partição, consultar uma série de dados dentro de uma partição, Listar tabelas na conta cujos nomes começam com o prefixo especificado. Você pode baixar o formulário de amostra completo [azure-cosmos-table-dotnet-core-start-start-tory](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub. A classe [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/main/CosmosTableSamples/AdvancedSamples.cs) tem mais operações que pode realizar nos dados.  
 
 ## <a name="run-the-project"></a>Executar o projeto
 
-Do seu projeto **CosmosTableSamples.** Abra a classe denominada **Program.cs** e adicione-lhe o seguinte código para ligar para os BasicSamples quando o projeto for executado.
+Do seu projeto **CosmosTableSamples.** Abra a classe denominada **Programa.cs** e adicione-lhe o seguinte código para ligar para os Exemplos Básicos quando o projeto for executado.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Program.cs":::
 

@@ -9,10 +9,10 @@ ms.date: 02/10/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5d43d6f56b48a34fa34baf727508ad8f1c151aa7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101674317"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Conecte-se a uma conta de armazenamento Azure segura a partir do seu espaço de trabalho Synapse

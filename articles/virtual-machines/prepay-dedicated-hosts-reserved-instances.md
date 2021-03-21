@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672271"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607420"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Poupe custos com reservas de anfitriões dedicados Azure
 
@@ -29,7 +29,7 @@ Comece por ver os tamanhos suportados para [a máquina virtual do Windows](./siz
 
 Em seguida, verifique se é suportado em Azure Dedicados Anfitriões. [A página de preços dos anfitriões dedicados Azure](https://aka.ms/ADHPricing) tem a lista completa de anfitriões dedicados SKUs, suas informações de CPU, e várias opções de preços (incluindo instâncias reservadas).
 
-Pode encontrar vários SKUs a apoiar-lhe séries VM (com tipos diferentes). Identifique o melhor SKU comparando a capacidade do hospedeiro (número de vCPUs). Note que poderá aplicar a sua reserva a vários anfitriões dedicados SKUs suportando a mesma série VM (por exemplo, DSv3_Type1 e DSv3_Type2), mas não em diferentes séries VM (como DSv3 e ESv3).
+Pode encontrar vários SKUs suportando a sua série VM selecionada (com diferentes tipos). Identifique o melhor SKU comparando a capacidade do hospedeiro (número de vCPUs). Note que poderá aplicar a sua reserva a vários anfitriões dedicados SKUs suportando a mesma série VM (por exemplo, DSv3_Type1 e DSv3_Type2), mas não em diferentes séries VM (como DSv3 e ESv3).
 
 
 

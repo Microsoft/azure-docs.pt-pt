@@ -6,10 +6,10 @@ ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
 ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98937358"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
@@ -61,7 +61,7 @@ A seguinte secção de [ApplicationInsights.config](configuration-with-applicati
 
 ### <a name="configuration-in-code-for-aspnet-applications"></a>Configuração em código para aplicações ASP.NET
 
-O código seguinte configura uma instância 'ServerTelemetryChannel' com `StorageFolder` definido para uma localização personalizada. Adicione este código no início da aplicação, normalmente em `Application_Start()` método em Global.aspx.cs.
+O código seguinte configura uma instância 'ServerTelemetryChannel' com `StorageFolder` definido para uma localização personalizada. Adicione este código no início da aplicação, tipicamente em `Application_Start()` método na Global.aspx.cs.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -177,7 +177,7 @@ Leia mais sobre [proteção de dados e privacidade.](data-retention-privacy.md#d
 ## <a name="open-source-sdk"></a>SDK de código aberto
 Como todos os SDK para Insights de Aplicações, os canais são de código aberto. Leia e contribua para o código, ou reporte problemas, [no repo oficial do GitHub.](https://github.com/Microsoft/ApplicationInsights-dotnet)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Amostragem](./sampling.md)
 * [Resolução de problemas da SDK](./asp-net-troubleshoot-no-data.md)

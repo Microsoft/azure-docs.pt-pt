@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: dde6af75b751037c10d7786fa5b0b03ae31d969e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222620"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584589"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurar e utilizar o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -23,6 +23,7 @@ O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API 
 
 * [Ativar o Synapse Link para as suas contas DB Azure Cosmos](#enable-synapse-link)
 * [Criar uma loja analítica ativada recipiente DB Azure Cosmos](#create-analytical-ttl)
+* [Opcional - Atualizar a ttl de loja analítica para um recipiente DB Azure Cosmos](#update-analytical-ttl)
 * [Ligue a sua base de dados DB Azure Cosmos a um espaço de trabalho da Synapse](#connect-to-cosmos-database)
 * [Consultar a loja analítica usando a Faísca de Sinapse](#query-analytical-store-spark)
 * [Consultar a loja analítica usando piscina SQL sem servidor](#query-analytical-store-sql-on-demand)
@@ -32,7 +33,7 @@ O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure,](create-sql-api-dotnet.md#create-account)ou selecione uma conta DB Azure Cosmos existente.
 
@@ -50,6 +51,21 @@ O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API 
 
 > [!NOTE]
 > Ligar o Synapse Link não liga automaticamente a loja analítica. Assim que ativar o Synapse Link na conta Cosmos DB, ative a loja analítica em contentores quando os criar, para começar a replicar os seus dados de operação para a loja analítica. 
+
+### <a name="azure-cli"></a>CLI do Azure
+
+Os seguintes links mostram como ativar a Synapse Link utilizando o Azure CLI:
+
+* [Criar uma nova conta DB Azure Cosmos com Synapse Link ativada](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create-optional-parameters&preserve-view=true)
+* [Atualize uma conta DB Azure Cosmos existente para ativar a Synapse Link](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_update-optional-parameters&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+* [Criar uma nova conta DB Azure Cosmos com Synapse Link ativada](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount?view=azps-5.5.0#description&preserve-view=true)
+* [Atualize uma conta DB Azure Cosmos existente para ativar a Synapse Link](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccount?view=azps-5.5.0&preserve-view=true)
+
+
+Os seguintes links mostram como ativar a Ligação Synapse utilizando o PowerShell:
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Criar um recipiente Azure Cosmos com loja analítica
 
@@ -159,11 +175,27 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Atualize o tempo de loja analítica para viver
+### <a name="azure-cli"></a>CLI do Azure
 
-Após o arquivo analítico ser ativado com um valor de TTL em particular, pode atualizá-lo posteriormente para um valor válido diferente. Pode atualizar o valor com o portal do Azure ou os SDKs. Para obter informações sobre as várias opções de config Analítico TTL, consulte o artigo [de valores suportados pela TTL analítica.](analytical-store-introduction.md#analytical-ttl)
+As seguintes ligações mostram como criar uma loja analítica ativada através da utilização do Azure CLI:
 
-#### <a name="azure-portal"></a>Portal do Azure
+* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples&preserve-view=true)
+* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+As seguintes ligações mostram como criar uma loja analítica ativada por recipientes utilizando o PowerShell:
+
+* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description&preserve-view=true)
+* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+
+## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Opcional - Atualizar o tempo de loja analítica para viver
+
+Depois de a loja analítica estar ativada com um determinado valor TTL, poderá querer atualizá-la para um valor válido diferente mais tarde. Pode atualizar o valor utilizando o portal Azure CLI, PowerShell ou Cosmos DB SDKs. Para obter informações sobre as várias opções de config Analítico TTL, consulte o artigo [de valores suportados pela TTL analítica.](analytical-store-introduction.md#analytical-ttl)
+
+
+### <a name="azure-portal"></a>Portal do Azure
 
 Se criou um recipiente analítico ativado através do portal Azure, contém uma TTL analítica predefinida de -1. Utilize os seguintes passos para atualizar este valor:
 
@@ -178,7 +210,7 @@ Se criou um recipiente analítico ativado através do portal Azure, contém uma 
   * Selecione **On (sem predefinição)** ou selecione **On** e desafina um valor TTL
   * Clique em **Guardar** para guardar as alterações.
 
-#### <a name="net-sdk"></a>SDK .NET
+### <a name="net-sdk"></a>SDK .NET
 
 O seguinte código mostra como atualizar o TTL para a loja analítica utilizando o .NET SDK:
 
@@ -190,7 +222,7 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-#### <a name="java-v4-sdk"></a>Java V4 SDK
+### <a name="java-v4-sdk"></a>Java V4 SDK
 
 O seguinte código mostra como atualizar o TTL para a loja analítica utilizando o Java V4 SDK:
 
@@ -203,6 +235,26 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 // Update container settings
 container.replace(containerProperties).block();
 ```
+
+### <a name="python-v4-sdk"></a>Python V4 SDK
+
+Não é atualmente suportado.
+
+
+### <a name="azure-cli"></a>CLI do Azure
+
+As seguintes ligações mostram como atualizar os recipientes TTL analíticos utilizando o Azure CLI:
+
+* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update&preserve-view=true)
+* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+As seguintes ligações mostram como atualizar os recipientes TTL analíticos utilizando o PowerShell:
+
+* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0&preserve-view=true)
+* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
+
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Conecte-se a um espaço de trabalho da Sinapse
 

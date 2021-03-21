@@ -1,19 +1,19 @@
 ---
 title: Conecte-se a um Estúdio synapse usando links privados
 description: Este artigo irá ensiná-lo a conectar-se ao seu Azure Synapse Studio usando links privados
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2613a4fd931ad49a4f40a4221ea20e8c25f185fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501589"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586629"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Ligue-se ao Azure Synapse Studio usando hubs de ligação privada Azure 
 
@@ -35,9 +35,11 @@ Você pode criar o seu centro de ligação privada pesquisando por *hubs de liga
 ## <a name="azure-private-links-hubs-and-azure-virtual-network"></a>Azure Private Links Hubs e Azure Virtual Network
 Tem de ligar a sua rede virtual Azure ao recurso do hub de ligação privada Synapse para garantir a ligação de ponta a ponta ao Synapse Studio. Para isso, tem de criar um ponto final privado da sua rede virtual para o centro de ligação privada que criou. Pode utilizar o portal Azure para o seu link privado e ir à secção private endpoint. Selecione "+ ponto final privado" para criar um novo ponto final privado que se conecta ao seu hub de ligação privada.
 
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Criar um ponto final privado para o centro de ligação privada":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Screenshot que mostra a página de ligações de ponto final privado.":::
 
-Certifique-se de escolher o tipo de recurso "Microsoft.Synapse/privateLinkHubs" no separador "Recursos". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Criar um ponto final privado para o centro de ligação privada":::
+Certifique-se de escolher o tipo de recurso "Microsoft.Synapse/privateLinkHubs" no separador "Recursos".
+
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Screenshot que mostra a página 'Criar um ponto final privado' com 'Tipo de recurso' realçado.":::
 
 No separador "Configuração", selecione "privatelink.azuresynapse.net" para Zonas DE DNS Privadas ao integrar-se na sua rede virtual e zona privada de DNS.
 

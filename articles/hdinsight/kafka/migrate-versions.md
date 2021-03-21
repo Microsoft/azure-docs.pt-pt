@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: 3967a5d96c35e4bac88dcd9a6c1fa95b78a6b2b1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939117"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrar cargas de carga Apache Kafka para Azure HDInsight 4.0
@@ -79,7 +79,7 @@ Para completar a migração, faça os seguintes passos:
 
 1. **Retire o aglomerado antigo e as aplicações de teste conforme necessário.** Uma vez que o interruptor esteja completo e funcionando corretamente, remova o antigo cluster HDInsight 3.6 Kafka e os produtores e consumidores utilizados no teste, conforme necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Otimização de desempenho para os clusters do HDInsight no Apache Kafka](apache-kafka-performance-tuning.md)
 * [Quickstart: Criar cluster Apache Kafka em Azure HDInsight usando o portal Azure](apache-kafka-get-started.md)

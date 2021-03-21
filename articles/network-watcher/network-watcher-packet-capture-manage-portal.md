@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: d4112bd1d632ec21e2d8cb565027277eeb85452d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018264"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com o Azure Network Watcher usando o portal
@@ -100,7 +100,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Se selecionou **O Ficheiro** quando criou a captura, pode visualizar ou descarregar o ficheiro a partir do caminho configurado na máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a automatizar capturas de pacotes com alertas de máquinas virtuais, consulte [Criar uma captura de pacote acionada em alerta](network-watcher-alert-triggered-packet-capture.md).
 - Para determinar se o tráfego específico é permitido dentro ou fora de uma máquina virtual, consulte diagnosticar um problema de filtro de [tráfego de rede de máquinas virtuais](diagnose-vm-network-traffic-filtering-problem.md).

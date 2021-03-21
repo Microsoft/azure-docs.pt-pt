@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/24/2020
 author: palma21
 ms.openlocfilehash: 87d51f9c1d084faf79c7ec1cf1255a6fb3c8245d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201010"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Parar e Iniciar um cluster de serviço Azure Kubernetes (AKS)

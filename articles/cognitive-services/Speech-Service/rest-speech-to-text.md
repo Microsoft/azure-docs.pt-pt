@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564393"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606910"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -51,7 +51,8 @@ Consulte [aqui](https://centralus.dev.cognitive.microsoft.com/docs/services/spee
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>API DE REPOUSO de voz para texto para áudio curto
 
-Como alternativa ao [SDK](speech-sdk.md)de discurso, o serviço Discurso permite converter Discurso-texto usando uma API REST. Cada ponto final acessível está associado a uma região. A sua aplicação requer uma chave de subscrição para o ponto final que pretende utilizar. O REST API para áudio curto é muito limitado, e só deve ser usado em casos em que o [SDK do discurso](speech-sdk.md) não pode.
+Como alternativa ao [SDK](speech-sdk.md)de discurso, o serviço Discurso permite converter Discurso-texto usando uma API REST.
+O REST API para áudio curto é muito limitado, e só deve ser usado em casos em que o [SDK do discurso](speech-sdk.md) não pode.
 
 Antes de utilizar a API REST discurso-a-texto para áudio curto, considere o seguinte:
 
@@ -95,7 +96,7 @@ Estes parâmetros podem ser incluídos na sequência de consulta do pedido REST.
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de discurso a texto.
 
-|Cabeçalho| Descrição | Obrigatório / Opcional |
+|Cabeçalho| Description | Obrigatório / Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de discurso. | Ou este cabeçalho ou `Authorization` é necessário. |
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
@@ -341,3 +342,4 @@ Uma resposta típica para o reconhecimento com avaliação da pronúncia:
 - [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)
 - [Personalizar modelos de idioma](./how-to-custom-speech-train-model.md)
 - [Familiarize-se com a transcrição do Lote](batch-transcription.md)
+

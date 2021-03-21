@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: fbca4b23b6fc414727ea1b5a4012d2847d6b8d78
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98940465"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analisar registos de telemetria de Insights de Aplicação com Faísca Apache em HDInsight
@@ -38,7 +38,7 @@ O seguinte diagrama ilustra a arquitetura de serviço deste exemplo:
 
 ![Dados que fluem de Insights de Aplicação para armazenamento de bolhas, em seguida, Faísca](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 Os Insights de Aplicação podem ser configurados para exportar continuamente informações de telemetria para bolhas. O HDInsight pode então ler os dados armazenados nas bolhas. No entanto, existem alguns requisitos que deve seguir:
 
@@ -368,7 +368,7 @@ Para adicionar a Conta de Armazenamento Azure a um cluster existente, utilize as
     +---------+
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais exemplos de utilização da Apache Spark para trabalhar com dados e serviços em Azure, consulte os seguintes documentos:
 

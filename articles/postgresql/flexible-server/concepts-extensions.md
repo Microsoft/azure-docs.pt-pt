@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/17/2021
+ms.openlocfilehash: 998154376895d8bcfc7cf36665a6a36f5c43e3b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454595"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594993"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensões PostgreSQL na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -128,7 +128,7 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) permitem-lhe ligar de um servidor PostgreSQL a outro, ou a outra base de dados no mesmo servidor. O servidor de envio precisa de permitir ligações de saída ao servidor recetor. O servidor recetor precisa de permitir ligações a partir do servidor de envio.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) permitem-lhe ligar de um servidor PostgreSQL a outro, ou a outra base de dados no mesmo servidor. O servidor flexível suporta ligações de entrada e saída a qualquer servidor PostgreSQL. O servidor de envio precisa de permitir ligações de saída ao servidor recetor. Da mesma forma, o servidor recetor precisa de permitir ligações a partir do servidor de envio. 
 
 Recomendamos a implementação dos seus servidores com [integração VNet](concepts-networking.md) se pretender utilizar estas duas extensões. Por defeito, a integração VNet permite ligações entre servidores no VNET. Também pode optar por utilizar [grupos de segurança de rede VNet](../../virtual-network/manage-network-security-group.md) para personalizar o acesso.
 

@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefactos de um registo
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 30e6c0fa7a33c7a83543fee297c582b15bce4c8b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935351"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606774"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -426,9 +426,10 @@ az resource delete \
   * Nem todos os artefactos, ou nenhum, são transferidos. Confirme a ortografia dos artefactos em execução de exportação, e o nome do blob nas operações de exportação e importação. Confirme que está a transferir um máximo de 50 artefactos.
   * O gasoduto pode não ter terminado. Uma viagem de exportação ou importação pode demorar algum tempo. 
   * Para outras questões relacionadas com o gasoduto, fornecer o ID de [correlação](../azure-resource-manager/templates/deployment-history.md) de implantação da execução de exportação ou a importação para a equipa de registo de contentores de Azure.
+* **Problemas em puxar a imagem num ambiente fisicamente isolado**
+  * Se vir erros em relação a camadas estrangeiras ou tentativas de resolver mcr.microsoft.com quando tenta puxar uma imagem num ambiente fisicamente isolado, o seu manifesto de imagem provavelmente tem camadas não distribuíveis. Devido à natureza de um ambiente fisicamente isolado, estas imagens muitas vezes não conseguem puxar. Pode confirmar que é esse o caso, verificando o manifesto de imagem para quaisquer referências a registos externos. Se for esse o caso, terá de empurrar as camadas não distribuíveis para a sua nuvem pública ACR antes de implementar um gasoduto de exportação para essa imagem. Para obter orientações sobre como fazê-lo, veja [como empurro camadas não distribuíveis para um registo?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para importar imagens de um único contentor para um registo de contentores Azure a partir de um registo público ou de outro registo privado, consulte a referência do comando [de importação az acr.][az-acr-import]
 

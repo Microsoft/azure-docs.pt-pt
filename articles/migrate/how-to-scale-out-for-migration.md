@@ -6,25 +6,25 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612070"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607658"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Migração sem agentes de máquinas virtuais VMware para Azure
 
-Este artigo ajuda-o a entender como usar um aparelho de escala para migrar um grande número de máquinas virtuais VMware (VMs) para Azure usando a capacidade de migração sem agente da ferramenta de migração do Azure Migrate Server. 
+Este artigo ajuda-o a entender como usar um aparelho de escala para migrar um grande número de máquinas virtuais VMware (VMs) para Azure usando o método de migração de servidores Azure Migrate Server para a migração de VMware VMs.
 
-Com a capacidade de migração sem agente das máquinas virtuais VMware da ferramenta de migração do servidor, pode:
+Utilizando o método de migração sem agente para máquinas virtuais VMware pode:
 
 - Replique até 300 VMs de um único servidor vCenter simultaneamente utilizando um aparelho Azure Migrate.
 - Replique até 500 VMs de um único servidor vCenter simultaneamente, implantando um segundo aparelho de escala para migração.
 
 Neste artigo, aprenderá a:
 
-- Implementar um aparelho de escala para a migração de VMware
+- Adicione um aparelho de escala para migração sem agentes de máquinas virtuais VMware
 - Migrar até 500 VMs simultaneamente utilizando o aparelho de encai escama.
 
 ##  <a name="prerequisites"></a>Pré-requisitos
@@ -37,8 +37,9 @@ Antes de começar, tem de executar os seguintes passos:
 > [!IMPORTANT]
 > Terá de ter pelo menos uma máquina virtual replicante no projeto antes de poder adicionar um aparelho de escala para migração.
 
-## <a name="deploy-a-scale-out-appliance"></a>Implementar um aparelho de escala
+Para aprender a executar o acima, reveja o tutorial sobre [máquinas virtuais VMware migradoras para Azure com o método de migração sem agente](./tutorial-migrate-vmware.md).
 
+## <a name="deploy-a-scale-out-appliance"></a>Implementar um aparelho de escala
 
 Para adicionar um aparelho de escala, siga os passos abaixo mencionados:
 

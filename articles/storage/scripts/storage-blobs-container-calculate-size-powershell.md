@@ -12,10 +12,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 87ef18530c549396b7d8fe1ec4ff0e08cb8535e8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784279"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Calcular o tamanho de um recipiente de bolhas com PowerShell
@@ -50,7 +50,7 @@ Este script utiliza os seguintes comandos para calcular o tamanho do contentor d
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de Armazenamento especificada ou todas as contas de Armazenamento num grupo de recursos ou na subscrição. |
 | [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Lista bolhas num recipiente. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter um script que calcule o tamanho do recipiente para efeitos de faturação, consulte [calcular o tamanho de um recipiente de armazenamento Blob para efeitos de faturação](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 

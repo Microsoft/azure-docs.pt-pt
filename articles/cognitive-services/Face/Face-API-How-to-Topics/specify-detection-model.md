@@ -12,10 +12,10 @@ ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 72fd005ce44d116f86d9a0b4c0d1932e2e4facfb
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102425775"
 ---
 # <a name="specify-a-face-detection-model"></a>Especifique um modelo de deteção facial

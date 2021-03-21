@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098779"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586646"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas Python para Apache Spark em Azure Synapse Analytics
 
@@ -68,13 +68,13 @@ Este exemplo especifica os canais e as dependências Conda/PyPI.
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 Para obter detalhes sobre a criação de um ambiente a partir deste ficheiro environment.yml, consulte [criar um ambiente a partir de um ficheiro environment.yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
 
@@ -140,6 +140,11 @@ Para adicionar pacotes de espaço de trabalho:
 
 ![Screenshot que destaca pacotes de espaço de trabalho.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Ver pacotes de espaço de trabalho")
 
+>[!WARNING]
+>- Dentro do Azure Synapse, uma piscina Apache Spark pode aproveitar bibliotecas personalizadas que são carregadas como Pacotes Workspace ou carregadas dentro de um conhecido caminho de armazenamento do Lago de Dados Azure. No entanto, ambas as opções não podem ser utilizadas simultaneamente dentro da mesma piscina Apache Spark. Se as embalagens forem fornecidas utilizando ambos os métodos, apenas serão instalados os ficheiros das rodas especificados na lista de pacotes workspace. 
+>
+>- Uma vez que os Pacotes Workspace (pré-visualização) são usados para instalar pacotes numa determinada piscina Apache Spark, existe uma limitação de que já não pode especificar pacotes utilizando o caminho da conta de armazenamento na mesma piscina.  
+
 ### <a name="storage-account"></a>Conta de armazenamento
 Os pacotes de rodas personalizados podem ser instalados na piscina Apache Spark, enviando todos os ficheiros das rodas para a conta Azure Data Lake Storage (Gen2) que está ligada ao espaço de trabalho da Synapse. 
 
@@ -149,13 +154,12 @@ Os ficheiros devem ser enviados para o seguinte caminho no recipiente padrão da
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-Pode ser necessário adicionar a ```python``` pasta dentro da pasta se ela já não ```libraries``` existir.
+>[!WARNING]
+> Em alguns casos, poderá ser necessário criar o caminho do ficheiro com base na estrutura acima se já não existir. Por exemplo, pode ser necessário adicionar a ```python``` pasta dentro da pasta se ela já não ```libraries``` existir.
 
 > [!IMPORTANT]
 > Para instalar bibliotecas personalizadas utilizando o método de armazenamento de dados Azure DataLake, tem de ter as permissões **do Fornecedor de Dados blob de armazenamento** ou do proprietário do armazenamento **na** conta primária de Armazenamento Gen2 que está ligada ao espaço de trabalho Azure Synapse Analytics.
 
->[!WARNING]
-> Ao fornecer ficheiros de rodas personalizados, os utilizadores não podem fornecer ficheiros de rodas tanto na conta de armazenamento como na interface da biblioteca do espaço de trabalho. Se ambos forem fornecidos, apenas serão instalados os ficheiros das rodas especificados na lista de pacotes de espaço de trabalho. 
 
 ## <a name="session-scoped-packages-preview"></a>Pacotes com âmbito de sessão (pré-visualização)
 Além dos pacotes ao nível da piscina, também pode especificar bibliotecas com âmbito de sessão no início de uma sessão de cadernos.  As bibliotecas com âmbito de sessão permitem especificar e utilizar ambientes piton personalizados dentro de uma sessão de portátil. 

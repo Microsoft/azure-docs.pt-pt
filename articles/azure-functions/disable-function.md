@@ -2,14 +2,14 @@
 title: Como desativar funções em Funções Azure
 description: Saiba como desativar e ativar funções em Funções Azure.
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cbb84308507ea15f1c44c00122a9a59472f12a88
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1ad484804f66a2e2d4d0f1da4a37cf0d6c485f38
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551048"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584742"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desativar funções em Funções Azure
 
@@ -20,13 +20,26 @@ A forma recomendada de desativar uma função é com uma definição de aplicaç
 > [!NOTE]  
 > Quando desativa uma função HTTP ativada utilizando os métodos descritos neste artigo, o ponto final pode ainda ser acessível quando estiver a ser utilizado no computador local.  
 
-## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
+## <a name="disable-a-function"></a>Desativar uma função
 
-No CLI Azure, utiliza o [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando para criar e modificar a configuração da aplicação. O seguinte comando desativa uma função nomeada `QueueTrigger` através da criação de uma definição de aplicação com `AzureWebJobs.QueueTrigger.Disabled` o nome de definição para `true` . 
+# <a name="portal"></a>[Portal](#tab/portal)
+
+Utilize os botões **Ativar** e **Desativar** na página **'Visão Geral'** da função. Estes botões funcionam alterando o valor da configuração da `AzureWebJobs.<FUNCTION_NAME>.Disabled` aplicação. Esta definição específica da função é criada na primeira vez que é desativada. 
+
+![Interruptor de estado de função](media/disable-function/function-state-switch.png)
+
+Mesmo quando publica na sua aplicação de função a partir de um projeto local, ainda pode utilizar o portal para desativar funções na aplicação de função. 
+
+> [!NOTE]  
+> A funcionalidade de teste integrada no portal ignora a `Disabled` definição. Isto significa que uma função desativada ainda funciona quando iniciada a partir da janela **de Teste** no portal. 
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
+
+No CLI Azure, utiliza o [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando para criar e modificar a configuração da aplicação. O seguinte comando desativa uma função nomeada `QueueTrigger` criando uma definição de aplicação com o nome `AzureWebJobs.QueueTrigger.Disabled` e definindo-a para `true` . 
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <myFunctionApp> \
---resource-group <myResourceGroup> \
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
@@ -38,16 +51,55 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=false
 ```
 
-## <a name="use-the-portal"></a>Utilizar o Portal
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-Também pode utilizar os botões **Ativar** e **Desativar** na página **'Visão Geral'** da função. Estes botões funcionam alterando o valor da configuração da `AzureWebJobs.<FUNCTION_NAME>.Disabled` aplicação. Esta definição específica da função é criada na primeira vez que é desativada. 
+O [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando adiciona ou atualiza uma definição de aplicação. O seguinte comando desativa uma função nomeada `QueueTrigger` criando uma definição de aplicação com o nome `AzureWebJobs.QueueTrigger.Disabled` e definindo-a para `true` . 
 
-![Interruptor de estado de função](media/disable-function/function-state-switch.png)
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "true"}
+```
 
-Mesmo quando publica na sua aplicação de função a partir de um projeto local, ainda pode utilizar o portal para desativar funções na aplicação de função. 
+Para voltar a ativar a função, repercuta o mesmo comando com um valor de `false` .
 
-> [!NOTE]  
-> A funcionalidade de teste integrada no portal ignora a `Disabled` definição. Isto significa que uma função desativada ainda funciona quando iniciada a partir da janela **de Teste** no portal. 
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "false"}
+```
+---
+
+## <a name="functions-in-a-slot"></a>Funções numa ranhura
+
+Por predefinição, as definições de aplicações também se aplicam a aplicações em execução em slots de implementação. No entanto, pode anular a definição de aplicação utilizada pela ranhura, definindo uma definição de aplicação específica para slot. Por exemplo, pode querer que uma função seja ativa na produção, mas não durante os testes de implantação, como uma função de temporizador ativa. 
+
+Para desativar uma função apenas na ranhura de preparação:
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+Navegue para a instância de slot da sua aplicação de função selecionando **slots de implementação** em **Implementação**, escolhendo a sua ranhura e selecionando **Funções** na instância de slot.  Escolha a sua função e, em seguida, utilize os botões **Ativar** e **Desativar** na página **'Visão Geral'** da função. Estes botões funcionam alterando o valor da configuração da `AzureWebJobs.<FUNCTION_NAME>.Disabled` aplicação. Esta definição específica da função é criada na primeira vez que é desativada. 
+
+Também pode adicionar diretamente a definição de aplicação nomeada `AzureWebJobs.<FUNCTION_NAME>.Disabled` com valor da `true` **Configuração** para a instância de slot. Quando adicionar uma definição de aplicação específica para slot, certifique-se de verificar a caixa de definição de **ranhuras de implementação.** Isto mantém o valor de definição com a ranhura durante os swaps.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+Para voltar a ativar a função, repercuta o mesmo comando com um valor de `false` .
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+A Azure PowerShell não suporta atualmente esta funcionalidade.
+
+---
+
+Para saber mais, consulte [as ranhuras de implementação de funções Azure](functions-deployment-slots.md).
 
 ## <a name="localsettingsjson"></a>local.settings.json
 

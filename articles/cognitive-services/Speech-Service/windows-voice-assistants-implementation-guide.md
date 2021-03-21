@@ -12,10 +12,10 @@ ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939854"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementação de assistentes de voz no Windows
@@ -78,7 +78,7 @@ Para utilizar a ativação por voz, o utilizador necessita de ativar a ativaçã
 
 ### <a name="listen-to-the-two-activation-signals-the-onbackgroundactivated-and-onsignaldetected"></a>Ouça os dois sinais de ativação: o OnBackgroundActivated e OnSignalDetected
 
-O Windows sinalizará a sua aplicação quando detetar uma palavra-chave de duas formas. Se a aplicação não estiver ativa (ou seja, não tem referência a uma instância não eliminada `ConversationalAgentSession` de), então lançará a sua aplicação e chamará o método OnBackgroundActivated no ficheiro App.xaml.cs da sua aplicação. Se o campo dos argumentos do evento `BackgroundActivatedEventArgs.TaskInstance.Task.Name` corresponder à cadeia "AgentBackgroundTrigger", então a startup da aplicação foi desencadeada por ativação de voz. A aplicação precisa de anular este método e recuperar um exemplo de ConversationalAgentSession para sinalizar para o Windows que está agora ativo. Quando a aplicação estiver ativa, o Windows sinalizará a ocorrência de uma ativação por voz utilizando o `ConversationalAgentSession.OnSignalDetected` evento. Adicione um manipulador de eventos a este evento assim que recuperar o `ConversationalAgentSession` .
+O Windows sinalizará a sua aplicação quando detetar uma palavra-chave de duas formas. Se a aplicação não estiver ativa (ou seja, não tem referência a uma instância não eliminada `ConversationalAgentSession` de), então lançará a sua aplicação e chamará o método OnBackgroundActivated na App.xaml.cs ficheiro da sua aplicação. Se o campo dos argumentos do evento `BackgroundActivatedEventArgs.TaskInstance.Task.Name` corresponder à cadeia "AgentBackgroundTrigger", então a startup da aplicação foi desencadeada por ativação de voz. A aplicação precisa de anular este método e recuperar um exemplo de ConversationalAgentSession para sinalizar para o Windows que está agora ativo. Quando a aplicação estiver ativa, o Windows sinalizará a ocorrência de uma ativação por voz utilizando o `ConversationalAgentSession.OnSignalDetected` evento. Adicione um manipulador de eventos a este evento assim que recuperar o `ConversationalAgentSession` .
 
 ## <a name="keyword-verification"></a>Verificação de palavras-chave
 
@@ -122,7 +122,7 @@ Quando uma aplicação mostra uma vista acima do cadeado, considera-se que está
 
 ### <a name="transitioning-above-lock"></a>Transição acima da fechadura
 
-Uma ativação acima do cadeado é semelhante a uma ativação abaixo do bloqueio. Se não houver casos ativos da aplicação, será iniciado um novo caso em segundo plano e `OnBackgroundActivated` em App.xaml.cs será chamado. Se houver uma instância do pedido, esse caso receberá uma notificação através do `ConversationalAgentSession.SignalDetected` evento.
+Uma ativação acima do cadeado é semelhante a uma ativação abaixo do bloqueio. Se não houver casos ativos da aplicação, será iniciada uma nova instância em segundo plano e `OnBackgroundActivated` em App.xaml.cs será chamada. Se houver uma instância do pedido, esse caso receberá uma notificação através do `ConversationalAgentSession.SignalDetected` evento.
 
 Se a aplicação ainda não estiver a aparecer acima do cadeado, deve ligar `ConversationalAgentSession.RequestForegroundActivationAsync` . Isto desencadeia o `OnLaunched` método em App.xaml.cs que deve navegar para a vista que será mostrada acima do cadeado.
 
@@ -151,7 +151,7 @@ Para fechar corretamente a aplicação programáticamente enquanto está acima o
 > [!NOTE]
 > A aplicação pode fechar sem fechar a [instância de bloqueio abaixo](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). Neste caso, a vista de bloqueio acima precisa de "limpar", certificando-se de que, uma vez desbloqueado o ecrã, não existem manipuladores ou tarefas de eventos que tentem manipular a vista de bloqueio acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Visite a aplicação UWP Voice Assistant Sample para exemplos e códigos de passagem](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample)

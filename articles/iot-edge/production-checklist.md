@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1fc229b04ac317578e9e90686496cd081b279afd
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489760"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722774"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge na produção
 
@@ -178,7 +178,13 @@ Uma etiqueta é um conceito de estivador que você pode usar para distinguir ent
 
 As tags também ajudam a impor atualizações nos seus dispositivos IoT Edge. Quando empurrar uma versão atualizada de um módulo para o registo do seu contentor, incremente a etiqueta. Em seguida, empurre uma nova implementação para os seus dispositivos com a etiqueta incrementada. O motor de contentor reconhecerá a etiqueta incrementada como uma nova versão e puxará a versão mais recente do módulo para o seu dispositivo.
 
-Para um exemplo de uma convenção de tags, consulte [Atualizar o tempo de execução do IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) para saber como o IoT Edge utiliza tags rolantes e tags específicas para rastrear versões.
+#### <a name="tags-for-the-iot-edge-runtime"></a>Tags para o tempo de execução IoT Edge
+
+As imagens IoT Edge e IoT Edge estão marcadas com a versão IoT Edge a que estão associadas. Existem duas maneiras diferentes de usar tags com as imagens de tempo de execução:
+
+* **Etiquetas rolantes** - Utilize apenas os dois primeiros valores do número da versão para obter a imagem mais recente que corresponda a esses dígitos. Por exemplo, o 1.1 é atualizado sempre que há um novo lançamento para apontar para a versão mais recente de 1.1.x. Se o tempo de funcionamento do contentor no seu dispositivo IoT Edge voltar a puxar a imagem, os módulos de tempo de execução são atualizados para a versão mais recente. Implementações do portal Azure por defeito para tags rolantes. *Esta abordagem é sugerida para fins de desenvolvimento.*
+
+* **Etiquetas específicas** - Utilize os três valores do número da versão para definir explicitamente a versão de imagem. Por exemplo, 1.1.0 não mudará após o lançamento inicial. Pode declarar um novo número de versão no manifesto de implementação quando estiver pronto para atualizar. *Esta abordagem é sugerida para fins de produção.*
 
 ### <a name="store-runtime-containers-in-your-private-registry"></a>Guarde os recipientes de tempo de execução no seu registo privado
 

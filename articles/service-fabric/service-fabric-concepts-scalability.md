@@ -7,10 +7,10 @@ ms.date: 08/26/2019
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87ac89edc1c9996afc03e7c2bd6743202fdfcb52
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786196"
 ---
 # <a name="scaling-in-service-fabric"></a>Escala no Tecido de Serviço
@@ -141,7 +141,7 @@ Este padrão de criação dinâmica muitos benefícios:
   - Não estás a executar um monte de casos de serviço ou réplicas enquanto esperas que os clientes apareçam.
   - Se um cliente alguma vez sair, então remover as suas informações do seu serviço é tão simples como ter o gestor a apagar esse serviço ou aplicação que criou.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os conceitos de Tecido de Serviço, consulte os seguintes artigos:
 
 * [Disponibilidade de serviços de tecido de serviço](service-fabric-availability-services.md)

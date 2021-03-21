@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
 ms.openlocfilehash: 9bd3c315fcc15317a9fa483289fdc326ca6aa47f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614365"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Implementar o módulo de função ABAP de extração de metadados para a família de pontes SAP R3
 
 Este artigo descreve os passos para implantar o módulo de função ABAP no SERVIDOR SAP.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A sap business suite 4 HANA (S/4HANA), ECC e r/3 ERP bridge podem ser usadas para extrair metadados do Servidor SAP. Isto é conseguido colocando o módulo de função ABAP no servidor SAP. Este módulo de função é remotamente acessível pela ponte para consultar e transferir (como ficheiro de texto) os metadados que contêm dentro do servidor SAP.
 

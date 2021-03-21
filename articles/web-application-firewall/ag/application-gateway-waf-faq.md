@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 1fbe930780ff026be748bc42104f821ee9e5c443
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 890688dba70a7fa654e97652b3e474b919f9a077
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785107"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585388"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-application-gateway"></a>Perguntas frequentes para Azure Web Application Firewall no Gateway de aplicações
 
@@ -34,7 +34,7 @@ Monitorize a WAF através de registo de diagnóstico. Para obter mais informaç�
 
 ## <a name="does-detection-mode-block-traffic"></a>O modo de deteção bloqueia o tráfego?
 
-Não. O modo de deteção apenas regista o tráfego que aciona uma regra WAF.
+N.º O modo de deteção apenas regista o tráfego que aciona uma regra WAF.
 
 ## <a name="can-i-customize-waf-rules"></a>Posso personalizar as regras da WAF?
 
@@ -53,6 +53,20 @@ A WAF suporta atualmente o CRS [2.2.9](application-gateway-crs-rulegroups-rules.
 * Deteção de configurações comuns de aplicações (isto é, Apache, IIS, e assim por diante)
 
 Para obter mais informações, consulte [as vulnerabilidades do top-10 da OWASP](https://owasp.org/www-project-top-ten/).
+
+## <a name="what-content-types-does-waf-support"></a>Que tipos de conteúdo suporta o WAF?
+
+O Application Gateway WAF suporta os seguintes tipos de conteúdo para regras geridas:
+
+* application/json
+* aplicação/xml
+* aplicação/x-www-form-urlencoded
+* multiparte/dados de formulários
+
+E para regras personalizadas:
+
+* aplicação/x-www-form-urlencoded
+* multiparte/dados de formulários
 
 ## <a name="does-waf-support-ddos-protection"></a>A WAF suporta a proteção DDoS?
 

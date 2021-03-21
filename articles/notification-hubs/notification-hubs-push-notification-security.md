@@ -17,15 +17,15 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548255"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos Centros de Notificação
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tópico descreve o modelo de segurança dos Hubs de Notificação Azure.
 
@@ -48,7 +48,7 @@ A chave com o acesso **Listen** permite que uma aplicação do cliente se regist
 
 À semelhança de outras entidades, as operações do Centro de Notificação são permitidas para três pedidos de segurança: **Ouvir,** **Enviar** e **Gerir**.
 
-| Afirmação   | Descrição                                          | Operações permitidas |
+| Afirmação   | Description                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Escutar  | Criar/Atualizar, Ler e Eliminar registos individuais | Criar/Atualizar registo<br><br>Ler registo<br><br>Leia todos os registos para um cabo<br><br>Apagar registo |
 | Enviar    | Enviar mensagens para o Centro de Notificação                | Enviar mensagem |
@@ -64,7 +64,7 @@ Utilizar as políticas de acesso ao nível do espaço de nome (credenciais) para
 
 Para criar uma nova reclamação de segurança ou para visualizar as chaves SAS existentes, faça o seguinte:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Selecione **Todos os recursos**.
 3. Selecione o nome do Centro de Notificação para o qual pretende criar a reclamação ou ver a tecla SAS.
 4. No menu à esquerda, selecione Políticas de **Acesso**.

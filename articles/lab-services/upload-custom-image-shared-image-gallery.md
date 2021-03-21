@@ -4,10 +4,10 @@ description: Descreve como fazer o upload de uma imagem personalizada para a Gal
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: 3e2f38b0cab87eab27181ddef79d0c02bd8c9bdb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787168"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Carregar uma imagem personalizada para a Shared Image Gallery
@@ -64,7 +64,7 @@ Existem muitas opções para criar um VHD a partir de um ambiente de laboratóri
 
     Se expandiu o disco após a instalação do SISTEMA no VM Original, também terá de estender a unidade C no Windows para utilizar o espaço de disco não atribuído. Para isso, inicie sessão no modelo VM após a criação do laboratório e, em seguida, siga passos semelhantes ao mostrado em [Estender um volume básico](/windows-server/storage/disk-management/extend-a-basic-volume). Existem opções para o fazer através da UI, bem como para utilizar o PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da Galeria de Imagens Partilhada](../virtual-machines/shared-image-galleries.md)
 * [Como usar galeria de imagens partilhada](how-to-use-shared-image-gallery.md)

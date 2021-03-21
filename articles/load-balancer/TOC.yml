@@ -41,6 +41,12 @@
           href: tutorial-cross-region-powershell.md
         - name: Criar balanceador de carga cross-region - Azure CLI
           href: tutorial-cross-region-cli.md
+    - name: NAT Gateway
+      items:
+        - name: Integrar o equilibrador de carga pública NAT Gateway
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+        - name: Integrar o equilibrador interno de carga do gateway NAT
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
 - name: Amostras
   items:
     - name: CLI do Azure
@@ -49,6 +55,8 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
+    - name: Definições do portal
+      href: manage.md
     - name: Balanceador de carga entre regiões
       href: cross-region-overview.md
     - name: Novidades
@@ -99,8 +107,6 @@
       href: instance-metadata-service-load-balancer.md
 - name: Procedimentos
   items:
-    - name: Definições do portal
-      href: manage.md
     - name: Conjuntos de dimensionamento de máquinas virtuais
       items:
         - name: Atualizar ou eliminar o Balanceador de Carga do Azure utilizado pelo Conjunto de Dimensionamento de Máquinas Virtuais
