@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
 ms.openlocfilehash: 0ea6fcaff1ec699431da8b67adee68735a8611a8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97696082"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Tutorial: Criar e importar termos glossários em Azure Purview (pré-visualização)
@@ -23,7 +23,7 @@ Um glossário é uma ferramenta importante para manter e organizar o seu catálo
 
 Este tutorial é *parte 5 de uma série tutorial* de cinco partes na qual você aprende os fundamentos de como gerir a governação de dados através de uma propriedade de dados usando Azure Purview. Este tutorial baseia-se no trabalho que concluiu na [Parte 4: Explore conjuntos de recursos, detalhes, esquemas e classificações em Azure Purview (pré-visualização)](tutorial-schemas-and-classifications.md).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -184,4 +184,4 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo artigo para saber mais sobre diferentes insights de catálogo.
 
 > [!div class="nextstepaction"]
-> [Compreender Insights em Azure Purview](concept-insights.md)
+> [Compreender as Informações no Azure Purview](concept-insights.md)

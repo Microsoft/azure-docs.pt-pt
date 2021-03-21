@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 166e365a4ead8ad6d0f7e543c081161ebff5f027
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330466"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas elásticas de base de dados
@@ -33,7 +33,7 @@ Estes termos são utilizados na [Adição de um fragmento utilizando ferramentas
 
 **Mapa global do fragmento**: O mapa entre as teclas de caco e os respetivos fragmentos dentro de um **conjunto de fragmentos**. O mapa global de fragmentos está armazenado no **gestor de mapas de fragmentos.** Compare com o **mapa de fragmentos local.**
 
-**Mapa de fragmentos de**lista : Um mapa de fragmentos no qual as teclas de fragmentos são mapeadas individualmente. Compare-se com **o Mapa de Fragmentos de Alcance.**   
+**Mapa de fragmentos de** lista : Um mapa de fragmentos no qual as teclas de fragmentos são mapeadas individualmente. Compare-se com **o Mapa de Fragmentos de Alcance.**   
 
 **Mapa de fragmentos local**: Armazenado em um fragmento, o mapa de fragmentos local contém mapeamentos para os fragmentos que residem no fragmento.
 
@@ -53,19 +53,19 @@ Aqui está uma representação de bases de **dados** de solteiros e multi-inquil
 
 **Fragmento**: Uma base de dados na Base de Dados Azure SQL que armazena dados de um conjunto de dados fragmentos. 
 
-**Elasticidade do**fragmento : A capacidade de **efetuar a escala horizontal** e **a escala vertical.**
+**Elasticidade do** fragmento : A capacidade de **efetuar a escala horizontal** e **a escala vertical.**
 
 **Tabelas de cacos**: Tabelas que são ressartadas, ou seja, cujos dados são distribuídos por fragmentos com base nos seus valores-chave de fragmentos. 
 
 **Chave de fragmentos**: Um valor de coluna que determina como os dados são distribuídos através de fragmentos. O tipo de valor pode ser um dos seguintes: **int,** **bigint,** **varbinário,** ou **uniqueidentifier**. 
 
-**Conjunto**de fragmentos : A coleção de fragmentos que são atribuídos ao mesmo mapa de fragmentos no gestor do mapa de fragmentos.  
+**Conjunto** de fragmentos : A coleção de fragmentos que são atribuídos ao mesmo mapa de fragmentos no gestor do mapa de fragmentos.  
 
 **Fragmento :** Todos os dados associados a um único valor de uma chave de fragmentos num fragmento. Um fragmento é a menor unidade de movimento de dados possível ao redistribuir tabelas de fragmentos. 
 
-**Mapa de**fragmentos : O conjunto de mapeamentos entre as teclas de caco e os respetivos fragmentos.
+**Mapa de** fragmentos : O conjunto de mapeamentos entre as teclas de caco e os respetivos fragmentos.
 
-**Gestor de mapas de**fragmentos : Um objeto de gestão e uma loja de dados que contém os mapas de fragmentos, localizações de fragmentos e mapeamentos para um ou mais conjuntos de fragmentos.
+**Gestor de mapas de** fragmentos : Um objeto de gestão e uma loja de dados que contém os mapas de fragmentos, localizações de fragmentos e mapeamentos para um ou mais conjuntos de fragmentos.
 
 ![O diagrama mostra um gestor de mapas associado a shardmaps_global, shards_global e shard_mappings_global.][2]
 

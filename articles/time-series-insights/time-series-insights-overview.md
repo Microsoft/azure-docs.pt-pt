@@ -1,5 +1,5 @@
 ---
-title: 'Visão geral: O que é Azure Time Series Insights? - Azure Time Series Insights / Microsoft Docs'
+title: 'Visão geral: O que é Azure Time Series Insights? - Azure Time Series Insights | Microsoft Docs'
 description: Introdução ao Azure Time Series Insights, um serviço novo para análises de dados de séries de tempo e soluções de IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020066"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>O que é Azure Time Series Insights Gen1?
@@ -91,11 +91,11 @@ Para começar, siga estes passos.
 
 Ver, analisar e descobrir tendências nos seus dados utilizando o Azure Time Series Insights Explorer.
 
-![Azure Time Series Insights Explorer](media/overview/time-series-insights-explorer-panel.png)
+![Explorador do Time Series Insights](media/overview/time-series-insights-explorer-panel.png)
 
 Aprenda a usar o [Azure Time Series Insights Explorer](time-series-insights-explorer.md) e retire insights dos seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Explore o [ambiente de demonstração da](./time-series-quickstart.md)Azure Time Series Insights Gen1 .
 

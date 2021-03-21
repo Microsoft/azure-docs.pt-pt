@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96454294"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utilize a autenticação do Diretório Ativo Azure
@@ -49,7 +49,7 @@ Com a autenticação do Azure Active Directory, pode gerir de forma centralizada
 - O Azure Active Directory suporta ligações semelhante do SQL Server Data Tools (SSDT), que utilizam a Autenticação Interativa do Active Directory. Para obter mais informações, consulte [o suporte do Azure Ative Directory em SqL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory)
 
 > [!NOTE]  
-> A ligação a uma instância do SQL Server que está a funcionar numa máquina virtual Azure (VM) não é suportada através de uma conta do Azure Ative Directory. Em alternativa, utilize um domínio de conta do Active Directory.  
+> A ligação a uma instância do SQL Server que está em execução numa máquina virtual (VM) do Azure não é suportada com uma conta do Azure Ative Directory. Em alternativa, utilize um domínio de conta do Active Directory.  
 
 As etapas de configuração incluem os seguintes procedimentos para configurar e utilizar a autenticação do Azure Ative Directory.
 

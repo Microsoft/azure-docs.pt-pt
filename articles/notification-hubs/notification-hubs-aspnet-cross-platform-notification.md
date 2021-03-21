@@ -17,10 +17,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313893"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Enviar notificações inter-plataformas com os Hubs de Notificação Azure
@@ -76,7 +76,7 @@ Para enviar notificações de plataformas cruzadas utilizando modelos, faça o s
 
     Este código chama o método específico da plataforma para criar um registo de modelo em vez de um registo nativo. Como os registos de modelos derivam de registos nativos, não é necessário modificar os registos existentes.
 
-1. No **Solution Explorer,** na pasta **Controladores,** abra o **ficheiro NotificationsController.cs.** Substitua o método `Post` pelo código abaixo:
+1. No **Solution Explorer,** na pasta **Controladores,** abra o ficheiro **NotificationsController.cs.** Substitua o método `Post` pelo código abaixo:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

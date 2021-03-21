@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2dd04f404330a6c86e2df09da610e16ba9b721f3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895652"
 ---
 # <a name="secure-a-daemon-application"></a>Garantir uma aplicação daemon
@@ -75,7 +75,7 @@ Benefícios de identidade gerida:
 
 Quando funciona num ambiente não-Azure As identidades geridas não estão disponíveis. Por isso, deve configurar um comitado através de um registo de pedido azure AD para o pedido da Daemon.
 
-1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições** .  
+1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições**.  
 
     > [!div class="mx-imgBorder"]
     > ![Registo da aplicação](./media/how-to-manage-authentication/app-registration.png)
@@ -85,19 +85,19 @@ Quando funciona num ambiente não-Azure As identidades geridas não estão dispo
     > [!div class="mx-imgBorder"]
     > ![Detalhes do registo da aplicação](./media/how-to-manage-authentication/app-create.png)
 
-3. Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, nos **registos da App,** selecione **permissões API**  >  **Adicione uma permissão** . Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
+3. Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, nos **registos da App,** selecione **permissões API**  >  **Adicione uma permissão**. Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar permissões de API de aplicativo](./media/how-to-manage-authentication/app-permissions.png)
 
-4. Selecione a caixa de verificação ao lado **do Access Azure Maps** e, em seguida, selecione **Permissões de adicionar** .
+4. Selecione a caixa de verificação ao lado **do Access Azure Maps** e, em seguida, selecione **Permissões de adicionar**.
 
     > [!div class="mx-imgBorder"]
     > ![Selecione permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)
 
 5. Complete os seguintes passos para criar um certificado secreto ou de configuração do cliente.
 
-    * Se a sua aplicação utilizar a autenticação do servidor ou da aplicação, então na página de registo da sua aplicação, aceda aos **segredos & certificados.** Em seguida, faça o upload de um certificado de chave pública ou crie uma palavra-passe selecionando **o novo segredo do cliente** .
+    * Se a sua aplicação utilizar a autenticação do servidor ou da aplicação, então na página de registo da sua aplicação, aceda aos **segredos & certificados.** Em seguida, faça o upload de um certificado de chave pública ou crie uma palavra-passe selecionando **o novo segredo do cliente**.
 
         > [!div class="mx-imgBorder"]
         > ![Criar um segredo de cliente](./media/how-to-manage-authentication/app-keys.png)
@@ -109,12 +109,12 @@ Quando funciona num ambiente não-Azure As identidades geridas não estão dispo
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Conceder acesso baseado em funções para a aplicação da Daemon ao Azure Maps
 
-Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)* atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)** . Selecione **Roles** , e, em seguida, procure por papéis que comecem com *Azure Maps* . Estas funções do Azure Maps são as funções a que podes conceder acesso.
+Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)* atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Aceda à sua **Conta Azure Maps.** Selecione **Controlo de acesso (IAM)** > **Atribuições de funções** .
+1. Aceda à sua **Conta Azure Maps.** Selecione **Controlo de acesso (IAM)** > **Atribuições de funções**.
 
     > [!div class="mx-imgBorder"]
     > ![Conceder acesso usando Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
@@ -124,7 +124,7 @@ Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)*
     > [!div class="mx-imgBorder"]
     > ![A screenshot mostra as atribuições de rolo com Add selecionado.](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Selecione uma definição de função Azure Maps incorporada, como O Leitor de **Dados do Azure Maps** ou **Colaborador de Dados do Azure Maps.** No **acesso de Atribuição a** , selecione **Azure AD utilizador, grupo ou principal de serviço** ou identidade gerida com o Sistema de identidade gerido atribuído pelo **Utilizador.**  /  **System assigned Managed identity** Selecione o principal. Em seguida, selecione **Guardar** .
+3. Selecione uma definição de função Azure Maps incorporada, como O Leitor de **Dados do Azure Maps** ou **Colaborador de Dados do Azure Maps.** No **acesso de Atribuição a**, selecione **Azure AD utilizador, grupo ou principal de serviço** ou identidade gerida com o Sistema de identidade gerido atribuído pelo **Utilizador.**  /   Selecione o principal. Em seguida, selecione **Guardar**.
 
     > [!div class="mx-imgBorder"]
     > ![Como adicionar atribuição de funções](./media/how-to-manage-authentication/how-to-add-role-assignment.png)

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
 ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018961"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeie o seu esquema de aplicações LUIS com domínio sujeito e extração de dados
@@ -75,7 +75,7 @@ A `FlightAction` entidade seria estruturada no pseudo-esquema da entidade e sube
 
 Para ajudar a extração adicione características às subentidades. Escolherá as suas funcionalidades com base no vocabulário que espera ver nas declarações dos utilizadores e nos valores que pretende devolvidos na resposta de previsão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aprender o ciclo de desenvolvimento LUIS](luis-concept-app-iteration.md)

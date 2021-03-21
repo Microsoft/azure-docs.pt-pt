@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f332c3b0bd53d80d4a8471f53c56ecab611787c1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96456370"
 ---
 # <a name="quickstart-fivetran-with-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Quickstart: Fivetran com piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics 
@@ -82,5 +82,5 @@ Para ligar à sua piscina SQL dedicada (anteriormente SQL DW) a partir da sua co
 * Anfitrião (nome do seu servidor).
 * Porto, porto.
 * Base de dados.
-* Utilizador (o nome de utilizador deve ser **server_name cincotran \@ _server_name_** onde *server_name* faz parte do seu Azure host URI: nome do **_servidor \__.database.windows.net**).
+* Utilizador (o nome de utilizador deve ser **server_name cincotran \@** onde *server_name* faz parte do seu Azure host URI: nome do **_servidor \__.database.windows.net**).
 * A palavra-passe.

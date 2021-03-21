@@ -9,10 +9,10 @@ ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
 ms.openlocfilehash: e07831ce4a016d49e0343da66efc0345effafd94
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954366"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Como verificar o seu codificadora de streaming ao vivo no local

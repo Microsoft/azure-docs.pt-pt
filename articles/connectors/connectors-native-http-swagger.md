@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: 810aaae9634a7de8d07b6d49edd0c6c2eda96754
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730886"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Ligue para os pontos finais do REST utilizando apps Azure Logic
@@ -147,7 +147,7 @@ Pode fazer referência a um ficheiro Swagger que não esteja hospedado ou que n�
 
 Aqui está mais informações sobre as saídas de um disparador http + swagger ou ação. A chamada HTTP + Swagger devolve esta informação:
 
-| Nome da propriedade | Tipo | Descrição |
+| Nome da propriedade | Tipo | Description |
 |---------------|------|-------------|
 | cabeçalhos | objeto | Os cabeçalhos do pedido |
 | body | objeto | Objeto JSON | O objeto com o conteúdo do corpo do pedido |

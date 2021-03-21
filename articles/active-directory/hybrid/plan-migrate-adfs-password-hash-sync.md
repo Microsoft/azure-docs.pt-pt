@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrar da federação para PHS para Azure AD / Microsoft Docs'
+title: 'Azure AD Connect: Migrar da federação para PHS para a Azure AD | Microsoft Docs'
 description: Este artigo tem informações sobre a mudança do seu ambiente de identidade híbrida da federação para a sincronização de haxixe de palavra-passe.
 services: active-directory
 author: billmath
@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861821"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de haxixe de palavra-passe para o Azure Ative Directory
@@ -61,7 +61,7 @@ Pode escolher entre dois métodos para migrar da gestão de identidade federada 
 
 * **Azure AD Connect**. Se originalmente configurar o AD FS utilizando o Azure AD Connect, *tem de* alterar para sincronização de hash de palavra-passe utilizando o assistente Azure AD Connect.
 
-   O Azure AD Connect executa automaticamente o **cmdlet de set-MsolDomainAuthentication** quando altera o método de entrada do utilizador. A azure AD Connect não mantém automaticamente todos os domínios federados verificados no seu inquilino AD Azure.
+   ‎Azure AD Connect automatically runs the **Set-MsolDomainAuthentication** cmdlet when you change the user sign-in method. A azure AD Connect não mantém automaticamente todos os domínios federados verificados no seu inquilino AD Azure.
 
    > [!NOTE]
    > Atualmente, se originalmente usou o Azure AD Connect para configurar o AD FS, não pode evitar desagravar todos os domínios do seu inquilino quando alterar o pedido de sôr-in do utilizador para sincronização de hash de palavra-passe. ‎
@@ -93,7 +93,7 @@ Para verificar as definições de inscrição do utilizador atual:
    * Se **a sincronização do hash da palavra-passe** estiver definida como **Ativada,** pode saltar a secção **Passo 1: Ativar a sincronização do hash da palavra-passe** neste artigo.
 4. Na página **'Rever' a sua solução,** percorra os **Serviços da Federação de Diretórios Ativos (AD FS)**.<br />
 
-   * Se a configuração AD FS aparecer nesta secção, pode presumir com segurança que o AD FS foi originalmente configurado utilizando o Azure AD Connect. Pode converter os seus domínios da identidade federada para identidade gerida utilizando a opção **de inscrição** do utilizador Azure AD Connect Change. O processo é detalhado na secção **Opção A: Mudar de federação para sincronização de hash de palavra-passe utilizando o Azure AD Connect**.
+   * ‎If the AD FS configuration appears in this section, you can safely assume that AD FS was originally configured by using Azure AD Connect. Pode converter os seus domínios da identidade federada para identidade gerida utilizando a opção **de inscrição** do utilizador Azure AD Connect Change. O processo é detalhado na secção **Opção A: Mudar de federação para sincronização de hash de palavra-passe utilizando o Azure AD Connect**.
    * Se o FS AD não estiver listado nas definições atuais, deve converter manualmente os seus domínios da identidade federada para identidade gerida utilizando o PowerShell. Para obter mais informações sobre este processo, consulte a secção **Opção B: Altere da federação para a sincronização de hash de palavra-passe utilizando Azure AD Connect e PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Documente as definições atuais da federação

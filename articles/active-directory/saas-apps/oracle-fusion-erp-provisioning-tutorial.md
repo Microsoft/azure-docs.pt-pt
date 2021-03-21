@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Oracle Fusion ERP para o fornecimento automático de utilizadores com diretório Azure Ative / Microsoft Docs'
+title: 'Tutorial: Configurar o Oracle Fusion ERP para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desaparamento de contas de utilizador ao ERP da Oracle Fusion.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: da6e1a8ba31f8f4991bde4803191598a015a68b3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358444"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutorial: Configurar o Oracle Fusion ERP para o fornecimento automático de utilizadores
@@ -54,7 +54,7 @@ Antes de configurar o Oracle Fusion ERP para o fornecimento automático do utili
 
 1. Inscreva-se na consola de administração [ERP da Oracle Fusion](https://cloud.oracle.com/sign-in)
 
-2. Clique no Navegador no canto superior esquerdo. Em **Ferramentas** , selecione **Consola de Segurança**.
+2. Clique no Navegador no canto superior esquerdo. Em **Ferramentas**, selecione **Consola de Segurança**.
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/login.png" alt-text="Screenshot da página Do Navegador na consola de administração Oracle Fusion E R P. As ferramentas e a consola de segurança estão em destaque." border="false":::
 

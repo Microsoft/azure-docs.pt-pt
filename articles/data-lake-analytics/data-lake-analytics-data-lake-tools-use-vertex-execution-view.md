@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/13/2016
 ms.openlocfilehash: 3fba7bdaa5db1d812fbcd479e5f1eab50c8d1032
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215863"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Use a vista de execução de vértice em ferramentas do lago de dados para estúdio visual
@@ -34,7 +34,7 @@ O painel central superior mostra o **estado de funcionamento de todos os vértic
 ![Screenshot que mostra o painel de execução do vertex Ver o painel de centro inferior que exibe informações sobre cada vértice.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
 O painel central inferior mostra informações sobre cada vértice:
-* Nome do processo: O nome da instância do vértice. É composto por diferentes partes no StageName. VertexName VertexRunInstance. Por exemplo, o SV7_Split[62].v1 vértice representa a segunda instância em execução (.v1, índice a partir de 0) do Vertex número 62 na fase SV7_Split.
+* Nome do processo: O nome da instância do vértice. É composto por diferentes partes no Nome de Palco| VertexName| VertexRunInstance. Por exemplo, o SV7_Split[62].v1 vértice representa a segunda instância em execução (.v1, índice a partir de 0) do Vertex número 62 na fase SV7_Split.
 * Total de Leitura/Escrita: Os dados foram lidos/escritos por este vértice.
 * Estado/Estado de saída: O estado final quando o vértice estiver terminado.
 * Código de saída/Tipo de Falha: Erro quando o vértice falhou.

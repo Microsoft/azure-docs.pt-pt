@@ -1,5 +1,5 @@
 ---
-title: Editora Run OPC - Azure / Microsoft Docs
+title: Run OPC Publisher - Azure | Microsoft Docs
 description: Este artigo descreve como executar e depurar a Editora OPC. Aborda também considerações de desempenho e memória.
 author: dominicbetts
 ms.author: dobett
@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f7d6581a1892ebd74a1adba5c09c0af9d3cf9d43
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92079008"
 ---
 # <a name="run-opc-publisher"></a>Executar o Publicador OPC
@@ -344,7 +344,7 @@ Normalmente, especifica a cadeia de ligação do proprietário do IoT Hub apenas
 
 ## <a name="run-natively-on-windows"></a>Executar de forma nativa no Windows
 
-Abra o projeto **opcpublisher.sln** com o Visual Studio, construa a solução e publique-a. Pode iniciar a aplicação no **diretório target** que publicou para o seguinte:
+Abra o **projeto opcpublisher.sln** com o Visual Studio, construa a solução e publique-a. Pode iniciar a aplicação no **diretório target** que publicou para o seguinte:
 
 ```cmd
 dotnet opcpublisher.dll <applicationname> [<IoT Hubconnectionstring>] [options]
@@ -551,7 +551,7 @@ Antes de utilizar o OPC Publisher em cenários de produção, teste o desempenho
 
 ### <a name="test-measurements"></a>Medições de teste
 
-Os diagnósticos de exemplo a seguir mostram medições com `--si` valores diferentes para e `--ms` parâmetros que publicam 500 nós com um intervalo de publicação de OPC de 1 segundo.  O teste utilizou um depur depur depur depur de um OPC Publisher construído no Windows 10 de forma nativa durante 120 segundos. O protocolo IoT Hub era o protocolo padrão de MQTT.
+Os diagnósticos de exemplo a seguir mostram medições com `--si` valores diferentes para e `--ms` parâmetros que publicam 500 nós com um intervalo de publicação de OPC de 1 segundo.  O teste utilizou um depur de um OPC Publisher construído no Windows 10 de forma nativa durante 120 segundos. O protocolo IoT Hub era o protocolo padrão de MQTT.
 
 #### <a name="default-configuration---si-10---ms-262144"></a>Configuração padrão (-si 10 --ms 262144)
 
@@ -691,7 +691,7 @@ Esta configuração lote o maior número possível de atualizações de valor do
 
 ## <a name="debug-the-application"></a>Depurar a aplicação
 
-Para depurar a aplicação, abra o ficheiro de solução **opcpublisher.sln** com o Visual Studio e utilize as ferramentas de depurar do Visual Studio.
+Para depurar a aplicação, abra o **opcpublisher.sln** ficheiro de solução com o Visual Studio e utilize as ferramentas de depurar do Visual Studio.
 
 Se precisar de aceder ao servidor OPC UA no OPC Publisher, certifique-se de que a sua firewall permite o acesso à porta onde o servidor escuta. A porta padrão é: 62222.
 

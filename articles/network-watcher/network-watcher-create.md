@@ -1,5 +1,5 @@
 ---
-title: Criar um exemplo de Observador de Redes Azure ! Microsoft Docs
+title: Crie uma instância de observador de rede Azure | Microsoft Docs
 description: Saiba como criar um Observador de Rede Azure numa região do Azure utilizando o portal Azure ou outras tecnologias, e como eliminar um Observador de Redes.
 services: network-watcher
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962013"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Criar um Observador de Rede no portal
 
-Navegue para O Observador de Rede de Todos **os Serviços.**  >  **Networking**  >  **Network Watcher** Pode selecionar todas as subscrições para as quais pretende ativar o Observador de Redes. Esta ação cria um Observador de Rede em todas as regiões que estão disponíveis.
+Navegue para O Observador de Rede de Todos **os Serviços.**  >    >   Pode selecionar todas as subscrições para as quais pretende ativar o Observador de Redes. Esta ação cria um Observador de Rede em todas as regiões que estão disponíveis.
 
 ![criar um observador de rede](./media/network-watcher-create/figure1.png)
 
@@ -107,7 +107,7 @@ Para criar uma instância de Observador de Rede consulte este [Modelo quickstart
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Excluir um Observador de Rede no portal
 
-Navegue para O Observador de Rede de Todos **os Serviços.**  >  **Networking**  >  **Network Watcher**
+Navegue para O Observador de Rede de Todos **os Serviços.**  >    >  
 
 Selecione o separador visão geral, se ainda não estiver lá. Utilize o dropdown para selecionar a subscrição em que pretende desativar o observador de rede.
 Expanda a lista de regiões para a sua subscrição escolhida clicando na seta. Para qualquer um dado, use os 3 pontos no direito de aceder ao menu de contexto.

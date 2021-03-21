@@ -1,5 +1,5 @@
 ---
-title: Visualizar telemetria simulada com Time Series Insights - Azure Microsoft Docs
+title: Visualizar telemetria simulada com Insights de Séries Tempotárias - Azure | Microsoft Docs
 description: Aprenda a configurar o seu ambiente de Insights de Séries Temporais para explorar e analisar a telemetria gerada pelo acelerador de solução de simulação de dispositivos.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854568"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Insights de Séries temporais para visualizar a telemetria enviada do acelerador de solução de simulação do dispositivo
@@ -135,7 +135,7 @@ O explorador time series Insights é uma aplicação web que pode usar para visu
 
     ![Pesquisa de explorador de Séries De Tempo Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-search-time.png)
 
-1. No painel de termos à esquerda, selecione a **temperatura** como **medida** e **id id id de ligação iothub** como o **split por** valor:
+1. No painel de termos à esquerda, selecione a **temperatura** como **medida** e **id de ligação iothub** como o **split por** valor:
 
     ![Screenshot que mostra o painel "termos" da Série De Tempo Insights, com os valores "Measure" e "Split by" em destaque.](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 

@@ -8,10 +8,10 @@ ms.date: 1/24/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 2ed1b8162c49ccc26cb98dd02897a9c40f809d14
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204477"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Escolha políticas de tiering de nuvem

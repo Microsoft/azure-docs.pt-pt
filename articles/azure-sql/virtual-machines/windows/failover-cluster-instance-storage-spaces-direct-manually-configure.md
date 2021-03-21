@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: aa19cf6b59b1efa4b14501fbf64e319da3e4c0b3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048646"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com espaços de armazenamento direto (SQL Server em VMs Azure)
@@ -29,7 +29,7 @@ Este artigo explica como criar uma instância de cluster failover (FCI) utilizan
 Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure](failover-cluster-instance-overview.md) e [as melhores práticas do cluster](hadr-cluster-best-practices.md). 
 
 
-## <a name="overview"></a>Descrição Geral 
+## <a name="overview"></a>Descrição geral 
 
 [Espaços de Armazenamento Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) suporta dois tipos de arquiteturas: convergentes e hiperconvergados. Uma infraestrutura hiperconverizada coloca o armazenamento nos mesmos servidores que acolhem a aplicação agrupada, de modo que o armazenamento está em cada nó SQL Server FCI. 
 

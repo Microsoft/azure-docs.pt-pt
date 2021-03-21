@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
 ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397727"
 ---
-# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o backend com O Gateway de Aplicação Azure
+# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o back-end com o Gateway de Aplicação do Azure
 
 Para terminar o TLS, o Application Gateway exige que as instâncias de backend sejam permitidas através do upload de certificados de autenticação/raiz fidedigno. Para o V1 SKU, são necessários certificados de autenticação, mas para os certificados de raiz fidedignos v2 SKU são necessários para permitir os certificados.
 
@@ -33,7 +33,7 @@ Um certificado de backend existente é necessário para gerar os certificados de
 
 É necessário um certificado de autenticação para permitir casos de backend no Application Gateway v1 SKU. O certificado de autenticação é a chave pública dos certificados de servidor backend na Base-64 codificada X.509(. Formato CER). Neste exemplo, utilizará um certificado TLS/SSL para o certificado de backend e exportará a sua chave pública para ser usada como certificação de autenticação. Além disso, neste exemplo, utilizará a ferramenta Windows Certificate Manager para exportar os certificados necessários. Pode optar por utilizar qualquer outra ferramenta que seja conveniente.
 
-A partir do seu certificado TLS/SSL, exporte o ficheiro chave pública .cer (não a chave privada). Os seguintes passos ajudam-no a exportar o ficheiro .cer na Base-64 codificada X.509(. CER) formato para o seu certificado:
+A partir do seu certificado TLS/SSL, exporte o ficheiro de .cer chave pública (não a chave privada). Os seguintes passos ajudam-no a exportar o ficheiro .cer na Base-64 codificada X.509(. CER) formato para o seu certificado:
 
 1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado, normalmente em 'Certificados - Utilizador atual\Personal\Certificates', e clique à direita. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não conseguir encontrar o certificado nos termos do Utilizador Atual\Personal\Certificates, poderá ter aberto acidentalmente "Certificados - Computador Local", em vez de "Certificados - Utilizador Atual"). Se pretender abrir o Certificate Manager no âmbito atual do utilizador utilizando o PowerShell, digite *certmgr* na janela da consola.
 
@@ -47,11 +47,11 @@ A partir do seu certificado TLS/SSL, exporte o ficheiro chave pública .cer (nã
 
    ![Não exporte a chave privada](./media/certificates-for-backend-authentication/notprivatekey.png)
 
-4. Na página **Formato do Ficheiro de Exportação** , selecione **X.509 codificado com Base-64 (.CER).** e, em seguida, clique em **Seguinte**.
+4. Na página **Formato do Ficheiro de Exportação**, selecione **X.509 codificado com Base-64 (.CER).** e, em seguida, clique em **Seguinte**.
 
    ![Base-64 codificada](./media/certificates-for-backend-authentication/base64.png)
 
-5. Para **arquivar para exportar,** **navegue** para o local para onde pretende exportar o certificado. Em **Nome do ficheiro** , atribua um nome ao ficheiro de certificado. Em seguida, clique **em Seguinte**.
+5. Para **arquivar para exportar,** **navegue** para o local para onde pretende exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Em seguida, clique **em Seguinte**.
 
    ![A screenshot mostra o Assistente de Exportação de Certificados onde especifica um ficheiro para exportar.](./media/certificates-for-backend-authentication/browse.png)
 

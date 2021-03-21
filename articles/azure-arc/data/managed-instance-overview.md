@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: overview
 ms.openlocfilehash: 65f61324c496d4b76e6f599966a780c735114870
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686670"
 ---
 # <a name="azure-arc-enabled-sql-managed-instance-overview"></a>Azure Arc permitiu a visão geral da ocorrência gerida do SQL
@@ -22,7 +22,7 @@ Azure Arc enabled SQL Managed Instance é um serviço de dados Azure SQL que pod
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="description"></a>Descrição
+## <a name="description"></a>Description
 
 O Azure Arc habilitado a SQL Managed Instance tem quase 100% de compatibilidade com o mais recente motor de base de dados do SQL Server, e permite que os clientes existentes do SQL Server levantem e transcam as suas aplicações para serviços de dados do Azure Arc com alterações mínimas de aplicação e base de dados, mantendo a soberania dos dados. Ao mesmo tempo, a SQL Managed Instance inclui capacidades de gestão incorporadas que reduzem drasticamente a sobrecarga de gestão. 
 

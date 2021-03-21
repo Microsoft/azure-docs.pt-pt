@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98071379"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
@@ -49,7 +49,7 @@ Esta secção descreve alguns dos erros comuns e como pode resolvê-los.
 
 **Erro:** "A operação do Cofre de Chaves falhou. Operação : Gerar definição de assinatura de acesso partilhado, Cofre-chave: nome do cofre-chave, Conta de Armazenamento: nome da conta de armazenamento falhou com o erro:"
 
-![Cofre de Chaves](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 Este erro ocorre normalmente porque a Política de Acesso ao Utilizador para o Cofre de Chaves não dá ao utilizador atualmente registado as permissões necessárias para configurar contas de armazenamento para serem geridas pelo Key Vault. Para verificar a política de acesso do utilizador no cofre de chaves, aceda à página do cofre key no portal para o cofre chave e selecione as políticas de acesso 
 
@@ -91,7 +91,7 @@ O componente que tenta replicar dados para o Azure está em baixo ou não respon
 
     Executar o seguinte comando depois de descarregar a azcopia no aparelho Azure Migrate:
     
-    _banco de azcopia https://[account].blob.core.windows.net/[contentor]? SAS_
+    _banco de azcopia https://[conta].blob.core.windows.net/[contentor]? SAS_
     
     **Passos para executar o teste de referência de desempenho:**
     
@@ -171,7 +171,7 @@ As causas possíveis incluem:
 
     Executar o seguinte comando depois de descarregar a azcopia no aparelho Azure Migrate:
     
-    _banco de azcopia https://[account].blob.core.windows.net/[contentor]? SAS_
+    _banco de azcopia https://[conta].blob.core.windows.net/[contentor]? SAS_
     
     **Passos para executar o teste de referência de desempenho:**
     

@@ -6,15 +6,15 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.openlocfilehash: 19d947b8b595107c76c1201d05e4d5ade3d7a092
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220063"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Começar com as capacidades cognitivas da U-SQL
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 As capacidades cognitivas para o U-SQL permitem que os desenvolvedores utilizem a inteligência nos seus grandes programas de dados. 
 
 Estão disponíveis as seguintes amostras utilizando capacidades cognitivas:

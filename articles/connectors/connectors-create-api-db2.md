@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
 ms.openlocfilehash: 765bb66b572f0c046222cfb617fe4caa80925256
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967407"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Aceda e gere os recursos ibm DB2 utilizando apps Azure Logic
@@ -109,7 +109,7 @@ Antes de criar a sua ligação, já deve ter o seu portal de dados no local inst
 | **Autenticação** | Yes | O tipo de autenticação para a sua ligação, por exemplo, "Básico" <p><p>**Nota:** Selecione este valor da lista, que inclui Básico ou Windows (Kerberos). |
 | **Nome de Utilizador** | Yes | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
 | **Palavra-passe** | Yes | A sua senha para a base de dados |
-| **Porta de entrada** | Yes | O nome do seu portal de dados instalado no local <p><p>**Nota:** Selecione este valor da lista, que inclui todos os gateways de dados instalados dentro do seu grupo de subscrição e recursos Azure. |
+| **Gateway** | Yes | O nome do seu portal de dados instalado no local <p><p>**Nota:** Selecione este valor da lista, que inclui todos os gateways de dados instalados dentro do seu grupo de subscrição e recursos Azure. |
 ||||
 
 Por exemplo:
@@ -153,7 +153,7 @@ Para obter um registo numa tabela de bases de dados DB2, utilize a ação **de l
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Yes | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
+   | **Nome da mesa** | Yes | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
    | **ID de área** | Yes | O ID para o registo que deseja, como "99999" neste exemplo |
    ||||
 
@@ -233,7 +233,7 @@ Para adicionar um único registo a uma tabela de base de dados DB2, utilize a a�
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Yes | A tabela onde adicionar o recorde, como "AREA" |
+   | **Nome da mesa** | Yes | A tabela onde adicionar o recorde, como "AREA" |
    | **ID de área** | Yes | O ID para a área a adicionar, como "99999" |
    | **Descrição da área** | Yes | A descrição para a área a adicionar, como "Área 99999" |
    | **ID da região** | Yes | O ID para a região a adicionar, como "102" |
@@ -280,7 +280,7 @@ Para atualizar um único registo numa tabela de base de dados DB2, utilize a aç
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Yes | A tabela onde atualizar o registo, como "AREA" |
+   | **Nome da mesa** | Yes | A tabela onde atualizar o registo, como "AREA" |
    | **ID de linha** | Yes | O ID para o registo a atualizar, como "99999" |
    | **ID de área** | Yes | O novo ID da área, como "99999" |
    | **Descrição da área** | Yes | A nova descrição da área, como "Atualizado 99999" |
@@ -328,7 +328,7 @@ Para eliminar um único registo de uma tabela de bases de dados DB2, utilize a a
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Yes | A tabela onde apagar o registo, como "AREA" |
+   | **Nome da mesa** | Yes | A tabela onde apagar o registo, como "AREA" |
    | **ID de linha** | Yes | O ID para que o registo apague, como "99999" |
    ||||
 

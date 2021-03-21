@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
 ms.openlocfilehash: 77ade17803a35491712ec6df70aed9eb7b4883eb
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025879"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Aplicação de Comandos Personalizados de Exportação como uma habilidade remota
@@ -85,7 +85,7 @@ Como autor, talvez queira controlar quais das suas frases de exemplo são **usad
 > Se enfrentar problemas com a publicação da aplicação e o erro direcionar-se para as competências que desencadeiam expressões, verifique novamente a configuração para **comandos ativados para obter competências**. Cada um dos comandos expostos deve ter pelo menos uma expressão de desencadeamento válida.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Atualizar um comando do cliente](./how-to-custom-commands-update-command-from-client.md)

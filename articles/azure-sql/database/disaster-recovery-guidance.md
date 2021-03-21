@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
 ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580756"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar a sua Base de Dados Azure SQL ou falhar para um secundário
@@ -25,7 +25,7 @@ A Azure SQL Database oferece as seguintes capacidades para recuperar de uma para
 
 - [Georreplicação ativa](active-geo-replication-overview.md)
 - [Grupos de ativação pós-falha automática](auto-failover-group-overview.md)
-- [Georrestauro](recovery-using-backups.md#point-in-time-restore)
+- [Geo-restauro](recovery-using-backups.md#point-in-time-restore)
 - [Bases de dados redundantes em zonas](high-availability-sla.md)
 
 Para conhecer os cenários de continuidade do negócio e as funcionalidades que suportam estes cenários, consulte [a continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)

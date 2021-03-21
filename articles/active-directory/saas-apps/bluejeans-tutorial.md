@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686602"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com BlueJeans para Azure AD
@@ -150,7 +150,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Vá para **ADMIN \> DEFINIÇÕES \> DE SEGURANÇA**.
 
-    ![O screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com definição de grupo e segurança selecionadas.](./media/bluejeans-tutorial/ic785868.png "Admin")
+    ![O screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com definição de grupo e segurança selecionadas.](./media/bluejeans-tutorial/ic785868.png "Administrador")
 
 3. Na secção **SEGURANÇA,** execute os seguintes passos:
 
@@ -192,7 +192,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em BlueJeans pa
 
 2. VÁ ao **ADMIN \> GERIR UTILIZADORES \> ADICIONAR UTILIZADOR**.
 
-    ![O Screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com utilizadores de gestão e utilizadores de adicionar selecionados.](./media/bluejeans-tutorial/ic785877.png "Admin")
+    ![O Screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com utilizadores de gestão e utilizadores de adicionar selecionados.](./media/bluejeans-tutorial/ic785877.png "Administrador")
 
     > [!IMPORTANT]
     > O **separador UTILIZADOR ADD** só está disponível se, no **separador SECUTIRY,** permitir que o **provisionamento automático** não seja verificado.

@@ -1,5 +1,5 @@
 ---
-title: Adicione um marcador HTML para mapear ! Microsoft Azure Maps
+title: Adicione um marcador HTML para mapear | Microsoft Azure Maps
 description: Saiba como adicionar marcadores HTML aos mapas. Veja como usar o Azure Maps Web SDK para personalizar marcadores e adicionar popups e eventos de rato a um marcador.
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 1c4367e2a649f4e239e2dab374afc4fb867e517b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891198"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicione marcadores HTML ao mapa

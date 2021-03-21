@@ -12,10 +12,10 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 86150107273b247bef2c74e5b8c5272d7148587e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94332098"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool"></a>Restaurar uma piscina SQL dedicada existente
@@ -44,7 +44,7 @@ Neste artigo, você aprende a restaurar uma piscina SQL dedicada existente em Az
 
     Se estiver a restaurar uma geo-cópia de segurança, basta selecionar o espaço de trabalho localizado na região de origem e a piscina de SQL dedicada que pretende restaurar. 
 
-9. Selecione **Review + Criar**.
+9. Selecione **Rever + Criar**.
 
 ## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Restaurar uma piscina SQL dedicada existente através do portal Azure
 
@@ -60,7 +60,7 @@ Neste artigo, você aprende a restaurar uma piscina SQL dedicada existente em Az
 
     Se quiser realizar um geo-restauro, selecione o espaço de trabalho e a piscina SQL dedicada que pretende recuperar. 
 
-5. Selecione **Review + Criar**.
+5. Selecione **Rever + Criar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

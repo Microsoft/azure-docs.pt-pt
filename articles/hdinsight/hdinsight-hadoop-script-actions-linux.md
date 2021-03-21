@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945480"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com HDInsight
@@ -232,7 +232,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 Os seguintes ajudantes disponíveis para utilização no seu script:
 
-| Utilização do ajudante | Descrição |
+| Utilização do ajudante | Description |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Descarrega um ficheiro da uri de origem para o caminho de ficheiro especificado. Por padrão, não substitui um ficheiro existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um ficheiro de alcatrão (usando) `-xf` para o diretório de destino. |
@@ -359,7 +359,7 @@ awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
 `INFILE`Substitua-a pelo ficheiro que contém o BOM. `OUTFILE` deve ser um novo nome de ficheiro, que contém o script sem o BOM.
 
-## <a name="next-steps"></a><a name="seeAlso"></a>Próximos passos
+## <a name="next-steps"></a><a name="seeAlso"></a>Passos seguintes
 
 * Saiba como [personalizar clusters HDInsight usando ação de script](hdinsight-hadoop-customize-cluster-linux.md)
 * Utilize a [referência HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicações .NET que gerem o HDInsight

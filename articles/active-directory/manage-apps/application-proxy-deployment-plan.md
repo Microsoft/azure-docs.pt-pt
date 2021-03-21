@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580063"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de Aplicações do Azure AD
@@ -144,7 +144,7 @@ Os seguintes elementos de design devem aumentar o sucesso da sua implementação
 
 **Gestão de aplicações:**
 
-* A sua força de trabalho é mais provável que se lembre de que uma URL externa é familiar e relevante. Evite publicar a sua aplicação utilizando os nossos sufixos de msappproxy.net ou onmicrosoft.com pré-definidos. Em vez disso, forneça um domínio verificado de alto nível familiar, prefixado com um nome de hospedeiro lógico, como *intranet.<customers_domain>.com*.
+* A sua força de trabalho é mais provável que se lembre de que uma URL externa é familiar e relevante. Evite publicar a sua aplicação utilizando os nossos sufixos de msappproxy.net ou onmicrosoft.com pré-definidos. Em vez disso, forneça um domínio verificado de nível superior familiar, prefixado com um nome de hospedeiro lógico como *intranet.<customers_domain>.com*.
 
 * Restringir a visibilidade do ícone da aplicação piloto a um grupo piloto escondendo o seu ícone de lançamento forma o portal Azure MyApps. Quando estiver pronto para a produção, pode estender a app ao seu respetivo público-alvo, seja no mesmo inquilino de pré-produção, quer publicando também a aplicação no seu arrendatário de produção.
 

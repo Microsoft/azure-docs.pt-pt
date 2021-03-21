@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946722"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Cenário: Alertas apache ambari em Azure HDInsight
@@ -73,7 +73,7 @@ Há um período de graça antes de um agente de Ambari relatar que um alerta con
 
 O valor predefinido `alert_grace_period` é de 5 segundos. Pode configurar esta definição em /etc/ambari-agent/conf/ambari-agent.ini. Para os anfitriões em que os alertas obsoletos ocorrem em intervalos regulares, tente aumentar o valor para 10. Então, reinicie o agente Ambari.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se o seu problema não foi mencionado aqui ou se não conseguir resolvê-lo, visite um dos seguintes canais para obter mais apoio:
 

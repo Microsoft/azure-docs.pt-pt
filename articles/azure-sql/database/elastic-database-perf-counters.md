@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781265"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Criar contadores de desempenho para acompanhar o desempenho do gestor de mapas de fragmentos
@@ -43,11 +43,11 @@ Também pode utilizar [este](https://gallery.technet.microsoft.com/scriptcenter/
 O método cria os seguintes contadores de desempenho:  
 
 * **Mapeamentos em** cache : Número de mapeamentos em cache para o mapa de fragmentos.
-* **Operações DDR/seg** : Taxa de operações de encaminhamento dependentes de dados para o mapa de fragmentos. Este contador é atualizado quando uma chamada para [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) resulta numa ligação bem sucedida ao fragmento de destino.
-* **Mapeamento de cache hits/seg** : Taxa de operações de procura de cache bem sucedidas para mapeamentos no mapa de fragmentos.
-* **Mapeamento de cache falha/seg** : Taxa de operações de procura de cache falhadas para mapeamentos no mapa de fragmentos.
-* **Mapeamentos adicionados ou atualizados em cache/seg** : Taxa em que os mapeamentos são adicionados ou atualizados em cache para o mapa de fragmentos.
-* **Mapeamentos removidos da cache/seg** : Taxa em que os mapeamentos estão a ser removidos da cache para o mapa de fragmentos.
+* **Operações DDR/seg**: Taxa de operações de encaminhamento dependentes de dados para o mapa de fragmentos. Este contador é atualizado quando uma chamada para [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) resulta numa ligação bem sucedida ao fragmento de destino.
+* **Mapeamento de cache hits/seg**: Taxa de operações de procura de cache bem sucedidas para mapeamentos no mapa de fragmentos.
+* **Mapeamento de cache falha/seg**: Taxa de operações de procura de cache falhadas para mapeamentos no mapa de fragmentos.
+* **Mapeamentos adicionados ou atualizados em cache/seg**: Taxa em que os mapeamentos são adicionados ou atualizados em cache para o mapa de fragmentos.
+* **Mapeamentos removidos da cache/seg**: Taxa em que os mapeamentos estão a ser removidos da cache para o mapa de fragmentos.
 
 Os contadores de desempenho são criados para cada mapa de fragmentos em cache por processo.  
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946144"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
@@ -298,13 +298,13 @@ A ferramenta também suporta a consulta **Spark SQL:**
 
 4. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
-5. Clique com o botão direito no editor de scripts e, em seguida, selecione **Spark: PySpark Batch**, ou **Synapse: PySpark Batch** _.
+5. Clique com o botão direito no editor de script e, em seguida, selecione **Spark: PySpark Batch**, ou **Synapse: PySpark Batch****.
 
 6. Selecione um cluster/piscina de faíscas para submeter o seu trabalho PySpark para:
 
    ![Submeter saída de resultado de trabalho python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Depois de submeter um trabalho python, os registos de submissão aparecem na janela _ *OUTPUT** no Código do Estúdio Visual. O URL spark UI e o URL de UI de fio também são mostrados. Se submeter o trabalho de lote a uma piscina Apache Spark, o URL UI da história da faísca e o URL UI da Aplicação de Emprego de Faísca também são mostrados. Pode abrir o URL num navegador web para rastrear o estado do trabalho.
+Depois de submeter um trabalho python, os registos de submissão aparecem na janela **OUTPUT** no Código do Estúdio Visual. O URL spark UI e o URL de UI de fio também são mostrados. Se submeter o trabalho de lote a uma piscina Apache Spark, o URL UI da história da faísca e o URL UI da Aplicação de Emprego de Faísca também são mostrados. Pode abrir o URL num navegador web para rastrear o estado do trabalho.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integre-se com o HdInsight Identity Broker (HIB)
 
@@ -326,13 +326,13 @@ A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada.
 
 <a id="triggerlivyconf"></a>**Como desencadear a configuração da Livy**
 
-### <a name="method-1"></a>Método 1  
+### <a name="method-1"></a>Método 1  
 
 1. A partir da barra de menu, navegue para **definições**  >  **de preferências**  >  **de ficheiros**.
 2. Na caixa **de definições de pesquisa,** insira **HDInsight Job Submission: Livy Conf**.  
 3. Selecione **Editar em settings.js** para obter o resultado de pesquisa relevante.
 
-### <a name="method-2"></a>Método 2
+### <a name="method-2"></a>Método 2
 
 Envie um ficheiro e note que a `.vscode` pasta é automaticamente adicionada à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.jsem**.
 
@@ -490,6 +490,6 @@ A partir da barra de menu, vá à **Paleta de** Comando  >  **Ver,** e depois in
 Para esta edição "ms-python >=versão 2020.5.78807 não está suportada nesta extensão" foi resolvido, por favor, atualize a **ms-python** para a **versão mais recente** agora.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um vídeo que demonstre a utilização de Spark & Hive para Visual Studio Code, consulte [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

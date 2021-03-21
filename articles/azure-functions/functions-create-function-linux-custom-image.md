@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
 ms.openlocfilehash: 1c7a9fd83131ea6282d2ef4860b744fa348153ed
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98070922"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
@@ -24,7 +24,7 @@ A implementação do seu código de função num recipiente Linux personalizado 
 
 Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 > [!div class="checklist"]
@@ -112,7 +112,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-O `-DjavaVersion` parâmetro indica ao tempo de execução funções qual versão de Java a utilizar. Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11. Quando não `-DjavaVersion` especifica, Maven falha em Java 8. Para mais informações, consulte as [versões Java.](functions-reference-java.md#java-versions)
+O `-DjavaVersion` parâmetro indica ao tempo de execução funções qual versão de Java a utilizar. Se quiser que as suas funções sejam executadas no Java 11, utilize `-DjavaVersion=11`. Quando não `-DjavaVersion` especifica, Maven falha em Java 8. Para mais informações, consulte as [versões Java.](functions-reference-java.md#java-versions)
 
 > [!IMPORTANT]
 > A `JAVA_HOME` variável ambiente deve ser definida para a localização de instalação da versão correta do JDK para completar este artigo.
@@ -667,7 +667,7 @@ Num browser, utilize o mesmo URL de antes para invocar a sua função. O navegad
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 

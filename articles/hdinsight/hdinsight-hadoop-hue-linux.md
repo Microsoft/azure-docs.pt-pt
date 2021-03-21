@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
 ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945679"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instale e utilize o Hue nos clusters hdInsight Hadoop
@@ -124,6 +124,6 @@ Só pode ter uma conta de utilizador com o Hue em agrupamentos regulares. Para a
 
 1. Hue compreende webHDFS enquanto os clusters HDInsight usam o Azure Storage usando `wasbs://` . Assim, o script personalizado usado com ação de script instala WebWasb, que é um serviço compatível com WebHDFS para falar com WASB. Assim, mesmo que o portal Hue diga HDFS em lugares (como quando move o rato sobre o **Browser de Ficheiros),** deve ser interpretado como WASB.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Instale R em clusters HDInsight](./r-server/r-server-overview.md). Utilize a personalização do cluster para instalar R nos clusters HDInsight Hadoop. R é uma linguagem e ambiente de código aberto para a computação estatística. Fornece centenas de funções estatísticas incorporadas e a sua própria linguagem de programação que combina aspetos da programação funcional e orientada para os objetos. Também fornece extensas capacidades gráficas.
