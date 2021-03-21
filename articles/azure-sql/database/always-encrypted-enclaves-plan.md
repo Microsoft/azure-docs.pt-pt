@@ -12,10 +12,10 @@ ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
 ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98732749"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Plano para enclaves e atestado intel SGX na Base de Dados Azure SQL
@@ -57,10 +57,10 @@ Configurar o seu ambiente para suportar enclaves intel SGX e atestado para Sempr
 
 Em ambientes de produção (manuseamento de dados sensíveis reais), é importante que a sua organização adere à separação de papéis ao configurar a atestação, onde cada papel distinto é assumido por diferentes pessoas. Em particular, se o objetivo de implementar Sempre Encriptado na sua organização é reduzir a área de superfície de ataque, garantindo que os administradores da Base de Dados Azure SQL não possam aceder a dados sensíveis, os administradores da Base de Dados Azure SQL não devem controlar as políticas de atestação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar a Intel SGX para a sua base de dados Azure SQL](always-encrypted-enclaves-enable-sgx.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Tutorial: Começar com Sempre Encriptado com enclaves seguros na Base de Dados Azure SQL](always-encrypted-enclaves-getting-started.md)

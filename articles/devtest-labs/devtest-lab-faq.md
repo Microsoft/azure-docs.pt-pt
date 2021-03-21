@@ -1,13 +1,13 @@
 ---
-title: Azure DevTest Labs FAQ Microsoft Docs
+title: Azure DevTest Labs FAQ | Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
 ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590278"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
@@ -200,7 +200,7 @@ Para copiar os seus VMs existentes para a DevTest Labs:
 Sim, pode anexar vários discos aos seus VMs.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>As imagens da Gen 2 são apoiadas pela DevTest Labs?
-Yes. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
+Sim. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do Windows OS para os meus testes, tenho de comprar uma subscrição da MSDN?
 Para utilizar imagens DE OS do cliente Do Windows (Windows 7 ou versão posterior) para o seu desenvolvimento ou teste em Azure, tome um dos seguintes passos:
@@ -337,7 +337,7 @@ As seguintes publicações de blog oferecem orientação e informações sobre a
 
 Para outras cadeiras de ferramentas de integração contínua (CI)/entrega contínua (CD), pode alcançar os mesmos cenários através da implementação de [modelos de Gestor de Recursos Azure,](https://azure.microsoft.com/resources/templates/) utilizando [cmdlets Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Também pode utilizar [APIs REST para a DevTest Labs](https://aka.ms/dtlrestapis) para se integrar com a sua ferramenta.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para o meu ambiente DevTest Labs vs. usando uma rede virtual existente?
 Se os seus VMs precisarem de interagir com a infraestrutura existente, então considere usar uma rede virtual existente dentro do seu ambiente DevTest Labs. Se utilizar o ExpressRoute, poderá querer minimizar o número de redes/sub-redes virtuais para que não fragmente o espaço de endereço IP que é atribuído para utilização nas subscrições.
@@ -357,7 +357,7 @@ Ao utilizar iPs públicos partilhados, as máquinas virtuais em um laboratório 
 
 ### <a name="how-do-i-ensure-that-development-and-test-virtual-machines-are-unable-to-reach-the-public-internet-are-there-any-recommended-patterns-to-set-up-network-configuration"></a>Como posso garantir que as máquinas virtuais de desenvolvimento e de teste não conseguem chegar à internet pública? Existem padrões recomendados para configurar a configuração da rede?
 
-Yes. Há dois aspetos a ter em conta : tráfego de entrada e saída.
+Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
 
 - **Tráfego de entrada** – Se a máquina virtual não tiver um endereço IP público, então não pode ser alcançada pela internet. Uma abordagem comum consiste em assegurar que seja definida uma política de nível de subscrição, de modo a que nenhum utilizador possa criar um endereço IP público.
 - **Tráfego de saída** – Se pretender evitar que máquinas virtuais acedam diretamente à internet pública e forcem o tráfego através de uma firewall corporativa, então pode encaminhar o tráfego para o local através de via expressa ou VPN, utilizando o encaminhamento forçado.

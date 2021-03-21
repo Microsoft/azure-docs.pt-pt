@@ -1,5 +1,5 @@
 ---
-title: Suporte à plataforma Azure IoT Device SDKs / Microsoft Docs
+title: Suporte da plataforma Azure IoT SDKs | Microsoft Docs
 description: Os SDKs de dispositivo de código aberto estão disponíveis no GitHub em C, .NET (C#), Java, Node.js e Python, para ligar dispositivos ao Azure IoT Hub e ao Serviço de Provisionamento de Dispositivos (DPS).
 author: robinsh
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588765"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte da plataforma Azure IoT Device SDKs

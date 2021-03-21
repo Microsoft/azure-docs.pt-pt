@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com AppSec Flow SSO / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com AppSec Flow SSO | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o AppSec Flow SSO.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
 ms.openlocfilehash: baed7607c1d096aafae5c1d163b6b5e0844e8ad6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590448"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appsec-flow-sso"></a>Tutorial: Azure Ative Directory integração única (SSO) com AppSec Flow SSO

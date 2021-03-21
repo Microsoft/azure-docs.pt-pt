@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
 ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508236"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conecte-se aos dados com o estúdio Azure Machine Learning
@@ -24,7 +24,7 @@ Neste artigo, aprenda a aceder aos seus dados com o [estúdio Azure Machine Lear
 
 A tabela a seguir define e resume os benefícios das datas-tores e conjuntos de dados. 
 
-|Objeto|Descrição| Benefícios|   
+|Objeto|Description| Benefícios|   
 |---|---|---|
 |Arquivos de dados| Ligue-se de forma segura ao seu serviço de armazenamento no Azure, armazenando as suas informações de conexão, como o seu ID de subscrição e a autorização simbólica no seu [Cofre-Chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho | Porque a sua informação está armazenada de forma segura, <br><br> <li> Não &nbsp; coloque &nbsp; em risco credenciais de autenticação &nbsp; ou &nbsp; &nbsp; fontes de &nbsp; dados originais. <li> Já não precisas de os codificar nos teus scripts.
 |Conjuntos de dados| Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Com conjuntos de dados pode, <br><br><li> Aceder aos dados durante o treino de modelo.<li> Partilhe dados e colabore com outros utilizadores.<li> Alavancar bibliotecas de código aberto, como pandas, para exploração de dados. | Como os conjuntos de dados são avaliados preguiçosamente, e os dados permanecem na sua localização existente, <br><br><li>Guarde uma única cópia de dados no seu armazenamento.<li> Incorrer sem custos de armazenamento extra <li> Não se arrisque a alterar involuntariamente as suas fontes de dados originais.<li>Melhorar as velocidades de desempenho do fluxo de trabalho ML. 
@@ -111,7 +111,7 @@ Especificamente, o perfil de dados do conjunto de dados de aprendizagem automát
 >[!NOTE]
 > As entradas em branco aparecem para funcionalidades com tipos irrelevantes.
 
-|Estatística|Descrição
+|Estatística|Description
 |------|------
 |Funcionalidade| Nome da coluna que está a ser resumida.
 |Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, booleanas e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.

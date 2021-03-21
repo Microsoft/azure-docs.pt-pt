@@ -8,10 +8,10 @@ ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734686"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service authentication (Autenticação do Azure SignalR Service)
@@ -59,7 +59,7 @@ Para concluir este tutorial, deve ter os seguintes pré-requisitos:
 
 3. Utilize as seguintes definições para a aplicação de OAuth nova e clique em **Register application** (Registar aplicação):
 
-    | Nome da Definição | Valor sugerido | Descrição |
+    | Nome da Definição | Valor sugerido | Description |
     | ------------ | --------------- | ----------- |
     | Nome da aplicação | *Chat to Azure SignalR* | O utilizador do GitHub deve ser capaz de reconhecer e confiar na aplicação com que está a autenticar.   |
     | URL da home page | `http://localhost:5000/home` | |
@@ -578,7 +578,7 @@ Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. 
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, adicionou a autenticação com OAuth para proporcionar uma melhor abordagem à autenticação com o Azure SignalR Service. Para saber mais sobre como utilizar o Azure SignalR Service, avance para os exemplos da CLI do Azure para SignalR Service.
 

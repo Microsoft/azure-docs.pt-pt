@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99221031"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerir o Link Privado para Azure Database para o MySQL utilizando o Portal
@@ -169,7 +169,7 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
     | Sub-rede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
     |Integrar com zona DNS privada |Selecione **Yes** (Sim). |
-    |Zona DNS Privada |Selecione *(Novo)privatelink.mysql.database.azure.com* |
+    |Zona DNS Privada |Selecione *(Nova)privatelink.mysql.database.azure.com* |
     |||
 
     > [!Note] 

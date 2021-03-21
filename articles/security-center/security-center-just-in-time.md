@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 60ae36d80e34f27ed68c679f47edacf3e402417c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916155"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja as suas portas de gestão com acesso just-in-time
@@ -363,7 +363,7 @@ Você pode obter insights sobre as atividades de VM usando a pesquisa de registo
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar e utilizar o acesso vm mesmo a tempo. Para saber por que o JIT deve ser usado, leia o artigo do conceito explicando as ameaças contra as quais defende:
 

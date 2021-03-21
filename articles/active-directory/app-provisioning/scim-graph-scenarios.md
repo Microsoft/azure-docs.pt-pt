@@ -12,10 +12,10 @@ ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
 ms.openlocfilehash: 0a5d84585f28f6d13cbceb1fec41d6cdabf6d08c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255632"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Utilizando o SCIM e o Microsoft Graph em conjunto para obter utilizadores e enriquecer a sua aplicação com os dados de que necessita
@@ -38,7 +38,7 @@ A Azure AD fornece um serviço fora da caixa para fornecimento e uma plataforma 
 ## <a name="scenario-1-automatically-create-users-in-my-app"></a>Cenário 1: Criar automaticamente utilizadores na minha aplicação
 Hoje em dia, a TI administra os utilizadores através da criação manual de contas de utilizador ou do envio periódico de ficheiros CSV para a minha aplicação. O processo é moroso para os clientes e atrasa a adoção da minha aplicação. Tudo o que preciso é de informações básicas do utilizador, como nome, e-mail e userPrincipalName para criar um utilizador. 
 
-**Recomendação:** 
+**Recomendação**: 
 * Se os seus clientes utilizarem vários IDPs e não pretender manter um motor de sincronização para integrar com cada um deles, suporte um ponto final compatível com SCIM [/Utilizadores.](https://aka.ms/scimreferencecode) Os seus clientes poderão utilizar facilmente este ponto final para se integrarem no serviço de fornecimento de Azure AD e criarem automaticamente contas de utilizador quando precisarem de acesso. Pode construir o ponto final uma vez e será compatível com todos os IDPs. Confira o pedido de exemplo abaixo sobre como um utilizador seria criado usando o SCIM.
 * Se necessitar de dados do utilizador encontrados no objeto do utilizador em AD Azure e outros dados de toda a Microsoft, considere a construção de um ponto final SCIM para o fornecimento de utilizadores e chamada para o Microsoft Graph para obter o resto dos dados. 
 

@@ -4,10 +4,10 @@ description: Visão geral da amostra de planta HIPAA HITRUST 9.2. Esta amostra d
 ms.date: 01/27/2021
 ms.topic: sample
 ms.openlocfilehash: bd65b6113f291457096bacc02bdbcfd92d6e0f84
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915551"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Amostra de planta HIPAA HITRUST 9.2
@@ -161,7 +161,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Firewall do Windows: Privado: Permitir resposta unicast |Especifica se o Windows Firewall com Segurança Avançada permite que o computador local receba respostas unicast às suas mensagens multicast ou de transmissão de saída; para o perfil privado. |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Firewall do Windows: Público: Permitir resposta unicast |Especifica se o Windows Firewall com Segurança Avançada permite que o computador local receba respostas unicast às suas mensagens multicast ou de transmissão de saída; para o perfil público. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

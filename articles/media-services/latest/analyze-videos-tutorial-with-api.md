@@ -2,31 +2,24 @@
 title: Analisar vídeos com Serviços de Media v3
 description: Saiba como analisar vídeos usando o Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: ''
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: 4a050d838bae9b394f5f292698781a9a824af0bf
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: a083fbbf54d6f03316a2e647d47e76cdb5db7c2c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454129"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581249"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Analisar vídeos com Serviços de Comunicação Social v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-> [!NOTE]
-> Mesmo que este tutorial utilize os exemplos [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.liveevent) os passos gerais são os mesmos para [REST API,](/rest/api/media/liveevents) [CLI,](/cli/azure/ams/live-event)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
-
-Este tutorial mostra-lhe como analisar vídeos com os Serviços de Multimédia do Microsoft Azure. Existem muitos cenários em que pode querer obter mais informações sobre conteúdos de áudio ou vídeos gravados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem executar o processamento de voz em texto para converter gravações de suporte de clientes num catálogo pesquisável, com índices e dashboards. Depois, podem obter informações sobre os seus negócios. Estes insights incluem uma lista de queixas comuns, fontes de tais queixas, e outras informações úteis.
+Este tutorial mostra-lhe como analisar vídeos com os Serviços de Multimédia do Microsoft Azure. Existem muitos cenários em que pode querer obter mais informações sobre conteúdos de áudio ou vídeos gravados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem executar o processamento de voz em texto para converter gravações de suporte de clientes num catálogo pesquisável, com índices e dashboards.
 
 Este tutorial mostrar-lhe como:
 
@@ -41,7 +34,7 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, Privacidade e Segurança
  
-Como um lembrete importante, deve cumprir todas as leis aplicáveis na sua utilização do Video Indexer, e não pode utilizar o Video Indexer ou qualquer outro serviço Azure de forma a violar os direitos dos outros ou pode ser prejudicial para os outros. Antes de enviar quaisquer vídeos, incluindo quaisquer dados biométricos, para o serviço de Indexer de Vídeo para processamento e armazenamento, deve ter todos os direitos adequados, incluindo todos os consentimentos adequados, do(s) individual(s) no vídeo. Para conhecer a conformidade, privacidade e segurança no Video Indexer, os [Termos de Serviços Cognitivos da](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)Microsoft . Para as obrigações de privacidade da Microsoft e tratamento dos seus dados, por favor reveja a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, [os Termos dos Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) ("OST") e a [adenda de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informações adicionais sobre privacidade, incluindo sobre a retenção de dados, eliminação/destruição, estão disponíveis no OST e [aqui.](../video-indexer/faq.md) Ao utilizar o Video Indexer, concorda em ficar vinculado pelos Termos dos Serviços Cognitivos, o OST, o DPA e a Declaração de Privacidade.
+Como um lembrete importante, deve cumprir todas as leis aplicáveis na sua utilização do Video Indexer. Não deve utilizar o Video Indexer ou qualquer outro serviço Azure de forma a violar os direitos dos outros. Antes de enviar quaisquer vídeos, incluindo quaisquer dados biométricos, para o serviço de Indexer de Vídeo para processamento e armazenamento, deve ter todos os direitos adequados, incluindo todos os consentimentos adequados, dos indivíduos no vídeo. Para conhecer a conformidade, privacidade e segurança no Video Indexer, os Termos dos [Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)Azure . Para as obrigações de privacidade da Microsoft e tratamento dos seus dados, reveja a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [Termos dos Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) (OST) e a [adenda ao processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Mais informações sobre privacidade, incluindo sobre a retenção de dados, eliminação/destruição, estão disponíveis no OST e [aqui.](../video-indexer/faq.md) Ao utilizar o Video Indexer, concorda em ficar vinculado pelos Termos dos Serviços Cognitivos, o OST, o DPA e a Declaração de Privacidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -131,7 +124,7 @@ O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser noti
 
 As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
 
-O Event Grid foi concebido para ter uma elevada disponibilidade, um desempenho consistente e um dimensionamento dinâmico. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. O processamento de eventos simples, reativo e baseado em HTTP ajuda-o a criar soluções eficientes através da filtragem e do encaminhamento inteligente de eventos. Para obter mais informações, consulte [os eventos da Rota para um ponto final personalizado da web.](job-state-events-cli-how-to.md)
+O Event Grid foi concebido para ter uma elevada disponibilidade, um desempenho consistente e um dimensionamento dinâmico. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. O processamento de eventos simples, reativo e baseado em HTTP ajuda-o a criar soluções eficientes através da filtragem e do encaminhamento inteligente de eventos. Para obter mais informações, consulte [os eventos da Rota para um ponto final personalizado da web.](monitoring/job-state-events-cli-how-to.md)
 
 Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se o trabalho tiver tido um erro, obtém-se o estado **de Erro.** Se o trabalho está em vias de ser cancelado, você é **cancelado** e depois **cancelado** quando estiver feito.
 
@@ -147,11 +140,19 @@ A seguinte função descarrega os resultados da saída [O Ativo](/rest/api/media
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
-### <a name="clean-up-resource-in-your-media-services-account"></a>Limpar os recursos na conta dos Serviços de Multimédia
+### <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos na conta dos Serviços de Multimédia
+
+[!INCLUDE [clean-up-warning](includes/clean-up-warning.md)]
 
 Geralmente, deve limpar tudo, exceto objetos que planeia reutilizar (normalmente, reutilizará Transformações e persistirá streamingLocators). Se quiser que a sua conta esteja limpa após a experiência, elimine os recursos que não pretende reutilizar. Por exemplo, o seguinte código elimina o ativo de trabalho e de saída:
 
+### <a name="delete-resources-with-code"></a>Eliminar recursos com código
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
+
+Também pode utilizar o CLI.
+
+[!INCLUDE [clean-up-resources-cli](includes/clean-up-resources-cli.md)]
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
@@ -163,23 +164,10 @@ Quando executa o programa, a tarefa produz miniaturas para cada rosto que encont
 
 O ficheiro de saída para analisar vídeos chama-se insights.json. Este ficheiro contém informações sobre o seu vídeo. Encontrará a descrição dos elementos contidos no ficheiro json no artigo [Informações de multimédia](./analyzing-video-audio-files-concept.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
-
-Execute o seguinte comando CLI:
-
-```azurecli
-az group delete --name amsResourceGroup
-```
-
 ## <a name="multithreading"></a>Multithreading
 
-Os Azure Media Services v3 SDKs não são seguros. Ao trabalhar com uma aplicação multi-roscadas, deverá gerar um novo objeto AzureMediaServicesClient por fio.
-
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
-
-Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
+> [!WARNING]
+> Os Azure Media Services v3 SDKs não são seguros. Ao trabalhar com uma aplicação multi-roscadas, deverá gerar um novo objeto AzureMediaServicesClient por fio.
 
 ## <a name="next-steps"></a>Passos seguintes
 

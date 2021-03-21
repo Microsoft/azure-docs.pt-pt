@@ -265,22 +265,8 @@
           href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
-        - name: Eventos
-          href: /rest/api/policy-insights/policyevents
-        - name: Estados
-          href: /rest/api/policy-insights/policystates
-        - name: Atribuições
-          href: /rest/api/resources/policyassignments
-        - name: Definições de Política
-          href: /rest/api/resources/policydefinitions
-        - name: Isenções de Política
-          href: /rest/api/resources/policyexemptions
-        - name: Definições de Iniciativas
-          href: /rest/api/resources/policysetdefinitions
-        - name: Recursos Controlados por Política
-          href: /rest/api/policy-insights/policytrackedresources
-        - name: Remediações
-          href: /rest/api/policy-insights/remediations
+        - name: Política
+          href: /rest/api/policy/
         - name: Configuração de Convidado
           href: /rest/api/guestconfiguration/
     - name: Modelos do Resource Manager

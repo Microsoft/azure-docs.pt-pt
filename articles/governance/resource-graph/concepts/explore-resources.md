@@ -4,10 +4,10 @@ description: Aprenda a usar a linguagem de consulta de gráfico de recurso para 
 ms.date: 01/27/2021
 ms.topic: conceptual
 ms.openlocfilehash: a76ce2bb34fd6e99fedf5030c4723b6dd5acbb91
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98917729"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorar os seus recursos do Azure com o Resource Graph
@@ -304,7 +304,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddr
 
 Para ver como realizar estes passos numa única consulta com o `join` operador, consulte as [máquinas virtuais List com](../samples/advanced.md#join-vmpip) a sua interface de rede e amostra de IP pública.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [língua de consulta.](query-language.md)
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com FloQast Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a FloQast | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o FloQast.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.openlocfilehash: ed35a0b6e6f2ad620b528283a332507845e4f00d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588306"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Tutorial: Azure Ative Directory integração única (SSO) com FloQast
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação FloQast espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------- | -------------- |
     | FirstName | user.givenname |
     | LastName | utilizador.sobrenome |

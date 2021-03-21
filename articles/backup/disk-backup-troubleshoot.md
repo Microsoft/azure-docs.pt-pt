@@ -4,10 +4,10 @@ description: Saiba como resolver falhas de backup no Azure Disk Backup
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737732"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Falhas de backup de resolução de problemas na cópia de segurança do disco Azure (na pré-visualização)
@@ -177,6 +177,6 @@ Error Message: Não é possível iniciar a operação como número máximo de c�
 
 Ação recomendada: Aguarde até que a cópia de segurança anterior esteja concluída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Matriz de suporte da Cópia de Segurança de Discos do Azure](disk-backup-support-matrix.md)

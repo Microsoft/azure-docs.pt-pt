@@ -30,6 +30,8 @@
       href: data-flow-create.md
 - name: Tutoriais
   items:
+    - name: Lista de tutoriais
+      href: data-factory-tutorials.md
     - name: Copiar e ingerir dados
       items:
         - name: Do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure
@@ -694,14 +696,16 @@
           href: azure-ssis-integration-runtime-package-store.md
     - name: Criar acionadores
       items:
-        - name: Criar um gatilho de evento de armazenamento
-          href: how-to-create-event-trigger.md
         - name: Criar um acionador de agenda
           href: how-to-create-schedule-trigger.md
         - name: Criar um acionador de janela em cascata
           href: how-to-create-tumbling-window-trigger.md
         - name: Criar uma dependência de acionamento de janela em cascata
           href: tumbling-window-trigger-dependency.md
+        - name: Criar um gatilho de evento de armazenamento
+          href: how-to-create-event-trigger.md
+        - name: Crie um gatilho de evento personalizado
+          href: how-to-create-custom-event-trigger.md
         - name: Metadados de gatilho de referência em pipeline
           href: how-to-use-trigger-parameterization.md
     - name: Catálogo de Dados e Governação

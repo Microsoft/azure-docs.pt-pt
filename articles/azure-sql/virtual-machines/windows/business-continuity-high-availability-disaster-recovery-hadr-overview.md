@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
 ms.openlocfilehash: f4d870f458607ceb0f05812b5c0c066ce810448e
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508321"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
@@ -30,7 +30,7 @@ A maioria das soluções HADR do Servidor SQL são suportadas em máquinas virtu
 
 Este artigo compara e contrasta as soluções de continuidade de negócio disponíveis para o SQL Server em VMs Azure. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Cabe-lhe a si assegurar que o seu sistema de base de dados tem as capacidades HADR que o acordo de nível de serviço (SLA) requer. O facto de o Azure fornecer mecanismos de elevada disponibilidade, como a cura de serviços para serviços na nuvem e a deteção de recuperação de falhas para máquinas virtuais, não garante, por si só, que possa cumprir o SLA. Embora estes mecanismos ajudem a proteger a alta disponibilidade da máquina virtual, eles não protegem a disponibilidade do SQL Server que funciona dentro do VM. 
 

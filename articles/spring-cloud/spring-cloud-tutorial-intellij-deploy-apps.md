@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: a808e37c0f0aae2816eb536dc43485c125354b81
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916205"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Utilizar o IntelliJ para implementar aplicações do Azure Spring Cloud
@@ -101,6 +101,6 @@ Para obter os registos:
 
     ![Saída de registo de streaming](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Preparar a aplicação primavera para Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
 * [Saiba mais sobre o Azure Toolkit para IntelliJ](/azure/developer/java/toolkit-for-intellij/)

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: 10c06f5b36de880302f17dc17c1d47d5209dd902
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588476"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Como planear uma oferta de serviços de consultoria no mercado comercial
@@ -114,7 +114,7 @@ Quando criar a sua oferta de serviço de consultoria no Partner Center, introduz
 6. Pais/região
 7. Nome da oferta
 8. Resumo do resultado da pesquisa
-9. Descrição
+9. Description
 10. Screenshots/vídeos
 11. Documentos comprovativos
 

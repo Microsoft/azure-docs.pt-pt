@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: lajanuar
 ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898075"
 ---
 # <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas
@@ -54,7 +54,7 @@ Uma vez implantados, aplicar-se-ão os encargos normais de hospedagem.  Consulte
 
 Ao contrário dos modelos standard de Tradutor Personalizado, os modelos Hub só estarão disponíveis numa única região, pelo que os custos de hospedagem multi-região não serão aplicados.  Uma vez implementado, poderá despreocupar o seu modelo Hub a qualquer momento através do projeto De Tradutor Personalizado migrado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo.](how-to-train-model.md)
 - Comece a utilizar o seu modelo de tradução personalizado implementado através do [Microsoft Tradutor Text API V3](../reference/v3-0-translate.md?tabs=curl).

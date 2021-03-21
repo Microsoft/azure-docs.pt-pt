@@ -4,10 +4,10 @@ description: Visão geral da amostra de projeto benchmark v1.1.0 das Fundações
 ms.date: 03/11/2021
 ms.topic: sample
 ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103197808"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Amostra de projeto CIS Microsoft Azure Foundations Benchmark v1.1.0

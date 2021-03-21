@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: inhenkel
 ms.openlocfilehash: cf4916341a97868de757804b570212f1cc1105b2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898126"
 ---
 # <a name="playback-with-azure-media-player"></a>Reprodução com Azure Media Player
@@ -53,7 +53,7 @@ O Azure Media Player é fácil de configurar. Bastam alguns momentos para obter 
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Media Player documentation](../azure-media-player/azure-media-player-overview.md) (Documentação do Leitor de Multimédia do Azure)
 * [Amostras do Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)
