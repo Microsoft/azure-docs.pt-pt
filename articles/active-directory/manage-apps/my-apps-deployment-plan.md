@@ -12,10 +12,10 @@ ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645472"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Plan Azure Ative Directory My Apps configuração
@@ -202,7 +202,7 @@ Quando os utilizadores solicitam acesso, estão a solicitar acesso ao grupo subj
 
 ## <a name="plan-reporting-and-auditing"></a>Relatórios e auditorias do plano
 
-A Azure AD fornece [relatórios que oferecem insights técnicos e empresariais].. /reports-monitoring/resumo-reports.md). Trabalhe com os seus empresários e gestores de aplicações técnicas para assumir a propriedade destes relatórios e consumi-los regularmente. A tabela seguinte fornece alguns exemplos de cenários típicos de reporte.
+A Azure AD fornece [relatórios que oferecem insights técnicos e empresariais].. /reports-monitoring/visão geral-reports.md). Trabalhe com os seus empresários e gestores de aplicações técnicas para assumir a propriedade destes relatórios e consumi-los regularmente. A tabela seguinte fornece alguns exemplos de cenários típicos de reporte.
 
 | Exemplo| Faça a gestão do risco.| Aumentar a produtividade| Governação e conformidade |
 | - | - | - | -|

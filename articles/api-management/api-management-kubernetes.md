@@ -1,5 +1,5 @@
 ---
-title: Utilizar a Azure API Management com Microserviços Implantados no Serviço Azure Kubernetes ! Microsoft Docs
+title: Utilize a Azure API Management com microserviços implantados no Serviço Azure Kubernetes | Microsoft Docs
 description: Este artigo descreve as opções de implementação da Gestão da API com a AKS
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
 ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98108403"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Utilizar a Azure API Management com microserviços implantados no Serviço Azure Kubernetes

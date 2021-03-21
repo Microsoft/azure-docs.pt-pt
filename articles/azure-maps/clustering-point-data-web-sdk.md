@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044192"
 ---
 # <a name="clustering-point-data"></a>Dados de pontos de agrupamento
@@ -48,7 +48,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 A `DataSource` classe fornece os seguintes métodos relacionados com o agrupamento também.
 
-| Método | Tipo de retorno | Descrição |
+| Método | Tipo de retorno | Description |
 |--------|-------------|-------------|
 | getClusterChildren (clusterId: número) | Prometa &lt; &lt; geometria de característica &lt; de matriz, qualquer &gt; \| forma&gt;&gt; | Recupera as crianças do aglomerado dado no próximo nível de zoom. Estas crianças podem ser uma combinação de formas e subclusters. Os subclusters serão funcionalidades com propriedades correspondentes a ClusteredProperties. |
 | getClusterExpansionZoom (clusterId: número) | &lt;Número de promessa&gt; | Calcula um nível de zoom no qual o cluster começará a expandir-se ou a separar-se. |
@@ -92,7 +92,7 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Mapa de Calor pond
 
 Quando os eventos do rato ocorrem numa camada que contém pontos de dados agrupados, o ponto de dados agrupado volta ao evento como um objeto de característica de ponto GeoJSON. Esta função de ponto terá as seguintes propriedades:
 
-| Nome da propriedade             | Tipo    | Descrição   |
+| Nome da propriedade             | Tipo    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
 | `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |

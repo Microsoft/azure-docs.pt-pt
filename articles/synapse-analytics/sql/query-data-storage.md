@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675051"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Ficheiros de armazenamento de consultas com piscina SQL sem servidor em Azure Synapse Analytics
@@ -27,7 +27,7 @@ Para obter mais informações sobre o que é vs. o que não é suportado atualme
 - [Desenvolva o acesso](develop-storage-files-overview.md) ao armazenamento onde pode aprender a usar a [função Externa](develop-tables-external-tables.md) e [OPENROWSET](develop-openrowset.md) para ler dados a partir do armazenamento.
 - [Controle o acesso](develop-storage-files-storage-access-control.md) ao armazenamento onde pode aprender a permitir que o Sinaapse SQL aceda ao armazenamento usando a autenticação SAS ou identidade gerida do espaço de trabalho.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para suportar uma experiência suave para a consulta em vigor de dados localizados em ficheiros de armazenamento Azure, o pool SQL sem servidor utiliza a função [OPENROWSET](develop-openrowset.md) com capacidades adicionais:
 
@@ -224,7 +224,7 @@ Pode aprender mais sobre a consulta de vários tipos de dados utilizando as cons
 As ferramentas que precisa para emitir consultas:
     - Azure Synapse Studio 
     - Azure Data Studio
-    - O SQL Server Management Studio
+    - SQL Server Management Studio
 
 ### <a name="demo-setup"></a>Configuração de demonstração
 
@@ -248,7 +248,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 - Amostra de arquivos Parquet com colunas aninhadas
 - Livros em formato JSON
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /csv/                                                        | Pasta-mãe para dados em formato CSV                         |
 | /csv/população/<br />/csv/população-unix/<br />/csv/população unix-hdr/<br />/csv/população-unix-hdr-escape<br />/csv/população-unix-hdr-citado | Pastas com ficheiros de dados da População em diferentes formatos CSV. |

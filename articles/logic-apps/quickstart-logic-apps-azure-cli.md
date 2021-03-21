@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 11/23/2020
 ms.openlocfilehash: bc172fd1702addf8f4e34094452a779b09320a4d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033379"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Quickstart: Criar e gerir aplicações lógicas utilizando o Azure CLI
@@ -92,7 +92,7 @@ O seu comando deve incluir os [seguintes parâmetros necessários:](/cli/azure/e
 | --------- | ----- | ----------- |
 | Definição do fluxo de trabalho | `--definition` | Um ficheiro JSON com a [definição](#workflow-definition)de fluxo de trabalho da sua aplicação lógica. |
 | Localização | `--location -l` | A região de Azure em que se encontra a sua aplicação lógica. |
-| Nome | `--name -n` | O nome da sua aplicação lógica. O nome só pode conter letras, números, hífens `-` (), sublinhados `_` (), parênteses `()` ( ) e períodos ( `.` ). O nome também deve ser único em todas as regiões. |
+| Name | `--name -n` | O nome da sua aplicação lógica. O nome só pode conter letras, números, hífens `-` (), sublinhados `_` (), parênteses `()` ( ) e períodos ( `.` ). O nome também deve ser único em todas as regiões. |
 | Nome do grupo de recursos | `--resource-group -g` | O [grupo de recursos Azure](../azure-resource-manager/management/overview.md) no qual pretende criar a sua aplicação lógica. [Crie um grupo de recursos](#example---create-resource-group) antes de começar se ainda não tiver um para a sua aplicação lógica. |
 
 Também pode incluir [parâmetros opcionais](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters) adicionais para configurar os controlos de acesso da sua aplicação lógica, pontos finais, conta de integração, ambiente de serviço de integração, estado e etiquetas de recursos.

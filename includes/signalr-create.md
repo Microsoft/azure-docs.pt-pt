@@ -9,10 +9,10 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93406729"
 ---
 1. Para criar um recurso de Serviço Azure SignalR, inscreva-se primeiro no [portal Azure](https://portal.azure.com). No lado superior esquerdo da página, selecione **+ Criar um recurso**. Na caixa de texto **do Mercado,** insira o **Serviço SignalR**.

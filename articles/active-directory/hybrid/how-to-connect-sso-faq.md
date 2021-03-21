@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Single Sign-On sem emenda - Perguntas frequentes Microsoft Docs'
+title: 'Azure AD Connect: Sign-On single sem emenda - Perguntas frequentes | Microsoft Docs'
 description: Respostas a perguntas frequentes sobre O Diretório Ativo sem emenda sem emenda.
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98107876"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
@@ -62,7 +62,7 @@ Se quiser outras aplicações utilizando a nossa experiência de inscrição sil
 
 **P: O SSO sem emenda suporta `Alternate ID` como nome de utilizador, em vez de `userPrincipalName` ?**
 
-Yes. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os suportes de aplicações da Microsoft 365. `Alternate ID` Consulte a documentação específica do pedido para a declaração de apoio.
+Sim. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os suportes de aplicações da Microsoft 365. `Alternate ID` Consulte a documentação específica do pedido para a declaração de apoio.
 
 **P: Qual é a diferença entre a experiência de inscrição única fornecida pela [Azure AD Join](../devices/overview.md) e pela Seamless SSO?**
 

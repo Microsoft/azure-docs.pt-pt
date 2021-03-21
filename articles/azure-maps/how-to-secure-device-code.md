@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895635"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteja um dispositivo restrito de entrada com Azure AD e Azure Maps REST APIs
@@ -30,12 +30,12 @@ Este guia discute como proteger aplicações ou dispositivos públicos que não 
 
 Crie a aplicação baseada no dispositivo em Azure AD para ativar o sinal de Azure AD. Esta aplicação terá acesso às APIs de REST do Azure Maps.
 
-1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições** .  
+1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições**.  
 
     > [!div class="mx-imgBorder"]
     > ![Registo da aplicação](./media/how-to-manage-authentication/app-registration.png)
 
-2. Insira um **Nome** , escolha **contas neste diretório organizacional apenas** como o **tipo de conta suportada.** Em **Redirecionar URIs** , especifique **cliente público /nativo (mobile & desktop)** em seguida, adicione ao `https://login.microsoftonline.com/common/oauth2/nativeclient` valor. Para mais detalhes, consulte a aplicação Azure AD [Desktop que chama APIs web: Registo de aplicações](../active-directory/develop/scenario-desktop-app-registration.md). Em seguida, **registe** o pedido.
+2. Insira um **Nome**, escolha **contas neste diretório organizacional apenas** como o **tipo de conta suportada.** Em **Redirecionar URIs**, especifique **cliente público /nativo (mobile & desktop)** em seguida, adicione ao `https://login.microsoftonline.com/common/oauth2/nativeclient` valor. Para mais detalhes, consulte a aplicação Azure AD [Desktop que chama APIs web: Registo de aplicações](../active-directory/develop/scenario-desktop-app-registration.md). Em seguida, **registe** o pedido.
 
     > [!div class="mx-imgBorder"]
     > ![Adicione detalhes de registo de aplicativos para nome e redirecione uri](./media/azure-maps-authentication/devicecode-app-registration.png)
@@ -45,12 +45,12 @@ Crie a aplicação baseada no dispositivo em Azure AD para ativar o sinal de Azu
     > [!div class="mx-imgBorder"]
     > ![Ativar o registo de aplicações como cliente público](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, selecione **permissões API**  >  **Adicione uma permissão** . Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
+4.  Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, selecione **permissões API**  >  **Adicione uma permissão**. Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar permissões de API de aplicativo](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Selecione a caixa de verificação ao lado **do Access Azure Maps** e, em seguida, selecione **Permissões de adicionar** .
+5. Selecione a caixa de verificação ao lado **do Access Azure Maps** e, em seguida, selecione **Permissões de adicionar**.
 
     > [!div class="mx-imgBorder"]
     > ![Selecione permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)

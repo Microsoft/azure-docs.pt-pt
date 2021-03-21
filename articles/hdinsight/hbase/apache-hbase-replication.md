@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946408"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação do cluster Apache HBase em redes virtuais Azure
@@ -403,7 +403,7 @@ A `print_usage()` secção do [guião](https://raw.githubusercontent.com/Azure/h
 > Se pretende eliminar o cluster de destino, certifique-se de que o remove da lista de pares do cluster de origem. Isto pode ser feito executando o comando remove_peer '1' na casca da base h no cluster de origem. Se não o conseguir, o cluster de fontes pode não funcionar corretamente.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar a replicação Apache HBase dentro de uma rede virtual, ou entre duas redes virtuais. Para saber mais sobre HDInsight e Apache HBase, consulte estes artigos:
 

@@ -9,10 +9,10 @@ ms.date: 08/06/2019
 ms.author: lagayhar
 ms.custom: include file
 ms.openlocfilehash: 1c4f6b876a4aa80c7e51f2bb3ca88234203d0daa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726188"
 ---
 Existem alguns limites no número de métricas e eventos por aplicação, isto é, por chave de instrumentação. Os limites dependem do [plano de preços](https://azure.microsoft.com/pricing/details/application-insights/) que escolher.

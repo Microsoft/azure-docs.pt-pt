@@ -1,5 +1,5 @@
 ---
-title: Analise as estatísticas de utilização com o Azure CDN avançado HTTP reports / Microsoft Docs
+title: Analise as estatísticas de utilização com o Azure CDN avançado relatórios HTTP | Microsoft Docs
 description: Saiba como criar relatórios HTTP avançados no Microsoft Azure CDN. Estes relatórios fornecem informações detalhadas sobre a atividade da CDN.
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779327"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de utilização com relatórios HTTP avançados da CDN do Azure
@@ -33,7 +33,7 @@ Este documento explica relatórios HTTP avançados no Microsoft Azure CDN. Estes
     ![Botão de gestão da lâmina de perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     O portal de gestão cdn abre.
-2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o voo **de relatórios HTTP Avançados.**  Clique na **plataforma HTTP Large** .
+2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o voo **de relatórios HTTP Avançados.**  Clique na **plataforma HTTP Large**.
    
     ![Portal de gestão CDN - Menu Relatórios Avançados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -48,7 +48,7 @@ Informações detalhadas sobre o tráfego e largura de banda para cada região s
 
 Uma breve descrição é fornecida abaixo para cada tipo de relatório de geografia baseado em mapas.
 
-| Nome do Relatório | Descrição |
+| Nome do Relatório | Description |
 | --- | --- |
 | Mapa do Mundo |Este relatório permite-lhe visualizar a procura mundial pelo seu conteúdo cdn. Cada país/região é codificado por cores no mapa mundial para indicar a percentagem de acessos originários daquela região. |
 | Mapa dos Estados Unidos |Este relatório permite-lhe visualizar a procura do seu conteúdo de CDN nos Estados Unidos. Cada estado é codificado por cores neste mapa para indicar a percentagem de acessos que se originaram daquela região. |
@@ -71,7 +71,7 @@ Os dados utilizados para gerar o gráfico de barras podem ser vistos abaixo. Lá
 
 Uma breve descrição é fornecida para ambos os tipos de relatórios abaixo.
 
-| Nome do Relatório | Descrição |
+| Nome do Relatório | Description |
 | --- | --- |
 | Principais Cidades |Este relatório classifica as cidades de acordo com o número de acessos originários daquela região. |
 | Países de Topo |Este relatório classifica os países/regiões de acordo com o número de acessos originários desse país/região. |

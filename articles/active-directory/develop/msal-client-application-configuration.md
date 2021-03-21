@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99580943"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicações
@@ -131,7 +131,7 @@ Se você é um desenvolvedor de aplicativos de cliente público que está usando
 Pode anular o URI de redirecionamento utilizando a `RedirectUri` propriedade (por exemplo, se utilizar corretores). Aqui estão alguns exemplos de URIs redirecionados para este cenário:
 
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
-- `RedirectUriOnIos` = "msauth". {Bundle.ID}://auth";
+- `RedirectUriOnIos` = $msauth". {Bundle.ID}://auth";
 
 Para mais detalhes sobre iOS, consulte [aplicações do iOS migrando que utilizam o Microsoft Authenticator de ADAL.NET para MSAL.NET](msal-net-migration-ios-broker.md) e [alavancando o corretor no iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 Para mais detalhes do Android, consulte [o auth Brokered no Android.](msal-android-single-sign-on.md)

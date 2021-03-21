@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945939"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
@@ -131,6 +131,6 @@ Para contornar este problema:
 > [!IMPORTANT]  
 > Não é suportada a chave de armazenamento da conta de armazenamento primária anexada a um cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu a adicionar contas de armazenamento adicionais a um cluster HDInsight existente. Para obter mais informações sobre as ações de script, consulte [os clusters HDInsight baseados em Linux utilizando ação de script](hdinsight-hadoop-customize-cluster-linux.md)

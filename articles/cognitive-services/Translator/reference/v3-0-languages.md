@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: lajanuar
 ms.openlocfilehash: 8471983d24cfed39e6521e19366f6023e519adaf
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895480"
 ---
 # <a name="translator-30-languages"></a>Tradutor 3.0: Línguas
@@ -49,7 +49,7 @@ Os cabeçalhos de pedido são:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Cabeçalho de pedido opcional*.<br/>O idioma a utilizar nas cadeias da interface de utilizador. Alguns dos campos na resposta são nomes de línguas ou nomes de regiões. Utilize este parâmetro para definir o idioma em que estes nomes são devolvidos. O idioma é especificado fornecendo uma etiqueta linguística bcp 47 bem formada. Por exemplo, use o valor `fr` para solicitar nomes em francês ou use o valor `zh-Hant` para solicitar nomes em Chinês Tradicional.<br/>Os nomes são fornecidos na língua inglesa quando uma língua-alvo não é especificada ou quando a localização não está disponível.
@@ -230,7 +230,7 @@ A lista de línguas apoiadas não mudará frequentemente. Para poupar largura de
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>ETag</td>
     <td>Valor atual da etiqueta da entidade para os grupos solicitados de línguas apoiadas. Para tornar os pedidos posteriores mais eficientes, o cliente pode enviar o `ETag` valor num campo de `If-None-Match` cabeçalho.
@@ -248,7 +248,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Com êxito.</td>

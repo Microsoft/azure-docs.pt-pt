@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042427"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Inscrição automática com extensão do Agente SQL IaaS
@@ -24,7 +24,7 @@ Ative a função de registo automático no portal Azure para registar automatica
 
 Este artigo ensina-o a ativar a função de registo automático. Em alternativa, pode [registar um único VM,](sql-agent-extension-manually-register-single-vm.md)ou [registar os seus VMs a granel](sql-agent-extension-manually-register-vms-bulk.md) com a extensão sql IaaS Agent. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Registar o seu SQL Server VM com a [extensão SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) para desbloquear um conjunto completo de benefícios. 
 

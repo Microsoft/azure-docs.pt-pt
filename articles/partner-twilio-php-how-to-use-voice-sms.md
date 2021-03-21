@@ -1,5 +1,5 @@
 ---
-title: Como usar twilio para voz e SMS (PHP) Microsoft Docs
+title: Como usar twilio para voz e SMS (PHP) | Microsoft Docs
 description: Saiba como fazer uma chamada telefónica e envie uma mensagem SMS com o serviço API Twilio em Azure. Amostras de código escritas em PHP.
 documentationcenter: php
 services: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: bf1ab01b39d594002bc5e677ffe6c3049fbb91ce
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95521024"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Como usar twilio para capacidades de voz e SMS em PHP

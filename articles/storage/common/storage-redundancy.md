@@ -10,10 +10,10 @@ ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726841"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
@@ -70,7 +70,7 @@ O quadro que se segue mostra quais os tipos de contas de armazenamento que supor
 
 | Tipo de conta de armazenamento | Regiões suportadas | Serviços suportados |
 |--|--|--|
-| Finalidade geral v2<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tabelas<br /> Filas<br /> |
+| Finalidade geral v2<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tables<br /> Filas<br /> |
 | BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
 | Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
 
@@ -180,10 +180,10 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
-| Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
-| Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
+| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
+| Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
 

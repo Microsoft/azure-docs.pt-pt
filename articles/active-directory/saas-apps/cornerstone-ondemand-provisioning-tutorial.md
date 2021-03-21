@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a Cornerstone OnDemand para fornecimento automático de utilizadores com diretório Azure Ative / Microsoft Docs'
+title: 'Tutorial: Configurar a Cornerstone OnDemand para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisá-lo e desprovisionar automaticamente as contas dos utilizadores à Cornerstone OnDemand.
 services: active-directory
 author: zhchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358461"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar a Cornerstone OnDemand para o fornecimento automático de utilizadores
@@ -76,7 +76,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 Para configurar o fornecimento automático de utilizadores para a Cornerstone OnDemand em Azure AD, siga estes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Cornerstone OnDemand**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Cornerstone OnDemand**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Para configurar o fornecimento automático de utilizadores para a Cornerstone On
 
     ![E-mail de notificação de StoneStone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
 
-8. Selecione **Save** (Guardar).
+8. Selecione **Guardar**.
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Cornerstone OnDemand**.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726415"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições do código de função do orquestrador
@@ -65,7 +65,7 @@ As tarefas são executadas sincronizadamente usando um único fio até que toda 
 
 A descrição desta secção de comportamento em tempo de execução deve ajudá-lo a entender por que uma função orquestradora não pode usar `await` ou numa tarefa não `yield` roficadora. Há duas razões: o fio do despachante não pode esperar que a tarefa termine, e qualquer retorno por essa tarefa pode potencialmente corromper o estado de rastreio da função do orquestrador. Algumas verificações de tempo de execução estão no local para ajudar a detetar estas violações.
 
-Para saber mais sobre como o Quadro de Tarefas Duráveis executa funções de orquestrador, consulte o [código fonte de tarefa durável no GitHub](https://github.com/Azure/durabletask). Em particular, ver [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
+Para saber mais sobre como o Quadro de Tarefas Duráveis executa funções de orquestrador, consulte o [código fonte de tarefa durável no GitHub](https://github.com/Azure/durabletask). Em particular, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
 ## <a name="next-steps"></a>Passos seguintes
 

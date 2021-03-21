@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835905"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulação de deteções de riscos na Proteção de Identidade
@@ -93,7 +93,7 @@ Esta secção fornece-lhe medidas para testar o utilizador e as políticas de ri
 Para testar uma política de segurança de risco do utilizador, execute os seguintes passos:
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
-1. Consulte a Visão Geral de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Overview**.
+1. Consulte a Visão Geral de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Configurar a política de risco do utilizador**.
    1. Em **Atribuições**
       1. **Utilizadores** - Escolha **todos os utilizadores** ou **selecione indivíduos e grupos** se limitar o seu lançamento.
@@ -113,7 +113,7 @@ Para testar uma política de segurança de risco do utilizador, execute os segui
 Para testar um sinal na política de risco, execute os seguintes passos:
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
-1. Consulte a Visão Geral de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Overview**.
+1. Consulte a Visão Geral de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Configurar a política de risco de inscrição**.
    1. Em **Atribuições**
       1. **Utilizadores** - Escolha **todos os utilizadores** ou **selecione indivíduos e grupos** se limitar o seu lançamento.
@@ -131,4 +131,4 @@ Para testar um sinal na política de risco, execute os seguintes passos:
 
 - [Como: Configurar e permitir políticas de risco](howto-identity-protection-configure-risk-policies.md)
 
-- [Proteção de Identidade do Diretório Ativo Azure](overview-identity-protection.md)
+- [Azure Active Directory Identity Protection](overview-identity-protection.md)

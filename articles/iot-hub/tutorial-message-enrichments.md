@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 7ae85fa2559b8313bd35a761945bff946563e935
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199786"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use enriquecimentos de mensagens Azure IoT Hub
@@ -279,7 +279,7 @@ Neste momento, os recursos estão todos preparados e o encaminhamento de mensage
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Criar e configurar usando um modelo de Gestor de Recursos
 Pode utilizar um modelo de Gestor de Recursos para criar e configurar os recursos, encaminhamento de mensagens e enriquecimentos de mensagens.
 
-1. Inicie sessão no Portal do Azure. Selecione **+ Criar um recurso** para criar uma caixa de pesquisa. Introduza *a implementação do modelo* e procure-o. No painel de resultados, selecione a **implementação do modelo (implementar utilizando o modelo personalizado)**.
+1. Inicie sessão no portal do Azure. Selecione **+ Criar um recurso** para criar uma caixa de pesquisa. Introduza *a implementação do modelo* e procure-o. No painel de resultados, selecione a **implementação do modelo (implementar utilizando o modelo personalizado)**.
 
    ![Implantação do modelo no portal Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -336,7 +336,7 @@ Agora que os enriquecimentos de mensagens estão configurados para o ponto final
 
 A aplicação Dispositivo Simulado é uma das aplicações no download não abre-se. A aplicação envia mensagens para cada um dos diferentes métodos de encaminhamento de mensagens no tutorial de [encaminhamento](tutorial-routing.md), que inclui o Azure Storage.
 
-Clique duas vezes no ficheiro de solução **IoT_SimulatedDevice.sln** para abrir o código no Estúdio Visual e, em seguida, abrir **Program.cs**. Substitua o nome do hub IoT para o marcador `{your hub name}` . O formato do nome do anfitrião do hub IoT é **{your hub name}.azure-devices.net**. Para este tutorial, o nome de anfitrião do hub é ContosoTestHubMsgEn.azure-devices.net. Em seguida, substitua a chave do dispositivo que guardou anteriormente quando executou o script para criar os recursos para o marcador `{your device key}` .
+Clique duas vezes no ficheiro de solução **IoT_SimulatedDevice.sln** para abrir o código no Estúdio Visual e, em seguida, abrir **o Programa.cs**. Substitua o nome do hub IoT para o marcador `{your hub name}` . O formato do nome do anfitrião do hub IoT é **{your hub name}.azure-devices.net**. Para este tutorial, o nome de anfitrião do hub é ContosoTestHubMsgEn.azure-devices.net. Em seguida, substitua a chave do dispositivo que guardou anteriormente quando executou o script para criar os recursos para o marcador `{your device key}` .
 
 Se não tiver a chave do dispositivo, pode recuperá-la do portal. Depois de iniciar sação, vá aos **grupos de Recursos,** selecione o seu grupo de recursos e, em seguida, selecione o seu hub IoT. Procure em **dispositivos IoT** para o seu dispositivo de teste e selecione o seu dispositivo. Selecione o ícone de cópia ao lado **da chave primária** para copiá-lo para a área de transferência.
 

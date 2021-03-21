@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 9670d8204d04fc770bf3fe98a270a3f6ccbf234b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101100267"
 ---
 # <a name="azure-front-door-standardpremium-preview-reports"></a>Relatórios Padrão/Premium da Porta Frontal Azure (Pré-visualização)
@@ -220,7 +220,7 @@ Os URLs de topo permitem-lhe visualizar a quantidade de tráfego incorrido sobre
 
 ## <a name="top-referrers"></a>Principais Remetentes
 
-Os Principais Referrers permitem que os clientes vejam o principal remetente de 50 que originou mais pedidos para o conteúdo num determinado ponto final ou domínio personalizado. Pode ver os dados durante qualquer período nos últimos 90 dias. Um remetente indica o URL a partir do qual foi gerado um pedido. O remetente pode vir de um motor de busca ou de outros websites. Se um utilizador escreve um URL (por exemplo, http://contoso.com/index.html) diretamente na linha de endereço de um browser, o remetente para o pedido é "Vazio". O relatório dos principais remetentes inclui os valores seguintes. Pode ordenar por contagem de pedidos, solicitar%, dados transferidos e dados transferidos %. Todas as métricas são agregadas por hora e podem variar de acordo com o prazo selecionado. 
+Os Principais Referrers permitem que os clientes vejam o principal remetente de 50 que originou mais pedidos para o conteúdo num determinado ponto final ou domínio personalizado. Pode ver os dados durante qualquer período nos últimos 90 dias. Um remetente indica o URL a partir do qual foi gerado um pedido. O remetente pode vir de um motor de busca ou de outros websites. Se um utilizador escreve um URL (por exemplo, http(s)://contoso.com/index.html) diretamente na linha de endereço de um browser, o remetente para o pedido é "Vazio". O relatório dos principais remetentes inclui os valores seguintes. Pode ordenar por contagem de pedidos, solicitar%, dados transferidos e dados transferidos %. Todas as métricas são agregadas por hora e podem variar de acordo com o prazo selecionado. 
 
 * Referrer, o valor do Referrer em troncos brutos 
 * Contagens de pedidos 

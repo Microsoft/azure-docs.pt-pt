@@ -1,5 +1,5 @@
 ---
-title: Cobertura de tráfego / Microsoft Azure Maps
+title: cobertura de tráfego | Microsoft Azure Maps
 description: Saiba mais sobre a cobertura de tráfego no Azure Maps. Veja se existe informação sobre o fluxo de tráfego e incidentes em várias regiões do mundo.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896876"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego Azure Maps
@@ -57,7 +57,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para todo
 |Vietname   |✓         |✓         |
 
 
-## <a name="europe"></a>Europe
+## <a name="europe"></a>Europa
 
 |País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|

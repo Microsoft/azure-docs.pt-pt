@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com hype / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com hype | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Hype.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 5dcca2c6465713400786e1094d68f445829252ae
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460587"
 ---
 # <a name="tutorial-integrate-hype-with-azure-active-directory"></a>Tutorial: Integrar hype com diretório ativo Azure
@@ -118,7 +118,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Hype.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Hype**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

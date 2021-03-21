@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Lenses.io Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Lenses.io | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar um único sign-on entre Azure Ative Directory e Lenses.io.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458613"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Tutorial: Azure Ative Directory integração única (SSO) com o portal Lenses.io DataOps
@@ -50,10 +50,10 @@ Para configurar a integração de Lenses.io no AD Azure, adicione Lenses.io à s
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel esquerdo, selecione o serviço **Azure Ative Directory.**
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** introduza **Lenses.io** na caixa de pesquisa.
-1. A partir do painel de resultados, selecione **Lenses.io**e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. A partir do painel de resultados, selecione **Lenses.io** e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-lensesio"></a>Configure e teste Azure AD SSO para Lenses.io
 
@@ -89,7 +89,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
     > [!NOTE]
     > Estes valores não são reais. Atualize-os com o URL de inscrição real, URL de resposta e identificador do URL base da sua instância do portal Lenses. Consulte a [documentação Lenses.io SSO](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0) para obter mais informações.
 
-1. Na **configuração de um único sessão de inscrição com** a página SAML, aceda à secção **de Certificado de Assinatura SAML.** Encontre **o Metadados XML da Federação**e, em seguida, selecione **Baixar** para descarregar e guardar o certificado no seu computador.
+1. Na **configuração de um único sessão de inscrição com** a página SAML, aceda à secção **de Certificado de Assinatura SAML.** Encontre **o Metadados XML da Federação** e, em seguida, selecione **Baixar** para descarregar e guardar o certificado no seu computador.
 
     ![Screenshot que mostra o link de descarregamento do Certificado.](common/metadataxml.png)
 
@@ -113,7 +113,7 @@ Pode descobrir como o Lenses utiliza mapeamento de membros do grupo para autoriz
 
 **Para criar o grupo:**
 
-1. Vá ao **Azure Ative Directory**e, em seguida, selecione **Grupos**.
+1. Vá ao **Azure Ative Directory** e, em seguida, selecione **Grupos**.
 1. No topo do ecrã, selecione **Novo grupo**.
 1. Nas propriedades do **Grupo,** siga estes passos:
    1. Na caixa **de tipo grupo,** selecione **Security**.
@@ -123,7 +123,7 @@ Pode descobrir como o Lenses utiliza mapeamento de membros do grupo para autoriz
 
 **Para atribuir o grupo ao utilizador de teste:**
 
-1. Vá ao **Azure Ative Directory**e, em seguida, selecione **Utilizadores**.
+1. Vá ao **Azure Ative Directory** e, em seguida, selecione **Utilizadores**.
 1. Selecione o utilizador de teste **B.Simon**.
 1. Selecione **Grupos**.
 1. Na parte superior do ecrã, **selecione Adicionar membros**.
@@ -134,7 +134,7 @@ Pode descobrir como o Lenses utiliza mapeamento de membros do grupo para autoriz
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso a Lenses.io.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Lenses.io**.
 1. Na página geral da aplicação, na secção **Gerir,** selecione **Utilizadores e grupos**.
 

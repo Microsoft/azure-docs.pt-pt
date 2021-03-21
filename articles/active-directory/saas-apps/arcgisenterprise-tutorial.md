@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
 ms.openlocfilehash: 9cde75440292fffb830656c32181d7be64a55f3d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a ArcGIS Enterprise

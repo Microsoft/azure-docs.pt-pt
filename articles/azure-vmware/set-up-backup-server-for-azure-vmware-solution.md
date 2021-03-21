@@ -4,10 +4,10 @@ description: Confende o ambiente Azure VMware Solution para fazer backup de máq
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581487"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar o Servidor de Backup Azure para a Solução VMware Azure

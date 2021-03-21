@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o EmpCenter Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o EmpCenter | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o EmpCenter.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.openlocfilehash: b537b29e4ea866d7636eff05d043a00c710af0d1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: Integração do Diretório Ativo Azure com o EmpCenter
@@ -158,7 +158,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao EmpCenter.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **EmpCenter**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **EmpCenter**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

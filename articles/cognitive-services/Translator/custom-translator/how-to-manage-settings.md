@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 49801eddd748a88109bb7f6d075def03cd798754
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895786"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
@@ -115,6 +115,6 @@ O seu primeiro espaço de trabalho criado é por defeito. Cada vez que iniciar s
 
     ![Espaço de trabalho pin](media/how-to/how-to-pin-workspace.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como criar o seu espaço de trabalho e projetos](workspace-and-project.md)

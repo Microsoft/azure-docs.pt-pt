@@ -1,5 +1,5 @@
 ---
-title: Ligue o Microsoft Defender ao Office 365 (anteriormente Office 365 ATP) dados a Azure Sentinel ! Microsoft Docs
+title: Ligue o Microsoft Defender ao Office 365 (anteriormente Office 365 ATP) aos dados do Azure Sentinel | Microsoft Docs
 description: Ingerir dados do Microsoft Defender para o Office 365 no Azure Sentinel para ganhar visibilidade e construir cenários de resposta automatizados.
 services: sentinel
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
 ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655499"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Ligue alertas do Microsoft Defender para o Office 365 
@@ -73,7 +73,7 @@ Se o Microsoft Defender for Office 365 for implementado, e se as políticas tive
 
 1. Selecione o separador **etapas seguintes** para ver e utilizar as amostras de consulta e os modelos de regras de análise agregados com o conector Microsoft Defender para o Office 365.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar o Microsoft Defender ao Office 365 ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

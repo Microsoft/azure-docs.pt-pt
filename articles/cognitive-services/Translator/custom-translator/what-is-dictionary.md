@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 160aa372cec2d018d5a3558f99e079624d965098
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895565"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
@@ -43,6 +43,6 @@ Pode treinar um modelo usando apenas dados de dicionário. Para isso, selecione 
 - Ao usar um dicionário de frases, o fim da pontuação da frase é ignorado. Por exemplo, se o seu dicionário de origem contiver "esta frase termina com pontuação!", então quaisquer pedidos de tradução que contenham "esta frase termina com pontuação" corresponderiam.
 - Se uma palavra aparecer mais de uma vez num ficheiro de dicionário, o sistema utilizará sempre a última entrada fornecida. Portanto, o seu dicionário não deve conter múltiplas traduções da mesma palavra.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre [as diretrizes sobre formatos de documentos.](document-formats-naming-convention.md)

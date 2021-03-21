@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032971"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para Serviços Cognitivos
@@ -34,7 +34,7 @@ Se quiser migrar um recurso existente para alavancar nomes de subdomínios perso
 
 ## <a name="do-i-need-to-update-my-existing-resources"></a>Preciso atualizar os meus recursos existentes?
 
-Não. O ponto final regional continuará a trabalhar para novos serviços cognitivos existentes e o nome de subdomínio personalizado é opcional. Mesmo que um nome de subdomínio personalizado seja adicionado, o ponto final regional continuará a funcionar com o recurso.
+N.º O ponto final regional continuará a trabalhar para novos serviços cognitivos existentes e o nome de subdomínio personalizado é opcional. Mesmo que um nome de subdomínio personalizado seja adicionado, o ponto final regional continuará a funcionar com o recurso.
 
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>E se um SDK me pedir um recurso para a região?
 
@@ -55,7 +55,7 @@ Um nome subdomínio personalizado é exclusivo do seu recurso. O nome só pode i
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Posso mudar um nome de domínio personalizado?
 
-Não. Depois de um nome de subdomínio personalizado ser criado e associado a um recurso não pode ser alterado.
+N.º Depois de um nome de subdomínio personalizado ser criado e associado a um recurso não pode ser alterado.
 
 ## <a name="can-i-reuse-a-custom-domain-name"></a>Posso reutilizar um nome de domínio personalizado?
 
@@ -68,7 +68,7 @@ Sim. Esta é uma lista de pontos finais regionais que você pode usar com recurs
 > [!NOTE]
 > O serviço de tradutor e as APIs de pesquisa de Bing utilizam pontos finais globais.
 
-| Tipo de ponto final | Região | Ponto final |
+| Tipo de ponto final | Region | Ponto final |
 |---------------|--------|----------|
 | Público | Global (Tradutor & Bing) | `https://api.cognitive.microsoft.com` |
 | | Leste da Austrália | `https://australiaeast.api.cognitive.microsoft.com` |

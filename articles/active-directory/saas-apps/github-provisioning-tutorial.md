@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: Zhchia
 ms.openlocfilehash: f1600dfc5705ca97f16e8966a796b54fc556d216
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359267"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub para fornecimento automático de utilizadores
@@ -65,13 +65,13 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
     ![Provisão gitHub](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. Na secção **Credenciais de Administrador** , clique em **Autorizar**. Esta operação abre um diálogo de autorização GitHub numa nova janela do navegador. Tenha em atenção que tem de garantir que está aprovado para autorizar o acesso. Siga as instruções descritas [aqui.](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+5. Na secção **Credenciais de Administrador**, clique em **Autorizar**. Esta operação abre um diálogo de autorização GitHub numa nova janela do navegador. Tenha em atenção que tem de garantir que está aprovado para autorizar o acesso. Siga as instruções descritas [aqui.](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 
 6. Na nova janela, inscreva-se no GitHub usando a sua conta de administrador. No diálogo de autorização resultante, selecione a equipa do GitHub para a que pretende permitir o provisionamento e, em seguida, **selecione Authorize**. Depois de concluído, regresse ao portal do Azure para concluir a configuração do aprovisionamento.
 
     ![A screenshot mostra a página de sindes de sinspe para GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. No portal Azure, **insira o URL do inquilino** e clique em Test **Connection** para garantir que o Azure AD pode ligar-se à sua aplicação GitHub. Se a ligação falhar, certifique-se de que a sua conta GitHub tem permissões de administração e **o Inquilino URl** é introduzido corretamente, então tente novamente o passo "Authorize" (pode constituir **o Inquilino URL** por regra: , pode encontrar as suas `https://api.github.com/scim/v2/organizations/<Organization_name>` organizações sob a sua conta GitHub: **Organizações de Definições).**  >  **Organizations**
+7. No portal Azure, **insira o URL do inquilino** e clique em Test **Connection** para garantir que o Azure AD pode ligar-se à sua aplicação GitHub. Se a ligação falhar, certifique-se de que a sua conta GitHub tem permissões de administração e **o Inquilino URl** é introduzido corretamente, então tente novamente o passo "Authorize" (pode constituir **o Inquilino URL** por regra: , pode encontrar as suas `https://api.github.com/scim/v2/organizations/<Organization_name>` organizações sob a sua conta GitHub: **Organizações de Definições).**  >  
 
     ![A screenshot mostra a página das Organizações no GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 

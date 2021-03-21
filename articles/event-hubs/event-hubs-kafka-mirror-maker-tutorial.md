@@ -1,13 +1,13 @@
 ---
-title: Use Apache Kafka MirrorMaker - Azure Event Hubs Microsoft Docs
+title: Use Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece informações sobre como usar o Kafka MirrorMaker para espelhar um cluster Kafka em AzureEvent Hubs.
 ms.topic: how-to
 ms.date: 01/04/2021
 ms.openlocfilehash: 654e9e19dfde0d0c58d00e41cf8ab0ba8e1484d7
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97861003"
 ---
 # <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Use Apache Kafka MirrorMaker com centros de eventos
@@ -22,7 +22,7 @@ Este tutorial mostra como espelhar um corretor Kafka num Azure Event Hub usando 
 > [!NOTE]
 > Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
@@ -48,7 +48,7 @@ Para concluir este tutorial, confirme que tem:
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Faça o download](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
-* [Rio Git](https://www.git-scm.com/downloads)
+* [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos

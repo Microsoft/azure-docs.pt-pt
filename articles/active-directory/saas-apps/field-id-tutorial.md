@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Field iD Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Field ID.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 55a66f3f287ffb50d932263e407772efffa839ba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453540"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Tutorial: Azure Ative Directory integração única (SSO) com iD de campo
@@ -48,7 +48,7 @@ Para configurar a integração do Field iD em Azure AD, precisa adicionar o Fiel
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione **Azure Ative Directory**.
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar a nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** digite **O ID** de campo na caixa de pesquisa.
 1. Selecione **O ID** de campo do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. Para **nome,** insira `B.Simon` .  
@@ -111,7 +111,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
    ![Screenshot da secção Gerir, com utilizadores e grupos em destaque](common/users-groups-blade.png)
 
-1. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+1. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Screenshot do utilizador Add](common/add-assign-user.png)
 

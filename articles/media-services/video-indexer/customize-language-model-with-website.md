@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/10/2020
 ms.author: kumud
 ms.openlocfilehash: dd8b36340deb6c785989107461dd420e7fc0d985
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97722577"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalize um modelo de linguagem com o site do Indexer de Vídeo
@@ -72,7 +72,7 @@ Para utilizar o seu modelo Language para reindexar um vídeo na sua coleção, s
 1. Inscreva-se na página inicial do [Video Indexer.](https://www.videoindexer.ai/)
 1. Clique em **...** botão no vídeo e selecione **Re-index**.
 1. É-lhe dada a opção de selecionar o **idioma de origem vídeo** para reindexar o seu vídeo. Selecione o drop-down e selecione um modelo de Linguagem que criou a partir da lista. Deve dizer a linguagem do seu modelo linguístico e o nome que lhe deu em parênteses.
-1. Selecione o botão **Re-index** e o seu vídeo será reexuado utilizando o seu modelo Language.
+1. Selecione o botão **Re-index** e o seu vídeo será reexexexuado utilizando o seu modelo Language.
 
 ## <a name="edit-a-language-model"></a>Editar um modelo de linguagem
 

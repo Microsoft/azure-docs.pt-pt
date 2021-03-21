@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199191"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
@@ -321,7 +321,7 @@ public class AccountContractSlim
 
 Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela operação de Carregamento.
 
-|Código de estado|ErrorType (no corpo da resposta)|Descrição|
+|Código de estado|ErrorType (no corpo da resposta)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
 |400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|

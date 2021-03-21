@@ -4,10 +4,10 @@ description: Saiba como utilizar o registo de contentor do Azure de forma eficie
 ms.topic: article
 ms.date: 01/07/2021
 ms.openlocfilehash: 01c8c7f547be9dd225022fb3315a4bdecc48c2bf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578141"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry

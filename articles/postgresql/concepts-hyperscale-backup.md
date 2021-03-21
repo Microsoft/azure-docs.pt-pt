@@ -8,15 +8,15 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485380"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
-A Azure Database for PostgreSQL – Hyperscale (Citus) cria automaticamente cópias de segurança de cada nó e armazena-as num armazenamento localmente redundante. As cópias de segurança podem ser utilizadas para restaurar o cluster Hyperscale (Citus) num tempo especificado. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.
+A Azure Database for PostgreSQL – Hyperscale (Citus) cria automaticamente cópias de segurança de cada nó e armazena-as num armazenamento localmente redundante. As cópias de segurança podem ser utilizadas para restaurar o cluster Hyperscale (Citus) num tempo especificado. A cópia de segurança e o restauro são uma parte essencial de qualquer estratégia de continuidade empresarial, uma vez que protegem os seus dados contra danos e a eliminação acidentais.
 
 ## <a name="backups"></a>Cópias de segurança
 
@@ -44,7 +44,7 @@ Na Base de Dados Azure para PostgreSQL, restaurar um cluster de Hiperescala (Cit
 ### <a name="point-in-time-restore-pitr"></a>Restauro pontual (PITR)
 
 Pode restaurar um aglomerado a qualquer ponto no tempo nos últimos 35 dias.
-A restauração pontual é útil em vários cenários. Por exemplo, quando um utilizador elimina acidentalmente dados, deixa cair uma tabela ou base de dados importantes, ou se uma aplicação acidentalmente substitui bons dados com dados ruins.
+A restauração pontual é útil em vários cenários. Por exemplo, quando um utilizador elimina dados acidentalmente ou descarta uma tabela ou uma base de dados importante, ou se uma aplicação substituir acidentalmente dados corretos por dados incorretos.
 
 O processo de restauro cria um novo cluster na mesma região de Azure, subscrição e grupo de recursos como o original. O cluster tem a configuração original: o mesmo número de nós, número de vCores, tamanho de armazenamento, funções de utilizador, versão PostgreSQL e versão da extensão Citus.
 

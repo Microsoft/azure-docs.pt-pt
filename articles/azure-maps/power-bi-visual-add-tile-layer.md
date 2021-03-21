@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de azulejo ao Azure Maps Power BI visual ! Microsoft Azure Maps
+title: Adicione uma camada de azulejo ao Azure Maps Power BI | Microsoft Azure Maps
 description: Neste artigo, você vai aprender a usar a camada de azulejos no Microsoft Azure Maps visual para Power BI.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896213"
 ---
 # <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico

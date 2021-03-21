@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98894767"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
@@ -120,7 +120,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de devolução do `POST` pedido.
 
-| Código | Texto | Descrição |
+| Código | Texto | Description |
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite, e o livro foi feito com sucesso. |
 | 400 |Pedido Incorreto |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O símbolo na URL é inválido.</li>  </ul> |
@@ -242,6 +242,6 @@ A imagem que se segue mostra o pedido enviado do Windows PowerShell e a resposta
 
 ![Botão Webhooks](media/automation-webhooks/webhook-request-response.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para ativar um livro de bordo a partir de um alerta, consulte [Utilize um alerta para acionar um livro de execução da Azure Automation](automation-create-alert-triggered-runbook.md).

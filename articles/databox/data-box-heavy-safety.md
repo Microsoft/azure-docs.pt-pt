@@ -1,5 +1,5 @@
 ---
-title: Segurança para a sua Caixa de Dados Azure Pesada / Microsoft Docs
+title: Segurança para a sua Caixa de Dados Azure | Microsoft Docs
 description: Descreve convenções de segurança, diretrizes e considerações, e explica como instalar e operar com segurança a sua Caixa de Dados Azure Heavy.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021542"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Instale e opere com segurança a sua Caixa de Dados Azure Heavy
@@ -27,7 +27,7 @@ Leia todas as informações de segurança deste artigo antes de utilizar a sua C
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Aqui estão os ícones que encontrará quando revê as precauções de segurança a observar ao configurar e executar a sua Caixa de Dados.
 
-| Ícone | Descrição |
+| Ícone | Description |
 |:--- |:--- |
 | ![Ícone de perigo ](./media/data-box-heavy-safety/warning-icon.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. Esta palavra de sinal deve limitar-se às situações mais extremas. |
 | ![Ícone de ](./media/data-box-heavy-safety/warning-icon.png) **aviso AVISO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. |
@@ -37,8 +37,8 @@ Aqui estão os ícones que encontrará quando revê as precauções de seguranç
 | ![Ícone de peso pesado ](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **Peso pesado peso** | |
 | ![Nenhum ícone de peças reparador do utilizador ](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **Nenhuma peça reparador do utilizador** |Não aceda a menos que esteja devidamente treinado. |
 | ![Leia o ícone do aviso de segurança ](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Leia todas as instruções primeiro** | |
-| ![Perigo de ponta ](./media/data-box-heavy-safety/tip-hazard-icon.png) **Perigo Perigo Perigo** | |
-| ![Sobrecarga de risco de ponta de risco ](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) **Perigo Perigo Perigo Perigo Perigo Perigo Perigo Perigo** | |
+| ![Perigo de ponta ](./media/data-box-heavy-safety/tip-hazard-icon.png) **Perigo** | |
+| ![Sobrecarga de risco de ponta de risco ](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) **Perigo Perigo Perigo** | |
 | ![Várias fontes de energia ícone ](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **várias fontes de energia** | |
 
 ## <a name="handling-precautions"></a>Precauções de manuseamento
