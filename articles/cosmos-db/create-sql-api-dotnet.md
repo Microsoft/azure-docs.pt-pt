@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/21/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 4c552e6ac195555990cdbbab44f16be32b7930c8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f25c8e2ca7abeae0a918825654c55256182189ae
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425325"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785364"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Quickstart: Construa uma aplicação de consola .NET para gerir os recursos API API da Azure Cosmos DB SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -486,7 +486,7 @@ az group delete -g "myResourceGroup"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, aprendeu a criar uma conta Azure Cosmos, criar uma base de dados e um contentor utilizando uma aplicação .NET Core. Pode agora importar dados adicionais para a sua conta Azure Cosmos com as instruções int o seguinte artigo. 
+Neste quickstart, aprendeu a criar uma conta Azure Cosmos, criar uma base de dados e um contentor utilizando uma aplicação .NET Core. Pode agora importar dados adicionais para a sua conta Azure Cosmos com as instruções do artigo seguinte. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

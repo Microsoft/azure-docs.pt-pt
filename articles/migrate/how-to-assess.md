@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 37f3748b4f0f3db47bbd6fbe9bc06a307781c2f8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96752265"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786809"
 ---
 # <a name="add-assessment-tools"></a>Adicionar ferramentas de avaliação
 
@@ -25,23 +25,23 @@ Este artigo descreve como adicionar ferramentas de avaliação em [Azure Migrate
 1. No projeto Azure Migrate, clique em **Visão Geral**.
 2. Selecione o cenário de avaliação:
 
-    - Para descobrir e avaliar máquinas e cargas de trabalho para a migração para Azure, **selecione Avaliar e migrar servidores**.
+    - Para descobrir, avaliar e migrar servidores (físicos ou virtuais) do seu datacenter ou de outras nuvens para Azure, selecione **Descubra, avalie e migra.** Agora também pode descobrir e avaliar o SQL Server a partir do seu ambiente VMware utilizando este objetivo de migração.
     - Para avaliar as bases de dados do SQL Server no local, selecione **Avaliar e migrar bases de dados**.
     - Para avaliar ou migrar aplicações web no local, selecione **Explore mais**  >  **Aplicações Web**.
     - Para avaliar a sua infraestrutura virtual de desktop, **selecione Explore mais**  >  **Infraestruturas de Ambiente de Trabalho Virtuais.**
 
     ![Opções para selecionar um cenário de avaliação](./media/how-to-assess/assess-scenario.png)
 
-## <a name="select-a-server-assessment-tool"></a>Selecione uma ferramenta de avaliação do servidor 
+## <a name="select-a-discovery-and-assessment-tool"></a>Selecione uma ferramenta de descoberta e avaliação 
 
 
 1. Adicione uma ferramenta:
 
-    - Se criou um projeto Azure Migrate utilizando a opção **Avaliar e migrar servidores** no portal, a ferramenta Azure Migrate Server Assessment é automaticamente adicionada ao projeto. Para adicionar ferramentas de avaliação adicionais, em **Servidores,** ao lado de **ferramentas de Avaliação,** selecione **Adicionar mais ferramentas**.
-    
+    - Se criou um projeto Azure Migrate utilizando a opção **de avaliar e migrar servidores** no portal, a ferramenta Azure Migrate Discovery e a ferramenta de avaliação são automaticamente adicionadas ao projeto. Para adicionar ferramentas de avaliação adicionais, no **Windows, Linux e SQL Server,** junto às **ferramentas de Avaliação,** selecione **Adicione mais ferramentas**.
+
          ![Botão para adicionar ferramentas de avaliação adicionais](./media/how-to-assess/add-assessment-tool.png)
 
-    - Se criou um projeto utilizando uma opção diferente e ainda não tiver ferramentas de avaliação, em ferramentas de avaliação **de servidores,**  >   **selecione Clique aqui**.
+    - Se criou um projeto utilizando uma opção diferente e ainda não tem ferramentas de avaliação, nas ferramentas de avaliação **do Windows, Linux e SQL Server**  >  **Assessment**, selecione **Clique aqui**.
 
         ![Botão para adicionar a primeira ferramenta de avaliação](./media/how-to-assess/no-assessment-tool.png)
 
@@ -83,4 +83,4 @@ Se criou um projeto Azure Migrate utilizando a opção **Explore mais**  >  **We
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Descubra máquinas no local para avaliação utilizando a ferramenta de avaliação do servidor Azure Migrate para [VMware](./tutorial-discover-vmware.md) VMs, [Hiper-V](./tutorial-discover-hyper-v.md)ou [servidores físicos](./tutorial-discover-physical.md)
+Descubra servidores no local para avaliação utilizando a Azure Migrate Discovery e a ferramenta de avaliação para [VMware,](./tutorial-discover-vmware.md) [Hyper-V](./tutorial-discover-hyper-v.md)ou [servidores físicos](./tutorial-discover-physical.md)

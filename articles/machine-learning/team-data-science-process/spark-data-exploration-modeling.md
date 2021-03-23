@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
-ms.openlocfilehash: 1ef6c678110037a4aed24ef40631b73a04ca6a9d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 531e5cf274d40eae19075514d50aec5a6524aeec
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028092"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775345"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
 
@@ -495,7 +495,8 @@ Tempo de execução acima da célula: 0,24 segundos
 
 ### <a name="feature-scaling"></a>Dimensionamento de funcionalidades
 
-O dimensionamento de recursos, também conhecido como normalização de dados, assegura que as características com valores amplamente desembolsados não recebem um peso excessivo na função objetiva. O código de escala de funcionalidades utiliza o [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para escalar as funcionalidades para a variação da unidade. É fornecido pela MLlib para uso em regressão linear com Descida de Gradiente Stochastic (SGD), um algoritmo popular para a formação de uma vasta gama de outros modelos de aprendizagem automática, tais como regressões regularizadas ou máquinas de vetores de suporte (SVM).
+O dimensionamento de recursos, também conhecido como normalização de dados, assegura que as características com valores amplamente desembolsados não recebem um peso excessivo na função objetiva. O código de escala de funcionalidades utiliza o [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.classification.LogisticRegressionWithLBFGS.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS
+) para escalar as funcionalidades para a variação da unidade. É fornecido pela MLlib para uso em regressão linear com Descida de Gradiente Stochastic (SGD), um algoritmo popular para a formação de uma vasta gama de outros modelos de aprendizagem automática, tais como regressões regularizadas ou máquinas de vetores de suporte (SVM).
 
 > [!NOTE]
 > Descobrimos que o algoritmo LinearRegressionWithSGD é sensível ao dimensionamento de recursos.

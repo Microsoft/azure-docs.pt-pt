@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b76934d3f16ec5f87ed1380135d22bc5d943652c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102487751"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779772"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -45,7 +45,7 @@ Isto pode dever-se ao facto de o serviço de atualização não funcionar corret
 O serviço de atualização é saudável se estiver em execução e não houver erros registados no registo de eventos (registos de aplicações e serviços -> Microsoft -> AadApplicationProxy -> Updater -> Admin). 
 
 > [!IMPORTANT]
-> Apenas as principais versões são lançadas para atualização automática. Recomendamos atualizar manualmente o seu conector num horário regular. Para obter mais informações sobre novas versões, o tipo de lançamento (download, atualização automática), correções de bugs e novas funcionalidades ver, [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+> Apenas as principais versões são lançadas para atualização automática. Recomendamos a atualização manual do seu conector apenas se for necessário. Por exemplo, não pode esperar por uma grande versão, porque tem de corrigir um problema conhecido ou pretende utilizar uma nova funcionalidade. Para obter mais informações sobre novas versões, o tipo de lançamento (download, atualização automática), correções de bugs e novas funcionalidades ver, [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
 
 Para atualizar manualmente um conector:
 

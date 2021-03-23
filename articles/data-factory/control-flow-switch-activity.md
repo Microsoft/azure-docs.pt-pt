@@ -3,16 +3,16 @@ title: Mudar de atividade na Azure Data Factory
 description: A atividade Switch permite-lhe controlar o fluxo de processamento com base numa condição.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 4d58b032fe0371c9b54cf66ab13f525880867fb6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 08d93bd3d49dc345b35a942d4d5db4eef937d3de
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100385358"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786146"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Mudar de atividade na Azure Data Factory
 
@@ -67,11 +67,11 @@ A atividade Switch fornece a mesma funcionalidade que uma declaração de comuta
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do interruptor. | String | Yes
-tipo | Tem de ser definido para *mudar** | String | Yes
-expression | Expressão que deve avaliar o valor das cordas | Expressão com cadeia do tipo de resultado | Yes
-casos | Conjunto de casos que contêm um valor e um conjunto de atividades a executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos de caso | Yes
-padrãoAtivas | Conjunto de atividades que são executadas quando a avaliação da expressão não está satisfeita. | Conjunto de atividades | Yes
+name | Nome da atividade do interruptor. | String | Sim
+tipo | Tem de ser definido para *mudar** | String | Sim
+expression | Expressão que deve avaliar o valor das cordas | Expressão com cadeia do tipo de resultado | Sim
+casos | Conjunto de casos que contêm um valor e um conjunto de atividades a executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos de caso | Sim
+padrãoAtivas | Conjunto de atividades que são executadas quando a avaliação da expressão não está satisfeita. | Conjunto de atividades | Sim
 
 ## <a name="example"></a>Exemplo
 

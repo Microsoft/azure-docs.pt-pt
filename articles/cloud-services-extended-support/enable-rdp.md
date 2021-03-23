@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 53f873013a6f16ce5a28ee5d915afa556057f643
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744677"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773407"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Aplicar a extensão de ambiente de trabalho remoto aos Serviços de Nuvem Azure (suporte alargado)
 
@@ -27,8 +27,9 @@ O portal Azure utiliza a extensão remota do ambiente de trabalho para permitir 
 2. Selecione **Adicionar**.
 3. Escolha as funções para ativar o ambiente de trabalho remoto.
 4. Preencha os campos necessários para o nome de utilizador, palavra-passe, caducidade e certificado (não necessário).
+> [Nota] A palavra-passe para ambiente de trabalho remoto deve ter entre 8-123 caracteres de comprimento e deve satisfazer pelo menos 3 requisitos de complexidade da palavra-passe a partir do seguinte: 1) Contém um caracteres maiúsculas 2) Contém um caracteres minúsculos 3) Contém um dígito numérico 4) Contém um carácter especial 5) Não são permitidos caracteres de controlo
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="A imagem mostra a inserção das informações necessárias para se ligar ao ambiente de trabalho remoto.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="A imagem mostra a inserção das informações necessárias para se ligar ao ambiente de trabalho remoto.":::
 
 5. Quando terminar, **selecione Save**. Levará alguns momentos até que as suas instâncias de papel estejam prontas para receber ligações.
 

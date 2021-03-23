@@ -1,24 +1,14 @@
 ---
 title: Configurar agentes de segurança
 description: Saiba como configurar o Defender para agentes de segurança IoT para utilização com o Serviço de Segurança IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: b59d9079b6d0fe0ab3fe61eacf43f3a99eb46686
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ac9a5cdb4cc13ed91c0e5e29447b9cdbe71bcce
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495781"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784412"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configure agentes de segurança
 
@@ -117,7 +107,7 @@ A tabela seguinte contém as propriedades controláveis do Defender para agentes
 
 Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Name| Estado | Valores válidos| Valores predefinidos| Description |
+| Name| Estado | Valores válidos| Valores predefinidos| Descrição |
 |----------|--------|--|-------|----|
 |altaPriorityMessageFrequency|Obrigatório: falso |Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT7M |Intervalo de tempo máximo antes de serem enviadas mensagens de alta prioridade.|
 |baixaPriorityMessageFrequency |Obrigatório: falso|Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de serem enviadas mensagens de baixa prioridade.|

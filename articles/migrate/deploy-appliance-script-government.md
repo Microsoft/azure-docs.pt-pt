@@ -5,47 +5,46 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/16/2020
-ms.openlocfilehash: 6778c8e5e1e4fa83d34141fd13ba21d483ab76e9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/13/2021
+ms.openlocfilehash: c4ca8d8ac24ac174158957e44b5eabe4a89a5340
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041353"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775209"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Montar um aparelho no Governo de Azure 
 
-Siga este artigo para implementar um [aparelho Azure Migrate](./migrate-appliance-architecture.md) para VMware VMs, VMs hiper-V e servidores físicos, numa nuvem do Governo Azure. Você executar um script para criar o aparelho, e verificar se ele pode ligar-se ao Azure. Se pretender configurar um aparelho na nuvem pública, siga [este artigo](deploy-appliance-script.md).
+Siga este artigo para implementar um [aparelho Azure Migrate](./migrate-appliance-architecture.md) para servidores em ambiente VMware, servidores em Hiper-V e servidores físicos, numa nuvem do Governo Azure. Você executar um script para criar o aparelho, e verificar se ele pode ligar-se ao Azure. Se pretender configurar um aparelho na nuvem pública, siga [este artigo](deploy-appliance-script.md).
 
 
 > [!NOTE]
-> A opção de implantar um aparelho utilizando um modelo (para VMware VMs e VMs hiper-V) não é suportada no Governo de Azure.
+> A opção de implantar um aparelho utilizando um modelo (para servidores em ambiente VMware e ambiente Hiper-V) não é suportada no Governo de Azure.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O script configura o aparelho Azure Migrate numa máquina física ou VM existente.
+O script configura o aparelho Azure Migrate num servidor físico existente ou num servidor virtualizado.
 
-- A máquina que funcionará como o aparelho deve estar a executar o Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo. Requer um endereço IP estático ou dinâmico e acesso à internet.
-- Antes de colocar o aparelho, reveja os requisitos detalhados do aparelho para [VMware VMs,](migrate-appliance.md#appliance---vmware) [Hiper-VMs](migrate-appliance.md#appliance---hyper-v)e [servidores físicos](migrate-appliance.md#appliance---physical).
+- O servidor que funcionará como o aparelho deve estar a executar o Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo. Requer um endereço IP estático ou dinâmico e acesso à internet.
+- Antes de implementar o aparelho, reveja os requisitos detalhados do aparelho para [servidores em VMware,](migrate-appliance.md#appliance---vmware) [em Hiper-V](migrate-appliance.md#appliance---hyper-v)e [servidores físicos](migrate-appliance.md#appliance---physical).
 - Não coloque o guião num aparelho Azure Migrate existente.
 
 ## <a name="set-up-the-appliance-for-vmware"></a>Configurar o aparelho para VMware
 
-Para configurar o aparelho para VMware, descarregue um ficheiro com fecho do portal Azure e extraia o conteúdo. Você executou o script PowerShell para lançar a aplicação web do aparelho. Instale o aparelho e configuure-o pela primeira vez. Em seguida, registe o aparelho com o projeto Azure Migrate.
+Para configurar o aparelho para VMware, descarregue um ficheiro com fecho do portal Azure e extraia o conteúdo. Você executou o script PowerShell para lançar a aplicação web do aparelho. Instale o aparelho e configuure-o pela primeira vez. Em seguida, registe o aparelho com o projeto.
 
 ### <a name="download-the-script"></a>Descarregue o script
 
-1.  In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
-2.  In **Discover machines**  >  **Are your machines virtualized?** 
-3.  Clique **em Baixar**, para descarregar o ficheiro com fecho de correr. 
-
+1. Em **Objetivos de Migração**  >  **Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, clique em **Descobrir**.
+2. In **Discover server** Are your server Are your  >  **servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
+3. Clique **em Baixar**, para descarregar o ficheiro com fecho de correr.
 
 ### <a name="verify-file-security"></a>Verificar segurança de ficheiros
 
 Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
-1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
+1. No servidor para o qual descarregou o ficheiro, abra uma janela de comando do administrador.
 2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip SHA256```
@@ -71,10 +70,10 @@ Eis o que o guião faz:
 
 Para executar o script:
 
-1. Extraia a lima com fecho para uma pasta na máquina que irá hospedar o aparelho. Certifique-se de que não coloca o guião numa máquina num aparelho Azure Migrate existente.
-2. Lançar PowerShell na máquina, com privilégios de administrador (elevados).
+1. Extraia o ficheiro com fecho para uma pasta no servidor que irá hospedar o aparelho. Certifique-se de que não executa o script num servidor com um aparelho Azure Migrate existente.
+2. Lançar PowerShell no servidor, com privilégios de administrador (elevados).
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do ficheiro fechado descarregado.
-4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma: 
+4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma:
     
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>.\AzureMigrateInstaller.ps1 ```
 1. Depois de o script ser executado com sucesso, lança a aplicação web do aparelho para que possa configurar o aparelho. Se encontrar algum problema, reveja os registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
@@ -86,12 +85,12 @@ Certifique-se de que o aparelho pode ligar-se aos URLs Azure para [nuvens govern
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configurar o aparelho para Hiper-V
 
-Para configurar o aparelho para Hiper-V, descarregue um ficheiro com fecho do portal Azure e extraia o conteúdo. Você executou o script PowerShell para lançar a aplicação web do aparelho. Instale o aparelho e configuure-o pela primeira vez. Em seguida, registe o aparelho com o projeto Azure Migrate.
+Para configurar o aparelho para Hiper-V, descarregue um ficheiro com fecho do portal Azure e extraia o conteúdo. Você executou o script PowerShell para lançar a aplicação web do aparelho. Instale o aparelho e configuure-o pela primeira vez. Em seguida, registe o aparelho com o projeto.
 
 ### <a name="download-the-script"></a>Descarregue o script
 
-1.  In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
-2.  In **Discover machines**  >  **Are your machines virtualized?** 
+1.  Em **Objetivos de Migração**  >  **Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, clique em **Descobrir**.
+2.  In **Discover servers**  >  **Are your servers virtualized?** 
 3.  Clique **em Baixar**, para descarregar o ficheiro com fecho de correr. 
 
 
@@ -99,7 +98,7 @@ Para configurar o aparelho para Hiper-V, descarregue um ficheiro com fecho do po
 
 Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
-1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
+1. No servidor para o qual descarregou o ficheiro, abra uma janela de comando do administrador.
 2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip SHA256```
@@ -126,8 +125,8 @@ Eis o que o guião faz:
 
 Para executar o script:
 
-1. Extraia a lima com fecho para uma pasta na máquina que irá hospedar o aparelho. Certifique-se de que não coloca o guião numa máquina num aparelho Azure Migrate existente.
-2. Lançar PowerShell na máquina, com privilégios de administrador (elevados).
+1. Extraia o ficheiro com fecho para uma pasta no servidor que irá hospedar o aparelho. Certifique-se de que não executa o script num servidor que executa um aparelho Azure Migrate existente.
+2. Lançar PowerShell no servidor, com privilégios de administrador (elevados).
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do ficheiro fechado descarregado.
 4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma: 
 
@@ -141,20 +140,19 @@ Certifique-se de que o aparelho pode ligar-se aos URLs Azure para [nuvens govern
 
 ## <a name="set-up-the-appliance-for-physical-servers"></a>Configurar o aparelho para servidores físicos
 
-Para configurar o aparelho para VMware, descarregue um ficheiro com fecho do portal Azure e extraia o conteúdo. Você executou o script PowerShell para lançar a aplicação web do aparelho. Instale o aparelho e configuure-o pela primeira vez. Em seguida, registe o aparelho com o projeto Azure Migrate.
+Para configurar o aparelho para VMware, descarregue um ficheiro com fecho do portal Azure e extraia o conteúdo. Você executou o script PowerShell para lançar a aplicação web do aparelho. Instale o aparelho e configuure-o pela primeira vez. Em seguida, registe o aparelho com o projeto.
 
 ### <a name="download-the-script"></a>Descarregue o script
 
-1.  In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
-2.  In **Discover machines**  >  **Are your machines virtualized?** 
-3.  Clique **em Baixar**, para descarregar o ficheiro com fecho de correr. 
-
+1. Em **Objetivos de Migração**  >  **Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, clique em **Descobrir**.
+2. In **Discover servers**  >  **Are your servers virtualized?** 
+3. Clique **em Baixar**, para descarregar o ficheiro com fecho de correr.
 
 ### <a name="verify-file-security"></a>Verificar segurança de ficheiros
 
 Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
-1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
+1. Nos servidores para os quais descarregou o ficheiro, abra uma janela de comando do administrador.
 2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256```
@@ -180,10 +178,10 @@ Eis o que o guião faz:
 
 Para executar o script:
 
-1. Extraia a lima com fecho para uma pasta na máquina que irá hospedar o aparelho. Certifique-se de que não coloca o guião numa máquina num aparelho Azure Migrate existente.
-2. Lançar PowerShell na máquina, com privilégios de administrador (elevados).
+1. Extraia o ficheiro com fecho para uma pasta no servidor que irá hospedar o aparelho. Certifique-se de que não executa o script num servidor que executa um aparelho Azure Migrate existente.
+2. Lançar PowerShell no servidor, com privilégios de administrador (elevados).
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do ficheiro fechado descarregado.
-4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma: 
+4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma:
 
     ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
 1. Depois de o script ser executado com sucesso, lança a aplicação web do aparelho para que possa configurar o aparelho. Se encontrar algum problema, reveja os registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
@@ -194,7 +192,7 @@ Certifique-se de que o aparelho pode ligar-se aos URLs Azure para [nuvens govern
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de colocar o aparelho, é necessário configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
+Depois de colocar o aparelho, é necessário configurá-lo pela primeira vez e registá-lo com o projeto.
 
 - Configurar o aparelho para [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Ativar o aparelho para [Hiper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).

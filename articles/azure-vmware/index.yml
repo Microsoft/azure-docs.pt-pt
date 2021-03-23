@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 03/12/2021
-  ms.openlocfilehash: edf9adfa316407eb0bf1270bae93d7cfa273d50f
-  ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+  ms.date: 03/22/2021
+  ms.openlocfilehash: 70643a698e089df87a68b93c9f264d15d3735bf5
+  ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/16/2021
-  ms.locfileid: "103490095"
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104782083"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: introduction.md
     - text: Atualizações da plataforma
       url: azure-vmware-solution-platform-updates.md
+    - text: FAQ
+      url: faq.yml
   - linkListType: concept
     links:
     - text: Cloud privada e clusters
@@ -130,6 +132,8 @@ landingContent:
     links:
     - text: Soluções de cópia de segurança para VMs
       url: ecosystem-back-up-vms.md
+    - text: Soluções de migração para VMs
+      url: ecosystem-migration-vms.md
 - title: Recursos
   linkLists:
   - linkListType: reference
@@ -138,8 +142,8 @@ landingContent:
       url: /cli/azure/ext/vmware/vmware
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
-    - text: FAQ
-      url: faq.yml
+    - text: Fornecedor Terraform Azure
+      url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - linkListType: video
     links:
     - text: Lista de reprodução

@@ -1,18 +1,14 @@
 ---
 title: Ativar e configurar o seu sensor
 description: Este artigo descreve como iniciar s dia e ativar uma consola de sensores.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fdfa0dd7048bf39ae5b53a729aef578054b30ac
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449837"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779193"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar o seu sensor
 
@@ -44,7 +40,7 @@ Antes de iniciar sessão na consola de sensores, os utilizadores do administrado
 
 O seu sensor foi a bordo do Azure Defender para IoT num modo de gestão específico:
 
-| Tipo de modo | Description |
+| Tipo de modo | Descrição |
 |--|--|
 | **Modo ligado à nuvem** | A informação que o sensor deteta é exibida na consola do sensor. As informações de alerta também são entregues através do hub IoT e podem ser partilhadas com outros serviços da Azure, como o Azure Sentinel. |
 | **Modo ligado localmente** | A informação que o sensor deteta é exibida na consola do sensor. As informações de deteção também são partilhadas com a consola de gestão no local, se o sensor estiver ligado à sua. |
@@ -177,7 +173,7 @@ Acede às ferramentas de consola do menu lateral.
 
 **Navegação** 
 
-| Janela | Ícone | Description |
+| Janela | Ícone | Descrição |
 | -----------|--|--|
 | Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Veja uma imagem intuitiva do estado de segurança da rede. |
 | Mapa do dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Veja os dispositivos de rede, as ligações do dispositivo e as propriedades do dispositivo num mapa. Várias opções de zooms, destaque e filtro estão disponíveis para exibir a sua rede. |
@@ -187,13 +183,13 @@ Acede às ferramentas de consola do menu lateral.
 
 **Análise**
 
-| Janela| Ícone | Description |
+| Janela| Ícone | Descrição |
 |---|---|---|
 | Cronologia do evento | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | Ver uma linha temporal com informações sobre alertas, eventos de rede (informativos) e operações de utilizador, tais como ins- ins de utilizador e eliminações de utilizadores.|
 
 **Navegação**
 
-| Janela | Ícone | Description |
+| Janela | Ícone | Descrição |
 |---|---|---|
 | Mineração de dados | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Gere informação abrangente e granular sobre os dispositivos da sua rede em várias camadas. |
 | Investigação | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Ver tendências e estatísticas numa vasta gama de widgets. |
@@ -201,7 +197,7 @@ Acede às ferramentas de consola do menu lateral.
 
 **Administração**
 
-| Janela | Ícone | Description |
+| Janela | Ícone | Descrição |
 |---|---|---|
 | Utilizadores | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Defina utilizadores e funções com vários níveis de acesso. |
 | Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhar informações de alerta para parceiros, e fontes internas (por exemplo, Azure Sentinel) integrando-se com o Defender para IoT, para endereços de e-mail, para servidores webhook, e muito mais. <br /> Consulte [as informações do alerta para](how-to-forward-alert-information-to-partners.md) a frente para mais detalhes. |
@@ -210,7 +206,7 @@ Acede às ferramentas de consola do menu lateral.
 
 **Suporte**
 
-| Janela| Ícone | Description |
+| Janela| Ícone | Descrição |
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contacte [o Microsoft Support](https://support.microsoft.com/) para obter ajuda. |
 

@@ -1,18 +1,14 @@
 ---
 title: Gerir sensores individuais
 description: Saiba como gerir sensores individuais, incluindo gerir ficheiros de ativação, realizar backups e atualizar um sensor autónomo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: df1d1dd6ca2085fb3ab12c104723c63e32249403
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526923"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781964"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -282,7 +278,7 @@ Quando estiver a utilizar o comando CLI:
 
 Gerencie os seus certificados com os seguintes comandos:
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Gerar uma nova chave privada e pedido de assinatura de certificado | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | Gerar um certificado autoassinado | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -292,7 +288,7 @@ Gerencie os seus certificados com os seguintes comandos:
 
 Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave Privada, utilize estes comandos;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Consulte um pedido de assinatura de certificado (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
 | Verifique uma chave privada | `openssl rsa -in privateKey.key -check` |
@@ -300,13 +296,13 @@ Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave
 
 Se receber um erro que a tecla privada não corresponda ao certificado, ou que não seja confiável um certificado que instalou num site, utilize estes comandos para corrigir o erro;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Verifique um hash MD5 da chave pública para garantir que corresponde ao que está numa rse ou chave privada | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 Para converter certificados e chaves em diferentes formatos para torná-los compatíveis com tipos específicos de servidores, ou software, utilize estes comandos;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Converter um ficheiro DER (.crt .cer .der) para PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | Converter um ficheiro PEM para DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |

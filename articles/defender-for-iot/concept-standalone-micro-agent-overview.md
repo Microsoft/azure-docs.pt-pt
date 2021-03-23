@@ -1,19 +1,14 @@
 ---
 title: Visão geral autónoma do micro-agente (Visualização)
-titleSuffix: Azure Defender for IoT
 description: O Azure Defender para agentes de segurança IoT permite-lhe construir segurança diretamente nos seus novos dispositivos IoT e projetos Azure IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/19/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 84afa4205b57481efc3ed9df805cfa7a3657a6c8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5f8621c7d96d802ad2d32a6c71321bcd68854233
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120084"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779159"
 ---
 # <a name="standalone-micro-agent-overview-preview"></a>Visão geral autónoma do micro-agente (Visualização)
 

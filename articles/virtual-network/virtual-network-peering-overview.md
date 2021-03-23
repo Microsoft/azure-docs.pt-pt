@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1356c896abff8c525df283251240d027123405fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216755"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778294"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -25,8 +25,8 @@ O espreitamento de rede virtual permite-lhe ligar perfeitamente duas ou mais [Re
 
 O Azure suporta os seguintes tipos de espreguiçadamento:
 
-* Observação de rede virtual: Ligue redes virtuais dentro da mesma região do Azure.
-* Observação global da rede virtual: Ligação de redes virtuais em regiões de Azure.
+* **Observação de rede virtual**: Ligue redes virtuais na mesma região do Azure.
+* **Observação global da rede virtual**: Ligação de redes virtuais em regiões de Azure.
 
 As vantagens da utilização do peering de redes virtuais, sejam locais ou globais, incluem:
 

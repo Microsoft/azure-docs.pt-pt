@@ -1,24 +1,14 @@
 ---
 title: Defender-IoT-micro-agente para visão geral do Azure RTOS
 description: Saiba mais sobre o defender-ioT-micro-agente para suporte e implementação Azure RTOS como parte do Azure Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/14/2021
-ms.author: shhazam
-ms.openlocfilehash: ae1ae941dcb1af73286a4865089b1be227c484fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8f162cc7e284abc9f1fdc08a10e62369855017c4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496053"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785908"
 ---
 # <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos-preview"></a>Visão geral: Defender-IoT-micro-agente IoT para Azure RTOS (pré-visualização)
 

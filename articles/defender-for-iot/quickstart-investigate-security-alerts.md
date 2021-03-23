@@ -1,24 +1,14 @@
 ---
 title: 'Quickstart: Investigar alertas de segurança'
 description: Compreenda, investigue e investigue o Defender por alertas de segurança IoT nos seus dispositivos IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/30/2020
-ms.author: mlottner
-ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2eb4a10372680348536231aa0333c43199b8d883
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90947340"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780995"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Quickstart: Investigar alertas de segurança
 

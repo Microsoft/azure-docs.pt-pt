@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 18ae21c4b1348a1690818f8c07a5b3fae45102cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d4a6e25578cd26b10b34f74a9f859d4957cc553b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232278"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783817"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o Carteiro para enviar pedidos para as APIs das Gémeas Digitais do Azure
 
@@ -21,9 +21,13 @@ ms.locfileid: "103232278"
 
 Este artigo descreve como configurar o [cliente Postman REST](https://www.getpostman.com/) para interagir com as APIs das Gémeas Digitais Azure, através dos seguintes passos:
 
-1. Use o [CLI Azure](/cli/azure/install-azure-cli) para obter um sinal de portador que você usará para fazer pedidos de API no Carteiro.
-1. Crie uma coleção de Carteiro e configuure o cliente Postman REST para usar o seu símbolo ao portador para autenticar.
-1. Utilize o Carteiro configurado para criar e enviar um pedido às APIs das Gémeas Digitais Azure.
+1. Use o CLI Azure para [**obter um sinal de portador**](#get-bearer-token) que você usará para fazer pedidos de API no Carteiro.
+1. Crie uma [**coleção de Carteiro**](#about-postman-collections) e configuure o cliente Postman REST para usar o seu símbolo ao portador para autenticar. Ao configurar a coleção, pode escolher qualquer uma destas opções:
+    1. [**Importe**](#import-collection-of-azure-digital-twins-apis) uma coleção pré-construída de pedidos de API de Gémeos Digitais Azure.
+    1. [**Crie**](#create-your-own-collection) a sua própria coleção do zero.
+1. [**Adicione pedidos**](#add-an-individual-request) à sua coleção configurada e envie-os para as APIs das Gémeas Digitais Azure.
+
+A Azure Digital Twins tem dois conjuntos de APIs com os que pode trabalhar: **plano de dados** e **plano de controlo.** Para saber mais sobre a diferença entre estes conjuntos de API, consulte [*Como-a-fazer: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md). Este artigo contém informações para ambos os conjuntos de API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,69 +56,209 @@ Caso contrário, pode abrir uma janela [Azure Cloud Shell](https://shell.azure.c
     az login
     ```
 
-1. Em seguida, use o comando [get-token da conta az](/cli/azure/account#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins. Neste comando, passará o ID de recursos para o ponto final de serviço Azure Digital Twins (um valor estático de), de forma a obter um token de acesso que possa aceder aos recursos da `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` Azure Digital Twins.
+2. Em seguida, use o comando [get-token da conta az](/cli/azure/account#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins. Neste comando, você passará no ID de recurso para o ponto final de serviço Azure Digital Twins, de forma a obter um token de acesso que pode aceder aos recursos da Azure Digital Twins. 
 
+    O contexto necessário para o token depende do conjunto de APIs que está a usar, por isso use os separadores abaixo para selecionar entre apis [plano de dados](how-to-use-apis-sdks.md#overview-data-plane-apis) e [plano de controlo.](how-to-use-apis-sdks.md#overview-control-plane-apis)
+
+    # <a name="data-plane"></a>[Plano de dados](#tab/data-plane)
+    
+    Para obter um símbolo para utilizar com as APIs do **plano de dados,** utilize o seguinte valor estático para o contexto simbólico: `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Este é o ID de recursos para o ponto final do serviço Azure Digital Twins.
+    
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
+    
+    # <a name="control-plane"></a>[Plano de controlo](#tab/control-plane)
+    
+    Para obter um símbolo para utilizar com as APIs do **plano de controlo,** utilize o seguinte valor para o contexto simbólico: `https://management.azure.com/` .
+    
+    ```azurecli-interactive
+    az account get-access-token --resource https://management.azure.com/
+    ```
+    ---
 
-1. Copie o valor do `accessToken` resultado e guarde-o para o utilizar na secção seguinte. Este é o seu **valor simbólico** que irá fornecer ao Carteiro para autenticar os seus pedidos.
 
-    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Vista de uma janela de consola local mostrando o resultado do comando get-token da conta az. Um dos campos do resultado chama-se accessToken e o seu valor de amostra -- começando com ey -- é destacado.":::
+3. Copie o valor do `accessToken` resultado e guarde-o para o utilizar na secção seguinte. Este é o seu **valor simbólico** que irá fornecer ao Carteiro para autorizar os seus pedidos.
+
+    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot da consola mostrando o resultado do comando get-token da conta az. Destaca-se o campo AccessToken e o seu valor de amostra.":::
 
 >[!TIP]
 >Este token é válido por pelo menos cinco minutos e um máximo de 60 minutos. Se esgotar o tempo atribuído ao token atual, pode repetir os passos nesta secção para obter um novo.
 
-## <a name="set-up-postman-collection-and-authorization"></a>Configurar a recolha e autorização do Carteiro
+Em seguida, você vai configurar o Carteiro para usar este token para fazer pedidos de API para Azure Digital Twins.
 
-Em seguida, crie carteiro para fazer pedidos de API.
-Estes passos acontecem na sua aplicação local do Carteiro, por isso abra a aplicação do Carteiro no seu computador.
+## <a name="about-postman-collections"></a>Sobre coleções de Carteiro
+
+Os pedidos no Carteiro são guardados em **coleções** (grupos de pedidos). Quando cria uma coleção para agrupar os seus pedidos, pode aplicar configurações comuns a muitos pedidos ao mesmo tempo. Isto pode simplificar consideravelmente a autorização se pretender criar mais do que um pedido contra as APIs das Gémeas Digitais Azure, uma vez que só tem de configurar estes detalhes uma vez para toda a coleção.
+
+Ao trabalhar com a Azure Digital Twins, pode começar importando uma [coleção pré-construída de todos os pedidos da Azure Digital Twins.](#import-collection-of-azure-digital-twins-apis) Você pode querer fazer isso se você estiver explorando as APIs e quer configurar rapidamente um projeto com exemplos de pedido.
+
+Em alternativa, também pode optar por começar do zero, [criando](#create-your-own-collection) a sua própria coleção vazia e povoando-a com pedidos individuais que apenas liguem para as APIs de que necessita. 
+
+As seguintes secções descrevem ambos estes processos. O resto do artigo ocorre na sua aplicação local do Carteiro, por isso abra já a aplicação do Carteiro no seu computador.
+
+## <a name="import-collection-of-azure-digital-twins-apis"></a>Coleção de importação de APIs de Gémeos Digitais Azure
+
+Uma forma rápida de começar com a Azure Digital Twins em Carteiro é importar uma coleção pré-construída de pedidos para as APIs das Gémeas Digitais Azure.
+
+### <a name="download-the-collection-file"></a>Descarregue o ficheiro de recolha
+
+O primeiro passo na importação do conjunto API é o download de uma coleção. Escolha o separador abaixo para a sua escolha de plano de dados ou plano de controlo para ver as opções de recolha pré-construídas.
+
+# <a name="data-plane"></a>[Plano de dados](#tab/data-plane)
+
+Existem atualmente duas coleções de planos de dados Azure Digital Twins disponíveis para escolher:
+* [**Azure Digital Twins Postman Collection**](https://github.com/microsoft/azure-digital-twins-postman-samples): Esta coleção proporciona uma experiência simples de começar para a Azure Digital Twins em Carteiro. Os pedidos incluem dados de amostra, para que possa executá-los com edições mínimas necessárias. Escolha esta coleção se quiser um conjunto digerível de pedidos de API chave contendo informações de amostra.
+    - Para encontrar a coleção, navegue até ao link de repo e abra o ficheiro nomeado *postman_collection.jsem*.
+* **[Plano de dados Azure Digital Twins Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)**: Este repo contém o ficheiro Swagger completo para o conjunto Azure Digital Twins API, que pode ser descarregado e importado para o Carteiro como uma coleção. Isto fornecerá um conjunto abrangente de todos os pedidos de API, mas com corpos de dados vazios em vez de dados de amostragem. Escolha esta coleção se quiser ter acesso a todas as chamadas da API e preencha todos os dados por si mesmo.
+    - Para encontrar a coleção, navegue até ao link de repo e escolha a pasta para a versão especifica mais recente. A partir daqui, abra o ficheiro chamado *digitaltwins.js.*
+
+# <a name="control-plane"></a>[Plano de controlo](#tab/control-plane)
+
+A coleção atualmente disponível para o avião de controlo é o [**avião de controlo Azure Digital Twins Swagger.**](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins) Este repo contém o ficheiro Swagger completo para o conjunto Azure Digital Twins API, que pode ser descarregado e importado para o Carteiro como uma coleção. Isto fornecerá um conjunto abrangente de todos os pedidos da API.
+
+Para encontrar a coleção, navegue até ao link de repo e escolha a pasta para a versão especifica mais recente. A partir daqui, abra o ficheiro chamado *digitaltwins.js.*
+
+---
+
+Aqui está como baixar a sua coleção escolhida para a sua máquina para que possa importá-la para o Carteiro.
+1. Utilize os links acima para abrir o ficheiro de recolha no GitHub no seu browser.
+1. Selecione o botão **Raw** para abrir o texto em bruto do ficheiro.
+    :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="A imagem do avião de dados digitaltwins.jsno ficheiro no GitHub. Há um destaque em torno do botão Raw." lightbox="media/how-to-use-postman/swagger-raw.png":::
+1. Copie o texto da janela e cole-o num novo ficheiro na sua máquina.
+1. Guarde o ficheiro com uma extensão *.json* (o nome do ficheiro pode ser o que quiser, desde que se lembre dele para encontrar o ficheiro mais tarde).
+
+### <a name="import-the-collection"></a>Importar a coleção
+
+Em seguida, importe a coleção para o Carteiro.
+
+1. A partir da janela principal do Carteiro, selecione o botão **Importar.**
+    :::image type="content" source="media/how-to-use-postman/postman-import-collection.png" alt-text="Imagem de uma janela recém-aberta do Carteiro. Destaca-se o botão 'Importar'." lightbox="media/how-to-use-postman/postman-import-collection.png":::
+
+1. Na janela Import que se segue, selecione **Upload Files** e navegue para o ficheiro de recolha da sua máquina que criou anteriormente. Selecione Abrir.
+1. Selecione o botão **Importar** para confirmar.
+
+    :::image type="content" source="media/how-to-use-postman/postman-import-collection-2.png" alt-text="Screenshot da janela 'Import' do Carteiro, mostrando o ficheiro a importar como uma coleção e o botão Import.":::
+
+A coleção recentemente importada pode agora ser vista a partir da sua visão principal do Carteiro, no separador Coleções.
+
+:::image type="content" source="media/how-to-use-postman/postman-post-collection-imported.png" alt-text="Imagem da janela principal do Carteiro. A recolha recentemente importada está em destaque no separador 'Coleções'." lightbox="media/how-to-use-postman/postman-post-collection-imported.png":::
+
+Em seguida, continue na secção seguinte para adicionar um token ao portador da coleção para autorização e conectá-lo ao seu exemplo de gémeos Azure Digital.
+
+### <a name="configure-authorization"></a>Autorização deconfigure
+
+Em seguida, edite a coleção que criou para configurar alguns detalhes de acesso. Realce a coleção que criou e selecione o ícone **'Ver mais ações'** para puxar um menu. Selecione **Editar**.
+
+:::image type="content" source="media/how-to-use-postman/postman-edit-collection.png" alt-text="Imagem do Carteiro. Destaca-se o ícone 'Ver mais ações' para a coleção importada e 'Editar' é destacado nas opções." lightbox="media/how-to-use-postman/postman-edit-collection.png":::
+
+Siga estes passos para adicionar um sinal ao portador da recolha para autorização. É aqui que você vai usar o **valor simbólico** que recolheu na secção [Get bearer token](#get-bearer-token) para usá-lo para todos os pedidos da API na sua coleção.
+
+1. No diálogo de edição para a sua coleção, certifique-se de que está no **separador Autorização.** 
+
+    :::image type="content" source="media/how-to-use-postman/postman-authorization-imported.png" alt-text="Screenshot do diálogo de edição da coleção importada no Carteiro, mostrando o separador 'Autorização'." lightbox="media/how-to-use-postman/postman-authorization-imported.png":::
+
+1. Desacorde o Tipo para **OAuth 2.0,** cole o seu token de acesso na caixa Access Token e selecione **Guardar**.
+
+    :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot do diálogo de edição do Carteiro para a coleção importada, no separador 'Autorização'. O tipo é 'OAuth 2.0', e a caixa Access Token é destacada." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
+
+### <a name="additional-configuration"></a>Configuração adicional
+
+# <a name="data-plane"></a>[Plano de dados](#tab/data-plane)
+
+Se estiver a fazer uma recolha de planos de [dados,](how-to-use-apis-sdks.md#overview-data-plane-apis) ajude a recolha a conectar-se facilmente aos seus recursos Azure Digital Twins, definindo **algumas variáveis fornecidas** com as coleções. Quando muitos pedidos numa coleção requerem o mesmo valor (como o nome de anfitrião da sua instância Azure Digital Twins), pode armazenar o valor numa variável que se aplica a cada pedido na coleção. Ambas as coleções descarregadas para Azure Digital Twins vêm com variáveis pré-criadas que você pode definir ao nível da coleção.
+
+1. Ainda no diálogo de edição para a sua coleção, mude para o **separador Variáveis.**
+
+1. Utilize o nome de **anfitrião** do seu caso a partir da secção [*Pré-Requisitos*](#prerequisites) para definir o campo VALOR CORRENTE da variável relevante. Selecione **Guardar**.
+
+    :::image type="content" source="media/how-to-use-postman/postman-variables-imported.png" alt-text="Screenshot do diálogo de edição da coleção importada no Carteiro, mostrando o separador 'Variáveis'. Destaca-se o campo 'VALOR CORRENTE'." lightbox="media/how-to-use-postman/postman-variables-imported.png":::
+
+1. Se a sua coleção tiver variáveis adicionais, preencha e guarde esses valores também.
+
+Quando terminar os passos acima, está farto de configurar a coleção. Pode fechar o separador de edição da coleção, se quiser.
+
+# <a name="control-plane"></a>[Plano de controlo](#tab/control-plane)
+
+Se estás a fazer uma coleção de aviões de [controlo,](how-to-use-apis-sdks.md#overview-control-plane-apis) fizeste tudo o que precisavas para configurar a coleção. Pode fechar o separador de edição da coleção, se quiser, e proceder à secção seguinte.
+
+--- 
+
+### <a name="explore-requests"></a>Explorar pedidos
+
+Em seguida, explore os pedidos dentro da coleção Azure Digital Twins API. Pode expandir a coleção para visualizar os pedidos pré-criados (classificados por categoria de operação). 
+
+Pedidos diferentes requerem informações diferentes sobre o seu caso e os seus dados. Para ver todas as informações necessárias para elaborar um pedido específico, consulte os detalhes do pedido na documentação de referência da [API dos Gémeos Digitais Azure.](/rest/api/azure-digitaltwins/)
+
+Pode editar os detalhes de um pedido na coleção do Carteiro utilizando estes passos:
+
+1. Selecione-o na lista para obter os seus detalhes editáveis. 
+
+1. Preencha os valores para as variáveis listadas no **separador Params** em **Variáveis De Caminho**.
+
+    :::image type="content" source="media/how-to-use-postman/postman-request-details-imported.png" alt-text="Imagem do Carteiro. A coleção é expandida para mostrar um pedido. A secção 'Variáveis de Caminho' é destacada nos detalhes do pedido." lightbox="media/how-to-use-postman/postman-request-details-imported.png":::
+
+1. Forneça os **seguintes detalhes** do Headers ou **Body** necessários nos respetivos separadores.
+
+Uma vez fornecidos todos os dados necessários, pode executar o pedido com o botão **Enviar.**
+
+Também pode adicionar os seus próprios pedidos à coleção, utilizando o processo descrito na secção [*adicionar um pedido individual*](#add-an-individual-request) abaixo.
+
+## <a name="create-your-own-collection"></a>Crie a sua própria coleção
+
+Em vez de importar a coleção existente de todas as APIs de Gémeos Digitais Azure, também pode criar a sua própria coleção de raiz. Em seguida, pode preenocupá-lo com pedidos individuais usando a [documentação de referência da API dos Gémeos Digitais Azure.](/rest/api/azure-digitaltwins/)
 
 ### <a name="create-a-postman-collection"></a>Criar uma coleção do Postman
 
-Os pedidos no Carteiro são guardados em **coleções** (grupos de pedidos). Quando cria uma coleção para agrupar os seus pedidos, pode aplicar configurações comuns a muitos pedidos ao mesmo tempo. Isto pode simplificar consideravelmente a autorização se pretender criar mais do que um pedido contra as APIs das Gémeas Digitais Azure, uma vez que só tem de configurar a autenticação uma vez para toda a coleção.
+1. Para criar uma coleção, selecione o botão **Novo** na janela principal do carteiro.
 
-1. Para criar uma coleção, premir o botão *+ New Collection.*
+    :::image type="content" source="media/how-to-use-postman/postman-new.png" alt-text="Imagem da janela principal do Carteiro. O botão 'Novo' é realçado." lightbox="media/how-to-use-postman/postman-new.png":::
 
-    :::image type="content" source="media/how-to-use-postman/postman-new-collection.png" alt-text="Vista de uma janela recém-aberta do Carteiro. O botão 'Nova Coleção' está em destaque":::
+    Escolha um tipo de **Coleção.**
 
-1. Na *janela CREATE Uma NOVA JANELA DE RECOLHA* que se segue, forneça um **Nome** e **Descrição** opcional para a sua coleção.
+    :::image type="content" source="media/how-to-use-postman/postman-new-collection-2.png" alt-text="Screenshot do diálogo &quot;Create New&quot; no Carteiro. A opção 'Coleção' está em destaque.":::
+
+1. Isto abrirá um separador para preencher os detalhes da nova coleção. Selecione o ícone Editar ao lado do nome predefinido da coleção **(Nova Coleção)** para substituí-lo pela sua própria escolha de nome. 
+
+    :::image type="content" source="media/how-to-use-postman/postman-new-collection-3.png" alt-text="Screenshot do diálogo de edição da nova coleção no Carteiro. Destaca-se o ícone Editar ao lado do nome 'Nova Coleção'." lightbox="media/how-to-use-postman/postman-new-collection-3.png":::
 
 Em seguida, continue para a secção seguinte para adicionar um sinal ao portador da coleção para autorização.
 
-### <a name="add-authorization-token-and-finish-collection"></a>Adicione token de autorização e a recolha de acabamentos
+### <a name="configure-authorization"></a>Autorização deconfigure
 
-1. No *CREATE Um novo* diálogo DE RECOLHA, mova-se para o *separador Autorização.* É aqui que irá colocar o **valor simbólico** que recolheu na secção [Deken do portador,](#get-bearer-token) a fim de usá-lo para todos os pedidos da API na sua coleção.
+Siga estes passos para adicionar um sinal ao portador da recolha para autorização. É aqui que você vai usar o **valor simbólico** que recolheu na secção [Get bearer token](#get-bearer-token) para usá-lo para todos os pedidos da API na sua coleção.
 
-    :::image type="content" source="media/how-to-use-postman/postman-authorization.png" alt-text="A janela 'CREATE A NEW COLLECTION' Postman, mostrando o separador 'Autorização'.":::
+1. Ainda no diálogo de edição para a sua nova coleção, mude para o **separador Autorização.**
 
-1. Desacorde o *Tipo* para _**OAuth 2.0**_ e cole o seu token de acesso na caixa *Access Token.*
+    :::image type="content" source="media/how-to-use-postman/postman-authorization-custom.png" alt-text="Screenshot do diálogo de edição da nova coleção no Carteiro, mostrando o separador 'Autorização'." lightbox="media/how-to-use-postman/postman-authorization-custom.png":::
 
-    :::image type="content" source="media/how-to-use-postman/postman-paste-token.png" alt-text="A janela 'CREATE A NEW COLLECTION' Postman, mostrando o separador 'Autorização'. É selecionado um tipo de 'OAuth 2.0' e destaca-se a caixa Access Token onde o valor do token de acesso pode ser colado.":::
+1. Desacorde o Tipo para **OAuth 2.0,** cole o seu token de acesso na caixa Access Token e selecione **Guardar**.
 
-1. Depois de colar no seu token ao portador, bata *na Create* para terminar de criar a sua coleção.
+    :::image type="content" source="media/how-to-use-postman/postman-paste-token-custom.png" alt-text="Screenshot do diálogo de edição do Carteiro para a nova coleção, no separador 'Autorização'. O tipo é 'OAuth 2.0', e a caixa Access Token é destacada." lightbox="media/how-to-use-postman/postman-paste-token-custom.png":::
 
-A sua nova coleção pode agora ser vista a partir da sua visão principal do Carteiro, em *Coleções.*
+Quando terminar os passos acima, está farto de configurar a coleção. Pode fechar o separador de edição da nova coleção, se quiser.
 
-:::image type="content" source="media/how-to-use-postman/postman-post-collection.png" alt-text="Vista da janela principal do Carteiro. A coleção recém-criada está em destaque no separador 'Coleções'.":::
+A nova coleção pode ser vista a partir da sua visão principal do Carteiro, no separador Coleções.
 
-## <a name="create-a-request"></a>Criar um pedido
+:::image type="content" source="media/how-to-use-postman/postman-post-collection-custom.png" alt-text="Imagem da janela principal do Carteiro. A coleção personalizada recém-criada está em destaque no separador 'Coleções'." lightbox="media/how-to-use-postman/postman-post-collection-custom.png":::
 
-Depois de completar os passos anteriores, pode criar pedidos para as APIs Azure Digital Twin.
+## <a name="add-an-individual-request"></a>Adicionar um pedido individual
 
-1. Para criar um pedido, premir o botão *+ Novo.*
+Agora que a sua coleção está configurada, pode adicionar os seus próprios pedidos às APIs Azure Digital Twin.
 
-    :::image type="content" source="media/how-to-use-postman/postman-new-request.png" alt-text="Vista da janela principal do Carteiro. O botão 'Novo' está em destaque":::
+1. Para criar um pedido, volte a utilizar o botão **Novo.**
 
-1. Escolha *o Pedido.*
+    :::image type="content" source="media/how-to-use-postman/postman-new.png" alt-text="Imagem da janela principal do Carteiro. O botão 'Novo' é realçado." lightbox="media/how-to-use-postman/postman-new.png":::
 
-    :::image type="content" source="media/how-to-use-postman/postman-new-request-2.png" alt-text="Veja as opções que pode selecionar para criar algo novo. A opção 'Pedido' está em destaque":::
+    Escolha um tipo de **Pedido.**
 
-1. Esta ação abre a janela *de pedido Save,* onde pode introduzir um nome para o seu pedido, dar-lhe uma descrição opcional e escolher a coleção da qual faz parte. Preencha os detalhes e guarde o pedido para a coleção que criou anteriormente.
+    :::image type="content" source="media/how-to-use-postman/postman-new-request-2.png" alt-text="Screenshot do diálogo &quot;Create New&quot; no Carteiro. A opção &quot;Pedido&quot; é realçada.":::
+
+1. Esta ação abre a janela SAVE REQUEST, onde pode introduzir um nome para o seu pedido, dar-lhe uma descrição opcional e escolher a coleção da qual faz parte. Preencha os detalhes e guarde o pedido para a coleção que criou anteriormente.
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="Vista para a janela 'Guardar pedido' onde pode preencher os campos descritos. O botão 'Save to Azure Digital Twins' está em destaque":::
+            :::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="Screenshot da janela &quot;Save request&quot; no Carteiro mostrando os campos descritos. Destaca-se o botão 'Save to Azure Digital Twins'.":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -122,7 +266,7 @@ Depois de completar os passos anteriores, pode criar pedidos para as APIs Azure 
 
 Agora pode ver o seu pedido sob a coleção e selecioná-lo para obter os seus detalhes editáveis.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-details.png" alt-text="Vista da janela principal do Carteiro. A coleção Azure Digital Twins é expandida, e o pedido de 'Consultas gémeas' é destacado. Os detalhes do pedido são mostrados no centro da página." lightbox="media/how-to-use-postman/postman-request-details.png":::
+:::image type="content" source="media/how-to-use-postman/postman-request-details-custom.png" alt-text="Imagem do Carteiro. A coleção Azure Digital Twins é expandida para mostrar os detalhes do pedido." lightbox="media/how-to-use-postman/postman-request-details-custom.png":::
 
 ### <a name="set-request-details"></a>Definir detalhes do pedido
 
@@ -133,24 +277,24 @@ Para proceder a uma consulta de exemplo, este artigo utilizará a API de Consult
 1. Obtenha o URL de pedido e escreva a partir da documentação de referência. Para a API de Consulta, este é atualmente *POST. `https://digitaltwins-hostname/query?api-version=2020-10-31`*
 1. No Carteiro, desabrocha o tipo de pedido e introduza o URL de pedido, preenchendo os espaços reservados no URL conforme necessário. É aqui que utilizará o nome de **anfitrião** do seu caso na secção [*Pré-Requisitos.*](#prerequisites)
     
-   :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Nos detalhes do novo pedido, o URL de consulta da documentação de referência foi preenchido na caixa URL do pedido." lightbox="media/how-to-use-postman/postman-request-url.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot dos detalhes do novo pedido no Carteiro. O URL de consulta da documentação de referência foi preenchido na caixa URL de pedido." lightbox="media/how-to-use-postman/postman-request-url.png":::
     
-1. Verifique se os parâmetros indicados para o pedido no *separador Params coincidem* com os descritos na documentação de referência. Para este pedido no Carteiro, o `api-version` parâmetro foi preenchido automaticamente quando o URL de pedido foi introduzido no passo anterior. Para a API de Consulta, este é o único parâmetro necessário, pelo que este passo está feito.
-1. No separador *Autorização,* desateia o *tipo* *de herdar auth do progenitor.* Isto indica que este pedido utilizará a autenticação que configurar anteriormente para toda a coleção.
-1. Verifique se os cabeçalhos indicados para o pedido no *separador Cabeçalhos* correspondem aos descritos na documentação de referência. Para este pedido, vários cabeçalhos foram preenchidos automaticamente. Para a API de consulta, nenhuma das opções do cabeçalho é necessária, pelo que este passo está feito.
-1. Verifique se o corpo indicado para o pedido no separador *Corpo* corresponde às necessidades descritas na documentação de referência. Para a API de consulta, é necessário um organismo JSON para fornecer o texto de consulta. Aqui está um órgão de exemplo para este pedido que consulta para todos os gémeos digitais no caso:
+1. Verifique se os parâmetros indicados para o pedido no **separador Params coincidem** com os descritos na documentação de referência. Para este pedido no Carteiro, o `api-version` parâmetro foi preenchido automaticamente quando o URL de pedido foi introduzido no passo anterior. Para a API de Consulta, este é o único parâmetro necessário, pelo que este passo está feito.
+1. No separador **Autorização,** desateia o tipo **de herdar auth do progenitor.** Isto indica que este pedido utilizará a autorização que estabeleceu anteriormente para toda a coleção.
+1. Verifique se os cabeçalhos indicados para o pedido no **separador Cabeçalhos** correspondem aos descritos na documentação de referência. Para este pedido, vários cabeçalhos foram preenchidos automaticamente. Para a API de consulta, nenhuma das opções do cabeçalho é necessária, pelo que este passo está feito.
+1. Verifique se o corpo indicado para o pedido no separador **Corpo** corresponde às necessidades descritas na documentação de referência. Para a API de consulta, é necessário um organismo JSON para fornecer o texto de consulta. Aqui está um órgão de exemplo para este pedido que consulta para todos os gémeos digitais no caso:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nos detalhes do novo pedido, é indicado o separador Corpo. Contém um corpo JSON cru com uma consulta de 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Screenshot dos detalhes do novo pedido no Carteiro, no separador Corpo. Contém um corpo JSON cru com uma consulta de 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Para obter mais informações sobre a criação de consultas Azure Digital Twins, consulte [*Como fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
 1. Verifique a documentação de referência de quaisquer outros campos que possam ser necessários para o seu tipo de pedido. Para a API de Consulta, todos os requisitos foram agora cumpridos no pedido do Carteiro, pelo que este passo está feito.
-1. Utilize o botão *Enviar* para enviar o seu pedido preenchido.
-   :::image type="content" source="media/how-to-use-postman/postman-request-send.png" alt-text="Perto dos detalhes do novo pedido, destaca-se o botão Enviar." lightbox="media/how-to-use-postman/postman-request-send.png":::
+1. Utilize o botão **Enviar** para enviar o seu pedido preenchido.
+   :::image type="content" source="media/how-to-use-postman/postman-request-send.png" alt-text="Screenshot do Carteiro mostrando os detalhes do novo pedido. O botão Enviar está realçado." lightbox="media/how-to-use-postman/postman-request-send.png":::
 
 Após o envio do pedido, os detalhes da resposta aparecerão na janela do Carteiro abaixo do pedido. Pode ver o código de estado da resposta e qualquer texto corporal.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Abaixo dos detalhes do pedido enviado, destacam-se os detalhes da resposta. Há um Status de 200 OK e texto corporal que descreve gémeos digitais que foram devolvidos pela consulta." lightbox="media/how-to-use-postman/postman-request-response.png":::
+:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Screenshot do pedido enviado no Carteiro. Abaixo dos detalhes do pedido, a resposta é mostrada. O estado é de 200 OK e o corpo mostra os resultados da consulta." lightbox="media/how-to-use-postman/postman-request-response.png":::
 
 Também pode comparar a resposta com os dados de resposta esperados na documentação de referência, para verificar o resultado ou saber mais sobre quaisquer erros que surjam.
 

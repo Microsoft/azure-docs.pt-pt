@@ -1,18 +1,14 @@
 ---
 title: Trabalhar com alertas na consola de gestão no local
 description: Utilize a consola de gestão no local para obter uma visão da empresa das ameaças recentes na sua rede e compreenda melhor como os utilizadores de sensores estão a lidar com as mesmas.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526328"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781471"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Trabalhar com alertas na consola de gestão no local 
 

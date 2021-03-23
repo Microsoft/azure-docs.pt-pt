@@ -1,22 +1,18 @@
 ---
-title: Trabalhe com alertas no seu sensor
+title: Sobre alertas de sensores
 description: Trabalhe com alertas para ajudá-lo a melhorar a segurança e o funcionamento da sua rede.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523554"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781352"
 ---
-# <a name="work-with-alerts-on-your-sensor"></a>Trabalhe com alertas no seu sensor
+# <a name="about-sensor-alerts"></a>Sobre alertas de sensores
 
-Trabalhe com alertas para ajudá-lo a melhorar a segurança e o funcionamento da sua rede. Os alertas fornecem-lhe informações sobre:
+Os alertas ajudam-no a melhorar a segurança e o funcionamento da sua rede. Os alertas fornecem-lhe informações sobre:
 
 - Desvios da atividade de rede autorizada
 
@@ -48,7 +44,7 @@ Estão disponíveis ferramentas adicionais que o ajudam a melhorar e a acelerar 
 
 Os alertas são acionados quando os motores dos sensores detetam alterações no tráfego da rede e no comportamento que precisam da sua atenção. Este artigo descreve o tipo de alertas que cada motor dispara.
 
-| Tipo de alerta | Description |
+| Tipo de alerta | Descrição |
 |-|-|
 | Alertas de violação de políticas | Acionado quando o motor de Violação de Política deteta um desvio do tráfego previamente aprendido. Por exemplo: <br /> - Um novo dispositivo é detetado.  <br /> - É detetada uma nova configuração num dispositivo. <br /> - Um dispositivo não definido como dispositivo de programação realiza uma alteração de programação. <br /> - Uma versão de firmware mudou. |
 | Alertas de violação de protocolo | Acionado quando o motor de Violação de Protocolo deteta estruturas de pacotes ou valores de campo que não cumprem a especificação do protocolo. | 

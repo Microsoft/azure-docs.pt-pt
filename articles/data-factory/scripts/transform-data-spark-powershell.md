@@ -3,17 +3,17 @@ title: Transforme dados em nuvem usando PowerShell
 description: Este script PowerShell transforma dados na nuvem executando o programa Spark num cluster Azure HDInsight Spark.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: 2e1178f91344038fc86f1411fca1beafbe901d05
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9bdb6521cd9361e5588233ebbb50a59788df88b4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100389829"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783256"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell script - transforme dados em nuvem usando Azure Data Factory
 

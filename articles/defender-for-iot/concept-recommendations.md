@@ -1,24 +1,14 @@
 ---
 title: Recomendações de segurança para o IoT Hub
 description: Conheça o conceito de recomendações de segurança e como são usadas no Defender para ioT Hub.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 4ae479fcff0514b42d46aef455d8a32d6ebfaf23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636548"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779346"
 ---
 # <a name="security-recommendations-for-iot-hub"></a>Recomendações de segurança para o IoT Hub
 
@@ -31,7 +21,7 @@ Neste artigo, encontrará uma lista de recomendações, que podem ser desencadea
 
 Os alertas de recomendação fornecem insights e sugestões para ações para melhorar a postura de segurança do seu ambiente.
 
-| Gravidade | Name | Origem de dados | Description |
+| Gravidade | Name | Origem de dados | Descrição |
 |--|--|--|--|
 | Alto | Credenciais de autenticação idênticas utilizadas por vários dispositivos | IoT Hub | As credenciais de autenticação IoT Hub são utilizadas por vários dispositivos. Este processo pode indicar um dispositivo ilegítimo que se faça passar por um dispositivo legítimo. O uso de credencial duplicada aumenta o risco de imitação de dispositivo por um ator mal-intencionado. |
 | Médio | A política de filtro IP predefinido deve ser negada | IoT Hub | A configuração do filtro IP deve ter regras definidas para tráfego permitido, e deve, por padrão, negar todo o tráfego por padrão. |

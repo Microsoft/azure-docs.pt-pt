@@ -7,13 +7,13 @@ ms.prod: sql
 ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: maghan
-ms.openlocfilehash: 97ed9b6f3f21b6d9e220c1f4e17d4ba6b0d8b485
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.reviewer: jburchel
+ms.openlocfilehash: 9775266c986b3be547d8b78b8c74765c3b72a92e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98555513"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786860"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Abra e guarde ficheiros nas instalações e no Azure com pacotes SSIS implantados no Azure
 

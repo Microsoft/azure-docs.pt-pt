@@ -1,18 +1,14 @@
 ---
 title: Trabalhar com os comandos da CLI do Defender para IoT
 description: Este artigo descreve os comandos Defender para IoT CLI para sensores e consolas de gestão no local.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9cd3f4325db2bc45ddcd6cc011dd4993e385a43c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636565"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778683"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Trabalhar com os comandos da CLI do Defender para IoT
 
@@ -258,7 +254,7 @@ Pode utilizar os seguintes atributos com o `directions` comando:
 ## <a name="system-actions"></a>Ações do sistema
 A tabela a seguir descreve os comandos disponíveis para executar várias ações do sistema dentro do Defender para IoT:
 
-|Name|Código|Description|
+|Name|Código|Descrição|
 |----|----|-----------|
 |Mostre a data|`date`|Devolve a data atual no anfitrião em formato GMT.|
 |Reinicie o anfitrião|`system reboot`|Reinicia o dispositivo de anfitrião.|
@@ -287,7 +283,7 @@ O comando suporta as seguintes bandeiras de entrada:
 | ---chave | O \* ficheiro .key. O comprimento da chave deve ser no mínimo 2.048 bits. |
 | ...cadeia | Caminho para o arquivo da cadeia de certificados (opcional). |
 | --passe | Frase-passe usada para encriptar o certificado (opcional). |
-| --passphrase-set | O padrão é **falso,** **não é desuso**. <br />Definir para **True** para utilizar a frase de passe anterior fornecida com o certificado anterior (opcional). |  |
+| --passphrase-set | O padrão é **falso,** **não é desuso**. <br />Definir para **True** para utilizar a frase de passe anterior fornecida com o certificado anterior (opcional). | 
 
 Quando estiver a utilizar a ferramenta:
 

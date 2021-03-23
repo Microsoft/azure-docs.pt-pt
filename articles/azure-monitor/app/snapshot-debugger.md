@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217402"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786486"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 Quando ocorre uma exceção, pode recolher automaticamente uma imagem de depurar da sua aplicação web ao vivo. O instantâneo mostra o estado do código fonte e as variáveis no momento em que a exceção foi lançada. O Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe instantâneos nas suas exceções de arremesso de topo para que tenha a informação necessária para diagnosticar problemas na produção. Inclua o [pacote NuGet do colecionador Snapshot](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e configurar opcionalmente os parâmetros de recolha em [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). As imagens aparecem em [exceções](./asp-net-exceptions.md) no portal Application Insights.
@@ -24,7 +24,10 @@ As fotos de depurg são armazenadas durante 15 dias. Esta política de retençã
 ## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Ativar o Debugger Snapshot de Insights de Aplicação para a sua aplicação
 A coleção Snapshot está disponível para:
 * .NET Framework e ASP.NET aplicações em execução .NET Framework 4.5 ou posterior.
-* .NET Core 2.0 e ASP.NET aplicações Core 2.0 em execução no Windows.
+* .NET Core e ASP.NET Aplicações Core em execução .NET Core 2.1 (LTS) ou 3.1 (LTS) no Windows.
+* .NET 5.0 aplicações no Windows.
+
+Não recomendamos a utilização de .NET Core 2.0, 2.2 ou 3.0, uma vez que estão sem suporte.
 
 São apoiados os seguintes ambientes:
 

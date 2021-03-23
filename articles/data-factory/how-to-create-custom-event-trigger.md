@@ -4,15 +4,15 @@ description: Saiba como criar um gatilho personalizado na Azure Data Factory que
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: e372808250b1d5b21cd5f6c5226922d5d6ad0f77
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d2f26b24e7fa10d9244de8f99d78c64a44b3d61
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609696"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785653"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-custom-event-preview"></a>Crie um gatilho que executa um pipeline em resposta a um evento personalizado (Preview)
 
@@ -92,7 +92,7 @@ A tabela a seguir fornece uma visão geral dos elementos de esquema que estão r
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores Permitidos** | **Obrigatório** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **âmbito** | O ID de recursos do Azure Resource Manager do tópico da grelha de eventos. | String | ID do gestor de recursos Azure | Yes |
+| **âmbito** | O ID de recursos do Azure Resource Manager do tópico da grelha de eventos. | String | ID do gestor de recursos Azure | Sim |
 | **eventos** | O tipo de eventos que causam este gatilho a disparar. | Matriz de cordas    |  | Sim, pelo menos um valor é esperado |
 | **assuntoScom** | O campo de objetos deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `factories` apenas dispara o gatilho para o sujeito do evento a começar `factories` por . | String   | | No |
 | **AssuntoEndsWith** | O campo de objetos deve terminar com o padrão previsto para o gatilho disparar. | String   | | No |

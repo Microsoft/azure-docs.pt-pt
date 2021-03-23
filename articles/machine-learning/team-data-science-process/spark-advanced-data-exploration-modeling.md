@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b84b7387411e7df8e092a2e810591697319f9554
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93321344"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774682"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 
@@ -35,7 +35,8 @@ Uma forma comum de realizar a otimização do hiperparímetro usada aqui é uma 
 
 Os modelos que usamos incluem regressão logística e linear, florestas aleatórias e árvores impulsionadas por gradiente:
 
-* [A regressão linear com SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) é um modelo linear de regressão que utiliza um método de descida de gradiente estocástico (SGD) e para otimização e escala de recursos para prever os valores da gorjeta pagos. 
+* [A regressão linear com SGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html#pyspark.mllib.regression.LinearRegressionWithSGD
+) é um modelo linear de regressão que utiliza um método de descida de gradiente estocástico (SGD) e para otimização e escala de recursos para prever os valores da gorjeta pagos. 
 * [Regressão logística com REgressão LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) ou "logit", é um modelo de regressão que pode ser usado quando a variável dependente é categórica para fazer classificação de dados. LBFGS é um algoritmo de otimização quase Newton que se aproxima do algoritmo Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando uma quantidade limitada de memória de computador e que é amplamente utilizado na aprendizagem automática.
 * [Florestas aleatórias](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são conjuntos de árvores de decisão.  Combinam muitas árvores de decisão para reduzir o risco de sobremontagem. As florestas aleatórias são usadas para regressão e classificação e podem lidar com características categóricas e podem ser estendidas à definição de classificação multiclasse. Não necessitam de escala de recursos e são capazes de capturar não linearidades e interações de recurso. As florestas aleatórias são um dos modelos de aprendizagem automática mais bem sucedidos para classificação e regressão.
 * [As árvores de gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. GBTS treina as árvores de decisão iterativamente para minimizar uma função de perda. O GBTS é utilizado para regressão e classificação e pode lidar com funcionalidades categóricas, não requer escala de recursos e são capazes de capturar não linearidades e interações de recurso. Também podem ser usados numa definição de classificação multiclasse.

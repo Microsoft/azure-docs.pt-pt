@@ -1,24 +1,14 @@
 ---
 title: 'Quickstart: Começar'
 description: Neste arranque rápido, você vai aprender como começar com a compreensão do fluxo de trabalho básico para o Defender para implementação de IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/18/2021
-ms.author: shhazam
-ms.openlocfilehash: 487f9be432c908bf8ee1da858a9e45a18adffb8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c6136d734570714b691a4ba3c2a72305c4c85590
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102447712"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784497"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Quickstart: Começa com o Defender para o IoT
 

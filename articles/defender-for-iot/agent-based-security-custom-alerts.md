@@ -1,25 +1,14 @@
 ---
 title: Alertas personalizados de segurança baseados em agente
-titleSuffix: Azure Defender for IoT
 description: Saiba mais sobre alertas de segurança personalizáveis e remediação recomendada utilizando o Defender para as funcionalidades e serviços do dispositivo IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 5d0eeb046d7a4ba474a1ed4a2cfb07a07f1c3888
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2fb1385c12cbd9d0479d8528f54aad8816393ad1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493310"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784922"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>Defender para dispositivos IoT alertas de segurança personalizados
 
@@ -31,7 +20,7 @@ As seguintes listas de alertas Defender para IoT são definíveis por si com bas
 
 ## <a name="agent-based-security-custom-alerts"></a>Alertas personalizados de segurança baseados em agente
 
-| Gravidade | Nome do alerta | Origem de dados | Description | Remediação sugerida |
+| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida |
 |--|--|--|--|--|
 | Baixo | Alerta personalizado - O número de ligações ativas está fora do alcance permitido | Defensor-IoT-micro-agente, Azure RTOS | O número de ligações ativas dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível. | Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de ligação permitida. |
 | Baixo | Alerta personalizado - A ligação de saída criada para um IP que não é permitido | Defensor-IoT-micro-agente, Azure RTOS | Uma ligação de saída foi criada para um IP que está fora da sua lista de IP permitida. | Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de IP permitida. |
