@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466427"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775940"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Utilize Azure DevOps para criar um pipeline CI/CD para um trabalho de Stream Analytics
 
@@ -20,13 +20,13 @@ Neste artigo, aprende-se a criar a Azure DevOps [a construir](/azure/devops/pipe
 
 ## <a name="commit-your-stream-analytics-project"></a>Comprometa o seu projeto Stream Analytics
 
-Antes de começar, comprometa os seus projetos stream analytics completos como ficheiros de origem para um repositório [Azure DevOps.](/azure/devops/user-guide/source-control) Pode fazer referência a este [repositório](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) de amostras e [código fonte de projeto Stream Analytics](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) em Pipelines Azure.
+Antes de começar, comprometa os seus projetos stream analytics completos como ficheiros de origem para um repositório [Azure DevOps.](/azure/devops/user-guide/source-control) Pode fazer referência a este [repositório](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) de amostras e [código fonte de projeto Stream Analytics](https://dev.azure.com/ASA-CICD-sample/_git/azure-streamanalytics-cicd-demo) em Pipelines Azure.
 
 Os passos deste artigo usam um projeto stream Analytics Visual Studio Code. Se estiver a utilizar um projeto visual Studio, siga os passos em [construções, testes e implementações de um trabalho Azure Stream Analytics utilizando ferramentas CI/CD](cicd-tools.md).
 
 ## <a name="create-a-build-pipeline"></a>Criar um pipeline de compilação
 
-Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer referência a esta amostra [de construção automática e teste do gasoduto](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) em Azure DevOps.
+Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer referência a esta amostra [de construção automática e teste do gasoduto](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) em Azure DevOps.
 
 1. Abra um navegador web e navegue para o seu projeto em Azure DevOps.  
 
@@ -155,7 +155,7 @@ O ficheiro de resumo do teste e os ficheiros de modelo do Gestor de Recursos Azu
 
 ## <a name="release-with-azure-pipelines"></a>Lançamento com gasodutos Azure
 
-Nesta secção, aprende-se a criar um oleoduto de libertação. Pode fazer referência a este [gasoduto de libertação de](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2&preserve-view=true) amostras em Azure DevOps.
+Nesta secção, aprende-se a criar um oleoduto de libertação. Pode fazer referência a este [gasoduto de libertação de](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) amostras em Azure DevOps.
 
 Abra um navegador web e navegue para o seu projeto Azure Stream Analytics Visual Studio Code.
 

@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 697ac5d213bbe2e52134cad519f69c233f1cd593
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583280"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802357"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -31,7 +31,12 @@ Este artigo discute uma coleção de boas práticas e dicas úteis para usar efi
 
 - **As piscinas devem ter mais do que um nó computacional:** Os nós individuais não estão garantidos para estarem sempre disponíveis. Embora incomuns, falhas de hardware, atualizações do sistema operativo e uma série de outros problemas podem fazer com que os nós individuais estejam offline. Se a sua carga de trabalho do Lote necessitar de progressos determinísticos e garantidos, deverá alocar piscinas com múltiplos nós.
 
-- **Não reutilizar os nomes dos recursos:** Os recursos de lote (empregos, piscinas, etc.) muitas vezes vêm e vão ao longo do tempo. Por exemplo, você pode criar uma piscina na segunda-feira, apagá-la na terça-feira e, em seguida, criar outra piscina na quinta-feira. Cada novo recurso que criar deve receber um nome único que nunca usou antes. Isto pode ser feito utilizando um GUID (como todo o nome de recurso, ou como parte dele) ou incorporando o tempo que o recurso foi criado no nome do recurso. O lote suporta [o DisplayName,](/dotnet/api/microsoft.azure.batch.jobspecification.displayname)que pode ser usado para dar a um recurso um nome legível humano, mesmo que o ID de recurso real seja algo que não seja tão amigável para o homem. A utilização de nomes únicos facilita a diferenciação de que recurso particular fez algo em registos e métricas. Também elimina a ambiguidade se tiver de arquivar um caso de suporte para um recurso.
+- **Não utilize imagens com datas de fim de vida iminentes (EOL).**
+    Recomenda-se vivamente evitar imagens com datas iminentes de fim de vida (EOL) de suporte ao lote. Estas datas podem ser descobertas através da [ `ListSupportedImages` API,](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages) [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)ou [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). É da sua responsabilidade refrescar periodicamente a sua visão das datas EOL pertinentes para as suas piscinas e migrar as suas cargas de trabalho antes da data do EOL ocorrer. Se estiver a utilizar uma imagem personalizada com um agente de nó especificado, então terá de se certificar de que segue datas de fim de vida de suporte do Batch para a imagem para a qual a sua imagem personalizada é derivada ou alinhada.
+
+- **Não reutilizá os nomes dos recursos.**
+    Os recursos de lote (empregos, piscinas, etc.) muitas vezes vêm e vão ao longo do tempo. Por exemplo, você pode criar uma piscina na segunda-feira, apagá-la na terça-feira e, em seguida, criar outra piscina na quinta-feira. Cada novo recurso que criar deve receber um nome único que nunca usou antes. Isto pode ser feito utilizando um GUID (como todo o nome de recurso, ou como parte dele) ou incorporando o tempo que o recurso foi criado no nome do recurso. O lote suporta [o DisplayName,](/dotnet/api/microsoft.azure.batch.jobspecification.displayname)que pode ser usado para dar a um recurso um nome legível humano, mesmo que o ID de recurso real seja algo que não seja tão amigável para o homem. A utilização de nomes únicos facilita a diferenciação de que recurso particular fez algo em registos e métricas. Também elimina a ambiguidade se tiver de arquivar um caso de suporte para um recurso.
+
 
 - **Continuidade durante a manutenção e avaria da piscina:** É melhor que os seus empregos usem piscinas dinamicamente. Se os seus trabalhos usarem a mesma piscina para tudo, há a hipótese de os seus empregos não correrem se algo correr mal com a piscina. Isto é especialmente importante para cargas de trabalho sensíveis ao tempo. Para corrigir isto, selecione ou crie uma piscina dinamicamente quando agendar cada trabalho, ou tenha uma maneira de anular o nome da piscina para que possa contornar uma piscina pouco saudável.
 

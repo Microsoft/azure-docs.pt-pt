@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c641e24a498a6263d6a7c2325eed099b75a82caa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f4817e53cb36bc96add19d855750a73a151b4891
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426438"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772302"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -179,4 +179,4 @@ Agora pode inscrever-se no portal Azure e verificar se os dados existem na tabel
 Agora pode proceder ao próximo tutorial e aprender a migrar dados para a conta AZure Cosmos DB Table API. 
 
 > [!div class="nextstepaction"]
->[Migrar dados para Azure Comsos DB Table API](../cosmos-db/table-import.md)
+>[Migrar dados para Azure Cosmos DB Table API](../cosmos-db/table-import.md)

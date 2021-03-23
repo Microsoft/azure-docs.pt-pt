@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a7be682f921efdfae486e8f6545758964a941ae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90ad35757834c14abdffb017ff31b3296074ca24
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098864"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802442"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implementar máquinas virtuais Azure Spot utilizando o Azure CLI
 
@@ -33,7 +33,7 @@ Para criar máquinas virtuais Azure Spot, tem de executar a versão Azure CLI 2.
 
 Inicie sessão no Azure com [início de sessão](/cli/azure/reference-index#az-login).
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -41,7 +41,7 @@ az login
 
 Este exemplo mostra como implementar uma Máquina Virtual Linux Azure Spot que não será despejada com base no preço. A política de despejo está definida para negociar o VM, para que possa ser reiniciada mais tarde. Se pretender eliminar o VM e o disco subjacente quando o VM for despejado, desajuste `--eviction-policy` para `Delete` .
 
-```azurecli
+```azurecli-interactive
 az group create -n mySpotGroup -l eastus
 az vm create \
     --resource-group mySpotGroup \
@@ -58,7 +58,7 @@ az vm create \
 
 Após a criação do VM, pode consultar para ver o preço máximo de faturação para todos os VMs do grupo de recursos.
 
-```azurecli
+```azurecli-interactive
 az vm list \
    -g mySpotGroup \
    --query '[].{Name:name, MaxPrice:billingProfile.maxPrice}' \
@@ -67,21 +67,55 @@ az vm list \
 
 ## <a name="simulate-an-eviction"></a>Simular um despejo
 
-Você pode [simular um despejo](/rest/api/compute/virtualmachines/simulateeviction) de uma Máquina Virtual Azure Spot, para testar quão bem a sua aplicação irá remexe para um despejo súbito. 
+Pode simular um despejo de uma Máquina Virtual Azure Spot usando REST, PowerShell ou o CLI, para testar quão bem a sua aplicação irá responder a um despejo súbito.
 
-Substitua as seguintes informações: 
+Na maioria dos casos, irá querer utilizar as Máquinas Virtuais REST API [- Simular o Despejo](/rest/api/compute/virtualmachines/simulateeviction) para ajudar no teste automatizado de aplicações. Para rest, um `Response Code: 204` meio que o despejo simulado foi bem sucedido. Pode combinar despejos simulados com o [serviço Evento Agendado,](scheduled-events.md)para automatizar como a sua aplicação irá responder quando o VM for despejado.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+Para ver eventos agendados em ação, assista [Azure Friday - Usando Azure Eventos Agendados para preparar a manutenção de VM](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>Teste rápido
+
+Para um teste rápido para mostrar como um despejo simulado vai funcionar, vamos percorrer consultando o serviço de eventos agendado para ver como é quando simula um despejo usando o Azure CLI.
+
+O serviço De Evento Agendado está habilitado para o seu serviço na primeira vez que faz um pedido de eventos. 
+
+Remoto para o seu VM e, em seguida, abra um pedido de comando. 
+
+A partir do pedido de comando no seu VM, escreva:
+
 ```
-`Response Code: 204` significa que o despejo simulado foi bem sucedido. 
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
 
-**Próximos passos**
+Esta primeira resposta pode demorar até 2 minutos. A partir de agora, devem exibir a saída quase imediatamente.
+
+A partir de um computador que tem o CLI Azure instalado (como a sua máquina local), simular um despejo usando [az vm simular despejo](https://docs.microsoft.com/cli/azure/vm#az_vm_simulate_eviction). Substitua o nome do grupo de recursos e o nome VM pelo seu próprio. 
+
+```azurecli-interactive
+az vm simulate-eviction --resource-group mySpotRG --name mySpot
+```
+
+A saída de resposta terá `Status: Succeeded` se o pedido tiver sido feito com sucesso.
+
+Volte rapidamente à sua ligação remota à sua Máquina Virtual Spot e volte a consultar o ponto de partida de Eventos Agendados. Repita o seguinte comando até obter uma saída que contenha mais informações:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+Quando o Serviço de Eventos Agendados receber a notificação de despejo, receberá uma resposta semelhante a esta:
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+Pode ver `"EventType":"Preempt"` isso, e o recurso é o recurso VM `"Resources":["myspotvm"]` . 
+
+Também pode ver quando o VM será despejado verificando o `"NotBefore"` - o VM não será despejado antes do tempo dado, de modo que é a sua janela para o seu pedido fechar graciosamente.
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode criar uma máquina virtual Azure Spot utilizando [a Azure PowerShell,](../windows/spot-powershell.md) [portal](../spot-portal.md)ou um [modelo](spot-template.md).
 

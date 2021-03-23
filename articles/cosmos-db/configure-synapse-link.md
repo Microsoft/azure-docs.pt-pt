@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7accf705ee64be5ba416be9df2f92693b07e8a8c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584589"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799654"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurar e utilizar o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -276,7 +276,7 @@ Você pode construir uma base de dados de piscina SQL sem servidor e vistas sobr
 
 O [modelo Azure Resource Manager](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) cria uma conta DB do Azure Cosmos habilitada para a API SQL. Este modelo cria uma conta API core (SQL) numa região com um recipiente configurado com TTL analítico ativado, e uma opção de utilização manual ou de escala automática. Para implementar este modelo, clique em **Implementar para Azure** na página de readme.
 
-## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Começando com Azure Synpase Link - Amostras
+## <a name="getting-started-with-azure-synapse-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Começando com Azure Synapse Link - Amostras
 
 Pode encontrar amostras para começar com a Azure Synapse Link no [GitHub.](https://aka.ms/cosmosdb-synapselink-samples) Estas soluções de ponta a ponta com cenários IoT e retail. Também pode encontrar as amostras correspondentes à Azure Cosmos DB API para a MongoDB no mesmo repo sob a pasta [MongoDB.](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) 
 

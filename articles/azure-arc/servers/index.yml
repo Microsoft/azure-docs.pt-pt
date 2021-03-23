@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 0d0caca2d51781d899765820d691f88b7ab6f2e9
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: 0f9279dc0c0fe01f9faf0e6d3763ae1080ecfa2d
+  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101686381"
+  ms.lasthandoff: 03/23/2021
+  ms.locfileid: "104799603"
 landingContent:
 - title: Ligar computadores ao Azure com servidores preparados para o Azure Arc
   linkLists:
@@ -22,9 +22,9 @@ landingContent:
     links:
     - text: O que são servidores preparados para o Azure Arc?
       url: overview.md
-  - linkListType: architecture
+  - linkListType: deploy
     links:
-    - text: Planeie uma implantação em escala
+    - text: Plano de implementação
       url: plan-at-scale-deployment.md
   - linkListType: get-started
     links:

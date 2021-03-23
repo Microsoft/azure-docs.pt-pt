@@ -4,12 +4,12 @@ description: Use o seu registo de contentores Azure para construir, importar, ar
 ms.topic: article
 ms.date: 02/07/2021
 ms.custom: ''
-ms.openlocfilehash: f8467cd3108ae4faea9ecb4c9d9ae339f476c311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 520518a275e0a9d191ae770e560a0e6e8278eae2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100012340"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802459"
 ---
 # <a name="multi-architecture-images-in-your-azure-container-registry"></a>Imagens multi-arquitetura no seu registo de contentores Azure
 
@@ -165,7 +165,7 @@ steps:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Use [gasodutos Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) para construir imagens de contentores para diferentes arquiteturas.
+* Use [gasodutos Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para construir imagens de contentores para diferentes arquiteturas.
 * Saiba construir imagens multiplataformas utilizando o experimental Docker [buildx](https://docs.docker.com/buildx/working-with-buildx/) plug-in.
 
 <!-- LINKS - external -->

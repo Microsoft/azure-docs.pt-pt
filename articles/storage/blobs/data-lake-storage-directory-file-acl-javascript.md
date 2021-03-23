@@ -1,26 +1,26 @@
 ---
-title: Utilize o JavaScript para gerir dados em Azure Data Lake Storage Gen2
+title: Utilize o JavaScript (Node.js) para gerir dados em Azure Data Lake Storage Gen2
 description: Utilize a biblioteca de clientes do Azure Storage Data Lake para o JavaScript para gerir diretórios e ficheiros em contas de armazenamento que têm espaço hierárquico de nomes ativados.
 author: normesta
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 03/19/2021
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ce5df805ddce6cdb52e4225bb77e2d8dfa9b9b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 678af3e2fb4111593ece0cc2cdf3811cf0e793a8
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100650172"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774767"
 ---
-# <a name="use-javascript-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Use o JavaScript para gerir diretórios e ficheiros em Azure Data Lake Storage Gen2
+# <a name="use-javascript-sdk-in-nodejs-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utilize o JavaScript SDK em Node.js para gerir diretórios e ficheiros em Azure Data Lake Storage Gen2
 
-Este artigo mostra-lhe como usar o JavaScript para criar e gerir diretórios e ficheiros em contas de armazenamento que têm um espaço hierárquico de nomes.
+Este artigo mostra-lhe como usar Node.js para criar e gerir diretórios e ficheiros em contas de armazenamento que têm um espaço hierárquico de nomes.
 
-Para saber como obter, definir e atualizar as listas de controlo de acesso (ACL) de diretórios e ficheiros, consulte [Use JavaScript para gerir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-javascript.md).
+Para saber como obter, definir e atualizar as listas de controlo de acesso (ACL) de diretórios e ficheiros, consulte [Use JavaScript SDK em Node.js para gerir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-javascript.md).
 
 [Pacote (Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [Dar feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
@@ -43,7 +43,11 @@ npm install @azure/storage-file-datalake
 Importe o `storage-file-datalake` pacote colocando esta declaração no topo do seu ficheiro de código. 
 
 ```javascript
-const AzureStorageDataLake = require("@azure/storage-file-datalake");
+const {
+AzureStorageDataLake,
+DataLakeServiceClient,
+StorageSharedKeyCredential
+} = require("@azure/storage-file-datalake");
 ```
 
 ## <a name="connect-to-the-account"></a>Ligar à conta 

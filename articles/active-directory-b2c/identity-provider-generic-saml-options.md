@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 43c57950d317de42df666ddd25cbcb2e9a4c9611
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 32f9df410dabf1902e9a7d9aadbf47288bfa90f5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488878"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798243"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configure opções de fornecedor de identidade SAML com Azure Ative Directory B2C
 
@@ -85,9 +85,11 @@ Segue-se um exemplo de um serviço único de inscrição de metadados AD AZure c
 </IDPSSODescriptor>
 ```
 
-As respostas SAML são transmitidas ao Azure AD B2C através da ligação HTTP POST. Os metadados de política Azure AD B2C `AssertionConsumerService` definem a ligação a `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` .
+### <a name="assertion-consumer-service"></a>Serviço de afirmação ao consumidor
 
-Segue-se um exemplo de um elemento de metadados de afirmação de metadados de política Azure AD B2C.
+O Serviço de Apoio ao Consumidor de Afirmação (ou ACS) é onde as respostas SAML do fornecedor de identidade podem ser enviadas e recebidas pela Azure AD B2C. As respostas SAML são transmitidas ao Azure AD B2C através da ligação HTTP POST. A localização do ACS aponta para a política de base do seu partido. Por exemplo, se a política de base for *B2C_1A_signup_signin,* o ACS é a política de base do *B2C_1A_signup_signin*, como *B2C_1A_TrustFrameworkBase*.
+
+Segue-se um exemplo de um elemento de metadados de afirmação de metadados de política Azure AD B2C. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

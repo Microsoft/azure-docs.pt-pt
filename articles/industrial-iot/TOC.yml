@@ -1,0 +1,64 @@
+- name: Documentação de IoT industrial Azure
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é IoT Industrial?
+      href: overview-what-is-industrial-iot.md
+    - name: O que é a Editora OPC?
+      href: overview-what-is-opc-publisher.md
+    - name: O que é a Plataforma Industrial IoT?
+      href: overview-what-is-industrial-iot-platform.md
+- name: Tutoriais
+  items:
+    - name: Tutoriais autónomos da OPC Publisher
+      items:
+        - name: Implementar o modo autónomo da editora OPC
+          href: tutorial-publisher-deploy-opc-publisher-standalone.md
+        - name: Configurar o Publicador OPC
+          href: tutorial-publisher-configure-opc-publisher.md
+        - name: Performance e Afinação da Memória da Editora OPC
+          href: tutorial-publisher-performance-memory-tuning-opc-publisher.md
+    - name: Tutoriais da Plataforma IIoT (modo orquestrado)
+      items:
+        - name: Implementar plataforma IIoT
+          href: tutorial-deploy-industrial-iot-platform.md
+        - name: Configurar componentes IIoT
+          href: tutorial-configure-industrial-iot-components.md
+        - name: Puxe os dados do IIoT para o ADX
+          href: tutorial-industrial-iot-azure-data-explorer.md
+        - name: Visualizar e analisar os dados utilizando insights da Série De Tempo
+          href: tutorial-visualize-data-time-series-insights.md
+- name: Referência
+  items:
+    - name: Argumentos de linha de comando
+      href: reference-command-line-arguments.md
+    - name: Formato de ficheiro de configuração de telemetria da editora OPC
+      href: reference-opc-publisher-telemetry-format.md
+- name: Recursos
+  items:
+    - name: Repositório da OPC Editor GitHub
+      href: 'https://github.com/Azure/Industrial-IoT'
+    - name: Repositório da plataforma IIoT GitHub
+      href: 'https://github.com/Azure/iot-edge-opc-publisher'
+    - name: Opções de suporte e ajuda
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    - name: IoT Glossário
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    - name: Serviços de IoT do Azure
+      items:
+        - name: IoT Hub
+          href: ../iot-hub/index.yml
+        - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
+          href: ../iot-dps/index.yml
+        - name: Centro de IoT
+          href: /microsoft-iot-central/
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Aceleradores de soluções IoT
+          href: ./index.yml
+        - name: IoT Plug and Play
+          href: ../iot-pnp/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml

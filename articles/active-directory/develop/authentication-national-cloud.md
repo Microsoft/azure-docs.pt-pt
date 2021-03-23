@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 719d89fafe57e7f5132698404bcc0a41a9f9db37
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96444804"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780077"
 ---
 # <a name="national-clouds"></a>Clouds nacionais
 
@@ -55,7 +55,7 @@ A tabela que se segue lista os URLs de base para os pontos finais Azure AD utili
 |----------------|-------------------------|
 | Azure AD para governo dos EUA | `https://login.microsoftonline.us` |
 | Azure AD Alemanha| `https://login.microsoftonline.de` |
-| Azure AD China operada pela 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD China operada pela 21Vianet | `https://login.partner.microsoftonline.cn/common` |
 | Azure AD (serviço global)| `https://login.microsoftonline.com` |
 
 Pode formar pedidos para a autorização AD do Azure ou pontos finais simbólicos utilizando o URL de base específico da região apropriado. Por exemplo, para a Azure Alemanha:

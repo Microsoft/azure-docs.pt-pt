@@ -928,6 +928,14 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-ios-android
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
 - id: acs-plat-azp-js
   title: Plataforma
   prompt: Escolher uma plataforma
@@ -1077,9 +1085,9 @@ groups:
   - id: programming-language-ios
     title: iOS
 metadata:
-  ms.openlocfilehash: da49dc6ad438a4ef962c88b818a43ec04bfc727f
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.openlocfilehash: de7fafcdb24cfd518bc18332acd35521d6a84042
+  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104587955"
+  ms.lasthandoff: 03/23/2021
+  ms.locfileid: "104800453"

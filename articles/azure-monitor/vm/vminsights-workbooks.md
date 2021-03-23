@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046521"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798855"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Criar relatórios interativos VM insights com livros de trabalho
 
@@ -25,17 +25,17 @@ Os livros de trabalho são úteis para cenários como:
 
 A tabela seguinte resume os livros de trabalho que os insights de VM incluem para começar.
 
-| Livro | Description | Âmbito |
+| Livro | Descrição | Âmbito |
 |----------|-------------|-------|
-| Desempenho | Fornece uma versão personalizável da nossa visão top N List e Charts num único livro que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Em escala |
-| Contadores de desempenho | Uma vista de gráfico top N através de um vasto conjunto de contadores de desempenho. | Em escala |
-| Ligações | As ligações proporcionam uma visão aprofundada das ligações de entrada e saída dos seus VMs monitorizados. | Em escala |
-| Portas Ativas | Fornece uma lista dos processos que têm ligado às portas nos VMs monitorizados e sua atividade no prazo escolhido. | Em escala |
-| Portas Abertas | Fornece o número de portas abertas nos seus VMs monitorizados e os detalhes sobre as portas abertas. | Em escala |
-| Ligações com Falhas | Exiba a contagem de ligações falhadas nos seus VMs monitorizados, a tendência de falha, e se a percentagem de falhas estiver a aumentar ao longo do tempo. | Em escala |
-| Segurança e Auditoria | Uma análise do tráfego TCP/IP que reporta sobre ligações globais, ligações maliciosas, onde os pontos finais ip residem globalmente.  Para ativar todas as funcionalidades, terá de ativar a Deteção de Segurança. | Em escala |
-| Tráfego TCP | Um relatório classificado para os seus VMs monitorizados e o seu tráfego de rede enviado, recebido e total numa rede e apresentado como uma linha de tendência. | Em escala |
-| Comparação de Tráfego | Estes livros permitem comparar as tendências de tráfego de rede de uma única máquina ou de um grupo de máquinas. | Em escala |
+| Desempenho | Fornece uma versão personalizável da nossa visão top N List e Charts num único livro que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Vários VMs |
+| Contadores de desempenho | Uma vista de gráfico top N através de um vasto conjunto de contadores de desempenho. | Vários VMs |
+| Ligações | As ligações proporcionam uma visão aprofundada das ligações de entrada e saída dos seus VMs monitorizados. | Vários VMs |
+| Portas Ativas | Fornece uma lista dos processos que têm ligado às portas nos VMs monitorizados e sua atividade no prazo escolhido. | Vários VMs |
+| Portas Abertas | Fornece o número de portas abertas nos seus VMs monitorizados e os detalhes sobre as portas abertas. | Vários VMs |
+| Ligações com Falhas | Exiba a contagem de ligações falhadas nos seus VMs monitorizados, a tendência de falha, e se a percentagem de falhas estiver a aumentar ao longo do tempo. | Vários VMs |
+| Segurança e Auditoria | Uma análise do tráfego TCP/IP que reporta sobre ligações globais, ligações maliciosas, onde os pontos finais ip residem globalmente.  Para ativar todas as funcionalidades, terá de ativar a Deteção de Segurança. | Vários VMs |
+| Tráfego TCP | Um relatório classificado para os seus VMs monitorizados e o seu tráfego de rede enviado, recebido e total numa rede e apresentado como uma linha de tendência. | Vários VMs |
+| Comparação de Tráfego | Estes livros permitem comparar as tendências de tráfego de rede de uma única máquina ou de um grupo de máquinas. | Vários VMs |
 | Desempenho | Fornece uma versão personalizável da nossa visão Performance que aproveita todos os contadores de desempenho do Log Analytics que ativou. | VM única | 
 | Ligações | As ligações proporcionam uma visão aprofundada das ligações de entrada e saída do seu VM. | VM única |
  

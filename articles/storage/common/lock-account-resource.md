@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9d80c0b8d4d913322c47d1ad278d6dbc033d2409
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79b88ad58a2eb95a48a140b3b98d606af495cb94
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102620154"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799790"
 ---
 # <a name="apply-an-azure-resource-manager-lock-to-a-storage-account"></a>Aplicar um bloqueio do Gestor de Recursos Azure numa conta de armazenamento
 
@@ -25,8 +25,8 @@ A Microsoft recomenda bloquear todas as suas contas de armazenamento com um bloq
 
 Para obter mais informações sobre as fechaduras do Azure Resource Manager, consulte [os recursos de bloqueio para evitar alterações.](../../azure-resource-manager/management/lock-resources.md)
 
-> [!IMPORTANT]
-> Bloquear uma conta de armazenamento não protege os dados dentro dessa conta de serem atualizados ou eliminados.
+> [!CAUTION]
+> O bloqueio de uma conta de armazenamento não protege os contentores ou bolhas nessa conta de serem apagados ou substituídos. Para obter mais informações sobre como proteger os dados do blob, consulte a [visão geral da proteção de dados](../blobs/data-protection-overview.md).
 
 ## <a name="configure-an-azure-resource-manager-lock"></a>Configure um bloqueio de gestor de recursos Azure
 
@@ -83,4 +83,5 @@ Os dados nos Ficheiros Azure ou no serviço Table podem tornar-se inacessíveis 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Bloquear recursos para evitar alterações](../../azure-resource-manager/management/lock-resources.md)
+- [Descrição geral da proteção de dados](../blobs/data-protection-overview.md)
+- [Bloquear recursos para evitar alterações](../../azure-resource-manager/management/lock-resources.md)

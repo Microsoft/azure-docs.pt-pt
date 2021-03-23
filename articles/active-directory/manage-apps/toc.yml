@@ -290,8 +290,10 @@
               href: application-proxy-understand-cors-issues.md
 - name: Referência
   items:
-    - name: FAQ do Proxy de Aplicações
+    - name: App Proxy FAQ
       href: application-proxy-faq.md
+    - name: Certificados de Gestão de Aplicativos FAQ
+      href: application-management-certs-faq.md
     - name: Histórico de versões do Proxy de Aplicação
       href: application-proxy-release-version-history.md
     - name: Motivos pelos quais as aplicações aparecem nas Aplicações Empresariais

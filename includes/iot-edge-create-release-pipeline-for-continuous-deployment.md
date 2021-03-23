@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8009d98ddbfa778cf5f357248ecd943b810e06e3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761222"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803352"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Criar um gasoduto de libertação para implantação contínua
 
@@ -89,6 +89,9 @@ Crie um novo oleoduto e adicione uma nova etapa:
     | Escolha dispositivo único/múltiplo | Escolha se deseja que o gasoduto de desbloqueio seja implantado num ou em vários dispositivos. Se utilizar para um único dispositivo, introduza o **ID do dispositivo IoT Edge**. Se estiver a ser implantado em vários dispositivos, especifique a **condição de alvo** do dispositivo . A condição do alvo é um filtro que combina com um conjunto de dispositivos IoT Edge no IoT Hub. Se pretender utilizar as etiquetas do dispositivo como condição, tem de atualizar as etiquetas dos dispositivos correspondentes com o ioT Hub de dispositivo twin. Atualize a prioridade de **implementação IoT Edge ID** e **IoT Edge** nas definições avançadas. Para obter mais informações sobre a criação de uma implementação para vários dispositivos, consulte [as implementações automáticas Understand IoT Edge](../articles/iot-edge/module-deployment-monitoring.md). |
     | ID do dispositivo ou condição alvo | Dependendo da seleção prévia, especifique uma [identificação](../articles/iot-edge/module-deployment-monitoring.md#target-condition) do dispositivo ou uma condição alvo para implantar em vários dispositivos. |
     | Avançado | Para o IoT Edge deployment ID, especifique `$(System.TeamProject)-$(Release.EnvironmentName)` . Esta variável mapeia o nome do projeto e do lançamento com o seu IoT Edge implementação ID. |
+    
+
+    Se a sua tarefa envolver a utilização de uma imagem que reside num Registo De Confiança De Docker privado que não seja visível para a nuvem pública, pode definir a variável **ambiente SKIP_MODULE_IMAGE_VALIDATION** para saltar `true` a validação da imagem. 
 
     ![Adicione tarefas Azure IoT Edge para o seu estágio dev](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 

@@ -4,15 +4,15 @@ description: Este artigo lista as recomendações de segurança do Azure Securit
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/14/2021
+ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: b4fe575039c6e913ca20198f204b6529f6c482c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d9f76bd3c6ad0060a90f52abba1c7378b310e67
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466239"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801479"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança: um guia de referência
 
@@ -47,6 +47,10 @@ A sua pontuação segura baseia-se no número de recomendações do Centro de Se
 ## <a name="identityandaccess-recommendations"></a><a name='recs-identityandaccess'></a>Recomendações do IdentityAndAccess
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
+
+## <a name="iot-recommendations"></a><a name='recs-iot'></a>Recomendações ioT
+
+[!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
 
 ## <a name="networking-recommendations"></a><a name='recs-networking'></a>Recomendações de redes
 

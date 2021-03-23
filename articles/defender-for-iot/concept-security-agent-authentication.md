@@ -1,19 +1,14 @@
 ---
 title: Autenticação de agente de segurança (Pré-visualização)
-titleSuffix: Azure Defender for IoT
 description: Realizar a autenticação do micro-agente com dois métodos possíveis.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
-ms.openlocfilehash: 018da32b90c7730f82eaa5aa2cd2b5c7a64719a6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8dd8abaedaaababf4d84330c5bf8cb030bac55bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124589"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779244"
 ---
 # <a name="micro-agent-authentication-methods-preview"></a>Métodos de autenticação de micro-agente (Pré-visualização)
 

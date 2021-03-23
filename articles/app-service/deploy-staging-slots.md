@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100594234"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802969"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
@@ -214,6 +214,7 @@ Também pode personalizar o comportamento de aquecimento com uma ou ambas as [se
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para o ping para aquecer o seu site. Adicione esta definição de aplicação especificando um caminho personalizado que começa com um corte como o valor. Um exemplo é `/statuscheck`. O valor predefinido é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para o funcionamento do aquecimento. Adicione esta definição de aplicação com uma lista separada por vírgula de códigos HTTP. Um exemplo `200,202` é. Se o código de estado devolvido não estiver na lista, as operações de aquecimento e troca são interrompidas. Por predefinição, todos os códigos de resposta são válidos.
+- `WEBSITE_WARMUP_PATH`: Um caminho relativo no local que deve ser pingado sempre que o site reinicia (não só durante as trocas de ranhuras). Os valores de exemplo incluem `/statuscheck` ou o caminho da raiz, `/` .
 
 > [!NOTE]
 > O `<applicationInitialization>` elemento de configuração faz parte de cada arranque de aplicações, enquanto as duas configurações de aplicações de comportamento de aquecimento aplicam-se apenas a trocas de slots.

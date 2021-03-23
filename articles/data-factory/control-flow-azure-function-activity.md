@@ -3,16 +3,16 @@ title: Atividade de função Azure na Fábrica de Dados Azure
 description: Saiba como utilizar a atividade da Função Azure para executar uma Função Azure num pipeline da Data Factory
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 615fb1b9f5a9d87a8d69778930b7359823e1ec39
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13f00907737a99bc5dcd8c21d660ce83aa681908
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738026"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783800"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade da função Azure na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -1,20 +1,19 @@
 ---
-title: Ver alertas
+title: Filtrar e gerir alertas da página Alertas
 description: Veja os alertas de acordo com várias categorias e utiliza funcionalidades de pesquisa para ajudá-lo a encontrar alertas de interesse.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/02/2020
+ms.date: 3/22/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 391d1872124c7332bdaa6008a244490b47df4bf7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523673"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781590"
 ---
-# <a name="view-alerts"></a>Ver alertas
+# <a name="filter-and-manage-alerts-from-the-alerts-page"></a>Filtrar e gerir alertas da página Alertas 
 
 Este artigo descreve como visualizar alertas desencadeados pelo seu sensor e geri-los com ferramentas de alerta.
 
@@ -32,7 +31,7 @@ Para ver alertas:
 
 Pode ver alertas de acordo com várias categorias a partir da vista principal **alerta.** Selecione um alerta para rever detalhes e gerir o evento.
 
-| Ordenar por tipo | Description |
+| Ordenar por tipo | Descrição |
 |--|--|
 | **Alertas Importantes** | Alertas ordenados por importância. |
 | **Alertas Pinned** | Alertas que o utilizador prendeu para mais investigação. Os alertas fixos não são arquivados e são armazenados durante 14 dias na pasta fixada. |

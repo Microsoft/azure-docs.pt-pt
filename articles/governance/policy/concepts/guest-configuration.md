@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o cliente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a18f230c1b7b1eb2c953542e276127f4f47cbb39
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702883"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802527"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -57,7 +57,7 @@ A tabela a seguir mostra uma lista das ferramentas locais utilizadas em cada sis
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
-O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minutos. Uma vez recebida uma atribuição de hóspedes, as definições para essa configuração são novamente verificadas num intervalo de 15 minutos. Os resultados são enviados ao fornecedor de recursos de Configuração de Convidados quando a auditoria estiver concluída. Quando ocorre um gatilho de [avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado da máquina é escrito ao fornecedor de recursos de Configuração de Convidados. Esta atualização faz com que a Azure Policy avalie as propriedades do Gestor de Recursos Azure. Uma avaliação a pedido da Azure Policy recupera o valor mais recente do fornecedor de recursos de Configuração de Convidados. No entanto, não desencadeia uma nova auditoria da configuração dentro da máquina.
+O cliente da Configuração de Hóspedes verifica as atribuições de hóspedes novas ou alteradas a cada 5 minutos. Uma vez recebida uma atribuição de hóspedes, as definições para essa configuração são novamente verificadas num intervalo de 15 minutos. Os resultados são enviados ao fornecedor de recursos de Configuração de Convidados quando a auditoria estiver concluída. Quando ocorre um gatilho de [avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado da máquina é escrito ao fornecedor de recursos de Configuração de Convidados. Esta atualização faz com que a Azure Policy avalie as propriedades do Gestor de Recursos Azure. Uma avaliação a pedido da Azure Policy recupera o valor mais recente do fornecedor de recursos de Configuração de Convidados. No entanto, não desencadeia uma nova auditoria da configuração dentro da máquina. O estado é simultaneamente escrito no Azure Resource Graph.
 
 ## <a name="supported-client-types"></a>Tipos de clientes suportados
 

@@ -7,17 +7,43 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 12/7/2020
-  ms.openlocfilehash: 236cbb059919646910b2cacd53da3f9311225d69
-  ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+  ms.date: 3/22/2021
+  ms.openlocfilehash: 8419316a452b9258e8b54cb333aa5fe1ef87b5b9
+  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/22/2021
-  ms.locfileid: "104787062"
+  ms.lasthandoff: 03/23/2021
+  ms.locfileid: "104800181"
 landingContent:
 - title: Sobre a Plataforma Azure Industrial IoT
   linkLists:
   - linkListType: overview
     links:
+    - text: O que é IoT Industrial (IIoT)?
+      url: overview-what-is-industrial-iot.md
     - text: O que é a Plataforma De IoT Industrial (IIoT)?
       url: overview-what-is-industrial-iot-platform.md
+    - text: O que é a Editora OPC?
+      url: overview-what-is-opc-publisher.md
+- title: Começar com a Plataforma IoT Industrial (IIoT)
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementar a Plataforma Azure Industrial IoT
+      url: tutorial-deploy-industrial-iot-platform.md
+    - text: Configure os componentes IoT industriais
+      url: tutorial-configure-industrial-iot-components.md
+    - text: Puxe os dados de IoT Industrial Azure para o ADX
+      url: tutorial-industrial-iot-azure-data-explorer.md
+    - text: Visualizar dados com Insights de Séries Tempo (TSI)
+      url: tutorial-visualize-data-time-series-insights.md
+- title: Trabalhar com a Editora OPC
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementar o Editor OPC
+      url: tutorial-publisher-deploy-opc-publisher-standalone.md
+    - text: Configure a Editora OPC
+      url: tutorial-publisher-configure-opc-publisher.md
+    - text: Sintonize o desempenho e a memória da Editora OPC
+      url: tutorial-publisher-performance-memory-tuning-opc-publisher.md

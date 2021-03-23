@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee0c673027892e6d3ee55b6ec5f67a30d88be683
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97770966"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780349"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Descrição geral dos limites de recursos do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,7 +76,7 @@ Sql Managed Instance tem dois níveis de serviço: [Final geral](../database/ser
 | Número máximo de ficheiros de base de dados por exemplo | Até 280, a menos que o tamanho do armazenamento de instância ou o limite [de espaço de armazenamento do disco Azure Premium](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 ficheiros por base de dados, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do ficheiro de dados | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (max 2 TB - 8 TB) e [espaço de atribuição de armazenamento de disco Azure Premium](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (até 1 TB - 4 TB). |
 | Tamanho do ficheiro de registo máximo | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. |
-| Dados/IOPS de registo (aproximadamente) | Até 30-40 K IOPS por exemplo*, 500 - 7500 por ficheiro<br/>\*[Aumente o tamanho do ficheiro para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 K - 200 K (4000 IOPS/vCore)<br/>Adicione mais vCores para obter um melhor desempenho de IO. |
+| Dados/IOPS de registo (aproximadamente) | Até 30-40 K IOPS por exemplo*, 500 - 7500 por ficheiro<br/>\*[Aumente o tamanho do ficheiro para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 K - 320 K (4000 IOPS/vCore)<br/>Adicione mais vCores para obter um melhor desempenho de IO. |
 | Limite de produção de registo (por exemplo) | 3 MB/s por vCore<br/>Max 120 MB/s por exemplo<br/>22 - 65 MB/s por DB<br/>\*[Aumente o tamanho do ficheiro para obter um melhor desempenho de IO](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s por vCore<br/>Max 96 MB/s |
 | Produção de dados (aproximadamente) | 100 - 250 MB/s por ficheiro<br/>\*[Aumente o tamanho do ficheiro para obter um melhor desempenho de IO](#file-io-characteristics-in-general-purpose-tier) | Não é limitado. |
 | Latência IO de armazenamento (aproximada) | 5-10 ms | 1-2 ms |

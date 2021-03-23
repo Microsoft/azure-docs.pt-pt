@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: d01f80a803c5b0f9da067dd23ab8cdb4cc591a79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b9c5db14bec87b30e51d39b1430ecc1f3cbef855
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609848"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798294"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Monitorize as suas implementações SQL com insights SQL (pré-visualização)
 Os insights SQL monitorizam o desempenho e a saúde das suas implementações SQL.  Pode ajudar a fornecer desempenho previsível e disponibilidade de cargas de trabalho vitais que você construiu em torno de um backend SQL, identificando estrangulamentos de desempenho e problemas. A SQL insights armazena os seus dados em [Registos monitores Azure,](../logs/data-platform-logs.md)o que lhe permite fornecer agregação e filtragem poderosas e analisar as tendências de dados ao longo do tempo. Você pode ver estes dados do Azure Monitor nas vistas que enviamos como parte desta oferta e você pode mergulhar diretamente nos dados do Log para executar consultas e analisar tendências.
@@ -59,7 +59,7 @@ Consulte [os insights do SQL](sql-insights-enable.md) para o procedimento detalh
 
 
 ## <a name="data-collected-by-sql-insights"></a>Dados recolhidos por insights SQL
-Na pré-visualização pública, os insights SQL apenas suportam o método remoto de monitorização. O agente Telegraf não está instalado no SQL Server. Utiliza o plugin de entrada SQL Server para a Telegraf e utiliza os três grupos de consultas para os diferentes tipos de SQL que monitoriza: Azure SQL DB, Azure SQL Managed Instance, servidor SQL em execução num VM Azure. 
+Na pré-visualização pública, os insights SQL apenas suportam o método remoto de monitorização. O [agente telegraf](https://www.influxdata.com/time-series-platform/telegraf/) não está instalado no SQL Server. Utiliza o [plugin de entrada SQL Server para telegrafe](https://www.influxdata.com/integration/microsoft-sql-server/) e utiliza os três grupos de consultas para os diferentes tipos de SQL que monitoriza: Azure SQL DB, Azure SQL Managed Instance, servidor SQL em execução num VM Azure. 
 
 As seguintes tabelas resumem as seguintes:
 
@@ -76,13 +76,13 @@ Pode modificar quais as consultas executadas e a frequência de recolha de dados
 | Nome de consulta | DMV | Espaço de Nomes | Ativado por Predefinição | Frequência de recolha padrão |
 |:---|:---|:---|:---|:---|
 | AzureSQLDBWaitStats |  sys.dm_db_wait_stats | sqlserver_azuredb_waitstats | No | ND |
-| AzureSQLDBResourceStats | sys.dm_db_resource_stats | sqlserver_azure_db_resource_stats | Yes | 60 segundos |
-| AzuresQLDBResourceGovernance | sys.dm_user_db_resource_governance | sqlserver_db_resource_governance | Yes | 60 segundos |
-| AzuresQLDBDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.database_files<br>tempdb.sys.database_files | sqlserver_database_io | Yes | 60 segundos |
-| AzuresQLDBServerProperties | sys.dm_os_job_object<br>sys.database_files<br>sys. [bases de dados]<br>sys. [database_service_objetives] | sqlserver_server_properties | Yes | 60 segundos |
-| AzureSQLDBOsWaitstats | sys.dm_os_wait_stats | sqlserver_waitstats | Yes | 60 segundos |
-| AzureSQLDBMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Yes | 60 segundos |
-| AzuresQLDBPerformanceCounters | sys.dm_os_performance_counters<br>sys.databases | sqlserver_performance | Yes | 60 segundos |
+| AzureSQLDBResourceStats | sys.dm_db_resource_stats | sqlserver_azure_db_resource_stats | Sim | 60 segundos |
+| AzuresQLDBResourceGovernance | sys.dm_user_db_resource_governance | sqlserver_db_resource_governance | Sim | 60 segundos |
+| AzuresQLDBDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.database_files<br>tempdb.sys.database_files | sqlserver_database_io | Sim | 60 segundos |
+| AzuresQLDBServerProperties | sys.dm_os_job_object<br>sys.database_files<br>sys. [bases de dados]<br>sys. [database_service_objetives] | sqlserver_server_properties | Sim | 60 segundos |
+| AzureSQLDBOsWaitstats | sys.dm_os_wait_stats | sqlserver_waitstats | Sim | 60 segundos |
+| AzureSQLDBMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Sim | 60 segundos |
+| AzuresQLDBPerformanceCounters | sys.dm_os_performance_counters<br>sys.databases | sqlserver_performance | Sim | 60 segundos |
 | AzureSQLDBRequests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | sqlserver_requests | No | ND |
 | AzuresQLDBSchedulers | sys.dm_os_schedulers | sqlserver_schedulers | No | ND  |
 
@@ -90,13 +90,13 @@ Pode modificar quais as consultas executadas e a frequência de recolha de dados
 
 | Nome de consulta | DMV | Espaço de Nomes | Ativado por Predefinição | Frequência de recolha padrão |
 |:---|:---|:---|:---|:---|
-| AzureSQLMIResourceStats | sys.server_resource_stats | sqlserver_azure_db_resource_stats | Yes | 60 segundos |
-| AzuresQLMIResourceGovernance | sys.dm_instance_resource_governance | sqlserver_instance_resource_governance | Yes | 60 segundos |
-| AzuresQLMIDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.master_files | sqlserver_database_io | Yes | 60 segundos |
-| AzuresQLMIServerProperties | sys.server_resource_stats | sqlserver_server_properties | Yes | 60 segundos |
-| AzureSQLMIOsWaitstats | sys.dm_os_wait_stats | sqlserver_waitstats | Yes | 60 segundos |
-| AzureSQLMIMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Yes | 60 segundos |
-| AzuresQLMIPerformanceCounters | sys.dm_os_performance_counters<br>sys.databases | sqlserver_performance | Yes | 60 segundos |
+| AzureSQLMIResourceStats | sys.server_resource_stats | sqlserver_azure_db_resource_stats | Sim | 60 segundos |
+| AzuresQLMIResourceGovernance | sys.dm_instance_resource_governance | sqlserver_instance_resource_governance | Sim | 60 segundos |
+| AzuresQLMIDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.master_files | sqlserver_database_io | Sim | 60 segundos |
+| AzuresQLMIServerProperties | sys.server_resource_stats | sqlserver_server_properties | Sim | 60 segundos |
+| AzureSQLMIOsWaitstats | sys.dm_os_wait_stats | sqlserver_waitstats | Sim | 60 segundos |
+| AzureSQLMIMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Sim | 60 segundos |
+| AzuresQLMIPerformanceCounters | sys.dm_os_performance_counters<br>sys.databases | sqlserver_performance | Sim | 60 segundos |
 | AzureSQLMIRequests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | sqlserver_requests | No | ND |
 | AzuresQLMISchedulers | sys.dm_os_schedulers | sqlserver_schedulers | No | ND |
 
@@ -104,15 +104,15 @@ Pode modificar quais as consultas executadas e a frequência de recolha de dados
 
 | Nome de consulta | DMV | Espaço de Nomes | Ativado por Predefinição | Frequência de recolha padrão |
 |:---|:---|:---|:---|:---|
-| SQLServerPerformanceCounters | sys.dm_os_performance_counters | sqlserver_performance | Yes | 60 segundos |
-| SQLServerWaitStatsCategorized | sys.dm_os_wait_stats | sqlserver_waitstats | Yes | 60 segundos | 
-| SQLServerDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.master_files | sqlserver_database_io | Yes | 60 segundos |
-| SQLServerProperties | sys.dm_os_sys_info | sqlserver_server_properties | Yes | 60 segundos |
-| SQLServerMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Yes | 60 segundos |
+| SQLServerPerformanceCounters | sys.dm_os_performance_counters | sqlserver_performance | Sim | 60 segundos |
+| SQLServerWaitStatsCategorized | sys.dm_os_wait_stats | sqlserver_waitstats | Sim | 60 segundos | 
+| SQLServerDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.master_files | sqlserver_database_io | Sim | 60 segundos |
+| SQLServerProperties | sys.dm_os_sys_info | sqlserver_server_properties | Sim | 60 segundos |
+| SQLServerMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Sim | 60 segundos |
 | SQLServerSchedulers | sys.dm_os_schedulers | sqlserver_schedulers | No | ND |
 | SQLServerRequests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | sqlserver_requests | No | ND |
-| SQLServerVolumeSpace | sys.master_files | sqlserver_volume_space | Yes | 60 segundos |
-| SQLServerCpu | sys.dm_os_ring_buffers | sqlserver_cpu | Yes | 60 segundos |
+| SQLServerVolumeSpace | sys.master_files | sqlserver_volume_space | Sim | 60 segundos |
+| SQLServerCpu | sys.dm_os_ring_buffers | sqlserver_cpu | Sim | 60 segundos |
 | SQLServerAvailabilityReplicaStates | sys.dm_hadr_availability_replica_states<br>sys.availability_replicas<br>sys.availability_groups<br>sys.dm_hadr_availability_group_states | sqlserver_hadr_replica_states | | 60 segundos |
 | SQLServerDatabaseReplicaStates | sys.dm_hadr_database_replica_states<br>sys.availability_replicas | sqlserver_hadr_dbreplica_states | | 60 segundos |
 

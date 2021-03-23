@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595982"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773084"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -186,22 +186,24 @@ Especifica o número máximo de processos de trabalhadores linguísticos, com um
 |---|------------|
 |FUNÇÕES \_ CONTAGEM \_ DE PROCESSOS DE TRABALHADOR \_|2|
 
-## <a name="python_threadpool_thread_count"></a>CONTAGEM DE FIOS PYTHON \_ \_ \_ THREADPOOL
-
-Especifica o número máximo de fios que um trabalhador da língua Python usaria para executar invocações de funções, com um valor padrão `1` para a versão Python e `3.8` abaixo. Para a versão Python `3.9` e acima, o valor está definido para `None` . Note que esta definição não garante o número de fios que seriam definidos durante as execuções. A definição permite que a Python expanda o número de fios para o valor especificado. A definição aplica-se apenas às aplicações de funções Python. Além disso, a definição aplica-se à invocação de funções sincronizadas e não a coroutinas.
-
-|Chave|Valor da amostra|Valor máximo|
-|---|------------|---------|
-|CONTAGEM DE FIOS PYTHON \_ \_ \_ THREADPOOL|2|32|
-
-
 ## <a name="functions_worker_runtime"></a>FUNÇÕES \_ TEMPO \_ DE EXECUÇÃO DO TRABALHADOR
 
-O tempo de funcionamento do trabalhador da língua para carregar na aplicação de função.  Isto corresponderá ao idioma utilizado na sua aplicação (por exemplo, "dotnet"). Para funções em vários idiomas, terá de publicá-las em várias aplicações, cada uma com um valor de tempo de execução correspondente.  Os valores válidos são `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) e `python` (Python).
+O tempo de funcionamento do trabalhador da língua para carregar na aplicação de função.  Isto corresponde ao idioma utilizado na sua aplicação (por exemplo, `dotnet` ). Começando pela versão 2.x do tempo de execução das Funções Azure, uma determinada aplicação de função só pode suportar um único idioma.   
 
 |Chave|Valor da amostra|
 |---|------------|
-|FUNÇÕES \_ TEMPO \_ DE EXECUÇÃO DO TRABALHADOR|dotnet|
+|FUNÇÕES \_ TEMPO \_ DE EXECUÇÃO DO TRABALHADOR|node|
+
+Valores válidos:
+
+| Valor | Linguagem |
+|---|---|
+| `dotnet` | [C# (biblioteca de classes)](functions-dotnet-class-library.md)<br/>[C# (guião)](functions-reference-csharp.md) |
+| `dotnet-isolated` | [C# (processo isolado)](dotnet-isolated-process-guide.md) |
+| `java` | [Java](functions-reference-java.md) |
+| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `powershell` | [PowerShell](functions-reference-powershell.md) |
+| `python` | [Python](functions-reference-python.md) |
 
 ## <a name="pip_extra_index_url"></a>\_URL DE ÍNDICE EXTRA \_ \_ PIP
 
@@ -212,6 +214,14 @@ O valor desta definição indica um URL de índice de pacote personalizado para 
 |\_URL DE ÍNDICE EXTRA \_ \_ PIP|http://my.custom.package.repo/simple |
 
 Para saber mais, consulte [dependências personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) na referência do desenvolvedor Python.
+
+## <a name="python_threadpool_thread_count"></a>CONTAGEM DE FIOS PYTHON \_ \_ \_ THREADPOOL
+
+Especifica o número máximo de fios que um trabalhador da língua Python usaria para executar invocações de funções, com um valor padrão `1` para a versão Python e `3.8` abaixo. Para a versão Python `3.9` e acima, o valor está definido para `None` . Note que esta definição não garante o número de fios que seriam definidos durante as execuções. A definição permite que a Python expanda o número de fios para o valor especificado. A definição aplica-se apenas às aplicações de funções Python. Além disso, a definição aplica-se à invocação de funções sincronizadas e não a coroutinas.
+
+|Chave|Valor da amostra|Valor máximo|
+|---|------------|---------|
+|CONTAGEM DE FIOS PYTHON \_ \_ \_ THREADPOOL|2|32|
 
 ## <a name="scale_controller_logging_enabled"></a>\_REGISTO DO CONTROLADOR DE ESCALA \_ \_ ATIVADO
 

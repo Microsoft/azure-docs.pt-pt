@@ -1,6 +1,6 @@
 ---
-title: Migrar dados de Apache Cassandra para Azure Cosmos DB Cassandra API usando Databricks (Faísca)
-description: Saiba como migrar dados da base de dados Apache Cassandra para Azure Cosmos DB Cassandra API usando Azure Databricks e Spark.
+title: Migrar dados de Apache Cassandra para a Azure Cosmos DB Cassandra API usando Databricks (Faísca)
+description: Saiba como migrar dados de uma base de dados Apache Cassandra para a API AZURE Cosmos DB Cassandra, utilizando Azure Databricks e Spark.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,59 +8,58 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: caf9cbb0ca017ee00c5061d94e0d37703194943d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: caedefbf3887205b68bcd5de5e7cd5f1f7d7f53c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573383"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801014"
 ---
-# <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrar dados de Cassandra para Azure Cosmos DB Cassandra Conta API usando Azure Databricks
+# <a name="migrate-data-from-cassandra-to-an-azure-cosmos-db-cassandra-api-account-by-using-azure-databricks"></a>Migrar dados de Cassandra para uma conta Azure Cosmos DB Cassandra API usando Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-Cassandra API em Azure Cosmos DB tornou-se uma ótima escolha para cargas de trabalho empresariais em execução em Apache Cassandra por uma variedade de razões tais como: 
+Cassandra API em Azure Cosmos DB tornou-se uma ótima escolha para cargas de trabalho empresariais em execução em Apache Cassandra por várias razões:
 
-* **Sem despesas gerais de gestão e monitorização:** Elimina a sobrecarga de gestão e monitorização de uma miríade de configurações através de sistemas DE, JVM e yaml e suas interações.
+* **Sem despesas gerais de gestão e monitorização:** Elimina a sobrecarga de gestão e monitorização de configurações através dos ficheiros OS, JVM e YAML e suas interações.
 
-* **Economia de custos significativa:** Você pode economizar custos com Azure Cosmos DB, que inclui o custo de VM's, largura de banda, e quaisquer licenças aplicáveis. Além disso, não é preciso gerir os centros de dados, servidores, armazenamento SSD, networking e custos de eletricidade. 
+* **Economia de custos significativa:** Você pode economizar custos com o Azure Cosmos DB, que inclui o custo de VMs, largura de banda e quaisquer licenças aplicáveis. Não é preciso gerir centros de dados, servidores, armazenamento SSD, networking e custos de eletricidade.
 
-* **Capacidade de utilizar código e ferramentas existentes:** A Azure Cosmos DB fornece compatibilidade de protocolo de fio com os SDKs e ferramentas existentes da Cassandra. Esta compatibilidade assegura que pode utilizar o seu código base atual com a API para Cassandra do Azure Cosmos DB, com alterações triviais.
+* **Capacidade de utilizar código e ferramentas existentes:** O Azure Cosmos DB fornece compatibilidade ao nível do protocolo de fio com os SDKs e ferramentas existentes da Cassandra. Esta compatibilidade garante que pode utilizar a sua base de código existente com a API API AZURE Cosmos DB Cassandra com alterações triviais.
 
-Existem várias formas de migrar cargas de trabalho de base de dados de uma plataforma para outra. [A azure Databricks](https://azure.microsoft.com/services/databricks/) é uma plataforma como uma oferta de serviços para [a Apache Spark](https://spark.apache.org/) que oferece uma forma de realizar migrações offline em larga escala. Este artigo descreve os passos necessários para migrar dados de espaços/tabelas nativos de Apache Cassandra para Azure Cosmos DB Cassandra API usando Azure Databricks.
+Há muitas formas de migrar cargas de trabalho de base de dados de uma plataforma para outra. [Azure Databricks](https://azure.microsoft.com/services/databricks/) é uma plataforma como um serviço (PaaS) que oferece para [a Apache Spark](https://spark.apache.org/) que oferece uma maneira de realizar migrações offline em larga escala. Este artigo descreve os passos necessários para migrar dados de espaços e tabelas nativas apache Cassandra para o Azure Cosmos DB Cassandra API usando Azure Databricks.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Provisão de uma conta Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md#create-a-database-account)
+* [Provisão de uma conta Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md#create-a-database-account).
 
-* [Reveja os fundamentos da ligação à Azure Cosmos DB Cassandra API](cassandra-spark-generic.md)
+* [Reveja os fundamentos da ligação a uma API API AZURE Cosmos DB Cassandra](cassandra-spark-generic.md).
 
 * Reveja as [funcionalidades suportadas na Azure Cosmos DB Cassandra API](cassandra-support.md) para garantir a compatibilidade.
 
-* Certifique-se de que já criou teclados vazios e tabelas na sua conta Azure Cosmos DB Cassandra API
+* Certifique-se de que já criou espaços e tabelas vazias na conta Azure Cosmos DB Cassandra API.
 
-* [Use cqlsh ou concha aloiada para validação](cassandra-support.md#hosted-cql-shell-preview)
+* [Utilize cqlsh ou concha alojada para validação](cassandra-support.md#hosted-cql-shell-preview).
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Provisão de um cluster Azure Databricks
 
-Pode seguir as instruções para [providenciar um cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Recomendamos a seleção da versão de execução 7.5 de Databricks, que suporta a Spark 3.0:
+Pode seguir as instruções para [o fornecimento de um cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Recomendamos a seleção da versão de execução 7.5 de Databricks, que suporta o Spark 3.0.
 
-:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks tempo de execução":::
-
+:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Screenshot que mostra encontrar a versão de tempo de execução databricks.":::
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Você precisará adicionar a biblioteca de conector Apache Spark Cassandra ao seu cluster, a fim de se conectar com pontos finais nativos e cosmos DB Cassandra. No seu cluster selecione bibliotecas -> instalar maven novo ->. adicionar `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` em coordenadas maven:
+Você precisa adicionar a biblioteca Apache Spark Cassandra Connector ao seu cluster para se conectar com pontos finais nativos e Azure Cosmos DB Cassandra. No seu cluster, selecione **Bibliotecas**  >  **Instale New**  >  **Maven** e adicione `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` as coordenadas Maven.
 
-:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Pacotes de pesquisa databricks":::
+:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Screenshot que mostra a procura de pacotes Maven em Databricks.":::
 
-Selecione a instalação e certifique-se de que reinicia o cluster quando a instalação estiver concluída. 
+Selecione **Instalar** e, em seguida, reiniciar o cluster quando a instalação estiver concluída.
 
 > [!NOTE]
 > Certifique-se de que reinicia o cluster Databricks depois de instalada a biblioteca Cassandra Connector.
 
 ## <a name="create-scala-notebook-for-migration"></a>Criar Caderno Scala para migração
 
-Crie um Bloco de Notas Scala em Databricks com o seguinte código. Substitua as configurações de cassandra de origem e alvo por credenciais correspondentes e os espaços e tabelas de chaves de origem/alvo, em seguida, executar:
+Crie um Caderno Scala em Databricks. Substitua as configurações de Cassandra de origem e alvo pelas credenciais correspondentes e os espaços e tabelas de chaves de origem e alvo. Em seguida, executar o seguinte código:
 
 ```scala
 import com.datastax.spark.connector._
@@ -112,21 +111,25 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> Os valores `spark.cassandra.output.batch.size.rows` para `spark.cassandra.output.concurrent.writes` e, bem como o número de trabalhadores no seu cluster Spark, são configurações importantes para sintonizar de modo a evitar [a limitação de tarifas,](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)o que acontece quando os pedidos à Azure Cosmos DB excedem o rendimento/(unidades[de pedido).](./request-units.md) Poderá ser necessário ajustar estas definições dependendo do número de executores no cluster Spark, e potencialmente o tamanho (e, portanto, o custo RU) de cada registo ser escrito nas tabelas-alvo.
+> Os `spark.cassandra.output.batch.size.rows` `spark.cassandra.output.concurrent.writes` valores e valores e o número de trabalhadores no seu cluster Spark são configurações importantes para sintonizar de modo a evitar a [limitação das taxas](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/). A limitação da taxa ocorre quando os pedidos à Azure Cosmos DB excedem [as unidades](./request-units.md) de produção ou pedido (RUs) previstas. Poderá ser necessário ajustar estas definições, dependendo do número de executores no cluster Spark e potencialmente o tamanho (e, portanto, o custo RU) de cada registo ser escrito nas tabelas-alvo.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 ### <a name="rate-limiting-429-error"></a>Limitação de taxa (erro de 429)
-Pode ver um código de erro de 429 ou `request rate is large` texto de erro, apesar de reduzir as definições acima para os seus valores mínimos. Seguem-se alguns desses cenários:
 
-- **O rendimento atribuído à tabela é inferior a 6000 [unidades de pedido.](./request-units.md)** Mesmo em configurações mínimas, a Spark poderá executar escritas a uma taxa de cerca de 6000 unidades de pedido ou mais. Se disponibilizou uma tabela num espaço-chave com produção partilhada, é possível que esta tabela tenha menos de 6000 RUs disponíveis em tempo de execução. Certifique-se de que a tabela para a que está a migrar tem pelo menos 6000 RUs disponíveis para ele durante a execução da migração, e se necessário alocar unidades de pedido dedicadas a essa tabela. 
-- **Distorcer dados excessivos com grande volume de dados**. Se tiver uma grande quantidade de dados (isto é linhas de tabela) para migrar para uma dada tabela, mas tiver um desvio significativo nos dados (ou seja, um grande número de registos a serem escritos para o mesmo valor de chave de partição), então poderá ainda experimentar a limitação da taxa mesmo que tenha uma grande quantidade de unidades de pedido a serem [apresentadas](./request-units.md) na sua tabela. Isto porque as unidades de pedido são divididas igualmente entre divisórias físicas, e a distorção de dados pesados pode resultar num estrangulamento de pedidos a uma única divisória, causando a limitação da taxa. Neste cenário, é aconselhável reduzir para as definições mínimas de produção em Spark para evitar a limitação de taxas e forçar a migração a funcionar lentamente. Este cenário pode ser mais comum quando migrar tabelas de referência ou de controlo, onde o acesso é menos frequente, mas o enviesamento pode ser elevado. No entanto, se houver uma distorção significativa em qualquer outro tipo de tabela, também pode ser aconselhável rever o seu modelo de dados para evitar problemas de partição quentes para a sua carga de trabalho durante operações de estado estável. 
+Pode ver um código de erro 429 ou um texto de erro "taxa de pedido é grande", mesmo que reduza as definições para os seus valores mínimos. Os seguintes cenários podem causar limitação de taxas:
 
+* **O rendimento atribuído à mesa é inferior a 6.000 [unidades de pedido.](./request-units.md)** Mesmo em configurações mínimas, a Spark pode escrever a uma taxa de cerca de 6.000 unidades de pedido ou mais. Se você fornece uma mesa em um espaço chave com produção compartilhada, é possível que esta tabela tenha menos de 6.000 RUs disponíveis em tempo de execução.
 
+    Certifique-se de que a tabela para a que está a migrar tem pelo menos 6.000 RUs disponíveis quando executar a migração. Se necessário, aloque as unidades de pedido dedicadas a essa tabela.
+
+* **Distorcer dados excessivos com grande volume de dados**. Se tiver uma grande quantidade de dados para migrar para uma dada tabela, mas tiver um desvio significativo nos dados (isto é, um grande número de registos sendo escritos para o mesmo valor chave de partição), então você ainda pode experimentar a taxa limitando mesmo que você tenha [várias unidades de pedido](./request-units.md) a provisionadas na sua tabela. As unidades de pedido são divididas igualmente entre divisórias físicas, e a distorção de dados pesados pode causar um estrangulamento de pedidos a uma única divisória.
+
+    Neste cenário, reduza para as definições mínimas de produção em Spark e force a migração a funcionar lentamente. Este cenário pode ser mais comum quando se está a migrar tabelas de referência ou de controlo, onde o acesso é menos frequente e o distorção pode ser elevado. No entanto, se houver uma distorção significativa em qualquer outro tipo de tabela, é melhor rever o seu modelo de dados para evitar problemas de partição quentes para a sua carga de trabalho durante operações de estado estável.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md) 
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Principais práticas de partição](partitioning-overview.md#choose-partitionkey)
-* [Estimativa RU/s usando os artigos de planificador de capacidadeS do Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+* [Estimativa RU/s usando o planejador de capacidades DB Azure Cosmos](estimate-ru-with-capacity-planner.md)
 * [Escala elástica em Azure Cosmos DB Cassandra API](manage-scale-cassandra.md)

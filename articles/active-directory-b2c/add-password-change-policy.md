@@ -8,20 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a42cb97d123d0943dab02bf1f70fcf306d6bcd96
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21da8f79772d9648836bedec89cb5d7014486dc6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97629136"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798364"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a mudança de senha usando políticas personalizadas no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+No Azure Ative Directory B2C (Azure AD B2C), pode permitir que os utilizadores que se inscrevem com uma conta local alterem a sua palavra-passe sem terem de provar a sua identidade através de verificação de email. O fluxo de alteração da palavra-passe envolve os seguintes passos:
+
+1. O utilizador entra na conta local. Se a sessão ainda estiver ativa, o Azure AD B2C autoriza o utilizador e salta para o passo seguinte.
+1. O utilizador verifica a **palavra-passe Antiga** e, em seguida, cria e confirma a **Nova palavra-passe**.
+
+![Fluxo de mudança de senha](./media/add-password-change-policy/password-change-flow.png)  
+
+> [!TIP]
+> O fluxo de alteração de palavra-passe permite que os utilizadores alterem a sua palavra-passe apenas quando o utilizador souber da sua palavra-passe e quiser alterá-la. Recomendamos que também ative o [reset da palavra-passe de autosserviço](add-password-reset-policy.md) para suportar casos em que o utilizador se esqueça da sua palavra-passe.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -30,15 +40,6 @@ ms.locfileid: "97629136"
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-No Azure Ative Directory B2C (Azure AD B2C), pode permitir que os utilizadores que se inscrevem com uma conta local alterem a sua palavra-passe sem terem de provar a sua autenticidade através de verificação de email. O fluxo de alteração da palavra-passe envolve os seguintes passos:
-
-1. Inscreva-se com uma conta local. Se a sessão ainda estiver ativa, o Azure AD B2C autoriza o utilizador e salta para o passo seguinte.
-1. Os utilizadores devem verificar a **senha antiga,** criar e confirmar a **nova palavra-passe**.
-
-![Fluxo de mudança de senha](./media/add-password-change-policy/password-change-flow.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

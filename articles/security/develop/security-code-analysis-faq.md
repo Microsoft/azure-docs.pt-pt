@@ -4,7 +4,7 @@ description: Saiba mais sobre a extensão de Análise de Código de Segurança d
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,18 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bff42b9b82104909c79b75c7b1de51c9ddb6e0d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879920"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801320"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+
+> [!Note]
+> A partir de 1 de março de 2022, a extensão do Código de Segurança da Microsoft (MSCA) será retirada. Os clientes MSCA existentes manterão o seu acesso à MSCA até 1 de março de 2022. Consulte as [Ferramentas de Análise de Código Fonte OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) para obter opções alternativas em Azure DevOps. Para clientes que planeiam migrar para o GitHub, você pode verificar [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
+
 Tem perguntas? Consulte as seguintes FAQ para mais informações.
 
 ## <a name="general-faq"></a>FAQs Gerais

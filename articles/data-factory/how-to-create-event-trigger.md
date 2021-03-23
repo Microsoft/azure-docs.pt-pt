@@ -4,15 +4,15 @@ description: Saiba como criar um gatilho na Azure Data Factory que executa um ol
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: b559ce31aff7040a61f6a2f788652ffd192420c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: deaa414a17240e8cdbdad7f4ba9b3e596b4f191f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593803"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780332"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Crie um gatilho que executa um oleoduto em resposta a um evento de armazenamento
 
@@ -83,7 +83,7 @@ A tabela a seguir fornece uma visão geral dos elementos de esquema que estão r
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores Permitidos** | **Obrigatório** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | String | ID do gestor de recursos Azure | Yes |
+| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | String | ID do gestor de recursos Azure | Sim |
 | **eventos** | O tipo de eventos que causam este gatilho a disparar. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
 | **blobPathBeginsWith** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho para as bolhas na `december` pasta debaixo do `records` recipiente. | String   | | Fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
 | **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o gatilho para bolhas nomeadas `boxes` numa `december` pasta. | String   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |

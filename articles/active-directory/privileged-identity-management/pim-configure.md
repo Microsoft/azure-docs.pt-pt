@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/29/2020
+ms.date: 03/19/2021
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d42611705b7756ed2fd0c7a488339f0f638fb5b4
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92370190"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802170"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -83,7 +83,7 @@ O Privileged Identity Management suporta os seguintes cenários:
 
 Para melhor compreender a Gestão de Identidade Privilegiada e a sua documentação, deverá rever os seguintes termos.
 
-| Termo ou conceito | Categoria de atribuição de funções | Description |
+| Termo ou conceito | Categoria de atribuição de funções | Descrição |
 | --- | --- | --- |
 | elegível | Tipo | Uma atribuição de funções que requer que um utilizador execute uma ou mais ações para usar o papel. Se um utilizador tiver sido elegível para um papel, isso significa que pode ativar o papel quando precisa de executar tarefas privilegiadas. Não há diferença no acesso dado a alguém com uma função permanente contra uma função elegível. A única diferença é que algumas pessoas não precisam sempre desse acesso. |
 | active | Tipo | Uma tarefa que não requer que um utilizador execute qualquer ação para usar o papel. Os utilizadores atribuídos como ativos têm os privilégios atribuídos ao papel. |
@@ -92,8 +92,8 @@ Para melhor compreender a Gestão de Identidade Privilegiada e a sua documentaç
 | ativado | Estado | Um utilizador que tenha uma atribuição de papel elegível, executou as ações para ativar o papel, e está agora ativo.  Uma vez ativado, o utilizador pode utilizar a função para um período de tempo pré-configurado antes de necessitar de ser novamente ativado. |
 | elegível permanente | Duração | Uma atribuição de funções em que um utilizador é sempre elegível para ativar o papel. |
 | permanente ativo | Duração | Uma atribuição de funções em que um utilizador pode sempre usar o papel sem realizar quaisquer ações. |
-| expirar elegível | Duração | Uma atribuição de funções em que um utilizador é elegível para ativar a função dentro de uma data de início e fim especificada. |
-| expirar ativo | Duração | Uma atribuição de funções em que um utilizador pode usar o papel sem realizar quaisquer ações dentro de uma data de início e fim especificada. |
+| elegível vinculado | Duração | Uma atribuição de funções em que um utilizador é elegível para ativar a função apenas dentro das datas de início e fim. |
+| ativo ligado ao tempo | Duração | Uma atribuição de funções em que um utilizador pode usar a função apenas dentro das datas de início e fim. |
 | acesso just-in-time (JIT) |  | Um modelo em que os utilizadores recebem permissões temporárias para executar tarefas privilegiadas, o que impede que utilizadores maliciosos ou não autorizados tenham acesso após o termo das permissões. O acesso só é concedido quando os utilizadores precisam. |
 | princípio de acesso menos privilegiado |  | Uma prática de segurança recomendada na qual cada utilizador é dotado apenas dos privilégios mínimos necessários para realizar as tarefas que está autorizado a executar. Esta prática minimiza o número de Administradores Globais e, em vez disso, utiliza funções específicas de administrador para determinados cenários. |
 

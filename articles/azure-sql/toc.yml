@@ -37,7 +37,7 @@
           items:
             - name: Janela de manutenção
               href: database/maintenance-window.md
-            - name: Janela de manutenção configurada
+            - name: Configurar a janela de manutenção
               href: database/maintenance-window-configure.md
             - name: FaQ da janela de manutenção
               href: database/maintenance-window-faq.yml
@@ -918,7 +918,7 @@
                     - name: Converter código R para o SQL Server
                       href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: Criar um procedimento armazenado com sqlrutils
-                      href: /sql/machine-learning/r/how-to-create-a-stored-procedure-using-sqlrutils?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                      href: /machine-learning-server/r-reference/sqlrutils/how-to-create-a-stored-procedure-from-r
                 - name: Previsões
                   items:
                     - name: Classificação nativa com o PREDICT T-SQL

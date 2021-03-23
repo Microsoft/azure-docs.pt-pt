@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181633"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800774"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configure RingCentral para o fornecimento automático de utilizadores
 
@@ -46,15 +46,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure o RingCentral para apoiar o provisionamento com a Azure AD
 
-1. Inscreva-se na sua [Consola de Administração RingCentral.](https://login.ringcentral.com/sw.html) Navegue para **ferramentas > integração do Diretório.**
-
-    ![Consola de administração RingCentral](media/ringcentral-provisioning-tutorial/admin.png)
-
-2.  Escolha **o SCIM** em **Select Directory Provider**. (No futuro haverá uma opção chamada Azure Ative Directory). Clique **em Ativar o serviço SCIM**.
-
-    ![RingCentral Add SCIM](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.  Contacte a equipa de suporte da RingCentral matthew.hunt@ringcentral.com para obter um **token de autenticação SCIM**. Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação RingCentral no portal Azure.
+É necessária uma conta [administração RingCentral](https://www.ringcentral.com/office/plansandpricing.html) para autorizar na secção Credenciais de Administração no Passo 5.
 
 > [!NOTE]
 > Para atribuir licenças aos utilizadores, consulte [aqui](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language)o link de vídeo .
@@ -94,9 +86,13 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
-5. Sob a secção **de Credenciais de Administração,** entrada `https://platform.ringcentral.com/scim/v2` na URL do **inquilino.** Insira o valor **de token de autenticação SCIM** recuperado anteriormente em **Secret Token**. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao RingCentral. Se a ligação falhar, certifique-se de que a sua conta RingCentral tem permissões de Administração e tente novamente.
+5. Na secção **Credenciais de Administração,** clique em **Authorize**. Será redirecionado para a página RingCentral's Sign In. Insira o seu email / Número de telefone e senha e clique no botão **Iniciar.** Clique em **Autorizor** na página RingCentral **Access Request.** Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao RingCentral. Se a ligação falhar, certifique-se de que a sua conta RingCentral tem permissões de Administração e tente novamente.
 
-    ![Screenshot dos campos de texto do USSA e Secret Token com a opção de Ligação de Teste chamada.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Access](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![Autorizar](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
@@ -151,6 +147,7 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 ## <a name="change-log"></a>Change log
 
 * 09/10/2020 - Suporte removido para atributos "displayName" e "manager".
+* 03/15/2021 - Método de autorização atualizado do token portador permanente para o fluxo de concessão de código OAuth.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

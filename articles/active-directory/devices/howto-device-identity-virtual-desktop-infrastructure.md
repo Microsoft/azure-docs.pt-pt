@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96029352"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798889"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
 
@@ -48,10 +48,10 @@ Antes de configurar as identidades do dispositivo em Azure AD para o seu ambient
 
 | Tipo de identidade do dispositivo | Infraestrutura de identidade | Dispositivos Windows | Versão da plataforma VDI | Suportado |
 | --- | --- | --- | --- | --- |
-| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Yes |
+| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Sim |
 |   |   | Corrente do Windows | Não Persistente | Sim<sup>5</sup> |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
-|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Yes |
+|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Sim |
 |   |   | Corrente do Windows | Não Persistente | No |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
 | Azure AD associado | Federados | Corrente do Windows | Persistente | No |
@@ -79,6 +79,8 @@ Os administradores devem fazer referência aos seguintes artigos, com base na su
 - [Configure híbrido Azure Ative Directy junta-se ao ambiente federado](hybrid-azuread-join-federated-domains.md)
 - [Configure híbrido Azure Ative Directy junta-se para ambiente gerido](hybrid-azuread-join-managed-domains.md)
 
+### <a name="non-persistent-vdi"></a>VDI não persistente
+
 Ao implementar VDI não persistente, a Microsoft recomenda que os administradores de TI implementem as orientações abaixo. Se não o fizer, o seu diretório terá muitos dispositivos híbridos azure adá de azure estragados que foram registados a partir da sua plataforma VDI não persistente, resultando numa pressão acrescida sobre a sua quota de inquilino e risco de interrupção de serviço devido ao escorrimento da quota de inquilino.
 
 - Se estiver a contar com a Ferramenta de Preparação do Sistema (sysprep.exe) e se estiver a utilizar uma imagem pré-Windows 10 1809 para instalação, certifique-se de que a imagem não é de um dispositivo que já está registado no AD Azure como a AD híbrido Azure aderiu.
@@ -92,6 +94,15 @@ Ao implementar VDI não persistente, a Microsoft recomenda que os administradore
 - Definir e implementar o processo de [gestão de dispositivos antigos.](manage-stale-devices.md)
    - Uma vez que tenha uma estratégia para identificar os dispositivos de ad AD híbrido não persistente (por exemplo, utilizando o prefixo do nome do ecrã do computador), deverá ser mais agressivo na limpeza destes dispositivos para garantir que o seu diretório não seja consumido com muitos dispositivos antigos.
    - Para implementações VDI não persistentes na corrente do Windows e no nível de baixo nível, deve eliminar dispositivos que tenham **aproximadamente o calibreTimestamp** de aproximadamente 15 dias.
+
+### <a name="persistent-vdi"></a>VDI persistente
+
+Ao implementar VDI persistente, a Microsoft recomenda que os administradores de TI implementem as orientações abaixo. Se não o fizer, resultará em problemas de implantação e autenticação. 
+
+- Se estiver a contar com a Ferramenta de Preparação do Sistema (sysprep.exe) e se estiver a utilizar uma imagem pré-Windows 10 1809 para instalação, certifique-se de que a imagem não é de um dispositivo que já está registado no AD Azure como a AD híbrido Azure aderiu.
+- Se estiver a contar com uma foto de Máquina Virtual (VM) para criar VMs adicionais, certifique-se de que o instantâneo não é de um VM que já está registado no AZure AD como ad AD Híbrido Azure.
+
+Além disso, recomendamos que implemente o processo de [gestão de dispositivos antigos.](manage-stale-devices.md) Isto irá garantir que o seu diretório não seja consumido com muitos dispositivos antigos se redefinir periodicamente os seus VMs.
  
 ## <a name="next-steps"></a>Passos seguintes
 

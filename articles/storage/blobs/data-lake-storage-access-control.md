@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4d75e60d0e497dcdd2aa121f8da73f11a7e2af5b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 50c6b4f309eb78acee0cfa59d1b540adba65cab2
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103015221"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774818"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de controlo de acesso (ACLs) em Azure Data Lake Storage Gen2
 
@@ -40,6 +40,7 @@ Para definir permissões de nível de arquivo e diretório, consulte qualquer um
 |.NET |[Utilize .NET para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
 |Java|[Use Java para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
 |Python|[Use Python para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Utilize o JavaScript SDK em Node.js para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
 |PowerShell|[Use PowerShell para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
 |CLI do Azure|[Use O CLI Azure para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |API REST |[Caminho - Atualização](/rest/api/storageservices/datalakestoragegen2/path/update)|
@@ -206,7 +207,7 @@ Para um novo recipiente De armazenamento de dados Gen2, a máscara para o acesso
 |--|--|--|
 |Utilizador proprietário|`rwx`|`r-w`|
 |Grupo proprietário|`r-x`|`r--`|
-|Outro|`---`|`---`|
+|Outros|`---`|`---`|
 
 Os ficheiros não recebem o bit X, uma vez que é irrelevante para os ficheiros de um sistema apenas de loja. 
 

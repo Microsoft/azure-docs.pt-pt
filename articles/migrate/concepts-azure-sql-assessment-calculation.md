@@ -5,19 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054992"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778326"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Visão geral da avaliação (migrar para Azure SQL)
 
 Este artigo fornece uma visão geral das avaliações para a migração no local exemplos de servidor SQL de um ambiente VMware para bases de dados Azure SQL ou Instâncias Geridas usando a [ferramenta Azure Migrate: Discovery and assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool)tool .
-
-> [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 ## <a name="whats-an-assessment"></a>O que é uma avaliação?
 Uma avaliação com a ferramenta Discovery e assessment é um ponto no tempo instantâneo de dados e mede a prontidão e estima o efeito da migração de servidores no local para Azure.
@@ -28,9 +25,9 @@ Existem três tipos de avaliações que pode criar utilizando a ferramenta Azure
 
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
-**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. Pode avaliar os seus servidores no local em ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hiper-V](how-to-set-up-appliance-hyper-v.md) e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs Azure usando este tipo de avaliação.
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. <br/><br/> Pode avaliar os seus servidores no local em ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hiper-V](how-to-set-up-appliance-hyper-v.md) e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs Azure usando este tipo de avaliação.
 **SQL do Azure** | Avaliações para migrar os seus servidores SQL no local do seu ambiente VMware para Azure SQL Database ou Azure SQL Managed Instance.
-**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Uma avaliação Azure SQL fornece um único critério de dimensionamento:
 
@@ -76,34 +73,34 @@ Aqui está o que está incluído nas propriedades de avaliação Azure SQL:
 **Propriedade** | **Detalhes**
 --- | ---
 **Localização de destino** | A região de Azure para onde quer migrar. A configuração e recomendações de custos do Azure SQL baseiam-se na localização que especifica.
-**Tipo de implantação de alvo** | O tipo de implementação de destino pretende executar a avaliação em: Select **Recommended**, se quiser que o Azure Migrate avalie a prontidão dos seus servidores SQL para migrar para Azure SQL MI e Azure SQL DB, e recomendar a opção de implementação do alvo mais adequada, o nível alvo, configuração Azure SQL e estimativas mensais. Selecione **Azure SQL DB**, se quiser avaliar os seus servidores SQL para migrar apenas para Azure SQL Databases e rever o nível alvo, configuração DB Azure SQL e estimativas mensais. Selecione **Azure SQL MI,** se quiser avaliar os seus servidores SQL para migrar apenas para Azure SQL Databases e rever o nível alvo, configuração Azure SQL MI e estimativas mensais.
-**Capacidade reservada** | Especifica a capacidade reservada de modo a que as estimativas de custos na avaliação as levem em conta. Se selecionar uma opção de capacidade reservada, não pode especificar "Desconto (%)".
-**Critérios de dimensionamento** | Esta propriedade é usada para o tamanho certo da configuração Azure SQL. Está em incumprimento **em termos de desempenho,** o que significa que a avaliação recolherá as métricas de desempenho do SQL Server e bases de dados para recomendar uma recomendação de nível/configuração do Azure SQL De tamanho ideal.
+**Tipo de implantação de alvo** | O tipo de implementação de alvo que pretende executar a avaliação em: <br/><br/> Selecione **Recomendado**, se quiser que a Azure Migrate avalie a prontidão dos seus servidores SQL para migrar para Azure SQL MI e Azure SQL DB, e recomendar a opção de implementação do alvo mais adequada, o nível de destino, a configuração do SQL Azure e as estimativas mensais.<br/><br/>Selecione **Azure SQL DB**, se quiser avaliar os seus servidores SQL para migrar apenas para Azure SQL Databases e rever o nível alvo, configuração DB Azure SQL e estimativas mensais.<br/><br/>Selecione **Azure SQL MI,** se quiser avaliar os seus servidores SQL para migrar apenas para Azure SQL Databases e rever o nível alvo, configuração Azure SQL MI e estimativas mensais.
+**Capacidade reservada** | Especifica a capacidade reservada de modo a que as estimativas de custos na avaliação as levem em conta.<br/><br/> Se selecionar uma opção de capacidade reservada, não pode especificar "Desconto (%)".
+**Critérios de dimensionamento** | Esta propriedade é usada para o tamanho certo da configuração Azure SQL. <br/><br/> Está em incumprimento **em termos de desempenho,** o que significa que a avaliação recolherá as métricas de desempenho do SQL Server e bases de dados para recomendar uma recomendação de nível/configuração do Azure SQL De tamanho ideal.
 **Histórico de desempenho** | O histórico de desempenho especifica a duração utilizada quando os dados de desempenho são avaliados.
 **Utilização de percentil** | A utilização percentil especifica o valor percentil da amostra de desempenho utilizada para a direito.
-**Fator de conforto** | O tampão utilizado durante a avaliação. Explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro. Por exemplo, uma instância de 10 núcleos com 20% de utilização normalmente resulta num caso de dois núcleos. Com um fator de conforto de 2.0, o resultado é um caso de quatro núcleos.
+**Fator de conforto** | O tampão utilizado durante a avaliação. Explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro.<br/><br/> Por exemplo, uma instância de 10 núcleos com 20% de utilização normalmente resulta num caso de dois núcleos. Com um fator de conforto de 2.0, o resultado é um caso de quatro núcleos.
 **Programa de Oferta/Licenciamento** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que está matriculado. Atualmente, só pode escolher entre Pay-as-you-go e Pay-as-you-go Dev/Test. Note que pode obter desconto adicional aplicando capacidade reservada e Benefício Híbrido Azure em cima da oferta Pay-as-you-go.
-**Escalão de serviço** | A opção de nível de serviço mais adequada para acomodar as necessidades do seu negócio para a migração para a Base de Dados Azure SQL e/ou Azure SQL Gestd Instance: Select **Recommended** if want Azure Migrate to recommend the best suited service tier for your servers. Isto pode ser um propósito geral ou um negócio crítico. Selecione **Finalidade Geral** Se pretender uma configuração Azure SQL concebida para cargas de trabalho orientadas para o orçamento. [Saiba mais](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) Selecione **Business Critical** Se quiser uma configuração Azure SQL projetada para cargas de trabalho de baixa latência com alta resiliência a falhas e falhas rápidas. [Saiba mais](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Escalão de serviço** | A opção de nível de serviço mais adequada para acomodar as necessidades do seu negócio para a migração para a Base de Dados Azure SQL e/ou Instância Gerida Azure SQL:<br/><br/>**Recomendado** se quiser que a Azure Migrate recomende o nível de serviço mais adequado para os seus servidores. Isto pode ser um propósito geral ou um negócio crítico. <br/><br/> **Finalidade Geral** Se quiser uma configuração Azure SQL projetada para cargas de trabalho orientadas para o orçamento. [Saiba mais](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Critical de negócios** Se quiser uma configuração Azure SQL projetada para cargas de trabalho de baixa latência com alta resiliência a falhas e falhas rápidas. [Saiba mais](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
 **Moeda** | A moeda de faturação da sua conta.
 **Desconto (%)** | Quaisquer descontos específicos por subscrição que receba em cima da oferta Azure. A predefinição é 0%.
-**Benefício Híbrido do Azure** | Especifica se já tem uma licença SQL Server. Se o fizer e estiver coberto com uma garantia de software ativa das subscrições do SQL Server, pode candidatar-se ao Benefício Híbrido Azure quando levar licenças ao Azure.
+**Benefício Híbrido do Azure** | Especifica se já tem uma licença SQL Server. <br/><br/> Se o fizer e estiver coberto com uma garantia de software ativa das subscrições do servidor SQL, pode candidatar-se ao Benefício Híbrido Azure quando levar licenças ao Azure.
 
 [Reveja as melhores práticas](best-practices-assessment.md) para criar uma avaliação com a Azure Migrate.
 
 ## <a name="calculate-readiness"></a>Calcular prontidão
 
 > [!NOTE]
-> A avaliação inclui apenas bases de dados que estão em estado online. Caso a base de dados esteja em qualquer outro estado, a avaliação ignora o respetivo cálculo de preparação, dimensionamento e custo. Se desejar avaliar essas bases de dados, altere o estado das mesmas e recalcule a avaliação após algum tempo.
+A avaliação inclui apenas bases de dados que estão em estado online. Caso a base de dados esteja em qualquer outro estado, a avaliação ignora o respetivo cálculo de preparação, dimensionamento e custo. Se desejar avaliar essas bases de dados, altere o estado das mesmas e recalcule a avaliação após algum tempo.
 
 ### <a name="azure-sql-readiness"></a>Prontidão Azure SQL
 
 A prontidão do Azure SQL para instâncias e bases de dados SQL baseia-se numa verificação de compatibilidade de recursos com a Base de Dados Azure SQL e a Azure SQL Managed Instance:
-- A avaliação do SQL do Azure considera as funcionalidades de instância do SQL Server que são atualmente utilizadas pelas cargas de trabalho do SQL Server (empregos de agente SQL, servidores ligados, etc.) e os esquemas de bases de dados dos utilizadores (tabelas, vistas, gatilhos, procedimentos armazenados, etc.) para identificar problemas de compatibilidade.
-- Se não houver problemas de compatibilidade encontrados, a prontidão é marcada como **Ready** for the target deployment type (Azure SQL Database ou Azure SQL Managed Instance)
-- Se existirem problemas de compatibilidade não críticos, tais como funcionalidades degradadas ou não apoiadas que não bloqueiem a migração para um tipo específico de implantação de alvo, a prontidão é marcada como **Ready** (ícone de informação hiperligada e azul) com detalhes de **aviso** e orientação de remediação recomendada.
-- Se existirem problemas de compatibilidade que possam bloquear a migração para um tipo específico de implantação de alvo, a prontidão está marcada como **Não pronta** com detalhes **de emissão** e orientação de remediação recomendada.
+1. A avaliação do SQL do Azure considera as funcionalidades de instância do SQL Server que são atualmente utilizadas pelas cargas de trabalho do SQL Server (empregos de agente SQL, servidores ligados, etc.) e os esquemas de bases de dados dos utilizadores (tabelas, vistas, gatilhos, procedimentos armazenados, etc.) para identificar problemas de compatibilidade.
+1. Se não houver problemas de compatibilidade encontrados, a prontidão é marcada como **Ready** for the target deployment type (Azure SQL Database ou Azure SQL Managed Instance)
+1. Se existirem problemas de compatibilidade não críticos, tais como funcionalidades degradadas ou não apoiadas que não bloqueiem a migração para um tipo específico de implantação de alvo, a prontidão é marcada como **Ready** (ícone de informação hiperligada e azul) com detalhes de **aviso** e orientação de remediação recomendada.
+1. Se existirem problemas de compatibilidade que possam bloquear a migração para um tipo específico de implantação de alvo, a prontidão está marcada como **Não pronta** com detalhes **de emissão** e orientação de remediação recomendada.
     - Se houver mesmo uma base de dados num caso SQL que não esteja pronta para um determinado tipo de implantação de alvos, a instância está marcada como **Não pronta** para esse tipo de implantação.
-- Se a descoberta ainda estiver em andamento ou existirem quaisquer problemas de descoberta para um exemplo ou base de dados SQL, a prontidão é marcada como **Desconhecida,** uma vez que a avaliação não conseguiu calcular a prontidão para esse exemplo do SQL.
+1. Se a descoberta ainda estiver em andamento ou existirem quaisquer problemas de descoberta para um exemplo ou base de dados SQL, a prontidão é marcada como **Desconhecida,** uma vez que a avaliação não conseguiu calcular a prontidão para esse exemplo do SQL.
 
 ### <a name="recommended-deployment-type"></a>Tipo de implantação recomendado
 
@@ -113,11 +110,11 @@ Se selecionar o tipo de implementação de destino como **Recomendado** nas prop
 
  **Prontidão Azure SQL DB** | **Prontidão Azure SQL MI** | **Tipo de implantação recomendado** | **Configuração Azure SQL e estimativas de custos calculadas?**
  --- | --- | --- | --- |
- Pronto | Pronto | Azure SQL DB ou Azure SQL MI | Yes
- Pronto | Não pronto ou desconhecido | BD SQL do Azure | Yes
- Não pronto ou desconhecido | Pronto | Azure SQL MI | Yes
+ Pronto | Pronto | Azure SQL DB ou <br/>Azure SQL MI | Sim
+ Pronto | Não está pronto ou<br/> Desconhecido | BD SQL do Azure | Sim
+ Não está pronto ou<br/>Desconhecido | Pronto | Azure SQL MI | Sim
  Não está pronto. | Não está pronto. | Potencialmente pronto para Azure VM | No
- Não pronto ou desconhecido | Não pronto ou desconhecido | Desconhecido | No
+ Não está pronto ou<br/>Desconhecido | Não está pronto ou<br/>Desconhecido | Desconhecido | No
 
 > [!NOTE]
 > Se o tipo de implementação recomendado for selecionado como Recomendado em propriedades **de** avaliação e se o servidor SQL de origem for adequado tanto para a base de dados única Azure SQL DB como para a Azure SQL Managed Instance, a avaliação recomenda uma opção específica que otimize o seu custo e se ajuste dentro dos limites de tamanho e desempenho.
@@ -171,7 +168,7 @@ Este quadro mostra as classificações de confiança da avaliação, que depende
 
 #### <a name="low-confidence-ratings"></a>Baixas classificações de confiança
 Eis algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
-- Não perfilou o seu ambiente durante a duração pela qual está a criar a avaliação. Por exemplo, se criar a avaliação com a duração de desempenho definida para um dia, deve esperar pelo menos um dia depois de começar a descobrir todos os pontos de dados para ser recolhido.
+- Não analisou o ambiente durante o período para o qual está a criar a avaliação. Por exemplo, se criar a avaliação com a duração de desempenho definida para um dia, deve esperar pelo menos um dia depois de começar a descobrir todos os pontos de dados para ser recolhido.
 - A avaliação não é capaz de recolher os dados de desempenho de alguns ou todos os servidores no período de avaliação. Para uma alta classificação de confiança, certifique-se de que:
     - Os servidores são ligados durante a duração da avaliação
     - São permitidas ligações de saída nas portas 443

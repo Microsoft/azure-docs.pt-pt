@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: e390eb62f64c9ec55605525828790f15633e5f14
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 842ab27fe02501efbbc6c06c3d36d2218c3c17b9
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589536"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799246"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Tutorial: Azure Ative Directy integração única (SSO) com AWS Single-Account Access
 
@@ -73,6 +73,9 @@ Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 * Uma assinatura ativada por um único sign-on AWS (SSO).
+
+> [!Note]
+> As funções não devem ser editadas manualmente no Azure AD quando se faz importações de papéis.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

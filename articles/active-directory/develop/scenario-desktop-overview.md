@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98753729"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798957"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicativo de desktop que chama APIs web
 
@@ -30,6 +30,7 @@ Se ainda não o fez, crie a sua primeira aplicação completando um arranque rá
 - [Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows](./quickstart-v2-windows-desktop.md)
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação UWP](./quickstart-v2-uwp.md)
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação nativa do macOS](./quickstart-v2-ios.md)
+- [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação Node.js & Electron](./quickstart-v2-nodejs-desktop.md)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -39,6 +40,7 @@ Escreve uma aplicação para desktop e pretende iniciar sísem os utilizadores n
 
   - Se a sua aplicação para desktop suporta controlos gráficos, por exemplo, se for uma aplicação Windows.Form, uma aplicação WPF ou uma aplicação nativa do macOS.
   - Ou, se for uma aplicação .NET Core e concordar em que a interação de autenticação com o Azure Ative Directory (Azure AD) aconteça no navegador do sistema.
+  - Ou, se for uma aplicação Node.js Eletrão, que funciona numa instância de Crómio.
 
 - Para as aplicações hospedadas no Windows, também é possível que as aplicações em execução em computadores se unam a um domínio Windows ou AD Azure se juntem para adquirir um símbolo silenciosamente utilizando a Autenticação Integrada do Windows.
 - Finalmente, e embora não seja recomendado, pode usar um nome de utilizador e uma palavra-passe em aplicações de clientes públicos. Ainda é necessário em alguns cenários como DevOps. A sua utilização impõe constrangimentos à sua aplicação. Por exemplo, não pode assinar num utilizador que precise de realizar a [autenticação de vários fatores](../authentication/concept-mfa-howitworks.md) (acesso condicional). Além disso, a sua aplicação não beneficiará de uma única sso(SSO).

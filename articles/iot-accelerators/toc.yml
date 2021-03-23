@@ -7,22 +7,10 @@
     - name: AzureIoTSolutions.com
       href: iot-accelerators-permissions.md
     - name: IoT Industrial
-      href: overview-iot-industrial.md
-      items:
-        - name: O que é o Duplo OPC
-          href: overview-opc-twin.md
-        - name: O que é o Cofre OPC
-          href: overview-opc-vault.md
-        - name: O que é o Publicador OPC
-          href: overview-opc-publisher.md
-        - name: O que é a Fábrica Ligada
-          href: iot-accelerators-connected-factory-features.md
     - name: Simulação de dispositivo
       href: iot-accelerators-device-simulation-overview.md
 - name: Guias de Início Rápido
   items:
-    - name: Tentar uma solução de fábrica ligada
-      href: quickstart-connected-factory-deploy.md
     - name: Implementar o acelerador de soluções da simulação de dispositivos
       href: 'https://github.com/Azure/device-simulation-dotnet/blob/master/README.md'
   expanded: true
@@ -37,47 +25,14 @@
 - name: Conceitos
   items:
     - name: IoT Industrial
-      items:
-        - name: Arquitetura do Duplo OPC
-          href: overview-opc-twin-architecture.md
-        - name: Arquitetura do Cofre OPC
-          href: overview-opc-vault-architecture.md
 - name: Guias de procedimentos
   items:
     - name: IoT Industrial
       items:
         - name: Fábrica Ligada
-          items:
-            - name: Utilizar o dashboard
-              href: iot-accelerators-connected-factory-dashboard.md
-            - name: Configurar o acelerador de soluções
-              href: iot-accelerators-connected-factory-configure.md
-            - name: Personalizar o acelerador de soluções
-              href: iot-accelerators-connected-factory-customize.md
         - name: Duplo OPC
-          items:
-            - name: Implementar serviços do Duplo OPC
-              href: howto-opc-twin-deploy-existing.md
-            - name: Implementar o módulo do Duplo OPC para o IoT Edge
-              href: howto-opc-twin-deploy-modules.md
-            - name: Implementar apenas as dependências do Duplo OPC
-              href: howto-opc-twin-deploy-dependencies.md
         - name: Cofre OPC
-          items:
-            - name: Implementar serviço do Cofre OPC
-              href: howto-opc-vault-deploy.md
-            - name: Gerir serviço do Cofre OPC
-              href: howto-opc-vault-manage.md
-            - name: Proteger comunicação do dispositivo de agente de utilizador OPC com Cofre OPC
-              href: howto-opc-vault-secure.md
-            - name: Operar o serviço do Cofre OPC de forma segura
-              href: howto-opc-vault-secure-ca.md
         - name: Publicador OPC
-          items:
-            - name: Configurar o Publicador OPC
-              href: howto-opc-publisher-configure.md
-            - name: Executar o Publicador OPC
-              href: howto-opc-publisher-run.md
     - name: Simulação de dispositivo
       items:
         - name: Utilizar um Hub IoT existente
@@ -122,8 +77,6 @@
       items:
         - name: Repositório do GitHub
           href: 'https://github.com/Azure/azure-iot-connected-factory'
-        - name: FAQ de Fábrica Ligada
-          href: iot-accelerators-faq-cf.md
     - name: Simulação de dispositivo
       items:
         - name: Guia de referência para programadores

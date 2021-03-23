@@ -1,18 +1,14 @@
 ---
 title: Visão geral do portfólio de agentes e suporte ao OS (Pré-visualização)
 description: O Azure Defender for IoT fornece um grande portfólio de agentes com base no tipo de dispositivo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: f731b034b5d4f795bae51107e9ff4e2e90788d7d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6c65ad33439002bd651c4c926b6452868f6137ba
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120152"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784769"
 ---
 # <a name="agent-portfolio-overview-and-os-support-preview"></a>Visão geral do portfólio de agentes e suporte ao OS (Pré-visualização)
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8b3224333a3915b7827242004d1dec0f4695f479
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581920"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798398"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de reset de palavra-passe no Azure Ative Directory B2C
 
@@ -35,6 +35,9 @@ A [jornada de inscrição e de inscrição](add-sign-up-and-sign-in-policy.md) p
 ![Fluxo de reset de palavra-passe](./media/add-password-reset-policy/password-reset-flow.png)
 
 O fluxo de reset da palavra-passe aplica-se às contas locais em Azure AD B2C que utilizam um [endereço de e-mail](identity-provider-local.md#email-sign-in) ou [nome de utilizador](identity-provider-local.md#username-sign-in) com uma palavra-passe para iniciar sposição.
+
+> [!TIP]
+> O fluxo de reset da palavra-passe de autosserviço permite que os utilizadores alterem a sua palavra-passe quando o utilizador esquece a sua palavra-passe e quer repor a sua palavra-passe. Considere configurar um [fluxo de mudança de senha](add-password-change-policy.md) para suportar casos em que um utilizador saiba a sua palavra-passe e queira alterá-la.
 
 Uma prática comum após migrar os utilizadores para Azure AD B2C com senhas aleatórias é fazer com que os utilizadores verifiquem os seus endereços de e-mail e repuem as suas palavras-passe durante a sua primeira sação. Também é comum forçar o utilizador a redefinir a sua palavra-passe depois de um administrador alterar a sua palavra-passe; ver [redefinição da palavra-passe](force-password-reset.md) de força para ativar esta funcionalidade.
 

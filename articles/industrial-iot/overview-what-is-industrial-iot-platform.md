@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral da Plataforma IoT Industrial e
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 3/22/2021
-ms.openlocfilehash: 9908c020fb987e951f150fa27bce7c1eba973f7b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 24932b17c630190cb3121d5310a865758fa6a920
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787933"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801558"
 ---
 # <a name="what-is-the-industrial-iot-iiot-platform"></a>O que é a Plataforma De IoT Industrial (IIoT)?
 

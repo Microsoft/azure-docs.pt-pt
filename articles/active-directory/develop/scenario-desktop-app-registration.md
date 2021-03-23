@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 66f11b7a5124f0b9b834b79368d57443ab33e850
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578350"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798940"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registo de aplicações
 
@@ -50,6 +50,7 @@ Especifique o URI de redirecionamento para a sua aplicação [configurando as de
   > Como uma boa prática de segurança, recomendamos a definição explícita `https://login.microsoftonline.com/common/oauth2/nativeclient` ou `http://localhost` como o URI redirecionado. Algumas bibliotecas de autenticação como MSAL.NET usam um valor predefinido `urn:ietf:wg:oauth:2.0:oob` quando não é especificado nenhum outro URI de redirecionamento, o que não é recomendado. Este padrão será atualizado como uma mudança de rutura no próximo grande lançamento.
 
 - Se construir uma aplicação nativa Objective-C ou Swift para macOS, registe o URI de redirecionamento com base no identificador do pacote da sua aplicação no seguinte formato: `msauth.<your.app.bundle.id>://auth` . `<your.app.bundle.id>`Substitua-o pelo identificador do pacote da sua aplicação.
+- Se construir uma aplicação Node.js Electron, utilize um protocolo de ficheiro personalizado em vez de uma web regular (https://) redirecione o URI para lidar com o passo de reorientação do fluxo de autorização, por `msal://redirect` exemplo. O nome do protocolo de ficheiros personalizados não deve ser óbvio para adivinhar e deve seguir as sugestões na [especificação OAuth2.0 para Aplicações Nativas](https://tools.ietf.org/html/rfc8252#section-7.1).
 - Se a sua aplicação utilizar apenas a Autenticação Integrada do Windows ou um nome de utilizador e uma palavra-passe, não precisa de registar um URI de redirecionamento para a sua aplicação. Estes fluxos fazem uma ida e volta para a plataforma de identidade da Microsoft v2.0. A sua candidatura não será chamada de volta em nenhum URI específico.
 - Para distinguir o [fluxo de código do dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [Autenticação Integrada do Windows,](scenario-desktop-acquire-token.md#integrated-windows-authentication)nome de [utilizador e palavra-passe](scenario-desktop-acquire-token.md#username-and-password) de uma aplicação confidencial do cliente utilizando um fluxo de credencial do cliente utilizado em [aplicações daemon](scenario-daemon-overview.md), nenhum dos quais requer um redirecionamento URI, configura-o como uma aplicação de cliente público. Para alcançar esta configuração:
 

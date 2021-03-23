@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 659f61734001163ada6fd26caabe2fb007892f61
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86027448"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774495"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalize modelos de aprendizagem automática construídos por faíscas
 
@@ -266,7 +266,8 @@ Tempo de execução acima da célula: 5,37 segundos
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Criar objetos RDD com matrizes de funcionalidades para entrada em modelos
 Esta secção contém código que mostra como indexar dados de texto categóricos como um objeto RDD e codificar um só quente para que possa ser usado para treinar e testar modelos de regressão logística MLlib e modelos à base de árvores. Os dados indexados são armazenados em objetos [Resilient Distributed Dataset (RDD).](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) Os RDDs são a abstração básica em Spark. Um objeto RDD representa uma coleção imutável e dividida de elementos que podem ser operados em paralelo com a Faísca.
 
-Também contém código que mostra como escalar dados com os `StandardScalar` fornecidos pela MLlib para uso em regressão linear com a Descida de Gradiente Stochastic (SGD), um algoritmo popular para treinar uma vasta gama de modelos de aprendizagem automática. O [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) é utilizado para escalar as características para a variação da unidade. O dimensionamento de recursos, também conhecido como normalização de dados, assegura que as características com valores amplamente desembolsados não recebem um peso excessivo na função objetiva. 
+Também contém código que mostra como escalar dados com os `StandardScalar` fornecidos pela MLlib para uso em regressão linear com a Descida de Gradiente Stochastic (SGD), um algoritmo popular para treinar uma vasta gama de modelos de aprendizagem automática. O [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.tree.RandomForest.html#pyspark.mllib.tree.RandomForest
+) é utilizado para escalar as características para a variação da unidade. O dimensionamento de recursos, também conhecido como normalização de dados, assegura que as características com valores amplamente desembolsados não recebem um peso excessivo na função objetiva. 
 
 ```python
 # CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
