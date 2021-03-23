@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 60f4e4998e1077ca373f47a0cdf35c9d7a064605
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946617"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866680"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começa com uma caixa de areia Apache Hadoop, um emulador numa máquina virtual
 
@@ -39,7 +39,7 @@ Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os link
 1. A partir do menu **Ficheiro,** clique em **"Import Appliance"** e, em seguida, especifique a imagem da Caixa de Areia Hortonworks.
 1. Selecione a Caixa de Areia Hortonworks, clique **em Iniciar** e, em seguida, **Início Normal**. Uma vez terminada a máquina virtual, apresenta instruções de início de sessão.
 
-    ![início normal do gestor de caixa virtual](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    :::image type="content" source="./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png" alt-text="início normal do gestor de caixa virtual" border="true":::
 
 1. Abra um navegador web e navegue para o URL exibido `http://127.0.0.1:8888` (normalmente).
 

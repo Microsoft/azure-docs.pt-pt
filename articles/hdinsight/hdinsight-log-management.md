@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20a7a7392070a6f888add630398516b2f872cd7d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945279"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865490"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -76,11 +76,11 @@ Apache Ambari simplifica a gestão, configuração e monitorização de um clust
 
 Para abrir uma lista de visualizações de serviço, selecione o painel **Ambari Views** na página do portal Azure para HDInsight.  Esta lista varia, dependendo das bibliotecas que instalou.  Por exemplo, pode ver YARN Queue Manager, Hive View e Tez View.  Selecione qualquer link de serviço para ver a configuração e informações de serviço.  A página Ambari UI **Stack and Version** fornece informações sobre o histórico de configuração e versão de serviço dos serviços de cluster. Para navegar nesta secção da UI Ambari, selecione o menu **Admin** e, em seguida, **Stacks e Versões**.  Selecione o separador **Versões** para ver as informações da versão de serviço.
 
-![Apache Ambari admin Stack e versões](./media/hdinsight-log-management/ambari-stack-versions.png)
+:::image type="content" source="./media/hdinsight-log-management/ambari-stack-versions.png" alt-text="Apache Ambari admin Stack e versões":::
 
 Utilizando o UI Ambari, pode descarregar a configuração para qualquer (ou todos) serviços em execução num determinado anfitrião (ou nó) no cluster.  Selecione o menu **Anfitriões** e, em seguida, o link para o anfitrião de interesse. Na página do anfitrião, selecione o botão **Ações de Anfitrião** e, em seguida, **Baixe o Cliente Configs**.
 
-![Apache Ambari descarrega cliente anfitrião configs](./media/hdinsight-log-management/download-client-configs.png)
+:::image type="content" source="./media/hdinsight-log-management/download-client-configs.png" alt-text="Apache Ambari descarrega cliente anfitrião configs":::
 
 ### <a name="view-the-script-action-logs"></a>Ver os registos de ação do script
 
@@ -102,7 +102,7 @@ log4j.logger.alerts=DEBUG,alerts
 
 O próximo passo é rever os ficheiros de registo de execução de emprego para os vários serviços.  Os serviços podem incluir Apache HBase, Apache Spark, e muitos outros. Um cluster Hadoop produz um grande número de troncos verbosos, de modo que determinar quais os troncos que são úteis (e que não são) pode ser demorado.  A compreensão do sistema de registo é importante para a gestão direcionada dos ficheiros de registo.  A imagem a seguir é um ficheiro de registo de exemplo.
 
-![HdInsight exemplo de saída de amostra de ficheiro](./media/hdinsight-log-management/hdi-log-file-example.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="HdInsight exemplo de saída de amostra de ficheiro":::
 
 ### <a name="access-the-hadoop-log-files"></a>Aceda aos ficheiros de registo de Hadoop
 
@@ -157,7 +157,7 @@ Depois de determinar quais os ficheiros de registo que podem ser eliminados, pod
 
 Para certos ficheiros de registo, pode utilizar uma abordagem de arquivamento de ficheiros de registo mais baixo. Para registos de atividade do Azure Resource Manager, pode explorar esta abordagem utilizando o portal Azure.  Confiúde o arquivo dos registos do Gestor de Recursos selecionando o link **'Registo de Atividade'** no portal Azure para o seu caso HDInsight.  No topo da página de pesquisa do Registo de Atividade, selecione o item do menu **Exportação** para abrir o painel **de registo de atividades de Exportação.**  Preencha a subscrição, região, se exporta para uma conta de armazenamento, e quantos dias para reter os registos. Neste mesmo painel, você também pode indicar se exporta para um centro de eventos.
 
-![Pré-visualização do registo de atividade de exportação do portal Azure](./media/hdinsight-log-management/hdi-export-log-files.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-export-log-files.png" alt-text="Pré-visualização do registo de atividade de exportação do portal Azure":::
 
 Em alternativa, pode fazer login com PowerShell.  Para um exemplo, o script PowerShell, consulte [os registos da Automação Archive Azure para o armazenamento de blob Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 

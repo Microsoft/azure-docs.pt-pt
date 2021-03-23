@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: acfe74577f58cbdc0b1fe235e7fc1f661543fd90
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ca01289ce66afe642081e5be17373e640dd1e46d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609516"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864827"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>Tutorial: Configurar gramática para o fornecimento automático de utilizadores
 
@@ -85,7 +85,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot que mostra o modo de provisionamento definido para Automático.](common/provisioning-automatic.png)
 
-1. Na secção **Credenciais de Administração,** insira a sua URL de **inquilino** grammarly e informações **secretas.** Selecione **a Ligação de Teste** para garantir que o Azure AD pode ligar-se à Grammarly. Se a ligação falhar, certifique-se de que a sua conta Grammarly tem permissões de administração e tente novamente.
+1. Sob a secção **credenciais de administrador,** no campo URL do **inquilino** `https://sso.grammarly.com/scim/v2` entram, e no campo **Token Secreto** introduza o símbolo fornecido pela Grammarly (ver passo 2 acima). Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se à Grammarly. Se a ligação falhar, certifique-se de que a sua conta Grammarly tem permissões de Administração e tente novamente.
 
     ![Screenshot que mostra a URL do inquilino e caixas de token secretos.](common/provisioning-testconnection-tenanturltoken.png)
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: fbe4041b74f90b2ef8a9ef4384e83c7aa2d56461
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: baf41b9e66b14e4b255b6e13b22691357f9e7309
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939275"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870811"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é Apache Kafka em Azure HDInsight
 
@@ -44,7 +44,7 @@ Seguem-se as características específicas do Kafka no HDInsight:
 
 O diagrama seguinte mostra uma configuração do Kafka comum que utiliza grupos de consumidores, particionamento e replicação para oferecer leitura paralela de eventos com tolerância a falhas:
 
-![Diagrama de configuração do cluster do Kafka](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
+:::image type="content" source="./media/apache-kafka-introduction/kafka-cluster-diagram.png" alt-text="Diagrama de configuração do cluster do Kafka" border="false":::
 
 O Apache ZooKeeper gere o estado do cluster do Kafka. O Zookeeper foi concebido para transações em simultâneo, resilientes e de baixa latência.
 
@@ -58,7 +58,7 @@ A replicação é utilizada para duplicar as partições nos nós, ao proteger c
 
 Seguem-se as tarefas comuns e os padrões que podem ser efetuados com o Kafka no HDInsight:
 
-|Utilização |Description |
+|Utilização |Descrição |
 |---|---|
 |Replicação dos dados de Apache Kafka|Kafka fornece o utilitário MirrorMaker, que replica dados entre clusters Kafka. Para obter informações sobre a utilização do MirrorMaker, consulte [os tópicos De Replicar Apache Kafka com Apache Kafka em HDInsight](apache-kafka-mirroring.md).|
 |Padrão de mensagens de subscrição de publicação|Kafka fornece uma API de produtor para publicar registos para um tema Kafka. A API de Consumidor é utilizada ao subscrever um tópico. Para obter mais informações, consulte [Start with Apache Kafka em HDInsight](apache-kafka-get-started.md).|

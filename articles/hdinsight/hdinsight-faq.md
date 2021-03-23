@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 47f0ea34fa650371d39252ce6b0ee6a15f3124d6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699305"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871185"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Frequently asked questions (Autenticação Pass-through: Perguntas mais frequentes)
 
@@ -78,11 +78,11 @@ Não, não é possível executar Apache Kafka e Apache Spark no mesmo aglomerado
 1. Abra o Ambari Web UI em `https://CLUSTERNAME.azurehdinsight.net` , onde CLUSTERNAME é o nome do seu cluster.
 2. No canto superior direito, selecione administrador | Configurações. 
 
-   ![Definições Ambari](media/hdinsight-faq/ambari-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Definições Ambari":::
 
 3. Na janela Definições do Utilizador, selecione o novo timezone a partir da queda do Timezone e, em seguida, clique em Guardar.
 
-   ![Definições do utilizador Ambari](media/hdinsight-faq/ambari-user-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Definições do utilizador Ambari":::
 
 ## <a name="metastore"></a>Metastore
 

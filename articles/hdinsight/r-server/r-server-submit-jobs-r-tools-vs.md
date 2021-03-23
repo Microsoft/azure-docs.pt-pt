@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c5a0b2d21f7d42b8ce96f72d58e5d0a8ab0c572c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943936"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864691"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
 
@@ -22,7 +22,7 @@ O RTVS melhora o seu fluxo de trabalho R oferecendo ferramentas como a [janela R
 
 1. Instale [ferramentas R para Estúdio Visual](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
-    ![Instalação RTVS no Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png" alt-text="Instalação RTVS no Visual Studio 2017" border="true":::
 
 2. Selecione a carga de trabalho da ciência dos *dados e aplicações analíticas,* em seguida, selecione o **suporte de linguagem R,** **suporte de tempo de execução para desenvolvimento R** e opções do Cliente Microsoft **R.**
 
@@ -38,7 +38,7 @@ O RTVS melhora o seu fluxo de trabalho R oferecendo ferramentas como a [janela R
 
    2. Vá ao item do menu **R Tools** e, em seguida, selecione **Definições de Ciência de Dados...**.
 
-       ![Definições de ciência de dados de estúdio visual](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png" alt-text="Definições de ciência de dados de estúdio visual" border="true":::
 
       > [!NOTE]  
       > Utilizando a abordagem no passo 1, também pode guardar e restaurar o seu layout personalizado de cientistas de dados, em vez de repetir o comando **de Definições de Ciência de Dados.**
@@ -53,11 +53,11 @@ O RTVS melhora o seu fluxo de trabalho R oferecendo ferramentas como a [janela R
 6. A partir da parte superior do ficheiro, prima Ctrl+Enter para enviar cada linha, uma de cada vez, para a janela R Interactive. Algumas linhas podem demorar algum tempo enquanto instalam pacotes.
     * Em alternativa, pode selecionar todas as linhas do ficheiro R (Ctrl+A), em seguida, executar todas (Ctrl+Enter) ou selecionar o ícone Executar Interactive na barra de ferramentas.
 
-        ![Estúdio Visual executa interativo](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png" alt-text="Estúdio Visual executa interativo" border="true":::
 
 7. Depois de executar todas as linhas do script, você deve ver uma saída semelhante a esta:
 
-    ![Ferramentas R do espaço de trabalho do Estúdio Visual](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png" alt-text="Ferramentas R do espaço de trabalho do Estúdio Visual" border="true":::
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Submeta empregos a um cluster de serviços ML HDInsight
 
@@ -93,7 +93,7 @@ Utilizando um Microsoft ML Server/Microsoft R Client a partir de um computador W
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![faísca apache definindo o contexto](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png" alt-text="faísca apache definindo o contexto" border="true":::
 
 1. Execute os seguintes comandos na janela R Interactive:
 
@@ -105,22 +105,23 @@ Utilizando um Microsoft ML Server/Microsoft R Client a partir de um computador W
 
     Deverá ver um resultado semelhante ao seguinte:
 
-    ![Execução de comando rx bem-sucedida ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png" alt-text="Execução de comando rx bem sucedida" border="true":::
+um
 1. Verifique se o `rxHadoopCopy` ficheiro copiou com sucesso `people.json` da pasta de dados de exemplo para a pasta recém-criada: `/user/RevoShare/newUser`
 
     1. A partir do painel de agrupamento hdInsight ML Services em Azure, selecione **as contas** de Armazenamento do menu à esquerda.
 
-        ![Contas de armazenamento Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png" alt-text="Contas de armazenamento Azure HDInsight" border="true":::
 
     2. Selecione a conta de armazenamento predefinido para o seu cluster, fazendo nota do nome do contentor/diretório.
 
     3. Selecione **recipientes** do menu à esquerda no painel da sua conta de armazenamento.
 
-        ![Recipientes de armazenamento Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png" alt-text="Recipientes de armazenamento Azure HDInsight" border="true":::
 
     4. Selecione o nome do seu cluster, navegue na pasta do **utilizador** (poderá ter de clicar *mais* na parte inferior da lista), depois selecione *RevoShare*, em seguida, **newUser**. O `people.json` ficheiro deve ser apresentado na `newUser` pasta.
 
-        ![Localização da pasta de ficheiro copiada HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png" alt-text="Localização da pasta de ficheiro copiada HDInsight" border="true":::
 
 1. Depois de terminar de usar o contexto atual do Apache Spark, deve detê-lo. Não pode executar vários contextos ao mesmo tempo.
 

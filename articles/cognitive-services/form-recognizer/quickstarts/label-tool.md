@@ -11,18 +11,18 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f83e13155fa851a06c8b7d36b87c3038257c0b3a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467298"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864385"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
+# <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>Treine um modelo personalizado usando a ferramenta de rotulagem da amostra
 
 Neste arranque rápido, utilizará a API do Coitalista de Formulários com a ferramenta de rotulagem da amostra para treinar um modelo de processamento de documentos personalizado com dados etiquetados manualmente. Consulte a secção [Train com etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre a aprendizagem supervisionada com o Form Recogniser.
 

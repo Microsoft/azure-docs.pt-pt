@@ -4,12 +4,12 @@ description: Várias exceções outOfMemoryError para o cluster Apache Spark em 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dd33972810ab3b0d51bbd82282d0e6cf6cd9d96c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946351"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868669"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções outOfMemoryError para Apache Spark em Azure HDInsight
 
@@ -59,7 +59,7 @@ A causa mais provável desta exceção é que não há memória suficiente para 
 
 1. Confirme que o cluster do HDInsight a ser utilizado tem recursos suficientes em termos de memória, assim como núcleos, para alojar a aplicação Spark. Isto pode ser determinado visualizando a secção de Métricas de Cluster do UI YARN do cluster para os valores de **Memória Utilizada** vs. **Memory Total** e **VCores Usado** vs. **VCores Total**.
 
-    ![visão de memória núcleo de fios](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="visão de memória núcleo de fios" border="true":::
 
 1. Desaperte as seguintes configurações de Faísca para valores apropriados. Equilibrar os requisitos de candidatura com os recursos disponíveis no cluster. Estes valores não devem exceder 90% da memória e dos núcleos disponíveis, tal como visto pela YARN, devendo igualmente satisfazer o requisito mínimo de memória da aplicação Spark:
 
@@ -117,11 +117,11 @@ Pode aumentar a memória do Servidor histórico de faíscas editando a `SPARK_DA
 
 Pode fazê-lo a partir do UI do navegador Ambari selecionando a secção Spark2/Config/Advanced spark2-env.
 
-![Secção avançada de spark2-env](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Secção avançada de spark2-env" border="true":::
 
 Adicione a seguinte propriedade para alterar a memória do Servidor histórico de faíscas de 1g para 4g: `SPARK_DAEMON_MEMORY=4g` .
 
-![Propriedade Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Propriedade Spark" border="true":::
 
 Certifique-se de reiniciar todos os serviços afetados a partir de Ambari.
 

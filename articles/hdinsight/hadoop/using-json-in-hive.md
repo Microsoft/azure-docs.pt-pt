@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 5bc9acea219e5d111700840149a26c127b47514d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d3c5077450dd4ec59f5ea7bc8f37879f9aa775bf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943066"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868941"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON utilizando a Colmeia Apache em Azure HDInsight
 
@@ -93,7 +93,7 @@ A declaração **SELECT** apenas devolve uma linha.
 
 Aqui está a saída da declaração **SELECT:**
 
-![HDInsight achatando o documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-flatten-json.png" alt-text="HDInsight achatando o documento JSON" border="true":::
 
 ## <a name="analyze-json-documents-in-hive"></a>Analisar documentos JSON na Colmeia
 
@@ -119,7 +119,7 @@ FROM StudentsOneLine;
 
 Aqui está a saída quando executar esta consulta na janela da consola:
 
-![Apache Hive recebe json objeto UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-get-json-object.png" alt-text="Apache Hive recebe json objeto UDF" border="true":::
 
 Existem limitações da get_json_object UDF:
 
@@ -141,7 +141,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 A saída deste script na consola Hive:
 
-![Apache Hive json resultados de consulta](./media/using-json-in-hive/hdinsight-json-tuple.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-json-tuple.png" alt-text="Apache Hive json resultados de consulta" border="true":::
 
 O `json_tuple` UDF utiliza a sintaxe [de visão lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) na Colmeia, que permite que o tuple json crie uma tabela virtual \_ aplicando a função UDT a cada linha da tabela original. Os JSONs complexos tornam-se demasiado desajeitados devido à utilização repetida da **VISTA LATERAL**. Além disso, **JSON_TUPLE** não consegue lidar com JSONs aninhados.
 

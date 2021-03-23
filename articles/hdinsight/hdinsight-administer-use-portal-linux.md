@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: e21361b6d491f53f41754831d2bdf896ef2719db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 33171527f03b0cc386f683f55f6cf9a70913abdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101091431"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871219"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
 
@@ -36,7 +36,7 @@ A página **de clusters HDInsight** listará os seus clusters existentes.  A par
 
 Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClusters)  Isto abrirá a **vista geral,** que se parece com a seguinte imagem:
 
-![Essenciais do cluster do portal Azure HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
+:::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Essenciais do cluster do portal Azure HDInsight":::
 
 **Menu superior:**  
 
@@ -173,7 +173,7 @@ A partir da página inicial do [cluster:](#homePage)
 
 1. Selecione **dashboards cluster**.
 
-    ![Menu de cluster HDInsight Apache Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png" alt-text="Menu de cluster HDInsight Apache Hadoop":::
 
 1. Selecione **Ambari para casa** a partir da nova página.
 1. Introduza o nome de utilizador do cluster e a palavra-passe.  O nome de utilizador do cluster predefinido é _administrador_.

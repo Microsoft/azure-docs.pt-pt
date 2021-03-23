@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 943223ee99838b2b6d6de7eecb3c3b8c06d3562c
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773594"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870743"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
 
-Este artigo resume os pré-requisitos e requisitos de suporte quando descobre e avalia os servidores em execução em ambiente VMware para migração para Azure, utilizando a ferramenta [Azure Migrate: Discovery and assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Para avaliar os servidores, cria um projeto, que adiciona o Azure Migrate: Discovery e ferramenta de avaliação ao projeto. Depois de a ferramenta ser adicionada, insuja o aparelho Azure Migrate. O aparelho descobre continuamente servidores no local e envia metadados de configuração e desempenho para o Azure. Após a descoberta estar completa, você recolhe servidores descobertos em grupos, e executar uma avaliação para um grupo.
+Este artigo resume os pré-requisitos e requisitos de suporte quando descobre e avalia os servidores em execução em ambiente VMware para migração para Azure, utilizando a ferramenta [Azure Migrate: Discovery and assessment.](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) Para avaliar os servidores, cria um projeto, que adiciona o Azure Migrate: Discovery e ferramenta de avaliação ao projeto. Depois de a ferramenta ser adicionada, insuja o aparelho Azure Migrate. O aparelho descobre continuamente servidores no local e envia metadados de configuração e desempenho para o Azure. Após a descoberta estar completa, você recolhe servidores descobertos em grupos, e executar uma avaliação para um grupo.
 
 Se pretender migrar servidores VMware para Azure, reveja a matriz de suporte à [migração](migrate-support-matrix-vmware-migration.md).
 
@@ -25,7 +25,7 @@ Se pretender migrar servidores VMware para Azure, reveja a matriz de suporte à 
 
 **Requisito** | **Detalhes**
 --- | ---
-**Limites do projeto** | Pode criar vários projetos numa subscrição do Azure.<br/><br/> Você pode descobrir e avaliar até 50.000 servidores do ambiente VMware em um único [projeto](migrate-support-matrix.md#azure-migrate-projects). Um projeto também pode incluir servidores físicos, e servidores do ambiente Hiper-V, até os limites de avaliação.
+**Limites do projeto** | Pode criar vários projetos numa subscrição do Azure.<br/><br/> Você pode descobrir e avaliar até 50.000 servidores do ambiente VMware em um único [projeto](migrate-support-matrix.md#project). Um projeto também pode incluir servidores físicos, e servidores do ambiente Hiper-V, até os limites de avaliação.
 **Deteção** | O aparelho Azure Migrate pode descobrir até 10.000 servidores num servidor vCenter.
 **Avaliação** | Pode adicionar até 35.000 servidores num único grupo.<br/><br/> Pode avaliar até 35.000 servidores numa única avaliação.
 
@@ -78,9 +78,6 @@ Além de descobrir Servers, Azure Migrate: Discovery e assessment podem descobri
 **Acesso portuário** | O aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443 nos anfitriões ESXi que executam servidores nos quais pretende realizar a descoberta de aplicações. O vCenter Server devolve uma ligação de anfitrião ESXi, para descarregar o ficheiro que contém os detalhes do inventário de software.
 
 ## <a name="requirements-for-discovery-of-sql-server-instances-and-databases"></a>Requisitos para a descoberta de instâncias e bases de dados do SQL Server
-
-> [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 [A descoberta da aplicação](how-to-discover-applications.md) identifica as instâncias do SQL Server. Utilizando estas informações, o aparelho tenta ligar-se às respetivas instâncias do SQL Server através da autenticação do Windows ou das credenciais de autenticação do SQL Server fornecidas no aparelho. Uma vez ligado, o aparelho recolhe dados de configuração e desempenho de instâncias e bases de dados do SQL Server. Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos.
 

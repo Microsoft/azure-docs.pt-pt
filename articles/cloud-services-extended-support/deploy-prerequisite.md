@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d85aad16049dee6496cb1eaf9def5451625ab876
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773475"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865609"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de Serviços cloud Azure (suporte alargado)
 
@@ -133,7 +133,7 @@ As implementações que utilizaram os antigos plugins de diagnóstico precisam d
 
 ## <a name="key-vault-creation"></a>Criação do Cofre Chave 
 
-O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de configuração de serviço. Também precisa de ativar as "políticas de acesso" do Key Vault (em portal) para acesso a 'Azure Virtual Machines for deployment' e 'Azure Resource Manager for template deployment' para que o recurso Cloud Services (suporte alargado) possa recuperar o certificado armazenado como segredos do Key Vault. Pode criar um cofre chave no [portal Azure](../key-vault/general/quick-create-portal.md) ou utilizando o [PowerShell](../key-vault/general/quick-create-powershell.md). O cofre-chave deve ser criado na mesma região e subscrição que o serviço de nuvem. Para obter mais informações, consulte [os certificados de utilização com a Azure Cloud Services (suporte alargado)](certificates-and-key-vault.md).
+O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de configuração de serviço. Também precisa de ativar as "políticas de acesso" do Key Vault (em portal) para 'Azure Virtual Machines for deployment' para que o recurso Cloud Services (suporte alargado) possa recuperar o certificado armazenado como segredos do Key Vault. Pode criar um cofre chave no [portal Azure](../key-vault/general/quick-create-portal.md) ou utilizando o [PowerShell](../key-vault/general/quick-create-powershell.md). O cofre-chave deve ser criado na mesma região e subscrição que o serviço de nuvem. Para obter mais informações, consulte [os certificados de utilização com a Azure Cloud Services (suporte alargado)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Passos seguintes 
 - Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado).

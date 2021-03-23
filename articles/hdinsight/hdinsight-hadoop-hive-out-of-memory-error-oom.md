@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d1e8f596ee022a59baa89e7f78648c98420eb44b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945720"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868873"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrija uma Colmeia Apache fora de erro de memória em Azure HDInsight
 
@@ -104,7 +104,7 @@ O **ficheiro hive.auto.convert.join.noconditionaltask** no hive-site.xml ficheir
 
 É provável que o mapa se juntasse foi a causa do Espaço Java Heap por erro de memória. Como explicado no blog post [Hadoop Yarn definições de memória em HDInsight](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), quando o motor de execução Tez é usado o espaço de pilha usado realmente pertence ao recipiente Tez. Veja a seguinte imagem descrevendo a memória do recipiente Tez.
 
-![Diagrama de memória do recipiente Tez: Colmeia fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+:::image type="content" source="./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png" alt-text="Diagrama de memória do recipiente Tez: Colmeia fora do erro de memória" border="false":::
 
 Como sugere o post do blog, as duas definições de memória que se seguem definem a memória do recipiente para a pilha: **hive.tez.container.size** e **hive.tez.java.opts**. Pela nossa experiência, a exceção fora da memória não significa que o tamanho do contentor é muito pequeno. Significa que o tamanho da pilha de Java (hive.tez.java.opts) é muito pequeno. Assim, sempre que vir fora da memória, pode tentar aumentar **a colmeia.tez.java.opts**. Se necessário, poderá ter de aumentar **o tamanho da colmeia.tez.container**. A definição **de java.opts** deve ser de cerca de 80% do tamanho do **contentor.**
 

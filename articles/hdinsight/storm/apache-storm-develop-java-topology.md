@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8e51f99496514e40d6c3f85000384a14baf84946
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929122"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865371"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia da Tempestade Apache em Java
 
@@ -482,7 +482,7 @@ A topologia une os bicos e parafusos num gráfico. O gráfico define como os dad
 
 A imagem a seguir é um diagrama básico do gráfico de componentes para esta topologia.
 
-![diagrama mostrando o arranjo de bicos e parafusos](./media/apache-storm-develop-java-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-java-topology/word-count-topology1.png" alt-text="diagrama mostrando o arranjo de bicos e parafusos" border="false":::
 
 Para implementar a topologia, insira o comando abaixo para criar e abrir um novo `WordCountTopology.java` ficheiro:
 

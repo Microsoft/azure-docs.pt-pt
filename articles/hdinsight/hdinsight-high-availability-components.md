@@ -4,12 +4,12 @@ description: Visão geral dos vários componentes de alta disponibilidade utiliz
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 93d2317c85f93ce8a22f2d434fbc081a88265a74
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945310"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863722"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade suportados pela Azure HDInsight
 
@@ -34,7 +34,7 @@ Esta infraestrutura é constituída por uma série de serviços e componentes de
 - Serviço de alta disponibilidade de escravos
 - Serviço de alta disponibilidade master
 
-![alta infraestrutura de disponibilidade](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="alta infraestrutura de disponibilidade" border="false":::
 
 Existem também outros serviços de alta disponibilidade, que são suportados por componentes de fiabilidade Apache de código aberto. Estes componentes também estão presentes em clusters HDInsight:
 
@@ -91,7 +91,7 @@ O serviço master-ha funciona apenas no headnode ativo, para os serviços HDInsi
 
 ### <a name="the-failover-process"></a>O processo de failover
 
-![processo de failover](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="processo de failover" border="false":::
 
 Um monitor de saúde corre em cada cabeçada juntamente com o controlador mestre de failover para enviar notificações de batimentocardíaco para o quórum zookeeper. O headnode é considerado um serviço de HA neste cenário. O monitor de saúde verifica se cada serviço de alta disponibilidade é saudável e se está pronto para participar na eleição para a liderança. Se sim, este cabeçanode vai competir na eleição. Se não, sairá da eleição até que se prepare novamente.
 

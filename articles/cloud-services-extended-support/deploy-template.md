@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1e2a0859227ad790763dc9ae07cb408a72538f90
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773373"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865592"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
@@ -141,7 +141,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     ```
  
 
-4. Adicione a referência do cofre chave na  `OsProfile`   secção do modelo ARM. O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de Configuração de Serviço (.cscfg). Também precisa de ativar o Key Vault para obter permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado armazenado como segredos do Key Vault. O cofre-chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para obter mais informações, consulte [a utilização de certificados com serviços cloud (suporte alargado)](certificates-and-key-vault.md).
+4. Adicione a referência do cofre chave na  `OsProfile`   secção do modelo ARM. O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de Configuração de Serviço (.cscfg). Também precisa de ativar as "políticas de acesso" do Key Vault para 'Azure Virtual Machines for deployment'(no portal) para que o recurso Cloud Services (suporte alargado) possa recuperar o certificado armazenado como segredos do Key Vault. O cofre-chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para obter mais informações, consulte [a utilização de certificados com serviços cloud (suporte alargado)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 

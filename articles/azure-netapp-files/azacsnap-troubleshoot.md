@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 903cb3323b9441ec8bb382054f065760875e3e89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ba5a05515284612e17d5aba4cc673c7e78f7ba1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632832"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869927"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool-preview"></a>Resolução de problemas Azure Aplicação Consistente Ferramenta Snapshot (pré-visualização)
 
@@ -54,6 +54,13 @@ Exemplo de saída a partir de `/var/log/messages` ficheiro.
 ```output
 Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 ```
+
+## <a name="failed-communication-with-azure-netapp-files"></a>Comunicação falhada com ficheiros Azure NetApp
+
+Ao validar a comunicação com os Ficheiros Azure NetApp, a comunicação pode falhar ou sair do prazo.  Verifique se as regras de firewall não estão a bloquear o tráfego de saída do sistema que executa o AzAcSnap para os seguintes endereços e portas TCP/IP:-
+
+- (https://)management.azure.com:443
+- (https://)login.microsoftonline.com:443 
 
 ## <a name="failed-communication-with-sap-hana"></a>Comunicação falhada com a SAP HANA
 

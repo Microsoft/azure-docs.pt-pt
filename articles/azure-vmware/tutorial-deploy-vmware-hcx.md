@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d4607483e64e6b7daa45f576f70ce3f5eeef65ca
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801116"
+ms.locfileid: "104869094"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -265,7 +265,7 @@ Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HC
 1. A partir de **Switches Distribuídos Selecionados para Extensões de Rede**, selecione os interruptores que contêm as máquinas virtuais a migrar para a Solução VMware Azure numa rede estendida em camada 2. Em seguida, selecione **Continuar**.
 
    > [!NOTE]
-   > Se não estiver a migrar máquinas virtuais em redes estendidas camadas 2, pode saltar este passo.
+   > Se não estiver a migrar máquinas virtuais em redes estendidas camadas 2 (L2), pode saltar este passo.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot que mostra a seleção de interruptores virtuais distribuídos e o botão Continuar." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -376,4 +376,4 @@ Para obter mais informações sobre a utilização do HCX, aceda à documentaç�
 * [Documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Máquinas virtuais migratórias com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [Portas necessárias de HCX](https://ports.vmware.com/home/VMware-HCX)
-* [Crie um servr de procuração HCX antes de aprovar a chave de licença](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)
+* [Crie um servidor de procuração HCX antes de aprovar a chave de licença](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

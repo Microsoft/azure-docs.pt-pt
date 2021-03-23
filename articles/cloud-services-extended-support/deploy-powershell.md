@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 08a8dde815a6dea5d69e5e2a385cbaa03fba681a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99832699"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865626"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Implementar um Serviço cloud (suporte alargado) utilizando a Azure PowerShell
 
@@ -88,7 +88,7 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Criar um Key Vault. Este Cofre chave será utilizado para armazenar certificados associados às funções de Cloud Service (suporte alargado). Certifique-se de que ativou as "políticas de acesso" (em portal) para acesso a 'Azure Virtual Machines for deployment' e 'Azure Resource Manager for template deployment'. O Cofre-Chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para mais informações consulte [os certificados utilizar com a Azure Cloud Services (suporte alargado)](certificates-and-key-vault.md).
+9. Criar um Key Vault. Este Cofre chave será utilizado para armazenar certificados associados às funções de Cloud Service (suporte alargado). O Cofre-Chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para mais informações consulte [os certificados utilizar com a Azure Cloud Services (suporte alargado)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -97,6 +97,7 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
 10. Atualize a política de acesso ao Cofre-Chave e conceda permissões de certificado à sua conta de utilizador. 
 
     ```powershell
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -EnabledForDeployment
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 

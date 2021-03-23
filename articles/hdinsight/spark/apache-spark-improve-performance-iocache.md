@@ -4,12 +4,12 @@ description: Saiba mais sobre a Cache IO IO do Azure HDInsight e como usá-lo pa
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9df585c102e2c7307e949e38b6b69147372c38dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940136"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866306"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho das cargas de trabalho da Apache Spark utilizando a cache IO IO do Azure HDInsight
 
@@ -37,7 +37,7 @@ A azure HDInsight IO Cache é desativado por padrão na pré-visualização. IO 
 
 1. Selecione **Ações** **(Ações de Serviço** em HDI 3.6) e **Ative**.
 
-    ![Habilitação do serviço IO Cache em Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Habilitação do serviço IO Cache em Ambari")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Habilitação do serviço IO Cache em Ambari" border="true":::
 
 1. Confirme o reinício de todos os serviços afetados no cluster.
 
@@ -52,7 +52,7 @@ Pode obter erros de espaço em disco executando trabalhos spark depois de ativar
 
 1. Selecione os **separadores Configs** e **Advanced.**
 
-    ![Editar configuração avançada de HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Editar configuração avançada de HDFS")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Editar configuração avançada de HDFS" border="true":::
 
 1. Desloque-se para baixo e expanda a área **do núcleo personalizado.**
 
@@ -60,13 +60,13 @@ Pode obter erros de espaço em disco executando trabalhos spark depois de ativar
 
 1. Mude o valor na caixa.
 
-    ![Editar percentagem de plenitude io cache](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Editar percentagem de plenitude io cache")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Editar percentagem de plenitude io cache" border="true":::
 
 1. **Selecione Guarde** no canto superior direito.
 
 1. **Selecione reiniciar**  >  **reiniciar todos os afetados**.
 
-    ![Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari reinicia todos os afetados" border="true":::
 
 1. **Selecione Confirmar Reiniciar tudo**.
 

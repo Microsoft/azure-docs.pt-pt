@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581121"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871406"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -47,12 +47,6 @@ Consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Como faço o streaming para dispositivos Apple iOS?
 
 Certifique-se de que tem **(formato=m3u8-aapl)** no final do seu caminho (após a **/parte manifesto** do URL) para dizer ao servidor de origem de streaming para devolver o conteúdo HTTP Live Streaming (HLS) para consumo em dispositivos nativos Apple iOS. Para mais informações, consulte [o conteúdo de Entrega](dynamic-packaging-overview.md).
-
-### <a name="how-do-i-configure-media-reserved-units"></a>Como posso configurar unidades reservadas para os meios de comunicação?
-
-Para os trabalhos de Análise de Áudio e Análise de Vídeo que são desencadeados pelos Media Services v3 ou Por Video Indexer, recomendamos que abrimos a sua conta com 10 Unidades Reservadas para Os Meios de Comunicação Social (MRUs). Se precisar de mais de 10 MRUs S3, abra um bilhete de apoio utilizando o [portal Azure](https://portal.azure.com/).
-
-Para mais informações, consulte [o processamento de mídia scale](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual é o método recomendado para processar vídeos?
 

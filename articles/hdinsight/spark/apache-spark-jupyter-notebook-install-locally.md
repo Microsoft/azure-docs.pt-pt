@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: d5915316ee9d393b2481eeca6a5da7923b271d9f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6dc91dc07d11f195092343e657911a884d8bf475
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930419"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866000"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instale o Bloco de Notas Jupyter no seu computador e ligue-se ao Apache Spark em HDInsight
 
@@ -142,7 +142,7 @@ Nesta secção, configura a magia spark que instalou anteriormente para se ligar
 
     a. Crie um novo bloco de notas. Do canto direito, selecione **New**. Deve ver o núcleo padrão **Python 2** ou **Python 3** e os núcleos que instalou. Os valores reais podem variar dependendo das suas opções de instalação.  Selecione **PySpark**.
 
-    ![Kernels disponíveis no Caderno Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels em Caderno Jupyter")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Kernels disponíveis no Caderno Jupyter" border="true":::
 
     > [!IMPORTANT]  
     > Depois de selecionar **New** review your shell for any errors.  Se vires o `TypeError: __init__() got an unexpected keyword argument 'io_loop'` erro, podes estar a passar por um problema conhecido com certas versões do Tornado.  Em caso afirmativo, pare o núcleo e, em seguida, desclasse a sua instalação tornado com o seguinte comando: `pip install tornado==4.5.3` .
