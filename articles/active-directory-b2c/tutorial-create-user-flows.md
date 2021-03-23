@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c42c6465af8e895d833332be847c134b97ee8ddc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100557146"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781301"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -25,8 +25,9 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie um fluxo de utilizador de inscrição e de inscrição
+> * Ativar a reposição de palavras-passe self-service
 > * Criar um fluxo de utilizador de edição de perfil
-> * Criar um fluxo de utilizador de redefinição de palavra-passe
+
 
 Este tutorial mostra-lhe como criar alguns fluxos recomendados de utilizador utilizando o portal Azure. Se estiver à procura de informações sobre como configurar um fluxo de credenciais de senha do proprietário de recursos (ROPC) na sua aplicação, consulte [configurar o fluxo de credenciais de senha do proprietário do recurso em Azure AD B2C](add-ropc-policy.md).
 
@@ -85,6 +86,24 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 > [!NOTE]
 > A experiência "Executar o fluxo do utilizador" não é atualmente compatível com o tipo URL de resposta SPA utilizando o fluxo de código de autorização. Para utilizar a experiência "Executar o fluxo do utilizador" com este tipo de aplicações, registe um URL de resposta do tipo "Web" e possibilite o fluxo implícito tal como descrito [aqui](tutorial-register-spa.md).
 
+## <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
+
+Para permitir [a redefinição da palavra-passe de autosserviço](add-password-reset-policy.md) para o fluxo do utilizador de inscrição ou de entrada:
+
+1. Selecione o fluxo de utilizador de inscrição ou de inscrição que criou.
+1. Em **Definições** no menu esquerdo, selecione **Propriedades**.
+1. Sob **a complexidade da palavra-passe**, selecione **redefinição da palavra-passe de self-service**.
+1. Selecione **Guardar**.
+
+### <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
+
+1. Selecione o fluxo de utilizador criado para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
+1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Selecione **Executar o fluxo do utilizador**.
+1. A partir da página de inscrição ou de inscrição, **selecione Esquecir-se da sua palavra-passe?**
+1. Verifique o endereço de e-mail da conta que criou anteriormente e, em seguida, selecione **Continue**.
+1. Tem agora a oportunidade de alterar a palavra-passe para o utilizador. Altere a palavra-passe e **selecione Continue**. O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.
+
 ## <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de utilizador de edição de perfil
 
 Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize um fluxo de utilizador de edição de perfil.
@@ -103,26 +122,6 @@ Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize
 1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Clique no **fluxo do utilizador executar** e, em seguida, iniciar scontabilidade com a conta que criou anteriormente.
 1. Tem agora a oportunidade de alterar o nome de exibição e o título de trabalho para o utilizador. Clique em **Continue** (Continuar). O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.
-
-## <a name="create-a-password-reset-user-flow"></a>Criar um fluxo de utilizador de redefinição de palavra-passe
-
-Para permitir que os utilizadores da sua aplicação repuvam a sua palavra-passe, utilize uma palavra-passe para redefinir o fluxo do utilizador.
-
-1. No menu geral do inquilino Azure AD B2C, selecione **os fluxos do utilizador** e, em seguida, selecione Novo fluxo de **utilizador**.
-1. Na página De fluxo do **utilizador,** selecione o fluxo do utilizador **de redefinição de palavra-passe.** 
-1. Em **Selecione uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**.
-1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *passwordreste1*.
-1. Para **os fornecedores de identidade,** ative **a palavra-passe Reset utilizando o endereço de e-mail.**
-2. Nas reclamações da Aplicação, clique **em Mostrar mais** e escolha as reclamações que pretende devolvidas nos tokens de autorização enviados de volta para a sua aplicação. Por exemplo, selecione **ID de Objeto do Utilizador**.
-3. Clique em **OK**.
-4. Clique **em Criar** para adicionar o fluxo do utilizador. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
-
-### <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
-
-1. Selecione o fluxo de utilizador criado para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
-1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador** executar, verifique o endereço de e-mail da conta que criou anteriormente e selecione **Continue**.
-1. Tem agora a oportunidade de alterar a palavra-passe para o utilizador. Altere a palavra-passe e **selecione Continue**. O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.
 
 ## <a name="next-steps"></a>Passos seguintes
 

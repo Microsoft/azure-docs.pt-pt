@@ -11,18 +11,22 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8f3e8d72db6679a766991160c303948557719bb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1bd91ca63034f77553abb00f4fbf05431a45bd55
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657744"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773390"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
 ## <a name="speech-sdk-1160-2021-march-release"></a>Discurso SDK 1.16.0: Lançamento 2021-março
 
 **Nota**: O Discurso SDK sobre o Windows depende do Microsoft Visual C++ Redistribuable partilhado para o Visual Studio 2015, 2017 e 2019. Descarregue [aqui.](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+
+**Problemas conhecidos**
+
+**C++/C#/Java:** `DialogServiceConnector` não pode utilizar uma `CustomCommandsConfig` aplicação de Comandos Personalizados e, em vez disso, encontrará um erro de ligação. Isto pode ser trabalhado ao adicionar manualmente o seu ID de aplicação ao pedido com `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)` . O comportamento esperado `CustomCommandsConfig` será restaurado no próximo lançamento.
 
 **Resumo dos destaques**
 - Memória menor e pegada de disco tornando o SDK mais eficiente - desta vez o foco foi no Android.

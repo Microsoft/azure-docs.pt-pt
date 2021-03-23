@@ -9,13 +9,24 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 13ff6cd4d0dc8fcc8ea63c9029318c41ffb7e76a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+zone_pivot_groups: acs-web-ios-android
+ms.openlocfilehash: 694d4cb69575121b9ab89e4ce680d1140914b2c2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656129"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783630"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
+::: zone pivot="platform-web"
 [!INCLUDE [Web Calling Hero Sample](./includes/web-calling-hero.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Android Calling Hero Sample](./includes/android-calling-hero.md)]
+::: zone-end

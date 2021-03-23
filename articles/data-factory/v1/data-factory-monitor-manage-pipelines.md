@@ -3,16 +3,16 @@ title: Monitorize e gere os oleodutos utilizando o portal Azure e o PowerShell
 description: Saiba como utilizar o portal Azure e o Azure PowerShell para monitorizar e gerir as fábricas de dados e oleodutos Azure que criou.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0744a7d915d6bee868b160abc29964d58947dd28
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576390"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779635"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando o portal Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ As fatias de conjunto de dados na fábrica de dados podem ter um dos seguintes e
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestulo</th><th align="left">Description</th>
+    <th align="left">Estado</th><th align="left">Subestulo</th><th align="left">Descrição</th>
 </tr>
 <tr>
     <td rowspan="8">Em espera</td><td>Horário</td><td>Ainda não chegou a hora da fatia correr.</td>

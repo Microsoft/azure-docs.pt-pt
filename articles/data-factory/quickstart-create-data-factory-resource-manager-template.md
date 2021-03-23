@@ -5,16 +5,16 @@ ms.service: data-factory
 tags: azure-resource-manager
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan, jingwang
+ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: f3e76bf16b702adb26183209d36189a53b695c40
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c579b6d723533e751e08a80a578195c03e945607
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100373849"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783341"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Quickstart: Criar uma fábrica de dados Azure usando o modelo ARM
 
@@ -108,7 +108,7 @@ Mais amostras de modelo de Azure Data Factory podem ser encontradas na [galeria 
     1. Na página **Recipientes,** selecione o recipiente blob que criou.
         1. O nome do recipiente blob está no formato - blob \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Recipiente blob":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Contentor de blobs":::
 
 ### <a name="upload-a-file"></a>Carregar um ficheiro
 

@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 7c9b4032346e61eb3bfd21c0c4067e2364bc28af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ffc97984a335b72a3aa8c8d8cca65a3fddf7af38
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670857"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780740"
 ---
 # <a name="containerize-aspnet-applications-and-migrate-to-azure-kubernetes-service"></a>Contentorizar aplicações de ASP.NET e migrar para o Serviço Azure Kubernetes
 
@@ -59,7 +59,7 @@ Antes de começar este tutorial, tem de:
 
 **Requisito** | **Detalhes**
 --- | ---
-**Identifique uma máquina para instalar a ferramenta** | Uma máquina Windows para instalar e executar a ferramenta Azure Migrate: App Containerization. A máquina Do Windows pode ser um sistema operativo de servidor (Windows Server 2016 ou posterior) ou cliente (Windows 10), o que significa que a ferramenta também pode funcionar no seu ambiente de trabalho. <br/><br/> A máquina Windows que executa a ferramenta deve ter conectividade de rede para os servidores/máquinas virtuais que hospedam as aplicações ASP.NET a serem contentorizadas.<br/><br/> Certifique-se de que o espaço de 6-GB está disponível na máquina Windows que executa a ferramenta Azure Migrate: App Containerization para armazenar artefactos de aplicações. <br/><br/> A máquina Windows deve ter acesso à Internet, diretamente ou através de um representante. <br/> <br/>Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
+**Identifique uma máquina para instalar a ferramenta** | Uma máquina Windows para instalar e executar a ferramenta Azure Migrate: App Containerization. A máquina Do Windows pode ser um sistema operativo de servidor (Windows Server 2016 ou posterior) ou cliente (Windows 10), o que significa que a ferramenta também pode funcionar no seu ambiente de trabalho. <br/><br/> A máquina virtual do Windows que executa a ferramenta deve ter conectividade de rede com os servidores/máquinas virtuais que estão a alojar as aplicações ASP.NET que serão contentorizadas.<br/><br/> Certifique-se de que o espaço de 6-GB está disponível na máquina Windows que executa a ferramenta Azure Migrate: App Containerization para armazenar artefactos de aplicações. <br/><br/> A máquina virtual do Windows deve ter acesso à Internet, diretamente ou através de um proxy. <br/> <br/>Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
 **Servidores de aplicações** | Ativar a recolha do PowerShell nos servidores de aplicações: Iniciar sessão no servidor de aplicações e seguir [estas](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting) instruções para ligar o remoting PowerShell. <br/><br/> Se o servidor de aplicações estiver a executar o Windows Server 2008 R2, certifique-se de que o PowerShell 5.1 está instalado no servidor de aplicações. Siga as instruções [aqui](https://docs.microsoft.com/powershell/scripting/windows-powershell/wmf/setup/install-configure) para descarregar e instalar o PowerShell 5.1 no servidor de aplicações. <br/><br/> Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
 **ASP.NET aplicação** | A ferramenta suporta atualmente <br/><br/> - ASP.NET aplicações utilizando o quadro Microsoft .NET 3.5 ou posterior.<br/> - Servidores de aplicações com o Windows Server 2008 R2 ou posteriormente (os servidores de aplicações devem estar a executar a versão 5.1 do PowerShell). <br/> - Aplicações em execução nos Serviços de Informação da Internet (IIS) 7.5 ou posterior. <br/><br/> A ferramenta atualmente não suporta <br/><br/> - Aplicações que requerem autenticação do Windows (a AKS não suporta gMSA atualmente). <br/> - Aplicações que dependem de outros serviços Windows alojados fora do IIS.
 
@@ -105,7 +105,7 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
 3. Executar o script de instalação usando o comando
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## <a name="launch-the-app-containerization-tool"></a>Lançar a ferramenta de contentorização de aplicativos
@@ -152,7 +152,7 @@ Clique em **Iniciar sessão** para iniciar sessão na sua conta Azure.
 A ferramenta de ajuda de contentores de aplicações conecta-se remotamente aos servidores de aplicações utilizando as credenciais fornecidas e tenta descobrir ASP.NET aplicações hospedadas nos servidores de aplicações.
 
 1. Especifique o **endereço IP/FQDN e as credenciais** do servidor que executa a aplicação ASP.NET que deve ser usada para ligar remotamente ao servidor para a descoberta da aplicação.
-    - As credenciais fornecidas devem ser para um administrador local (Windows) no servidor de aplicações.
+    - As credenciais introduzidas devem ser de um administrador local (Windows) no servidor de aplicações.
     - Para contas de domínio (o utilizador deve ser um administrador no servidor de aplicações), prefixe o nome de utilizador com o nome de domínio no formato *<domínio\username>*.
     - Pode executar a descoberta de aplicações para até cinco servidores de cada vez.
 

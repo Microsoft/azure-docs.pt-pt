@@ -1,18 +1,14 @@
 ---
 title: Gerar tendências e relatórios estatísticos
 description: Obtenha informações sobre a atividade da rede, estatísticas e tendências utilizando widgets defender para tendências e estatísticas de IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 2/21/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 7cb3848f3711b6bf10c316ba4f5321286e2260fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b4539e20ff485f1b6be69fee8e6849298540adcb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706484"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779006"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Tendências dos sensores e relatórios estatísticos
 

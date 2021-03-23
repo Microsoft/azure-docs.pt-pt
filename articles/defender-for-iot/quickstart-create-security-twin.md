@@ -1,24 +1,14 @@
 ---
 title: 'Quickstart: Criar um módulo de segurança twin'
 description: Neste arranque rápido, aprenda a criar um Duplo Desíduo para IoT para utilização com Azure Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/21/2021
-ms.author: shhazam
-ms.openlocfilehash: cfd5192a78c34caf5acbe4576f5a00ab314acb61
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2ee88bd23b7d125ef9244f8ff630ee5eb8cdd015
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489901"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782678"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Criar um módulo de azureiotsecurity twin
 

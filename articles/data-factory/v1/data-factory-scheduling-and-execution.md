@@ -3,16 +3,16 @@ title: Agendamento e Execução com Fábrica de Dados
 description: Aprenda os aspetos de agendamento e execução do modelo de aplicação da Azure Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bfdae688f7736149fe7ddf04cd3833d9adf30818
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f613a14f84999fced888ae72de11328bc7c90811
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100382723"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780009"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução da Fábrica de Dados
 > [!NOTE]
@@ -180,8 +180,8 @@ A tabela a seguir descreve propriedades que pode utilizar na secção **de dispo
 
 | Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Yes |ND |
-| interval |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se necessitar do conjunto de dados para ser cortado de hora a hora, define <b>a frequência</b> para a <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Nota:</b>Se especificar a frequência como Minuto, recomendamos que desemende o intervalo para nada menos do que 15 |Yes |ND |
+| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| interval |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se necessitar do conjunto de dados para ser cortado de hora a hora, define <b>a frequência</b> para a <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Nota:</b>Se especificar a frequência como Minuto, recomendamos que desemende o intervalo para nada menos do que 15 |Sim |ND |
 | estilo |Especifica se a fatia deve ser produzida no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência está definida para mês e o estilo está definido para EndOfInterval, a fatia é produzida no último dia do mês. Se o estilo estiver definido para StartOfInterval, a fatia é produzida no primeiro dia do mês.<br/><br/>Se a frequência estiver definida para o Dia e o estilo estiver definido para EndOfInterval, a fatia é produzida na última hora do dia.<br/><br/>Se a frequência estiver definida para Hora e o estilo estiver definido para EndOfInterval, a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00, a fatia é produzida às 14:00. |No |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/><b>Nota:</b>Se o AnchorDateTime tiver peças de data mais granulares do que a frequência, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>de hora</b> a hora (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos,</b>então as partes de <b>minutos e segundos</b> do AnchorDateTime são ignoradas. |No |01/01/0001 |
 | offset |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Nota:</b>Se forem especificados tanto o anchorDateTime como o offset, o resultado é a mudança combinada. |No |ND |
@@ -262,7 +262,7 @@ Para obter mais informações sobre estas propriedades e exemplos, consulte Cria
 ## <a name="activity-policies"></a>Políticas de atividade
 As políticas afetam o comportamento em tempo de execução de uma atividade, especificamente quando a fatia de uma mesa é processada. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor Predefinido | Description |
+| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
 | --- | --- | --- | --- |
 | concurrency |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções paralelas de atividade que podem acontecer em diferentes fatias. Por exemplo, se uma atividade precisar passar por um grande conjunto de dados disponíveis, ter um maior valor de concordância acelera o processamento de dados. |
 | executaçãoPriorityOrder |Mais recenteMente Primeiro<br/><br/>O Mais Antigo Primeiro |O Mais Antigo Primeiro |Determina a encomenda de fatias de dados que estão a ser processadas.<br/><br/>Por exemplo, se tiver duas fatias (uma acontecendo às 16h, e outra às 17h), e ambas estiverem pendentes de execução. Se definir a execuçãoPriorityOrder para newestFirst, a fatia às 17:00 é processada primeiro. Da mesma forma, se definir a execuçãoPriorityORder como OFIrst mais antigo, então a fatia às 16:00 é processada. |

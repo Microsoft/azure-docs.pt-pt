@@ -3,16 +3,16 @@ title: Fábrica de Dados Azure - Amostras
 description: Fornece detalhes sobre as amostras que o navio com o serviço Azure Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 82c871e8914d70dde7f2586b7dbf6556ebd2621f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d78cc9d99bd7ace2d214c2a2a1d7f75a74df098
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100387041"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785058"
 ---
 # <a name="azure-data-factory---samples"></a>Fábrica de Dados Azure - Amostras
 > [!NOTE]
@@ -42,7 +42,7 @@ O [repositório gitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 Pode encontrar os seguintes modelos de Gestor de Recursos Azure para data factory no GitHub.
 
-| Modelo | Description |
+| Modelo | Descrição |
 | --- | --- |
 | [Cópia do Azure Blob Storage para Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |A implementação deste modelo cria uma fábrica de dados Azure com um pipeline que copia dados do armazenamento de blob Azure especificado para a Base de Dados Azure SQL |
 | [Cópia da Salesforce para o Armazenamento Azure Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |A implementação deste modelo cria uma fábrica de dados Azure com um pipeline que copia dados da conta de Salesforce especificada para o armazenamento de blob Azure. |

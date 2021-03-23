@@ -1,25 +1,14 @@
 ---
 title: Recomendações baseadas em agente
-titleSuffix: Azure Defender for IoT
 description: Conheça o conceito de recomendações de segurança e como são usados para dispositivos IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a29957f459edad8b768daea7bc4567d77c80b165
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491270"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784990"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Recomendações de segurança para dispositivos IoT
 
@@ -32,7 +21,7 @@ Neste artigo, encontrará uma lista de recomendações, que podem ser ativadas n
 
 As recomendações do dispositivo fornecem insights e sugestões para melhorar a postura de segurança do dispositivo.
 
-| Gravidade | Name | Origem de dados | Description |
+| Gravidade | Name | Origem de dados | Descrição |
 |--|--|--|--|
 | Médio | Portas abertas no dispositivo | Defensor-IoT-micro-agente clássico| Um ponto final de escuta foi encontrado no dispositivo. |
 | Médio | Política de firewall permissiva encontrada numa das correntes. | Defensor-IoT-micro-agente clássico| Política de firewall permitida encontrada (INPUT/OUTPUT). A política de firewall deve negar todo o tráfego por defeito e definir regras para permitir a comunicação necessária de/para o dispositivo. |
@@ -44,11 +33,11 @@ As recomendações do dispositivo fornecem insights e sugestões para melhorar a
 
 As recomendações operacionais fornecem insights e sugestões para melhorar a configuração do agente de segurança.
 
-| Gravidade | Name | Origem de dados | Description |
+| Gravidade | Name | Origem de dados | Descrição |
 |--|--|--|--|
-| Baixo | Agente envia mensagens não utetilizadas | Defensor-IoT-micro-agente clássico| 10% ou mais de mensagens de segurança foram menores do que 4 KB durante as últimas 24 horas. |
-| Baixo | Configuração de twin de segurança não é ideal | Defensor-IoT-micro-agente clássico| A configuração de dois de segurança não é a ideal. |
-| Baixo | Conflito de configuração de dupla segurança | Defensor-IoT-micro-agente clássico| Os conflitos foram identificados na configuração de dois de segurança. |  |
+| Baixo | Agente envia mensagens não utetilizadas | Defensor-IoT-micro-agente clássico | 10% ou mais de mensagens de segurança foram menores do que 4 KB durante as últimas 24 horas. |
+| Baixo | Configuração de twin de segurança não é ideal | Defensor-IoT-micro-agente clássico | A configuração de dois de segurança não é a ideal. |
+| Baixo | Conflito de configuração de dupla segurança | Defensor-IoT-micro-agente clássico | Os conflitos foram identificados na configuração de dois de segurança. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

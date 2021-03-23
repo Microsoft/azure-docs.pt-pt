@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2017
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 040e49ee870704107e1d4118f1484119d98a9ebf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97703420"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781216"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Sign-Out Única
 
-O Azure Ative Directory (Azure AD) suporta o perfil de sessão de assinatura único do navegador SAML 2.0. Para que a súmis funcione corretamente, o **LogoutURL** para o pedido deve ser explicitamente registado no Azure AD durante o registo da aplicação. O Azure AD utiliza o LogoutURL para redirecionar os utilizadores depois de terem sido assinados.
+O Azure Ative Directory (Azure AD) suporta o perfil de sessão de assinatura único do navegador SAML 2.0. Para que a súmis funcione corretamente, o **LogoutURL** para o pedido deve ser explicitamente registado no Azure AD durante o registo da aplicação. Se a aplicação for [adicionada à Galeria de Aplicações Azure,](v2-howto-app-gallery-listing.md) então este valor pode ser definido por padrão. Caso contrário, o valor deve ser determinado e definido pela pessoa que adiciona a app ao seu inquilino AZure AD. O Azure AD utiliza o LogoutURL para redirecionar os utilizadores depois de terem sido assinados. 
 
 A azure AD suporta a ligação de redirecionamento (HTTP GET) e não a ligação HTTP POST.
 

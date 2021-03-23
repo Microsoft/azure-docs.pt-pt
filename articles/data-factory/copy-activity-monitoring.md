@@ -4,14 +4,14 @@ description: Saiba como monitorizar a execução da atividade de cópia na Azure
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100388299"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771384"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
 
@@ -45,7 +45,7 @@ Os **detalhes e durações** da execução inferior descrevem os passos-chave qu
 
 Os detalhes da execução da atividade de cópia e as características de desempenho também são devolvidos na secção **de resultado de execução** da Copy  >   Activity, que é usada para tornar a visão de monitorização da UI. Segue-se uma lista completa de propriedades que podem ser devolvidas. Verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorizar a atividade funciona programáticamente em geral, consulte [programáticamente monitorizar uma fábrica de dados Azure](monitor-programmatically.md).
 
-| Nome da propriedade  | Description | Unidade de saída |
+| Nome da propriedade  | Descrição | Unidade de saída |
 |:--- |:--- |:--- |
 | dadosRead | A quantidade real de dados lidos a partir da fonte. | Valor int64, em bytes |
 | dadosCritos | O monte real de dados escritos/comprometidos com a pia. O tamanho pode ser diferente do `dataRead` tamanho, uma vez que relaciona a forma como cada data armazena os dados. | Valor int64, em bytes |
@@ -59,7 +59,7 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 | linhasCopiado | Número de filas copiadas para afundar. Esta métrica não se aplica ao copiar ficheiros como-é sem analisá-los, por exemplo, quando os conjuntos de dados de origem e pia são do tipo de formato binário, ou outro tipo de formato com configurações idênticas.  | Valor int64 (sem unidade) |
 | rowsSkipped | Número de filas incompatíveis que foram ignoradas. Pode permitir que linhas incompatíveis sejam ignoradas definindo `enableSkipIncompatibleRow` para ser verdadeira. | Valor int64 (sem unidade) |
 | copyDuration | Duração da cópia executada. | Valor int32, em segundos |
-| de transferência de dados | Taxa de transferência de dados. | Número do ponto flutuante, em KBps |
+| de transferência de dados | Taxa de transferência de dados, calculada `dataRead` por dividido por `copyDuration` . | Número do ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a atividade Copy. | Valor int32 (sem unidade) |
 | sinkPeakConnections| Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade Copy.| Valor int32 (sem unidade) |
 | sqlDwPolyBase | Se a PolyBase é utilizada quando os dados são copiados para a Azure Synapse Analytics. | Booleano |

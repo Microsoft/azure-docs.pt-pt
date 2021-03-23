@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614637"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786673"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -20,7 +20,7 @@ ms.locfileid: "102614637"
 
 ## <a name="update-march-2021"></a>Atualização (março de 2021)
 - Suporte para fornecer múltiplas credenciais de servidor no aparelho Azure Migrate para descobrir aplicações instaladas (inventário de software), análise de dependência de agentes e descobrir instâncias e bases de dados do SQL Server no seu ambiente VMware. [Saiba mais](tutorial-discover-vmware.md#provide-server-credentials)
-- A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. [Saiba mais](concepts-azure-sql-assessment-calculation.md)<br/>Para experimentar esta funcionalidade, utilize [esta hiperligação](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Veja os tutoriais sobre [Deteção](tutorial-discover-vmware.md) e [avaliação](tutorial-assess-sql.md) para começar.
+- A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. [Saiba mais](concepts-azure-sql-assessment-calculation.md) Consulte os tutoriais [de descoberta](tutorial-discover-vmware.md) e [avaliação](tutorial-assess-sql.md) para começar.
 - A migração de VMware sem agente suporta agora a replicação simultânea de 500 VMs por vCenter.
 - A Azure Migrate instala agora automaticamente o agente Azure VM nos VMware VMs enquanto os migra para Azure utilizando o método sem agente da migração de VMware.
 

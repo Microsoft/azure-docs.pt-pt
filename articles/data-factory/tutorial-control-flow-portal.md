@@ -3,17 +3,17 @@ title: Atividades de ramificação e acorrentação num oleoduto utilizando o po
 description: Saiba como controlar o fluxo de dados no oleoduto Azure Data Factory utilizando o portal Azure.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 9d8d9af4892001ff1f8f60a92f28aedad14c17cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 034b0400190cadd750e7420ab37800783afa050c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100378609"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783426"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Atividades de ramificação e acorrentação num oleoduto da Azure Data Factory utilizando o portal Azure
 

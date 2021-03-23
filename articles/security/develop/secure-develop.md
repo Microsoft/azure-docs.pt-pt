@@ -4,7 +4,7 @@ description: Este artigo discute as melhores práticas a ter em conta durante as
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -13,15 +13,16 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548449"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782406"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
-Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
+
+Neste artigo, apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
 
 Neste artigo, são abrangidas as seguintes fases SDL:
 
@@ -29,6 +30,7 @@ Neste artigo, são abrangidas as seguintes fases SDL:
 - Verificação
 
 ## <a name="implementation"></a>Implementação
+
 O foco da fase de implementação é estabelecer as melhores práticas para a prevenção precoce e detetar e remover as questões de segurança do código.
 Assuma que a sua aplicação será usada de formas que não pretendia que fosse usada. Isto ajuda-o a prevenir o uso indevido acidental ou intencional da sua aplicação.
 
@@ -89,11 +91,11 @@ Isto significa que menos pessoas têm acesso aos seus dados reais, o que reduz a
 
 Para se defender contra a força bruta e a adivinhação baseada no dicionário, é necessário implementar uma política de palavra-passe forte para garantir que os utilizadores criem uma senha complexa (por exemplo, 12 caracteres de comprimento mínimo e que exijam caracteres alfanuméricos e especiais).
 
-Pode utilizar um quadro de identidade para criar e impor políticas de palavra-passe. O Azure AD B2C [ajuda-o](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow)na gestão de passwords, fornecendo políticas incorporadas, [redefinição de senha de autosserviço](../../active-directory-b2c/user-flow-self-service-password-reset.md)e muito mais.
+O Azure Ative Directory B2C ajuda-o na gestão de passwords, fornecendo [o reset da palavra-passe de autosserviço,](../../active-directory-b2c/add-password-reset-policy.md) [a redefinição da palavra-passe](../../active-directory-b2c/force-password-reset.md)de força e muito mais.
 
 Para se defender de ataques a contas padrão, verifique se todas as chaves e senhas são substituíveis e que são geradas ou substituídas após a instalação de recursos.
 
-Se a aplicação tiver de gerar automaticamente senhas, certifique-se de que as palavras-passe geradas são aleatórias e que têm uma elevada entropia.
+Se a aplicação tiver de autogerar palavras-passe, certifique-se de que as palavras-passe geradas são aleatórias e que têm uma elevada entropia.
 
 ### <a name="validate-file-uploads"></a>Validar uploads de ficheiros
 
@@ -108,6 +110,7 @@ A proteção antimalware ajuda a identificar e remover vírus, spyware e outros 
 Não cache conteúdo sensível no navegador. Os navegadores podem armazenar informações para o caching e histórico. Os ficheiros em cache são armazenados numa pasta como a pasta De Ficheiros de Internet Temporária, no caso do Internet Explorer. Quando estas páginas são novamente referidas, o navegador exibe as páginas a partir da sua cache. Se forem apresentadas informações sensíveis (endereço, dados do cartão de crédito, número de Segurança Social, nome de utilizador) para o utilizador, as informações podem ser armazenadas na cache do navegador e ser recuperadas examinando a cache do navegador ou simplesmente premindo o botão **Back** do navegador.
 
 ## <a name="verification"></a>Verificação
+
 A fase de verificação envolve um esforço abrangente para garantir que o código satisfaça os princípios de segurança e privacidade estabelecidos nas fases anteriores.
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Encontrar e corrigir vulnerabilidades nas dependências da sua aplicação
@@ -151,6 +154,7 @@ Garantir que a sua aplicação está segura é tão importante como testar qualq
 [Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contém SVTs para múltiplos serviços da plataforma Azure. Você executou estes SVTs periodicamente para garantir que a sua subscrição Azure e os diferentes recursos que compõem a sua aplicação estão em um estado seguro. Também pode automatizar estes testes utilizando a funcionalidade de extensão de integração contínua/implementação contínua (CI/CD) da AzSK, que disponibiliza SVTs como extensão do Visual Studio.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Nos seguintes artigos, recomendamos controlos de segurança e atividades que possam ajudá-lo a conceber e implementar aplicações seguras.
 
 - [Design de aplicações seguras](secure-design.md)

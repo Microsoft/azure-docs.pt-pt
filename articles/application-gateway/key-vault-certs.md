@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185942"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775748"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminação TLS com certificados do Key Vault
 
@@ -47,10 +47,19 @@ A integração do Gateway de Aplicação com o Key Vault requer um processo de c
 
 1. **Configure o seu cofre chave**
 
-   Em seguida, importa um certificado existente ou cria um novo no seu cofre chave. O certificado será utilizado por aplicações que passam pelo gateway de aplicações. Neste passo, também pode usar um segredo de cofre chave que é armazenado como um ficheiro PFX codificado sem palavra-passe, base-64 codificado. Recomendamos a utilização de um tipo de certificado devido à capacidade de auto-mente que está disponível com objetos tipo certificado no cofre da chave. Depois de criar um certificado ou um segredo, define as políticas de acesso no cofre chave para permitir que a identidade *tenha* acesso ao segredo.
+   Em seguida, importa um certificado existente ou cria um novo no seu cofre chave. O certificado será utilizado por aplicações que passam pelo gateway de aplicações. Neste passo, também pode utilizar um Key Vault Secret que também permite armazenar um ficheiro PFX codificado sem palavra-passe, base-64. Recomendamos a utilização de um tipo "Certificado" devido à capacidade de auto-revisão que está disponível com este tipo de objetos no Cofre de Chaves. Depois de ter criado um Certificado ou um Segredo, tem de definir as Políticas de Acesso no Cofre-Chave para permitir que a identidade tenha acesso ao segredo.
    
    > [!IMPORTANT]
-   > O Gateway de Aplicação atualmente requer o Key Vault para permitir o acesso de todas as redes de forma a alavancar a integração. Não suporta a integração do Key Vault quando o Key Vault está definido para permitir apenas o acesso a pontos finais privados e selecionar o acesso das redes. O suporte para redes privadas e selecionadas está em obras para integração completa do Key Vault com o Application Gateway. 
+   > A partir de 15 de março de 2021, o Key Vault reconhece o Azure Application Gateway como um dos Serviços Fidedignos, permitindo-lhe assim construir uma fronteira de rede segura em Azure. Isto dá-lhe a capacidade de negar o acesso ao tráfego de todas as redes (incluindo o tráfego de internet) para o Key Vault, mas ainda assim torná-lo acessível para o recurso Application Gateway sob a sua subscrição. 
+
+   > Pode configurar o seu Gateway de Aplicação numa rede restrita de Key Vault da seguinte forma. <br />
+   > a) Sob a lâmina de networking do Key Vault <br />
+   > b) escolha o ponto final privado e as redes selecionadas no separador "Firewall e Redes Virtuais" <br/>
+   > c) então utilizando redes virtuais, adicione a rede virtual e a sub-rede do Seu Gateway de Aplicação. Durante o processo, também configurar o ponto de serviço 'Microsoft.KeyVault', selecionando a sua caixa de verificação. <br/>
+   > d) Por fim, selecione "Sim" para permitir que os Serviços Fidedignos contornem a firewall do Key Vault. <br/>
+   > 
+   > ![Firewall de cofre de chaves](media/key-vault-certs/key-vault-firewall.png)
+
 
    > [!NOTE]
    > Se implementar o gateway de aplicação através de um modelo ARM, quer utilizando o Azure CLI ou o PowerShell, quer através de uma aplicação Azure implantada a partir do portal Azure, o certificado SSL é armazenado no cofre de chaves como um ficheiro PFX codificado com base64. Tem de completar os passos no [Cofre da Chave Azure para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). 

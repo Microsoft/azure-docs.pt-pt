@@ -1,18 +1,14 @@
 ---
 title: Acelerar fluxos de trabalho de alerta
 description: Melhorar os fluxos de trabalho de alerta e incidentes.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526294"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779125"
 ---
 # <a name="accelerate-alert-workflows"></a>Acelerar fluxos de trabalho de alerta
 
@@ -81,16 +77,29 @@ Estes campos devem ser configurados na solução parceira para mostrar o nome do
 ### <a name="default-alert-groups"></a>Grupos de alerta predefinidos
 
 Os seguintes grupos de alerta são definidos automaticamente:
-|  |  |  |
-|--|--|--|
-| Comportamento de comunicação anormal | Alertas personalizados | Acesso remoto |
-| Comportamento anormal da comunicação HTTP | Deteção | Reiniciar e parar comandos |
-| Autenticação | Mudança de firmware | Analisar |
-| Comportamento de comunicação não autorizado | Comandos ilegais | Tráfego de sensores |
-| Anomalias de largura de banda | Acesso à Internet | Suspeita de malware |
-| Transbordo de tampão | Falhas de operação | Suspeita de atividade maliciosa |
-| Falhas de comando | Problemas operacionais |  |
-| Alterações de configuração | Programação |  |
+
+- Comportamento de comunicação anormal
+- Alertas personalizados
+- Acesso remoto
+- Comportamento anormal da comunicação HTTP
+- Deteção
+- Reiniciar e parar comandos
+- Autenticação
+- Mudança de firmware
+- Analisar
+- Comportamento de comunicação não autorizado
+- Comandos ilegais
+- Tráfego de sensores
+- Anomalias de largura de banda
+- Acesso à Internet
+- Suspeita de malware
+- Transbordo de tampão 
+- Falhas de operação
+- Suspeita de atividade maliciosa
+- Falhas de comando
+- Problemas operacionais
+- Alterações de configuração
+- Programação
 
 Os grupos de alerta são predefinidos. Para mais detalhes sobre alertas associados a grupos de alerta e sobre a criação de grupos de alerta personalizados, contacte o [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 

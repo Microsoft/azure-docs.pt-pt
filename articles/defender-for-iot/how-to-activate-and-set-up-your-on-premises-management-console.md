@@ -1,18 +1,14 @@
 ---
 title: Ativar e configurar a sua consola de gestão no local
 description: A ativação da consola de gestão garante que os sensores estão registados no Azure e envia informações para a consola de gestão no local, e que a consola de gestão no local realiza tarefas de gestão em sensores conectados.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: defender-for-iot
-ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 89ce6da3521248ff7373e23ae8831106cbee74de
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602761"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784633"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar a sua consola de gestão no local 
 

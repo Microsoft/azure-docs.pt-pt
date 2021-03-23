@@ -5,20 +5,17 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d3077878dc02066b8ca5dd4441217e584f961725
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102055639"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782270"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Tutorial: Avaliar os casos sql para migração para Azure SQL
 
 Como parte da sua viagem de migração para Azure, você avalia as suas cargas de trabalho no local para medir a prontidão na nuvem, identificar riscos e estimar custos e complexidade.
 Este artigo mostra-lhe como avaliar as bases de dados de casos do SQL Server descobertos em preparação para a migração para Azure SQL, utilizando a ferramenta Azure Migrate: Discovery e assessment.
-
-> [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 Neste tutorial, ficará a saber como:
 
@@ -137,9 +134,9 @@ A estimativa mensal de custos inclui custos de cálculo e armazenamento para con
 
         **Prontidão Azure SQL DB** | **Prontidão Azure SQL MI** | **Tipo de implantação recomendado** | **Configuração Azure SQL e estimativas de custos calculadas?**
          --- | --- | --- | --- |
-        Pronto | Pronto | Azure SQL DB ou Azure SQL MI [Saiba mais](concepts-azure-sql-assessment-calculation.md#recommended-deployment-type) | Yes
-        Pronto | Não pronto ou desconhecido | BD SQL do Azure | Yes
-        Não pronto ou desconhecido | Pronto | Azure SQL MI | Yes
+        Pronto | Pronto | Azure SQL DB ou Azure SQL MI [Saiba mais](concepts-azure-sql-assessment-calculation.md#recommended-deployment-type) | Sim
+        Pronto | Não pronto ou desconhecido | BD SQL do Azure | Sim
+        Não pronto ou desconhecido | Pronto | Azure SQL MI | Sim
         Não está pronto. | Não está pronto. | Potencialmente pronto para Azure VM [Saiba mais](concepts-azure-sql-assessment-calculation.md#potentially-ready-for-azure-vm) | No
         Não pronto ou desconhecido | Não pronto ou desconhecido | Desconhecido | No
     
@@ -147,7 +144,7 @@ A estimativa mensal de custos inclui custos de cálculo e armazenamento para con
     
         **Prontidão Azure SQL DB** | **Configuração Azure SQL e estimativas de custos calculadas?**
         --- | --- |
-        Pronto | Yes
+        Pronto | Sim
         Não está pronto. | Não
         Desconhecido | No
     
@@ -155,7 +152,7 @@ A estimativa mensal de custos inclui custos de cálculo e armazenamento para con
     
         **Prontidão Azure SQL MI** | **Configuração Azure SQL e estimativas de custos calculadas?**
          --- | --- |
-        Pronto | Yes
+        Pronto | Sim
         Não está pronto. | Não
         Desconhecido | No
 

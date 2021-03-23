@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520783"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773118"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -91,6 +91,8 @@ weighted_accuracy|A precisão ponderada é a precisão em que cada amostra é po
 ML automatizado não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, , , `precision_score` e `recall_score` `AUC` .
 
 Por exemplo, em vez de calcular a recordação como `tp / (tp + fn)` , as médias médias multiclasse `micro` `macro` (, ou ) `weighted` médias em ambas as classes de um conjunto de dados de classificação binária. Isto equivale a calcular a recordação para a `true` classe e a classe `false` separadamente, e, em seguida, tomar a média dos dois.
+
+ML automatizado não calcula métricas binárias, isto é, métricas para conjuntos de dados de classificação binária. No entanto, estas métricas podem ser calculadas manualmente usando a matriz de [confusão](#confusion-matrix) que ml automatizado gerou para essa execução particular. Por exemplo, pode calcular a precisão, `tp / (tp + fp)` com os verdadeiros valores positivos e falsos positivos mostrados num gráfico de matriz de confusão 2x2.
 
 ## <a name="confusion-matrix"></a>A matriz de confusão
 

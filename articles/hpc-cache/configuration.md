@@ -4,14 +4,14 @@ description: Explica como configurar configurações adicionais para a cache com
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: v-erkel
-ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563387"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773237"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurar configurações adicionais de cache Azure HPC
 
@@ -75,6 +75,8 @@ Se precisar de configurar um servidor DNS personalizado para a sua cache, utiliz
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds. -->
 
+Considere utilizar uma cache de teste para verificar e aperfeiçoar a sua configuração de DNS antes de a utilizar num ambiente de produção.
+
 ### <a name="refresh-storage-target-dns"></a>Atualizar alvo de armazenamento DNS
 
 Se o servidor DNS atualizar endereços IP, os alvos de armazenamento NFS associados ficarão temporariamente indisponíveis. Leia como atualizar os endereços IP do seu sistema DNS personalizados em [editar alvos de armazenamento](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
@@ -94,10 +96,10 @@ Esta funcionalidade está disponível apenas para alvos de armazenamento Azure B
 
 As fotos são tiradas a cada oito horas, às 0:00, 08:00 e às 16:00.
 
-Azure HPC Cache armazena fotos diárias, semanais e mensais até serem substituídas por novas. Os limites são:
+Azure HPC Cache armazena fotos diárias, semanais e mensais até serem substituídas por novas. Os limites de retenção de instantâneos são:
 
 * Até 20 instantâneos diários
 * Até 8 instantâneos semanais
 * Até 3 instantâneos mensais
 
-Aceda às fotos do `.snapshot` diretório no espaço de nome do seu alvo de armazenamento de bolhas.
+Aceda às fotos do `.snapshot` diretório na raiz do seu alvo de armazenamento de bolhas montadas.

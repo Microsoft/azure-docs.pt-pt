@@ -1,19 +1,14 @@
 ---
 title: Resolução de problemas do micro agente do Defender IoT (Pré-visualização)
-titleSuffix: Azure Defender for IoT
 description: Aprenda a lidar com erros inesperados ou inexplicáveis.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/24/2021
 ms.topic: reference
-ms.service: azure
-ms.openlocfilehash: 07198a5d0ef5d0a6c9eed97523c61826e451b7f5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 51550a4d3e5042fed7cadc4eac10a0074e954f19
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124181"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782457"
 ---
 # <a name="defender-iot-micro-agent-troubleshooting-preview"></a>Resolução de problemas do micro agente do Defender IoT (Pré-visualização)
 

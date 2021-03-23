@@ -3,16 +3,16 @@ title: Invocar programas Spark da Azure Data Factory
 description: Aprenda a invocar programas Spark a partir de uma fábrica de dados Azure utilizando a atividade MapReduce.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a7fcccad039ff6d737e10cfc57ba97f914645a9d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 644a0d645abb186731ddb1f408cd36e5b9ba3c3f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100382672"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780026"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos oleodutos Azure Data Factory
 
@@ -323,12 +323,12 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição JSON.
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| name | O nome da atividade no oleoduto. | Yes |
+| name | O nome da atividade no oleoduto. | Sim |
 | descrição | Texto que descreve o que a atividade faz. | No |
-| tipo | Esta propriedade deve ser definida para HDInsightSpark. | Yes |
-| linkedServiceName | Nome do serviço ligado hdInsight no qual o programa Spark é executado. | Yes |
-| rootPath | O recipiente blob e a pasta que contém o ficheiro Spark. O nome do ficheiro é sensível ao caso. | Yes |
-| ingressoFilePata | Caminho relativo para a pasta raiz do código/embalagem Spark. | Yes |
+| tipo | Esta propriedade deve ser definida para HDInsightSpark. | Sim |
+| linkedServiceName | Nome do serviço ligado hdInsight no qual o programa Spark é executado. | Sim |
+| rootPath | O recipiente blob e a pasta que contém o ficheiro Spark. O nome do ficheiro é sensível ao caso. | Sim |
+| ingressoFilePata | Caminho relativo para a pasta raiz do código/embalagem Spark. | Sim |
 | nome de classeName | A classe principal java/faísca da candidatura. | No |
 | argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | No |
 | proxyUser | A conta de utilizador a fazer-se passar para executar o programa Spark. | No |
@@ -344,7 +344,7 @@ Crie a seguinte estrutura de pasta no armazenamento blob referenciado pelo servi
 | Caminho | Descrição | Necessário | Tipo |
 | ---- | ----------- | -------- | ---- |
 | . | O caminho principal do trabalho spark no serviço ligado ao armazenamento. | Sim | Pasta |
-| &lt;utilizador definido &gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca. | Yes | Ficheiro |
+| &lt;utilizador definido &gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca. | Sim | Ficheiro |
 | ./frascos | Todos os ficheiros desta pasta são carregados e colocados no classe Java do cluster. | No | Pasta |
 | ./pyFiles | Todos os ficheiros desta pasta são carregados e colocados no PYTHONPATH do cluster. | No | Pasta |
 | ./ficheiros | Todos os ficheiros desta pasta são carregados e colocados no diretório de funcionamento do executor. | No | Pasta |

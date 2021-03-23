@@ -1,18 +1,14 @@
 ---
 title: Trabalhar com as notificações de dispositivo
 description: As notificações fornecem informações sobre a atividade da rede que podem exigir a sua atenção, juntamente com recomendações para o manuseamento desta atividade.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523571"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781335"
 ---
 # <a name="work-with-device-notifications"></a>Trabalhar com as notificações de dispositivo
 
@@ -24,11 +20,7 @@ As notificações fornecem informações sobre a atividade da rede que podem exi
 
 Responder a notificações melhora as informações fornecidas no mapa do dispositivo, inventário de dispositivos e consultas e relatórios de mineração de dados. Também fornece informações sobre alterações legítimas de rede e potenciais configurações de rede.
 
-Para aceder a notificações:
-
-- Selecione **Definições do Sistema** e, em seguida, selecione **A melhoria de dados**.
-
-## <a name="notifications-vs-alerts"></a>Notificações vs. alertas
+**Notificações vs. alertas**
 
 Além de receber notificações sobre a atividade da rede, poderá receber *alertas*. As notificações fornecem informações sobre alterações de rede ou propriedades de dispositivos não resolvidos que não representam uma ameaça. Os alertas fornecem informações sobre desvios de rede e alterações que podem representar uma ameaça para a rede.
 
@@ -48,7 +40,7 @@ Para ver notificações:
 
 Utilize filtros de pesquisa para apresentar notificações de interesse para si.
 
-| Filtro por | Description |
+| Filtro por | Descrição |
 |--|--|
 | Filtro por tipo | Ver notificações que cobrem uma área de interesse específica. Por exemplo, consulte apenas notificações para dispositivos inativos. |
 | Filtrar por intervalo de datas | Apresentar notificações que cobrem um intervalo de tempo específico. Por exemplo, ver notificações enviadas apenas na semana passada. |
@@ -58,7 +50,7 @@ Utilize filtros de pesquisa para apresentar notificações de interesse para si.
 
 A tabela seguinte descreve os tipos de eventos de notificação que poderá receber, juntamente com as opções de manipulação dos mesmos. Pode atualizar as informações do dispositivo com um valor recomendado ou rejeitar a notificação. Quando rejeita uma notificação, as informações do dispositivo não são atualizadas com as informações recomendadas. Se o tráfego for detetado novamente, a notificação será reenusada.
 
-| Tipos de eventos de notificação | Description | Respostas |
+| Tipos de eventos de notificação | Descrição | Respostas |
 |--|--|--|
 | Novo IP detetado | Um novo endereço IP está associado ao dispositivo. Podem ser detetados cinco cenários: <br /><br /> Um endereço IP adicional foi associado a um dispositivo. Este dispositivo também está associado a um endereço MAC existente.<br /><br /> Foi detetado um novo endereço IP para um dispositivo que está a usar um endereço MAC existente. Atualmente, o dispositivo não comunica utilizando um endereço IP.<br /> <br /> Foi detetado um novo endereço IP para um dispositivo que está a usar um nome NetBIOS. <br /><br /> Foi detetado um endereço IP como interface de gestão de um dispositivo associado a um endereço MAC. <br /><br /> Foi detetado um novo endereço IP para um dispositivo que está a utilizar um endereço IP virtual. | **Definir IP adicional ao dispositivo** (dispositivos de fusão) <br /> <br />**Substituir IP existente** <br /> <br /> **Dispensar**<br /> Remova a notificação. |
 | Dispositivos inativos | O trânsito não foi detetado num dispositivo há mais de 60 dias. | **Eliminar** <br /> Se este dispositivo não fizer parte da sua rede, retire-o. <br /><br />**Dispensar** <br /> Remova a notificação se o dispositivo fizer parte da sua rede. Se o dispositivo estiver inativo (por exemplo, por estar desligado erradamente da rede), dispense a notificação e reconecte o dispositivo. |
@@ -85,18 +77,6 @@ Para apresentar notificações e tratar de notificações:
 2. Instrua o sensor a aplicar informações recentemente detetadas em dispositivos selecionados selecionando **LEARN**. Ou, instrua o sensor a ignorar as informações recentemente detetadas selecionando **o DISMISS**. O número de notificações que pode simultaneamente aprender e dispensar, juntamente com o número de notificações que deve tratar individualmente, é mostrado.
 
 **Novos IPs** e **sem sub-redes** configurados eventos não podem ser tratados simultaneamente. Requerem confirmação manual.
-
-## <a name="improve-device-os-classification-data-enhancement"></a>Melhorar a classificação do SISTEMA do dispositivo: melhoria de dados 
-
-O sensor abre continuamente a formação de novos dispositivos OT. Também abre automaticamente alterações em dispositivos previamente descobertos, incluindo tipos de sistema operativo.
-
-Em certas circunstâncias, podem ser detetados conflitos em sistemas operativos descobertos. Isto pode acontecer porque tem uma versão SO que se refere a sistemas de desktop ou servidor. Se isso acontecer, receberá uma notificação com classificações opcionais de SO.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Melhore os dados.":::
-
-Investigue as recomendações para enriquecer a classificação do SO. Esta informação aparece no inventário do dispositivo, relatórios de mineração de dados e outros ecrãs. Também pode melhorar a precisão de alertas, ameaças e análise de risco.
-
-Quando aceitar uma recomendação, as informações do tipo SO serão atualizadas no sensor.
 
 ## <a name="see-also"></a>Ver também
 

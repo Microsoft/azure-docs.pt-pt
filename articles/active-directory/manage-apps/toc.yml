@@ -59,8 +59,6 @@
       items:
         - name: Introdução à integração de aplicações
           href: plan-an-application-integration.md
-        - name: Planear aplicações não listadas na galeria
-          href: non-gallery-apps.md
         - name: Planear uma implementação de As Minhas Aplicações
           href: my-apps-deployment-plan.md
     - name: Início de sessão único

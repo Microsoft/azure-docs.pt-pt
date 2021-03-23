@@ -3,16 +3,16 @@ title: Como utilizar parâmetros e expressões na Azure Data Factory
 description: Este artigo Como Artigo fornece informações sobre expressões e funções que pode usar na criação de entidades de fábrica de dados.
 author: ssabat
 ms.author: susabat
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 8f22645eafa0969eac3d6c4c0645909f8c650cad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 090c738d06b9b8acd53a4c194e97fa3a0515e1d6
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199820"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783392"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Como utilizar parâmetros, expressões e funções na Azure Data Factory
 

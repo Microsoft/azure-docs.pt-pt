@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a3b7d4f60877d1301f03aa4f015695a6a4639be
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580713"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772557"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -56,7 +56,7 @@ Os utilizadores com requisitos de trabalho específicos podem ter de ser atribu�
 
 - Trabalhar com livros de jogadas para automatizar respostas a ameaças
 
-    Azure Sentinel usa **livros para** resposta automatizada de ameaças. Os playbooks são construídos em **Azure Logic Apps,** e são um recurso Azure separado. É melhor atribuir a membros específicos da sua equipa de operações de segurança a capacidade de utilizar aplicações lógicas para operações de orquestração, automação e resposta (SOAR). Pode utilizar a função [De Contribuinte de Aplicações Lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou a função de Operador de [Aplicações Lógicas](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para a utilização de playbooks.
+    Azure Sentinel usa **livros para** resposta automatizada de ameaças. Os playbooks são construídos em **Azure Logic Apps,** e são um recurso Azure separado. É melhor atribuir a membros específicos da sua equipa de operações de segurança a capacidade de utilizar aplicações lógicas para operações de orquestração, automação e resposta (SOAR). Pode utilizar o papel [de Contribuinte de Aplicação Lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) para atribuir permissão explícita para a utilização de playbooks.
 
 - Ligação de fontes de dados ao Azure Sentinel
 

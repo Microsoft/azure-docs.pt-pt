@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715722"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779941"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -151,6 +151,9 @@ Pode restringir os tipos de eventos que são enviados definindo um filtro mais e
 Para adicionar um filtro de eventos enquanto está a criar uma rota de eventos, utilize a secção de filtro de rota de _eventos_ da página Criar uma página de *rota de evento.* 
 
 Pode selecionar a partir de algumas opções básicas de filtro comum ou utilizar as opções avançadas de filtro para escrever os seus próprios filtros personalizados.
+
+>[!NOTE]
+> Os filtros são **sensíveis** ao caso e precisam de coincidir com a caixa de carga útil (que pode não corresponder necessariamente à caixa do modelo).
 
 #### <a name="use-the-basic-filters"></a>Use os filtros básicos
 

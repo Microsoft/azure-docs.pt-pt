@@ -1,18 +1,14 @@
 ---
 title: Criar relatórios de mineração de dados
 description: gerar informações abrangentes e granulares sobre os seus dispositivos de rede em várias camadas, tais como protocolos, versões de firmware ou comandos de programação.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522484"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779074"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de mineração de dados de sensores
 
@@ -138,7 +134,7 @@ Para criar um relatório de mineração de dados:
 
 O quadro que se segue descreve opções de gestão para a extração de dados:
 
-| Imagem de ícone | Description |
+| Imagem de ícone | Descrição |
 |--|--|
 | :::image type="icon" source="media/how-to-generate-reports/edit-a-simulation-icon.png" border="false"::: | Edite os parâmetros do relatório. |
 | :::image type="icon" source="media/how-to-generate-reports/export-as-pdf-icon.png" border="false"::: | Exportar como PDF. |

@@ -3,17 +3,17 @@ title: Conjuntos de dados
 description: Saiba mais sobre conjuntos de dados na Data Factory. Os conjuntos de dados representam dados de entrada/saída.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
-ms.openlocfilehash: 4dafb738fd7d44893705994baa962831c101804b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 167fb0014f2f0a9e7a2530fe276289f94347146e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100390033"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785789"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -65,10 +65,10 @@ A tabela a seguir descreve propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-name | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Yes |
-tipo | Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: DelimitedText, AzureSqlTable). <br/><br/>Para mais informações, consulte os [tipos de Dataset](#dataset-type). | Yes |
+name | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Sim |
+tipo | Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: DelimitedText, AzureSqlTable). <br/><br/>Para mais informações, consulte os [tipos de Dataset](#dataset-type). | Sim |
 esquema | O esquema do conjunto de dados representa o tipo e a forma de dados físicos. | No |
-typeProperties | As propriedades do tipo são diferentes para cada tipo. Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#dataset-type). | Yes |
+typeProperties | As propriedades do tipo são diferentes para cada tipo. Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#dataset-type). | Sim |
 
 Quando importar o esquema do conjunto de dados, selecione o botão **Descoduma** de Importação e opte por importar da fonte ou de um ficheiro local. Na maioria dos casos, importará o esquema diretamente da fonte. Mas se já tiver um ficheiro de esquema local (um ficheiro Parquet ou CSV com cabeçalhos), pode direcionar a Data Factory para basear o esquema nesse ficheiro.
 

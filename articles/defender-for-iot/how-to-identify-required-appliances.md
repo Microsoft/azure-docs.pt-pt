@@ -1,18 +1,14 @@
 ---
 title: Identificar as aplicações necessárias
 description: Saiba mais sobre hardware e aparelhos virtuais para sensores certificados defender para sensores IoT e a consola de gestão no local.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 242e88e92d6197fd018c56fa55a4dd8166f5d027
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149316"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782763"
 ---
 # <a name="identify-required-appliances"></a>Identificar as aplicações necessárias
 
@@ -109,7 +105,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Description | Quantidade |
+| PN | Descrição | Quantidade |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC CTO Server | 1 |
 | P19766-B21 | Europa - Localização Multilíngue | 1 |
@@ -180,7 +176,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Description | Quantidade |
+| PN | Descrição | Quantidade |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
@@ -216,7 +212,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 | Choque | 10G 10ms, meio-sena, três para cada eixo. (Ambos positivos & pulso negativo) – Din Rail |
 
 ### <a name="appliance-bom"></a>Aparelho BOM
-| Produto | Description |
+| Produto | Descrição |
 |--|--|
 | P25828-B21 | HPE Edgeline EL300 v2 Sistema de Borda Convergida |
 | P25828-B21 B19 | HPE EL300 v2 Sistema de Borda Convergida |
@@ -248,7 +244,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 | Tipo | Grandes Empresas |
 |--|--|
-| Description | Aparelho virtual para tipos de implementação de empresas |
+| Descrição | Aparelho virtual para tipos de implementação de empresas |
 | vCPU | 8 |
 | Memória | 32 GB |
 | Armazenamento | 1.8 TB |
@@ -272,27 +268,6 @@ Esta secção detalha aparelhos adicionais que foram certificados pela Microsoft
 Depois de adquirir o aparelho, aceda ao **Defender para** obter  >  **sensores de rede IoT ISO**  >  **Instalação** para descarregar o software.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Sensores de rede ISO.":::
-
-## <a name="enterprise-deployment-dell-poweredge-r340-xl"></a>Implementação da empresa: Dell PowerEdge R340 XL
-
-| Componente | Especificações técnicas |
-|--|--|
-| Chassis | Servidor de rack 1U
-| Dimensões | 42,8 x 434,0 x 596 (mm) /1,67" x 17,09" x 23,5" (in) |
-| Peso | Máx 29,98 lb/13,6 kg |
-| Processador | Intel Xeon E-2144G 3.6 GHz, cache 8M, 4C/8T, turbo (71 W) |
-| Chipset | Intel C246 |
-| Memória | 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM |
-| Armazenamento | 3 x 2-TB 7.2 K RPM SATA 6-Gbps 512n 3.5-in Hot-Plug Hard Drive - RAID 5 |
-| Controlador de rede | Bordo: 2 x 1-Gb Broadcom BCM5720<br>LOM a bordo: cartão porta iDRAC 1-Gb Broadcom BCM5720 <br><br>Externo: 1 x Adaptador de servidor Intel Ethernet i350 QP 1-Gb, Perfil Baixo |
-| Gestão | iDRAC nove Empresa |
-| Acesso ao dispositivo | Duas USB traseiras 3.0 <br> Uma frente USB 3.0 |
-| Energia | Fontes de alimentação duplas de plug-in 350 W |
-| Suporte de cremalheira | Trilhos de correr ReadyRails II para montagem sem ferramentas em prateleiras de 4 postes com furos redondos quadrados ou não lidos ou montagem em cabides de furos roscados de 4 postes, com suporte para um braço de gestão opcional sem cabos. |
-
-## <a name="dell-r340-bom"></a>Dell R340 BOM
-
-:::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

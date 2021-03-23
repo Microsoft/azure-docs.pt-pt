@@ -13,17 +13,19 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ff61811e8b736f8f6d104a253cfe5dc5e76c428
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98600286"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771367"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialize as aplicações do cliente utilizando MSAL.NET
-Este artigo descreve a inicialização de aplicações de cliente público e cliente confidencial utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicação do cliente e opções de configuração de aplicações, leia a [visão geral](msal-client-applications.md).
+Este artigo descreve a inicialização de aplicações de cliente público e cliente confidencial utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicação do cliente, consulte [o cliente público e aplicações confidenciais de clientes.](msal-client-applications.md)
 
 Com MSAL.NET 3.x, a forma recomendada de instantaneaizar uma aplicação é utilizando os construtores de aplicações: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder` . Oferecem um mecanismo poderoso para configurar a aplicação a partir do código, ou a partir de um ficheiro de configuração, ou mesmo misturando ambas as abordagens.
+
+[Documentação de](/dotnet/api/microsoft.identity.client)  |  referência da API [Pacote no NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/)  |  [Código fonte da biblioteca](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)  |  [Amostras de código](sample-v2-code.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de rubricar uma aplicação, primeiro precisa [de a registar](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft.  Após o registo, poderá necessitar das seguintes informações (que podem ser encontradas no portal Azure):
@@ -96,7 +98,7 @@ Nos cortes de código que utilizam os construtores de aplicações, uma série d
 
 Os modificadores que pode definir num cliente público ou um construtor de aplicações de clientes confidenciais são:
 
-|Modificador | Description|
+|Modificador | Descrição|
 |--------- | --------- |
 |`.WithAuthority()` 7 sobreposições | Define a autoridade de incumprimento do pedido a uma autoridade AD Azure, com a possibilidade de escolher a Nuvem Azure, o público, o inquilino (ID do inquilino ou nome de domínio), ou fornecer diretamente a autoridade URI.|
 |`.WithAdfsAuthority(string)` | Define a autoridade por incumprimento do pedido como uma autoridade ADFS.|
@@ -115,7 +117,7 @@ Os modificadores que pode definir num cliente público ou um construtor de aplic
 
 Os modificadores que pode definir num construtor de aplicações de cliente público em Xamarin.iOS são:
 
-|Modificador | Description|
+|Modificador | Descrição|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Apenas Xamarin.iOS**: Define o grupo de segurança do porta-chaves iOS (para a persistência da cache).|
 
@@ -123,7 +125,7 @@ Os modificadores que pode definir num construtor de aplicações de cliente púb
 
 Os modificadores que pode definir num construtor de aplicações de cliente confidencial são:
 
-|Modificador | Description|
+|Modificador | Descrição|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Define o certificado que identifica o pedido com Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Define o segredo do cliente (palavra-passe de aplicação) identificando a aplicação com Azure AD.|

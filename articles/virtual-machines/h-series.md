@@ -1,19 +1,19 @@
 ---
 title: Série H - Azure Virtual Machines
 description: Especificações para os VMs da série H.
-author: ju-shim
+author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 7a5ff47bb5de6d54564a86c0700ad69aa450887d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b3e3beb51256bbf22d29d74b51c52ca3a6bee0c4
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566146"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774784"
 ---
 # <a name="h-series"></a>Série H
 
@@ -40,10 +40,21 @@ Os VMs da série H são otimizados para aplicações impulsionadas por altas fre
 
 <sup>1</sup> Para aplicações MPI, a rede de backend dedicada RDMA é ativada pela rede FDR InfiniBand.
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 > [!NOTE]
-> Entre os [VMs capazes de RDMA,](sizes-hpc.md#rdma-capable-instances)a série H não está ativada. Por conseguinte, os [VM Images suportados,](./workloads/hpc/configure.md#vm-images)os requisitos do [controlador InfiniBand](./workloads/hpc/enable-infiniband.md) e [as bibliotecas MPI](./workloads/hpc/setup-mpi.md) suportadas são diferentes dos VMs ativados pela SR-IOV.
+> Entre os [VMs capazes de RDMA,](sizes-hpc.md#rdma-capable-instances)a série H não está ativada pela SR-IOV. Por conseguinte, os [VM Images suportados,](./workloads/hpc/configure.md#vm-images)os requisitos do [controlador InfiniBand](./workloads/hpc/enable-infiniband.md) e [as bibliotecas MPI](./workloads/hpc/setup-mpi.md) suportadas são diferentes dos VMs ativados pela SR-IOV.
+
+## <a name="software-specifications"></a>Especificações de software
+
+| Especificações de Software     |VM da série HC           |
+|-----------------------------|-----------------------|
+| Tamanho do trabalho de MPI Max            | 4800 núcleos (300 VMs numa única escala de máquina virtual definida com singlePlacementGroup=verdadeiro)  |
+| Suporte MPI                 | Intel MPI 5.x, MS-MPI  |
+| Apoio ao OS para RDMA não SRIOV   | CentOS/RHEL 6.5 - 7.4, SLES 12 SP4+, WinServer 2012 - 2016  |
+| Apoio orquestrador        | CycleCloud, Lote, AKS  |
+
+[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Outros tamanhos
 
@@ -56,7 +67,6 @@ Os VMs da série H são otimizados para aplicações impulsionadas por altas fre
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [a configuração dos seus VMs,](./workloads/hpc/configure.md) [permitindo a InfiniBand,](./workloads/hpc/enable-infiniband.md) [configurando MPI](./workloads/hpc/setup-mpi.md) e otimizando as aplicações HPC para Azure na [HPC Workloads](./workloads/hpc/overview.md).
-- Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os últimos anúncios, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs comunitários Azure Compute Tech.](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)
 - Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).
 - Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

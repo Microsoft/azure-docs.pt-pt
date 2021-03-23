@@ -3,14 +3,14 @@ title: Inicie um runbook Azure Automation a partir de um webhook
 description: Este artigo diz como usar um webhook para iniciar um livro de formulários na Azure Automation a partir de uma chamada HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98894767"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775787"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 
@@ -101,8 +101,8 @@ Utilize o seguinte procedimento para criar um novo webhook ligado a um livro de 
 4. Preencha os campos **nome** e **data de validade** para o webhook e especifique se deve ser ativado. Consulte [as propriedades da Webhook](#webhook-properties) para obter mais informações sobre estas propriedades.
 5. Clique no ícone da cópia e prima Ctrl+C para copiar o URL do webhook. Em seguida, grave-o num lugar seguro. 
 
-    > [!NOTE]
-    > Uma vez criado o webhook, não poderá recuperar o URL novamente.
+    > [!IMPORTANT]
+    > Uma vez criado o webhook, não poderá recuperar o URL novamente. Certifique-se de copiar e gravar como acima.
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
@@ -120,7 +120,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de devolução do `POST` pedido.
 
-| Código | Texto | Description |
+| Código | Texto | Descrição |
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite, e o livro foi feito com sucesso. |
 | 400 |Pedido Incorreto |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O símbolo na URL é inválido.</li>  </ul> |
@@ -134,6 +134,111 @@ Assumindo que o pedido é bem sucedido, a resposta webhook contém o ID de traba
 ```
 
 O cliente não pode determinar quando o trabalho do runbook termina ou o seu estado de conclusão a partir do webhook. Pode descobrir esta informação utilizando o ID do trabalho com outro mecanismo, como o [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) ou a API da [Automação Azure](/rest/api/automation/job).
+
+### <a name="use-a-webhook-from-an-arm-template"></a>Use um webhook de um modelo ARM
+
+Os webhooks de automação também podem ser invocados pelos [modelos Azure Resource Manager (ARM).](/azure/azure-resource-manager/templates/overview) O modelo ARM emite um `POST` pedido e recebe um código de devolução como qualquer outro cliente. Ver [Utilizar um webhook](#use-a-webhook).
+
+   > [!NOTE]
+   > Por razões de segurança, o URI só é devolvido na primeira vez que um modelo é implantado.
+
+Este modelo de amostra cria um ambiente de teste e devolve o URI para o webhook que cria.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automationAccountName": {
+            "type": "String",
+            "metadata": {
+                "description": "Automation account name"
+            }
+        },
+        "webhookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Name"
+            }
+        },
+        "runbookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Runbook Name for which webhook will be created"
+            }
+        },
+        "WebhookExpiryTime": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Expiry time"
+            }
+        },
+        "_artifactsLocation": {
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
+            "type": "String",
+            "metadata": {
+                "description": "URI to artifacts location"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Automation/automationAccounts",
+            "apiVersion": "2020-01-13-preview",
+            "name": "[parameters('automationAccountName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "name": "Free"
+                }
+            },
+            "resources": [
+                {
+                    "type": "runbooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('runbookName')]",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]"
+                    ],
+                    "properties": {
+                        "runbookType": "Python2",
+                        "logProgress": "false",
+                        "logVerbose": "false",
+                        "description": "Sample Runbook",
+                        "publishContentLink": {
+                            "uri": "[uri(parameters('_artifactsLocation'), 'scripts/AzureAutomationTutorialPython2.py')]",
+                            "version": "1.0.0.0"
+                        }
+                    }
+                },
+                {
+                    "type": "webhooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('webhookName')]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]",
+                        "[parameters('runbookName')]"
+                    ],
+                    "properties": {
+                        "isEnabled": true,
+                        "expiryTime": "[parameters('WebhookExpiryTime')]",
+                        "runbook": {
+                            "name": "[parameters('runbookName')]"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "outputs": {
+        "webhookUri": {
+            "type": "String",
+            "value": "[reference(parameters('webhookName')).uri]"
+        }
+    }
+}
+```
 
 ## <a name="renew-a-webhook"></a>Renovar um webhook
 
