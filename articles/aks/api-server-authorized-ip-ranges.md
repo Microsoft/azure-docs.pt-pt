@@ -4,12 +4,12 @@ description: Saiba como proteger o seu cluster utilizando uma gama de endereços
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20c3d46e9a19c66c727e5a21bccd6caa0dc5f0ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98890646"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771928"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando intervalos de endereços IP autorizados no Serviço Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Precisa da versão 2.0.76 do Azure CLI ou posteriormente instalada e configurada
 
 A funcionalidade de gamas IP autorizadas do servidor API tem as seguintes limitações:
 - Nos clusters criados após os intervalos de endereços IP autorizados pelo servidor API terem sido retirados da pré-visualização em outubro de 2019, os intervalos de endereços IP autorizados pelo servidor API são apenas suportados no balanceador de carga *Standard* SKU. Os clusters existentes com o balanceador de carga *Basic* SKU e os intervalos de endereço IP autorizados pelo servidor API configurados continuarão a funcionar como está, mas não podem ser migrados para um balanceador de carga *SKU padrão.* Os clusters existentes também continuarão a funcionar se a sua versão Kubernetes ou o seu plano de controlo forem atualizados. Os intervalos de endereços IP autorizados pelo servidor API não são suportados para clusters privados.
-- Esta funcionalidade não é compatível com clusters que utilizam o [recurso de pré-visualização de piscinas de nó IP público por nó.](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview)
+- Esta funcionalidade não é compatível com clusters que utilizam [IP público por nó.](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools)
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Visão geral dos intervalos de IP autorizados pelo servidor API
 

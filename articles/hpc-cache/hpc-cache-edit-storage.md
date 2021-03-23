@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471863"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772598"
 ---
 # <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -76,7 +76,7 @@ Utilize a página **Namespace** para a sua Cache Azure HPC. A página do espaço
 
 Clique no nome do caminho que pretende alterar e crie o novo caminho na janela de edição que aparece.
 
-![Screenshot da página do espaço de nome depois de clicar num caminho de espaço de nome Blob - os campos de edição aparecem num painel à direita](media/edit-namespace-blob.png)
+![Screenshot da página do espaço de nome depois de clicar num caminho de espaço de nome Blob - os campos de edição aparecem num painel à direita](media/update-namespace-blob.png)
 
 Depois de escoar as alterações, clique **em OK** para atualizar o alvo de armazenamento ou clique em **Cancelar** para descartar alterações.
 

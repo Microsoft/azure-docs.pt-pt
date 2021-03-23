@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 03/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438733"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773458"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector Azure Purview para Amazon S3
 
@@ -49,29 +49,30 @@ A tabela que se segue mapeia as regiões onde os dados são armazenados na regi�
 | Região de armazenamento | Região de digitalização |
 | ------------------------------- | ------------------------------------- |
 | Leste dos EUA (Ohio)                  | Leste dos EUA (Ohio)                        |
-| Us East (N. Virgínia)           | Leste dos EUA (Ohio)                        |
+| Us East (N. Virgínia)           | EUA Leste (Ohio) ou EUA Leste (N. Virgínia)                       |
 | EUA Oeste (N. Califórnia)         | Leste dos EUA (Ohio)                        |
 | E.U.A. Oeste (Oregon)                | Leste dos EUA (Ohio)                        |
 | África (Cidade do Cabo)              | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Hong Kong)        | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Mumbai)           | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Osaka-Local)      | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Seul)            | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Singapura)        | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Sydney)           | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Tóquio)            | Europa (Frankfurt)                    |
+| Ásia-Pacífico (Hong Kong)        | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Mumbai)           | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Osaka-Local)      | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Seul)            | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Singapura)        | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Sydney)           | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                  |
+| Ásia-Pacífico (Tóquio)            | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                 |
 | Canadá (Central)                | Leste dos EUA (Ohio)                        |
 | China (Pequim)                 | Não suportado                    |
 | China (Ningxia)                 | Não suportado                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
-| Europa (Irlanda)                | Europa (Frankfurt)                    |
-| Europa (Londres)                 | Europa (Frankfurt)                    |
+| Europa (Irlanda)                | Europa (Frankfurt) ou Europa (Irlanda)                   |
+| Europa (Londres)                 | Europa (Frankfurt) ou Europa (Irlanda)                   |
 | Europa (Milão)                  | Europa (Frankfurt)                    |
 | Europa (Paris)                  | Europa (Frankfurt)                    |
 | Europa (Estocolmo)              | Europa (Frankfurt)                    |
 | Médio Oriente (Bahrein)           | Europa (Frankfurt)                    |
 | América do Sul (São Paulo)       | Leste dos EUA (Ohio)                        |
 | | |
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Certifique-se de que realizou os seguintes pré-requisitos antes de adicionar os seus baldes Amazon S3 como fontes de dados do Purview e digitalizar os seus dados S3.
@@ -351,7 +352,7 @@ Uma vez adicionados os baldes como fontes de dados do Purview, pode configurar u
 
     Se selecionar para criar um novo conjunto de regras de verificação personalizada, utilize o assistente para definir as seguintes definições:
 
-    |Painel  |Description  |
+    |Painel  |Descrição  |
     |---------|---------|
     |**Novo conjunto de regras de digitalização** /<br>**Digitalizar a descrição da regra**    |   Introduza um nome significativo e uma descrição opcional para o seu conjunto de regras      |
     |**Selecione tipos de ficheiros**     | Selecione todos os tipos de ficheiros que pretende incluir na digitalização e, em seguida, selecione **Continue**.<br><br>Para adicionar um novo tipo de ficheiro, selecione **novo tipo de ficheiro** e defina o seguinte: <br>- A extensão do ficheiro que pretende adicionar <br>- Uma descrição opcional  <br>- Se o conteúdo do ficheiro tem um delimiter personalizado ou se é um tipo de ficheiro do sistema. Em seguida, insira o seu delimiter personalizado ou selecione o tipo de ficheiro do sistema. <br><br>Selecione **Criar** para criar o seu tipo de ficheiro personalizado.     |

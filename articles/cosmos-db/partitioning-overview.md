@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/19/2021
+ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99627780"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772472"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,8 +63,6 @@ A Azure Cosmos DB gere de forma transparente e automática a colocação de divi
 Azure Cosmos DB usa divisórias baseadas em haxixe para espalhar divisórias lógicas através de divisórias físicas. Azure Cosmos DB tem o valor chave da partição de um item. O resultado haxixe determina a partição física. Em seguida, Azure Cosmos DB atribui o espaço chave da chave de partição hashes uniformemente através das divisórias físicas.
 
 As transações (em procedimentos armazenados ou gatilhos) só são permitidas contra itens numa única divisória lógica.
-
-Você pode aprender mais sobre [como Azure Cosmos DB gere divisórias](partitioning-overview.md). (Não é necessário compreender os detalhes internos para construir ou executar as suas aplicações, mas adicionado aqui para um leitor curioso.)
 
 ## <a name="replica-sets"></a>Conjuntos de réplicas
 

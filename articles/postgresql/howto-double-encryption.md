@@ -1,17 +1,17 @@
 ---
 title: Infraestrutura dupla encriptação - Portal Azure - Base de Dados Azure para PostgreSQL
 description: Saiba como configurar e gerir a encriptação dupla da Infraestrutura para a sua Base de Dados de Azure para PostgreSQL.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/14/2021
+ms.openlocfilehash: 0b1079a084072556ae79a18a12f6b35f74c92775
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242233"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771656"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Encriptação dupla de infraestrutura para Azure Database for PostgreSQL
 
@@ -23,7 +23,7 @@ Saiba como configurar e gerir a encriptação dupla da Infraestrutura para a sua
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---portal"></a>Criar uma base de dados Azure para servidor PostgreSQL com infraestrutura dupla encriptação - Portal
 
-Siga estes passos para criar uma Base de Dados Azure para o servidor MySQL com encriptação dupla infraestrutura a partir do portal Azure:
+Siga estes passos para criar uma Base de Dados Azure para servidor PostgreSQL com encriptação dupla infraestrutura a partir do portal Azure:
 
 1. **Selecione Criar um recurso** (+) no canto superior esquerdo do portal.
 
@@ -45,7 +45,7 @@ Siga estes passos para criar uma Base de Dados Azure para o servidor MySQL com e
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Criar uma base de dados Azure para servidor PostgreSQL com infraestrutura dupla encriptação - CLI
 
-Siga estes passos para criar uma Base de Dados Azure para o servidor MySQL com encriptação dupla infraestrutura a partir de CLI:
+Siga estes passos para criar uma Base de Dados Azure para servidor PostgreSQL com encriptação dupla infraestrutura a partir de CLI:
 
 Este exemplo cria um grupo de recursos nomeado `myresourcegroup` no `westus` local.
 

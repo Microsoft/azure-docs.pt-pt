@@ -10,18 +10,22 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 1318c47bcded47159006977db09604bb53674973
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: cea425a3f133c54fecda06daa57e6e5e6d22a5d8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487948"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104783625"
 ---
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 O Grupo de Serviços de Comunicação Azure **Chamando a amostra de herói para iOS** demonstra como a biblioteca de clientes iOS dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo que inclui voz e vídeo. Neste arranque rápido da amostra, você aprenderá a configurar e executar a amostra. Para o contexto está prevista uma visão geral da amostra.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="download-code"></a>Transferir código
+
+Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+
+## <a name="overview"></a>Descrição geral
 
 A amostra é uma aplicação nativa do iOS que utiliza as bibliotecas de clientes iOS dos Serviços de Comunicação Azure para construir uma experiência de chamada que apresenta chamadas de voz e vídeo. A aplicação utiliza um componente do lado do servidor para obter fichas de acesso que são depois usadas para inicializar a biblioteca de clientes Azure Communication Services. Para configurar este componente do lado do servidor, sinta-se livre para seguir o tutorial [do Serviço Fidedigno com Funções Azure.](../../tutorials/trusted-service-tutorial.md)
 
@@ -29,7 +33,7 @@ Aqui está o aspeto da amostra:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
 
-Quando carrega no botão "Iniciar nova chamada", a aplicação iOS cria uma nova chamada e junta-se a ela. A aplicação também permite que você se junte a uma chamada de Serviços de Comunicação Azure existente, especificando o ID da chamada existente.
+Quando carrega no botão "Iniciar nova chamada", a aplicação iOS cria uma nova chamada e junta-se a ela. A aplicação permite-lhe aderir a uma chamada dos Serviços de Comunicação Azure existente, especificando o ID da chamada existente. Você também pode participar de um Encontro de Equipas, fornecendo o link de adesão encontrado no convite do Encontro.  (O link de junção tem o seguinte formato: `https://teams.microsoft.com/l/meetup-join/` ). Para mais informações sobre as equipas Interop, visite a documentação conceptual da [Teams Interop](../../concepts/teams-interop.md).
 
 Depois de se juntar a uma chamada, será solicitado que dê permissão à aplicação para aceder à sua câmara e microfone. Também lhe será pedido que forneça um nome de exibição.
 
@@ -51,7 +55,7 @@ Abaixo encontrará mais informações sobre pré-requisitos e passos para config
 - Uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Um Mac que executa [o Xcode,](https://go.microsoft.com/fwLink/p/?LinkID=266532)juntamente com um certificado de desenvolvimento válido instalado no seu Keychain.
 - Um recurso dos Serviços de Comunicação Azure. Para mais detalhes, consulte [Criar um Recurso de Comunicação Azure](../../quickstarts/create-communication-resource.md).
-- Uma função Azure executando [a lógica de Serviço Fidedigno](../../tutorials/trusted-service-tutorial.md) para obter tokens de acesso.
+- Uma Função Azure executando o [Ponto final de autenticação](../../tutorials/trusted-service-tutorial.md) para obter fichas de acesso.
 
 ## <a name="running-sample-locally"></a>Amostra de corrida local
 
@@ -60,8 +64,8 @@ A amostra de chamada de grupo pode ser executada localmente usando o XCode. Os d
 ### <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
 
 1. Instale as dependências funcionando `pod install` .
-2. Abra `ACSCall.xcworkspace` em XCode.
-3. Atualização `AppSettings.plist` . Desaponte o valor para `acsTokenFetchUrl` a chave ser o URL para o seu Ponto final de autenticação.
+2. Abra `AzureCalling.xcworkspace` em XCode.
+3. Atualização `AppSettings.plist` . Desaponte o valor para `communicationTokenFetchUrl` a chave ser o URL para o seu Ponto final de autenticação.
 
 ### <a name="run-sample"></a>Amostra de execução
 
@@ -69,9 +73,9 @@ Construa e passe a amostra no XCode.
 
 ## <a name="optional-securing-an-authentication-endpoint"></a>(Opcional) Assegurar um ponto final de autenticação
 
-Para fins de demonstração, esta amostra utiliza um ponto final acessível ao público por defeito para obter um token dos Serviços de Comunicação Azure. Para cenários de produção, recomendamos usar o seu próprio ponto final seguro para provisões para as suas próprias fichas.
+Para fins de demonstração, esta amostra utiliza um ponto final acessível ao público por defeito para obter um token de acesso dos Serviços de Comunicação Azure. Para cenários de produção, recomendamos usar o seu próprio ponto final seguro para provisões para as suas próprias fichas.
 
-Com uma configuração adicional, esta amostra suporta a ligação a um ponto final protegido do **Azure Ative** (Azure AD) para que o login do utilizador seja necessário para que a aplicação seja recortada por um token dos Serviços de Comunicação Azure. Veja os passos abaixo:
+Com uma configuração adicional, esta amostra suporta a ligação a um ponto final protegido do **Azure Ative** (Azure AD) para que o login do utilizador seja necessário para que a aplicação seja necessária para obter um token de acesso dos Serviços de Comunicação Azure. Veja os passos abaixo:
 
 1. Ativar a autenticação do Azure Ative Directory na sua aplicação.  
    - [Registe a sua aplicação no Diretório Ativo Azure (utilizando as definições da plataforma iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
@@ -81,7 +85,7 @@ Com uma configuração adicional, esta amostra suporta a ligação a um ponto fi
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Configuração do Diretório Ativo Azure no portal Azure.":::
 
 3. Abra `AppSettings.plist` em Xcode, adicione os seguintes valores-chave:
-   - `acsTokenFetchUrl`: A URL para solicitar o token dos Serviços de Comunicação da Azure 
+   - `communicationTokenFetchUrl`: A URL para solicitar o token dos Serviços de Comunicação da Azure 
    - `isAADAuthEnabled`: Um valor booleano para indicar se a autenticação simbólica dos Serviços de Comunicação Azure é necessária ou não
    - `aadClientId`: ID da sua aplicação (cliente)
    - `aadTenantId`: O seu Diretório (inquilino) ID
@@ -92,7 +96,10 @@ Com uma configuração adicional, esta amostra suporta a ligação a um ponto fi
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
+>[!div class="nextstepaction"]
+>[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
 
 Para obter mais informações, veja os seguintes artigos:
 
@@ -101,4 +108,6 @@ Para obter mais informações, veja os seguintes artigos:
 
 ### <a name="additional-reading"></a>Leitura adicional
 
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Encontre mais exemplos e informações na página oficial do GitHub
 - [Amostras](./../overview.md) - Encontre mais amostras e exemplos na página geral das nossas amostras.
+- [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - Para saber mais sobre o iOS sdk -[Azure Communication iOS Calling SDK](https://github.com/Azure/Communication/releases/)

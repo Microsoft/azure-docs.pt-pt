@@ -3,16 +3,16 @@ title: Serviços ligados no Azure Data Factory
 description: Conheça os serviços ligados na Data Factory. Serviços ligados ligam computação/lojas de dados à fábrica de dados.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 768af9e8568a3842b642a3ebd447d9df8064e840
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aaa690a4205951bd251a5230721e34fcb960a3b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100389931"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782746"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
 
@@ -64,9 +64,9 @@ A tabela a seguir descreve propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Yes |
-tipo | Tipo de serviço ligado. Por exemplo: AzureBlobStorage (data store) ou AzureBatch (computação). Consulte a descrição para tipos de propriedades. | Yes |
-typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e as suas propriedades de tipo, consulte o artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Yes |
+name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Sim |
+tipo | Tipo de serviço ligado. Por exemplo: AzureBlobStorage (data store) ou AzureBatch (computação). Consulte a descrição para tipos de propriedades. | Sim |
+typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e as suas propriedades de tipo, consulte o artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Sim |
 connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No
 
 ## <a name="linked-service-example"></a>Exemplo de serviço ligado

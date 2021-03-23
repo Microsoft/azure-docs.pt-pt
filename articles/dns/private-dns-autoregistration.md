@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2e5f41c0e149c99b5524c439c59e72afe554c776
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94966722"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783902"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qual é a característica de auto-registo das zonas privadas Azure DNS
 

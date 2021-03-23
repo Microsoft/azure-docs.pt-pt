@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101658559"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773254"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individual na Base de Dados SQL do Azure
 
@@ -112,7 +112,7 @@ else {
 - Ao desclassificar uma base de dados com [geo-replicação](active-geo-replication-configure-portal.md) ativada, desclasse as suas bases de dados primárias para o nível de serviço e o tamanho do cálculo pretendido antes de degradar a base de dados secundária (orientação geral para o melhor desempenho). Ao reduzir para uma edição diferente, é um requisito que a base de dados primária é desclassificada primeiro.
 - As ofertas de serviço de restauro diferem entre os vários escalões de serviço. Se estás a descer para o nível **básico,** há um período de retenção de reserva mais baixo. Consulte as [cópias de dados Azure SQL](automated-backups-overview.md).
 - As novas propriedades da base de dados não são aplicadas até que as alterações estejam completas.
-- Quando a cópia de dados é necessária para escalar uma base de dados (ver [Latência)](#latency)ao alterar o nível de serviço, a utilização de recursos elevados simultaneamente para a operação de escalagem pode causar tempos de escala mais longos. Com [a Recuperação acelerada da Base de Dados (ADR),](/sql/relational-databases/accelerated-database-recovery-concepts.md)o reversão de transações de longa duração não é uma fonte significativa de atraso, mas o elevado uso de recursos simultâneos pode deixar menos recursos de computação, armazenamento e largura de banda de rede para dimensionamento, particularmente para tamanhos de computação mais pequenos.
+- Quando a cópia de dados é necessária para escalar uma base de dados (ver [Latência)](#latency)ao alterar o nível de serviço, a utilização de recursos elevados simultaneamente para a operação de escalagem pode causar tempos de escala mais longos. Com [a Recuperação acelerada da Base de Dados (ADR),](/sql/relational-databases/accelerated-database-recovery-concepts)o reversão de transações de longa duração não é uma fonte significativa de atraso, mas o elevado uso de recursos simultâneos pode deixar menos recursos de computação, armazenamento e largura de banda de rede para dimensionamento, particularmente para tamanhos de computação mais pequenos.
 
 ## <a name="billing"></a>Faturação
 

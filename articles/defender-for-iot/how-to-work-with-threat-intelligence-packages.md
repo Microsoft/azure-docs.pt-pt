@@ -1,18 +1,14 @@
 ---
 title: Atualizar dados de inteligência de ameaças
 description: O pacote de dados de inteligência de ameaça é fornecido com cada novo Defender para a versão IoT, ou se necessário entre lançamentos.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ddf2eb2fab6281e76bac0a958024b639d18a7ccc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 386d59d33c4f9695b8fc5243dab345321cff4a5f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100521412"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784055"
 ---
 # <a name="threat-intelligence-research-and-packages"></a>Pesquisa e pacotes de inteligência de ameaça
 

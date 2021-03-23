@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a19babffa63667b0d2deb954d432421a2b7868b8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 71eaccd615f5c3460e7b48b2e92d5f874c8de12e
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722145"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772115"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -58,7 +58,7 @@ Por favor, siga este link para ler mais sobre [atualização automática](how-to
 >Para obter informações sobre o histórico da versão em versões aposentadas, consulte [o arquivo histórico de lançamento da versão Azure AD Connect](reference-connect-version-history-archive.md)
 
 
-## <a name="1623"></a>1.6.2.3
+## <a name="1624"></a>1.6.2.4
 
 >[!NOTE]
 > - Esta versão será disponibilizada apenas para download.
@@ -66,7 +66,7 @@ Por favor, siga este link para ler mais sobre [atualização automática](how-to
 > - Esta versão predefine o servidor AADConnect para o novo ponto final V2. Note que este ponto final não é suportado na nuvem nacional alemã, na nuvem nacional chinesa e na nuvem do governo dos EUA e se precisar de implementar esta versão nestas [nuvens,](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) precisa seguir estas instruções para voltar ao ponto final V1. Se não o fizer, resultará em erros de sincronização.
 
 ### <a name="release-status"></a>Estado de lançamento
-3/17/2021: Lançamento para download
+3/19/2021: Lançamento para download
 
 ### <a name="functional-changes"></a>Alterações funcionais
 

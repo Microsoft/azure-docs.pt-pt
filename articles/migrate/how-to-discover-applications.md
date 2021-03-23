@@ -1,21 +1,21 @@
 ---
-title: Descubra aplicativos em servidores no local com a Azure Migrate
-description: Saiba como descobrir apps, funções e funcionalidades em servidores no local com avaliação do servidor Azure Migrate.
-author: vikram1988
-ms.author: vibansa
+title: Descubra o inventário de software em servidores no local com a Azure Migrate
+description: Saiba como descobrir o inventário de software em servidores no local com a Azure Migrate Discovery e a avaliação.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.openlocfilehash: 8266b585881546b37bbb21b82780ab26d85dada7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: 47ea06fa2143f9a5dc5808ccb98fc80c87fefd93
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048085"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786707"
 ---
-# <a name="discover-installed-applications-roles-and-features-software-inventory-and-sql-server-instances-and-databases"></a>Descubra aplicações, funções e funcionalidades instaladas (inventário de software) e instâncias e bases de dados do SQL Server
+# <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>Descubra o inventário de software instalado e as instâncias e bases de dados do SQL Server
 
-Este artigo descreve como descobrir aplicações, funções e funcionalidades instaladas (inventário de software)e instâncias e bases de dados do SQL Server em servidores em execução no seu ambiente VMware, utilizando a ferramenta Azure Migrate:Server Assessment.
+Este artigo descreve como descobrir o inventário de software instalado, e as instâncias e bases de dados do SQL Server em servidores em execução no seu ambiente VMware, utilizando a ferramenta Azure Migrate: Discovery e assessment.
 
 A realização de inventário de software ajuda a identificar e adaptar um caminho de migração para Azure para as suas cargas de trabalho. O inventário de software utiliza o aparelho Azure Migrate para realizar a descoberta, utilizando credenciais de servidor. É completamente sem agente, nenhum agente é instalado nos servidores para recolher estes dados.
 
@@ -24,7 +24,7 @@ A realização de inventário de software ajuda a identificar e adaptar um camin
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Certifique-se de que [criou um projeto Azure Migrate](./create-manage-projects.md) com a ferramenta Azure Migrate:Server Assessment adicionada ao mesmo.
+- Certifique-se de que [criou um projeto](./create-manage-projects.md) com a ferramenta Azure Migrate: Discovery e assessment a editada.
 - Reveja [os requisitos da VMware](migrate-support-matrix-vmware.md#vmware-requirements) para realizar o inventário de software.
 - [Reveja os requisitos do aparelho](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) antes de configurar o aparelho.
 - Reveja [os requisitos](migrate-support-matrix-vmware.md#application-discovery-requirements) de descoberta de aplicações antes de iniciar o inventário de software nos servidores.
@@ -35,11 +35,11 @@ A realização de inventário de software ajuda a identificar e adaptar um camin
 2. Reveja os URLs Azure que o aparelho terá de aceder nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 3. [Reveja](migrate-appliance.md#collected-data---vmware) os dados que o aparelho recolhe durante a descoberta e avaliação.
 4. [Observe](migrate-support-matrix-vmware.md#port-access-requirements) os requisitos de acesso à porta para o aparelho.
-5. [Desloque o aparelho Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar a descoberta. Para implementar o aparelho, descarregue e importe um modelo OVA em VMware para criar um servidor em execução no seu servidor vCenter. Depois de colocar o aparelho, é necessário registá-lo com o projeto Azure Migrate e configurá-lo para iniciar a descoberta.
+5. [Desloque o aparelho Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar a descoberta. Para implementar o aparelho, descarregue e importe um modelo OVA em VMware para criar um servidor em execução no seu servidor vCenter. Depois de colocar o aparelho, é necessário registá-lo com o projeto e configurá-lo para iniciar a descoberta.
 6. Ao configurar o aparelho, tem de especificar o seguinte no gestor de configuração do aparelho:
     - Os detalhes do servidor vCenter ao qual pretende ligar.
     - vCenter Server credenciais de mira para descobrir os servidores no seu ambiente VMware.
-    - Credenciais de servidor que podem ser domínio/ Windows (não-domínio)/ Credenciais Linux (não-domínio). [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como as lidamos.
+    - Credenciais de servidor, que podem ser de domínio/ Windows (não-domínio)/ Credenciais Linux (não domínio). [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como as lidamos.
 
 ## <a name="verify-permissions"></a>Verificar permissões
 
@@ -61,19 +61,19 @@ A realização de inventário de software ajuda a identificar e adaptar um camin
 
 Após o inventário de software concluído, pode rever e exportar o inventário no portal Azure.
 
-1. Em **Azure Migrate - Servidores**  >  **Azure Migrate: Avaliação** do servidor , clique na contagem visualizada para abrir a página dos **servidores Descobertos.**
+1. Em **Azure Migrate - Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, clique na contagem visualizada para abrir a página dos **servidores Descobertos.**
 
     > [!NOTE]
     > Nesta fase, pode opcionalmente também ativar a análise de dependência dos servidores descobertos, para que possa visualizar dependências em servidores que pretende avaliar. [Saiba mais](concepts-dependency-visualization.md) sobre a análise da dependência.
 
-2. Nas **aplicações descobertas** coluna, clique na contagem visualizada para rever as aplicações, funções e funcionalidades descobertas.
+2. Na coluna **de inventário de software,** clique na contagem visualizada para rever as aplicações, funções e funcionalidades descobertas.
 4. Para exportar o inventário, em **Servidores Descobertos,** clique no **inventário da aplicação Export**.
 
-O inventário de aplicações é exportado e descarregado no formato Excel. A folha **de Inventário de Aplicações** exibe todas as aplicações descobertas em todos os servidores.
+O inventário de software é exportado e descarregado no formato Excel. A folha **de Inventário de Software** exibe todas as aplicações descobertas em todos os servidores.
 
 ## <a name="discover-sql-server-instances-and-databases"></a>Descubra instâncias e bases de dados do SQL Server
 
-- A descoberta de aplicações também identifica as instâncias do SQL Server em execução no seu ambiente VMware.
+- O inventário de software também identifica as instâncias do SQL Server em execução no seu ambiente VMware.
 - Se não tiver fornecido credenciais de autenticação do Windows ou SQL Server no gestor de configuração do aparelho, adicione as credenciais para que o aparelho possa utilizá-las para ligar às respetivas instâncias do SQL Server.
 
 Uma vez ligado, o aparelho recolhe dados de configuração e desempenho de instâncias e bases de dados do SQL Server. Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos. Assim, qualquer alteração às propriedades da instância do SQL Server e bases de dados, tais como estado da base de dados, nível de compatibilidade, etc. pode demorar até 24 horas para atualizar no portal.
