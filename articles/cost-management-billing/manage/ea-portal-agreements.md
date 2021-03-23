@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: d03ae5062cc81b3e042ed3b714838e14929dbba2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598011"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778224"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
 
@@ -145,7 +145,7 @@ As quotas descritas acima não são Pré-pagamento de Serviços. Para determinar
 
 ## <a name="requesting-a-quota-increase"></a>Pedir um aumento de quota
 
-Pode pedir um aumento de quota a qualquer momento através da submissão de um [pedido online](https://g.microsoftonline.com/0WAEP00en/6). Para processar o pedido, forneça as seguintes informações:
+Pode pedir um aumento de quota a qualquer momento através da submissão de um [pedido online](https://ms.portal.azure.com/). Para processar o pedido, forneça as seguintes informações:
 
 - A conta Microsoft ou conta escolar ou profissional associada ao proprietário da conta da subscrição. Este é o endereço de e-mail utilizado para iniciar sessão no portal do Microsoft Azure para gerir as subscrições. Identifique também que esta conta está associada a uma inscrição EA.
 - O(s) recurso(s) e a quantidade para a qual pretende que a quota aumente.

@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.openlocfilehash: 0771249e94d3e00cbeaff00406a0dbf33777a14d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb067e603c181482a863dc9fd75556e32a801bc6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490335"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772353"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -149,7 +149,7 @@ Se não estiver a receber Notificações no seu *email principal,* pode tentar s
 Você pode ter um número limitado de ações de e-mail em um Grupo de Ação. Consulte o artigo [de informação limitativo da taxa.](./alerts-rate-limiting.md)
 
 ### <a name="function"></a>Função
-Chama um ponto final de gatilho HTTP existente em [Funções Azure](../../azure-functions/functions-get-started.md).
+Chama um ponto final de gatilho HTTP existente em [Funções Azure](../../azure-functions/functions-get-started.md). Para lidar com um pedido, o seu ponto final deve manusear o verbo HTTP POST.
 
 Pode ter um número limitado de ações de função num Grupo de Ação.
 

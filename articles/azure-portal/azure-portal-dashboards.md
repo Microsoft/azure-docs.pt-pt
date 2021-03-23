@@ -1,21 +1,21 @@
 ---
-title: Criar e partilhar dashboards no portal do Azure
-description: Este artigo descreve como criar, personalizar, publicar e partilhar dashboards no portal Azure.
+title: Criar um dashboard no portal Azure
+description: Este artigo descreve como criar e personalizar um dashboard no portal Azure.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 03/23/2020
-ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/16/2021
+ms.openlocfilehash: fa7f1813d86571b568d23d64cab5705f8a117faa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745830"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774660"
 ---
-# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
+# <a name="create-a-dashboard-in-the-azure-portal"></a>Criar um dashboard no portal Azure
 
-Os dashboards são uma visão focada e organizada dos seus recursos em nuvem no portal Azure. Utilize dashboards como um espaço de trabalho onde pode lançar rapidamente tarefas para operações do dia-a-dia e monitorizar recursos. Construa dashboards personalizados com base em projetos, tarefas ou funções de utilizador, por exemplo.
+Os dashboards são uma visão focada e organizada dos seus recursos em nuvem no portal Azure. Utilize dashboards como um espaço de trabalho onde pode monitorizar recursos e lançar rapidamente tarefas para operações do dia-a-dia. Construa dashboards personalizados com base em projetos, tarefas ou funções de utilizador, por exemplo.
 
-O portal Azure fornece um dashboard predefinido como ponto de partida. Pode editar o painel de instrumentos predefinido. Crie e personalize dashboards adicionais e publique e partilhe dashboards para os disponibilizar a outros utilizadores. Este artigo descreve como criar um novo dashboard, personalizar a interface e publicar e partilhar dashboards.
+O portal Azure fornece um dashboard predefinido como ponto de partida. Pode editar o dashboard predefinido e criar e personalizar dashboards adicionais. Este artigo descreve como criar um novo dashboard e personalizá-lo. Para obter informações sobre a partilha de dashboards, consulte [os dashboards Share Azure utilizando o controlo de acesso baseado em funções Azure](azure-portal-dashboard-share-access.md).
 
 ## <a name="create-a-new-dashboard"></a>Criar um novo dashboard
 
@@ -27,17 +27,19 @@ Neste exemplo, criamos um novo painel privado e atribuímos um nome. Siga estes 
 
     ![Abra o painel](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
-1. Selecione **Novo painel de instrumentos**.
+1. Selecione **novo painel de instrumentos** em **seguida, painel em branco**.
 
     ![Screenshot do novo painel de instrumentos](./media/azure-portal-dashboards/create-new-dashboard.png)
 
     Esta ação abre a **Galeria Tile,** a partir da qual você irá selecionar azulejos, e uma grade vazia onde você vai organizar os azulejos.
 
-    ![Screenshot da galeria de azulejos e grelha vazia](./media/azure-portal-dashboards/dashboard-name.png)
-
 1. Selecione o texto **My Dashboard** na etiqueta do painel de instrumentos e introduza um nome que o ajudará a identificar facilmente o painel de instrumentos personalizado.
 
-1. Selecione **Fazer a personalização** no cabeçalho da página para sair do modo de edição.
+    ![Screenshot da galeria de azulejos e grelha vazia](./media/azure-portal-dashboards/dashboard-name.png)
+
+1. No cabeçalho da página **selecione Fazer a personalização** para sair do modo de edição e, em seguida, selecione **Guardar**.
+
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot do processo de salvamento do painel de instrumentos":::
 
 A vista do painel mostra agora o seu novo painel de instrumentos. Selecione a seta ao lado do nome do painel de instrumentos para ver os painéis de instrumentos disponíveis para si. A lista pode incluir dashboards que outros utilizadores criaram e partilharam.
 
@@ -45,7 +47,7 @@ A vista do painel mostra agora o seu novo painel de instrumentos. Selecione a se
 
 Agora, vamos editar o painel para adicionar, redimensionar e organizar azulejos que representam os seus recursos Azure.
 
-### <a name="add-tiles-from-the-dashboard"></a>Adicione azulejos do tablier
+### <a name="add-tiles-from-the-tile-gallery"></a>Adicione azulejos da galeria de azulejos
 
 Para adicionar azulejos a um painel de instrumentos, siga estes passos:
 
@@ -55,10 +57,13 @@ Para adicionar azulejos a um painel de instrumentos, siga estes passos:
 
 1. Percorra a **Galeria Tile** ou use o campo de pesquisa para encontrar o azulejo que deseja.
 
-1. **Selecione Adicionar** o azulejo ao painel de instrumentos com um tamanho e localização predefinidos. Ou arraste o azulejo para a grelha e coloque-o onde quiser.
+1. **Selecione Adicionar** o azulejo ao painel de instrumentos com um tamanho e localização predefinidos. Ou arraste o azulejo para a grelha e coloque-o onde quiser. Adicione os azulejos que quiser, mas aqui estão algumas ideias:
 
-> [!TIP]
-> Se trabalhar com mais do que uma organização, adicione o azulejo **de identidade** da Organização ao seu painel de instrumentos para mostrar claramente a que organização os recursos pertencem.
+    - Adicione **todos os recursos** para ver todos os recursos que já criou.
+
+    - Se trabalhar com mais do que uma organização, adicione o azulejo **de identidade** da Organização ao seu painel de instrumentos para mostrar claramente a que organização os recursos pertencem.
+
+1. No cabeçalho de página **selecione Guardar**.
 
 ### <a name="add-tiles-from-a-resource-page"></a>Adicione azulejos de uma página de recursos
 
@@ -80,11 +85,11 @@ Para alterar o tamanho de um azulejo ou para reorganizar os azulejos num tablier
 
 ### <a name="additional-tile-configuration"></a>Configuração adicional de azulejos
 
-Alguns azulejos podem necessitar de mais configuração para mostrar a informação que deseja. Por exemplo, o **azulejo de gráfico métrico** tem de ser configurado para apresentar uma métrica do **Monitor Azure**. Também pode personalizar dados de azulejos para anular as definições de tempo padrão do painel de instrumentos.
+Alguns azulejos podem necessitar de mais configuração para mostrar a informação que deseja. Por exemplo, o **azulejo de gráfico métrico** tem de ser configurado para apresentar uma métrica do Monitor Azure. Também pode personalizar dados de azulejos para anular as definições de tempo padrão do painel de instrumentos.
 
-Qualquer telha que precise de ser configurada exibe uma bandeira **de azulejos configurados** até personalizar o azulejo. Para personalizar o azulejo:
+Qualquer azulejo que precise de ser configurado exibe um banner até personalizar o azulejo. Para o **gráfico métrica,** o banner é **Editar em Métricas**. Para personalizar o azulejo:
 
-1. Selecione **Fazer a personalização** no cabeçalho da página para sair do modo de edição.
+1. No cabeçalho da página **selecione Guardar** para sair do modo de edição.
 
 1. Selecione o banner e, em seguida, faça a configuração necessária.
 
@@ -97,7 +102,7 @@ Qualquer telha que precise de ser configurada exibe uma bandeira **de azulejos c
 
 Os dados do painel mostram automaticamente atividade nas últimas 24 horas. Para mostrar um tempo diferente para apenas este azulejo, siga estes passos:
 
-1. **Selecione Personalizar os dados** de azulejos do menu de contexto ou o ![ filtro do ícone do filtro a partir do canto superior esquerdo do ](./media/azure-portal-dashboards/dashboard-filter.png) azulejo.
+1. **Selecione Personalizar os dados** de azulejos do menu de contexto ou do ![ filtro do ícone do filtro no canto superior esquerdo do ](./media/azure-portal-dashboards/dashboard-filter.png) azulejo.
 
     ![Screenshot do menu de contexto de azulejos](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -166,6 +171,10 @@ Para eliminar permanentemente um dashboard privado ou partilhado, siga estes pas
 1. Para um painel de instrumentos privado, selecione **OK** no diálogo de confirmação para remover o painel de instrumentos. Para um dashboard partilhado, no diálogo de confirmação, selecione a caixa de verificação para confirmar que o painel de instrumentos publicado deixará de ser visualizado por outros. Em seguida, selecione **OK**.
 
     ![Screenshot da confirmação de exclusão](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+
+## <a name="recover-a-deleted-dashboard"></a>Recuperar um dashboard eliminado
+
+Se estiver na nuvem Azure global e eliminar um dashboard _publicado_ no portal Azure, pode recuperar o painel de instrumentos no prazo de 14 dias após a eliminação. Para obter informações, consulte [Recuperar um dashboard apagado no portal Azure](recover-shared-deleted-dashboard.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

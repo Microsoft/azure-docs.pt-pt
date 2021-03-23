@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração do ServiceNow
-titleSuffix: Azure Defender for IoT
 description: A aplicação de Gestão do ICS do IoT para o ServiceNow proporciona aos analistas da SOC visibilidade multidimensional nos protocolos especializados de OT e dispositivos IoT implantados em ambientes industriais, juntamente com análises comportamentais conscientes do ICS para detetar rapidamente comportamentos suspeitos ou anómalos.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e39c3d018003983f6dc5b5e16a9791de84d6005
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558730"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786010"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>O Pedido de Gestão do ICS do IoT para o ServiceNow
 
@@ -329,7 +324,7 @@ Este artigo descreve as informações de alerta do dispositivo empurradas para o
 | Criado | A hora e a data em que o alerta foi gerado. |
 | Motor | O motor que detetou o evento. |
 | Título | O título de alerta. |
-| Description | A descrição do alerta. |
+| Descrição | A descrição do alerta. |
 | Protocolo | O protocolo detetado no trânsito. |
 | Gravidade | A gravidade do alerta definida pelo Defender para IoT. |
 | Aparelho | O nome do sensor que detetou o trânsito. |
@@ -349,7 +344,7 @@ Selecione a entrada na coluna criada para ver informações de alerta num formul
 
 Este artigo descreve o tipo de alertas que cada motor dispara.
 
-| Tipo de alerta | Description |
+| Tipo de alerta | Descrição |
 |--|--|
 | Alertas de violação de políticas | Acionado quando o motor de Violação de Política deteta um desvio do tráfego previamente aprendido. Por exemplo: <br /><br />- Um novo dispositivo é detetado. <br /><br />- É detetada uma nova configuração num dispositivo. <br /><br />- Um dispositivo não definido como dispositivo de programação realiza uma alteração de programação. <br /><br />- Uma versão de firmware mudou. |
 | Alertas de violação de protocolo | Acionado quando o motor de Violação de Protocolo deteta estruturas de pacotes ou valores de campo que não cumprem a especificação do protocolo. |

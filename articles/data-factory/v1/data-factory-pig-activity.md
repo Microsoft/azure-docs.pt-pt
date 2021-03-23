@@ -3,16 +3,16 @@ title: Transformar dados usando a atividade do porco na fábrica de dados Azure
 description: Saiba como pode usar a Atividade do Porco na Azure Data Factory v1 para executar scripts de porco num cluster on-demand/seu próprio HDInsight.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2f59734b5452b5a06b49583954f8851e84e8f84d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 85c34bfc306b49bb826a342846bf5e4557e3052f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100387177"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786367"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do porco na fábrica de dados Azure
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -79,12 +79,12 @@ A atividade do Porco HDInsight num [oleoduto](data-factory-create-pipelines.md) 
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da atividade |Yes |
+| name |Nome da atividade |Sim |
 | descrição |Texto que descreve para que a atividade é usada |No |
-| tipo |HDinsightPig |Yes |
+| tipo |HDinsightPig |Sim |
 | entradas |Uma ou mais entradas consumidas pela atividade do Porco |No |
-| saídas |Uma ou mais saídas produzidas pela atividade do Porco |Yes |
-| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Yes |
+| saídas |Uma ou mais saídas produzidas pela atividade do Porco |Sim |
+| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Sim |
 | script |Especificar o script do porco inline |No |
 | scriptPath |Guarde o script Pig num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |No |
 | define |Especifique os parâmetros como pares chave/valor para referências dentro do script do Porco |No |

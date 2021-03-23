@@ -3,12 +3,12 @@ title: Restringir o acesso usando um ponto final de serviço
 description: Restringir o acesso a um registo de contentores Azure utilizando um ponto final de serviço numa rede virtual Azure. O acesso ao ponto final de serviço é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c49595ee4ee79aef264a87dd48bccd03f3d4f5a5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93026229"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773900"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restringir o acesso a um registo de contentores utilizando um ponto final de serviço numa rede virtual Azure
 
@@ -26,7 +26,6 @@ A configuração de um ponto final do serviço de registo está disponível no n
 * O desenvolvimento futuro dos pontos finais de serviço para o Registo de Contentores Azure não está atualmente previsto. Recomendamos a utilização de [pontos finais privados.](container-registry-private-link.md)
 * Não é possível utilizar o portal Azure para configurar os pontos finais de serviço num registo.
 * Apenas um cluster [de serviço Azure Kubernetes](../aks/intro-kubernetes.md) ou [uma máquina virtual](../virtual-machines/linux/overview.md) Azure podem ser usados como hospedeiro para aceder a um registo de contentores utilizando um ponto final de serviço. *Outros serviços da Azure, incluindo as instâncias do contentor Azure, não são suportados.*
-* Cada registo suporta um máximo de 100 regras de acesso à rede.
 * Os pontos finais de serviço para o Registo de Contentores Azure não são suportados na nuvem do Governo dos EUA ou na nuvem Azure China.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]

@@ -1,18 +1,14 @@
 ---
 title: Gerir sensores na consola de gestão no local
 description: Saiba como gerir os sensores a partir da consola de gestão, incluindo atualizar versões de sensores, empurrar as definições do sistema para os sensores e ativar e desativar os motores nos sensores.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4706fbcf58b8e5f5eed6532f9a08f65c7716e07e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523962"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781930"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerir sensores a partir da consola de gestão
 
@@ -144,7 +140,7 @@ Pode enviar alertas a terceiros com informações sobre sensores desligados. Par
 
 Os sensores estão protegidos por cinco motores Defender para motores IoT. Pode ativar ou desativar os motores para sensores ligados.
 
-| Motor | Description | Cenário de exemplo |
+| Motor | Descrição | Cenário de exemplo |
 |--|--|--|
 | Motor de violação de protocolo | Uma violação do protocolo ocorre quando a estrutura do pacote ou os valores de campo não cumprem a especificação do protocolo. | alerta "Operação Ilegal de MODBUS (Código de Função Zero)". Este alerta indica que um dispositivo primário enviou um pedido com o código de função 0 para um dispositivo secundário. Isto não é permitido de acordo com a especificação do protocolo, e o dispositivo secundário pode não manusear corretamente a entrada. |
 | Motor de violação de políticas | Uma violação de política ocorre com um desvio do comportamento básico definido na política aprendida ou configurada. | Alerta "Agente de Utilizador HTTP NÃO Autorizado". Este alerta indica que uma aplicação que não tenha sido aprendida ou aprovada pela apólice é utilizada como cliente HTTP num dispositivo. Este pode ser um novo navegador web ou aplicação nesse dispositivo. |

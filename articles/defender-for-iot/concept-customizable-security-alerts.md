@@ -1,24 +1,14 @@
 ---
 title: Alertas de segurança personalizados para ioT Hub
 description: Saiba mais sobre alertas de segurança personalizáveis e remediação recomendada utilizando o Defender para as funcionalidades e serviços do IoT Hub.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 04198432f2b600a3c703d5e4f253656f116000db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d7a58bcdb759c3f31290cc7930eba6ca52fcc17b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636531"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784735"
 ---
 # <a name="defender-for-iot-hub-custom-security-alerts"></a>Defender para alertas de segurança personalizados IoT Hub
 
@@ -30,7 +20,7 @@ As seguintes listas de alertas defender para IoT são definíveis por si com bas
 
 ## <a name="built-in-custom-alerts-in-the-iot-hub"></a>Alertas personalizados incorporados no IoT Hub
 
-| Gravidade | Nome do alerta | Origem de dados | Description | Remediação sugerida |
+| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida |
 |--|--|--|--|--|
 | Baixo | Alerta personalizado - O número de mensagens de nuvem para dispositivo no protocolo AMQP está fora do alcance permitido | IoT Hub | O número de mensagens de nuvem para dispositivos (protocolo AMQP) dentro de uma janela de tempo específica está fora do intervalo atualmente configurado e admissível. |  |
 | Baixo | Alerta personalizado - O número de mensagens rejeitadas para dispositivos no protocolo AMQP está fora do alcance permitido | IoT Hub | O número de mensagens de nuvem para dispositivos (protocolo AMQP) rejeitado pelo dispositivo, dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |  |

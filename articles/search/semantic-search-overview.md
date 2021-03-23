@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720496"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771316"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica em Pesquisa Cognitiva de Azure
 
 > [!IMPORTANT]
 > A pesquisa semântica está em pré-visualização pública, disponível apenas através da pré-visualização REST API. As funcionalidades de pré-visualização são oferecidas como está, nos [Termos Complementares de Utilização,](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não estão garantidas a mesma implementação em disponibilidade geral. Estas características são faturas. Para mais informações, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
 
-A busca semântica é uma coleção de funcionalidades relacionadas com consultas que suportam uma experiência de consulta mais natural e de maior qualidade. 
+A pesquisa semântica é uma coleção de capacidades relacionadas com consultas que adicionam relevância semântica e compreensão linguística aos resultados da pesquisa. *O ranking semântico* procura contexto e parentesco entre termos, elevando os jogos que fazem mais sentido dada a consulta. A compreensão linguística encontra *legendas* e *respostas* dentro do seu conteúdo que resumem o documento correspondente ou respondem a uma pergunta, que pode ser prestada numa página de resultados de pesquisa para uma experiência de pesquisa mais produtiva.
 
-Estas capacidades incluem uma reedição semântica dos resultados da pesquisa, bem como a extração de legendas e respostas, com destaque semântico sobre termos e frases relevantes. Modelos pré-treinados de última geração são utilizados para extração e classificação. Para manter o desempenho rápido que os utilizadores esperam da pesquisa, a resumo semântica e o ranking são aplicados apenas aos 50 melhores resultados, como marcado pelo [algoritmo de pontuação de semelhança padrão](index-similarity-and-scoring.md#similarity-ranking-algorithms). Usando esses resultados como o corpus do documento, o ranking semântico re-pontua esses resultados com base na força semântica da partida.
+Modelos pré-treinados de última geração são usados para resumo e classificação. Para manter o desempenho rápido que os utilizadores esperam da pesquisa, a resumo semântica e o ranking são aplicados apenas aos 50 melhores resultados, como marcado pelo [algoritmo de pontuação de semelhança padrão](index-similarity-and-scoring.md#similarity-ranking-algorithms). Usando esses resultados como o corpus do documento, o ranking semântico re-pontua esses resultados com base na força semântica da partida.
 
 A tecnologia subjacente é da Bing e da Microsoft Research, e integrada na infraestrutura de Pesquisa Cognitiva como uma funcionalidade de complemento. Para obter mais informações sobre a pesquisa e investimentos em IA que apoiam a pesquisa semântica, veja [como a IA de Bing está a alimentar a Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 

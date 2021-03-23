@@ -144,7 +144,7 @@
               displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: Utilizar o Microsoft Defender integrado para a licença de Ponto Final
-          displayName: 'ATP, mdatp, wdatp'
+          displayName: 'ATP, mdatp, wdatp, mde, mdfe'
           href: security-center-wdatp.md
         - name: Definir listas de aplicações seguras para máquinas
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'

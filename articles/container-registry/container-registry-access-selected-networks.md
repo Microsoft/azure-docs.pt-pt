@@ -2,13 +2,13 @@
 title: Configurar o acesso ao registo público
 description: Configurar regras IP para permitir o acesso a um registo de contentores Azure a partir de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/08/2021
+ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89488767"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773067"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras públicas de rede IP
 
@@ -17,6 +17,8 @@ Um registo de contentores Azure por padrão aceita ligações através da intern
 As regras da rede IP estão configuradas no ponto final do registo público. As regras da rede IP não se aplicam a pontos finais privados configurados com [Ligação Privada](container-registry-private-link.md)
 
 As regras de acesso IP configurantes estão disponíveis no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites do serviço de registo, consulte [os níveis de registo do contentor Azure](container-registry-skus.md).
+
+Cada registo suporta um máximo de 100 regras de acesso à rede.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 

@@ -12,12 +12,12 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 41336d59d51685d5daf78a1809ce6c0df2cd6124
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033627"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781318"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerir Azure AD B2C com o Microsoft Graph
 
@@ -140,7 +140,7 @@ Para obter mais informações sobre o acesso aos registos de auditoria do Azure 
 
 ## <a name="conditional-access"></a>Acesso Condicional
 
-- [Listar todas as políticas de acesso condicional](/graph/api/resources/conditionalaccessroot-list-policies)
+- [Listar todas as políticas de acesso condicional](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
 - [Ler propriedades e relações de uma política de acesso condicional](/graph/api/conditionalaccesspolicy-get)
 - [Criar uma nova política de acesso condicional](/graph/api/resources/application)
 - [Atualizar uma política de acesso condicional](/graph/api/conditionalaccesspolicy-update)

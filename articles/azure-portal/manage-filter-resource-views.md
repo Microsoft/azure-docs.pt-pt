@@ -2,13 +2,13 @@
 title: Ver e filtrar informações sobre recursos do Azure
 description: Filtre informações e use diferentes pontos de vista para entender melhor os seus recursos Azure.
 ms.topic: how-to
-ms.date: 09/11/2020
-ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: bb48d0b0a7bf6017fbf407a95c33ef17729e34e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738638"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771639"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Ver e filtrar informações sobre recursos do Azure
 
@@ -48,7 +48,7 @@ Para eliminar uma vista:
 
 1. **Selecione Verção De gestão** e, em **seguida, navegue em todas as vistas**.
 
-1. Nas **vistas guardadas para o painel "Todos os recursos",** selecione a vista e selecione o ícone **Eliminar** ícone Eliminar o ![ ícone ](media/manage-filter-resource-views/icon-delete.png) .
+1. No painel **de vistas guardados,** selecione a vista e, em seguida, selecione o ícone **Eliminar** ícone Eliminar o ![ ícone ](media/manage-filter-resource-views/icon-delete.png) .
 
 ## <a name="export-information-from-a-view"></a>Informação sobre exportação de vista
 
@@ -64,7 +64,7 @@ Pode exportar a informação de recursos de uma vista de pontos de vista. Para e
 
 ## <a name="summarize-resources-with-visuals"></a>Resumir recursos com visuais
 
-As opiniões que analisámos até agora foram _pontos de vista_ da lista, mas também existem _visões sumárias_ que incluem visuais. Você pode guardar e usar estas vistas assim como você pode listar vistas. Os filtros persistem entre os dois tipos de vistas. Existem vistas padrão, como a vista **de localização** mostrada abaixo, bem como pontos de vista relevantes para serviços específicos, como a vista de **estado** para o armazenamento Azure.
+As opiniões que analisámos até agora foram _pontos de vista_ da lista, mas também existem _visões sumárias_ que incluem visuais. Você pode guardar e usar estas vistas como você pode com as vistas da lista. Os filtros persistem entre os dois tipos de vistas. Existem vistas padrão, como a vista **de localização** mostrada abaixo, bem como pontos de vista relevantes para serviços específicos, como a vista de **estado** para o armazenamento Azure.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Resumo dos recursos numa vista de mapa":::
 

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b3fd8dcd5f2e73b798f6e9529b5811b9935bc393
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e2a0859227ad790763dc9ae07cb408a72538f90
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605771"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773373"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
@@ -45,7 +45,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
 ## <a name="deploy-a-cloud-service-extended-support"></a>Implementar um Serviço de Cloud (suporte alargado)
 
 > [!NOTE]
-> Uma forma alternativa de implementar o seu serviço na nuvem (suporte alargado) é através do [portal Azure](https://portal.azure.com). Pode [descarregar o modelo ARM gerado](generate-template-portal.md) através do portal para as suas futuras implementações
+> Uma forma mais fácil e rápida de gerar o seu modelo ARM e o seu ficheiro de parâmetros é através do [portal Azure](https://portal.azure.com). Pode [descarregar o modelo ARM gerado](generate-template-portal.md) através do portal para criar o seu Serviço cloud via Powershell
  
 1. Criar rede virtual. O nome da rede virtual deve coincidir com as referências no ficheiro Configuração de Serviço (.cscfg). Se utilizar uma rede virtual existente, omita esta secção do modelo ARM.
 
@@ -191,7 +191,9 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     ```
 
 6. (Opcional) Crie um perfil de extensão para adicionar extensões ao seu serviço na nuvem. Para este exemplo, estamos a adicionar o ambiente de trabalho remoto e a extensão de diagnóstico do Windows Azure.
-    
+   > [!Note] 
+   > A palavra-passe para ambiente de trabalho remoto deve ter entre 8-123 caracteres de comprimento e deve satisfazer pelo menos 3 requisitos de complexidade da palavra-passe a partir do seguinte: 1) Contém um caracteres maiúsculas 2) Contém um caracteres minúsculos 3) Contém um dígito numérico 4) Contém um carácter especial 5) Não são permitidos caracteres de controlo
+
     ```json
         "extensionProfile": {
           "extensions": [

@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6cbfa01788f1897264b4197798aa5879cf724db3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98745721"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770959"
 ---
-# <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesmável gerado pela IA a partir de bolhas Azure usando o .NET SDK
+# <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use .NET e IA para gerar conteúdo pesmável a partir de blobs Azure
 
 Se tiver texto ou imagens não estruturados no armazenamento de Azure Blob, um [oleoduto de enriquecimento de IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos para a pesquisa completa de texto ou cenários de mineração de conhecimento. 
 

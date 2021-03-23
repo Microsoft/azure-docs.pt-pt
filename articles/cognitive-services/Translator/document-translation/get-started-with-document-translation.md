@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102486663"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773050"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Começar com tradução de documentos (pré-visualização)
 
@@ -20,7 +20,10 @@ ms.locfileid: "102486663"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!NOTE]
-> Geralmente, quando cria um recurso de Serviço Cognitivo no portal Azure, tem a opção de criar uma chave de subscrição multi-serviço ou uma chave de subscrição de um único serviço. No entanto, a Tradução documental é atualmente suportada apenas no recurso Tradutor (serviço único) e **não** está incluída no recurso Serviços Cognitivos (multi-serviço).
+>
+> 1. Geralmente, quando cria um recurso de Serviço Cognitivo no portal Azure, tem a opção de criar uma chave de subscrição multi-serviço ou uma chave de subscrição de um único serviço. No entanto, a Tradução documental é atualmente suportada apenas no recurso Tradutor (serviço único) e **não** está incluída no recurso Serviços Cognitivos (multi-serviço).
+> 2. A Tradução documental está atualmente disponível no **Plano de ServiçoS Standard S1.** _Ver_ [preços dos Serviços Cognitivos — Tradutor](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
 
 Para começar, vai precisar de:
 
@@ -29,8 +32,6 @@ Para começar, vai precisar de:
 * Um recurso de serviço [**tradutor**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) **(não** um recurso de Serviços Cognitivos).
 
 * Uma [**conta de armazenamento de bolhas Azure.**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Irá criar recipientes para armazenar e organizar os seus dados blob dentro da sua conta de armazenamento.
-
-* Um formulário de [**tradução de documentos preenchido (Pré-visualização)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) para permitir a subscrição do Azure utilizar a nova funcionalidade de Tradução documental.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Obtenha o seu nome de domínio personalizado e chave de subscrição
 
@@ -186,7 +187,7 @@ Um pedido de tradução de documento de lote é submetido ao seu ponto final de 
 
 Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de Documento:
 
-|Cabeçalho HTTP|Description|
+|Cabeçalho HTTP|Descrição|
 |---|--|
 |Ocp-Apim-Subscription-Key|**Obrigatório**: O valor é a chave de subscrição Azure para o seu recurso Tradutor ou Serviços Cognitivos.|
 |Content-Type|**Requerido**: Especifica o tipo de conteúdo da carga útil. Os valores aceites são aplicação/json ou charset=UTF-8.|

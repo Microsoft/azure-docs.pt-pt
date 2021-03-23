@@ -1,24 +1,14 @@
 ---
 title: Arquitetura de solução baseada em agente
 description: Saiba mais sobre o Azure Defender para arquitetura baseada em agentes IoT e fluxo de informação.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/25/2021
-ms.author: shhazam
-ms.openlocfilehash: 51b1f639ada01eda06bdf6c938eef7dce2a379fc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b04e8fa6225aef9f3c228a44631f117fedffccff
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102448613"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784888"
 ---
 # <a name="agent-based-solution-for-device-builders"></a>Solução com base em agente para criadores de dispositivos
 

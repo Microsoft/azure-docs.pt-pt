@@ -35,11 +35,11 @@
           href: azure-portal-dashboards.md
         - name: Partilhar um dashboard Azure
           href: azure-portal-dashboard-share-access.md
+        - name: Utilizar um mosaico de markdown personalizado
+          href: azure-portal-markdown-tile.md
         - name: Criar programáticamente um painel de instrumentos Azure
           href: azure-portal-dashboards-create-programmatically.md
           displayName: 'Azure CLI, az portal dashboard, az portal'
-        - name: Utilizar um mosaico de markdown personalizado
-          href: azure-portal-markdown-tile.md
     - name: Séries de vídeos de procedimentos do portal do Azure
       href: azure-portal-video-series.md
     - name: Criar e gerir pedidos de suporte

@@ -1,19 +1,14 @@
 ---
 title: Políticas de apoio para Azure Defender para IoT
-titleSuffix: Azure Defender for IoT
 description: Este artigo descreve o suporte, quebrando políticas de mudança para Defender para IoT, e as versões de Azure Defender para IoT que estão atualmente disponíveis.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 2/8/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 17ef357ebc78b63cbaf473cb6449cb89ccf0963e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b1a01a02155bb1443542892ed9d00d1c6b221f64
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100190"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782610"
 ---
 # <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versão e suporte para Azure Defender para IoT 
 

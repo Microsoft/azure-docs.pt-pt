@@ -1,31 +1,31 @@
 ---
-title: Descubra servidores em execução em ambiente VMware com Azure Migrate:Avaliação do servidor
-description: Saiba como descobrir VMware VMs no local com a ferramenta de avaliação do servidor Azure Migrate
-author: vikram1988
-ms.author: vibansa
+title: Descubra servidores em execução em ambiente VMware com Azure Migrate Discovery e avaliação
+description: Saiba como descobrir servidores no local em execução em ambiente VMware com a ferramenta Azure Migrate Discovery e avaliação
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 9/14/2020
+ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: 4d2b0fbb377beacdb75a1a5552855936bee2b205
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d0acf83ddfb0d2a3aff0db0f3d151869bce1c710
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041316"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771741"
 ---
-# <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-server-assessment"></a>Tutorial: Descubra servidores em execução em ambiente VMware com Azure Migrate: Avaliação do servidor
+# <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descubra servidores em execução em ambiente VMware com Azure Migrate: Descoberta e avaliação
 
 Como parte da sua viagem de migração para Azure, você descobre o seu inventário no local e cargas de trabalho.
 
-Este tutorial mostra-lhe como descobrir servidores em execução em ambiente VMware com Azure Migrate: Ferramenta de avaliação do servidor, utilizando um aparelho Azure Migrate leve. Implementa o aparelho como um servidor em execução no seu servidor vCenter, para descobrir continuamente servidores e seus metadados de desempenho, aplicações em execução em servidores, dependências de servidores e instâncias e bases de dados do SQL Server.
+Este tutorial mostra-lhe como descobrir servidores em ambiente VMware com Azure Migrate: Ferramenta de descoberta e avaliação, utilizando um aparelho Azure Migrate leve. Implementa o aparelho como um servidor em execução no seu servidor vCenter, para descobrir continuamente servidores e seus metadados de desempenho, aplicações em execução em servidores, dependências de servidores e instâncias e bases de dados do SQL Server.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma conta Azure.
 > * Prepare o ambiente VMware para ser descoberto.
-> * Criar um projeto do Azure Migrate.
+> * Criar um projeto.
 > * Instale o aparelho Azure Migrate.
 > * Comece a descoberta contínua.
 
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 
 **Requisito** | **Detalhes**
 --- | ---
-**vCenter Server/ESXi anfitrião** | Precisa de um servidor vCenter que executa a versão 5.5, 6.0, 6.5 ou 6.7.<br/><br/> Os servidores devem ser hospedados numa versão de execução do anfitrião ESXi 5.5 ou posterior.<br/><br/> No servidor vCenter, permita ligações de entrada na porta TCP 443, para que o aparelho possa recolher os metadados de configuração e desempenho .<br/><br/> O aparelho liga-se ao servidor vCenter na porta 443 por predefinição. Se o vCenter Server ouvir numa porta diferente, pode modificar a porta quando fornecer os dados do vCenter Server no gestor de configuração do aparelho.<br/><br/> Nos anfitriões ESXi, certifique-se de que o acesso à entrada é permitido na porta TCP 443 para realizar a descoberta de aplicações instaladas e análise de dependência de agentes em servidores.
+**vCenter Server/ESXi anfitrião** | Precisa de um servidor vCenter que executa a versão 5.5, 6.0, 6.5 ou 6.7.<br/><br/> Os servidores devem ser hospedados numa versão de execução do anfitrião ESXi 5.5 ou posterior.<br/><br/> No servidor vCenter, permita ligações de entrada na porta TCP 443, para que o aparelho possa recolher os metadados de configuração e desempenho.<br/><br/> O aparelho liga-se ao servidor vCenter na porta 443 por predefinição. Se o vCenter Server ouvir numa porta diferente, pode modificar a porta quando fornecer os dados do vCenter Server no gestor de configuração do aparelho.<br/><br/> Nos anfitriões ESXi, certifique-se de que o acesso à entrada é permitido na porta TCP 443 para realizar a descoberta de aplicações instaladas e análise de dependência de agentes em servidores.
 **Aparelho** | vCenter Server precisa de recursos para alocar um servidor para o aparelho Azure Migrate:<br/><br/> - 32 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco.<br/><br/> - Um interruptor virtual externo e acesso à Internet no servidor do aparelho, diretamente ou através de um representante.
 **Servidores** | Todas as versões Windows e Linux OS são suportadas para a descoberta de metadados de configuração e desempenho. <br/><br/> Para realizar a descoberta de aplicações em servidores, todas as versões Windows e Linux OS são suportadas. Consulte [aqui](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) as versões de SO suportadas para análise de dependência sem agentes.<br/><br/> Para realizar a descoberta de aplicações instaladas e análise de dependência sem agentes, as Ferramentas VMware (mais tarde de 10.2.0) devem ser instaladas e em execução nos servidores. Os servidores do Windows devem ter a versão PowerShell 2.0 ou posteriormente instalada.<br/><br/> Para descobrir as instâncias e bases de dados do SQL Server, consulte [aqui](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) as versões e edições suportadas do SQL Server, as versões e mecanismos de autenticação suportados do Windows OS.
 
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de utilizador Azure
 
-Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa de uma conta com:
+Para criar um projeto e registar o aparelho Azure Migrate, precisa de uma conta com:
 - Permissões do Contribuinte ou proprietário na subscrição do Azure
 - Permissões para registar aplicações do Azure Ative Directory (AAD)
 - Permissões de administrador de acesso ao utilizador e ao utilizador na subscrição do Azure para criar um Cofre chave, utilizado durante a migração de servidores sem agente
@@ -63,7 +63,7 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
     :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Caixa de pesquisa para procurar a subscrição do Azure":::
 
 
-2. Na página **Subscrições,** selecione a subscrição na qual pretende criar um projeto Azure Migrate.
+2. Na página **Subscrições,** selecione a subscrição na qual pretende criar um projeto.
 3. Na subscrição, selecione **Access Control (IAM)**  >  **Verifique o acesso**.
 4. No **Acesso ao Cheques,** procure na conta de utilizador relevante.
 5. In **Add a role assignment**, clique em **Adicionar**.
@@ -117,7 +117,7 @@ Precisa de uma conta de utilizador com os privilégios necessários nos servidor
 
 ## <a name="set-up-a-project"></a>Criar um projeto
 
-Crie um novo projeto Azure Migrate.
+Crie um novo projeto.
 
 1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
 2. Em **Serviços**, selecione **Azure Migrate**.
@@ -128,14 +128,14 @@ Crie um novo projeto Azure Migrate.
     :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Caixas para nome e região do projeto":::
 
 7. Selecione **Criar**.
-8. Aguarde alguns minutos para o projeto Azure Migrate ser implantado. A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao novo projeto.
+8. Espere alguns minutos para o projeto ser lançado. A **ferramenta Azure Migrate: Discovery and assessment** é adicionada por defeito ao novo projeto.
 
 > [!NOTE]
 > Se já criou um projeto, pode utilizar o mesmo projeto para registar aparelhos adicionais para descobrir e avaliar mais não. de servidores. [ **Saiba mais**](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurar o aparelho
 
-Azure Migrate: A avaliação do servidor utiliza um aparelho Azure Migrate leve. O aparelho executa a descoberta do servidor e envia metadados de configuração e desempenho do servidor para a Azure Migrate. O aparelho pode ser configurado através da implementação de um modelo OVA que pode ser descarregado do projeto.
+Azure Migrate: Descoberta e avaliação utilize um aparelho Azure Migrate leve. O aparelho executa a descoberta do servidor e envia metadados de configuração e desempenho do servidor para a Azure Migrate. O aparelho pode ser configurado através da implementação de um modelo OVA que pode ser descarregado do projeto.
 
 > [!NOTE]
 > Se por alguma razão não conseguir configurar o aparelho utilizando o modelo, pode alterá-lo utilizando um script PowerShell num servidor do Windows Server 2016 existente. [**Saiba mais**](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
@@ -143,18 +143,19 @@ Azure Migrate: A avaliação do servidor utiliza um aparelho Azure Migrate leve.
 ### <a name="deploy-with-ova"></a>Implementar com OVA
 
 Para configurar o aparelho utilizando um modelo OVA:
-1. Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal.
+
+1. Forneça um nome de aparelho e gere uma chave de projeto no portal.
 1. Descarregue um ficheiro de modelo OVA e importe-o para o vCenter Server. Verifique se o OVA está seguro.
-1. Crie o VM do aparelho a partir do ficheiro OVA , e verifique se pode ligar-se ao Azure Migrate.
-1. Configure o aparelho pela primeira vez e registe-o com o projeto utilizando a chave do projeto Azure Migrate.
+1. Crie o aparelho a partir do ficheiro OVA e verifique se pode ligar-se ao Azure Migrate.
+1. Configure o aparelho pela primeira vez e registe-o com o projeto utilizando a chave do projeto.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Gerar a chave do projeto
 
-1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
-2. In **Discover machines**  >  **Are your machines virtualized?** 
-3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores no seu ambiente VMware. O nome deve ser alfanumérico com 14 caracteres ou menos.
+1. Em **Objetivos de Migração**  >  **Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, selecione **Discover**.
+2. In **Discover servers**  >  **Are your servers virtualized?** 
+3. Em **1:Gere a tecla do projeto,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores no seu ambiente VMware. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página Discover durante a criação de recursos.
-1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
+1. Após a criação bem sucedida dos recursos Azure, gera-se uma **chave de projeto.**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
 ### <a name="2-download-the-ova-template"></a>2. Descarregue o modelo OVA
@@ -214,13 +215,13 @@ Coloque o aparelho pela primeira vez.
 
 1. Na consola vSphere Client, clique com o botão direito no servidor e, em seguida, selecione **Open Console**.
 2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
-3. Abra um browser em qualquer máquina que possa ligar ao servidor do aparelho e abra o URL do gestor de configuração do aparelho: `https://appliance name or IP address: 44368` .
+3. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL do gestor de configuração do aparelho: `https://appliance name or IP address: 44368` .
 
    Em alternativa, pode abrir o gestor de configuração a partir do ambiente de trabalho do servidor do aparelho selecionando o atalho para o gestor de configuração.
 1. Aceite os termos da **licença** e leia as informações de terceiros.
 1. No gestor de configuração > **Configurar pré-requisitos,** faça o seguinte:
    - **Conectividade**: O aparelho verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
-     - Clique em **Configurar o representante** para especificar o endereço de procuração `http://ProxyIPAddress` ou a porta de `http://ProxyFQDN` escuta.
+     - Clique no **representante de configuração** para especificar o endereço de procuração `http://ProxyIPAddress` ou a porta de `http://ProxyFQDN` escuta.
      - Especifique as credenciais se o proxy precisar de autenticação.
      - Apenas é suportado o proxy HTTP.
      - Se tiver adicionado detalhes de procuração ou desativado o proxy e/ou autenticação, clique em **Guardar** para ativar novamente a verificação de conectividade.
@@ -236,13 +237,13 @@ Coloque o aparelho pela primeira vez.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
-1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá à Avaliação do Servidor> Descubra> Gerir os **aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
+1. Cole a chave do **projeto** copiada do portal. Se não tiver a chave, vá ao **Azure Migrate: Descoberta e avaliação> Descubra> Gerir os aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração chave e copie a chave correspondente.
 1. Necessitará de um código de dispositivo para autenticar com o Azure. Clicar no **Login** abrirá um código modal com o código do dispositivo, como mostrado abaixo.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal mostrando o código do dispositivo":::
 
 1. Clique no **código copy & Iniciar sessão** para copiar o código do dispositivo e abrir um pedido de Login Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
-1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e palavra-passe.
+1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e a palavra-passe.
    
    O s-in com um PIN não é suportado.
 3. Caso feche o separador de login acidentalmente sem iniciar sessão, é necessário atualizar o separador de navegador do gestor de configuração do aparelho para ativar novamente o botão Iniciar sessão.
@@ -260,7 +261,7 @@ O aparelho precisa de se ligar ao servidor vCenter para descobrir a configuraç�
 
 1. No **passo 1: Forneça credenciais do servidor vCenter**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicionar **nome de utilizador** e **palavra-passe** para a conta vCenter Server que o aparelho utilizará para descobrir servidores em execução no servidor vCenter.
     - Deveria ter criado uma conta com as permissões necessárias, conforme coberto neste artigo acima.
-    - Se pretender estender a descoberta a objetos VMware específicos (centros de dados vCenter Server, clusters, uma pasta de clusters, anfitriões, uma pasta de anfitriões ou VMs individuais.), reveja as instruções [deste artigo](set-discovery-scope.md) para restringir a conta utilizada pela Azure Migrate.
+    - Se pretender estender a descoberta a objetos VMware específicos (centros de dados vCenter Server, clusters, uma pasta de clusters, anfitriões, uma pasta de anfitriões ou servidores individuais.), reveja as instruções [deste artigo](set-discovery-scope.md) para restringir a conta utilizada pela Azure Migrate.
 1. No **passo 2: Forneça detalhes do servidor vCenter**, clique na **fonte de descoberta Adicionar** para selecionar o nome amigável para credenciais a partir do drop-down, especificar o endereço **IP/FQDN** do servidor vCenter. Pode deixar a **Porta** para predefinição (443) ou especificar uma porta personalizada na qual o vCenter Server ouve e clica em **Guardar**.
 1. Ao clicar em **Guardar**, o aparelho tentará validar a ligação ao servidor vCenter com as credenciais fornecidas e mostrar o **estado de Validação** na tabela contra o endereço IP/FQDN do servidor vCenter.
 1. Pode **revalidar** a conectividade ao vCenter Server a qualquer momento antes de iniciar a descoberta.
@@ -269,14 +270,14 @@ O aparelho precisa de se ligar ao servidor vCenter para descobrir a configuraç�
 
 ### <a name="provide-server-credentials"></a>Fornecer credenciais de servidor
 
-No **Passo 3: Fornecer credenciais de servidor para realizar inventário de software, análise de dependência de agente e descoberta de instâncias e bases de dados do SQL Server,** pode optar por fornecer múltiplas credenciais de servidor ou se não quiser aproveitar estas funcionalidades, pode optar por saltar o passo e proceder à descoberta do vCenter Server. Pode mudar a sua intenção a qualquer momento depois.
+No **Passo 3: Fornecer credenciais de servidor para realizar inventário de software, análise de dependência de agente e descoberta de instâncias e bases de dados do SQL Server,** pode optar por fornecer múltiplas credenciais de servidor ou se não quiser utilizar estas funcionalidades, pode optar por saltar o passo e proceder à descoberta do vCenter Server. Pode mudar a sua intenção a qualquer momento.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Painel 3 no gestor de configuração do aparelho para detalhes do servidor":::
 
 > [!Note]
 > A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
-Se quiser aproveitar estas funcionalidades, pode fornecer credenciais de servidor seguindo os passos abaixo. O aparelho tentará mapear automaticamente as credenciais para os servidores para executar as funcionalidades de descoberta.
+Se pretender utilizar estas funcionalidades, pode fornecer credenciais de servidor seguindo os passos abaixo. O aparelho tentará mapear automaticamente as credenciais para os servidores para executar as funcionalidades de descoberta.
 
 - Pode adicionar credenciais de servidor clicando no botão **Adicionar Credenciais.** Isto abrirá um modelol onde pode escolher o **tipo de Credenciais** a partir do drop-down.
 - Pode fornecer credenciais de autenticação de domínio/ Windows (não domínio)/ Linux (não domínio)/ Credenciais de autenticação do SQL Server. [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como as lidamos.
@@ -301,6 +302,7 @@ Se quiser aproveitar estas funcionalidades, pode fornecer credenciais de servido
 Se não tiver sido fornectado nenhum certificado no servidor quando este começa, o SQL Server gera um certificado auto-assinado que é utilizado para encriptar pacotes de login. [**Saiba mais**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 A descoberta funciona da seguinte forma:
+
 - Leva cerca de 15 minutos para o inventário de servidores descobertos aparecer no portal.
 - A descoberta de aplicações instaladas pode demorar algum tempo. A duração depende do número de servidores descobertos. Para 500 servidores, leva aproximadamente uma hora para que o inventário descoberto apareça no portal Azure Migrate.
 - Após a descoberta dos servidores estar concluída, pode ativar a análise de dependência sem agente nos servidores a partir do portal.

@@ -1,24 +1,14 @@
 ---
 title: Métodos de autenticação de agentes de segurança
 description: Saiba mais sobre os diferentes métodos de autenticação disponíveis ao utilizar o serviço Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
-ms.author: shhazam
-ms.openlocfilehash: 4aeaa703b5e3203eeb7bc355051e0e8f48f898ac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bd4d89d8664dae2421ff7f268b3710b5a906427b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494126"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784616"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação de agentes de segurança
 
@@ -54,7 +44,7 @@ Consulte os parâmetros de [instalação do agente](#security-agent-installation
 Ao [utilizar um agente de segurança,](how-to-deploy-agent.md)os dados de autenticação devem ser fornecidos como argumentos.
 Estes argumentos estão documentados na tabela seguinte.
 
-|Nome do parâmetro linux | Nome do parâmetro do Windows | Parâmetro de abreviatura |Description|Opções|
+|Nome do parâmetro linux | Nome do parâmetro do Windows | Parâmetro de abreviatura |Descrição|Opções|
 |---------------------|---------------|---------|---------------|---------------|
 |autenticação-identidade|AutenticaçãoDídeo|aui|Identidade de autenticação| **SegurançaModule** ou **Dispositivo**|
 |método de autenticação|AutenticaçãoMethod|aum|Método de autenticação|**SimétricaKey** ou **SelfSignedCertificate**|

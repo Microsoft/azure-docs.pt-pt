@@ -1,34 +1,32 @@
 ---
 title: Suporte para avaliação do servidor físico em Azure Migrate
-description: Saiba mais sobre o suporte para avaliação do servidor físico com a Avaliação do Servidor Azure Migrate
-author: rashi-ms
-ms.author: rajosh
+description: Saiba mais sobre o suporte para avaliação de servidor físico com a Azure Migrate Discovery e avaliação
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: cb5a1a51a7d622c1b0a605d155ade2f08022ab67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/18/2021
+ms.openlocfilehash: 18176c5a79eda080c72b387781e6c7c9b0c66673
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592493"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773203"
 ---
-# <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
+# <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matriz de suporte para descoberta e avaliação de servidores físicos 
 
-Este artigo resume os pré-requisitos e requisitos de suporte quando avalia os servidores físicos para a migração para Azure, utilizando a ferramenta [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Se quiser migrar servidores físicos para Azure, reveja a matriz de suporte à [migração](migrate-support-matrix-physical-migration.md).
+Este artigo resume os pré-requisitos e requisitos de suporte quando avalia os servidores físicos para a migração para Azure, utilizando a ferramenta [Azure Migrate: Discovery and assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Se quiser migrar servidores físicos para Azure, reveja a matriz de suporte à [migração](migrate-support-matrix-physical-migration.md).
 
-
-Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a ferramenta de Avaliação do Servidor ao projeto. Depois de a ferramenta ser adicionada, coloca o [aparelho Azure Migrate](migrate-appliance.md). O aparelho descobre continuamente máquinas no local e envia metadados de máquinas e dados de desempenho para o Azure. Após a descoberta estar completa, recolhe-se máquinas descobertas em grupos e faz uma avaliação para um grupo.
-
+Para avaliar servidores físicos, cria um projeto e adiciona o Azure Migrate: Discovery e ferramenta de avaliação ao projeto. Depois de a ferramenta ser adicionada, coloca o [aparelho Azure Migrate](migrate-appliance.md). O aparelho descobre continuamente servidores no local e envia metadados e dados de desempenho para o Azure. Após a descoberta estar completa, você recolhe servidores descobertos em grupos, e executar uma avaliação para um grupo.
 
 ## <a name="limitations"></a>Limitações
 
 **Suporte** | **Detalhes**
 --- | ---
-**Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
-**Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além dos servidores físicos, um projeto pode incluir VMware VMs e Hiper-VMs, até os limites de avaliação para cada um.
+**Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto](migrate-support-matrix.md#azure-migrate-projects).
+**Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além dos servidores físicos, um projeto pode incluir servidores em VMware e no Hyper-V, até aos limites de avaliação para cada um.
 **Deteção** | O aparelho Azure Migrate pode descobrir até 1000 servidores físicos.
-**Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Pode avaliar até 35.000 máquinas numa única avaliação.
+**Avaliação** | Pode adicionar até 35.000 servidores num único grupo.<br/><br/> Pode avaliar até 35.000 servidores numa única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
 
@@ -39,7 +37,8 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 **Sistema operativo:** Todos os sistemas operativos Windows e Linux podem ser avaliados para migração.
 
 **Permissões:**
-- Para os servidores do Windows, utilize uma conta de domínio para máquinas unidas a domínios e uma conta local para máquinas que não estejam unidas ao domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores do Monitor de Desempenho e Utilizadores do Registo de Desempenho.
+
+- Para servidores windows, utilize uma conta de domínio para servidores unidos pelo domínio e uma conta local para servidores que não estejam unidos pelo domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores do Monitor de Desempenho e Utilizadores do Registo de Desempenho.
 - Nos servidores Linux, precisa de uma conta de superutilizador nos servidores Linux que deseja detetar. Alternadamente, pode definir uma conta não raiz com as capacidades necessárias utilizando os seguintes comandos:
 
 **Comando** | **Objetivo**
@@ -49,11 +48,9 @@ setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<b
 setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Para recolher número de série BIOS
 chmod a+r /sys/class/dmi/id/product_uuid | Para recolher BIOS GUID
 
-
-
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de aplicação do Azure Migrate
 
-A Azure Migrate utiliza o [aparelho Azure Migrate](migrate-appliance.md) para ser descoberto e avaliado. O aparelho para servidores físicos pode funcionar com um VM ou uma máquina física. 
+A Azure Migrate utiliza o [aparelho Azure Migrate](migrate-appliance.md) para ser descoberto e avaliado. O aparelho para servidores físicos pode funcionar num VM ou num servidor físico.
 
 - Saiba mais sobre [os requisitos do aparelho](migrate-appliance.md#appliance---physical) para servidores físicos.
 - Saiba mais sobre URLs que o aparelho precisa de aceder em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
@@ -71,18 +68,18 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos de análise de dependência baseados em agentes
 
-[A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar dependências entre máquinas no local que pretende avaliar e migrar para Azure. O quadro resume os requisitos para a criação de uma análise de dependência baseada em agentes. Atualmente, apenas a análise de dependência baseada em agentes é suportada para servidores físicos.
+[A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar dependências entre servidores no local que pretende avaliar e migrar para Azure. O quadro resume os requisitos para a criação de uma análise de dependência baseada em agentes. Atualmente, apenas a análise de dependência baseada em agentes é suportada para servidores físicos.
 
-**Requisito** | **Detalhes** 
---- | --- 
-**Antes da implantação** | Deverá ter um projeto Azure Migrate no local, com a ferramenta de Avaliação do Servidor adicionada ao projeto.<br/><br/>  Implementa visualização de dependência após a instalação de um aparelho Azure Migrate para descobrir as suas máquinas no local<br/><br/> [Aprenda](create-manage-projects.md) a criar um projeto pela primeira vez.<br/> [Saiba como](how-to-assess.md) adicionar uma ferramenta de avaliação a um projeto existente.<br/> Saiba como configurar o aparelho Azure Migrate para avaliação de [Hiper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)ou servidores físicos.
+**Requisito** | **Detalhes**
+--- | ---
+**Antes da implantação** | Deverá ter um projeto em vigor, com a ferramenta Azure Migrate: Discovery e assessment a adicionar ao projeto.<br/><br/>  Implementa visualização de dependência após configurar um aparelho Azure Migrate para descobrir os seus servidores no local<br/><br/> [Aprenda](create-manage-projects.md) a criar um projeto pela primeira vez.<br/> [Saiba como](how-to-assess.md) adicionar uma ferramenta de avaliação a um projeto existente.<br/> Saiba como configurar o aparelho Azure Migrate para avaliação de [Hiper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)ou servidores físicos.
 **Azure Government** | A visualização da dependência não está disponível no Governo de Azure.
-**Log Analytics** | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/vm/service-map.md) nos [registos do Monitor Azure](../azure-monitor/logs/log-query-overview.md) para visualização da dependência.<br/><br/> Associa um novo ou existente espaço de trabalho log analytics a um projeto Azure Migrate. O espaço de trabalho para um projeto Azure Migrate não pode ser modificado depois de ser adicionado. <br/><br/> O espaço de trabalho deve estar na mesma subscrição que o projeto Azure Migrate.<br/><br/> O espaço de trabalho deve residir nas regiões do Leste dos EUA, Sudeste Asiático ou Europa Ocidental. Espaços de trabalho noutras regiões não podem ser associados a um projeto.<br/><br/> O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions)<br/><br/> No Log Analytics, o espaço de trabalho associado ao Azure Migrate está marcado com a chave do Projeto migratório e o nome do projeto.
-**Agentes necessários** | Em cada máquina que pretende analisar, instale os seguintes agentes:<br/><br/> O [agente de monitorização da Microsoft (MMA)](../azure-monitor/agents/agent-windows.md).<br/> O [agente de dependência.](../azure-monitor/agents/agents-overview.md#dependency-agent)<br/><br/> Se as máquinas no local não estiverem ligadas à internet, é necessário descarregar e instalar o Gateway Log Analytics nelas.<br/><br/> Saiba mais sobre a instalação do [agente Desadependante](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) e [MMA.](how-to-create-group-machine-dependencies.md#install-the-mma)
-**Log Analytics espaço de trabalho** | O espaço de trabalho deve estar na mesma subscrição que o projeto Azure Migrate.<br/><br/> Azure Migrate apoia espaços de trabalho residentes nas regiões do Leste dos EUA, Sudeste Asiático e Europa Ocidental.<br/><br/>  O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions)<br/><br/> O espaço de trabalho para um projeto Azure Migrate não pode ser modificado depois de ser adicionado.
-**Custos** | A solução Mapa de Serviço não incorre em quaisquer encargos nos primeiros 180 dias (a partir do dia em que associar o espaço de trabalho log Analytics ao projeto Azure Migrate)/<br/><br/> Após 180 dias, aplicar-se-ão as cobranças padrão do Log Analytics.<br/><br/> A utilização de qualquer solução que não o Mapa de Serviços no espaço de trabalho associado do Log Analytics incorrerá em [taxas padrão](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics.<br/><br/> Quando o projeto Azure Migrate é eliminado, o espaço de trabalho não é apagado juntamente com ele. Após a eliminação do projeto, o uso do Mapa de Serviço não é gratuito, e cada nó será cobrado de acordo com o nível pago do espaço de trabalho Log Analytics/<br/><br/>Se tiver projetos que criou antes da disponibilidade geral da Azure Migrate (GA- 28 de fevereiro de 2018), poderá ter incorrido em taxas adicionais do Mapa de Serviços. Para garantir o pagamento após apenas 180 dias, recomendamos que crie um novo projeto, uma vez que os espaços de trabalho existentes antes da AG ainda são exejáveis.
-**Gestão** | Quando regista agentes no espaço de trabalho, utiliza o ID e a chave fornecida pelo projeto Azure Migrate.<br/><br/> Pode utilizar o espaço de trabalho Log Analytics fora de Azure Migrate.<br/><br/> Se eliminar o projeto Azure Migrate associado, o espaço de trabalho não é apagado automaticamente. [Elimine-o manualmente.](../azure-monitor/logs/manage-access.md)<br/><br/> Não elimine o espaço de trabalho criado pela Azure Migrate, a menos que elimine o projeto Azure Migrate. Se o fizer, a funcionalidade de visualização de dependência não funcionará como esperado.
-**Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.
+**Log Analytics** | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/vm/service-map.md) nos [registos do Monitor Azure](../azure-monitor/logs/log-query-overview.md) para visualização da dependência.<br/><br/> Associa um novo ou existente espaço de trabalho do Log Analytics a um projeto. O espaço de trabalho para um projeto não pode ser modificado depois de ser adicionado. <br/><br/> O espaço de trabalho deve estar na mesma subscrição que o projeto.<br/><br/> O espaço de trabalho deve residir nas regiões do Leste dos EUA, Sudeste Asiático ou Europa Ocidental. Espaços de trabalho noutras regiões não podem ser associados a um projeto.<br/><br/> O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions)<br/><br/> No Log Analytics, o espaço de trabalho associado ao Azure Migrate está marcado com a chave do Projeto migratório e o nome do projeto.
+**Agentes necessários** | Em cada servidor que pretende analisar, instale os seguintes agentes:<br/><br/> O [agente de monitorização da Microsoft (MMA)](../azure-monitor/agents/agent-windows.md).<br/> O [agente de dependência.](../azure-monitor/agents/agents-overview.md#dependency-agent)<br/><br/> Se os servidores no local não estiverem ligados à internet, é necessário descarregar e instalar o Gateway Log Analytics nos mesmos.<br/><br/> Saiba mais sobre a instalação do [agente Desadependante](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) e [MMA.](how-to-create-group-machine-dependencies.md#install-the-mma)
+**Log Analytics espaço de trabalho** | O espaço de trabalho deve estar na mesma subscrição de um projeto.<br/><br/> Azure Migrate apoia espaços de trabalho residentes nas regiões do Leste dos EUA, Sudeste Asiático e Europa Ocidental.<br/><br/>  O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions)<br/><br/> O espaço de trabalho para um projeto não pode ser modificado depois de ser adicionado.
+**Custos** | A solução Mapa de Serviço não incorre em quaisquer encargos nos primeiros 180 dias (a partir do dia em que associar o espaço de trabalho Log Analytics ao projeto)/<br/><br/> Após 180 dias, aplicar-se-ão as cobranças padrão do Log Analytics.<br/><br/> A utilização de qualquer solução que não o Mapa de Serviços no espaço de trabalho associado do Log Analytics incorrerá em [taxas padrão](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics.<br/><br/> Quando o projeto é eliminado, o espaço de trabalho não é apagado juntamente com ele. Após a eliminação do projeto, o uso do Mapa de Serviço não é gratuito, e cada nó será cobrado de acordo com o nível pago do espaço de trabalho Log Analytics/<br/><br/>Se tiver projetos que criou antes da disponibilidade geral da Azure Migrate (GA- 28 de fevereiro de 2018), poderá ter incorrido em taxas adicionais do Mapa de Serviços. Para garantir o pagamento após apenas 180 dias, recomendamos que crie um novo projeto, uma vez que os espaços de trabalho existentes antes da AG ainda são exejáveis.
+**Gestão** | Quando regista agentes no espaço de trabalho, utiliza o ID e a chave fornecida pelo projeto.<br/><br/> Pode utilizar o espaço de trabalho Log Analytics fora de Azure Migrate.<br/><br/> Se eliminar o projeto associado, o espaço de trabalho não é apagado automaticamente. [Elimine-o manualmente.](../azure-monitor/logs/manage-access.md)<br/><br/> Não elimine o espaço de trabalho criado pela Azure Migrate, a menos que elimine o projeto. Se o fizer, a funcionalidade de visualização de dependência não funcionará como esperado.
+**Conectividade Internet** | Se os servidores não estiverem ligados à internet, é necessário instalar o gateway Do Registo Analytics neles.
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4c3308ff9b1ffeb0f14c5808e0d4cdd71dabf335
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489139"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780128"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar o pré-serviço e iniciar seduca com um Apple ID utilizando o Azure Ative Directory B2C (Pré-visualização)
 
@@ -206,8 +206,8 @@ Pode definir um Apple ID como fornecedor de sinistros adicionando-o ao elemento 
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="https://appleid.apple.com" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.firstName"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.lastName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
           </OutputClaims>
           <OutputClaimsTransformations>

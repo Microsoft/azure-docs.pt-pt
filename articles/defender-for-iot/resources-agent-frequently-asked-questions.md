@@ -1,24 +1,14 @@
 ---
 title: Azure Defender para agente IoT frequentemente fez perguntas
 description: Encontre respostas às perguntas mais frequentes sobre o Azure Defender para agente IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/07/2020
-ms.author: rkarlin
-ms.openlocfilehash: f584f11603e41b63f3c96749ed6c720eb5ce07a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4bd7d3c9b76dfb37e53cc51e5e16b660545cb7f0
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97835062"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778666"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>Azure Defender para agente IoT frequentemente fez perguntas
 

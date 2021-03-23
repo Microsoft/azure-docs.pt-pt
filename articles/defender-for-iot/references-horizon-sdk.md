@@ -1,19 +1,14 @@
 ---
 title: SDK do Horizon
-titleSuffix: Azure Defender for IoT
 description: O Horizonte SDK permite que o Azure Defender para desenvolvedores IoT desenhem plugins de difusão que descodificem o tráfego da rede para que possa ser processado por programas automatizados de análise de rede Defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523367"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782491"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dissector de protocolo proprietário horizonte
 
@@ -326,7 +321,7 @@ Esta secção descreve parâmetros básicos.
 
 Esta secção descreve outros campos.
 
-| Etiqueta de parâmetro | Description |
+| Etiqueta de parâmetro | Descrição |
 |-----------------|--------|
 | **permitir listas** | Pode indexar os valores do protocolo e exibi-los em Relatórios de Mineração de Dados. Estes relatórios refletem a sua linha de base de rede. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="Uma amostra da visão da mineração de dados."::: <br /> Para obter mais informações, consulte [Connect to a indexing service (Baseline)](#connect-to-an-indexing-service-baseline) para obter mais informações. |
 | **firmware** | Pode extrair informações de firmware, definir valores de índice e acionar alertas de firmware para o protocolo plugin. Para obter mais informações, consulte [extrair dados do firmware](#extract-firmware-data) para obter mais informações. |
@@ -817,7 +812,7 @@ Adicione o parâmetro **de alerta** ao `config.json` plugin.
 
 Esta secção descreve os campos de configuração JSON. 
 
-| Nome do campo | Description | Valores possíveis |
+| Nome do campo | Descrição | Valores possíveis |
 |--|--|--|
 | **ID** | Representa uma única identificação de alerta. Deve ser único neste contexto. | Valor numérico 0 - 10000 |
 | **message** | Informação apresentada ao utilizador. Este campo permite-lhe utilizar diferentes campos. | Utilize qualquer campo a partir do seu protocolo ou qualquer protocolo de camada inferior. |

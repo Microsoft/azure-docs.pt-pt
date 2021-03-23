@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea13444a6bd18bd67f05d93a38af70b3b7a2368
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556320"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780434"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Redefinir o estado de resgate de um utilizador convidado
 
@@ -28,9 +28,20 @@ Depois de um utilizador convidado ter resgatado o seu convite para colaboração
 
 Para gerir estes cenários anteriormente, teve de eliminar manualmente a conta do utilizador convidado do seu diretório e voltar a convidar o utilizador. Agora pode utilizar o PowerShell ou o convite do Microsoft Graph API para redefinir o estado de resgate do utilizador e voltar a convidar o utilizador, mantendo o ID do objeto do utilizador, as filiações em grupo e as atribuições de aplicações. Quando o utilizador resgata o novo convite, a UPN do utilizador não muda, mas o nome de inscrição do utilizador muda para o novo e-mail. O utilizador pode posteriormente iniciar sposição através do novo e-mail ou de um e-mail que adicionou à `otherMails` propriedade do objeto do utilizador.
 
+## <a name="reset-the-email-address-used-for-sign-in"></a>Redefinir o endereço de e-mail utilizado para o s-in
+
+Se um utilizador quiser iniciar susutá-lo usando um e-mail diferente:
+
+1. Certifique-se de que o novo endereço de e-mail é adicionado à `mail` propriedade ou propriedade do objeto do `otherMails` utilizador. 
+2.  Substitua o endereço de e-mail na `InvitedUserEmailAddress` propriedade pelo novo endereço de e-mail.
+3. Utilize um dos métodos abaixo para redefinir o estado de resgate do utilizador.
+
+> [!NOTE]
+>Durante a pré-visualização pública, quando estiver a redefinir o endereço de e-mail do utilizador, recomendamos a definição da `mail` propriedade para o novo endereço de e-mail. Desta forma, o utilizador pode resgatar o convite ao inscrever-se no seu diretório, além de utilizar o link de resgate no convite.
+>
 ## <a name="use-powershell-to-reset-redemption-status"></a>Utilize o PowerShell para redefinir o estado de resgate
 
-Instale o mais recente módulo AzureADPreview PowerShell e crie um novo convite com `InvitedUserEMailAddress` definido para o novo endereço de e-mail, e definido para `ResetRedemption` `true` .
+Instale o mais recente módulo AzureADPreview PowerShell e crie um novo convite com `InvitedUserEmailAddress` definido para o novo endereço de e-mail, e definido para `ResetRedemption` `true` .
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -43,7 +54,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Utilize a API do Microsoft Graph para redefinir o estado de resgate
 
-Utilizando o convite do [Microsoft Graph API,](/graph/api/resources/invitation)deite a `resetRedemption` propriedade e `true` especifique o novo endereço de e-mail na `invitedUserEmailAddress` propriedade.
+Utilizando o convite do [Microsoft Graph API,](/graph/api/resources/invitation?view=graph-rest-1.0)deite a `resetRedemption` propriedade e `true` especifique o novo endereço de e-mail na `invitedUserEmailAddress` propriedade.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

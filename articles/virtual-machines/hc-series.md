@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6ec629629fc774ddb5423db91fe0d71a49305ca1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 43f8b6efd7c4cc510dac8fcbe84ab38f59008ed9
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566044"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773538"
 ---
 # <a name="hc-series"></a>Série HC
 
@@ -29,14 +29,16 @@ Os VMs da série HC apresentam 100 Gb/sec Mellanox EDR InfiniBand. Estes VMs est
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado[(Saiba mais](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) sobre desempenho e questões potenciais)<br>
 [Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
-
 <br>
 
 | Tamanho | vCPU | Processador | Memória (GiB) | Largura de banda de memória GB/s | Frequência base cpu (GHz) | Frequência all-cores (GHz, pico) | Frequência monomússária (GHz, pico) | Desempenho de RDMA (Gb/s) | Suporte mpi | Armazenamento temporário (GiB) | Discos de dados máximos | Max Ethernet vNICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Todos | 700 | 4 | 8 |
 
-Saiba mais sobre a [arquitetura subjacente, topologia VM](./workloads/hpc/hc-series-overview.md) e [desempenho](./workloads/hpc/hc-series-performance.md) esperado da série HC VM.
+Saiba mais sobre:
+- [arquitetura e topologia VM,](./workloads/hpc/hc-series-overview.md)
+- pilha de [software](./workloads/hpc/hc-series-overview.md#software-specifications) suportado, incluindo OS suportado, e
+- [desempenho](./workloads/hpc/hc-series-performance.md) esperado da série HC VM.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

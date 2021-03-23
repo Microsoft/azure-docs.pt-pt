@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5b645efe2bbaadeca31b4a0a3b957ff53f5ed3aa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601768"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775515"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
@@ -141,7 +141,6 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 
 ### <a name="new-articles"></a>Artigos novos
 - [Configurar o início de sessão único baseado em SAML](configure-saml-single-sign-on.md)
-- [Utilização do Azure AD para aplicações não listadas na galeria de aplicações](non-gallery-apps.md)
 - [Get It Now - adicione uma aplicação do Azure Marketplace](get-it-now-azure-marketplace.md)
 - [Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-configure.md)
 - [Quickstart: Configurar um único sign-on (SSO) para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)](add-application-portal-setup-sso.md)

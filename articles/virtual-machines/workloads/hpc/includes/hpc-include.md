@@ -6,21 +6,21 @@ author: vermagit
 ms.topic: include
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.date: 03/05/2021
+ms.date: 03/19/2021
 ms.author: amverma
 ms.custom: include file
-ms.openlocfilehash: 3ed618d60a575fa6c747e1ddf9ebcc083cddbb20
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fcc879ace2e2c6ed87b8f826775817467ec9563d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103439210"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773539"
 ---
 ## <a name="get-started"></a>Começar Agora
 
-- [Visão geral](../overview.md) do HPC sobre sérieS H e VMs da série H ativadas pela InfiniBand
-- [Configurar imagens VMs](../configure.md) e HPC VM
-- [Ativar a InfiniBand](../enable-infiniband.md)
-- [Criação de MPI](../setup-mpi.md)
-- [Opções de configuração do cluster](../../../sizes-hpc.md#cluster-configuration-options)
-- [Considerações sobre implementação](../../../sizes-hpc.md#deployment-considerations)
+- [Visão geral](../overview.md) do HPC sobre séries H ativadas pela InfiniBand e VMs da série N.
+- [Configurar VMs](../configure.md) e imagens [de OS e VM](../configure.md#vm-images)suportadas.
+- [Ativar a InfiniBand](../enable-infiniband.md) com imagens VM HPC, extensões VM ou instalação manual.
+- [Criação de MPI,](../setup-mpi.md)incluindo códigos e recomendações.
+- [Opções de configuração do cluster](../../../sizes-hpc.md#cluster-configuration-options).
+- [Considerações de implantação](../../../sizes-hpc.md#deployment-considerations).

@@ -3,12 +3,12 @@ title: Conheça os termos da Infraestrutura Azure BareMetal
 description: Conheça os termos da Infraestrutura Azure BareMetal.
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.openlocfilehash: fd7a39854c86f728ef152f8e7d858157e1ad26f4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b22a6cecb2647df3878cb8fd4ade93d9a7d963fd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97861918"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770891"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Conheça os termos da Infraestrutura BareMetal
 
@@ -23,4 +23,4 @@ Neste artigo, cobriremos alguns termos importantes da BareMetal.
 - **Inquilino**: Um cliente implantado no carimbo BareMetal Instance fica isolado num *inquilino.* Um inquilino está isolado na camada de networking, armazenamento e computação de outros inquilinos. As unidades de armazenamento e computação atribuídas aos diferentes inquilinos não podem ver-se ou comunicar entre si no nível de selo BareMetal Instance. Um cliente pode optar por ter implementações em diferentes inquilinos. Mesmo assim, não há comunicação entre inquilinos no nível de selo BareMetal Instance.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a [Infraestrutura BareMetal](workloads/sap/baremetal-overview-architecture.md) ou como [identificar e interagir com unidades de Exemplo BareMetal](workloads/sap/baremetal-infrastructure-portal.md). 
+Saiba mais sobre a [Infraestrutura BareMetal](concepts-baremetal-infrastructure-overview.md) ou como [identificar e interagir com unidades de Exemplo BareMetal](connect-baremetal-infrastructure.md). 
