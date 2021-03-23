@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 03/22/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102506706"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800354"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação após desastre e ativação pós-falha de contas de armazenamento
 
@@ -23,7 +23,7 @@ A Microsoft esforça-se por garantir que os serviços Azure estão sempre dispon
 
 O Azure Storage suporta a falha da conta para contas de armazenamento geo-redundantes. Com o failover da conta, pode iniciar o processo de failover para a sua conta de armazenamento se o ponto final principal ficar indisponível. O failover atualiza o ponto final secundário para se tornar o principal ponto final da sua conta de armazenamento. Uma vez que o failover esteja concluído, os clientes podem começar a escrever para o novo ponto final primário.
 
-A ativação pós-falha de contas está disponível para os tipos de conta de armazenamento de fins gerais v1, fins gerais v2 e de Blobs com implementações do Azure Resource Manager. A falta de contas é apoiada em todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais neste momento.
+A ativação pós-falha de contas está disponível para os tipos de conta de armazenamento de fins gerais v1, fins gerais v2 e de Blobs com implementações do Azure Resource Manager. A falta de contas é apoiada em todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais neste momento. A falha da conta não é suportada para contas de armazenamento com um espaço hierárquico habilitado.
 
 Este artigo descreve os conceitos e processos envolvidos com uma falha de conta e discute como preparar a sua conta de armazenamento para recuperação com o menor impacto do cliente. Para aprender a iniciar uma falha de conta no portal Azure ou PowerShell, consulte [Iniciar uma falha de conta](storage-initiate-account-failover.md).
 
@@ -67,6 +67,8 @@ A Microsoft também recomenda que desenhe a sua aplicação para se preparar par
 ## <a name="understand-the-account-failover-process"></a>Compreender o processo de falha da conta
 
 O failover da conta gerida pelo cliente permite-lhe falhar toda a sua conta de armazenamento na região secundária se a primária ficar indisponível por qualquer motivo. Quando forçar uma falha na região secundária, os clientes podem começar a escrever dados para o ponto final secundário após a conclusão do failover. O fracasso normalmente demora cerca de uma hora.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ### <a name="how-an-account-failover-works"></a>Como funciona a ativação pós-falha de uma conta
 

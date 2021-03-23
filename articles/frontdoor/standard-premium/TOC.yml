@@ -63,6 +63,8 @@
       href: how-to-compression.md
     - name: Ativar Ligação Privada
       items:
+        - name: Ligue-se a um equilibrador de carga interno
+          href: how-to-enable-private-link-internal-load-balancer.md
         - name: Ligar a uma conta de armazenamento
           href: how-to-enable-private-link-storage-account.md
         - name: Ligar a uma aplicação Web

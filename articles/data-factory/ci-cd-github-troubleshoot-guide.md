@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/12/2021
-ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418101"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802038"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Problemas de CI-CD, Azure DevOps e GitHub em ADF 
 
@@ -101,8 +101,7 @@ Ao tentar publicar alterações numa Fábrica de Dados, obtém-se a seguinte men
         "details": null
     }
 `
-
-#### <a name="symptom"></a>Sintoma
+### <a name="cause"></a>Causa
 
 Desprenderam a configuração do Git e voltaram a contê-la com a bandeira "Importar recursos", que define a Fábrica de Dados como "sincronizada". Isto significa que não há alterações na publicação.
 
@@ -150,11 +149,7 @@ Criou um papel de cliente como utilizador e não teve a permissão necessária. 
 
 Para resolver o problema, tem de adicionar a seguinte permissão à sua função: *Microsoft.DataFactory/fábricas/consultasFeaturesValue/action*. Esta permissão deve ser incluída por padrão na função "Data Factory Contributor".
 
-###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publicação automática para CI/CD sem clicar no botão Publicar  
-
-#### <a name="issue"></a>Problema
-
-A publicação manual com clique de botão no portal ADF não permite o funcionamento automático do CI/CD.
+###  <a name="cannot-automate-publishing-for-cicd"></a>Não é possível automatizar a publicação para CI/CD 
 
 #### <a name="cause"></a>Causa
 
@@ -178,15 +173,14 @@ O Gestor de Recursos Azure restringe o tamanho do modelo a ser de 4mb. Limite o 
 
 Para obter soluções pequenas a médias, um único modelo é mais fácil de compreender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos associados permitem-lhe dividir a solução em componentes direcionados. Siga as melhores práticas na [utilização de modelos ligados e aninhados.](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell)
 
-### <a name="cannot-connect-to-git-enterprise-cloud"></a>Não é possível ligar-se à Nuvem Empresarial GIT 
+### <a name="cannot-connect-to-git-enterprise"></a>Não é possível ligar-se à GIT Enterprise  
 
 ##### <a name="issue"></a>Problema
 
-Não é possível ligar-se à GIT Enterprise Cloud por questões de permissão. Pode ver erro como **422 - Entidade Inprocessável.**
+Não é possível ligar-se à GIT Enterprise por questões de permissão. Pode ver erro como **422 - Entidade Inprocessável.**
 
 #### <a name="cause"></a>Causa
 
-* Está a usar a Git Enterprise no servidor prem. 
 * Não configuraste o Oauth para a ADF. 
 * A sua URL está mal configurada.
 
@@ -194,7 +188,7 @@ Não é possível ligar-se à GIT Enterprise Cloud por questões de permissão. 
 
 Concedes acesso à ADF no início. Em seguida, tem de usar o URL correto para ligar à GIT Enterprise. A configuração deve ser definida para a(s) organização(s) do cliente. Por exemplo, a ADF tentará *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* no início e falhará. Então, *https://hostname/api/v3/orgs/ <org> / <repo> tentará...* e terá sucesso. 
  
-### <a name="recover-from-a-deleted-data-factory"></a>Recuperar de uma fábrica de dados eliminada
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>Não é possível recuperar de uma fábrica de dados eliminada
 
 #### <a name="issue"></a>Problema
 O cliente eliminou a fábrica de dados ou o grupo de recursos que contém a Data Factory. Ele gostaria de saber como restaurar uma fábrica de dados eliminada.

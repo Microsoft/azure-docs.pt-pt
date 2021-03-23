@@ -12,12 +12,12 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: leitores, aprendizes de línguas, exibir imagens, melhorar a leitura, ler conteúdos, traduzir
-ms.openlocfilehash: 6affc0a2b94c7ea950a8995981d63470722d981f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599532"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801575"
 ---
 # <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
@@ -25,8 +25,8 @@ ms.locfileid: "104599532"
 
 Esta documentação contém os seguintes tipos de artigos:  
 
-* **[Os quickstarts](quickstarts/client-libraries.md)** são instruções passo a passo que lhe permitem fazer chamadas para o serviço e obter resultados.
-* **[Os guias de como fazer](how-to-create-immersive-reader.md)** contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.  
+* **[Os quickstarts](quickstarts/client-libraries.md)** estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.
+* **[Os guias de como fazer](how-to-create-immersive-reader.md)** contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.
 
 ## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Use o Leitor Imersivo para melhorar a acessibilidade à leitura 
 

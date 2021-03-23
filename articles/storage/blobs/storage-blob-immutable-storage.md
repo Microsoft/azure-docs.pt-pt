@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430943"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800725"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blobs críticos para a empresa com o armazenamento imutável
 
@@ -63,13 +63,15 @@ Para obter mais informações sobre como definir e bloquear políticas de reten�
 ## <a name="time-based-retention-policies"></a>Políticas de retenção baseadas no tempo
 
 > [!IMPORTANT]
-> Uma política de retenção baseada no tempo deve ser *bloqueada* para que a bolha se encontre num estado imutável (escrever e apagar protegido) para a SEC 17a-4 f e outra conformidade regulamentar. Recomendamos que bloqueie a apólice num período de tempo razoável, normalmente inferior a 24 horas. O estado inicial de uma política de retenção baseada no tempo aplicado é *desbloqueado*, permitindo-lhe testar a funcionalidade e fazer alterações na política antes de a bloquear. Embora o estado *desbloqueado* forneça proteção de imutabilidade, não recomendamos a utilização do estado *desbloqueado* para qualquer outro fim que não os ensaios de funcionalidades de curto prazo. 
+> Uma política de retenção baseada no tempo deve ser *bloqueada* para que a bolha se encontre num estado imutável (escrever e apagar protegido) para a SEC 17a-4 f e outra conformidade regulamentar. A Microsoft recomenda que bloqueie a apólice num período de tempo razoável, normalmente inferior a 24 horas. O estado inicial de uma política de retenção baseada no tempo aplicado é *desbloqueado*, permitindo-lhe testar a funcionalidade e fazer alterações na política antes de a bloquear. Embora o estado *desbloqueado* preveie uma proteção de imutabilidade, não é recomendado utilizar o estado *desbloqueado* para qualquer outra finalidade que não os ensaios de funcionalidades de curto prazo.
+>
+> Uma vez bloqueada uma política de retenção baseada no tempo, a política não pode ser eliminada e é permitido um máximo de cinco aumentos para o período de retenção eficaz. O período de retenção não pode ser diminuído.
 
 Quando uma política de retenção baseada no tempo é aplicada num recipiente, todas as bolhas no recipiente permanecerão no estado imutável durante o período de retenção *eficaz.* O período de retenção eficaz para as bolhas é igual à diferença entre o tempo de **criação** do blob e o intervalo de retenção especificado pelo utilizador. Dado que os utilizadores podem prolongar o intervalo de retenção, o armazenamento imutável utiliza o valor mais recente do intervalo de retenção especificado pelo utilizador para calcular o período de retenção efetivo.
 
 Por exemplo, suponha que um utilizador cria uma política de retenção baseada no tempo com um intervalo de retenção de cinco anos. Uma bolha existente naquele recipiente, _testblob1,_ foi criada há um ano; assim, o período de retenção eficaz para _o testblob1_ é de quatro anos. Quando uma nova bolha, _testblob2,_ é carregada para o recipiente, o período de retenção eficaz para o _testblob2_ é de cinco anos a partir do momento da sua criação.
 
-Recomenda-se uma política de retenção baseada no tempo desbloqueada apenas para testes de recursos e uma política deve ser bloqueada para estar em conformidade com a SEC 17a-4(f) e outras conformidades regulamentares. Uma vez bloqueada uma política de retenção baseada no tempo, a política não pode ser eliminada e é permitido um máximo de cinco aumentos para o período de retenção eficaz.
+Recomenda-se uma política de retenção baseada no tempo desbloqueada apenas para testes de recursos e uma política deve ser bloqueada para estar em conformidade com a SEC 17a-4(f) e outras conformidades regulamentares.
 
 Aplicam-se os seguintes limites às políticas de retenção:
 

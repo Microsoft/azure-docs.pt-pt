@@ -10,16 +10,16 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211146"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800749"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
 
-A eliminação suave para recipientes (pré-visualização) protege os seus dados de serem acidental ou maliciosamente eliminados. Quando a eliminação suave do contentor está ativada para uma conta de armazenamento, qualquer recipiente apagado e o seu conteúdo são retidos no Azure Storage durante o período que especificar. Durante o período de retenção, pode restaurar os recipientes previamente eliminados. Restaurar um recipiente restaura quaisquer bolhas dentro do recipiente quando foi eliminado.
+A eliminação suave para recipientes (pré-visualização) protege os seus dados de serem acidental ou maliciosamente eliminados. Quando a eliminação recuperável de contentores estiver ativada para uma conta de armazenamento, todos os contentores e conteúdo eliminado serão mantidos no Armazenamento do Microsoft Azure durante o período que especificar. Durante o período de retenção, poderá restaurar contentores eliminados anteriormente. O restauro de um contentor restaura quaisquer blobs nesse contentor eliminado.
 
 Para uma proteção final para os seus dados blob, a Microsoft recomenda que se coloquem as seguintes funcionalidades de proteção de dados:
 
@@ -35,6 +35,9 @@ Para uma proteção final para os seus dados blob, a Microsoft recomenda que se 
 Quando ativar a eliminação suave do recipiente, pode especificar um período de retenção para recipientes eliminados que se encontra entre 1 e 365 dias. O período de retenção por defeito é de 7 dias. Durante o período de retenção, pode recuperar um recipiente apagado chamando a operação **do Recipiente Restaurar.**
 
 Quando restaurar um recipiente, as bolhas do recipiente e quaisquer versões blob também são restauradas. No entanto, só pode utilizar a eliminação macia do recipiente para restaurar as bolhas se o próprio recipiente for eliminado. Para restaurar uma bolha apagada quando o seu recipiente-mãe não tiver sido apagado, deve utilizar a versão de exclusão macia ou bolha.
+
+> [!WARNING]
+> A eliminação suave do recipiente só pode restaurar recipientes inteiros e as bolhas que continham no momento da eliminação. Não é possível restaurar uma bolha apagada dentro de um recipiente utilizando uma eliminação macia do recipiente.
 
 O seguinte diagrama mostra como um recipiente eliminado pode ser restaurado quando o contentor é eliminado suavemente:
 

@@ -7,18 +7,20 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/22/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 74813fabec4d5fe43cd158bb4aa359c2a3b0188a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6f70ae726cf41395e46760dc5cf7da5b4d61478a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988719"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802901"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Como configurar a indexação do blob na Pesquisa Cognitiva
 
-Este artigo mostra-lhe como configurar um indexante blob para indexar documentos baseados em texto (tais como PDFs, documentos do Microsoft Office, entre outros) na Azure Cognitive Search. Se não estiver familiarizado com os conceitos indexantes, comece com [indexers em Azure Cognitive Search](search-indexer-overview.md) e [Crie um indexante de pesquisa](search-howto-create-indexers.md) antes de mergulhar na indexação de blob.
+Um indexante blob é usado para ingerir conteúdo do armazenamento Azure Blob em um índice de Pesquisa Cognitiva. Os indexantes blob são frequentemente utilizados no [enriquecimento de IA,](cognitive-search-concept-intro.md)onde um [skillset](cognitive-search-working-with-skillsets.md) anexado adiciona imagem e processamento de linguagem natural para criar conteúdo pesquisável. Mas também pode usar indexadores blob sem enriquecimento de IA, para ingerir conteúdo de documentos baseados em texto, tais como PDFs, documentos do Microsoft Office e formatos de ficheiros.
+
+Este artigo mostra-lhe como configurar um indexante blob para qualquer um dos cenários. Se não estiver familiarizado com os conceitos indexantes, comece com [indexers em Azure Cognitive Search](search-indexer-overview.md) e [Crie um indexante de pesquisa](search-howto-create-indexers.md) antes de mergulhar na indexação de blob.
 
 <a name="SupportedFormats"></a>
 
@@ -30,7 +32,7 @@ O indexante de blob de pesquisa cognitiva Azure pode extrair texto dos seguintes
 
 ## <a name="data-source-definitions"></a>Definições de fonte de dados
 
-A diferença entre um indexante blob e qualquer outro indexante é a definição de fonte de dados que é atribuída ao indexante. A fonte de dados encapsula todas as propriedades que especificam o tipo, ligação e localização do conteúdo a indexar.
+A diferença primária entre um indexante blob e qualquer outro indexante é a definição de fonte de dados que é atribuída ao indexante. A definição de fonte de dados especifica o tipo de fonte de dados ("tipo": "azureblob"), bem como outras propriedades para autenticação e ligação ao conteúdo a ser indexado.
 
 Uma definição de fonte de dados blob é semelhante ao exemplo abaixo:
 
@@ -72,7 +74,7 @@ O SAS deve ter a lista e ler permissões no recipiente. Para obter mais informa�
 
 ## <a name="index-definitions"></a>Definições de índice
 
-O índice especifica os campos num documento, atributos e outras construções que moldam a experiência de pesquisa. O exemplo a seguir cria um índice simples utilizando o [Índice de Criação (REST API)](/rest/api/searchservice/create-index). 
+O índice especifica os campos num documento, atributos e outras construções que moldam a experiência de pesquisa. Todos os indexantes exigem que especifique uma definição de índice de pesquisa como destino. O exemplo a seguir cria um índice simples utilizando o [Índice de Criação (REST API)](/rest/api/searchservice/create-index). 
 
 ```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -90,7 +92,7 @@ api-key: [admin key]
 
 As definições de índice requerem que um campo na `"fields"` coleção atue como a chave do documento. As definições de índice também devem incluir campos para conteúdo e metadados.
 
-Um **`content`** campo é utilizado para armazenar o texto extraído das bolhas. Sua definição deste campo pode parecer semelhante à acima. Não é obrigado a usar este nome, mas fazê-lo permite-lhe tirar partido de mapeamentos de campo implícitos. O indexante blob pode enviar conteúdo blob para um conteúdo Edm.String field no índice, sem necessidade de mapeamentos de campo.
+Um **`content`** campo é comum ao conteúdo de bolhas. Contém o texto extraído das bolhas. Sua definição deste campo pode parecer semelhante à acima. Não é obrigado a usar este nome, mas fazê-lo permite-lhe tirar partido de mapeamentos de campo implícitos. O indexante blob pode enviar conteúdo blob para um conteúdo Edm.String field no índice, sem necessidade de mapeamentos de campo.
 
 Também pode adicionar campos para quaisquer metadados blob que queira no índice. O indexante pode ler propriedades de metadados personalizados, propriedades [de metadados padrão](#indexing-blob-metadata) e propriedades [de metadados específicos do conteúdo.](search-blob-metadata-properties.md) Para obter mais informações sobre índices, consulte [Criar um índice](search-what-is-an-index.md).
 

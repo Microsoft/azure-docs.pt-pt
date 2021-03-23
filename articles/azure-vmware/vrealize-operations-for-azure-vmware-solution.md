@@ -3,12 +3,12 @@ title: Configurar vRealize Operations for Azure VMware Solution
 description: Saiba como configurar as operações vRealize para a sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738434"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802493"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurar vRealize Operations for Azure VMware Solution
 
@@ -61,7 +61,7 @@ Uma vez implementada a ocorrência, pode configurar vRealize Operations para rec
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-- O **utilizador cloudadmin \@ vsphere.local** na Azure VMware Solution tem [privilégios limitados.](concepts-role-based-access-control.md)  As máquinas virtuais (VMs) na Azure VMware Solution não suportam a recolha de memórias no hóspede utilizando ferramentas VMware.  A utilização ativa e consumida da memória continua a funcionar neste caso.
+- O **utilizador cloudadmin \@ vsphere.local** na Azure VMware Solution tem [privilégios limitados.](concepts-identity.md)  As máquinas virtuais (VMs) na Azure VMware Solution não suportam a recolha de memórias no hóspede utilizando ferramentas VMware.  A utilização ativa e consumida da memória continua a funcionar neste caso.
 - A otimização da carga de trabalho para a intenção de negócios baseada em hospedeiros não funciona porque a Azure VMware Solutions gere configurações de cluster, incluindo definições de DRS.
 - A otimização da carga de trabalho para a colocação de clusters cruzadas dentro do SDDC utilizando a intenção de negócio baseada no cluster é totalmente suportada com vRealize Operations Manager 8.0 e em diante. No entanto, a otimização da carga de trabalho não está ciente das piscinas de recursos e coloca os VMs ao nível do cluster. Um utilizador pode corrigi-lo manualmente na interface Azure VMware Solution vCenter Server.
 - Não é possível iniciar sação no vRealize Operations Manager utilizando as credenciais do Servidor VMware Solução VMware Azure. 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3395afbe95b2a7f35893a0ce7f60c3871597acd0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98614707"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798719"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>Sincronização de nuvem piloto para uma floresta de AD sincronizada existente 
 
@@ -208,20 +208,7 @@ Caso o piloto não funcione como esperado, pode voltar à configuração de sinc
 1.  Desativar a configuração de provisionamento no portal Azure. 
 2.  Desative todas as regras de sincronização personalizadas criadas para o Fornecimento de Nuvens utilizando a ferramenta Sync Rule Editor. A desativação deve causar uma sincronização completa em todos os conectores.
 
-## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Configure Azure AD Connect sync para excluir o piloto OU
-Uma vez verificado que os utilizadores do piloto OU são geridos com sucesso por sincronização na nuvem, pode voltar a configurar o Azure AD Connect para excluir o piloto OU que foi criado acima.  O agente de provisionamento em nuvem tratará da sincronização para estes utilizadores.  Utilize os seguintes passos para o âmbito Azure AD Connect.
 
- 1. No servidor que está a executar Azure AD Connect, clique duas vezes no ícone Azure AD Connect.
- 2. Clique **em Configurar**
- 3. **Selecione Personalizar opções de sincronização** e clique em seguida.
- 4. Iniciar sação no AD AZure e clicar em **Seguinte**.
- 5. No ecrã **'Ligar os directórios'** clique em **Seguinte**.
- 6. No ecrã **de filtragem Domain e OU,** selecione **Sync domínios e OUs selecionados**.
- 7. Expanda o seu domínio e **desescoda** os **CPUsers** OU.  Clique em **Seguinte**.
-![âmbito](media/tutorial-existing-forest/scope-1.png)</br>
- 9. No ecrã **de funcionalidades opcionais,** clique em **Seguinte**.
- 10. No ecrã **pronto a configurar** clique em **Configurar**.
- 11. Uma vez concluído, clique em **Sair**. 
 
 ## <a name="next-steps"></a>Passos seguintes 
 

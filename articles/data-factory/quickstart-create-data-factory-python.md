@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 1c44e0daf3111f75d50f2d084e73b5dc28bf9497
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c21956e47d2eb7634a9950751929f82875f490fb
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783290"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801643"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -66,7 +66,7 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
     pip install azure-mgmt-datafactory
     ```
 
-    O [Python SDK para data factory](https://github.com/Azure/azure-sdk-for-python) suporta Python 2.7, 3.3, 3.4, 3.5, 3.6 e 3.7.
+    O [Python SDK para data factory](https://github.com/Azure/azure-sdk-for-python) suporta Python 2.7 e 3.6+.
 
 4. Para instalar o pacote Python para autenticação de identidade Azure, executar o seguinte comando:
 

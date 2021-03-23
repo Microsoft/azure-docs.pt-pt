@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 66fa56b45e8d3cff7a8ace300a450b9c41df9bc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 161d565aa1d2dd08434ebd8ea155ac5a92e09ac0
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588720"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802918"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 
@@ -128,11 +128,11 @@ A aprendizagem automática de máquinas tenta automaticamente diferentes modelos
 >[!Tip]
 > Os modelos tradicionais de regressão também são testados como parte do sistema de recomendação para as experiências de previsão. Consulte a [tabela de modelos suportada](how-to-configure-auto-train.md#supported-models) para a lista completa dos modelos. 
 
-Modelos| Description | Benefícios
+Modelos| Descrição | Benefícios
 ----|----|---
 Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporéticas que têm fortes efeitos sazonais e várias estações de dados históricos. Para alavancar este modelo, instale-o localmente `pip install fbprophet` utilizando. | A precisão & rápida, robusta para fora, dados em falta e mudanças dramáticas nas suas séries de tempo.
 Auto-ARIMA (Pré-visualização)|A média móvel integrada autorregressiva (ARIMA) tem um melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes em todo o conjunto. Por exemplo, se atirares uma moeda, então a probabilidade de receberes cabeças é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
-PrevisãoTCN (pré-visualização)| A ForecastTCN é um modelo de rede neural projetado para enfrentar as tarefas de previsão mais exigentes, capturando tendências locais e globais não lineares nos seus dados, bem como relações entre séries de tempo.|Capaz de alavancar tendências complexas nos seus dados e facilmente escalar para o maior dos conjuntos de dados.
+PrevisãoTCN (pré-visualização)| A ForecastTCN é um modelo de rede neural projetado para enfrentar as tarefas de previsão mais exigentes. Captura tendências locais e globais não lineares nos seus dados e relações entre séries de tempo.|Capaz de alavancar tendências complexas nos seus dados e facilmente escalar para o maior dos conjuntos de dados.
 
 ### <a name="configuration-settings"></a>Definições de configuração
 
@@ -146,11 +146,12 @@ A tabela a seguir resume estes parâmetros adicionais. Consulte [a documentaçã
 |`forecast_horizon`|Define quantos períodos para a frente gostaria de prever. O horizonte está em unidades da frequência da série-tempo. As unidades baseiam-se no intervalo de tempo dos seus dados de treino, por exemplo, mensais, semanais que o meteorologista deve prever.|✓|
 |`enable_dnn`|[Ativar as NNNs de Previsão]().||
 |`time_series_id_column_names`|O(s) nome da coluna(s) usado para identificar exclusivamente as séries de tempo em dados que têm várias linhas com a mesma marca de tempo. Se os identificadores de séries temporquiçantes não forem definidos, presume-se que o conjunto de dados seja uma série de tempo. Para saber mais sobre séries únicas, consulte o [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
-|`freq`| A frequência de dataset da série de tempo. Este parâmetro representa o período com que se espera que ocorram eventos, tais como diariamente, semanalmente, anualmente, etc. A frequência deve ser um [pseudónimo de pandas.](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)||
+|`freq`| A frequência de dataset da série de tempo. Este parâmetro representa o período com que se espera que ocorram eventos, tais como diariamente, semanalmente, anualmente, etc. A frequência deve ser um [pseudónimo de pandas.](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects) Saiba mais sobre [frequência]. (#frequency--target-data-agregação)||
 |`target_lags`|Número de linhas para atrasar os valores-alvo com base na frequência dos dados. O lag é representado como uma lista ou inteiro único. O lag deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponde ou correlaciona por defeito. ||
 |`feature_lags`| As funcionalidades a ficar para trás serão automaticamente decididas por ML automatizado quando `target_lags` estiverem definidas e `feature_lags` definidas para `auto` . Permitir atrasos de funcionalidades pode ajudar a melhorar a precisão. Os lags de funções são desativados por padrão. ||
 |`target_rolling_window_size`|*n* períodos históricos a utilizar para gerar valores previstos, <= tamanho do conjunto de treino. Se omitido, *n* é o tamanho completo do conjunto de treino. Especifique este parâmetro quando apenas pretende considerar uma certa quantidade de história ao treinar o modelo. Saiba mais sobre [a agregação de janelas de rolamento de alvos](#target-rolling-window-aggregation).||
-|`short_series_handling_config`| Permite o manuseamento de séries de curto prazo para evitar falhas durante o treino devido a dados insuficientes. O manuseamento de séries curtas é definido `auto` por defeito. Saiba mais sobre [o manuseamento de séries curtas.](#short-series-handling)|
+|`short_series_handling_config`| Permite o manuseamento de séries de curto prazo para evitar falhas durante o treino devido a dados insuficientes. O manuseamento de séries curtas é definido `auto` por defeito. Saiba mais sobre [o manuseamento de séries curtas.](#short-series-handling)||
+|`target_aggregation_function`| A função a utilizar para agregar a coluna-alvo da série de tempos está em conformidade com a frequência especificada através do `freq` parâmetro. O `freq` parâmetro deve ser definido, para utilizar o `target_aggregation_function` . Os predefinições para; para a `None` maioria dos cenários, a utilização `sum` é suficiente.<br> Saiba mais sobre [a agregação da coluna alvo.](#frequency--target-data-aggregation) 
 
 
 O seguinte código, 
@@ -174,7 +175,7 @@ forecasting_parameters = ForecastingParameters(time_column_name='day_datetime',
                                               
 ```
 
-Estes `forecasting_parameters` são então passados para o seu objeto padrão `AutoMLConfig` juntamente com o tipo de `forecasting` tarefa, métrica primária, critérios de saída e dados de treino. 
+Estes `forecasting_parameters` são então passados para o seu objeto padrão juntamente com o tipo de `AutoMLConfig` `forecasting` tarefa, métrica primária, critérios de saída e dados de treino. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -258,12 +259,36 @@ Se estiver a usar o estúdio Azure Machine Learning para a sua experiência, vej
 
 Estão disponíveis configurações opcionais adicionais para tarefas de previsão, tais como permitir a aprendizagem profunda e especificar uma agregação de janelas de rolamento de alvo. 
 
+### <a name="frequency--target-data-aggregation"></a>Frequência & agregação de dados-alvo
+
+Aproveite a frequência, `freq` parâmetro para ajudar a evitar falhas causadas por dados irregulares, ou seja, dados que não seguem uma cadência definida, como dados de hora ou de dia. 
+
+Para dados altamente irregulares ou para necessidades empresariais variadas, os utilizadores podem configurar opcionalmente a frequência de previsão `freq` desejada, e especificar `target_aggregation_function` a coluna-alvo da série-alvo. Alavancar estas duas definições no seu `AutoMLConfig` objeto pode ajudar a economizar algum tempo na preparação de dados. 
+
+Quando o `target_aggregation_function` parâmetro é usado,
+* Os valores da coluna-alvo são agregados com base na operação especificada. Normalmente, `sum` é apropriado para a maioria dos cenários.
+
+* As colunas de previsão numéricas nos seus dados são agregadas por soma, valor médio, valor mínimo e valor máximo. Como resultado, o ML automatizado gera novas colunas sufixadas com o nome da função de agregação e aplica a operação agregada selecionada. 
+
+* Para colunas de previsão categóricas, os dados são agregados por modo, a categoria mais proeminente na janela.
+
+* As colunas de previsão de data são agregadas pelo valor mínimo, valor máximo e modo. 
+
+As operações de agregação suportadas para valores de coluna-alvo incluem:
+
+|Função | descrição
+|---|---
+|`sum`| Soma dos valores-alvo
+|`mean`| Média ou média dos valores-alvo
+|`min`| Valor mínimo de um alvo  
+|`max`| Valor máximo de um alvo  
+
 ### <a name="enable-deep-learning"></a>Permitir a aprendizagem profunda
 
 > [!NOTE]
 > O suporte do DNN para a previsão em Machine Learning automatizado está em **pré-visualização** e não é suportado para execuções locais.
 
-Também pode aproveitar a aprendizagem profunda com redes neuronais profundas, DNNs, para melhorar as pontuações do seu modelo. A aprendizagem profunda automatizada da ML permite a previsão de dados univariados e multivariados de séries de tempo.
+Também pode aplicar aprendizagem profunda com redes neuronais profundas, DNNs, para melhorar as pontuações do seu modelo. A aprendizagem profunda automatizada da ML permite a previsão de dados univariados e multivariados de séries de tempo.
 
 Os modelos de aprendizagem profunda têm três capacidades intrínsecas:
 1. Eles podem aprender com mapeamentos arbitrários de entradas para saídas
@@ -283,10 +308,10 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Para ativar a DNN para uma experiência AutoML criada no estúdio Azure Machine Learning, consulte as definições do [tipo de tarefa no estúdio como fazê-lo](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-Consulte o [caderno de previsão de produção de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) para obter um código detalhado que utiliza dnns.
+Consulte o [caderno de previsão de produção de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) para obter um exemplo de código detalhado utilizando DNNs.
 
-### <a name="target-rolling-window-aggregation"></a>Agregação da janela de rolamento do alvo
-Muitas vezes, a melhor informação que um meteorologista pode ter é o valor recente do alvo.  As agregações de janelas de rolamento de alvo permitem adicionar uma agregação rolante dos valores de dados como funcionalidades. Gerar e utilizar estas funcionalidades adicionais como dados contextuais extra ajuda na precisão do modelo do comboio.
+### <a name="target-rolling-window-aggregation"></a>Agregação de janela de rolo de alvo
+Muitas vezes, a melhor informação que um meteorologista pode ter é o valor recente do alvo.  As agregações de janelas de rolamento de alvo permitem adicionar uma agregação rolante dos valores de dados como funcionalidades. Gerar e utilizar estas funcionalidades como dados contextuais extra ajuda na precisão do modelo do comboio.
 
 Por exemplo, digamos que quer prever a procura de energia. É melhor adicionar uma característica de janela rolante de três dias para ter em conta as alterações térmicas dos espaços aquecidos. Neste exemplo, crie esta janela colocando `target_rolling_window_size= 3` no `AutoMLConfig` construtor. 
 
@@ -294,7 +319,7 @@ A tabela mostra a engenharia de características resultantes que ocorre quando a
 
 ![janela de rolamento alvo](./media/how-to-auto-train-forecast/target-roll.svg)
 
-Ver um exemplo de código Python aproveitando a [função agregado de janelas de rolamento do alvo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+Veja um exemplo de código Python aplicando a [função de agregado de janela de rolamento de alvo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ### <a name="short-series-handling"></a>Manipulação de séries curtas
 

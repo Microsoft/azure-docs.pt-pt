@@ -180,7 +180,7 @@
     - name: Monitorizar referência de dados
       href: how-to-monitor-tsi-reference.md
     - name: CLI do Azure
-      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
+      href: 'https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/'
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda

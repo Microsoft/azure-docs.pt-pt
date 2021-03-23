@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b4701260a7d8da030f9f3019060aaa83e7a3a483
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98052756"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803224"
 ---
 | Recurso | Básica | Standard | Premium |
 |---|---|---|---|
@@ -30,6 +30,7 @@ ms.locfileid: "98052756"
 | Confiança de conteúdo | N/D | N/D | [Suportado][content-trust] |
 | Ligação privada com pontos finais privados | N/D | N/D | [Suportado][plink] |
 | &bull; Pontos finais privados | N/D | N/D | 10 |
+| Regras da rede IP pública | N/D | N/D | 100 |
 | Acesso vnet de ponto final de serviço | N/D | N/D | [Pré-visualizar][vnet] |
 | Chaves geridas pelo cliente | N/D | N/D | [Suportado][cmk] |
 | Permissões de âmbito de repositório | N/D | N/D | [Pré-visualizar][token]|

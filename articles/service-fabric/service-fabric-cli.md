@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83681797"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802153"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -22,7 +22,7 @@ A interface de linha de comandos (CLI) do Azure Service Fabric é um utilitário
 
 Antes da instalação, certifique-se de que o seu ambiente tem o Python e o pip instalados. Para obter mais informações, veja a [documentação de início rápido do pip](https://pip.pypa.io/en/latest/quickstart/)e a [documentação de instalação do Python](https://wiki.python.org/moin/BeginnersGuide/Download) oficial.
 
-O CLI suporta as versões Python 2.7, 3.5, 3.6 e 3.7. Python 3.x é a versão recomendada, uma vez que Python 2.7 chegará ao fim do suporte em breve.
+O CLI suporta as versões Python 2.7 e 3.6+, com Python 3.x recomendado.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime de destino do Service Fabric
 

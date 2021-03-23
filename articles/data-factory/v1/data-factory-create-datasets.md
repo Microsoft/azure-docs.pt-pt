@@ -3,16 +3,16 @@ title: Criar conjuntos de dados na Azure Data Factory
 description: Saiba como criar conjuntos de dados na Azure Data Factory, com exemplos que utilizam propriedades como offset e anchorDateTime.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 355d36d58935372e9d8a92599e8f810fec9ebf19
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376841"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785347"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de dados na Azure Data Factory (versão 1)
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -75,12 +75,12 @@ A tabela a seguir descreve propriedades no JSON acima:
 
 | Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
-| name |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Yes |ND |
-| tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais informações, consulte o [tipo dataset](#Type). |Yes |ND |
+| name |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Sim |ND |
+| tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais informações, consulte o [tipo dataset](#Type). |Sim |ND |
 | estrutura |Esquema do conjunto de dados.<br/><br/>Para mais detalhes, consulte a [estrutura do Conjunto de Dados.](#Structure) |No |ND |
-| typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela Azure SQL). Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#Type). |Yes |ND |
+| typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela Azure SQL). Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#Type). |Sim |ND |
 | externo | Bandeira booleana para especificar se um conjunto de dados é explicitamente produzido por um oleoduto de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não for produzido pelo gasoduto atual, esta bandeira seja verdadeira. Defina esta bandeira de forma verdadeira para o conjunto de dados de entrada da primeira atividade no oleoduto.  |No |false |
-| disponibilidade | Define a janela de processamento (por exemplo, de hora a hora ou diariamente) ou o modelo de corte para a produção do conjunto de dados. Cada unidade de dados consumidos e produzidos por uma atividade executada é chamada de fatia de dados. Se a disponibilidade de um conjunto de dados de saída for definida diariamente (frequência - dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para mais detalhes, consulte a disponibilidade do Dataset. <br/><br/>Para obter mais informações sobre o modelo de corte de conjuntos de dados, consulte o artigo [de Agendamento e execução.](data-factory-scheduling-and-execution.md) |Yes |ND |
+| disponibilidade | Define a janela de processamento (por exemplo, de hora a hora ou diariamente) ou o modelo de corte para a produção do conjunto de dados. Cada unidade de dados consumidos e produzidos por uma atividade executada é chamada de fatia de dados. Se a disponibilidade de um conjunto de dados de saída for definida diariamente (frequência - dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para mais detalhes, consulte a disponibilidade do Dataset. <br/><br/>Para obter mais informações sobre o modelo de corte de conjuntos de dados, consulte o artigo [de Agendamento e execução.](data-factory-scheduling-and-execution.md) |Sim |ND |
 | política |Define os critérios ou a condição que as fatias de conjunto de dados devem cumprir. <br/><br/>Para mais detalhes, consulte a secção [de política do Dataset.](#Policy) |No |ND |
 
 ## <a name="dataset-example"></a>Exemplo do conjunto de dados
@@ -187,7 +187,7 @@ Cada coluna da estrutura contém as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |O nome da coluna. |Yes |
+| name |O nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |No |
 | cultura |. Cultura baseada na NET a ser utilizada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . A predefinição é `en-us`. |No |
 | formato |Cadeia de formato a utilizar quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . |No |
@@ -229,8 +229,8 @@ A tabela a seguir descreve propriedades que pode utilizar na secção de disponi
 
 | Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Yes |ND |
-| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se necessitar que o conjunto de dados seja cortado de hora a hora, define a <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que, se especificar **a frequência** como **Minuto,** deverá definir o intervalo para nada menos do que 15. |Yes |ND |
+| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se necessitar que o conjunto de dados seja cortado de hora a hora, define a <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que, se especificar **a frequência** como **Minuto,** deverá definir o intervalo para nada menos do que 15. |Sim |ND |
 | estilo |Especifica se a fatia deve ser produzida no início ou no fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **a frequência** estiver definida para **mês**, e **o estilo** está definido para **EndOfInterval**, a fatia é produzida no último dia do mês. Se **o estilo** estiver definido para **StartOfInterval,** a fatia é produzida no primeiro dia do mês.<br/><br/>Se **a frequência** estiver definida para o **Dia**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida na última hora do dia.<br/><br/>Se **a frequência** estiver definida para **Hora**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00, a fatia é produzida às 14:00. |No |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/>Note que se esta propriedade tem peças de data mais granulares do que a frequência especificada, as peças mais granulares são ignoradas. Por exemplo, se o **intervalo** for **de hora** a hora (frequência: hora e intervalo: 1) e a **âncoraDateTime** contiver **minutos e segundos**, então as partes de minutos e segundos do **anchorDateTime** são ignoradas. |No |01/01/0001 |
 | offset |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/>Note que se ambos **anchorDatime** e **offset** forem especificados, o resultado é a mudança combinada. |No |ND |
@@ -274,7 +274,7 @@ O conjunto de dados seguinte é mensal, e é produzido no dia 3 de cada mês às
 A secção **de política** na definição de conjunto de dados define os critérios ou a condição que as fatias de conjunto de dados devem cumprir.
 
 ### <a name="validation-policies"></a>Políticas de validação
-| Nome da política | Description | Aplicado a | Necessário | Predefinição |
+| Nome da política | Descrição | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | tamanho mínimoS |Valida que os dados no **armazenamento Azure Blob** satisfazem os requisitos mínimos de tamanho (em megabytes). |Armazenamento de Blobs do Azure |No |ND |
 | sobrancelhas mínimas |Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
