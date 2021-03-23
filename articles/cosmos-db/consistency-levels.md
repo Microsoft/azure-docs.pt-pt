@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/22/2021
+ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97347817"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800147"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,15 +51,19 @@ Pode configurar o nível de consistência padrão na sua conta Azure Cosmos a qu
 
 A Azure Cosmos DB garante que 100% dos pedidos de leitura cumprem a garantia de consistência para o nível de consistência escolhido. As definições precisas dos cinco níveis de consistência no Azure Cosmos DB utilizando a linguagem de especificação TLA+ são fornecidas no repo [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub.
 
-A semântica dos cinco níveis de consistência é descrita aqui:
+A semântica dos cinco níveis de consistência é descrita nas seguintes secções.
 
-- **Forte**: Forte consistência oferece uma garantia de linearizabilidade. Linearizability refere-se a servir pedidos simultaneamente. As leituras são garantidas para devolver a versão mais recente comprometida de um item. Um cliente nunca vê uma escrita não comprometida ou parcial. Os utilizadores têm sempre a garantia de ler a mais recente escrita comprometida.
+### <a name="strong-consistency"></a>Consistência forte
+
+A consistência forte fornece uma garantia de transação atómica. Linearizability refere-se a servir pedidos simultaneamente. As leituras são garantidas para devolver a versão mais recente comprometida de um item. Um cliente nunca vê uma escrita não comprometida ou parcial. Os utilizadores têm sempre a garantia de ler a mais recente escrita comprometida.
 
   O gráfico que se segue ilustra a forte consistência com notas musicais. Depois de os dados terem sido escritos para a região "West US 2", quando lê os dados de outras regiões, obtém-se o valor mais recente:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Ilustração de forte nível de consistência":::
 
-- **Estagnação limitada**: As leituras são garantidas para honrar a garantia consistente-prefixo. As leituras podem ficar atrás de escritos pela maioria das versões *"K"* (isto é, "atualizações") de um item ou por intervalo de tempo *"T",* o que for alcançado primeiro. Por outras palavras, quando se escolhe a estagnação limitada, a "estagnação" pode ser configurada de duas maneiras:
+### <a name="bounded-staleness-consistency"></a>Consistência de estagnação limitada
+
+Na consistência limitada, as leituras são garantidas para honrar a garantia consistente de prefixo. As leituras podem ficar atrás de escritos pela maioria das versões *"K"* (isto é, "atualizações") de um item ou por intervalo de tempo *"T",* o que for alcançado primeiro. Por outras palavras, quando se escolhe a estagnação limitada, a "estagnação" pode ser configurada de duas maneiras:
 
 - O número de versões *(K)* do item
 - O intervalo de tempo *(T)* pode ficar atrás das escritas
@@ -79,7 +83,9 @@ Dentro da janela de estagnação, a estagnação limitada fornece as seguintes g
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Ilustração do nível de consistência deslimido":::
 
-- **Sessão**: Dentro de uma única sessão de clientes são garantidas leituras para honrar as consistentes-prefixos, leituras monotónicas, escritas monótonas, leituras-seus-escritos e garantias de leitura de leituras de escrita. Isto pressupõe uma única sessão de "escritor" ou partilhar o símbolo da sessão para vários escritores.
+### <a name="session-consistency"></a>Consistência de sessão
+
+Na consistência da sessão, dentro de uma única sessão de clientes as leituras são garantidas para honrar as consistentes-prefixos, leituras monotónicas, escritas monótonas, leituras-suas-escritas e garantias de leitura de leituras de escrita. Isto pressupõe uma única sessão de "escritor" ou partilhar o símbolo da sessão para vários escritores.
 
 Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
@@ -92,7 +98,9 @@ Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Ilustração do nível de consistência da sessão":::
 
-- **Prefixo consistente**: As atualizações devolvidas contêm algum prefixo de todas as atualizações, sem lacunas. Garantias consistentes de nível de consistência prefixo que lê nunca ver escritos fora de ordem.
+### <a name="consistent-prefix-consistency"></a>Consistência de prefixo consistente
+
+Na opção de prefixo consistente, as atualizações que são devolvidas contêm algum prefixo de todas as atualizações, sem lacunas. Garantias consistentes de nível de consistência prefixo que lê nunca ver escritos fora de ordem.
 
 Se as gravações forem realizadas na `A, B, C` ordem, então um cliente vê ou `A` , ou , mas nunca `A,B` `A,B,C` permutações fora de ordem como `A,C` ou `B,A,C` . O Prefixo consistente fornece latências de escrita, disponibilidade e produção de leitura comparáveis às de eventual consistência, mas também fornece garantias de encomenda que se adequam às necessidades dos cenários em que a ordem é importante.
 
@@ -107,7 +115,9 @@ O gráfico a seguir ilustra a consistência do prefixo de consistência com nota
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Ilustração de prefixo consistente":::
 
-- **Eventual:** Não há garantia de encomenda para leituras. Na ausência de escritas adicionais, as réplicas acabam por convergir.  
+### <a name="eventual-consistency"></a>Consistência eventual
+
+Em eventual consistência, não há garantia de pedido para leituras. Na ausência de escritas adicionais, as réplicas acabam por convergir.  
 A consistência eventual é a forma mais fraca de consistência porque um cliente pode ler os valores que são mais antigos do que os que tinha lido antes. A eventual consistência é ideal quando a aplicação não requer quaisquer garantias de encomenda. Exemplos incluem contagem de retweets, gostos ou comentários não roscados. O gráfico a seguir ilustra a eventual consistência com notas musicais.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration de eventual consistência":::

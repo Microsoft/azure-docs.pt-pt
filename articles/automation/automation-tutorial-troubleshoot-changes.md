@@ -4,15 +4,15 @@ description: Este artigo diz como resolver problemas alterações num VM Azure.
 services: automation
 ms.subservice: change-inventory-management
 keywords: mudança, rastreio, rastreio de mudança, inventário, automação
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 980740d387f9e953d1ea764327c8aa13f8650948
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100587927"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775816"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Alterações na resolução de problemas num Azure VM
 
@@ -208,15 +208,15 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 14. Para **ações**, insira um nome para a ação, como **Administradores de E-mail**. 
 
-15. Para **o TIPO DE AÇÃO**, selecione **Email/SMS/Push/Voice**. 
+15. Para **o TIPO DE AÇÃO**, selecione **mensagem de e-mail/SMS/Push/Voice**. 
 
 16. Para **mais detalhes,** selecione **detalhes de Editar**.
 
-    ![Adicionar grupo de ação](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Utilização e custos estimados." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. No painel de e-mail/SMS/Push/Voice, insira um nome, selecione a caixa de verificação **de e-mail** e, em seguida, introduza um endereço de e-mail válido. Quando terminar, clique **em OK** no painel e, em seguida, clique em **OK** na página do grupo de ação Add.
+17. No **painel de mensagens de E-mail/SMS/Push/Voice,** insira um nome, selecione a caixa de verificação **de e-mail** e, em seguida, introduza um endereço de e-mail válido. Quando terminar, clique **em OK** no painel e, em seguida, clique em **OK** na página do grupo de **ação Add.**
 
-18. Para personalizar o assunto do e-mail de alerta, **selecione Personalize Actions**. 
+18. Para personalizar o assunto do e-mail de alerta, **selecione Personalize Actions**.
 
 19. Para **criar regra**, selecione **e-mail assunto** e, em seguida, escolha Criar regra de **alerta**. O alerta informa-o quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização. A imagem a seguir é um e-mail de exemplo recebido quando o serviço W3SVC para.
 

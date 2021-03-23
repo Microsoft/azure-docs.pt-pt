@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aafac1133b2bee54624d5f0b00061c5332fcd90b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c03d3f9769aec0736d23f18372701e08ad93dac
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631885"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802799"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -33,9 +33,13 @@ O Windows 10 Enterprise é uma edição virtual do Windows 10 Enterprise. Uma da
 
 O Windows 10 Enterprise não pode funcionar em ambientes de produção no local porque está otimizado para o serviço de desktop virtual do Windows para o Azure. É contra o acordo de licenciamento executar o Windows 10 Enterprise multi-sessão fora de Azure para fins de produção. O Windows 10 Enterprise não será ativado contra os Serviços de Gestão de Chaves (KMS) no local.
 
+## <a name="can-i-upgrade-a-windows-10-vm-to-windows-10-enterprise-multi-session"></a>Posso atualizar um Windows 10 VM para o Windows 10 Enterprise multi-sessão?
+
+N.º Não é atualmente possível atualizar uma máquina virtual existente (VM) que está a executar o Windows 10 Professional ou Enterprise para o Windows 10 Enterprise multi-sessão. Além disso, se implementar um VM multi-sessão do Windows 10 Enterprise e, em seguida, atualizar a chave do produto para outra edição, não poderá mudar o VM de volta para o Windows 10 Enterprise multi-sessão e terá de recolocar o VM.
+
 ## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>Como posso personalizar a imagem multi-sessão do Windows 10 Enterprise para a minha organização?
 
-Pode iniciar uma máquina virtual (VM) em Azure com o Windows 10 Windows 10 Enterprise multi-sessão e personalizá-la instalando aplicações LOB, sysprep/generalizar e, em seguida, criar uma imagem utilizando o portal Azure.
+Pode iniciar um VM em Azure com o Windows 10 Windows 10 várias sessões e personalizá-lo instalando aplicações LOB, sysprep/generalize, e depois criar uma imagem utilizando o portal Azure.
 
 Para começar, crie um VM em Azure com várias sessões do Windows 10 Enterprise. Em vez de iniciar o VM em Azure, pode baixar o VHD diretamente. Depois disso, poderás utilizar o VHD que descarregaste para criar um novo VM geração 1 num PC Windows 10 com Hiper-V ativado.
 

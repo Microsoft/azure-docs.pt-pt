@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 4061df2dfcfb4cf993e2312fb3438de66863a476
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 717c3c8052c89825b161f77614d7411c5912d1cd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942670"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799909"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Use os nódrupes de borda vazios em aglomerados Apache Hadoop em HDInsight
 
@@ -58,7 +58,7 @@ Depois de criar um nó de borda, pode ligar-se ao nó de borda usando SSH e exec
 > [!WARNING]
 > Os componentes personalizados que são instalados no nó de borda recebem suporte comercialmente razoável da Microsoft. Isto pode resultar na resolução de problemas que encontra. Ou, pode ser encaminhado para recursos comunitários para mais assistência. Seguem-se alguns dos locais mais ativos para obter ajuda da comunidade:
 >
-> * [Microsoft Q&Uma página de perguntas para HDInsight] (/Respostas/tópicos/azure-hdinsight.html
+> * [Microsoft Q&Uma página de perguntas para HDInsight](/answers/topics/azure-hdinsight.html)
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Se estiver a utilizar uma tecnologia Apache, poderá encontrar assistência através dos sites de projeto Apache [https://apache.org](https://apache.org) em , como o site Apache [Hadoop.](https://hadoop.apache.org/)

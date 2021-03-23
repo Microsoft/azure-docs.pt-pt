@@ -10,12 +10,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 04446243ed827cca4972a4b606c4930e74a2c704
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88648569"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774971"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de escalas
 Este artigo discute considerações de design para conjuntos de escala de máquina virtual. Para obter informações sobre quais são os conjuntos de escala de máquina virtual, consulte a [visão geral dos conjuntos de escala de máquinas virtuais](./overview.md).
@@ -67,4 +67,4 @@ Um conjunto de escala configurado com contas de armazenamento geridas pelo utili
 
 Um conjunto de escala construído sobre uma imagem personalizada (uma construída por si) pode ter uma capacidade de até 600 VMs quando configurado com discos geridos Azure. Se o conjunto de escalas estiver configurado com contas de armazenamento geridas pelo utilizador, deve criar todos os VHDs do disco DE NUMA conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de escala construído em uma imagem personalizada e armazenamento gerido pelo utilizador é de 20. Se desligar o excesso de revisão, pode chegar aos 40.
 
-Para mais VMs do que estes limites permitem, você precisa implementar conjuntos de várias escalas como mostrado [neste modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
+Para mais VMs do que estes limites permitem, você precisa implementar conjuntos de várias escalas como mostrado [neste modelo](https://azure.microsoft.com/resources/templates/301-custom-images-at-scale/).

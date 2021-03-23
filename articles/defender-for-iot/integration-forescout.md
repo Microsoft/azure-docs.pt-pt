@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração de Forescout
-titleSuffix: Azure Defender for IoT
 description: O Azure Defender para a integração de IoT com a plataforma Forescout proporciona um novo nível de visibilidade centralizada, monitorização e controlo para a paisagem IoT e OT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07e5187970d193502b95b49c5517a8e3824767be
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558620"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784072"
 ---
 # <a name="about-the-forescout-integration"></a>Sobre a integração de Forescout
 

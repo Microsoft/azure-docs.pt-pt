@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: da869091fb1f7bf31a29ba1bc6db8c1c42254dc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618088"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802272"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauro pontual para bolhas de bloco
 
@@ -53,9 +53,11 @@ A operação **Restore Blob Ranges** devolve um ID de restauro que identifica ex
 
 A restauração pontual requer que as seguintes funcionalidades de Armazenamento Azure sejam ativadas antes de poder permitir a restauração pontual:
 
-- [Eliminação recuperável](./soft-delete-blob-overview.md)
+- [Eliminação recuperável](soft-delete-blob-overview.md)
 - [Alterar alimentação](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)
+
+Ativar estas funcionalidades pode resultar em custos adicionais. Certifique-se de que compreende as implicações da faturação antes de permitir a restauração pontual e as funcionalidades pré-requisitos.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauro pontual
 
@@ -88,6 +90,8 @@ A restauração pontual para as bolhas de blocos tem as seguintes limitações e
 > Se restaurar as bolhas de bloco a um ponto que é mais cedo do que 22 de setembro de 2020, as limitações de pré-visualização para a restauração pontual estarão em vigor. A Microsoft recomenda que escolha um ponto de restauro que seja igual ou posterior a 22 de setembro de 2020 para aproveitar a funcionalidade de restauro de ponto a tempo geralmente disponível.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
+
+Não há nenhuma carga para permitir a restauração pontual. No entanto, permitir a restauração pontual também permite a versão blob, a eliminação suave e a alteração do feed, cada um dos quais pode resultar em custos adicionais.
 
 A faturação para a restauração pontual depende da quantidade de dados processados para executar a operação de restauro. A quantidade de dados processados baseia-se no número de alterações que ocorreram entre o ponto de restauro e o momento presente. Por exemplo, assumindo uma taxa de variação relativamente constante para bloquear dados blob numa conta de armazenamento, uma operação de restauro que remonta no tempo de 1 dia custaria 1/10 de uma restauração que remonta no tempo 10 dias.
 

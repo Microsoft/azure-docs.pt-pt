@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração splunk
-titleSuffix: Azure Defender for IoT
 description: Para resolver a falta de visibilidade na segurança e resiliência das redes OT, o Defender for IoT desenvolveu o Pedido de Monitorização de Ameaças de IoT, IIoT e ICS para a Splunk, uma integração nativa entre defender para IoT e Splunk que permite uma abordagem unificada à segurança de TI e OT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558570"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785925"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Pedido de monitorização de ameaças de IoT e ICS para Splunk
 
@@ -158,7 +153,7 @@ Para criar uma regra de encaminhamento:
     | **Selecione Severidade** | O mínimo incidente de nível de segurança para avançar. Por exemplo, se minor for selecionado, alertas menores e qualquer alerta acima deste nível de gravidade serão reencaminhados. |
     | **Protocolos** | Por predefinição, todos os protocolos são selecionados. Para selecionar um protocolo específico, selecione **Specific** e selecione o protocolo para o qual esta regra é aplicada. |
     | **Motores** | Por defeito, todos os motores de segurança estão envolvidos. Para selecionar um motor de segurança específico para o qual esta regra é aplicada, selecione **Specific** e selecione o motor. |
-    | **Notificações do Sistema** | Estado do sensor dianteiro on-line/offline. Esta opção só está disponível se tiver iniciado sessão no Central Manager. |                                            |
+    | **Notificações do Sistema** | Estado do sensor dianteiro on-line/offline. Esta opção só está disponível se tiver iniciado sessão no Central Manager. |
 
 1. Para instruir o Defender para ioT para enviar informações de ativos para Splunk, selecione **Ação** e, em seguida, selecione **Enviar para Splunk Server**.
 

@@ -5,21 +5,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: ff6d532d3c391ffecfbfb54a761c73ff24c823d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 03c4babc8fa70c951d80b720c4d4693968011532
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040265"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772268"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientações para dados pessoais armazenados no Log Analytics e no Application Insights
 
 O Log Analytics é uma loja de dados onde é provável que os dados pessoais sejam encontrados. A Application Insights armazena os seus dados numa partição do Log Analytics. Este artigo irá discutir onde em Log Analytics e Application Insights esses dados são normalmente encontrados, bem como as capacidades disponíveis para lidar com esses dados.
 
 > [!NOTE]
-> Para efeitos deste _artigo,_ os dados de registo referem-se a dados enviados para um espaço de trabalho do Log Analytics, enquanto _os dados_ da aplicação referem-se aos dados recolhidos pela Application Insights.
+> Para efeitos deste _artigo,_ os dados de registo referem-se a dados enviados para um espaço de trabalho do Log Analytics, enquanto _os dados_ da aplicação referem-se aos dados recolhidos pela Application Insights. Se estiver a utilizar um recurso de Insights de Aplicação baseado no espaço de trabalho, as informações sobre os dados de registo aplicar-se-ão, mas se estiver a utilizar o recurso clássico de Application Insights, os dados da aplicação aplicam-se.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="strategy-for-personal-data-handling"></a>Estratégia para o tratamento de dados pessoais
 
@@ -27,7 +28,7 @@ Embora seja sua a sua operação determinar a estratégia com que irá lidar com
 
 * Sempre que possível, parar a recolha de, obfuscate, anonimize, ou de outra forma ajustar os dados recolhidos para excluir que sejam considerados "privados". Esta é _de longe_ a abordagem preferida, poupando-lhe a necessidade de criar uma estratégia de tratamento de dados muito dispendiosa e impactante.
 * Sempre que possível, tente normalizar os dados para reduzir o impacto na plataforma de dados e desempenho. Por exemplo, em vez de registar um ID de utilizador explícito, crie um dado de pesquisa que correlacionará o nome de utilizador e os seus dados a um ID interno que pode ser registado em outro lugar. Desta forma, caso um dos seus utilizadores lhe peça para apagar as suas informações pessoais, é possível que apenas a eliminação da linha na tabela de procuração correspondente ao utilizador seja suficiente. 
-* Finalmente, se os dados privados tiverem de ser recolhidos, construa um processo em torno do caminho da expurgação da API e do caminho da API de consulta existente para cumprir quaisquer obrigações que possa ter em torno da exportação e eliminação de quaisquer dados privados associados a um utilizador. 
+* Finalmente, se os dados privados tiverem de ser recolhidos, construa um processo em torno do caminho da expurgação da API e do caminho da API de consulta existente para cumprir quaisquer obrigações que possa ter em torno da exportação e eliminação de quaisquer dados privados associados a um utilizador.
 
 ## <a name="where-to-look-for-private-data-in-log-analytics"></a>Onde procurar dados privados no Log Analytics?
 

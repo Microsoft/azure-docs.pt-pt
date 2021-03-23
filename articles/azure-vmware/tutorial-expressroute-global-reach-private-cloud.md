@@ -3,12 +3,12 @@ title: Tutorial - Ambientes de peer on-in para uma nuvem privada
 description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ae92bf89a08c5fade8757e3ee596c4ed4a5e6389
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 08a461ab7d441eb813d435086dfcea121ef4a7f1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494181"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786911"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 
@@ -37,7 +37,7 @@ Antes de permitir a conectividade entre dois circuitos ExpressRoute utilizando o
 >[!IMPORTANT]
 >No contexto destes pré-requisitos, o circuito ExpressRoute no local é _o circuito 1_, e o circuito expressRoute em nuvem privada está num circuito de subscrição e de marca _2_.
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-circuit"></a>Criar uma chave de autorização ExpressRoute no circuito no local
+## <a name="create-an-expressroute-authorization-key-in-the-private-cloud-expressroute-circuit"></a>Criar uma chave de autorização ExpressRoute no circuito expressRoute em nuvem privada
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  

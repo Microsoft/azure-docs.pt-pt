@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008281"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800164"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 A Azure Service Fabric introduz um modelo de saúde que proporciona uma avaliação e reporte de saúde rica, flexível e extensível. O modelo permite um acompanhamento quase em tempo real do estado do cluster e dos serviços que nele se insem. Você pode facilmente obter informações de saúde e corrigir potenciais problemas antes que eles em cascata e causar falhas massivas. No modelo típico, os serviços enviam relatórios com base nas suas opiniões locais, e essa informação é agregada para fornecer uma visão global ao nível do cluster.
@@ -79,6 +79,7 @@ Por defeito, o Service Fabric aplica regras estritas (tudo deve ser saudável) p
 
 ### <a name="cluster-health-policy"></a>Política de saúde do cluster
 A [política de saúde do cluster](/dotnet/api/system.fabric.health.clusterhealthpolicy) é usada para avaliar o estado de saúde do cluster e os estados de saúde do nó. A política pode ser definida no manifesto do cluster. Se não estiver presente, utiliza-se a política por defeito (zero falhas toleradas).
+
 A política de saúde do cluster contém:
 
 * [Considere AWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde de advertência como erros durante a avaliação de saúde. Predefinição: false.
@@ -87,18 +88,33 @@ A política de saúde do cluster contém:
 * [AplicaçãoTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). O mapa da política de saúde do tipo de aplicação pode ser usado durante a avaliação da saúde do cluster para descrever tipos especiais de aplicação. Por padrão, todas as aplicações são colocadas numa piscina e avaliadas com MaxPercentUnhealthyApplications. Se alguns tipos de aplicação devem ser tratados de forma diferente, podem ser retirados da piscina global. Em vez disso, são avaliados em comparação com as percentagens associadas ao seu nome de tipo de aplicação no mapa. Por exemplo, num cluster existem milhares de aplicações de diferentes tipos, e algumas instâncias de aplicação de controlo de um tipo especial de aplicação. As aplicações de controlo nunca devem estar erradas. Pode especificar maxpercentUnhealthyApplicações globais a 20% para tolerar algumas falhas, mas para o tipo de aplicação "ControlApplicationType" definiu as Aplicações MaxPercentUnhealthy para 0. Desta forma, se algumas das muitas aplicações não forem saudáveis, mas abaixo da percentagem global de insalubres, o cluster seria avaliado para Aviso. Um estado de saúde de aviso não afeta a atualização do cluster ou outra monitorização desencadeada pelo estado de saúde error. Mas mesmo uma aplicação de controlo em erro tornaria o cluster insalubre, o que desencadeia o recuo ou pausa na atualização do cluster, dependendo da configuração de upgrade.
   Para os tipos de aplicação definidos no mapa, todas as instâncias de aplicação são retiradas do conjunto global de aplicações. São avaliados com base no número total de aplicações do tipo de aplicação, utilizando as aplicações maxpercentunhealthy específicas do mapa. Todas as restantes aplicações permanecem no pool global e são avaliadas com MaxPercentUnhealthyApplications.
 
-O exemplo a seguir é um excerto de um manifesto de agrupamento. Para definir as entradas no mapa do tipo de aplicação, prefixe o nome do parâmetro com "ApplicationTypeMaxPercentUnhealthyApplications-", seguido do nome do tipo de aplicação.
+  O exemplo a seguir é um excerto de um manifesto de agrupamento. Para definir as entradas no mapa do tipo de aplicação, prefixe o nome do parâmetro com "ApplicationTypeMaxPercentUnhealthyApplications-", seguido do nome do tipo de aplicação.
 
-```xml
-<FabricSettings>
-  <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-  </Section>
-</FabricSettings>
-```
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
+
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). O mapa da política de saúde do tipo nó pode ser usado durante a avaliação da saúde do cluster para descrever tipos especiais de nó. Os tipos de nó são avaliados em comparação com as percentagens associadas ao nome do nó no mapa. A definição deste valor não tem qualquer efeito no conjunto global de nós utilizados para `MaxPercentUnhealthyNodes` . Por exemplo, um cluster tem centenas de nós de diferentes tipos e alguns tipos de nós que acolhem trabalhos importantes. Nenhum nós deste tipo deve estar para baixo. Você pode especificar global `MaxPercentUnhealthyNodes` a 20% para tolerar algumas falhas para todos os nós, mas para o tipo de `SpecialNodeType` nó, definir o `MaxPercentUnhealthyNodes` para 0. Desta forma, se alguns dos muitos nós não forem saudáveis, mas abaixo da percentagem global de insalubres, o cluster seria avaliado como estando no estado de alerta de saúde. Um estado de saúde de aviso não afeta a atualização do cluster ou outra monitorização desencadeada por um estado de saúde de Erro. Mas mesmo um nó de tipo num estado de `SpecialNodeType` saúde de Erro tornaria o cluster insalubre e desencadearia o revés ou interromperia a atualização do cluster, dependendo da configuração de upgrade. Inversamente, fixar o global `MaxPercentUnhealthyNodes` para 0 e fixar os `SpecialNodeType` nós máximos por cento não saudáveis para 100 com um nó de tipo num estado de erro ainda colocaria o cluster num estado de `SpecialNodeType` erro porque a restrição global é mais rigorosa neste caso. 
+
+  O exemplo a seguir é um excerto de um manifesto de agrupamento. Para definir entradas no mapa do tipo do nó, prefixe o nome do parâmetro com "NodeTypeMaxPercentUnhealthyNodes-", seguido do nome do tipo nó.
+
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
 
 ### <a name="application-health-policy"></a>Política de saúde de aplicação
 A [política de saúde](/dotnet/api/system.fabric.health.applicationhealthpolicy) da aplicação descreve como a avaliação dos eventos e da agregação dos estados-crianças é feita para aplicações e seus filhos. Pode ser definido no manifesto de candidatura, **ApplicationManifest.xml,** no pacote de candidaturas. Se não forem especificadas políticas, a Service Fabric assume que a entidade não é saudável se tiver um relatório de saúde ou uma criança no estado de saúde de aviso ou erro.

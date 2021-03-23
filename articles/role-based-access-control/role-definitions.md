@@ -5,22 +5,18 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: ''
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b2ec3289d187997763ee0d9280a777d4fa1f396
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98602462"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801762"
 ---
 # <a name="understand-azure-role-definitions"></a>Compreender definições de função Azure
 
@@ -63,7 +59,7 @@ A tabela seguinte descreve o que as propriedades de função significam.
 | Propriedade | Descrição |
 | --- | --- |
 | `Name`</br>`roleName` | O nome de exibição do papel. |
-| `Id`</br>`name` | A identificação única do papel. |
+| `Id`</br>`name` | A identificação única do papel. Os papéis incorporados têm o mesmo papel de ID através das nuvens. |
 | `IsCustom`</br>`roleType` | Indica se este é um papel personalizado. Definir para `true` ou `CustomRole` para papéis personalizados. Definir para `false` ou `BuiltInRole` para papéis embutidos. |
 | `Description`</br>`description` | A descrição do papel. |
 | `Actions`</br>`actions` | Um conjunto de cordas que especifica as operações de gestão que o papel permite ser executado. |
@@ -80,7 +76,7 @@ As operações são especificadas com cordas que têm o seguinte formato:
 
 A `{action}` parte de uma cadeia de operação especifica o tipo de operações que pode executar num tipo de recurso. Por exemplo, verá os seguintes sublpementos em `{action}` :
 
-| Substring de ação    | Description         |
+| Substring de ação    | Descrição         |
 | ------------------- | ------------------- |
 | `*` | O personagem wildcard dá acesso a todas as operações que correspondam à corda. |
 | `read` | Permite operações de leitura (GET). |
@@ -281,7 +277,7 @@ Para visualizar e utilizar as operações de dados na API REST, tem de definir o
 A `Actions` permissão especifica as operações de gestão que o papel permite ser desempenhado. Trata-se de uma coleção de cadeias de operação que identificam operações securáveis de fornecedores de recursos Azure. Aqui estão alguns exemplos de operações de gestão que podem ser usadas em `Actions` .
 
 > [!div class="mx-tableFixed"]
-> | Cadeia de operação    | Description         |
+> | Cadeia de operação    | Descrição         |
 > | ------------------- | ------------------- |
 > | `*/read` | Concede acesso a operações de leitura para todos os tipos de recursos de todos os fornecedores de recursos Azure.|
 > | `Microsoft.Compute/*` | Concede acesso a todas as operações para todos os tipos de recursos no fornecedor de recursos Microsoft.Compute.|
@@ -318,7 +314,7 @@ Negar que as atribuições bloqueiam os utilizadores de realizarem ações espec
 A `DataActions` permissão especifica as operações de dados que a função permite ser realizada aos seus dados dentro desse objeto. Por exemplo, se um utilizador tiver lido o acesso de dados blob a uma conta de armazenamento, então pode ler as bolhas dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usadas em `DataActions` .
 
 > [!div class="mx-tableFixed"]
-> | Cadeia de operação    | Description         |
+> | Cadeia de operação    | Descrição         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Devolve uma bolha ou uma lista de bolhas. |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Devolve o resultado de escrever uma bolha. |

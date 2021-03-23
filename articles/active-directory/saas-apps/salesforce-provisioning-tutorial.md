@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5df0a5fc054a12e3fa2ef1e352645c57c357b01
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94353109"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798736"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para o fornecimento automático de utilizadores
 
@@ -27,6 +27,9 @@ O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino de diretório Azure Ative
 * Um inquilino Salesforce.com
+
+> [!Note]
+> As funções não devem ser editadas manualmente no Azure Ative Directory quando se realizam importações de funções.
 
 > [!IMPORTANT]
 > Se estiver a utilizar uma conta de teste Salesforce.com, então não poderá configurar o fornecimento automatizado de utilizadores. As contas de ensaio não têm o acesso apieiro necessário até serem adquiridas. Você pode contornar esta limitação usando uma [conta de desenvolvedor](https://developer.salesforce.com/signup) gratuito para completar este tutorial.

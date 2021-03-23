@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726841"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802204"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -32,6 +32,9 @@ Os dados de uma conta de Armazenamento Azure são sempre replicados três vezes 
 
 - **O armazenamento localmente redundante (LRS)** copia os seus dados de forma sincronizada três vezes num único local físico na região primária. O LRS é a opção de replicação menos dispendiosa, mas não é recomendado para aplicações que exijam elevada disponibilidade.
 - **O armazenamento redundante de zona (ZRS)** copia os seus dados de forma sincronizada em três zonas de disponibilidade de Azure na região primária. Para aplicações que requerem elevada disponibilidade, a Microsoft recomenda a utilização de ZRS na região primária e também a replicação para uma região secundária.
+
+> [!NOTE]
+> A Microsoft recomenda a utilização de ZRS na região primária para o Azure Data Lake Storage Gen2.
 
 ### <a name="locally-redundant-storage"></a>Armazenamento localmente redundante
 
@@ -180,8 +183,8 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
+| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Sim | Sim<sup>1</sup> | Sim |
 | Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
 | Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 

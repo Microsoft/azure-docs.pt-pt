@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771095"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799195"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribuição de utilização do cliente Azure
 
@@ -39,7 +39,9 @@ O rastreio do uso do Azure a partir de aplicações Azure publicadas no mercado 
 Se utilizar APIs do Gestor de Recursos Azure, terá de adicionar o seu ID de rastreio pelas [instruções abaixo](#use-resource-manager-apis) para o passar ao Azure Resource Manager à medida que o seu código implementa recursos. Este ID é visível no Partner Center na página de Configuração Técnica do seu plano. 
 
 > [!NOTE]
-> Para as aplicações Azure existentes, foi realizada uma migração única em março de 2021 para atualizar os IDs de rastreio na configuração técnica de cada plano. O uso de implementações passadas dessas ofertas continuará a ser rastreado nos sistemas da Microsoft.
+> Para as aplicações Azure existentes, uma migração única começou em março de 2021 para atualizar os IDs de rastreio na configuração técnica de cada plano. O uso de implementações passadas dessas ofertas continuará a ser rastreado nos sistemas da Microsoft.
+>
+>Ao atualizar as suas ofertas, já não precisa de adicionar o tipo de recurso **Microsoft.Resources/Implementações** no seu modelo principal.
 
 ## <a name="other-use-cases"></a>Outros casos de uso 
 

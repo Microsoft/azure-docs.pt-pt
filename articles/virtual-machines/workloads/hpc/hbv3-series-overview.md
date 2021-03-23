@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b1f2800c3787cd28437afa70b78ef8388461e413
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1abd03f517f9e0b13a2994418cbae5cfbe22454
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721175"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801876"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HBv3 
 
@@ -32,6 +32,9 @@ Como resultado, as botas do servidor com 4 domínios NUMA (2 por tomada) cada 32
 Para dar espaço ao hipervisor Azure para operar sem interferir com o VM, reservamos 8 núcleos físicos por servidor. 
 
 Note que os tamanhos VM de cores constrangidos apenas reduzem o número de núcleos físicos expostos ao VM. Todos os ativos globais partilhados (RAM, largura de banda de memória, cache L3, conectividade GMI e xGMI, InfiniBand, rede Azure Ethernet, SSD local) permanecem constantes. Isto permite que um cliente escolha um tamanho VM melhor adaptado a um determinado conjunto de necessidades de carga de trabalho ou licenciamento de software.
+
+O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervisor Azure (amarelo) e o VM da série HBv3 (verde).
+![Segregação de núcleos reservados para Azure Hypervisor e VM série HBv3](./media/architecture/hbv3-segregation-cores.png)
 
 ## <a name="infiniband-networking"></a>Rede InfiniBand
 Os VMs HBv3 também contam com adaptadores de rede Nvidia Mellanox HDR InfiniBand (ConnectX-6) que operam a até 200 Gigabits/seg. O NIC é passado para o VM via SRIOV, permitindo que o tráfego de rede contorne o hipervisor. Como resultado, os clientes carregam os condutores padrão da Mellanox OFED em VMs HBv3, uma vez que seriam um ambiente metálico nu.

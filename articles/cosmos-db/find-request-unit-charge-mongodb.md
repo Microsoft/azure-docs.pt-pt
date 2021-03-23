@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: e488d1acfe116409caf571e7878e454628a9dea9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201334"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801830"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Encontre a taxa da unidade de pedido para operações executadas na Azure Cosmos DB API para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,13 +34,17 @@ A carga RU é exposta por um [comando de base de dados](https://docs.mongodb.com
 
 1. Vá ao painel **do Data Explorer** e, em seguida, selecione o recipiente em que pretende trabalhar.
 
-1. Selecione **Nova Consulta**.
+1. Selecione o **...** ao lado do nome do recipiente e selecione **Nova Consulta**.
 
 1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta**.
 
-1. Selecione **Estatísticas de Consulta** para mostrar o custo de pedido real para o pedido que executou.
+1. Selecione **Estatísticas de Consulta** para mostrar o custo de pedido real para o pedido que executou. Este editor de consulta permite-lhe executar e visualizar os custos da unidade de pedido apenas para predicados de consulta. Não é possível utilizar este editor para comandos de manipulação de dados, tais como inserções de declarações.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot de uma taxa de pedido de consulta mongoDB no portal Azure":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot de uma taxa de pedido de consulta mongoDB no portal Azure":::
+
+1. Para obter taxas de pedido para comandos de manipulação de dados, executar o `getLastRequestStatistics` comando a partir de uma UI baseada em conchas como a concha de Mongo, Robo [3T,](mongodb-robomongo.md) [MongoDB Compass](mongodb-compass.md), ou uma extensão do Código VS com scripts de concha.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>Utilize o controlador MongoDB .NET
 

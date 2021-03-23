@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 12ee827f297729682b0a5e1b1808afe312c657a4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 847e100dfaa922c359b321f17d77d2d0c67afc9b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102499072"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802867"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB com Python
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -41,9 +41,9 @@ Ao trabalhar com os cenários deste exemplo, poderá ser útil ver [Azure Cosmos
 
 Para concluir este exemplo com êxito, precisa do seguinte:
 
-* [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 ou 3.6
+* [Python](https://www.python.org/downloads/) 2.7 ou 3.6+.
 * [SDK da Tabela do Azure Cosmos DB para Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Este SDK liga-se ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB.
-* [Conta de Armazenamento do Azure](../storage/common/storage-account-create.md) ou [conta do Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
+* [Conta Azure Storage](../storage/common/storage-account-create.md) ou [conta DB Azure Cosmos](https://azure.microsoft.com/try/cosmosdb/).
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
 

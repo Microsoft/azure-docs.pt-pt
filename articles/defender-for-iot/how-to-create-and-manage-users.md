@@ -1,18 +1,14 @@
 ---
 title: Criar e gerir utilizadores
 description: Criar e gerir os utilizadores de sensores e a consola de gestão no local. Os utilizadores podem ser atribuídos ao papel de administrador, analista de segurança ou utilizador apenas de leitura.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 03/03/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2afc3cb2b9cfc0ac6b75c98198d9f0965b6dc04c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466274"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779023"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre o Defender para utilizadores de consolas IoT
 
@@ -185,7 +181,7 @@ Para configurar o Diretório Ativo:
 
 4. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
 
-   | Parâmetro do servidor | Description |
+   | Parâmetro do servidor | Descrição |
    |--|--|
    | Controlador de domínio FQDN | Desaceie o nome de domínio totalmente qualificado (FQDN) exatamente como aparece no seu servidor LDAP. Por exemplo, introduza `host1.subdomain.domain.com`. |
    | Porta controladora de domínio | Defina a porta na qual o seu LDAP está configurado. |

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-python
-ms.openlocfilehash: 0eeb1333952533cdf392b93a926f256097557151
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b4c25ceb2e7b3f224dccdd7d24d86389100c8a2e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97585501"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801915"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Quickstart: Azure Queue Storage client library v12 for Python
 
@@ -40,7 +40,7 @@ Recursos adicionais:
 
 - Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - Azure Storage account - [crie uma conta de armazenamento](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) para o seu sistema operativo - 2.7, 3.5 ou superior
+- [Python](https://www.python.org/downloads/) para o seu sistema operativo - 2.7 ou 3.6+
 
 ## <a name="setting-up"></a>Configuração
 

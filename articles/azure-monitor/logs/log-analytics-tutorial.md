@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041149"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799297"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial do Log Analytics
 O Log Analytics é uma ferramenta no portal Azure para editar e executar consultas de registo a partir de dados recolhidos pelos Registos do Monitor Azure e analisar interativamente os seus resultados. Pode utilizar consultas de Log Analytics para obter registos que correspondam a critérios específicos, identificar tendências, analisar padrões e fornecer uma variedade de insights nos seus dados. 
@@ -72,7 +72,7 @@ Um **onde** a declaração é adicionada à consulta com o valor que selecionou.
 ## <a name="time-range"></a>Intervalo de tempo
 Todas as tabelas num espaço de trabalho log analytics têm uma coluna chamada **TimeGenerated,** que é a altura em que o disco foi criado. Todas as consultas têm um intervalo de tempo que limita os resultados a registos com um valor **TimeGenerated** dentro desse intervalo. O intervalo de tempo pode ser definido na consulta ou com o seletor na parte superior do ecrã.
 
-Por predefinição, a consulta devolverá os registos nas últimas 24 horas. Selecione o intervalo de **tempo** e altere-o para **7 dias**. Clique em **Executar** novamente para devolver os resultados. Pode ver que os resultados são devolvidos, mas temos uma mensagem aqui que não estamos a ver todos os resultados. Isto porque o Log Analytics pode devolver um máximo de 10.000 registos, e a nossa consulta devolveu mais registos do que isso. 
+Por predefinição, a consulta devolverá os registos nas últimas 24 horas. Selecione o intervalo de **tempo** e altere-o para **7 dias**. Clique em **Executar** novamente para devolver os resultados. Pode ver que os resultados são devolvidos, mas temos uma mensagem aqui que não estamos a ver todos os resultados. Isto porque o Log Analytics pode devolver um máximo de 30.000 registos, e a nossa consulta devolveu mais registos do que isso. 
 
 [![Intervalo de tempo](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

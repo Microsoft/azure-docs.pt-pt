@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5c8f835d44896a452a945614332dcbc25ca8bb8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ba538f4753c2365406bd88286b6d54cff1a9e9ea
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694432"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800827"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros em Pesquisa Cognitiva Azure 
 
@@ -130,7 +130,6 @@ Os exemplos a seguir ilustram vários padrões de utilização para cenários de
 Follow up with these articles for comprehensive guidance on specific use cases:
 
 + [Facet filters](search-filters-facets.md)
-+ [Language filters](search-filters-language.md)
 + [Security trimming](search-security-trimming-for-azure-search.md) 
 
 ## Field requirements for filtering
@@ -158,7 +157,7 @@ As cordas de texto são sensíveis a maiôs. Não há invólucro inferior de pal
 
 ### <a name="approaches-for-filtering-on-text"></a>Abordagens para filtragem em texto
 
-| Abordagem | Description | Quando utilizar |
+| Abordagem | Descrição | Quando utilizar |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Uma função que corresponde a um campo com uma lista delimitada de cordas. | Recomendado para [filtros de segurança](search-security-trimming-for-azure-search.md) e para quaisquer filtros onde muitos valores de texto brutos precisam de ser combinados com um campo de cordas. A função **search.in** é concebida para a velocidade e é muito mais rápida do que comparar explicitamente o campo com cada corda utilizando `eq` e `or` . | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Uma função que permite misturar operações de pesquisa de texto completo com operações estritamente de filtro Boolean na mesma expressão de filtro. | Utilize **search.ismatch** (ou o seu equivalente de pontuação, **search.ismatchscoring**) quando pretender várias combinações de filtros de pesquisa num único pedido. Também pode usá-lo para um filtro *contém* para filtrar uma corda parcial dentro de uma corda maior. |

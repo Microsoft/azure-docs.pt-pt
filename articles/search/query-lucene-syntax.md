@@ -8,22 +8,22 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97516600"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801592"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta lucene em Pesquisa Cognitiva Azure
 
 Ao criar consultas, pode optar pela sintaxe [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formas de consulta especializadas: wildcard, pesquisa fuzzy, pesquisa de proximidade, expressões regulares. Grande parte da sintaxe Lucene Query Parser é [implementada intacta na Pesquisa Cognitiva do Azure,](search-lucene-query-architecture.md)com exceção das pesquisas de *alcance* que são construídas através de **`$filter`** expressões. 
 
-A sintaxe lucene completa é utilizada para expressões de consulta passadas no **`search`** parâmetro de um pedido de Documentos de Busca [(REST API),](/rest/api/searchservice/search-documents) não devendo ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) utilizada para o [**`$filter`**](search-filters.md) e [**`$orderby`**](search-query-odata-orderby.md) expressões no mesmo pedido. Os parâmetros OData têm diferentes sintaxe e regras para a construção de consultas, cordas de fuga, e assim por diante.
+Para utilizar a sintaxe Lucene completa, irá definir a consultaType para "full" e passar numa expressão de consulta padronizada para wildcard, pesquisa difusa ou uma das outras formas de consulta suportadas pela sintaxe completa. Em REST, as expressões de consulta são fornecidas no **`search`** parâmetro de um pedido de Documentos de Busca [(REST API).](/rest/api/searchservice/search-documents)
 
 ## <a name="example-full-syntax"></a>Exemplo (sintaxe completa)
 
-Desa estale o **`queryType`** parâmetro para especificar lucene completo. O exemplo a seguir invoca a procura no terreno e o aumento de prazos. Esta consulta procura hotéis onde o campo de categoria contém o termo "orçamento". Quaisquer documentos que contenham a frase "recentemente renovado" são classificados mais elevados como resultado do valor de aumento do termo (3).  
+O exemplo a seguir é um pedido de pesquisa construído utilizando a sintaxe completa. Este exemplo em particular mostra a procura no terreno e o aumento do prazo. Procura hotéis onde o campo de categorias contém o termo "orçamento". Quaisquer documentos que contenham a frase "recentemente renovado" são classificados mais elevados como resultado do valor de aumento do termo (3).  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,9 +34,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-O **`searchMode`** parâmetro é relevante neste exemplo. Sempre que os operadores estiverem em consulta, deve geralmente definir `searchMode=all` para garantir que todos *os* critérios são compatíveis.  
+Embora não seja específico de qualquer tipo de consulta, o **`searchMode`** parâmetro é relevante neste exemplo. Sempre que os operadores estiverem em consulta, deve geralmente definir `searchMode=all` para garantir que todos *os* critérios são compatíveis.  
 
-Para outros exemplos, consulte [os exemplos de sintaxe](search-query-lucene-examples.md)de consulta de Lucene . Para obter mais informações sobre o pedido de consulta e os parâmetros, consulte [Documentos de Pesquisa (REST API)](/rest/api/searchservice/Search-Documents).
+Para outros exemplos, consulte [os exemplos de sintaxe](search-query-lucene-examples.md)de consulta de Lucene . Para mais detalhes sobre o pedido de consulta e parâmetros, incluindo searchMode, consulte [Documentos de Pesquisa (REST API)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Fundamentos da sintaxe  
 

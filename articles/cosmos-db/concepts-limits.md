@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/22/2021
+ms.openlocfilehash: f33490e273104105502ecc8f4f255c354a2d2f3b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98611037"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800028"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -137,7 +137,7 @@ Dependendo da API que utilizar, um recipiente Azure Cosmos pode representar uma 
 | --- | --- |
 | Comprimento máximo da base de dados ou nome do contentor | 255 |
 | Procedimentos máximos armazenados por contentor | 100 <sup>*</sup>|
-| UDFs máximos por contentor | 25 <sup>*</sup>|
+| UDFs máximos por contentor | 50 <sup>*</sup>|
 | Número máximo de caminhos na política de indexação| 100 <sup>*</sup>|
 | Número máximo de chaves únicas por recipiente|10 <sup>*</sup>|
 | Número máximo de caminhos por restrição única da chave|16 <sup>*</sup>|

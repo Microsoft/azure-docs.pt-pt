@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 91f4f90658281282cdcb01b091bd9c9647d8d702
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6a8de9b373a14eab45df28b28bb3f94314c1d89a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100635494"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801092"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -89,8 +89,32 @@ Antes de criar um volume SMB, é necessário criar uma ligação Ative Directory
     * Selecione **SMB** como o tipo de protocolo para o volume. 
     * Selecione a sua ligação **Ative Directory** a partir da lista de drop-down.
     * Especificar o nome do volume partilhado no  **nome Share**.
+    * Se pretender ativar a Disponibilidade Contínua para o volume SMB, selecione **Ativar a Disponibilidade Contínua**.    
 
-    ![Especificar o protocolo SMB](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+        > [!IMPORTANT]   
+        > A funcionalidade disponibilidade contínua SMB encontra-se atualmente em pré-visualização pública. Tem de submeter um pedido de lista de espera para aceder à funcionalidade através da página de submissão da lista de espera de **[pré-visualização de Azure NetApp.](https://aka.ms/anfsmbcasharespreviewsignup)** Aguarde um e-mail oficial de confirmação da equipa do Azure NetApp Files antes de utilizar a funcionalidade Disponibilidade Contínua.   
+        > 
+        > Deve ativar a Disponibilidade Contínua apenas para cargas de trabalho SQL. A utilização de ações de disponibilidade contínua SMB para cargas de trabalho que não o SQL Server *não* é suportada. Esta funcionalidade é suportada atualmente no Windows SQL Server. O Linux SQL Server não está atualmente suportado. Se estiver a utilizar uma conta não administrador (domínio) para instalar o SQL Server, certifique-se de que a conta tem o privilégio de segurança necessário atribuído. Se a conta de domínio não tiver o privilégio de segurança exigido ( `SeSecurityPrivilege` ), e o privilégio não puder ser definido ao nível do domínio, pode conceder o privilégio à conta utilizando o campo de **privilégios** de Segurança das ligações Ative Directory. Ver [Criar uma ligação ative directory](create-active-directory-connections.md#create-an-active-directory-connection).
+
+    <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
+    <!-- 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+    --> 
+
+    ![Screenshot que descreve o separador Protocolo de criação de um volume SMB.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
 5. Clique **em 'Rever + Criar'** para rever os detalhes do volume.  Em seguida, clique em **Criar** para criar o volume SMB.
 

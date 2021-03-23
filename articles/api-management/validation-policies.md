@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 3f91ca21512b8cddcac7fe71fa3eec07e1a8745a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720088"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801898"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Políticas de Gestão da API para validar pedidos e respostas
 
@@ -87,20 +87,20 @@ No exemplo seguinte, a carga útil JSON em pedidos e respostas é validada no mo
 
 | Nome         | Descrição                                                                                                                                   | Obrigatório |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validar conteúdo | Elemento de raiz.                                                                                                                               | Yes      |
+| validar conteúdo | Elemento de raiz.                                                                                                                               | Sim      |
 | conteúdo | Adicione um ou mais destes elementos para validar o tipo de conteúdo no pedido ou resposta, e execute a ação especificada.  | No |
 
 ### <a name="attributes"></a>Atributos
 
 | Nome                       | Descrição                                                                                                                                                            | Obrigatório | Predefinição |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| ação não especificada do tipo de conteúdo | [Ação](#actions) para executar pedidos ou respostas com um tipo de conteúdo que não está especificado no esquema da API. |  Yes     | N/D   |
-| tamanho máximo | Comprimento máximo do corpo do pedido ou resposta em bytes, verificado contra o `Content-Length` cabeçalho. Se o corpo de pedido ou o corpo de resposta forem comprimidos, este valor é o comprimento descomprimido. Valor máximo permitido: 102.400 bytes (100 KB).  | Yes       | N/D   |
-| tamanho-excedido-ação | [Ação](#actions) a realizar para pedidos ou respostas cujo corpo exceda o tamanho especificado em `max-size` . |  Yes     | N/D   |
-| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Yes    | N/D   |
+| ação não especificada do tipo de conteúdo | [Ação](#actions) para executar pedidos ou respostas com um tipo de conteúdo que não está especificado no esquema da API. |  Sim     | N/D   |
+| tamanho máximo | Comprimento máximo do corpo do pedido ou resposta em bytes, verificado contra o `Content-Length` cabeçalho. Se o corpo de pedido ou o corpo de resposta forem comprimidos, este valor é o comprimento descomprimido. Valor máximo permitido: 102.400 bytes (100 KB).  | Sim       | N/D   |
+| tamanho-excedido-ação | [Ação](#actions) a realizar para pedidos ou respostas cujo corpo exceda o tamanho especificado em `max-size` . |  Sim     | N/D   |
+| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Sim    | N/D   |
 | tipo | Tipo de conteúdo para executar a validação do corpo, verificado contra o `Content-Type` cabeçalho. Este valor é insensível. Se estiver vazio, aplica-se a todos os tipos de conteúdo especificados no esquema da API. |   No    |  N/D  |
-| validar como | Motor de validação a utilizar para validação do corpo de um pedido ou resposta com um tipo de conteúdo correspondente. Atualmente, o único valor suportado é "json".   |  Yes     |  N/D  |
-| ação | [Ação](#actions) para executar pedidos ou respostas cujo corpo não corresponda ao tipo de conteúdo especificado.  |  Yes      | N/D   |
+| validar como | Motor de validação a utilizar para validação do corpo de um pedido ou resposta com um tipo de conteúdo correspondente. Atualmente, o único valor suportado é "json".   |  Sim     |  N/D  |
+| ação | [Ação](#actions) para executar pedidos ou respostas cujo corpo não corresponda ao tipo de conteúdo especificado.  |  Sim      | N/D   |
 
 ### <a name="usage"></a>Utilização
 
@@ -115,7 +115,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 A `validate-parameters` política valida os parâmetros do cabeçalho, consulta ou caminho em pedidos contra o esquema da API.
 
 > [!IMPORTANT]
-> Se importou uma API utilizando uma versão API de gestão antes `2021-01-01-preview` de, a `validate-parameters` política pode não funcionar. Poderá ser necessário reimportar a sua API utilizando a versão API de gestão `2021-01-01-preview` ou posterior.
+> Se importou uma API utilizando uma versão API de gestão antes `2021-01-01-preview` de, a `validate-parameters` política pode não funcionar. Poderá ser necessário [reimportar](/rest/api/apimanagement/2021-01-01-preview/apis/createorupdate) a sua API utilizando a versão API de gestão `2021-01-01-preview` ou posterior.
 
 
 ### <a name="policy-statement"></a>Declaração política
@@ -145,6 +145,7 @@ Neste exemplo, todos os parâmetros de consulta e caminho são validados no modo
         <parameter name="User-Agent" action="ignore" />
         <parameter name="Host" action="ignore" />
         <parameter name="Referrer" action="ignore" />
+    </headers>   
 </validate-parameters>
 ```
 
@@ -152,7 +153,7 @@ Neste exemplo, todos os parâmetros de consulta e caminho são validados no modo
 
 | Nome         | Descrição                                                                                                                                   | Obrigatório |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validar parâmetros | Elemento de raiz. Especifica ações de validação predefinidos para todos os parâmetros nos pedidos.                                                                                                                              | Yes      |
+| validar parâmetros | Elemento de raiz. Especifica ações de validação predefinidos para todos os parâmetros nos pedidos.                                                                                                                              | Sim      |
 | cabeçalhos | Adicione este elemento para substituir as ações de validação predefinidos para parâmetros do cabeçalho em pedidos.   | No |
 | consulta | Adicione este elemento para substituir as ações de validação predefinidos para parâmetros de consulta em pedidos.  | No |
 | caminho | Adicione este elemento para substituir as ações de validação predefinidos para parâmetros de trajetória de URL em pedidos.  | No |
@@ -162,11 +163,11 @@ Neste exemplo, todos os parâmetros de consulta e caminho são validados no modo
 
 | Nome                       | Descrição                                                                                                                                                            | Obrigatório | Predefinição |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| ação de parâmetro especificado | [Ações](#actions) a executar para os parâmetros de pedido especificados no esquema da API. <br/><br/> Quando fornecido num `headers` `query` , ou `path` elemento, o valor sobrepõe-se ao valor do `specified-parameter-action` `validate-parameters` elemento.  |  Yes     | N/D   |
-| ação de parâmetros não especificados | [Ações](#actions) a executar para parâmetros de pedido que não estão especificados no esquema da API. <br/><br/>Quando fornecido num `headers` ou `query` elemento, o valor sobrepõe-se ao valor do `unspecified-parameter-action` `validate-parameters` elemento. |  Yes     | N/D   |
-| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Yes    | N/D   |
-| name | Nome do parâmetro para anular a ação de validação para. Este valor é insensível.  | Yes | N/D |
-| ação | [Ação](#actions) a executar para o parâmetro com o nome correspondente. Se o parâmetro for especificado no esquema API, este valor substitui a configuração de nível `specified-parameter-action` superior. Se o parâmetro não for especificado no esquema API, este valor substitui a configuração de nível `unspecified-parameter-action` superior.| Yes | N/D | 
+| ação de parâmetro especificado | [Ações](#actions) a executar para os parâmetros de pedido especificados no esquema da API. <br/><br/> Quando fornecido num `headers` `query` , ou `path` elemento, o valor sobrepõe-se ao valor do `specified-parameter-action` `validate-parameters` elemento.  |  Sim     | N/D   |
+| ação de parâmetros não especificados | [Ações](#actions) a executar para parâmetros de pedido que não estão especificados no esquema da API. <br/><br/>Quando fornecido num `headers` ou `query` elemento, o valor sobrepõe-se ao valor do `unspecified-parameter-action` `validate-parameters` elemento. |  Sim     | N/D   |
+| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Sim    | N/D   |
+| name | Nome do parâmetro para anular a ação de validação para. Este valor é insensível.  | Sim | N/D |
+| ação | [Ação](#actions) a executar para o parâmetro com o nome correspondente. Se o parâmetro for especificado no esquema API, este valor substitui a configuração de nível `specified-parameter-action` superior. Se o parâmetro não for especificado no esquema API, este valor substitui a configuração de nível `unspecified-parameter-action` superior.| Sim | N/D | 
 
 ### <a name="usage"></a>Utilização
 
@@ -200,18 +201,18 @@ A `validate-headers` política valida os cabeçalhos de resposta contra o esquem
 
 | Nome         | Descrição                                                                                                                                   | Obrigatório |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validar cabeçalhos | Elemento de raiz. Especifica as ações de validação padrão para todos os cabeçalhos em respostas.                                                                                                                              | Yes      |
+| validar cabeçalhos | Elemento de raiz. Especifica as ações de validação padrão para todos os cabeçalhos em respostas.                                                                                                                              | Sim      |
 | cabeçalho | Adicione um ou mais elementos para cabeçalhos nomeados para anular as ações de validação padrão para cabeçalhos em respostas. | No |
 
 ### <a name="attributes"></a>Atributos
 
 | Nome                       | Descrição                                                                                                                                                            | Obrigatório | Predefinição |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| ação de cabeçalho especificado | [Ação](#actions) a executar para cabeçalhos de resposta especificados no esquema da API.  |  Yes     | N/D   |
-| ação não especificada do cabeçalho | [Ação](#actions) a executar para cabeçalhos de resposta que não estejam especificados no esquema da API.  |  Yes     | N/D   |
-| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Yes    | N/D   |
-| name | Nome do cabeçalho para anular a ação de validação para. Este valor é insensível. | Yes | N/D |
-| ação | [Ação](#actions) a executar para cabeçalho com o nome correspondente. Se o cabeçalho for especificado no esquema API, este valor sobrepõe-se ao valor do `specified-header-action` `validate-headers` elemento. Caso contrário, sobrepõe-se ao valor do `unspecified-header-action` elemento de cabeçalhos validados. | Yes | N/D | 
+| ação de cabeçalho especificado | [Ação](#actions) a executar para cabeçalhos de resposta especificados no esquema da API.  |  Sim     | N/D   |
+| ação não especificada do cabeçalho | [Ação](#actions) a executar para cabeçalhos de resposta que não estejam especificados no esquema da API.  |  Sim     | N/D   |
+| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Sim    | N/D   |
+| name | Nome do cabeçalho para anular a ação de validação para. Este valor é insensível. | Sim | N/D |
+| ação | [Ação](#actions) a executar para cabeçalho com o nome correspondente. Se o cabeçalho for especificado no esquema API, este valor sobrepõe-se ao valor do `specified-header-action` `validate-headers` elemento. Caso contrário, sobrepõe-se ao valor do `unspecified-header-action` elemento de cabeçalhos validados. | Sim | N/D | 
 
 ### <a name="usage"></a>Utilização
 
@@ -243,17 +244,17 @@ A `validate-status-code` política valida os códigos de estado HTTP em resposta
 
 | Nome         | Descrição                                                                                                                                   | Obrigatório |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validar código de estado | Elemento de raiz.                                                                                                | Yes      |
+| validar código de estado | Elemento de raiz.                                                                                                | Sim      |
 | código de estado | Adicione um ou mais elementos para códigos de estado HTTP para anular a ação de validação padrão para códigos de estado em respostas. | No |
 
 ### <a name="attributes"></a>Atributos
 
 | Nome                       | Descrição                                                                                                                                                            | Obrigatório | Predefinição |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| ação de código de estado não especificado | [Ação](#actions) a executar para códigos de estado HTTP em respostas que não estejam especificadas no esquema API.  |  Yes     | N/D   |
-| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Yes    | N/D   |
-| code | Código de estado HTTP para anular ação de validação para. | Yes | N/D |
-| ação | [Ação](#actions) a executar para o código de estado de correspondência, que não está especificado no esquema da API. Se o código de estado for especificado no esquema da API, esta sobreposição não faz efeito. | Yes | N/D | 
+| ação de código de estado não especificado | [Ação](#actions) a executar para códigos de estado HTTP em respostas que não estejam especificadas no esquema API.  |  Sim     | N/D   |
+| nome variável de erros | Nome da variável `context.Variables` para registar erros de validação para.  |   Sim    | N/D   |
+| code | Código de estado HTTP para anular ação de validação para. | Sim | N/D |
+| ação | [Ação](#actions) a executar para o código de estado de correspondência, que não está especificado no esquema da API. Se o código de estado for especificado no esquema da API, esta sobreposição não faz efeito. | Sim | N/D | 
 
 ### <a name="usage"></a>Utilização
 

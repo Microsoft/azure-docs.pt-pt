@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/18/2020
+ms.date: 03/22/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fa9861dd1ffbdd33f59abe76c7ebbd1befe3e7a6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96511344"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799433"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções do Microsoft Azure AD no PIM
 
@@ -110,11 +110,7 @@ Se não necessitar de ativação de uma função que exija aprovação, pode can
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permissões não concedidas após a ativação de uma função
 
-Quando ativar uma função na Gestão de Identidade Privilegiada, a ativação pode não se propagar instantaneamente a todos os portais que requerem o papel privilegiado. Às vezes, mesmo que a alteração seja propagada, a colocação na cache Web num portal pode fazer com que a alteração não entre imediatamente em vigor. Se a sua ativação for adiada, eis o que deve fazer.
-
-1. Termine sessão no portal do Azure e, em seguida, inicie sessão novamente.
-
-1. Na Gestão de Identidade Privilegiada, verifique se está listado como membro do papel.
+Quando ativar uma função na Gestão de Identidade Privilegiada, a ativação pode não se propagar instantaneamente a todos os portais que requerem o papel privilegiado. Às vezes, mesmo que a alteração seja propagada, a colocação na cache Web num portal pode fazer com que a alteração não entre imediatamente em vigor. Se a sua ativação se atrasar, assine fora do portal que está a tentar realizar a ação e, em seguida, volte a entrar. No portal Azure, o PIM assina-o para fora e para trás automaticamente.
 
 # <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
@@ -216,13 +212,7 @@ Se não necessitar de ativação de uma função que exija aprovação, pode can
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permissões não concedidas após a ativação de uma função
 
-Quando ativar uma função na Gestão de Identidade Privilegiada, a ativação pode não se propagar instantaneamente a todos os portais que requerem o papel privilegiado. Às vezes, mesmo que a alteração seja propagada, a colocação na cache Web num portal pode fazer com que a alteração não entre imediatamente em vigor. Se a sua ativação for adiada, eis o que deve fazer.
-
-1. Termine sessão no portal do Azure e, em seguida, inicie sessão novamente.
-
-    Quando ativar um papel AD Azure, verá as fases da sua ativação. Quando todas as fases estiverem concluídas, verá a ligação **Terminar sessão**. Pode usar este link para assinar. Isto resolverá a maioria dos casos para atraso de ativação.
-
-1. Na Gestão de Identidade Privilegiada, verifique se está listado como membro do papel.
+Quando ativar uma função na Gestão de Identidade Privilegiada, a sua ativação pode ser retardada em portais administrativos que não o portal Azure, como o portal Office 365. Se a sua ativação for adiada, assine fora do portal em que está e volte a entrar. Em seguida, utilize a Gestão de Identidade Privilegiada para verificar se está listado como membro do papel.
 
  ---
 

@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 84213832e59c50c85d9731ced39bbce6264df47e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f4019a28e98e06ad4a115e57b2cc9d3fb6f0a807
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590913"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802935"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp
 
-Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um resumo sobre as novidades e melhorias mais recentes. 
+Os ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um resumo sobre as novidades e melhorias mais recentes. 
 
-## <a name="march-2021"></a>março de 2021 
+## <a name="march-2021"></a>março de 2021
+
+* Ações de Disponibilidade Contínua SMB (CA) (Pré-visualização)  
+
+    O SMB Transparent Failover permite operações de manutenção no serviço Azure NetApp Files sem interromper a conectividade com as aplicações do servidor que armazenam e acedem a dados em volumes SMB. Para suportar o SMB Transparent Failover, o Azure NetApp Files suporta agora a opção de partilha de disponibilidade contínua SMB para utilização com aplicações SQL Server sobre SMB em execução em VMs Azure. Esta funcionalidade é suportada atualmente no Windows SQL Server. O Linux SQL Server não está atualmente suportado. Ativar esta funcionalidade proporciona melhorias significativas no desempenho do SQL Server e benefícios de escala e custos para instância [única, Always-On falha de caso de cluster e Always-On implementações do Grupo de Disponibilidade](azure-netapp-files-solution-architectures.md#sql-server). Consulte [os benefícios da utilização de ficheiros Azure NetApp para a implementação do SERVIDOR SQL](solutions-benefits-azure-netapp-files-sql-server.md).
 
 * [Redimensionamento automático de um volume de destino de replicação transversal](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 
@@ -33,7 +37,7 @@ Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um 
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
-* [Ferramenta instantânea consistente da aplicação Azure](azacsnap-introduction.md) (visualização pública)    
+* [Ferramenta instantânea consistente da aplicação Azure](azacsnap-introduction.md) (pré-visualização)    
 
     A azure Application Consistent Snapshot Tool (AzAcSnap) é uma ferramenta de linha de comando que permite simplificar a proteção de dados para bases de dados de terceiros (SAP HANA) em ambientes Linux (por exemplo, SUSE e RHEL).   
 
@@ -53,7 +57,7 @@ Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um 
 
 ## <a name="september-2020"></a>Setembro de 2020
 
-* [Azure NetApp Files replicação inter-região](cross-region-replication-introduction.md) (Visualização pública)
+* [Replicação transversal de ficheiros Azure NetApp](cross-region-replication-introduction.md) (Preview)
 
   O Azure NetApp Files suporta agora a replicação transversal. Com esta nova capacidade de recuperação de desastres, pode replicar os volumes dos seus Ficheiros Azure NetApp de uma região Azure para outra de forma rápida e económica, protegendo os seus dados de falhas regionais imprevisíveis. A azure NetApp Files cruza a replicação da região alavanca a tecnologia ® NetApp SnapMirror; apenas os blocos alterados são enviados sobre a rede num formato comprimido e eficiente. Esta tecnologia proprietária minimiza a quantidade de dados necessários para se replicar em todas as regiões, poupando assim os custos de transferência de dados. Também encurta o tempo de replicação, para que possa alcançar um objetivo de ponto de restauro menor (RPO).
 

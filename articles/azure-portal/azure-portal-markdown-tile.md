@@ -1,15 +1,15 @@
 ---
 title: Use um azulejo de marcação personalizado em dashboards Azure
 description: Saiba como adicionar um azulejo de marcação a um painel Azure para exibir conteúdo estático
-ms.date: 01/08/2020
+ms.date: 03/19/2021
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8324b736565cfa353e48cf49b76e2784866f47f7
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745762"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774461"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um azulejo de marcação nos dashboards Azure para mostrar conteúdo personalizado
 
@@ -21,7 +21,7 @@ Pode adicionar um azulejo de marcação aos seus dashboards Azure para exibir co
 
    ![Screenshot mostrando barra lateral do portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Se criou painéis personalizados, na vista do painel de instrumentos, utilize o drop-down para selecionar o painel de instrumentos onde deve aparecer o azulejo de marcação personalizado. Selecione o ícone de edição para abrir a **Galeria Tile**.
+1. Na vista do painel de instrumentos, selecione o painel de instrumentos onde deve aparecer o azulejo de marcação personalizado e, em seguida, **selecione Editar**.
 
    ![Screenshot mostrando a vista de edição do painel de instrumentos](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
@@ -52,9 +52,9 @@ Pode adicionar um azulejo de marcação aos seus dashboards Azure para exibir co
 
 Pode utilizar qualquer combinação de texto simples, sintaxe markdown e conteúdo HTML no azulejo de marcação. O portal Azure utiliza uma biblioteca de código aberto chamada _marcada_ para transformar o seu conteúdo em HTML que é mostrado no azulejo. O HTML produzido por _marcado_ é pré-processado pelo portal antes de ser renderizado. Este passo ajuda a garantir que a sua personalização não afetará a segurança ou disposição do portal. Durante o pré-processamento, qualquer parte do HTML que represente uma ameaça potencial é removida. Os seguintes tipos de conteúdo não são permitidos pelo portal:
 
-* JavaScript – `<script>` tags e avaliações javaScript inline serão removidas.
-* iframes - `<iframe>` as etiquetas serão removidas.
-* Estilo - `<style>` as etiquetas serão removidas. Os atributos de estilo inline em elementos HTML não são oficialmente suportados. Pode descobrir que alguns elementos de estilo inline funcionam para si, mas se interferirem com o layout do portal, podem deixar de funcionar a qualquer momento. O azulejo markdown destina-se a conteúdo básico e estático que utiliza os estilos padrão do portal.
+* JavaScript – `<script>` as tags e as avaliações javaScript inline são removidas.
+* iframes - `<iframe>` as etiquetas são removidas.
+* Estilo - `<style>` as etiquetas são removidas. Os atributos de estilo inline em elementos HTML não são oficialmente suportados. Pode descobrir que alguns elementos de estilo inline funcionam para si, mas se interferirem com o layout do portal, podem deixar de funcionar a qualquer momento. O azulejo markdown destina-se a conteúdo básico e estático que utiliza os estilos padrão do portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 
