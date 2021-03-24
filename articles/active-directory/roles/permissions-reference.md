@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585320"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955244"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
@@ -36,7 +36,7 @@ Como uma boa prática, recomendamos que atribua este papel a menos de cinco pess
 ## <a name="all-roles"></a>Todos os papéis
 
 > [!div class="mx-tableFixed"]
-> | Função | Description | ID do Modelo |
+> | Função | Descrição | ID do Modelo |
 > | --- | --- | --- |
 > | [Administrador de Aplicações](#application-administrator) | Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais. | 9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3 |
 > | [Programador de Aplicações](#application-developer) | Pode criar registos de aplicações independentemente da definição de "Os Utilizadores podem registar as aplicações". | cf1c38e5-3621-4004-a7cb-879624dced7c |
@@ -71,7 +71,7 @@ Como uma boa prática, recomendamos que atribua este papel a menos de cinco pess
 > | [Administrador de Grupos](#groups-administrator) | Os membros desta função podem criar/gerir grupos, criar/gerir configurações de grupos como políticas de nomeação e expiração, e ver relatórios de atividade e auditoria de grupos. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Convidado Convidado](#guest-inviter) | Pode convidar utilizadores convidados independentemente da definição de "membros podem convidar os hóspedes". | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Administrador helpdesk](#helpdesk-administrator) | Pode redefinir palavras-passe para administradores não-administradores e administradores de helpdesk. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Administrador de Identidade Híbrida](#hybrid-identity-administrator) | Pode gerir o fornecimento de nuvem AD a Azure e as configurações da federação. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Administrador de Identidade Híbrida](#hybrid-identity-administrator) | Pode gerir o fornecimento de nuvem AD a azure, a ligação ad azure e as configurações da federação. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Administrador de Insights](#insights-administrator) | Tem acesso administrativo na aplicação Microsoft 365 Insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Insights Business Leader](#insights-business-leader) | Pode ver e partilhar dashboards e insights através da aplicação M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrador Intune](#intune-administrator) | Pode gerir todos os aspetos do produto Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
@@ -229,7 +229,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No |No | Yes | Yes | Yes |
+| Administrador de política de autenticação | No |No | Sim | Sim | Sim |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -264,7 +264,7 @@ As funções [de administrador de autenticação](#authentication-administrator)
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
+| Administrador de política de autenticação | No | No | Sim | Sim | Sim |
 
 > [!IMPORTANT]
 > Esta função não é atualmente capaz de gerir as definições de MFA no antigo portal de gestão de MFA.
@@ -997,7 +997,7 @@ Esta função foi anteriormente denominada "Administrador de Password" no [porta
 
 ## <a name="hybrid-identity-administrator"></a>Administrador de Identidade Híbrida
 
-Os utilizadores desta função podem criar, gerir e implementar a configuração de configuração de provisionamento de AD a AZure AD usando Cloud Provisioning, bem como gerir as definições da federação. Os utilizadores também podem resolver problemas e monitorizar registos utilizando esta função.
+Os utilizadores desta função podem criar, gerir e implementar a configuração de configuração de provisionamento de AD a AD AZure usando cloud Provisioning, bem como gerir as definições do Azure AD Connect e da federação. Os utilizadores também podem resolver problemas e monitorizar registos utilizando esta função.
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1402,7 +1402,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
+| Administrador de política de autenticação | No | No | Sim | Sim | Sim |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:

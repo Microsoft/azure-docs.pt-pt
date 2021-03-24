@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 6fdcedd19c02251035a838d34ba51e786595134b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de6a94b36dab9dd5662062be99f4515d78558b5e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212455"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889659"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -102,7 +102,7 @@ Para bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua p
 
 - Procure o `Front Door ID` valor na secção 'Vista Geral' da página do portal Front Door. Em seguida, pode filtrar no cabeçalho de entrada '**X-Azure-FDID**' enviado pela Porta frontal para o seu backend com esse valor para garantir que apenas a sua própria instância da Porta Frontal específica é permitida (porque as gamas IP acima são partilhadas com outras instâncias front door de outros clientes).
 
-- Aplique a filtragem de regras no seu servidor web backend para restringir o tráfego com base no valor do cabeçalho 'X-Azure-FDID'. Note que alguns serviços como o Azure App Service fornecem esta capacidade [de filtragem baseada no cabeçalho](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) sem necessidade de alterar a sua aplicação ou anfitrião.
+- Aplique a filtragem de regras no seu servidor web backend para restringir o tráfego com base no valor do cabeçalho 'X-Azure-FDID'. Note que alguns serviços como o Azure App Service fornecem esta capacidade [de filtragem baseada no cabeçalho](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) sem necessidade de alterar a sua aplicação ou anfitrião.
 
   Aqui está um exemplo para os Serviços de [Informação da Internet da Microsoft (IIS)](https://www.iis.net/):
 

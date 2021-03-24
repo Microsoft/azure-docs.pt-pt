@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b773241fdff41323272422f99e88f0d01e884055
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93321955"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889557"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
 A pré-visualização da biblioteca de clientes Microsoft Azure Machine Learning Python pode permitir o acesso seguro aos seus conjuntos de dados de Aprendizagem de Máquinas Azure a partir de um ambiente python local e permite a criação e gestão de conjuntos de dados num espaço de trabalho.
@@ -32,7 +32,7 @@ Este tópico fornece instruções sobre como:
 A biblioteca de clientes Python foi testada nos seguintes ambientes:
 
 * Windows, Mac e Linux
-* Python 2.7, 3.3 e 3.4
+* Python 2.7 e 3.6+
 
 Tem uma dependência dos seguintes pacotes:
 

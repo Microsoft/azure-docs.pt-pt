@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 1/13/2021
-ms.openlocfilehash: 4b5020b6cf7ac2f7aec586d7e6499285c1447b68
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a167fedcb42560dec55cdbce40e36180d65e0179
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98209768"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951802"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -219,14 +219,14 @@ Regiões Habilitados:
 
 Estas são as limitações atuais para o nível de serviço de Hiperescala a partir de GA.  Estamos a trabalhar ativamente para remover o maior número possível destas limitações.
 
-| Problema | Description |
+| Problema | Descrição |
 | :---- | :--------- |
 | O painel de backups de gestão para um servidor não mostra bases de dados de hiperescala. Estes serão filtrados da vista.  | A Hiperescala tem um método separado para gerir backups, por isso as definições de retenção de retenção de Long-Term e pontual não se aplicam. Assim, as bases de dados de hiperescala não aparecem no painel de backup de gestão.<br><br>Para as bases de dados migradas para Hyperscale a partir de outros níveis de serviço de base de dados Azure SQL, as cópias de segurança pré-migração são mantidas durante o período de [retenção](automated-backups-overview.md#backup-retention) de backup da base de dados de origem. Estas cópias de segurança podem ser usadas para [restaurar](recovery-using-backups.md#programmatic-recovery-using-automated-backups) a base de dados de origem a um ponto no tempo antes da migração.|
 | Restauro para um ponto anterior no tempo | Uma base de dados não-Hyperscale não pode ser restaurada como uma base de dados de hiperescala, e uma base de dados de hiperescala não pode ser restaurada como uma base de dados não-Hyperscale. Para uma base de dados não-Hyperscale que tenha sido migrada para Hyperscale alterando o seu nível de serviço, restaure a um ponto no tempo antes da migração e dentro do período de retenção de backup da base de dados é suportado [programáticamente](recovery-using-backups.md#programmatic-recovery-using-automated-backups). A base de dados restaurada não será de Hiperescala. |
 | Ao alterar o nível de serviço de base de dados Azure SQL para Hyperscale, a operação falha se a base de dados tiver quaisquer ficheiros de dados maiores do que 1 TB | Em alguns casos, pode ser possível contornar este problema [reduzindo](file-space-manage.md#shrinking-data-files) os grandes ficheiros para serem inferiores a 1 TB antes de tentar mudar o nível de serviço para Hyperscale. Utilize a seguinte consulta para determinar o tamanho atual dos ficheiros de base de dados. `SELECT file_id, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerida do SQL | A azure SQL Managed Instance não é suportado atualmente com bases de dados de hiperescala. |
 | Conjuntos Elásticos |  As Piscinas Elásticas não são suportadas atualmente com a Hyperscale.|
-| A migração para a Hiperescala é atualmente uma operação unidireccionar | Uma vez que uma base de dados é migrada para Hyperscale, não pode ser migrada diretamente para um nível de serviço não-Hyperscale. Atualmente, a única forma de migrar uma base de dados de Hyperscale para não-Hyperscale é exportar/importar usando um ficheiro bacpac ou outras tecnologias de movimento de dados (Cópia a granel, Fábrica de Dados Azure, Azure Databricks, SSIS, etc.) A exportação/importação bacpac do portal Azure, da PowerShell utilizando [a New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) ou [a New-AzSqlDatabaseImport,](/powershell/module/az.sql/new-azsqldatabaseimport)da Azure CLI utilizando [a exportação de az sql db](/cli/azure/sql/db#az-sql-db-export) e a importação de [az sql db](/cli/azure/sql/db#az-sql-db-import), e da [REST API](/rest/api/sql/databases%20-%20import%20export) não é suportada. A importação/exportação de Bacpac para bases de dados de hiperescala mais pequenas (até 200 GB) é suportada utilizando a versão SSMS e [SqlPackage](/sql/tools/sqlpackage) 18.4 e posterior. No que diz as bases de dados de maiores dimensões, a exportação/importação de bacpac pode demorar muito tempo, podendo falhar por várias razões.|
+| A migração para a Hiperescala é atualmente uma operação unidireccionar | Uma vez que uma base de dados é migrada para Hyperscale, não pode ser migrada diretamente para um nível de serviço não-Hyperscale. Atualmente, a única forma de migrar uma base de dados de Hyperscale para não-Hyperscale é exportar/importar usando um ficheiro bacpac ou outras tecnologias de movimento de dados (Cópia a granel, Fábrica de Dados Azure, Azure Databricks, SSIS, etc.) A exportação/importação bacpac do portal Azure, da PowerShell utilizando [a New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) ou [a New-AzSqlDatabaseImport,](/powershell/module/az.sql/new-azsqldatabaseimport)da Azure CLI utilizando [a exportação de az sql db](/cli/azure/sql/db#az-sql-db-export) e a importação de [az sql db](/cli/azure/sql/db#az-sql-db-import), e da [REST API](/rest/api/sql/) não é suportada. A importação/exportação de Bacpac para bases de dados de hiperescala mais pequenas (até 200 GB) é suportada utilizando a versão SSMS e [SqlPackage](/sql/tools/sqlpackage) 18.4 e posterior. No que diz as bases de dados de maiores dimensões, a exportação/importação de bacpac pode demorar muito tempo, podendo falhar por várias razões.|
 | Migração de bases de dados com objetos OLTP In-Memory | A hiperescala suporta um subconjunto de objetos OLTP In-Memory, incluindo tipos de mesa otimizados na memória, variáveis de tabela e módulos compilados de forma nativa. No entanto, quando qualquer tipo de In-Memory objetos OLTP estão presentes na base de dados em migração, a migração dos níveis de serviço Premium e Business Critical para Hyperscale não é suportada. Para migrar tal base de dados para Hyperscale, todos os In-Memory objetos OLTP e suas dependências devem ser largados. Após a migração da base de dados, estes objetos podem ser recriados. As tabelas otimizadas para memória duráveis e não duradouras não são atualmente suportadas em Hiperescala e devem ser alteradas para tabelas de discos.|
 | Georreplicação  | Ainda não é possível configurar a geo-replicação para a hiperescala da base de dados Azure SQL. |
 | Cópia da base de dados | A cópia da base de dados em Hyperscale está agora em pré-visualização pública. |

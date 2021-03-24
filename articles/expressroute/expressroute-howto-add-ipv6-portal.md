@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 9926102a2e6b25060c2a8840b56d690ce2868ade
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9b85caa3611c484fc17423637dc36ce20b48b823
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618799"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868482"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adicione suporte IPv6 para espreitar privado usando o portal Azure (Preview)
 
@@ -101,6 +101,7 @@ Embora o suporte IPv6 esteja disponível para ligações a implementações em r
 * Ligações Global Reach entre circuitos ExpressRoute
 * Utilização do ExpressRoute com WAN virtual
 * FastPath com circuitos diretos não ExpressRoute
+* FastPath com circuitos nos seguintes locais de observação: Dubai
 * Coexistência com VPN Gateway
 
 ## <a name="next-steps"></a>Passos seguintes

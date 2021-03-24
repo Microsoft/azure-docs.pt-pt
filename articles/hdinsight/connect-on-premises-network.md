@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943398"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863382"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -37,7 +37,7 @@ Estas configurações permitem o seguinte comportamento:
 
 No diagrama seguinte, as linhas verdes são pedidos de recursos que terminam no sufixo DNS da rede virtual. As linhas azuis são pedidos de recursos na rede de acesso ou na internet pública.
 
-![Diagrama de como os pedidos de DNS são resolvidos na configuração](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagrama de como os pedidos de DNS são resolvidos na configuração" border="false":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +64,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
   
 1. A partir do menu superior, selecione **+ Crie um recurso.**
 
-    ![Criar uma máquina virtual Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Criar uma máquina virtual Ubuntu":::
 
 1. Selecione a máquina Virtual **compute**  >   para ir à página de máquina **virtual Criar.**
 
@@ -83,7 +83,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
     |Senha ou chave pública SSH | O campo disponível é determinado pela sua escolha para **tipo de autenticação**.  Insira o valor apropriado.|
     |Portas de entrada públicas|Selecione **Deixe as portas selecionadas.** Em seguida, selecione **SSH (22)** da lista de descida das portas de **entrada Select.**|
 
-    ![Configuração básica da máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Configuração básica da máquina virtual":::
 
     Deixe outras entradas nos valores predefinidos e, em seguida, selecione o **separador 'Rede'.**
 
@@ -95,7 +95,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
     |Sub-rede | Selecione a sub-rede predefinitiva para a rede virtual que criou anteriormente. __Não__ selecione a sub-rede utilizada pelo gateway VPN.|
     |IP público | Utilize o valor autopovoado.  |
 
-    ![Definições de rede virtual HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="Definições de rede virtual HDInsight":::
 
     Deixe outras entradas nos valores predefinidos e, em seguida, selecione o **Review + create**.
 
@@ -109,7 +109,7 @@ Uma vez criada a máquina virtual, receberá uma notificação **conseguida da I
 
 2. Note os valores **para ENDEREÇO IP PÚBLICO/ETIQUETA DE DNS** E **ENDEREÇO IP PRIVADO** para utilização posterior.
 
-   ![Endereços IP públicos e privados](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Endereços IP públicos e privados":::
 
 ### <a name="install-and-configure-bind-dns-software"></a>Instalar e configurar o Bind (software DNS)
 
@@ -245,7 +245,7 @@ Para configurar a rede virtual para utilizar o servidor DNS personalizado em vez
 
 5. Selecione __Guardar__.  <br />  
 
-    ![Desa esta medida o servidor DNS personalizado para a rede](./media/connect-on-premises-network/configure-custom-dns.png)
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Desa esta medida o servidor DNS personalizado para a rede":::
 
 ## <a name="configure-on-premises-dns-server"></a>Configurar no local servidor DNS
 

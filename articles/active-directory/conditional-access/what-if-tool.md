@@ -11,18 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93077647"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952767"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolver problemas com a ferramenta What If no Acesso Condicional
 
 [O Acesso Condicional](./overview.md) é uma capacidade do Azure Ative Directory (Azure AD) que lhe permite controlar a forma como os utilizadores autorizados acedem às suas aplicações na nuvem. Como sabe o que esperar das políticas de Acesso Condicional no seu ambiente? Para responder a esta pergunta, pode utilizar a **ferramenta Acesso Condicional E se for a ferramenta**.
 
 Este artigo explica como pode utilizar esta ferramenta para testar as suas políticas de Acesso Condicional.
+
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## <a name="what-it-is"></a>O que é
 

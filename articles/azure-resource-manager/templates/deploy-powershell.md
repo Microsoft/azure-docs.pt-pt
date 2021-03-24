@@ -3,12 +3,12 @@ title: Implementar recursos com PowerShell e modelo
 description: Utilize o Azure Resource Manager e a Azure PowerShell para mobilizar recursos para a Azure. Os recursos são definidos num modelo de Gestor de Recursos ou num ficheiro Bicep.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e1d2197064b94d428855bbb36aadbb5eb88d4032
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521633"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950863"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementar recursos com modelos ARM e Azure PowerShell
 
@@ -115,7 +115,7 @@ A implantação pode demorar vários minutos a ser concluída.
 ## <a name="deploy-remote-template"></a>Implementar o modelo remoto
 
 > [!NOTE]
-> Atualmente, o Azure PowerShell não suporta a implementação de ficheiros Bicep remotos. Para implementar um ficheiro Bicep remoto, utilize o CLI Bicep para compilar o ficheiro Bicep num modelo JSON primeiro.
+> Atualmente, o Azure PowerShell não suporta a implementação de ficheiros Bicep remotos. Utilize [o Bicep CLI](./bicep-install.md#development-environment) para compilar o ficheiro Bicep num modelo JSON e, em seguida, carregue o ficheiro JSON para a localização remota.
 
 Em vez de armazenar modelos ARM na sua máquina local, pode preferir guardá-los num local externo. Pode armazenar modelos num repositório de controlo de código fonte (como o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
 

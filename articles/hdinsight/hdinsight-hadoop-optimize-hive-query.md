@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/28/2020
-ms.openlocfilehash: a15c3e0fb3550c6e50b3fba2279611fdba25bc84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 551d985ea78e83397e507676c5fd7ecfce12ff7b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945568"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864249"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimize Apache Hive queries in Azure HDInsight (Otimizar as consultas do Apache Hive no Azure HDInsight)
 
@@ -34,11 +34,11 @@ Aumentar o número de nós de trabalhadores num cluster HDInsight permite que o 
 
 * Quando criar um cluster, pode especificar o número de nós de trabalhador utilizando o portal Azure PowerShell ou a interface de linha de comando.  Para obter mais informações, veja [Create HDInsight clusters (Criar clusters do HDInsight)](hdinsight-hadoop-provision-linux-clusters.md). A imagem que se segue mostra a configuração do nó do trabalhador no portal Azure:
   
-    ![Nódoas de tamanho do cluster do portal Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png" alt-text="Nódoas de tamanho do cluster do portal Azure":::
 
 * Após a criação, pode também editar o número de nós operários para escalar ainda mais um cluster sem recriar um:
 
-    ![Tamanho do cluster de escala de porta azul](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png " alt-text="Tamanho do cluster de escala de porta azul":::
 
 Para obter mais informações sobre o escalonamento hdInsight, consulte [clusters Scale HDInsight](hdinsight-scaling-best-practices.md)
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre o escalonamento hdInsight, consulte [cluster
 
 [Apache Tez](https://tez.apache.org/) é um motor de execução alternativo ao motor MapReduce. Os clusters HDInsight baseados em Linux têm Tez ativado por padrão.
 
-![Diagrama de visão geral de Apache Tez hdInsight](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png" alt-text="Diagrama de visão geral de Apache Tez hdInsight":::
 
 Tez é mais rápido porque:
 
@@ -70,7 +70,7 @@ As operações de I/O são o principal estrangulamento de desempenho para execut
 
 A partição de colmeias é implementada reorganizando os dados brutos em novos diretórios. Cada divisória tem o seu próprio diretório de ficheiros. A partição é definida pelo utilizador. O diagrama seguinte ilustra a partição de uma tabela de colmeias pelo *ano* da coluna . Um novo diretório é criado para cada ano.
 
-![Partição de Colmeia Apache HDInsight](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png" alt-text="Partição de Colmeia Apache HDInsight":::
 
 Algumas considerações de partição:
 

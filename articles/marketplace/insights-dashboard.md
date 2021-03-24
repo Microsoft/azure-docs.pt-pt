@@ -4,15 +4,15 @@ description: Aceda a um resumo da análise web do marketplace no Partner Center,
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553940"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953277"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Informações do Marketplace na análise de mercados comerciais
 
@@ -115,7 +115,9 @@ Esta tabela fornece uma visão da lista das visitas de página e as chamadas par
 | Contacte-me | Contacte-me | O número de cliques para a CTA "Contacte-me" na página da oferta para uma data específica. | ContatoMe |
 | Versão de Teste | Versão de Teste | O número de cliques para o CTA "Test Drive" na página da oferta para uma data específica. | TestDrive |
 | Avaliação Gratuita | Avaliação Gratuita | O número de cliques para a CTA "Teste Livre" na página da oferta para uma data específica. | FreeTrial |
-|||||
+| Campanha | Nome da Campanha | Capacidade de compreender a telemetria web (visita de página e cliques CTA) contra o nome da campanha. | Campanha |
+| n/a | Site | O nome da montra a partir da qual ocorreu a visita de página ou clique CTA. Os valores possíveis são:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
+|
 
 ## <a name="next-steps"></a>Passos seguintes
 

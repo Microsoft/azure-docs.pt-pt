@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 087f284bed7ab0c9eb551c1629ab4f9196c80d76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1b4570b09994f292de2b175396e4b6d1882658d9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945702"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866493"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU da Web do Apache Ambari
 
@@ -44,7 +44,7 @@ Ao ligar-se à UI web Ambari, é solicitado que autente para autenticar a págin
 
 Quando a página abrir, note o bar no topo. Esta barra contém as seguintes informações e controlos:
 
-![Visão geral do painel de ambari de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png" alt-text="Visão geral do painel de ambari de Apache Ambari":::
 
 |Item |Descrição |
 |---|---|
@@ -73,15 +73,15 @@ Alertas que não **ok** fazem com que a entrada **# alerta** no topo da página 
 
 Os alertas são organizados em vários grupos predefinidos, que podem ser vistos na página **Alertas.**
 
-![Apache Ambari alerta resumo da página](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png" alt-text="Apache Ambari alerta resumo da página":::
 
 Pode gerir os grupos utilizando o menu **Ações** e selecionando **Grupos de Alerta de Gestão**.
 
-![Apache Ambari gere grupos de alerta](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png" alt-text="Apache Ambari gere grupos de alerta":::
 
 Gere métodos de alerta e cria notificações de alerta a partir do menu **Ações** selecionando __Notificações de Gestão__. Quaisquer notificações atuais são apresentadas. Crie notificações a partir daqui. As notificações podem ser enviadas via **EMAIL** ou **SNMP** quando ocorrem combinações específicas de alerta/gravidade. Por exemplo, pode enviar uma mensagem de e-mail quando qualquer um dos alertas do grupo **YARN Default** estiver definido para **Critical**.
 
-![Apache Ambari cria notificação de alerta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png" alt-text="Apache Ambari cria notificação de alerta":::
 
 Por fim, a seleção de Definições de Alerta de __Gestão__ a partir do menu __Ações__ permite-lhe definir o número de vezes que um alerta deve ocorrer antes de uma notificação ser enviada. Esta definição pode ser utilizada para evitar notificações de erros transitórios.
 
@@ -91,29 +91,29 @@ Para obter um tutorial de uma notificação de alerta utilizando uma [conta Send
 
 O separador **Métricas** do painel contém uma série de widgets que facilitam a monitorização do estado do seu cluster num ápice. Vários widgets, como **o Uso do CPU,** fornecem informações adicionais quando clicados.
 
-![Painel Apache Ambari com métricas](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png" alt-text="Painel Apache Ambari com métricas":::
 
 O **separador Heatmaps** apresenta métricas como máscaras de calor coloridas, passando de verde para vermelho.
 
-![Painel Apache Ambari com máscaras de calor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png" alt-text="Painel Apache Ambari com máscaras de calor":::
 
 Para obter mais informações sobre os nós dentro do cluster, **selecione Hosts**. Em seguida, selecione o nó específico que lhe interessa.
 
-![Apache Ambari acolhe detalhes do resumo](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png" alt-text="Apache Ambari acolhe detalhes do resumo":::
 
 ### <a name="services"></a>Serviços
 
 A barra lateral **dos Serviços** no painel de instrumentos fornece uma visão rápida do estado dos serviços em funcionamento no cluster. Vários ícones são usados para indicar o estado ou as ações que devem ser tomadas. Por exemplo, é apresentado um símbolo de reciclagem amarelo se um serviço tiver de ser reciclado.
 
 
-![Bar lateral de serviços Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png" alt-text="Bar lateral de serviços Apache Ambari":::
 
 > [!NOTE]  
 > Os serviços apresentados diferem entre os tipos e versões de cluster HDInsight. Os serviços apresentados aqui podem ser diferentes dos serviços apresentados para o seu cluster.
 
 A seleção de um serviço apresenta informações mais detalhadas sobre o serviço.
 
-![Informação sumária do serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png" alt-text="Informação sumária do serviço Apache Ambari":::
 
 #### <a name="quick-links"></a>Ligações rápidas
 
@@ -142,7 +142,7 @@ A seleção de qualquer uma destas ligações abre um novo separador no seu nave
 
 A página **hostes** lista todos os anfitriões no cluster. Para gerir os anfitriões, siga estes passos.
 
-![Apache Ambari acolhe visão geral da página](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png" alt-text="Apache Ambari acolhe visão geral da página":::
 
 > [!NOTE]  
 > A adição, o desmantelamento e a reativação de um hospedeiro não devem ser utilizados com clusters HDInsight.
@@ -179,7 +179,7 @@ Enquanto o botão **Ações** pode reiniciar todos os serviços, muitas vezes pr
 
 2. A partir da parte superior do separador **Resumo,** utilize o botão **Ações de Serviço** e selecione as ações a tomar. Esta ação reinicia o serviço em todos os nós.
 
-    ![Ações individuais de serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png" alt-text="Ações individuais de serviço Apache Ambari":::
 
    > [!NOTE]  
    > Reiniciar alguns serviços enquanto o cluster está a funcionar pode gerar alertas. Para evitar alertas, pode utilizar o botão **Ações de Serviço** para ativar o **modo manutenção** do serviço antes de efetuar o reinício.
@@ -195,7 +195,7 @@ Para configurar um serviço, utilize os seguintes passos:
 
 2. Selecione o **separador Configs.** A configuração atual é apresentada. É também apresentada uma lista de configurações anteriores.
 
-    ![Configuração de serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png" alt-text="Configuração de serviço Apache Ambari":::
 
 3. Utilize os campos apresentados para modificar a configuração e, em seguida, **selecione Guardar**. Ou selecione uma configuração anterior e, em seguida, **selecione Faça** a corrente para reverter para as definições anteriores.
 

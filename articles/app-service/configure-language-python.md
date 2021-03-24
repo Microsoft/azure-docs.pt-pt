@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 11b9ab8e954827cfcc73e440bee1023504e14057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577617"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953515"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -114,7 +114,7 @@ As aplicações web existentes podem ser redistribuídas para a Azure da seguint
 
 1. **Startup de aplicações**: Reveja a secção, [processo de arranque do Container](#container-startup-process) mais tarde neste artigo para entender como o Serviço de Aplicações tenta executar a sua app. O Serviço de Aplicações utiliza o servidor web Gunicorn por padrão, que deve ser capaz de encontrar o seu objeto de aplicação ou *wsgi.py* pasta. Se necessário, pode [personalizar o comando de arranque](#customize-startup-command).
 
-1. **Implementação contínua**: Crie uma implementação contínua, conforme descrito na [implementação contínua do Serviço de Aplicações Azure](deploy-continuous-deployment.md) se utilizar pipelines Azure ou implantação kudu, ou [implementar para o Serviço de Aplicações utilizando ações do GitHub](deploy-github-actions.md) se utilizar ações do GitHub.
+1. **Implementação contínua**: Crie uma implementação contínua, conforme descrito na [implementação contínua do Serviço de Aplicações Azure](deploy-continuous-deployment.md) se utilizar pipelines Azure ou implantação kudu, ou [implementar para o Serviço de Aplicações utilizando ações do GitHub](./deploy-continuous-deployment.md) se utilizar ações do GitHub.
 
 1. **Ações personalizadas**: Para executar ações dentro do recipiente de Serviço de Aplicações que acolhe a sua aplicação, como migrações de base de dados Django, pode [ligar-se ao recipiente através do SSH](configure-linux-open-ssh-session.md). Para um exemplo de execução das migrações na base de dados do Django, consulte [Tutorial: Implemente uma aplicação web Django com PostgreSQL - executar migrações de base de dados](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Ao utilizar a implementação contínua, pode executar essas ações utilizando comandos pós-construção, conforme descrito anteriormente no [Customize build automation](#customize-build-automation).

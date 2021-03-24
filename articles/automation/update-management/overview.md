@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: e24a90f05ef52c5164ce966e905e9c27055d1bf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670618"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950064"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -22,7 +22,7 @@ Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atual
 > [!NOTE]
 > Neste momento, não é suportado o modo de ativação da Gestão de Atualização diretamente a partir de um servidor ativado pelo Arc. Consulte [a Gestão de Atualização ativar a partir da sua conta Demômes](../../automation/update-management/enable-from-automation-account.md) para compreender os requisitos e como ativar o seu servidor.
 
-Para descarregar e instalar *patches* de *Segurança* e Crítica disponíveis automaticamente no seu Azure VM, reveja o patch [de hóspedes VM automático](../../virtual-machines/windows/automatic-vm-guest-patching.md) para VMs windows.
+Para descarregar e instalar *patches* de *Segurança* e Crítica disponíveis automaticamente no seu Azure VM, reveja o patch [de hóspedes VM automático](../../virtual-machines/automatic-vm-guest-patching.md) para VMs windows.
 
 Antes de implementar a Gestão de Atualização e de ativar as suas máquinas para gestão, certifique-se de que compreende as informações nas seguintes secções.  
 
@@ -167,11 +167,11 @@ Para obter mais informações sobre atualizações de pacotes de gestão, consul
 
 A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão suporta:
 
-| Origem ligada | Suportado | Description |
+| Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 

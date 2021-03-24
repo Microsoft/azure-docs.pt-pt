@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71eaccd615f5c3460e7b48b2e92d5f874c8de12e
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 7269a2435715834a2c1e6723de3fdc6e72eaad5f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772115"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955453"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -82,6 +82,7 @@ Por favor, siga este link para ler mais sobre [atualização automática](how-to
      - Se a Regra de Sincronização Personalizada Clonada não fluir alguns atributos de Correio e Troca, então a nova Regra de Sincronização de Câmbio adicionará esses atributos.
  - Suporte adicional para [sincronização seletiva de hash palavra-passe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
  - Adicionei o novo [cmdlet Single Object Sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Utilize este cmdlet para resolver problemas na configuração de sincronização Azure AD Connect. 
+ -  O Azure AD Connect suporta agora a função de Administrador de Identidade Híbrida para configurar o serviço.
  - Agente AADConnectHealth atualizado para 3.1.83.0
  - Nova versão do [módulo ADSyncTools PowerShell,](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools)que possui vários cmdlets novos ou melhorados. 
  

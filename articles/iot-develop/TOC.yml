@@ -1,6 +1,6 @@
 - name: Desenvolvimento de dispositivos IoT
   href: index.yml
-- name: Descrição Geral
+- name: Descrição geral
   items:
     - name: O que é o desenvolvimento de dispositivos IoT?
       href: about-iot-develop.md
@@ -18,7 +18,11 @@
         - name: Enviar telemetria para IoT Hub (Nó)
           href: quickstart-send-telemetry-cli-node.md
     - name: Começar com o desenvolvimento embutido
-      href: quickstart-device-development.md
+      items:
+        - name: Arranques rápidos de desenvolvimento de dispositivos incorporados
+          href: quickstart-device-development.md
+        - name: Ligue um MXCHIP AZ3166 à IoT Central
+          href: quickstart-devkit-mxchip-az3166.md
 - name: Tutoriais
   items:
     - name: Ligar dispositivos IoT à cloud em segurança

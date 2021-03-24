@@ -7,40 +7,20 @@
       href: overview.md
     - name: Novidades
       href: whats-new.md
-- name: Introdução ao Reconhecedor de Formato
-  expanded: true
+- name: Guias de Início Rápido
   items:
-    - name: Utilizar a biblioteca de cliente ou a API REST
+    - name: Começar com a biblioteca do cliente ou REST API
       href: quickstarts/client-library.md
-    - name: Utilização da ferramenta de etiquetagem de exemplo
+    - name: Utilize a ferramenta de rotulagem da amostra
       href: quickstarts/label-tool.md
-- name: Tutoriais
+- name: Amostras
   items:
-    - name: Utilizar o Reconhecedor de Formato com o Cognitive Search
-      href: ../../search/cognitive-search-custom-skill-form.md
-    - name: Utilizar o Reconhecedor de Formato com o AI Builder
-      href: tutorial-ai-builder.md
-    - name: Utilizar o Reconhecimento de Formulários com Funções Azure
-      href: tutorial-azure-function.md
-    - name: Extrair dados de formulário em massa
-      href: tutorial-bulk-processing.md
-- name: Conceitos
-  items:
-    - name: Layout API
-      expanded: true
-      items:
-        - name: Extrair dados do formulário
-          href: concept-layout.md
-    - name: Modelos personalizados
-      href: concept-custom.md
-    - name: Recibos
-      href: concept-receipts.md
-    - name: Cartões de visita
-      href: concept-business-cards.md
-    - name: Faturas
-      href: concept-invoices.md
-    - name: Cartões de identificação
-      href: concept-identification-cards.md
+    - name: 'C#/.NET: Biblioteca de clientes Recognizer formulário SDK'
+      href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+    - name: 'Java: Biblioteca de clientes Do Reconhecimento de FormulárioS SDK'
+      href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+    - name: 'Python: Formato Reconhecendo biblioteca de clientes SDK'
+      href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação
@@ -64,6 +44,33 @@
           href: ../containers/index.yml
     - name: Fazer a cópia de segurança e recuperar modelos
       href: disaster-recovery.md
+- name: Conceitos
+  items:
+    - name: Layout API
+      expanded: true
+      items:
+        - name: Extrair dados do formulário
+          href: concept-layout.md
+    - name: Modelos personalizados
+      href: concept-custom.md
+    - name: Recibos
+      href: concept-receipts.md
+    - name: Cartões de visita
+      href: concept-business-cards.md
+    - name: Faturas
+      href: concept-invoices.md
+    - name: Cartões de identificação
+      href: concept-identification-cards.md
+- name: Tutoriais
+  items:
+    - name: Extrair dados de formulário em massa
+      href: tutorial-bulk-processing.md
+    - name: Utilizar o Reconhecedor de Formato com o Cognitive Search
+      href: ../../search/cognitive-search-custom-skill-form.md
+    - name: Utilizar o Reconhecedor de Formato com o AI Builder
+      href: tutorial-ai-builder.md
+    - name: Utilizar o Reconhecimento de Formulários com Funções Azure
+      href: tutorial-azure-function.md
 - name: Referência
   items:
     - name: Formulário Reconhecedor API v2.1 pré-visualização.3

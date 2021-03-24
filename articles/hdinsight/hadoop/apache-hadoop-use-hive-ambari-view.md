@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 1f2dbef014f1b48b554e6bc30af83b936fe532a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 87a4d3960937450713747fa16bd473b4c34eff0e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944878"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867870"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilizar a Vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -30,11 +30,11 @@ Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apach
 
 1. Na lista de pontos de vista, __selecione Hive View__.
 
-    ![Apache Ambari seleciona a vista apache hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Apache Ambari seleciona a vista apache hive" border="true":::
 
     A página de visualização da Colmeia é semelhante à seguinte imagem:
 
-    ![Imagem da folha de consulta para a vista da Colmeia](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png" alt-text="Imagem da folha de consulta para a vista da Colmeia" border="true":::
 
 1. A partir do separador __Consulta,__ cole as seguintes declarações do HiveQL na folha de cálculo:
 
@@ -99,19 +99,19 @@ Para visualizar o UI Tez para a consulta, selecione o separador **Tez UI** abaix
 
 O separador __Jobs__ exibe uma história de consultas de Colmeia.
 
-![Apache Hive ver empregos tab história](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="Apache Hive ver empregos tab história" border="true":::
 
 ## <a name="database-tables"></a>Tabelas de bases de dados
 
 Pode utilizar o separador __Tabelas__ para trabalhar com tabelas dentro de uma base de dados da Colmeia.
 
-![Imagem do separador tabelas apache colmeia](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png" alt-text="Imagem do separador tabelas apache colmeia" border="true":::
 
 ## <a name="saved-queries"></a>Consultas salvas
 
 A partir do separador **Consulta,** pode guardar opcionais consultas. Depois de guardar uma consulta, pode reutilizá-la a partir do separador __Consultas Salvas.__
 
-![Vistas apache Hive salvou separador de consultas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Vistas apache Hive salvou separador de consultas" border="true":::
 
 > [!TIP]  
 > As consultas guardadas são armazenadas no armazenamento de cluster padrão. Pode encontrar as consultas guardadas no `/user/<username>/hive/scripts` caminho. Estes são armazenados como ficheiros de texto `.hql` simples.
@@ -124,7 +124,7 @@ Pode estender a Colmeia através de funções definidas pelo utilizador (UDF). U
 
 Declare e guarde um conjunto de UDFs utilizando o separador **UDF** no topo da Hive View. Estes UDFs podem ser usados com o **Editor de Consulta.**
 
-![Apache Hive ver ecrã do separador UDFs](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Apache Hive ver ecrã do separador UDFs" border="true":::
 
 Um botão **insira o udfs** aparece na parte inferior do **Editor de Consulta**. Esta entrada apresenta uma lista de down-down dos UDFs definidos na Vista de Colmeia. A seleção de um UDF adiciona declarações de HiveQL à sua consulta para ativar o UDF.
 

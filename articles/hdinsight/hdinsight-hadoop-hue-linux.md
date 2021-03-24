@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 97a8dd2476642e693b589b4046f612c5569b9c0b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945679"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865133"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instale e utilize o Hue nos clusters hdInsight Hadoop
 
@@ -80,17 +80,17 @@ Só pode ter uma conta de utilizador com o Hue em agrupamentos regulares. Para a
    > [!NOTE]  
    > Quando iniciar sessão pela primeira vez, será solicitado que crie uma conta para iniciar sessão no portal Hue. As credenciais que especifica aqui serão limitadas ao portal e não estão relacionadas com as credenciais de administração ou de utilizador SSH especificadas enquanto fornece o cluster.
 
-    ![Janela de login do portal de tonalidade HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Especificar credenciais para o portal Hue")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png" alt-text="Janela de login do portal de tonalidade HDInsight":::
 
 ### <a name="run-a-hive-query"></a>Executar uma consulta do Hive
 
 1. A partir do portal Hue, selecione **Os Editores de Consulta** e, em seguida, selecione **Hive** para abrir o editor da Hive.
 
-    ![HdInsight hue portal usar editor de colmeia](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Use a Colmeia")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="HdInsight hue portal usar editor de colmeia":::
 
 2. No separador **Assist,** em **Base de Dados,** deverá ver **ser tão esplecível.** Esta é uma tabela de amostras que é enviada com todos os clusters Hadoop em HDInsight. Introduza uma consulta de amostra no painel direito e veja a saída no **separador Resultados** no painel abaixo, como mostra a captura do ecrã.
 
-    ![Consulta de colmeia do portal hdInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Executar consulta de colmeia")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="Consulta de colmeia do portal hdInsight":::
 
     Também pode utilizar o **separador Gráfico** para ver uma representação visual do resultado.
 
@@ -99,7 +99,7 @@ Só pode ter uma conta de utilizador com o Hue em agrupamentos regulares. Para a
 1. A partir do portal Hue, selecione **File Browser** no canto superior direito da barra de menu.
 2. Por predefinição, o navegador de ficheiros abre no diretório **/utilizador/myuser.** Selecione o corte dianteiro imediatamente antes do diretório do utilizador no caminho para ir até à raiz do recipiente de armazenamento Azure associado ao cluster.
 
-    ![HdInsight hue portal browser de ficheiros](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Use o navegador de arquivos")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="HdInsight hue portal browser de ficheiros":::
 
 3. Clique com o botão direito num ficheiro ou numa pasta para ver as operações disponíveis. Utilize o botão **Upload** no canto direito para enviar ficheiros para o diretório atual. Utilize o botão **Novo** para criar novos ficheiros ou diretórios.
 
@@ -118,7 +118,7 @@ Só pode ter uma conta de utilizador com o Hue em agrupamentos regulares. Para a
 
 1. Com os clusters Linux, pode ter um cenário em que os seus serviços estão a funcionar na cabeça primária enquanto o Gestor de Recursos pode estar a funcionar no secundário. Tal cenário pode resultar em erros (mostrados abaixo) ao utilizar Hue para ver detalhes de trabalhos RUNNING no cluster. No entanto, pode ver os detalhes do trabalho quando o trabalho estiver concluído.
 
-   ![Mensagem de amostra de erro do portal de tonalidade](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Erro do portal hue")
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Mensagem de amostra de erro do portal de tonalidade":::
 
    Isto deve-se a um problema conhecido. Como uma solução alternativa, modifique Ambari para que o Gestor de Recursos ativo também corra no headnode primário.
 

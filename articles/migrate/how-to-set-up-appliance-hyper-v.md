@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 85ab07e0b81bf258a56956f5f0f7e80bad6a32fe
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775226"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863688"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurar um aparelho para servidores em Hiper-V
 
-Siga este artigo para configurar o aparelho Azure Migrate para a descoberta e avaliação dos servidores em Hiper-V com a ferramenta [Azure Migrate: Discovery and assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
+Siga este artigo para configurar o aparelho Azure Migrate para a descoberta e avaliação dos servidores em Hiper-V com a ferramenta [Azure Migrate: Discovery and assessment.](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool)
 
 O [aparelho Azure Migrate](migrate-appliance.md)  é um aparelho leve utilizado pela Azure Migrate: Discovery and assessment/ Migration para descobrir servidores no local em Hiper-V e enviar metadados/dados de desempenho do servidor para o Azure.
 
@@ -24,31 +24,31 @@ Pode utilizar o aparelho utilizando um par de métodos:
 - Instale-se num servidor em Hyper-V usando um VHD descarregado. Este método descrito neste artigo.
 - Configurar num servidor em Hiper-V ou servidor físico com um script instalador PowerShell. [Este método](deploy-appliance-script.md) deve ser utilizado se não puder configurar um servidor usando um VHD, ou se estiver no Governo Azure.
 
-Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate: Discovery and assessment, configure-o pela primeira vez e registá-lo com o projeto Azure Migrate.
+Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate: Discovery and assessment, configure-o pela primeira vez e registá-lo com o projeto.
 
 ## <a name="appliance-deployment-vhd"></a>Implantação do aparelho (VHD)
 
 Para configurar o aparelho utilizando um modelo VHD:
 
-- Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal.
+- Forneça um nome de aparelho e gere uma chave de projeto no portal.
 - Faça o download de um Hiper-VHD comprimido do portal Azure.
 - Crie o aparelho e verifique se pode ligar-se ao Azure Migrate: Descoberta e avaliação.
-- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
+- Configure o aparelho pela primeira vez e registe-o com o projeto utilizando a chave do projeto.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
+### <a name="generate-the-project-key"></a>Gerar a chave do projeto
 
 1. Em **Objetivos de Migração**  >  **Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, selecione **Discover**.
 2. In **Discover servers**  >  **Are your servers virtualized?** 
 3. Em **1:Gerar tecla de projeto,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores em Hiper-V.O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Não feche a página de servidores Discover durante a criação de recursos.
-1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
+1. Após a criação bem sucedida dos recursos Azure, gera-se uma **chave de projeto.**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
 ### <a name="download-the-vhd"></a>Descarregue o VHD
 
 Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro VHD e clique no **Download**.
 
-   ![Seleções para máquinas Discover](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Seleções para servidores Discover](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
    ![Seleções para Gerar Tecla](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)

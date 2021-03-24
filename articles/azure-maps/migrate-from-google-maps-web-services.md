@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/23/2021
 ms.locfileid: "100386854"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutorial: Migrar o serviço web do Google Maps

@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242862"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863569"
 ---
-# <a name="private-link-for-azure-database-for-mysql"></a>Link privado para base de dados Azure para MySQL
+# <a name="private-link-for-azure-database-for-mysql"></a>Private Link para a Base de Dados do Azure para MySQL
 
 A Ligação Privada permite-lhe estabelecer ligação a vários serviços PaaS no Azure através de um ponto final privado. O Azure Private Link essencialmente traz os serviços do Azure dentro da sua Rede Privada Virtual (VNet). Os recursos de PaaS podem ser acedidos através do endereço IP privado, como qualquer outro recurso na VNet.
 
@@ -84,7 +84,7 @@ Uma vez que o administrador de rede cria o ponto final privado (PE), o administr
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Utilize casos de Link Privado para Base de Dados Azure para o MySQL
 
-Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, vNet esprevado na mesma região, ou através da ligação VNet-to-VNet entre regiões. Além disso, os clientes podem conectar-se a partir de instalações usando expressRoute, peering privado ou túneis VPN. Abaixo está um diagrama simplificado mostrando os casos de uso comum.
+Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, [vNet esprevado](../virtual-network/virtual-network-peering-overview.md) na mesma região ou em regiões, ou através da [ligação VNet-to-VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre regiões. Além disso, os clientes podem conectar-se a partir de instalações usando expressRoute, peering privado ou túneis VPN. Abaixo está um diagrama simplificado mostrando os casos de uso comum.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="selecione a visão geral do ponto final privado":::
 

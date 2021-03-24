@@ -8,12 +8,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-csharp-ieux
-ms.openlocfilehash: b0c659c1b3bf373b7754dd9b058c74da35cc2e0a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea0b66c49d6f37c6b8f7eaa7f667a63ab09155e0
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704791"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952693"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função C# em Azure utilizando o Código do Estúdio Visual
 
@@ -82,8 +82,10 @@ Depois de verificar que a função funciona corretamente no seu computador local
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilizou o [Código do Estúdio Visual](functions-develop-vs-code.md?tabs=csharp) para criar uma aplicação de função com uma função simples desencadeada por HTTP. No artigo seguinte, expande essa função ligando-se ao Azure Storage. Para saber mais sobre a ligação a outros serviços Azure, consulte [adicionar ligações a uma função existente em Funções Azure](add-bindings-existing-function.md?tabs=csharp). 
+Utilizou o [Código do Estúdio Visual](functions-develop-vs-code.md?tabs=csharp) para criar uma aplicação de função com uma função simples desencadeada por HTTP. No artigo seguinte, expande essa função ligando-se ao Azure Cosmos DB ou ao Azure Storage. Para saber mais sobre a ligação a outros serviços Azure, consulte [adicionar ligações a uma função existente em Funções Azure](add-bindings-existing-function.md?tabs=csharp). 
 
+> [!div class="nextstepaction"]
+> [Ligar a uma base de dados](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp)
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)
 

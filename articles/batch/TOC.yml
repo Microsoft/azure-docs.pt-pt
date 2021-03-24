@@ -163,6 +163,9 @@
         - name: Configurar identidades geridas
           displayName: user-assigned
           href: managed-identity-pools.md
+        - name: Permitir a rotação do certificado
+          displayName: 'key vault, keyvault, automatic'
+          href: automatic-certificate-rotation.md
         - name: Montar um sistema de ficheiros virtual
           href: virtual-file-mount.md
         - name: Montar uma partilha de ficheiros do Azure

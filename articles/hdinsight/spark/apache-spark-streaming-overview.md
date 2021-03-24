@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8a9f771827b870f493d6b0d7590feee7fc52b20
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929518"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870250"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral do Fluxo de Faíscas Apache
 
 [Faísca Apache](https://spark.apache.org/) O streaming fornece o processamento de fluxo de dados em clusters HDInsight Spark. Com a garantia de que qualquer evento de entrada é processado exatamente uma vez, mesmo que ocorra uma falha no nó. Um Spark Stream é um trabalho de longa duração que recebe dados de entrada de uma grande variedade de fontes, incluindo Azure Event Hubs. Também: Azure IoT Hub, Apache Kafka, Apache Flume, `ZeroMQ` Twitter, , tomadas TCP cruas ou da monitorização dos sistemas de ficheiros Apache Hadoop YARN. Ao contrário de um processo exclusivamente orientado para o evento, um Spark Stream desemolhos de entrada em janelas de tempo. Tal como uma fatia de 2 segundos, e depois transforma cada lote de dados usando operações de mapa, redução, junção e extração. O Stream spark escreve então os dados transformados para sistemas de ficheiros, bases de dados, dashboards e consola.
 
-![Processamento de fluxo com HDInsight e Streaming de Faíscas](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="Processamento de fluxo com HDInsight e Streaming de Faíscas" border="false":::
 
 As aplicações spark streaming devem esperar uma fração de segundo para recolher cada um `micro-batch` dos eventos antes de enviar esse lote para processamento. Em contraste, uma aplicação orientada para o evento processa cada evento imediatamente. A latência do streaming de faíscas é normalmente em poucos segundos. Os benefícios da abordagem do micro-lote são o processamento de dados mais eficiente e cálculos agregados mais simples.
 
@@ -30,7 +30,7 @@ Comece com um único evento, digamos uma leitura de temperatura de um termóstat
 
 Cada RDD representa eventos recolhidos ao longo de um período de tempo definido pelo utilizador chamado intervalo de *lote*. À medida que cada intervalo de lote decorre, é produzido um novo RDD que contém todos os dados desse intervalo. O conjunto contínuo de RDDs é recolhido num DStream. Por exemplo, se o intervalo do lote tiver um segundo de comprimento, o seu DStream emite um lote a cada segundo contendo um RDD que contém todos os dados ingeridos durante esse segundo. Ao processar o DStream, o evento de temperatura aparece num destes lotes. Uma aplicação Spark Streaming processa os lotes que contêm os eventos e, em última análise, atua nos dados armazenados em cada RDD.
 
-![Exemplo DStream com Eventos de Temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png" alt-text="Exemplo DStream com Eventos de Temperatura" border="false":::
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Estrutura de uma aplicação de streaming de faíscas
 
@@ -168,9 +168,9 @@ Para fazer cálculos agregados no seu DStream durante algum tempo, por exemplo p
 
 As janelas deslizantes podem sobrepor-se, por exemplo, pode definir uma janela com um comprimento de dois segundos, que desliza a cada segundo. Esta ação significa que sempre que fizer um cálculo de agregação, a janela incluirá dados do último segundo da janela anterior. E quaisquer novos dados no próximo segundo.
 
-![Janela inicial de exemplo com eventos de temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png" alt-text="Janela inicial de exemplo com eventos de temperatura" border="false":::
 
-![Janela de exemplo com eventos de temperatura após deslizar](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png" alt-text="Janela de exemplo com eventos de temperatura após deslizar" border="false":::
 
 O exemplo a seguir atualiza o código que utiliza o DummySource, para recolher os lotes numa janela com uma duração de um minuto e um dia de diapositivos de um minuto.
 
@@ -244,7 +244,7 @@ Para oferecer resiliência e tolerância a falhas, o Spark Streaming baseia-se n
 
 Normalmente constrói uma aplicação Spark Streaming localmente num ficheiro JAR. Em seguida, desloque-o para Spark on HDInsight copiando o ficheiro JAR para o armazenamento anexo predefinido. Pode iniciar a sua aplicação com as APIs LIVY REST disponíveis no seu cluster utilizando uma operação POST. O corpo do POST inclui um documento JSON que fornece o caminho para o seu JAR. E o nome da classe cujo método principal define e executa a aplicação de streaming, e opcionalmente os requisitos de recursos do trabalho (como o número de executores, memória e núcleos). Além disso, qualquer configuração que o seu código de aplicação exija.
 
-![Implementação de uma aplicação de streaming de faíscas](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Implementação de uma aplicação de streaming de faíscas" border="false":::
 
 O estado de todos os pedidos também pode ser verificado com um pedido GET contra um ponto final LIVY. Finalmente, pode terminar um pedido de execução emitindo um pedido de DELETE contra o ponto final LIVY. Para mais detalhes sobre a API LIVY, consulte [trabalhos remotos com Apache LIVY](apache-spark-livy-rest-interface.md)
 

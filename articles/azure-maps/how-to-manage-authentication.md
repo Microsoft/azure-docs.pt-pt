@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 955b541bdb4ae38066f1eb4d2f09363ec51be1d2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92895771"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864079"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
 
@@ -78,6 +78,31 @@ Solicite um sinal do ponto final da Azure AD. No seu pedido AZure AD, utilize os
 | Nuvem do governo de Azure | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
 Para obter mais informações sobre a solicitação de tokens de acesso da Azure AD para utilizadores e diretores de serviço, consulte [cenários de autenticação para Azure AD](../active-directory/develop/authentication-vs-authorization.md) e veja cenários específicos na tabela de [Cenários.](./how-to-manage-authentication.md#determine-authentication-and-authorization)
+
+## <a name="manage-and-rotate-shared-keys"></a>Gerir e rodar as teclas partilhadas
+
+As suas teclas de subscrição Azure Maps são semelhantes a uma palavra-passe de raiz para a sua conta Azure Maps. Tenha sempre cuidado para proteger as suas chaves de subscrição. Utilize o Cofre da Chave Azure para gerir e rodar as chaves de forma segura. Evite distribuir chaves de acesso a outros utilizadores, codificando-as duramente ou guardando-as em qualquer lugar em texto simples que seja acessível a outros. Rode as chaves se acredita que podem ter sido comprometidas.
+
+> [!NOTE]
+> A Microsoft recomenda a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos, se possível, em vez de "Shared Key". A Azure AD proporciona segurança superior e facilidade de utilização sobre a Chave Partilhada.
+
+### <a name="manually-rotate-subscription-keys"></a>Rode manualmente as teclas de subscrição
+
+A Microsoft recomenda que rode as suas teclas de subscrição periodicamente para ajudar a manter a sua conta Azure Maps segura. Se possível, utilize o Cofre da Chave Azure para gerir as suas chaves de acesso. Se não estiver a utilizar o Key Vault, terá de rodar as chaves manualmente.
+
+São atribuídas duas teclas de subscrição para que possa rodar as suas chaves. Ter duas teclas garante que a sua aplicação mantém o acesso ao Azure Maps durante todo o processo.
+
+Para rodar as teclas de subscrição do Azure Maps no portal Azure:
+
+1. Atualize o seu código de aplicação para fazer referência à chave secundária da conta Azure Maps e implementar.
+2. Navegue para a sua conta Azure Maps no [portal Azure](https://portal.azure.com/).
+3. Em **Definições**, selecione **Autenticação**.
+4. Para regenerar a chave primária para a sua conta Azure Maps, selecione o botão **Regenerar** ao lado da tecla primária.
+5. Atualize o seu código de aplicação para fazer referência à nova chave primária e implementar.
+6. Regenerar a chave secundária da mesma forma.
+
+> [!WARNING]
+> A Microsoft recomenda a utilização de apenas uma das chaves em todas as suas aplicações ao mesmo tempo. Se utilizar a Chave 1 em alguns lugares e a Chave 2 noutros, não poderá rodar as chaves sem que algumas aplicações percam o acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

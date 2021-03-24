@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: d13619b818e18c64d9882f9e3181824173403859
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 383b49a7363fdca9327d419f5bed092d489a95d5
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181395"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951815"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Tutorial: Integrar o Wandera RADAR Admin com diretório ativo Azure
 
@@ -82,7 +82,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://radar.wandera.com/saml/acs/<tenant id>`
 
     > [!NOTE]
-    > O valor não é real. Atualizar o valor com o URL de resposta real. Contacte [a equipa de apoio ao Cliente do Wandera RADAR](https://www.wandera.com/about-wandera/contact/#supportsection) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualizar o valor com o URL de resposta real. Contacte [a equipa de apoio ao Cliente do Wandera RADAR](https://www.wandera.com/about-wandera/contact/#supportsection) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure. Substitua cuidadosamente a <tenant id> parte do URL acima por causa do ID do inquilino mostrado na página De Sign-On Único **administração de definições** dentro da sua conta  >    >   Wandera.
+
 
 1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 

@@ -4,12 +4,12 @@ description: Como fornecer a quantidade máxima de disponibilidade e consistênc
 ms.topic: article
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cd446cf86c22b851bae9cb9d8535a8e5234e08b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e014a33e94fe7f90569dd2ef1e9b620eef274842
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722536"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952869"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de Eventos
 Este artigo fornece informações sobre disponibilidade e consistência apoiadas pelo Azure Event Hubs. 
@@ -43,7 +43,7 @@ Recomendamos o envio de eventos para um centro de eventos sem definir informaç�
 Nesta secção, aprende-se a enviar eventos para uma partição específica utilizando diferentes linguagens de programação. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
-Para enviar eventos para uma partição específica, crie o lote utilizando o método [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) especificando o `PartitionId` ou o in `PartitionKey` [CreateBatchOptions](/dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions?view=azure-dotnet). O código seguinte envia um lote de eventos para uma partição específica especificando uma chave de partição. O Event Hubs garante que todos os eventos que partilham um valor chave de partição são armazenados e entregues por ordem de chegada.
+Para enviar eventos para uma partição específica, crie o lote utilizando o método [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) especificando o `PartitionId` ou o in `PartitionKey` [CreateBatchOptions](/dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions). O código seguinte envia um lote de eventos para uma partição específica especificando uma chave de partição. O Event Hubs garante que todos os eventos que partilham um valor chave de partição são armazenados e entregues por ordem de chegada.
 
 ```csharp
 var batchOptions = new CreateBatchOptions { PartitionKey = "cities" };

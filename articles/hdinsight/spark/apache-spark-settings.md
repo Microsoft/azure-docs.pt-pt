@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 25ff8611cc988c9777b52a313cfd74d4ee0a638c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929755"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870301"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -18,7 +18,7 @@ Um cluster HDInsight Spark inclui uma instalação da biblioteca Apache Spark.  
 
 O cluster HDInsight Apache Spark padrão inclui os seguintes nóns: três nóns Apache ZooKeeper, dois nóns na cabeça e um ou mais nónsadores:
 
-![Arquitetura Spark HDInsight](./media/apache-spark-settings/spark-hdinsight-arch.png)
+:::image type="content" source="./media/apache-spark-settings/spark-hdinsight-arch.png" alt-text="Arquitetura Spark HDInsight" border="false":::
 
 O número de tamanhos de VM e VM para os nós no seu cluster HDInsight pode afetar a sua configuração de Faísca. Os valores de configuração hdinsight não padrão requerem frequentemente valores de configuração de faísca não padrão. Quando cria um cluster HDInsight Spark, é-lhe mostrado tamanhos VM sugeridos para cada um dos componentes. Atualmente, os [tamanhos Linux VM otimizados](../../virtual-machines/sizes-memory.md) para memória para Azure são D12 v2 ou superiores.
 
@@ -59,7 +59,7 @@ O Apache Ambari Web UI aparece, com um dashboard de métricas de utilização de
 
 Para ver os valores de configuração para Apache Spark, selecione **Config History**, em seguida, selecione **Spark2**.  Selecione o **separador Configs** e, em seguida, selecione o `Spark` link `Spark2` (ou, dependendo da sua versão) na lista de serviços.  Vê uma lista de valores de configuração para o seu cluster:
 
-![Configurações de faíscas](./media/apache-spark-settings/spark-configurations.png)
+:::image type="content" source="./media/apache-spark-settings/spark-configurations.png" alt-text="Configurações de faíscas" border="true":::
 
 Para ver e alterar os valores individuais de configuração do Spark, selecione qualquer ligação com "faísca" no título.  As configurações para Spark incluem valores de configuração personalizados e avançados nestas categorias:
 
@@ -78,7 +78,7 @@ Se criar um conjunto não padrão de valores de configuração, o histórico de 
 
 O diagrama que se segue mostra os principais objetos spark: o programa de condutor e o seu Contexto de Faísca associado, e o gestor de cluster e os seus nós de trabalhadores *n.*  Cada nó de trabalhador inclui um Executor, um cache e *n* instâncias de tarefa.
 
-![Objetos de cluster](./media/apache-spark-settings/hdi-spark-architecture.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-spark-architecture.png" alt-text="Objetos de cluster" border="false":::
 
 Os empregos de faísca usam recursos dos trabalhadores, particularmente a memória, por isso é comum ajustar os valores de configuração do Spark para os executadores de nóiros.
 
@@ -89,7 +89,7 @@ Três parâmetros-chave que são frequentemente ajustados para sintonizar as con
 
 Outra fonte de informação sobre os recursos utilizados pelos Executores spark é a UI da Aplicação Spark.  Na UI,  **os Executores** exibem vistas sumárias e detalhadas da configuração e dos recursos consumidos.  Determinar se altera os valores dos executores para todo o cluster, ou conjunto particular de execuções de emprego.
 
-![Executores de Faíscas](./media/apache-spark-settings/apache-spark-executors.png)
+:::image type="content" source="./media/apache-spark-settings/apache-spark-executors.png" alt-text="Executores de Faíscas" border="true":::
 
 Ou pode utilizar a API Ambari REST para verificar programáticamente as definições de configuração do cluster HDInsight e Spark.  Mais informações estão disponíveis na [referência Apache Ambari API no GitHub.](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
@@ -103,7 +103,7 @@ Dependendo da carga de trabalho do Spark, pode determinar que uma configuração
 
 Aqui está um exemplo de dois nóns de trabalhador com diferentes valores de configuração:
 
-![Duas configurações de nó](./media/apache-spark-settings/executor-configuration.png)
+:::image type="content" source="./media/apache-spark-settings/executor-configuration.png" alt-text="Duas configurações de nó" border="false":::
 
 A lista a seguir mostra os parâmetros de memória do executor de faíscas.
 
@@ -116,7 +116,7 @@ A lista a seguir mostra os parâmetros de memória do executor de faíscas.
 
 O YARN controla a soma máxima de memória utilizada pelos recipientes em cada nó de faísca. O diagrama seguinte mostra as relações por nó entre objetos de configuração YARN e objetos spark.
 
-![Gestão da memória de faíscas de YARN](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-yarn-spark-memory.png" alt-text="Gestão da memória de faíscas de YARN" border="false":::
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar parâmetros para uma aplicação em execução no Caderno Jupyter
 

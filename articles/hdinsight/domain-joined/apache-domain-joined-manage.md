@@ -4,12 +4,12 @@ description: Saiba como gerir clusters Azure HDInsight com Pacote de Segurança 
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.openlocfilehash: b0f8ba4adfa4b08c23d3f69fa4e2b01f4580bb19
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bc31c3d71590a6b8c0b324ffcb8c10129a9f8699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742216"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863246"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters HDInsight com pacote de segurança empresarial
 
@@ -116,7 +116,7 @@ O Pacote de Segurança Empresarial HDInsight tem as seguintes funções:
 2. A partir do menu esquerdo, selecione **Roles**.
 3. Selecione o ponto de interrogação azul para ver as permissões:
 
-    ![Permissões de funções ESP HDInsight](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png" alt-text="Permissões de funções ESP HDInsight" border="true":::
 
 ## <a name="open-the-ambari-management-ui"></a>Abra a UI de Gestão Ambari
 
@@ -124,25 +124,25 @@ O Pacote de Segurança Empresarial HDInsight tem as seguintes funções:
 1. Inscreva-se no Ambari utilizando o nome de utilizador e palavra-passe do domínio do administrador do cluster.
 1. Selecione o menu de entrega de **administração** a partir do canto superior direito e, em seguida, **selecione Manage Ambari**.
 
-    ![ESP HDInsight gere Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png" alt-text="ESP HDInsight gere Apache Ambari" border="true":::
 
     A UI parece:
 
-    ![ESP HDInsight Apache Ambari gestão UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png" alt-text="ESP HDInsight Apache Ambari gestão UI" border="true":::
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Listar os utilizadores de domínio sincronizados a partir do seu Diretório Ativo
 
 1. Abra a UI de Gestão Ambari.  Ver [Abrir a UI de Gestão Ambari.](#open-the-ambari-management-ui)
 2. A partir do menu esquerdo, **selecione Utilizadores**. Verá todos os utilizadores sincronizados desde o seu Diretório Ativo até ao cluster HDInsight.
 
-    ![Esp HDInsight Ambari gestão UI lista de utilizadores](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png" alt-text="Esp HDInsight Ambari gestão UI lista de utilizadores" border="true":::
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Listar os grupos de domínio sincronizados a partir do seu Diretório Ativo
 
 1. Abra a UI de Gestão Ambari.  Ver [Abrir a UI de Gestão Ambari.](#open-the-ambari-management-ui)
 2. A partir do menu esquerdo, selecione **Grupos**. Verá todos os grupos sincronizados do seu Diretório Ativo para o cluster HDInsight.
 
-    ![Esp HDInsight Ambari gestão UI grupos de listas](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png" alt-text="Esp HDInsight Ambari gestão UI grupos de listas" border="true":::
 
 ## <a name="configure-hive-views-permissions"></a>Configure permissões de Vistas para Colmeias
 
@@ -150,12 +150,12 @@ O Pacote de Segurança Empresarial HDInsight tem as seguintes funções:
 2. A partir do menu esquerdo, selecione **Vistas**.
 3. Selecione **HIVE** para mostrar os detalhes.
 
-    ![ESP HDInsight Ambari gestão UI Hive Views](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png" alt-text="ESP HDInsight Ambari gestão UI Hive Views" border="true":::
 
 4. Selecione o link **Hive View** para configurar vistas de colmeia.
 5. Desloque-se até à secção **permissões.**
 
-    ![ESP HDInsight Ambari gestão UI Hive Views configura permissões](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png" alt-text="ESP HDInsight Ambari gestão UI Hive Views configura permissões" border="true":::
 
 6. Selecione **Adicionar Utilizador** ou **Adicionar Grupo**, e, em seguida, especificar os utilizadores ou grupos que podem usar Vistas de Colmeia.
 

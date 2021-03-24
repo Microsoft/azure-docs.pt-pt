@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: serviços cognitivos, inteligência cognitiva, soluções cognitivas, serviços ai
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 3/22/2021
 ms.author: aahi
-ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 08ff2f416a00002cde5767111ba5a6824a721324
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472100"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868176"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando a Interface Command-Line Azure(CLI)
 
@@ -196,7 +196,8 @@ az group delete --name cognitive-services-resource-group
 
 ## <a name="see-also"></a>Ver também
 
-* [Autenticar pedidos aos Serviços Cognitivos da Azure](authentication.md)
-* [O que é a Azure Cognitive Services?](./what-are-cognitive-services.md)
-* [Suporte linguístico natural](language-support.md)
-* [Suporte de contentor estivador](cognitive-services-container-support.md)
+* Consulte **[pedidos autenticados aos Serviços Cognitivos da Azure](authentication.md)** sobre como trabalhar de forma segura com os Serviços Cognitivos.
+* Veja **[o que são os Serviços Cognitivos Azure para](./what-are-cognitive-services.md)** obter uma lista de diferentes categorias dentro dos Serviços Cognitivos.
+* Consulte o **[suporte linguístico natural](language-support.md)** para ver a lista de línguas naturais que os Serviços Cognitivos suportam.
+* Consulte **[o Uso de Serviços Cognitivos como recipientes](cognitive-services-container-support.md)** para entender como utilizar os Serviços Cognitivos no pré-pré-m.
+* Consulte **[o Plano e gere os custos dos Serviços Cognitivos](plan-manage-costs.md)** para estimar o custo da utilização dos Serviços Cognitivos.

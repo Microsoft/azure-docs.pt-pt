@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 2c528859ea5abc6267c10a2ede9c2ca99f84e22f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c7125e25c9716a9934c97f9f8f85666d264d5f89
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946796"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866952"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel ao Apache Hadoop no Azure HDInsight com o controlador ODBC Hive da Microsoft
 
@@ -37,7 +37,7 @@ Os passos seguintes mostram-lhe como criar uma Fonte de Dados Da Colmeia ODBC.
 
 1. A partir do Windows, navegue para **iniciar > ferramentas administrativas do Windows > fontes de dados ODBC (32-bit)/(64-bit)**.  Esta ação abre a janela do **Administrador de Fonte de Dados ODBC.**
 
-    ![Administrador de fonte de dados OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configure um DSN usando o administrador de origem de dados da ODBC")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="Administrador de fonte de dados OBDC" border="true":::
 
 1. A partir do **separador DSN do utilizador,** selecione **Adicionar** para abrir a janela **Criar Nova Fonte de Dados.**
 
@@ -63,7 +63,7 @@ Os passos seguintes mostram-lhe como criar uma Fonte de Dados Da Colmeia ODBC.
    |  Linhas recolhidas por bloco |Ao obter um grande número de registos, pode ser necessário sintonizar este parâmetro para garantir um desempenho ótimo. |
    |  Comprimento da coluna de corda padrão, comprimento da coluna binária, escala de coluna decimal |Os comprimentos e precisões do tipo de dados podem afetar a forma como os dados são devolvidos. Fazem com que informações incorretas sejam devolvidas devido à perda de precisão e ou truncação. |
 
-    ![Opções avançadas de configuração do DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opções avançadas de configuração do DSN")
+    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png" alt-text="Opções avançadas de configuração do DSN" border="true":::
 
 1. Selecione **Teste** para testar a fonte de dados. Quando a fonte de dados está configurada corretamente, o resultado do teste mostra **SUCCESS!**
 
@@ -81,7 +81,7 @@ Os seguintes passos descrevem a forma de importar dados de uma tabela de Colmeia
 
 2. A partir do separador **Dados,** navegue para **obter**  >  **dados de outras fontes**  >  **da ODBC** para lançar a janela **ODBC.**
 
-    ![Abra o assistente de ligação de dados do Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Abra o assistente de ligação de dados do Excel")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png" alt-text="Abra o assistente de ligação de dados do Excel" border="true":::
 
 3. A partir da lista de drop-down, selecione o nome de origem de dados que criou na última secção e, em seguida, selecione **OK**.
 
@@ -89,7 +89,7 @@ Os seguintes passos descrevem a forma de importar dados de uma tabela de Colmeia
 
 5. A partir do **Navigator,** navegue até ao padrão **hive**  >    >  e, em seguida, selecione **Load**. Leva alguns momentos até que os dados são importados para o Excel.
 
-    ![Navegador HDInsight Excel Hive ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Navegador HDInsight Excel Hive ODBC")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png" alt-text="Navegador HDInsight Excel Hive ODBC" border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
