@@ -3,12 +3,12 @@ title: Linguagem bicep para modelos de gestor de recursos Azure
 description: Descreve a linguagem Bicep para implantar infraestruturas para Azure através de modelos Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 0edd0063ea08978b89c3ad3067f41ae743451df7
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889693"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955912"
 ---
 # <a name="what-is-bicep-preview"></a>O que é Bicep (Pré-visualização)?
 
@@ -16,11 +16,15 @@ Bicep é uma linguagem para a implantação declarativa dos recursos do Azure. P
 
 A sintaxe JSON para criar o modelo pode ser verbosa e requer expressão complicada. Bicep melhora essa experiência sem perder nenhuma das capacidades de um modelo JSON. É uma abstração transparente sobre o JSON para modelos ARM. Cada ficheiro Bicep compila-se com um modelo ARM padrão. Os tipos de recursos, versões API e propriedades válidas num modelo ARM são válidos num ficheiro Bicep. Existem algumas [limitações conhecidas](#known-limitations) na versão atual.
 
+Bicep está atualmente em pré-visualização. Para acompanhar o estado da obra, consulte o [repositório do projeto Bicep.](https://github.com/Azure/bicep)
+
 Para saber mais sobre Bicep, veja o seguinte vídeo.
+
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
 
 ## <a name="get-started"></a>Introdução
 
-Para começar com a Bicep, [instale as ferramentas](https://github.com/Azure/bicep/blob/main/docs/installing.md).
+Para começar com a Bicep, [instale as ferramentas](bicep-install.md).
 
 Depois de instalar as ferramentas, experimente o [tutorial Bicep](./bicep-tutorial-create-first-bicep.md). A série tutorial acompanha-o através da estrutura e capacidades de Bicep. Você implementa ficheiros Bicep e converte um modelo ARM no ficheiro Bicep equivalente.
 

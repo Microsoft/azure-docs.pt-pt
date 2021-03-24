@@ -8,13 +8,13 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: workloads
-ms.openlocfilehash: 01a053745ad0b2b280e214af8284113a02458a27
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 2ca5f0311102c27c1233098a18ff16701b99ea2a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549180"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950795"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 

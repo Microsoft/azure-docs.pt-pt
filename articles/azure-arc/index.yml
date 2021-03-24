@@ -10,12 +10,12 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 03/02/2021
-  ms.openlocfilehash: fe751273c39562d7df53b779d609bf84b7248fbc
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 5188b61459e4c100ab9f6104df846726a1027333
+  ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101651149"
+  ms.lasthandoff: 03/24/2021
+  ms.locfileid: "104954569"
 highlightedContent:
   items:
   - title: Sobre o Azure Arc
@@ -54,9 +54,9 @@ productDirectory:
   - title: Kubernetes ativado pelo Azure Arc
     imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
-    - url: ./kubernetes/connect-cluster.md
+    - url: ./kubernetes/quickstart-connect-cluster.md
       text: Ligar cluster
-    - url: ./kubernetes/use-gitops-connected-cluster.md
+    - url: ./kubernetes/tutorial-use-gitops-connected-cluster.md
       text: Implementar configurações com o GitOps
     - url: ./kubernetes/index.yml
       text: Ver mais...

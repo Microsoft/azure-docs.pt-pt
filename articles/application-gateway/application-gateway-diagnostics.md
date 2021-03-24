@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98065325"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950489"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para Application Gateway
 
@@ -306,7 +306,7 @@ O registo de firewall só é gerado se o tiver ativado para cada porta de entrad
 |regrasPartever     | Versão definida por regras utilizada. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID de regra do evento de desencadeamento.        |
 |message     | Mensagem fácil de utilizar para o evento de desencadeamento. Mais detalhes são fornecidos na secção de detalhes.        |
-|ação     |  Medidas tomadas no pedido. Os valores disponíveis são combinados e bloqueados.      |
+|ação     |  Medidas tomadas no pedido. Os valores disponíveis são bloqueados e permitidos (para regras personalizadas), compatíveis (quando uma regra corresponde a uma parte do pedido) e Detetados e Bloqueados (estes são ambos para regras obrigatórias, dependendo se o WAF está em modo de deteção ou prevenção).      |
 |site     | Local para o qual o registo foi gerado. Atualmente, apenas a Global está listada porque as regras são globais.|
 |detalhes     | Detalhes do evento de desencadeamento.        |
 |detalhes.mensagem     | Descrição da regra.        |
