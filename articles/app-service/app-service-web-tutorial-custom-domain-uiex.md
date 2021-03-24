@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32ad6fa122083b40a948345e360bf5b9b0f09e96
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216535"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954858"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome DNS personalizado existente para o Azure App Service
 
@@ -121,7 +121,7 @@ Para adicionar um domínio personalizado à sua aplicação, tem de verificar a 
 
     <details>
         <summary>Posso gerir o DNS do meu fornecedor de domínio usando o Azure?</summary>
-        Se quiser, pode utilizar o Azure DNS para gerir os registos DNS para o seu domínio e configurar um nome DNS personalizado para o Azure App Service. Para mais informações, consulte <a href="https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns">Tutorial: Hospedar o seu domínio em Azure DNS></a>.
+        Se quiser, pode utilizar o Azure DNS para gerir os registos DNS para o seu domínio e configurar um nome DNS personalizado para o Azure App Service. Para mais informações, consulte <a href="/azure/dns/dns-delegate-domain-azure-dns">Tutorial: Hospedar o seu domínio em Azure DNS></a>.
     </details>
 
 1. Localize a página para gerir os registos DNS. 
@@ -146,7 +146,7 @@ Para adicionar um domínio personalizado à sua aplicação, tem de verificar a 
             <ul>
             <li>Para mapear o domínio raiz (por exemplo, <code>contoso.com</code> ), utilize um registo A. Não utilize o registo CNAME para o registo de raiz (para obter informações, consulte a entrada na <a href="https://en.wikipedia.org/wiki/CNAME_record">Wikipédia).</a></li>
             <li>Para mapear um subdomínio (por exemplo, <code>www.contoso.com</code> ), utilize um registo CNAME.</li>
-            <li>Pode mapear um subdomínio para o endereço IP da aplicação diretamente com um registo A, mas é possível que <a href="https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">o endereço IP seja alterado</a>. Em vez disso, o CNAME mapeia o nome de anfitrião da aplicação, o que é menos suscetível a mudanças.</li>
+            <li>Pode mapear um subdomínio para o endereço IP da aplicação diretamente com um registo A, mas é possível que <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">o endereço IP seja alterado</a>. Em vez disso, o CNAME mapeia o nome de anfitrião da aplicação, o que é menos suscetível a mudanças.</li>
             <li>Para mapear um <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">domínio wildcard</a> (por exemplo, <code>*.contoso.com</code> ), utilize um registo CNAME.</li>
             </ul>
         </div>
@@ -247,7 +247,7 @@ Para um nome wildcard como `*` em , crie dois `*.contoso.com` registos de acordo
 
     <details>
         <summary>O que se passa com o rótulo de aviso <strong>"Não Seguro"?</strong></summary>
-        Um rótulo de aviso para o seu domínio personalizado significa que ainda não está ligado a um certificado TLS/SSL. Qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service</a>.
+        Um rótulo de aviso para o seu domínio personalizado significa que ainda não está ligado a um certificado TLS/SSL. Qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte <a href="/azure/app-service/configure-ssl-bindings">Secure um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service</a>.
     </details>
 
     Se perdeu um passo ou fez um erro de erro algures mais cedo, um erro de verificação aparece na parte inferior da página.
@@ -274,7 +274,7 @@ Para um nome wildcard como `*` em , crie dois `*.contoso.com` registos de acordo
 
     <details>
         <summary>O que se passa com o rótulo de aviso <strong>"Não Seguro"?</strong></summary>
-        Um rótulo de aviso para o seu domínio personalizado significa que ainda não está ligado a um certificado TLS/SSL. Qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service</a>.
+        Um rótulo de aviso para o seu domínio personalizado significa que ainda não está ligado a um certificado TLS/SSL. Qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte <a href="/azure/app-service/configure-ssl-bindings">Secure um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service</a>.
     </details>
     
     Se perdeu um passo ou fez um erro de erro algures mais cedo, um erro de verificação aparece na parte inferior da página.
@@ -297,7 +297,7 @@ Para um nome wildcard como `*` em , crie dois `*.contoso.com` registos de acordo
 
     <details>
         <summary>O que se passa com o rótulo de aviso <strong>"Não Seguro"?</strong></summary>
-        Um rótulo de aviso para o seu domínio personalizado significa que ainda não está ligado a um certificado TLS/SSL. Qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service</a>.
+        Um rótulo de aviso para o seu domínio personalizado significa que ainda não está ligado a um certificado TLS/SSL. Qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte <a href="/azure/app-service/configure-ssl-bindings">Secure um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service</a>.
     </details>
 
 -----

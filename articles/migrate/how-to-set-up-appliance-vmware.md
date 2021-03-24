@@ -6,16 +6,16 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1217b51ea91758d25b76394b27d3b21b2e9808b3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780876"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865235"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurar um aparelho para servidores em ambiente VMware
 
-Siga este artigo para configurar o aparelho Azure Migrate para avaliação com a ferramenta [Azure Migrate:Discovery e assessment,](migrate-services-overview.md#azure-migrate-server-assessment-tool) e para migração sem agente utilizando a ferramenta [migração Azure Migrate:Server.](migrate-services-overview.md#azure-migrate-server-migration-tool)
+Siga este artigo para configurar o aparelho Azure Migrate para avaliação com a ferramenta [Azure Migrate:Discovery e assessment,](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) e para migração sem agente utilizando a ferramenta [migração Azure Migrate:Server.](migrate-services-overview.md#azure-migrate-server-migration-tool)
 
 O [aparelho Azure Migrate](migrate-appliance.md) é um aparelho leve utilizado pelo Azure Migrate:Discovery and assessment and Server Migration para descobrir servidores em execução no vCenter Server, enviar a configuração do servidor e metadados de desempenho para o Azure, e para a replicação de servidores usando migração sem agente.
 
@@ -24,23 +24,23 @@ Pode utilizar o aparelho utilizando um par de métodos:
 - Crie um servidor no vCenter Server utilizando um modelo OVA descarregado. Este é o método descrito neste artigo.
 - Instale o aparelho num servidor existente utilizando um script instalador PowerShell. [Este método](deploy-appliance-script.md) deve ser utilizado se não puder utilizar o modelo OVA, ou se estiver no Governo de Azure.
 
-Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate:Discovery e avaliar, registá-lo com o projeto Azure Migrate e configurar o aparelho para iniciar a descoberta.
+Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate:Discovery e avaliar, registá-lo com o projeto e configurar o aparelho para iniciar a descoberta.
 
 ## <a name="deploy-with-ova"></a>Implementar com OVA
 
 Para configurar o aparelho utilizando um modelo OVA:
-1. Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal.
+1. Forneça um nome de aparelho e gere uma chave de projeto no portal.
 1. Descarregue um ficheiro de modelo OVA e importe-o para o vCenter Server. Verifique se o OVA está seguro.
 1. Crie o VM do aparelho a partir do ficheiro OVA , e verifique se pode ligar-se ao Azure Migrate.
-1. Configure o aparelho pela primeira vez e registe-o com o projeto utilizando a chave do projeto Azure Migrate.
+1. Configure o aparelho pela primeira vez e registe-o com o projeto utilizando a chave do projeto.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Gerar a chave do projeto
 
 1. Em **Objetivos de Migração**  >  **Servidores**  >  **Azure Migrate: Descoberta e avaliação**, selecione **Discover**.
 2. In **Discover servers**  >  **Are your servers virtualized?** 
-3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores no seu ambiente VMware. O nome deve ser alfanumérico com 14 caracteres ou menos.
+3. Em **1:Gere a tecla do projeto,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores no seu ambiente VMware. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página Discover durante a criação de recursos.
-1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
+1. Após a criação bem sucedida dos recursos Azure, gera-se uma **chave de projeto.**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
 ### <a name="2-download-the-ova-template"></a>2. Descarregue o modelo OVA
@@ -117,7 +117,7 @@ Coloque o aparelho pela primeira vez.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
-1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá ao **Discovery e a avaliar> Descubra> Gerir os aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
+1. Cole a chave do **projeto** copiada do portal. Se não tiver a chave, vá ao **Discovery e a avaliar> Descubra> Gerir os aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
 1. Necessitará de um código de dispositivo para autenticar com o Azure. Clicar no **Login** abrirá um código modal com o código do dispositivo, como mostrado abaixo.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal mostrando o código do dispositivo":::
@@ -154,8 +154,6 @@ No **Passo 3: Fornecer credenciais de servidor para realizar inventário de soft
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Painel 3 no gestor de configuração do aparelho para detalhes do servidor":::
 
-> [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 Se quiser aproveitar estas funcionalidades, pode fornecer credenciais de servidor seguindo os passos abaixo. O aparelho tentará mapear automaticamente as credenciais para os servidores para executar as funcionalidades de descoberta.
 

@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bdd59c80408910bf8ca51bf787c8ff15dc2a4893
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98624545"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889761"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -464,7 +464,7 @@ Eis algumas coisas a ter em conta enquanto utiliza o controlo de acesso baseado 
 - Quando existem duas atribuições de funções ao mesmo utilizador do Azure Ative Directory com secções contraditórias de Ações/NotActions, as suas operações listadas em NotActions de uma função podem não produzir efeitos se também estiverem listadas como Ações noutra função. Para saber mais sobre como a Azure analisa atribuições de funções, leia [como o Azure RBAC determina se um utilizador tem acesso a um recurso](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
 - Para implementar os seus recursos de computação dentro de um VNet, precisa de ter explicitamente permissões para as seguintes ações:
-    - `Microsoft.Network/virtualNetworks/join/action` sobre o recurso VNet.
+    - `Microsoft.Network/virtualNetworks/*/read` sobre os recursos VNet.
     - `Microsoft.Network/virtualNetworks/subnet/join/action` sobre o recurso sub-rede.
     
     Para obter mais informações sobre o Azure RBAC com a rede, consulte as [funções embutidas em rede](../role-based-access-control/built-in-roles.md#networking).

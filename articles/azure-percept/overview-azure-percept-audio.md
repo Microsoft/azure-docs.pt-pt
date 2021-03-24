@@ -5,25 +5,22 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 9ff0cb8e2417ed08ed4c2061674cc6932b511aed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7c80159607947dbe7ed17181beac610fa0c202c5
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595911"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956099"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Introdução ao Azure Percept Audio
 
-Azure Percept Audio é um dispositivo acessório que adiciona capacidades de IA de fala ao Azure Percept DK. Contém um processador de áudio pré-configurado e uma matriz linear de quatro microfones, que lhe permite aplicar comandos de voz, observação de palavras-chave e discurso de campo distante para dispositivos de audição locais usando serviços cognitivos Azure. O Azure Percept Audio permite que os fabricantes de dispositivos alarguem o Azure Percept DK para além das capacidades de visão a novos dispositivos inteligentes ativados por voz. É integrado fora da caixa com Azure Percept DK, Azure Percept Studio, e outros serviços de gestão de borda azure. Está disponível para compra na loja online da [Microsoft.](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+Azure Percept Audio é um dispositivo acessório que adiciona capacidades de IA de fala a [Azure Percept DK](./overview-azure-percept-dk.md). Contém um processador de áudio pré-configurado e uma matriz linear de quatro microfones, que lhe permite utilizar comandos de voz, observação de palavras-chave e discurso de campo distante com a ajuda dos Serviços Cognitivos Azure. É integrado fora da caixa com Azure Percept DK, [Azure Percept Studio,](https://go.microsoft.com/fwlink/?linkid=2135819)e outros serviços de gestão de borda azure. A Azure Percept Audio está disponível para compra na loja online da [Microsoft.](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 > [!div class="nextstepaction"]
 > [Comprar agora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-<!---
-:::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Azure Percept Audio device.":::
---->
 </br>
 
 > [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
@@ -32,21 +29,21 @@ Azure Percept Audio é um dispositivo acessório que adiciona capacidades de IA 
 
 O Azure Percept Audio contém os seguintes componentes principais:
 
-- Dispositivo Azure Percept Audio pronto para a produção (SoM) com matriz linear de quatro microfones e processamento de áudio feito por um XMOS Codec
-- Placa de desenvolvedor (Interposer) (inclui botões 2x, 3x LEDs, Micro USB e 3,5 mm Audio Jack)
+- Dispositivo de áudio Azure Percept (SoM) pronto para a produção com uma matriz linear de quatro microfones e processamento de áudio via XMOS Codec
+- Placa de desenvolvedor (interposer): botões 2x, 3x LEDs, Micro USB e tomada de áudio de 3,5 mm
 - Cabos necessários: cabo FPC, USB Micro Type-B a USB-A
 - Cartão de boas-vindas
 - Placa de montagem mecânica com montagem integrada da série 80/20 1010
 
 ## <a name="compute-capabilities"></a>Capacidades de computação 
 
-Azure Percept Audio transmite a entrada de áudio através da pilha de discurso que funciona no CPU do quadro de porta-aviões do Azure Percept DK de forma híbrida. Por isso, o Azure Percept Audio requer uma placa de transporte com um SISTEMA que suporte a pilha de discursos para executar. 
+O Azure Percept Audio transmite a entrada de áudio através da pilha de discursos que funciona no CPU da placa de porta-aviões Azure Percept DK de forma híbrida. Por isso, o Azure Percept Audio requer uma placa de transporte com um SISTEMA que suporte a pilha de discursos para executar. 
 
-O processamento é feito da seguinte forma: 
+O processamento de áudio é feito da seguinte forma: 
 
 - Azure Percept Audio: captura e converte o áudio e envia-o para o DK e para o áudio jack.
 
-- Azure Percept DK: a pilha de discursos executa o cancelamento do feixe formando e eco e processa o áudio de entrada para otimizar para a fala. Em seguida, executa a observação da palavra-chave.
+- Azure Percept DK: a pilha de discursos executa o cancelamento do feixe formando e eco e processa o áudio de entrada para otimizar para a fala. Após o processamento, executa a deteção de palavras-chave.
 
 - Nuvem: processa comandos e frases de linguagem natural, verificação de palavras-chave e reciclagem. 
 
@@ -55,8 +52,8 @@ O processamento é feito da seguinte forma:
 ## <a name="getting-started"></a>Introdução
 
 - [Monte o seu Azure Percept DK](./quickstart-percept-dk-unboxing.md)
-- [Complete a experiência de configuração Azure Percept DK](./quickstart-percept-dk-set-up.md)
 - [Ligue o seu dispositivo Azure Percept Audio ao seu devkit](./quickstart-percept-audio-setup.md)
+- [Complete a experiência de configuração Azure Percept DK](./quickstart-percept-dk-set-up.md)
 
 ## <a name="build-a-no-code-prototype"></a>Construir um protótipo sem código
 
@@ -64,8 +61,8 @@ Construa uma [solução de discurso sem código](./tutorial-no-code-speech.md) n
 
 ### <a name="manage-your-no-code-speech-solution"></a>Gerencie a sua solução de fala sem código
 
-- [Configure o seu assistente de voz no Iot Hub](./how-to-manage-voice-assistant.md)
-- [Configure o seu assistente de voz no Azure Percept Studio](./how-to-configure-voice-assistant.md)
+- [Configure o seu assistente de voz no Azure Percept Studio](./how-to-manage-voice-assistant.md)
+- [Configure o seu assistente de voz no Iot Hub](./how-to-configure-voice-assistant.md)
 - [Azure Percept Resolução de problemas](./troubleshoot-audio-accessory-speech-module.md)
 
 ## <a name="additional-technical-information"></a>Informação técnica adicional

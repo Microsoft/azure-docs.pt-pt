@@ -1,19 +1,19 @@
 ---
 title: Use imagens de clientes do Windows em Azure
 description: Como utilizar os benefícios de subscrição do Visual Studio para implementar o Windows 7, Windows 8 ou Windows 10 em Azure para cenários dev/teste
-author: cynthn
+author: mimckitt
 ms.subservice: imaging
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: cynthn
-ms.openlocfilehash: 21038a8d1eabfcca21329c093b866607f0343070
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: mimckitt
+ms.openlocfilehash: 7879e355573d2b9952728828bd3780094a919fe3
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200009"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869060"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilizar cliente Windows no Azure para cenários de desenvolvimento/teste
 Pode utilizar o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) em Azure para cenários dev/teste, desde que tenha uma subscrição adequada do Visual Studio (anteriormente MSDN). 
@@ -28,6 +28,9 @@ Algumas imagens do cliente do Windows estão disponíveis no Azure Marketplace. 
 
 ## <a name="eligible-offers-and-client-images"></a>Ofertas elegíveis e imagens de clientes
 A tabela seguinte detalha os IDs de oferta que são elegíveis para implementar imagens de clientes do Windows através do Azure Marketplace. As imagens do cliente windows só são visíveis às seguintes ofertas. 
+
+> [!NOTE]
+> As ofertas de imagem estão sob o **Cliente Windows** no Azure Marketplace. Utilize **o Cliente Windows** ao procurar imagens de clientes disponíveis para assinantes do Visual Studio. 
 
 | Nome da Oferta | Número de oferta | Imagens de clientes disponíveis | 
 |:--- |:---:|:---:|

@@ -1,5 +1,5 @@
 ---
-title: Como marcar vários termos glossários para uma lista de ativos selecionados
+title: Como editar em massa ativos para marcar classificações, termos glossários e modificar contactos
 description: Aprenda ativos de edição em massa em Azure Purview.
 author: nayenama
 ms.author: nayenama
@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 149a70ea9b3fad919e771e8eb279e01d1492b3b3
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049492"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952461"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Como editar em massa os ativos para marcar termos glossários
 

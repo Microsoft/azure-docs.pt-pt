@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a1b97586eeeab1d5d1917f2d1cec9e0f71e9e329
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98665145"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867462"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para base de dados Azure para MariaDB
 
@@ -85,7 +85,8 @@ Uma vez que o administrador de rede cria o ponto final privado (PE), o administr
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Utilizar casos de Link Privado para Base de Dados Azure para MariaDB
 
-Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, vNet esprevado na mesma região, ou através da ligação VNet-to-VNet entre regiões. Além disso, os clientes podem conectar-se a partir de instalações usando expressRoute, peering privado ou túneis VPN. Abaixo está um diagrama simplificado mostrando os casos de uso comum.
+
+Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, [vNet esprevado](../virtual-network/virtual-network-peering-overview.md) na mesma região ou em regiões, ou através da [ligação VNet-to-VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre regiões. Além disso, os clientes podem conectar-se a partir de instalações usando expressRoute, peering privado ou túneis VPN. Abaixo está um diagrama simplificado mostrando os casos de uso comum.
 
 ![selecione a visão geral do ponto final privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 

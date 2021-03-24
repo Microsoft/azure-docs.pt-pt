@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561656"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952784"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -174,7 +174,7 @@ Deve ser-lhe atribuída uma das seguintes funções para visualizar ou gerir as 
 > - Recomendamos a utilização de [uma ação do utilizador "Registar ou juntar dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) no Acesso Condicional para impor a autenticação de vários fatores para a junção ou registo de um dispositivo. 
 > - Tem de definir esta definição para **Não** se estiver a utilizar a política de Acesso Condicional para exigir a authencação de vários fatores. 
 
-- **Número máximo de dispositivos** - Esta definição permite selecionar o número máximo de dispositivos registados AZURE AD ou Azure AD que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, não poderá adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes sejam removidos. O valor predefinido é **de 50**.
+- **Número máximo de dispositivos** - Esta definição permite selecionar o número máximo de dispositivos registados AZURE AD ou Azure AD que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, não poderá adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes sejam removidos. O valor predefinido é **de 50**. Pode aumentar o valor até 100 e se introduzir um valor superior a 100, a AZure AD irá defini-lo para 100. Também pode utilizar o valor ilimitado para impor nenhum limite que não os limites de quota existentes.
 
 > [!NOTE]
 > **O número máximo de dispositivos** que se aplicam a dispositivos que estejam aderentes a Azure AD ou a Azure AD registados. Esta definição não se aplica aos dispositivos híbridos Azure AD.

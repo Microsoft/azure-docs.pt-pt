@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Este artigo fornece uma visão geral arquitetônica de Azure Arc habilitado agentes Kubernetes
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: 5e53e99c492f08deab8dea89ec95190782661012
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec95efdfef871777e7f53617b057529e301739dd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121903"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953073"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Azure Arc permitiu a Arquitetura do Agente Kubernetes
 
@@ -85,7 +85,7 @@ A maioria dos centros de dados pré-directrizes de rede aplicam regras rígidas 
 
 ## <a name="understand-connectivity-modes"></a>Compreender os modos de conectividade
 
-| Modo conectividade | Description |
+| Modo conectividade | Descrição |
 | ----------------- | ----------- |
 | Totalmente conectado | Os agentes podem comunicar consistentemente com o Azure com pouco atraso na propagação das configurações do GitOps, na aplicação das políticas de Azure Policy e Gatekeeper, e na recolha de métricas e registos de carga de trabalho no Azure Monitor. |
 | Semi-conectado | O certificado MSI retirado pelo `clusteridentityoperator` is valido até 90 dias antes do termo do certificado. Após a expiração, o Arco Azure permitiu que o recurso Kubernetes deixasse de funcionar. Para reativar todas as funcionalidades do Arco Azure no cluster, elimine e recrie o Arco Azure ativado recursos e agentes kubernetes. Durante os 90 dias, ligue o cluster pelo menos uma vez a cada 30 dias. |
@@ -93,5 +93,5 @@ A maioria dos centros de dados pré-directrizes de rede aplicam regras rígidas 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Caminhe pelo nosso quickstart para [ligar um cluster Kubernetes ao Arco Azure.](./connect-cluster.md)
+* Caminhe pelo nosso quickstart para [ligar um cluster Kubernetes ao Arco Azure.](./quickstart-connect-cluster.md)
 * Saiba mais sobre a criação de ligações entre o seu cluster e um repositório Git como um [recurso de configuração com Azure Arc ativado Kubernetes](./conceptual-configurations.md).

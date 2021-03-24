@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: f83767813ea3923d85db2ca3f0164776c610525e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 85a4d6390087100d8d9521f6ac20dbace3a711eb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955025"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955946"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Amostras de código JavaScript para Pesquisa Cognitiva Azure
 
@@ -32,25 +32,23 @@ As amostras de código da equipa de desenvolvimento da Azure SDK demonstram o us
 
 ### <a name="javascript-sdk-samples"></a>Amostras de SDK JavaScript
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [índices](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexes) | Demonstra como criar, atualizar, obter, listar e eliminar [índices de pesquisa](search-what-is-an-index.md). Esta categoria de amostra também inclui uma amostra estatística de serviço. |
 | [dataSourceConnections (para indexadores)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/dataSourceConnections) | Demonstra como criar, atualizar, obter, listar e eliminar fontes de dados indexantes, necessárias para indexar fontes de [dados suportadas](search-indexer-overview.md#supported-data-sources)pelo indexante . |
 | [indexadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Demonstra como criar, atualizar, obter, listar, redefinir e eliminar [indexadores](search-indexer-overview.md).|
 | [conjunto de habilidades](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Demonstra como criar, atualizar, obter, listar e eliminar [habilidades](cognitive-search-working-with-skillsets.md) que são indexantes anexados, e que realizam enriquecimento baseado em IA durante a indexação. |
 | [sinónimoMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e eliminar [mapas de sinónimos](search-synonyms.md).  |
-| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Demonstra a execução de consultas contra um índice público apenas de leitura hospedado pela Microsoft.  |
 
 ### <a name="typescript-samples"></a>Amostras de TypeScript
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [índices](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexes) | Demonstra como criar, atualizar, obter, listar e eliminar [índices de pesquisa](search-what-is-an-index.md). Esta categoria de amostra também inclui uma amostra estatística de serviço. |
 | [dataSourceConnections (para indexadores)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/dataSourceConnections) | Demonstra como criar, atualizar, obter, listar e eliminar fontes de dados indexantes, necessárias para indexar fontes de [dados suportadas](search-indexer-overview.md#supported-data-sources)pelo indexante . |
 | [indexadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Demonstra como criar, atualizar, obter, listar, redefinir e eliminar [indexadores](search-indexer-overview.md).|
 | [conjunto de habilidades](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Demonstra como criar, atualizar, obter, listar e eliminar [habilidades](cognitive-search-working-with-skillsets.md) que são indexantes anexados, e que realizam enriquecimento baseado em IA durante a indexação. |
 | [sinónimoMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e eliminar [mapas de sinónimos](search-synonyms.md).  |
-| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Demonstra a execução de consultas contra um índice público apenas de leitura hospedado pela Microsoft.  |
 
 ## <a name="doc-samples"></a>Amostras de doc
 
@@ -67,6 +65,6 @@ As amostras de código da equipa de Pesquisa Cognitiva demonstram funcionalidade
 
 As seguintes amostras também são publicadas pela equipa de Pesquisa Cognitiva, mas não são referenciadas em documentação. Os ficheiros de leitura associados fornecem instruções de utilização.
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [azure-search-react-template](https://github.com/dereklegenzoff/azure-search-react-template) | Modelo de reação para Azure Cognitive Search (github.com) |

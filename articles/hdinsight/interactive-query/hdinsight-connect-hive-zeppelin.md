@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f758054f867c58dd4180fe5e728e66785e3b11
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941065"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869774"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Execute consultas apache hive em Azure HDInsight com Apache Zeppelin
 
@@ -28,7 +28,7 @@ Um cluster de consulta interativa HDInsight. Consulte [criar cluster](../hadoop/
 
 2. Insira o nome de utilizador e a palavra-passe do seu cluster. A partir da página zeppelin, pode criar uma nova nota ou abrir notas existentes. **HiveSample** contém algumas consultas de hive amostra.  
 
-    ![HDInsight Interactive Query zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight Interactive Query zeppelin" border="true":::
 
 3. **Selecione Criar nova nota**.
 
@@ -46,7 +46,7 @@ Um cluster de consulta interativa HDInsight. Consulte [criar cluster](../hadoop/
     show tables
     ```
 
-    ![HDInsight Interactive Query zeppelin executa consulta](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight Interactive Query zeppelin executa consulta" border="true":::
 
     A declaração **de %jdbc (colmeia)** na primeira linha diz ao caderno para usar o intérprete Hive JDBC.
 

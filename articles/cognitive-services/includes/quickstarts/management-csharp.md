@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 3/22/2021
 ms.author: pafarley
-ms.openlocfilehash: 7da10fbdff0b6771fcffb6cc303d5ab183df190a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1ecfd58e961e70182bfc2e0cc8eaf77f5053eb77
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947169"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104879698"
 ---
 [Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/management)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
@@ -28,7 +28,7 @@ ms.locfileid: "98947169"
 
 ## <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Criar uma nova aplicação .NET Core. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `azure-management-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *program.cs*. 
+Criar uma nova aplicação .NET Core. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `azure-management-quickstart` . Este comando cria um projeto "Hello World" C# simples com um único ficheiro de origem: *programa.cs*. 
 
 ```console
 dotnet new console -n azure-management-quickstart
@@ -64,13 +64,13 @@ Se estiver a utilizar o Visual Studio IDE, a biblioteca do cliente está dispon�
 
 ### <a name="import-libraries"></a>Importar bibliotecas
 
-Abra *program.cs* e adicione as `using` seguintes declarações ao topo do ficheiro:
+Abra *o programa.cs* e adicione as `using` seguintes declarações ao topo do ficheiro:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_using)]
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Adicione os seguintes campos à raiz de *program.cs* e povoe os seus valores, utilizando o principal serviço que criou e as informações da sua conta Azure.
+Adicione os seguintes campos à raiz do *programa.cs* e povoe os seus valores, utilizando o principal serviço que criou e as informações da sua conta Azure.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_constants)]
 
@@ -120,9 +120,11 @@ Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 dotnet run
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Documentação de referência da Azure Management SDK](/dotnet/api/overview/azure/cognitiveservices/management)
-* [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)
-* [Autenticar pedidos aos Serviços Cognitivos da Azure](../../authentication.md)
-* [Criar um novo recurso utilizando o portal do Azure](../../cognitive-services-apis-create-account.md)
+* Consulte **[pedidos autenticados aos Serviços Cognitivos da Azure](../../authentication.md)** sobre como trabalhar de forma segura com os Serviços Cognitivos.
+* Veja **[o que são os Serviços Cognitivos Azure para](../../what-are-cognitive-services.md)** obter uma lista de diferentes categorias dentro dos Serviços Cognitivos.
+* Consulte o **[suporte linguístico natural](../../language-support.md)** para ver a lista de línguas naturais que os Serviços Cognitivos suportam.
+* Consulte **[o Uso de Serviços Cognitivos como recipientes](../../cognitive-services-container-support.md)** para entender como utilizar os Serviços Cognitivos no pré-pré-m.
+* Consulte **[o Plano e gere os custos dos Serviços Cognitivos](../../plan-manage-costs.md)** para estimar o custo da utilização dos Serviços Cognitivos.
+* Consulte **[a documentação de referência da Cognitive Services Management SDK](/dotnet/api/overview/azure/cognitiveservices/management)** para obter mais detalhes sobre a gestão SDK.

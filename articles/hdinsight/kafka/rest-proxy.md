@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: a9a007d33226c508e193368b08b189001bf53401
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bc3cbe5d0d7cf5e5a78112ae5df63ebb88a97f5a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944067"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864844"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um representante rest
 
@@ -22,7 +22,7 @@ Para operações apoiadas pela API Kafka REST, consulte [hdInsight Kafka REST Pr
 
 ## <a name="background"></a>Fundo
 
-![Design de procuração kafka REST](./media/rest-proxy/rest-proxy-architecture.png)
+:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Design de procuração kafka REST" border="false":::
 
 Para obter a especificação completa das operações suportadas pela API, consulte [Apache Kafka REST Proxy API](/rest/api/hdinsight-kafka-rest-proxy).
 
@@ -49,10 +49,10 @@ Se você trouxer o seu próprio VNet e controlar o tráfego da rede com grupos d
 1. Crie um grupo de segurança do AAD. Adicione a aplicação que registou com a Azure AD ao grupo de segurança como **membro** do grupo. Este grupo de segurança será utilizado para controlar quais aplicações podem interagir com o representante DO REST. Para obter mais informações sobre a criação de grupos AD Azure, consulte [criar um grupo básico e adicionar membros usando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     Validar o grupo é do tipo **Segurança.**
-    ![Grupo de Segurança](./media/rest-proxy/rest-proxy-group.png)
+    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Grupo de Segurança" border="true":::
 
     Validar esta candidatura é membro do Grupo.
-    ![Ver Adesão](./media/rest-proxy/rest-proxy-membergroup.png)
+    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Ver Adesão" border="true":::
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>Criar um cluster Kafka com proxy REST habilitado
 
@@ -60,17 +60,17 @@ Os passos abaixo utilizam o portal Azure. Para um exemplo utilizando o Azure CLI
 
 1. Durante o fluxo de trabalho de criação de cluster Kafka, no **separador Segurança + rede,** verifique a opção **de procuração Enable Kafka REST.**
 
-     ![A screenshot mostra a página de cluster Create H D Insight com segurança + rede selecionada.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="A screenshot mostra a página de cluster Create H D Insight com segurança + rede selecionada." border="true":::
 
 1. Clique **em Select Security Group**. Na lista de grupos de segurança, selecione o grupo de segurança que pretende ter acesso ao representante DO REST. Pode utilizar a caixa de pesquisa para encontrar o grupo de segurança apropriado. Clique no botão **Selecione** na parte inferior.
 
-     ![A screenshot mostra a página de cluster Create H D Insight com a opção de selecionar um grupo de segurança.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="A screenshot mostra a página de cluster Create H D Insight com a opção de selecionar um grupo de segurança." border="true":::
 
 1. Complete os passos restantes para criar o seu cluster como descrito no [cluster Create Apache Kafka em Azure HDInsight utilizando o portal Azure](./apache-kafka-get-started.md).
 
 1. Uma vez criado o cluster, vá às propriedades do cluster para gravar o URL de procuração kafka REST.
 
-     ![ver REST proxy URL](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
+     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="ver REST proxy URL" border="true":::
 
 ## <a name="client-application-sample"></a>Amostra de aplicação de cliente
 

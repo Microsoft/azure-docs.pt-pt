@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4ace5620bf98b06956c294a12b6b08881422e718
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98673692"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952342"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros Azure: a pedido com o `mount` comando e no arranque, criando uma entrada em `/etc/fstab` .
@@ -94,7 +94,7 @@ uname -r
     Se não conseguir abrir a porta 445 da sua rede corporativa ou estiver impedido de o fazer por um ISP, poderá utilizar uma ligação VPN ou ExpressRoute para trabalhar na porta 445. Para obter mais informações, consulte [considerações de Networking para acesso direto à partilha de ficheiros Azure](storage-files-networking-overview.md)..
 
 ## <a name="mounting-azure-file-share"></a>Montagem Azure partilha de ficheiros
-Para utilizar uma partilha de ficheiros Azure com a sua distribuição Linux, tem de criar um diretório para servir de ponto de montagem para a partilha de ficheiros Azure. Um ponto de montagem pode ser criado em qualquer lugar do seu sistema Linux, mas é uma convenção comum para criar isso em /mnt. Depois do ponto de montagem, utilize o `mount` comando para aceder à partilha de ficheiros Azure.
+Para utilizar uma partilha de ficheiros Azure com a sua distribuição Linux, tem de criar um diretório para servir de ponto de montagem para a partilha de ficheiros Azure. Um ponto de montagem pode ser criado em qualquer lugar do seu sistema Linux, mas é uma convenção comum para criar isto sob /montagem. Depois do ponto de montagem, utilize o `mount` comando para aceder à partilha de ficheiros Azure.
 
 Pode montar a mesma partilha de ficheiros Azure em vários pontos de montagem, se desejar.
 
@@ -106,7 +106,7 @@ Pode montar a mesma partilha de ficheiros Azure em vários pontos de montagem, s
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```
@@ -135,14 +135,14 @@ Pode montar a mesma partilha de ficheiros Azure em vários pontos de montagem, s
 Quando terminar de usar a partilha de ficheiros Azure, poderá utilizar `sudo umount $mntPath` para desmontar a partilha.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Crie um ponto de montagem persistente para a partilha de ficheiros Azure com `/etc/fstab`
-1. **Criar uma pasta para o ponto de montagem**: Uma pasta para um ponto de montagem pode ser criada em qualquer lugar do sistema de ficheiros, mas é comum criar isto em /mnt. Por exemplo, o seguinte comando cria um novo diretório, `<your-resource-group>` substitui, `<your-storage-account>` e com as `<your-file-share>` informações apropriadas para o seu ambiente:
+1. **Criar uma pasta para o ponto de montagem**: Uma pasta para um ponto de montagem pode ser criada em qualquer lugar do sistema de ficheiros, mas é comum criar esta sob /montagem. Por exemplo, o seguinte comando cria um novo diretório, `<your-resource-group>` substitui, `<your-storage-account>` e com as `<your-file-share>` informações apropriadas para o seu ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```
@@ -251,18 +251,18 @@ Começando pelo kernel Linux 4.18, o módulo de kernel SMB, chamado `cifs` por r
 | Distribuição | Pode desativar o SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04+ | Yes |
+| Ubuntu 18.04 | Sim |
+| Ubuntu 19.04+ | Sim |
 | Debian 8-9 | No |
-| Debian 10+ | Yes |
-| Fedora 29+ | Yes |
+| Debian 10+ | Sim |
+| Fedora 29+ | Sim |
 | CentOS 7 | No | 
-| CentOS 8+ | Yes |
+| CentOS 8+ | Sim |
 | Red Hat Enterprise Linux 6.x-7.x | No |
-| Red Hat Enterprise Linux 8+ | Yes |
+| Red Hat Enterprise Linux 8+ | Sim |
 | openSUSE Leap 15.0 | No |
-| openSUSE Leap 15.1+ | Yes |
-| openSUSE Tumbleweed | Yes |
+| openSUSE Leap 15.1+ | Sim |
+| openSUSE Tumbleweed | Sim |
 | SUSE Linux Enterprise 11.x-12.x | No |
 | Empresa SUSE Linux 15 | No |
 | Empresa SUSE Linux 15.1 | No |

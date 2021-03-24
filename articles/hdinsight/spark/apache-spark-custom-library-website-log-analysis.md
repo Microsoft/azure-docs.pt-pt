@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d99bf914d3ef746fe328d2447426565fc15e52b4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940302"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866323"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise os registos do site usando uma biblioteca de Python personalizada com aglomerado de faíscas Apache em HDInsight
 
@@ -30,11 +30,11 @@ Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na sec
 
 1. Crie um novo bloco de notas. Selecione **Novo**, e depois **PySpark**.
 
-    ![Criar um novo Caderno Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo Caderno Jupyter")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="Criar um novo Caderno Apache Jupyter" border="true"::: Caderno" border="true":::
 
 1. É criado e aberto um novo bloco de notas com o nome Untitled.pynb. Selecione o nome do portátil na parte superior e introduza um nome amigável.
 
-    ![Fornecer um nome para o bloco de notas](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Fornecer um nome para o bloco de notas")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Fornecer um nome para o livro" border="true":::de notas" border="true":::
 
 1. Como criou um caderno usando o núcleo PySpark, não precisa de criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente quando executa a primeira célula do código. Pode começar por importar os tipos necessários para este cenário. Cole o seguinte corte numa célula vazia e, em seguida, prima **Shift + Enter**.
 
@@ -173,7 +173,7 @@ Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na sec
 
    Deve ver uma saída como a seguinte imagem:
 
-   ![hdinsight jupyter sql saída de consulta](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Saída de consulta SQL")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="hdinsight jupyter sql consulta output" border="true":::yter sql query output" border="true"::
 
    Para obter mais informações sobre a `%%sql` magia, consulte [Parâmetros suportados com a magia %%sql](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
@@ -191,7 +191,7 @@ Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na sec
 
    Deve ver uma saída como a seguinte imagem:
 
-   ![apache spark web log plano de análise](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Saída de Matplotlib")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="apache spark web log analysis plot" border="true":::eb log plot" border="true"::
 
 1. Depois de terminar a execução da aplicação, deve desligar o caderno para libertar os recursos. Para tal, no menu **File** (Ficheiro) do bloco de notas, selecione **Close and Halt** (Fechar e Parar). Esta ação vai encerrar e fechar o caderno.
 

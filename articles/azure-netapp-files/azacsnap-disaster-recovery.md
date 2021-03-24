@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 554fa394179e7cfc5b86a2b50eb754547d137a44
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98730875"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870398"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Recuperação de desastres utilizando a ferramenta Azure Application Consistent Snapshot (pré-visualização)
 
@@ -146,13 +146,13 @@ HDB stop
 #### <a name="step-4-restore-the-volumes"></a>Passo 4: Restaurar os volumes
 
 ```bash
-azacsnap -c restore --restore revertvolume --hanasid H80
+azacsnap -c restore --restore revertvolume --dbsid H80
 ```
 
 **_Saída do comando de failover DR_**.
 
 ```bash
-azacsnap --configfile DR.json -c restore --restore revertvolume --hanasid H80
+azacsnap --configfile DR.json -c restore --restore revertvolume --dbsid H80
 ```
 
 ```output

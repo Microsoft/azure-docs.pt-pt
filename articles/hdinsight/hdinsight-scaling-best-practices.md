@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e6c692e8fc13d1703df44c99e9969ba4db5f119
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932063"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872103"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Azure HDInsight
 
@@ -36,7 +36,7 @@ A Microsoft fornece os seguintes utilitários para dimensionar os clusters:
 |[CLI Clássica do Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Portal do Azure](https://portal.azure.com)|Abra o painel de agrupamento HDInsight, selecione o tamanho do **Cluster** no menu da esquerda, depois na vidraça do tamanho do Cluster, escreva o número de nós de trabalhador e selecione Save.|  
 
-![Opção de cluster de escala de portal Azure](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Opção de cluster de escala de portal Azure":::
 
 Utilizando qualquer um destes métodos, pode escalar o seu cluster HDInsight para cima ou para baixo em minutos.
 
@@ -82,7 +82,7 @@ O impacto da alteração do número de nós de dados varia para cada tipo de clu
 
     1. Selecione a topologia que pretende reequilibrar e, em seguida, selecione o botão **Reequilibrar.** Introduza o atraso antes de terminar a operação de reequilíbrio.
 
-        ![Reequilibrar escala de tempestade HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Reequilibrar escala de tempestade HDInsight":::
 
   * Ferramenta de interface de linha de comando (CLI)
 
@@ -130,13 +130,13 @@ Para ver uma lista de empregos pendentes e em execução, pode utilizar o **UI d
 3. A partir da UI Ambari, selecione **YARN** na lista de serviços no menu à esquerda.  
 4. Na página YARN, selecione **Links Rápidos** e paire sobre o nó de cabeça ativo e, em seguida, selecione **Resource Manager UI**.
 
-    ![Apache Ambari liga rapidamente Resource Manager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari liga rapidamente Resource Manager UI":::
 
 Pode aceder diretamente à UI do Gestor de Recursos com `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 Vê-se uma lista de empregos, juntamente com o estado atual. Na imagem, há um trabalho em execução:
 
-![Aplicações UI do Gestor de Recursos](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Aplicações UI do Gestor de Recursos":::
 
 Para eliminar manualmente a aplicação de execução, execute o seguinte comando a partir da concha SSH:
 

@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98625203"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889602"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e troncos com um hub IoT
 
@@ -219,7 +219,7 @@ Para configurar alertas métricos:
 
 1. Primeiro, configure a condição de que o alerta dispare.
 
-    1. Em **Condição**, **selecione a condição de seleção**. No painel de lógica de **sinal configurado,** escreva "telemetria" na caixa de pesquisa e selecione **mensagens de telemetria enviadas**.
+    1. Em **Condição**, selecione **Adicionar condição**. No painel de lógica de **sinal configurado,** escreva "telemetria" na caixa de pesquisa e selecione **mensagens de telemetria enviadas**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot mostrando a seleção da métrica.":::
 
@@ -245,7 +245,7 @@ Para configurar alertas métricos:
 
 1. Agora,configem a ação para o alerta.
 
-    1. Voltando ao painel **de regras de alerta Criar,** em **Ações**, **selecione Select action group**. No **Selecione um grupo de ação para anexar a este** painel de regras de alerta, selecione **Criar grupo de ação**.
+    1. Voltar ao painel **de regras de alerta Criar,** em **Ações**, selecione **Adicionar grupos de ação**. No **Selecione um grupo de ação para anexar a este** painel de regras de alerta, selecione **Criar grupo de ação**.
 
     1. No **separador Básicos** no painel de **grupo de ação Create,** dê ao seu grupo de ação um nome e um nome de exibição.
 
@@ -313,7 +313,7 @@ Com estas definições, um alerta será desencadeado e receberá uma notificaç�
 
 ## <a name="run-the-simulated-device-app"></a>Executar a aplicação de dispositivo simulado
 
-Na secção [De Recursos Configurar,](#set-up-resources) registou uma identidade do dispositivo para simular usando um dispositivo IoT. Nesta secção, descarrega uma aplicação de consola .NET que simula um dispositivo que envia mensagens dispositivo-a-nuvem para um Hub IoT, configura-as para enviar estas mensagens para o seu hub IoT e, em seguida, executá-las. 
+Na secção [De Recursos Configurar,](#set-up-resources) registou uma identidade do dispositivo para simular usando um dispositivo IoT. Nesta secção, descarrega uma aplicação de consola .NET que simula um dispositivo que envia mensagens dispositivo-a-nuvem para um Hub IoT, configura-as para enviar estas mensagens para o seu hub IoT e, em seguida, executá-las.
 
 > [!IMPORTANT]
 >

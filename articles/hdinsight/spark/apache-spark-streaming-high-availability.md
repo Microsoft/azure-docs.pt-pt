@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 3eb761a793c41c2e2cc2cb952e4fb9f241b41ab6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 602fa1cab71a797dd25aca263e0c6a9f2aa616bb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929698"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870233"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar empregos de streaming Apache Spark de alta disponibilidade com YARN
 
@@ -18,7 +18,7 @@ ms.locfileid: "98929698"
 
 O Spark Streaming cria trabalhos de longa duração durante os quais é capaz de aplicar transformações aos dados e, em seguida, empurrar os resultados para sistemas de ficheiros, bases de dados, dashboards e consola. O Spark Streaming processa micro-lotes de dados, recolhendo primeiro um lote de eventos ao longo de um intervalo de tempo definido. Em seguida, o lote é enviado para processamento e saída. Os intervalos de tempo do lote são tipicamente definidos em frações de segundo.
 
-![Transmissão em fluxo do Spark](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-streaming.png" alt-text="Streaming de Faíscas" border="false":::
 
 ## <a name="dstreams"></a>DStreams
 
@@ -26,13 +26,13 @@ O Streaming de Faíscas representa um fluxo contínuo de dados utilizando um *fl
 
 O núcleo spark utiliza *conjuntos de dados distribuídos resilientes* (RDDs). Os RDDs distribuem dados por vários nós no cluster, onde cada nó geralmente mantém os seus dados completamente na memória para melhor desempenho. Cada RDD representa eventos recolhidos durante um intervalo de lote. Quando o intervalo do lote decorre, o Spark Streaming produz um novo RDD contendo todos os dados nesse intervalo. Este conjunto contínuo de RDDs é recolhido num DStream. Uma aplicação Spark Streaming processa os dados armazenados no RDD de cada lote.
 
-![Faísca DStream](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-dstream.png" alt-text="Faísca DStream" border="false":::
 
 ## <a name="spark-structured-streaming-jobs"></a>Trabalhos de streaming estruturados de faíscas
 
 O Spark Structured Streaming foi introduzido no Spark 2.0 como um motor analítico para utilização em dados estruturados de streaming. O Spark Structured Streaming utiliza as APIs do motor de lote SparkSQL. Tal como acontece com o Spark Streaming, o Spark Structured Streaming executa os seus cálculos ao longo de micro-lotes de dados que chegam continuamente. O Streaming Estruturado de Faísca representa um fluxo de dados como uma Tabela de Entrada com linhas ilimitadas. Ou seja, a Tabela de Entradas continua a crescer à medida que chegam novos dados. Esta Tabela de Entrada é continuamente processada por uma consulta de longa duração e os resultados são escritos para uma Tabela de Saída.
 
-![Fluxo Estruturado de Faísca](./media/apache-spark-streaming-high-availability/structured-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/structured-streaming.png" alt-text="Fluxo Estruturado de Faísca" border="false":::
 
 No Streaming Estruturado, os dados chegam ao sistema e são imediatamente ingeridos na Tabela de Entrada. Escreve consultas que realizam operações contra esta Tabela de Entradas. A produção de consulta produz outra tabela, chamada tabela de resultados. A Tabela de Resultados contém resultados da sua consulta, a partir da qual extrai dados para enviar para uma loja de dados externa tal base de dados relacional. O *intervalo do gatilho* define o tempo para quando os dados são tratados a partir da Tabela de Entrada. Por predefinição, o Streaming Estruturado processa os dados assim que chega. No entanto, também pode configurar o gatilho para ser executado num intervalo mais longo, para que os dados de streaming são processados em lotes baseados no tempo. Os dados na Tabela de Resultados podem ser atualizados cada vez que há novos dados de modo a incluir todos os dados de saída desde o início da consulta de streaming (*modo completo),* ou pode apenas conter apenas os dados que são novos desde a última vez que a consulta foi processada *(modo apêndice).*
 
@@ -54,7 +54,7 @@ Para criar uma aplicação que processe cada evento uma vez (e apenas uma vez), 
 
 No HDInsight, o trabalho de cluster é coordenado por *Mais Um Negociador de Recursos* (YARN). Projetar alta disponibilidade para spark streaming inclui técnicas para streaming de faíscas, e também para componentes DE YARN.  Uma configuração de exemplo utilizando o YARN é mostrada abaixo.
 
-![Arquitetura YARN](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png" alt-text="Arquitetura YARN" border="false":::
 
 As secções seguintes descrevem considerações de design para esta configuração.
 

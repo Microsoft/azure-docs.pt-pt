@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771316"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888911"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica em Pesquisa Cognitiva de Azure
 
 > [!IMPORTANT]
-> A pesquisa semântica está em pré-visualização pública, disponível apenas através da pré-visualização REST API. As funcionalidades de pré-visualização são oferecidas como está, nos [Termos Complementares de Utilização,](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não estão garantidas a mesma implementação em disponibilidade geral. Estas características são faturas. Para mais informações, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
+> A pesquisa semântica está em pré-visualização pública, disponível através da pré-visualização REST API e portal. As funcionalidades de pré-visualização são oferecidas como está, nos [Termos Complementares de Utilização,](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não estão garantidas a mesma implementação em disponibilidade geral. Estas características são faturas. Para mais informações, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
 
 A pesquisa semântica é uma coleção de capacidades relacionadas com consultas que adicionam relevância semântica e compreensão linguística aos resultados da pesquisa. *O ranking semântico* procura contexto e parentesco entre termos, elevando os jogos que fazem mais sentido dada a consulta. A compreensão linguística encontra *legendas* e *respostas* dentro do seu conteúdo que resumem o documento correspondente ou respondem a uma pergunta, que pode ser prestada numa página de resultados de pesquisa para uma experiência de pesquisa mais produtiva.
 

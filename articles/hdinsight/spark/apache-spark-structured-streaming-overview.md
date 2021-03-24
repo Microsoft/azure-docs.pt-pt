@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 9f92007c271da5b6d2cb8db6c3904a62b114e7c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929504"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864606"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do Fluxo Estruturado de Faíscas Apache Spark
 
@@ -20,7 +20,7 @@ As aplicações de streaming estruturadas funcionam em clusters HDInsight Spark 
 
 O Streaming Estruturado cria uma consulta de longa duração durante a qual aplica operações aos dados de entrada, tais como seleção, projeção, agregação, janela e unição do DataFrame de streaming com dataframes de referência. Em seguida, produz os resultados para o armazenamento de ficheiros (Azure Storage Blobs ou Data Lake Storage) ou para qualquer datastore utilizando código personalizado (como SQL Database ou Power BI). O Streaming Estruturado também fornece saída para a consola para depuração local, e para uma tabela de memória para que possa ver os dados gerados para depuração em HDInsight.
 
-![Processamento de fluxo com HDInsight e Streaming Estruturado de Faíscas](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png" alt-text="Processamento de fluxo com HDInsight e Streaming Estruturado de Faíscas" border="false":::
 
 > [!NOTE]  
 > O Streaming Estruturado de Faísca está a substituir o Streaming spark (DStreams). Para a frente, o Streaming Estruturado receberá melhorias e manutenção, enquanto o DStreams estará apenas em modo de manutenção. O Streaming Estruturado não é atualmente tão completo como dStreams para as fontes e pias que suporta fora da caixa, por isso, avalie os seus requisitos para escolher a opção de processamento de fluxo spark apropriado.
@@ -29,7 +29,7 @@ O Streaming Estruturado cria uma consulta de longa duração durante a qual apli
 
 O Spark Structured Streaming representa um fluxo de dados como uma tabela que não é limitada em profundidade, ou seja, a tabela continua a crescer à medida que novos dados chegam. Esta *tabela de entrada* é continuamente processada por uma consulta de longa duração, e os resultados enviados para uma tabela de *saída:*
 
-![Conceito de streaming estruturado](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png" alt-text="Conceito de streaming estruturado" border="false":::
 
 No Streaming Estruturado, os dados chegam ao sistema e são imediatamente ingeridos numa tabela de entrada. Escreve consultas (utilizando as APIs do DataFrame e do Dataset) que realizam operações contra esta tabela de entrada. A produção de consulta produz outra tabela, a *tabela de resultados.* A tabela de resultados contém os resultados da sua consulta, a partir da qual se extraem dados para uma data-loja externa, tal base de dados relacional. O tempo de quando os dados são tratados a partir da tabela de entrada é controlado pelo *intervalo de disparo*. Por predefinição, o intervalo do gatilho é zero, pelo que o Streaming Estruturado tenta processar os dados assim que chega. Na prática, isto significa que assim que o Streaming Estruturado é feito o processamento da execução da consulta anterior, inicia outra execução de processamento contra quaisquer dados recém-recebidos. Pode configurar o gatilho para ser executado num intervalo, de modo a que os dados de streaming são processados em lotes baseados no tempo.
 
@@ -41,7 +41,7 @@ No modo de apêndice, apenas as linhas adicionadas à tabela de resultados desde
 
 Considere um cenário em que está a processar telemetria a partir de sensores de temperatura, como um termóstato. Assuma que o primeiro gatilho processou um evento às 00:01 para o dispositivo 1 com uma leitura de temperatura de 95 graus. No primeiro gatilho da consulta, apenas a linha com o tempo 00:01 aparece na tabela de resultados. Às 00:02 quando chega outro evento, a única nova fila é a fila com o tempo 00:02 e assim a tabela de resultados conteria apenas uma linha.
 
-![Modo de apêndice de streaming estruturado](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png" alt-text="Modo de apêndice de streaming estruturado" border="false":::
 
 Ao utilizar o modo de apêndice, a sua consulta estaria a aplicar projeções (selecionando as colunas de que se preocupa), filtrando (escolhendo apenas linhas que correspondem a determinadas condições) ou juntando-se (aumentando os dados com dados de uma tabela de procura estática). O modo de apêndice facilita a pressão apenas dos novos dados relevantes para o armazenamento externo.
 
@@ -51,7 +51,7 @@ Considere o mesmo cenário, desta vez utilizando o modo completo. Em modo comple
 
 Assuma que até agora há cinco segundos de dados já processados, e é hora de processar os dados para o sexto segundo. A tabela de entrada tem eventos para o tempo 00:01 e tempo 00:03. O objetivo desta consulta de exemplo é dar a temperatura média do dispositivo a cada cinco segundos. A implementação desta consulta aplica-se a um agregado que toma todos os valores que se enquadram em cada janela de 5 segundos, media a temperatura, e produz uma linha para a temperatura média ao longo desse intervalo. No final da primeira janela de 5 segundos, há dois tuples: (00:01, 1,95) e (00:03, 1,98). Assim, para a janela 00:00-00:05 a agregação produz uma tuple com a temperatura média de 96,5 graus. Na próxima janela de 5 segundos, só há um ponto de dados no tempo 00:06, então a temperatura média resultante é de 98 graus. No momento 00:10, utilizando o modo completo, a tabela de resultados tem as linhas para ambas as janelas 00:00-00:05 e 00:05-00:10 porque a consulta produz todas as linhas agregadas, e não apenas as novas. Portanto, a tabela de resultados continua a crescer à medida que novas janelas são adicionadas.
 
-![Modo completo de streaming estruturado](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png" alt-text="Modo completo de streaming estruturado" border="false":::
 
 Nem todas as consultas que utilizam o modo completo farão com que a mesa cresça sem limites.  Considere no exemplo anterior que, em vez de uma média da temperatura por janela de tempo, em vez disso, mediava-se pelo ID do dispositivo. A tabela de resultados contém um número fixo de linhas (uma por dispositivo) com a temperatura média do dispositivo em todos os pontos de dados recebidos desse dispositivo. À medida que as novas temperaturas são recebidas, a tabela de resultados é atualizada para que as médias na tabela estejam sempre atuais.
 
@@ -141,7 +141,7 @@ Para proporcionar resiliência e tolerância a falhas, o Streaming Estruturado d
 
 Normalmente constrói uma aplicação Spark Streaming localmente num ficheiro JAR e, em seguida, implanta-a para Spark on HDInsight copiando o ficheiro JAR para o armazenamento predefinido anexado ao seu cluster HDInsight. Pode iniciar a sua aplicação com as APIs [Apache Livy](https://livy.incubator.apache.org/) REST disponíveis no seu cluster utilizando uma operação POST. O corpo do POST inclui um documento JSON que fornece o caminho para o seu JAR, o nome da classe cujo método principal define e executa a aplicação de streaming, e opcionalmente os requisitos de recursos do trabalho (como o número de executores, memória e núcleos), e quaisquer configurações que o seu código de aplicação exija.
 
-![Implementação de uma aplicação de streaming de faíscas](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Implementação de uma aplicação de streaming de faíscas" border="false":::
 
 O estado de todos os pedidos também pode ser verificado com um pedido GET contra um ponto final LIVY. Finalmente, pode terminar um pedido de execução emitindo um pedido de DELETE contra o ponto final LIVY. Para mais detalhes sobre a API LIVY, consulte [trabalhos remotos com Apache LIVY](apache-spark-livy-rest-interface.md)
 

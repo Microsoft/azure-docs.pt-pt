@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: 04da5d668515fe96d50d4e6a7d0f5ff1c4c48c27
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4aa25368e156ce793e969f866490352e253559fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931389"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871729"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrar o cluster HDInsight para uma versão mais recente
 
@@ -24,7 +24,7 @@ Para tirar partido das mais recentes funcionalidades hdInsight, recomendamos que
 ## <a name="migration-tasks"></a>Tarefas de migração
 
 O fluxo de trabalho para atualizar o HDInsight Cluster é o seguinte.
-![Diagrama de fluxo de trabalho de upgrade HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+:::image type="content" source="./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png" alt-text="Diagrama de fluxo de trabalho de upgrade HDInsight" border="false":::
 
 1. Leia cada secção deste documento para compreender as alterações que podem ser necessárias ao atualizar o seu cluster HDInsight.
 2. Criar um cluster como ambiente de garantia de teste/qualidade. Para obter mais informações sobre a criação de um cluster, consulte [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)

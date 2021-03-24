@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 75d219a207fef4f1f122799af5f4f4ef2765bca4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fc26d8e154dc0a58bb3436a8161d2e21efa2b86
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101723865"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952019"
 ---
 # <a name="azure-security-baseline-for-application-gateway"></a>Linha de base de segurança Azure para Gateway de Aplicação
 
@@ -60,7 +60,7 @@ Para mais informações, consulte as referências abaixo.
 
 - [Compreender a Segurança da Rede fornecida pelo Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [FAQ para diagnóstico e registo para gateway de aplicação Azure](/azure/application-gateway/application-gateway-faq#what-types-of-logs-does-application-gateway-provide)
+- [FAQ para diagnóstico e registo para gateway de aplicação Azure](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Responsabilidade**: Cliente
 
@@ -118,7 +118,7 @@ Para mais informações, consulte as referências abaixo.
 
 - [Compreender a Segurança da Rede fornecida pelo Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [FAQ para diagnóstico e registo para gateway de aplicação Azure](/azure/application-gateway/application-gateway-faq#what-types-of-logs-does-application-gateway-provide)
+- [FAQ para diagnóstico e registo para gateway de aplicação Azure](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Responsabilidade**: Cliente
 
@@ -140,7 +140,7 @@ Em alternativa, existem várias opções de mercado como o Barracuda WAF para Az
 
 - [Como implantar a Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-- [Compreender o Serviço de Nuvem WAF Barracuda](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Compreender o Serviço de Nuvem WAF Barracuda](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Responsabilidade**: Cliente
 
@@ -210,9 +210,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações para as definições de rede e recursos relacionados com as suas implementações do Gateway de Aplicações Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nas definições ou recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -230,7 +230,7 @@ Além dos Registos de Atividade, pode configurar definições de diagnóstico pa
 
 O Azure Application Gateway também oferece integração incorporada com a Azure Application Insights. O Application Insights recolhe dados de registo, desempenho e erro. O Application Insights deteta automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para o ajudar a diagnosticar problemas e a compreender como as suas aplicações web estão a ser utilizadas. Pode permitir a exportação contínua para a telemetria de exportação da Application Insights para um local centralizado para manter os dados por mais tempo do que o período de retenção padrão.
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](/azure/azure-monitor/platform/activity-log)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](application-gateway-diagnostics.md)
 
@@ -250,7 +250,7 @@ Além dos Registos de Atividade, pode configurar definições de diagnóstico pa
 
 O Azure Application Gateway também oferece integração incorporada com a Azure Application Insights. O Application Insights recolhe dados de registo, desempenho e erro. O Application Insights deteta automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para o ajudar a diagnosticar problemas e a compreender como as suas aplicações web estão a ser utilizadas. Pode permitir a exportação contínua para a telemetria de exportação da Application Insights para um local centralizado para manter os dados por mais tempo do que o período de retenção padrão.
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](application-gateway-diagnostics.md)
 
@@ -266,7 +266,7 @@ O Azure Application Gateway também oferece integração incorporada com a Azure
 
 **Orientação**: Dentro do Azure Monitor, desa um ponto final no período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-- [Como definir parâmetros de retenção de registos para log analytics workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
@@ -280,7 +280,7 @@ Utilize o Monitor Azure para redes para uma visão abrangente da saúde e métri
 
 Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](/azure/azure-monitor/platform/activity-log)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](application-gateway-diagnostics.md)
 
@@ -300,13 +300,13 @@ Utilize o Monitor Azure para redes para uma visão abrangente da saúde e métri
 
 - [Como implantar a Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](/azure/azure-monitor/platform/activity-log)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](application-gateway-diagnostics.md)
 
 - [Como utilizar o Monitor Azure para redes](../azure-monitor/insights/network-insights-overview.md)
 
-- [Como criar alertas dentro do Azure](/azure/azure-monitor/learn/tutorial-response)
+- [Como criar alertas dentro do Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilidade**: Cliente
 
@@ -334,9 +334,9 @@ Configure as definições de diagnóstico para as suas implementações do Gatew
 
 **Orientação**: O Azure Ative Directory (Azure AD) tem funções incorporadas que devem ser explicitamente atribuídas e que são consultadas. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Responsabilidade**: Cliente
 
@@ -444,7 +444,7 @@ Para mais informações, consulte as referências abaixo.
 
 **Orientação**: O Azure Ative Directory (Azure AD) fornece registos para ajudar a descobrir contas velhas. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado.
 
-- [Compreenda a Azure AD reportando](/azure/active-directory/reports-monitoring/)
+- [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
 - [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -458,7 +458,7 @@ Para mais informações, consulte as referências abaixo.
 
 Pode agilizar este processo criando definições de diagnóstico para contas de utilizadores AZure E envio de registos de auditoria e registos de login para um espaço de trabalho do Log Analytics. Pode configurar os alertas desejados dentro do log analytics workspace.
 
-- [Como integrar os Registos de Atividades do Azure no Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidade**: Cliente
 
@@ -486,7 +486,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Utilize tags para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis. 
 
-- [Como criar e usar Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -546,7 +546,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações na produção de instâncias do Gateway de aplicação Azure, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -604,7 +604,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 - [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -667,7 +667,7 @@ Para mais informações, consulte as referências abaixo.
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -709,7 +709,7 @@ Para mais informações, consulte as referências abaixo.
 
 **Orientação**: Defina e implemente configurações de segurança padrão para definições de rede relacionadas com as suas implementações do Gateway de aplicações Azure. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração de rede dos seus Gateways de Aplicações Azure, Redes Virtuais Azure e grupos de segurança de rede. Também pode utilizar a definição de política incorporada.
 
-- [Como ver pseudónimos disponíveis da Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -733,9 +733,9 @@ Para mais informações, consulte as referências abaixo.
 
 **Orientação**: Se utilizar definições de política Azure personalizadas, utilize Azure DevOps ou Azure Repos para armazenar e gerir o seu código de forma segura.
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentação de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação de Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilidade**: Cliente
 
@@ -817,7 +817,7 @@ Configure as definições de diagnóstico para as suas implementações do Gatew
 
 **Orientação**: Ao utilizar a Firewall de Aplicação Web Azure (WAF), pode configurar as políticas WAF. Uma política da WAF consiste em dois tipos de regras de segurança: regras personalizadas que são da autoria do cliente, e conjuntos de regras geridos que são uma coleção de regras pré-configuradas geridas pela Azure. Os conjuntos de regras geridos pelo Azure fornecem uma forma fácil de implementar proteção contra um conjunto comum de ameaças à segurança. Uma vez que tais regras são geridas pelo Azure, as regras são atualizadas conforme necessário para proteger contra novas assinaturas de ataque.
 
-- [Compreenda os conjuntos de regras waf geridos pelo Azure](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy-and-rules)
+- [Compreenda os conjuntos de regras waf geridos pelo Azure](../web-application-firewall/ag/ag-overview.md#waf-policy-and-rules)
 
 **Responsabilidade**: Partilhada
 
@@ -833,11 +833,11 @@ Configure as definições de diagnóstico para as suas implementações do Gatew
 
 Os Serviços de DevOps do Azure tiram partido das muitas funcionalidades de armazenamento do Azure para garantir a disponibilidade de dados no caso de falhas de hardware, interrupções de serviço ou desastre na região. Adicionalmente, a equipa do Azure DevOps segue procedimentos para proteger dados contra eliminação acidental ou maliciosa.
 
-- [Compreender a disponibilidade de dados em Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Compreender a disponibilidade de dados em Azure DevOps](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentação de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação de Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilidade**: Cliente
 
@@ -963,5 +963,5 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

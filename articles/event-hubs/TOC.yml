@@ -145,24 +145,20 @@
           href: event-hubs-amqp-troubleshoot.md
 - name: Guias de procedimentos
   items:
-    - name: Criar um registo de esquema
-      href: create-schema-registry.md
-    - name: Mover
-      items:
-        - name: Mover um espaço de nomes para outra região
-          href: move-across-regions.md
-        - name: Mover um cluster dedicado para outra região
-          href: move-cluster-across-regions.md
-    - name: Adicionar partições dinamicamente
-      href: dynamically-add-partitions.md
-    - name: Utilizar o Armazenamento de Blobs como arquivo de pontos de verificação no Azure Stack Hub
-      href: use-blob-storage-checkpoint-store-azure-stack-hub.md
-    - name: Migrar das APIs do Azure Service Manager (clássico) para as APIs do Resource Manager
-      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Programar
       items:
         - name: Obter a cadeia de ligação dos Hubs de Eventos
           href: event-hubs-get-connection-string.md
+        - name: Adicionar dados personalizados a eventos
+          href: add-custom-data-event.md
+        - name: Criar um registo de esquema
+          href: create-schema-registry.md
+        - name: Adicionar partições dinamicamente
+          href: dynamically-add-partitions.md
+        - name: Utilizar o Armazenamento de Blobs como arquivo de pontos de verificação no Azure Stack Hub
+          href: use-blob-storage-checkpoint-store-azure-stack-hub.md
+        - name: Migrar das APIs do Azure Service Manager (clássico) para as APIs do Resource Manager
+          href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
         - name: Trocar eventos entre aplicações através de protocolos diferentes
           href: event-hubs-exchange-events-different-protocols.md
         - name: Guias de programação
@@ -247,6 +243,12 @@
           href: event-hubs-messaging-exceptions.md
         - name: Exceções do Resource Manager
           href: resource-manager-exceptions.md
+    - name: Mover
+      items:
+        - name: Mover um espaço de nomes para outra região
+          href: move-across-regions.md
+        - name: Mover um cluster dedicado para outra região
+          href: move-cluster-across-regions.md
 - name: Referência
   items:
     - name: SDKs

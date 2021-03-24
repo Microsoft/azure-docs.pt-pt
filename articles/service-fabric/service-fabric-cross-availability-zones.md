@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 95ee4e5f326dd9b76645d22ff735bc36437c72fb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714957"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870126"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade
 Availability Zones in Azure é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas do datacenter. Uma Zona de Disponibilidade é um local físico único equipado com potência independente, arrefecimento e networking dentro de uma região de Azure.
@@ -35,7 +35,19 @@ A topologia recomendada para o tipo de nó primário requer os recursos descrito
 >[!NOTE]
 > A escala de máquina virtual definida como propriedade de grupo de colocação única deve ser definida como verdadeira, uma vez que o Service Fabric não suporta um único conjunto de escala de máquina virtual que se estende por zonas.
 
- ![Diagrama que mostra a arquitetura da Zona de Disponibilidade de Tecido de Serviço Azure.][sf-architecture]
+Diagrama que mostra o diagrama de arquitetura da Zona de Disponibilidade de Tecido de Serviço Azure que mostra a arquitetura da Zona de Disponibilidade de Tecido de ![ Serviço Azure.][sf-architecture]
+
+Lista de nós de amostra que retrata os formatos FD/UD em zonas de abrangia de escala de máquina virtual
+
+ ![Lista de nós de amostra que retrata os formatos FD/UD em zonas de abrangia de escala de máquina virtual.][sf-multi-az-nodes]
+
+**Distribuição de réplicas de Serviço através de zonas**: Quando um serviço é implantado nos nótypes que são zonas de abranggem, as réplicas são colocadas para garantir que aterram em zonas separadas. Isto é assegurado à medida que o domínio da falha nos nós presentes em cada um destes nós é configurado com a informação de zona (i.e FD = fd:/zona1/1 etc.). Por exemplo: para 5 réplicas ou instâncias de um serviço a distribuição será 2-2-1 e o tempo de execução tentará garantir uma distribuição igual através de AZs.
+
+**Configuração de réplica do serviço de utilizador**: Os serviços de utilizador declarados implantados na zona de identificação transversal Os nósTypes devem ser configurados com esta configuração: contagem de réplicas com alvo = 9, min = 5. Esta configuração ajudará o serviço a funcionar mesmo quando uma zona se desabrande, uma vez que 6 réplicas ainda estarão em cima nas outras duas zonas. Uma atualização de aplicações em tal cenário também irá passar.
+
+**Cluster ReliabilityLevel**: Isto define o número de nós de sementes no cluster e também o tamanho da réplica dos serviços do sistema. Como uma configuração de zona de disponibilidade cruzada tem um maior número de nós, que são espalhados por zonas para permitir a resiliência da zona, um valor de fiabilidade mais garantirá a presença de nó mais nós de sementes e réplicas de serviço de sistema estão distribuídos uniformemente por zonas, de modo que em caso de falha de zona o cluster e os serviços do sistema permanecem sempaced. "FiabilidadeLevel = Platinum" assegurará que existem 9 nós de sementes espalhados por zonas do cluster com 3 sementes em cada zona, daí ser recomendado para a configuração da zona de disponibilidade cruzada.
+
+**Cenário de zona para baixo**: Quando uma zona desce, todos os nós nessa zona aparecerão como baixos. As réplicas de serviço nestes nós também estarão em baixo. Como existem réplicas nas outras zonas, o serviço continua a responder com réplicas primárias falhando nas zonas que estão funcionando. Os serviços aparecerão em estado de alerta, uma vez que a contagem de réplicas-alvo ainda não foi alcançada e uma vez que a contagem de VM ainda é mais do que o tamanho da réplica do alvo. Posteriormente, o equilibrador de carga do Tecido de Serviço apresentará réplicas nas zonas de trabalho para corresponder à contagem de réplicas de alvo configurada. Neste momento, os serviços parecerão saudáveis. Quando a zona que estava em baixo voltar a subir, o equilíbrio de carga irá novamente espalhar todas as réplicas de serviço uniformemente em todas as zonas.
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 ### <a name="public-ip-and-load-balancer-resource"></a>Recurso público de equilibrador de IP e carga
@@ -345,7 +357,7 @@ Para ativar zonas num conjunto de escala de máquina virtual, deve incluir os se
 
 * O primeiro valor é a propriedade **zonas,** que especifica as Zonas de Disponibilidade presentes no conjunto de escala de máquina virtual.
 * O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como verdadeira. **O conjunto de escalas que se estende por 3 AZ's pode escalar até 300 VMs mesmo com "singlePlacementGroup = true".**
-* O terceiro valor é "zoneBalance", que garante um equilíbrio estrito da zona. Isto deve ser "verdadeiro" para evitar uma distribuição desequilibrada dos VMs através das zonas. Um aglomerado com distribuição VM desequilibrada através de zonas é menos provável que sobreviva à zona para baixo do cenário. Leia sobre [a zonaBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* O terceiro valor é "zoneBalance", que garante um equilíbrio estrito da zona. Isto devia ser "verdade". Isto garante que as distribuições de VM através de zonas não são desequilibradas, garantindo que quando uma das zonas se desagrava, as outras duas zonas têm VM suficientes para garantir que o cluster continua a funcionar sem interrupções. Um cluster com uma distribuição de VM desequilibrada pode não sobreviver a um cenário de zona para baixo, uma vez que essa zona pode ter a maioria dos VMs. A distribuição de VM desequilibrada através das zonas também levará a problemas relacionados com a colocação de serviços & atualizações de infraestruturas ficarem presas. Leia sobre [a zonaBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * As sobreposições FaultDomain e UpgradeDomain não são necessárias para serem configuradas.
 
 ```json
@@ -363,7 +375,7 @@ Para ativar zonas num conjunto de escala de máquina virtual, deve incluir os se
 ```
 
 >[!NOTE]
-> * **Os clusters SF devem ter pelo menos um nó de nó primário. Durabilidade O nível de nó de nó primário deve ser prateado ou superior.**
+> * **Os clusters de tecido de serviço devem ter pelo menos um nó de nó primário. Durabilidade O nível de nó de nó primário deve ser prateado ou superior.**
 > * O conjunto de escala de máquina virtual AZ abrangendo deve ser configurado com pelo menos 3 zonas de disponibilidade, independentemente da durabilidadeLevel.
 > * A AZ abrangendo a balança de máquina virtual definida com durabilidade prateada (ou superior), deve ter pelo menos 15 VMs.
 > * A AZ abrangendo a balança de máquina virtual definida com durabilidade de Bronze, deve ter pelo menos 6 VMs.
@@ -373,13 +385,13 @@ O nó de tecido de serviçoType deve ser ativado para suportar várias zonas de 
 
 * O primeiro valor é **multipleSSeabilityZones** que devem ser definidos como verdadeiros para o nóType.
 * O segundo valor é **sfZonalUpgradeMode** e é opcional. Esta propriedade não pode ser modificada se um nó detipo com vários AZ's já estiver presente no cluster.
-      A propriedade controla o agrupamento lógico de VMs em domínios de upgrade.
-          Se o valor for definido como "Paralelo": os VMs sob o nótipo serão agrupados em UDs ignorando a informação da zona em 5 UDs.
-          Se o valor for omitido ou definido para "Hierárquico": Os VMs serão agrupados para refletir a distribuição zonal em até 15 UDs. Cada uma das 3 zonas terá 5 UDs.
-          Esta propriedade apenas define o comportamento de upgrade para aplicação ServiceFabric e atualizações de código. As atualizações de escala de máquinas virtuais subjacentes continuarão paralelas em todos os AZ's.
-      Esta propriedade não terá qualquer impacto na distribuição de UD para tipos de nó que não têm várias zonas ativadas.
+  A propriedade controla o agrupamento lógico de VMs em domínios de upgrade.
+  **Se o valor for definido como "Paralelo":** Os VMs sob o nótipo serão agrupados em UDs ignorando a informação da zona em 5 UDs. Isto resultará em UD0 em todas as zonas para ser atualizado ao mesmo tempo. Este modo de implementação é mais rápido para atualizações, mas não é recomendado, uma vez que vai contra as diretrizes do SDP, que indicam que as atualizações devem ser aplicadas apenas uma zona de cada vez.
+  **Se o valor for omitido ou definido para "Hierárquico":** Os VMs serão agrupados para refletir a distribuição zonal em até 15 UDs. Cada uma das 3 zonas terá 5 UDs. Isto garante que as atualizações vão para a zona seguinte, movendo-se para a zona seguinte apenas após completar 5 UDs dentro da primeira zona, lentamente através de 15 UDs (3 zonas, 5 UDs), o que é mais seguro do ponto de vista do cluster e da aplicação do utilizador.
+  Esta propriedade apenas define o comportamento de upgrade para aplicação ServiceFabric e atualizações de código. As atualizações de escala de máquinas virtuais subjacentes continuarão paralelas em todos os AZ's.
+  Esta propriedade não terá qualquer impacto na distribuição de UD para tipos de nó que não têm várias zonas ativadas.
 * O terceiro valor é **vmssZonalUpgradeMode = Paralelo.** Esta é uma propriedade *obrigatória* a ser configurada no cluster, se for adicionado um nó com várias AZs. Esta propriedade define o modo de upgrade para as atualizações de escala de máquina virtual que irão acontecer em paralelo em todos os AZ's de uma só vez.
-      Neste momento, esta propriedade só pode ser definida paralelamente.
+  Neste momento, esta propriedade só pode ser definida paralelamente.
 * A apiversão de recursos do cluster de tecido de serviço deve ser "2020-12-01-pré-visualização" ou superior.
 * A versão do código de cluster deve ser "7.2.445" ou superior.
 
@@ -408,7 +420,7 @@ O nó de tecido de serviçoType deve ser ativado para suportar várias zonas de 
 >[!NOTE]
 > * Os Recursos De Equilíbrio de IP e carga pública devem utilizar o SKU Standard, conforme descrito anteriormente no artigo.
 > * A propriedade "multipleAvailabilityZones" no nóType só pode ser definida no momento da criação do nodeType e não pode ser modificada mais tarde. Assim, os nótipos existentes não podem ser configurados com esta propriedade.
-> * Quando "sfZonalUpgradeMode" for omitido ou definido para "Hierárquico", o cluster e as implementações de aplicações serão mais lentos, uma vez que há mais domínios de upgrade no cluster. É importante ajustar corretamente os intervalos de tempo da política de atualização para incorporar durante a duração do tempo de atualização de 15 domínios de atualização.
+> * Quando "sfZonalUpgradeMode" for omitido ou definido para "Hierárquico", o cluster e as implementações de aplicações serão mais lentos, uma vez que há mais domínios de upgrade no cluster. É importante ajustar corretamente os intervalos de tempo da política de atualização para incorporar durante a duração do tempo de atualização de 15 domínios de atualização. A política de atualização tanto para apps como para cluster deve ser atualizada para garantir que a implementação não exceda os intervalos de implementação do Azure Resource Serbice de 12 horas. Isto significa que a implantação não deve demorar mais de 12 horas para 15UDs, ou seja, não deve demorar mais de 40 min/UD.
 > * Definir a fiabilidade do **clusterLevel = Platinum** para garantir que o cluster sobrevive ao cenário de uma zona para baixo.
 
 >[!NOTE]
@@ -426,3 +438,4 @@ O artigo [aqui](./service-fabric-scale-up-primary-node-type.md) captura os passo
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
+[sf-multi-az-nodes]: ./media/service-fabric-cross-availability-zones/sf-multi-az-nodes.png

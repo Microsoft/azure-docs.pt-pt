@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e4b6a6090bf0e5e332a960cba8ec565df9dd55c2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98881066"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872273"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para a base de dados Azure para servidor PostgreSQL-Single
 
@@ -84,7 +84,8 @@ Uma vez que o administrador de rede cria o ponto final privado (PE), o administr
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Utilizar casos de Link Privado para Base de Dados de Azure para PostgreSQL
 
-Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, vNet esprevado na mesma região, ou através da ligação VNet-to-VNet entre regiões. Além disso, os clientes podem conectar-se a partir de instalações usando expressRoute, peering privado ou túneis VPN. Abaixo está um diagrama simplificado mostrando os casos de uso comum.
+
+Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, [vNet esprevado](../virtual-network/virtual-network-peering-overview.md) na mesma região ou em regiões, ou através da [ligação VNet-to-VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre regiões. Além disso, os clientes podem conectar-se a partir de instalações usando expressRoute, peering privado ou túneis VPN. Abaixo está um diagrama simplificado mostrando os casos de uso comum.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="selecione a visão geral do ponto final privado":::
 

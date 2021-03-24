@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: cf1e71d67424258ccae6794f28d37399cd68996e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fde57eb3727eda6f810f861102e47a9f5746d1f8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101654331"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955606"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com VMware Horizon - Portal de Acesso Unificado
 
@@ -145,4 +145,4 @@ Também pode utilizar o Microsoft Access Panel para testar a aplicação em qual
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que configurar o VMware Horizon - Portal de Acesso Unificado, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Assim que configurar o VMware Horizon - Portal de Acesso Unificado, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

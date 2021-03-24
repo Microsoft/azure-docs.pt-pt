@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946662"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866731"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo - análise avançada
 
@@ -20,7 +20,7 @@ O HDInsight fornece a capacidade de obter informações valiosas a partir de gra
 
 ## <a name="advanced-analytics-process"></a>Processo de análise avançada
 
-![Fluxo de processo de análise avançada](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png" alt-text="Fluxo de processo de análise avançada" border="false":::
 
 Depois de identificar o problema do negócio e ter começado a recolher e processar os seus dados, precisa de criar um modelo que represente a questão que pretende prever. O seu modelo utilizará um ou mais algoritmos de aprendizagem automática para fazer o tipo de previsão que melhor se adequa às necessidades do seu negócio.  A maioria dos seus dados deve ser usada para treinar o seu modelo, com os restantes utilizados para testá-lo ou avaliá-los.
 
@@ -30,7 +30,7 @@ Depois de criar, carregar, testar e avaliar o seu modelo, o próximo passo é im
 
 Soluções de análise avançadas fornecem um conjunto de algoritmos de aprendizagem automática. Aqui está um resumo das categorias de algoritmos e casos de uso de negócios comuns associados.
 
-![Resumos da categoria de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png" alt-text="Resumos da categoria de Machine Learning" border="false":::
 
 Além de selecionar os algoritmos mais adequados, tem de considerar se precisa ou não fornecer dados para o treino. Os algoritmos de aprendizagem automática são categorizados da seguinte forma:
 
@@ -92,7 +92,7 @@ Existem três tarefas-chave neste avançado cenário de análise:
 
 Este exemplo utiliza o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de dados CIFAR-10 contém 60.000 imagens a cores 32×32 pertencentes a 10 classes mutuamente exclusivas:
 
-![Imagens de exemplo de aprendizagem automática](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png" alt-text="Imagens de exemplo de aprendizagem automática" border="false":::
 
 Para obter mais informações sobre o conjunto de dados, consulte [As Camadas Múltiplas de Funcionalidades de Alex](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)Krizhevsky de Tiny Images .
 
@@ -105,7 +105,7 @@ O conjunto de dados foi dividido num conjunto de treino de 50.000 imagens e num 
 
 Todo o pré-processamento/pontuação das 10.000 imagens demora menos de um minuto num aglomerado com 4 nós de trabalhadores. O modelo prevê com precisão os rótulos de ~9.100 (91%) imagens. Uma matriz de confusão ilustra os erros de classificação mais comuns. Por exemplo, a matriz mostra que a rotulagem errada dos cães como gatos e vice-versa ocorre mais frequentemente do que para outros pares de rótulos.
 
-![Gráfico de resultados de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png" alt-text="Gráfico de resultados de Machine Learning" border="false":::
 
 ### <a name="try-it-out"></a>Experimente!
 

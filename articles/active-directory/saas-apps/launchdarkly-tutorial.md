@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: ddfffb77ca889aea9ff32c7be1ce2e4cb7fc04a7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d9db86e400d862dd67582ede0bf44b9e9fd1c893
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037612"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Azure Ative Directory com o LaunchDarkly
 
@@ -159,8 +159,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no LaunchDarkly para o qual configura o SSO.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo LaunchDarkly nas Minhas Apps, deverá ser automaticamente inscrito no LaunchDarkly para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo LaunchDarkly nas Minhas Apps, deverá ser automaticamente inscrito no LaunchDarkly para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado o LaunchDarkly, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado o LaunchDarkly, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

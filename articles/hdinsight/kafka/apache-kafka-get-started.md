@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 102bb1a7bf1bd3cb799d52ce13045e01a2a34297
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: acb497b2f0111d36650ec415c8f1f580d116b55e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505261"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863297"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar cluster Apache Kafka em Azure HDInsight usando o portal Azure
 
@@ -36,7 +36,7 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
 
 1. A partir do menu superior, selecione **+ Crie um recurso.**
 
-    ![Portal Azure criar recurso HDInsight](./media/apache-kafka-get-started/azure-portal-create-resource.png)
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-create-resource.png" alt-text="Portal Azure criar recurso HDInsight" border="true":::
 
 1. Selecione **Analytics**  >  **Azure HDInsight** para ir à página de **cluster Create HDInsight.**
 
@@ -54,7 +54,7 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
     |Nome de utilizador de Secure Shell (SSH) | O nome de utilizador predefinido é **sshuser**.  Pode indicar outro nome de utilizador SSH. |
     |Use a palavra-passe de login do cluster para SSH| Selecione esta caixa de verificação para utilizar a mesma palavra-passe para o utilizador SSH que forneceu para o utilizador de login do cluster.|
 
-   ![Portal Azure cria básicos de cluster](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-basics.png" alt-text="Portal Azure cria básicos de cluster" border="true":::
 
     Cada região do Azure (localização) fornece _domínios de falha_. Um domínio de falha é um agrupamento lógico de hardware subjacente num centro de dados do Azure. Cada domínio de falha partilha um comutador de rede e uma fonte de alimentação. As máquinas virtuais e os discos geridos que implementam os nós num cluster HDInsight são distribuídos por esses domínios de falha. Esta arquitetura limita o possível impacto de falhas físicas de hardware.
 
@@ -71,7 +71,7 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
     |Conta de armazenamento primária|Utilize a lista de drop-down para selecionar uma conta de armazenamento existente ou selecione **Criar novo**. Se criar uma nova conta, o nome deve ter entre 3 e 24 caracteres de comprimento, e pode incluir apenas números e letras minúsculas|
     |Contentor|Utilize o valor auto-povoado.|
 
-    ![HDInsight Linux começa a fornecer valores de armazenamento de cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Fornecer valores de armazenamento para criar um cluster HDInsight")
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-storage.png " alt-text="HDInsight Linux começa a fornecer valores de armazenamento de cluster" border="true":::
 
     Selecione o separador **Segurança + rede.**
 
@@ -79,7 +79,7 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
 
    Se quiser ligar o seu cluster a uma rede virtual, selecione uma rede virtual na lista pendente **Rede Virtual**.
 
-   ![Adicionar o cluster a uma rede virtual](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png" alt-text="Adicionar o cluster a uma rede virtual" border="true":::
 
     Selecione o **separador configuração + preços.**
 
@@ -87,13 +87,13 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
 
     Os discos Standard por entrada **no nó de trabalhador** configuram a escalabilidade de Apache Kafka em HDInsight. O Apache Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster para armazenar dados. O Apache Kafka recebe um fluxo intensivo de dados de E/S, pelo que o [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) é utilizado para garantir um elevado débito e uma maior capacidade de armazenamento por nó. O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Apache Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard.
 
-   ![Definir o tamanho do cluster do Apache Kafka](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png" alt-text="Definir o tamanho do cluster do Apache Kafka" border="true":::
 
     Selecione o **separador 'Rever +' para criar.**
 
 1. Reveja a configuração do cluster. Altere quaisquer definições incorretas. Por fim, **selecione Criar** para criar o cluster.
 
-    ![resumo da configuração do cluster kafka](./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png)
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png" alt-text="resumo da configuração do cluster kafka" border="true":::
 
     A criação do cluster pode demorar até 20 minutos.
 
