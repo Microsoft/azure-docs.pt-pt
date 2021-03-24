@@ -5,14 +5,14 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/22/2021
 ms.author: jlian
-ms.openlocfilehash: 2a76cede4bc72da9f30564f98ab9bb84028680f7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bf9d58926c5a0fdc7c305e1d9daebfa1c8c9cf63
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581495"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023610"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP
 
@@ -32,11 +32,11 @@ Por predefinição, a grelha **de filtro IP** no portal para um hub IoT está va
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Adicionar ou editar uma regra de filtro de IP
 
-Para adicionar uma regra de filtro de IP, selecione **+ Adicionar Regra de Filtro de IP**.
+Para adicionar uma regra de filtro de IP, selecione **+ Adicionar Regra de Filtro de IP**. Para adicionar rapidamente o endereço IP do seu computador, clique no endereço IP do **seu cliente**. 
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Adicione uma regra de filtro IP a um hub IoT":::
 
-Depois de selecionar **Adicionar Regra de Filtro de IP**, preencha os campos.
+Depois de selecionar **Adicionar Regra de Filtro de IP**, preencha os campos. Estes campos são pré-preenchidos para si se tiver selecionado para adicionar o endereço IP do seu cliente.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Depois de selecionar Adicionar uma regra de Filtro de IP":::
 
@@ -85,6 +85,10 @@ Qualquer tentativa de ligação de um endereço IP que não seja explicitamente 
 As regras do filtro IP são *permitir* regras e aplicadas sem encomendar. Apenas endereços IP que adicionar são permitidos ligar ao IoT Hub. 
 
 Por exemplo, se quiser aceitar endereços na gama e rejeitar tudo o `192.168.100.0/22` resto, só precisa de adicionar uma regra na grelha com intervalo de `192.168.100.0/22` endereços .
+
+### <a name="azure-portal"></a>Portal do Azure 
+
+As regras do filtro IP também são aplicadas quando se utiliza o Hub IoT através do portal Azure. Isto porque as chamadas da API para o serviço IoT Hub são feitas diretamente usando o seu navegador com as suas credenciais, o que é consistente com outros serviços Azure. Para aceder ao IoT Hub utilizando o portal Azure quando o filtro IP estiver ativado, adicione o endereço IP do computador à lista de admissões. 
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recupere e atualize filtros IP usando O Azure CLI
 

@@ -4,12 +4,12 @@ description: Saiba como usar o Azure Arc habilitado os servidores a gerir servid
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175979"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023338"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
@@ -23,7 +23,7 @@ Quando liga a sua máquina a servidores ativados do Azure Arc, permite a capacid
 
 - Atribua [configurações de hóspedes da Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de políticas para máquinas virtuais Azure. Hoje em dia, a maioria das políticas de Configuração de Hóspedes não aplica configurações, apenas auditam as definições dentro da máquina. Para compreender o custo da utilização das políticas de configuração de hóspedes da Azure Policy com servidores ativados pelo Arc, consulte o [guia de preços da](https://azure.microsoft.com/pricing/details/azure-policy/)Política Azure .
 
-- Informe sobre alterações de configuração sobre software instalado, serviços microsoft, registo do Windows e ficheiros, e daemons Linux em servidores monitorizados utilizando o Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md) e [Azure Security Center Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), para servidores habilitados com [O Azure Defender para servidores](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction).
+- Informe sobre alterações de configuração sobre software instalado, serviços microsoft, registo do Windows e ficheiros, e daemons Linux em servidores monitorizados utilizando o Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md) e [Azure Security Center Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md), para servidores habilitados com [O Azure Defender para servidores](../../security-center/defender-for-servers-introduction.md).
 
 - Monitorize o desempenho do sistema operativo do hóspede da máquina conectada e descubra componentes de aplicação para monitorizar os seus processos e dependências com outros recursos que a aplicação comunica utilizando [o Azure Monitor para VMs](../../azure-monitor/vm/vminsights-overview.md).
 

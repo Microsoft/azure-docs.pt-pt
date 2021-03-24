@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f22379049b74428787b738af832802081be7bf8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099017"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022896"
 ---
 # <a name="managing-your-voice-assistant"></a>Gerir o seu assistente de voz
 
@@ -60,7 +60,7 @@ Uma palavra-chave é uma palavra ou frase curta usada para ativar um assistente 
 
 Com [o Speech Studio,](https://speech.microsoft.com/)pode criar uma palavra-chave personalizada para o seu assistente de voz. Leva até 30 minutos para treinar um modelo básico de palavras-chave personalizadas.
 
-Siga a [documentação](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) do Estúdio de Discurso para obter orientação sobre a criação de uma palavra-chave personalizada. Uma vez configurada, a sua nova palavra-chave estará disponível no portal do Projeto Santa Cruz para utilização com a sua aplicação de assistente de voz.
+Siga a [documentação](../cognitive-services/speech-service/custom-keyword-basics.md) do Estúdio de Discurso para obter orientação sobre a criação de uma palavra-chave personalizada. Uma vez configurada, a sua nova palavra-chave estará disponível no portal do Projeto Santa Cruz para utilização com a sua aplicação de assistente de voz.
 
 ## <a name="commands-configuration"></a>Configuração de comandos
 
@@ -88,7 +88,7 @@ Os comandos personalizados facilitam a construção de aplicações de comando d
 
 Com [o Speech Studio,](https://speech.microsoft.com/)pode criar comandos personalizados para que o seu assistente de voz execute.
 
-Siga a [documentação](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-custom-commands-application) do Estúdio de Discurso para obter orientação sobre a criação de comandos personalizados. Uma vez configurados, os seus novos comandos estarão disponíveis no Azure Percept Studio para utilização com a sua aplicação de assistente de voz.
+Siga a [documentação](../cognitive-services/speech-service/quickstart-custom-commands-application.md) do Estúdio de Discurso para obter orientação sobre a criação de comandos personalizados. Uma vez configurados, os seus novos comandos estarão disponíveis no Azure Percept Studio para utilização com a sua aplicação de assistente de voz.
 
 ## <a name="next-steps"></a>Passos seguintes
 

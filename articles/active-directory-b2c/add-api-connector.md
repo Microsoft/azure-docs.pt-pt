@@ -5,17 +5,17 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d1b52ed0f862b544d4b90d466ddc1d2a231ca44
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008438"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023423"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
 
@@ -51,14 +51,22 @@ A autenticação básica HTTP é definida no [RFC 2617](https://tools.ietf.org/h
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização e é fornecida sem um acordo de nível de serviço. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A autenticação do certificado de cliente é uma autenticação baseada em certificados mútuos, onde o cliente fornece um certificado de cliente ao servidor para provar a sua identidade. Neste caso, o Azure AD B2C utilizará o certificado que carrega como parte da configuração do conector API. Isto acontece como parte do aperto de mão SSL. Apenas os serviços que possuam certificados adequados podem aceder ao seu serviço REST API. O certificado de cliente é um certificado digital X.509. Em ambientes de produção, deve ser assinado por uma autoridade de certificados. 
+A autenticação do certificado de cliente é um método de autenticação baseado em certificados mútuos onde o cliente fornece um certificado de cliente ao servidor para provar a sua identidade. Neste caso, o Azure AD B2C utilizará o certificado que carrega como parte da configuração do conector API. Isto acontece como parte do aperto de mão SSL. O seu serviço API pode então limitar o acesso a apenas serviços que possuam certificados adequados. O certificado de cliente é um certificado digital PKCS12 (PFX) X.509. Em ambientes de produção, deve ser assinado por uma autoridade de certificados. 
 
+Para criar um certificado, pode utilizar [o Azure Key Vault,](../key-vault/certificates/create-certificate.md)que tem opções para certificados auto-assinados e integrações com fornecedores de emitentes de certificados para certificados assinados. As definições recomendadas incluem:
+- **Objeto:**`CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Tipo de conteúdo:**`PKCS #12`
+- **Tipo de Atoon vitalício**: `Email all contacts at a given percentage lifetime` ou `Email all contacts a given number of days before expiry`
+- **Chave privada exportável**: `Yes` (a fim de poder exportar ficheiro pfx)
 
-Para criar um certificado, pode utilizar [o Azure Key Vault,](../key-vault/certificates/create-certificate.md)que tem opções para certificados auto-assinados e integrações com fornecedores de emitentes de certificados para certificados assinados. Em seguida, pode [exportar o certificado](../key-vault/certificates/how-to-export-certificate.md) e carregá-lo para utilização na configuração dos conectores API. Note que a palavra-passe só é necessária para ficheiros de certificados protegidos por uma palavra-passe. Também pode utilizar o [cmdlet New-SelfSignedCertificate da PowerShell](./secure-rest-api.md#prepare-a-self-signed-certificate-optional) para gerar um certificado auto-assinado.
+Em seguida, pode [exportar o certificado.](../key-vault/certificates/how-to-export-certificate.md) Em alternativa, pode utilizar o [cmdlet New-SelfSignedCertificate da PowerShell](../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) para gerar um certificado auto-assinado.
 
-Para o Azure App Service e Azure Functions, consulte [a autenticação mútua de configuração TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) para aprender a ativar e validar o certificado a partir do seu ponto final da API.
+Depois de ter um certificado, pode então carregá-lo como parte da configuração do conector API. Note que a palavra-passe só é necessária para ficheiros de certificados protegidos por uma palavra-passe.
 
-Recomenda-se que desista de alertas para quando o seu certificado expirar. Para enviar um novo certificado para um conector API existente, selecione o conector API nos **conectores API (pré-visualização)** e clique no **Upload novo certificado**. O certificado mais recentemente carregado que não está expirado e já passou a data de início será automaticamente utilizado pelo Azure AD B2C.
+A sua API deve implementar a autorização com base em certificados de cliente enviados para proteger os pontos finais da API. Para o Serviço de Aplicações Azure e Funções Azure, consulte [a autenticação mútua de configuração TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) para aprender a ativar e *validar o certificado a partir do seu código API*.  Também pode utilizar a Azure API Management para [verificar as propriedades dos certificados](
+../api-management/api-management-howto-mutual-certificates-for-clients.md)  do cliente contra os valores pretendidos usando expressões de política.
+
+Recomenda-se que desista de alertas para quando o seu certificado expirar. Terá de gerar um novo certificado e repetir os passos acima. O seu serviço API pode continuar temporariamente a aceitar certificados antigos e novos enquanto o novo certificado é implantado. Para enviar um novo certificado para um conector API existente, selecione o conector API nos **conectores API** e clique no **Upload novo certificado**. O certificado mais recentemente carregado que não está expirado e já passou a data de início será automaticamente utilizado pelo Azure Ative Directory.
 
 ### <a name="api-key"></a>Chave de API
 Alguns serviços utilizam um mecanismo de "chave API" para obstacular o acesso aos seus pontos finais HTTP durante o desenvolvimento. Para [funções Azure,](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)pode fazê-lo incluindo o `code` parâmetro de consulta no URL **endpoint**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
@@ -302,7 +310,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | versão     | String  | Yes      | A versão da sua API.                                                    |
 | ação      | String  | Yes      | O valor deve `ValidationError` ser.                                           |
-| status      | Número inteiro | Yes      | Deve ser valor `400` para uma resposta do ValidationError.                        |
+| status      | Inteiro / Corda | Yes      | Deve ser valor `400` , ou para uma resposta `"400"` ValidationError.  |
 | userMessage | String  | Yes      | A mensagem a apresentar ao utilizador.                                            |
 
 > [!NOTE]

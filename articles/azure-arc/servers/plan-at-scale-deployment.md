@@ -3,12 +3,12 @@ title: Como planear e implementar servidores ativados pelo Azure Arc
 description: Saiba como permitir que um grande número de máquinas para o Azure Arc permitiu que os servidores simplificassem a configuração das capacidades essenciais de segurança, gestão e monitorização em Azure.
 ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 401725dcfed85a6675c95434270dd7dbff482b6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591185"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023287"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planeie e implemente servidores ativados pelo Arc
 
@@ -57,7 +57,7 @@ Nesta fase, os engenheiros ou administradores de sistemas permitem que as funcio
 |Tarefa |Detalhes |Duração |
 |-----|-------|---------|
 | [Criar um grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Um grupo de recursos dedicado para incluir apenas servidores ativados pela Arc e centralizar a gestão e monitorização destes recursos. | Uma hora |
-| Aplicar [Tags](../../azure-resource-manager/management/tag-resources.md) para ajudar a organizar máquinas. | Avaliar e desenvolver uma estratégia de [marcação](/cloud-adoption-framework/decision-guides/resource-tagging/) alinhada com TI que possa ajudar a reduzir a complexidade de gerir os seus servidores ativados pelo Arco e simplificar as decisões de gestão. | Um dia |
+| Aplicar [Tags](../../azure-resource-manager/management/tag-resources.md) para ajudar a organizar máquinas. | Avaliar e desenvolver uma estratégia de [marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) alinhada com TI que possa ajudar a reduzir a complexidade de gerir os seus servidores ativados pelo Arco e simplificar as decisões de gestão. | Um dia |
 | Conceber e implementar [registos de monitores Azure](../../azure-monitor/logs/data-platform-logs.md) | Avalie [considerações de design e implementação](../../azure-monitor/logs/design-logs-deployment.md) para determinar se a sua organização deve usar um espaço de trabalho existente ou implementar outro espaço de trabalho do Log Analytics para armazenar dados de registo recolhidos de servidores e máquinas híbridos. <sup>1</sup> | Um dia |
 | Desenvolver um plano de governação [da Política Azure](../../governance/policy/overview.md) | Determine como implementará a governação de servidores e máquinas híbridos no âmbito de subscrição ou grupo de recursos com a Política Azure. | Um dia |
 | Configure [controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) | Desenvolver um plano de acesso para controlar quem tem acesso a gerir servidores ativados pela Arc e capacidade de visualizar os seus dados a partir de outros serviços e soluções Azure. | Um dia |
@@ -71,7 +71,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, preparando e impla
 
 |Tarefa |Detalhes |Duração |
 |-----|-------|---------|
-| Descarregue o script de instalação pré-definido | Reveja e personalize o script de instalação pré-definido para a implantação à escala do agente da Máquina Conectada para suportar os seus requisitos de implementação automatizados.<br><br> Amostra em escala de recursos de bordo:<br><br> <ul><li> [Na escala, script de implementação básica](onboard-service-principal.md)</ul></li> <ul><li>[Em escala no bordo VMware vSphere Windows Server VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Em escala a bordo VMware vSphere Linux VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Em escala a bordo de instâncias AWS EC2 utilizando Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Na implementação em escala utilizando o remoting PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (apenas para windows)</ul></li>| Um ou mais dias dependendo dos requisitos, processos organizacionais (por exemplo, Gestão de Alterações e Libertação) e método de automatização utilizado. |
+| Descarregue o script de instalação pré-definido | Reveja e personalize o script de instalação pré-definido para a implantação à escala do agente da Máquina Conectada para suportar os seus requisitos de implementação automatizados.<br><br> Amostra de recursos de bordo à escala:<br><br> <ul><li> [Script de implementação básica em escala](onboard-service-principal.md)</ul></li> <ul><li>[VMware vMware vS de vMware vS de vMware do Windows à escala](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[PMware vSMware vSphere Linux VMs à escala](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[Instâncias AWS EC2 de bordo à escala utilizando ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[Implementação em escala utilizando o remoting PowerShell](./onboard-powershell.md) (apenas windows)</ul></li>| Um ou mais dias dependendo dos requisitos, processos organizacionais (por exemplo, Gestão de Alterações e Libertação) e método de automatização utilizado. |
 | [Criar um principal de serviço](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Crie um principal de serviço para ligar máquinas não interativamente usando a Azure PowerShell ou a partir do portal.| Uma hora |
 | Implemente o agente 'Máquina Conectada' nos servidores e máquinas-alvo |Utilize a sua ferramenta de automatização para implantar os scripts nos seus servidores e conectá-los ao Azure.| Um ou mais dias dependendo do seu plano de libertação e se seguir um lançamento faseado. |
 
