@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7158e9f82ee01b320d448baeab51fcfd122be00d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73b958964db2d0b308dd6dfc34024d61ce5ad8af
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944682"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871440"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Ações de script de resolução de problemas em Azure HDInsight
 
@@ -26,11 +26,11 @@ Pode utilizar a UI web Apache Ambari para visualizar informações registadas pe
 
 1. A partir da barra no topo da página, selecione a entrada **de ops.** Uma lista apresenta operações atuais e anteriores feitas no cluster através de Ambari.
 
-    ![Ambari web UI bar com ops selecionados](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
+    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="Ambari web UI bar com ops selecionados" border="true":::
 
 1. Encontre as entradas que **executaram \_ a subscrição personalizada** na coluna **Operações.** Estas entradas são criadas quando as ações do script são executadas.
 
-    ![Apache Ambari script operações de ação](./media/troubleshoot-script-action/ambari-script-action.png)
+    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Apache Ambari script operações de ação" border="true":::
 
     Para visualizar a saída **STDOUT** e **STDERR,** selecione a entrada **de execução por subscrição personalizada** e faça exercício através dos links. Esta saída é gerada quando o script é executado e pode ter informações úteis.
 
@@ -40,7 +40,7 @@ Se a criação de cluster falhar devido a um erro de script, os registos são ma
 
 * Os registos de armazenamento estão disponíveis em `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` .
 
-    ![Troncos de ação do script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
+    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="Troncos de ação do script" border="true":::
 
     Sob este diretório, os troncos são organizados separadamente para **headnode,** **nóiro operário,** e **nó do zookeeper**. Veja os exemplos seguintes:
 

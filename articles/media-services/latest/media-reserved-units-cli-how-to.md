@@ -2,29 +2,27 @@
 title: Unidades reservadas de mídia de escala (MRUs) CLI
 description: Este tópico mostra como usar o CLI para escalar o processamento de mídia com a Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 06c0c6333b84697415ef598d4c5e853d5c006f08
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213815"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870165"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Como escalar unidades reservadas para os meios de comunicação
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo mostra-lhe como escalar Unidades Reservadas de Mídia (MRSs) para uma codificação mais rápida.
+
+> [!WARNING]
+> Este comando deixará de funcionar para as contas dos Media Services que são criadas com a versão 2020-05-01 da API ou posterior. Para estas contas, as unidades reservadas aos meios de comunicação já não são necessárias, uma vez que o sistema irá automaticamente aumentar e descer automaticamente com base na carga. Se não vir a opção de gerir as MRUs no portal Azure, está a utilizar uma conta que foi criada com a API 2020-05-01 ou mais tarde.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695856"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949843"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure Purview implementa as melhores práticas
 
@@ -150,7 +150,7 @@ Em Purview, existem várias áreas onde os Administradores de Catálogo precisam
 
 ### <a name="plan-and-implement-different-integration-points-with-purview"></a>Planear e implementar diferentes pontos de integração com a Purview
 
-É provável que uma organização madura já tenha um catálogo de dados existente. A questão-chave é se continuar a utilizar a tecnologia existente e a sincronizar com a Purview. A visão permite a publicação de informações através das APIs do Atlas, mas não se destinam a apoiar este tipo de cenário. Algumas organizações podem decidir inicialmente como arrancar o uso da Purview migrando sobre os ativos de dados existentes a partir de outras soluções de catálogo de dados. Isto pode ser feito através das APIs do Atlas como uma abordagem unidireccionnal. A sincronização entre diferentes tecnologias de catálogo não deve ser considerada no desenho a longo prazo. O que normalmente aconteceu é que cada unidade de negócio pode continuar a usar as soluções existentes para ativos de dados mais antigos, enquanto a Purview seria usada para analisar fontes de dados mais recentes.
+É provável que uma organização madura já tenha um catálogo de dados existente. A questão-chave é se continuar a utilizar a tecnologia existente e a sincronizar com a Purview ou não. Para lidar com a sincronização com os produtos existentes numa organização, a Purview fornece APIs atlas REST. As APIs do Atlas fornecem um mecanismo poderoso e flexível que lida com cenários de impulso e puxar. As informações podem ser publicadas no Purview usando apis atlas para bootstrapping ou para empurrar as últimas atualizações de outro sistema para o Purview. As informações disponíveis em Purview também podem ser lidas usando APIs do Atlas e depois sincronizadas de volta aos produtos existentes. 
 
 Para outros cenários de integração, como bilhética, interface personalizada de utilizador e orquestração, pode utilizar apis atlas e pontos finais de Kafka. Em geral, existem quatro pontos de integração com a Purview:
 

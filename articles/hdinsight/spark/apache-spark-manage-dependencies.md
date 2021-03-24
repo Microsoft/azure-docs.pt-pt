@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: f0673523c74a0ea298e7d2d520952c3e98877e91
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c950903522d42b3c279cb89f3a6031043fd49bf3
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930040"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868805"
 ---
 # <a name="manage-spark-application-dependencies"></a>Gerir dependências de aplicação do Spark
 
@@ -43,7 +43,7 @@ Vais usar a `%%configure` magia para configurar o caderno para usar um pacote ex
 
 Depois de localizar o pacote do Repositório Maven, colete os valores para **GroupId,** **ArtifactId** e **Versão**. Concatenar os três valores, separados por um cólon **.**
 
-   ![Esquema de pacote concatenate](./media/apache-spark-manage-dependencies/spark-package-schema.png "Esquema de pacote concatenate")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/spark-package-schema.png " alt-text="Concatenate pacote schema" border="true":::kage schema" border="true"::
 
 Certifique-se de que os valores que recolhe correspondem ao seu cluster. Neste caso, estamos a usar o pacote de conector DB Spark Cosmos para Scala 2.11 e Spark 2.3 para o cluster HDInsight 3.6 Spark. Se não tiver a certeza, corra `scala.util.Properties.versionString` em célula de código no kernel Spark para obter a versão cluster Scala. Corra `sc.version` para obter a versão cluster Spark.
 
@@ -70,7 +70,7 @@ import com.microsoft.azure.cosmosdb.spark._
 ### <a name="use-azure-toolkit-for-intellij"></a>Use o kit de ferramentas Azure para IntelliJ
 [O Azure Toolkit para o plug-in IntelliJ](./apache-spark-intellij-tool-plugin.md) fornece experiência de UI para submeter a aplicação Spark Scala a um cluster HDInsight. Fornece `Referenced Jars` e `Referenced Files` propriedades para configurar caminhos de libs frascos ao submeter a aplicação Spark. Veja mais detalhes sobre [como utilizar o Azure Toolkit para plug-in IntelliJ para HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
 
-![A caixa de diálogo de submissão de faíscas](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="A caixa de diálogo de submissão de faíscas" border="true":::
 
 ## <a name="jar-libs-for-cluster"></a>Jar libs para cluster
 Em alguns casos, pode querer configurar as dependências do frasco ao nível do cluster para que cada aplicação possa ser configurada com as mesmas dependências por padrão. A abordagem é adicionar os seus caminhos de jarro ao condutor de Spark e ao caminho da classe executora.
@@ -89,11 +89,11 @@ Em alguns casos, pode querer configurar as dependências do frasco ao nível do 
     spark.executor.extraClassPath=/usr/libs/sparklibs/*
     ```
 
-   ![Alterar config padrão faísca](./media/apache-spark-manage-dependencies/change-spark-default-config.png "Alterar config padrão faísca")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/change-spark-default-config.png " alt-text="Alterar config config" border="true":::ult config" border="true"::
 
 3. Guarde as configurações alteradas e reinicie os serviços com impacto.
 
-   ![Reiniciar serviços com impacto](./media/apache-spark-manage-dependencies/restart-impacted-services.png "Reiniciar serviços com impacto")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/restart-impacted-services.png " alt-text="Reiniciar serviços com impacto" border="true":::ted services" border="true":::
 
 Pode automatizar os passos utilizando [ações de script](../hdinsight-hadoop-customize-cluster-linux.md). A ação do script para [adicionar bibliotecas personalizadas da Hive](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) é uma boa referência. Ao alterar os configs do serviço Spark, certifique-se de que utiliza APIs Ambari em vez de modificar os ficheiros config diretamente. 
 

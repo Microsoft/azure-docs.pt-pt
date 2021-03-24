@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: 36e5b020241f7be33aa4cfa473222ad301d18fbe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2c66b08d399ddf53686074079665e36be9aace7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581104"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870475"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft &reg; Smooth Streaming Cliente Kit de Porting
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
  
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Microsoft Smooth Streaming Client Porting Kit **(SSPK** para abreviar) é uma implementação do cliente de Streaming Suave que é otimizada para ajudar fabricantes de dispositivos incorporados, operadores de cabos e móveis, fornecedores de serviços de conteúdo, fabricantes de aparelhos, fornecedores de software independentes (ISVs) e fornecedores de soluções para criar produtos e serviços para streaming de conteúdos adaptativos em formato Smooth Streaming. A SSPK é um dispositivo e implementação independente da plataforma do cliente Smooth Streaming que pode ser transmitida pelo licenciado a qualquer dispositivo e plataforma. 
 
 Incluído abaixo é uma arquitetura de alto nível e iIS Smooth Streaming Porting Kit box é a implementação do Cliente de streaming suave fornecida pela Microsoft e inclui toda a lógica principal para a reprodução de conteúdo de Streaming Suave. Este conteúdo é então portado por parceiros para um dispositivo ou plataforma específico, implementando interfaces apropriadas. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrição
 A SSPK é licenciada em termos que oferecem excelente valor de negócio. A licença SSPK fornece à indústria:
 
 * Fonte do Kit de Porting de Streaming Suave em C++ 
@@ -135,7 +135,6 @@ Os licenciados provisórios e finais da SSPK podem submeter perguntas técnicas 
 * Mega Fame Electronics Co. Limited
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
-* Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Corporação Panasonic
 * Qingdao Haier Optronics Co., Ltd.

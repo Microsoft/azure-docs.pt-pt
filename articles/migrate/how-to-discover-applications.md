@@ -6,21 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: 47ea06fa2143f9a5dc5808ccb98fc80c87fefd93
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d68c3729e8a63f8342cd51b62413aec3276c6165
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786707"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871015"
 ---
 # <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>Descubra o inventário de software instalado e as instâncias e bases de dados do SQL Server
 
 Este artigo descreve como descobrir o inventário de software instalado, e as instâncias e bases de dados do SQL Server em servidores em execução no seu ambiente VMware, utilizando a ferramenta Azure Migrate: Discovery e assessment.
 
 A realização de inventário de software ajuda a identificar e adaptar um caminho de migração para Azure para as suas cargas de trabalho. O inventário de software utiliza o aparelho Azure Migrate para realizar a descoberta, utilizando credenciais de servidor. É completamente sem agente, nenhum agente é instalado nos servidores para recolher estes dados.
-
-> [!NOTE]
-> O inventário de software está atualmente em pré-visualização para servidores em execução apenas no ambiente VMware, e está limitado apenas à descoberta. Atualmente não oferecemos avaliação baseada em aplicações.<br/> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 ## <a name="before-you-start"></a>Antes de começar
 
