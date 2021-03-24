@@ -236,8 +236,6 @@
               href: application-proxy-qlik.md
     - name: Resolução de problemas
       items:
-        - name: Resolver problemas relacionados com a adição de aplicações
-          href: troubleshoot-adding-apps.md
         - name: Resolver problemas de início de sessão único baseado em palavra-passe
           href: troubleshoot-password-based-sso.md
         - name: Resolver problemas de início de sessão único baseado em SAML

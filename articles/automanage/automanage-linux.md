@@ -4,16 +4,17 @@ description: Saiba mais sobre a auto-produção do Azure para máquinas virtuais
 author: deanwe
 ms.service: virtual-machines
 ms.subservice: automanage
+ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: b4ca9a69ab56a81e192560a3a61ec90f82cbbe80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3aab43be49cb98fbe136e1f0216590785d650392
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101688404"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953254"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices---linux"></a>Azure Automanage para as melhores práticas de máquinas virtuais - Linux
 
@@ -38,7 +39,7 @@ A automanagem suporta as seguintes distribuições e versões Linux:
 |Serviço    |Description    |Ambientes Apoiados<sup>1</sup>    |Preferências suportadas<sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |Monitorização de Insights VM    |O Azure Monitor for VMs monitoriza o desempenho e a saúde das suas máquinas virtuais, incluindo os seus processos de funcionamento e dependências de outros recursos. Saiba [mais.](../azure-monitor/vm/vminsights-overview.md)    |Produção    |No    |
-|Backup    |O Azure Backup fornece cópias de segurança independentes e isoladas para que estas protejam os dados nas suas VMs contra a destruição acidental. Saiba [mais.](../backup/backup-azure-vms-introduction.md) As cargas baseiam-se no número e no tamanho dos VMs que estão a ser protegidos. Saiba [mais.](https://azure.microsoft.com/pricing/details/backup/)    |Produção    |Yes    |
+|Backup    |O Azure Backup fornece cópias de segurança independentes e isoladas para que estas protejam os dados nas suas VMs contra a destruição acidental. Saiba [mais.](../backup/backup-azure-vms-introduction.md) As cargas baseiam-se no número e no tamanho dos VMs que estão a ser protegidos. Saiba [mais.](https://azure.microsoft.com/pricing/details/backup/)    |Produção    |Sim    |
 |Centro de Segurança do Azure    |O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados e fornece uma proteção avançada de ameaças através das suas cargas de trabalho híbridas na nuvem. Saiba [mais.](../security-center/security-center-introduction.md)  A autogestão configurará a subscrição onde o seu VM reside na oferta de nível livre do Azure Security Center. Se a sua subscrição já estiver a bordo do Azure Security Center, então a Automanage não a reconfigurará.    |Produção, Dev/Teste    |No    |
 |Gestão de Atualizações    |Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas virtuais. Pode avaliar rapidamente o estado das atualizações disponíveis em todas as máquinas de agente e gerir o processo de instalação das atualizações necessárias para os servidores. Saiba [mais.](../automation/update-management/overview.md)    |Produção, Dev/Teste    |No    |
 |Alterar o inventário de & de rastreio    |O Change Tracking and Inventory combina funções de rastreio e inventário de alterações para permitir rastrear alterações de infraestrutura de máquinas virtuais e servidores. O serviço suporta o rastreio de alterações através de serviços, software daemons, registo e ficheiros no seu ambiente para ajudá-lo a diagnosticar alterações indesejadas e aumentar alertas. O suporte ao inventário permite-lhe consultar os recursos in-guest para visibilidade em aplicações instaladas e outros itens de configuração.  Saiba [mais.](../automation/change-tracking/overview.md)    |Produção, Dev/Teste    |No    |
