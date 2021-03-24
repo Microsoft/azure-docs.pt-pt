@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5eb0f353579233041bb5ccba46de2549ada7e9b7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944048"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864793"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Criar clusters Azure HDInsight com Azure Automation
 
@@ -38,16 +38,16 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. Digite **AzureRM.Profile** na caixa e acerte entrar para procurar. Selecione o resultado da pesquisa disponível.
 1. No ecrã **AzureRM.profile,** **selecione Import**. Verifique a caixa para atualizar os módulos Azure e, em seguida, selecione **OK**.
 
-    ![módulo de import AzureRM.profile](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermprofile-module.png" alt-text="módulo de import AzureRM.profile" border="false":::
 
 1. Regressar à galeria de módulos selecionando a **galeria de módulos** em **Recursos Partilhados.**
 1. Tipo **HDInsight**. Selecione **AzurerM.HDInsight**.
 
-    ![navegue em módulos HDInsight](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/browse-modules-hdinsight.png" alt-text="navegue em módulos HDInsight" border="true":::
 
 1. No painel **AzureRM.HDInsight,** **selecione Import** and **OK**.
 
-    ![módulo AzureRM.HDInsight](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermhdinsight-module.png" alt-text="módulo AzureRM.HDInsight" border="true":::
 
 ## <a name="create-credentials"></a>Criar credenciais
 
@@ -65,7 +65,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. Selecione **Criar**.
 1. Repita o mesmo processo para uma nova credencial `ssh-password` com nome de utilizador e uma `sshuser` palavra-passe à sua escolha. Selecione **Criar**. Esta credencial é para armazenar a palavra-passe SSH para o seu cluster.
 
-    ![Criar credencial](./media/manage-clusters-runbooks/create-credentials.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-credentials.png" alt-text="Criar credencial" border="true":::
 
 ## <a name="create-a-runbook-to-create-a-cluster"></a>Criar um livro de corridas para criar um cluster
 
@@ -74,11 +74,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. No **painel 'Criar' um painel de recortes,** insira um nome para o livro de recortes, tal como `hdinsight-cluster-create` . Selecione **Powershell** a partir do **dropdown do tipo Runbook.**
 1. Selecione **Criar**.
 
-    ![criar runbook](./media/manage-clusters-runbooks/create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="criar runbook" border="true":::
 
 1. Introduza o seguinte código no ecrã **Editar PowerShell Runbook** e selecione **Publicar:**
 
-    ![publicar runbook](./media/manage-clusters-runbooks/publish-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/publish-runbook.png" alt-text="publicar runbook" border="true":::
 
     ```powershell
     Param
@@ -154,7 +154,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. Selecione **Comece** a executar o livro de recortes imediatamente. Também pode agendar livros para executar periodicamente. Ver [Agendar um livro de bordo na Azure Automation](../automation/shared-resources/schedules.md)
 1. Introduza os parâmetros necessários para o script e selecione **OK**. Isto criará um novo cluster HDInsight com o nome especificado no parâmetro **CLUSTERNAME.**
 
-    ![executar criar runbook cluster](./media/manage-clusters-runbooks/execute-create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/execute-create-runbook.png" alt-text="executar criar runbook cluster" border="true":::
 
 ### <a name="delete-a-cluster"></a>Eliminar um cluster
 

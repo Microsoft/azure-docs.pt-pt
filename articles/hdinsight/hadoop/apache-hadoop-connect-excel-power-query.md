@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13862e642c6a91fe6f3c635df2efde91672ecbad
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946706"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866816"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Conecte o Excel a Apache Hadoop utilizando a Consulta de Energia
 
@@ -42,13 +42,13 @@ O add-in power-in para o Excel facilita a importação de dados do seu cluster H
 
      * Selecione **> dados**  >  **obtenha dados**  >  **do Azure Azure**  >  **HDInsight (HDFS)**.
 
-       ![O HDI. PowerQuery.SelectHdiSource.2016](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png" alt-text="O HDI. PowerQuery.SelectHdiSource.2016" border="true":::
 
    * Excel 2013/2010
 
      * **Selecione a consulta** de energia a partir de  >  **Azure** da Microsoft  >  **Azure HDInsight**.
 
-       ![O HDI. PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png" alt-text="O HDI. PowerQuery.SelectHdiSource" border="true":::
 
        **Nota:** Se não vir o menu **'Consulta de Energia',** aceda aos   >  Add-ins **de Opções**  >  **de Ficheiros** e selecione **Add-ins COM** da caixa De **gestão** de down-down na parte inferior da página. Selecione o botão **Go...** e verifique se a caixa para a consulta de alimentação para o add-in do Excel foi verificada.
 
@@ -62,11 +62,11 @@ O add-in power-in para o Excel facilita a importação de dados do seu cluster H
 
 1. Localizar **HiveSampleData.txt** na coluna **Nome** (o caminho da pasta é **.. /colmeia/armazém/hivesmpletable/**), e, em seguida, selecione **Binário** à esquerda de HiveSampleData.txt. HiveSampleData.txt vem com todo o aglomerado. Opcionalmente, pode usar o seu próprio ficheiro.
 
-    ![Dados de importação de consulta de energia HDI Excel](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png" alt-text="Dados de importação de consulta de energia HDI Excel" border="true":::
 
 1. Se quiser, pode mudar o nome dos nomes das colunas. Quando estiver pronto, selecione **Fechar & Carregar**.  Os dados foram carregados no seu livro:
 
-    ![Tabela importada de consulta de energia HDI Excel](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png" alt-text="Tabela importada de consulta de energia HDI Excel" border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

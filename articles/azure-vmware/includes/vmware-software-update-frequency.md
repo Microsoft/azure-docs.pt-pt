@@ -2,17 +2,21 @@
 title: Frequência de atualização de software VMware
 description: Frequência de atualização de software VMware suportada para Solução VMware Azure.
 ms.topic: include
-ms.date: 03/16/2021
-ms.openlocfilehash: a202e99efbe1232598645fed8a03ebf66a1e173b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.date: 03/22/2021
+ms.openlocfilehash: a3290ed704b493fae3e86223857ff9f1c5617f1a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773929"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869868"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
-A Microsoft é responsável pela gestão do ciclo de vida do software VMware (ESXi, vCenter, PSC e NXS) na nuvem privada.
+A Microsoft é responsável pela gestão do ciclo de vida do software VMware (ESXi, vCenter, PSC e NXS) na nuvem privada Azure VMware Solution.
+
+O software de nuvem privada é atualizado numa programação que acompanha a versão do pacote de software a partir de VMware. A sua nuvem privada não requer tempo de inatividade para atualizações.
+
+As atualizações do pacote de software de nuvem privada mantêm o software dentro de uma versão da versão mais recente do pacote de software lançado a partir de VMware. As versões privadas de software em nuvem podem diferir das versões mais recentes dos componentes de software individuais (ESXi, NSX-T, vCenter, vSAN).
 
 As atualizações de software incluem:
 

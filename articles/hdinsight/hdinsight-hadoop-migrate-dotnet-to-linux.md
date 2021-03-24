@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e626d08e7fd315ca70765477c5dae56030521c6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945600"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866408"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET para HDInsight baseado no Windows para o HDInsight baseado em Linux
 
@@ -33,7 +33,7 @@ O [Analisador de Portabilidade .NET](https://marketplace.visualstudio.com/items?
 
 2. A partir do Visual Studio 2015, selecione __Analisar__  >  __definições de analisador de portabilidade__ e certifique-se de que __o 4.5__ é verificado na secção __Mono.__
 
-    ![4.5 verificado na secção Mono para as definições do analisador](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="4.5 verificado na secção Mono para as definições do analisador":::
 
     Selecione __OK__ para guardar a configuração.
 
@@ -41,7 +41,7 @@ O [Analisador de Portabilidade .NET](https://marketplace.visualstudio.com/items?
 
 4. Uma vez concluída a análise, selecione  >  __relatórios de análise de__ Análise de Análise . Nos __Resultados da Análise de Portabilidade,__ selecione __Relatório Aberto__ para abrir um relatório.
 
-    ![Diálogo de resultados do analisador de portabilidade](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="Diálogo de resultados do analisador de portabilidade":::
 
 > [!IMPORTANT]  
 > O analisador não pode apanhar todos os problemas com a sua solução. Por exemplo, um caminho de ficheiro `c:\temp\file.txt` é considerado OK se Mono estiver em execução no Windows. O mesmo caminho não é válido numa plataforma Linux.

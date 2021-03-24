@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 88a71eb5a8ca9a6f2bf1d17fc4eaf9780527d2cb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13e5609c965a28405804b8a993280b13755b2d3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930544"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866072"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Construir uma aplicação de aprendizagem automática Apache Spark em Azure HDInsight
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 A aplicação utiliza a amostra **HVAC.csv** dados que estão disponíveis em todos os clusters por padrão. O ficheiro está localizado em `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Os dados mostram a temperatura pretendida e a temperatura real de alguns edifícios que têm sistemas HVAC instalados. A coluna **System** (Sistema) representa o ID do sistema e a coluna **SystemAge** (Idade do sistema) representa há quanto anos o sistema HVAC foi implementado nesse edifício. Você pode prever se um edifício será mais quente ou frio com base na temperatura-alvo, dada a identificação do sistema, e a idade do sistema.
 
-![Instantâneo de dados utilizados para exemplo de aprendizagem de máquinas de faísca](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Instantâneo de dados utilizados para exemplo de aprendizagem de máquinas de faísca")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Instantâneo de dados utilizados para exemplo de aprendizagem de máquinas de faísca" border="true":::
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Desenvolver uma aplicação de machine learning do Spark com a MLlib do Spark
 
@@ -138,7 +138,7 @@ Esta aplicação utiliza um [oleoduto Spark ML](https://spark.apache.org/docs/2.
 
     Compare o resultado com o ficheiro CSV não processado. Por exemplo, a primeira linha do ficheiro CSV tem estes dados:
 
-    ![Instantâneo de dados de saída para exemplo de aprendizagem de máquinas de faísca](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Instantâneo de dados de saída para exemplo de aprendizagem de máquinas de faísca")
+    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Instantâneo de dados de saída para exemplo de aprendizagem de máquinas de faísca" border="true":::
 
     Repare como a temperatura real é inferior à pretendida, o que sugere que o edifício está frio. O valor para o **rótulo** na primeira linha é **0.0,** o que significa que o edifício não está quente.
 
@@ -199,7 +199,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 1. Selecione **Eliminar**. Selecione **Yes** (Sim).
 
-![Portal Azure elimina um cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="Portal Azure elimina um cluster HDInsight" border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

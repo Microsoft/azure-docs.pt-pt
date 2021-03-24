@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 4d42cedbc5dc20c929703be106e732b4806f3902
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0c9c3b2d915e54cf954703c56c2087637cc80aa0
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940609"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864623"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilize o cluster HDInsight Spark para ler e escrever dados para a Base de Dados Azure SQL
 
@@ -35,7 +35,7 @@ Comece por criar um Caderno Jupyter associado ao cluster Spark. Usa este caderno
 1. A partir do [portal Azure,](https://portal.azure.com/)abra o seu aglomerado.
 1. Selecione **o Caderno Jupyter** por baixo **dos painéis de cluster** no lado direito.  Se não vir **os dashboards do Cluster,** selecione **Overview** no menu esquerdo. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
 
-    ![Caderno Jupyter em Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Caderno jupyter na faísca")
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png " alt-text="Caderno Jupyter em Apache Spark" border="true":::
 
    > [!NOTE]  
    > Também pode aceder ao Jupyter Notebook no cluster Spark, abrindo o seguinte URL no seu navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
@@ -44,7 +44,7 @@ Comece por criar um Caderno Jupyter associado ao cluster Spark. Usa este caderno
 
 1. No Caderno Jupyter, a partir do canto superior direito, clique em **New** e, em seguida, clique em **Spark** para criar um caderno Scala. Os Cadernos Jupyter no cluster HDInsight Spark também fornecem o kernel **PySpark** para aplicações Python2, e o kernel **PySpark3** para aplicações Python3. Para este artigo, criamos um caderno Scala.
 
-    ![Kernels para Jupyter Notebook on Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernels para Jupyter Notebook on Spark")
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png " alt-text="Kernels para Jupyter Notebook on Spark" border="true":::
 
     Para obter mais informações sobre os núcleos, consulte [use os núcleos do Caderno Jupyter com aglomerados Apache Spark em HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
@@ -53,7 +53,7 @@ Comece por criar um Caderno Jupyter associado ao cluster Spark. Usa este caderno
 
 1. Um novo caderno abre com um nome padrão, **Sem Título**. Clique no nome do caderno e insira um nome à sua escolha.
 
-    ![Fornecer um nome para o bloco de notas](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "Fornecer um nome para o bloco de notas")
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png " alt-text="Fornecer um nome para o bloco de notas" border="true":::
 
 Pode agora começar a criar a sua aplicação.
 
@@ -100,7 +100,7 @@ Nesta secção, você lê dados de uma tabela (por exemplo, **SalesLT.Address)**
 
     Vê-se uma saída semelhante à seguinte imagem:
 
-    ![saída de schema](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "saída de schema")
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png " alt-text="saída de schema" border="true":::
 
 1. Também pode fazer operações como, recuperar as 10 melhores filas.
 
@@ -167,11 +167,11 @@ Nesta secção, utilizamos um ficheiro CSV de amostra disponível no cluster par
 
     a. Inicie sSMS e ligue-se à Base de Dados Azure SQL fornecendo detalhes de conexão como mostrado na imagem abaixo.
 
-    ![Ligue à Base de Dados SQL utilizando sSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Ligue à Base de Dados SQL utilizando sSMS1")
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png " alt-text="Ligue à Base de Dados SQL utilizando sSMS1" border="true":::
 
     b. A partir do **Object Explorer,** expanda a base de dados e o nó de tabela para ver o **dbo.hvactable** criado.
 
-    ![Ligue à Base de Dados SQL utilizando sSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Ligue à Base de Dados SQL utilizando sSMS2")
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png " alt-text="Ligue à Base de Dados SQL utilizando sSMS2" border="true":::
 
 1. Executar uma consulta em SSMS para ver as colunas na tabela.
 
@@ -209,7 +209,7 @@ Nesta secção, transmitimos dados para o `hvactable` que criou na secção ante
 
 1. A saída mostra o esquema de **HVAC.csv**. O `hvactable` tem o mesmo esquema também. A saída lista as colunas na tabela.
 
-    !['hdinsight Apache Spark schema table'](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Esquema da mesa")
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png " alt-text="'hdinsight Apache Spark schema table'" border="true":::
 
 1. Por fim, utilize o seguinte corte para ler os dados da HVAC.csv e transmita-os para a `hvactable` sua base de dados. Cole o corte numa célula de código, substitua os valores do espaço reservado pelos valores da sua base de dados e, em seguida, prima **SHIFT + ENTER** para executar.
 

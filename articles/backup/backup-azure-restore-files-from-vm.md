@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493531"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864895"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir da cópia de segurança de máquinas virtuais do Azure
 
@@ -35,7 +35,7 @@ Para restaurar ficheiros ou pastas a partir do ponto de recuperação, vá à m�
 
 3. No menu do painel de instrumentos de cópia de segurança, selecione **A Recuperação de Ficheiros**.
 
-    ![Selecione recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Selecione recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)32
 
     O menu **de recuperação de** ficheiros abre.
 
@@ -81,6 +81,7 @@ Consulte os requisitos para restaurar ficheiros de VMs com disco grande:<br>
 [SO Windows](#for-backed-up-vms-with-large-disks-windows)<br>
 [Linux OS](#for-backed-up-vms-with-large-disks-linux)
 
+Depois de escolher a máquina correta para executar o script ILR, certifique-se de que cumpre os [requisitos de SO](#step-3-os-requirements-to-successfully-run-the-script) e [requisitos de acesso](#step-4-access-requirements-to-successfully-run-the-script). 
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Passo 3: Requisitos de SO para executar com sucesso o script
 
@@ -126,6 +127,8 @@ O script também requer que os componentes Python e bash executem e conectem-se 
 | .NET | 4.6.2 e superior |
 | TLS | 1.2 deve ser apoiado  |
 
+Além disso, certifique-se de que tem a [máquina certa para executar o script ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) e que satisfaz os [requisitos de acesso](#step-4-access-requirements-to-successfully-run-the-script).
+
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Passo 4: Requisitos de acesso para executar com sucesso o script
 
 Se executar o script num computador com acesso restrito, certifique-se de que há acesso a:
@@ -148,12 +151,13 @@ Para o Linux, o script requer componentes 'open-iscsi' e 'ishw' para se ligar ao
 
 O acesso `download.microsoft.com` é necessário para descarregar componentes utilizados para construir um canal seguro entre a máquina onde o script é executado e os dados no ponto de recuperação.
 
+Além disso, certifique-se de que tem a [máquina certa para executar o script ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) e que satisfaz os [requisitos de SO](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>Passo 5: Executar o script e identificar volumes
 
 ### <a name="for-windows"></a>Para Windows
 
-Depois de cumprir todos os requisitos listados nos passos 2, passo 3 e passo 4, copie o script a partir do local descarregado (normalmente a pasta Downloads), clique com o botão direito ou script e execute-o com credenciais de Administrador. Quando solicitado, digite a palavra-passe ou cole a palavra-passe da memória e prima Enter. Uma vez que a palavra-passe válida é inserida, o script conecta-se ao ponto de recuperação.
+Depois de cumprir todos os requisitos listados no [Passo 2,](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) [Passo 3](#step-3-os-requirements-to-successfully-run-the-script) e [Passo 4](#step-4-access-requirements-to-successfully-run-the-script), copie o script a partir do local descarregado (normalmente a pasta Downloads), consulte o [Passo 1 para aprender a gerar e descarregar script](#step-1-generate-and-download-script-to-browse-and-recover-files). Clique com o direito no ficheiro executável e execute-o com credenciais de Administrador. Quando solicitado, digite a palavra-passe ou cole a palavra-passe da memória e prima Enter. Uma vez que a palavra-passe válida é inserida, o script conecta-se ao ponto de recuperação.
 
   ![Saída executável](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -180,7 +184,7 @@ Se o processo de recuperação do ficheiro ficar suspenso depois de executar o s
 
 ### <a name="for-linux"></a>Para Linux
 
-Para máquinas Linux, um script python é gerado. Faça o download do script e copie-o para o servidor Linux relevante/compatível. Poderá ter de modificar as permissões para a executar com ```chmod +x <python file name>``` . Em seguida, executar o arquivo python com ```./<python file name>``` .
+Depois de cumprir todos os requisitos listados no [Passo 2,](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) [Passo 3](#step-3-os-requirements-to-successfully-run-the-script) e [Passo 4,](#step-4-access-requirements-to-successfully-run-the-script)gere um script python para máquinas Linux. Consulte [o Passo 1 para aprender a gerar e baixar o script](#step-1-generate-and-download-script-to-browse-and-recover-files). Faça o download do script e copie-o para o servidor Linux relevante/compatível. Poderá ter de modificar as permissões para a executar com ```chmod +x <python file name>``` . Em seguida, executar o arquivo python com ```./<python file name>``` .
 
 
 No Linux, os volumes do ponto de recuperação são montados na pasta onde o script é executado. Os discos, volumes e os caminhos de montagem correspondentes são mostrados em conformidade. Estes caminhos de montagem são visíveis para os utilizadores terem acesso ao nível da raiz. Navegue pelos volumes mencionados na saída do script.

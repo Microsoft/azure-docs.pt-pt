@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: acd8df620e23ee4ebc103d8910c6443f47ffa141
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d7cc948d3631e69882eb252672e5a3eb5d5f9751
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503832"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867445"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Anexar piscinas Apache Spark (alimentadas por Azure Synapse Analytics) para a luta de dados (pré-visualização)
 
@@ -294,6 +294,10 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
+
+## <a name="example-notebook"></a>Bloco de notas de exemplo
+
+Consulte este [caderno final para](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) um exemplo de código detalhado de como realizar a preparação de dados e a formação de modelos a partir de um único caderno com Azure Synapse Analytics e Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d54cf4e9025dfd75d9029dec534fc5dc5dd990a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e23c5977b2492d2ea8a7a8cc050c77c512c3e16
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944175"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868380"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Otimização do uso da memória para Apache Spark
 
@@ -31,7 +31,7 @@ Para a sua referência, a estrutura da memória Spark e alguns parâmetros de me
 
 Se estiver a utilizar o Apache Hadoop YARN, então o YARN controla a memória utilizada por todos os recipientes em cada nó de faísca.  O diagrama que se segue mostra os objetos-chave e as suas relações.
 
-![Gestão da memória de faíscas de YARN](./media/apache-spark-perf/apache-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-perf/apache-yarn-spark-memory.png" alt-text="Gestão da memória de faíscas de YARN" border="false":::
 
 Para endereçar mensagens 'fora da memória', tente:
 

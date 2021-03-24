@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1c6b7ec6c4ef24ec00fbfc55a65a968e00561c2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 793b4da8fcf46ba4d5618f8ada86f9c3c8026ffd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632899"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865269"
 ---
 # <a name="restore-using-azure-application-consistent-snapshot-tool-preview"></a>Restaurar usando a ferramenta Azure Application Consistent Snapshot (pré-visualização)
 
@@ -41,7 +41,7 @@ O `-c restore` comando tem as seguintes opções:
 - `--restore revertvolume` Reverte o volume de alvo para um estado anterior com base no instantâneo mais recente.  Usando este comando como parte do DR Failover na região dr emparelhada. Este comando **para** a replicação de armazenamento do local primário para o local secundário, e reverte o volume(s) alvo dr(s) para o seu mais recente instantâneo disponível nos volumes DR, juntamente com os pontos de montagem recomendados do sistema de ficheiros para os volumes DR revertidos. Este comando deve ser executado no sistema Azure Large Instance **na região DR** (isto é, o sistema de falha do alvo).
     > [!NOTE]
     > O sub-comando `--restore revertvolume` ( ) só está disponível para Azure Large Instance e não está disponível para Ficheiros Azure NetApp.
-- `--hanasid <SAP HANA SID>` é o SAP HANA SID sendo selecionado a partir do ficheiro de configuração para aplicar os comandos de restauro de volume para.
+- `--dbsid <SAP HANA SID>` é o SAP HANA SID sendo selecionado a partir do ficheiro de configuração para aplicar os comandos de restauro de volume para.
 
 - `[--configfile <config filename>]` é um parâmetro opcional que permite nomes de ficheiros de configuração personalizados.
 
@@ -64,7 +64,7 @@ O ficheiro de configuração (por exemplo, `DR.json` ) deve conter apenas os vol
 ### <a name="output-of-the-azacsnap--c-restore---restore-snaptovol-command-for-single-node-scenario"></a>Saída do `azacsnap -c restore --restore snaptovol` comando (para Single-Node cenário)
 
 ```output
-> azacsnap --configfile DR.json -c restore --restore snaptovol --hanasid H80
+> azacsnap --configfile DR.json -c restore --restore snaptovol --dbsid H80
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
   stand-alone instance or as part of a multi-purpose environment.

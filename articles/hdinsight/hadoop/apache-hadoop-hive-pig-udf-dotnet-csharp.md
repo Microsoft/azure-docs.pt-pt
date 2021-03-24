@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5682ff58ad827f5a165342f11f03fb49bbe6d2d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946542"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867887"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use funções definidas pelo utilizador C# com Apache Hive e Apache Pig em Apache Hadoop em HDInsight
 
@@ -171,7 +171,7 @@ Em seguida, faça o upload das aplicações Hive e Pig UDF para armazenamento nu
 
 1. Expanda o cluster HDInsight para o que pretende implementar esta aplicação. Uma entrada com o texto **(Conta de Armazenamento Padrão)** é listada.
 
-    ![Conta de armazenamento predefinido, cluster HDInsight, Explorador de Servidor](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png" alt-text="Conta de armazenamento predefinido, cluster HDInsight, Explorador de Servidor" border="true":::
 
     * Se esta entrada puder ser expandida, está a utilizar uma **Conta de Armazenamento Azure** como armazenamento predefinido para o cluster. Para visualizar os ficheiros no armazenamento predefinido para o cluster, expanda a entrada e, em seguida, clique duas vezes no **(Recipiente Padrão)**.
 
@@ -181,7 +181,7 @@ Em seguida, faça o upload das aplicações Hive e Pig UDF para armazenamento nu
 
     * Se estiver a utilizar uma **conta de armazenamento Azure,** selecione o ícone **Upload Blob.**
 
-        ![HdInsight ícone de upload para novo projeto](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png" alt-text="HdInsight ícone de upload para novo projeto" border="true":::
 
         Na caixa de diálogo **de novo ficheiro de upload,** em nome de **ficheiro,** selecione **Procurar**. Na caixa de diálogo **Upload Blob,** vá à pasta *bin\debug* para o projeto *HiveCSharp* e, em seguida, escolha o ficheiro *HiveCSharp.exe.* Por fim, selecione **Open** e, em seguida, **OK** para completar o upload.
 

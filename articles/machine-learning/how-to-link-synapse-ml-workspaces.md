@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520001"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889115"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Link Azure Synapse Analytics e Azure Machine Learning espaços de trabalho (pré-visualização)
 
@@ -102,12 +102,14 @@ Ligue o seu espaço de trabalho de aprendizagem automática e o espaço de traba
 1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com/)
 1. Selecione **Serviços Ligados** na secção **Gerir** o painel esquerdo.
 1. Selecione **Adicionar integração**.
-1. Na forma de **espaço de trabalho Link,** povoar os campos 
-    Campo| Descrição    
-    ---|---
-    Nome| Forneça um nome para o seu serviço ligado. Este nome é o que será usado para fazer referência a este serviço particular ligado.
-    Nome da subscrição | Selecione o nome da sua subscrição que está associada ao seu espaço de trabalho de aprendizagem automática. 
-    Espaço de trabalho sinapse | Selecione o espaço de trabalho Synapse a que pretende ligar.
+1. Na forma de **espaço de trabalho Link,** povoar os campos
+
+    |Campo| Descrição    
+    |---|---
+    |Nome| Forneça um nome para o seu serviço ligado. Este nome é o que será usado para fazer referência a este serviço particular ligado.
+    |Nome da subscrição | Selecione o nome da sua subscrição que está associada ao seu espaço de trabalho de aprendizagem automática. 
+    |Espaço de trabalho sinapse | Selecione o espaço de trabalho Synapse a que pretende ligar.
+    
 1. Selecione **Seguinte** para abrir o formulário **Select Spark pools (opcional).** Neste formulário, você seleciona qual piscina synapse Spark para anexar ao seu espaço de trabalho
 
 1. Selecione **Seguinte** para abrir o formulário **'Rever'** e verificar as suas seleções.

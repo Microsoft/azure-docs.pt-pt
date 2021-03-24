@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 2f446df95c795eaac378340ed0d5de7b31dfcfee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 386a0e27c0f73f5bcd42397ed515f7561d5097fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102219047"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955062"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utilizar identidades geridas para aceder ao App Configuration
 
@@ -140,12 +140,12 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     ---
 
     > [!NOTE]
-    > No caso de pretender utilizar uma identidade gerida atribuída ao **utilizador, certifique-se de** especificar o clienteId ao criar o [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential).
+    > No caso de pretender utilizar uma identidade gerida atribuída ao **utilizador, certifique-se de** especificar o clienteId ao criar o [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
     >```
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >Como explicado nas [Identidades Geridas para recursos Azure FAQs,](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)existe uma forma padrão de resolver que identidade gerida é usada. Neste caso, a biblioteca de identidade Azure obriga-o a especificar a identidade desejada para evitar problemas de tempo de execução posíveis no futuro (por exemplo, se for adicionada uma nova identidade gerida atribuída ao utilizador ou se a identidade gerida atribuída ao sistema estiver ativada). Assim, terá de especificar o ClientId mesmo que apenas uma identidade gerida atribuída ao utilizador seja definida, e não exista uma identidade gerida atribuída ao sistema.
+    >Como explicado nas [Identidades Geridas para recursos Azure FAQs,](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)existe uma forma padrão de resolver que identidade gerida é usada. Neste caso, a biblioteca de identidade Azure obriga-o a especificar a identidade desejada para evitar problemas de tempo de execução posíveis no futuro (por exemplo, se for adicionada uma nova identidade gerida atribuída ao utilizador ou se a identidade gerida atribuída ao sistema estiver ativada). Assim, terá de especificar o ClientId mesmo que apenas uma identidade gerida atribuída ao utilizador seja definida, e não exista uma identidade gerida atribuída ao sistema.
 
 
 1. Para utilizar tanto os valores de Configuração de Aplicações como as referências do Key Vault, atualiza *o Programa.cs* como mostrado abaixo. Este código chama `SetCredential` como parte de dizer ao fornecedor `ConfigureKeyVault` config qual a credencial a usar ao autenticar o Key Vault.
@@ -203,7 +203,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     > [!NOTE]
     > As `ManagedIdentityCredential` obras funcionam apenas em ambientes Azure de serviços que suportem a autenticação de identidade gerida. Não funciona no ambiente local. Utilize [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) para o código funcionar tanto em ambientes locais como em Azure, uma vez que irá recorrer a algumas opções de autenticação, incluindo identidade gerida.
     > 
-    > Caso pretenda utilizar uma **identidade gerida com** o utilizador quando é implantado no `DefaultAzureCredential` Azure, [especifique o clienteId](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
+    > Caso pretenda utilizar uma **identidade gerida com** o utilizador quando é implantado no `DefaultAzureCredential` Azure, [especifique o clienteId](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

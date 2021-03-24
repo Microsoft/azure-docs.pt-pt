@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670567"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864963"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -48,6 +48,7 @@ Para eliminar corretamente um cofre, deve seguir os passos desta ordem:
   - **Servidores de gestão MABS ou DPM**: Vá ao menu do painel de abóbadas > **Backup Infrastructure** Backup  >  **Management Servers**. Se tiver DPM ou Azure Backup Server (MABS), todos os itens listados aqui devem ser eliminados ou não registados juntamente com os seus dados de backup. [Siga estes passos](#delete-protected-items-on-premises) para eliminar os servidores de gestão.
 
 - **Passo 4**: Deve assegurar-se de que todas as contas de armazenamento registadas são eliminadas. Aceda ao menu do painel de abóbadas > Contas de Armazenamento **de Infraestruturas de Backup**  >  . Se tem contas de armazenamento listadas aqui, então deve não registar todas. Para aprender a desregistralmente da conta, consulte [Não registar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
+- **Passo 5**: Certifique-se de que não existem pontos finais privados criados para o cofre. Vá ao menu do painel de instrumentos Vault > **As ligações de ponto final privados** em 'Definições' > se o cofre tiver alguma ligação de ponto final privado criada ou tentada ser criada, certifique-se de que são removidas antes de prosseguir com a eliminação do cofre. 
 
 Depois de ter concluído estes passos, pode continuar a [apagar o cofre.](#delete-the-recovery-services-vault)
 

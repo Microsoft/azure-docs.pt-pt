@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04da79509ac40ba870014995d8318a49c98e1ce5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741842"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863416"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -42,7 +42,7 @@ Este artigo acompanha-o através da configuração no [portal Azure,](https://po
 
 ## <a name="basics"></a>Noções básicas
 
-![hdinsight criar opções personalizadas rápido](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="hdinsight criar opções personalizadas rápido":::
 
 ### <a name="project-details"></a>Detalhes do projeto
 
@@ -107,7 +107,7 @@ O nome de utilizador SSH tem as seguintes restrições:
 
 ## <a name="storage"></a>Armazenamento
 
-![Definições de armazenamento de cluster: pontos finais compatíveis com HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Definições de armazenamento de cluster: pontos finais compatíveis com HDFS":::
 
 Embora uma instalação no local do Hadoop utilize o Hadoop Distributed File System (HDFS) para armazenamento no cluster, na nuvem você usa pontos finais de armazenamento ligados ao cluster. A utilização de armazenamento em nuvem significa que pode eliminar com segurança os clusters HDInsight utilizados para a computação, mantendo os seus dados.
 
@@ -165,7 +165,7 @@ O Ambari é usado para monitorizar clusters HDInsight, fazer alterações de con
 
 ## <a name="security--networking"></a>Segurança + networking
 
-![hdinsight criar opções escolher pacote de segurança da empresa](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="hdinsight criar opções escolher pacote de segurança da empresa":::
 
 ### <a name="enterprise-security-package"></a>Pacote de segurança da empresa
 
@@ -201,7 +201,7 @@ Para obter mais informações, consulte [identidades geridas no Azure HDInsight]
 
 ## <a name="configuration--pricing"></a>Configuração + preços
 
-![HDInsight escolha o tamanho do seu nó](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight escolha o tamanho do seu nó":::
 
 És cobrado para uso de nó enquanto o aglomerado existir. A faturação começa quando um cluster é criado e para quando o cluster é eliminado. Os agrupamentos não podem ser desatribuidos ou colocados em espera.
 
@@ -211,10 +211,10 @@ Cada tipo de cluster tem o seu próprio número de nós, terminologia para nós,
 
 | Tipo | Nós | Diagrama |
 | --- | --- | --- |
-| Hadoop |Nó de cabeça (2), nó do trabalhador (1+) |![HdInsight Hadoop cluster nosdes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |Servidor de cabeça (2), servidor de região (1+), nó master/ZooKeeper (3) |![Configuração do tipo de cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nó Nimbus (2), servidor de supervisor (1+), nó ZooKeeper (3) |![Configuração do tipo de cluster de tempestade HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Nó de cabeça (2), nó do trabalhador (1+), nó ZooKeeper (3) (grátis para o tamanho A1 ZooKeeper VM) |![Configuração do tipo de cluster de faíscas HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Hadoop |Nó de cabeça (2), nó do trabalhador (1+) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="HdInsight Hadoop cluster nosdes" border="false"::: |
+| HBase |Servidor de cabeça (2), servidor de região (1+), nó master/ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="Configuração do tipo de cluster HDInsight HBase" border="false"::: |
+| Storm |Nó Nimbus (2), servidor de supervisor (1+), nó ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="Configuração do tipo de cluster de tempestade HDInsight" border="false"::: |
+| Spark |Nó de cabeça (2), nó do trabalhador (1+), nó ZooKeeper (3) (grátis para o tamanho A1 ZooKeeper VM) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="Configuração do tipo de cluster de faíscas HDInsight" border="false"::: |
 
 Para obter mais informações, consulte [a configuração do nó padrão e os tamanhos de máquinas virtuais para clusters](hdinsight-supported-node-configuration.md) em "Quais são os componentes e versões Hadoop em HDInsight?"
 
@@ -222,7 +222,7 @@ O custo dos clusters HDInsight é determinado pelo número de nós e pelos taman
 
 Diferentes tipos de aglomerados têm diferentes tipos de nó, números de nó e tamanhos de nó:
 * Padrão do tipo de cluster Hadoop:
-    * Dois *acenos de cabeça*  
+    * Dois *acenos de cabeça*
     * Quatro *nódoas operárias*
 * Padrão do tipo de aglomerado de tempestade:
     * Dois *nó de Nimbus*

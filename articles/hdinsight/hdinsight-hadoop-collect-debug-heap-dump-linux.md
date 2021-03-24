@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 824ba2c3316ccb34b59a9e435b9a6e582f137090
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fe5b2a1f083e246ea61854c9cbe03932e6655fdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945928"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866595"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar depósitos de pilhas para serviços Apache Hadoop em HDInsight baseado em Linux
 
@@ -82,15 +82,15 @@ Para modificar a configuração de um serviço, utilize os seguintes passos:
 
 2. Utilizando a lista de à esquerda, selecione a área de serviço que pretende modificar. Por exemplo, **HDFS**. Na área central, selecione o **separador Configs.**
 
-    ![Imagem de web Ambari com separador HDFS Configs selecionado](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png" alt-text="Imagem de web Ambari com separador HDFS Configs selecionado":::
 
 3. Utilizando o **filtro...** entrada, **insira opts**. São apresentados apenas itens que contenham este texto.
 
-    ![Lista filtrada de Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Lista filtrada de Apache Ambari":::
 
 4. Encontre a entrada **\* \_ OPTS** para o serviço para o qual pretende ativar depósitos de pilhas e adicione as opções que deseja ativar. Na seguinte imagem, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP \_ NAMENODE \_ OPTS:**
 
-    ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari hadoop-namenode-opts":::
 
    > [!NOTE]  
    > Ao permitir despejos de pilhas para o mapa ou reduzir o processo infantil, procure os campos nomeados **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
@@ -99,15 +99,15 @@ Para modificar a configuração de um serviço, utilize os seguintes passos:
 
 5. Uma vez aplicadas as alterações, o ícone **exigido restart** aparece ao lado de um ou mais serviços.
 
-    ![reiniciar o ícone necessário e reiniciar botão](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png" alt-text="reiniciar o ícone necessário e reiniciar botão":::
 
 6. Selecione cada serviço que necessita de um reinício e use o botão **Ações de Serviço** para **ligar o modo de manutenção**. O modo de manutenção evita que os alertas sejam gerados a partir do serviço quando o reinicia.
 
-    ![Ligue o menu do modo de manutenção hdi](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="Ligue o menu do modo de manutenção hdi":::
 
 7. Depois de ter ativado o modo de manutenção, utilize o botão **Reiniciar** para o serviço para **reiniciar tudo efetuado**
 
-    ![Apache Ambari reinicia todas as entradas afetadas](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari reinicia todas as entradas afetadas":::
 
    > [!NOTE]  
    > As entradas para o botão **Reiniciar** podem ser diferentes para outros serviços.

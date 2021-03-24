@@ -8,17 +8,17 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 7b7e29b6e2ebb3b229045df439848264540b59b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/18/2021
+ms.openlocfilehash: ec41f7503ec179cb1fa6172e94e613933f719c93
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103461628"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953622"
 ---
-# <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 Event Sources
+# <a name="azure-time-series-insights-gen2-event-sources"></a>Fontes de eventos Azure Time Series Insights Gen2
 
- O seu ambiente Azure Time Series Insights Gen2 pode ter até duas fontes de eventos de streaming. Dois tipos de recursos Azure são suportados como entradas:
+O seu ambiente Azure Time Series Insights Gen2 pode ter até duas fontes de eventos de streaming. Dois tipos de recursos Azure são suportados como entradas:
 
 - [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
@@ -27,19 +27,41 @@ Os eventos devem ser enviados como UTF-8 codificado JSON.
 
 ## <a name="create-or-edit-event-sources"></a>Criar ou editar fontes de eventos
 
-Os recursos de origem do evento podem viver na mesma subscrição Azure que o ambiente Azure Time Series Insights Gen2 ou uma subscrição diferente. Pode utilizar o [portal Azure](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI,](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights) [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
+A fonte do evento é a ligação entre o seu hub e o ambiente Azure Time Series Insights Gen2, e um recurso de tipo separado é criado no seu grupo de `Time Series Insights event source` recursos. O IoT Hub ou os recursos do Event Hub podem viver na mesma subscrição Azure que o ambiente Azure Time Series Insights Gen2 ou uma subscrição diferente. No entanto, é uma boa prática alojar o seu ambiente Azure Time Series Insights e o IoT Hub ou Event Hub dentro da mesma região do Azure.
 
-Quando ligar uma fonte de evento, o seu ambiente Azure Time Series Insights Gen2 irá ler todos os eventos atualmente armazenados no seu Iot ou Event Hub, a começar pelo evento mais antigo.
+Pode utilizar o [portal Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI,](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source) [modelos Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
+
+## <a name="start-options"></a>Opções de início
+
+Ao criar uma fonte de evento, tem a opção de especificar quais os dados pré-existentes que devem ser recolhidos. Esta definição é opcional. Estão disponíveis as seguintes opções:
+
+| Nome   |  Descrição  |  Exemplo do modelo do gestor de recursos Azure |
+|----------|-------------|------|
+| O mais cedo disponível | Ingerir todos os dados pré-existentes armazenados no IoT ou No Centro de Eventos | `"ingressStartAt": {"type": "EarliestAvailable"}` |
+| EventSourceCreationTime |  Comece a ingerir dados que cheguem após a criação da fonte do evento. Todos os dados pré-existentes que foram transmitidos antes da criação da fonte do evento serão ignorados. Esta é a definição padrão no portal Azure   |   `"ingressStartAt": {"type": "EventSourceCreationTime"}` |
+| Tempo Personalizado | O seu ambiente irá ingerir dados a partir do seu tempo personalizado (UTC) para a frente. Todos os eventos que foram encadeados no seu IoT ou Event Hub em ou após o seu tempo personalizado será ingerido e armazenado. Todos os eventos que chegaram antes do seu tempo personalizado serão ignorados. Note que "tempo enqueso" refere-se à hora (na UTC) que o evento chegou ao seu IoT ou Event Hub. Isto difere de uma propriedade de [timetamp](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp) personalizada que está dentro do corpo do seu evento. |     `"ingressStartAt": {"type": "CustomEnqueuedTime", "time": "2021-03-01T17:00:00.20Z"}` |
 
 > [!IMPORTANT]
 >
-> - Pode experimentar uma elevada latência inicial ao anexar uma fonte de evento ao seu ambiente Azure Time Series Insights Gen2.
-> - A latência da fonte do evento depende do número de eventos atualmente no seu Hub IoT ou Centro de Eventos.
-> - A alta latência diminuirá após a primeira ingestão de dados de origem de eventos. Envie um bilhete de apoio através do portal Azure se sentir uma elevada latência.
+> - Se selecionar o EarliestAvailable e tiver muitos dados pré-existentes, poderá experimentar uma elevada latência inicial, uma vez que o ambiente Azure Time Series Insights Gen2 processa todos os seus dados.
+> - Esta elevada latência deve eventualmente diminuir à medida que os dados são indexados. Envie um bilhete de apoio através do portal Azure se sentir uma elevada latência.
+
+* O mais cedo disponível
+
+![Diagrama disponível mais cedo](media/concepts-streaming-event-sources/event-source-earliest-available.png)
+
+* EventSourceCreationTime
+
+![Diagrama de Tempo de EventoSourceCreation](media/concepts-streaming-event-sources/event-source-creation-time.png)
+
+* Tempo Personalizado
+
+![Diagrama customEnqueuedTime](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
+
 
 ## <a name="streaming-ingestion-best-practices"></a>Boas práticas de ingestão de streaming
 
-- Crie sempre um grupo de consumidores único para o seu ambiente Azure Time Series Insights Gen2 para consumir dados da sua fonte de evento. A reutilização de grupos de consumidores pode causar desconexões aleatórias e pode resultar na perda de dados.
+- Crie sempre um grupo de consumidores único para o seu ambiente Azure Time Series Insights Gen2 para consumir dados da sua fonte de evento. A reutilização dos grupos de consumidores pode causar desconexões aleatórias e pode resultar na perda de dados.
 
 - Configure o seu ambiente Azure Time Series Insights Gen2 e o seu IoT Hub e/ou Centros de Eventos na mesma região do Azure. Embora seja possível configurar uma fonte de eventos numa região separada, este cenário não é apoiado e não podemos garantir uma elevada disponibilidade.
 
@@ -53,11 +75,14 @@ Quando ligar uma fonte de evento, o seu ambiente Azure Time Series Insights Gen2
 
 - Siga o princípio do menor privilégio ao fornecer cordas de ligação de fonte de evento. Para os Centros de Eventos, configurar uma política de acesso partilhado apenas com a reclamação *de envio,* e para o IoT Hub utilizar apenas a permissão *de ligação* de serviço.
 
+> [!CAUTION] 
+> Se eliminar o seu Hub IoT ou Centro de Eventos e recriar um novo recurso com o mesmo nome, tem de criar uma nova fonte de eventos e anexar o novo Hub IoT ou Centro de Eventos. Os dados não serão ingeridos até completar este passo.
+
 ## <a name="production-workloads"></a>Cargas de trabalho de produção
 
 Além das melhores práticas acima, recomendamos que implemente o seguinte para cargas de trabalho críticas de negócios.
 
-- Aumente o seu tempo de retenção de dados IoT Hub ou Event Hub para o máximo de 7 dias.
+- Aumente o seu tempo de retenção de dados IoT Hub ou Event Hub para o máximo de sete dias.
 
 - Crie alertas ambientais no portal Azure. Os alertas [baseados nas métricas](./how-to-monitor-tsi-reference.md#metrics) da plataforma permitem validar o comportamento do gasoduto de ponta a ponta. As instruções para criar e gerir alertas estão [aqui.](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) Condições de alerta sugeridas:
 
@@ -76,7 +101,7 @@ A utilização do gasoduto de streaming para importar dados históricos não é 
 
 ## <a name="event-source-timestamp"></a>Data de tempo de fonte de evento
 
-Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts nas [APIs de Consulta](/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
+Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o relógio de tempo `$ts` nas [APIs de Consulta](/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
 
 Em geral, os utilizadores optarão por personalizar a propriedade do timetamp e utilizar o tempo em que o sensor ou tag gerou a leitura em vez de usar o tempo padrão do hub. Isto é particularmente necessário quando os dispositivos têm perda de conectividade intermitente e um lote de mensagens atrasadas são reencaminhadas para Azure Time Series Insights Gen2.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 130a5a58fc7dab6f94c011cf9764743f9114e48a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5dabae76308f32da7968d8cfa89b95f1eb19c142
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942640"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863773"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -70,10 +70,10 @@ A tabela seguinte descreve os tipos e versões de cluster compatíveis com a fun
 
 | Versão | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 4.0 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 3.6 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 4.0 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
 
 \* Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
 
@@ -91,7 +91,7 @@ Para ativar a funcionalidade Autoscale com escala à base de carga, complete os 
     * **Número** min de nós operários.
     * **Número máximo** de nós de trabalhadores.
 
-    ![Permitir a autoescala de carga baseada no nó do trabalhador](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png" alt-text="Permitir a autoescala de carga baseada no nó do trabalhador":::
 
 O número inicial de nós de trabalhador deve descer entre o mínimo e o máximo, inclusive. Este valor define o tamanho inicial do cluster quando é criado. O número mínimo de nós de trabalhador deve ser fixado para três ou mais. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido a uma replicação de ficheiros insuficiente.  Para obter mais informações, consulte [Ficar preso no modo de segurança.](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)
 
@@ -108,7 +108,7 @@ Para ativar a funcionalidade Autoscale com escalamento baseado no horário, comp
 1. Editar o tempo em que a condição deve entrar em vigor e o número de nós a que o cluster deve ser dimensionado.
 1. Adicione mais condições, se necessário.
 
-    ![Permitir a criação baseada no horário do nó operário](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png" alt-text="Permitir a criação baseada no horário do nó operário":::
 
 O número de nós deve estar entre 3 e o número máximo de nós de trabalhador que inseriu antes de adicionar condições.
 
@@ -116,7 +116,7 @@ O número de nós deve estar entre 3 e o número máximo de nós de trabalhador 
 
 Selecione o tipo VM para nós de trabalhador selecionando um VM da lista de drop-down sob o **tamanho do nó**. Depois de escolher o tipo VM para cada tipo de nó, pode ver a gama de custos estimada para todo o cluster. Ajuste os tipos de VM para se adaptar ao seu orçamento.
 
-![Ativar o tamanho do nó de escala automática baseado no nó do nó de marcação automática](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png" alt-text="Ativar o tamanho do nó de escala automática baseado no nó do nó de marcação automática":::
 
 A sua subscrição tem uma quota de capacidade para cada região. O número total de núcleos dos seus nós de cabeça e os nós máximos dos trabalhadores não podem exceder a quota de capacidade. No entanto, esta quota é um limite suave; você sempre pode criar um bilhete de apoio para fazê-lo aumentado facilmente.
 
@@ -193,7 +193,7 @@ Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure basead
 
 Para ativar a autoescalação num cluster de execução, selecione **o tamanho do Cluster** em **Definições**. Em seguida, **selecione Ativar automaticamente**. Selecione o tipo de Autoscale que deseja e introduza as opções para dimensionamento baseado em carga ou agendamento. Por fim, **selecione Save**.
 
-![Ativar o cluster de corrida de escala automática baseado em horários de trabalhador](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png" alt-text="Ativar o cluster de corrida de escala automática baseado em horários de trabalhador":::
 
 #### <a name="using-the-rest-api"></a>Utilizar a API REST
 
@@ -217,11 +217,11 @@ Consulte a secção anterior sobre [a automatização da escala automática base
 
 O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as atividades de Autoscale.
 
-![Permitir o estado do cluster de carga auto-escala baseado no nó do trabalhador](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png" alt-text="Permitir o estado do cluster de carga auto-escala baseado no nó do trabalhador":::
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Description |
+| Estado do cluster | Descrição |
 |---|---|
 | Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |
@@ -237,7 +237,7 @@ Pode ver a escala de cluster e a história de escala como parte das métricas do
 
 Selecione **métricas** em **monitorização**. Em seguida, **selecione Adicionar métrica** e **número de trabalhadores ativos** a partir da caixa de entrega **métrica.** Selecione o botão no canto superior direito para alterar o intervalo de tempo.
 
-![Ativar a métrica de autoescala baseada em horários dos trabalhadores](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png" alt-text="Ativar a métrica de autoescala baseada em horários dos trabalhadores":::
 
 ## <a name="best-practices"></a>Melhores práticas
 

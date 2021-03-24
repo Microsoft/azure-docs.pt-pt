@@ -4,12 +4,12 @@ description: Use a uI web Apache Ambari para configurar e otimizar o Porco Apach
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 690cfc66d0f08e63ac6ef1d21b6722fed59eca14
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43159360342063af1682a984db037ae286721411
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939017"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871168"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Otimizar o Porco Apache com Apache Ambari em Azure HDInsight
 
@@ -23,7 +23,7 @@ As propriedades do Porco Apache podem ser modificadas a partir da web UI de Amba
 
 1. **Selecione Guarde** no lado superior direito da janela para guardar o novo valor. Algumas propriedades podem necessitar de um reinício de serviço.
 
-    ![Propriedades avançadas de porco Apache](./media/optimize-pig-ambari/advanced-pig-properties.png)
+    :::image type="content" source="./media/optimize-pig-ambari/advanced-pig-properties.png" alt-text="Propriedades avançadas de porco Apache" border="true":::
 
 > [!NOTE]  
 > Quaisquer definições de nível de sessão substituem os valores de propriedade no `pig.properties` ficheiro.

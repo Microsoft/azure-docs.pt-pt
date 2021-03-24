@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: bd6015529fb521e3b157e46ee808aea43e993dee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07c004fa5f03c53ed0778613a0c16a0ba2aff11f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98935669"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869502"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Use R num contexto computo Spark em Azure HDInsight
 
@@ -56,7 +56,7 @@ O *Conjunto de Dados On-Time da Companhia Aérea 2012* é composto por 12 fichei
 
 1. No painel direito, selecione o **separador Ambiente.** As variáveis são apresentadas em **Valores**.
 
-    ![HdInsight R consola web estúdio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    :::image type="content" source="./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png" alt-text="HdInsight R consola web estúdio" border="true":::
 
 1. Crie um diretório local e descarregue os dados da amostra. Em RStudio, introduza o seguinte código:
 

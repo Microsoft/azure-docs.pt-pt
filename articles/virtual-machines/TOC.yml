@@ -101,6 +101,8 @@
       href: ./linux/tutorial-elasticsearch.md
     - name: Realojamento de mainframe
       href: ./workloads/mainframe-rehosting/overview.md
+    - name: Azure Confidential Compute
+      href: ../confidential-computing/overview.md
     - name: SQL em Máquinas Virtuais
       href: ../azure-sql/virtual-machines/index.yml
     - name: Computação de Alto Desempenho (HPC)

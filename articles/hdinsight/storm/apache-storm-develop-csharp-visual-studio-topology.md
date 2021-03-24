@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5360057ec2dfbd2b40c6f086f5e910103c544b62
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929157"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865456"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para a Tempestade Apache utilizando as ferramentas data lake para o Estúdio Visual
 
@@ -128,7 +128,7 @@ Para criar um projeto de topologia C# no Estúdio Visual:
 
 1. Na **janela Configure** a sua nova janela de projeto, insira um nome de **Projeto** do *WordCount,* vá ou crie um percurso diretório de **localização** para o projeto e, em seguida, selecione **Criar**.
 
-    ![Aplicação storm, Configure a sua nova caixa de diálogo de projeto, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png" alt-text="Aplicação storm, Configure a sua nova caixa de diálogo de projeto, Visual Studio" border="true":::
 
 Depois de ter criado o projeto, deverá ter os seguintes ficheiros:
 
@@ -333,7 +333,7 @@ Agora crie dois parafusos storm neste exemplo:
 
 Bicos e parafusos estão dispostos num gráfico, que define como os dados fluem entre os componentes. Para esta topologia, o gráfico é o seguinte:
 
-![Diagrama de arranjo de componente de bico e parafuso, topologia da tempestade](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png" alt-text="Diagrama de arranjo de componente de bico e parafuso, topologia da tempestade" border="false":::
 
 O bico emite frases que são distribuídas em instâncias do parafuso Splitter. O parafuso Splitter quebra as frases em palavras, que são distribuídas no parafuso de contador.
 
@@ -413,7 +413,7 @@ Está agora pronto para submeter a topologia ao seu cluster HDInsight.
 
     Quando a topologia tiver sido submetida com sucesso, deve aparecer a janela **Storm Toplogies View** para o cluster. Escolha a topologia **wordCount** da lista para ver informações sobre a topologia de execução.
 
-    ![Janela de vista de topologia de tempestade, cluster HDInsight, Estúdio Visual](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png" alt-text="Janela de vista de topologia de tempestade, cluster HDInsight, Estúdio Visual" border="true":::
 
     > [!NOTE]  
     > Também pode ver **As Topologias** de Tempestade do Explorador de **Servidores.** Expanda **a Azure**  >  **HDInsight,** clique à direita numa tempestade no cluster HDInsight e, em seguida, escolha **Ver Toplogies storm**.
@@ -567,7 +567,7 @@ Embora seja fácil implantar uma topologia num cluster, em alguns casos, você p
 
 1. No **Solution Explorer,** clique com o botão direito do projeto e selecione **Propriedades.** Nas propriedades do projeto. Em seguida, altere o **tipo de saída** para a **aplicação de consola**.
 
-   ![Aplicação HDInsight Storm, propriedades do projeto, tipo de saída](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png" alt-text="Aplicação HDInsight Storm, propriedades do projeto, tipo de saída" border="true":::
 
    > [!NOTE]
    > Lembre-se de mudar o **tipo de saída** de volta para a Biblioteca de **Classes** antes de colocar a topologia num cluster.

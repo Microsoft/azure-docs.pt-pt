@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c993b3f70f609fb79c51ba9be08fa3d5dc7e8317
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932633"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864113"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação SCP para Apache Storm em Azure HDInsight
 
@@ -28,7 +28,7 @@ Os dados em SCP são modelados como fluxos contínuos de tuples. Tipicamente, os
 1. São recolhidos e transformados pela lógica de negócios hospedada dentro de uma topologia da tempestade.
 1. Ou têm a sua saída canalizada como tuples para outro sistema SCP ou estão comprometidos com lojas como sistemas de ficheiros distribuídos e bases de dados como o SQL Server.
 
-![Um diagrama de dados de alimentação de fila para o processamento, que por sua vez alimenta uma loja de dados](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png" alt-text="Um diagrama de dados de alimentação de fila para o processamento, que por sua vez alimenta uma loja de dados" border="false":::
 
 Em Storm, uma topologia de aplicação define um gráfico de cálculo. Cada nó numa topologia contém lógica de processamento. As ligações entre os nós indicam o fluxo de dados.
 
@@ -431,7 +431,7 @@ Pode submeter especificações de topologia diretamente a um cluster storm para 
 
 SCP.NET adicionou as seguintes funções para definir topologias transacionais:
 
-| Nova função | Parâmetros | Description |
+| Nova função | Parâmetros | Descrição |
 | --- | --- | --- |
 | **tx-toplopy** |*nome de topologia*<br />*mapa de bicos*<br />*mapa de parafusos* |Define uma topologia transacional com o nome topologia, mapa de definição de bicos e mapa de definição de parafusos. |
 | **scp-tx-bico** |*nome executivo*<br />*args*<br />*campos* |Define um bico transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico. |
@@ -443,7 +443,7 @@ SCP.NET adicionou as seguintes funções para definir topologias transacionais:
 
 SCP.NET define as seguintes palavras-chave:
 
-| Palavra-chave | Description |
+| Palavra-chave | Descrição |
 | --- | --- |
 | **:nome** |O nome da topologia |
 | **:topologia** |A topologia usando as funções na tabela anterior e funções incorporadas |
@@ -570,7 +570,7 @@ Aqui, `examples\HybridTopology\java\target\` é a pasta que contém o ficheiro J
 
 Um componente SCP inclui o lado java e o lado C#. Para interagir com bicos/parafusos java nativos, a serialização e a deserialização devem ocorrer entre o lado de Java e o lado C#, conforme ilustrado no gráfico seguinte:
 
-![Diagrama de componente java enviando para o componente SCP, que depois envia para um componente java diferente](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png" alt-text="Diagrama de componente java enviando para o componente SCP, que depois envia para um componente java diferente" border="false":::
 
 #### <a name="serialization-in-the-java-side-and-deserialization-in-the-c-side"></a>Serialização no lado de Java e deserialização no lado C#
 
