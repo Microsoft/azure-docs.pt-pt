@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de003025e98109599ecd69c0459e29950c9bd1fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720159"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950574"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemplos de uma política de atestado
 
@@ -35,9 +35,9 @@ c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
-Para obter mais informações sobre as reclamações recebidas geradas pela Azure Attestation, consulte [os conjuntos de reclamações](/azure/attestation/claim-sets). As reclamações recebidas podem ser usadas por autores de políticas para definir regras de autorização numa política personalizada. 
+Para obter mais informações sobre as reclamações recebidas geradas pela Azure Attestation, consulte [os conjuntos de reclamações](./claim-sets.md). As reclamações recebidas podem ser usadas por autores de políticas para definir regras de autorização numa política personalizada. 
 
-A secção de regras de emissão não é obrigatória. Esta secção pode ser usada pelos utilizadores para ter reclamações adicionais de saída geradas no token de atestado com nomes personalizados. Para obter mais informações sobre as reclamações de saída geradas pelo serviço em ficha atestado, consulte [os conjuntos de reclamações](/azure/attestation/claim-sets).
+A secção de regras de emissão não é obrigatória. Esta secção pode ser usada pelos utilizadores para ter reclamações adicionais de saída geradas no token de atestado com nomes personalizados. Para obter mais informações sobre as reclamações de saída geradas pelo serviço em ficha atestado, consulte [os conjuntos de reclamações](./claim-sets.md).
 
 ## <a name="default-policy-for-an-sgx-enclave"></a>Política padrão para um enclave SGX
 
@@ -59,7 +59,7 @@ issuancerules
 };
 ```
 
-As reclamações utilizadas na política por defeito são consideradas depreciadas, mas são totalmente apoiadas e continuarão a ser incluídas no futuro. Recomenda-se a utilização dos nomes de reclamações não depreciados. Para obter mais informações sobre os nomes de reclamações recomendados, consulte [os conjuntos de reclamações](/azure/attestation/claim-sets). 
+As reclamações utilizadas na política por defeito são consideradas depreciadas, mas são totalmente apoiadas e continuarão a ser incluídas no futuro. Recomenda-se a utilização dos nomes de reclamações não depreciados. Para obter mais informações sobre os nomes de reclamações recomendados, consulte [os conjuntos de reclamações](./claim-sets.md). 
 
 ## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Experimente a política personalizada para suportar vários enclaves SGX
 

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
-ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2020
+ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100379986"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027402"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para a Azure Data Explorer utilizando a Azure Data Factory
 
@@ -52,7 +52,14 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
-O conector Azure Data Explorer utiliza a autenticação principal do serviço. Siga estes passos para obter um diretor de serviço e para conceder permissões:
+O conector Azure Data Explorer suporta os seguintes tipos de autenticação. Consulte as secções correspondentes para mais detalhes:
+
+- [Autenticação principal do serviço](#service-principal-authentication)
+- [Identidades geridas para autenticação de recursos Azure](#managed-identity)
+
+### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
+
+Para utilizar a autenticação principal do serviço, siga estes passos para obter um principal serviço e para conceder permissões:
 
 1. Registe uma entidade de candidatura no Azure Ative Directory seguindo os passos no Registo da [sua candidatura junto de um inquilino da Ad Azure.](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant) Tome nota dos seguintes valores, que utiliza para definir o serviço ligado:
 
@@ -66,7 +73,7 @@ O conector Azure Data Explorer utiliza a autenticação principal do serviço. S
     - **Como pia**, conceda pelo menos a **função de ingestão de dados de dados** à sua base de dados
 
 >[!NOTE]
->Quando utiliza o UI da Data Factory para autor, a sua conta de utilizador de login é utilizada para listar clusters, bases de dados e tabelas do Azure Data Explorer. Introduza manualmente o nome se não tiver permissão para estas operações.
+>Quando utiliza o UI da Data Factory para autor, por padrão a sua conta de utilizador de login é usada para listar clusters, bases de dados e tabelas do Azure Data Explorer. Pode optar por listar os objetos que utilizam o principal de serviço clicando no dropdown ao lado do botão de atualização ou introduzir manualmente o nome se não tiver permissão para estas operações.
 
 As seguintes propriedades são suportadas para o serviço ligado ao Azure Data Explorer:
 
@@ -78,8 +85,9 @@ As seguintes propriedades são suportadas para o serviço ligado ao Azure Data E
 | inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Isto é conhecido como "ID de autoridade" na [cadeia de ligação Kusto.](/azure/kusto/api/connection-strings/kusto#application-authentication-properties) Recupere-o pairando sobre o ponteiro do rato no canto superior direito do portal Azure. | Yes |
 | servicePrincipalId | Especifique a identificação do cliente da aplicação. Isto é conhecido como "ID do cliente de aplicação AAD" na [cadeia de ligação Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
 | servicePrincipalKey | Especifique a chave da aplicação. Isto é conhecido como "chave de aplicação AAD" na [cadeia de ligação Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [referência de dados seguros armazenados no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado se a sua loja de dados estiver numa rede privada. Se não for especificado, utiliza-se o tempo de execução da integração Azure predefinido. |No |
 
-**Exemplo de propriedades de serviço ligadas:**
+**Exemplo: utilização da autenticação principal do serviço**
 
 ```json
 {
@@ -95,6 +103,44 @@ As seguintes propriedades são suportadas para o serviço ligado ao Azure Data E
                 "type": "SecureString",
                 "value": "<service principal key>"
             }
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades geridas para autenticação de recursos Azure
+
+Para utilizar identidades geridas para a autenticação de recursos Azure, siga estes passos para conceder permissões:
+
+1. [Recupere a data factory gerindo informações de identidade](data-factory-service-identity.md#retrieve-managed-identity) copiando o valor do **ID** do objeto de identidade gerido gerado juntamente com a sua fábrica.
+
+2. Conceda à identidade gerida as permissões corretas no Azure Data Explorer. Consulte [permissões de base de dados do Manage Azure Data Explorer](/azure/data-explorer/manage-database-permissions) para obter informações detalhadas sobre funções e permissões e sobre a gestão de permissões. Em geral, deve:
+
+    - **Como fonte,** conceda pelo menos o papel de **visualizador da Base de Dados** à sua base de dados
+    - **Como pia**, conceda pelo menos a **função de ingestão de dados de dados** à sua base de dados
+
+>[!NOTE]
+>Quando utiliza o UI da Data Factory para autor, a sua conta de utilizador de login é utilizada para listar clusters, bases de dados e tabelas do Azure Data Explorer. Introduza manualmente o nome se não tiver permissão para estas operações.
+
+As seguintes propriedades são suportadas para o serviço ligado ao Azure Data Explorer:
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| tipo | A propriedade **tipo** deve ser definida para **AzureDataExplorer**. | Yes |
+| endpoint | URL de ponto final do cluster Azure Data Explorer, com o formato como `https://<clusterName>.<regionName>.kusto.windows.net` . | Yes |
+| base de dados | Nome da base de dados. | Yes |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado se a sua loja de dados estiver numa rede privada. Se não for especificado, utiliza-se o tempo de execução da integração Azure predefinido. |No |
+
+**Exemplo: utilização da autenticação de identidade gerida**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
         }
     }
 }
