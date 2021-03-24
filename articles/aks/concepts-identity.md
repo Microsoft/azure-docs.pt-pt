@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 12900a64d9e023e4bddd5b5862b6a127fcba1d36
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181453"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949996"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -73,6 +73,7 @@ As seguintes permissões adicionais são necessárias pela identidade do cluster
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Necessário se utilizar uma sub-rede noutro grupo de recursos, como um VNET personalizado. |
 | Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | Necessário se utilizar uma sub-rede associada a uma tabela de rotas em outro grupo de recursos, como um VNET personalizado com uma tabela de rotas personalizada. É necessário verificar se já existe uma sub-rede para a sub-rede do outro grupo de recursos. |
 | Microsoft.Network/virtualNetworks/subnets/read | Necessário se utilizar um equilibrador de carga interno noutro grupo de recursos. É necessário verificar se já existe uma sub-rede para o balançador de carga interno do grupo de recursos. |
+| Microsoft.Network/privatednszones/* | Necessário se utilizar uma zona privada de DNS em outro grupo de recursos, como um privateDNSZone personalizado. |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes controlo de acesso baseado em funções (Kubernetes RBAC)
 
@@ -182,7 +183,7 @@ Esta funcionalidade permitirá, por exemplo, não só dar aos utilizadores permi
 
 A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [papéis incorporados de Kubernetes,](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) mas com algumas diferenças como apoiar CRDs. Para a lista completa de ações permitidas por cada papel incorporado, consulte [aqui.](../role-based-access-control/built-in-roles.md)
 
-| Função                                | Description  |
+| Função                                | Descrição  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso a `ServiceAccount` credenciais no espaço de nomes, o que permitiria o acesso da API como qualquer outro `ServiceAccount` no espaço de nome (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |
@@ -199,7 +200,7 @@ Esta tabela resume a forma como os utilizadores podem autenticar em Kubernetes q
 
 A subvenção de papel referida na segunda coluna é a subvenção de função Azure RBAC mostrada no **separador Controlo de Acesso** no portal Azure. O Cluster Admin Azure AD Group é apresentado no **separador Configuração** no portal (ou com nome de parâmetro `--aad-admin-group-object-ids` no CLI Azure).
 
-| Description        | Subvenção de papel exigida| Grupo de administrador azure Ad cluster | Quando utilizar |
+| Descrição        | Subvenção de papel exigida| Grupo de administrador azure Ad cluster | Quando utilizar |
 | -------------------|------------|----------------------------|-------------|
 | Login de administração legado usando certificado de cliente| **Azure Kubernetes Admin Role**. Esta função permite `az aks get-credentials` ser utilizada com a `--admin` bandeira, que descarrega um [certificado de administração de cluster legacy (não-Azure AD)](control-kubeconfig-access.md) no do utilizador `.kube/config` . Este é o único propósito de "Azure Kubernetes Admin Role".|n/a|Se estiver permanentemente bloqueado por não ter acesso a um grupo AZure AD válido com acesso ao seu cluster.| 
 | Azure AD com rolebindings manuais (Cluster)| **Papel de utilizador de Azure Kubernetes**. A função "Utilizador" permite `az aks get-credentials` ser utilizada sem a `--admin` bandeira. (Este é o único propósito de "Azure Kubernetes User Role".) O resultado, num cluster AD ativado pelo Azure, é o download de [uma entrada vazia](control-kubeconfig-access.md) em , que despoleta a `.kube/config` autenticação baseada no navegador quando é usada pela primeira vez por `kubectl` .| O utilizador não está em nenhum destes grupos. Como o utilizador não está em nenhum grupo de Administração cluster, os seus direitos serão controlados inteiramente por quaisquer RoleBindings ou ClusterRoleBindings que tenham sido criados por administradores de cluster. Os (Cluster)RoleBindings [nomeiam os utilizadores AD do Azure ou os grupos AD Azure](azure-ad-rbac.md) como seus `subjects` . Se não tiverem sido criadas tais ligações, o utilizador não poderá excortar quaisquer `kubectl` comandos.|Se quer um controlo de acesso fino e não está a usar o Azure RBAC para a Autorização Kubernetes. Note que o utilizador que configura as ligações deve iniciar sessão por um dos outros métodos listados nesta tabela.|

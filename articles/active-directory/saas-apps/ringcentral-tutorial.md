@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 20e59f134c51662f9530862790d5a47b8bb21d6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c8126c051457d740d1a5414a130b4ee3fffcd8c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101650775"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954127"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integrar RingCentral com Diretório Ativo Azure
 
@@ -189,8 +189,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no RingCentral para o qual configura o SSO.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo RingCentral nas Minhas Apps, deverá ser automaticamente inscrito no RingCentral para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo RingCentral nas Minhas Apps, deverá ser automaticamente inscrito no RingCentral para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado o RingCentral, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado o RingCentral, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0eb9ce24f9ead44b7ba5a4d28d24177e62cb7757
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86529255"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950523"
 ---
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Monitorização e diagnóstico das melhores práticas para o Tecido de Serviço Azure
 
@@ -34,7 +34,7 @@ Para os clusters Linux, os registos do Azure Monitor são também a ferramenta r
 
 ## <a name="watchdogs"></a>Cães de guarda
 
-Geralmente, um cão de guarda é um serviço separado que observa a saúde e a carga através de serviços, pontos finais de pings, e relata eventos de saúde inesperados no cluster. Isto pode ajudar a prevenir erros que podem não ser detetados apenas com base no desempenho de um único serviço. Os watchdogs também são um bom local para hospedar código que executa ação corretiva que não requer interação do utilizador, como limpar ficheiros de registo no armazenamento em determinados intervalos de tempo. Consulte uma implementação do serviço de cão de guarda de amostras em  [eventos de cluster De Tecido de Serviço Linux em Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+Geralmente, um cão de guarda é um serviço separado que observa a saúde e a carga através de serviços, pontos finais de pings, e relata eventos de saúde inesperados no cluster. Isto pode ajudar a prevenir erros que podem não ser detetados apenas com base no desempenho de um único serviço. Os watchdogs também são um bom local para hospedar código que executa ações corretivas que não requerem interação do utilizador, como limpar ficheiros de registo no armazenamento em determinados intervalos de tempo. Se você quiser um serviço de cão de guarda SF de código aberto totalmente implementado que inclua um modelo de extensibilidade de cão de guarda fácil de usar e que funciona em clusters Windows e Linux, consulte o projeto [FabricObserver.](https://aka.ms/sf/FabricObserver) FabricObserver é um software pronto para a produção. Encorajamo-lo a implantar o FabricObserver nos seus clusters de teste e produção e alargá-lo para atender às suas necessidades, quer através do seu modelo plug-in, quer através de um forragem e de escrever os seus próprios observadores incorporados. A primeira (plug-ins) é a abordagem recomendada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
