@@ -7,14 +7,14 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ecc31019ccedc21683eed1a3186cec91d4c5c567
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ea7cdfbd30cf698cecbb14a1d70916764ad3247a
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466597"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023117"
 ---
-# <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Containerize aplicações web java e migra para o Serviço Azure Kubernetes
+# <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Contentorização e migração de aplicativos da Internet java para o Serviço Azure Kubernetes
 
 Neste artigo, você aprenderá a contentorizar aplicações web java (em execução em Apache Tomcat) e migrará-as para [o Serviço Azure Kubernetes (AKS)](https://azure.microsoft.com/services/kubernetes-service/) usando a ferramenta Azure Migrate: App Containerization. O processo de contentorização não requer acesso à sua base de código e proporciona uma forma fácil de contentorizar as aplicações existentes. A ferramenta funciona utilizando o estado de funcionamento das aplicações num servidor para determinar os componentes da aplicação e ajuda-o a embalá-los numa imagem de recipiente. A aplicação contentorizada pode então ser implantada no Serviço Azure Kubernetes (AKS).
 
@@ -59,7 +59,7 @@ Antes de começar este tutorial, tem de:
 
 **Requisito** | **Detalhes**
 --- | ---
-**Identifique uma máquina para instalar a ferramenta** | Uma máquina Windows para instalar e executar a ferramenta Azure Migrate: App Containerization. A máquina Do Windows pode ser um sistema operativo de servidor (Windows Server 2016 ou posterior) ou cliente (Windows 10), o que significa que a ferramenta também pode funcionar no seu ambiente de trabalho. <br/><br/> A máquina Windows que executa a ferramenta deve ter conectividade de rede para os servidores/máquinas virtuais que hospedam as aplicações ASP.NET a serem contentorizadas.<br/><br/> Certifique-se de que o espaço de 6-GB está disponível na máquina Windows que executa a ferramenta Azure Migrate: App Containerization para armazenar artefactos de aplicações. <br/><br/> A máquina Windows deve ter acesso à Internet, diretamente ou através de um representante. <br/> <br/>Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
+**Identifique uma máquina para instalar a ferramenta** | Uma máquina Windows para instalar e executar a ferramenta Azure Migrate: App Containerization. A máquina Do Windows pode ser um sistema operativo de servidor (Windows Server 2016 ou posterior) ou cliente (Windows 10), o que significa que a ferramenta também pode funcionar no seu ambiente de trabalho. <br/><br/> A máquina virtual do Windows que executa a ferramenta deve ter conectividade de rede com os servidores/máquinas virtuais que estão a alojar as aplicações ASP.NET que serão contentorizadas.<br/><br/> Certifique-se de que o espaço de 6-GB está disponível na máquina Windows que executa a ferramenta Azure Migrate: App Containerization para armazenar artefactos de aplicações. <br/><br/> A máquina virtual do Windows deve ter acesso à Internet, diretamente ou através de um proxy. <br/> <br/>Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
 **Servidores de aplicações** | - Ativar a ligação Secure Shell (SSH) na porta 22 do(s) servidor(s) que executa as aplicações Java a ser contentorizada. <br/>
 **Aplicação Web Java** | A ferramenta suporta atualmente <br/><br/> - Aplicações em execução no Tomcat 8 ou posteriormente.<br/> - Servidores de aplicações em Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Aplicações que utilizem a versão Java 7 ou posterior.  <br/><br/> A ferramenta atualmente não suporta <br/><br/> - Servidores de aplicações executando várias instâncias Tomcat <br/>  
 
@@ -104,7 +104,7 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
 3. Executar o script de instalação usando o comando
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## <a name="launch-the-app-containerization-tool"></a>Lançar a ferramenta de contentorização de aplicativos

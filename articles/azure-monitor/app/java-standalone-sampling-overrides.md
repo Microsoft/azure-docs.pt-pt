@@ -6,23 +6,22 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 03d3093f14d97b2cc64d91e0d1b7adf34204a021
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962601"
+ms.locfileid: "105024152"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Sobreposições de amostragem (pré-visualização) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> A função de sobreposições de amostragem está em pré-visualização.
+> A função de sobreposições de amostragem está em pré-visualização, a partir de 3.0.3-BETA.2.
 
-Aqui estão alguns casos de uso para sobreposições de amostragem:
- * Suprimir a recolha de telemetria para exames de saúde.
- * Suprimir a recolha de telemetria para chamadas de dependência ruidosas.
- * Reduza o ruído dos controlos de saúde ou das chamadas de dependência ruidosas sem os suprimir completamente.
- * Recolher 100% de telemetria para um tipo de pedido importante (por `/login` exemplo), mesmo que tenha a amostragem padrão configurada para algo inferior.
+As sobreposições de amostragem permitem-lhe anular a [percentagem de amostragem padrão,](./java-standalone-config.md#sampling)por exemplo:
+ * Desafete a percentagem de amostragem a 0 (ou algum pequeno valor) para verificações de saúde ruidosas.
+ * Desa estava a percentagem de amostragem a 0 (ou algum pequeno valor) para chamadas de dependência ruidosas.
+ * Defina a percentagem de amostragem para 100 para um tipo de pedido importante (por `/login` exemplo), mesmo que tenha a amostra padrão configurada para algo inferior.
 
 ## <a name="terminology"></a>Terminologia
 
@@ -79,7 +78,7 @@ Apenas é utilizada a primeira amostra de amostragem que corresponde.
 
 Se nenhuma amostragem se sobrepor:
 
-* Se esta for a primeira extensão do vestígio, então é utilizada a [percentagem normal de amostragem.](./java-standalone-config.md#sampling)
+* Se esta for a primeira extensão do vestígio, então a [percentagem de amostragem padrão](./java-standalone-config.md#sampling) é utilizada.
 * Se esta não for a primeira extensão do vestígio, então a decisão de amostragem dos pais é utilizada.
 
 > [!IMPORTANT]

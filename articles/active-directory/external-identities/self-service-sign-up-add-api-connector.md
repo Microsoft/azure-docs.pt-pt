@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703e3b4c951bc4c3a22f82b9faa31789d1abf868
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3d5e25df68bbf793535b22602ad581db24a1426f
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008727"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022913"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -53,13 +53,22 @@ A autenticação básica HTTP é definida no [RFC 2617](https://tools.ietf.org/h
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização e é fornecida sem um acordo de nível de serviço. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A autenticação do certificado de cliente é uma autenticação baseada em certificados mútuos, onde o cliente fornece um certificado de cliente ao servidor para provar a sua identidade. Neste caso, o Azure Ative Directory utilizará o certificado que carrega como parte da configuração do conector API. Isto acontece como parte do aperto de mão SSL. Apenas os serviços que possuam certificados adequados podem aceder ao seu serviço API. O certificado de cliente é um certificado digital X.509. Em ambientes de produção, deve ser assinado por uma autoridade de certificados. 
+A autenticação do certificado de cliente é um método de autenticação baseado em certificados mútuos onde o cliente fornece um certificado de cliente ao servidor para provar a sua identidade. Neste caso, o Azure Ative Directory utilizará o certificado que carrega como parte da configuração do conector API. Isto acontece como parte do aperto de mão SSL. O seu serviço API pode então limitar o acesso a apenas serviços que possuam certificados adequados. O certificado de cliente é um certificado digital PKCS12 (PFX) X.509. Em ambientes de produção, deve ser assinado por uma autoridade de certificados. 
 
-Para criar um certificado, pode utilizar [o Azure Key Vault,](../../key-vault/certificates/create-certificate.md)que tem opções para certificados auto-assinados e integrações com fornecedores de emitentes de certificados para certificados assinados. Em seguida, pode [exportar o certificado](../../key-vault/certificates/how-to-export-certificate.md) e carregá-lo para utilização na configuração dos conectores API. Note que a palavra-passe só é necessária para ficheiros de certificados protegidos por uma palavra-passe. Também pode utilizar o [cmdlet New-SelfSignedCertificate da PowerShell](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) para gerar um certificado auto-assinado.
+Para criar um certificado, pode utilizar [o Azure Key Vault,](../../key-vault/certificates/create-certificate.md)que tem opções para certificados auto-assinados e integrações com fornecedores de emitentes de certificados para certificados assinados. As definições recomendadas incluem:
+- **Objeto:**`CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Tipo de conteúdo:**`PKCS #12`
+- **Tipo de Atoon vitalício**: `Email all contacts at a given percentage lifetime` ou `Email all contacts a given number of days before expiry`
+- **Chave privada exportável**: `Yes` (a fim de poder exportar ficheiro pfx)
 
-Para o Azure App Service e Azure Functions, consulte [a autenticação mútua de configuração TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) para aprender a ativar e validar o certificado a partir do seu ponto final da API.
+Em seguida, pode [exportar o certificado.](../../key-vault/certificates/how-to-export-certificate.md) Em alternativa, pode utilizar o [cmdlet New-SelfSignedCertificate da PowerShell](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) para gerar um certificado auto-assinado.
 
-Recomenda-se que desista de alertas para quando o seu certificado expirar. Para enviar um novo certificado para um conector API existente, selecione o conector API em **todos os conectores API** e clique no **Upload novo certificado**. O certificado mais recentemente carregado que não está expirado e já passou a data de início será automaticamente utilizado pelo Azure Ative Directory.
+Depois de ter um certificado, pode então carregá-lo como parte da configuração do conector API. Note que a palavra-passe só é necessária para ficheiros de certificados protegidos por uma palavra-passe.
+
+A sua API deve implementar a autorização com base em certificados de cliente enviados para proteger os pontos finais da API. Para o Serviço de Aplicações Azure e Funções Azure, consulte [a autenticação mútua de configuração TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) para aprender a ativar e *validar o certificado a partir do seu código API*.  Também pode utilizar a Azure API Management para proteger a sua API e [verificar as propriedades dos certificados do cliente](
+../../api-management/api-management-howto-mutual-certificates-for-clients.md) contra os valores pretendidos utilizando expressões de política.
+ 
+Recomenda-se que desista de alertas para quando o seu certificado expirar. Terá de gerar um novo certificado e repetir os passos acima. O seu serviço API pode continuar temporariamente a aceitar certificados antigos e novos enquanto o novo certificado é implantado. Para enviar um novo certificado para um conector API existente, selecione o conector API em **todos os conectores API** e clique no **Upload novo certificado**. O certificado mais recentemente carregado que não está expirado e já passou a data de início será automaticamente utilizado pelo Azure Ative Directory.
 
 ### <a name="api-key"></a>Chave de API
 Alguns serviços utilizam um mecanismo de "chave API" para obstacular o acesso aos seus pontos finais HTTP durante o desenvolvimento. Para [funções Azure,](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)pode fazê-lo incluindo o `code` parâmetro de consulta no URL **endpoint**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 

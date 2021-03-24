@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bcf28fbc0d2f4ec9eeac5bcb8f0b2c9b65a62b6b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 876564934b1ccbffa19c318a2d2c8393e5dca54e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775046"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023984"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configure um proxy do Centro de Distribuição de Chaves Kerberos (pré-visualização)
 
@@ -70,6 +70,6 @@ Para configurar o representante da KDC:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a gerir o lado dos Serviços de Secretária remoto do proxy KDC e atribuir a função RD Gateway, consulte [implementar a função RD Gateway](/windows-server/remote/rd-gateway-role).
+Para aprender a gerir o lado dos Serviços de Secretária remoto do proxy KDC e atribuir a função RD Gateway, consulte [implementar a função RD Gateway](rd-gateway-role.md).
 
 Se estiver interessado em escalar os seus servidores de procuração KDC, aprenda a configurar alta disponibilidade para proxy KDC em [Adicionar alta disponibilidade para a frente web RD Web e Gateway](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).
