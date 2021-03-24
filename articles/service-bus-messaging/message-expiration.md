@@ -3,12 +3,12 @@ title: Azure Service Bus - expiração da mensagem
 description: Este artigo explica sobre a expiração e tempo para viver das mensagens do Azure Service Bus. Após tal prazo, a mensagem já não é entregue.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042832"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952325"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração de mensagem (TTL)
 A carga útil numa mensagem, ou um comando ou inquérito que uma mensagem transmite a um recetor, está quase sempre sujeita a algum tipo de prazo de validade de nível de aplicação. Após esse prazo, o conteúdo deixou de ser entregue ou a operação solicitada deixou de ser executada.
@@ -46,7 +46,7 @@ As filas de autocarros de serviço, tópicos e subscrições podem ser criadas c
  
 A limpeza automática é útil em cenários de desenvolvimento e teste em que as entidades são criadas de forma dinâmica e não são limpas após o uso, devido a alguma interrupção do teste ou depuramento. Também é útil quando uma aplicação cria entidades dinâmicas, como uma fila de respostas, para receber respostas de volta a um processo de servidor web, ou em outro objeto de vida relativamente curta onde é difícil limpar essas entidades de forma fiável quando a instância do objeto desaparece.
 
-A função é ativada utilizando a exclusão automática da propriedade **ociosa** no espaço de nomes. Esta propriedade é definida para a duração para a qual uma entidade deve estar inativa (não ser usada) antes de ser automaticamente eliminada. O valor mínimo para esta propriedade é 5.
+A função é ativada utilizando a exclusão automática da propriedade **ociosa** no espaço de nomes. Esta propriedade é definida para a duração para a qual uma entidade deve estar inativa (não ser usada) antes de ser automaticamente eliminada. O valor mínimo para esta propriedade é de 5 minutos.
  
 ## <a name="idleness"></a>Ociosidade
 

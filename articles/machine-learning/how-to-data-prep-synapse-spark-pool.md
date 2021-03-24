@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d7cc948d3631e69882eb252672e5a3eb5d5f9751
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 9ced4da7f71a0499e538e499644d89240611f1ea
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867445"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956218"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Anexar piscinas Apache Spark (alimentadas por Azure Synapse Analytics) para a luta de dados (pré-visualização)
 
@@ -127,6 +127,21 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## <a name="launch-synapse-spark-pool-for-data-preparation-tasks"></a>Lançar pool de faíscas synapse para tarefas de preparação de dados
 
+Para iniciar a preparação de dados com a piscina Apache Spark, especifique o nome da piscina Apache Spark:
+
+> [!IMPORTANT]
+> Para continuar a utilizar o conjunto Apache Spark, deve indicar qual o recurso computacional a utilizar ao longo das suas tarefas de trabalho de trabalho `%synapse` para linhas únicas de código e `%%synapse` para várias linhas. 
+
+```python
+%synapse start -c SynapseSparkPoolAlias
+```
+
+Após o início da sessão, pode verificar os metadados da sessão.
+
+```python
+%synapse meta
+```
+
 Pode especificar um [ambiente de aprendizagem automática Azure](concept-environments.md) para utilizar durante a sua sessão de Faísca Apache. Apenas as dependências da Conda especificadas no ambiente produzirão efeito. A imagem do Docker não é suportada.
 
 >[!WARNING]
@@ -146,21 +161,11 @@ env.python.conda_dependencies.add_conda_package("numpy==1.17.0")
 env.register(workspace=ws)
 ```
 
-Para iniciar a preparação de dados com o conjunto Apache Spark, especifique o nome da piscina Apache Spark e forneça o seu ID de subscrição, o grupo de recursos de espaço de trabalho de aprendizagem automática, o nome do espaço de trabalho de aprendizagem automática, e qual o ambiente a utilizar durante a sessão Apache Spark. 
-
-> [!IMPORTANT]
-> Para continuar a utilizar o conjunto Apache Spark, deve indicar qual o recurso computacional a utilizar ao longo das suas tarefas de trabalho de trabalho `%synapse` para linhas únicas de código e `%%synapse` para várias linhas. 
+Para iniciar a preparação de dados com a piscina Apache Spark e o seu ambiente personalizado, especifique o nome da piscina Apache Spark e qual o ambiente a utilizar durante a sessão Apache Spark. Além disso, você pode fornecer o seu ID de subscrição, o grupo de recursos de espaço de trabalho de aprendizagem automática, e o nome do espaço de trabalho de machine learning.
 
 ```python
-%synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName -e myenv
+%synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
-
-Após o início da sessão, pode verificar os metadados da sessão.
-
-```python
-%synapse meta
-```
-
 ## <a name="load-data-from-storage"></a>Carregar dados do armazenamento
 
 Assim que a sessão apache spark começar, leia os dados que deseja preparar. O carregamento de dados é suportado para o armazenamento de Azure Blob e para as Gerações 1 e 2 de Armazenamento do Lago de Dados Azure.
@@ -226,14 +231,22 @@ df = spark.read.csv("abfss://<container name>@<storage account>.dfs.core.windows
 
 ### <a name="read-in-data-from-registered-datasets"></a>Ler em dados de conjuntos de dados registados
 
-Também pode obter um conjunto de dados registado existente no seu espaço de trabalho e realizar a preparação de dados sobre o mesmo, convertendo-os num data-dado de faísca.  
+Também pode obter um conjunto de dados registado existente no seu espaço de trabalho e realizar a preparação de dados sobre o mesmo, convertendo-os num data-dado de faísca.
 
-O exemplo a seguir obtém um Separador Registado, `blob_dset` que faz referência a ficheiros no armazenamento de bolhas e converte-o num dataframe de faíscas. Quando converter os seus conjuntos de dados num dataframe de faíscas, pode alavancar `pyspark` as bibliotecas de exploração e preparação de dados.  
+O exemplo seguinte autentica-se no espaço de trabalho, obtém um Separadors Registado, `blob_dset` que faz referência a ficheiros no armazenamento de bolhas e converte-o num data-dado de faísca. Quando converter os seus conjuntos de dados num dataframe de faíscas, pode alavancar `pyspark` as bibliotecas de exploração e preparação de dados.  
 
 ``` python
 
 %%synapse
 from azureml.core import Workspace, Dataset
+
+subscription_id = "<enter your subscription ID>"
+resource_group = "<enter your resource group>"
+workspace_name = "<enter your workspace name>"
+
+ws = Workspace(workspace_name = workspace_name,
+               subscription_id = subscription_id,
+               resource_group = resource_group)
 
 dset = Dataset.get_by_name(ws, "blob_dset")
 spark_df = dset.to_spark_dataframe()

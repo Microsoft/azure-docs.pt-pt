@@ -2,13 +2,13 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91652487"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951968"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
@@ -53,6 +53,12 @@ Para utilizar o Azure CLI para apagar uma fechadura, execute os seguintes comand
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## <a name="required-permissions"></a>Permissões obrigatórias
+
+As supressões são solicitadas sob a identidade do utilizador que implementou o modelo. Para eliminar as implementações, o utilizador deve ter acesso à ação **Microsoft.Resources/deployments/delete.** Se o utilizador não tiver as permissões necessárias, as implementações não são eliminadas do histórico.
+
+Se o utilizador atual não tiver as permissões necessárias, a eliminação automática é novamente tentada durante a próxima implementação.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Opte por excluir as supressões automáticas
 

@@ -6,13 +6,13 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: workloads
-ms.openlocfilehash: a8210a47cdc31b28bd7dd2b0021570c18db89423
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 346c331596f984cbb068c03110997c2478499488
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102558207"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950676"
 ---
 # <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Começar com tmaxSoft OpenFrame em Azure
 
