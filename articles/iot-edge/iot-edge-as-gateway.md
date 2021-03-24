@@ -4,19 +4,19 @@ description: Utilize o Azure IoT Edge para criar um dispositivo de gateway trans
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492715"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027351"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>De que forma um dispositivo IoT Edge pode ser utilizado como gateway
 
@@ -24,12 +24,7 @@ ms.locfileid: "103492715"
 
 Os dispositivos IoT Edge podem funcionar como portais, proporcionando uma ligação entre outros dispositivos na rede e o IoT Hub.
 
-O módulo hub IoT Edge funciona como IoT Hub, assim como pode lidar com ligações de qualquer dispositivo que tenha uma identidade com o IoT Hub, incluindo outros dispositivos IoT Edge. Este tipo de padrão de gateway é chamado *transparente* porque as mensagens podem passar de dispositivos a jusante para IoT Hub como se não houvesse uma porta de entrada entre eles.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-Começando pela versão 1.2 do IoT Edge, os gateways transparentes podem lidar com ligações a jusante de outros dispositivos IoT Edge.
-::: moniker-end
+O módulo hub IoT Edge funciona como IoT Hub, assim como pode lidar com ligações de outros dispositivos que têm uma identidade com o mesmo hub IoT. Este tipo de padrão de gateway é chamado *transparente* porque as mensagens podem passar de dispositivos a jusante para IoT Hub como se não houvesse uma porta de entrada entre eles.
 
 Para dispositivos que não podem ou não podem ligar-se ao IoT Hub por si só, os gateways IoT Edge podem fornecer essa ligação. Este tipo de padrão de gateway é chamado *de tradução* porque o dispositivo IoT Edge tem de executar o processamento em mensagens de dispositivo a jusante antes de poderem ser reencaminhados para o IoT Hub. Estes cenários requerem módulos adicionais na porta de entrada IoT Edge para lidar com os passos de processamento.
 
@@ -51,17 +46,19 @@ Para obter mais informações sobre como o hub IoT Edge gere a comunicação ent
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-Os dispositivos IoT Edge não podem estar a jusante de um gateway IoT Edge.
-
 ![Diagrama - Padrão de gateway transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>Na versão IoT Edge 1.1 ou mais antiga, os dispositivos IoT Edge não podem estar a jusante de um gateway IoT Edge.
+>
+>Começando pela versão 1.2 do IoT Edge, os gateways transparentes podem lidar com ligações a partir de dispositivos IoT Edge a jusante. Para mais informações, mude para a versão [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true) deste artigo.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-A partir da versão 1.2.0, os dispositivos IoT Edge podem ligar-se através de gateways transparentes.
+Começando pela versão 1.2 do IoT Edge, os gateways transparentes podem lidar com ligações a partir de dispositivos IoT Edge a jusante.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 

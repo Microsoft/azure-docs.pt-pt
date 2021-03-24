@@ -2,25 +2,20 @@
 title: Escolha tamanhos e imagens VM para piscinas
 description: Como escolher entre os tamanhos VM disponíveis e versões de SO para nó de computação em piscinas Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800487"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027385"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho e imagem VM para nó de computação numa piscina Azure Batch
 
 Ao selecionar um tamanho de nó para uma piscina Azure Batch, pode escolher entre quase todos os tamanhos VM disponíveis em Azure. O Azure oferece uma gama de tamanhos para Os VMs Linux e Windows para diferentes cargas de trabalho.
 
 ## <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos VM suportados
-
-Existem algumas exceções e limitações à escolha de um tamanho VM para a sua piscina de Lote:
-
-- Algumas séries VM ou tamanhos VM não são suportados em Batch.
-- Alguns tamanhos VM são restritos e precisam de ser especificamente ativados antes de poderem ser atribuídos.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Piscinas na configuração da Máquina Virtual
 
@@ -32,16 +27,14 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | A | Todos os tamanhos, *exceto* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Todos os tamanhos |
 | B | Não suportado |
-| DC | Não suportado |
+| DCsv2 | Todos os tamanhos |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3 | Todos os tamanhos |
 | Dav4 | Todos os tamanhos |
-| Dasv4 | Todos os tamanhos |
 | Ddv4 |  Todos os tamanhos |
 | Dv4 | Não suportado |
 | Ev3 | Todos os tamanhos, exceto E64is_v3 |
 | Eav4 | Todos os tamanhos |
-| Easv4 | Todos os tamanhos |
 | Edv4 |  Todos os tamanhos |
 | Ev4 | Não suportado |
 | F, Fs | Todos os tamanhos |
@@ -50,6 +43,7 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | H | Todos os tamanhos |
 | HB | Todos os tamanhos |
 | HBv2 | Todos os tamanhos |
+| HBv3 | Standard_HB120rs_v3 (outros tamanhos ainda não disponíveis) |
 | HC | Todos os tamanhos |
 | Ls | Todos os tamanhos |
 | Lsv2 | Todos os tamanhos |
@@ -58,7 +52,7 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | NC | Todos os tamanhos |
 | NCv2 | Todos os tamanhos |
 | NCv3 | Todos os tamanhos |
-| NCasT4_v3 | Nenhum - ainda não disponível |
+| NCasT4_v3 | Todos os tamanhos |
 | ND | Todos os tamanhos |
 | NDv2 | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |

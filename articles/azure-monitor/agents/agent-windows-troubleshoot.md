@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7ab67602ebba2ae5446ecc0052ef4b03bba1e1bf
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100613518"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952988"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como resolver problemas com o agente do Log Analytics para Windows 
 
@@ -19,7 +19,7 @@ Este artigo fornece falhas de resolução de problemas que pode experimentar com
 Se nenhum destes passos funcionar para si, estão também disponíveis os seguintes canais de suporte:
 
 * Os clientes com benefícios de suporte Premier podem abrir um pedido de apoio com [o Premier.](https://premier.microsoft.com/)
-* Os clientes com contratos de apoio Azure podem abrir um pedido de apoio [no portal Azure.](https://manage.windowsazure.com/?getsupport=true)
+* Os clientes com contratos de apoio Azure podem abrir um pedido de apoio [no portal Azure.](https://azure.microsoft.com/support/options/)
 * Visite a página de Feedback do Log Analytics para rever as ideias e bugs submetidos [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou arquivar uma nova. 
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Ferramenta de resolução de problemas de log analytics
@@ -68,10 +68,10 @@ Verifique duas vezes se a firewall ou o proxy estão configurados para permitir 
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.blob.core.windows.net |Porto 443 |Saída|Yes |  
-|*.agentsvc.azure-automation.net |Porto 443 |Saída|Yes |  
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.blob.core.windows.net |Porto 443 |Saída|Sim |  
+|*.agentsvc.azure-automation.net |Porto 443 |Saída|Sim |  
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). Se pretender utilizar o Azure Automation Hybrid Runbook Worker para ligar e registar-se com o serviço de Automação para utilizar runbooks ou soluções de gestão no seu ambiente, deve ter acesso ao número de porta e aos URLs descritos em [Configurar a sua rede para o Trabalhador de Runbook Híbrido.](../../automation/automation-hybrid-runbook-worker.md#network-planning) 
 
@@ -89,7 +89,7 @@ Existem várias formas de verificar se o agente está a comunicar com sucesso co
 
     Se o computador estiver a comunicar com sucesso com o serviço, a consulta deverá devolver um resultado. Se a consulta não tiver retornado um resultado, verifique primeiro se o agente está configurado para reportar ao espaço de trabalho correto. Se estiver configurado corretamente, proceda ao passo 3 e procure no Registo de Eventos do Windows para identificar se o agente está a registar o problema que poderá estar a impedi-lo de comunicar com o Azure Monitor.
 
-- Outro método para identificar um problema de conectividade é executando a ferramenta **TestCloudConnectivity.** A ferramenta é instalada por defeito com o agente na pasta *%SystemRoot%\Ficheiros de programa\Microsoft Monitoring Agent \Agent*. A partir de um pedido de comando elevado, navegue até à pasta e execute a ferramenta. A ferramenta devolve os resultados e os destaques onde o teste falhou (por exemplo, se estava relacionado com uma determinada porta/URL que estava bloqueada). 
+- Outro método para identificar um problema de conectividade é executando a ferramenta **TestCloudConnectivity.** A ferramenta é instalada por defeito com o agente na pasta *%SystemRoot%\Ficheiros de programa\Microsoft Monitoring Agent \Agent*. Numa linha de comandos elevada, navegue para a pasta e execute a ferramenta. A ferramenta devolve os resultados e os destaques onde o teste falhou (por exemplo, se estava relacionado com uma determinada porta/URL que estava bloqueada). 
 
     ![Resultados da execução da ferramenta TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 

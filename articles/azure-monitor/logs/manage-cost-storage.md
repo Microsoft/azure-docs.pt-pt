@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bwren
-ms.openlocfilehash: 89264bc17180aaf47611aef73c9fd20427bce104
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4d546401baa7edc7725e3fdb23065009895f9c1e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772285"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027436"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -93,7 +93,7 @@ Para alterar o nível de preços do Log Analytics do seu espaço de trabalho,
     
 3. Depois de rever os custos estimados com base nos últimos 31 dias de utilização, se decidir alterar o nível de preços, clique em **Select**.  
 
-Também pode [definir o nível de preços através do Azure Resource Manager](../samples/resource-manager-workspace.md) utilizando o parâmetro `sku` `pricingTier` (no modelo Azure Resource Manager). 
+Também pode [definir o nível de preços através do Azure Resource Manager](./resource-manager-workspace.md) utilizando o parâmetro `sku` `pricingTier` (no modelo Azure Resource Manager). 
 
 ## <a name="legacy-pricing-tiers"></a>Escalões de preço legados
 
@@ -145,7 +145,7 @@ Para definir a retenção padrão para o seu espaço de trabalho,
 
 Quando a retenção é reduzida, há um período de carência de vários dias antes de os dados mais antigos do que a nova definição de retenção ser removido. 
 
-A página **de Retenção** de Dados permite configurações de retenção de 30, 31, 60, 90, 120, 180, 270, 365, 550 e 730 dias. Se for necessária outra definição, esta pode ser configurada utilizando [o Gestor de Recursos Azure](../samples/resource-manager-workspace.md) utilizando o `retentionInDays` parâmetro. Quando definir a retenção de dados para 30 dias, pode desencadear uma purga imediata de dados mais antigos utilizando o `immediatePurgeDataOn30Days` parâmetro (eliminando o período de carência de vários dias). Isto pode ser útil para cenários relacionados com a conformidade onde a remoção imediata de dados é imperativa. Esta funcionalidade de purga imediata só é exposta através do Azure Resource Manager. 
+A página **de Retenção** de Dados permite configurações de retenção de 30, 31, 60, 90, 120, 180, 270, 365, 550 e 730 dias. Se for necessária outra definição, esta pode ser configurada utilizando [o Gestor de Recursos Azure](./resource-manager-workspace.md) utilizando o `retentionInDays` parâmetro. Quando definir a retenção de dados para 30 dias, pode desencadear uma purga imediata de dados mais antigos utilizando o `immediatePurgeDataOn30Days` parâmetro (eliminando o período de carência de vários dias). Isto pode ser útil para cenários relacionados com a conformidade onde a remoção imediata de dados é imperativa. Esta funcionalidade de purga imediata só é exposta através do Azure Resource Manager. 
 
 Os espaços de trabalho com retenção de 30 dias podem conservar dados durante 31 dias. Se for imperativo que os dados sejam conservados por apenas 30 dias, utilize o Gestor de Recursos Azure para definir a retenção para 30 dias e com o `immediatePurgeDataOn30Days` parâmetro.  
 
@@ -322,7 +322,7 @@ O número de unidades na sua conta está em unidades de node*meses que são repr
 
 
 > [!TIP]
-> Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](../log-query/query-optimization.md#query-performance-pane) em recursos para executar. Se não necessitar de resultados **por computador,** consulte o tipo de dados de utilização (ver abaixo).
+> Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](./query-optimization.md#query-performance-pane) em recursos para executar. Se não necessitar de resultados **por computador,** consulte o tipo de dados de utilização (ver abaixo).
 
 ## <a name="understanding-ingested-data-volume"></a>Compreender o volume de dados ingerido
 
@@ -406,7 +406,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](../log-query/query-optimization.md#query-performance-pane) em recursos para executar. Se não necessitar de resultados **por computador,** então questione o tipo de dados de utilização.
+> Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](./query-optimization.md#query-performance-pane) em recursos para executar. Se não necessitar de resultados **por computador,** então questione o tipo de dados de utilização.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recurso Azure, grupo de recursos ou subscrição
 
@@ -445,7 +445,7 @@ Também pode analisar o `_ResourceId` mais completo, se necessário, usando
 ```
 
 > [!TIP]
-> Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](../log-query/query-optimization.md#query-performance-pane) em recursos para executar. Se não necessitar de resultados por subscrição, grupo de resouce ou nome de recurso, então consultar o tipo de dados de utilização.
+> Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](./query-optimization.md#query-performance-pane) em recursos para executar. Se não necessitar de resultados por subscrição, grupo de resouce ou nome de recurso, então consultar o tipo de dados de utilização.
 
 > [!WARNING]
 > Alguns dos campos do tipo de dados de utilização, ainda no esquema, foram depreciados e os seus valores deixarão de ser povoados. Estes são **Computador,** bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla,** **BatchesCapped** e **AverageProcessingTimeMs**.
@@ -479,7 +479,7 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 
 | Origem do volume de dados elevado | Como reduzir o volume de dados |
 | -------------------------- | ------------------------- |
-| Informações de Contentores         | [Configure a Informação do Contentor](../insights/container-insights-cost.md#controlling-ingestion-to-reduce-cost) para recolher apenas os dados necessários. |
+| Informações de Contentores         | [Configure a Informação do Contentor](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) para recolher apenas os dados necessários. |
 | Eventos de segurança            | Selecione [eventos de segurança comuns ou mínimos](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> Altere a política de auditoria de segurança para recolher apenas os eventos necessários. Em particular, reveja a necessidade de recolher eventos para <br> - [auditar a plataforma de filtragem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [auditar o registo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar o sistema de ficheiros](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar o objeto de kernel](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar a manipulação de identificadores](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditoria de armazenamento amovível |
 | Contadores de desempenho       | Altere a [configuração do contador de desempenho](../agents/data-sources-performance-counters.md) para: <br> - Reduzir a frequência da recolha <br> - Reduzir o número de contadores de desempenho |
 | Registos de eventos                 | Altere a [configuração do registo de eventos](../agents/data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
@@ -487,8 +487,8 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 | AzureDiagnostics           | Alterar [a recolha de registos de recursos](../essentials/diagnostic-settings.md#create-in-azure-portal) para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
 | Dados de solução de computadores que não precisam da solução | Utilize [soluções direcionadas](../insights/solution-targeting.md) para recolher dados de grupos de computadores apenas necessários. |
 | Application Insights | Opções de revisão para [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Utilize [o Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) para sintonizar as definições de auditoria. |
-| Azure Sentinel | Reveja quaisquer [fontes de dados do Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) que tenha ativado recentemente como fontes de volume de dados adicionais. |
+| [SQL Analytics](../insights/azure-sql.md) | Utilize [o Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) para sintonizar as definições de auditoria. |
+| Azure Sentinel | Reveja quaisquer [fontes de dados do Sentinel](../../sentinel/connect-data-sources.md) que tenha ativado recentemente como fontes de volume de dados adicionais. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Receber os nós como faturado no nível de preços per nódoa
 

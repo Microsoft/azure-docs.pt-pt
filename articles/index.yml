@@ -13,12 +13,12 @@ metadata:
   ms.date: 03/03/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: b7dceb243f0a85166cd1d7180198c6aac95fab7d
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.openlocfilehash: af07281a3f8a7debd72c04057e6fc6ac9a8b417b
+  ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104601062"
+  ms.lasthandoff: 03/24/2021
+  ms.locfileid: "104952614"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -505,7 +505,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
     azureCategories:
     - compute
-    url: cloud-services/index.yml
+    url: cloud-services-extended-support/index.yml
   - title: Container Instances
     summary: Execute facilmente contentores no Azure sem gerir servidores
     imageSrc: https://static.docs.com/ui/media/product/azure/container-instances.svg

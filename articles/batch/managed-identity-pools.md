@@ -2,14 +2,14 @@
 title: Configurar identidades geridas em piscinas de Lote
 description: Saiba como ativar identidades geridas atribuídas pelo utilizador em piscinas de Batch e como utilizar identidades geridas dentro dos nós.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4a59383d119f88bb3ee180f629ba0a6ea6ac2f44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7fab213ac1545c0bff9b74bc46504717b6038e8e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100418067"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950166"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configurar identidades geridas em piscinas de Lote
 
@@ -100,3 +100,4 @@ Para obter mais informações, consulte [Como utilizar identidades geridas para 
 
 - Saiba mais sobre [identidades geridas para recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 - Saiba como utilizar [as chaves geridas pelo cliente com identidades geridas pelo utilizador](batch-customer-managed-key.md).
+- Saiba como [ativar](automatic-certificate-rotation.md)a rotação automática do certificado numa piscina de Lote .
