@@ -4,12 +4,12 @@ description: Saiba como configurar as políticas apache ranger para a Colmeia nu
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 15c406576b373577a2a3a50108acad7ccbf36699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705709"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863263"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
 
@@ -30,7 +30,7 @@ Saiba como configurar as políticas apache ranger para a Colmeia Apache. Neste a
 
 2. Inicie sessão com o nome de utilizador e a palavra-passe do domínio do administrador do cluster:
 
-    ![Página inicial do HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png" alt-text="Página inicial do HDInsight ESP Ranger" border="true":::
 
     Atualmente, o Ranger só funciona com o Yarn e o Hive.
 
@@ -57,7 +57,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |Selecionar Utilizador|hiveuser1|
     |Permissões|selecionar|
 
-    ![HdInsight ESP Ranger Hive configurar políticas de configuração](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png" alt-text="As políticas de colmeia HDInsight ESP Ranger configuram" border="true":::.
 
     > [!NOTE]  
     > Se um utilizador de domínio não for povoado em Selecionar Utilizador, aguarde um momento enquanto o Ranger é sincronizado com o AAD.
@@ -101,7 +101,7 @@ Na última secção, configuraste duas apólices.  O hiveuser1 tem a permissão 
 
 1. A partir do separador **Dados,** navegue para **obter**  >  **dados de outras fontes**  >  **da ODBC** para lançar a janela **ODBC.**
 
-    ![Abrir o assistente de ligação de dados](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png" alt-text="Abrir o assistente de ligação de dados" border="true":::
 
 1. A partir da lista de drop-down, selecione o nome de origem de dados que criou na última secção e, em seguida, selecione **OK**.
 

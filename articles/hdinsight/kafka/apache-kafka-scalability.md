@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
-ms.openlocfilehash: f22642ae94ea01a798b1eab639c93fda31f87581
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9aa11be42aca59458fea0462a90b6aeb70df893d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944062"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863144"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurar o armazenamento e a escalabilidade para o Apache Kafka no HDInsight
 
@@ -20,7 +20,7 @@ O Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster do 
 
 O diagrama seguinte estabelece uma comparação entre o Kafka no HDInsight antes dos discos geridos e o Kafka no HDInsight com os discos geridos:
 
-![kafka com arquitetura de discos geridos](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="kafka com arquitetura de discos geridos" border="false":::
 
 ## <a name="configure-managed-disks-azure-portal"></a>Configurar discos geridos: portal do Azure
 
@@ -31,7 +31,7 @@ O diagrama seguinte estabelece uma comparação entre o Kafka no HDInsight antes
     > [!NOTE]  
     > O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). Os discos Premium são utilizados com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard.
 
-    ![secção de tamanho de cluster com os discos por nó de trabalhador realçado](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
+    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="secção de tamanho de cluster com os discos por nó de trabalhador realçado" border="true":::
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configurar discos geridos: modelo do Resource Manager
 

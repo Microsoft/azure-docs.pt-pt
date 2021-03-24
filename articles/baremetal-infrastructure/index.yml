@@ -10,12 +10,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 03/19/2021
-  ms.openlocfilehash: 9380cd3d0d3184716d980f57e8cc88ab27201b20
-  ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+  ms.openlocfilehash: 89bd62f1462f4b3a20b1fdb9469ccb75de93ce78
+  ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/22/2021
-  ms.locfileid: "104770908"
+  ms.lasthandoff: 03/24/2021
+  ms.locfileid: "104951611"
 landingContent:
 - title: Acerca da Infraestrutura Bare-metal
   linkLists:

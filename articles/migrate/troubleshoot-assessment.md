@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 09fbc97b84365cc1d6d40b8e1147e1b8e951cc1f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 78e54543c94cd6e8434023b61516242c2491f353
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780706"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863603"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
-Este artigo ajuda-o a resolver problemas com avaliação e visualização de dependência com [Azure Migrate: Descoberta e avaliação](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+Este artigo ajuda-o a resolver problemas com avaliação e visualização de dependência com [Azure Migrate: Descoberta e avaliação](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 
 ## <a name="assessment-readiness-issues"></a>Questões de prontidão de avaliação
@@ -222,7 +222,7 @@ Após a migração de servidores com visualização de dependência ativada para
 Na análise da dependência sem agentes, os nomes do processo são capturados com o melhor esforço. Em certos cenários, embora os nomes dos servidores de origem e destino e a porta de destino sejam capturados, não é possível determinar os nomes do processo em ambas as extremidades da dependência. Nestes casos, o processo é marcado como "processo desconhecido".
 
 ## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-azure-migrate"></a>O meu espaço de trabalho Log Analytics não está listado quando se tenta configurar o espaço de trabalho em Azure Migrate
-Atualmente, o Azure Migrate suporta a criação de áreas de trabalho do OMS nas regiões E.U.A. Leste, Ásia Sudeste e Europa Ocidental. Se o espaço de trabalho for criado fora de Azure Migrate em qualquer outra região, atualmente não pode ser associado a um projeto Azure Migrate.
+Atualmente, o Azure Migrate suporta a criação de áreas de trabalho do OMS nas regiões E.U.A. Leste, Ásia Sudeste e Europa Ocidental. Se o espaço de trabalho for criado fora de Azure Migrate em qualquer outra região, atualmente não pode ser associado a um projeto.
 
 
 ## <a name="capture-network-traffic"></a>Captação de tráfego de rede

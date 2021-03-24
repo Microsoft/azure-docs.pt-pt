@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 03/12/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5e17943d7867bfd6b93d95b6ec0b6e0049a784ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a5b3a94a0b1253b946239cd26113e9dfc955dd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103555793"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955963"
 ---
 # <a name="samples"></a>Amostras
 
@@ -22,9 +22,9 @@ O Azure Communication Services tem muitas amostras disponíveis, que pode usar p
 
 ## <a name="application-samples"></a>Amostras de aplicação
 
-| Nome da amostra                                                                                          | Description                                                         | Idiomas/Plataformas disponíveis      |
+| Nome da amostra                                                                                          | Descrição                                                         | Idiomas/Plataformas disponíveis      |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
-| [Grupo chamando amostra de herói](./calling-hero-sample.md)                                                | Fornece uma amostra de criação de uma aplicação de chamada de grupo.          | Web, iOS                           |
+| [Grupo chamando amostra de herói](./calling-hero-sample.md)                                                | Fornece uma amostra de criação de uma aplicação de chamada de grupo.          | Web, iOS, Android                           |
 | [Amostra de chamada web](./web-calling-sample.md)                                                        | Um passo a passo de funcionalidades de CHAMADA ACS dentro da Web. | Web                                |
 | [Amostra de herói de chat](./chat-hero-sample.md)                                                            | Fornece uma amostra de criação de uma aplicação de chat.                   | Web & C# .NET                      |
 | [App Médica Contoso](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | Aplicação de amostra que demonstra um fluxo paciente-médico.                     | Web & Node.js                      |
