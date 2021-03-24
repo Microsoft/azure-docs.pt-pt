@@ -1,14 +1,14 @@
 ---
 title: Exemplos de consultas avançadas
 description: Use o Gráfico de Recursos Azure para executar algumas consultas avançadas, incluindo trabalhar com colunas, listar etiquetas usadas e combinar recursos com expressões regulares.
-ms.date: 01/27/2021
+ms.date: 03/23/2021
 ms.topic: sample
-ms.openlocfilehash: 5a87d63e597622ae5c0d8c8f48bc37281d4fd530
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c6a140b0392affea252e05d63055232532305c75
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99560358"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949860"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Amostras avançadas de consulta de gráficos de recursos
 
@@ -28,7 +28,6 @@ Vamos examinar as seguintes consultas avançadas:
 - [Listar todas as extensões instaladas numa máquina virtual](#join-vmextension)
 - [Encontre contas de armazenamento com uma etiqueta específica no grupo de recursos](#join-findstoragetag)
 - [Combine resultados de duas consultas num único resultado](#unionresults)
-- [Inclua o inquilino e nomes de subscrição com DisplayNames](#displaynames)
 - [Resumir a máquina virtual pelos estados de energia estendeu a propriedade](#vm-powerstate)
 - [Contagem de atribuições de configuração de hóspedes não conformes](#count-gcnoncompliant)
 - [Detalhes de consulta dos relatórios de atribuição de configuração de hóspedes](#query-gcreports)
@@ -559,26 +558,6 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 - Portal do Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com</a>
 - Portal do Governo Azure: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.us</a>
 - Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>Inclua o inquilino e nomes de subscrição com DisplayNames
-
-Esta consulta utiliza o parâmetro **Incluir** com opção _DisplayNames_ para adicionar **subscriçãoDisplayName** e **inquilinoDisplayName** aos resultados. Este parâmetro só está disponível para Azure CLI e Azure PowerShell.
-
-```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
-```
-
-Uma alternativa para obter o nome de subscrição é usar o `join` operador e ligar-se à tabela **ResourceContainers** e ao `Microsoft.Resources/subscriptions` tipo. `join` funciona em Azure CLI, Azure PowerShell, portal, e todos suportados SDK. Por exemplo, consulte [Sample - Key vault com nome de assinatura](#join).
-
-> [!NOTE]
-> Se a consulta não utilizar o **projeto** para especificar as propriedades **devolvidas, subscriçãoDisplayName** e **inquilinoDisplayName** são automaticamente incluídos nos resultados.
-> Se a consulta utilizar o **projeto,** cada um dos campos _DisplayName_ deve ser explicitamente incluído no **projeto** ou não será devolvido nos resultados, mesmo quando o parâmetro **Incluir** é utilizado. O parâmetro **Incluir** não funciona com [tabelas.](../concepts/query-language.md#resource-graph-tables)
 
 ---
 

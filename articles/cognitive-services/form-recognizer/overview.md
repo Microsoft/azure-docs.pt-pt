@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, tratamento de formulários
-ms.openlocfilehash: fdd482a6b0d6ca53d99cd17076ccd9a3545f7879
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 4465f88e3b0ccab8eace1936f426af8dd32af27b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467335"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872256"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -26,7 +26,16 @@ Azure Form Recogniser é um serviço cognitivo que permite construir software au
 
 O Form Recogniser é composto por modelos de processamento de documentos personalizados, modelos pré-construídos para faturas, recibos, IDs e cartões de visita, e o modelo de layout. Pode ligar para os modelos Form Recogniser utilizando um SDKs de API ou biblioteca de clientes para reduzir a complexidade e integrá-lo no seu fluxo de trabalho ou aplicação.
 
-O Form Recogniser é composto pelos seguintes serviços:
+Esta documentação contém os seguintes tipos de artigos:  
+
+* [**Os quickstarts**](quickstarts/client-library.md) estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.  
+* [**Os guias de como fazer**](build-training-data-set.md) contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.  
+* [**Os conceitos**](concept-layout.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.  
+* [**Os tutoriais**](tutorial-bulk-processing.md) são guias mais longos que mostram como usar o serviço como componente em soluções de negócio mais amplas.  
+
+## <a name="form-recognizer-features"></a>Características do Reconhecimento de Formulários
+
+Com o Form Recogniser, pode facilmente extrair e analisar dados de formulário com estas funcionalidades:
 
 * **[Layout API](#layout-api)** - Extrair texto, marcas de seleção e estruturas de mesas, juntamente com as suas coordenadas de caixa de delimitação, a partir de documentos.
 * **[Modelos personalizados](#custom-models)** - Extrair texto, pares de chaves/valor, marcas de seleção e dados de tabela a partir de formulários. Estes modelos são treinados com os seus próprios dados, por isso são adaptados aos seus formulários.
@@ -38,11 +47,10 @@ O Form Recogniser é composto pelos seguintes serviços:
   * [Cartões de visita](./concept-business-cards.md)
   * [Cartões de identificação (ID)](./concept-identification-cards.md)
 
-## <a name="try-it-out"></a>Experimente
 
-Para experimentar o serviço de reconhecimento de formulários, aceda à ferramenta online Sample UI:
-<!-- markdownlint-disable MD025 -->
-<!-- markdownlint-disable MD024 -->
+## <a name="get-started"></a>Introdução
+
+Utilize a ferramenta de reconhecimento de formulários de amostra para experimentar layout, modelos pré-construídos e treine um modelo personalizado para os seus documentos. Você precisará de uma subscrição Azure [**(crie uma gratuitamente**](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [**recurso do Reconhecimento de Formulários**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar o serviço Deseclarador de Formulários.
 
 ### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
 
@@ -55,8 +63,45 @@ Para experimentar o serviço de reconhecimento de formulários, aceda à ferrame
 > [Experimente o Reconhecimento de Formulários](https://fott.azurewebsites.net/)
 
 ---
+Siga a biblioteca cliente [/ REST API quickstart](./quickstarts/client-library.md) para começar a extrair dados dos seus documentos. Recomendamos que utilize o serviço gratuito quando estiver a aprender a tecnologia. Lembre-se que o número de páginas gratuitas está limitado a 500 por mês.
 
-Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [recurso do Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar o serviço Deseclarador de Formulários.
+Também pode usar as amostras REST (GitHub) para começar - 
+
+* Extrair texto, marcas de seleção e estrutura de mesa a partir de documentos
+  * [Dados de layout de extrato - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* Treine modelos personalizados e extrair dados de formulário
+  * [Comboio sem etiquetas - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [Comboio com etiquetas - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* Extrair dados das faturas
+  * [Extrair dados da fatura - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* Extrair dados dos recibos de venda
+  * [Dados de recibos de extração - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* Extrair dados de cartões de visita
+  * [Extrair dados do cartão de visita - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
+
+### <a name="review-the-rest-apis"></a>Rever as APIs rest
+
+Você usará as seguintes APIs para treinar modelos e extrair dados estruturados de formulários.
+
+|Nome |Descrição |
+|---|---|
+| **Ver layout** | Analise um documento passado como um fluxo para extrair texto, marcas de seleção, tabelas e estrutura do documento |
+| **Modelo personalizado de comboio**| Treine um novo modelo para analisar os seus formulários utilizando cinco formas do mesmo tipo. Desa ajuste o parâmetro _utilizaçãoLabelFile_ `true` para treinar com dados etiquetados manualmente. |
+| **Analisar Formulário** |Analise um formulário passado como um fluxo para extrair texto, pares de chaves/valor e tabelas do formulário com o seu modelo personalizado.  |
+| **Analisar Fatura** | Analise uma fatura para extrair informações chave, tabelas e outro texto de fatura.|
+| **Analisar Recibo** | Analise um documento de receção para extrair informações chave e outro texto de receção.|
+| **Analisar ID** | Analise um documento de cartão de identificação para extrair informações chave e outro texto de cartão de identificação.|
+| **Analisar Cartão de Visita** | Analise um cartão de visita para extrair informações e texto chave.|
+
+### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
+
+Explore a [documentação de referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
+
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+Explore a [documentação de referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
+
+---
 
 ## <a name="layout-api"></a>Layout API
 
@@ -113,61 +158,6 @@ O modelo de cartões de identificação (ID) permite-lhe extrair informações-c
 O modelo cartões de visita permite-lhe extrair informações como o nome da pessoa, título de emprego, endereço, e-mail, empresa e números de telefone de cartões de visita em inglês. Consulte o guia conceptual dos [cartões](./concept-business-cards.md) de visita para obter mais informações.
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="cartão de visita amostra" lightbox="./media/overview-business-card.jpg":::
-
-## <a name="get-started"></a>Introdução
-
-Utilize a ferramenta de reconhecimento de formulários de amostra para experimentar layout, modelos pré-construídos e treinar um modelo personalizado para os seus documentos:  
-
-### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
-
-> [!div class="nextstepaction"]
-> [Experimente o Reconhecimento de Formulários](https://fott-preview.azurewebsites.net/)
-
-### <a name="v20"></a>[v2.0](#tab/v2-0)
-
-> [!div class="nextstepaction"]
-> [Experimente o Reconhecimento de Formulários](https://fott.azurewebsites.net/)
-
----
-Siga a biblioteca cliente [/ REST API quickstart](./quickstarts/client-library.md) para começar a extrair dados dos seus documentos. Recomendamos que utilize o serviço gratuito quando estiver a aprender a tecnologia. Lembre-se que o número de páginas gratuitas está limitado a 500 por mês.
-
-Também pode usar as amostras REST (GitHub) para começar - 
-
-* Extrair texto, marcas de seleção e estrutura de mesa a partir de documentos
-  * [Dados de layout de extrato - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
-* Treine modelos personalizados e extrair dados de formulário
-  * [Comboio sem etiquetas - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
-  * [Comboio com etiquetas - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
-* Extrair dados das faturas
-  * [Extrair dados da fatura - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
-* Extrair dados dos recibos de venda
-  * [Dados de recibos de extração - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
-* Extrair dados de cartões de visita
-  * [Extrair dados do cartão de visita - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
-
-### <a name="review-the-rest-apis"></a>Rever as APIs rest
-
-Você usará as seguintes APIs para treinar modelos e extrair dados estruturados de formulários.
-
-|Nome |Descrição |
-|---|---|
-| **Ver layout** | Analise um documento passado como um fluxo para extrair texto, marcas de seleção, tabelas e estrutura do documento |
-| **Modelo personalizado de comboio**| Treine um novo modelo para analisar os seus formulários utilizando cinco formas do mesmo tipo. Desa ajuste o parâmetro _utilizaçãoLabelFile_ `true` para treinar com dados etiquetados manualmente. |
-| **Analisar Formulário** |Analise um formulário passado como um fluxo para extrair texto, pares de chaves/valor e tabelas do formulário com o seu modelo personalizado.  |
-| **Analisar Fatura** | Analise uma fatura para extrair informações chave, tabelas e outro texto de fatura.|
-| **Analisar Recibo** | Analise um documento de receção para extrair informações chave e outro texto de receção.|
-| **Analisar ID** | Analise um documento de cartão de identificação para extrair informações chave e outro texto de cartão de identificação.|
-| **Analisar Cartão de Visita** | Analise um cartão de visita para extrair informações e texto chave.|
-
-### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
-
-Explore a [documentação de referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
-
-### <a name="v20"></a>[v2.0](#tab/v2-0)
-
-Explore a [documentação de referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
-
----
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 

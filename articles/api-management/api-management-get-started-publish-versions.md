@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: f6ea02c32ec7fcb694d63f29c63c3880a7cfff9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100546657"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889676"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutorial: Publicar várias versões da sua API 
 
@@ -105,7 +105,7 @@ az apim api versionset list --resource-group apim-hello-word-resource-group \
 
 Quando o portal Azure cria uma versão definida para si, atribui um nome alfanumérico, que aparece na coluna **Nome** da lista. Utilize este nome em outros comandos Azure CLI.
 
-Para ver detalhes sobre um conjunto de versão, executar o comando de exibição de [versões az apim api:](/api/versionset#az_apim_api_versionset_show)
+Para ver detalhes sobre um conjunto de versão, executar o comando de exibição de [versões az apim api:](/cli/azure/apim/api/versionset#az_apim_api_versionset_show)
 
 ```azurecli
 az apim api versionset show --resource-group apim-hello-word-resource-group \

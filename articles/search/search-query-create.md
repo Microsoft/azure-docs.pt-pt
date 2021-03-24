@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4f5cc0d5eefd5969566040e4148ca7358d348736
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102489366"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951509"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Criação de consultas na Pesquisa Cognitiva Azure
 
@@ -74,7 +74,7 @@ Para pesquisa cognitiva, os Azure SDKs implementam funcionalidades geralmente di
 |-----------|--------|----------|
 | .NET | [PesquisaDesseient](/dotnet/api/azure.search.documents.searchclient) | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) |
 | Java | [PesquisaDesseient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample.java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |
-| JavaScript | [PesquisaDesseient](/javascript/api/@azure/search-documents/searchclient) | [readonlyQuery.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) |
+| JavaScript | [PesquisaDesseient](/javascript/api/@azure/search-documents/searchclient) | Pendente. |
 | Python | [PesquisaDesseient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query.py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
 
 ## <a name="choose-a-query-type-simple--full"></a>Escolha um tipo de consulta: | simples cheio

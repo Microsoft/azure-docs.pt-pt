@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 51301bd38bf0700ce42ef33a47b9e763da8d4ed6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 74db121c33864ee72ad984b49c8fa43afa0f598c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595302"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870522"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyze logs for Apache Kafka on HDInsight (Analisar registos do Apache Kafka no HDInsight)
 
@@ -22,7 +22,7 @@ Aprenda a usar registos do Azure Monitor para analisar os registos gerados por A
 
 Os troncos Apache Kafka no aglomerado estão localizados em `/var/log/kafka` . Os registos kafka não são salvos ou persistidos em ciclos de vida do cluster, independentemente de os discos geridos forem utilizados. A tabela a seguir mostra os registos disponíveis.
 
-|Registo |Description |
+|Registo |Descrição |
 |---|---|
 |kafka.out|stdout e stderr do processo Kafka. Você vai encontrar logs de arranque e encerramento de Kafka neste ficheiro.|
 |servidor.log|O registo principal do servidor Kafka. Todos os registos de corretores kafka acabam aqui.|
@@ -91,13 +91,13 @@ Os passos para permitir os registos do Monitor Azure para HDInsight são os mesm
 
     Também pode introduzir `*` para pesquisar todos os tipos registados. Atualmente, os seguintes registos estão disponíveis para consultas:
 
-    | Tipo de registo | Description |
+    | Tipo de registo | Descrição |
     | ---- | ---- |
     | log \_ kafkaserver \_ CL | Servidor de corretor kafka.log |
     | log \_ kafkacontroller \_ CL | Controlador de corretor kafka.log |
     | métricas \_ kafka \_ CL | Métricas Kafka JMX |
 
-    ![Apache kafka log analytics uso cpu](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+    :::image type="content" source="./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png" alt-text="Apache kafka log analytics uso cpu" border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

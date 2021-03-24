@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 03/08/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f270f740951b95b0d4c00cbcf9b08e20a8e0c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d332c831cc764c61a4672ea5ad1db231b68e106
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96743729"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952376"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisitos de licenciamento para reposição da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -26,7 +26,7 @@ Este artigo detalha as diferentes formas de reposição de senha de autosserviç
 
 ## <a name="compare-editions-and-features"></a>Compare edições e funcionalidades
 
-A SSPR é licenciada por utilizador. Para manter a conformidade, as organizações são obrigadas a atribuir a licença adequada aos seus utilizadores.
+A SSPR requer uma licença apenas para o inquilino. 
 
 O quadro que se segue descreve os diferentes cenários SSPR para a alteração de passwords, reset ou writeback no local, e que os SKUs fornecem a funcionalidade.
 
@@ -46,12 +46,6 @@ Para obter informações adicionais sobre o licenciamento, incluindo custos, con
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Empresarial](https://www.microsoft.com/microsoft-365/enterprise)
 * [Microsoft 365 Empresas](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
-
-## <a name="enable-group-or-user-based-licensing"></a>Permitir licenciamentos em grupo ou no utilizador
-
-A Azure AD apoia o licenciamento baseado em grupo. Os administradores podem atribuir licenças a granel a um grupo de utilizadores, em vez de as atribuir uma de cada vez. Para mais informações, consulte [Atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
-
-Alguns serviços da Microsoft não estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um utilizador, o administrador deve especificar a propriedade **de localização de utilização** no utilizador. A atribuição de licenças pode ser feita na secção Definições de Perfil do **Utilizador**  >    >   no portal Azure. *Quando utiliza a atribuição de licença de grupo, qualquer utilizadores sem localização de utilização especificada herda a localização do diretório.*
 
 ## <a name="next-steps"></a>Passos seguintes
 

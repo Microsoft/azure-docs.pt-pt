@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: c21956e47d2eb7634a9950751929f82875f490fb
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801643"
+ms.locfileid: "104889421"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -34,7 +34,7 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
 
 * Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* [Python 3.6+](https://www.python.org/downloads/).
 
 * [Uma conta de Armazenamento Azure.](../storage/common/storage-account-create.md)
 

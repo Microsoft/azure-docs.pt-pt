@@ -11,7 +11,7 @@
 - name: Guias de Início Rápido
   items:
     - name: Criar uma VM no portal
-      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+      href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
     - name: Criar um dashboard
       items:
         - name: CLI do Azure
@@ -97,3 +97,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
     - name: Vídeos do Azure
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'
+    - name: Azure e Power BI
+      href: /power-bi/connect-data/service-azure-and-power-bi?context=/azure/azure-portal/context/context

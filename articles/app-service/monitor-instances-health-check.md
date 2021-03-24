@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596030"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871202"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorizar instâncias do Serviço de Aplicações usando verificação de saúde
 
@@ -48,7 +48,7 @@ Este artigo utiliza o health check no portal Azure para monitorizar as instânci
 
 Além de configurar as opções de verificação de Saúde, também pode configurar as [seguintes definições de aplicações:](configure-common.md)
 
-| Nome de definição de aplicativo | Valores permitidos | Description |
+| Nome de definição de aplicativo | Valores permitidos | Descrição |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | O número máximo de falhas de ping. Por exemplo, quando programados para `2` , as suas instâncias serão removidas após `2` pings falhados. Além disso, quando está a aumentar ou sair, o Serviço de Aplicações procura a via de verificação da Saúde para garantir que novas instâncias estão prontas. |
 |`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | Para evitar casos de saúde esmagadora, não mais de metade dos casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para quatro instâncias e três não forem saudáveis, no máximo dois serão excluídos. As outras duas instâncias (uma saudável e outra pouco saudável) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Para anular este comportamento, defina a definição da aplicação para um valor entre `0` e `100` . Um valor mais elevado significa que mais casos insalubres serão removidos (o padrão é 50). |
@@ -57,7 +57,7 @@ Além de configurar as opções de verificação de Saúde, também pode configu
 
 A verificação de saúde integra-se com as funcionalidades de autenticação e autorização do Serviço de Aplicações. Não são necessárias definições adicionais se estas funcionalidades de segurança estiverem ativadas. No entanto, se estiver a utilizar o seu próprio sistema de autenticação, a via de verificação da saúde deve permitir o acesso anónimo. Se o site estiver HTTP **S**-Apenas ativado, o pedido de verificação de saúde será enviado através de HTTP **S**.
 
-As grandes equipas de desenvolvimento das empresas precisam frequentemente de aderir aos requisitos de segurança para as APIs expostas. Para garantir o ponto final do controlo de Saúde, deve primeiro utilizar funcionalidades como [restrições IP, certificados](app-service-ip-restrictions.md#set-an-ip-address-based-rule) [de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma Rede Virtual para restringir o acesso à aplicação. Pode garantir o ponto final do controlo de saúde exigindo os `User-Agent` jogos de pedido de entrada `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, uma vez que o pedido já seria garantido por funcionalidades de segurança anteriores.
+As grandes equipas de desenvolvimento das empresas precisam frequentemente de aderir aos requisitos de segurança para as APIs expostas. Para garantir o ponto final do controlo de Saúde, deve primeiro utilizar funcionalidades como [restrições IP, certificados](app-service-ip-restrictions.md#set-an-ip-address-based-rule) [de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma Rede Virtual para restringir o acesso à aplicação. Pode garantir o ponto final do controlo de saúde exigindo os `User-Agent` jogos de pedido de entrada `HealthCheck/1.0` . O User-Agent não pode ser falsificado, uma vez que o pedido já seria garantido por funcionalidades de segurança anteriores.
 
 ## <a name="monitoring"></a>Monitorização
 

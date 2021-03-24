@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4cbb7b96610a56f3b6049038bb5c9c6bc0870b57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944611"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871368"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Use o Porco Apache com Apache Hadoop em HDInsight
 
@@ -70,7 +70,7 @@ DUMP RESULT;
 
 A imagem a seguir mostra um resumo do que cada transformação faz aos dados.
 
-![Representação gráfica das transformações][image-hdi-pig-data-transformation]
+:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Representação gráfica das transformações" border="false":::
 
 ## <a name="run-the-pig-latin-job"></a><a id="run"></a>Executar o trabalho de porco latino
 
@@ -86,7 +86,7 @@ Você pode usar os Serviços de Integração de Servidor SQL (SSIS) para executa
 
 Saiba mais sobre o Azure Feature Pack para SSIS [aqui.][ssispack]
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Passos seguintes
+## <a name="next-steps"></a><a id="nextsteps"></a>Próximos passos
 
 Agora que aprendeu a usar o Pig com HDInsight, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 
@@ -113,4 +113,3 @@ Agora que aprendeu a usar o Pig com HDInsight, use os seguintes links para explo
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
-[image-hdi-pig-data-transformation]: ./media/use-pig/hdi-data-transformation.gif

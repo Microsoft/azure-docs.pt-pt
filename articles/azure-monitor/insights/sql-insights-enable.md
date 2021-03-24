@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 5ab51fc4ea64dfd678f5c9acfc80b5e380782153
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609873"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889625"
 ---
 # <a name="enable-sql-insights-preview"></a>Ativar insights SQL (pré-visualização)
 Este artigo descreve como permitir [insights SQL](sql-insights-overview.md) para monitorizar as suas implementações SQL. A monitorização é realizada a partir de uma máquina virtual Azure que faz uma ligação às suas implementações SQL e utiliza Vistas de Gestão Dinâmica (DMVs) para recolher dados de monitorização. Pode controlar quais conjuntos de dados são recolhidos e a frequência de recolha utilizando um perfil de monitorização.
@@ -92,13 +92,16 @@ Cada tipo de SQL oferece métodos para a sua máquina virtual de monitorização
 
 ### <a name="azure-sql-databases"></a>Bases de Dados SQL do Azure  
 
-[Tutorial - Ligue-se a um servidor Azure SQL utilizando um portal Azure Private Endpoint - Azure](../../private-link/tutorial-private-endpoint-sql-portal.md) fornece um exemplo para como configurar um ponto final privado que pode utilizar para aceder à sua base de dados.  Se utilizar este método, terá de garantir que as máquinas virtuais de monitorização estão no mesmo VNET e na sub-rede que utilizará para o ponto final privado.  Em seguida, pode criar o ponto final privado na sua base de dados se ainda não o tiver feito. 
+Os insights SQL suportam o acesso à sua Base de Dados Azure SQL através do seu ponto final público, bem como da sua rede virtual.
 
-Se utilizar uma [definição de firewall](../../azure-sql/database/firewall-configure.md) para fornecer acesso à sua Base de Dados SQL, tem de adicionar uma regra de firewall para fornecer acesso a partir do endereço IP público da máquina virtual de monitorização. Pode aceder às definições de firewall a partir da página **'Visão Geral' da Base de Dados Azure SQL** no portal. 
+Para acesso através do ponto final público, adicionaria uma regra na página de **definições** de Firewall e na secção de definições de [firewall IP.](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules)  Para especificar o acesso a partir de uma rede virtual, pode definir [regras de firewall de rede virtuais](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) e definir as [etiquetas de serviço exigidas pelo agente Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [Este artigo](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) descreve as diferenças entre estes dois tipos de regras de firewall.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Definir firewall do servidor" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Definições de firewall." lightbox="media/sql-insights-enable/firewall-settings.png":::
+
+> [!NOTE]
+> Atualmente, os insights SQL não suportam o Azure Private Endpoint para a Base de Dados Azure SQL.  Recomendamos a utilização de [Tags de Serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) no seu grupo de segurança de rede ou definições de firewall de rede virtual que o [agente do Monitor Azure suporta](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).
 
 ### <a name="azure-sql-managed-instances"></a>Azure SQL Managed Instance 
 
