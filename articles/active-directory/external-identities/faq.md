@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7879b233bf94442de2cad83de8adfe54b6b81e0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100365519"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952631"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Ative Directory B2B colaboração FAQs
 
@@ -83,6 +83,7 @@ Sim. A autenticação multi-factor e as contas de e-mail do consumidor são amba
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Suporta o reset da palavra-passe para utilizadores de colaboração Azure AD B2B?
 Se o seu inquilino Azure AD for o diretório de casa de um utilizador, pode [redefinir a palavra-passe do utilizador](../fundamentals/active-directory-users-reset-password-azure-portal.md) a partir do portal Azure. Mas não é possível redefinir diretamente uma palavra-passe para um utilizador convidado que se inscreve com uma conta que é gerida por outro diretório AD Azure ou fornecedor de identidade externa. Apenas o utilizador convidado ou um administrador no diretório do utilizador pode redefinir a palavra-passe. Aqui estão alguns exemplos de como o reset da palavra-passe funciona para os utilizadores convidados:
  
+* Os utilizadores convidados de um inquilino AD Azure que esteja marcado como "Guest" (UserType==Guest) não podem registar-se para SSPR através [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) de . Este tipo de utilizador convidado só pode realizar SSPR através [https://aka.ms/sspr](https://aka.ms/sspr) de . 
 * Os utilizadores convidados que iniciarem sômposições com uma conta Microsoft (por guestuser@live.com exemplo) podem redefinir as suas próprias palavras-passe utilizando o reset da palavra-passe de autosserviço da conta Microsoft (SSPR). Veja [como redefinir a sua palavra-passe da conta Microsoft.](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)
 * Os utilizadores convidados que iniciarem sômposições com uma conta Google ou outro fornecedor de identidade externo podem redefinir as suas próprias palavras-passe utilizando o método SSPR do seu fornecedor de identidade. Por exemplo, um utilizador convidado com a conta Google pode redefinir a guestuser@gmail.com sua palavra-passe seguindo as instruções no [Alterar ou redefinir a sua palavra-passe.](https://support.google.com/accounts/answer/41078)
 * Se o inquilino de identidade for um inquilino just-in-time (JIT) ou "viral" (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](../enterprise-users/domains-admin-takeover.md) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.

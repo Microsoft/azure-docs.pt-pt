@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 521f6c39a10259b09d741a61dcd8e81d8a0c35b2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fb908cdcf3e235654effc043de29e599a48179d4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948179"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104879742"
 ---
 [Documentação de referência](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices)  |  [Pacote (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
@@ -98,9 +98,11 @@ Executar a sua aplicação a partir da linha de comando com o `python` comando.
 python <your-script-name>.py
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Documentação de referência da Azure Management SDK](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices)
-* [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)
-* [Autenticar pedidos aos Serviços Cognitivos da Azure](../../authentication.md)
-* [Criar um novo recurso utilizando o portal do Azure](../../cognitive-services-apis-create-account.md)
+* Consulte **[pedidos autenticados aos Serviços Cognitivos da Azure](../../authentication.md)** sobre como trabalhar de forma segura com os Serviços Cognitivos.
+* Veja **[o que são os Serviços Cognitivos Azure para](../../what-are-cognitive-services.md)** obter uma lista de diferentes categorias dentro dos Serviços Cognitivos.
+* Consulte o **[suporte linguístico natural](../../language-support.md)** para ver a lista de línguas naturais que os Serviços Cognitivos suportam.
+* Consulte **[o Uso de Serviços Cognitivos como recipientes](../../cognitive-services-container-support.md)** para entender como utilizar os Serviços Cognitivos no pré-pré-m.
+* Consulte **[o Plano e gere os custos dos Serviços Cognitivos](../../plan-manage-costs.md)** para estimar o custo da utilização dos Serviços Cognitivos.
+* Consulte **[a documentação de referência da Azure Management SDK](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices)** para obter mais detalhes sobre a gestão SDK.

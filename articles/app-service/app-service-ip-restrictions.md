@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502693"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889903"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar restrições de acesso ao Serviço de Aplicações Azure
 
@@ -97,26 +97,25 @@ Com os pontos finais de serviço, pode configurar a sua aplicação com gateways
 > [!NOTE]
 > - Os pontos finais de serviço não são suportados atualmente para aplicações web que usam IP IP (SSL) virtual Layer (SSL) virtual (SSL).
 >
-#### <a name="set-a-service-tag-based-rule-preview"></a>Desa parte de uma regra baseada em etiquetas de serviço (pré-visualização)
+#### <a name="set-a-service-tag-based-rule"></a>Definir uma regra baseada em etiquetas de serviço
 
-* Para o passo 4, na lista de drop-down **tipo,** selecione Tag de **Serviço (pré-visualização)**.
+* Para o passo 4, na lista de drop-down **tipo,** selecione **Tag de Serviço**.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Screenshot do painel 'Adicionar Restrição' com o tipo de etiqueta de serviço selecionado.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot do painel 'Adicionar Restrição' com o tipo de etiqueta de serviço selecionado.":::
 
 Cada etiqueta de serviço representa uma lista de gamas IP dos serviços Azure. Uma lista destes serviços e ligações às gamas específicas pode ser encontrada na documentação da [etiqueta de serviço.][servicetags]
 
-A seguinte lista de etiquetas de serviço é suportada nas regras de restrição de acesso durante a fase de pré-visualização:
+Todas as etiquetas de serviço disponíveis são suportadas nas regras de restrição de acesso. Para simplificar, apenas uma lista das tags mais comuns estão disponíveis através do portal Azure. Utilize modelos de Gestor de Recursos Azure ou scripts para configurar regras mais avançadas, como regras regionais de âmbito. Estas são as tags disponíveis através do portal Azure:
+
 * Grupo de Ação
+* AplicaçõesInsightsAilabilidade
 * AzureCloud
 * AzureCognitiveSearch
-* AzureConnectors
 * AzureEventGrid
 * AzureFrontDoor.Backend
 * AzureMachineLearning
-* Azuresignalr
 * AzureTrafficManager
 * LogicApps
-* ServiceFabric
 
 ### <a name="edit-a-rule"></a>Editar uma regra
 
@@ -137,6 +136,31 @@ Para eliminar uma regra, na página **'Restrições de Acesso',** selecione a el
 
 ## <a name="access-restriction-advanced-scenarios"></a>Restrição de acesso cenários avançados
 As secções seguintes descrevem alguns cenários avançados usando restrições de acesso.
+
+### <a name="filter-by-http-header"></a>Filtrar por cabeçalho http
+
+Como parte de qualquer regra, pode adicionar filtros adicionais de cabeçalho http. São suportados os seguintes nomes de cabeçalhos http:
+* X-Forward-For
+* X-Forward-Forward-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Para cada nome do cabeçalho pode adicionar até 8 valores separados por vírgula. Os filtros do cabeçalho http são avaliados após a regra em si e ambas as condições devem ser verdadeiras para que a regra se aplique.
+
+### <a name="multi-source-rules"></a>Regras multi-fontes
+
+As regras multi-fontes permitem combinar até 8 intervalos de IP ou 8 Tags de Serviço numa única regra. Pode usá-lo se tiver mais de 512 gamas IP ou se pretende criar regras lógicas onde várias gamas de IP são combinadas com um único filtro de cabeçalho http.
+
+As regras multi-fontes são definidas da mesma forma que se definem regras de origem única, mas com cada gama separada com vírgula.
+
+Exemplo powerShell:
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Multi-source rule" -IpAddress "192.168.1.0/24,192.168.10.0/24,192.168.100.0/24" `
+    -Priority 100 -Action Allow
+  ```
+
 ### <a name="block-a-single-ip-address"></a>Bloqueie um único endereço IP
 
 Quando adiciona a sua primeira regra de restrição de acesso, o serviço adiciona uma regra de *Negar tudo* com uma prioridade de 2147483647. Na prática, a regra de Negar explícito *é* a regra final a ser executada, e bloqueia o acesso a qualquer endereço IP que não seja explicitamente permitido por uma regra *de Permitir.*
@@ -151,17 +175,20 @@ Além de conseguir controlar o acesso à sua app, pode restringir o acesso ao si
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Screenshot da página 'Restrições de Acesso' no portal Azure, mostrando que não estão definidas restrições de acesso para o site SCM ou para a aplicação.":::
 
-### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>Restringir o acesso a uma instância específica da Porta Frontal Azure (pré-visualização)
-O tráfego da Porta Frontal Azure para a sua aplicação tem origem num conhecido conjunto de gamas IP definidas na etiqueta de serviço AzureFrontDoor.Backend. Utilizando uma regra de restrição de etiqueta de serviço, pode restringir o tráfego apenas a partir da Porta frontal Azure. Para garantir que o tráfego só tem origem na sua instância específica, terá de filtrar ainda mais os pedidos de entrada com base no único cabeçalho http que a Porta Frontal Azure envia. Durante a pré-visualização pode conseguir isto com PowerShell ou REST/ARM. 
+### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Restringir o acesso a uma instância específica da Porta frontal Azure
+O tráfego da Porta Frontal Azure para a sua aplicação tem origem num conhecido conjunto de gamas IP definidas na etiqueta de serviço AzureFrontDoor.Backend. Utilizando uma regra de restrição de etiqueta de serviço, pode restringir o tráfego apenas a partir da Porta frontal Azure. Para garantir que o tráfego só tem origem na sua instância específica, terá de filtrar ainda mais os pedidos de entrada com base no único cabeçalho http que a Porta Frontal Azure envia.
 
-* Exemplo PowerShell (ID da porta frontal pode ser encontrado no portal Azure):
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Screenshot da página 'Restrições de Acesso' no portal Azure, mostrando como adicionar a restrição da porta frontal Azure.":::
 
-   ```azurepowershell-interactive
-    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
-      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
-      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
-    ```
+Exemplo powerShell:
+
+  ```azurepowershell-interactive
+  $afd = Get-AzFrontDoor -Name "MyFrontDoorInstanceName"
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+    -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
+  ```
+
 ## <a name="manage-access-restriction-rules-programmatically"></a>Gerir regras de restrição de acesso programáticamente
 
 Pode adicionar restrições de acesso programáticamente fazendo qualquer uma das seguintes: 
@@ -181,7 +208,7 @@ Pode adicionar restrições de acesso programáticamente fazendo qualquer uma da
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Trabalhar com etiquetas de serviço, cabeçalhos http ou regras multi-fontes requer pelo menos a versão 5.1.0. Pode verificar a versão do módulo instalado com: **Get-InstalledModule -Name Az**
+   > Trabalhar com etiquetas de serviço, cabeçalhos http ou regras multi-fontes requer pelo menos a versão 5.7.0. Pode verificar a versão do módulo instalado com: **Get-InstalledModule -Name Az**
 
 Também pode definir valores manualmente fazendo qualquer um dos seguintes:
 

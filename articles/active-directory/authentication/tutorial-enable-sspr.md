@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 253aa080b9c160141a274c57e0895291c78d2048
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198494"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887772"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -138,6 +138,22 @@ Se já não pretender utilizar a funcionalidade SSPR que configuraste como parte
 1. Procure e selecione **Azure Ative Directory** e, em seguida, escolha o reset de **Palavra-passe** do menu do lado esquerdo.
 1. A partir da página **Propriedades,** sob a opção *Redefiniu a palavra-passe de serviço de auto-ar,* escolha **Nenhum**.
 1. Para aplicar a alteração SSPR, **selecione Guardar**.
+
+## <a name="faqs"></a>FAQs
+
+Esta secção explica questões comuns de administradores e utilizadores finais que experimentam SSPR:
+
+- Porque é que os utilizadores federados esperam até 2 minutos depois de verem que **a sua palavra-passe foi reiniciada** antes de poderem utilizar palavras-passe sincronizadas a partir do local?
+
+  Para os utilizadores federados cujas palavras-passe estão sincronizadas, a fonte de autoridade para as palavras-passe está no local. Como resultado, a SSPR atualiza apenas as palavras-passe no local. A sincronização de hash de palavra-passe de volta ao Azure AD está agendada para cada 2 minutos.
+
+- Quando um utilizador recém-criado que está pré-preenchido com dados SSPR, como telefone e e-mail, visita a página de registo SSPR, **não perca o acesso à sua conta!** aparece como o título da página. Por que outros utilizadores que têm dados SSPR pré-povoados não vêem a mensagem?
+
+  Um utilizador que vê **Não perca acesso à sua conta!** é membro dos grupos de registo SSPR/combinados que estão configurados para o arrendatário. Os utilizadores que não vêem **Não perdem acesso à sua conta!** Não faziam parte dos grupos de registo SSPR/combined.
+
+- Quando alguns utilizadores passam pelo processo SSPR e reiniciam a sua palavra-passe, por que não vêem o indicador de força de senha?
+
+  Os utilizadores que não vêem a força de senha fraca/forte têm a gravação de palavra-passe sincronizada ativada. Uma vez que a SSPR não consegue determinar a política de senha do ambiente de acesso do cliente, não pode validar a força ou fraqueza da palavra-passe. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

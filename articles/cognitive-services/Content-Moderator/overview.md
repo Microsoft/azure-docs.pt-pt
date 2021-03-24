@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: moderador de conteúdo, moderador de conteúdo azul, moderador on-line, software de filtragem de conteúdos, serviço de moderação de conteúdos, moderação de conteúdos
-ms.openlocfilehash: 57a390a1da1e3a10b9fda4b531a83ee48e91125b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a53611fdad84f06661f3b8928296b6a45851cea4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560378"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867275"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
 
@@ -26,6 +26,13 @@ ms.locfileid: "97560378"
 O Azure Content Moderador é um serviço de IA que permite lidar com conteúdos potencialmente ofensivos, arriscados ou indesejáveis. Inclui o serviço de moderação de conteúdo movido a IA que digitaliza texto, imagem e vídeos e aplica automaticamente bandeiras de conteúdo, bem como a ferramenta Review, um ambiente moderador online para uma equipa de revisores humanos.
 
 Pode querer criar software de filtragem de conteúdos na sua app para cumprir os regulamentos ou manter o ambiente pretendido para os seus utilizadores.
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* [**Os quickstarts**](client-libraries.md) estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.  
+* [**Os guias de como fazer**](try-text-api.md) contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.  
+* [**Os conceitos**](text-moderation-api.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.  
+* [**Os tutoriais**](ecommerce-retail-catalog-moderation.md) são guias mais longos que mostram como usar o serviço como componente em soluções de negócio mais amplas.  
 
 ## <a name="where-its-used"></a>Onde é usado
 

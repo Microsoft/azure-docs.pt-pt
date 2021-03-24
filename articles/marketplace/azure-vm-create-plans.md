@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97964438"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956259"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Como criar planos para uma oferta de máquina virtual
 
@@ -221,6 +221,8 @@ Os discos de dados (select **Add data disk (máximo 16)**) são também URIs de 
 Independentemente do sistema operativo que utilize, adicione apenas o número mínimo de discos de dados que a solução necessita. Durante a implementação, os clientes não podem remover discos que fazem parte de uma imagem, mas podem sempre adicionar discos durante ou após a implementação.
 
 **Selecione Guardar o rascunho** e, em seguida, selecione ← **visão geral** do Plano na parte superior esquerda para ver o plano que acabou de criar.
+
+Uma vez publicada a sua imagem em VM, pode eliminar a imagem do seu armazenamento Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

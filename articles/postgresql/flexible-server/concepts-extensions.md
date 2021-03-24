@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 998154376895d8bcfc7cf36665a6a36f5c43e3b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b6ae6c003284b93390bb4f53345d3ba0f8d35e21
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594993"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952563"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensões PostgreSQL na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -53,7 +53,6 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[Rio Itree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | tipo de dados para estruturas hierárquicas semelhantes a árvores|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspecionar o conteúdo das páginas de base de dados a um nível baixo|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examinar a cache tampão compartilhado|
-> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Programador de emprego para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | examinar o mapa de espaço livre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | dados de relação pré-guerra|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | rastrear estatísticas de execução de todas as declarações SQL executadas|
@@ -103,7 +102,6 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[Rio Itree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | tipo de dados para estruturas hierárquicas semelhantes a árvores|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspecionar o conteúdo das páginas de base de dados a um nível baixo|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examinar a cache tampão compartilhado|
-> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Programador de emprego para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | examinar o mapa de espaço livre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dados de relação pré-guerra|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | rastrear estatísticas de execução de todas as declarações SQL executadas|
@@ -131,28 +129,6 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) permitem-lhe ligar de um servidor PostgreSQL a outro, ou a outra base de dados no mesmo servidor. O servidor flexível suporta ligações de entrada e saída a qualquer servidor PostgreSQL. O servidor de envio precisa de permitir ligações de saída ao servidor recetor. Da mesma forma, o servidor recetor precisa de permitir ligações a partir do servidor de envio. 
 
 Recomendamos a implementação dos seus servidores com [integração VNet](concepts-networking.md) se pretender utilizar estas duas extensões. Por defeito, a integração VNet permite ligações entre servidores no VNET. Também pode optar por utilizar [grupos de segurança de rede VNet](../../virtual-network/manage-network-security-group.md) para personalizar o acesso.
-
-## <a name="pg_cron"></a>pg_cron
-
-[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36) é um simples cron-based agendador de trabalho para PostgreSQL que corre dentro da base de dados como uma extensão. A extensão pg_cron pode ser usada para executar tarefas de manutenção programadas dentro de uma base de dados PostgreSQL. Por exemplo, pode executar o vácuo periódico de uma tabela ou remover antigos trabalhos de dados.
-
-`pg_cron` pode executar vários trabalhos em paralelo, mas funciona no máximo um caso de trabalho de cada vez. Se uma segunda corrida deve começar antes do primeiro terminar, então a segunda corrida é a fila e começa assim que a primeira corrida termina. Isto garante que os empregos funcionam exatamente tantas vezes como o previsto e não funcionam em simultâneo consigo próprios.
-
-Alguns exemplos:
-
-Para apagar dados antigos no sábado às 3:30 da manhã (GMT)
-```
-SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
-```
-Para executar o vácuo todos os dias às 10:00 (GMT)
-```
-SELECT cron.schedule('0 10 * * *', 'VACUUM');
-```
-
-Para deschedutar todas as tarefas de pg_cron
-```
-SELECT cron.unschedule(jobid) FROM cron.job;
-```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

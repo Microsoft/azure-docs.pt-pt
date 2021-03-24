@@ -4,12 +4,12 @@ description: Use a UI da web Apache Ambari para configurar e otimizar a Colmeia 
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 349f58720e6fff52191dfff65108cd1320e41eed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 69a4e769677b6f0200f4157305a3a125f82ee76d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939259"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864822"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Otimizar a Colmeia Apache com Apache Ambari em Azure HDInsight
 
@@ -26,11 +26,11 @@ A Hive fornece dois motores de execução: Apache Hadoop MapReduce e Apache TEZ.
 
 1. No separador Hive **Configs,** digite **o motor de execução** na caixa do filtro.
 
-    ![Apache Ambari Motor de execução de busca](./media/optimize-hive-ambari/ambari-search-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-search-execution.png" alt-text="Apache Ambari Motor de execução de busca" border="true":::
 
 1. O valor padrão da propriedade **otimização** é **Tez.**
 
-    ![Otimização - Motor Apache Tez](./media/optimize-hive-ambari/optimization-apache-tez.png)
+    :::image type="content" source="./media/optimize-hive-ambari/optimization-apache-tez.png" alt-text="Otimização - Motor Apache Tez" border="true":::
 
 ## <a name="tune-mappers"></a>Sintonizar mappers
 
@@ -47,7 +47,7 @@ Por exemplo, para definir quatro tarefas mapper para um tamanho de dados de 128 
 
 1. Definir ambos os parâmetros para **33.554.432** bytes (32 MB).
 
-    ![Tamanhos de agrupamento Apache Ambari Tez](./media/optimize-hive-ambari/apache-tez-grouping-size.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-tez-grouping-size.png" alt-text="Tamanhos de agrupamento Apache Ambari Tez" border="true":::
 
 Estas alterações afetam todos os trabalhos do Tez em todo o servidor. Para obter um resultado ideal, escolha os valores de parâmetro apropriados.
 
@@ -63,11 +63,11 @@ O `hive.exec.reducers.bytes.per.reducer` parâmetro especifica o número de byte
 
 1. Para modificar o parâmetro, navegue no separador Hive **Configs** e encontre o parâmetro **Dados por Redução** na página Definições.
 
-    ![Dados Apache Ambari por Redutor](./media/optimize-hive-ambari/ambari-data-per-reducer.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-data-per-reducer.png" alt-text="Dados Apache Ambari por Redutor" border="true":::
 
 1. **Selecione Editar** para modificar o valor para 128 MB (134.217.728 bytes) e, em seguida, prima **Enter** para guardar.
 
-    ![Dados Ambari por Redutor - editado](./media/optimize-hive-ambari/data-per-reducer-edited.png)
+    :::image type="content" source="./media/optimize-hive-ambari/data-per-reducer-edited.png" alt-text="Dados Ambari por Redutor - editado" border="true":::
   
     Dado um tamanho de entrada de 1.024 MB, com 128 MB de dados por redutor, existem oito redutores (1024/128).
 
@@ -81,7 +81,7 @@ Uma consulta de Colmeia é executada em uma ou mais fases. Se as etapas independ
 
 1. Para limitar o número de postos de trabalho a executar em paralelo, modifique o `hive.exec.parallel.thread.number` imóvel. O valor predefinido é 8.
 
-    ![Exibição paralela do executivo da Colmeia Apache](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-hive-exec-parallel.png" alt-text="Exibição paralela do executivo da Colmeia Apache" border="true":::
 
 ## <a name="enable-vectorization"></a>Permitir a vectorização
 
@@ -91,7 +91,7 @@ A Colmeia processa os dados linha a linha. Vectorização direciona a Colmeia pa
 
 1. Para permitir a execução vectorizada para o lado redutor da consulta, desaprote o `hive.vectorized.execution.reduce.enabled` parâmetro para o verdadeiro. O valor predefinido é false.
 
-    ![Execução vetorizada da Colmeia Apache](./media/optimize-hive-ambari/hive-vectorized-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-vectorized-execution.png" alt-text="Execução vetorizada da Colmeia Apache" border="true":::
 
 ## <a name="enable-cost-based-optimization-cbo"></a>Permitir a otimização baseada em custos (CBO)
 
@@ -99,7 +99,7 @@ Por padrão, a Hive segue um conjunto de regras para encontrar um plano de execu
 
 Para ativar o CBO, navegue nas definições **de Hive**  >  **Configs**  >  e encontre o **Optimizador Baseado em Custos,** em seguida, altere o botão de alternação para **On**.
 
-![Otimizador baseado em custos HDInsight](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
+:::image type="content" source="./media/optimize-hive-ambari/hdinsight-cbo-config.png" alt-text="Otimizador baseado em custos HDInsight" border="true":::
 
 Os seguintes parâmetros de configuração adicionais aumentam o desempenho da consulta da Hive quando o CBO está ativado:
 
@@ -107,19 +107,19 @@ Os seguintes parâmetros de configuração adicionais aumentam o desempenho da c
 
     Quando definida como verdadeira, a Hive utiliza estatísticas armazenadas na sua meta-loja para responder a perguntas simples como `count(*)` .
 
-    ![Consulta de computação apache hive usando estatísticas](./media/optimize-hive-ambari/hive-compute-query-using-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-compute-query-using-stats.png" alt-text="Consulta de computação apache hive usando estatísticas" border="true":::
 
 * `hive.stats.fetch.column.stats`
 
     As estatísticas das colunas são criadas quando o CBO está ativado. A Hive utiliza estatísticas de colunas, que são armazenadas na meta-loja, para otimizar consultas. A procura de estatísticas de colunas para cada coluna demora mais tempo quando o número de colunas é elevado. Quando definido como falso, esta definição desativa as estatísticas das colunas da metásta.
 
-    ![Estatísticas de estatísticas da Colmeia Apache](./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png" alt-text="Estatísticas de estatísticas da Colmeia Apache" border="true":::
 
 * `hive.stats.fetch.partition.stats`
 
     As estatísticas básicas de partição, tais como o número de linhas, o tamanho dos dados e o tamanho do ficheiro são armazenadas na metastore. Se for verdade, as estatísticas de partição são recolhidas a partir de uma metastore. Quando falso, o tamanho do ficheiro é recolhido do sistema de ficheiros. E o número de filas é recolhido do esquema da linha.
 
-    ![Estatísticas de colmeia definem estatísticas de partição](./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png" alt-text="Estatísticas de colmeia definem estatísticas de partição" border="true":::
 
 ## <a name="enable-intermediate-compression"></a>Ativar a compressão intermédia
 
@@ -132,7 +132,7 @@ Os tipos de compressão disponíveis são:
 | Formato | Ferramenta | Algoritmo | Extensão de arquivo | Dividi-se? |
 | --- | --- | --- | --- | --- |
 | Rio Gzip | Rio Gzip | ESVAZIAR | `.gz` | No |
-| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Yes |
+| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Sim |
 | LZO | `Lzop` | LZO | `.lzo` | Sim, se indexado |
 | Snappy | N/D | Snappy | Snappy | No |
 
@@ -140,7 +140,7 @@ Regra geral, ter o método de compressão splittable é importante, caso contrá
 
 1. Para ativar a compressão intermédia, navegue até ao separador Hive **Configs** e, em seguida, desfase o `hive.exec.compress.intermediate` parâmetro para o caso. O valor predefinido é false.
 
-    !['Hive exec compress intermédio'](./media/optimize-hive-ambari/hive-exec-compress-intermediate.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-exec-compress-intermediate.png" alt-text="'Hive exec compress intermédio'" border="true":::
 
     > [!NOTE]  
     > Para comprimir ficheiros intermédios, escolha um codec de compressão com um custo cpu mais baixo, mesmo que o codec não tenha uma saída de alta compressão.
@@ -157,7 +157,7 @@ Regra geral, ter o método de compressão splittable é importante, caso contrá
 
     d. Selecione **Adicionar**.
 
-    !['Apache Hive propriedade personalizada adicionar'](./media/optimize-hive-ambari/hive-custom-property.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property.png" alt-text="'Apache Hive propriedade personalizada adicionar'" border="true":::
 
     Esta definição comprima o ficheiro intermédio utilizando a compressão Snappy. Uma vez que a propriedade é adicionada, aparece no painel personalizado do local da colmeia.
 
@@ -172,7 +172,7 @@ A saída final da Colmeia também pode ser comprimida.
 
 1. Para escolher o codec de compressão de saída, adicione a `mapred.output.compression.codec` propriedade personalizada ao painel personalizado do site da colmeia, conforme descrito no passo 3 da secção anterior.
 
-    ![Apache Hive propriedade personalizada adicionar2](./media/optimize-hive-ambari/hive-custom-property2.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property2.png" alt-text="Apache Hive propriedade personalizada adicionar2" border="true":::
 
 ## <a name="enable-speculative-execution"></a>Permitir a execução especulativa
 
@@ -182,7 +182,7 @@ A execução especulativa não deve ser ligada para tarefas de MapReduce de long
 
 * Para permitir a execução especulativa, navegue até ao separador Hive **Configs** e, em seguida, desfase o `hive.mapred.reduce.tasks.speculative.execution` parâmetro para o caso. O valor predefinido é false.
 
-    !['Hive mapeado reduzir tarefas execução especulativa'](./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png" alt-text="'Hive mapeado reduzir tarefas execução especulativa'" border="true":::
 
 ## <a name="tune-dynamic-partitions"></a>Sintonize divisórias dinâmicas
 
@@ -202,7 +202,7 @@ O modo local permite à Hive fazer todas as tarefas de um trabalho numa única m
 
 Para ativar o modo local, adicione o `hive.exec.mode.local.auto` parâmetro ao painel personalizado do local da colmeia, conforme explicado no passo 3 da secção de [compressão intermédia Ativa.](#enable-intermediate-compression)
 
-![Apache Hive modo animal local](./media/optimize-hive-ambari/hive-exec-mode-local-auto.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-exec-mode-local-auto.png" alt-text="Apache Hive modo animal local" border="true":::
 
 ## <a name="set-single-mapreduce-multigroup-by"></a>Definir único MapReduce MultiGROUP BY
 
@@ -210,7 +210,7 @@ Quando esta propriedade é definida como verdadeira, uma consulta MultiGROUP BY 
 
 Para ativar este comportamento, adicione o `hive.multigroupby.singlereducer` parâmetro ao painel personalizado do local da colmeia, conforme explicado no passo 3 da secção de [compressão intermédia Enable.](#enable-intermediate-compression)
 
-![Conjunto de colmeia único MapReduce MultiGROUP BY](./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png" alt-text="Conjunto de colmeia único MapReduce MultiGROUP BY" border="true":::
 
 ## <a name="additional-hive-optimizations"></a>Otimizações adicionais da Colmeia
 

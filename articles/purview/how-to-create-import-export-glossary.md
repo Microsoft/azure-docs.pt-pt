@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694504"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952410"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Como criar, importar e exportar termos glossários
 
@@ -80,6 +80,9 @@ Note que os nomes de termo são sensíveis a casos. Por exemplo, `Sample` e ambo
 4. Uma vez terminada a preenchimento do ficheiro .csv, selecione o seu ficheiro para importar e, em seguida, selecione **OK**.
 
 5. O sistema irá carregar o ficheiro e adicionar todos os termos ao seu catálogo.
+ 
+   > [!Important]
+   > O endereço de e-mail para Stewards and Experts deve ser o endereço principal do utilizador do grupo AAD. O e-mail alternativo, o nome principal do utilizador e os e-mails não-AAD ainda não estão suportados. 
 
 ## <a name="export-terms-from-glossary-with-custom-attributes"></a>Termos de exportação de glossário com atributos personalizados
 

@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 4859ff098bf3fdffbecc70608cb147d17d9d7f59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941163"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871559"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre Apache Zeppelin com Conector de Armazém de Colmeia em Azure HDInsight
 
@@ -97,11 +97,11 @@ As configurações seguintes são necessárias para aceder a mesas de colmeia de
 
     * A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` até onde CLUSTERNAME é o nome do seu cluster de consultainterna. Clique na **HiveServer2 Interactive**. Verá o Nome de Domínio Totalmente Qualificado (FQDN) do nó de cabeça no qual llap está em execução como mostrado na imagem. `<llap-headnode>`Substitua-o por este valor.
 
-        ![Nó de cabeça do conector do armazém de colmeia](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Nó de cabeça do conector do armazém de colmeia" border="true":::
 
     * Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu cluster de consultas interativos. Procure `default_realm` por um parâmetro no `/etc/krb5.conf` ficheiro. `<AAD-DOMAIN>`Substitua-o por este valor como uma corda maiúscula, caso contrário a credencial não será encontrada.
 
-        ![conector de armazém de colmeiaS Domínio AAD](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="conector de armazém de colmeiaS Domínio AAD" border="true":::
 
     * Por exemplo, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` . .
 

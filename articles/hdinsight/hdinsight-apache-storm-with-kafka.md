@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2078ba177d68cfaa0a91b79611d92e5c68e4e245
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942720"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868423"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com Apache Kafka no HDInsight
 
@@ -363,7 +363,7 @@ streams:
 
 O projeto contém um ficheiro denominado `dev.properties` e que é utilizado para transmitir os parâmetros que as topologias utilizam. Define as seguintes propriedades:
 
-| ficheiro dev.properties | Description |
+| ficheiro dev.properties | Descrição |
 | --- | --- |
 | `kafka.zookeeper.hosts` | O [Apache ZooKeeper](https://zookeeper.apache.org/) acolhe o aglomerado de Kafka. |
 | `kafka.broker.hosts` | Os anfitriões dos mediadores do Kafka (nós de trabalho). |
@@ -377,7 +377,7 @@ O Apache Kafka no HDInsight não fornece acesso aos mediadores Kafka através da
 
 O diagrama seguinte mostra como a comunicação flui entre o Storm e o Kafka:
 
-![Diagrama de clusters do Storm e do Kafka numa rede virtual do Azure](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png" alt-text="Diagrama de clusters do Storm e do Kafka numa rede virtual do Azure":::
 
 > [!NOTE]  
 > Outros serviços no cluster, como SSH e [Apache Ambari,](https://ambari.apache.org/) podem ser acedidos através da internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, veja [Portas e URIs utilizados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -415,7 +415,7 @@ Para criar uma Rede Virtual do Azure e, depois, criar os clusters do Kafka e do 
       | Nome de Utilizador SSH | O nome de utilizador SSH para os clusters. |
       | Palavra-passe do SSH | A palavra-passe do utilizador SSH. |
    
-      ![Imagem dos parâmetros de modelo](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      :::image type="content" source="./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png" alt-text="Imagem dos parâmetros de modelo":::
 
 3. Leia os **Termos e Condições** e, em seguida, selecione **Concordo com os termos e condições acima indicados**.
 

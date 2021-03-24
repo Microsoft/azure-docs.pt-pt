@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca3ba61de13e0e451b43dc9c8ea40db33fed859a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931105"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869672"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guia de tamanhos do cluster de consultas interativas Azure HDInsight (Hive LLAP)
 
@@ -29,7 +29,7 @@ Este documento descreve o dimensionamento do HdInsight Interactive Query Cluster
 ***Nota: Todos os valores recomendados são baseados no nó de trabalhador do tipo D14 v2***  
 
 ### <a name="configuration"></a>**Configuração:**    
-| Chave de Configuração      | Valor recomendado  | Description |
+| Chave de Configuração      | Valor recomendado  | Descrição |
 | :---        |    :----:   | :---     |
 | yarn.nodemanager.resource.memory-mb | 102400 (MB) | Memória total dada, em MB, para todos os recipientes yarn em um nó | 
 | yarn.scheduler.máxima atribuição-mb | 102400 (MB) | A dotação máxima para cada pedido de contentores no RM, em MBs. Pedidos de memória superiores a este valor não vão ter efeito |
@@ -47,7 +47,7 @@ Este documento descreve o dimensionamento do HdInsight Interactive Query Cluster
 
 ### <a name="llap-architecturecomponents"></a>**Arquitetura/Componentes LLAP:**  
 
-!['LlAP Arquitetura/Componentes'](./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png "Arquitetura/Componentes LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="'LlAP Arquitetura/Componentes'" border="true":::
 
 ### <a name="llap-daemon-size-estimations"></a>**Estimativas do tamanho llap Daemon:** 
 
@@ -81,7 +81,7 @@ O cluster HDInsight padrão tem quatro daemons LLAP em execução em quatro nós
 
 **Ambari UI slider para hive config `hive.server2.tez.sessions.per.default.queue` variável:**
 
-!['Consultas simultâneas máximas LLAP'](./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png "Número máximo de consultas simultâneas")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="'Consultas simultâneas máximas LLAP'" border="true":::
 
 #### <a name="5-tez-container-and-tez-application-master-size"></a>**5. Tamanho principal do recipiente Tez e aplicação Tez**    
 Configuração: ***tez.am.resource.memory.mb, hive.tez.container.size***  
@@ -165,7 +165,7 @@ Para D14 v2, este valor é de 19 x 3 GB = **57 GB**
 
 `Ambari environment variable for LLAP heap size:`
 
-!['LLAP tamanho da pilha'](./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png "Tamanho da pilha LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="'LLAP tamanho da pilha'" border="true":::
 
 Quando a cache SSD é desativada, a cache na memória é a quantidade de memória que é deixada depois de retirar o tamanho da sala de cabeceira e o tamanho do heap do tamanho do recipiente do daemon LLAP.
 
@@ -197,11 +197,11 @@ Variáveis ambientais Ambari: ***num_llap_nodes, num_llap_nodes_for_llap_daemons
 
 **num_llap_nodes** - especifica o número de nós usados pelo serviço Hive LLAP, isto inclui nós que executam daemon LLAP, LLAP Service Master e Tez Application Master (Tez AM).  
 
-![«Número de nós para o serviço LLAP»](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png "Número de nós para o serviço LLAP")  
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="«Número de nós para o serviço LLAP»" border="true":::  
 
 **num_llap_nodes_for_llap_daemons** - número especificado de nós utilizados apenas para os daemons LLAP. Os tamanhos do contentor do daemon LLAP estão ajustados para o nó máximo, de modo que resultará num daemon em cada nó.
 
-![«Número de nós para os daemons LLAP»](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png "Número de nós para daemons LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="«Número de nós para os daemons LLAP»" border="true":::
 
 Recomenda-se manter ambos os valores iguais ao número de nós de trabalhadores no cluster de consultas interativas.
 
@@ -222,7 +222,7 @@ Por exemplo: Capacidade total do cluster = memória de 100 GB, dividida entre LL
 Com 20 GB na capacidade de fila de gestão da carga de trabalho, um plano de recursos pode especificar `QUERY_PARALLELISM` o valor como cinco, o que significa que a gestão da carga de trabalho pode lançar cinco Tez AMs com tamanho de contentor de 4 GB cada. Se `QUERY_PARALLELISM` for superior à capacidade, poderá ver algumas Tez AMs pararem de responder no `ACCEPTED` estado. O Hiveserver2 Interactive não pode submeter fragmentos de consulta às AMs Tez que não estão no `RUNNING` estado.
 
 
-#### <a name="next-steps"></a>**Próximos Passos**
+#### <a name="next-steps"></a>**Passos Seguintes**
 Se a definição destes valores não resolveu o seu problema, visite um dos seguintes...
 
 * Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)

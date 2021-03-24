@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100378711"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864045"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapa do Azure Maps
 
@@ -258,10 +258,10 @@ Se aceder diretamente aos serviços Azure Maps REST, altere o domínio URL para 
 
 Se desenvolver usando uma estrutura JavaScript, um dos seguintes projetos de código aberto pode ser útil:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper em torno de mapas Azure.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - Um componente Blazor Azure Maps.
-- [Componente de reação do Azure Maps](https://github.com/WiredSolutions/react-azure-maps) - Um invólucro de reação para o controlo Azure Maps.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Um componente Azure Maps para aplicação Vue.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper em torno de mapas Azure.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - Um componente Blazor Azure Maps.
+* [Componente de reação do Azure Maps](https://github.com/WiredSolutions/react-azure-maps) - Um invólucro de reação para o controlo Azure Maps.
+* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Um componente Azure Maps para aplicação Vue.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -275,10 +275,10 @@ Saiba como modelar um mapa:
 > [!div class="nextstepaction"]
 > [Escolher um estilo de mapa](choose-map-style.md)
 
-Para adicionar mais dados ao seu mapa:
+Aprenda as melhores práticas e veja as amostras:
 
 > [!div class="nextstepaction"]
-> [Criar um mapa](map-create.md)
+> [Melhores práticas](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
 > [Amostras de código](/samples/browse/?products=azure-maps)

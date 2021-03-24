@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 2b2dfe9da55548f2648f847a9d7c2cb3478e6bad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bf036ff413f720f54deef1a62b502668d1d8ac6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931711"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872001"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
@@ -18,7 +18,7 @@ As grandes soluções de dados em tempo real atuam em dados que estão em movime
 
 Numa aplicação de streaming, uma ou mais fontes de dados estão a gerar eventos (às vezes nos milhões por segundo) que precisam de ser ingeridos rapidamente sem deixar cair qualquer informação útil. Os eventos de entrada são tratados com *tampão de fluxo,* também chamado *de fila de eventos,* por um serviço como [Apache Kafka](kafka/apache-kafka-introduction.md) ou [Event Hubs.](https://azure.microsoft.com/services/event-hubs/) Depois de recolher os eventos, pode então analisar os dados utilizando um sistema de análise em tempo real dentro da camada de processamento de *fluxo,* como [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming.](spark/apache-spark-streaming-overview.md) Os dados processados podem ser armazenados em sistemas de armazenamento de longo prazo, como [o Azure Data Lake Storage,](https://azure.microsoft.com/services/storage/data-lake-storage/)e exibidos em tempo real num dashboard de inteligência empresarial, como [Power BI,](https://powerbi.microsoft.com)Tableau ou uma página web personalizada.
 
-![Padrões de streaming Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png" alt-text="Padrões de streaming Azure HDInsight":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 

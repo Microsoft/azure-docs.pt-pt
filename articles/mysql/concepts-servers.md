@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a05037505c122bb974e6da3d11a6f25a715a6843
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100517982"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869434"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceitos de servidor na Base de Dados Azure para o MySQL
 
@@ -62,7 +62,13 @@ Durante o período de paragem do servidor, não podem ser efetuadas operações 
 
 ## <a name="how-do-i-manage-a-server"></a>Como posso gerir um servidor?
 
-Pode gerir a Base de Dados Azure para servidores MySQL utilizando o portal Azure ou o Azure CLI.
+Pode gerir a criação, eliminação, configuração de parâmetros do servidor (my.cnf), escala, rede, segurança, alta disponibilidade, backup & restaurar, monitorização da sua Base de Dados Azure para servidores MySQL utilizando o portal Azure ou o CLI Azure. Além disso, os procedimentos armazenados estão disponíveis na Base de Dados Azure para o MySQL para executar certas tarefas de administração de base de dados necessárias, uma vez que o privilégio do utilizador SUPER não é suportado no servidor.
+
+|**Nome do procedimento armazenado**|**Parâmetros de Entrada**|**Parâmetros de saída**|**Nota de utilização**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/D|Equivalente ao [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) comando. Terminará a ligação associada à processlist_id fornecida após terminar qualquer declaração que a ligação esteja a executar.|
+|*mysql.az_kill_query*|processlist_id|N/D|Equivalente ao [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) comando. Terminará a declaração que a ligação está atualmente a executar. Deixa a ligação viva.|
+|*mysql.az_load_timezone*|N/D|N/D|Cargas tabelas [de fuso horário](howto-server-parameters.md#working-with-the-time-zone-parameter) para permitir que o `time_zone` parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
 
 ## <a name="next-steps"></a>Passos seguintes
 

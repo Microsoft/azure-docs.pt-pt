@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9a5f50588c357b56865bc2a8500dcc250e89d930
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9da83746cdaf693922b88841cd9c0fac432611c9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470637"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870845"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -76,7 +76,7 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Description | Obrigatório / Opcional |
+| Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de discurso. | Ou este cabeçalho ou `Authorization` é necessário. |
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
@@ -107,7 +107,7 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 ```json
 [
-     
+
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
     "DisplayName": "Aria",
@@ -127,9 +127,9 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
     "VoiceType": "Neural",
     "Status": "GA"
   },
-  
+
   ...
-    
+
      {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
@@ -141,9 +141,9 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
     "VoiceType": "Neural",
     "Status": "Preview"
   },
-  
+
   ...
-    
+
    {
     "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
     "DisplayName": "Yunxi",
@@ -168,7 +168,7 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
   },
 
     ...
-      
+
    {
     "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
     "DisplayName": "Hoda",
@@ -213,7 +213,7 @@ Estas regiões são apoiadas por texto-a-voz utilizando a API REST. Certifique-s
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Description | Obrigatório / Opcional |
+| Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |
@@ -234,10 +234,12 @@ audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
 audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
 raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
 audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
+webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
 ```
 
 > [!NOTE]
-> Se o seu formato de voz e saída selecionado tiver taxas de bits diferentes, o áudio é resmaltado se necessário. ogg-24khz-16bit-mono-opus pode ser descodificado com [opus codec](https://opus-codec.org/downloads/)
+> Se o seu formato de voz e saída selecionado tiver taxas de bits diferentes, o áudio é resmaltado se necessário.
+> ogg-24khz-16bit-mono-opus pode ser descodificado com [opus codec](https://opus-codec.org/downloads/)
 
 ### <a name="request-body"></a>Corpo do pedido
 

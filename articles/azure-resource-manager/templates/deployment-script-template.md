@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/23/2021
 ms.author: jgao
-ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594247"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889387"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Use scripts de implementação em modelos ARM
 
@@ -131,6 +131,9 @@ O seguinte JSON é um exemplo. Para mais informações, consulte o [esquema de m
 > [!NOTE]
 > O exemplo é para fins de demonstração. As propriedades `scriptContent` e `primaryScriptUri` não podem coexistir num modelo.
 
+> [!NOTE]
+> O _scriptContent_ mostra um script com várias linhas.  O portal Azure e o oleoduto Azure DevOps não podem analisar um script de implementação com várias linhas. Pode acorrentar os comandos PowerShell (utilizando pontos de sn ou _\\ r \\ n_ ou _\\ n)_ numa única linha, ou utilizar a `primaryScriptUri` propriedade com um ficheiro de script externo. Existem muitas ferramentas gratuitas de fuga/desacapagem da cadeia JSON disponíveis. Por exemplo, [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+
 Detalhes do valor da propriedade:
 
 - `identity`: Para a versão API de script de implementação 2020-10-01 ou posterior, uma identidade gerida atribuída ao utilizador é opcional, a menos que necessite de realizar quaisquer ações específicas do Azure no script.  Para a versão API 2019-10-01-pré-visualização, é necessária uma identidade gerida, uma vez que o serviço de scripts de implementação o utiliza para executar os scripts. Atualmente, apenas a identidade gerida atribuída pelo utilizador é suportada.
@@ -159,9 +162,6 @@ Detalhes do valor da propriedade:
 
 - `environmentVariables`: Especifique as variáveis ambientais para passar para o script. Para obter mais informações, consulte [Desenvolver scripts de implementação.](#develop-deployment-scripts)
 - `scriptContent`: Especificar o conteúdo do script. Para executar um script externo, use `primaryScriptUri` em vez disso. Por exemplo, consulte [o script inline](#use-inline-scripts) e [use script externo](#use-external-scripts).
-  > [!NOTE]
-  > O portal Azure não consegue analisar um script de implantação com várias linhas. Para implementar um modelo com script de implementação a partir do portal Azure, pode acorrentar os comandos PowerShell utilizando pontos de ligação numa única linha ou utilizar a `primaryScriptUri` propriedade com um ficheiro de script externo.
-
 - `primaryScriptUri`: Especifique um URL acessível ao público para o script de implantação primária com extensões de ficheiros suportadas. Para obter mais informações, consulte [utilizar scripts externos.](#use-external-scripts)
 - `supportingScriptUris`: Especifique uma série de URLs acessíveis ao público para suportar ficheiros que são chamados em `scriptContent` ambos ou `primaryScriptUri` . Para obter mais informações, consulte [utilizar scripts externos.](#use-external-scripts)
 - `timeout`: Especificar o tempo máximo de execução do script permitido especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D.**
@@ -566,7 +566,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 
 ## <a name="deployment-script-error-codes"></a>Códigos de erro de script de implementação
 
-| Código de erro | Description |
+| Código de erro | Descrição |
 |------------|-------------|
 | ImplementaçãoScriptInvalidOperação | A definição de recursos de script de implementação no modelo contém nomes de propriedade inválidos. |
 | ImplementaçãoScriptResourceConflict | Não é possível apagar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode refazer o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo. |

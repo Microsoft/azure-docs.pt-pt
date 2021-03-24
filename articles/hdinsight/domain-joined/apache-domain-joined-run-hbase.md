@@ -4,12 +4,12 @@ description: Tutorial - Saiba como configurar as políticas apache ranger para a
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a18e0b252facb4f00d9ba5c9b6bfe9fe6aefe1ef
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933714"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867003"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar as políticas apache HBase em HDInsight com pacote de segurança empresarial
 
@@ -86,7 +86,7 @@ Pode utilizar o SSH para ligar aos clusters HBase e, em seguida, utilizar [a Apa
     scan 'Customers'
     ```
 
-    ![Saída da concha HDInsight Hadoop HBase](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="Saída da concha HDInsight Hadoop HBase" border="true":::
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
 
@@ -94,11 +94,11 @@ Crie uma política ranger para **sales_user1** e **marketing_user1.**
 
 1. Abra a **IU do Ranger Admin**. Clique **\<ClusterName> _hbase** em **HBase**.
 
-   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="HDInsight Apache Ranger Admin UI" border="true":::
 
 2. O ecrã **da Lista de Políticas** apresentará todas as políticas ranger criadas para este cluster. Poderá ser apresentada uma política pré-configurada. Clique **em Adicionar Nova Política**.
 
-    ![Lista de políticas do Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Lista de políticas do Apache Ranger HBase" border="true":::
 
 3. No ecrã **'Criar Política',** insira os seguintes valores:
 
@@ -117,7 +117,7 @@ Crie uma política ranger para **sales_user1** e **marketing_user1.**
    * `*` indica zero ou mais ocorrências de caracteres.
    * `?` indica um único caráter.
 
-   ![A política da Apache Ranger cria vendas](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="A política da Apache Ranger cria vendas" border="true":::
 
    >[!NOTE]
    >Aguarde um momento enquanto o Ranger sincroniza com o Azure AD, se um utilizador de domínio não for preenchido automaticamente em **Selecionar Utilizador**.
@@ -136,7 +136,7 @@ Crie uma política ranger para **sales_user1** e **marketing_user1.**
    |Selecionar Utilizador  | marketing_user1 |
    |Permissões  | Ler |
 
-   ![A política apache ranger cria marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="A política apache ranger cria marketing" border="true":::  
 
 6. Clique em **Adicionar** para guardar a política.
 
@@ -226,7 +226,7 @@ Com base nas políticas dos Rangers configuradas, **sales_user1** podem ver todo
 
 1. Veja os eventos de acesso de auditoria da IU do Ranger.
 
-   ![Auditoria política do HDInsight Ranger UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="Auditoria política do HDInsight Ranger UI" border="true":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176336"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952920"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
@@ -37,9 +37,6 @@ Uptime SLA é uma funcionalidade paga e ativada por cluster. Os preços de SLA d
 * Instale a versão [Azure CLI](/cli/azure/install-azure-cli) 2.8.0 ou posterior
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criar um novo cluster com Uptime SLA
-
-> [!NOTE]
-> Atualmente, se ativar o Uptime SLA, não há como removê-lo de um cluster.
 
 Para criar um novo cluster com o Uptime SLA, utilize o Azure CLI.
 
@@ -106,6 +103,15 @@ Utilize o [`az aks update`][az-aks-update] comando para atualizar o cluster exis
     "tier": "Paid"
   },
   ```
+
+## <a name="opt-out-of-uptime-sla"></a>Opte por out of Uptime SLA
+
+Pode atualizar o seu cluster para alterar para o nível livre e optar por sair do Uptime SLA.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## <a name="clean-up"></a>Limpeza
 

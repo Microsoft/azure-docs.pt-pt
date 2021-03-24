@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: a625ad780d01f3d19d26f2b9626ead3ae455b86b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631477"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950931"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Utilize o inventário de bolhas de armazenamento Azure para gerir dados blob (pré-visualização)
 
@@ -26,7 +26,7 @@ A funcionalidade de inventário de blob de armazenamento Azure fornece uma visã
 O inventário blob é suportado tanto para as contas de armazenamento de blob de finalidade geral 2 (GPv2) como para as contas de armazenamento de blocos premium blob. Esta funcionalidade é suportada com ou sem a funcionalidade [de espaço hierárquico](data-lake-storage-namespace.md) ativada.
 
 > [!IMPORTANT]
-> O inventário Bob está atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+> O inventário blob está atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 ### <a name="preview-regions"></a>Pré-visualização de regiões
 
@@ -92,9 +92,9 @@ Consulte o JSON para obter uma política de inventário selecionando o separador
 
 | Nome do parâmetro | Tipo de parâmetro        | Notas | Necessário? |
 |----------------|-----------------------|-------|-----------|
-| destino    | String                | O contentor de destino onde todos os ficheiros de inventário serão gerados. O contentor de destino já deve existir. | Yes |
-| ativado        | Booleano               | Usado para desativar toda a apólice. Quando definido como **verdadeiro,** o campo ativado pelo nível de regra sobrepõe-se a este parâmetro. Quando desativado, o inventário para todas as regras será desativado. | Yes |
-| regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária numa política. Até 10 regras são apoiadas. | Yes |
+| destino    | String                | O contentor de destino onde todos os ficheiros de inventário serão gerados. O contentor de destino já deve existir. | Sim |
+| ativado        | Booleano               | Usado para desativar toda a apólice. Quando definido como **verdadeiro,** o campo ativado pelo nível de regra sobrepõe-se a este parâmetro. Quando desativado, o inventário para todas as regras será desativado. | Sim |
+| regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária numa política. Até 10 regras são apoiadas. | Sim |
 
 ## <a name="inventory-rules"></a>Regras de inventário
 
@@ -104,9 +104,9 @@ Cada regra dentro da política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro                 | Notas | Necessário? |
 |----------------|--------------------------------|-------|-----------|
-| name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos sensíveis a casos. O nome deve ser único dentro de uma política. | Yes |
-| ativado        | Booleano                        | Uma bandeira que permite ativar ou desativar uma regra. O valor predefinido é **verdadeiro.** | Yes |
-| definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtro de regras. | Yes |
+| name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos sensíveis a casos. O nome deve ser único dentro de uma política. | Sim |
+| ativado        | Booleano                        | Uma bandeira que permite ativar ou desativar uma regra. O valor predefinido é **verdadeiro.** | Sim |
+| definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtro de regras. | Sim |
 
 O inventário global **blob habilitado** a bandeira tem precedência sobre o parâmetro *ativado* numa regra.
 
@@ -116,7 +116,7 @@ Vários filtros estão disponíveis para personalizar um relatório de inventár
 
 | Nome do filtro         | Tipo de filtro                     | Notas | Necessário? |
 |---------------------|---------------------------------|-------|-----------|
-| blobTypes           | Matriz de valores enum predefinidos | Valores válidos são `blockBlob` e `appendBlob` para contas hierárquicas habilitados para o espaço de `blockBlob` `appendBlob` nome, e , e para `pageBlob` outras contas. | Yes |
+| blobTypes           | Matriz de valores enum predefinidos | Valores válidos são `blockBlob` e `appendBlob` para contas hierárquicas habilitados para o espaço de `blockBlob` `appendBlob` nome, e , e para `pageBlob` outras contas. | Sim |
 | prefixOSatch         | Matriz de até 10 cordas para prefixos a combinar. Um prefixo deve começar com um nome de recipiente, por exemplo, "container1/foo" | Se não definir *prefixoSatch* ou fornecer um prefixo vazio, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
 | incluiSnapshots    | Booleano                         | Especifica se o inventário deve incluir instantâneos. O padrão é **falso.** | No |
 | incluem Inversões | Booleano                         | Especifica se o inventário deve incluir versões blob. O padrão é **falso.** | No |

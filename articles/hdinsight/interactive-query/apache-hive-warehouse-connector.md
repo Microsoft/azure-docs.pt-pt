@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 57a3d76f24c33984a883e926a8d4c68736e9f121
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99594439"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869893"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre a Faísca Apache e a Colmeia Apache com o Conector do Armazém da Colmeia em Azure HDInsight
 
@@ -23,7 +23,7 @@ A Apache Hive oferece suporte para transações de base de dados que são atómi
 
 Apache Spark, tem uma API de streaming estruturada que dá capacidades de streaming não disponíveis na Colmeia Apache. Começando com HDInsight 4.0, Apache Spark 2.3.1 e Apache Hive 3.1.0 têm metastões separadas. As metástases separadas podem dificultar a interoperabilidade. O Conector do Armazém da Colmeia facilita a utilização de faíscas e colmeias juntos. A biblioteca HWC carrega dados de daemons LLAP para executores spark em paralelo. Este processo torna-o mais eficiente e adaptável do que uma ligação JDBC padrão da Spark à Colmeia.
 
-![arquitetura de conector de armazém de colmeia](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+:::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="arquitetura de conector de armazém de colmeia" border="true":::
 
 Algumas das operações apoiadas pelo Conector do Armazém da Colmeia são:
 
@@ -72,7 +72,7 @@ O Conector do Armazém da Colmeia necessita de aglomerados separados para cargas
 
 1. Expandir **os padrão de faíscas personalizados**.
 
-    ![Configuração Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png" alt-text="Configuração Apache Ambari Spark2" border="true":::
 
 1. Selecione **Adicionar Propriedade...** para adicionar as seguintes configurações:
 
@@ -103,11 +103,11 @@ Para além das configurações mencionadas na secção anterior, adicione a segu
     
     * A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` até onde CLUSTERNAME é o nome do seu cluster de consultainterna. Clique na **HiveServer2 Interactive**. Verá o Nome de Domínio Totalmente Qualificado (FQDN) do nó de cabeça no qual llap está em execução como mostrado na imagem. `<llap-headnode>`Substitua-o por este valor.
 
-        ![Nó de cabeça do conector do armazém de colmeia](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Nó de cabeça do conector do armazém de colmeia" border="true":::
 
     * Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu cluster de consultas interativos. Procure `default_realm` por um parâmetro no `/etc/krb5.conf` ficheiro. `<AAD-DOMAIN>`Substitua-o por este valor como uma corda maiúscula, caso contrário a credencial não será encontrada.
 
-        ![conector de armazém de colmeiaS Domínio AAD](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="conector de armazém de colmeiaS Domínio AAD" border="true":::
 
     * Por exemplo, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` . .
     
@@ -211,21 +211,21 @@ kinit USERNAME
     hive.executeQuery("SELECT * FROM demo").show()
     ```
 
-    ![mesa de demonstração antes de aplicar a política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="mesa de demonstração antes de aplicar a política ranger" border="true":::
 
 1. Aplique uma política de mascaramento de coluna que apenas mostre os últimos quatro caracteres da coluna.  
     1. Vá ao Ranger Admin UI em `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/` .
     1. Clique no serviço Hive para o seu cluster sob **a Colmeia.**
-        ![ranger gerente de serviço](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="ranger gerente de serviço" border="true":::
     1. Clique no **separador Mascaramento** e, em seguida, **Adicione Nova Política**
 
-        ![lista de política de ligação de colmeia de armazém de colmeias de colmeias](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="lista de política de ligação de colmeia de armazém de colmeias de colmeias" border="true":::
 
     1. Fornecer um nome de política desejado. Selecione base de dados: **Predefinição,** tabela De Colmeia: **demo,** coluna Hive: **nome,** Utilizador: **rsadmin2**, Tipos de acesso: **selecione**, e **máscara parcial: apareça no último 4** do menu **Select Masking Option.** Clique em **Adicionar**.
-                ![criar política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="criar política" border="true":::
 1. Volte a ver o conteúdo da tabela. Depois de aplicar a política dos rangers, só podemos ver os últimos quatro caracteres da coluna.
 
-    ![mesa de demonstração depois de aplicar a política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="mesa de demonstração depois de aplicar a política ranger" border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: deaa414a17240e8cdbdad7f4ba9b3e596b4f191f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780332"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889132"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Crie um gatilho que executa um oleoduto em resposta a um evento de armazenamento
 
@@ -43,10 +43,10 @@ Esta secção mostra-lhe como criar um gatilho de evento de armazenamento dentro
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1.png" alt-text="Screenshot da página author para criar um novo gatilho de evento de armazenamento na UI da Data Factory.":::
 
-1. Selecione a sua conta de armazenamento a partir do dropdown de subscrição Azure ou utilizando manualmente o seu ID de recurso de conta de armazenamento. Escolha em que recipiente deseja que os eventos ocorram. A seleção do contentor é opcional, mas tenha em atenção que selecionar todos os recipientes pode levar a um grande número de eventos.
+1. Selecione a sua conta de armazenamento a partir do dropdown de subscrição Azure ou utilizando manualmente o seu ID de recurso de conta de armazenamento. Escolha em que recipiente deseja que os eventos ocorram. A seleção do contentor é necessária, mas tenha em atenção que selecionar todos os recipientes pode levar a um grande número de eventos.
 
    > [!NOTE]
-   > O Trigger do Evento de Armazenamento suporta atualmente apenas as contas de armazenamento do Azure Data Lake Storage Gen2 e da versão 2 para fins gerais. Devido a uma limitação da Grelha de Eventos Azure, a Azure Data Factory suporta apenas um máximo de 500 gatilhos de eventos de armazenamento por conta de armazenamento.
+   > O Trigger do Evento de Armazenamento suporta atualmente apenas as contas de armazenamento do Azure Data Lake Storage Gen2 e da versão 2 para fins gerais. Devido a uma limitação da Grelha de Eventos Azure, a Azure Data Factory suporta apenas um máximo de 500 gatilhos de eventos de armazenamento por conta de armazenamento. Se atingir o limite, contacte o suporte para recomendações e aumenta o limite após avaliação pela equipa da Event Grid. 
 
    > [!NOTE]
    > Para criar um novo ou modificar um Trigger de Evento de Armazenamento existente, a conta Azure utilizada para iniciar sessão na Data Factory e publicar o gatilho do evento de armazenamento deve ter uma permissão adequada de controlo de acesso baseado em funções (Azure RBAC) na conta de armazenamento. Não é necessária qualquer autorização adicional: O diretor de serviço da Fábrica de Dados Azure _não_ necessita de autorização especial para a conta de Armazenamento ou para a Grelha de Eventos. Para obter mais informações sobre o controlo de acesso, consulte a secção [de controlo de acesso baseada em](#role-based-access-control) funções.
@@ -54,7 +54,7 @@ Esta secção mostra-lhe como criar um gatilho de evento de armazenamento dentro
 1. O **caminho blob começa** e o caminho **blob termina com** propriedades que lhe permitem especificar os recipientes, pastas e nomes blob para os quais deseja receber eventos. O gatilho do seu evento de armazenamento requer que pelo menos uma destas propriedades seja definida. Você pode usar variedade de padrões para ambos os **caminhos Blob começa com** e o caminho **blob termina com** propriedades, como mostrado nos exemplos mais tarde neste artigo.
 
     * **O caminho da bolha começa com:** O caminho da bolha deve começar com um caminho de pasta. Valores válidos incluem `2018/` e `2018/april/shoes.csv` . Este campo não pode ser selecionado se um recipiente não for selecionado.
-    * **O caminho da bolha termina com:** O caminho da bolha deve terminar com um nome de ficheiro ou extensão. Valores válidos incluem `shoes.csv` e `.csv` . O nome do recipiente e da pasta é opcional, mas, quando especificado, deve ser separado por um `/blobs/` segmento. Por exemplo, um contentor denominado "encomendas" pode ter um valor de `/orders/blobs/2018/april/shoes.csv` . Para especificar uma pasta em qualquer recipiente, omita o caractere principal '/' principal. Por exemplo, `april/shoes.csv` irá desencadear um evento em qualquer ficheiro denominado em pasta chamada `shoes.csv` 'abril' em qualquer recipiente.
+    * **O caminho da bolha termina com:** O caminho da bolha deve terminar com um nome de ficheiro ou extensão. Valores válidos incluem `shoes.csv` e `.csv` . Os nomes dos recipientes e das pastas, quando especificados, devem ser separados por um `/blobs/` segmento. Por exemplo, um contentor denominado "encomendas" pode ter um valor de `/orders/blobs/2018/april/shoes.csv` . Para especificar uma pasta em qualquer recipiente, omita o caractere principal '/' principal. Por exemplo, `april/shoes.csv` irá desencadear um evento em qualquer ficheiro denominado em pasta chamada `shoes.csv` 'abril' em qualquer recipiente.
     * Note que o caminho blob **começa** e **termina com** o único padrão que combina no Detonador de Eventos de Armazenamento. Outros tipos de correspondência wildcard não são suportados para o tipo de gatilho.
 
 1. Selecione se o seu gatilho irá responder a um evento **criado pela Blob,** evento **apagado blob,** ou ambos. No local de armazenamento especificado, cada evento irá acionar os oleodutos data factory associados ao gatilho.

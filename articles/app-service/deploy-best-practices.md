@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ac4e8d93e2e729db387b0f9cf81017b6c58b6750
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185670"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951339"
 ---
 # <a name="deployment-best-practices"></a>Implementação de Melhores Práticas
 
@@ -69,7 +69,7 @@ O Serviço de Aplicações tem [entrega contínua incorporada](deploy-continuous
 
 ### <a name="use-github-actions"></a>Use ações do GitHub
 
-Também pode automatizar a colocação do seu contentor [com as ações do GitHub](deploy-container-github-action.md).  O ficheiro de fluxo de trabalho abaixo irá construir e marcar o contentor com o ID do compromisso, empurrá-lo para um registo de contentores e atualizar a ranhura do site especificado com a nova etiqueta de imagem.
+Também pode automatizar a colocação do seu contentor [com as ações do GitHub](./deploy-ci-cd-custom-container.md).  O ficheiro de fluxo de trabalho abaixo irá construir e marcar o contentor com o ID do compromisso, empurrá-lo para um registo de contentores e atualizar a ranhura do site especificado com a nova etiqueta de imagem.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps

@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: feb77339c9c7f36eb17b43dfe2c220dfb54efa25
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b24276974eba76aa841cdd7f02145210713474eb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720530"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872290"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualizar o daemon de segurança e o tempo de execução do IoT Edge
 
@@ -203,7 +203,7 @@ Algumas das principais diferenças entre as versões 1.2 e anteriores incluem:
 * O nome do pacote passou de **iotedge** para **aziot-edge**.
 * O **pacote de dílio-se-de-libiothsm** já não é usado. Se utilizar o pacote padrão fornecido como parte da versão IoT Edge, então as suas configurações podem ser transferidas para a nova versão. Se usou uma implementação diferente de libiothsm-std, então quaisquer certificados fornecidos pelo utilizador como o certificado de identidade do dispositivo, o dispositivo CA e o pacote de confiança terão de ser reconfigurados.
 * Um novo serviço de identidade, **aziot-identity-service** foi introduzido como parte da versão 1.2. Este serviço trata do fornecimento e gestão de identidade para IoT Edge e para outros componentes do dispositivo que precisam de comunicar com o IoT Hub, como a Azure IoT Hub Device Update. <!--TODO: add link to ADU when available -->
-* O ficheiro config predefinido tem um novo nome e localização. `/etc/iotedge/config.yaml`Anteriormente, espera-se que as informações de configuração do dispositivo estejam por `/etc/aziot/congig.toml` defeito. O `iotedge config import` comando pode ser usado para ajudar a migrar informações de configuração formando a localização antiga e sintaxe para o novo.
+* O ficheiro config predefinido tem um novo nome e localização. `/etc/iotedge/config.yaml`Anteriormente, espera-se que as informações de configuração do dispositivo estejam por `/etc/aziot/config.toml` defeito. O `iotedge config import` comando pode ser usado para ajudar a migrar informações de configuração formando a localização antiga e sintaxe para o novo.
 * Quaisquer módulos que utilizem a API de carga de trabalho IoT Edge para encriptar ou desencriptar dados persistentes não podem ser desencriptados após a atualização. O IoT Edge gera dinamicamente uma chave de identidade principal e chave de encriptação para uso interno. Esta chave não será transferida para o novo serviço. IoT Edge v1.2 gerará um novo.
 
 Antes de automatizar quaisquer processos de atualização, valide que funciona em máquinas de teste.

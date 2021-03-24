@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db695b55fbef16cb67dce6dc2d3c81ad177c9db6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 629f71c429d6af8583cb15b9ebc96efe6867f78b
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601802"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888894"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrar a autenticação de aplicações para o Azure Ative Directory
 
@@ -489,7 +489,7 @@ Após a migração, pode optar por enviar comunicações informando os utilizado
 
 Durante o processo de migração, a sua aplicação pode já ter um ambiente de teste utilizado durante as implementações regulares. Pode continuar a usar este ambiente para testes de migração. Se um ambiente de teste não estiver disponível atualmente, poderá ser capaz de configurar um utilizando o Azure App Service ou a Azure Virtual Machines, dependendo da arquitetura da aplicação. Pode optar por configurar um inquilino Azure AD de teste separado para usar à medida que desenvolve as configurações da sua aplicação. Este inquilino começará em estado limpo e não será configurado para sincronizar com qualquer sistema.
 
-Pode testar cada aplicação iniciando sessão com um utilizador de teste e certificar-se de que todas as funcionalidades são as mesmas que antes da migração. Se determinar durante o teste que os utilizadores terão de atualizar as suas definições [de MFA](/active-directory/authentication/howto-mfa-userstates) ou [SSPR,](../authentication/tutorial-enable-sspr.md)ou se estiver a adicionar esta funcionalidade durante a migração, certifique-se de que o adicionará ao seu plano de comunicação do utilizador final. Consulte os modelos de comunicação do utilizador final [MFA](https://aka.ms/mfatemplates) e [SSPR.](https://aka.ms/ssprtemplates)
+Pode testar cada aplicação iniciando sessão com um utilizador de teste e certificar-se de que todas as funcionalidades são as mesmas que antes da migração. Se determinar durante o teste que os utilizadores terão de atualizar as suas definições [de MFA](/azure/active-directory/authentication/howto-mfa-userstates) ou [SSPR,](../authentication/tutorial-enable-sspr.md)ou se estiver a adicionar esta funcionalidade durante a migração, certifique-se de que o adicionará ao seu plano de comunicação do utilizador final. Consulte os modelos de comunicação do utilizador final [MFA](https://aka.ms/mfatemplates) e [SSPR.](https://aka.ms/ssprtemplates)
 
 Depois de migrar as aplicações, vá ao [portal Azure](https://aad.portal.azure.com/) para testar se a migração foi um sucesso. Siga as instruções abaixo:
 
@@ -573,7 +573,7 @@ Pode orientar os seus utilizadores sobre como descobrir as suas aplicações:
 
 Os utilizadores podem descarregar um **navegador gerido pelo Intune:**
 
-- **Para dispositivos Android**, da [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)
+- **Para dispositivos Android**, da [Google Play Store](/azure/active-directory/authentication/howto-mfa-userstates)
 
 - **Para dispositivos Apple**, a partir da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou podem descarregar a [aplicação móvel My Apps para iOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
 

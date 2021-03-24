@@ -3,17 +3,17 @@ title: Hotpatch para Windows Server Azure Edition (pré-visualização)
 description: Saiba como funciona o Hotpatch para o Windows Server Azure Edition e como o habilitar
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687571"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953396"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch para novas máquinas virtuais (Pré-visualização)
 
@@ -129,21 +129,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Instalação de remendos
 
-Durante a pré-visualização, o [Patching Automático de Convidados VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) é ativado automaticamente para todos os VMs criados com _o Windows Server 2019 Datacenter: Azure Edition_. Com remendos automáticos de hóspedes VM habilitados:
+Durante a pré-visualização, o [Patching Automático de Convidados VM](../virtual-machines/automatic-vm-guest-patching.md) é ativado automaticamente para todos os VMs criados com _o Windows Server 2019 Datacenter: Azure Edition_. Com remendos automáticos de hóspedes VM habilitados:
 * Patches classificados como Critical ou Security são automaticamente descarregados e aplicados no VM.
 * As manchas são aplicadas durante as horas de ponta no fuso horário do VM.
-* A orquestração de remendos é gerida pelo Azure e os patches são aplicados seguindo [os princípios de disponibilidade primeiro.](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching)
+* A orquestração de remendos é gerida pelo Azure e os patches são aplicados seguindo [os princípios de disponibilidade primeiro.](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching)
 * A saúde da máquina virtual, tal como determinada através de sinais de saúde da plataforma, é monitorizada para detetar falhas de correção.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>Como funciona o patching automático de hóspedes VM?
 
-Quando [o Patching Automático de Hóspedes VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) está ativado num VM, os patches de Segurança e Crítica disponíveis são descarregados e aplicados automaticamente. Este processo arranca automaticamente todos os meses quando são lançados novos patches. A avaliação e instalação do patch são automáticas, e o processo inclui o reinício do VM conforme necessário.
+Quando [o Patching Automático de Hóspedes VM](../virtual-machines/automatic-vm-guest-patching.md) está ativado num VM, os patches de Segurança e Crítica disponíveis são descarregados e aplicados automaticamente. Este processo arranca automaticamente todos os meses quando são lançados novos patches. A avaliação e instalação do patch são automáticas, e o processo inclui o reinício do VM conforme necessário.
 
 Com o Hotpatch ativado no _Datacenter 2019 do Windows Server: VMs Azure Edition,_ a maioria das atualizações mensais de segurança são entregues como hotpatches que não requerem reboots. As últimas Atualizações Cumulativas enviadas em meses de base planeados ou não planeados exigirão reboots de VM. Patches adicionais de Crítica ou Segurança também podem estar disponíveis periodicamente, o que pode exigir reboots VM.
 
 O VM é avaliado automaticamente a cada poucos dias e várias vezes dentro de qualquer período de 30 dias para determinar os patches aplicáveis para esse VM. Esta avaliação automática garante que quaisquer patches em falta sejam descobertos o mais rapidamente possível.
 
-Os patches são instalados no prazo de 30 dias após as versões mensais do patch, seguindo [os princípios de disponibilidade primeiro](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). As correções são instaladas apenas durante as horas de ponta para o VM, dependendo do fuso horário do VM. O VM deve estar a funcionar durante as horas de ponta para que os patches sejam automaticamente instalados. Se um VM for desligado durante uma avaliação periódica, o VM será avaliado e os patches aplicáveis serão instalados automaticamente durante a próxima avaliação periódica quando o VM estiver ligado. A próxima avaliação periódica geralmente acontece dentro de poucos dias.
+Os patches são instalados no prazo de 30 dias após as versões mensais do patch, seguindo [os princípios de disponibilidade primeiro](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). As correções são instaladas apenas durante as horas de ponta para o VM, dependendo do fuso horário do VM. O VM deve estar a funcionar durante as horas de ponta para que os patches sejam automaticamente instalados. Se um VM for desligado durante uma avaliação periódica, o VM será avaliado e os patches aplicáveis serão instalados automaticamente durante a próxima avaliação periódica quando o VM estiver ligado. A próxima avaliação periódica geralmente acontece dentro de poucos dias.
 
 Atualizações de definição e outros patches não classificados como Critical ou Security não serão instalados através de remendos automáticos de hóspedes VM.
 
@@ -151,7 +151,7 @@ Atualizações de definição e outros patches não classificados como Critical 
 
 Para ver o estado do patch para o seu VM, navegue na secção de atualizações do **anfitrião Do Convidado +** para o seu VM no portal Azure. Na secção **de atualizações do Guest OS,** clique em 'Ir a Hotpatch (Preview)' para ver o estado de correção mais recente para o seu VM.
 
-Neste ecrã, verá o estado do Hotpatch para o seu VM. Também pode rever se há algum patches disponíveis para o seu VM que não tenham sido instalados. Conforme descrito na secção 'Patch installation' acima, todas as atualizações de segurança e críticas serão automaticamente instaladas no seu VM utilizando [patching automático de convidados VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) e não são necessárias ações extra. Patches com outras classificações de atualização não são instalados automaticamente. Em vez disso, são visualizados na lista de patches disponíveis no separador 'Atualização conformidade'. Também pode ver o histórico de implementações de atualização no seu VM através do 'Histórico de actualização'. É apresentado o histórico de atualização dos últimos 30 dias, juntamente com os detalhes da instalação do patch.
+Neste ecrã, verá o estado do Hotpatch para o seu VM. Também pode rever se há algum patches disponíveis para o seu VM que não tenham sido instalados. Conforme descrito na secção 'Patch installation' acima, todas as atualizações de segurança e críticas serão automaticamente instaladas no seu VM utilizando [patching automático de convidados VM](../virtual-machines/automatic-vm-guest-patching.md) e não são necessárias ações extra. Patches com outras classificações de atualização não são instalados automaticamente. Em vez disso, são visualizados na lista de patches disponíveis no separador 'Atualização conformidade'. Também pode ver o histórico de implementações de atualização no seu VM através do 'Histórico de actualização'. É apresentado o histórico de atualização dos últimos 30 dias, juntamente com os detalhes da instalação do patch.
 
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Gestão de Hotpatch.":::
@@ -225,5 +225,5 @@ Existem algumas considerações importantes para executar um VM edição Azure d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a Azure Update Management [aqui](https://docs.microsoft.com/azure/automation/update-management/overview).
-* Saiba mais sobre patching automático de hóspedes VM [aqui](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching)
+* Saiba mais sobre a Azure Update Management [aqui](../automation/update-management/overview.md).
+* Saiba mais sobre patching automático de hóspedes VM [aqui](../virtual-machines/automatic-vm-guest-patching.md)

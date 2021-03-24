@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 72772743eba23ea7c2a93f5037ac84b671256a66
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99070649"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887704"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -214,10 +214,11 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker ./Config
+AuditBitLocker
 ```
 
-Guarde este ficheiro com o nome `config.ps1` na pasta do projeto. Execute-o no PowerShell executando `./config.ps1` no terminal. Um novo ficheiro mof é criado.
+Execute este script num terminal PowerShell ou guarde este ficheiro com o nome `config.ps1` na pasta do projeto.
+Execute-o no PowerShell executando `./config.ps1` no terminal. Um novo ficheiro mof é criado.
 
 O `Node AuditBitlocker` comando não é tecnicamente necessário, mas produz um ficheiro nomeado em vez do `AuditBitlocker.mof` padrão, `localhost.mof` . Ter o nome do ficheiro .mof seguir a configuração facilita a organização de muitos ficheiros ao operar em escala.
 
@@ -234,7 +235,7 @@ Executar o seguinte comando para criar um pacote utilizando a configuração dad
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditBitlocker' `
-  -Configuration './Config/AuditBitlocker.mof'
+  -Configuration './AuditBitlocker/AuditBitlocker.mof'
 ```
 
 Depois de criar o pacote de Configuração, mas antes de publicá-lo no Azure, pode testar o pacote a partir da sua estação de trabalho ou ambiente de integração contínua e implementação contínua (CI/CD). O cmdlet GuestConfiguration `Test-GuestConfigurationPackage` inclui o mesmo agente no seu ambiente de desenvolvimento que é utilizado dentro das máquinas Azure. Utilizando esta solução, pode fazer testes de integração localmente antes de lançar para ambientes de nuvem faturada.
@@ -257,10 +258,16 @@ Test-GuestConfigurationPackage `
 O cmdlet também suporta a entrada do gasoduto PowerShell. Encaneie a saída do `New-GuestConfigurationPackage` cmdlet até ao `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-O próximo passo é publicar o ficheiro no Azure Blob Storage. O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
+O próximo passo é publicar o ficheiro no Azure Blob Storage. Não existem requisitos especiais para a conta de armazenamento, mas é uma boa ideia hospedar o ficheiro numa região perto das suas máquinas. Se não tiver uma conta de armazenamento, use o seguinte exemplo. Os comandos abaixo, `Publish-GuestConfigurationPackage` incluindo, requerem o `Az.Storage` módulo.
+
+```azurepowershell-interactive
+# Creates a new resource group, storage account, and container
+New-AzResourceGroup -name myResourceGroupName -Location WestUS
+New-AzStorageAccount -ResourceGroupName myResourceGroupName -Name myStorageAccountName -SkuName 'Standard_LRS' -Location 'WestUs' | New-AzStorageContainer -Name guestconfiguration -Permission Blob
+```
 
 Parâmetros do `Publish-GuestConfigurationPackage` cmdlet:
 
@@ -416,111 +423,6 @@ As soluções comunitárias podem ser descobertas pesquisando na PowerShell Gall
 > A extensibilidade da configuração do hóspede é um cenário de "trazer a sua própria licença". Certifique-se de que cumpriu os termos e condições de quaisquer ferramentas de terceiros antes da sua utilização.
 
 Depois de o recurso DSC ter sido instalado no ambiente de desenvolvimento, utilize o parâmetro **FilesToInclude** `New-GuestConfigurationPackage` para incluir conteúdo para a plataforma de terceiros no artefacto do conteúdo.
-
-### <a name="step-by-step-creating-a-content-artifact-that-uses-third-party-tools"></a>Passo a passo, criando um artefacto de conteúdo que usa ferramentas de terceiros
-
-Apenas o `New-GuestConfigurationPackage` cmdlet requer uma alteração da orientação passo a passo para os artefactos de conteúdo DSC. Para este exemplo, utilize o `gcInSpec` módulo para estender a Configuração do Hóspede para auditar máquinas Windows utilizando a plataforma InSpec em vez do módulo incorporado utilizado no Linux. O módulo comunitário é mantido como um [projeto de código aberto no GitHub.](https://github.com/microsoft/gcinspec)
-
-Instale os módulos necessários no seu ambiente de desenvolvimento:
-
-```azurepowershell-interactive
-# Update PowerShellGet if needed to allow installing PreRelease versions of modules
-Install-Module PowerShellGet -Force
-
-# Install GuestConfiguration module prerelease version
-Install-Module GuestConfiguration -allowprerelease
-
-# Install commmunity supported gcInSpec module
-Install-Module gcInSpec
-```
-
-Primeiro, crie o ficheiro YaML utilizado pela InSpec. O ficheiro fornece informações básicas sobre o ambiente. Um exemplo é dado abaixo:
-
-```YaML
-name: wmi_service
-title: Verify WMI service is running
-maintainer: Microsoft Corporation
-summary: Validates that the Windows Service 'winmgmt' is running
-copyright: Microsoft Corporation
-license: MIT
-version: 1.0.0
-supports:
-  - os-family: windows
-```
-
-Guarde este ficheiro numa `wmi_service.yml` pasta nomeada no seu `wmi_service` diretório de projeto.
-
-Em seguida, crie o ficheiro Ruby com a abstração linguística InSpec usada para auditar a máquina.
-
-```Ruby
-control 'wmi_service' do
-  impact 1.0
-  title 'Verify windows service: winmgmt'
-  desc 'Validates that the service, is installed, enabled, and running'
-
-  describe service('winmgmt') do
-    it { should be_installed }
-    it { should be_enabled }
-    it { should be_running }
-  end
-end
-
-```
-
-Guarde este ficheiro `wmi_service.rb` numa nova pasta chamada dentro do `controls` `wmi_service` diretório.
-
-Finalmente, crie uma configuração, importe o módulo de recursos **GuestConfiguration** e use o `gcInSpec` recurso para definir o nome do perfil InSpec.
-
-```powershell
-# Define the configuration and import GuestConfiguration
-Configuration wmi_service
-{
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
-    node 'wmi_service'
-    {
-        gcInSpec wmi_service
-        {
-            InSpecProfileName       = 'wmi_service'
-            InSpecVersion           = '3.9.3'
-            WindowsServerVersion    = '2016'
-        }
-    }
-}
-
-# Compile the configuration to create the MOF files
-wmi_service -out ./Config
-```
-
-Deve agora ter uma estrutura de projeto como abaixo:
-
-```file
-/ wmi_service
-    / Config
-        wmi_service.mof
-    / wmi_service
-        wmi_service.yml
-        / controls
-            wmi_service.rb 
-```
-
-Os ficheiros de apoio devem ser embalados em conjunto. O pacote completo é utilizado pela Configuração do Hóspede para criar as definições de Política Azure.
-
-O `New-GuestConfigurationPackage` cmdlet cria o pacote. Para conteúdos de terceiros, utilize o parâmetro **FilesToInclude** para adicionar o conteúdo InSpec à embalagem. Você não precisa especificar o **ChefProfilePath** como para pacotes Linux.
-
-- **Nome**: Nome do pacote de configuração do hóspede.
-- **Configuração**: Documento de configuração compilado no caminho completo.
-- **Caminho**: Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
-- **FilesoInclude**: Caminho completo para o perfil InSpec.
-
-Executar o seguinte comando para criar um pacote utilizando a configuração dada no passo anterior:
-
-```azurepowershell-interactive
-New-GuestConfigurationPackage `
-  -Name 'wmi_service' `
-  -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'  `
-  -Path './package' 
-```
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida da política
 

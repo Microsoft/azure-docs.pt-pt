@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/01/2020
+ms.date: 3/22/2021
 ms.author: pafarley
-ms.openlocfilehash: 555a6410418232ff164a441dbc90eb10236b9f36
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4c0d4dd1a834e42a75da5199b7aaed0e123f8e63
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948176"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104879727"
 ---
 [Documentação de referência](/java/api/com.microsoft.azure.management.cognitiveservices)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
@@ -122,9 +122,11 @@ O seguinte método elimina o recurso especificado do grupo de recursos dado.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Documentação de referência da Azure Management SDK](/java/api/com.microsoft.azure.management.cognitiveservices)
-* [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)
-* [Autenticar pedidos aos Serviços Cognitivos da Azure](../../authentication.md)
-* [Criar um novo recurso utilizando o portal do Azure](../../cognitive-services-apis-create-account.md)
+* Consulte **[pedidos autenticados aos Serviços Cognitivos da Azure](../../authentication.md)** sobre como trabalhar de forma segura com os Serviços Cognitivos.
+* Veja **[o que são os Serviços Cognitivos Azure para](../../what-are-cognitive-services.md)** obter uma lista de diferentes categorias dentro dos Serviços Cognitivos.
+* Consulte o **[suporte linguístico natural](../../language-support.md)** para ver a lista de línguas naturais que os Serviços Cognitivos suportam.
+* Consulte **[o Uso de Serviços Cognitivos como recipientes](../../cognitive-services-container-support.md)** para entender como utilizar os Serviços Cognitivos no pré-pré-m.
+* Consulte **[o Plano e gere os custos dos Serviços Cognitivos](../../plan-manage-costs.md)** para estimar o custo da utilização dos Serviços Cognitivos.
+* Consulte **[a documentação de referência da Azure Management SDK](/java/api/com.microsoft.azure.management.cognitiveservices)** para obter mais detalhes sobre a gestão SDK.

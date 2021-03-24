@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee483872535c58bde521cf0a751058fdc2fecd40
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929200"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871457"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Eventos de processo de Azure Event Hubs com Apache Storm on HDInsight (C#)
 
@@ -126,7 +126,7 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
    | escritor |Enviar |
    | leitor |Escutar |
 
-    ![Screenshot da janela de políticas de acesso share](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png" alt-text="Screenshot da janela de políticas de acesso share" border="true":::
 
 2. Selecione as políticas do **leitor** e **do escritor.** Copie e guarde o valor principal para ambas as políticas, uma vez que estes valores são usados mais tarde.
 
@@ -168,15 +168,15 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
 1. A partir do **Solution Explorer,** clique à direita no projeto **EventHubReader** e selecione **Submeter à Tempestade em HDInsight**.
 
-    ![Screenshot do Solution Explorer, com Submissão à Tempestade em HDInsight em destaque](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png" alt-text="Screenshot do Solution Explorer, com Submissão à Tempestade em HDInsight em destaque" border="true":::
 
 2. Na caixa de diálogo **De Topologia de Submissão,** selecione o seu **Cluster de Tempestades**. Expandir **Configurações Adicionais**, selecione **Java File Paths**, selecione... e selecione o diretório que contém o ficheiro JAR que descarregou anteriormente.  Finalmente, clique **em Enviar por isso.**
 
-    ![Screenshot da caixa de diálogo de Topologia de Submissão](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png" alt-text="Screenshot da caixa de diálogo de Topologia de Submissão" border="true":::
 
 3. Quando a topologia é submetida, o Espectador de **Topo de Estado** aparece. Para ver informações sobre a topologia, selecione a topologia **EventHubReader** no painel esquerdo.
 
-    ![Screenshot do espectador de Topologias da Tempestade](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png" alt-text="Screenshot do espectador de Topologias da Tempestade" border="true":::
 
 4. A partir do **Solution Explorer,** clique à direita no projeto **EventHubWriter** e selecione **Submeter à Tempestade em HDInsight**.
 
@@ -200,7 +200,7 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
 Para parar as topologias, selecione cada topologia no **Storm Topology Viewer** e, em seguida, clique em **Kill**.
 
-![Screenshot do Storm Topology Viewer, com botão Kill em destaque](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png" alt-text="Screenshot do Storm Topology Viewer, com botão Kill em destaque" border="true":::
 
 ## <a name="delete-your-cluster"></a>Elimine o seu cluster
 
