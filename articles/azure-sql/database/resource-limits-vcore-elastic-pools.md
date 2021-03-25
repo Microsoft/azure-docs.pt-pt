@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/23/2021
-ms.openlocfilehash: 22653b54e53e181d27c8abe966acb91cb8c84214
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023861"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107861"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Tipo de armazenamento|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|
 |Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |Dados máximos IOPS por pool <sup>2</sup>|2800|3200|3600|4000|6400|9600|
-|Taxa máxima de registo por piscina (MBps)|42|48|48|48|48|48|
+|Taxa máxima de registo por piscina (MBps)|42|48|54|60|62.5|62.5|
 |Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Piscina de logins em simultâneo (pedidos) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -120,7 +120,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Tipo de armazenamento|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|
 |Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |Dados máximos IOPS por pool <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|Taxa máxima de registo por piscina (MBps)|12|24|36|48|48|48|48|
+|Taxa máxima de registo por piscina (MBps)|12|24|36|48|60|62.5|62.5|
 |Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -152,7 +152,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Tipo de armazenamento|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|
 |Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |Dados máximos IOPS por pool <sup>2</sup> |6,400|7,200|8,000|9600|12,800|16 000|16 000|
-|Taxa máxima de registo por piscina (MBps)|48|48|48|48|48|48|48|
+|Taxa máxima de registo por piscina (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|62.5|
 |Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -186,7 +186,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |Dados máximos IOPS por pool <sup>2</sup>|2560|3200|3840|4480|5120|
-|Taxa máxima de registo por piscina (MBps)|48|48|48|48|48|
+|Taxa máxima de registo por piscina (MBps)|48|60|62.5|62.5|62.5|
 |Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|400|500|600|700|800|
 |Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|800|1000|1200|1400|1600|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|
@@ -195,7 +195,6 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
-
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
 
@@ -219,7 +218,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |Dados máximos IOPS por pool <sup>2</sup>|5760|6400|7680|10240|11520|12800|
-|Taxa máxima de registo por piscina (MBps)|48|48|48|48|48|48|
+|Taxa máxima de registo por piscina (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|
 |Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -234,7 +233,6 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 <sup>2</sup> O valor máximo para os tamanhos de IO que variam entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
 
 <sup>3</sup> Para os trabalhadores máximos simultâneos (pedidos) para qualquer base de dados individual, consulte [os limites de recursos de base de dados individuais](resource-limits-vcore-single-databases.md). Por exemplo, se a piscina elástica estiver a utilizar a Gen5 e o max vCore por base de dados for definido em 2, então o valor máximo simultâneo dos trabalhadores é de 200.  Se o máximo vCore por base de dados for definido para 0,5, então o valor máximo simultâneo dos trabalhadores é de 50, uma vez que na Gen5 existe um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições max vCore por base de dados que sejam inferiores a 1 vCore ou menos, o número de trabalhadores máximos simultâneos é igualmente redimensionado.
-
 
 ## <a name="general-purpose---provisioned-compute---dc-series"></a>Finalidade geral - cálculo provisionado - séries DC
 
@@ -252,7 +250,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Tipo de armazenamento|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|
 |Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |Dados máximos IOPS por pool <sup>2</sup>|800|1600|2400|3200|
-|Taxa máxima de registo por piscina (MBps)|9.4|18.8|28,1|32,8|
+|Taxa máxima de registo por piscina (MBps)|12|24|36|48|
 |Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|168|336|504|672|
 |Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|168|336|504|672|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|
@@ -446,12 +444,12 @@ Se todos os vCores de uma piscina elástica estiverem ocupados, então cada base
 |Geração computacional|Série M|Série M|Série M|Série M|Série M|
 |vCores|20|24|32|64|128|
 |Memória (GB)|588.6|706.3|941.8|1883.5|3767.0|
-|DBs max por piscina <sup>1</sup>|100|100|100|100|100|100|
+|DBs max por piscina <sup>1</sup>|100|100|100|100|100|
 |Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|172|216|304|704|1768|
 |Tamanho máximo dos dados (GB)|1280|1536|2048|4096|4096|
 |Tamanho do tronco máximo (GB)|427|512|683|1024|1024|
-|Tamanho máximo de dados tempDB (GB)|4096|2048|1024|768|640|
+|Tamanho máximo de dados tempDB (GB)|640|768|1024|2048|4096|
 |Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Latência IO (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
 |Dados máximos IOPS por pool <sup>2</sup>|31,248|37,497|49,996|99,993|160 000|

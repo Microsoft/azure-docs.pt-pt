@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: ec491509c80f69e000a67e40288b6e298ba9fb85
-  ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+  ms.openlocfilehash: b2aec44f3e80267d18844d887f5e2607192ea208
+  ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104655789"
+  ms.lasthandoff: 03/25/2021
+  ms.locfileid: "105108082"
 landingContent:
 - title: Acerca do Azure Communication Services
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Opções de biblioteca de cliente
+    - text: Opções SDK
       url: concepts/sdk-options.md
     - text: Equipas Interop
       url: concepts/teams-interop.md
@@ -52,13 +52,13 @@ landingContent:
     links:
     - text: Adicionar chamadas de voz e vídeo à sua aplicação
       url: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - text: Utilizar a biblioteca de cliente de chamadas
+    - text: Use o Chamando SDK
       url: quickstarts/voice-video-calling/calling-client-samples.md
   - linkListType: concept
     links:
     - text: Conceitos de voz e vídeo
       url: concepts/voice-video-calling/about-call-types.md
-    - text: Descrição geral da biblioteca de cliente de chamadas
+    - text: Chamando a visão geral da SDK
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Fluxos de chamada
       url: concepts/call-flows.md
@@ -76,7 +76,7 @@ landingContent:
     links:
     - text: Conceitos de SMS
       url: concepts/telephony-sms/concepts.md
-    - text: Descrição geral da biblioteca de cliente de SMS
+    - text: Visão geral do SMS SDK
       url: concepts/telephony-sms/sdk-features.md
     - text: Descrição geral das chamadas
       url: concepts/voice-video-calling/calling-sdk-features.md
@@ -92,7 +92,7 @@ landingContent:
     links:
     - text: Conceitos de chat
       url: concepts/chat/concepts.md
-    - text: Descrição geral da biblioteca de cliente de chat
+    - text: Visão geral do Chat SDK
       url: concepts/chat/sdk-features.md
 - title: Amostras
   linkLists:

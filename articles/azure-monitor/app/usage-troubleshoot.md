@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87323507"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024749"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Resolução de problemas ferramentas de análise de comportamento do utilizador em Insights de Aplicação
 Tem dúvidas sobre as ferramentas de análise de comportamento do [utilizador em Insights de Aplicação](usage-overview.md): [Utilizadores, Sessões,](usage-segmentation.md) [Eventos, Funis,](usage-funnels.md) [Fluxos de Utilizador,](usage-flows.md) [Retenção](usage-retention.md)ou Cohorts? Aqui estão algumas respostas.
@@ -23,7 +23,7 @@ Todos os eventos de telemetria em Application Insights têm um [ID de utilizador
 
 Se estiver a monitorizar uma aplicação web, a solução mais fácil é adicionar o [SDK JavaScript da aplicação](./javascript.md) e certificar-se de que o corte de script está carregado em cada página que pretende monitorizar. O JavaScript SDK gera automaticamente iDs de utilizador e de sessão anónimos, em seguida, povoa eventos de telemetria com estes IDs à medida que são enviados a partir da sua aplicação.
 
-Se estiver a monitorizar um serviço web (sem interface de utilizador), [crie um inicializador de telemetria que povoa as propriedades anónimas do ID do utilizador e do ID](usage-send-user-context.md) de sessão de acordo com as noções do seu serviço de utilizadores e sessões únicas.
+Se estiver a monitorizar um serviço web (sem interface de utilizador), [crie um inicializador de telemetria que povoa as propriedades anónimas do ID do utilizador e do ID](./usage-overview.md) de sessão de acordo com as noções do seu serviço de utilizadores e sessões únicas.
 
 Se a sua aplicação estiver a enviar [IDs de utilizador autenticados,](./api-custom-events-metrics.md#authenticated-users)pode contar com base em IDs de utilizador autenticados na ferramenta Utilizadores. No dropdown "Show", escolha "utilizadores autenticados".
 
@@ -50,4 +50,3 @@ Se a sua aplicação estiver a enviar demasiados nomes personalizados para event
 
 ## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-

@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Utilize os Serviços de Comunicação Azure chamando a biblioteca do cliente
+title: Quickstart - Utilize os serviços de comunicação Azure chamando a SDK
 titleSuffix: An Azure Communication Services quickstart
-description: Saiba mais sobre os Serviços de Comunicação que ligam para as capacidades da biblioteca dos clientes.
+description: Conheça as capacidades dos Serviços de Comunicação chamando a SDK.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -10,19 +10,19 @@ ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: b4689f9777cee99b5bd85f733812ba986162360c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5ade06e8338dd810651ccd606c7dc9a313b6fa9
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488127"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107758"
 ---
-# <a name="quickstart-use-the-communication-services-calling-client-library"></a>Quickstart: Utilize os Serviços de Comunicação chamando a biblioteca do cliente
+# <a name="quickstart-use-the-communication-services-calling-sdk"></a>Quickstart: Utilize os serviços de comunicação chamando a SDK
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Inicie-se com os Serviços de Comunicação da Azure utilizando os Serviços de Comunicação chamando a biblioteca do cliente para adicionar chamadas de voz e vídeo à sua app.
+Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação Chamando a SDK para adicionar chamadas de voz e vídeo à sua aplicação.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]

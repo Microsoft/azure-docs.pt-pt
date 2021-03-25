@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 127031479d7ef414298d3096ebef814df1fe9a18
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495436"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027931"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -115,6 +115,17 @@ string threadId = "<THREAD_ID>";
 ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
+## <a name="list-all-chat-threads"></a>Listar todos os fios de chat
+Utilize `GetChatThreads` para recuperar todos os fios de chat dos que o utilizador faz parte.
+
+```csharp
+AsyncPageable<ChatThreadItem> chatThreadItems = chatClient.GetChatThreadsAsync();
+await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
+{
+    Console.WriteLine($"{ chatThreadItem.Id}");
+}
+```
+
 ## <a name="send-a-message-to-a-chat-thread"></a>Envie uma mensagem para um fio de chat
 
 Use `SendMessage` para enviar uma mensagem para um fio.
@@ -125,16 +136,6 @@ Use `SendMessage` para enviar uma mensagem para um fio.
 
 ```csharp
 var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
-```
-## <a name="get-a-message"></a>Receba uma mensagem
-
-Utilize `GetMessage` para recuperar uma mensagem do serviço.
-`messageId` é a identificação única da mensagem.
-
-`ChatMessage` é a resposta devolvida de receber uma mensagem, contém um ID, que é o identificador único da mensagem, entre outros campos. Consulte Azure.Communication.Chat.ChatMessage
-
-```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Receba mensagens de chat de um fio de chat
@@ -167,25 +168,6 @@ await foreach (ChatMessage message in allMessages)
 
 Para mais detalhes, consulte [os Tipos de Mensagens](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="update-a-message"></a>Atualizar uma mensagem
-
-Pode atualizar uma mensagem que já foi enviada invocando `UpdateMessage` `ChatThreadClient` .
-
-```csharp
-string id = "id-of-message-to-edit";
-string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
-```
-
-## <a name="deleting-a-message"></a>Apagar uma mensagem
-
-Pode apagar uma mensagem invocando `DeleteMessage` `ChatThreadClient` .
-
-```csharp
-string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(messageId: id);
-```
-
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adicione um utilizador como participante ao fio de chat
 
 Uma vez criado um fio, pode adicionar e remover os utilizadores do mesmo. Ao adicionar os utilizadores, dá-lhes acesso para poderem enviar mensagens para o fio e adicionar/remover outros participantes. Antes de `AddParticipants` ligar, certifique-se de que adquiriu um novo token de acesso e identidade para esse utilizador. O utilizador necessitará desse token de acesso para inicializar o seu cliente de chat.
@@ -209,14 +191,6 @@ var participants = new[]
 
 await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
-## <a name="remove-user-from-a-chat-thread"></a>Remova o utilizador de um fio de chat
-
-Similar a adicionar um utilizador a um fio, pode remover os utilizadores de um fio de chat. Para isso, é necessário rastrear a identidade `CommunicationUser` do participante que adicionou.
-
-```csharp
-var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
-```
 
 ## <a name="get-thread-participants"></a>Receba participantes de thread
 
@@ -230,14 +204,6 @@ await foreach (ChatParticipant participant in allParticipants)
 }
 ```
 
-## <a name="send-typing-notification"></a>Enviar notificação de dactilografia
-
-Utilize `SendTypingNotification` para indicar que o utilizador está a escrever uma resposta no fio.
-
-```csharp
-await chatThreadClient.SendTypingNotificationAsync();
-```
-
 ## <a name="send-read-receipt"></a>Enviar recibo de leitura
 
 Utilize `SendReadReceipt` para notificar outros participantes de que a mensagem é lida pelo utilizador.
@@ -246,17 +212,6 @@ Utilize `SendReadReceipt` para notificar outros participantes de que a mensagem 
 await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
-## <a name="get-read-receipts"></a>Receba recibos de leitura
-
-Utilize `GetReadReceipts` para verificar o estado das mensagens para ver quais são lidas por outros participantes de um fio de chat.
-
-```csharp
-AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
-await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
-{
-    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
-}
-```
 ## <a name="run-the-code"></a>Executar o código
 
 Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
