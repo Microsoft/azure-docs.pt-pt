@@ -2,17 +2,17 @@
 title: Implementar pacotes de aplicações para calcular os nosdes
 description: Utilize a funcionalidade de pacotes de aplicação do Azure Batch para gerir facilmente várias aplicações e versões para instalação em nós computacional Batch.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97033736"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045795"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
 
@@ -59,6 +59,9 @@ Com pacotes de aplicações, a tarefa inicial da sua piscina não tem de especif
 ## <a name="upload-and-manage-applications"></a>Carregar e gerir aplicações
 
 Pode utilizar o [portal Azure](https://portal.azure.com) ou as APIs de Gestão de Lotes para gerir os pacotes de aplicações na sua conta Batch. As secções seguintes explicam como ligar uma conta de armazenamento e como adicionar e gerir aplicações e pacotes de aplicações no portal Azure.
+
+> [!NOTE]
+> Embora possa definir os valores de aplicação no [Microsoft.Batrecurso ch/batchAcounts](/templates/microsoft.batch/batchaccounts) de um [modelo ARM,](quick-create-template.md)não é atualmente possível utilizar um modelo ARM para carregar pacotes de aplicações para usar na sua conta Batch. Deve enviá-los para a sua conta de armazenamento ligada, conforme [descrito abaixo](#add-a-new-application).
 
 ### <a name="link-a-storage-account"></a>Ligue uma conta de armazenamento
 

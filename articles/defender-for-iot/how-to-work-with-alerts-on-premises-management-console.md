@@ -3,12 +3,12 @@ title: Trabalhar com alertas na consola de gestão no local
 description: Utilize a consola de gestão no local para obter uma visão da empresa das ameaças recentes na sua rede e compreenda melhor como os utilizadores de sensores estão a lidar com as mesmas.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 604650f0cb08eac4a3ab1cfd3fdcbf2e7ff0d19e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781471"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032145"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Trabalhar com alertas na consola de gestão no local 
 
@@ -242,6 +242,7 @@ As regras que cria utilizando a API aparecem na janela **Regra de Exclusão** co
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot da vista regra de exclusão de edição.":::
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
-[Trabalhe com alertas no seu sensor](how-to-work-with-alerts-on-your-sensor.md)
+[Trabalhe com alertas no seu sensor.](how-to-work-with-alerts-on-your-sensor.md)
+Reveja os [alertas do Defender para o Motor IoT](alert-engine-messages.md).

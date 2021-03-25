@@ -3,12 +3,12 @@ title: Utilize pontos finais privados para integrar funções do Azure com uma r
 description: Este tutorial mostra-lhe como ligar uma função a uma rede virtual Azure e bloqueá-la utilizando pontos finais privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630474"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027419"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integrar funções do Azure com uma rede virtual Azure utilizando pontos finais privados
 
@@ -87,7 +87,7 @@ As suas redes virtuais vão precisar de uma conta de armazenamento separada da q
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que criou com a sua aplicação de função. |
     | **Nome** | mysecurestorage| O nome da conta de armazenamento a que o ponto final privado será aplicado. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua aplicação de função. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua aplicação de função. |
 
 1. Selecione **Rever + criar**. Após os acabamentos de validação, **selecione Criar**.
 
@@ -104,7 +104,7 @@ As suas redes virtuais vão precisar de uma conta de armazenamento separada da q
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. |
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que criou com a sua aplicação de função. |
     | **Nome** | myServiceBus| O nome do autocarro de serviço a que o ponto final privado será aplicado. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua aplicação de função. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua aplicação de função. |
     | **Escalão de preço** | Premium | Escolha este nível para utilizar pontos finais privados com o Azure Service Bus. |
 
 1. Selecione **Rever + criar**. Após os acabamentos de validação, **selecione Criar**.
@@ -130,7 +130,7 @@ Criar a rede virtual à qual a aplicação de função se integra:
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que criou com a sua aplicação de função. |
     | **Nome** | myVirtualNet| O nome da rede virtual a que a sua aplicação de função se irá ligar. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua aplicação de função. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua aplicação de função. |
 
 1. No separador **endereços IP,** selecione **Adicionar sub-rede**. Utilize a seguinte tabela para configurar as definições da sub-rede.
 
@@ -162,7 +162,7 @@ Crie os pontos finais privados para o armazenamento de Ficheiros Azure e para o 
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. | |
     | **Nome** | ponto final de ficheiro | O nome do ponto final privado para ficheiros da sua conta de armazenamento. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região onde criou a sua conta de armazenamento. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região onde criou a sua conta de armazenamento. |
 
 1. No **separador Recursos,** utilize as definições de ponto final privado mostradas na tabela seguinte.
 
@@ -203,7 +203,7 @@ Crie o ponto final privado para bloquear o seu autocarro de serviço:
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que criou com a sua aplicação de função. |
     | **Nome** | sb-endpoint | O nome do ponto final privado para ficheiros da sua conta de armazenamento. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua conta de armazenamento. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região onde criou a sua conta de armazenamento. |
 
 1. No **separador Recursos,** utilize as definições de ponto final privado mostradas na tabela seguinte.
 
@@ -332,7 +332,7 @@ Parabéns! Implementou com sucesso a sua aplicação de função de amostra.
 
 Agora crie o ponto final privado para bloquear a sua aplicação de função. Este ponto final privado ligará a sua aplicação de função de forma privada e segura à sua rede virtual utilizando um endereço IP privado. 
 
-Para mais informações, consulte a [documentação do ponto final privado.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+Para mais informações, consulte a [documentação do ponto final privado.](../private-link/private-endpoint-overview.md)
 
 1. Na sua aplicação de função, no menu à esquerda, **selecione Networking**.
 

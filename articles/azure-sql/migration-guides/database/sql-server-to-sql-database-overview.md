@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server para SQL Database: Visão geral da migração'
+title: 'SQL Server para Azure SQL Database: Visão geral da migração'
 description: Conheça as diferentes ferramentas e opções disponíveis para migrar as bases de dados do SQL Server para a Base de Dados Azure SQL.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ecb9d1e25647e197614817116921140f0d7fbdf4
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102488278"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024970"
 ---
-# <a name="migration-overview-sql-server-to-sql-database"></a>Visão geral da migração: SQL Server para SQL Database
+# <a name="migration-overview-sql-server-to-azure-sql-database"></a>Visão geral da migração: SQL Server para Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Saiba mais sobre diferentes opções e considerações de migração do seu SQL Server para Azure SQL Database. 
@@ -30,9 +30,9 @@ Pode migrar o SQL Server a funcionar no local ou em:
 - Motor compute (Plataforma Google Cloud - GCP)  
 - Cloud SQL para SQL Server (Google Cloud Platform – GCP) 
 
-Para outros cenários, consulte o [Guia de Migração da Base de Dados.](https://datamigration.microsoft.com/) 
+Para outros guias de migração, consulte [a Migração da Base de Dados.](https://docs.microsoft.com/data-migration) 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [A Azure SQL Database](../../database/sql-database-paas-overview.md) é uma opção-alvo recomendada para cargas de trabalho do SQL Server que requerem uma Plataforma totalmente gerida como um Serviço (PaaS). A SQL Database lida com a maioria das funções de gestão de bases de dados, juntamente com alta disponibilidade, processamento inteligente de consultas, escalabilidade e capacidades de desempenho incorporadas para atender a muitos tipos de aplicação diferentes. 
 
@@ -58,7 +58,7 @@ Estão disponíveis diferentes ferramentas para diferentes cargas de trabalho e 
 
 ## <a name="choose-appropriate-target"></a>Escolha o alvo apropriado
 
-Considere as diretrizes gerais para ajudá-lo a escolher o modelo de implementação e o nível de serviço adequados da Base de Dados Azure SQL. Pode escolher recursos de computação e armazenamento durante a implementação e, em seguida, alterá-los depois usando o  [portal Azure](../../database/scale-resources.md)  sem incorrer em tempo de inatividade para a sua aplicação.
+Considere as diretrizes gerais para ajudá-lo a escolher o modelo de implementação e o nível de serviço adequados da Base de Dados Azure SQL. Pode escolher recursos de computação e armazenamento durante a implementação e, em seguida, [alterá-los depois usando o portal Azure](../../database/scale-resources.md) sem incorrer em tempo de inatividade para a sua aplicação.
 
 
 **Modelos de implantação**: Compreenda a carga de trabalho da sua aplicação e o padrão de utilização para decidir entre uma única base de dados ou piscina elástica. 
@@ -212,7 +212,7 @@ Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a migrar o seu SQL Server para Azure SQL Database, consulte o guia de migração do [SQL Server para o SQL Database](sql-server-to-sql-database-guide.md).
+Para começar a migrar o seu SqL Server para a BASE de Dados SQL, consulte o guia de migração do [SQL Server para Azure SQL Database](sql-server-to-sql-database-guide.md).
 
 - Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para o ajudar com vários cenários de base de dados e migração de dados, bem como tarefas especiais, consulte [o Serviço e ferramentas para a migração de dados.](../../../dms/dms-tools-matrix.md)
 

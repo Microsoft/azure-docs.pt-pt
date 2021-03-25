@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 86bc43e043e7d67ff149391b111831df8171f34e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102489842"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048770"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
@@ -125,9 +125,6 @@ O conector SAP gerido integra-se com sistemas SAP através do seu [gateway de da
 ### <a name="ise-prerequisites"></a>Pré-requisitos do ISE
 
 Estes pré-requisitos aplicam-se se estiver a executar a sua aplicação lógica num ISE de nível Premium. No entanto, não se aplicam a aplicações lógicas em execução num ISE de nível de desenvolvimento. Um ISE fornece acesso a recursos protegidos por uma rede virtual Azure e oferece outros conectores nativos do ISE que permitem que as aplicações lógicas acedam diretamente aos recursos no local sem usar o gateway de dados no local.
-
-> [!NOTE]
-> Enquanto o conector SAP ISE é visível dentro de um ISE de nível de desenvolvimento, as tentativas de instalar o conector não serão bem sucedidas.
 
 1. Se ainda não tiver uma conta de Armazenamento Azure com um recipiente de bolhas, crie um recipiente utilizando o [portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md) ou o [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 

@@ -387,23 +387,6 @@
           displayName: application
         - name: Melhores práticas operacionais
           href: concept-operation-excellence-best-practices.md
-    - name: Resolução de problemas
-      items:
-        - name: Resolver desempenho de consultas
-          href: howto-troubleshoot-query-performance.md
-          displayName: 'debug, performance issues, query performance'
-        - name: Como utilizar as vistas no esquema sys
-          href: howto-troubleshoot-sys-schema.md
-          displayName: 'sys schema, views'
-        - name: Resolver problemas de encriptação de dados
-          href: howto-data-encryption-troubleshoot.md
-          displayName: 'encryption, security'
-        - name: Resolver problemas de latência da replicação
-          href: howto-troubleshoot-replication-latency.md
-          displayName: 'replication, latency, monitor'
-        - name: Mitigar danos em bases de dados
-          href: how-to-fix-corrupt-database.md
-          displayName: corrupt data
 - name: Servidor Flexível (Pré-visualização)
   items:
     - name: Documentação sobre o Servidor Flexível
@@ -567,6 +550,26 @@
     - name: Resolver erros comuns
       href: howto-troubleshoot-common-errors.md
       displayName: 'SUPER privilege, DBA role, Access is denied'
+- name: Resolução de problemas
+  items:
+    - name: Resolver erros de migração
+      href: howto-troubleshoot-common-errors.md
+      displayName: 'SUPER privilege, DBA role, Access is denied'
+    - name: Resolver desempenho de consultas
+      href: howto-troubleshoot-query-performance.md
+      displayName: 'debug, performance issues, query performance'
+    - name: Como utilizar as vistas no esquema sys
+      href: howto-troubleshoot-sys-schema.md
+      displayName: 'sys schema, views'
+    - name: Resolver problemas de encriptação de dados
+      href: howto-data-encryption-troubleshoot.md
+      displayName: 'encryption, security'
+    - name: Resolver problemas de latência da replicação
+      href: howto-troubleshoot-replication-latency.md
+      displayName: 'replication, latency, monitor'
+    - name: Corrupção de base de dados de resolução de problemas
+      href: how-to-fix-corrupt-database.md
+      displayName: corrupt data
 - name: Referência
   items:
     - name: CLI do Azure

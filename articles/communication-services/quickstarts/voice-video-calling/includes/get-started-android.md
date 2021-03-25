@@ -1,22 +1,22 @@
 ---
 title: Quickstart - Adicione voip chamando para uma aplicação Android usando serviços de comunicação Azure
-description: Neste tutorial, você aprende a usar a biblioteca de clientes Azure Communication Services Call para Android
+description: Neste tutorial, você aprende a usar os serviços de comunicação Azure chamando SDK para Android
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 094dbd090b5f2d68a9961f2fb9b8b611e486e7bc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b68d3a92015a8add2dd97313f9971cf896f8e77e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719744"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108300"
 ---
-Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para Android.
+Neste arranque rápido, você vai aprender a iniciar uma chamada usando os Serviços de Comunicação Azure chamando SDK para Android.
 
 > [!NOTE]
-> Este documento utiliza a versão 1.0.0-beta.8 da biblioteca do cliente chamador.
+> Este documento utiliza a versão 1.0.0-beta.8 do Call SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot mostrando a opção &quot;Atividade Vazia&quot; selecionada no ecrã do modelo do projeto.":::
 
-Selecione biblioteca mínima de clientes de "API 26: Android 8.0 (Oreo)" ou superior.
+Selecione O SDK mínimo de "API 26: Android 8.0 (Oreo)" ou superior.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot mostrando a opção 'Atividade vazia' selecionada no ecrã do modelo do projeto 2.":::
 
@@ -110,8 +110,8 @@ Para solicitar as permissões necessárias para fazer uma chamada, devem primeir
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Our calling client library depends on the Apache HTTP client library.
-When targeting Android client library 28+, this library needs to be explicitly referenced.
+        <!--Our Calling SDK depends on the Apache HTTP SDK.
+When targeting Android SDK 28+, this library needs to be explicitly referenced.
 See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apache-p-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity">
@@ -260,11 +260,11 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características da biblioteca de clientes Azure Communication Services Call:
+As seguintes classes e interfaces lidam com algumas das principais características dos Serviços de Comunicação Azure Chamando SDK:
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| O CallClient é o principal ponto de entrada para a biblioteca do cliente Call.|
+| CallClient| O CallClient é o principal ponto de entrada para o Call SDK.|
 | Callagent | O CallAgent é usado para iniciar e gerir chamadas. |
 | ComunicadoUserCredential | O CommunicationUserCredential é usado como credencial simbólica para instantaneaizar o CallAgent.|
 | Identificador de Comunicação | O Comunicador de Comunicação é usado como diferente tipo de participante que poderia fazer parte de uma chamada.|

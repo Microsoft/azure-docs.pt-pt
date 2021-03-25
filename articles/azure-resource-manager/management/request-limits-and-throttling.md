@@ -4,12 +4,12 @@ description: Descreve como usar o estrangulamento com os pedidos do Azure Resour
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97563131"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024630"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitação dos pedidos do Resource Manager
 
@@ -58,7 +58,7 @@ O fornecedor de recursos Microsoft.Network aplica os seguintes limites de aceler
 
 ### <a name="compute-throttling"></a>Estrangulamento computacional
 
-Para obter informações sobre os limites de estrangulamento para operações de computação, consulte [erros de estrangulamento da API de resolução de problemas - Compute](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Para obter informações sobre os limites de estrangulamento para operações de computação, consulte [erros de estrangulamento da API de resolução de problemas - Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 Para verificar as instâncias da máquina virtual dentro de um conjunto de escala de máquina virtual, utilize as [operações de conjuntos de escala de máquina virtual](/rest/api/compute/virtualmachinescalesetvms). Por exemplo, utilize os [VMs de escala de máquina virtual - Lista](/rest/api/compute/virtualmachinescalesetvms/list) com parâmetros para verificar o estado de potência das instâncias da máquina virtual. Esta API reduz o número de pedidos.
 
@@ -98,7 +98,7 @@ Pode determinar o número de pedidos restantes examinando os cabeçalhos de resp
 | x-ms-ratelimit-remaining-inquilino-recursos-pedidos |O inquilino examinou os pedidos do tipo de recurso restantes.<br /><br />Este cabeçalho só é adicionado para pedidos ao nível do inquilino, e apenas se um serviço tiver ultrapassado o limite de incumprimento. O Gestor de Recursos adiciona este valor em vez do inquilino ler ou escrever. |
 | x-ms-ratelimit-remaining-inquilino-recursos-entidades-ler |O inquilino examinou os pedidos de recolha do tipo de recurso restantes.<br /><br />Este cabeçalho só é adicionado para pedidos ao nível do inquilino, e apenas se um serviço tiver ultrapassado o limite de incumprimento. |
 
-O fornecedor de recursos também pode devolver cabeçalhos de resposta com informações sobre os pedidos restantes. Para obter informações sobre os cabeçalhos de resposta devolvidos pelo fornecedor de recursos Compute, consulte [os cabeçalhos de resposta informativa da taxa de chamada](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+O fornecedor de recursos também pode devolver cabeçalhos de resposta com informações sobre os pedidos restantes. Para obter informações sobre os cabeçalhos de resposta devolvidos pelo fornecedor de recursos Compute, consulte [os cabeçalhos de resposta informativa da taxa de chamada](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## <a name="retrieving-the-header-values"></a>Recuperação dos valores do cabeçalho
 

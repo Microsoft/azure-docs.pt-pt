@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 539d11205ffead52d7f40526f2c712e8cf8b5cdd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 97d63598f6a9cca199779e56cc211b9622117301
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87501445"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048838"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Exemplos da CLI do Azure para a rede virtual
 
@@ -35,4 +35,4 @@ A tabela seguinte inclui ligações para scripts bash com comandos da CLI do Azu
 | [Filtrar o tráfego de rede VM de entrada e saída](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Cria uma rede virtual com as sub-redes de front-end e back-end. O tráfego de rede de entrada para a sub-rede do front-end está limitado a HTTP, HTTPS e SSH. Não é permitido o tráfego de saída à Internet a partir da sub-rede de back-end. |
 |[Configurar rede virtual de pilha dupla IPv4 + IPv6 com Balancer de Carga Básica](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Implementa rede virtual de dupla pilha (IPv4+IPv6) com dois VMs e um Balançador de Carga Básica Azure com endereços IP públicos IPv4 e IPv6. |
 |[Configurar rede virtual de pilha dupla IPv4 + IPv6 com Balanceador de Carga Padrão](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Implementa rede virtual de dupla pilha (IPv4+IPv6) com dois VMs e um Equilibr de Carga Padrão Azure com endereços IP públicos IPv4 e IPv6. |
-|[Tutorial: Criar e testar uma porta de entrada NAT - Azure CLI](../virtual-network/tutorial-create-validate-nat-gateway-cli.md)|Crie e valide um gateway NAT utilizando uma máquina virtual de origem e destino. |
+|[Tutorial: Criar e testar uma porta de entrada NAT - Azure CLI](./tutorial-create-nat-gateway-cli.md)|Crie e valide um gateway NAT utilizando uma máquina virtual de origem e destino. |
