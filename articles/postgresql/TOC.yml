@@ -602,6 +602,8 @@
               displayName: 'hyperscale, ssl'
             - name: Linha de base de segurança
               href: postgresql-hyperscale-security-baseline.md
+        - name: Manutenção agendada
+          href: concepts-hyperscale-maintenance.md
         - name: Continuidade do negócio
           items:
             - name: Cópia de segurança e restauro

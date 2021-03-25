@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: d6f27ca3635ff1efb80e5261b7a5a07269304dfd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: bdf49f16b003c25da9fe8972a3fb7e3837d62819
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444604"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105074"
 ---
 Começa com a biblioteca de clientes Azure Content Moderador para .NET. Siga estes passos para instalar o pacote NuGet e experimente o código de exemplo para tarefas básicas. 
 
@@ -52,7 +52,7 @@ Depois de criar um novo projeto, instale a biblioteca do cliente clicando corret
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `content-moderator-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs*.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `content-moderator-quickstart` . Este comando cria um projeto "Hello World" C# com um único ficheiro de origem: *Programa.cs*.
 
 ```console
 dotnet new console -n content-moderator-quickstart
@@ -87,7 +87,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo no [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs)que contém os exemplos de código neste arranque rápido.
 
-A partir do diretório do projeto, abra o ficheiro *Program.cs* no seu editor preferido ou IDE. Adicione as seguintes instruções `using`:
+A partir do diretório do projeto, abra o arquivo *program.cs* no seu editor preferido ou IDE. Adicione as seguintes instruções `using`:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
 
@@ -297,6 +297,3 @@ Neste arranque rápido, aprendeu a usar a biblioteca Content Moderator .NET para
 
 > [!div class="nextstepaction"]
 > [Conceitos de moderação de imagem](../../image-moderation-api.md)
-
-* [O que é o Content Moderator do Azure?](../../overview.md)
-* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).

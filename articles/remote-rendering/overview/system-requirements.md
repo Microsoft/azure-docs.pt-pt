@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 789233ce1ede751276f965143716694c6feca3ca
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705165"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032801"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
 
@@ -111,12 +111,10 @@ Deve ser instalado o seguinte software:
 
 ## <a name="unity"></a>Unity
 
-Para o desenvolvimento com Unidade, instale
-
-* Unidade 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-* Instale estes módulos na Unidade:
-  * **UWP** - Suporte universal de construção de plataformas windows
-  * **IL2CPP** - Suporte à Construção de Janelas (IL2CPP)
+Para o desenvolvimento com a Unidade, instale uma versão atual da Unidade 2019.3 ou 2019.4 LTS [(download)](https://unity3d.com/get-unity/download). Recomendamos a utilização do Unity Hub para a gestão de instalações.
+Certifique-se de incluir os seguintes módulos na sua instalação Unidade:
+* **UWP** - Suporte universal de construção de plataformas windows
+* **IL2CPP** - Suporte à Construção de Janelas (IL2CPP)
 
 ## <a name="next-steps"></a>Passos seguintes
 
