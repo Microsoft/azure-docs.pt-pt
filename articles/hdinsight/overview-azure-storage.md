@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98938941"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865473"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento Azure em HDInsight
 
@@ -24,7 +24,7 @@ Se optar por proteger a sua conta de armazenamento com as restrições **de Fire
 
 O diagrama a seguir proporciona uma visão abstrata da arquitetura HDInsight do Azure Storage:
 
-!['HdInsight Storage Architecture'](./media/overview-azure-storage/storage-architecture.png "Arquitetura de armazenamento HDInsight")
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="Arquitetura de armazenamento HDInsight" border="false":::
 
 O HDInsight fornece acesso ao sistema de ficheiros distribuído que está ligado localmente aos nós de computação. É possível aceder a este sistema de ficheiros ao utilizar o URI completamente qualificado, por exemplo:
 
@@ -40,7 +40,7 @@ Considere os seguintes princípios ao utilizar uma conta de Armazenamento Azure 
 
 * **Contentores públicos ou bolhas públicas em contas de armazenamento que não estejam ligadas a um cluster:** Tem autorização apenas para ler as bolhas nos contentores.
   
-  > [!NOTE]  
+  > [!NOTE]
   > Os contentores públicos permitem-lhe obter uma lista de todas as bolhas disponíveis nesse contentor e obter metadados de contentores. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../storage/blobs/anonymous-read-access-configure.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 
 * **Contentores privados em contas de armazenamento que não estão ligadas a um cluster:** Não pode aceder às bolhas nos contentores a menos que defina a conta de armazenamento quando submete os trabalhos do WebHCat.

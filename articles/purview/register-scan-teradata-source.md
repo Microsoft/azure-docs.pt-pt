@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175077"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048107"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Registar e digitalizar fonte teradata (pré-visualização)
 
@@ -25,7 +25,7 @@ A fonte teradata suporta **a varredura completa** para extrair metadados de uma 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1.  Configurar o último [tempo de integração auto-hospedado.](https://www.microsoft.com/download/details.aspx?id=39717)
-    Para obter mais informações, consulte [Criar e configurar um tempo de integração auto-organizado.](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+    Para obter mais informações, consulte [Criar e configurar um tempo de integração auto-organizado.](../data-factory/create-self-hosted-integration-runtime.md)
 
 2.  Certifique-se de que o [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado na sua máquina virtual onde está instalado o tempo de funcionação da integração auto-hospedada.
 
@@ -70,7 +70,7 @@ No ecrã **'Registar fontes' (Teradata),** faça o seguinte:
 
 Para criar e executar uma nova digitalização, faça o seguinte:
 
-1.  No Centro de Gestão, clique nos **tempos de integração.** Certifique-se de que é configurado um tempo de integração auto-hospedado. Se não for configurado, use os passos [aqui](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) mencionados para configurar um tempo de integração auto-hospedado
+1.  No Centro de Gestão, clique nos **tempos de integração.** Certifique-se de que é configurado um tempo de integração auto-hospedado. Se não for configurado, use os passos [aqui](./manage-integration-runtimes.md) mencionados para configurar um tempo de integração auto-hospedado
 
 2.  Navegar para as **Fontes**
 
@@ -90,7 +90,7 @@ Para criar e executar uma nova digitalização, faça o seguinte:
     -   Forneça um nome de utilizador para ligar ao servidor de base de dados no campo de entrada do nome do utilizador
     -   Guarde a palavra-passe do servidor de base de dados na chave secreta.
 
-        Para entender mais sobre credenciais, consulte o link [aqui](https://docs.microsoft.com/azure/purview/manage-credentials)
+        Para entender mais sobre credenciais, consulte o link [aqui](./manage-credentials.md)
 
 6.  **Esquema**: Lista subconjunto de esquemas a importar expressos em lista separada de pontos de e vírgula. por exemplo, esquema1; schema2. Todos os esquemas de utilizador são importados se a lista estiver vazia. Todos os esquemas do sistema (por exemplo, SysAdmin) e objetos são ignorados por padrão. Quando a lista está vazia, todos os esquemas disponíveis são importados.
 

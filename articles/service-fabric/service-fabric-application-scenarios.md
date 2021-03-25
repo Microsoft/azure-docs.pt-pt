@@ -3,12 +3,12 @@ title: Cenários de aplicação e design
 description: Visão geral das categorias de aplicações em nuvem em Tecido de Serviço. Discute o design de aplicações que usa serviços apátridas e apátridas.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575674"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045761"
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicação de tecido de serviço
 
@@ -68,7 +68,7 @@ Aqui está uma aplicação exemplo que usa serviços estatais: ![ Aplicação qu
 
 * Começar a construir serviços apátridas e estatais com os [modelos](service-fabric-reliable-services-quick-start.md) de programação de Service Fabric Reliable Services e [Reliable Actors.](service-fabric-reliable-actors-get-started.md)
 * Visite o Centro de Arquitetura Azure para obter orientações sobre [a construção de microserviços em Azure.](/azure/architecture/microservices/)
-* Vá à [aplicação Azure Service Fabric e às melhores práticas do cluster](service-fabric-best-practices-overview.md) para orientação de design de aplicações.
+* Vá à [aplicação Azure Service Fabric e às melhores práticas do cluster](./service-fabric-best-practices-security.md) para orientação de design de aplicações.
 
 * Veja também:
   * [Compreender os microsserviços](service-fabric-overview-microservices.md)

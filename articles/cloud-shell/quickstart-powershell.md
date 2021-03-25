@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.openlocfilehash: d4a7f1453ec686cfa16d260101ba81f429ce1da0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ff58c4e463b4ad47680b9140403e9ae5e22b057
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89469461"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045285"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Quickstart para PowerShell em Azure Cloud Shell
 
@@ -51,107 +51,6 @@ ResourceGroupName       Name       Location                VmSize   OsType     P
 MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
 MyResourceGroup         MyVM1       eastus            Standard_DS1  Windows    Succeeded           running
 MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    Succeeded           deallocated
-```
-
-## <a name="navigate-azure-resources"></a>Navegar recursos da Azure
-
- 1. Liste todas as suas subscrições a partir da `Azure` unidade
-
-    ```azurepowershell-interactive
-    PS Azure:\> dir
-    ```
-
- 2. `cd` para a sua subscrição preferida
-
-    ```azurepowershell-interactive
-    PS Azure:\> cd MySubscriptionName
-    PS Azure:\MySubscriptionName>
-    ```
-
- 3. Ver todos os seus recursos Azure sob a subscrição atual
-
-    Digite `dir` para listar várias vistas dos seus recursos Azure.
-
-    ```azurepowershell-interactive
-    PS Azure:\MySubscriptionName> dir
-
-        Directory: azure:\MySubscriptionName
-
-    Mode Name
-    ---- ----
-    +    AllResources
-    +    ResourceGroups
-    +    StorageAccounts
-    +    VirtualMachines
-    +    WebApps
-    ```
-
-### <a name="allresources-view"></a>Vista allResources
-
-Digite `dir` no `AllResources` diretório para ver os seus recursos Azure.
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName> dir AllResources
-```
-
-### <a name="explore-resource-groups"></a>Explore grupos de recursos
-
- Você pode ir ao `ResourceGroups` diretório e dentro de um grupo de recursos específico você pode encontrar máquinas virtuais.
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
-
-PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
-
-
-    Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
-
-
-VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
-------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
-TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
-TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
-```
-
-> [!NOTE]
-> Pode notar que da segunda vez quando `dir` escreve, o Cloud Shell é capaz de exibir os itens muito mais rapidamente.
-> Isto porque os itens para crianças estão em cache na memória para uma melhor experiência do utilizador.
-No entanto, pode sempre usar `dir -Force` para obter novos dados.
-
-### <a name="navigate-storage-resources"></a>Navegar recursos de armazenamento
-
-Ao entrar no `StorageAccounts` diretório, você pode facilmente navegar todos os seus recursos de armazenamento
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
-
-    Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
-
-Name          ConnectionString
-----          ----------------
-MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
-MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
-MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
-```
-
-Com a cadeia de ligação, pode utilizar o seguinte comando para montar a partilha de Ficheiros Azure.
-
-```azurepowershell-interactive
-net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
-```
-
-Para mais informações, consulte [a partilha de Ficheiros Azure e aceda à partilha no Windows][azmount].
-
-Também pode navegar nos diretórios ao abrigo da partilha dos Ficheiros Azure da seguinte forma:
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
-
-Mode  Name
-----  ----
-+     TestFolder
-.     hello.ps1
 ```
 
 ### <a name="interact-with-virtual-machines"></a>Interaja com máquinas virtuais

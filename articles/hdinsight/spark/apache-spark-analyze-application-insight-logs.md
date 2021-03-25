@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: fbca4b23b6fc414727ea1b5a4012d2847d6b8d78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9ae06565039e53c0096ff0541f7b28a5b041d9e8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940465"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864555"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analisar registos de telemetria de Insights de Aplicação com Faísca Apache em HDInsight
 
@@ -36,7 +36,7 @@ Foram utilizados os seguintes recursos para desenvolver e testar este documento:
 
 O seguinte diagrama ilustra a arquitetura de serviço deste exemplo:
 
-![Dados que fluem de Insights de Aplicação para armazenamento de bolhas, em seguida, Faísca](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+:::image type="content" source="./media/apache-spark-analyze-application-insight-logs/application-insights.png" alt-text="Dados que fluem de Insights de Aplicação para armazenamento de bolhas, em seguida, Faísca" border="false":::
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 

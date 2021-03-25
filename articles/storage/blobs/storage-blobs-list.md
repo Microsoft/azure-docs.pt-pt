@@ -1,26 +1,24 @@
 ---
-title: Lista de bolhas com .NET - Azure Storage
-description: Saiba como listar as bolhas num recipiente na sua conta de Armazenamento Azure utilizando a biblioteca de clientes .NET. Exemplos de código mostram como listar bolhas numa listagem plana, ou como listar blobs hierárquicos, como se estivessem organizados em diretórios ou pastas.
+title: Liste bolhas com APIs de armazenamento Azure
+description: Saiba como listar as bolhas na sua conta de armazenamento utilizando as bibliotecas de clientes do Azure Storage. Exemplos de código mostram como listar bolhas numa listagem plana, ou como listar blobs hierárquicos, como se estivessem organizados em diretórios ou pastas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff20b8bd0aab94cadadddbb7a4b7b32b1db1ee85
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95543073"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046947"
 ---
-# <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
+# <a name="list-blobs-with-azure-storage-client-libraries"></a>Liste bolhas com bibliotecas de clientes Azure Storage
 
 Ao listar as bolhas do seu código, pode especificar uma série de opções para gerir a forma como os resultados são devolvidos do Azure Storage. Pode especificar o número de resultados para retornar em cada conjunto de resultados e, em seguida, recuperar os conjuntos subsequentes. Pode especificar um prefixo para devolver bolhas cujos nomes começam com esse personagem ou corda. E pode listar bolhas numa estrutura plana de listagem, ou hierarquicamente. Uma listagem hierárquica retorna as bolhas como se estivessem organizadas em pastas.
-
-Este artigo mostra como listar bolhas usando a biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage).  
 
 ## <a name="understand-blob-listing-options"></a>Compreenda as opções de listagem de blob
 
@@ -45,7 +43,9 @@ Para listar as bolhas num recipiente, chame um destes métodos:
 - [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-As sobrecargas para estes métodos fornecem opções adicionais para gerir a forma como as bolhas são devolvidas pela operação de listagem. Estas opções são descritas nas seguintes secções.
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
 ---
 
@@ -61,13 +61,25 @@ Para filtrar a lista de bolhas, especifique uma corda para o `prefix` parâmetro
 
 Pode devolver metadados blob com os resultados.
 
-- Se estiver a utilizar o .NET v12 SDK, especifique o valor **dos metadados** para a enumeração [blobTraits.](/dotnet/api/azure.storage.blobs.models.blobtraits)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-- Se estiver a utilizar o .NET v11 SDK, especifique o valor **dos metadados** para a enumeração [BlobListingDetails.](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) O Azure Storage inclui metadados com cada bolha devolvida, pelo que não precisa de ligar para um dos **métodos FetchAttributes** neste contexto para recuperar os metadados blob.
+Especifique o valor **dos metadados** para a enumeração [blobTraits.](/dotnet/api/azure.storage.blobs.models.blobtraits)
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Especifique o valor **dos metadados** para a enumeração [BlobListingDetails.](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) O Azure Storage inclui metadados com cada bolha devolvida, pelo que não precisa de ligar para um dos **métodos FetchAttributes** neste contexto para recuperar os metadados blob.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Especificar `metadata` o parâmetro ao chamar `include=` [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
+
+---
 
 ### <a name="list-blob-versions-or-snapshots"></a>Listar versões blob ou instantâneos
 
-Para listar versões blob ou instantâneos com a biblioteca de clientes .NET v12, especifique o parâmetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) com o campo **Versão** ou **Snapshot.** Versões e instantâneos estão listados do mais antigo ao mais recente. Para obter mais informações sobre as versões de listagem, consulte [as versões Blob list](versioning-enable.md#list-blob-versions).
+- Para listar versões blob ou instantâneos com a biblioteca de clientes .NET v12, especifique o parâmetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) com o campo **Versão** ou **Snapshot.** Versões e instantâneos estão listados do mais antigo ao mais recente. Para obter mais informações sobre as versões de listagem, consulte [as versões Blob list](versioning-enable.md#list-blob-versions).
+
+- Para listar o número de instantâneos com a biblioteca cliente Python v12, especifique `num_snapshots` no parâmetro quando ligar `include=` [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Listagem plana versus listagem hierárquica
 
@@ -135,11 +147,15 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
+
 ---
 
 A saída da amostra é semelhante a:
 
-```
+```console
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
 Blob name: FolderA/blob3.txt
@@ -153,7 +169,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ## <a name="use-a-hierarchical-listing"></a>Use uma listagem hierárquica
 
-Quando se chama uma operação de listagem hierárquica, o Azure Storage devolve os diretórios virtuais e as bolhas ao primeiro nível da hierarquia. A propriedade [prefixo](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada diretório virtual é definida para que você possa passar o prefixo em uma chamada recursiva para recuperar o próximo diretório.
+Quando se chama uma operação de listagem hierárquica, o Azure Storage devolve os diretórios virtuais e as bolhas ao primeiro nível da hierarquia.
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
@@ -164,6 +180,8 @@ O exemplo a seguir lista as bolhas no recipiente especificado utilizando uma lis
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+A propriedade [prefixo](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada diretório virtual é definida para que você possa passar o prefixo em uma chamada recursiva para recuperar o próximo diretório.
 
 Para listar as bolhas hierárquicamente, descreva `useFlatBlobListing` o parâmetro do método de listagem como **falso**.
 
@@ -222,11 +240,19 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Para listar as bolhas hierárquicamente, chame o método [walk_blobs.](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-)
+
+O exemplo a seguir lista as bolhas no recipiente especificado utilizando uma listagem hierárquica, com um tamanho de segmento opcional especificado, e escreve o nome blob na janela da consola.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
+
 ---
 
 A saída da amostra é semelhante a:
 
-```
+```console
 Virtual directory prefix: FolderA/
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
