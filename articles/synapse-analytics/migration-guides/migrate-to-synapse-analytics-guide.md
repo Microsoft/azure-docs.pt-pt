@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: aa32083d48c868435ce77114f3a036b8bec47201
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8a76a637c4862032b100308d8b02bced76af38fe
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609556"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023406"
 ---
 # <a name="migrating-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrando um armazém de dados para uma piscina de SQL dedicada em Azure Synapse Analytics 
 As secções seguintes fornecem uma visão geral do que está envolvido na migração de uma solução de armazém de dados existente para a piscina de SQL dedicada Azure Synapse.
@@ -96,8 +96,7 @@ Para obter assistência adicional para completar este cenário de migração, co
 | [Obtenção de tamanhos de mesa em Azure Synapse Analytics piscina SQL dedicada](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | Uma das tarefas-chave que um arquiteto deve executar é obter métricas sobre um novo ambiente pós-migração: recolher tempos de carga desde as instalações até à nuvem, recolhendo tempos de carga da PolyBase, etc. Destas tarefas, uma das mais importantes é determinar o tamanho de armazenamento no SQL Data Warehouse em comparação com a plataforma atual do cliente. |
 | [Utilitário para mover logins de servidor SQL nas instalações para Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | Um script PowerShell que cria um script de comando T-SQL para recriar logins e selecionar utilizadores de bases de dados de um SqL Server "nas instalações" para um serviço Azure SQL PaaS. A ferramenta permite o mapeamento automático das contas AD do Windows para contas AZure AD ou pode fazer procuras UPN para cada login contra as instalações do Windows Ative Directy. A ferramenta move opcionalmente os logins nativos do SQL Server também. As funções personalizadas de servidor e base de dados são scriptadas, bem como a filiação de funções e a função de base de dados e permissões do utilizador. As bases de dados contidas ainda não estão suportadas e apenas um subconjunto de possíveis permissões do SQL Server são scriptados; ou seja, as autorizações de concessão com subvenção não são suportadas (árvores de permissão complexas). Mais detalhes estão disponíveis no documento de suporte e o script tem comentários para facilitar a compreensão. |
 
-> [!NOTE]
-> Estes recursos acima foram desenvolvidos como parte do Data Migration Jumpstart Program (DM Jumpstart), que é patrocinado pela equipa de engenharia do Azure Data Group. A principal carta da DM Jumpstart é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa DM Jumpstart, contacte a sua equipa de conta e peça para que apresentem uma nomeação.
+Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é patrocinado pela equipa de engenharia do Azure Data Group. A carta principal do programa Data SQL Ninja é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa Data SQL Ninja, contacte a sua equipa de conta e peça-lhes que apresentem uma nomeação.
 
 ## <a name="videos"></a>Vídeos
 - Veja como a [Walgreens emigrou o seu sistema](https://www.youtube.com/watch?v=86dhd8N1lH4) de inventário de retalho com cerca de 100TB de dados da Netezza para a Azure Synapse Analytics (anteriormente SQL DW) em tempo recorde. 

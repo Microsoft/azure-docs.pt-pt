@@ -92,6 +92,8 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Conceitos de voz e vídeo
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Requisitos de rede
+          href: concepts/voice-video-calling/network-requirements.md
         - name: Fluxos de chamada
           href: concepts/call-flows.md
         - name: Topologias de fluxo de chamadas

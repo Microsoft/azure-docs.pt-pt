@@ -1,5 +1,5 @@
 ---
-title: 'Oracle para SQL Base de Dados: Guia de migração'
+title: 'Oracle para Azure SQL Base de Dados: Guia de migração'
 description: Este guia ensina-o a migrar o seu esquema Oráculo para a Base de Dados Azure SQL utilizando o SqL Server Migration Assistant for Oracle (SSMA for Oracle).
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -9,19 +9,19 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: f00740de5a327858fd250a0cb561b07c32f3b726
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9b02b0e5d9e3229aafec9b8a4ca21b14c0e596a6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655576"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022284"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guia de migração: Oracle para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Este guia ensina-o a migrar os seus esquemas Oráculos para a Base de Dados Azure SQL utilizando o SqL Server Migration Assistant para o Oráculo.
 
-Para outros guias de migração, consulte [a Migração da Base de Dados.](https://datamigration.microsoft.com/) 
+Para outros guias de migração, consulte [a Migração da Base de Dados.](https://docs.microsoft.com/data-migration) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,18 +44,15 @@ Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia d
 
 Utilize o SqL Server Migration Assistant (SSMA) para a Oracle para analisar objetos e dados de base de dados, avaliar bases de dados para migração, migrar objetos de base de dados para a Base de Dados Azure SQL e, finalmente, migrar dados para a base de dados. 
 
-
 Para criar uma avaliação, siga estes passos: 
-
 
 1. Abrir [o assistente de migração do servidor SQL para o oráculo](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Selecione **File** e, em seguida, escolha **Novo Projeto**. 
-1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione Azure SQL Database como o alvo de migração a partir do drop-down. Selecione **OK**.
+1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione Azure SQL Database como o alvo de migração a partir do drop-down. Selecione **OK**:
 
    ![Novo Projeto](./media/oracle-to-sql-database-guide/new-project.png)
 
-
-1. Selecione **Connect to Oracle**. Introduza os valores para os detalhes da ligação Oracle na caixa de diálogo **Connect to Oracle.**
+1. Selecione **Connect to Oracle**. Introduza os valores para os detalhes da ligação Oracle na caixa de diálogo **Connect to Oracle:**
 
    ![Ligar ao Oráculo](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
@@ -63,7 +60,7 @@ Para criar uma avaliação, siga estes passos:
 
    ![Selecione esquema Oráculo](./media/oracle-to-sql-database-guide/select-schema.png)
 
-1. Clique com o botão direito no esquema do Oráculo que pretende migrar no **Oracle Metadata Explorer** e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados.
+1. Clique com o botão direito no esquema do Oráculo que pretende migrar no **Oracle Metadata Explorer** e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados:
 
    ![Criar Relatório](./media/oracle-to-sql-database-guide/create-report.png)
 
@@ -81,7 +78,7 @@ Valide os mapeamentos do tipo de dados predefinidos e altere-os com base nos req
 
 1. Selecione **Ferramentas** do menu. 
 1. Selecione **Definições de projetos**. 
-1. Selecione o **separador de mapeamentos Tipo.** 
+1. Selecione o **separador de mapeamentos Tipo:** 
 
    ![Mapeamentos de tipo](./media/oracle-to-sql-database-guide/type-mappings.png)
 
@@ -94,25 +91,27 @@ Para converter o esquema, siga estes passos:
 1. (Opcional) Adicione consultas dinâmicas ou ad-hoc a declarações. Clique com o botão direito no nó e, em seguida, escolha **Adicionar declarações**.
 1. Selecione **Connect to Azure SQL Database**. 
     1. Introduza os dados de ligação para ligar a sua base de dados na Base de Dados Azure SQL.
-    1. Escolha a base de dados SQL alvo a partir da entrega.
-    1. Selecione **Ligar**.
+    1. Escolha a base de dados SQL alvo a partir do drop-down ou forneça um novo nome, caso em que uma base de dados será criada no servidor alvo. 
+    1. Forneça detalhes de autenticação. 
+    1. Selecione **Connect**:
 
     ![Ligar à Base de dados SQL](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
 
-1. Clique com o botão direito no esquema do **Oráculo** no Oracle Metadata Explorer e, em seguida, escolha **Converter o Schema**. Em alternativa, pode escolher **converter o Schema** na barra de navegação superior depois de selecionar o seu esquema.
+1. Clique com o botão direito no esquema do **Oráculo** no Oracle Metadata Explorer e, em seguida, escolha **Converter o Schema**. Em alternativa, pode escolher **converter o Schema** na barra de navegação superior depois de selecionar o seu esquema:
 
    ![Converter Schema](./media/oracle-to-sql-database-guide/convert-schema.png)
 
-1. Após a conversão concluída, compare e reveja os objetos convertidos aos objetos originais para identificar potenciais problemas e abordá-los com base nas recomendações.
+1. Após a conversão concluída, compare e reveja os objetos convertidos aos objetos originais para identificar potenciais problemas e abordá-los com base nas recomendações:
 
    ![Rever esquema de recomendações](./media/oracle-to-sql-database-guide/table-mapping.png)
 
-   Compare o texto Transact-SQL convertido com os procedimentos armazenados originais e reveja as recomendações. 
+   Compare o texto Transact-SQL convertido com os procedimentos armazenados originais e reveja as recomendações:
 
    ![Recomendações de revisão](./media/oracle-to-sql-database-guide/procedure-comparison.png)
 
-1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.**
+1. Selecione **Os resultados** da Revisão no painel de saída e os erros de revisão no painel **da lista de erros.** 
+1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para a Base de Dados SQL.
 
 ## <a name="migrate"></a>Migrate
 
@@ -120,7 +119,7 @@ Depois de ter concluído a avaliação das suas bases de dados e de abordar even
 
 Para publicar o seu esquema e migrar os seus dados, siga estes passos:
 
-1. Publique o esquema: Clique à direita na base de dados a partir do nó **de bases de dados** no **Azure SQL Database Medata Explorer** e escolha **Sincronizar com Base de Dados**.
+1. Publique o esquema: Clique à direita na base de dados a partir do nó de bases de dados no **Azure SQL Database Medata Explorer** e escolha **Sincronizar com Base de Dados:** 
 
    ![Sincronizar com base de dados](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
 
@@ -129,22 +128,21 @@ Para publicar o seu esquema e migrar os seus dados, siga estes passos:
    ![Sincronizar com a revisão da base de dados](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
 
-1. Migrar os dados: Clique com o botão direito do Explorador de **Metadados do Oráculo** e escolha **Dados Migratórios**. Em alternativa, pode escolher **Dados Migratórios** da barra de navegação de primeira linha depois de selecionar o esquema. 
+1. Migrar os dados: Clique na base de dados ou no objeto que pretende migrar no **Oracle Metadata Explorer** e escolha **dados migratórios**. Em alternativa, pode **selecionar Dados Migratórios** a partir da barra de navegação de primeira linha. Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de dados, expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação:
 
    ![Dados migratórios](./media/oracle-to-sql-database-guide/migrate-data.png)
 
 1. Forneça detalhes de conexão tanto para a Oracle como para a Azure SQL Database.
-1. Consulte o **relatório migração de dados.**
+1. Após a conclusão da migração, consulte o **Relatório de Migração de Dados:**  
 
    ![Relatório de Migração de Dados](./media/oracle-to-sql-database-guide/data-migration-report.png)
 
-1. Conecte-se à sua Base de Dados Azure SQL utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas.
+1. Conecte-se à sua Base de Dados Azure SQL utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas:
 
    ![Validar em SSMA](./media/oracle-to-sql-database-guide/validate-data.png)
 
 Em alternativa, também pode utilizar os Serviços de Integração de Servidores SQL (SSIS) para realizar a migração. Para saber mais, veja: 
 
-- [SqL Server Migration Assistant: Como avaliar e migrar dados de plataformas de dados não Microsoft para SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/11/16/sql-server-migration-assistant-how-to-assess-and-migrate-databases-from-non-microsoft-data-platforms-to-sql-server/)
 - [Começar com serviços de integração de servidores SQL](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 - [Serviços de Integração de Servidores SQL: SSIS para movimento de dados Azure e Híbrido](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 

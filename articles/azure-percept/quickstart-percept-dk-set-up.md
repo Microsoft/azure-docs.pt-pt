@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 9567ec2458a01825568cb853728f71db10228ee3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8cecd1b57395fa51fd95c824e88885d9c3ae3f09
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608273"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023304"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configure o seu Azure Percept DK e implemente o seu primeiro modelo de IA
 
@@ -30,7 +30,7 @@ Se tiver algum problema durante este processo, consulte o [guia de resolução d
 - Um Azure Percept DK (dev kit).
 - Um computador anfitrião baseado em Windows, Linux ou OS X com capacidade Wi-Fi e um navegador web.
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A conta Azure deve ter a **função de proprietário** ou **contribuinte** dentro da subscrição. Siga os passos abaixo para verificar a sua função de conta Azure. Para obter mais informações sobre as definições de funções da Azure, consulte a [documentação de controlo de acesso baseada em funções da Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
+- A conta Azure deve ter a **função de proprietário** ou **contribuinte** dentro da subscrição. Siga os passos abaixo para verificar a sua função de conta Azure. Para obter mais informações sobre as definições de funções da Azure, consulte a [documentação de controlo de acesso baseada em funções da Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
     > [!CAUTION]
     > Se tiver várias contas Azure, o seu navegador poderá cache credenciais de outra conta. Para evitar confusões, recomenda-se que feche todas as janelas do navegador não usurram e inicie o login no [portal Azure](https://portal.azure.com/) antes de iniciar a experiência de configuração. Consulte o [guia de resolução de problemas de configuração](./how-to-troubleshoot-setup.md) para obter informações adicionais sobre como garantir que está assinado com a conta correta.
@@ -43,7 +43,7 @@ Para verificar se a sua conta Azure é um "proprietário" ou "contribuinte" dent
 
 1. Clique no ícone **Subscrições** (parece uma chave amarela).
 
-1. Selecione a sua subscrição da lista. Se não vir a sua subscrição, certifique-se de que está assinado com a conta Azure correta. Se desejar criar uma nova subscrição, siga [estes passos](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+1. Selecione a sua subscrição da lista. Se não vir a sua subscrição, certifique-se de que está assinado com a conta Azure correta. Se desejar criar uma nova subscrição, siga [estes passos](../cost-management-billing/manage/create-subscription.md).
 
 1. A partir do menu Assinatura, selecione **Access control (IAM)**.
 1. Clique **em Ver o meu acesso.**

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: db303d1e7bd5a9cb7b8441f0a5da634a13113066
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5d5aaf84482dae6786ac7fd9f9ee837efca71b34
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948306"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104568"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Python. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
@@ -21,9 +21,9 @@ Quer ver o código imediatamente? As amostras para as bibliotecas de [clientes B
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-O SDK de Pesquisa na Web do Bing é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6. Recomendamos utilizar um ambiente virtual para este início rápido.
+O Bing Web Search SDK é compatível com Python 2.7 ou 3.6+. Recomendamos utilizar um ambiente virtual para este início rápido.
 
-* Python 2.7, 3.3, 3.4, 3.5 ou 3.6
+* Python 2.7 ou 3.6+
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) para Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) para Python 3.x
 
@@ -313,11 +313,11 @@ Esta amostra utiliza os `answer_count` `promote` , e `safe_search` parâmetros p
 
 Quando tiver terminado este projeto, certifique-se de que remove a sua chave de subscrição do código do programa e desativa o seu ambiente virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Exemplos de SDK do Python nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Referência do SDK Python do Azure](/python/api/azure-cognitiveservices-search-websearch/)

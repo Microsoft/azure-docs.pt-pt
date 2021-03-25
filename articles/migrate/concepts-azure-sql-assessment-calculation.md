@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2bb68c8c183e3de132bc7cf4504714a260ea2683
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778326"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025123"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Visão geral da avaliação (migrar para Azure SQL)
 
-Este artigo fornece uma visão geral das avaliações para a migração no local exemplos de servidor SQL de um ambiente VMware para bases de dados Azure SQL ou Instâncias Geridas usando a [ferramenta Azure Migrate: Discovery and assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool)tool .
+Este artigo fornece uma visão geral das avaliações para a migração no local exemplos de servidor SQL de um ambiente VMware para bases de dados Azure SQL ou Instâncias Geridas usando a [ferramenta Azure Migrate: Discovery and assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool)tool .
 
 ## <a name="whats-an-assessment"></a>O que é uma avaliação?
 Uma avaliação com a ferramenta Discovery e assessment é um ponto no tempo instantâneo de dados e mede a prontidão e estima o efeito da migração de servidores no local para Azure.
@@ -110,9 +110,9 @@ Se selecionar o tipo de implementação de destino como **Recomendado** nas prop
 
  **Prontidão Azure SQL DB** | **Prontidão Azure SQL MI** | **Tipo de implantação recomendado** | **Configuração Azure SQL e estimativas de custos calculadas?**
  --- | --- | --- | --- |
- Pronto | Pronto | Azure SQL DB ou <br/>Azure SQL MI | Sim
- Pronto | Não está pronto ou<br/> Desconhecido | BD SQL do Azure | Sim
- Não está pronto ou<br/>Desconhecido | Pronto | Azure SQL MI | Sim
+ Pronto | Pronto | Azure SQL DB ou <br/>Azure SQL MI | Yes
+ Pronto | Não está pronto ou<br/> Desconhecido | BD SQL do Azure | Yes
+ Não está pronto ou<br/>Desconhecido | Pronto | Azure SQL MI | Yes
  Não está pronto. | Não está pronto. | Potencialmente pronto para Azure VM | No
  Não está pronto ou<br/>Desconhecido | Não está pronto ou<br/>Desconhecido | Desconhecido | No
 

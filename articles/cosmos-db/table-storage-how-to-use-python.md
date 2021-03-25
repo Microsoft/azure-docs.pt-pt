@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
-ms.date: 07/23/2020
+ms.date: 03/23/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 847e100dfaa922c359b321f17d77d2d0c67afc9b
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 19a73f17fcb1f6f51dd2ed80b9e68a51d0d7ceb9
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802867"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044707"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB com Python
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -217,6 +217,18 @@ tasks = table_service.query_entities(
     'tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
 for task in tasks:
     print(task.description)
+```
+
+## <a name="query-for-an-entity-without-partition-and-row-keys"></a>Consulta para uma entidade sem chaves de divisória e linha
+
+Também pode consultar entidades dentro de uma mesa sem utilizar as teclas de divisória e linha. Utilize o `table_service.query_entities` método sem os parâmetros "filtro" e "selecione", como mostram no exemplo seguinte:
+
+```python
+print("Get the first item from the table")
+tasks = table_service.query_entities(
+    'tasktable')
+lst = list(tasks)
+print(lst[0])
 ```
 
 ## <a name="delete-an-entity"></a>Eliminar uma entidade

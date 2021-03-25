@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952784"
+ms.locfileid: "105023440"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -33,6 +33,7 @@ A página **Todos os dispositivos** permite:00:
 - Configure as definições de identidade do seu dispositivo.
 - Ativar ou desativar o Roaming do Estado da Empresa.
 - Rever registos de auditoria relacionados com dispositivos
+- Dispositivos de descarregamento (pré-visualização)
 
 [![Todos os dispositivos visualizam no portal Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -144,6 +145,14 @@ Para ativar a funcionalidade de filtragem de pré-visualização na vista **de t
 1. Selecione o banner que diz, **Experimente os novos dispositivos filtrando melhorias. Clique para ativar a pré-visualização.**
 
 Terá agora a capacidade de **adicionar filtros** à sua vista **de todos os dispositivos.**
+
+### <a name="download-devices-preview"></a>Dispositivos de descarregamento (pré-visualização)
+
+Administradores de dispositivos em nuvem, administradores Intune e administradores globais podem usar a opção **de descarregamento de dispositivos (pré-visualização)** para exportar um ficheiro CSV de dispositivos com base em quaisquer filtros aplicados. Se não forem aplicados filtros na lista, todos os dispositivos serão exportados. Uma exportação pode ser executada por um período de até uma hora, dependendo do 
+
+A lista exportada inclui os seguintes atributos de identidade do dispositivo:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
 
 ## <a name="configure-device-settings"></a>Configurar definições de dispositivos
 
