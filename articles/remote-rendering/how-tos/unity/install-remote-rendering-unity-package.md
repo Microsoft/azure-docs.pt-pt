@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 9454bef52798650fc431f8df994e1a964662b453
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bfb383a7079e98db1db1f9b5077558c187bcea96
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720833"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047733"
 ---
 # <a name="install-the-remote-rendering-package-for-unity"></a>Instalar o pacote do Remote Rendering para o Unity
 
@@ -22,11 +22,11 @@ Pode escolher uma das seguintes opções para instalar o pacote Unidade.
 
 ## <a name="install-remote-rendering-package-using-the-mixed-reality-feature-tool"></a>Instale pacote de renderização remota utilizando a ferramenta de função de realidade mista
 
-[A Ferramenta de Recurso de Realidade Mista](https://aka.ms/MRFeatureToolDocs) ([download)](https://aka.ms/mrfeaturetool)é uma ferramenta usada para integrar pacotes de funcionalidades de Realidade Mista em projetos de Unidade. O pacote não faz parte do [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering), e não está disponível a partir do registo interno do pacote da Unidade.
+[A Ferramenta de Recurso de Realidade Mista](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) ([download)](https://aka.ms/mrfeaturetool)é uma ferramenta usada para integrar pacotes de funcionalidades de Realidade Mista em projetos de Unidade. O pacote não faz parte do [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering), e não está disponível a partir do registo interno do pacote da Unidade.
 
 Para adicionar o pacote a um projeto, você precisa:
 1. [Descarregue a Ferramenta de Recurso de Realidade Mista](https://aka.ms/mrfeaturetool)
-1. Siga as [instruções completas](https://aka.ms/MRFeatureToolDocs) sobre como utilizar a ferramenta.
+1. Siga as [instruções completas](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) sobre como utilizar a ferramenta.
 1. Na página **'Descobrir Funcionalidades'** marque a caixa para o pacote **de renderização remota do Microsoft Azure** e selecione a versão do pacote que pretende adicionar ao seu projeto
 
 ![Mixed_Reality_feature_tool_package](media/mixed-reality-feature-tool-package.png)

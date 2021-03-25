@@ -1,17 +1,18 @@
 ---
 title: Gerir o servidor de configuração para recuperação de desastres com a recuperação do site Azure
+description: Conheça as tarefas comuns para gerir um servidor de configuração no local para a recuperação de desastres de VMware VMs e servidores físicos para Azure com Azure Site Recovery.
 author: Rajeswari-Mamilla
+ms.author: ramamill
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: ramamill
-ms.openlocfilehash: 2f1edc14efdeaf70bf4c2acc0e31e1517753ed3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 67f25c97e0b4433ed09cb8c6337afe671424ba0b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92546352"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048549"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação após desastre dos servidores físicos/VM VMware
 
