@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 26538f48213d025c6fe71fb55abb17a025a23b45
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211622"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025684"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o Snapshot Debugger para aplicações .NET no Azure App Service
 
@@ -56,13 +56,13 @@ Uma vez implementada uma aplicação, siga os passos abaixo para ativar o depura
 
 ## <a name="enable-snapshot-debugger-for-other-clouds"></a>Ativar snapshot Debugger para outras nuvens
 
-Atualmente, as únicas regiões que requerem modificações no ponto final são [o Governo Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide) através da Cadeia de Conexão de Insights de Aplicação.
+Atualmente, as únicas regiões que requerem modificações no ponto final são [o Governo Azure](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [a Azure China](/azure/china/resources-developer-guide) através da Cadeia de Conexão de Insights de Aplicação.
 
 |Propriedade de cadeia de conexão    | Nuvem do Governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|
 |Ponto SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-Para obter mais informações sobre outras ligações, consulte a [documentação do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+Para obter mais informações sobre outras ligações, consulte a [documentação do Application Insights](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Depurar Snapshot Debugger
 
@@ -120,4 +120,3 @@ Para um Serviço de Aplicações Azure, pode definir as definições de aplicaç
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png
-

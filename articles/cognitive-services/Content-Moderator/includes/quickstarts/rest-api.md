@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 12/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 859c57fb6caeee730d5ba937bacf5d29a25ca173
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1904b9aab80fbda5b774a5cd02d0adefac61deea
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510713"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027963"
 ---
 Começa com o Moderador de Conteúdo Azure REST API. 
 
@@ -178,4 +178,3 @@ Neste arranque rápido, aprendeu a usar o Moderador de Conteúdo REST API para f
 
 * [Conceitos de moderação de imagem](../../image-moderation-api.md)
 * [Conceitos de moderação de texto](../../text-moderation-api.md)
-* [O que é o Content Moderator do Azure?](../../overview.md)

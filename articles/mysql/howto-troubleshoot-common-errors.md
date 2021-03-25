@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 546f29330b76548ea553cfb7e4e31ac35b19cb1c
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98631372"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037551"
 ---
 # <a name="common-errors"></a>Erros comuns
 
@@ -48,7 +48,7 @@ BEGIN
 END;
 ```
 
-**Resolução**: Para resolver o erro, desacrie log_bin_trust_function_creators a 1 a partir da lâmina dos [parâmetros](howto-server-parameters.md) do servidor no portal, execute as declarações DDL ou importe o esquema para criar os objetos pretendidos e reverta o parâmetro log_bin_trust_function_creators para o seu valor anterior após a criação.
+**Resolução**: Para resolver o erro, desate log_bin_trust_function_creators a 1 a partir da lâmina dos [parâmetros](howto-server-parameters.md) do servidor no portal, execute as declarações DDL ou importe o esquema para criar os objetos pretendidos. Pode continuar a manter log_bin_trust_function_creators a 1 para o seu servidor para evitar o erro no futuro. A nossa recomendação é definir log_bin_trust_function_creators, uma vez que o risco de segurança realçado na [documentação comunitária do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) é mínimo em Azure DB para o serviço MySQL, uma vez que o registo de contentores não está exposto a quaisquer ameaças.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>ERRO 1227 (42000) na linha 101: Acesso negado; você precisa (pelo menos um dos) privilégios SUPER(s) para esta operação. A operação falhou com o código de saída 1
 

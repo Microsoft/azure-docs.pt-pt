@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: trbye
-ms.openlocfilehash: 502729e4c90a6d6ffa424ea7f379e2b426b3e3e0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d2fae1c08132c855f570750a4528a9a37343434e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444304"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104628"
 ---
 ## <a name="install-the-speech-sdk"></a>Instale o SDK de discurso
 
@@ -17,7 +17,7 @@ Antes de poder fazer qualquer coisa, terá de instalar o <a href="https://www.np
 
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navegador Web </a>
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navegador Web </a>
 
 ## <a name="create-voice-signatures"></a>Criar assinaturas de voz
 

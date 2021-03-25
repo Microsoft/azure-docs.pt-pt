@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: e6c8e83838240b989c8c782840d8c771a6f6b7db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b9b768d7af276b8bff0db2acd00d27eca03023c5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487807"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026739"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Hub IoT Edge
 
@@ -76,4 +76,19 @@ O Azure IoT Edge integra-se facilmente com os aceleradores de soluções do Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja [Deploying IoT Edge on a simulated device](quickstart.md) (Implementar o IoT Edge num dispositivo simulado) para experimentar estes conceitos.
+Experimente estes conceitos implantando o seu primeiro módulo IoT Edge num dispositivo:
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+* [Implementar módulos para um dispositivo Linux IoT Edge](quickstart-linux.md)
+* [Implementar módulos para um dispositivo Windows IoT Edge](quickstart.md)
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+[Implementar módulos para um dispositivo IoT Edge](quickstart-linux.md)
+
+:::moniker-end

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 7357703af41afc913ef63dff6ecae3d230c9eca0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583297"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865708"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Utilize certificados com serviços Azure Cloud (suporte alargado)
 
@@ -27,9 +27,8 @@ O Key Vault é utilizado para armazenar certificados associados aos Serviços Cl
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="A imagem mostra a seleção das políticas de acesso a partir da lâmina do cofre da chave.":::
 
-3. Certifique-se de que as políticas de acesso incluem as seguintes propriedades:
+3. Certifique-se de que as políticas de acesso incluem o seguinte imóvel:
     - **Permitir o acesso a Máquinas Virtuais Azure para implantação**
-    - **Permitir o acesso ao Azure Resource Manager para a implementação do modelo** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="A imagem mostra a janela das políticas de acesso no portal Azure.":::
  
@@ -50,6 +49,9 @@ O Key Vault é utilizado para armazenar certificados associados aos Serviços Cl
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  Para a implementação através do modelo ARM, o certificateUrl pode ser encontrado navegando no certificado no cofre-chave rotulado como Identificador Secreto
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="A imagem mostra o campo secreto do identificador no cofre das chaves.":::
 
 ## <a name="next-steps"></a>Passos seguintes 
 - Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado).

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: c73cb99d62295312980fe5f1b248d23efa2eb0c5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 55792cc1890702b904db00b7e3cb3ac3a78c63f1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102432388"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866527"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalize os clusters HDInsight usando Bootstrap
 
@@ -121,7 +121,7 @@ Pode utilizar botas no modelo de Gestor de Recursos:
 }
 ```
 
-![Hadoop personaliza modelo de gestor de recursos Azure](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="Hadoop personaliza modelo de gestor de recursos Azure":::
 
 Corte do modelo do Gestor de Recursos da Amostra para mudar a configuração em padrão spark2 para limpar periodicamente os registos de eventos do armazenamento.  
 

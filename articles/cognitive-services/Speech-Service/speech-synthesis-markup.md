@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ffa8528da454fd29c937a2d49accdda617fe62dd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: aa5e499df976c08fef8f0b81eff1e189eebb5503
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869026"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026313"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -250,7 +250,7 @@ Acima as alterações são aplicadas ao nível da frase, e os estilos e role-pla
 
 Utilize esta tabela para determinar quais os estilos de fala suportados por cada voz neural.
 
-| Voz                   | Estilo                     | Descrição                                                 |
+| Voz                   | Estilo                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiante e autoritário para a entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para a entrega de notícias gerais        |
@@ -323,7 +323,7 @@ Utilize esta tabela para determinar quais os estilos de fala suportados por cada
 
 Utilize esta tabela para determinar quais as funções suportadas por cada voz neural.
 
-| Voz                   | Função                       | Descrição                                                 |
+| Voz                   | Função                       | Description                                                 |
 |-------------------------|----------------------------|-------------------------------------------------------------|
 | `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | A voz imita uma jovem mulher adulta.                 |
 |                         | `role="OlderAdultMale"`    | A voz imita a um homem adulto mais velho.                   |
@@ -398,7 +398,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, este valor deve ser definido a menos de 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
-| Força                      | Descrição |
+| Força                      | Description |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -876,7 +876,7 @@ Não vamos ler os elementos do marcador.
 O elemento marcador pode ser utilizado para referenciar uma localização específica na sequência de texto ou tag.
 
 > [!NOTE]
-> `bookmark` elemento só funciona para `en-US-AriaNeural` a voz na região dos EUA ocidental `westus` por enquanto.
+> `bookmark` elemento só funciona para `en-US-AriaNeural` a voz na região oeste dos EUA 2 `westus2` ( por enquanto.
 
 **Syntax**
 

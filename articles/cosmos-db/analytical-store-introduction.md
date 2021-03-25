@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577364"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027185"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é a loja analítica Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -110,9 +110,10 @@ Os seguintes constrangimentos são aplicáveis nos dados operacionais da Azure C
 
 * Atualmente não apoiamos nomes de colunas de leitura Azure Synapse Spark que contenham espaços em branco.
 
-* Espere um comportamento diferente em relação aos `NULL` valores:
-  * As piscinas de faíscas em Azure Synapse lerão estes valores como 0 (zero).
-  * Piscinas sem servidor SQL em Azure Synapse lerão estes valores como `NULL` .
+* Espere um comportamento diferente em relação a `null` valores explícitos:
+  * As piscinas de faíscas em Azure Synapse lerão estes valores como `0` (zero).
+  * Piscinas sem servidor SQL em Azure Synapse lerão estes valores como `NULL` se o primeiro documento da coleção tivesse, para a mesma propriedade, um valor com um tipo de dados diferente de `integer` .
+  * As piscinas sem servidor SQL em Azure Synapse lerão estes valores como `0` (zero) se o primeiro documento da coleção tiver, para a mesma propriedade, um valor que é um `integer` .
 
 * Espere um comportamento diferente no que diz respeito às colunas em falta:
   * As piscinas de faíscas em Azure Synapse representarão estas colunas como `undefined` .
@@ -144,6 +145,11 @@ A representação de esquema bem definida cria uma simples representação tabul
 
 > [!NOTE]
 > Se a loja analítica Azure Cosmos DB seguir a representação de esquemas bem definida e a especificação acima for violada por certos itens, esses itens não serão incluídos na loja analítica.
+
+* Espere um comportamento diferente em relação a diferentes tipos em esquema bem definido:
+  * As piscinas de faíscas em Azure Synapse representarão estes valores como `undefined` .
+  * Piscinas sem servidor SQL em Azure Synapse representarão estes valores como `NULL` .
+
 
 **Representação total do esquema de fidelidade**
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/30/2020
-ms.openlocfilehash: e24e1afa0116bc1f240bddef47783b06f4f800d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.openlocfilehash: b1bb749400cfb1e289a0a335275f4654d37145e9
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581308"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046509"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -37,7 +37,7 @@ A tabela seguinte mostra as opções de listagem para ofertas saas no mercado co
 
 Para obter mais informações sobre estas opções de listagem, consulte [as capacidades de transação do mercado comercial.](marketplace-commercial-transaction-capabilities-and-considerations.md)
 
-Após a publicação da sua oferta, a opção de listagem que escolheu para a sua oferta aparece como um botão no canto superior esquerdo da página de listagem da sua oferta. Por exemplo, a imagem que se segue mostra uma página de listagem de oferta no Azure Marketplace com os botões **Contacte-me** e **test drive.**
+Após a publicação da sua oferta, a opção de listagem que escolheu para a sua oferta aparece como um botão no canto superior esquerdo da página de listagem da sua oferta. Por exemplo, a imagem que se segue mostra uma página de listagem de oferta no Azure Marketplace com os botões **Get it now** e Test **drive.**
 
 ![Ilustra uma listagem de oferta na loja online.](./media/listing-options.png)
 
@@ -68,9 +68,9 @@ Se estiver a criar uma oferta transacionável, terá de recolher as seguintes in
 
 - **URL da página de aterragem**: O URL do site SaaS (por exemplo: `https://contoso.com/signup` ) para o que os utilizadores serão direcionados após a aquisição da sua oferta no mercado comercial, desencadeando o processo de configuração a partir da recém-criada subscrição SaaS. Este URL receberá um token que pode ser usado para chamar as APIs de cumprimento para obter detalhes de provisionamento para a sua página de registo interativo.
 
-  Este URL será chamado com o parâmetro de identificação de compra de mercado que identifica exclusivamente a compra específica do cliente SaaS. Tem de trocar este token pelos correspondentes dados de subscrição do SaaS utilizando a [API de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Esses detalhes e quaisquer outros que deseje recolher devem ser usados como parte de uma página web interativa do cliente, construída na sua experiência para completar o registo do cliente e ativar a sua compra. Nesta página, o utilizador deve inscrever-se através da autenticação de um clique utilizando o Azure Ative Directory (Azure AD).
+  Este URL será chamado com o parâmetro de identificação de compra de mercado que identifica exclusivamente a compra específica do cliente SaaS. Tem de trocar este token pelos correspondentes dados de subscrição do SaaS utilizando a [API de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Esses detalhes e quaisquer outros que deseje recolher como parte de uma página web interativa para o cliente podem ser usados para iniciar a experiência de embarque do cliente, que tem eventualmente de concluir com uma chamada ativada na API para iniciar o período de subscrição. Nesta página, o utilizador deve inscrever-se através da autenticação de um clique utilizando o Azure Ative Directory (Azure AD).
 
-  Este URL com parâmetro de identificação de compra de mercado também será chamado quando o cliente lançar uma experiência Gerida SaaS a partir do portal Azure ou M365 Admin Center. Deve lidar com ambos os fluxos: quando o token é fornecido pela primeira vez após uma nova compra de cliente, e quando é fornecido novamente para um cliente existente que gere a sua solução SaaS.
+  Este URL com o parâmetro de identificação de compra de mercado também será chamado quando o cliente lançar uma experiência Gerida saaS a partir do portal Azure ou Microsoft 365 Admin Center. Deve lidar com ambos os fluxos: quando o token é fornecido pela primeira vez após uma nova compra de cliente, e quando é fornecido novamente para um cliente existente que gere a sua solução SaaS.
 
     A página de Desembarque que configurar deve estar a funcionar 24 horas por dia, 7 horas por dia. Esta é a única forma de ser notificado sobre novas compras das suas ofertas SaaS feitas no mercado comercial, ou pedidos de configuração para uma subscrição ativa de uma oferta.
 
@@ -79,7 +79,7 @@ Se estiver a criar uma oferta transacionável, terá de recolher as seguintes in
   O webhook que fornece deve estar a funcionar 24 horas por dia, 7 horas por dia. Esta é a única forma de ser notificado sobre as atualizações sobre as assinaturas SaaS dos seus clientes adquiridas através do mercado comercial.
 
   > [!NOTE]
-  > Dentro do portal Azure, exigimos que crie uma aplicação de [diretório ativo Azure (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) para permitir que um ID da App Azure seja usado para autenticar a ligação entre os nossos dois serviços. Para encontrar o ID do [inquilino,](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número de identificação do diretório listado. Por exemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Dentro do portal Azure, exigimos que crie um registo de [aplicações Azure Ative (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md)de um único inquilino. Utilize os dados de registo da aplicação para autenticar a sua solução ao ligar para as APIs do mercado. Para encontrar o ID do [inquilino,](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número de identificação do diretório listado. Por exemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **ID do inquilino do Azure Ative Directory:**(também conhecido como ID do diretório). Dentro do portal Azure, exigimos que [registe uma aplicação Azure Ative Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) para que possamos adicioná-la à lista de controlo de acesso (ACL) da API para garantir que está autorizado a chamá-la. Para encontrar o ID do inquilino para a sua aplicação Azure Ative Directory (AD), vá à lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App em Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID do **Diretório (inquilino)** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
@@ -88,7 +88,7 @@ Se estiver a criar uma oferta transacionável, terá de recolher as seguintes in
   O ID da aplicação Azure está associado com o seu ID de editor na sua conta Partner Center. Deve utilizar o mesmo ID de aplicação para todas as ofertas nessa conta.
 
   > [!NOTE]
-  > Se a editora tiver duas ou mais contas diferentes no Partner Center, devem ser utilizados dois ou mais IDs de aplicações AD Azure diferentes, cada um para uma das contas. Cada conta de parceiro no Partner Center deve usar um ID de aplicação AD AZure único para todas as ofertas saaS que são publicadas através desta conta.
+  > Se a editora tiver duas ou mais contas diferentes no Partner Center, os detalhes do registo da aplicação Azure AD podem ser utilizados apenas numa conta. Utilizando o mesmo ID do inquilino, o par de identificação de aplicativos para uma oferta sob uma conta de editor diferente não é suportado.
 
 ## <a name="test-drives"></a>Versões de teste
 Pode optar por ativar um test drive para a sua aplicação SaaS. Os test drives dão aos clientes acesso a um ambiente pré-configurado por um número fixo de horas. Pode ativar as unidades de teste para qualquer opção de publicação, no entanto esta funcionalidade tem requisitos adicionais. Para saber mais sobre test drives, veja [o que é um test drive?](what-is-test-drive.md) Para obter informações sobre a configuração de diferentes tipos de test drives, consulte a [configuração técnica do test drive](test-drive-technical-configuration.md).
@@ -209,9 +209,6 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
 > [!Note]
 > A sua oferta deve atender às [políticas gerais de certificação](/legal/marketplace/certification-policies#100-general) do mercado comercial e ao [software como uma política de serviços](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) a publicar no mercado comercial.
 
-## <a name="preview-audience"></a>Audiência de pré-visualização
-Um público de pré-visualização pode aceder à sua oferta antes de ser publicado ao vivo nas lojas online de forma a testar a funcionalidade de ponta a ponta antes de a publicar ao vivo. Na página de **audiência de pré-visualização,** pode definir um público de pré-visualização limitado. Esta definição não está disponível se optar por processar transações de forma independente em vez de vender a sua oferta através da Microsoft. Em caso afirmativo, pode saltar esta secção e ir a [oportunidades de venda adicionais.](#additional-sales-opportunities)
-
 > [!NOTE]
 > Um público de pré-visualização difere de um plano privado. Um plano privado é aquele que disponibiliza apenas para um público específico que escolher. Isto permite-lhe negociar um plano personalizado com clientes específicos. Para mais informações, consulte a secção seguinte: Planos.
 
@@ -251,6 +248,50 @@ O exemplo a seguir mostra uma repartição de custos e pagamentos para demonstra
 |||
 
 **`*` Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser satisfeita pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado. Uma vez cumprida a elegibilidade, a taxa de serviço reduzida é atribuída a todas as transações com efeito no primeiro dia do mês seguinte e continuará a ser aplicada até que o estatuto de Co-venda ip Azure IP seja perdido. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
+
+## <a name="preview-audience"></a>Audiência de pré-visualização
+
+Um público de pré-visualização pode aceder à sua oferta antes de ser publicado ao vivo nas lojas online. Eles podem ver como a sua oferta vai ficar no mercado comercial e testar a funcionalidade de ponta a ponta antes de publicá-la ao vivo. 
+
+Na página de **audiência de pré-visualização,** pode definir um público de pré-visualização limitado. Esta definição não está disponível se optar por processar transações de forma independente em vez de vender a sua oferta através da Microsoft. Em caso afirmativo, pode saltar esta secção e ir a [oportunidades de venda adicionais.](#additional-sales-opportunities)
+
+## <a name="test-offer"></a>Oferta de teste
+
+Antes de publicar a sua oferta ao vivo, deverá utilizar a funcionalidade de pré-visualização para desenvolver a sua implementação técnica, testar e experimentar com diferentes modelos de preços.
+
+Para desenvolver e testar a sua oferta SaaS com a menor quantidade de risco, recomendamos que crie uma oferta de teste e desenvolvimento (DEV) para experimentação e teste. A oferta DEV será separada da sua oferta de produção (PROD).
+
+Para evitar compras acidentais da oferta DEV, nunca carregará no botão **Go live** para publicar a oferta DEV ao vivo.
+
+![Ilustra a página geral da Oferta para uma oferta no Partner Center. São mostrados os botões Go ao vivo e os links de pré-visualização. O link do relatório de validação do Ver também é apresentado na validação automatizada.](./media/review-publish-offer/publish-status-saas.png)
+
+Aqui ficam algumas razões para criar uma oferta separada de DEV para a equipa de desenvolvimento usar para o desenvolvimento e teste da oferta PROD:
+
+- Evite tarifas acidentais do cliente
+- Avaliar modelos de preços
+- Não adicionar planos que não visam clientes reais
+
+### <a name="avoid-accidental-customer-charges"></a>Evite tarifas acidentais do cliente
+
+Ao utilizar uma oferta DEV em vez da oferta PROD e tratá-las como ambientes de desenvolvimento e produção, pode evitar encargos acidentais para os clientes.
+
+Recomendamos que registe duas aplicações AD Azure diferentes para chamar as APIs do mercado. Os desenvolvedores usarão uma aplicação AD Azure com as definições da oferta DEV, e a equipe de operações usará o registo de aplicações PROD. Ao fazê-lo, pode isolar a equipa de desenvolvimento de cometer erros inadvertidos, como ligar para a API para cancelar a subscrição de um cliente que paga 100 mil dólares por mês. Também pode evitar cobrar a um cliente pelo uso medido que não consumiram.
+
+### <a name="evaluate-pricing-models"></a>Avaliar modelos de preços
+
+Testar os modelos de preços na oferta DEV reduz o risco quando os desenvolvedores experimentam com diferentes modelos de preços.
+
+Os editores podem criar os planos de que necessitam na oferta DEV para determinar qual o modelo de preços que funciona melhor para a sua oferta. Os desenvolvedores podem querer criar múltiplos planos na oferta DEV para testar diferentes combinações de preços. Por exemplo, pode criar planos com diferentes conjuntos de dimensões personalizadas. Você pode criar um plano diferente com uma mistura de taxa fixa e dimensões personalizadas.
+
+Para testar várias opções de preços, é necessário criar um plano para cada modelo de preços único. Para saber mais, consulte [Planos.](#plans)
+
+### <a name="not-adding-plans-that-do-not-target-actual-customers"></a>Não adicionar planos que não visam clientes reais
+
+Ao utilizar uma oferta DEV para desenvolvimento e teste, pode reduzir a confusão desnecessária na oferta PROD. Por exemplo, não é possível eliminar planos que crie para testar diferentes modelos de preços ou configurações técnicas (sem apresentar um bilhete de apoio). Assim, ao criar planos para testar na oferta DEV, você reduz a confusão na oferta PROD.
+
+A desordem no PROD oferece equipas de produtos e marketing frustradas, pois esperam todos os planos para direcionar os clientes reais. Especialmente com grandes equipas que são desarticuladas que todos querem diferentes caixas de areia para trabalhar, criando duas ofertas irá fornecer dois ambientes diferentes para DEV e PROD. Em alguns casos, você pode querer criar várias ofertas DEV para apoiar uma equipa maior que tem pessoas diferentes executando diferentes cenários de teste. Deixar diferentes membros da equipa trabalharem na oferta DEV separada da oferta PROD, ajuda a manter os planos de produção o mais próximo possível da produção.
+
+Testar uma oferta DEV ajuda a evitar o limite de 30 dimensões medidos por oferta. Os desenvolvedores podem experimentar diferentes combinações de contadores na oferta DEV sem afetar o limite de dimensão medido personalizado na oferta PROD.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venda adicionais
 

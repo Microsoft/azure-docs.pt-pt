@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5e2ab0b9d7f61539a16fc685134bef6c9047229d
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0ad760caedffa97599548b8dd1b59a887b5690af
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104988052"
+ms.locfileid: "105105414"
 ---
 Dependendo do sistema operativo do cliente, os procedimentos para ligar remotamente ao dispositivo são diferentes.
 
@@ -21,7 +21,7 @@ Dependendo do sistema operativo do cliente, os procedimentos para ligar remotame
 Antes de começar, certifique-se de que:
 
 - O seu cliente Windows está a executar o Windows PowerShell 5.0 ou mais tarde.
-- O seu cliente Windows tem a corrente de assinatura (certificado raiz) correspondente ao certificado de nó instalado no dispositivo. Para obter instruções detalhadas, consulte [o certificado de instalação no seu cliente Windows](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- O seu cliente Windows tem a corrente de assinatura (certificado raiz) correspondente ao certificado de nó instalado no dispositivo. Para obter instruções detalhadas, consulte [o certificado de instalação no seu cliente Windows](../articles/databox-online/azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 - O `hosts` ficheiro localizado para o seu cliente Windows tem uma entrada correspondente ao certificado de nó no seguinte `C:\Windows\System32\drivers\etc` formato:
 
     `<Device IP>    <Node serial number>.<DNS domain of the device>`

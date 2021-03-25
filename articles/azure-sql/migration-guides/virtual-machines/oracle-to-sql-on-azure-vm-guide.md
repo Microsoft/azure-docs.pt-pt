@@ -10,19 +10,19 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 1767f1f990326e513393b8ce47e1ed8485f73849
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d24e056d397617c95a7ba301b58efc3631f40dd
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656481"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026526"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>Guia de migração: Oracle para SQL Server em Azure VM
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Este guia ensina-o a migrar os seus esquemas Oráculos para o SQL Server em Azure VM utilizando o SqL Server Migration Assistant para o Oráculo. 
 
-Para outros cenários, consulte o [Guia de Migração da Base de Dados.](https://datamigration.microsoft.com/)
+Para outros guias de migração, consulte [a Migração da Base de Dados.](https://docs.microsoft.com/data-migration) 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -32,6 +32,8 @@ Para migrar o seu esquema Oráculo para o SQL Server em Azure VM, precisa:
 - Para baixar [o SqL Server Migration Assistant (SSMA) para o Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
 - Um [VM do servidor SQL](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md)alvo.
 - As [permissões necessárias para a SSMA para a Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) e para o [fornecedor.](/sql/ssma/oracle/connect-to-oracle-oracletosql)
+- Conectividade e permissões suficientes para aceder tanto à fonte como ao alvo. 
+
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -46,19 +48,19 @@ Utilize o [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) para ide
 Para utilizar o kit de ferramentas MAP para efetuar uma verificação de inventário, siga estes passos: 
 
 1. Abra o [conjunto de ferramentas MAP](https://go.microsoft.com/fwlink/?LinkID=316883).
-1. Selecione **Criar/Selecionar base de dados**.
+1. Selecione **Criar/Selecionar base de dados**:
 
    ![Selecionar base de dados](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
 
-1. Selecione **Criar uma base de dados de inventário,** insira um nome para a nova base de dados de inventário que está a criar, forneça uma breve descrição e, em seguida, selecione **OK**. 
+1. Selecione **Criar uma base de dados de inventário,** insira um nome para a nova base de dados de inventário que está a criar, forneça uma breve descrição e, em seguida, selecione **OK**:
 
    :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Criar uma base de dados de inventário":::
 
-1. Selecione **Recolher dados de inventário** para abrir o Assistente de Inventário e **Avaliação**. 
+1. Selecione **Recolher dados de inventário** para abrir o Assistente de Inventário e **Avaliação**:
 
    :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png" alt-text="Recolher dados de inventário":::
 
-1. No **Assistente de Inventário e Avaliação,** escolha **oráculo** e, em seguida, selecione **Seguinte**. 
+1. No Assistente de **Inventário e Avaliação,** escolha **oráculo** e, em seguida, selecione **Seguinte**:
 
    ![Escolha oráculo](./media/oracle-to-sql-on-azure-vm-guide/choose-oracle.png)
 
@@ -66,25 +68,25 @@ Para utilizar o kit de ferramentas MAP para efetuar uma verificação de invent�
 
    ![Escolha a opção de pesquisa de computador que melhor se adapte às necessidades do seu negócio](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
 
-1. Introduza credenciais ou crie novas credenciais para os sistemas que pretende explorar e, em seguida, selecione **Next**.
+1. Introduza credenciais ou crie novas credenciais para os sistemas que pretende explorar e, em seguida, selecione **Seguinte**:
 
     ![Introduzir credenciais](./media/oracle-to-sql-on-azure-vm-guide/choose-credentials.png)
 
-1. Desacione a ordem das credenciais e, em seguida, selecione **Seguinte**. 
+1. Desacione a ordem das credenciais e, em seguida, selecione **Seguinte**:
 
    ![Definir ordem de credencial](./media/oracle-to-sql-on-azure-vm-guide/set-credential-order.png)  
 
-1. Especifique as credenciais para cada computador que pretende descobrir. Pode utilizar credenciais únicas para cada computador/máquina, ou pode optar por utilizar a lista **de Todas as Credenciais de Computador.**  
+1. Especifique as credenciais para cada computador que pretende descobrir. Pode utilizar credenciais únicas para cada computador/máquina, ou pode optar por utilizar a lista **de Todas as Credenciais de Computador:**
 
 
    ![Especifique as credenciais para cada computador que pretende descobrir](./media/oracle-to-sql-on-azure-vm-guide/specify-credentials-for-each-computer.png)
 
 
-1. Verifique o resumo da sua seleção e, em seguida, **selecione Terminar**.
+1. Verifique o resumo da sua seleção e, em seguida, **selecione Terminar**:
 
    ![Resumo da revisão](./media/oracle-to-sql-on-azure-vm-guide/review-summary.png)
 
-1. Após a conclusão da varredura, consulte o relatório do resumo da Recolha de **Dados.** A varredura pode demorar alguns minutos, e depende do número de bases de dados. Selecione **Fechar** quando terminar. 
+1. Após a conclusão da varredura, consulte o relatório do resumo da Recolha de **Dados.** A varredura pode demorar alguns minutos, e depende do número de bases de dados. Selecione **Fechar** quando terminar:
 
    ![Relatório de resumo da coleção](./media/oracle-to-sql-on-azure-vm-guide/collection-summary-report.png)
 
@@ -100,11 +102,11 @@ Para criar uma avaliação, siga estes passos:
 
 1. Abra o  [SqL Server Migration Assistant (SSMA) para o Oráculo](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Selecione **File** e, em seguida, escolha **Novo Projeto**. 
-1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione um alvo de migração sql Server a partir do drop-down. Selecione **OK**. 
+1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione um alvo de migração sql Server a partir do drop-down. Selecione **OK**:
 
    ![Novo projeto](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
 
-1. Selecione **Connect to Oracle**. Introduza os valores para os detalhes da ligação Oracle na caixa de diálogo **Connect to Oracle.**
+1. Selecione **Connect to Oracle**. Introduza os valores para os detalhes da ligação Oracle na caixa de diálogo **Connect to Oracle:**
 
    ![Ligar ao Oráculo](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
 
@@ -112,22 +114,16 @@ Para criar uma avaliação, siga estes passos:
 
    ![Selecione esquema Oráculo](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
 
-1. Clique com o botão direito no esquema do Oráculo que pretende migrar no **Oracle Metadata Explorer** e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados.
+1. Clique com o botão direito no esquema do Oráculo que pretende migrar no **Oracle Metadata Explorer** e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados:
 
    ![Criar Relatório](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
 
 1. No **Oracle Metadata Explorer**, selecione o esquema Oráculo e, em seguida, selecione Criar **Relatório** para gerar um relatório HTML com estatísticas de conversão e erros/avisos, se houver.
-1. Reveja o relatório HTML para estatísticas de conversão, bem como erros e avisos. Analise-o para compreender questões e resoluções de conversão.
+1. Reveja o relatório HTML para compreender as estatísticas de conversão e quaisquer erros ou avisos. Também pode abrir o relatório no Excel para obter um inventário de objetos Oráculos e o esforço necessário para realizar conversões de esquemas. A localização predefinição do relatório está na pasta do relatório dentro dos Projetos SSMA. 
 
-   Este relatório também pode ser acedido a partir da pasta de projetos SSMA, tal como selecionado no primeiro ecrã. Do exemplo acima, localize o ficheiro report.xml a partir de: 
-
-   `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2016_11_12T02_47_55\`
-
-    e, em seguida, abri-lo no Excel para obter um inventário de objetos Oráculos e o esforço necessário para realizar conversões de esquemas.
-
+   Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2016_11_12T02_47_55\`
+    
    ![Relatório de Conversão](./media/oracle-to-sql-on-azure-vm-guide/conversion-report.png)
-
-
 
 ### <a name="validate-data-types"></a>Validar tipos de dados
 
@@ -135,28 +131,30 @@ Valide os mapeamentos do tipo de dados predefinidos e altere-os com base nos req
 
 1. Selecione **Ferramentas** do menu. 
 1. Selecione **Definições de projetos**. 
-1. Selecione o **separador de mapeamentos Tipo.** 
+1. Selecione o **separador de mapeamentos Tipo:**
 
    ![Mapeamentos de tipo](./media/oracle-to-sql-on-azure-vm-guide/type-mappings.png)
 
 1. Pode alterar o mapeamento do tipo para cada tabela selecionando a tabela no explorador de **metadados Oráculo**. 
-
-
 
 ### <a name="convert-schema"></a>Converter esquema
 
 Para converter o esquema, siga estes passos: 
 
 1. (Opcional) Para converter consultas dinâmicas ou ad-hoc, clique no nó à direita e escolha **Adicionar a declaração**.
-1. Escolha **O Connect to SQL Server** a partir da barra de navegação de primeira linha e forneça detalhes de conexão para o seu SQL Server em Azure VM. Pode optar por ligar-se a uma base de dados existente ou fornecer um novo nome, caso em que será criada uma base de dados no servidor alvo.
+1. Selecione **Connect to SQL Server** a partir da barra de navegação de primeira linha. 
+     1. Introduza os detalhes da ligação para o seu SQL Server no Azure VM. 
+     1. Escolha a base de dados-alvo a partir do drop-down ou forneça um novo nome, caso em que uma base de dados será criada no servidor alvo. 
+     1. Forneça detalhes de autenticação. 
+     1. Selecione **Ligar**. 
 
    ![Ligue-se ao SQL](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
 
-1. Clique com o botão direito no esquema do **Oráculo** no Oracle Metadata Explorer e escolha **Converter o Schema.**
+1. Clique com o botão direito no esquema do **Oráculo** no Oracle Metadata Explorer e escolha **Converter o Schema.** Em alternativa, pode **selecionar converter o esquema** da barra de navegação de primeira linha:
 
    ![Converter Schema](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
 
-1. Depois de terminado o esquema, compare e reveja a estrutura do esquema para identificar potenciais problemas.
+1. Após a conversão concluída, compare e reveja os objetos convertidos aos objetos originais para identificar potenciais problemas e abordá-los com base nas recomendações:
 
    ![Recomendações de revisão](./media/oracle-to-sql-on-azure-vm-guide/table-mapping.png)
 
@@ -166,37 +164,38 @@ Para converter o esquema, siga estes passos:
 
    Pode guardar o projeto localmente para um exercício de remediação de esquemas offline. Pode **fazê-lo** selecionando Save Project a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para o SQL Server.
 
+1. Selecione **Os resultados** da Revisão no painel de saída e os erros de revisão no painel **da lista de erros.** 
+1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para o SQL Server no Azure VM.
+
 
 ## <a name="migrate"></a>Migrate
 
 Depois de ter os pré-requisitos necessários e ter concluído as tarefas associadas à fase **de pré-migração,** está pronto para executar o esquema e a migração de dados. A migração envolve dois passos – publicar o esquema e migrar os dados. 
 
 
-Para publicar o esquema e migrar os dados, siga estes passos: 
+Para publicar o seu esquema e migrar os dados, siga estes passos: 
 
-1. Clique com o botão direito na base de dados do **SQL Server Metadata Explorer**  e escolha **Sincronizar com Base de Dados**. Esta ação publica o esquema da Oracle para o SQL Server no Azure VM. 
+1. Publique o esquema: Clique à direita na base de dados do **SQL Server Metadata Explorer**  e escolha **Sincronizar com base de dados**. Esta ação publica o esquema da Oracle para o SQL Server no Azure VM:
 
    ![Sincronizar com base de dados](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database.png)
 
-   Reveja o estado de sincronização: 
+   Reveja o mapeamento entre o seu projeto de origem e o seu alvo:
 
    ![Rever o estado da sincronização](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database-review.png)
 
 
-1. Clique com o botão direito no esquema do Oráculo a partir do Explorador de **Metadados do Oráculo** e escolha **Dados Migratórios**. Em alternativa, pode selecionar Dados Migratórios a partir da navegação de primeira linha.
+1. Migrar os dados: Clique na base de dados ou no objeto que pretende migrar no **Oracle Metadata Explorer** e escolha **dados migratórios**. Em alternativa, pode **selecionar Dados Migratórios** a partir da barra de navegação de primeira linha. Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de dados, expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação:
 
    ![Dados migratórios](./media/oracle-to-sql-on-azure-vm-guide/migrate-data.png)
 
 1. Forneça detalhes de ligação para o Oracle e SQL Server no Azure VM na caixa de diálogo.
-1. Após a conclusão da migração, consulte o relatório sobre migração de dados:
+1. Após a conclusão da migração, consulte o **Relatório de Migração de Dados:**  
 
     ![Relatório de Migração de Dados](./media/oracle-to-sql-on-azure-vm-guide/data-migration-report.png)
 
-1. Conecte-se ao seu SQL Server no Azure VM utilizando [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) para rever dados e esquemas na sua instância do SQL Server. 
+1. Ligue ao seu SQL Server no exemplo Azure VM utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas:
 
    ![Validar em SSMA](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
-
-
 
 
 Além de utilizar o SSMA, também pode utilizar os Serviços de Integração de Servidores SQL (SSIS) para migrar os dados. Para saber mais, veja: 

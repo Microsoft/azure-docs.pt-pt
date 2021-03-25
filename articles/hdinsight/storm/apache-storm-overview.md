@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: a2bca34f683df27c97b131d57c6c3278f7cb175e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 867f042332457ebc5fdd6b1f10ce7fb636309ba8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98928901"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865337"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
@@ -42,7 +42,7 @@ Para começar a usar storm, consulte [Create e monitorize uma topologia da Tempe
 
 A tempestade executa topologias em vez dos trabalhos [apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  que talvez conheçam. As topologias do Storm são compostas por múltiplos componentes que são dispostos num grafo dirigido acíclico (DAG). Fluxos de dados entre os componentes no gráfico. Cada componente consome um ou mais fluxos de dados e podem, opcionalmente, emitir um ou mais fluxos. O diagrama seguinte ilustra a forma como os dados fluem entre componentes numa topologia de contagem de palavras básica:
 
-![Exemplo da disposição dos componentes numa topologia Storm](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
+:::image type="content" source="./media/apache-storm-overview/example-apache-storm-topology-diagram.png" alt-text="Exemplo da disposição dos componentes numa topologia Storm" border="false":::
 
 * Os componentes spout trazem dados para uma topologia. Emitem um ou mais fluxos para a topologia.
 
@@ -56,11 +56,11 @@ O nó Nimbus fornece funcionalidade semelhante ao Apache Hadoop JobTracker. Nimb
 
 A configuração predefinida para os clusters do Apache Storm é com apenas um nó Nimbus. O Storm no HDInsight fornece dois nós Nimbus. Se o nó principal falhar, o cluster do Storm muda para o nó secundário enquanto o nó principal se recupera. O seguinte diagrama ilustra a configuração do fluxo de tarefas para o Storm no HDInsight:
 
-![Diagrama de nimbus, zookeeper e supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
+:::image type="content" source="./media/apache-storm-overview/storm-diagram-nimbus.png" alt-text="Diagrama de nimbus, zookeeper e supervisor" border="false":::
 
 ## <a name="ease-of-use"></a>Facilidade de utilização
 
-|Utilização |Description |
+|Utilização |Descrição |
 |---|---|
 |Conectividade Secure Shell (SSH)|Pode aceder aos nós da cabeça do seu cluster Storm através da Internet utilizando o SSH. Pode executar comandos diretamente no seu cluster através de SSH. Para obter mais informações, consulte [Use SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Conectividade web|Todos os clusters HDInsight fornecem a UI web Ambari. Pode monitorizar, configurar e gerir serviços facilmente no seu cluster através da IU Web do Ambari. Os clusters do Storm também fornecem a IU do Storm. Pode monitorizar e gerir topologias Storm em execução a partir do seu browser na IU do Storm. Para obter mais informações, consulte o [Manage HDInsight utilizando o Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) e Monitor e gere usando os documentos [apache storm UI.](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui)|
