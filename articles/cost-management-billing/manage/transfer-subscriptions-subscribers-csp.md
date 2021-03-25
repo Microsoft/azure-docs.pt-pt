@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 03/24/2021
 ms.author: banders
-ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b88a5bc10afeffe7e15ad7a90e28bd8b8ff28688
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363054"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046560"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir subscrições do Azure entre subscritores e CSPs
 
@@ -21,7 +21,7 @@ Este artigo apresenta os passos de alto nível utilizados para transferir subscr
 
 Antes de iniciar um pedido de transferência, deve transferir ou exportar qualquer informação de custo e faturação que pretenda manter. As informações de faturação e utilização não são transferidas com a subscrição. Para obter mais informações acerca da exportação dos dados de gestão de custo, consulte [Criar e gerir dados exportados](../costs/tutorial-export-acm-data.md). Para obter mais informações sobre como transferir a sua fatura e dados de utilização, consulte [Transferir ou visualizar a sua fatura de faturação do Azure e dados de utilização diária](download-azure-invoice-daily-usage-date.md).
 
-Se tiver algumas reservas existentes, estas deixarão de ser aplicadas após transferir uma subscrição. Certifique-se de [cancelar todas as reservas e de as reembolsar](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir uma subscrição.
+Se tiver reservas existentes, deixam de se candidatar 90 dias após a transferência de uma subscrição. Certifique-se de [cancelar quaisquer reservas e reembolsá-las](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir uma subscrição para evitar encargos após o período de carência de 90 dias.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir subscrições EA para um parceiro CSP
 

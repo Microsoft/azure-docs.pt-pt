@@ -4,12 +4,12 @@ description: Saiba como o Azure App Service atualiza o SISTEMA e os tempos de ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8b876760ee2bafc855345878a28c38ec3b35daad
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96558492"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047886"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Correção de SO e tempo de execução no Serviço de Aplicações Azure
 
@@ -61,7 +61,7 @@ Quando uma nova versão maior ou menor é adicionada, é instalada lado a lado c
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
 az webapp config set --php-version 7.0 --resource-group <groupname> --name <appname>
 az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 --resource-group <groupname> --name <appname>
-az webapp config set --python-version 3.4 --resource-group <groupname> --name <appname>
+az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 

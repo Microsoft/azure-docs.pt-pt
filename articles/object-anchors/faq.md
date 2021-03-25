@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 6de027f317072512bd9893303d3a79d0f34f3e3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101749085"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047580"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Perguntas frequentes sobre âncoras de objetos Azure
 
@@ -78,7 +78,7 @@ A unidade representa a unidade de medição do modelo. As unidades suportadas po
  1. Execute a calibração ocular para obter uma renderização precisa.
  2. Certifique-se de que o quarto tem uma textura visual rica e uma boa iluminação.
  3. Mantenha o objeto estacionário, longe da confusão, se possível.
- 4. Opcionalmente, limpe a cache [de mapeamento espacial](https://docs.microsoft.com/windows/mixed-reality/spatial-mapping) no seu dispositivo HoloLens.
+ 4. Opcionalmente, limpe a cache [de mapeamento espacial](/windows/mixed-reality/spatial-mapping) no seu dispositivo HoloLens.
  5. Digitalize o objeto andando ao redor dele. Certifique-se de que a maior parte do objeto é observado.
  6. Desajei uma área de busca suficientemente grande para cobrir o objeto.
  7. O objeto deve permanecer estacionário durante a deteção.

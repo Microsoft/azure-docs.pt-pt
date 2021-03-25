@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: b6a834ede381ee319d3ff7678f49febd11e34a5d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8ff7b2940ca9ce3e5dc5913c0e676a32857771e7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102559776"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046883"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades de máquina virtual para Linux
 
@@ -245,7 +245,7 @@ O resultado é semelhante ao seguinte exemplo:
 
 ```bash
 WALinuxAgent-2.2.17 running on ubuntu 16.04
-Python: 3.5.2
+Python: 3.6.0
 Goal state agent: 2.2.18
 ```
 

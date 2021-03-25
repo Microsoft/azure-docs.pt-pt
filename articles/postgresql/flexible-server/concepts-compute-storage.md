@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6bcfbc19cbaa078373d6857bdac74eaf86eca104
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712220"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048056"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opções de computação e armazenamento em Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -121,7 +121,7 @@ Pode monitorizar o seu consumo de E/S no portal Azure ou utilizando comandos Azu
 Quando marcado com um \* , o IOPS é limitado pelo tipo VM selecionado. Caso contrário, o IOPS é limitado pelo tamanho de armazenamento selecionado.
 
 >[!NOTE]
-> Pode ver IOPS mais elevado nas métricas devido à explosão do nível do disco. Consulte a [documentação](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) para mais detalhes. 
+> Pode ver IOPS mais elevado nas métricas devido à explosão do nível do disco. Consulte a [documentação](../../virtual-machines/disk-bursting.md#disk-level-bursting) para mais detalhes. 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Largura de banda máxima de I/O (MiB/seg) para a sua configuração
 

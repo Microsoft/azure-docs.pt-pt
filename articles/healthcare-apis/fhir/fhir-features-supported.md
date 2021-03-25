@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: a31fb48443cf760186faad705b8be21a62846a44
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020801"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048424"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -35,14 +35,14 @@ As versões anteriores também suportadas incluem: `3.0.2`
 | atualização com bloqueio otimista | Yes       | Yes       | Yes       |                                                     |
 | atualização (condicional)           | Yes       | Yes       | Yes       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
-| delete                         | Yes       | Yes       | Yes       |  Ver Nota Abaixo                                                   |
+| delete                         | Yes       | Yes       | Yes       |  Veja a nota abaixo.                                   |
 | eliminar (condicional)           | No        | No        | No        |                                                     |
 | histórico                        | Yes       | Yes       | Yes       |                                                     |
 | criar                         | Yes       | Yes       | Yes       | Apoiar tanto o POST/PUT                               |
 | criar (condicional)           | Yes       | Yes       | Yes       | Emissão [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| pesquisar                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
-| pesquisa acorrentada                 | No        | Yes       | No        |                                                     |
-| pesquisa acorrentada inversa         | No        | Yes       | No        |                                                     |
+| pesquisar                         | Parcial   | Parcial   | Parcial   | Consulte a secção de pesquisa abaixo.                           |
+| pesquisa acorrentada                 | Yes       | Yes       | Parcial   | Ver Nota 2 abaixo.                                   |
+| pesquisa acorrentada inversa         | Yes       | Yes       | Parcial   | Ver Nota 2 abaixo.                                   |
 | capacidades                   | Yes       | Yes       | Yes       |                                                     |
 | lote                          | Yes       | Yes       | Yes       |                                                     |
 | transação                    | No        | Yes       | No        |                                                     |
@@ -51,6 +51,12 @@ As versões anteriores também suportadas incluem: `3.0.2`
 
 > [!Note]
 > A eliminação definida pela especificação FHIR requer que, após a eliminação, as leituras específicas subsequentes não-versão de um recurso retorne um código de estado 410 HTTP e o recurso já não seja encontrado através da pesquisa. A Azure API para FHIR também lhe permite eliminar totalmente (incluindo toda a história) o recurso. Para eliminar totalmente o recurso, pode passar as definições de parâmetro `hardDelete` para verdadeiro `DELETE {server}/{resource}/{id}?hardDelete=true` (). Se não passar este parâmetro ou definido `hardDelete` como falso, as versões históricas do recurso continuarão disponíveis.
+
+
+ **Nota 2**
+* Adiciona suporte MVP para pesquisa de FHIR Acorrentado e Invertido em Cadeia no CosmosDB. 
+
+  Na AZure API para FHIR e no servidor FHIR de código aberto apoiado pela Cosmos, a pesquisa acorrentada e acorrentada inversa é uma implementação mvp. Para realizar pesquisas acorrentadas na Cosmos DB, a implementação percorre a expressão de pesquisa e emite sub-consultas para resolver os recursos combinados. Isto é feito para cada nível da expressão. Se alguma consulta devolver mais de 100 resultados, será lançado um erro. Por predefinição, a procura acorrentada está por trás de uma bandeira de recurso. Para utilizar a pesquisa acorrentada no Cosmos DB, use o cabeçalho `x-ms-enable-chained-search: true` . Para mais detalhes, consulte [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Pesquisar
 
