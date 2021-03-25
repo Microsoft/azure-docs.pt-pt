@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c7e011cf8445164e0931f71e390813c9134dd89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cf67ea58c4c13756fdc6e437883f12124ca47eb9
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200941"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105145"
 ---
 1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Azure Stack Edge e, em seguida, vá à **Visão Geral**. O seu dispositivo deve estar online. Vá ao **gateway de armazenamento cloud > contas de armazenamento**.
 
@@ -35,4 +35,4 @@ ms.locfileid: "103200941"
 
     ![Adicionar uma conta de armazenamento 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
-    Obtém as teclas de acesso [ligando-se ao dispositivo APIs local usando o Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 
+    Obtém as teclas de acesso [ligando-se ao dispositivo APIs local usando o Azure Resource Manager](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).

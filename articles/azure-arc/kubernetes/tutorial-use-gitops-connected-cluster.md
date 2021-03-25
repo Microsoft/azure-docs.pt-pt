@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1459d4a0f15595c6f658d73fcb9cb533023f0eb8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121478"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025722"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutorial: Implementar configurações usando GitOps num arco Azure habilitado para o cluster Kubernetes 
 
@@ -141,7 +141,7 @@ Tal como as chaves privadas, pode fornecer o seu conteúdo known_hosts diretamen
 >[!NOTE]
 >* A versão 1.2.0+ do gráfico do operador de leme suporta o auth privado de lançamento HTTPS Helm.
 >* A versão HTTPS Helm não é suportada para clusters geridos pela AKS.
->* Se precisar do Flux para aceder ao repositório git através do seu representante, terá de atualizar os agentes do Azure Arc com as definições de procuração. Para obter mais informações, consulte [Connect utilizando um servidor de procuração de saída.](./connect-cluster.md#connect-using-an-outbound-proxy-server)
+>* Se precisar do Flux para aceder ao repositório git através do seu representante, terá de atualizar os agentes do Azure Arc com as definições de procuração. Para obter mais informações, consulte [Connect utilizando um servidor de procuração de saída.](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 
 ## <a name="additional-parameters"></a>Parâmetros adicionais
