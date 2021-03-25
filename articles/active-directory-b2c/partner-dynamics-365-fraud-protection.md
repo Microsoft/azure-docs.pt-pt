@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8b725b7fcde8ad24934d74d3ce849260312d2f5f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101646559"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043619"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutorial: Configurar a Proteção contra fraudes Microsoft Dynamics 365 com O Diretório Ativo B2C
 
@@ -102,8 +102,8 @@ Configure as definições de aplicação no [serviço app em Azure](../app-servi
 | :-------- | :------------| :-----------|
 |FraudeProtectionSettings:InstanceId | Configuração do Microsoft DFP |     |
 |FraudeProtectionSettings:DeviceFingerprintingCustomerId | O seu dispositivo Microsoft que recolha a impressão digital do cliente identificação |     |
-| FraudeProtectionSettings:ApiBaseUrl |  O seu URL base do Portal Do Microsoft DFP   | Remover 'int' para chamar a API de produção em vez
-|  TokenProviderConfig: Recurso | https://api.dfp.dynamics-int.com |   Remover 'int' para chamar a API de produção em vez  |
+| FraudeProtectionSettings:ApiBaseUrl |  O seu URL base do Portal Do Microsoft DFP   | Remover 'int' para chamar a API de produção em vez|
+|  TokenProviderConfig: Recurso  |     | Remover 'int' para chamar a API de produção em vez|
 |   TokenProviderConfig:ClientId       |O seu mercador de proteção contra fraudes Azure AD app iD      |       |
 | TokenProviderConfig:Autoridade | https://login.microsoftonline.com/<directory_ID> | Sua autoridade de inquilino da Azure AD |
 | TokenProviderConfig:CertificateThumbprint* | A impressão digital do certificado para usar para autenticar contra a sua aplicação de cliente AD Azure |

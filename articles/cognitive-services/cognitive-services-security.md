@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90fbc41edbfea0ea99d436906d3052e43bfb4fb8
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425299"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043883"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 
@@ -29,13 +29,13 @@ Todos os pontos finais dos Serviços Cognitivos expostos em HTTP aplicam TLS 1.2
 * O idioma (e plataforma) utilizado para fazer a chamada HTTP precisa de especificar TLS 1.2 como parte do pedido
   * Dependendo do idioma e da plataforma, especificar tLS é feito implicitamente ou explicitamente
 
-Para utilizadores .NET, considere as <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">melhores práticas de Segurança da Camada de Transporte. </a>
+Para utilizadores .NET, considere as <a href="/dotnet/framework/network-programming/tls" target="_blank">melhores práticas de Segurança da Camada de Transporte. </a>
 
 ## <a name="authentication"></a>Autenticação
 
 Quando se discute a autenticação, existem vários equívocos comuns. A autenticação e a autorização são muitas vezes confundidas umas com as outras. A identidade é também um componente importante na segurança. Uma identidade é uma recolha de informação sobre um <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal. </a> Os fornecedores de identidade (IdP) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um utilizador. A autorização é a especificação dos direitos de acesso e dos privilégios aos recursos para uma determinada identidade. Várias das ofertas de Serviços Cognitivos incluem o controlo de acesso baseado em funções Azure (Azure RBAC). O Azure RBAC poderia ser usado para simplificar parte da cerimónia envolvida com os diretores de gestão manual. Para mais detalhes, consulte o [controlo de acesso baseado em funções da Azure para os recursos da Azure.](../role-based-access-control/overview.md)
 
-Para obter mais informações sobre a autenticação com chaves de subscrição, tokens de acesso e Diretório Ativo Azure (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">pedidos autenticados aos Serviços Cognitivos da Azure.</a>
+Para obter mais informações sobre a autenticação com chaves de subscrição, tokens de acesso e Diretório Ativo Azure (AAD), consulte <a href="/azure/cognitive-services/authentication" target="_blank">pedidos autenticados aos Serviços Cognitivos da Azure.</a>
 
 ## <a name="environment-variables-and-application-configuration"></a>Variáveis ambientais e configuração de aplicações
 
@@ -113,7 +113,7 @@ Para obter uma variável ambiental, deve ser lido na memória. Dependendo do idi
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>
+Para mais informações, consulte. <a href="/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>
+Para mais informações, consulte. <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>
 
 ```cpp
 #include <stdlib.h>

@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/04/2021
-ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183204"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047356"
 ---
 # <a name="configure-maintenance-window-preview"></a>Janela de manutenção configurada (Pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ A janela de manutenção *predefinida do Sistema* é das 17:00 às 8:00 horas di
 A capacidade de mudar para uma janela de manutenção diferente não está disponível para todos os níveis de serviço ou em todas as regiões. Para obter mais informações sobre a disponibilidade, consulte [a disponibilidade da janela manutenção.](maintenance-window.md#availability)
 
 > [!Important]
-> A janela de manutenção configurante é uma operação assíncrona de longa duração, semelhante à alteração do nível de serviço do recurso Azure SQL. O recurso está disponível durante a operação, exceto uma pequena falha que ocorre no final da operação e que normalmente dura até 8 segundos, mesmo em caso de transações interrompidas de longa duração. Para minimizar o impacto do failover, deve efetuar a operação fora das horas de ponta.
+> A janela de manutenção configurante é uma operação assíncrona de longa duração, semelhante à alteração do nível de serviço do recurso Azure SQL. O recurso está disponível durante a operação, exceto uma reconfiguração curta que ocorre no final da operação e que normalmente dura até 8 segundos, mesmo em caso de transações interrompidas de longa duração. Para minimizar o impacto da reconfiguração, deverá efetuar a operação fora das horas de ponta.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configure janela de manutenção durante a criação de base de dados 
 
@@ -257,7 +257,7 @@ O exemplo a seguir cria uma nova instância gerida e define a janela de manuten�
 ## <a name="configure-maintenance-window-for-existing-databases"></a>Janela de manutenção de configuração para bases de dados existentes
 
 
-Ao aplicar uma seleção de janelas de manutenção numa base de dados, pode ser experimentado um breve failover (vários segundos) na medida em que o Azure aplica as alterações necessárias.
+Ao aplicar uma seleção de janelas de manutenção numa base de dados, pode ser experimentada uma breve reconfiguração (vários segundos) em alguns casos, uma vez que o Azure aplica as alterações necessárias.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

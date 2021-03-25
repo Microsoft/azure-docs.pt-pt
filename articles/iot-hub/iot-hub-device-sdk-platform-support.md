@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c47e67375e093ff6e9a5cf7193c76eeeb5228e29
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97588765"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045659"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte da plataforma Azure IoT Device SDKs
 
@@ -59,9 +59,9 @@ O [dispositivo Azure IoT Hub Python SDK](https://github.com/Azure/azure-iot-sdk-
 
 | SO                  | Compilador                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2.7.*, 3.5 ou mais tarde |
-| macOS High Sierra   | Python 2.7.*, 3.5 ou mais tarde |
-| Família do Windows 10   | Python 2.7.*, 3.5 ou mais tarde |
+| Linux               | Python 2.7.*, 3.6 ou mais tarde |
+| macOS High Sierra   | Python 2.7.*, 3.6 ou mais tarde |
+| Família do Windows 10   | Python 2.7.*, 3.6 ou mais tarde |
 
 Apenas a versão Python 3.5.3 ou posteriormente suporta as APIs assíncronos, recomendamos a utilização da versão 3.7 ou posterior.
 

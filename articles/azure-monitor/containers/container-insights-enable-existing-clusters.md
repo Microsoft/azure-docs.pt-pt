@@ -4,12 +4,12 @@ description: Saiba como permitir a monitorização de um cluster do Serviço Azu
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: e84e1c4ad3aa3950a433218255ccac3d91435231
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fba12fb8dd5c6c91883a88d4acfdca6c6d332c24
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101717677"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109629"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
 
@@ -21,6 +21,8 @@ Pode ativar a monitorização de um cluster AKS que já foi implantado utilizand
 * Terraform
 * [Do Monitor Azure](#enable-from-azure-monitor-in-the-portal) ou [diretamente do cluster AKS](#enable-directly-from-aks-cluster-in-the-portal) no portal Azure
 * Com o [modelo de Gestor de Recursos Azure fornecido](#enable-using-an-azure-resource-manager-template) utilizando o cmdlet Azure PowerShell ou com O `New-AzResourceGroupDeployment` Azure CLI.
+
+Se estiver a ligar um cluster AKS existente a um espaço de trabalho Azure Log Analytics noutra subscrição, o fornecedor de recursos Microsoft.ContainerService deve estar registado na subscrição em que o espaço de trabalho Log Analytics foi criado. Para obter mais informações, consulte [o fornecedor de recursos Do Registo.](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

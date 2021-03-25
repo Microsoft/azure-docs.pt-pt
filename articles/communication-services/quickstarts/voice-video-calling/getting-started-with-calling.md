@@ -8,19 +8,19 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 0886e3955ba58a5a8edbf3cd72b1065b1000b5b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eca80f6353240755a0670fcfa4ca9875107b0d47
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104598831"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108303"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Quickstart: Adicione chamada de voz à sua app
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Inicie-se com os Serviços de Comunicação da Azure utilizando os Serviços de Comunicação chamando a biblioteca do cliente para adicionar chamadas de voz e vídeo à sua app.
+Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação Chamando a SDK para adicionar chamadas de voz e vídeo à sua aplicação.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -45,5 +45,5 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 Para obter mais informações, veja os seguintes artigos:
 
 - Veja a nossa [amostra de herói chamando](../../samples/calling-hero-sample.md)
-- Saiba mais [sobre chamar as capacidades da biblioteca do cliente](./calling-client-samples.md)
+- Saiba mais [sobre as capacidades de chamar sDK](./calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../../concepts/voice-video-calling/about-call-types.md)

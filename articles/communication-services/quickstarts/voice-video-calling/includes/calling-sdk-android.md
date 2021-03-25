@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8d4e573cefd595669d9cb2cf9a7b83595eea7971
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 40d9f03526e5232c0a7b33f64ff35a8501702609
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622303"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107759"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,9 +23,8 @@ ms.locfileid: "103622303"
 ### <a name="install-the-package"></a>Instale o pacote
 
 > [!NOTE]
-> Este documento utiliza a versão 1.0.0-beta.8 da biblioteca do cliente chamador.
+> Este documento utiliza a versão 1.0.0-beta.8 do Call SDK.
 
-<!-- TODO: update with instructions on how to download, install and add package to project -->
 Localize o seu nível de projeto build.gradle e certifique-se de adicionar `mavenCentral()` à lista de repositórios em `buildscript` e `allprojects`
 ```groovy
 buildscript {
@@ -59,11 +58,11 @@ dependencies {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características da biblioteca de clientes Azure Communication Services Call:
+As seguintes classes e interfaces lidam com algumas das principais características dos Serviços de Comunicação Azure Chamando SDK:
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| O CallClient é o principal ponto de entrada para a biblioteca do cliente Call.|
+| CallClient| O CallClient é o principal ponto de entrada para o Call SDK.|
 | Callagent | O CallAgent é usado para iniciar e gerir chamadas. |
 | ComunicadoTokenCredential | O CommunicationTokenCredential é usado como credencial simbólica para instantaneaizar o CallAgent.|
 | Identificador de Comunicação | O Comunicador de Comunicação é usado como diferente tipo de participante que poderia fazer parte de uma chamada.|
@@ -204,7 +203,7 @@ public Call retrieveIncomingCall() {
 
 ## <a name="push-notifications"></a>Notificações push
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 As notificações de push mobile são as notificações pop-up que vê nos dispositivos móveis. Para ligar, vamos focar-nos nas notificações push VoIP (Voice over Internet Protocol). Registaremos notificações push, lidaremos com notificações push e, em seguida, descamuramos notificações push.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -224,10 +223,10 @@ Além disso, o tutorial assume que está a usar a versão 3.6 ou superior do And
 
 Para se registar para notificações push, o pedido precisa de recorrer a `registerPushNotification()` uma instância *CallAgent* com um token de registo do dispositivo.
 
-Para obter o token de registo do dispositivo, adicione a biblioteca do cliente Firebase ao ficheiro *build.gradle* do seu módulo de aplicação, adicionando as seguintes linhas na `dependencies` secção se ainda não estiver lá:
+Para obter o token de registo do dispositivo, adicione o Firebase SDK ao ficheiro *build.gradle* do seu módulo de aplicação, adicionando as seguintes linhas na `dependencies` secção se ainda não estiver lá:
 
 ```
-    // Add the client library for Firebase Cloud Messaging
+    // Add the SDK for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
@@ -244,7 +243,7 @@ Adicione o seguinte plugin ao início do ficheiro se ainda não estiver lá:
 apply plugin: 'com.google.gms.google-services'
 ```
 
-*Selecione Sync Now* na barra de ferramentas. Adicione o seguinte corte de código para obter o símbolo de registo do dispositivo gerado pela biblioteca de clientes de Mensagens Cloud Firebase para a instância de aplicação do cliente Certifique-se de adicionar as importações abaixo ao cabeçalho da atividade principal, por exemplo. São necessários para que o corte recupere o símbolo:
+*Selecione Sync Now* na barra de ferramentas. Adicione o seguinte corte de código para obter o símbolo de registo do dispositivo gerado pela Firebase Cloud Messaging SDK para a instância de aplicação do cliente Certifique-se de adicionar as importações abaixo ao cabeçalho da atividade principal, por exemplo. São necessários para que o corte recupere o símbolo:
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -272,7 +271,7 @@ Adicione este corte para recuperar o símbolo:
                     }
                 });
 ```
-Registe o sinal de registo do dispositivo junto da biblioteca de clientes call services para notificações push de chamadas recebidas:
+Registar o token de registo do dispositivo com o Call Services SDK para notificações push de chamadas recebidas:
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -288,7 +287,7 @@ catch(Exception e) {
 
 Para receber notificações push de chamada recebida, ligue para *handlePushNotification()* numa instância *CallAgent* com uma carga útil.
 
-Para obter a carga útil da Firebase Cloud Messaging, comece por criar um novo Serviço (Serviço de > New > Service >) que alarga a classe de biblioteca de clientes *FirebaseMessagingService* e substitui o `onMessageReceived` método. Este método é o manipulador de eventos chamado quando a Firebase Cloud Messaging entrega a notificação push à aplicação.
+Para obter a carga útil da Firebase Cloud Messaging, comece por criar um novo Serviço (Serviço > de > de Serviço de Nova > de Nova >) que alarga a classe *SDK firebaseMessagingService* e substitui o `onMessageReceived` método. Este método é o manipulador de eventos chamado quando a Firebase Cloud Messaging entrega a notificação push à aplicação.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -318,7 +317,7 @@ Adicione a seguinte definição de serviço ao `AndroidManifest.xml` ficheiro, d
         </service>
 ```
 
-- Uma vez recuperada a carga útil, pode ser transmitida para a biblioteca de clientes *dos Serviços de Comunicação* para ser analisada num objeto interno *de IncomingCallInformation* que será manuseado através da chamada do método *handlePushNotification* numa instância *CallAgent.* Um `CallAgent` caso é criado chamando o método na `createCallAgent(...)` `CallClient` classe.
+- Uma vez que a carga útil é recuperada, pode ser passada para o SDK *dos Serviços de Comunicação* para ser analisada num objeto interno *de IncomingCallInformation* que será manuseado chamando o método *handlePushNotification* numa instância *CallAgent.* Um `CallAgent` caso é criado chamando o método na `createCallAgent(...)` `CallClient` classe.
 
 ```java
 try {
