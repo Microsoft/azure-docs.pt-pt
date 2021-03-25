@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608202"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023134"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Criar uma solução de visão sem código no Azure Percept Studio
 
@@ -106,7 +106,7 @@ Antes de treinar o seu modelo, adicione etiquetas às suas imagens.
 
 1. No lado esquerdo da página **Visão Personalizada,** clique em **'Não marcar'** em Tags para visualizar as **imagens** que acabou de recolher no passo anterior. Selecione uma ou mais das suas imagens não gravadas.
 
-1. Na janela **Image Detail,** clique na imagem para começar a marcar. Se selecionou a deteção de objetos como o seu tipo de projeto, também deve desenhar uma [caixa de delimitação](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images) em torno de objetos específicos que gostaria de etiquetar. Ajuste a caixa de delimitação conforme necessário. Digite a etiqueta do seu objeto e clique **+** para aplicar a etiqueta. Por exemplo, se estivesse a criar uma solução de visão que o notificasse quando uma prateleira de loja precisa de ser reposta, adicione a etiqueta "Prateleira Vazia" a imagens de prateleiras vazias e adicione a etiqueta "Prateleira Cheia" a imagens de prateleiras totalmente abastecidas. Repita para todas as imagens não gravadas.
+1. Na janela **Image Detail,** clique na imagem para começar a marcar. Se selecionou a deteção de objetos como o seu tipo de projeto, também deve desenhar uma [caixa de delimitação](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images) em torno de objetos específicos que gostaria de etiquetar. Ajuste a caixa de delimitação conforme necessário. Digite a etiqueta do seu objeto e clique **+** para aplicar a etiqueta. Por exemplo, se estivesse a criar uma solução de visão que o notificasse quando uma prateleira de loja precisa de ser reposta, adicione a etiqueta "Prateleira Vazia" a imagens de prateleiras vazias e adicione a etiqueta "Prateleira Cheia" a imagens de prateleiras totalmente abastecidas. Repita para todas as imagens não gravadas.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Tela de marcação de imagem em Visão Personalizada.":::
 
@@ -116,7 +116,7 @@ Antes de treinar o seu modelo, adicione etiquetas às suas imagens.
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="Seleção de imagem de treino com botão de comboio em destaque.":::
 
-1. Quando o treino estiver concluído, o ecrã mostrará o desempenho do seu modelo. Para obter mais informações sobre a avaliação destes resultados, consulte a documentação de avaliação do [modelo.](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector) Após o treino, pode também desejar [testar o seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model) em imagens adicionais e treinar se necessário. Cada vez que treinar o seu modelo, será salvo como uma nova iteração. Consulte a [documentação da Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) para obter informações adicionais sobre como melhorar o desempenho do modelo.
+1. Quando o treino estiver concluído, o ecrã mostrará o desempenho do seu modelo. Para obter mais informações sobre a avaliação destes resultados, consulte a documentação de avaliação do [modelo.](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector) Após o treino, pode também desejar [testar o seu modelo](../cognitive-services/custom-vision-service/test-your-model.md) em imagens adicionais e treinar se necessário. Cada vez que treinar o seu modelo, será salvo como uma nova iteração. Consulte a [documentação da Visão Personalizada](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) para obter informações adicionais sobre como melhorar o desempenho do modelo.
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Resultados de treino de modelo.":::
 
@@ -143,7 +143,7 @@ Depois de fechar esta janela, poderá voltar a editar o seu projeto de visão a 
 
 ## <a name="improve-your-model-by-setting-up-retraining"></a>Melhore o seu modelo configurando a reconversão
 
-Depois de ter treinado o seu modelo e o ter implantado no dispositivo, pode melhorar o desempenho do modelo, configurando parâmetros de reconversão para capturar mais dados de treino. Esta funcionalidade é usada para melhorar o desempenho de um modelo treinado, dando-lhe a capacidade de capturar imagens com base numa gama de probabilidades. Por exemplo, pode configurar o seu dispositivo apenas para capturar imagens de treino quando a probabilidade é baixa. Aqui está uma [orientação adicional](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) para adicionar mais imagens e equilibrar dados de treino.
+Depois de ter treinado o seu modelo e o ter implantado no dispositivo, pode melhorar o desempenho do modelo, configurando parâmetros de reconversão para capturar mais dados de treino. Esta funcionalidade é usada para melhorar o desempenho de um modelo treinado, dando-lhe a capacidade de capturar imagens com base numa gama de probabilidades. Por exemplo, pode configurar o seu dispositivo apenas para capturar imagens de treino quando a probabilidade é baixa. Aqui está uma [orientação adicional](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) para adicionar mais imagens e equilibrar dados de treino.
 
 1. Para configurar a reconversão, volte ao seu **Projeto,** em seguida, para **o Projeto Resumo**
 1. No separador **captura de imagem,** selecione **a captura automática de imagens** e **crie a reconversão**.

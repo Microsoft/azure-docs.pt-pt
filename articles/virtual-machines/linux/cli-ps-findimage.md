@@ -1,69 +1,41 @@
 ---
-title: Selecione imagens Linux VM com o CLI Azure
-description: Saiba como usar o Azure CLI para determinar a editora, oferta, SKU e versão para imagens Marketplace VM.
+title: Localizar e utilizar informações do plano de compra do mercado utilizando o CLI
+description: Aprenda a usar o CLI Azure para encontrar URNs de imagem e parâmetros de plano de compra, como a editora, oferta, SKU, e versão, para imagens Marketplace VM.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 01/25/2019
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
-ms.openlocfilehash: efa0b91c9c0e43104f36017c3b1a1f3167190d63
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: contperf-fy21q3-portal
+ms.openlocfilehash: 70cb4cc54c6f9a376d3bd38dc8bb6cd3a059a20c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562814"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022853"
 ---
-# <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com o CLI do Azure
+# <a name="find-azure-marketplace-image-information-using-the-azure-cli"></a>Encontre informações de imagem do Azure Marketplace utilizando o Azure CLI
 
 Este tópico descreve como usar o CLI Azure para encontrar imagens VM no Mercado Azure. Utilize estas informações para especificar uma imagem do Marketplace quando criar um VM programáticamente com os modelos CLI, Gestor de Recursos ou outras ferramentas.
 
-Navegue também nas imagens disponíveis e nas ofertas utilizando a montra do [Azure Marketplace,](https://azuremarketplace.microsoft.com/) o [portal Azure](https://portal.azure.com), ou  [Azure PowerShell](../windows/cli-ps-findimage.md). 
+Também pode navegar nas imagens disponíveis e nas ofertas utilizando o [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou  [o Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-Certifique-se de que está a iniciar sessão numa conta Azure `az login` ().
+## <a name="terminology"></a>Terminologia
 
-[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+Uma imagem de Marketplace em Azure tem os seguintes atributos:
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+* **Editora**: A organização que criou a imagem. Exemplos: Canonical, MicrosoftWindowsServer
+* **Oferta**: O nome de um grupo de imagens relacionadas criadas por uma editora. Exemplos: UbuntuServer, WindowsServer
+* **SKU**: Um caso de oferta, como uma grande libertação de uma distribuição. Exemplos: 18.04-LTS, 2019-Datacenter
+* **Versão**: O número de versão de uma imagem SKU. 
 
-## <a name="deploy-from-a-vhd-using-purchase-plan-parameters"></a>Implementar a partir de um VHD usando parâmetros do plano de compra
+Estes valores podem ser passados individualmente ou como *URN* de imagem, combinando os valores separados pelo cólon (:). Por exemplo: *Editor*:*Oferta*:*Sku*:*Versão*. Pode substituir o número de versão na URN `latest` para utilizar a versão mais recente da imagem. 
 
-Se tiver um VHD existente que foi criado usando uma imagem paga do Azure Marketplace, poderá ter de fornecer informações sobre o plano de compra quando criar um novo VM a partir desse VHD. 
+Se o editor de imagem fornecer licença e termos de compra adicionais, então deve aceitá-los antes de poder usar a imagem.  Para mais informações, consulte [a informação do plano de compra.](#check-the-purchase-plan-information)
 
-Se ainda tiver o VM original, ou outro VM criado usando a mesma imagem de mercado, pode obter o nome do plano, editor e informações do produto usando [a visão de exemplo de exemplo az vm.](/cli/azure/vm#az_vm_get_instance_view) Este exemplo obtém um VM nomeado *myVM* no grupo de recursos *myResourceGroup* e, em seguida, exibe as informações do plano de compra.
 
-```azurepowershell-interactive
-az vm get-instance-view -g myResourceGroup -n myVM --query plan
-```
-
-Se não tiver a informação do plano antes da vm original ser eliminada, pode apresentar um pedido de [apoio](https://ms.portal.azure.com/#create/Microsoft.Support). Precisarão do nome VM, ID de subscrição e da hora da operação de eliminação.
-
-Uma vez que tenha a informação do plano, pode criar o novo VM usando o `--attach-os-disk` parâmetro para especificar o VHD.
-
-```azurecli-interactive
-az vm create \
-   --resource-group myResourceGroup \
-  --name myNewVM \
-  --nics myNic \
-  --size Standard_DS1_v2 --os-type Linux \
-  --attach-os-disk myVHD \
-  --plan-name planName \
-  --plan-publisher planPublisher \
-  --plan-product planProduct 
-```
-
-## <a name="deploy-a-new-vm-using-purchase-plan-parameters"></a>Implementar um novo VM utilizando parâmetros do plano de compra
-
-Se já tiver informações sobre a imagem, pode implantá-la usando o `az vm create` comando. Neste exemplo, implementamos um VM com o RabbitMQ Certificado pela imagem Bitnami:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
-```
-
-Se receber uma mensagem sobre a aceitação dos termos da imagem, consulte a secção [Aceite os termos](#accept-the-terms) mais tarde neste artigo.
 
 ## <a name="list-popular-images"></a>Listar imagens populares
 
@@ -73,20 +45,23 @@ Execute o comando [da lista de imagens az vm,](/cli/azure/vm/image) sem `--all` 
 az vm image list --output table
 ```
 
-A saída inclui a URN de imagem (o valor na coluna *Urna).* Ao criar um VM com uma destas imagens populares do Marketplace, pode especificar alternativamente as *UrnAlias,* uma forma encurtada como *UbuntuLTS*.
+A saída inclui a URN de imagem. Também pode utilizar o *UrnAlias,* que é uma versão abreviada criada para imagens populares como *UbuntuLTS*.
 
 ```output
-You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.5                 OpenLogic:CentOS:7.5:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
-Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+debian-10      Debian                  10                  Debian:debian-10:10:latest                                      Debian               latest
 openSUSE-Leap  SUSE                    42.3                SUSE:openSUSE-Leap:42.3:latest                                  openSUSE-Leap        latest
-RHEL           RedHat                  7-RAW               RedHat:RHEL:7-RAW:latest                                        RHEL                 latest
-SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
-UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
-...
+RHEL           RedHat                  7-LVM               RedHat:RHEL:7-LVM:latest                                        RHEL                 latest
+SLES           SUSE                    15                  SUSE:SLES:15:latest                                             SLES                 latest
+UbuntuServer   Canonical               18.04-LTS           Canonical:UbuntuServer:18.04-LTS:latest                         UbuntuLTS            latest
+WindowsServer  MicrosoftWindowsServer  2019-Datacenter     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest     Win2019Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 ```
 
 ## <a name="find-specific-images"></a>Encontrar imagens específicas
@@ -97,228 +72,77 @@ Por exemplo, o comando que se segue exibe todas as ofertas da Debian (lembre-se 
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
-
 ```
 
 Saída parcial: 
 
 ```output
-Offer              Publisher    Sku                  Urn                                                    Version
------------------  -----------  -------------------  -----------------------------------------------------  --------------
-Debian             credativ     7                    credativ:Debian:7:7.0.201602010                        7.0.201602010
-Debian             credativ     7                    credativ:Debian:7:7.0.201603020                        7.0.201603020
-Debian             credativ     7                    credativ:Debian:7:7.0.201604050                        7.0.201604050
-Debian             credativ     7                    credativ:Debian:7:7.0.201604200                        7.0.201604200
-Debian             credativ     7                    credativ:Debian:7:7.0.201606280                        7.0.201606280
-Debian             credativ     7                    credativ:Debian:7:7.0.201609120                        7.0.201609120
-Debian             credativ     7                    credativ:Debian:7:7.0.201611020                        7.0.201611020
-Debian             credativ     7                    credativ:Debian:7:7.0.201701180                        7.0.201701180
-Debian             credativ     8                    credativ:Debian:8:8.0.201602010                        8.0.201602010
-Debian             credativ     8                    credativ:Debian:8:8.0.201603020                        8.0.201603020
-Debian             credativ     8                    credativ:Debian:8:8.0.201604050                        8.0.201604050
-Debian             credativ     8                    credativ:Debian:8:8.0.201604200                        8.0.201604200
-Debian             credativ     8                    credativ:Debian:8:8.0.201606280                        8.0.201606280
-Debian             credativ     8                    credativ:Debian:8:8.0.201609120                        8.0.201609120
-Debian             credativ     8                    credativ:Debian:8:8.0.201611020                        8.0.201611020
-Debian             credativ     8                    credativ:Debian:8:8.0.201701180                        8.0.201701180
-Debian             credativ     8                    credativ:Debian:8:8.0.201703150                        8.0.201703150
-Debian             credativ     8                    credativ:Debian:8:8.0.201704110                        8.0.201704110
-Debian             credativ     8                    credativ:Debian:8:8.0.201704180                        8.0.201704180
-Debian             credativ     8                    credativ:Debian:8:8.0.201706190                        8.0.201706190
-Debian             credativ     8                    credativ:Debian:8:8.0.201706210                        8.0.201706210
-Debian             credativ     8                    credativ:Debian:8:8.0.201708040                        8.0.201708040
-Debian             credativ     8                    credativ:Debian:8:8.0.201710090                        8.0.201710090
-Debian             credativ     8                    credativ:Debian:8:8.0.201712040                        8.0.201712040
-Debian             credativ     8                    credativ:Debian:8:8.0.201801170                        8.0.201801170
-Debian             credativ     8                    credativ:Debian:8:8.0.201803130                        8.0.201803130
-Debian             credativ     8                    credativ:Debian:8:8.0.201803260                        8.0.201803260
-Debian             credativ     8                    credativ:Debian:8:8.0.201804020                        8.0.201804020
-Debian             credativ     8                    credativ:Debian:8:8.0.201804150                        8.0.201804150
-Debian             credativ     8                    credativ:Debian:8:8.0.201805160                        8.0.201805160
-Debian             credativ     8                    credativ:Debian:8:8.0.201807160                        8.0.201807160
-Debian             credativ     8                    credativ:Debian:8:8.0.201901221                        8.0.201901221
+Offer                                    Publisher                         Sku                                      Urn                                                                                                   Version
+---------------------------------------  --------------------------------  ---------------------------------------  ----------------------------------------------------------------------------------------------------  --------------
+apache-solr-on-debian                    apps-4-rent                       apache-solr-on-debian                    apps-4-rent:apache-solr-on-debian:apache-solr-on-debian:1.0.0                                         1.0.0
+atomized-h-debian10-v1                   atomizedinc1587939464368          hdebian10plan                            atomizedinc1587939464368:atomized-h-debian10-v1:hdebian10plan:1.0.0                                   1.0.0
+atomized-h-debian9-v1                    atomizedinc1587939464368          hdebian9plan                             atomizedinc1587939464368:atomized-h-debian9-v1:hdebian9plan:1.0.0                                     1.0.0
+atomized-r-debian10-v1                   atomizedinc1587939464368          rdebian10plan                            atomizedinc1587939464368:atomized-r-debian10-v1:rdebian10plan:1.0.0                                   1.0.0
+atomized-r-debian9-v1                    atomizedinc1587939464368          rdebian9plan                             atomizedinc1587939464368:atomized-r-debian9-v1:rdebian9plan:1.0.0                                     1.0.0
+cis-debian-linux-10-l1                   center-for-internet-security-inc  cis-debian10-l1                          center-for-internet-security-inc:cis-debian-linux-10-l1:cis-debian10-l1:1.0.7                         1.0.7
+cis-debian-linux-10-l1                   center-for-internet-security-inc  cis-debian10-l1                          center-for-internet-security-inc:cis-debian-linux-10-l1:cis-debian10-l1:1.0.8                         1.0.8
+cis-debian-linux-10-l1                   center-for-internet-security-inc  cis-debian10-l1                          center-for-internet-security-inc:cis-debian-linux-10-l1:cis-debian10-l1:1.0.9                         1.0.9
+cis-debian-linux-9-l1                    center-for-internet-security-inc  cis-debian9-l1                           center-for-internet-security-inc:cis-debian-linux-9-l1:cis-debian9-l1:1.0.18                          1.0.18
+cis-debian-linux-9-l1                    center-for-internet-security-inc  cis-debian9-l1                           center-for-internet-security-inc:cis-debian-linux-9-l1:cis-debian9-l1:1.0.19                          1.0.19
+cis-debian-linux-9-l1                    center-for-internet-security-inc  cis-debian9-l1                           center-for-internet-security-inc:cis-debian-linux-9-l1:cis-debian9-l1:1.0.20                          1.0.20
+apache-web-server-with-debian-10         cognosys                          apache-web-server-with-debian-10         cognosys:apache-web-server-with-debian-10:apache-web-server-with-debian-10:1.2019.1008                1.2019.1008
+docker-ce-with-debian-10                 cognosys                          docker-ce-with-debian-10                 cognosys:docker-ce-with-debian-10:docker-ce-with-debian-10:1.2019.0710                                1.2019.0710
+Debian                                   credativ                          8                                        credativ:Debian:8:8.0.201602010                                                                       8.0.201602010
+Debian                                   credativ                          8                                        credativ:Debian:8:8.0.201603020                                                                       8.0.201603020
+Debian                                   credativ                          8                                        credativ:Debian:8:8.0.201604050                                                                       8.0.201604050
 ...
 ```
 
-Aplicar filtros semelhantes com o `--location` `--publisher` , e `--sku` opções. Pode realizar partidas parciais num filtro, como procurar `--offer Deb` encontrar todas as imagens Debian.
 
-Se não especificar um determinado local com a `--location` opção, os valores para a localização predefinida são devolvidos. (Desafine uma localização padrão diferente executando `az configure --defaults location=<location>` .)
-
-Por exemplo, o seguinte comando lista todos os SKUs Debian 8 na localização da Europa Ocidental:
-
-```azurecli
-az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
-```
-
-Saída parcial:
-
-```output
-Offer    Publisher    Sku                Urn                                              Version
--------  -----------  -----------------  -----------------------------------------------  -------------
-Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
-Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
-Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
-Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
-Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
-Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
-Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
-Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
-Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
-Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
-Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
-Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
-Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
-Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
-Debian   credativ     8                  credativ:Debian:8:8.0.201710090                  8.0.201710090
-Debian   credativ     8                  credativ:Debian:8:8.0.201712040                  8.0.201712040
-Debian   credativ     8                  credativ:Debian:8:8.0.201801170                  8.0.201801170
-Debian   credativ     8                  credativ:Debian:8:8.0.201803130                  8.0.201803130
-Debian   credativ     8                  credativ:Debian:8:8.0.201803260                  8.0.201803260
-Debian   credativ     8                  credativ:Debian:8:8.0.201804020                  8.0.201804020
-Debian   credativ     8                  credativ:Debian:8:8.0.201804150                  8.0.201804150
-Debian   credativ     8                  credativ:Debian:8:8.0.201805160                  8.0.201805160
-Debian   credativ     8                  credativ:Debian:8:8.0.201807160                  8.0.201807160
-Debian   credativ     8                  credativ:Debian:8:8.0.201901221                  8.0.201901221
-...
-```
-
-## <a name="navigate-the-images"></a>Navegue pelas imagens
+## <a name="look-at-all-available-images"></a>Veja todas as imagens disponíveis
  
 Outra forma de encontrar uma imagem num local é executar os [editores de listas de imagens az vm](/cli/azure/vm/image), [az vm lista-ofertas](/cli/azure/vm/image)- e [a az vm list-skus](/cli/azure/vm/image) comandos em sequência. Com estes comandos, determina-se estes valores:
 
-1. Listar os publicadores de imagem.
-2. Para um determinado publicador, liste as respetivas ofertas.
-3. Para uma determinada oferta, liste as respetivas SKUs.
+1. Listar os editores de imagem para uma localização. Neste exemplo, estamos a olhar para a região *oeste dos EUA.*
+    
+    ```azurecli
+    az vm image list-publishers --location westus --output table
+    ```
 
-Em seguida, para um SKU selecionado, pode escolher uma versão para implementar.
+1. Para um determinado publicador, liste as respetivas ofertas. Neste exemplo, adicionamos *canonical* como editor.
+    
+    ```azurecli
+    az vm image list-offers --location westus --publisher Canonical --output table
+    ```
 
-Por exemplo, o seguinte comando lista os editores de imagem na localização dos EUA Ocidentais:
+1. Para uma determinada oferta, liste as respetivas SKUs. Neste exemplo, adicionamos *ubuntuServer* como a oferta.
+    ```azurecli
+    az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
+    ```
 
-```azurecli
-az vm image list-publishers --location westus --output table
-```
+1. Para uma determinada editora, oferta e SKU, mostrar todas as versões da imagem. Neste exemplo, adicionamos *18.04-LTS* como o SKU.
 
-Saída parcial:
+    ```azurecli
+    az vm image list \
+        --location westus \
+        --publisher Canonical \  
+        --offer UbuntuServer \    
+        --sku 18.04-LTS \
+        --all --output table
+    ```
 
-```output
-Location    Name
-----------  ----------------------------------------------------
-westus      128technology
-westus      1e
-westus      4psa
-westus      5nine-software-inc
-westus      7isolutions
-westus      a10networks
-westus      abiquo
-westus      accellion
-westus      accessdata-group
-westus      accops
-westus      Acronis
-westus      Acronis.Backup
-westus      actian-corp
-westus      actian_matrix
-westus      actifio
-westus      activeeon
-westus      advantech-webaccess
-westus      aerospike
-westus      affinio
-westus      aiscaler-cache-control-ddos-and-url-rewriting-
-westus      akamai-technologies
-westus      akumina
-...
-```
-
-Utilize estas informações para encontrar ofertas de um editor específico. Por exemplo, para a editora *canónica* na localização dos EUA ocidentais, encontre ofertas executando `azure vm image list-offers` . Passe a localização e a editora como no seguinte exemplo:
-
-```azurecli
-az vm image list-offers --location westus --publisher Canonical --output table
-```
-
-Resultado:
-
-```output
-Location    Name
-----------  -------------------------
-westus      Ubuntu15.04Snappy
-westus      Ubuntu15.04SnappyDocker
-westus      UbunturollingSnappy
-westus      UbuntuServer
-westus      Ubuntu_Core
-```
-Como vê, na região oeste dos EUA, a Canonical publica a oferta *da UbuntuServer* sobre a Azure. Mas que SKUs? Para obter esses valores, corra `azure vm image list-skus` e desateia a localização, editora e oferta que descobriu:
-
-```azurecli
-az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
-```
-
-Resultado:
-
-```output
-Location    Name
-----------  -----------------
-westus      12.04.3-LTS
-westus      12.04.4-LTS
-westus      12.04.5-LTS
-westus      14.04.0-LTS
-westus      14.04.1-LTS
-westus      14.04.2-LTS
-westus      14.04.3-LTS
-westus      14.04.4-LTS
-westus      14.04.5-DAILY-LTS
-westus      14.04.5-LTS
-westus      16.04-DAILY-LTS
-westus      16.04-LTS
-westus      16.04.0-LTS
-westus      18.04-DAILY-LTS
-westus      18.04-LTS
-westus      18.10
-westus      18.10-DAILY
-westus      19.04-DAILY
-```
-
-Finalmente, use o `az vm image list` comando para encontrar uma versão específica do SKU que deseja, por exemplo, *18.04-LTS:*
-
-```azurecli
-az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 18.04-LTS --all --output table
-```
-
-Saída parcial:
-
-```output
-Offer         Publisher    Sku        Urn                                               Version
-------------  -----------  ---------  ------------------------------------------------  ---------------
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201804262  18.04.201804262
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201805170  18.04.201805170
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201805220  18.04.201805220
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201806130  18.04.201806130
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201806170  18.04.201806170
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201807240  18.04.201807240
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808060  18.04.201808060
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808080  18.04.201808080
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808140  18.04.201808140
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808310  18.04.201808310
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201809110  18.04.201809110
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810030  18.04.201810030
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810240  18.04.201810240
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810290  18.04.201810290
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201811010  18.04.201811010
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812031  18.04.201812031
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812040  18.04.201812040
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812060  18.04.201812060
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201901140  18.04.201901140
-UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201901220  18.04.201901220
-...
-```
-
-Agora pode escolher precisamente a imagem que pretende utilizar tomando nota do valor URN. Passe este valor com o `--image` parâmetro quando criar um VM com o comando [az vm criar.](/cli/azure/vm) Lembre-se que pode substituir opcionalmente o número de versão na URN por "mais recente". Esta versão é sempre a versão mais recente da imagem. 
+Passe este valor da coluna URN com o `--image` parâmetro quando criar um VM com o comando [az vm criar.](/cli/azure/vm) Também pode substituir o número de versão na URN por "mais recente", para simplesmente utilizar a versão mais recente da imagem. 
 
 Se implementar um VM com um modelo de Gestor de Recursos, define os parâmetros de imagem individualmente nas `imageReference` propriedades. Veja a [referência de modelo](/azure/templates/microsoft.compute/virtualmachines).
 
-[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>Ver propriedades do plano
+## <a name="check-the-purchase-plan-information"></a>Verifique as informações do plano de compra
 
-Para ver as informações do plano de compra de uma imagem, execute o comando [de exibição de imagem az vm.](/cli/azure/image) Se a `plan` propriedade na saída não `null` estiver, a imagem tem termos que deve aceitar antes da implementação programática.
+Algumas imagens VM no Azure Marketplace têm licença e termos de compra adicionais que deve aceitar antes de poder implantá-las programáticamente.  
+
+Para implementar um VM a partir de tal imagem, terá de aceitar os termos da imagem na primeira vez que a utilizar, uma vez por subscrição. Também terá de especificar os parâmetros do plano de *compra* para implementar um VM a partir dessa imagem
+
+Para visualizar as informações do plano de compra de uma imagem, execute o comando de exibição de [imagem az vm](/cli/azure/image) com a URN da imagem. Se a `plan` propriedade na saída não `null` estiver, a imagem tem termos que deve aceitar antes da implementação programática.
 
 Por exemplo, a imagem Canonical Ubuntu Server 18.04 LTS não tem termos adicionais, porque a `plan` informação `null` é:
 
@@ -342,7 +166,7 @@ Resultado:
 }
 ```
 
-Executar um comando semelhante para a imagem RabbitMQ Certified by Bitnami mostra as `plan` seguintes propriedades: `name` , e `product` `publisher` . (Algumas imagens também têm uma `promotion code` propriedade.) Para implementar esta imagem, consulte as seguintes secções para aceitar os termos e permitir a implementação programática.
+Executar um comando semelhante para a imagem RabbitMQ Certified by Bitnami mostra as `plan` seguintes propriedades: `name` , e `product` `publisher` . (Algumas imagens também têm uma `promotion code` propriedade.) 
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -367,12 +191,14 @@ Resultado:
 }
 ```
 
+Para implementar esta imagem, tem de aceitar os termos e fornecer os parâmetros do plano de compra quando implementar um VM utilizando essa imagem.
+
 ## <a name="accept-the-terms"></a>Aceitar os termos
 
-Para visualizar e aceitar os termos da licença, utilize o comando [de aceitação de termos de aceitação de imagem az vm.](/cli/azure/vm/image?) Quando aceita os termos, ativa a implementação programática na sua subscrição. Só precisa de aceitar termos uma vez por subscrição para a imagem. Por exemplo:
+Para visualizar e aceitar os termos da licença, utilize o comando [de aceitação de termos de aceitação de imagem az vm.](/cli/azure/vm/image/terms) Quando aceita os termos, ativa a implementação programática na sua subscrição. Só precisa de aceitar termos uma vez por subscrição para a imagem. Por exemplo:
 
 ```azurecli
-az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
+az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
 A saída inclui um `licenseTextLink` nos termos da licença, e indica que o valor `accepted` `true` de:
@@ -393,6 +219,75 @@ A saída inclui um `licenseTextLink` nos termos da licença, e indica que o valo
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
 ```
+
+Para aceitar os termos, escreva:
+
+```azurecli
+az vm image terms accept --urn bitnami:rabbitmq:rabbitmq:latest
+``` 
+
+## <a name="deploy-a-new-vm-using-the-image-parameters"></a>Implementar um novo VM utilizando os parâmetros de imagem
+
+Com informações sobre a imagem, pode implantá-la usando o `az vm create` comando. 
+
+Para implementar uma imagem que não tenha informações de plano, como a mais recente imagem do Ubuntu Server 18.04 da Canonical, passe a URN `--image` para:
+
+```azurecli-interactive
+az group create --name myURNVM --location westus
+az vm create \
+   --resource-group myURNVM \
+   --name myVM \
+   --admin-username azureuser \
+   --generate-ssh-keys \
+   --image Canonical:UbuntuServer:18.04-LTS:latest 
+```
+
+
+Para uma imagem com parâmetros de plano de compra, como o RabbitMQ Certificado pela imagem Bitnami, você passa a URN para `--image` e também fornece os parâmetros do plano de compra:
+
+```azurecli
+az group create --name myPurchasePlanRG --location westus
+
+az vm create \
+   --resource-group myPurchasePlanRG \
+   --name myVM \
+   --admin-username azureuser \
+   --generate-ssh-keys \
+   --image bitnami:rabbitmq:rabbitmq:latest \
+   --plan-name rabbitmq \
+   --plan-product rabbitmq \
+   --plan-publisher bitnami
+```
+
+Se receber uma mensagem sobre a aceitação dos termos da imagem, reveja a secção [Aceite os termos](#accept-the-terms). Certifique-se de que a saída das `az vm image accept-terms` devoluções mostra o valor `"accepted": true,` que aceitou os termos da imagem.
+
+
+## <a name="using-an-existing-vhd-with-purchase-plan-information"></a>Usando um VHD existente com informações do plano de compra
+
+Se tiver um VHD existente a partir de um VM que foi criado usando uma imagem de Azure Marketplace paga, poderá ter de fornecer informações sobre o plano de compra quando criar um novo VM a partir desse VHD. 
+
+Se ainda tiver o VM original, ou outro VM criado usando a mesma imagem de mercado, pode obter o nome do plano, editor e informações do produto usando [a visão de exemplo de exemplo az vm.](/cli/azure/vm#az_vm_get_instance_view) Este exemplo obtém um VM nomeado *myVM* no grupo de recursos *myResourceGroup* e, em seguida, exibe as informações do plano de compra.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+Se não tiver a informação do plano antes da vm original ser eliminada, pode apresentar um pedido de [apoio](https://ms.portal.azure.com/#create/Microsoft.Support). Precisarão do nome VM, ID de subscrição e da hora da operação de eliminação.
+
+Uma vez que tenha a informação do plano, pode criar o novo VM usando o `--attach-os-disk` parâmetro para especificar o VHD.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
 
 ## <a name="next-steps"></a>Passos seguintes
 Para criar uma máquina virtual rapidamente utilizando as informações de imagem, consulte [Criar e Gerir VMs Linux com o Azure CLI](tutorial-manage-vm.md).

@@ -9,14 +9,14 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 0ce9575f078058c821ffffe1b9fe45eed5a4ad94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22411e5a80f555a3ead05d39466a7a175923d9bc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724182"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104204"
 ---
-* Depois de selecionar a plataforma adequada no passo 4 das definições da [plataforma Configure,](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings) configufique os **URIs de redirecionamento** e **os Tokens de acesso** no painel lateral à direita da interface do utilizador.
+* Depois de selecionar a plataforma adequada no passo 4 das definições da [plataforma Configure,](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings) configufique os **URIs de redirecionamento** e **os Tokens de acesso** no painel lateral à direita da interface do utilizador.
 
     * **Os URIs de redirecionamento** devem corresponder ao endereço fornecido pelo pedido de autenticação:
 
@@ -41,4 +41,4 @@ ms.locfileid: "101724182"
 
     [![Especifique o tipo de permissão API que a sua aplicação requer](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* [Adicione credenciais](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) se a aplicação chamar as APIs do seu ambiente como si mesma. As credenciais permitem que a sua aplicação autença como ele próprio, não requerendo qualquer interação de um utilizador em tempo de execução.
+* [Adicione credenciais](../articles/active-directory/develop/quickstart-register-app.md#add-credentials) se a aplicação chamar as APIs do seu ambiente como si mesma. As credenciais permitem que a sua aplicação autença como ele próprio, não requerendo qualquer interação de um utilizador em tempo de execução.

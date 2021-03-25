@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fb57992c8e26560061faf68443c4993801f9713d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929180"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871576"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir as topologias da Tempestade Apache em Azure HDInsight
 
@@ -43,7 +43,7 @@ Pode utilizar as Ferramentas do Lago de Dados para o Estúdio Visual para submet
 
 1. Na **janela Configure** a sua nova janela do projeto, insira um **nome de Projeto,** e vá ou crie uma **Localização** para salvar o novo projeto em. Em seguida, selecione **Criar**.
 
-    ![Configure a sua nova janela de projeto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+    :::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png" alt-text="Configure a sua nova janela de projeto, Visual Studio" border="true":::
 
 1. A partir do **Server Explorer,** clique com o botão direito **Azure** e selecione **Connect to Microsoft Azure Subscription...** e complete o processo de iniciar súpido.
 
@@ -83,7 +83,7 @@ Pode implantar programáticamente uma topologia utilizando o serviço Nimbus. [h
 
 Quando submete uma topologia usando o Visual Studio, aparece a janela **Storm Toplogies View.** Selecione a topologia da lista para ver informações sobre a topologia de execução.
 
-![Topologia monitor, Storm Toplogies View window, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png" alt-text="Topologia monitor, Storm Toplogies View window, Visual Studio" border="true":::
 
 > [!NOTE]  
 > Também pode ver **As Topologias** de Tempestade do Explorador de **Servidores.** Expanda **a Azure**  >  **HDInsight,** clique à direita numa tempestade no cluster HDInsight e, em seguida, selecione **Ver Topologias de Tempestade**.
@@ -169,7 +169,7 @@ O Storm UI fornece uma interface web para trabalhar com topologias de execução
 
 A página principal do UI da tempestade fornece as seguintes informações:
 
-| Section | Description |
+| Section | Descrição |
 | --- | --- |
 | Resumo do cluster| Informação básica sobre o aglomerado de tempestades. |
 | Resumo de Nimbus | Uma lista de informações básicas do Nimbus. |
@@ -179,13 +179,13 @@ A página principal do UI da tempestade fornece as seguintes informações:
 
 A página principal da Storm UI é semelhante a esta página web:
 
-![Página principal, Storm UI, Apache Storm toplogies, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png" alt-text="Página principal, Storm UI, Apache Storm toplogies, Azure" border="true":::
 
 #### <a name="topology-summary"></a>Resumo da topologia
 
 A seleção de um link da secção **de resumo topologia** apresenta as seguintes informações sobre a topologia:
 
-| Section | Description |
+| Section | Descrição |
 | --- | --- |
 | Resumo da topologia | Informação básica sobre a topologia. |
 | Ações de topologia| Ações de gestão que pode fazer pela topologia. As ações disponíveis são descritas mais tarde nesta secção. |
@@ -198,11 +198,11 @@ A seleção de um link da secção **de resumo topologia** apresenta as seguinte
 
 A página de resumo da topologia da tempestade é semelhante a esta página web:
 
-![Página de resumo de topologia, Tempestade UI, Tempestade Apache, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png" alt-text="Página de resumo de topologia, Tempestade UI, Tempestade Apache, Azure" border="true":::
 
 Na secção **de ações de Topologia,** pode selecionar os seguintes botões para fazer uma ação:
 
-| Botão | Description |
+| Botão | Descrição |
 | --- | --- |
 | Ativar | Retoma o processamento de uma topologia desativada. |
 | Desativar | Pausa numa topologia de corrida. |
@@ -216,7 +216,7 @@ Na secção **de ações de Topologia,** pode selecionar os seguintes botões pa
 
 A seleção de um bico nas secções **Descascados** ou **Parafusos** apresenta as seguintes informações sobre o item selecionado:
 
-| Section | Description |
+| Section | Descrição |
 | --- | --- |
 | Resumo do componente | Informações básicas sobre o bico ou parafuso. |
 | Ações componentes | **Botões Debug** e **Stop Debug.** |
@@ -229,7 +229,7 @@ A seleção de um bico nas secções **Descascados** ou **Parafusos** apresenta 
 
 A página de resumo do parafuso de tempestade é semelhante a esta página web:
 
-![Página sumária do parafuso, Storm UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png" alt-text="Página sumária do parafuso, Storm UI, Apache Storm, Azure" border="true":::
 
 ## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>Monitorize e gere a topologia utilizando a API REST
 
@@ -246,7 +246,7 @@ O URI base para o REST API nos clusters HDInsight baseados em Linux está dispon
 
 Pode encontrar o nome de domínio totalmente qualificado (FQDN) para o nó da cabeça do cluster de várias maneiras:
 
-| Método de descoberta FQDN | Description |
+| Método de descoberta FQDN | Descrição |
 | --- | --- |
 | Sessão SSH | Utilize o comando `headnode -f` de uma sessão de SSH para o cluster. |
 | Teia Ambari | Na página web do cluster Ambari `https://CLUSTERNAME.azurehdinsight.net` (), selecione **Serviços** a partir do topo da página e, em seguida, selecione **Storm**. A partir do separador **Resumo,** selecione **Storm UI Server**. O FQDN do nó que acolhe a API storm ui e rest é apresentado no topo da página. |

@@ -1,15 +1,15 @@
 ---
 title: Armazenamento de imagem de recipiente
 description: Detalhes sobre como as imagens do seu contentor e outros artefactos são armazenados no Registo de Contentores Azure, incluindo segurança, redundância e capacidade.
-ms.topic: article
-ms.date: 03/03/2021
+ms.topic: conceptual
+ms.date: 03/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a9c8ec877ddb17603e82b763223278a2e5e36714
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183272"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047750"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contentor no registo do contentor de Azure
 
@@ -21,11 +21,9 @@ Todas as imagens de contentores e outros artefactos do seu registo estão encrip
 
 ## <a name="regional-storage"></a>Armazenamento regional
 
-O Registo de Contentores Azure armazena dados na região onde o registo é criado, para ajudar os clientes a cumprir os requisitos de residência e conformidade de dados.
+O Registo de Contentores Azure armazena dados na região onde o registo é criado, para ajudar os clientes a cumprir os requisitos de residência e conformidade de dados. Em todas as regiões, com exceção do Brasil Sul e Sudeste Asiático, o Azure também pode armazenar dados de registo numa região emparelhada na mesma geografia. Nas regiões do Sul e do Sudeste Asiático, os dados de registo estão sempre confinados à região, para acomodar os requisitos de residência de dados para essas regiões.
 
-Para ajudar a prevenir falhas no datacenter, algumas regiões oferecem [redundância de zona,](zone-redundancy.md)onde os dados são replicados em vários centros de dados numa determinada região.
-
-Os clientes que desejem ter os seus dados armazenados em várias regiões para um melhor desempenho em diferentes geografias ou que desejem ter resiliência em caso de paralisação regional devem permitir [a geo-replicação.](container-registry-geo-replication.md)
+Se ocorrer uma paragem regional, os dados do registo podem ficar indisponíveis e não são automaticamente recuperados. Os clientes que desejem ter os seus dados de registo armazenados em várias regiões para um melhor desempenho em diferentes geografias ou que desejem ter resiliência em caso de paralisação regional devem permitir [a geo-replicação.](container-registry-geo-replication.md)
 
 ## <a name="geo-replication"></a>Georreplicação
 
@@ -33,7 +31,7 @@ Para cenários que exijam garantias de alta disponibilidade, considere a utiliza
 
 ## <a name="zone-redundancy"></a>Redundância entre zonas
 
-Para criar um registo resiliente e de alta disponibilidade de contentores Azure, opcionalmente permitir [a redundância de zona](zone-redundancy.md) em regiões selecionadas de Azure. Uma característica do nível de serviço Premium, a redundância da zona utiliza [zonas de disponibilidade](../availability-zones/az-overview.md) de Azure para replicar o seu registo para um mínimo de três zonas separadas em cada região ativada. Combine a geo-replicação e a redundância da zona para aumentar a fiabilidade e o desempenho de um registo. 
+Para ajudar a criar um registo resiliente e de alta disponibilidade de contentores Azure, opcionalmente permitir [a redundância de zona](zone-redundancy.md) em regiões selecionadas de Azure. Uma característica do nível de serviço Premium, a redundância da zona utiliza [zonas de disponibilidade](../availability-zones/az-overview.md) de Azure para replicar o seu registo para um mínimo de três zonas separadas em cada região ativada. Combine a geo-replicação e a redundância da zona para aumentar a fiabilidade e o desempenho de um registo. 
 
 ## <a name="scalable-storage"></a>Armazenamento escalável
 

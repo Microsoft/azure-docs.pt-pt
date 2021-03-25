@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684598"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023933"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -350,7 +350,7 @@ Algumas propriedades podem ser alteradas, com exceções dependendo do valor atu
 
 - **singlePlacementGroup** - Se o SinglePlacementGroup for verdadeiro, pode ser modificado para falso. No entanto, se o Grupo de Substituição Único for falso, **pode não** ser modificado para ser verdadeiro.
 - **sub-rede** - A sub-rede de um conjunto de escala pode ser modificada enquanto a sub-rede original e a nova sub-rede estiverem na mesma rede virtual.
-- **imageReferenceSku** - Referência de imagem SKU pode ser atualizado para [distros Linux endossados, imagens](../virtual-machines/linux/endorsed-distros.md)do servidor do Windows/cliente e imagens sem [informações do plano](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku** - Referência de imagem SKU pode ser atualizado para [distros Linux endossados, imagens](../virtual-machines/linux/endorsed-distros.md)do servidor do Windows/cliente e imagens sem [informações do plano](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Imóveis que exigem a mudança de negociação
 Algumas propriedades só podem ser alteradas para determinados valores se os VMs na escala definida forem transabilitados. Estas propriedades incluem:
@@ -417,7 +417,7 @@ Em alternativa, pode querer alterar a imagem que o conjunto de escala utiliza. P
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Atualize o balançador de carga para o seu conjunto de escala
 Digamos que tem uma balança definida com um Balançador de Carga Azure, e pretende substituir o Balançador de Carga Azure por um Gateway de aplicação Azure. As propriedades do equilibrador de carga e do Gateway de aplicação para um conjunto de escala fazem parte de uma lista, para que possa utilizar os comandos para remover ou adicionar elementos de lista em vez de modificar as propriedades diretamente:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss
