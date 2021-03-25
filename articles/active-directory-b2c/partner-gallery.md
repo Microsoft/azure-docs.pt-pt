@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e0125f14570e917b228c5f713e636335755581d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361773"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024273"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
 
@@ -26,12 +26,6 @@ A nossa rede de parceiros ISV alarga as nossas capacidades de solução para o a
 >O [site comunitário Azure Ative Directory B2C no GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) também fornece políticas personalizadas de amostra da comunidade.
 
 ## <a name="identity-verification-and-proofing"></a>Verificação e impermeabilização de identidade
-
-Com parceiros Azure AD B2C, os clientes podem ativar a verificação de identidade e a comprovação dos seus utilizadores finais antes de permitir o registo ou acesso da conta. A verificação e a impermeabilização de identidade podem verificar documentos, informações baseadas no conhecimento e vivacidade.
-
-Um diagrama de arquitetura de alto nível explica o fluxo.
-
-![Diagrama mostra o fluxo de impermeabilização de identidade](./media/partner-gallery/third-party-identity-proofing.png)
 
 A Microsoft associa-se aos seguintes ISVs para verificação e revisão de identidade.
 

@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7d756b53247206ab4dd4f955c954e6bd105afa1d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 16c3b59bcfa14cc02f13dadd726e0380d934598b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778496"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023814"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Descrição geral da avaliação (migrar para VMs do Azure)
 
-Este artigo fornece uma visão geral das avaliações na ferramenta [Azure Migrate: Server Discovery and Assessment.](migrate-services-overview.md) A ferramenta pode avaliar servidores no local em ambiente virtual e hiper-V V e servidores físicos para migração para Azure.
+Este artigo fornece uma visão geral das avaliações na [ferramenta Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. A ferramenta pode avaliar servidores no local em ambiente virtual e hiper-V V e servidores físicos para migração para Azure.
 
 ## <a name="whats-an-assessment"></a>O que é uma avaliação?
 

@@ -1,5 +1,5 @@
 ---
-title: Migrar do Oráculo
+title: 'Oracle para Azure Database for PostgreSQL: Guia de migração'
 titleSuffix: Azure Database for PostgreSQL
 description: Este guia ensina-o a migrar o seu esquema Oráculo para a Base de Dados Azure para PostgreSQL.
 author: sr-msft
@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: ec6cf87b3fd326c905b4843dc30ae6ce15379305
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b41f894a7e4742b75ea06684a960221d4a5b7641
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609453"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024766"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Migrar o Oráculo para Azure Database para PostgreSQL
 

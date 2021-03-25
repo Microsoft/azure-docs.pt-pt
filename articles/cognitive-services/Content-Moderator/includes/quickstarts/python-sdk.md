@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 7aeaeeb07a0b08ae4a142ef147f25ae03c0daac2
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 06ff04d8615b7ebdda07e993a3fc560d44fbf702
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027961"
+ms.locfileid: "105105865"
 ---
 Começa com a biblioteca de clientes Azure Content Moderador para Python. Siga estes passos para instalar o pacote PiPy e experimente o código de exemplo para tarefas básicas. 
 
@@ -346,10 +346,6 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="source-code"></a>Código de origem
-
-* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).
 
 ## <a name="next-steps"></a>Passos seguintes
 

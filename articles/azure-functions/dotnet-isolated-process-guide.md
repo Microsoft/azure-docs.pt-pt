@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4da685c247427e78297df1753779ee9b5c7866b8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774937"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023202"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções em .NET 5.0 em Azure
 
@@ -147,15 +147,17 @@ Para escrever para uma ligação de saída, deve aplicar um atributo de ligaçã
 
 ### <a name="multiple-output-bindings"></a>Encadernações múltiplas de saída
 
-Os dados escritos para uma ligação de saída é sempre o valor de devolução da função. Se precisar de escrever para mais de uma ligação de saída, tem de criar um tipo de devolução personalizado. Este tipo de devolução deve ter o atributo de ligação de saída aplicado a uma ou mais propriedades da classe. O exemplo a seguir escreve para uma resposta HTTP e uma ligação de saída de fila:
+Os dados escritos para uma ligação de saída é sempre o valor de devolução da função. Se precisar de escrever para mais de uma ligação de saída, tem de criar um tipo de devolução personalizado. Este tipo de devolução deve ter o atributo de ligação de saída aplicado a uma ou mais propriedades da classe. O exemplo a seguir de um gatilho HTTP escreve tanto para a resposta HTTP como para uma ligação de saída de fila:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+
+A resposta de um gatilho HTTP é sempre considerada uma saída, pelo que não é necessário um atributo de valor de devolução.
 
 ### <a name="http-trigger"></a>Acionador HTTP
 
 HTTP triggers traduz a mensagem de pedido HTTP incoming num objeto [HttpRequestData] que é passado para a função. Este objeto fornece dados do pedido, `Headers` incluindo, , , e opcional uma `Cookies` `Identities` `URL` mensagem `Body` . Este objeto é uma representação do objeto de pedido HTTP e não do próprio pedido. 
 
-Da mesma forma, a função devolve um objeto [HttpReponseData], que fornece dados utilizados para criar a resposta HTTP, incluindo `StatusCode` `Headers` mensagem, e opcionalmente uma mensagem `Body` .  
+Da mesma forma, a função devolve um objeto [HttpResponseData,] que fornece dados utilizados para criar a resposta HTTP, incluindo `StatusCode` mensagem, e `Headers` opcionalmente uma mensagem `Body` .  
 
 O seguinte código é um gatilho HTTP 
 
