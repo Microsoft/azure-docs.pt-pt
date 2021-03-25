@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108403"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047937"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Utilizar a Azure API Management com microserviços implantados no Serviço Azure Kubernetes
 
@@ -95,7 +95,7 @@ Para obter uma chave de subscrição para aceder a APIs, é necessária uma subs
 
 ### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Opção 3: Implementar APIM dentro do cluster VNet
 
-Em alguns casos, os clientes com restrições regulamentares ou requisitos de segurança rigorosos podem encontrar soluções não viáveis da Opção 1 e 2 devido a pontos finais expostos publicamente. Noutros, o cluster AKS e as aplicações que consomem os microserviços podem residir dentro do mesmo VNet, pelo que não há razão para expor publicamente o cluster, uma vez que todo o tráfego da API permanecerá dentro da VNet. Para estes cenários, pode colocar a API Management no cluster VNet. [O nível API Management Premium](https://aka.ms/apimpricing) suporta a implementação de VNet. 
+Em alguns casos, os clientes com restrições regulamentares ou requisitos de segurança rigorosos podem encontrar soluções não viáveis da Opção 1 e 2 devido a pontos finais expostos publicamente. Noutros, o cluster AKS e as aplicações que consomem os microserviços podem residir dentro do mesmo VNet, pelo que não há razão para expor publicamente o cluster, uma vez que todo o tráfego da API permanecerá dentro da VNet. Para estes cenários, pode colocar a API Management no cluster VNet. [API Management Developer e Os níveis Premium](https://aka.ms/apimpricing) suportam a implementação de VNet. 
 
 Existem dois modos de [implantação da Gestão API num VNet](./api-management-using-with-vnet.md) – Externo e Interno. 
 

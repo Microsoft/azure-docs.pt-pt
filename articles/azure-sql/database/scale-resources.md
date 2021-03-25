@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 453d7e118b946d60eb3d84c6a66abdbea7db2410
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499225"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035647"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Recursos de base de dados de escala dinâmica com tempo mínimo de inatividade
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database e SQL Managed Instance permitem-lhe adicionar dinamicamente mais recursos à sua base de dados com tempo de [inatividade](https://azure.microsoft.com/support/legal/sla/sql-database)mínimo; no entanto, há um interruptor ao longo do período em que a conectividade é perdida para a base de dados por um curto período de tempo, que pode ser atenuada usando a lógica de retrip.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando a procura pela sua aplicação cresce de um punhado de dispositivos e clientes para milhões, a Base de Dados Azure SQL e a escala sql Managed Instance no voo com o mínimo de tempo de inatividade. A escalabilidade é uma das características mais importantes da plataforma como um serviço (PaaS) que lhe permite adicionar dinamicamente mais recursos ao seu serviço quando necessário. A Azure SQL Database permite-lhe alterar facilmente os recursos (energia CPU, memória, produção de IO e armazenamento) alocados às suas bases de dados.
 
@@ -60,6 +60,9 @@ Azure SQL Managed Instance permite-lhe escalar também:
 - [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) usa o modo [vCores](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) e permite-lhe definir os núcleos máximos de CPU e o máximo de armazenamento atribuído ao seu exemplo. Todas as bases de dados dentro da instância gerida partilharão os recursos atribuídos à ocorrência.
 
 Iniciar a escala ou escalar a ação em qualquer um dos sabores reiniciaria o processo do motor da base de dados e movê-lo-ia para uma máquina virtual diferente, se necessário. Mover o processo do motor da base de dados para uma nova máquina virtual é **um processo online** onde pode continuar a utilizar o serviço de Base de Dados Azure SQL existente enquanto o processo está em curso. Uma vez que o motor de base de dados-alvo esteja totalmente inicializado e pronto para processar as consultas, as ligações serão [mudadas de fonte para motor de base de dados-alvo](single-database-scale.md#impact).
+
+> [!NOTE]
+> Não é aconselhável escalar o seu caso gerido se uma transação de longa duração, como a importação de dados, trabalhos de processamento de dados, reconstrução de índices, etc., estiver em execução, ou se tiver alguma ligação ativa sobre o caso. Para evitar que a escala desemoste mais tempo do que o habitual, deverá escalar o caso após a conclusão de todas as operações de longo prazo.
 
 > [!NOTE]
 > Pode esperar uma breve rutura de ligação quando o processo de escala/escala estiver terminado. Se implementou [a lógica Retry para erros transitórios padrão,](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)não notará o failover.

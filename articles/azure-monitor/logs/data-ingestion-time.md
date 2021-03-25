@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49122421f04ee6eef8828ca305cfb235aceee3fb
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500432"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035698"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Log data ingestion time in Azure Monitor (Tempo de ingestão de dados de registo no Azure Monitor)
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. Muitas vezes existem dúvidas sobre o tempo que os dados de registo demoram a ficar disponíveis após a sua recolha. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -81,8 +81,8 @@ O tempo de ingestão pode variar para diferentes recursos em diferentes circunst
 | Passo | Propriedade ou Função | Comentários |
 |:---|:---|:---|
 | Record criado na fonte de dados | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir este valor, então será definido ao mesmo tempo que _TimeReceived. |
-| Record recebido pelo Azure Monitor no ponto final | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
-| Disco armazenado no espaço de trabalho e disponível para consultas | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Record recebido pelo Azure Monitor no ponto final | [_TimeReceived](./log-standard-columns.md#_timereceived) | Este campo não está otimizado para o processamento em massa e não deve ser utilizado para filtrar grandes conjuntos de dados. |
+| Disco armazenado no espaço de trabalho e disponível para consultas | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | Recomenda-se a utilização ingestion_time() se for necessário filtrar apenas registos que, quando ingeridos numa determinada janela de tempo. Neste caso, recomenda-se adicionar também o filtro TimeGenerated com uma gama maior. |
 
 ### <a name="ingestion-latency-delays"></a>Atrasos na latência da ingestão
 Pode medir a latência de um registo específico comparando o resultado da função [ingestion_time()](/azure/kusto/query/ingestiontimefunction) com a propriedade _TimeGenerated._ Estes dados podem ser usados com várias agregações para descobrir como a latência da ingestão se comporta. Examine algum percentil do tempo de ingestão para obter insights para uma grande quantidade de dados. 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633d0b9e454fe2906d98624ac2cdbcc9a8b6c7fa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216653"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022267"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas do ponto final de serviço de rede virtual do Armazenamento do Microsoft Azure
 
@@ -109,6 +109,8 @@ Não estão disponíveis registos centralizados para as políticas de ponto fina
   - Certifique-se de que as contas não são **contas clássicas de armazenamento** com políticas de ponto final de serviço na sub-rede.
 - Um serviço gerido da Azure deixou de funcionar depois de aplicar uma Política de Endpoint de Serviço sobre a sub-rede
   - Os serviços geridos não são suportados com políticas de ponto final de serviço neste momento. *Observe este espaço para obter atualizações.*
+- Acesso a Contas de Armazenamento Gerido deixou de funcionar após a aplicação de uma Política de Ponto de Serviço sobre a sub-rede
+  - As Contas de Armazenamento Geridas não são suportadas com políticas de ponto final de serviço. Se configuradas, as políticas negarão o acesso a todas as Contas de Armazenamento Gerido, por padrão. Se a sua aplicação necessitar de acesso a Contas de Armazenamento Gerido, as políticas de ponto final não devem ser utilizadas para este tráfego.
 
 ## <a name="provisioning"></a>Aprovisionamento
 

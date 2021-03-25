@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: d7a8a598ab2d0c873cf07510cf40a08c22c0f1d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 369905ed5ee0ce9a93ec2be879b5e40114b0a380
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608602"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048668"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Crie um recurso imersivo do Leitor e configuure a autenticação do Azure Ative Directory
 
@@ -198,7 +198,7 @@ O guião foi concebido para ser flexível. Primeiro procurará os recursos Imers
 ## <a name="next-steps"></a>Passos seguintes
 
 * Veja o [Node.js arranque rápido](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais pode fazer com o SDK do leitor imersivo usando Node.js
-* Veja o [tutorial do Android](./tutorial-android.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Java ou Kotlin para Android
-* Veja o tutorial do [iOS](./tutorial-ios.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Swift para iOS
-* Veja o [tutorial python](./tutorial-python.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Python
+* Veja o [tutorial do Android](./how-to-launch-immersive-reader.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Java ou Kotlin para Android
+* Veja o tutorial do [iOS](./how-to-launch-immersive-reader.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Swift para iOS
+* Veja o [tutorial python](./how-to-launch-immersive-reader.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Python
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)
