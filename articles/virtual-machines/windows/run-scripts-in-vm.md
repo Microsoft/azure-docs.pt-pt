@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: ab7d20a83c4cb8cb7a36c4603a5b0b2e69b0662f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 24ff0d8089055f83c76156cf5fb163313faf9492
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102560672"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043483"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Execute scripts no seu Windows VM
 
@@ -58,7 +58,7 @@ O [Trabalhador De Runbook Híbrido](../../automation/automation-hybrid-runbook-w
 
 ## <a name="serial-console"></a>Consola de série
 
-A [consola Serial](../troubleshooting/serial-console-windows.md) proporciona acesso direto a um VM, semelhante ao facto de ter um teclado ligado ao VM.
+A [consola Serial](/troubleshoot/azure/virtual-machines/serial-console-windows) proporciona acesso direto a um VM, semelhante ao facto de ter um teclado ligado ao VM.
 
 * Executar comandos em máquinas virtuais Azure.
 * Pode ser executada utilizando uma consola baseada em texto para a máquina no portal Azure.
@@ -72,4 +72,4 @@ Saiba mais sobre as diferentes funcionalidades que estão disponíveis para exec
 * [Extensão de Script Personalizado](../extensions/custom-script-windows.md)
 * [Executar o Comando](run-command.md)
 * [Função de Trabalho de Runbook Híbrida](../../automation/automation-hybrid-runbook-worker.md)
-* [Consola em série](../troubleshooting/serial-console-windows.md)
+* [Consola em série](/troubleshoot/azure/virtual-machines/serial-console-windows)

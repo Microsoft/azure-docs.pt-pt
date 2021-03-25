@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92371992"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043908"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha da VM VMware ou da máquina física do Azure
 
@@ -78,9 +78,9 @@ Para alterar manualmente o tipo de arranque de controladores para **o Windows Gu
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Incapaz de ligar/RDP/SSH à máquina virtual falhada devido ao botão de ligação acinzentado na máquina virtual
 
-Para obter instruções detalhadas sobre resolução de problemas em questões de PDR, consulte [aqui](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)a nossa documentação.
+Para obter instruções detalhadas sobre resolução de problemas em questões de PDR, consulte [aqui](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)a nossa documentação.
 
-Para obter instruções detalhadas sobre resolução de problemas em questões de SSH, consulte [aqui](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md)a nossa documentação.
+Para obter instruções detalhadas sobre resolução de problemas em questões de SSH, consulte [aqui](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)a nossa documentação.
 
 Se o botão **'Ligar'** na VM em Azure estiver acinzentado e não estiver ligado ao Azure através de uma rota expressa ou ligação VPN local-a-local, então,
 
@@ -94,7 +94,7 @@ Se o botão **'Ligar'** na VM em Azure estiver acinzentado e não estiver ligado
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Não é possível ligar/RDP/SSH - Botão VM Connect disponível
 
-Se o botão **Ligar** no VM falhado em Azure estiver disponível (não acinzentado), verifique os **diagnósticos de Boot** na sua Máquina Virtual e verifique se existem erros tal como listados [neste artigo](../virtual-machines/troubleshooting/boot-diagnostics.md).
+Se o botão **Ligar** no VM falhado em Azure estiver disponível (não acinzentado), verifique os **diagnósticos de Boot** na sua Máquina Virtual e verifique se existem erros tal como listados [neste artigo](/troubleshoot/azure/virtual-machines/boot-diagnostics).
 
 1. Se a máquina virtual não tiver começado, tente falhar até um ponto de recuperação mais antigo.
 2. Se a aplicação dentro da máquina virtual não estiver em cima, tente falhar num ponto de recuperação consistente da aplicação.
@@ -182,7 +182,7 @@ Para resolver o problema:
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Resolução de problemas [ligação RDP ao Windows VM](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
-- Resolução de [problemas Ligação SSH ao Linux VM](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
+- Resolução de problemas [ligação RDP ao Windows VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Resolução de [problemas Ligação SSH ao Linux VM](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
 
 Se precisar de mais ajuda, em seguida, publique a sua consulta no [Microsoft Q&Uma página de perguntas para recuperação](/answers/topics/azure-site-recovery.html) do site ou deixe um comentário no final deste documento. Temos uma comunidade ativa que deve ser capaz de ajudá-lo.

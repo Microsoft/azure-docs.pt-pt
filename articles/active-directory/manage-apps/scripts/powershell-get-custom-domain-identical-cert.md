@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a04b66b4b3e1901a0c8ecaf2c47dec21b94fe0ee
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a45333b9df2e75e443ed40568943c03c703799f3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548962"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044112"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-that-are-published-with-the-identical-certificate"></a>Obtenha todas as aplicações de aplicação Azure AD Proxy que são publicadas com o certificado idêntico
+# <a name="get-all-application-proxy-apps-that-are-published-with-the-identical-certificate"></a>Obtenha todas as aplicações Proxy de aplicação que são publicadas com o certificado idêntico
 
 Este exemplo de script PowerShell lista todas as aplicações de procuração de aplicação Azure Ative (Azure AD) que são publicadas com o certificado idêntico.
 

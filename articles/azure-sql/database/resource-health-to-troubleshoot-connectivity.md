@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
-ms.date: 02/26/2019
-ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 4434c796a41126444b8785440427123e88e0b528
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472010"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107793"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize a Saúde dos Recursos para resolver problemas de conectividade para a Base de Dados Azure SQL e para a Azure SQL Gestão de Instâncias
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [Resource Health](../../service-health/resource-health-overview.md#get-started) for Azure SQL Database and Azure SQL Managed Instance ajuda-o a diagnosticar e obter suporte quando um problema de Azure impacta os seus recursos SQL. Este serviço informa-o do estado de funcionamento atual e antigo dos seus recursos e ajuda-o a mitigar problemas. A Resource Health fornece suporte técnico quando precisa de ajuda com problemas de serviço da Azure.
 
-![Descrição geral](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
+![Descrição Geral](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>Verificações de saúde
 
@@ -76,5 +76,5 @@ As reconfigurações são consideradas condições transitórias e são esperada
 - Saiba mais sobre [a lógica de reorientação para erros transitórios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 - [Resolução de problemas, diagnóstico e prevenção de erros de ligação SQL](troubleshoot-common-connectivity-issues.md).
 - Saiba mais sobre [configurar alertas de saúde de recursos.](../../service-health/resource-health-alert-arm-template-guide.md)
-- Obtenha uma visão geral da Saúde dos [Recursos.](../../application-gateway/resource-health-overview.md)
+- Obtenha uma visão geral da Saúde dos [Recursos.](../../service-health/resource-health-overview.md)
 - Rever [O Recurso Saúde FAQ](../../service-health/resource-health-faq.md).

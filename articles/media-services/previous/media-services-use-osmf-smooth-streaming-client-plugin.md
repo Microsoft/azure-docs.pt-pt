@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70042a5c4c27ec5d163e5f05089ae50b92140c28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b0969ffae7963d6a5f9ac249e43750444ab11baa
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011260"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036055"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Plugin de streaming suave do Microsoft para o Adobe Open Source Media Framework
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O plugin de streaming da Microsoft Smooth para Open Source Media Framework 2.0 (SS for OSMF) alarga as capacidades padrão do OSMF e adiciona a reprodução de conteúdo sonoro do Microsoft Smooth streaming a novos e existentes jogadores OSMF. O plugin também adiciona capacidades de reprodução de streaming suave à Reprodução de Mídia Strobe (SMP).
 
 SS para OSMF inclui duas versões de plugin:
@@ -59,7 +59,7 @@ Os plugins OSMF podem ser carregados estáticamente (no tempo de compilação) o
 * Carga estática: Para carregar estáticamente, é necessário um ficheiro de biblioteca estática (SWC). Os plugins estáticos são adicionados como referência aos projetos e fundem-se dentro do ficheiro de saída final na hora da compilação.
 * Carregamento dinâmico: Para carregar dinamicamente, é necessário um ficheiro pré-compensado (SWF). Os plugins dinâmicos são carregados no tempo de execução e não incluídos na saída do projeto. (Saída compilada) Os plugins dinâmicos podem ser carregados utilizando protocolos HTTP e FILE.
 
-Para obter mais informações sobre o carregamento estático e dinâmico, consulte a página oficial do [plugin DAMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Para obter mais informações sobre o carregamento estático e dinâmico, consulte a página oficial do [plugin DAMF](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS para carregamento estático osmf
 O corte de código abaixo mostra como carregar o plugin SS para OSMF estáticamente e reproduzir um vídeo básico usando a classe MEDIAFactory OSMF. Antes de incluir o código SS para OSMF, certifique-se de que a referência do projeto inclui o plugin estático "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".

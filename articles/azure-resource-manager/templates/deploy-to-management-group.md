@@ -3,12 +3,12 @@ title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 603b7e32e6f4e1181a8ef2df67382b5e21ed6715
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889812"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043313"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementações de grupos de gestão com modelos ARM
 
@@ -25,7 +25,7 @@ Para plantas Azure, utilize:
 * [blueprintAsignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versões](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-Para políticas de Azure, utilize:
+Para a Política Azure, utilize:
 
 * [políticasAssinsagens](/azure/templates/microsoft.authorization/policyassignments)
 * [políticasDefinições](/azure/templates/microsoft.authorization/policydefinitions)

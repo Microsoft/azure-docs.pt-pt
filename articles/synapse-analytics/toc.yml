@@ -23,7 +23,7 @@
     - name: 2 Analise usando a piscina SQL sem servidor
       href: get-started-analyze-sql-on-demand.md
       displayName: 'get, started'
-    - name: 3 Analisar com o Spark
+    - name: 3 Analise usando a piscina de faíscas sem servido
       href: get-started-analyze-spark.md
       displayName: 'get, started'
     - name: 4 Analise usando uma piscina SQL dedicada

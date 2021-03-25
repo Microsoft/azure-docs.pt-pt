@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 1/21/2021
-ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 3/23/2021
+ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101664122"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044265"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Plano para eventos de manutenção Azure em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,11 +27,11 @@ Saiba como se preparar para eventos de manutenção planeados na sua base de dad
 
 Para manter os serviços Azure SQL Database e Azure SQL Managed Instance seguros, conformes, estáveis e performantes, as atualizações estão a ser realizadas através dos componentes de serviço quase continuamente. Graças à arquitetura de serviços moderna e robusta e a tecnologias inovadoras como [o hot patching, a](https://aka.ms/azuresqlhotpatching)maioria das atualizações são totalmente transparentes e não impactantes em termos de disponibilidade de serviços. Ainda assim, poucos tipos de atualizações causam interrupções de serviço curtas e requerem tratamento especial. 
 
-Para cada base de dados, a Base de Dados Azure SQL e a Azure SQL Managed Instance mantêm um quórum de réplicas de bases de dados onde uma réplica é a principal. A todo o momento, uma réplica primária deve estar a ser a manutenção online, e pelo menos uma réplica secundária deve ser saudável. Durante a manutenção planeada, os membros do quórum da base de dados ficarão offline um de cada vez, com a intenção de que haja uma réplica primária de resposta e pelo menos uma réplica secundária on-line para garantir que nenhum cliente está em tempo de inatividade. Quando a réplica primária precisa de ser desligada, ocorrerá um processo de reconfiguração/failover no qual uma réplica secundária se tornará a nova primária.  
+Para cada base de dados, a Base de Dados Azure SQL e a Azure SQL Managed Instance mantêm um quórum de réplicas de bases de dados onde uma réplica é a principal. A todo o momento, uma réplica primária deve estar a ser a manutenção online, e pelo menos uma réplica secundária deve ser saudável. Durante a manutenção planeada, os membros do quórum da base de dados ficarão offline um de cada vez, com a intenção de que haja uma réplica primária de resposta e pelo menos uma réplica secundária on-line para garantir que nenhum cliente está em tempo de inatividade. Quando a réplica primária precisa de ser desligada, ocorrerá um processo de reconfiguração no qual uma réplica secundária se tornará a nova primária.  
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>O que esperar durante um evento de manutenção planeado
 
-O evento de manutenção pode produzir falhas individuais ou múltiplas, dependendo da constelação das réplicas primárias e secundárias no início do evento de manutenção. Em média, ocorrem 1,7 falhas por evento de manutenção planeado. As reconfigurações/falhas geralmente terminam dentro de 30 segundos. A média é de oito segundos. Se já estiver ligado, a sua aplicação deve voltar a ligar-se à nova réplica primária da sua base de dados. Se uma nova ligação for tentada enquanto a base de dados está a sofrer uma reconfiguração antes da nova réplica primária estar on-line, obtém-se o erro 40613 (Base de dados Indisponível): *"Base de dados '{databasename}' no servidor '{servername}' não está atualmente disponível. Por favor, re-tentar a ligação mais tarde.* Se a sua base de dados tiver uma consulta de longa duração, esta consulta será interrompida durante uma reconfiguração e terá de ser reiniciada.
+O evento de manutenção pode produzir reconfigurações únicas ou múltiplas, dependendo da constelação das réplicas primárias e secundárias no início do evento de manutenção. Em média, ocorrem 1,7 reconfigurações por evento de manutenção planeado. As reconfigurações geralmente terminam dentro de 30 segundos. A média é de oito segundos. Se já estiver ligado, a sua aplicação deve voltar a ligar-se à nova réplica primária da sua base de dados. Se uma nova ligação for tentada enquanto a base de dados está a sofrer uma reconfiguração antes da nova réplica primária estar on-line, obtém-se o erro 40613 (Base de dados Indisponível): *"Base de dados '{databasename}' no servidor '{servername}' não está atualmente disponível. Por favor, re-tentar a ligação mais tarde.* Se a sua base de dados tiver uma consulta de longa duração, esta consulta será interrompida durante uma reconfiguração e terá de ser reiniciada.
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Como simular um evento de manutenção planeado
 
@@ -39,7 +39,7 @@ Garantir que a aplicação do seu cliente é resiliente a eventos de manutençã
 
 ## <a name="retry-logic"></a>Repetir a lógica
 
-Qualquer aplicação de produção de clientes que se conecte a um serviço de base de dados em nuvem deve implementar uma lógica robusta [de relembramento de](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)conexão . Isto ajudará a tornar as falhas transparentes para os utilizadores finais, ou pelo menos minimizar os efeitos negativos.
+Qualquer aplicação de produção de clientes que se conecte a um serviço de base de dados em nuvem deve implementar uma lógica robusta [de relembramento de](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)conexão . Isto ajudará a tornar as reconfigurações transparentes para os utilizadores finais, ou pelo menos minimizar os efeitos negativos.
 
 ## <a name="resource-health"></a>Estado de funcionamento de recursos
 

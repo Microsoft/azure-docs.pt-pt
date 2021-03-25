@@ -4,25 +4,20 @@ description: Fornece um resumo das definições de suporte e limitações Azure 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707222"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107283"
 ---
-# <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte de backup do disco Azure (na pré-visualização)
-
->[!IMPORTANT]
->A Azure Disk Backup está em pré-visualização sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever para a pré-visualização.
+# <a name="azure-disk-backup-support-matrix"></a>Matriz de suporte da Cópia de Segurança de Discos do Azure
 
 Pode utilizar [a cópia de segurança do Azure](./backup-overview.md) para proteger discos Azure. Este artigo resume a disponibilidade da região, cenários apoiados e limitações.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Azure Disk Backup está disponível em pré-visualização nas seguintes regiões: West US, West Central US, East US2, Canada Central, UK West, Suíça Norte, Suíça Oeste, Austrália Central, Austrália Central 2, Coreia Central, Coreia do Sul, Japão Oeste, Ásia Oriental, Emirados Árabes Unidos, Brasil Sul, Índia Central. 
+Azure Disk Backup está disponível nas seguintes regiões: West US, West US 2, West Central US, East US, East US2, Central US, South Central US, North Central US, Canada Central, Brasil South, South, UK South, UK West West, West Europe, North Europe, Switzerland North, Switzerland West, Germany West Central, France Central, Noruega East, UAE North, Australia Central, Australia Central, Austrália , Austrália Leste, Coreia Central, Coreia do Sul, Japão Leste, Japão Oeste, Ásia Oriental, Sudeste Asiático, Índia Central. 
 
 Serão anunciadas mais regiões quando estiverem disponíveis.
 

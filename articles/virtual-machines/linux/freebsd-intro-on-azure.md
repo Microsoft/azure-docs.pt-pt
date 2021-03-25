@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 0451047cd0fa31d27553a33b0c9318e03ffa222e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: da51fabaaa3c02137770f0b2d9a851b1f6702980
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102558955"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044054"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introdução ao FreeBSD no Azure
 Este artigo fornece uma visão geral de executar uma máquina virtual FreeBSD em Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 FreeBSD para o Microsoft Azure é um sistema operativo avançado de computador usado para alimentar servidores modernos, desktops e plataformas incorporadas.
 
 A Microsoft Corporation está a disponibilizar imagens do FreeBSD no Azure com o [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) pré-configurado. Atualmente, as seguintes versões FreeBSD são oferecidas como imagens pela Microsoft:
@@ -47,10 +47,10 @@ sudo pkg install bash
 Se a pitão não for instalada na sua máquina FreeBSD, corram seguindo os comandos antes da instalação. 
 
 ```bash
-sudo pkg install python35
+sudo pkg install python38
 cd /usr/local/bin 
 sudo rm /usr/local/bin/python 
-sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.8 /usr/local/bin/python
 ```
 
 Durante a instalação, é-lhe pedido `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` . Se responder `y` e entrar como , pode encontrar o problema `/etc/rc.conf` `a path to an rc file to update` `ERROR: [Errno 13] Permission denied` . Para resolver este problema, deverá conceder o direito de escrita ao utilizador atual contra o ficheiro `etc/rc.conf` .
