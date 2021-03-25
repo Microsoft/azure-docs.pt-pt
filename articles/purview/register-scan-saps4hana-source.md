@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 6d31bd0911b5cf765215e6a482a39b2458c4ba0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e00332eca076b55a884682240ef26ea3a4546d1
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101696165"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046067"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>Registar e digitalizar uma fonte SAP S/4HANA (pré-visualização)
 
@@ -25,7 +25,7 @@ A fonte SAP S/4HANA suporta a **varredura completa** para extrair metadados de u
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1.  Configurar o último [tempo de integração auto-hospedado.](https://www.microsoft.com/download/details.aspx?id=39717)
-    Para obter mais informações, consulte [Criar e configurar um tempo de integração auto-organizado.](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+    Para obter mais informações, consulte [Criar e configurar um tempo de integração auto-organizado.](../data-factory/create-self-hosted-integration-runtime.md)
 
 2.  Certifique-se de que o [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado na sua máquina virtual onde está instalado o tempo de funcionação da integração auto-hospedada.
 
@@ -78,7 +78,7 @@ No ecrã **'Fontes de Registo' (SAP S/4HANA),** faça o seguinte:
 
 Para criar e executar uma nova digitalização, faça o seguinte:
 
-1.  No Centro de Gestão, clique nos tempos de integração. Certifique-se de que é configurado um tempo de integração auto-hospedado. Se não for configurado, use os passos [aqui](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) mencionados para criar um tempo de integração auto-hospedado
+1.  No Centro de Gestão, clique nos tempos de integração. Certifique-se de que é configurado um tempo de integração auto-hospedado. Se não for configurado, use os passos [aqui](./manage-integration-runtimes.md) mencionados para criar um tempo de integração auto-hospedado
 
 2.  Navegue para **fontes.**
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2fd0d9d2b6e80d54bdd45b7a13fab7bfa33841c9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889472"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950602"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -39,7 +39,7 @@ Este como-como enviar mensagens do IoT Hub para Azure Digital Twins, usando uma 
 
 Sempre que um evento de telemetria de temperatura é enviado pelo dispositivo termóstato, uma função processa a telemetria e a propriedade de *temperatura* do gémeo digital deve ser atualizada. Este cenário está delineado num diagrama abaixo:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma função em Azure, que atualiza uma propriedade de temperatura em um gémeo em Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagrama do dispositivo IoT Hub enviando telemetria de temperatura através do IoT Hub para uma função em Azure, que atualiza uma propriedade de temperatura em um gémeo em Azure Digital Twins." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Adicionar um modelo e um duplo digital
 
@@ -47,14 +47,7 @@ Nesta secção, irá configurar um [twin digital](concepts-twins-graph.md) em Az
 
 Para criar um gémeo do tipo termóstato, primeiro terá de carregar o [modelo](concepts-models.md) do termóstato para o seu exemplo, que descreve as propriedades de um termóstato e será usado mais tarde para criar o gémeo. 
 
-O modelo tem o seguinte aspeto:
-:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
-
-Para **fazer o upload deste modelo para a sua instância gémea,** executar o seguinte comando Azure CLI, que carrega o modelo acima como JSON em linha. Pode executar o comando em [Azure Cloud Shell](/cloud-shell/overview.md) no seu navegador ou na sua máquina se tiver o CLI [instalado localmente.](/cli/azure/install-azure-cli)
-
-```azurecli-interactive
-az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
-```
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
 Em seguida, terá de **criar um gémeo utilizando este modelo.** Utilize o seguinte comando para criar um twin termóstato denominado **termóstato67**, e definir 0.0 como um valor de temperatura inicial.
 
@@ -62,13 +55,8 @@ Em seguida, terá de **criar um gémeo utilizando este modelo.** Utilize o segui
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
->[!NOTE]
-> Se estiver a utilizar a Cloud Shell no ambiente PowerShell, poderá ter de escapar aos caracteres da marcação de citação nos campos JSON em linha para que os seus valores sejam corretamente analisados. Aqui estão os comandos para carregar o modelo e criar o gémeo com esta modificação:
->
-> Modelo de upload:
-> ```azurecli-interactive
-> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
-> ```
+> [!Note]
+> Se estiver a utilizar a Cloud Shell no ambiente PowerShell, poderá ter de escapar aos caracteres da marcação de citação nos campos JSON em linha para que os seus valores sejam corretamente analisados. Aqui está o comando para criar o gémeo com esta modificação:
 >
 > Criar gémeos:
 > ```azurecli-interactive
@@ -117,7 +105,7 @@ Guarde o seu código de função.
 
 #### <a name="step-3-publish-the-function-app-to-azure"></a>Passo 3: Publicar a app de função para a Azure
 
-Publique o projeto numa aplicação de função em Azure.
+Publique o projeto com *ioTHubtoTwins.cs* função para uma aplicação de função em Azure.
 
 Para obter instruções sobre como fazê-lo, consulte a secção [**Publicar a aplicação de função para Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) do *How-to: Configurar uma função para o tratamento do artigo de dados.*
 

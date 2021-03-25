@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: dae9ab56ca1349d288aee02f7e2dfa4eccf1508c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5171cefdb82b958ae8148ff63f1daef5f67916c6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199167"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044962"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre a instalação do agente Log Analytics em computadores Linux utilizando os seguintes métodos:
@@ -50,7 +50,7 @@ Começando com versões lançadas após agosto de 2018, estamos a fazer as segui
 
 Partindo da versão 1.13.27 do Agente Linux, o Agente Linux irá suportar os Python 2 e 3. Recomendamos sempre a utilização do último agente. 
 
-Se estiver a utilizar uma versão mais antiga do agente, deve pedir à Máquina Virtual que utilize a pitão 2 por predefinição. Se a sua máquina virtual estiver a utilizar um distro que não inclua python 2 por defeito, então deve instalá-lo. Os seguintes comandos de amostra instalarão Python 2 em diferentes distros.
+Se estiver a utilizar uma versão mais antiga do agente, deve pedir à Máquina Virtual que utilize o Python 2 por predefinição. Se a sua máquina virtual estiver a utilizar um distro que não inclua python 2 por defeito, então deve instalá-lo. Os seguintes comandos de amostra instalarão Python 2 em diferentes distros.
 
  - Chapéu Vermelho, CentOS, Oráculo: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -91,7 +91,7 @@ A tabela seguinte realça as embalagens necessárias para [os distros Linux supo
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x ou 1.1.x |
 |Curl | cURL cliente web | 7.15.5 |
-|Python | | 2.6+ ou 3.3+
+|Python | | 2.7 ou 3.6+
 |Pitão-ctypes | | 
 |PAM | Módulos de Autenticação Incorporável | | 
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: ae3329401a138bc0566ea93a8fbf2071fd44f02c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 57dfc388dcba926706a695c93d2afa1956432be8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503424"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953940"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Utilizar módulos na Automatização do Azure
 
@@ -142,10 +142,10 @@ Importar um módulo Az na sua conta Automation não importa automaticamente o m�
 
 * Quando um livro invoca um cmdlet de um módulo.
 * Quando um livro de bordo importa o módulo explicitamente com o cmdlet [do Módulo de Importação.](/powershell/module/microsoft.powershell.core/import-module)
-* Quando um livro de bordo importa o módulo explicitamente com a declaração [do módulo usando.](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) A declaração de utilização é suportada a partir do Windows PowerShell 5.0 e suporta classes e importação de tipo enum.
+* Quando um livro de bordo importa o módulo explicitamente com a declaração [do módulo usando.](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) A declaração de utilização é suportada a partir do Windows PowerShell 5.0 e suporta classes e importação de tipo enum.
 * Quando um livro importa outro módulo dependente.
 
-Pode importar os módulos Az no portal Azure. Lembre-se de importar apenas os módulos Az de que necessita, não todo o módulo Az.Automation. Como [a Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) é uma dependência para os outros módulos Az, certifique-se de importar este módulo antes de qualquer outro.
+Pode importar os módulos Az para a conta Automation a partir do portal Azure. Lembre-se de importar apenas os módulos Az de que precisa, não todos os módulos Az que estão disponíveis. Como [a Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) é uma dependência para os outros módulos Az, certifique-se de importar este módulo antes de qualquer outro.
 
 1. A partir da sua conta Demômes, em **Recursos Partilhados,** selecione **Módulos.**
 2. Selecione **Galeria Browse**.  

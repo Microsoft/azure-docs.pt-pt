@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 58649e9a864e64ab5781cff3b663e190dac50cb6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105050666"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110547"
 ---
 # <a name="create-a-test-offer"></a>Criar uma oferta de teste
 
@@ -80,7 +80,7 @@ Use a oferta DEV para experimentar modelos de preços. Depois de verificar qual 
 A oferta de DEV deve ter planos com preços zero ou muito baixos nos planos. A oferta PROD terá os preços que pretende cobrar aos clientes.
 
 > [!NOTE]
-> Informação que o utilizador deve notar mesmo que os skimmingPurchases efetivos efetivos feitos em Preview serão processados tanto para ofertas DEV como PROD. Se uma oferta tiver um preço de $100/mo, a sua empresa será cobrada $100. Se isso acontecer, você pode abrir um [bilhete de apoio](support.md) e nós emitiremos um pagamento pelo valor total (e não aceitaremos nenhuma taxa de agência).
+> As compras efetuadas em Preview serão processadas tanto para ofertas DEV como PROD. Se uma oferta tiver um preço de $100/mo, a sua empresa será cobrada $100. Se isso acontecer, você pode abrir um [bilhete de apoio](support.md) e nós emitiremos um pagamento pelo valor total (e não aceitaremos nenhuma taxa de agência).
 
 #### <a name="pricing-model"></a>Modelo preços
 

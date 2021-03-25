@@ -11,18 +11,18 @@ ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5f853c19015a70d596c32532a9c280c785b4597b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609546"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954059"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Atualizar instância de computação e computação cluster host OS
 
 O __cluster compute e__ __a computação__ Azure Machine Learning são uma infraestrutura de computação gerida. Como um serviço gerido, a Microsoft gere o os SO anfitrião e os pacotes e versões de software que estão instalados.
 
-O hospedeiro SO para o cluster de computação e instância computacional foi Ubuntu 16.04 LTS. No **dia 30 de abril de 2021,** a Ubuntu termina o apoio às 16h04. A partir de __15 de março de 2021,__ a Microsoft atualizará automaticamente o host OS para Ubuntu 18.04 LTS. A atualização para 18.04 garantirá atualizações de segurança contínuas e apoio da comunidade Ubuntu. Para obter mais informações sobre o suporte final da Ubuntu para 16.04, consulte o [blog de lançamento da Ubuntu](https://wiki.ubuntu.com/Releases).
+O hospedeiro SO para o cluster de computação e instância computacional foi Ubuntu 16.04 LTS. No **dia 30 de abril de 2021,** a Ubuntu termina o apoio às 16h04. A partir de __15 de março de 2021,__ a Microsoft atualizará automaticamente o host OS para Ubuntu 18.04 LTS. A atualização para 18.04 garantirá atualizações de segurança contínuas e apoio da comunidade Ubuntu. Esta atualização será lançada em todas as regiões do Azure e estará disponível em todas as regiões até __09 de abril de 2021__. Para obter mais informações sobre o suporte final da Ubuntu para 16.04, consulte o [blog de lançamento da Ubuntu](https://wiki.ubuntu.com/Releases).
 
 > [!TIP]
 > * O sistema operativo anfitrião não é a versão SO que pode especificar para um [ambiente](how-to-use-environments.md) quando treina ou implementa um modelo. Os ambientes correm dentro do Docker. Docker corre no hospedeiro os.
@@ -30,11 +30,11 @@ O hospedeiro SO para o cluster de computação e instância computacional foi Ub
 > * Ao utilizar um caso de computação Azure Machine Learning baseado em Ubuntu 18.04, a versão padrão python é _Python 3.8_.
 ## <a name="creating-new-resources"></a>Criação de novos recursos
 
-Compute cluster ou compute instances criados após __15 de março de 2021__ usam Ubuntu 18.04 LTS como o hospedeiro SO por padrão. Não é possível selecionar um sistema operativo de anfitrião diferente.
+Compute cluster ou compute instances criados após __09 de abril de 2021__ usam Ubuntu 18.04 LTS como o hospedeiro SO por padrão. Não é possível selecionar um sistema operativo de anfitrião diferente.
 
 ## <a name="upgrade-existing-resources"></a>Atualizar os recursos existentes
 
-Se tiver clusters de computação ou instâncias computativas existentes criadas antes __de 15 de março de 2021,__ precisa de tomar medidas para atualizar o ostensão para Ubuntu 18.04:
+Se tiver clusters de computação ou instâncias computativas existentes criadas antes __de 15 de março de 2021,__ precisa de tomar medidas para atualizar o ostensos hospedeiros para Ubuntu 18.04. Dependendo da região a que aceda Azure Machine Learning, recomendamos que tome estas ações depois de 09 de abril de __2021__ para garantir que as nossas mudanças foram lançadas para todas as regiões:
 
 * __Cluster de computação Azure Machine Learning:__
 

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c2ffa85ed6cb007dd766d4517a86783d21d4913e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865235"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110513"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurar um aparelho para servidores em ambiente VMware
 
@@ -24,11 +24,12 @@ Pode utilizar o aparelho utilizando um par de métodos:
 - Crie um servidor no vCenter Server utilizando um modelo OVA descarregado. Este é o método descrito neste artigo.
 - Instale o aparelho num servidor existente utilizando um script instalador PowerShell. [Este método](deploy-appliance-script.md) deve ser utilizado se não puder utilizar o modelo OVA, ou se estiver no Governo de Azure.
 
-Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate:Discovery e avaliar, registá-lo com o projeto e configurar o aparelho para iniciar a descoberta.
+Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate: Descoberta e avaliação, registá-lo com o projeto e configurar o aparelho para iniciar a descoberta.
 
 ## <a name="deploy-with-ova"></a>Implementar com OVA
 
 Para configurar o aparelho utilizando um modelo OVA:
+
 1. Forneça um nome de aparelho e gere uma chave de projeto no portal.
 1. Descarregue um ficheiro de modelo OVA e importe-o para o vCenter Server. Verifique se o OVA está seguro.
 1. Crie o VM do aparelho a partir do ficheiro OVA , e verifique se pode ligar-se ao Azure Migrate.
@@ -39,8 +40,8 @@ Para configurar o aparelho utilizando um modelo OVA:
 1. Em **Objetivos de Migração**  >  **Servidores**  >  **Azure Migrate: Descoberta e avaliação**, selecione **Discover**.
 2. In **Discover servers**  >  **Are your servers virtualized?** 
 3. Em **1:Gere a tecla do projeto,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores no seu ambiente VMware. O nome deve ser alfanumérico com 14 caracteres ou menos.
-1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página Discover durante a criação de recursos.
-1. Após a criação bem sucedida dos recursos Azure, gera-se uma **chave de projeto.**
+1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Não feche a página Discover durante a criação de recursos.
+1. Após a criação bem sucedida dos recursos Azure, é gerada uma chave de projeto**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
 ### <a name="2-download-the-ova-template"></a>2. Descarregue o modelo OVA
@@ -101,7 +102,7 @@ Coloque o aparelho pela primeira vez.
 1. Aceite os termos da **licença** e leia as informações de terceiros.
 1. No gestor de configuração > **Configurar pré-requisitos,** faça o seguinte:
    - **Conectividade**: O aparelho verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
-     - Clique em **Configurar o representante** para especificar o endereço de procuração no formulário `http://ProxyIPAddress` ou na porta de `http://ProxyFQDN` escuta.
+     - Clique no **representante de configuração** para especificar o endereço de procuração no formulário `http://ProxyIPAddress` ou na porta de `http://ProxyFQDN` escuta.
      - Especifique as credenciais se o proxy precisar de autenticação.
      - Apenas é suportado o proxy HTTP.
      - Se tiver adicionado detalhes de procuração ou desativado o proxy e/ou autenticação, clique em **Guardar** para ativar novamente a verificação de conectividade.
@@ -123,7 +124,7 @@ Coloque o aparelho pela primeira vez.
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal mostrando o código do dispositivo":::
 
 1. Clique no **código copy & Iniciar sessão** para copiar o código do dispositivo e abrir um pedido de Login Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
-1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e palavra-passe.
+1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e a palavra-passe.
    
    O s-in com um PIN não é suportado.
 3. Caso feche o separador de login acidentalmente sem iniciar sessão, é necessário atualizar o separador de navegador do gestor de configuração do aparelho para ativar novamente o botão Iniciar sessão.
@@ -146,11 +147,11 @@ O aparelho precisa de se ligar ao servidor vCenter para descobrir a configuraç�
 1. Ao clicar em **Guardar**, o aparelho tentará validar a ligação ao servidor vCenter com as credenciais fornecidas e mostrar o **estado de Validação** na tabela contra o endereço IP/FQDN do servidor vCenter.
 1. Pode **revalidar** a conectividade ao vCenter Server a qualquer momento antes de iniciar a descoberta.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Painel 3 no gestor de configuração do aparelho para detalhes do servidor vCenter":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Painel no gestor de configuração do aparelho para detalhes do servidor vCenter":::
 
 ### <a name="provide-server-credentials"></a>Fornecer credenciais de servidor
 
-No **Passo 3: Fornecer credenciais de servidor para realizar inventário de software, análise de dependência de agente e descoberta de instâncias e bases de dados do SQL Server,** pode optar por fornecer múltiplas credenciais de servidor ou se não quiser aproveitar estas funcionalidades, pode optar por saltar o passo e proceder à descoberta do vCenter Server. Pode mudar a sua intenção a qualquer momento depois.
+No **Passo 3: Fornecer credenciais de servidor para realizar inventário de software, análise de dependência de agente e descoberta de instâncias e bases de dados do SQL Server,** pode optar por fornecer múltiplas credenciais de servidor ou se não quiser aproveitar estas funcionalidades, pode optar por saltar o passo e proceder à descoberta do vCenter Server. Pode mudar a sua intenção a qualquer momento.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Painel 3 no gestor de configuração do aparelho para detalhes do servidor":::
 
@@ -166,7 +167,7 @@ Se quiser aproveitar estas funcionalidades, pode fornecer credenciais de servido
 - Ao clicar em **Guardar** ou **Adicionar mais,** o aparelho valida as credenciais de domínio com o Diretório Ativo do domínio para a sua autenticidade. Isto é feito para evitar qualquer bloqueio de conta quando o aparelho faz várias iterações para mapear credenciais para os respetivos servidores.
 - Pode ver o **estado de validação** de todas as credenciais de domínio na tabela de credenciais. Apenas as credenciais de domínio serão validadas.
 - Se a validação falhar, pode clicar no estado **falhado** para ver o erro encontrado e clicar em **credenciais de Revalidato** depois de corrigir o problema para validar novamente as credenciais de domínio falhadas.
-
+    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Painel 3 no gestor de configuração do aparelho para fornecer múltiplas credenciais":::
 
 ### <a name="start-discovery"></a>Iniciar a deteção
 
@@ -176,6 +177,7 @@ Se quiser aproveitar estas funcionalidades, pode fornecer credenciais de servido
 1. Durante o inventário do software, as credenciais de servidores adicionados serão iteradas contra servidores e validadas para análise de dependência de agente. Pode ativar a análise de dependência de agentes para servidores a partir do portal. Apenas os servidores onde a validação é bem sucedida podem ser selecionados para permitir a análise da dependência de agentes.
 
 A descoberta funciona da seguinte forma:
+
 - Leva cerca de 15 minutos para o inventário de servidores descobertos aparecer no portal.
 - A descoberta de aplicações instaladas pode demorar algum tempo. A duração depende do número de servidores descobertos. Para 500 servidores, leva aproximadamente uma hora para que o inventário descoberto apareça no portal Azure Migrate.
 - Após a descoberta dos servidores estar concluída, pode ativar a análise de dependência sem agente nos servidores a partir do portal.

@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 51c9f924c6fe3ac6db86d60e26749d35bc4ab733
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92109158"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108949"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Encriptação de dados em Azure Data Lake Storage Gen1
 
@@ -135,4 +135,4 @@ Note que se utilizar as opções padrão para encriptação, os seus dados são 
 Esta operação deve demorar menos de dois minutos e não se prevê qualquer período de indisponibilidade durante a rotação de chaves. Depois de a operação estar concluída, a versão nova da chave estará em uso.
 
 > [!IMPORTANT]
-> Depois de concluída a operação de rotação da chave, a versão antiga da chave já não é utilizada ativamente para encriptar os dados.  No entanto, em situações raras de falha inesperada em que até as cópias redundantes dos seus dados são afetadas, os dados podem ser restaurados a partir de uma cópia de segurança que ainda está a utilizar a chave antiga. Para garantir que os dados estão acessíveis nestas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de encriptação. Consulte [a orientação de recuperação de desastres para obter dados na Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para obter as melhores práticas para o seu planeamento de recuperação de desastres.
+> Após a conclusão da rotação da chave, a versão antiga da chave já não é utilizada ativamente para encriptar novos dados. Pode haver casos, no entanto, em que o acesso a dados mais antigos pode necessitar da chave antiga. Para permitir a leitura de dados mais antigos, não apague a chave antiga

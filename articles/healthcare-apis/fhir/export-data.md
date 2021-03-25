@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 2/19/2021
+ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9ed78baed35312b9a33c71a3e49b7e9dca22eb9f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020311"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045314"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -23,14 +23,19 @@ Antes de utilizar $export, deverá certificar-se de que a API Azure para FHIR es
 
 ## <a name="using-export-command"></a>Usando $ comando $export
 
-Depois de configurar a API Azure para a exportação, pode utilizar o comando $export para exportar os dados para fora do serviço. Os dados serão armazenados na conta de armazenamento que especificou enquanto configura a exportação. Para aprender a invocar $export comando no servidor FHIR, leia a documentação sobre a [especificação de $export HL7 FHIR](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
+Depois de configurar a API Azure para a exportação, pode utilizar o comando $export para exportar os dados para fora do serviço. Os dados serão armazenados na conta de armazenamento que especificou enquanto configura a exportação. Para aprender a invocar $export comando no servidor FHIR, leia a documentação sobre a [especificação de $export HL7 FHIR](https://hl7.org/Fhir/uv/bulkdata/export/index.html).
+
+
+**Empregos presos em mau estado**
+
+Em algumas situações, há um potencial para um emprego ficar preso em mau estado. Isto pode ocorrer especialmente se as permissões da conta de armazenamento não tiverem sido configuradas corretamente. Uma forma de validar se a sua exportação for bem sucedida é verificar a sua conta de armazenamento para ver se os ficheiros correspondentes do contentor (ou seja, ndjson) estão presentes. Se não estiverem presentes e não houver outros postos de trabalho para exportação, então existe a possibilidade de o atual emprego estar num mau estado. Deve cancelar o trabalho de exportação enviando um pedido de cancelamento e tente voltar a fazer fila. O nosso tempo de funcionação por defeito para uma exportação em mau estado é de 10 minutos antes de parar e mudar para um novo emprego ou voltar a tentar a exportação. 
 
 A Azure API For FHIR suporta $export nos seguintes níveis:
 * [Sistema:](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export)`GET https://<<FHIR service base URL>>/$export>>`
 * [Paciente:](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients)`GET https://<<FHIR service base URL>>/Patient/$export>>`
-* [Grupo de doentes*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) - A AZure API para a FHIR exporta todos os recursos conexos, mas não exporta as características do grupo: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
+* [Grupo de doentes*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) - A Azure API para a FHIR exporta todos os recursos relacionados, mas não exporta as características do grupo: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
-Quando os dados são exportados, é criado um ficheiro separado para cada tipo de recurso. Para garantir que os ficheiros exportados não se tornem demasiado grandes, criamos um novo ficheiro depois de o tamanho de um único ficheiro exportado se tornar maior do que 64 MB. O resultado é que pode obter vários ficheiros para cada tipo de recurso, que será enumerado (ou seja, Paciente-1.ndjson, Paciente-2.ndjson). 
+Quando os dados são exportados, é criado um ficheiro separado para cada tipo de recurso. Para garantir que os ficheiros exportados não se tornem muito grandes. Criamos um novo ficheiro depois de o tamanho de um único ficheiro exportado se tornar maior do que 64 MB. O resultado é que pode obter vários ficheiros para cada tipo de recurso, que será enumerado (isto é, Paciente-1.ndjson, Paciente-2.ndjson). 
 
 
 > [!Note] 
@@ -42,7 +47,7 @@ Além disso, é apoiado o controlo do estado de exportação através do URL dev
 
 Atualmente apoiamos $export para contas de armazenamento ativadas pela ADLS Gen2, com a seguinte limitação:
 
-- O utilizador ainda não pode tirar partido de [espaços hierárquicos;](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) não há uma maneira de direcionar a exportação para um sub-directório específico dentro do contentor. Só fornecemos a capacidade de direcionar um recipiente específico (onde criamos uma nova pasta para cada exportação).
+- O utilizador não pode tirar partido de [espaços hierárquicos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)de nomes , no entanto não existe uma forma de direcionar a exportação para um subdiretório específico dentro do contentor. Só fornecemos a capacidade de direcionar um recipiente específico (onde criamos uma nova pasta para cada exportação).
 
 - Uma vez concluída a exportação, nunca mais exportamos nada para essa pasta, uma vez que as exportações subsequentes para o mesmo contentor estarão dentro de uma pasta recém-criada.
 
@@ -65,17 +70,20 @@ A Azure API para FHIR suporta os seguintes parâmetros de consulta. Todos estes 
 | \_typefilter | Yes | Para solicitar uma filtragem de grãos mais finos, pode utilizar \_ o typefilter juntamente com o parâmetro do \_ tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgula de consultas de FHIR que restringem ainda mais os resultados |
 | \_recipiente | No |  Especifica o contentor dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um recipiente for especificado, os dados serão exportados para esse recipiente numa nova pasta com o nome. Se o recipiente não for especificado, será exportado para um novo recipiente utilizando o tempotando e a identificação do trabalho. |
 
+> [!Note]
+> Apenas as contas de armazenamento na mesma subscrição que para a AZure API para fHIR podem ser registadas como destino para $export operações.
+
 ## <a name="secure-export-to-azure-storage"></a>Exportação Segura para armazenamento Azure
 
 A Azure API para a FHIR apoia uma operação de exportação segura. Uma opção para executar uma exportação segura é permitir endereços IP específicos associados à Azure API para fHIR aceder à conta de armazenamento Azure. Dependendo se a conta de armazenamento está na mesma ou numa localização diferente da AZure API para FHIR, as configurações são diferentes.
 
 ### <a name="when-the-azure-storage-account-is-in-a-different-region"></a>Quando a conta de armazenamento Azure está em uma região diferente
 
-Selecione a lâmina de rede da conta de armazenamento Azure a partir do portal. 
+**Selecione networking** da conta de armazenamento Azure a partir do portal. 
 
    :::image type="content" source="media/export-data/storage-networking.png" alt-text="Definições de rede de armazenamento Azure." lightbox="media/export-data/storage-networking.png":::
    
-Selecione "Redes selecionadas" e especifique o endereço IP na caixa de **intervalos de alcance address** sob a secção de \| Firewall Add IP para permitir o acesso a partir da internet ou das suas redes no local. Pode encontrar o endereço IP a partir da tabela abaixo para a região de Azure, onde é prestado o serviço Azure API para o serviço FHIR.
+Selecione **Redes selecionadas**. Na secção Firewall, especifique o endereço IP na caixa **de intervalo de endereços.** Adicione gamas IP para permitir o acesso a partir da internet ou das suas redes no local. Pode encontrar o endereço IP na tabela abaixo para a região de Azure, onde é prestado o serviço Azure API para o serviço FHIR.
 
 |**Região do Azure**         |**Endereço IP público** |
 |:----------------------|:-------------------|
@@ -106,11 +114,11 @@ Selecione "Redes selecionadas" e especifique o endereço IP na caixa de **interv
 O processo de configuração é o mesmo que acima, exceto uma gama específica de endereços IP no formato CIDR é usado em vez disso, 100.64.0.0/10. A razão pela qual a gama de endereços IP, que inclui 100.64.0.0 – 100.127.255.255, deve ser especificada é porque o endereço IP real utilizado pelo serviço varia, mas estará dentro do intervalo, para cada pedido de $export.
 
 > [!Note] 
-> É possível que um endereço IP privado dentro do intervalo de 10.0.2.0/24 possa ser utilizado em vez disso. Nesse caso, a operação $export não terá sucesso. Pode voltar a tentar o pedido de $export, mas não há garantias de que será utilizado um endereço IP dentro do intervalo de 100.64.0.0/10 da próxima vez. É o comportamento conhecido em rede por design. A alternativa é configurar a conta de armazenamento numa região diferente.
+> É possível que um endereço IP privado dentro do intervalo de 10.0.2.0/24 possa ser utilizado em vez disso. Nesse caso, a operação $export não será bem sucedida. Pode voltar a tentar o pedido de $export, mas não há garantias de que um endereço IP dentro do intervalo de 100.64.0.0/10 será usado da próxima vez. É o comportamento conhecido em rede por design. A alternativa é configurar a conta de armazenamento numa região diferente.
     
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a exportar recursos FHIR usando $export comando. Em seguida, saiba como exportar dados deses identificados:
+Neste artigo, aprendeu a exportar recursos FHIR usando $export comando. Em seguida, para aprender a exportar dados des identificados, consulte:
  
 >[!div class="nextstepaction"]
 >[Exportação de dados não identificados](de-identified-export.md)

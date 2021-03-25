@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130022"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048345"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
 
@@ -48,7 +48,7 @@ Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de es
 O **ID da aplicação AD AZure** está associado ao ID da sua editora, por isso certifique-se de que o mesmo *ID da aplicação* é usado em todas as suas ofertas.
 
 >[!Note]
->Se uma editora tiver duas contas diferentes no Partner Center, devem ser utilizados dois IDs de aplicações AD Azure diferentes.  Cada conta de parceiro no Partner Center deve usar um ID de aplicação AD AZure único para todas as ofertas do SaaS que são publicadas através desta conta.
+>Se a editora tiver duas ou mais contas diferentes no Partner Center, os detalhes do registo da aplicação Azure AD podem ser utilizados apenas numa conta. Utilizando o mesmo ID do inquilino, o par de identificação de aplicativos para uma oferta sob uma conta de editor diferente não é suportado.
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>Como obter o sinal de autorização da editora
 

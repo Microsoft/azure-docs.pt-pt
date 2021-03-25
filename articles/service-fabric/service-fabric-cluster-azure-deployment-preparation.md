@@ -3,19 +3,19 @@ title: Planeie uma implantação de cluster de tecido de serviço Azure
 description: Saiba mais sobre o planeamento e preparação para uma implantação de cluster de tecido de serviço de produção para a Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97109628"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046322"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planear e preparar uma implantação de clusters
 
 O planeamento e a preparação de um cluster de produção é muito importante.  Há muitos fatores a considerar.  Este artigo acompanha-o através dos passos de preparação do seu cluster.
 
 ## <a name="read-the-best-practices-information"></a>Leia as melhores práticas
-Para gerir com sucesso as aplicações e clusters da Azure Service Fabric, existem operações que recomendamos vivamente que realize para otimizar a fiabilidade do seu ambiente de produção.  Para mais informações, leia [a aplicação de Service Fabric e as melhores práticas do cluster.](service-fabric-best-practices-overview.md)
+Para gerir com sucesso as aplicações e clusters da Azure Service Fabric, existem operações que recomendamos vivamente que realize para otimizar a fiabilidade do seu ambiente de produção.  Para mais informações, leia [a aplicação de Service Fabric e as melhores práticas do cluster.](./service-fabric-best-practices-security.md)
 
 ## <a name="select-the-os-for-the-cluster"></a>Selecione o SO para o cluster
 O Service Fabric permite a criação de clusters de Tecido de Serviço em quaisquer VMs ou computadores que executem o Windows Server ou o Linux.  Antes de implantar o seu cluster, tem de escolher o SISTEMA: Windows ou Linux.  Cada nó (máquina virtual) do cluster executa o mesmo SISTEMA, não é possível misturar VMs Windows e Linux no mesmo cluster.
@@ -117,7 +117,7 @@ Uma parte crítica da prestação de alta disponibilidade é garantir que os ser
 A sua aplicação e cluster estão prontos para levar o tráfego de produção? Antes de colocar o seu cluster na produção, passe pela [lista de verificação de prontidão de produção](service-fabric-production-readiness-checklist.md). Mantenha a sua aplicação e cluster a funcionar sem problemas, utilizando os itens desta lista de verificação. Recomendamos vivamente que todos estes itens sejam verificados antes de entrarem em produção.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Criar um cluster de tecido de serviço executando janelas](service-fabric-best-practices-overview.md)
+* [Criar um cluster de tecido de serviço executando janelas](./service-fabric-best-practices-security.md)
 * [Criar um cluster de tecido de serviço executando Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints

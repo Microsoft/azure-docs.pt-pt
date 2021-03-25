@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 29dd67e9e6e15aaafec0cc47d89da32cbf369938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97618824"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043755"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de inscrição e de inscrição no Azure Ative Directory B2C
 
@@ -66,6 +67,7 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
     ![Página de seleção de atributos e reclamações com três reclamações selecionadas](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Clique **em Criar** para adicionar o fluxo do utilizador. Um prefixo de *B2C_1* é automaticamente preparado para o nome.
+2. Siga os passos para [lidar com o fluxo para "Esqueci a sua senha?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) dentro da política de inscrição ou inscrição.
 
 ### <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
 
@@ -73,7 +75,7 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Clique **no fluxo do utilizador executar** e, em seguida, selecione Iniciar s **inscrição agora**.
 
-    ![Executar a página de fluxo do utilizador no portal com o botão de fluxo do utilizador Executar realçado](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![Executar a página de fluxo do utilizador no portal com o botão de fluxo do utilizador Executar realçado](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. Introduza um endereço de e-mail válido, clique em **Enviar código de verificação,** insira o código de verificação que recebe e, em seguida, selecione **Verificar código**.
 1. Introduza uma nova senha e confirme a senha.

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: fe777c3aa7b314dc56a42cc64712d18281a6ea7d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121172"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109493"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configure a geo-replicação ativa para a Enterprise Azure Cache para instâncias Redis (Preview)
 
@@ -26,9 +26,11 @@ Grupos de geo-replicação ativos dois ou mais Enterprise Azure Cache para inst�
 >
 >
 
-1. Na UI de criação **new Redis Cache,** clique em **Configurar** para configurar a **geo-replicação Ativa** no separador **Avançado.**
+1. No separador **Avançado** da Nova IU de criação **de Cache Redis,** selecione **Enterprise** for **Clustering Policy**.
 
     ![Configurar a georreplicação ativa](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
+
+1. Clique **em Configurar** para configurar a **geo-replicação ativa**.
 
 1. Crie um novo grupo de replicação, para uma primeira instância de cache, ou selecione um existente da lista.
 
@@ -38,7 +40,7 @@ Grupos de geo-replicação ativos dois ou mais Enterprise Azure Cache para inst�
 
     ![Geo-replicação ativa configurada](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
-1. Repita os passos acima para cada instância de cache adicional no grupo de geo-replicação.
+1. Aguarde que a primeira cache seja criada com sucesso. Repita os passos acima para cada instância de cache adicional no grupo de geo-replicação.
 
 ## <a name="remove-from-an-active-geo-replication-group"></a>Remover de um grupo de geo-replicação ativo
 

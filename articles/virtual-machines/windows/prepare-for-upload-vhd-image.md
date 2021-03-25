@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 12ef839cbbbc69230b314bf7c56a63f57a0d6b20
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a177fc7e17dc91a0d57fa6dee87b80921d7fd8f5
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556269"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043585"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
 
@@ -522,4 +522,4 @@ As seguintes definições não afetam o upload de VHD. No entanto, recomendamos 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Faça o upload de uma imagem do Windows VM para Azure para implementações do Gestor de Recursos](upload-generalized-managed.md)
-- [Problemas de ativação do Azure Windows VM](../troubleshooting/troubleshoot-activation-problems.md)
+- [Problemas de ativação do Azure Windows VM](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: aeb8028468a1e1944a4fd39275f134bfae00dfa3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a8b58c72ee4e6d9d38dccb369a3d38c46f0c4afe
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102555351"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046849"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
 
@@ -199,7 +199,7 @@ A Recuperação do Site criará uma instância VM cujo tipo seja o mesmo que ou 
    * Para um VM criado através do modelo de implementação clássico: Adicione o VM à disponibilidade definida no portal Azure. Para etapas detalhadas, vá [a adicionar uma máquina virtual existente a um conjunto de disponibilidade](/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic).
    * Para um VM criado através do modelo de implementação do Gestor de Recursos: Guarde a sua configuração do VM e, em seguida, elimine e recorra os VMs no conjunto de disponibilidade. Para tal, utilize o script no [set Azure Resource Manager VM Availability set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar este script, verifique as suas limitações e planeie o seu tempo de inatividade.
 
-2. **Eliminar VMs e discos antigos.** Certifique-se de que os discos Premium são consistentes com discos de origem e que os novos VMs desempenham a mesma função que os VMs de origem. Elimine o VM e elimine os discos das suas contas de armazenamento de origem no portal Azure. Se houver um problema em que o disco não seja apagado, mesmo que tenha eliminado o VM, consulte erros de [eliminação de recursos de armazenamento de resolução de problemas](../troubleshooting/storage-resource-deletion-errors.md).
+2. **Eliminar VMs e discos antigos.** Certifique-se de que os discos Premium são consistentes com discos de origem e que os novos VMs desempenham a mesma função que os VMs de origem. Elimine o VM e elimine os discos das suas contas de armazenamento de origem no portal Azure. Se houver um problema em que o disco não seja apagado, mesmo que tenha eliminado o VM, consulte erros de [eliminação de recursos de armazenamento de resolução de problemas](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 3. **Limpe a infraestrutura de recuperação do local de Azure**. Se a Recuperação do Local já não for necessária, pode limpar a sua infraestrutura. Elimine os itens replicados, o servidor de configuração e a política de recuperação e, em seguida, elimine o cofre de recuperação do local de Azure.
 

@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492613"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044299"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Tutorial: Assine e faça pedidos com carteiro
 Neste tutorial, vamos configurar e usar o Carteiro para fazer um pedido contra os serviços de comunicação da Azure (ACS) usando HTTP. No final deste tutorial, terá enviado com sucesso uma mensagem SMS usando ACS e Carteiro e poderá usar o Carteiro para explorar outras APIs dentro do ACS.
@@ -68,7 +68,7 @@ Pode aprender mais sobre variáveis lendo a [documentação do Carteiro sobre el
 
 ### <a name="creating-a-pre-request-script"></a>Criação de um script de pré-pedido
 
-O próximo passo é criar um Script pré-pedido dentro do Carteiro. Um script de pré-pedido, é um script que é executado antes de cada pedido no Carteiro e pode modificar ou alterar parâmetros de pedido em seu nome. Vamos usar isto para assinar os nossos pedidos HTTP para que possam ser autorizados pelos Serviços da ACS. Para mais informações sobre os requisitos de Assinatura, pode ler o [nosso guia sobre autenticação.](https://docs.microsoft.com/rest/api/communication/authentication)
+O próximo passo é criar um Script pré-pedido dentro do Carteiro. Um script de pré-pedido, é um script que é executado antes de cada pedido no Carteiro e pode modificar ou alterar parâmetros de pedido em seu nome. Vamos usar isto para assinar os nossos pedidos HTTP para que possam ser autorizados pelos Serviços da ACS. Para mais informações sobre os requisitos de Assinatura, pode ler o [nosso guia sobre autenticação.](/rest/api/communication/authentication)
 
 Vamos criar este script dentro da Coleção de modo a que seja executado em qualquer pedido dentro da coleção. Para isso, no separador de recolha clique no sub-separador "Script de pré-pedido".
 
@@ -186,7 +186,7 @@ Agora que tudo está preparado, estamos prontos para criar um pedido de ACS dent
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Botão de acompanhante do carteiro.":::
 
-Isto criará um novo separador para o nosso pedido dentro do Carteiro. Com ele criado, precisamos configurá-lo. Vamos fazer um pedido contra a SMS Enviar API para que não se esqueça de remeter para a [documentação desta API para assistência.](https://docs.microsoft.com/rest/api/communication/sms/send) Vamos configurar o pedido do Carteiro.
+Isto criará um novo separador para o nosso pedido dentro do Carteiro. Com ele criado, precisamos configurá-lo. Vamos fazer um pedido contra a SMS Enviar API para que não se esqueça de remeter para a [documentação desta API para assistência.](/rest/api/communication/sms/send) Vamos configurar o pedido do Carteiro.
 
 Comece por configurar, o tipo de pedido para `POST` e insira `{{endpoint}}/sms?api-version=2021-03-07` no campo URL de pedido. Este URL utiliza a nossa variável previamente criada `endpoint` para enviá-la automaticamente para o seu Recurso ACS.
 
@@ -238,8 +238,8 @@ O telemóvel, que detém o número que forneceu no valor "a", também deveria te
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Explore ACS APIs](https://docs.microsoft.com/rest/api/communication/) 
->  [Ler mais sobre Autenticação](https://docs.microsoft.com/rest/api/communication/authentication) 
+> [Explore ACS APIs](/rest/api/communication/) 
+>  [Ler mais sobre Autenticação](/rest/api/communication/authentication) 
 >  [Saiba mais sobre o Carteiro](https://learning.postman.com/)
 
 Também pode querer:

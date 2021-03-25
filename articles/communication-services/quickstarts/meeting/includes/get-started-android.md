@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e9069b5d43044ef0d0341717a12fcce7c4a72dc7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 5ac4c53550468d33e9ed533303749d29e772d766
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804068"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108485"
 ---
 Neste quickstart, você vai aprender a se juntar a uma reunião de equipas usando a biblioteca Azure Communication Services Teams Embed para Android.
 
@@ -34,7 +34,7 @@ Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot mostrando a opção &quot;Atividade Vazia&quot; selecionada no ecrã do modelo do projeto.":::
 
-Nomeie o projeto `TeamsEmbedAndroidGettingStarted` , desempate o idioma para java e selecione biblioteca mínima de clientes de "API 21: Android 5.0 (Lollipop)" ou superior.
+Nomeie o projeto `TeamsEmbedAndroidGettingStarted` , desempate o idioma para java e selecione O SDK mínimo de "API 21: Android 5.0 (Lollipop)" ou superior.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot mostrando a opção 'Atividade vazia' selecionada no ecrã do modelo do projeto 2.":::
 
@@ -299,7 +299,7 @@ public String fetchToken() {
 ## <a name="get-the-teams-meeting-link"></a>Obtenha o link de reunião das equipas
 
 O link de encontro das equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)
-A biblioteca de clientes de serviços de comunicação aceita um link completo de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) Também pode obter as informações de reunião necessárias do URL de Encontro de **Adesão** na reunião das Equipas.
+Os Serviços de Comunicação Que Ligam a SDK aceitam uma ligação completa de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) Também pode obter as informações de reunião necessárias do URL de Encontro de **Adesão** na reunião das Equipas.
 
 ## <a name="start-a-meeting-using-the-meeting-client"></a>Inicie uma reunião usando o cliente da reunião
 

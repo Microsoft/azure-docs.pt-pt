@@ -2,19 +2,19 @@
 title: Tutorial - Ligar e monitorizar as métricas do nível de aplicação de faíscas Azure Synapse
 description: Tutorial - Aprenda a integrar o servidor Prometheus existente no local com o espaço de trabalho Azure Synapse para métricas de aplicação Azure Spark em tempo real utilizando o conector Synapse Prometheus.
 services: synapse-analytics
-author: julieMSFT
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: 956d2f8f14b224609542783a8b18d3cdee43fff9
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: d22975199eedae353f2dc12588671ae4b54c85ab
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105035630"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109323"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Tutorial: Ligar e monitorizar as métricas do nível de aplicação de faíscas Azure Synapse
 

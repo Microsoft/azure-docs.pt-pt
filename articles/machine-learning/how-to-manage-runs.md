@@ -1,7 +1,7 @@
 ---
 title: Iniciar, monitorizar e cancelar treinos em Python
 titleSuffix: Azure Machine Learning
-description: Aprenda a iniciar, status e gerir a sua experiência de aprendizagem automática funciona com o Azure Machine Learning Python SDK.
+description: Aprenda a iniciar, monitorizar e acompanhar a sua experiência de aprendizagem automática com o Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634785"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110275"
 ---
-# <a name="start-monitor-and-track-runs"></a>Início, monitor e pista 
+# <a name="start-monitor-and-track-run-history"></a>Iniciar, monitorizar e rastrear o histórico 
 
-O [Azure Machine Learning SDK para Python,](/python/api/overview/azure/ml/intro) [Machine Learning CLI](reference-azure-machine-learning-cli.md)e a [Azure Machine Learning studio](https://ml.azure.com) fornecem vários métodos para monitorizar, organizar e gerir as suas corridas para treino e experimentação.
+O [Azure Machine Learning SDK para Python](/python/api/overview/azure/ml/intro), Machine Learning [CLI](reference-azure-machine-learning-cli.md)e [o Azure Machine Learning studio](https://ml.azure.com) fornecem vários métodos para monitorizar, organizar e acompanhar as suas corridas para treino e experimentação. O seu histórico de execução de ML é uma parte importante de um processo de desenvolvimento de ML ressípare e repetível.
 
-Este artigo mostra exemplos das seguintes tarefas:
+Este artigo mostra como fazer as seguintes tarefas:
 
 * Monitorize o desempenho da execução.
 * Monitorize o estado de execução por notificação de e-mail.
 * Marque e encontre corridas.
 * Adicione uma descrição de execução. 
-* Procure. 
+* Procure o seu histórico de execução. 
 * Cancelar ou falhar corre.
 * Criar corridas de crianças.
  
@@ -134,7 +134,7 @@ Vai precisar dos seguintes itens:
         print(notebook_run.get_status())
         ```
     
-    * Para obter o ID de execução, tempo de execução e detalhes adicionais sobre a execução, use o [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) método.
+    * Para obter o ID de execução, tempo de execução, e outros detalhes sobre a execução, use o [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) método.
     
         ```python
         print(notebook_run.get_details())
@@ -190,7 +190,7 @@ Vai precisar dos seguintes itens:
     
         Na página **'All runs',** pode filtrar a lista de execuções por tags, experiências, metas de computação e muito mais para organizar e estender melhor o seu trabalho.  
     
-    1. Faça personalizações na página selecionando runs para comparar, adicionar gráficos ou aplicar filtros. Estas alterações podem ser guardadas como uma **Vista Personalizada** para que possa facilmente voltar ao seu trabalho. Os utilizadores com permissões de espaço de trabalho podem editar ou visualizar a vista personalizada. Além disso, partilhe a visão personalizada com os membros da equipa para uma colaboração reforçada selecionando a **vista Share**.   
+    1. Faça personalizações na página selecionando runs para comparar, adicionar gráficos ou aplicar filtros. Estas alterações podem ser guardadas como uma **Vista Personalizada** para que possa facilmente voltar ao seu trabalho. Os utilizadores com permissões de espaço de trabalho podem editar ou ver a vista personalizada. Além disso, partilhe a visão personalizada com os membros da equipa para uma colaboração reforçada selecionando a **vista Share**.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: criar uma vista personalizada":::
     
@@ -225,7 +225,7 @@ Vai precisar dos seguintes itens:
 
 Uma descrição de execução pode ser adicionada a uma corrida para fornecer mais contexto e informações para a execução. Também pode pesquisar nestas descrições a partir da lista de execuções e adicionar a descrição da execução como uma coluna na lista de execuções. 
 
-Navegue na página **'Detalhes de execução'** para a sua execução e selecione o ícone de edição ou lápis para adicionar, editar ou apagar descrições para a sua execução. Para persistir nas alterações à lista de execuções, guarde as alterações na sua Visualização Personalizada existente ou numa nova Vista Personalizada. O formato markdown é suportado para descrições de execução que permitem que as imagens sejam incorporadas e ligações profundas como mostrado abaixo.
+Navegue na página **'Detalhes de execução'** para a sua execução e selecione o ícone de edição ou lápis para adicionar, editar ou apagar descrições para a sua execução. Para persistir nas alterações à lista de execuções, guarde as alterações na sua Visualização Personalizada existente ou numa nova Vista Personalizada. O formato markdown é suportado para descrições de execução, que permite que as imagens sejam incorporadas e ligações profundas como mostrado abaixo.
 
 :::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Screenshot: criar uma descrição de execução"::: 
 
@@ -403,11 +403,11 @@ Para criar muitas crianças funciona de forma eficiente, use o [`create_children
 
 ### <a name="submit-child-runs"></a>Submeter corridas de crianças
 
-As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. Não é possível criar uma corrida sem filhos: mesmo que a corrida dos pais não faça nada a não ser lançar a criança, ainda é necessário criar a hierarquia. Os estatutos de todas as corridas são independentes: um progenitor pode estar no `"Completed"` estado de sucesso, mesmo que uma ou mais crianças sejam canceladas ou falhadas.  
+As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. Não se pode criar uma criança sem pais: mesmo que a corrida dos pais não faça nada a não ser lançar corridas de crianças, ainda é necessário criar a hierarquia. Os estatutos de todas as corridas são independentes: um progenitor pode estar no `"Completed"` estado de sucesso, mesmo que uma ou mais crianças sejam canceladas ou falhadas.  
 
-Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração menos potente e baseada em CPU para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar a cada criança diferentes argumentos e dados. Para personalizar uma corrida de crianças, crie um `ScriptRunConfig` objeto para a corrida da criança. O código abaixo faz o seguinte:
+Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração menos potente e baseada em CPU para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar a cada criança diferentes argumentos e dados. Para personalizar uma corrida de crianças, crie um `ScriptRunConfig` objeto para a corrida da criança. O código abaixo:
 
-- Recupere um recurso computacional nomeado `"gpu-cluster"` do espaço de trabalho `ws`
+- Recupera um recurso computacional nomeado `"gpu-cluster"` do espaço de trabalho `ws`
 - Iterates sobre diferentes valores de argumento a serem passados para os objetos das `ScriptRunConfig` crianças
 - Cria e submete uma nova corrida infantil, usando o recurso e argumento de computação personalizado
 - Bloqueia até que toda a criança fique completa
@@ -455,7 +455,7 @@ print(parent_run.get_children())
 
 ### <a name="log-to-parent-or-root-run"></a>Faça login para pai ou raiz
 
-Pode utilizar o `Run.parent` campo para aceder à corrida que lançou a atual corrida infantil. Um caso comum de utilização para este caso é quando deseja consolidar os resultados do registo num único local. Note que as corridas de crianças executam assíncronia e não há garantia de encomenda ou sincronização para além da capacidade do progenitor de esperar que o seu filho esteja completo.
+Pode utilizar o `Run.parent` campo para aceder à corrida que lançou a atual corrida infantil. Uma caixa de utilização comum para a utilização `Run.parent` é combinar os resultados do registo num único local. Note que as corridas de crianças executam assíncronia e não há garantia de encomendar ou sincronizar para além da capacidade do progenitor de esperar que o seu filho corra para completar.
 
 ```python
 # in child (or even grandchild) run
