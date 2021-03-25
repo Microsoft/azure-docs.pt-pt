@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91ad5a6d95c634300db83d66df8f0407b4544cde
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224661"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024171"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -122,6 +122,17 @@ Também pode definir a percentagem de amostragem utilizando a variável ambiente
 > [!NOTE]
 > Para a percentagem de amostragem, escolha uma percentagem próxima de 100/N onde N é um inteiro. Atualmente, a amostragem não suporta outros valores.
 
+## <a name="sampling-overrides-preview"></a>Sobreposições de amostragem (pré-visualização)
+
+Esta funcionalidade encontra-se em pré-visualização, a partir de 3.0.3-BETA.2.
+
+As sobreposições de amostragem permitem-lhe anular a [percentagem de amostragem padrão,](#sampling)por exemplo:
+* Desafete a percentagem de amostragem a 0 (ou algum pequeno valor) para verificações de saúde ruidosas.
+* Desa estava a percentagem de amostragem a 0 (ou algum pequeno valor) para chamadas de dependência ruidosas.
+* Defina a percentagem de amostragem para 100 para um tipo de pedido importante (por `/login` exemplo), mesmo que tenha a amostra padrão configurada para algo inferior.
+
+Para mais informações, consulte a documentação [sobrepõe-se à amostragem.](./java-standalone-sampling-overrides.md)
+
 ## <a name="jmx-metrics"></a>Métricas JMX
 
 Se quiser recolher algumas métricas JMX adicionais:
@@ -176,9 +187,13 @@ Esta funcionalidade está em pré-visualização.
 Permite-lhe configurar regras que serão aplicadas ao pedido, dependência e telemetria de traços, por exemplo:
  * Mascarar dados sensíveis
  * Adicionar dimensões personalizadas condicionalmente
- * Atualizar o nome da telemetria utilizado para agregação e exibição
+ * Atualize o nome de intervalo, que é usado para agregar telemetria semelhante no portal Azure.
+ * Largue os atributos de extensão específica para controlar os custos de ingestão.
 
 Para mais informações, consulte a documentação do [processador de telemetria.](./java-standalone-telemetry-processors.md)
+
+> [!NOTE]
+> Se pretende renunciar a períodos específicos (inteiros) para controlar o custo de ingestão, consulte [sobreposições de amostragem](./java-standalone-sampling-overrides.md).
 
 ## <a name="auto-collected-logging"></a>Registos auto-recolhidos
 

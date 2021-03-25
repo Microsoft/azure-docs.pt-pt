@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c4b15fa2a8be32aa7397ae425f28f1deaac6b71
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052267"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024613"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>VM insights alertas de saúde dos hóspedes (pré-visualização)
 A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor muda para um estado pouco saudável. Pode ver e gerir estes alertas com [os criados pelas regras de alerta no Azure Monitor](../alerts/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.
@@ -35,7 +35,7 @@ Será criado um [alerta Azure](../alerts/alerts-overview.md) para cada máquina 
 Se um alerta já estiver em estado **de Despedimento** quando o estado da máquina virtual mudar, então não será criado um segundo alerta, mas a gravidade do mesmo alerta será alterada para corresponder ao estado da máquina virtual. Por exemplo, se a máquina virtual mudar para o estado **crítico** quando um alerta de **aviso** já estava em estado **de Despedimento,** a gravidade desse alerta será alterada para **Sev1**. Se a máquina virtual mudar para um estado **de aviso** quando um alerta **Sev1** já estava em estado **de Despedimento,** a gravidade desse alerta será alterada para **Sev2**. Se a máquina virtual voltar para um estado **saudável,** então o alerta será resolvido com a severidade alterada para **Sev4**.
 
 ## <a name="viewing-alerts"></a>Alertas de visualização
-Ver alertas criados pela VM insights saúde dos hóspedes com [outros alertas no portal Azure](../platform/alerts-overview.md#alerts-experience). Pode selecionar **Alertas** do menu **Azure Monitor** para visualizar alertas para todos os recursos monitorizados ou selecionar **Alertas** do menu de uma máquina virtual para visualizar alertas apenas para essa máquina virtual.
+Ver alertas criados pela VM insights saúde dos hóspedes com [outros alertas no portal Azure](../alerts/alerts-overview.md#alerts-experience). Pode selecionar **Alertas** do menu **Azure Monitor** para visualizar alertas para todos os recursos monitorizados ou selecionar **Alertas** do menu de uma máquina virtual para visualizar alertas apenas para essa máquina virtual.
 
 ## <a name="alert-properties"></a>Propriedades do alerta
 

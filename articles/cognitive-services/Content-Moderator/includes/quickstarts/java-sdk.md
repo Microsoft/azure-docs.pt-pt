@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 646b4378c887bb30bfbd945693aacc4e50c2f02c
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: d1574d9728036bac393cbecb37e2097be6ef90e7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027983"
+ms.locfileid: "105105094"
 ---
 Começa com a biblioteca de clientes Azure Content Moderador para Java. Siga estes passos para instalar o pacote Maven e experimente o código de exemplo para tarefas básicas. 
 
@@ -231,10 +231,6 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="source-code"></a>Código de origem
-
-* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java).
 
 ## <a name="next-steps"></a>Passos seguintes
 

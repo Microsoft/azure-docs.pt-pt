@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 71d5a910e36762d096763c4f45a13cbdad47414d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730630"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105103957"
 ---
-Antes de poder implantar VMs no seu dispositivo Azure Stack Edge, tem de configurar o seu cliente para se ligar ao dispositivo através do Azure Resource Manager sobre a Azure PowerShell. Para obter instruções detalhadas, consulte [Connect to Azure Resource Manager no seu dispositivo Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
+Antes de poder implantar VMs no seu dispositivo Azure Stack Edge, tem de configurar o seu cliente para se ligar ao dispositivo através do Azure Resource Manager sobre a Azure PowerShell. Para obter instruções detalhadas, consulte [Connect to Azure Resource Manager no seu dispositivo Azure Stack Edge](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Certifique-se de que pode utilizar os seguintes passos para aceder ao dispositivo a partir do seu cliente. Já fez esta configuração quando ligou ao Azure Resource Manager, e agora está a verificar se a configuração foi bem sucedida. 
 
@@ -38,5 +38,3 @@ Certifique-se de que pode utilizar os seguintes passos para aceder ao dispositiv
 
     > [!NOTE]
     > Se estiver a criar VMs GPU, selecione uma interface de rede que esteja ligada à internet. Ao fazê-lo, permite-lhe instalar uma extensão GPU no seu dispositivo.
-
-

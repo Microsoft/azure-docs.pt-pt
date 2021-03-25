@@ -3,12 +3,12 @@ title: 'Quickstart: Criar um grupo de gestão com portal'
 description: Neste quickstart, você usa o portal Azure para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fa9b667079104fe9728ab41ecd87685c35de1b7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592437"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024726"
 ---
 # <a name="quickstart-create-a-management-group"></a>Quickstart: Criar um grupo de gestão
 
@@ -32,7 +32,7 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
 
 1. Selecione **+ Adicionar grupo de gestão**.
 
-   :::image type="content" source="./media/main.png" alt-text="Screenshot da página de grupos de gestão mostrando grupos de gestão de crianças e subscrições." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Screenshot da página de grupos de gestão mostrando grupos de gestão de crianças e subscrições.":::
 
 1. Sair **Crie novos** selecionados e preencha o campo de ID do grupo de gestão.
 
