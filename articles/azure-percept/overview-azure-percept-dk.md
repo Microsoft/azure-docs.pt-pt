@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 722beda6eddb64581be3b724a8de5235f953bc6e
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4e3acc4d3c3b772cbc6edf47d7216566c58d3dd0
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953787"
+ms.locfileid: "105026892"
 ---
 # <a name="azure-percept-dk-overview"></a>Visão geral de Azure Percept DK
 

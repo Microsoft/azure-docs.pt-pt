@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 622a83c6d91bf2a30c2844e3279d6fd4b89d429f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2c80362c3407f1404c6657997de89c2741264909
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213798"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026560"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemas de resolução de problemas que permitem ou visualizam o perfil de insights de aplicações
 
@@ -19,7 +19,7 @@ ms.locfileid: "102213798"
 
 ### <a name="make-sure-youre-using-the-appropriate-profiler-endpoint"></a>Certifique-se de que está a utilizar o ponto final do profiler apropriado
 
-Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China.](https://docs.microsoft.com/azure/china/resources-developer-guide)
+Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [a Azure China.](/azure/china/resources-developer-guide)
 
 |Definição da Aplicação    | Nuvem do Governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|

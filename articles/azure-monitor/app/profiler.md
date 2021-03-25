@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a53db9deb07863010c792943c71eb0af5d845af8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218014"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026510"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil ao vivo Aplicativos Azure App Service com Insights de Aplicações
 
@@ -58,7 +58,7 @@ Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](.
 
 ## <a name="enable-profiler-for-other-clouds"></a>Ativar o Profiler para outras nuvens
 
-Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China.](https://docs.microsoft.com/azure/china/resources-developer-guide)
+Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [a Azure China.](/azure/china/resources-developer-guide)
 
 |Definição da Aplicação    | Nuvem do Governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|
@@ -83,4 +83,3 @@ Os ficheiros do profiler podem ser eliminados quando utilizar o WebDeploy para i
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-

@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449616"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026628"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -147,6 +147,11 @@ Atualmente, se utilizar as seguintes funcionalidades de atividade de cópia, a l
 - Opção de descoberta de partição de origem para lojas baseadas em ficheiros.
 - Copie os dados para a pia baseada em ficheiros com a definição de linhas máximas por ficheiro.
 - Adicione colunas adicionais durante a cópia.
+
+Adicionalmente à linhagem, o esquema de ativos de dados (mostrado no separador Desemane De >) é reportado para os seguintes conectores:
+
+- Ficheiros CSV e Parquet sobre Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2 e Amazon S3
+- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
 ### <a name="data-factory-data-flow-support"></a>Suporte ao fluxo de dados da fábrica de dados
 
