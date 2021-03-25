@@ -3,12 +3,12 @@ title: Novidades? Notas de lançamento - Azure Event Grid
 description: Saiba quais as novidades com a Azure Event Grid, como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades preprecadas e próximas alterações.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96350012"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107538"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Quais as novidades na Grelha de Eventos Azure?
 
@@ -73,14 +73,14 @@ A Azure Event Grid recebe melhorias continuadamente. Para se manter atualizado c
 - Esta versão corresponde à `2019-06-01` versão API.
 - Adiciona suporte às seguintes novas funcionalidades:
     * [Domínios](event-domains.md)
-    * Paginação e filtro de pesquisa para operações de lista de recursos. Por exemplo, consulte [Tópicos - Lista por Subscrição](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Paginação e filtro de pesquisa para operações de lista de recursos. Por exemplo, consulte [Tópicos - Lista por Subscrição](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Fila de ônibus de serviço como destino](handler-service-bus.md)
     * [Filtragem avançada](event-filtering.md#advanced-filtering)
 
 ## <a name="410-preview-2019-03"></a>4.1.0-pré-visualização (2019-03)
 - Esta versão corresponde à versão API de pré-visualização 2019-02-01.
 - Adiciona suporte às seguintes novas funcionalidades:
-    * Paginação e filtro de pesquisa para operações de lista de recursos. Por exemplo, consulte [Tópicos - Lista por Subscrição](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Paginação e filtro de pesquisa para operações de lista de recursos. Por exemplo, consulte [Tópicos - Lista por Subscrição](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Criação/eliminação manual de tópicos de domínio](how-to-event-domains.md)
     * [Fila de ônibus de serviço como destino](handler-service-bus.md)
 

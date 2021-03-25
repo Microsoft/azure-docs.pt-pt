@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4bea0f6091c02f80e381217ab7894ec4ad90d0ed
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608920"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105085"
 ---
 Utilize o gatilho de função para responder a um evento enviado para um fluxo de eventos do centro de eventos. Deve ter lido o acesso ao centro de eventos subjacente para configurar o gatilho. Quando a função é desencadeada, a mensagem transmitida para a função é dactilografada como uma corda.
 
@@ -281,14 +281,14 @@ import azure.functions as func
 
 
 def main(event: func.EventHubEvent):
-    logging.info('Function triggered to process a message: ', event.get_body())
-    logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
-    logging.info('  SequenceNumber =', event.sequence_number)
-    logging.info('  Offset =', event.offset)
+    logging.info(f'Function triggered to process a message: {event.get_body().decode()}')
+    logging.info(f'  EnqueuedTimeUtc = {event.enqueued_time}')
+    logging.info(f'  SequenceNumber = {event.sequence_number}')
+    logging.info(f'  Offset = {event.offset}')
 
     # Metadata
     for key in event.metadata:
-        logging.info(f'Metadata: {key} = ', event.metadata[key])
+        logging.info(f'Metadata: {key} = {event.metadata[key]}')
 ```
 
 # <a name="java"></a>[Java](#tab/java)
@@ -375,12 +375,12 @@ Pode utilizar os seguintes tipos de parâmetros para o centro de eventos de dese
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` - As propriedades predefinidas do EventData são fornecidas no espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` - As propriedades predefinidas do EventData são fornecidas no espaço de [nomes Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 ### <a name="additional-types"></a>Tipos adicionais 
-As aplicações que utilizam a versão 5.0.0 ou superior da extensão do Event Hub utilizam o `EventData` tipo em [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez da do espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Esta versão deixa cair o suporte para o tipo legado `Body` a favor dos seguintes tipos:
+As aplicações que utilizam a versão 5.0.0 ou superior da extensão do Event Hub utilizam o `EventData` tipo em [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez da do espaço de [nomes Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Esta versão deixa cair o suporte para o tipo legado `Body` a favor dos seguintes tipos:
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -391,12 +391,12 @@ Pode utilizar os seguintes tipos de parâmetros para o centro de eventos de dese
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` - As propriedades predefinidas do EventData são fornecidas no espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` - As propriedades predefinidas do EventData são fornecidas no espaço de [nomes Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 ### <a name="additional-types"></a>Tipos adicionais 
-As aplicações que utilizam a versão 5.0.0 ou superior da extensão do Event Hub utilizam o `EventData` tipo em [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez da do espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Esta versão deixa cair o suporte para o tipo legado `Body` a favor dos seguintes tipos:
+As aplicações que utilizam a versão 5.0.0 ou superior da extensão do Event Hub utilizam o `EventData` tipo em [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez da do espaço de [nomes Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Esta versão deixa cair o suporte para o tipo legado `Body` a favor dos seguintes tipos:
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="java"></a>[Java](#tab/java)
 

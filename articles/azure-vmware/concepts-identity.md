@@ -3,12 +3,12 @@ title: Conceitos - Identidade e acesso
 description: Conheça os conceitos de identidade e acesso da Azure VMware Solution
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: f3a79c79acef07721bd0883fa70c835bee14ef0d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 7b1880ccdee1d4c3ce25e264c004b1a949134a96
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799280"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026909"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceitos de identidade de solução Azure VMware
 
@@ -41,7 +41,7 @@ Pode ver os privilégios concedidos ao papel cloudAdmin da Solução Azure VMwar
 
 O papel cloudAdmin na Azure VMware Solution tem os seguintes privilégios no vCenter. Para mais detalhes, consulte a documentação do [produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
-| Privilege | Descrição |
+| Privilege | Description |
 | --------- | ----------- |
 | **Alarmes** | Alarme de reconhecimento<br />Criar alarme<br />Desativar a ação de alarme<br />Modificar o alarme<br />Remover o alarme<br />Definir estado de alarme |
 | **Biblioteca de Conteúdos** | Adicionar item da biblioteca<br />Criar uma subscrição para uma biblioteca publicada<br />Criar biblioteca local<br />Criar biblioteca subscrita<br />Apagar item da biblioteca<br />Apagar biblioteca local<br />Excluir biblioteca subscrita<br />Excluir subscrição de uma biblioteca publicada<br />Transferir ficheiros<br />Despejar artigos de biblioteca<br />Despejar biblioteca subscrita<br />Armazenamento de importação<br />Informações de subscrição da sonda<br />Publicar um item de biblioteca para os seus assinantes<br />Publicar uma biblioteca para os seus assinantes<br />Ler armazenamento<br />Artigo da biblioteca sincronizada<br />Biblioteca sincronizada<br />Introspeção tipo<br />Atualizar definições de configuração<br />Atualizar ficheiros<br />Atualizar biblioteca<br />Atualizar item da biblioteca<br />Atualizar biblioteca local<br />Atualização da biblioteca subscrita<br />Atualizar subscrição de uma biblioteca publicada<br />Ver definições de configuração |
@@ -101,11 +101,11 @@ Utilize a conta *de administrador* para aceder ao NSX-T Manager. Tem plenos priv
 
 Agora que cobriu os conceitos de acesso e identidade da Azure VMware Solution, talvez queira saber:
 
-- [Conceitos de upgrade de nuvem privada.](concepts-upgrades.md)
-- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md).
-- [Detalhes de cada privilégio.](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
-- [Como a Azure VMware Solution monitoriza e repara nuvens privadas](concepts-monitor-repair-private-cloud.md).
-- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md).
+- [Conceitos de upgrade de nuvem privada](concepts-upgrades.md)
+- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md)
+- [Detalhes de cada privilégio](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [Como a Azure VMware Solution monitoriza e repara nuvens privadas](concepts-monitor-repair-private-cloud.md)
+- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md)
 
 
 <!-- LINKS - external-->

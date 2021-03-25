@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91363210"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035812"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar as contas de programador ao utilizar o Azure Active Directory na Gestão de API do Azure
 
@@ -47,7 +47,15 @@ Este artigo mostra-lhe como permitir o acesso ao portal do desenvolvedor para ut
     Os controlos que lhe permitem introduzir outras informações necessárias aparecem no painel de mentes. Os controlos incluem **identificação do cliente** e **segredo do cliente.** (Obtém informações sobre estes controlos mais tarde no artigo.)
 9. Tome nota do conteúdo do **URL de redirecionamento.**
     
-   ![Passos para adicionar um fornecedor de identidade no portal Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Adicionar fornecedor de identidade no portal Azure":::
+    > [!NOTE]
+    > Existem dois URLs de redirecionamento:<br/>
+    > **Redirecionar URL** - aponta para o mais recente portal de desenvolvimento da Gestão da API.<br/>
+    > **Redirecionar URL (portal precrito)** - aponta para o portal de desenvolvimento precrito da API Management.
+    >
+    > Recomenda-se a utilização do mais recente portal de desenvolvimento Redirect URL.
+   
 10. No seu navegador, abra um separador diferente. 
 11. Navegue para o [portal Azure - Registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) para registar uma aplicação no Ative Directory.
 12. Em **Gerir**, selecione **Registos de aplicações**.

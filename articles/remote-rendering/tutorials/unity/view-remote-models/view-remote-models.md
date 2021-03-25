@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3370aac242fb47a133a5f7d6dc9b3444c65e3691
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: dd3596dd7b2cd01e80d9cf4db9bbc179048e7fcf
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573120"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035970"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
@@ -33,10 +33,7 @@ Para este tutorial você precisa:
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * A mais recente versão do Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
-* Unidade, a versão mais recente de 2019.3, recomendamos usar o Unity Hub para isto [(download)](https://unity3d.com/get-unity/download)
-  * Instale estes módulos na Unidade:
-    * **UWP** - Suporte universal de construção de plataformas windows
-    * **IL2CPP** - Suporte à Construção de Janelas (IL2CPP)
+* Unidade (ver [requisitos do sistema](../../../overview/system-requirements.md#unity) para versões suportadas)
 * Conhecimento intermédio da Unidade e da língua C# (por exemplo: criação de scripts e objetos, usando pré-fabricados, configurando eventos de unidade, etc.)
 
 ## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Disposição de uma instância de renderização remota Azure (ARR)

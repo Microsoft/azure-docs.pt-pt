@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 2afac0e25c394c9bf265daf1fe3ded3d763a7c61
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fd4ad1443f466a78abfc569d5f52f6bdeff2d5be
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102508508"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048889"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integre o armazenamento do Azure para notificações e backup
 
@@ -29,7 +29,7 @@ Este guia mostra-lhe como utilizar estas APIs REST com cURL. Também pode utiliz
 
 - Um recurso de visão personalizada em Azure. Se não tiver um, vá ao portal Azure e [crie um novo recurso de Visão Personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). Esta funcionalidade não suporta atualmente o recurso Serviço Cognitivo (tudo numa só chave).
 - Uma conta de armazenamento Azure com um recipiente de bolhas. Siga [os Exercícios 1 do Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) se precisar de ajuda com este passo.
-* [Versão PowerShell 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)ou uma aplicação de linha de comando semelhante.
+* [Versão PowerShell 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows)ou uma aplicação de linha de comando semelhante.
 
 ## <a name="set-up-azure-storage-integration"></a>Configurar a integração de armazenamento Azure
 

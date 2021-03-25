@@ -1,17 +1,17 @@
 ---
 title: Conectividade encriptada utilizando TLS/SSL em Base de Dados Azure para MySQL - Servidor Flexível
 description: Instruções e informações sobre como ligar utilizando OTS/SSL na Base de Dados Azure para o MySQL - Servidor Flexível.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e66b27f7f0c731e17bb9811e2376bbe09c1bc12
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: ce6150cf404f1ca68c93285a2f4a29a6373a55c0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950149"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110029"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-over-tls12ssl"></a>Ligue à Base de Dados Azure para MySQL - Servidor Flexível sobre TLS1.2/SSL
 

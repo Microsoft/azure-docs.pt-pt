@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto para a fala
-ms.openlocfilehash: 7722c9387e8d6475c6da4c771e9a0e355a4ac0af
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e42f81ce0f06b3782972dbf4322f0590763d8704
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654854"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026330"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 
@@ -41,7 +41,10 @@ Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço
 
 * Ajuste os estilos de fala com SSML - Language de marcação de síntese de fala (SSML) é uma linguagem de marcação baseada em XML usada para personalizar saídas de fala para texto. Com o SSML, pode ajustar o tom, adicionar pausas, melhorar a pronúncia, acelerar ou abrandar a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Veja o [como ajustar estilos](speech-synthesis-markup.md) de fala.
 
-* Visemes - [Visemes](how-to-speech-synthesis-viseme.md) são as poses-chave na fala observada, incluindo a posição dos lábios, mandíbula e língua ao produzir um determinado fonme. Os visemes têm uma forte correlação com vozes e fones. Utilizando eventos viseme em Speech SDK, você pode gerar dados de animação facial, que podem ser usados para animar rostos em comunicação de leitura de lábios, educação, entretenimento e atendimento ao cliente. 
+* Visemes - [Visemes](how-to-speech-synthesis-viseme.md) são as poses-chave na fala observada, incluindo a posição dos lábios, mandíbula e língua ao produzir um determinado fonme. Os visemes têm uma forte correlação com vozes e fones. Utilizando eventos viseme em Speech SDK, você pode gerar dados de animação facial, que podem ser usados para animar rostos em comunicação de leitura de lábios, educação, entretenimento e atendimento ao cliente.
+
+> [!NOTE]
+> Viseme só funciona para `en-US-AriaNeural` a voz na região oeste dos EUA 2 por `westus2` enquanto.
 
 ## <a name="get-started"></a>Introdução
 

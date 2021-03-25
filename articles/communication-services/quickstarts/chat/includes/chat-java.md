@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 146053ffd72b24216bfa86577787727257da2516
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3cbed124963fe6e56d6721669d0feedc6e34ffc6
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495427"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107062"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Atualize o ficheiro POM da sua aplicação para utilizar Java 8 ou superior:
 </properties>
 ```
 
-### <a name="add-the-package-references-for-the-chat-client-library"></a>Adicione as referências do pacote para a biblioteca do cliente do chat
+### <a name="add-the-package-references-for-the-chat-sdk"></a>Adicione as referências do pacote para o Chat SDK
 
 No seu ficheiro POM, faça referência ao `azure-communication-chat` pacote com as APIs do Chat:
 
@@ -72,7 +72,7 @@ Para a autenticação, o seu cliente necessita de fazer referência ao `azure-co
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes aulas e interfaces lidam com algumas das principais características da biblioteca de clientes Azure Communication Services Chat para Java.
+As seguintes classes e interfaces lidam com algumas das principais características do Azure Communication Services Chat SDK para Java.
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -82,7 +82,7 @@ As seguintes aulas e interfaces lidam com algumas das principais característica
 | ChatThreadAsyncClient | Esta classe é necessária para a funcionalidade chat thread assíncronos. Obtém um caso através do ChatAsyncClient e utiliza-o para enviar/receber/atualizar/apagar mensagens, adicionar/remover/obter utilizadores, enviar notificações de dactilografia e ler recibos. |
 
 ## <a name="create-a-chat-client"></a>Criar um cliente de chat
-Para criar um cliente de chat, utilizará o ponto final do Serviço de Comunicações e o token de acesso que foi gerado como parte das etapas pré-necessárias. Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Assim que gerar estas fichas no seu servidor, passe-as de volta para um dispositivo cliente. Você precisa usar a classe CommunicationTokenCredential da biblioteca de clientes Comuns para passar o símbolo para o seu cliente de chat. 
+Para criar um cliente de chat, utilizará o ponto final do Serviço de Comunicações e o token de acesso que foi gerado como parte das etapas pré-necessárias. Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Assim que gerar estas fichas no seu servidor, passe-as de volta para um dispositivo cliente. Você precisa usar a classe CommunicationTokenCredential do Common SDK para passar o símbolo para o seu cliente de chat. 
 
 Saiba mais sobre [a Arquitetura chat](../../../concepts/chat/concepts.md)
 

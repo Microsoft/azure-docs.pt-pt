@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 913f2bc5569dc9bdd058c38902ad0c99acee5d48
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 3ff31c5dd99e347805ad69018909137294d27c34
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104803448"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107151"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ ms.locfileid: "104803448"
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-Enquanto ainda está no diretório de aplicações, instale a biblioteca de clientes de identidade de serviços de comunicação Azure para pacote Python utilizando o `pip install` comando.
+Enquanto ainda está no diretório de aplicações, instale o pacote SDK de identidade dos serviços de comunicação Azure para o pacote Python utilizando o `pip install` comando.
 
 ```console
 pip install azure-communication-identity
