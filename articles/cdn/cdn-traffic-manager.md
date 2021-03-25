@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92777746"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034763"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Falha em vários pontos finais com Azure Traffic Manager
 
@@ -94,7 +94,10 @@ Depois de configurar os perfis do CDN e do Traffic Manager, siga estes passos pa
     > [!NOTE]
     > Se o seu domínio estiver atualmente ao vivo e não puder ser interrompido, faça este passo por último. Verifique se os pontos finais do CDN e os domínios do gestor de tráfego estão ao vivo antes de atualizar o seu domínio personalizado DNS para Traffic Manager.
     >
-
+   
+    > [!NOTE]
+    > Para o empículo desta falha sobre o scenerio, ambos os pontos finais precisam de estar em perfis diferentes, e os diferentes perfis devem ser por diferentes fornecedores de CDN para evitar conflitos de nomes de domínio.
+    > 
 
 2.  A partir do seu perfil Azure CDN, selecione o primeiro ponto final CDN (Akamai). **Selecione Adicione o domínio personalizado** e a entrada **cdndemo101.dustydogpetcare.online**. Verifique se a marca de verificação para validar o domínio personalizado é verde. 
 
