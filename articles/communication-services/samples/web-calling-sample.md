@@ -9,16 +9,16 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 824fd19e8acfed75ab3d64048a00f579b70286d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0f456581e14f17b0ea3ebbd54d0768d419e800b3
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496240"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110649"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Começar com a amostra de chamada web
 
-A amostra de chamada web é uma aplicação web que serve como uma caminhada passo a passo através das várias capacidades fornecidas pela web services web call client library.
+A amostra de chamada web é uma aplicação web que serve como uma caminhada passo a passo através das várias capacidades fornecidas pela web Services de Comunicação Call SDK.
 
 Esta amostra foi construída para desenvolvedores e torna muito fácil para você começar com serviços de comunicação. A sua interface de utilizador está dividida em várias secções, cada uma com um botão "Show code" que lhe permite copiar código diretamente do seu navegador para a sua própria aplicação de Serviços de Comunicação.
 
@@ -51,7 +51,7 @@ Está agora pronto para começar a fazer chamadas usando o seu recurso de Servi�
 
 ## <a name="placing-and-receiving-calls"></a>Colocação e receção de chamadas
 
-A web dos Serviços de Comunicação SDK permite **1:1,** **1:N,** e chamada em **grupo.**
+A web serviços de comunicação call SDK permite **1:1**, **1:N**, e chamada em **grupo.**
 
 Para chamadas de saída 1:1 ou 1:N, pode especificar várias identidades dos utilizadores dos Serviços de Comunicação para ligar utilizando valores separados por vírgula. Também pode especificar os números de telefone tradicionais (PSTN) para ligar utilizando valores separados por vírgula.
 
@@ -86,7 +86,7 @@ Esta amostra também fornece fragmentos de código para as seguintes capacidades
 
 Para obter mais informações, veja os seguintes artigos:
 
-- Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize-se com [o uso do Call SDK](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../concepts/voice-video-calling/about-call-types.md)
 - Rever os [docs de referência da API](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Reveja a amostra da [App Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)

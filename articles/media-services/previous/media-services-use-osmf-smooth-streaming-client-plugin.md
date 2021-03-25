@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b0969ffae7963d6a5f9ac249e43750444ab11baa
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: e41e33b5f30cd861ae8715e0ad7f6694f8854198
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105036055"
+ms.locfileid: "105046934"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Plugin de streaming suave do Microsoft para o Adobe Open Source Media Framework
 
@@ -34,7 +34,7 @@ SS para OSMF inclui duas versões de plugin:
 * Plugin de streaming estático liso para OSMF (.swc)
 * Plugin de streaming suave dinâmico para OSMF (.swf)
 
-Este documento pressupõe que o leitor tem um conhecimento geral de funcionamento dos plug-ins DAMF e OSMF. Para mais informações sobre a OSMF, consulte a documentação no site oficial da [OSMF.](http://osmf.org/)
+Este documento pressupõe que o leitor tem um conhecimento geral de funcionamento dos plug-ins DAMF e OSMF. Para mais informações sobre a OSMF, consulte a documentação no site oficial da OSMF.
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Plugin de streaming liso para OSMF 2.0
 O plugin suporta o carregamento e reprodução de conteúdos de Streaming Smooth a pedido com as seguintes funcionalidades:
@@ -62,7 +62,7 @@ Os plugins OSMF podem ser carregados estáticamente (no tempo de compilação) o
 Para obter mais informações sobre o carregamento estático e dinâmico, consulte a página oficial do [plugin DAMF](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS para carregamento estático osmf
-O corte de código abaixo mostra como carregar o plugin SS para OSMF estáticamente e reproduzir um vídeo básico usando a classe MEDIAFactory OSMF. Antes de incluir o código SS para OSMF, certifique-se de que a referência do projeto inclui o plugin estático "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
+O corte de código abaixo mostra como carregar o plugin SS para OSMF estáticamente e reproduzir um vídeo básico usando a classe MEDIAFactory OSMF. Antes de incluir o código SS para OSMF, certifique-se de que a referência do projeto inclui o plugin estático "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc". 
 
 ```csharp
 package 
@@ -337,7 +337,7 @@ package
 ## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Reprodução de Mídia Strobe com o Plugin Dinâmico SS ODMF
 O streaming suave para plugin dinâmico OSMF é compatível com [a Reprodução de Mídia Strobe (SMP)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). Pode utilizar o plugin SS para plugin OSMF para adicionar a reprodução de conteúdo de Streaming Suave à SMP. Para isso, copie "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" num servidor web para carregamento HTTP utilizando os seguintes passos:
 
-1. Navegue na página de configuração da [reprodução de mídia Strobe](http://osmf.org/dev/2.0gm/setup.html). 
+1. Navegue na página de configuração da [reprodução de mídia Strobe](http://www.koopman.me/bob3/setup.html). 
 2. Defina o src numa fonte de streaming suave (por exemplo, http: \/ /devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Faça as alterações de configuração desejadas e clique em Pré-visualização e Atualização.
    
@@ -394,7 +394,7 @@ O streaming suave para plugin dinâmico OSMF é compatível com [a Reprodução 
 2. Guarde a sua página HTML e publique num servidor web. Navegue na página web publicada utilizando o seu navegador de &reg; Internet favorito (Internet Explorer, Chrome, Firefox, assim por diante).
 3. Desfrute de conteúdos de streaming suave dentro do Adobe &reg; Flash &reg; Player.
 
-Para obter mais informações sobre o desenvolvimento geral da OSMF, consulte a página oficial de desenvolvimento da [OSMF](http://osmf.org/resources.html).
+Para obter mais informações sobre o desenvolvimento geral da OSMF, consulte a página oficial de desenvolvimento da [OSMF](https://www.adobe.com/devnet/video/articles1/osmf_overview.html).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

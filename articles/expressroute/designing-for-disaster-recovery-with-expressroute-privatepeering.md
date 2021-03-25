@@ -5,20 +5,20 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 05/25/2019
+ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b1691dc7358c03b924d710684ecd73841b4832d
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92202418"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044605"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Desenho para recuperação de desastres com o espreitamento privado ExpressRoute
 
-O ExpressRoute foi concebido para uma elevada disponibilidade para fornecer conectividade de rede privada de nível de transportadora aos recursos da Microsoft. Por outras palavras, não existe um único ponto de falha no caminho ExpressRoute dentro da rede microsoft. Para obter considerações de design para maximizar a disponibilidade de um circuito ExpressRoute, consulte [Design para alta disponibilidade com o ExpressRoute.][HA]
+O ExpressRoute foi concebido para uma elevada disponibilidade para fornecer conectividade de rede privada de nível de transportadora aos recursos da Microsoft. Por outras palavras, não há um único ponto de falha no caminho ExpressRoute dentro da rede microsoft. Para obter considerações de design para maximizar a disponibilidade de um circuito ExpressRoute, consulte [Design para alta disponibilidade com o ExpressRoute.][HA]
 
-No entanto, tomando o adágio popular de Murphy-*se alguma coisa pode correr mal, vai*-- em consideração, neste artigo vamos focar-nos em soluções que vão além de falhas que podem ser abordadas usando um único circuito ExpressRoute. Por outras palavras, neste artigo, analisemos as considerações de arquitetura de rede para a construção de uma robusta conectividade de rede de backend para a recuperação de desastres utilizando circuitos ExpressRoute geo redundantes.
+No entanto, tomando o adágio popular de Murphy-*se alguma coisa pode correr mal, vai*-- em consideração, neste artigo vamos focar-nos em soluções que vão além de falhas que podem ser abordadas usando um único circuito ExpressRoute. Vamos analisar considerações de arquitetura de rede para construir uma forte conectividade de rede de backend para recuperação de desastres usando circuitos ExpressRoute geo redundantes.
 
 >[!NOTE]
 >Os conceitos descritos neste artigo aplicam-se igualmente quando um circuito ExpressRoute é criado sob WAN virtual ou fora dele.
@@ -26,9 +26,9 @@ No entanto, tomando o adágio popular de Murphy-*se alguma coisa pode correr mal
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Necessidade de solução de conectividade redundante
 
-Existem possibilidades e casos em que todo um serviço regional (seja o da Microsoft, fornecedores de serviços de rede, clientes ou outros prestadores de serviços na nuvem) se degrada. A causa principal para este impacto regional de serviço inclui a calamidade natural. Por conseguinte, para a continuidade das empresas e aplicações críticas de missão, é importante planear a recuperação de desastres.   
+Existem possibilidades e casos em que todo um serviço regional (seja o da Microsoft, fornecedores de serviços de rede, clientes ou outros prestadores de serviços na nuvem) se degrada. A causa principal para este impacto regional de serviço inclui a calamidade natural. É por isso que, para a continuidade dos negócios e aplicações críticas da missão é importante planear a recuperação de desastres.   
 
-Independentemente de executar as suas aplicações críticas de missão numa região do Azure ou no local ou em qualquer outro lugar, pode utilizar outra região do Azure como seu local de falha. Os seguintes artigos abordam a recuperação de desastres a partir de aplicações e perspetivas de acesso frontend:
+Não importa o que aconteça, quer você execute suas aplicações críticas de missão em uma região de Azure ou no local ou em qualquer outro lugar, você pode usar outra região de Azure como seu site de failover. Os seguintes artigos abordam a recuperação de desastres a partir de aplicações e perspetivas de acesso frontend:
 
 - [Recuperação após desastre de dimensão empresarial][Enterprise DR]
 - [Recuperação após desastre para PMEs com o Azure Site Recovery][SMB DR]
@@ -37,9 +37,19 @@ Se confia na conectividade ExpressRoute entre a sua rede no local e a Microsoft 
 
 ## <a name="challenges-of-using-multiple-expressroute-circuits"></a>Desafios da utilização de vários circuitos ExpressRoute
 
-Quando interliga o mesmo conjunto de redes utilizando mais do que uma ligação, introduz-se caminhos paralelos entre as redes. Caminhos paralelos, quando não devidamente arquitetados, podem levar a um encaminhamento assimétrico. Se tiver entidades imponentes (por exemplo, NAT, firewall) no caminho, o encaminhamento assimétrico pode bloquear o fluxo de tráfego.  Normalmente, ao longo do caminho de observação privado ExpressRoute você não vai encontrar entidades imponentes como NAT ou Firewalls. Por conseguinte, o encaminhamento assimétrico sobre o espreitamento privado ExpressRoute não bloqueia necessariamente o fluxo de tráfego.
+Quando interliga o mesmo conjunto de redes utilizando mais do que uma ligação, introduz-se caminhos paralelos entre as redes. Caminhos paralelos, quando não devidamente arquitetados, podem levar a um encaminhamento assimétrico. Se tiver entidades imponentes (por exemplo, NAT, firewall) no caminho, o encaminhamento assimétrico pode bloquear o fluxo de tráfego.  Normalmente, ao longo do caminho de observação privado ExpressRoute você não vai encontrar entidades imponentes como NAT ou Firewalls. É por isso que o encaminhamento assimétrico sobre o olho privado ExpressRoute não bloqueia necessariamente o fluxo de tráfego.
  
-No entanto, se carregar o tráfego de equilíbrio através de caminhos paralelos geo-redundantes, independentemente de ter ou não entidades imponentes, experimentará um desempenho de rede inconsistente. Neste artigo, vamos discutir como lidar com estes desafios.
+No entanto, se carregar o tráfego de equilíbrio através de caminhos paralelos geo-redundantes, independentemente de ter ou não entidades imponentes, experimentará um desempenho de rede inconsistente. Estes caminhos paralelos geo-redundantes podem ser através do mesmo metrô ou de um metrô diferente encontrado nos fornecedores por página [de localização.](expressroute-locations-providers.md#partners) 
+
+### <a name="same-metro"></a>Mesmo metro
+
+Ao utilizar o mesmo metrô, deve utilizar a localização secundária para o segundo caminho para que esta configuração funcione. Um exemplo do mesmo metro seria *Amesterdão* e *Amesterdão2.* A vantagem de selecionar o mesmo metro é quando a falha da aplicação acontece, a latência de ponta a ponta entre as aplicações no local e a Microsoft permanece a mesma. No entanto, se houver uma catástrofe natural, a conectividade para ambos os caminhos pode deixar de estar disponível. 
+
+### <a name="different-metros"></a>Metros diferentes
+
+Ao utilizar diferentes metros para circuitos Standard SKU, a localização secundária deve ser na mesma [região geopolítica.](expressroute-locations-providers.md#locations) Para escolher uma localização fora da região geopolítica, você precisará usar Premium SKU para ambos os circuitos nos caminhos paralelos. A vantagem desta configuração é que as hipóteses de um desastre natural causar uma interrupção em ambas as ligações são muito mais baixas, mas à custa do aumento da latência de ponta a ponta.
+
+Neste artigo, vamos discutir como enfrentar os desafios que pode enfrentar ao configurar caminhos geo-redundantes.
 
 ## <a name="small-to-medium-on-premises-network-considerations"></a>Considerações de rede de pequenas a médias no local
 
@@ -100,13 +110,13 @@ Utilizando qualquer uma das técnicas, se influenciar o Azure a preferir um dos 
 
 ## <a name="large-distributed-enterprise-network"></a>Grande rede de empresas distribuídas
 
-Quando se tem uma grande rede empresarial distribuída, é provável que tenha vários circuitos ExpressRoute. Nesta secção, vamos ver como projetar a recuperação de desastres utilizando os circuitos ExpressRoute ativos, sem precisar de circuitos de stand-by adicionais. 
+Quando se tem uma grande rede empresarial distribuída, é provável que tenha vários circuitos ExpressRoute. Nesta secção, vamos ver como projetar a recuperação de desastres usando os circuitos ExpressRoute ativos, sem precisar de outro circuito de stand-by. 
 
 Vamos considerar o exemplo ilustrado no seguinte diagrama. No exemplo, o Contoso tem duas localizações no local ligadas a duas implantações do Contoso IaaS em duas regiões diferentes do Azure através dos circuitos ExpressRoute em dois locais de observação diferentes. 
 
 [![6]][6]
 
-A forma como arquitetamos a recuperação de desastres tem impacto na forma como o tráfego é transversal regional para atravessar a localização (região1/região2 para a localização2/local1) o tráfego é encaminhado. Vamos considerar duas diferentes arquiteturas de desastres que atravessam o tráfego de localização da região de forma diferente.
+A forma como arquitetamos a recuperação de desastres tem um impacto na forma como o tráfego entre regionais e localização (região1/região2 para localização2/local1) é desviado. Vamos considerar duas diferentes arquiteturas de desastres que atravessam o tráfego de localização da região de forma diferente.
 
 ### <a name="scenario-1"></a>Cenário 1
 

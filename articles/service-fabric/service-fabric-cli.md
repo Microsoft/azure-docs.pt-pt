@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ff322cb3633616e9004bc8fa25b048b6f1263008
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802153"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046339"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -58,11 +58,11 @@ Existem muitas formas de instalar o pip e o Python na sua plataforma. Seguem-se 
 
 Para Windows 10, Windows Server 2016 e Windows Server 2012 R2, utilize as instruções de instalação oficiais padrão. O instalador do Python também instala o pip por predefinição.
 
-1. Vá à página oficial de [downloads python](https://www.python.org/downloads/), e baixe o mais recente lançamento do Python 3.7.
+1. Vá à página oficial de [downloads python](https://www.python.org/downloads/), e baixe o mais recente lançamento de Python 3.x.
 
 2. Inicie o instalador.
 
-3. Na parte inferior do pedido, **selecione Adicionar Python 3.7 ao PATH**.
+3. Na parte inferior do pedido, **selecione Adicionar Python 3.x ao PATH**.
 
 4. Selecione **Instalar Agora** e conclua a instalação.
 
@@ -118,8 +118,8 @@ sudo pip3 install sfctl
 Para instalar o CLI do Tecido de Serviço no Chapéu Vermelho, execute os seguintes comandos:
 
 ```bash
-sudo yum install -y python34
-sudo yum install python34-setuptools
+sudo yum install -y python38
+sudo yum install python38-setuptools
 sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
@@ -135,7 +135,7 @@ Para MacOS, recomendamos utilizar o [Gestor de pacotes HomeBrew](https://brew.sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Em seguida, a partir do terminal, instale Python 3.7, pip e o Service Fabric CLI executando os seguintes comandos:
+Em seguida, a partir do terminal, instale os mais recentes Python 3.x, pip e o Service Fabric CLI executando os seguintes comandos:
 
 ```bash
 brew install python3

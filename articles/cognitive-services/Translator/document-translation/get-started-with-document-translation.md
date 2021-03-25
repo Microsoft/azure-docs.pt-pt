@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773050"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047240"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Começar com tradução de documentos (pré-visualização)
 
@@ -187,7 +187,7 @@ Um pedido de tradução de documento de lote é submetido ao seu ponto final de 
 
 Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de Documento:
 
-|Cabeçalho HTTP|Descrição|
+|Cabeçalho HTTP|Description|
 |---|--|
 |Ocp-Apim-Subscription-Key|**Obrigatório**: O valor é a chave de subscrição Azure para o seu recurso Tradutor ou Serviços Cognitivos.|
 |Content-Type|**Requerido**: Especifica o tipo de conteúdo da carga útil. Os valores aceites são aplicação/json ou charset=UTF-8.|
@@ -272,7 +272,7 @@ Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de D
 
 > [!IMPORTANT]
 >
-> Para as amostras de código abaixo, você irá codificar a sua chave e ponto final onde indicado; lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente.  Consulte [a segurança dos Serviços Cognitivos Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para obter formas de armazenar e aceder às suas credenciais de forma segura.
+> Para as amostras de código abaixo, você irá codificar a sua chave e ponto final onde indicado; lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente.  Consulte [a segurança dos Serviços Cognitivos Azure](../../cognitive-services-security.md?tabs=command-line%2ccsharp) para obter formas de armazenar e aceder às suas credenciais de forma segura.
 >
 > Poderá ser necessário atualizar os seguintes campos, dependendo da operação:
 >>>
@@ -1260,7 +1260,7 @@ A tabela abaixo lista os limites para os dados que envia para a Tradução docum
 > [!NOTE]
 > Os limites de conteúdo acima referidos estão sujeitos a alterações antes da publicação pública.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Referência API tradutor v3](../reference/v3-0-reference.md)
 * [Suporte de idiomas](../language-support.md)

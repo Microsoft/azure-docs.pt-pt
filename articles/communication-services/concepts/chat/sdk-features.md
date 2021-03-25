@@ -1,7 +1,7 @@
 ---
-title: Visão geral da biblioteca do cliente de chat para serviços de comunicação Azure
+title: Visão geral do Chat SDK para serviços de comunicação Azure
 titleSuffix: An Azure Communication Services concept document
-description: Conheça a biblioteca de clientes de chat da Azure Communication Services.
+description: Conheça o Azure Communication Services Chat SDK.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,22 +9,22 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 705bd926c2ac6f414464254969b5c511c88891f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b275c3af2e92dc5af677120b5082751d19676b2e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656112"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110819"
 ---
-# <a name="chat-client-library-overview"></a>Descrição geral da biblioteca de cliente de chat  
+# <a name="chat-sdk-overview"></a>Visão geral do Chat SDK 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
-As bibliotecas de clientes Azure Communication Services Chat podem ser usadas para adicionar conversas ricas e em tempo real às suas aplicações.
+Os SDKs de Chat de Serviços de Comunicação Azure podem ser usados para adicionar conversas ricas e em tempo real às suas aplicações.
     
-## <a name="chat-client-library-capabilities"></a>Capacidades da biblioteca de clientes de chat 
+## <a name="chat-sdk-capabilities"></a>Capacidades chat SDK    
 
-A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente disponíveis nas bibliotecas de clientes de chat dos Serviços de Comunicação.  
+A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente disponíveis nos Serviços de Comunicação chat SDKs.  
 
 | Grupo de funcionalidades | Funcionalidade | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
@@ -51,13 +51,13 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 
 **O pacote de sinalização proprietário é implementado com tomadas web. Vai voltar a ser votado se as tomadas web não forem apoiadas.  
 
-## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>JavaScript chat cliente suporte à biblioteca por OS e browser 
+## <a name="javascript-chat-sdk-support-by-os-and-browser"></a>Suporte SDK de Chat JavaScript por OS e browser    
 
 A tabela a seguir representa o conjunto de navegadores e versões suportadas que estão atualmente disponíveis.
     
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
 |--------------------------------|----------------|--------------|-------|------|------|------|-------|
-| **Biblioteca de clientes de chat** | *Firefox, Chrome,* novo Edge | *Firefox, Chrome,* Safari* | Cromado*  | Cromado* | Cromado* | Safari* | Safari* |
+| **Chat SDK** | *Firefox, Chrome,* novo Edge | *Firefox, Chrome,* Safari* | Cromado*  | Cromado* | Cromado* | Safari* | Safari* |
 
 *Note que a versão mais recente é suportada para além das duas versões anteriores.<br/>   
 

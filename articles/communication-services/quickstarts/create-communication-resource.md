@@ -10,21 +10,21 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: ffb40d7fb45f43349004fc4d18e7582aa3521185
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91383ecba119959213804e0432f612c3f1ff636c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495905"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110900"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser adcedidos através do [portal Azure](https://portal.azure.com) ou com a biblioteca de clientes de gestão .NET. A biblioteca de clientes de gestão e o portal Azure permitem-lhe criar, configurar, atualizar e apagar os seus recursos e interface com [o Azure Resource Manager,](../../azure-resource-manager/management/overview.md)o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nas bibliotecas dos clientes estão disponíveis no portal Azure. 
+Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser a provisionados através do [portal Azure](https://portal.azure.com) ou com a SDK de gestão .NET. A gestão SDK e o portal Azure permitem-lhe criar, configurar, atualizar e eliminar os seus recursos e interface com [o Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nos SDKs estão disponíveis no portal Azure. 
 
 
-Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser adcedidos através do [portal Azure](https://portal.azure.com) ou com a biblioteca de clientes de gestão .NET. A biblioteca de clientes de gestão e o portal Azure permitem-lhe criar, configurar, atualizar e apagar os seus recursos e interface com [o Azure Resource Manager,](../../azure-resource-manager/management/overview.md)o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nas bibliotecas dos clientes estão disponíveis no portal Azure.
+Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser a provisionados através do [portal Azure](https://portal.azure.com) ou com a SDK de gestão .NET. A gestão SDK e o portal Azure permitem-lhe criar, configurar, atualizar e eliminar os seus recursos e interface com [o Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nos SDKs estão disponíveis no portal Azure.
 
 > [!WARNING]
 > Note que, embora os Serviços de Comunicação esteja disponível em várias geografias, para obter um número de telefone, o recurso deve ter uma localização de dados definida para 'EUA'. Note também que os recursos de comunicação não podem ser transferidos para uma subscrição diferente durante a pré-visualização pública.
@@ -43,9 +43,9 @@ Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primei
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Aceda às cordas de ligação e pontos finais de serviço
 
-As cadeias de ligação permitem que as bibliotecas de clientes dos Serviços de Comunicação se conectem e autentem ao Azure. Pode aceder às cadeias de ligação dos serviços de comunicação e pontos finais de serviço a partir do portal Azure ou programáticamente com APIs do Gestor de Recursos Azure.
+As cadeias de ligação permitem aos Serviços de Comunicação SDKs ligar e autenticar ao Azure. Pode aceder às cadeias de ligação dos serviços de comunicação e pontos finais de serviço a partir do portal Azure ou programáticamente com APIs do Gestor de Recursos Azure.
 
-Depois de navegar para o seu recurso de Serviços de Comunicação, selecione **Chaves** do menu de navegação e copie os valores de **ligação** ou **ponto final** para utilização pelas bibliotecas de clientes dos Serviços de Comunicação. Note que tem acesso a chaves primárias e secundárias. Isto pode ser útil em cenários em que gostaria de fornecer acesso temporário aos seus recursos de Serviços de Comunicação a terceiros ou ambiente de encenação.
+Depois de navegar para o seu recurso de Serviços de Comunicação, selecione **Chaves** do menu de navegação e copie os valores da **cadeia de ligação** ou **ponto final** para utilização pelos SDKs dos Serviços de Comunicação. Note que tem acesso a chaves primárias e secundárias. Isto pode ser útil em cenários em que gostaria de fornecer acesso temporário aos seus recursos de Serviços de Comunicação a terceiros ou ambiente de encenação.
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot da página chave dos serviços de comunicação.":::
 
@@ -59,7 +59,7 @@ az communication list-key --name "<communicationName>" --resource-group "<resour
 
 ## <a name="store-your-connection-string"></a>Guarde a sua cadeia de ligação
 
-As bibliotecas de clientes dos Serviços de Comunicação utilizam cadeias de ligação para autorizar pedidos feitos aos Serviços de Comunicação. Tem várias opções para armazenar a sua cadeia de ligação:
+Os Serviços de Comunicação SDKs utilizam cadeias de ligação para autorizar pedidos feitos aos Serviços de Comunicação. Tem várias opções para armazenar a sua cadeia de ligação:
 
 * Uma aplicação em execução no ambiente de trabalho ou num dispositivo pode armazenar a cadeia de ligação num **ficheiroapp.config** ou **web.config.** Adicione o fio de ligação à secção **AppSettings nestes** ficheiros.
 * Uma aplicação em execução num Serviço de Aplicações Azure pode armazenar a cadeia de ligação nas definições de [aplicação do Serviço de Aplicações da App.](../../app-service/configure-common.md) Adicione o fio de ligação à secção de cordas de **ligação** do separador Definições de Aplicação dentro do portal.
