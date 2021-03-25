@@ -10,24 +10,24 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: cea425a3f133c54fecda06daa57e6e5e6d22a5d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f1d49aa0583f34327afff229b46d7a366202aded
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104783625"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152713"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-O Grupo de Serviços de Comunicação Azure **Chamando a amostra de herói para iOS** demonstra como a biblioteca de clientes iOS dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo que inclui voz e vídeo. Neste arranque rápido da amostra, você aprenderá a configurar e executar a amostra. Para o contexto está prevista uma visão geral da amostra.
+O Grupo de Serviços de Comunicação Azure **Chamando a amostra de herói para iOS** demonstra como os serviços de comunicação que ligam o iOS SDK podem ser usados para construir uma experiência de chamada de grupo que inclui voz e vídeo. Neste arranque rápido da amostra, você aprenderá a configurar e executar a amostra. Para o contexto está prevista uma visão geral da amostra.
 
 ## <a name="download-code"></a>Transferir código
 
 Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-A amostra é uma aplicação nativa do iOS que utiliza as bibliotecas de clientes iOS dos Serviços de Comunicação Azure para construir uma experiência de chamada que apresenta chamadas de voz e vídeo. A aplicação utiliza um componente do lado do servidor para obter fichas de acesso que são depois usadas para inicializar a biblioteca de clientes Azure Communication Services. Para configurar este componente do lado do servidor, sinta-se livre para seguir o tutorial [do Serviço Fidedigno com Funções Azure.](../../tutorials/trusted-service-tutorial.md)
+A amostra é uma aplicação nativa do iOS que utiliza os Serviços de Comunicação Azure iOS SDKs para construir uma experiência de chamada que apresenta chamadas de voz e vídeo. A aplicação utiliza um componente do lado do servidor para obter fichas de acesso que são depois utilizadas para inicializar o Azure Communication Services SDK. Para configurar este componente do lado do servidor, sinta-se livre para seguir o tutorial [do Serviço Fidedigno com Funções Azure.](../../tutorials/trusted-service-tutorial.md)
 
 Aqui está o aspeto da amostra:
 
@@ -103,7 +103,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 
 Para obter mais informações, veja os seguintes artigos:
 
-- Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize-se com [o uso do Call SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Leitura adicional

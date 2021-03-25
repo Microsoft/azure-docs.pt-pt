@@ -1,15 +1,15 @@
 ---
 title: Detalhes da Conformidade Regulamentar para o NIST SP 800-53 R4
 description: Detalhes da iniciativa integrada NIST SP 800-53 R4 Conformidade Regulamentar. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 35562ff72c054cc3295af5e1e0f971aa36d9e473
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0544b3fe00ce68b248c8275e71f799993d01b568
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606536"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032502"
 ---
 # <a name="details-of-the-nist-sp-800-53-r4-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa integrada NIST SP 800-53 R4 Conformidade Regulamentar
 

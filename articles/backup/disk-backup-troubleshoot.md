@@ -3,19 +3,14 @@ title: Falhas de backup de resolução de problemas na cópia de segurança do d
 description: Saiba como resolver falhas de backup no Azure Disk Backup
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737732"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107249"
 ---
-# <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Falhas de backup de resolução de problemas na cópia de segurança do disco Azure (na pré-visualização)
-
->[!IMPORTANT]
->A Azure Disk Backup está em pré-visualização sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para disponibilidade da região, consulte a [matriz de suporte.](disk-backup-support-matrix.md)
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever para a pré-visualização.
+# <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Falhas de backup de resolução de problemas na cópia de segurança do disco Azure
 
 Este artigo fornece informações sobre backup e restaurar problemas enfrentados com Azure Disk. Para obter mais informações sobre a disponibilidade da região de backup do [Disco Azure,](disk-backup-overview.md) cenários e limitações apoiados, consulte a matriz de [suporte](disk-backup-support-matrix.md).
 
@@ -157,7 +152,7 @@ Ação recomendada: Considere utilizar outro ponto de recuperação para restaur
 
 Error Message: A cópia de segurança do disco ainda não está disponível na região do Cofre de Cópia de Segurança, sob a qual está a ser tentada a Proteção de Configuração.
 
-Ação recomendada: O Cofre de Apoio deve estar numa região apoiada por pré-visualização. Para disponibilidade da região consulte [a matriz de suporte.](disk-backup-support-matrix.md)
+Ação recomendada: O Cofre de Reserva deve estar numa região apoiada. Para disponibilidade da região consulte [a matriz de suporte.](disk-backup-support-matrix.md)
 
 ### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Código de erro: UserErrorDppDatasourceAlreadyHasBackupInstance
 
