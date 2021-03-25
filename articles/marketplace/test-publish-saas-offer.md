@@ -7,17 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/25/2021
+ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630792"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045251"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Como testar e publicar uma oferta saaS para o mercado comercial
 
 Este artigo explica como usar o Partner Center para submeter a sua oferta SaaS para publicação, pré-visualização da sua oferta, testá-la e, em seguida, publicá-la ao vivo no mercado comercial. Já deve ter criado uma oferta que quer publicar.
+
+> [!NOTE]
+> Recomendamos que crie uma oferta separada de teste e desenvolvimento (DEV) como uma forma de testar de baixo risco antes de publicar a sua oferta de produção (PROD). Siga estes passos para criar e testar a oferta DEV antes de publicar a sua oferta (PROD).
 
 ## <a name="submit-your-offer-for-publishing"></a>Submeta a sua oferta para publicação
 
@@ -48,7 +51,7 @@ Use os seguintes passos para pré-visualizar a sua oferta.
 
 1. Na página **'Visão geral' da Oferta,** selecione um link de pré-visualização no botão **Go live.**
 
-1. Para validar o fluxo de compra e configuração de ponta a ponta, compre a sua oferta enquanto está em pré-visualização. Em primeiro lugar, notifique a Microsoft com um [bilhete de apoio](https://aka.ms/marketplacesupport) para garantir que não processamos uma taxa.
+1. Para validar o fluxo de compra e configuração de ponta a ponta, compre os planos na sua oferta enquanto estiver em pré-visualização. Em primeiro lugar, notifique a Microsoft com um [bilhete de apoio](https://aka.ms/marketplacesupport) para garantir que não processamos uma taxa.
 
 1. Se a sua oferta SaaS suporta [faturação medido utilizando o serviço de medição de mercado comercial,](./partner-center-portal/saas-metered-billing.md)reveja e siga as melhores práticas de teste detalhadas em [APIs de faturação medido](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices)pelo Marketplace .
 
@@ -60,10 +63,10 @@ Use os seguintes passos para pré-visualizar a sua oferta.
 
 ## <a name="publish-your-offer-live"></a>Publique a sua oferta ao vivo
 
-Depois de completar todos os testes na sua pré-visualização, selecione **Go live** para publicar a sua oferta ao vivo no mercado comercial.
+Depois de completar todos os testes na sua pré-visualização, selecione **Go live** para publicar a sua oferta ao vivo no mercado comercial. Se a sua oferta já estiver ao vivo no mercado comercial, quaisquer atualizações que faça não serão transmitidas ao vivo até que selecione **Go live**.
 
-   > [!TIP]
-   > Se a sua oferta já estiver ao vivo no mercado comercial, quaisquer atualizações que faça não serão transmitidas ao vivo até que selecione **Go live**.
+> [!IMPORTANT]
+> Nunca selecione **Go live** para uma oferta de [desenvolvimento/teste](create-saas-dev-test-offer.md).
 
 Agora que escolheu disponibilizar a sua oferta no mercado comercial, realizamos uma série de verificações de validação final para garantir que a oferta ao vivo está configurada tal como a versão de pré-visualização da oferta. Para mais informações sobre estas verificações de validação, consulte [a fase de publicação](review-publish-offer.md#publish-phase).
 

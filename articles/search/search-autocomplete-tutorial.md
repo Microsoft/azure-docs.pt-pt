@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 668b987dd8b367c143a91dc5adb11848321a9d5a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96339613"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044418"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Adicionar autocompleto e sugestões a aplicativos de clientes usando Azure Cognitive Search
 
-O search-as-you-type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo utilizador. Na Pesquisa Cognitiva Azure, esta experiência é suportada através de *autocomplete,* que termina um termo ou frase com base na entrada parcial (completando "micro" com "microsoft"). Uma segunda experiência de utilizador são *sugestões,* ou uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que possa ligar a uma página detalhada sobre esse livro). Tanto o autocompleto como as sugestões são baseadas numa correspondência no índice. O serviço não oferece consultas que devolvam zero resultados.
+O search-as-you-type é uma técnica comum para melhorar a produtividade da consulta. Na Pesquisa Cognitiva Azure, esta experiência é suportada através de *autocomplete,* que termina um termo ou frase com base na entrada parcial (completando "micro" com "microsoft"). Uma segunda experiência de utilizador são *sugestões,* ou uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que possa ligar a uma página detalhada sobre esse livro). Tanto o autocompleto como as sugestões são baseadas numa correspondência no índice. O serviço não oferece consultas que devolvam zero resultados.
 
 Para implementar estas experiências na Azure Cognitive Search, você precisará:
 
@@ -63,13 +63,16 @@ Siga estes links para as páginas de referência REST e .NET SDK:
 
 As respostas para o preconto automático e as sugestões são o que se pode esperar para o padrão: [O preconto automático](/rest/api/searchservice/autocomplete#response) devolve uma lista de termos, [sugestões](/rest/api/searchservice/suggestions#response) devolve termos mais um documento de ID para que possa ir buscar o documento (use a API [do Documento de Procura](/rest/api/searchservice/lookup-document) para obter o documento específico para uma página de detalhe).
 
-As respostas são moldadas pelos parâmetros do pedido. Para concluir automaticamente, defina [**automaticamente oMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) para determinar se a conclusão do texto ocorre em um ou dois termos. Para Sugestões, o campo que escolhe determina o conteúdo da resposta.
+As respostas são moldadas pelos parâmetros do pedido:
 
-Para sugestões, deve aperfeiçoar ainda mais a resposta para evitar duplicados ou o que parece ser resultados não relacionados. Para controlar os resultados, inclua mais parâmetros sobre o pedido. Os seguintes parâmetros aplicam-se tanto a autocompletos como a sugestões, mas são talvez mais necessários para sugestões, especialmente quando um sugestivo inclui vários campos.
++ Para concluir automaticamente, defina o [**AutocompleteMode**](/rest/api/searchservice/autocomplete#query-parameters) para determinar se a conclusão do texto ocorre em um ou dois termos. 
+
++ Para sugestões, desempata [**$select**](/rest/api/searchservice/suggestionse#query-parameters) para devolver campos que contenham valores únicos ou diferenciadores, tais como nomes e descrição. Evite campos que contenham valores duplicados (como uma categoria ou cidade).
+
+Os seguintes parâmetros adicionais aplicam-se tanto a autocompletos como a sugestões, mas são talvez mais necessários para sugestões, especialmente quando um sugestivo inclui vários campos.
 
 | Parâmetro | Utilização |
 |-----------|-------|
-| **$select** | Se tiver **várias fontesFields** num sugestivo, utilize **$select** para escolher qual o campo que contribui com valores `$select=GameTitle` (). |
 | **searchFields** | Restrinja a consulta a campos específicos. |
 | **$filter** | Aplicar critérios de correspondência no conjunto de resultados ( `$filter=Category eq 'ActionAdventure'` ). |
 | **$top** | Limitar os resultados a um número específico `$top=5` ().|

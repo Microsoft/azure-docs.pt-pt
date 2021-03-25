@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c866629677790447d0ed730ae9cc62cb37e338e9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ddc9bfeb0df32614d835e0eaef9da52e917ee91
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495509"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108439"
 ---
 # <a name="sms-concepts"></a>Conceitos de SMS
 
@@ -23,9 +23,9 @@ ms.locfileid: "103495509"
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Os Serviços de Comunicação Azure permitem-lhe enviar e receber mensagens de texto SMS utilizando as bibliotecas de clientes SMS dos Serviços de Comunicação. Estas bibliotecas de clientes podem ser usadas para suportar cenários de atendimento ao cliente, lembretes de marcação, autenticação de dois fatores e outras necessidades de comunicação em tempo real. O SMS dos Serviços de Comunicação permite-lhe enviar mensagens de forma fiável enquanto expõe insights de entrega e taxa de resposta em torno das suas campanhas.
+Os Serviços de Comunicação Azure permitem-lhe enviar e receber mensagens de texto SMS utilizando os Serviços de Comunicação SMS SDKs. Estes SDKs podem ser usados para suportar cenários de atendimento ao cliente, lembretes de marcação, autenticação de dois fatores e outras necessidades de comunicação em tempo real. O SMS dos Serviços de Comunicação permite-lhe enviar mensagens de forma fiável enquanto expõe insights de entrega e taxa de resposta em torno das suas campanhas.
 
-As principais características das bibliotecas de clientes dos Serviços de Comunicação Azure incluem:
+As principais características dos Serviços de Comunicação Azure, SMS SDKs incluem:
 
 -  **Experiência de** configuração simples para adicionar capacidade de SMS às suas aplicações.
 - **Suporte de mensagens de alta velocidade** sobre números gratuitos para A2P (Aplicação a Pessoa) utiliza casos nos Estados Unidos.
@@ -46,6 +46,6 @@ As principais características das bibliotecas de clientes dos Serviços de Comu
 
 Os seguintes documentos podem ser interessantes para si:
 
-- Familiarize-se com a biblioteca do [cliente SMS](../telephony-sms/sdk-features.md)
+- Familiarize-se com o [SMS SDK](../telephony-sms/sdk-features.md)
 - Obtenha um [número de telefone](../../quickstarts/telephony-sms/get-phone-number.md) capaz de SMS
 - [Tipos de números de telefone nos Serviços de Comunicação Azure](../telephony-sms/plan-solution.md)

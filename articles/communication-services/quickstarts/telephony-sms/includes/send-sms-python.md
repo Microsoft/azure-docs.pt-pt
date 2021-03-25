@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: f064e0c3ac00b4ab7aeb23356dd24fd89c91021e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 727e2166bad7f0d8980ffe4fa18c292a206c37d7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104345"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110374"
 ---
-Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes PYTHON para enviar mensagens SMS.
+Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação Python SMS SDK para enviar mensagens SMS.
 
 Completar este quickstart incorre num pequeno custo de alguns usd ou menos na sua conta Azure.
 
@@ -62,7 +62,7 @@ except Exception as ex:
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-Enquanto ainda está no diretório de aplicações, instale a biblioteca de clientes Azure Communication Services PARA pacote Python utilizando o `pip install` comando.
+Enquanto ainda está no diretório de aplicações, instale o pacote SMS SDK dos Serviços de Comunicação Azure para o pacote Python utilizando o `pip install` comando.
 
 ```console
 pip install azure-communication-sms --pre
@@ -70,7 +70,7 @@ pip install azure-communication-sms --pre
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características da biblioteca de clientes dos Serviços de Comunicação Azure para Python.
+As seguintes classes e interfaces lidam com algumas das principais características do Azure Communication Services SMS SDK para Python.
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -79,16 +79,14 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiizar um **SmsClient** com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
+Instantiizar um **SmsClient** com a sua cadeia de ligação. Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
 
 ```python
-# This code demonstrates how to fetch your connection string
-# from an environment variable.
-connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
-
 # Create the SmsClient object which will be used to send SMS messages
-sms_client = SmsClient.from_connection_string(connection_string)
+sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
+Para simplificar, estamos a usar cordas de ligação neste arranque rápido, mas em ambientes de produção recomendamos o uso [de identidades geridas](../../../quickstarts/managed-identity.md) porque são mais seguras e manejáveis à escala.
+
 
 ## <a name="send-a-11-sms-message"></a>Envie uma mensagem SMS 1:1
 
@@ -107,6 +105,9 @@ sms_responses = sms_client.send(
 ```
 
 Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu serviço de comunicação e `<to-phone-number>` pelo número de telefone a que deseja enviar uma mensagem. 
+
+> [!WARNING]
+> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +12223344444).
 
 ## <a name="send-a-1n-sms-message"></a>Envie uma mensagem SMS 1:N
 
@@ -133,9 +134,31 @@ O `enable_delivery_report` parâmetro é um parâmetro opcional que pode utiliza
 O `tag` parâmetro é um parâmetro opcional que pode usar para configurar a marcação personalizada.
 
 ## <a name="run-the-code"></a>Executar o código
-
 Executar o pedido do seu diretório de candidaturas com o `python` comando.
 
 ```console
 python send-sms.py
+```
+
+O roteiro completo da Python deve parecer algo como:
+
+```python
+
+import os
+from azure.communication.sms import SmsClient
+
+try:
+    # Create the SmsClient object which will be used to send SMS messages
+    sms_client = SmsClient.from_connection_string("<connection string>")
+    # calling send() with sms values
+    sms_responses = sms_client.send(
+       from_="<from-phone-number>",
+       to="<to-phone-number>",
+       message="Hello World via SMS",
+       enable_delivery_report=True, # optional property
+       tag="custom-tag") # optional property
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
 ```

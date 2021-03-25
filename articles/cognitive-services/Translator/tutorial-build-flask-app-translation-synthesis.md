@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: c04bac76453d565abb99a971386b9ce0461b88ae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172084"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043738"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Construir uma app Flask com Serviços Cognitivos Azure
 
-Neste tutorial, você vai construir uma aplicação web Flask que usa os Serviços Cognitivos Azure para traduzir texto, analisar sentimentos e sintetizar texto traduzido em discurso. O nosso foco está nas rotas python e flask que permitem a nossa aplicação, no entanto, vamos ajudá-lo com o HTML e Javascript que reúne a app. Se encontrar algum problema, avise-nos usando o botão de feedback abaixo.
+Neste tutorial, você vai construir uma aplicação web Flask que usa os Serviços Cognitivos Azure para traduzir texto, analisar sentimentos e sintetizar texto traduzido em discurso. O nosso foco está nas rotas python e flask que permitem a nossa aplicação, no entanto, vamos ajudá-lo com o HTML e JavaScript que reúne a app. Se encontrar algum problema, avise-nos usando o botão de feedback abaixo.
 
 Aqui está o que este tutorial cobre:
 
@@ -49,7 +49,7 @@ Para aqueles que querem mergulhar profundamente depois deste tutorial aqui estã
 
 Vamos rever o software e as chaves de subscrição que você precisa para este tutorial.
 
-* [Python 3.5.2 ou mais tarde](https://www.python.org/downloads/)
+* [Python 3.6 ou mais tarde](https://www.python.org/downloads/)
 * [Ferramentas de git](https://git-scm.com/downloads)
 * Um IDE ou editor de texto, como [Visual Studio Code](https://code.visualstudio.com/) ou [Átomo](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) ou [Firefox](https://www.mozilla.org/firefox)
@@ -249,7 +249,7 @@ Agora que tem uma ideia de como funciona uma simples aplicação Flask, vamos:
 * Escreva um python para ligar para o Tradutor e devolva uma resposta
 * Crie uma rota flask para ligar para o seu código Python
 * Atualize o HTML com uma área para entrada e tradução de texto, um seletor de idiomas e botão de tradução
-* Escreva Javascript que permite aos utilizadores interagir com a sua aplicação Flask a partir do HTML
+* Escreva JavaScript que permite que os utilizadores interajam com a sua aplicação Flask a partir do HTML
 
 ### <a name="call-the-translator"></a>Ligue para o Tradutor
 
@@ -409,7 +409,7 @@ Vamos `index.html` atualizar.
    </div>
    ```
 
-O próximo passo é escrever javascript. Esta é a ponte entre a sua rota HTML e Flask.
+O próximo passo é escrever javaScript. Esta é a ponte entre a sua rota HTML e Flask.
 
 ### <a name="create-mainjs"></a>Criar `main.js`  
 
@@ -482,11 +482,11 @@ Nesta secção, vais fazer algumas coisas:
 * Escreva alguns Python para ligar para a API de Análise de Texto para realizar análise de sentimento e devolver uma resposta
 * Crie uma rota flask para ligar para o seu código Python
 * Atualize o HTML com uma área para pontuações de sentimento, e um botão para realizar análises
-* Escreva Javascript que permite aos utilizadores interagir com a sua aplicação Flask a partir do HTML
+* Escreva JavaScript que permite que os utilizadores interajam com a sua aplicação Flask a partir do HTML
 
 ### <a name="call-the-text-analytics-api"></a>Chamar a API de Análise de Texto
 
-Vamos escrever uma função para chamar a API de Análise de Texto. Esta função terá quatro argumentos: `input_text` `input_language` , , e `output_text` `output_language` . Esta função é chamada sempre que um utilizador carrega no botão de análise de sentimento de execução na sua aplicação. Os dados fornecidos pelo utilizador a partir da área de texto e do seletor de idiomas, bem como a saída de idioma e tradução detetadas são fornecidos com cada pedido. O objeto de resposta inclui pontuações de sentimento para a origem e tradução. Nas secções seguintes, você vai escrever algum Javascript para analisar a resposta e usá-la na sua app. Por enquanto, concentremo-nos em chamar a API de Análise de Texto.
+Vamos escrever uma função para chamar a API de Análise de Texto. Esta função terá quatro argumentos: `input_text` `input_language` , , e `output_text` `output_language` . Esta função é chamada sempre que um utilizador carrega no botão de análise de sentimento de execução na sua aplicação. Os dados fornecidos pelo utilizador a partir da área de texto e do seletor de idiomas, bem como a saída de idioma e tradução detetadas são fornecidos com cada pedido. O objeto de resposta inclui pontuações de sentimento para a origem e tradução. Nas secções seguintes, vai escrever alguns JavaScript para analisar a resposta e usá-la na sua aplicação. Por enquanto, concentremo-nos em chamar a API de Análise de Texto.
 
 1. Vamos criar um ficheiro chamado `sentiment.py` na raiz do seu diretório de trabalho.
 2. Em seguida, adicione este código a `sentiment.py` .
@@ -651,7 +651,7 @@ Nesta secção, vais fazer algumas coisas:
 * Escreva um python para converter texto-a-discurso com a API text-to-speech
 * Crie uma rota flask para ligar para o seu código Python
 * Atualize o HTML com um botão para converter texto-a-discurso, e um elemento para reprodução áudio
-* Escreva Javascript que permite aos utilizadores interagir com a sua aplicação Flask
+* Escreva JavaScript que permite aos utilizadores interagir com a sua aplicação Flask
 
 ### <a name="call-the-text-to-speech-api"></a>Ligue para a API text-to-speech
 

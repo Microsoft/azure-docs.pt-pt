@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: b2c-support
+ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652135"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043602"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Azure Ative Directory B2C
 
@@ -36,7 +37,8 @@ Uma conta de trabalho é criada da mesma forma para todos os inquilinos com base
 
 Quando adicionar uma nova conta de trabalho, tem de considerar as seguintes definições de configuração:
 
-- **Nome** e **nome de utilizador** - A propriedade **Name** contém o dado e o sobrenome do utilizador. O **nome de Utilizador** é o identificador em que o utilizador entra para iniciar súm. O nome de utilizador inclui todo o domínio. A parte do nome de domínio do nome de utilizador deve ser o nome de domínio padrão inicial *your-domain.onmicrosoft.com*, ou um nome de [domínio personalizado](../active-directory/fundamentals/add-custom-domain.md) não federado verificado, como *contoso.com*.
+- **Nome** e **nome de utilizador** - A propriedade **Name** contém o dado e o sobrenome do utilizador. O **nome de Utilizador** é o identificador em que o utilizador entra para iniciar súm. O nome de utilizador inclui todo o domínio. A parte do nome de domínio do nome de utilizador deve ser o nome de domínio padrão inicial *your-domain.onmicrosoft.com*, ou um nome de [domínio personalizado](../active-directory/fundamentals/add-custom-domain.md) não federado verificado, como *contoso.com*. 
+- **E-mail** - O novo utilizador também pode iniciar sômsião através de um endereço de e-mail. Não suportamos caracteres especiais ou personagens multibytes em e-mail, por exemplo, caracteres japoneses.
 - **Perfil** - A conta é configurada com um perfil de dados do utilizador. Tem a oportunidade de introduzir um primeiro nome, apelido, cargo e nome do departamento. Pode editar o perfil após a criação da conta.
 - **Grupos** - Utilize grupos para executar tarefas de gestão, tais como atribuir licenças ou permissões a muitos utilizadores ou dispositivos ao mesmo tempo. Pode colocar a nova conta num [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no seu inquilino.
 - **Função diretório** - É necessário especificar o nível de acesso que a conta de utilizador tem para recursos no seu inquilino. Estão disponíveis os seguintes níveis de permissão:

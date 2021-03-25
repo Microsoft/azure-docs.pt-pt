@@ -7,14 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 546f29330b76548ea553cfb7e4e31ac35b19cb1c
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105037551"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109799"
 ---
-# <a name="common-errors"></a>Erros comuns
+# <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Erros geralmente encontrados durante ou após a migração para a Base de Dados Azure para o serviço MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database for MySQL é um serviço totalmente gerido alimentado pela versão comunitária do MySQL. A experiência MySQL num ambiente de serviço gerido pode diferir de executar o MySQL no seu próprio ambiente. Neste artigo, irá ver alguns dos erros comuns que os utilizadores podem encontrar durante a migração ou desenvolvimento na Base de Dados Azure para o serviço MySQL pela primeira vez.
 
@@ -84,6 +86,14 @@ O erro acima pode ocorrer durante a execução do CREATE VIEW com declarações 
 
 > [!Tip] 
 > Utilize sed ou perl para modificar um ficheiro de despejo ou script SQL para substituir a declaração DEFINER=
+
+#### <a name="error-1227-42000-at-line-18-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation"></a>ERRO 1227 (42000) na linha 18: Acesso negado; você precisa (pelo menos um dos) os super privilégios(s) para esta operação
+
+O erro acima pode ocorrer se estiver a tentar importar o ficheiro de despejo do servidor MySQL com o GTID ativado para o target Azure Database para o servidor MySQL. Mysqldump adiciona set @ @SESSION.sql_log_bin =0 declaração a um ficheiro de despejo de um servidor onde os GTIDs estão em uso, o que desativa a registo binário enquanto o ficheiro de despejo está a ser recarregado.
+
+**Resolução**: Para resolver este erro enquanto importa, remova ou comentasse as linhas abaixo no seu ficheiro mysqldump e execute novamente a importação para garantir o seu sucesso. 
+
+SET @MYSQLDUMP_TEMP_LOG_BIN = @ @SESSION.SQL_LOG_BIN ; SET @ @SESSION.SQL_LOG_BIN = 0; SET @ @GLOBAL.GTID_PURGED =''; SET @ @SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN ;
 
 ## <a name="common-connection-errors-for-server-admin-login"></a>Erros de ligação comuns para o login de administração do servidor
 

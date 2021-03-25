@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 9cac6cdd8e68af77b611c89e8b62e6f8d8845fd0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025242"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107521"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Perguntas frequentes dos Serviços Cloud do Azure (suporte alargado)
 Este artigo abrange perguntas frequentes relacionadas com a Azure Cloud Services (suporte alargado).
@@ -93,7 +93,7 @@ Não, as implementações do Cloud Service (suporte alargado) estão ligadas a u
 ### <a name="when-do-i-need-to-migrate"></a>Quando é que preciso de emigrar? 
 Estimar o tempo necessário e a migração da complexidade depende de uma série de variáveis. O planeamento é o passo mais eficaz para compreender o âmbito do trabalho, os bloqueadores e a complexidade da migração.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Rede 
 
 ### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>Por que não posso criar uma implantação sem rede virtual?
 As redes virtuais são um recurso necessário para qualquer implementação no Azure Resource Manager. A implementação dos Serviços cloud (suporte alargado) deve viver dentro de uma rede virtual. 
@@ -112,6 +112,9 @@ Os clientes são faturados para utilização de endereços IP em Serviços cloud
 
 ### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>Posso usar um nome DNS com Serviços cloud (suporte alargado)? 
 Sim. Os Serviços cloud (suporte alargado) também podem receber um nome DNS. Com o Azure Resource Manager, a etiqueta DNS é uma propriedade opcional do endereço IP público que é atribuído ao Serviço de Cloud. O formato do nome DNS para implementações baseadas em Recursos Azure é `<userlabel>.<region>.cloudapp.azure.com`
+
+### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>Posso atualizar ou alterar a referência de rede virtual para um serviço de nuvem existente (suporte alargado)? 
+N.º A referência de rede virtual é obrigatória durante a criação de um serviço na nuvem. Para um serviço de nuvem existente, a referência de rede virtual não pode ser alterada. O espaço de endereço de rede virtual em si pode ser modificado usando APIs VNet. 
 
 ## <a name="certificates--key-vault"></a>Certificados & Cofre chave
 

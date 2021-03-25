@@ -3,12 +3,12 @@ title: Configure Container insights Prometheus Integration | Microsoft Docs
 description: Este artigo descreve como pode configurar o agente de insights do Contentor para raspar métricas de Prometeu com o seu cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731736"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109646"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Configurar a raspagem das métricas prometheus com insights de contentores
 
@@ -48,7 +48,7 @@ Quando um URL é especificado, os insights do recipiente apenas raspam o ponto f
 |------|-----|-----------|-------|-------------|
 | Em todo o agrupamento | | | | Especifique qualquer um dos três métodos seguintes para raspar pontos finais para métricas. |
 | | `urls` | String | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um parâmetro específico de insights do contentor e pode ser usado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
-| | `kubernetes_services` | String | Matriz separada por vírgula | Uma série de serviços kubernetes para raspar métricas de kube-state-metrics. Por exemplo, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `kubernetes_services` | String | Matriz separada por vírgula | Uma série de serviços kubernetes para raspar métricas de kube-state-metrics. Os nomes de domínio totalmente qualificados devem ser utilizados aqui. Por exemplo, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Booleano | true ou false | Quando definido `true` para as configurações de largura do cluster, o agente de insights de contentores raspará as cápsulas de Kubernetes em todo o cluster para as seguintes anotações prometeu:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Booleano | true ou false | Permite raspar a cápsula. `monitor_kubernetes_pods` deve ser definido para `true` . |
 | | `prometheus.io/scheme` | String | http ou https | Predefinições para raspar em HTTP. Se necessário, dedão `https` . | 

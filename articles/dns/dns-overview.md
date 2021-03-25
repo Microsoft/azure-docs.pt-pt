@@ -4,14 +4,14 @@ description: Descrição geral do serviço de alojamento de DNS no Microsoft Azu
 author: rohinkoul
 ms.service: dns
 ms.topic: overview
-ms.date: 3/15/2021
+ms.date: 3/25/2021
 ms.author: rohink
-ms.openlocfilehash: 5d81e24d344d04ea59bc6c9e6141109bf66da3c3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41d2fdca653828588a5881daa0fa16c3bc71b5c4
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491100"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046492"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 

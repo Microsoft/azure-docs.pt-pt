@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 998b0cb04d465f675423e2472a7ca8c6441b1fed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010410"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045489"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede
 
@@ -31,7 +31,7 @@ Pode migrar os testes do Monitor de Desempenho da Rede (NPM) para um novo Monito
 
 A migração ajuda a produzir os seguintes resultados:
 
-* Os agentes no local e as definições de firewall funcionam como está. Não são necessárias alterações. Os agentes do Log Analytics instalados em máquinas virtuais Azure precisam de ser substituídos pela [extensão do Observador de Rede](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+* Os agentes no local e as definições de firewall funcionam como está. Não são necessárias alterações. Os agentes do Log Analytics instalados em máquinas virtuais Azure precisam de ser substituídos pela [extensão do Observador de Rede](../virtual-machines/extensions/network-watcher-windows.md).
 * Os testes existentes são mapeados para o formato de teste do Grupo de Teste > de Controlo > de Ligação. Ao selecionar **Editar,** pode visualizar e modificar as propriedades do novo Monitor de Ligação, descarregar um modelo para escoar alterações e submeter o modelo através do Azure Resource Manager.
 * Os agentes enviam dados tanto para o espaço de trabalho do Log Analytics como para as métricas.
 * Monitorização de dados:

@@ -9,20 +9,20 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e71917d917491037100b4ee666cbeb030b0a4786
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e05bf1df503a13efc8e4ca30b3341216e01e678e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656146"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110836"
 ---
 # <a name="chat-concepts"></a>Conceitos de chat 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
-As bibliotecas de clientes Azure Communication Services Chat podem ser usadas para adicionar chat de texto em tempo real às suas aplicações. Esta página resume os principais conceitos e capacidades do Chat.    
+Os SDKs de chat dos Serviços de Comunicação Azure podem ser utilizados para adicionar chat de texto em tempo real às suas aplicações. Esta página resume os principais conceitos e capacidades do Chat.    
 
-Consulte a biblioteca de [clientes de Comunicação Chat](./sdk-features.md) para saber mais sobre as línguas e capacidades específicas da biblioteca do cliente.    
+Consulte a visão geral do [Chat SDK dos Serviços de Comunicação](./sdk-features.md) para saber mais sobre línguas e capacidades específicas da SDK.  
 
 ## <a name="chat-overview"></a>Visão geral do chat    
 
@@ -117,7 +117,7 @@ Serviços de Comunicação O Chat partilha mensagens geradas pelo utilizador, be
 
 ## <a name="real-time-signaling"></a>Sinalização em tempo real  
 
-A biblioteca de clientes Chat JavaScript inclui sinalização em tempo real. Isto permite que os clientes ouçam atualizações em tempo real e mensagens recebidas para um fio de chat sem terem de fazer sondagens às APIs. Os eventos disponíveis incluem:
+O Chat JavaScript SDK inclui sinalização em tempo real. Isto permite que os clientes ouçam atualizações em tempo real e mensagens recebidas para um fio de chat sem terem de fazer sondagens às APIs. Os eventos disponíveis incluem:
 
  - `ChatMessageReceived` - quando uma nova mensagem é enviada para um fio de chat. Este evento não é enviado para mensagens de sistema geradas automaticamente que foram discutidas no tópico anterior.   
  - `ChatMessageEdited` - quando uma mensagem é editada num fio de chat. 
@@ -136,9 +136,9 @@ A biblioteca de clientes Chat JavaScript inclui sinalização em tempo real. Ist
 A sinalização em tempo real permite que os seus utilizadores conversem em tempo real. Os seus serviços podem utilizar a Azure Event Grid para subscrever eventos relacionados com chat. Para mais detalhes, consulte [Event Handling conceptual.](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?tabs=event-grid-event-schema)
 
 
-## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Utilização de Serviços Cognitivos com biblioteca de clientes Chat para permitir funcionalidades inteligentes 
+## <a name="using-cognitive-services-with-chat-sdk-to-enable-intelligent-features"></a>Utilização de Serviços Cognitivos com Chat SDK para permitir funcionalidades inteligentes    
 
-Pode utilizar [APIs cognitivos do Azure](../../../cognitive-services/index.yml) com a biblioteca do cliente Chat para adicionar funcionalidades inteligentes às suas aplicações. Pode, por exemplo:  
+Pode utilizar [APIs cognitivos do Azure](../../../cognitive-services/index.yml) com o Chat SDK para adicionar funcionalidades inteligentes às suas aplicações. Pode, por exemplo: 
 
 - Permitir que os utilizadores conversem uns com os outros em diferentes idiomas.  
 - Ajude um agente de apoio a priorizar os bilhetes, detetando um sentimento negativo de um problema de entrada de um cliente.   
@@ -156,4 +156,4 @@ Desta forma, o histórico da mensagem conterá mensagens originais e traduzidas.
 > [Começa com o chat](../../quickstarts/chat/get-started.md)    
 
 Os seguintes documentos podem ser interessantes para si:  
-- Familiarize-se com a biblioteca de [clientes Chat](sdk-features.md)
+- Familiarize-se com o [Chat SDK](sdk-features.md)

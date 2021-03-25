@@ -1,17 +1,17 @@
 ---
 title: Monitorização - Base de Dados Azure para MySQL - Servidor Flexível
 description: Este artigo descreve as métricas para monitorização e alerta para a Base de Dados Azure para o MySQL Flexible Server, incluindo CPU, armazenamento e estatísticas de conexão.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: c2883a2ddba9a322c09a318aa9f232de5f4704b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 660e87e0c09d1bf052b20f60276a30e572ab825b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100595158"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110479"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Monitor Azure Database para Servidores Flexíveis MySQL com métricas incorporadas
 

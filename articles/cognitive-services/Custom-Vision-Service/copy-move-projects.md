@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 7d58a8239c728f70efe3584c2649e196dffd791f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1def60843df55a80e8b7d28d7eb61e262a560111
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102501095"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044161"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copie e mova os seus projetos de Visão Personalizada
 
@@ -31,7 +31,7 @@ Se a sua aplicação ou negócio depender da utilização de um projeto de Visã
 - Dois recursos da Azure Custom Vision. Se não os tiver, vá ao portal Azure e [crie um novo recurso de Visão Personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - As chaves de treino e URLs de ponto final dos seus recursos de Visão Personalizada. Pode encontrar estes valores no **separador Visão Geral** do recurso no portal Azure.
 - Um projeto criado de Visão Personalizada. Consulte [Construir um classificador](./getting-started-build-a-classifier.md) para obter instruções sobre como fazê-lo.
-* [Versão PowerShell 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)ou um utilitário de linha de comando semelhante.
+* [Versão PowerShell 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows)ou um utilitário de linha de comando semelhante.
 
 ## <a name="process-overview"></a>Visão geral do processo
 

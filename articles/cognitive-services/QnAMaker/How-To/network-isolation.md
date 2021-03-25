@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467549"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043364"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
@@ -60,7 +60,7 @@ O exemplo de Pesquisa Cognitiva pode ser isolado através de um ponto final priv
 
 Se o Serviço de Aplicações QnA Maker for restringido usando um Ambiente de Serviço de Aplicações, utilize o mesmo VNet para criar uma ligação private endpoint à instância de Pesquisa Cognitiva. Crie uma nova entrada de DNS no VNet para mapear o ponto final de Pesquisa Cognitiva para o endereço IP de Endpoint Privado de Pesquisa Cognitiva. 
 
-Se um Ambiente de Serviço de Aplicações não for utilizado para o Serviço de Aplicações QnAMaker, crie primeiro um novo recurso VNet e, em seguida, crie a ligação Private Endpoint à instância de Pesquisa Cognitiva. Neste caso, o Serviço de Aplicações do Criador QnA precisa de [ser integrado com o VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) para se ligar à instância de Pesquisa Cognitiva. 
+Se um Ambiente de Serviço de Aplicações não for utilizado para o Serviço de Aplicações QnAMaker, crie primeiro um novo recurso VNet e, em seguida, crie a ligação Private Endpoint à instância de Pesquisa Cognitiva. Neste caso, o Serviço de Aplicações do Criador QnA precisa de [ser integrado com o VNet](../../../app-service/web-sites-integrate-with-vnet.md) para se ligar à instância de Pesquisa Cognitiva. 
 
 #  <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 

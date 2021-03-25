@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e memória para o servi
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4decf29be23c2f1ed51f422052869e99abe4a511
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b1783204ae416412579e63654ff236fbc6cf1a18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573613"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046016"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores Azure nas regiões de Azure
 
@@ -88,21 +88,21 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Sul do Brasil | 4 | 16 | 4 | 16 | 20 |
 | Canadá Central | 2 | 8 | 2 | 3.5 | 20 |
 | Índia Central | 2 | 3.5 | 2 | 3.5 | 20 |
-| E.U.A. Central | 2 | 3.5 | 2 | 3.5 | 20 |
+| E.U.A. Central | 2 | 8 | 2 | 3.5 | 20 |
 | Ásia Leste | 2 | 3.5 | 2 | 3.5 | 20 |
-| E.U.A. Leste | 4 | 16 | 2 | 8 | 20 |
-| E.U.A. Leste 2 | 2 | 3.5 | 4 | 16 | 20 |
+| E.U.A. Leste | 2 | 8 | 2 | 8 | 20 |
+| E.U.A. Leste 2 | 2 | 8 | 4 | 16 | 20 |
 | Leste do Japão | 4 | 16 | 4 | 16 | 20 |
 | Coreia do Sul Central | 4 | 16 | 4 | 16 | 20 |
-| E.U.A. Centro-Norte | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Centro-Norte | 2 | 8 | 4 | 16 | 20 |
 | Europa do Norte | 2 | 8 | 2 | 8 | 20 |
-| E.U.A. Centro-Sul | 2 | 3.5 | 2 | 8 | 20 |
+| E.U.A. Centro-Sul | 2 | 8 | 2 | 8 | 20 |
 | Sudeste Asiático | N/D | N/D | 2 | 3.5 | 20 |
 | Sul da Índia | 2 | 3.5 | 2 | 3.5 | 20 |
 | Sul do Reino Unido | 2 | 8 | 2 | 3.5 | 20 |
-| E.U.A. Centro-Oeste | 4 | 16 | 2 | 8 | 20 |
+| E.U.A. Centro-Oeste | 2 | 8 | 2 | 8 | 20 |
 | Europa Ocidental | 4 | 16 | 4 | 16 | 20 |
-| E.U.A. Oeste | 4 | 16 | 2 | 8 | 20 |
+| E.U.A. Oeste | 2 | 8 | 2 | 8 | 20 |
 | E.U.A. Oeste 2 | 2 | 8 | 2 | 3.5 | 20 |
 
 

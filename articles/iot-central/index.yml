@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   ms.date: 09/02/2021
   ms.custom: contperf-fy21q3
-  ms.openlocfilehash: 8043b906cff5af5acd41ea08a8a38bb7c75b42c1
-  ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+  ms.openlocfilehash: b863c90897fb9fdd67ced188747f31411d37bdac
+  ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104669411"
+  ms.lasthandoff: 03/25/2021
+  ms.locfileid: "105109153"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -104,6 +104,10 @@ landingContent:
       url: core/howto-run-a-job.md
 - title: Administração
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Visão geral para administradores
+      url: core/overview-iot-central-admin.md
   - linkListType: how-to-guide
     links:
     - text: Gerir a aplicação

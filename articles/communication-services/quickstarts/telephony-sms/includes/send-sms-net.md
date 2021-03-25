@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 96cdeb7c35cd1ccd503f7ce01e1098a6b83884c3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: caca5f5a05a136248f7453337629fdd2b22f956a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622302"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110376"
 ---
-Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes SMS dos Serviços de Comunicação C# PARA enviar mensagens SMS.
+Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação C# SMS SDK para enviar mensagens SMS.
 
 Completar este quickstart incorre num pequeno custo de alguns usd ou menos na sua conta Azure.
 
@@ -28,13 +28,13 @@ Completar este quickstart incorre num pequeno custo de alguns usd ou menos na su
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A versão mais recente [.NET Core biblioteca de clientes](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operativo.
+- A versão mais recente [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operativo.
 - Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Criar um recurso de Serviços de Comunicação.](../../create-communication-resource.md)
 - Um número de telefone por SMS habilitado. [Obter um número de telefone.](../get-phone-number.md)
 
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 
-- Numa janela de terminal ou comando, verifique `dotnet` se a biblioteca do cliente .NET está instalada.
+- Numa janela de terminal ou comando, verifique `dotnet` se o .NET SDK está instalado.
 - Para visualizar os números de telefone associados ao seu recurso serviços de comunicação, inscreva-se no [portal Azure,](https://portal.azure.com/)localize o seu recurso de Serviços de Comunicação e abra o separador **números** de telefone a partir do painel de navegação à esquerda.
 
 ## <a name="setting-up"></a>Configuração
@@ -56,7 +56,7 @@ dotnet build
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-Enquanto ainda está no diretório de aplicações, instale a biblioteca de clientes Azure Communication Services SMS para pacote .NET utilizando o `dotnet add package` comando.
+Enquanto ainda está no diretório de aplicações, instale o Sms SDK dos Serviços de Comunicação Azure para o pacote .NET utilizando o `dotnet add package` comando.
 
 ```console
 dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
@@ -77,7 +77,7 @@ using Azure.Communication.Sms;
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características da biblioteca de clientes dos Serviços de Comunicação Azure para C#.
+As seguintes classes e interfaces lidam com algumas das principais características do Azure Communication Services SMS SDK para C#.
 
 | Nome                                       | Descrição                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: d0acf83ddfb0d2a3aff0db0f3d151869bce1c710
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 1a0ad751a216e8da772fd5fdc96a0dc67cb27d01
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771741"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109862"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descubra servidores em execução em ambiente VMware com Azure Migrate: Descoberta e avaliação
 
@@ -46,12 +46,10 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 **Aparelho** | vCenter Server precisa de recursos para alocar um servidor para o aparelho Azure Migrate:<br/><br/> - 32 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco.<br/><br/> - Um interruptor virtual externo e acesso à Internet no servidor do aparelho, diretamente ou através de um representante.
 **Servidores** | Todas as versões Windows e Linux OS são suportadas para a descoberta de metadados de configuração e desempenho. <br/><br/> Para realizar a descoberta de aplicações em servidores, todas as versões Windows e Linux OS são suportadas. Consulte [aqui](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) as versões de SO suportadas para análise de dependência sem agentes.<br/><br/> Para realizar a descoberta de aplicações instaladas e análise de dependência sem agentes, as Ferramentas VMware (mais tarde de 10.2.0) devem ser instaladas e em execução nos servidores. Os servidores do Windows devem ter a versão PowerShell 2.0 ou posteriormente instalada.<br/><br/> Para descobrir as instâncias e bases de dados do SQL Server, consulte [aqui](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) as versões e edições suportadas do SQL Server, as versões e mecanismos de autenticação suportados do Windows OS.
 
-> [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
-
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de utilizador Azure
 
 Para criar um projeto e registar o aparelho Azure Migrate, precisa de uma conta com:
+
 - Permissões do Contribuinte ou proprietário na subscrição do Azure
 - Permissões para registar aplicações do Azure Ative Directory (AAD)
 - Permissões de administrador de acesso ao utilizador e ao utilizador na subscrição do Azure para criar um Cofre chave, utilizado durante a migração de servidores sem agente
@@ -96,14 +94,13 @@ No vSphere Web Client, crie uma conta da seguinte forma:
 3. Nos **Utilizadores,** adicione um novo utilizador.
 4. Em **Novo Utilizador,** digite os detalhes da conta. Em seguida, clique em **OK**.
 5. Em **Permissões Globais,** selecione a conta de utilizador e atribua a **função Read-only** à conta. Em seguida, clique em **OK**.
-6.  Se também pretender realizar a descoberta de aplicações instaladas e análise de dependência sem agentes, vá a **Roles** > selecione o papel **apenas de Leitura** e, em **Privilégios,** selecione **Guest Operations**. Pode propagar os privilégios a todos os objetos sob o servidor vCenter selecionando a caixa de verificação "Propagate to children".
+6. Se também pretender realizar a descoberta de aplicações instaladas e análise de dependência sem agentes, vá a **Roles** > selecione o papel **apenas de Leitura** e, em **Privilégios,** selecione **Guest Operations**. Pode propagar os privilégios a todos os objetos sob o servidor vCenter selecionando a caixa de verificação "Propagate to children".
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Caixa de verificação para permitir operações de hóspedes no papel apenas de leitura":::
 
 
 > [!NOTE]
 > Pode limitar a descoberta a centros de dados específicos do VCenter Server, clusters, uma pasta de clusters, anfitriões, uma pasta de anfitriões ou servidores individuais, digitalizando a conta vCenter Server. [**Saiba mais**](set-discovery-scope.md) sobre como analisar a conta de utilizador do vCenter Server.
-
 
 ### <a name="create-an-account-to-access-servers"></a>Criar uma conta para aceder a servidores
 
@@ -154,7 +151,7 @@ Para configurar o aparelho utilizando um modelo OVA:
 1. Em **Objetivos de Migração**  >  **Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, selecione **Discover**.
 2. In **Discover servers**  >  **Are your servers virtualized?** 
 3. Em **1:Gere a tecla do projeto,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores no seu ambiente VMware. O nome deve ser alfanumérico com 14 caracteres ou menos.
-1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página Discover durante a criação de recursos.
+1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Não feche a página Discover durante a criação de recursos.
 1. Após a criação bem sucedida dos recursos Azure, gera-se uma **chave de projeto.**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
@@ -234,7 +231,6 @@ Coloque o aparelho pela primeira vez.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Painel 1 no gestor de configuração do aparelho":::
 
-
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
 1. Cole a chave do **projeto** copiada do portal. Se não tiver a chave, vá ao **Azure Migrate: Descoberta e avaliação> Descubra> Gerir os aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração chave e copie a chave correspondente.
@@ -274,9 +270,6 @@ No **Passo 3: Fornecer credenciais de servidor para realizar inventário de soft
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Painel 3 no gestor de configuração do aparelho para detalhes do servidor":::
 
-> [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tiver um projeto no Leste da Austrália e quiser experimentar esta funcionalidade, verifique se concluiu estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
-
 Se pretender utilizar estas funcionalidades, pode fornecer credenciais de servidor seguindo os passos abaixo. O aparelho tentará mapear automaticamente as credenciais para os servidores para executar as funcionalidades de descoberta.
 
 - Pode adicionar credenciais de servidor clicando no botão **Adicionar Credenciais.** Isto abrirá um modelol onde pode escolher o **tipo de Credenciais** a partir do drop-down.
@@ -289,6 +282,7 @@ Se pretender utilizar estas funcionalidades, pode fornecer credenciais de servid
 - Pode ver o **estado de validação** de todas as credenciais de domínio na tabela de credenciais. Apenas as credenciais de domínio serão validadas.
 - Se a validação falhar, pode clicar no estado **falhado** para ver o erro encontrado e clicar em **credenciais de Revalidato** depois de corrigir o problema para validar novamente as credenciais de domínio falhadas.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Painel 3 no gestor de configuração do aparelho para fornecer múltiplas credenciais":::
 
 ### <a name="start-discovery"></a>Iniciar a deteção
 
