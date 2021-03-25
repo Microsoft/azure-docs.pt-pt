@@ -6,15 +6,15 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 03/27/2021
+ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 316a78f4725aa3c33a78b00c6de3b8419aea717e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a7dcd630b0d5987c796ebb5a02657af9130221e6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600212"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045625"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
@@ -46,7 +46,7 @@ A Azure Synapse remove as barreiras tecnológicas tradicionais entre a utilizaç
 * SQL e Spark podem explorar e analisar diretamente os ficheiros Parquet, CSV, TSV e JSON armazenados no lago de dados.
 * Carga e descarga rápida de carga escalável para dados que vão entre bases de dados SQL e Spark
 
-## <a name="built-in-data-integration-via-pipelines"></a>Integração de dados incorporados através de oleodutos
+## <a name="built-in-data-integration"></a>Integração de dados incorporados
 
 O Azure Synapse contém o mesmo motor e experiências de Integração de Dados que a Azure Data Factory, permitindo-lhe criar oleodutos ETL ricos em escala sem sair da Azure Synapse Analytics.
 

@@ -10,24 +10,24 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 8262b0c9abc4911c1e5c039eb02920c18e7de90b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f71f394f190c5de1c3d64d02fd6113817ecda1ea
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104783616"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152790"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-O Grupo de Serviços de Comunicação Azure **Call Hero Sample para Android** demonstra como a biblioteca de clientes Android dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo que inclui voz e vídeo. Neste arranque rápido da amostra, você aprenderá a configurar e executar a amostra. Para o contexto está prevista uma visão geral da amostra.
+O Grupo de Serviços de Comunicação Azure **Call Hero Sample para Android** demonstra como os serviços de comunicação que chamam o Android SDK podem ser usados para construir uma experiência de chamada de grupo que inclui voz e vídeo. Neste arranque rápido da amostra, você aprenderá a configurar e executar a amostra. Para o contexto está prevista uma visão geral da amostra.
 
 ## <a name="download-code"></a>Transferir código
 
 Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-A amostra é uma aplicação nativa do Android que utiliza as bibliotecas de clientes Android dos Serviços de Comunicação Azure para construir uma experiência de chamada que apresenta chamadas de voz e vídeo. A aplicação utiliza um componente do lado do servidor para obter fichas de acesso que são depois usadas para inicializar a biblioteca de clientes Azure Communication Services. Para configurar este componente do lado do servidor, sinta-se livre para seguir o tutorial [do Serviço Fidedigno com Funções Azure.](../../tutorials/trusted-service-tutorial.md)
+A amostra é uma aplicação nativa do Android que utiliza os Serviços de Comunicação Android SDKs Azure para construir uma experiência de chamada que apresenta chamadas de voz e vídeo. A aplicação utiliza um componente do lado do servidor para obter fichas de acesso que são depois utilizadas para inicializar o Azure Communication Services SDK. Para configurar este componente do lado do servidor, sinta-se livre para seguir o tutorial [do Serviço Fidedigno com Funções Azure.](../../tutorials/trusted-service-tutorial.md)
 
 Aqui está o aspeto da amostra:
 
@@ -133,7 +133,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 
 Para obter mais informações, veja os seguintes artigos:
 
-- Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize-se com [o uso do Call SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Leitura adicional
