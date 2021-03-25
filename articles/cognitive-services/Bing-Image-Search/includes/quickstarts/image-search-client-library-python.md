@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: d5d47f097fa216d69b8ed59fdb057378724c2228
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 338e4f0c1c47a7786e21ad98bb3e56a1505f9bb2
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625247"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105872"
 ---
 Utilize este quickstart para fazer a sua primeira pesquisa de imagem utilizando a biblioteca do cliente Bing Image Search, que é um invólucro para a API e contém as mesmas funcionalidades. Esta aplicação Python simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 
@@ -21,7 +21,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2.7 ou 3.4](https://www.python.org/) e superior.
+* [Python 2.7 ou 3.6+](https://www.python.org/).
 
 * A biblioteca de [clientes Azure Image Search](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) para Python
     * Instalar com `pip install azure-cognitiveservices-search-imagesearch`
@@ -84,5 +84,5 @@ else:
 * [O que é a Pesquisa de Imagens do Bing?](../../overview.md)  
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Exemplos de Python para o SDK dos Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
-* [Documentação dos Serviços Cognitivos do Azure](../../../index.yml)
+* [Documentação dos Serviços Cognitivos da Azure](../../../index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

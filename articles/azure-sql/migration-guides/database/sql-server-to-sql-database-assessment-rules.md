@@ -1,5 +1,5 @@
 ---
-title: Regras de avaliação da migração do SQL Server para a SQL Database
+title: Regras de avaliação da migração do SQL Server para Azure SQL Database
 description: Regras de avaliação para identificar problemas com a origem SQL Server que deve ser abordada antes de migrar para a Base de Dados Azure SQL.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: bf825572226bf5d7432fd3ad825f2f3a13355c53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c407b62b5f0308fbb6d9ff7223a3554ca09592db
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054734"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027215"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-database-migration"></a>Regras de avaliação da migração do SQL Server para a SQL Database
+# <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Regras de avaliação da migração do SQL Server para Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 As ferramentas de migração validam a sua origem SQL Server, executando uma série de regras de avaliação para identificar problemas que devem ser abordados antes de migrar a sua base de dados sql server para Azure SQL Database. 
@@ -137,7 +137,7 @@ O nível de compatibilidade da base de dados é uma ferramenta valiosa para ajud
 **Recomendação**   
 Avalie se a funcionalidade da aplicação está intacta quando o nível de compatibilidade da base de dados for atualizado para 100 em Azure SQL Managed Instance. Alternativamente, migrar para o SQL Server na Azure Virtual Machine
 
-## <a name="database-mail"></a>Correio da base de dados<a id="DatabaseMail"></a>
+## <a name="database-mail"></a>Correio de base de dados<a id="DatabaseMail"></a>
 
 **Denominação: O Correio da Base de Dados não é suportado na Base de Dados Azure SQL.**   
 **Categoria**: Aviso   

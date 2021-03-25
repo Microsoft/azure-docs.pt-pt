@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: 4b129a218f0fe90f632adef1325288b3f8d97d16
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 56d6a76991c4386be45b2c18f4edb3d363e58fa5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585966"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027147"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
-O ExpressRoute Direct dá-lhe a capacidade de se ligar diretamente à rede global da Microsoft em locais de observação estrategicamente distribuídos em todo o mundo. O ExpressRoute Direct fornece conectividade dual 100 Gbps ou 10-Gbps, que suporta a conectividade Ative/Ative à escala.
+O ExpressRoute Direct dá-lhe a capacidade de se ligar diretamente à rede global da Microsoft em locais de observação estrategicamente distribuídos em todo o mundo. O ExpressRoute Direct fornece conectividade dual 100 Gbps ou 10-Gbps, que suporta a conectividade Ative/Ative à escala. Pode trabalhar com qualquer prestador de serviços para o ER Direct.
 
 As principais funcionalidades que o ExpressRoute Direct fornece incluem, mas não se limitam a:
 

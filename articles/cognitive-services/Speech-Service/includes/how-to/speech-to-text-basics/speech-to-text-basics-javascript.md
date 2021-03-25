@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 7649f9c13db1a10bdb48d19f1019ec3b31244f45
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104988228"
+ms.locfileid: "105105796"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -26,7 +26,7 @@ Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fal
 
 ## <a name="install-the-speech-sdk"></a>Instale o SDK de discurso
 
-Antes de poder fazer qualquer coisa, tem de instalar o SDK do Discurso para Node.js. Se quiser apenas instalar o nome do pacote, corra `npm install microsoft-cognitiveservices-speech-sdk` . Para obter instruções de instalação guiadas, consulte o artigo [de início.](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript)
+Antes de poder fazer qualquer coisa, tem de instalar o SDK do Discurso para Node.js. Se quiser apenas instalar o nome do pacote, corra `npm install microsoft-cognitiveservices-speech-sdk` . Para obter instruções de instalação guiadas, consulte o artigo [de início.](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs)
 
 Utilize a seguinte `require` declaração para importar o SDK.
 
