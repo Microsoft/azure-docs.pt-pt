@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para o Azure IoT Hub
 description: Lista definições políticas incorporadas da Azure Policy para O Hub Azure IoT. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c0025c0a23a4d860c9dd4db4b4562c9cdfef4af6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8e89d715e29daef3817eb742023510367efe4b2e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596916"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031749"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definições incorporadas da Política Azure para o Azure IoT Hub
 
@@ -22,7 +22,7 @@ Esta página é um índice de definições políticas incorporadas da [Azure Pol
 
 O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
-## <a name="azure-iot-hub"></a>Azure IoT Hub
+## <a name="azure-iot-hub"></a>Hub IoT do Azure
 
 [!INCLUDE [azure-policy-reference-rp-iot](../../includes/policy/reference/byrp/microsoft.devices.md)]
 

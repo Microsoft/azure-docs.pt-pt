@@ -3,12 +3,12 @@ title: Vídeo ao vivo analytics em IoT Edge FAQ - Azure
 description: Este artigo responde a perguntas comumente sobre live video analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702254"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032805"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Análise de vídeo ao vivo em IoT Edge FAQ
 
@@ -129,7 +129,7 @@ As soluções variam consoante o protocolo de comunicação que é utilizado pel
    
 *Utilize o protocolo gRPC:* 
 
-* Com o módulo Live Video Analytics 1.0, quando utiliza um protocolo de chamada remota de uso geral (gRPC), a única maneira de o fazer é se o servidor gRPC expor diferentes modelos de IA através de diferentes portas. [Neste exemplo de código](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), uma única porta, 44000, expõe todos os modelos yolo. Em teoria, o servidor yolo gRPC poderia ser reescrito para expor alguns modelos na porta 44000 e outros na porta 45000. 
+* Com o módulo Live Video Analytics 1.0, quando utiliza um protocolo de chamada remota de uso geral (gRPC), a única maneira de o fazer é se o servidor gRPC expor diferentes modelos de IA através de diferentes portas. [Neste exemplo de código](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), uma única porta, 44000, expõe todos os modelos yolo. Em teoria, o servidor yolo gRPC poderia ser reescrito para expor alguns modelos na porta 44000 e outros na porta 45000. 
 
 * Com o módulo Live Video Analytics 2.0, uma nova propriedade é adicionada ao nó de extensão gRPC. Esta propriedade, **extensãoConfiguration,** é uma cadeia opcional que pode ser usada como parte do contrato gRPC. Quando tem vários modelos de IA embalados num único servidor de inferência, não precisa de expor um nó para cada modelo de IA. Em vez disso, para uma instância de gráfico, você, como fornecedor de extensão, pode definir como selecionar os diferentes modelos de IA utilizando a **propriedade extensionConfiguration.** Durante a execução, o Live Video Analytics passa esta cadeia para o servidor de inferenculação, que pode usá-lo para invocar o modelo de IA desejado. 
 

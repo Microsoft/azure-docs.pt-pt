@@ -3,12 +3,12 @@ title: Guia de resolução de problemas para a | de autocarros da Azure Service 
 description: Saiba mais sobre dicas e recomendações de resolução de problemas para alguns problemas que poderá ver ao utilizar o Azure Service Bus.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179702"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031295"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
 Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus. 
@@ -52,7 +52,7 @@ Os seguintes passos podem ajudá-lo com problemas de conectividade/certificado/t
     ```
     Pode utilizar comandos equivalentes se estiver a utilizar outras ferramentas `tnc` `ping` como, e assim por diante. 
 - Obtenha um rastreio de rede se os passos anteriores não ajudarem e analisá-lo usando ferramentas como [o Wireshark](https://www.wireshark.org/). Contacte [o Microsoft Support](https://support.microsoft.com/) se necessário. 
-- Para encontrar os endereços IP certos para adicionar para permitir a lista para as suas ligações, consulte [os endereços IP que preciso adicionar para permitir a lista](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+- Para encontrar os endereços IP certos para adicionar para permitir a lista para as suas ligações, consulte [os endereços IP que preciso adicionar à lista de admissão](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que podem ocorrer com atualizações de serviço/reinícios
@@ -98,6 +98,25 @@ Há um limite no número de fichas que são usadas para enviar e receber mensage
 
 ### <a name="resolution"></a>Resolução
 Abra uma nova ligação ao espaço de nomes do Service Bus para enviar mais mensagens.
+
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>Adicionar regra de rede virtual usando PowerShell falha
+
+### <a name="symptoms"></a>Sintomas
+Configuraste duas sub-redes de uma única rede virtual numa regra de rede virtual. Quando tenta remover uma sub-rede utilizando o cmdlet [Remove-AzServiceBusVirtualNetrule,](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) não remove a sub-rede da regra da rede virtual. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### <a name="cause"></a>Causa
+O ID do Gestor de Recursos Azure que especificou para a sub-rede pode ser inválido. Isto pode acontecer quando a rede virtual está num grupo de recursos diferente daquele que tem o espaço de nomes do Service Bus. Se não especificar explicitamente o grupo de recursos da rede virtual, o comando CLI constrói o ID do Gestor de Recursos Azure utilizando o grupo de recursos do espaço de nomes do Service Bus. Então, não remove a sub-rede da regra da rede. 
+
+### <a name="resolution"></a>Resolução
+Especifique o ID completo do Gestor de Recursos Azure da sub-rede que inclui o nome do grupo de recursos que tem a rede virtual. Por exemplo:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
