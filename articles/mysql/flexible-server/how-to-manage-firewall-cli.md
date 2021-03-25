@@ -1,19 +1,19 @@
 ---
 title: Gerir regras de firewall - Azure CLI - Azure Database for MySQL - Servidor Flexível
 description: Crie e gere as regras de firewall para Azure Database for MySQL - Servidor Flexível utilizando a linha de comando Azure CLI.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4c699b00ebbecdbee985babe47c036cce6e0cb4b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92545077"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109969"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Criar e gerir a Base de Dados Azure para o MySQL - Regras de firewall do servidor flexível utilizando o Azure CLI
 

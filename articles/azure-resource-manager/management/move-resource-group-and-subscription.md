@@ -2,14 +2,14 @@
 title: Mover recursos para um novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 31710354d39c5c74fcbd3ce1bfb2917d79dfd670
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670210"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108643"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -18,6 +18,12 @@ Este artigo mostra-lhe como mover os recursos da Azure para outra subscrição d
 Tanto o grupo de origem como o grupo alvo estão bloqueados durante a operação de movimento. As operações de escrita e eliminação são bloqueadas nos grupos de recursos até que o movimento esteja concluído. Este bloqueio significa que não pode adicionar, atualizar ou eliminar recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se mover um servidor lógico Azure SQL e as suas bases de dados para um novo grupo de recursos ou subscrição, as aplicações que utilizam as bases de dados não experimentam tempo de inatividade. Ainda podem ler e escrever para as bases de dados. A fechadura pode durar no máximo quatro horas, mas a maioria dos movimentos completa em muito menos tempo.
 
 Mover um recurso apenas o move para um grupo de recursos ou uma subscrição novos. Não altera a localização do recurso.
+
+## <a name="changed-resource-id"></a>ID de recurso alterado
+
+Quando se move um recurso, muda-se a identificação de recursos. O formato padrão para um ID de recurso é `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}` . Quando se move um recurso para um novo grupo de recursos ou subscrição, muda-se um ou mais valores nesse caminho.
+
+Se utilizar o ID de recurso em qualquer lugar, terá de alterar esse valor. Por exemplo, se tiver um [dashboard personalizado](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) no portal que faça referência a um ID de recurso, terá de atualizar esse valor. Procure por quaisquer scripts ou modelos que precisem de ser atualizados para o novo ID de recursos.
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 
@@ -36,7 +42,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
    * [Máquinas virtuais movem orientação](./move-limitations/virtual-machines-move-limitations.md)
    * Para mover uma subscrição do Azure para um novo grupo de gestão, consulte [as subscrições da Move](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. Se mover um recurso que tenha uma função Azure atribuída diretamente ao recurso (ou recurso infantil), a atribuição de funções não é movida e torna-se órfã. Depois da mudança, tens de recriar a tarefa de função. Eventualmente, a atribuição de funções órfãs será automaticamente removida, mas é uma boa prática remover a atribuição de funções antes de mover o recurso.
+1. Se mover um recurso que tenha uma função Azure atribuída diretamente ao recurso (ou recurso infantil), a atribuição de funções não é movida e torna-se órfã. Depois da mudança, tens de recriar a tarefa de função. Eventualmente, a atribuição de funções órfãs é automaticamente removida, mas recomendamos remover a atribuição de funções antes da mudança.
 
     Para obter informações sobre como gerir atribuições de funções, consulte [atribuições de funções list Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [atribuir funções Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -260,7 +266,7 @@ Mover um recurso é uma operação complexa que tem diferentes fases. Pode envol
 
 **Pergunta: Porque é que o meu grupo de recursos está bloqueado durante quatro horas durante a movimentação de recursos?**
 
-Um pedido de movimento é permitido um máximo de quatro horas para ser concluído. Para evitar que as modificações dos recursos sejam movidas, tanto os grupos de recursos de origem como de destino estão bloqueados durante a duração da deslocação dos recursos.
+Um pedido de movimento é permitido um máximo de quatro horas para ser concluído. Para evitar que as modificações dos recursos sejam movidas, tanto os grupos de recursos de origem como de destino estão bloqueados durante a mudança de recursos.
 
 Há duas fases num pedido de mudança. Na primeira fase, o recurso é movido. Na segunda fase, as notificações são enviadas a outros fornecedores de recursos que dependem da deslocação do recurso. Um grupo de recursos pode ser bloqueado durante as quatro horas inteiras quando um fornecedor de recursos falha em qualquer fase. Durante o tempo permitido, o Gestor de Recursos retrimba o passo falhado.
 
