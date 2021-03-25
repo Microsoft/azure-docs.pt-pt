@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 82f4d9028fa94d4df0ff089fda213d64e13d56ec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 28813a23b91f75f88e844b9e6b36d6ba0771569a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487875"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048090"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>QuickStart: Adicione 1:1 chamada de vídeo para a sua aplicação (JavaScript)
 
@@ -23,8 +23,8 @@ Encontre o código finalizado para este arranque rápido no [GitHub](https://git
 ## <a name="prerequisites"></a>Pré-requisitos
 - Obtenha uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js](https://nodejs.org/en/) Versões LTS e Manutenção Ativas LTS (8.11.1 e 10.14.1)
-- Criar um recurso ativo de Serviços de Comunicação. [Criar um recurso de Serviços de Comunicação.](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp)
-- Crie um Token de Acesso ao Utilizador para instantaneamente o cliente da chamada. [Saiba como criar e gerir fichas de acesso ao utilizador.](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp)
+- Criar um recurso ativo de Serviços de Comunicação. [Criar um recurso de Serviços de Comunicação.](../create-communication-resource.md?pivots=platform-azp&tabs=windows)
+- Crie um Token de Acesso ao Utilizador para instantaneamente o cliente da chamada. [Saiba como criar e gerir fichas de acesso ao utilizador.](../access-tokens.md?pivots=programming-language-csharp)
 
 ## <a name="setting-up"></a>Configuração
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
@@ -330,10 +330,10 @@ Pode fazer uma chamada de vídeo de saída 1:1 fornecendo um ID do utilizador no
 Pode transferir a aplicação de exemplo do [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
-Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources)
+Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources)
 
 ## <a name="next-steps"></a>Próximos passos
 Para obter mais informações, veja os seguintes artigos:
-- Confira a nossa [amostra de chamada web](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
-- Saiba mais [sobre chamar as capacidades da biblioteca do cliente](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Saiba mais sobre [como funciona a chamada](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+- Confira a nossa [amostra de chamada web](../../samples/web-calling-sample.md)
+- Saiba mais [sobre chamar as capacidades da biblioteca do cliente](./calling-client-samples.md?pivots=platform-web)
+- Saiba mais sobre [como funciona a chamada](../../concepts/voice-video-calling/about-call-types.md)

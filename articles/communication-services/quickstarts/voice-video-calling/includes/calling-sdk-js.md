@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: dee692dc6c82ae91272b39093398eba6ad908c1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fee393b694bf761cf052702a975239d6dff9a9c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612751"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105103971"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ A criação de chamadas e o início são sincronizados. A instância de chamada 
 
 ### <a name="place-a-1n-call-to-a-user-or-pstn"></a>Coloque uma chamada de 1:n para um utilizador ou PSTN
 
-Para chamar outro utilizador dos Serviços de Comunicação, utilize o `startCall` método e passe o destinatário que criou com a biblioteca de `callAgent` `CommunicationUserIdentifier` [administração dos Serviços de Comunicação.](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+Para chamar outro utilizador dos Serviços de Comunicação, utilize o `startCall` método e passe o destinatário que criou com a biblioteca de `callAgent` `CommunicationUserIdentifier` [administração dos Serviços de Comunicação.](../../access-tokens.md)
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }

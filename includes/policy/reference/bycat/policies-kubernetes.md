@@ -2,18 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c57db8f55eb831f2da1b839c4dc5d4a7287ac6b6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b2b9bad685bc26b0da4ba6eabe0785b112ff0a20
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605556"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105033620"
 ---
 |Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[\[Pré-visualização \] : Azure Arc habilitado a clusters Kubernetes deve ter a extensão do Azure Defender instalada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |A extensão do Azure Defender para o Arco Azure fornece proteção contra ameaças para os clusters de Kubernetes ativados pelo Arco. A extensão recolhe dados de todos os nós do plano de controlo (mestre) no cluster e envia-os para o Azure Defender para kubernetes backend na nuvem para uma análise mais aprofundada. Saiba mais em [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc) . |AuditIfNotExists, Desativado |[1.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ASC_Audit_Azure_Defender_Kubernetes_Arc_Extension.json) |
 |[Azure Kubernetes Service Private Clusters deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F040732e8-d947-40b8-95d6-854c95024bf8) |Ative a funcionalidade de cluster privado do seu cluster Azure Kubernetes Service para garantir o tráfego de rede entre o servidor API e as piscinas de nó permanece apenas na rede privada. Este é um requisito comum em muitas normas regulamentares e de conformidade da indústria. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_PrivateCluster_Deny.json) |
 |[O Azure Policy Add-on para o serviço Kubernetes (AKS) deve ser instalado e ativado nos seus clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |O Azure Policy Add-on for Kubernetes service (AKS) estende o Gatekeeper v3, um webhook do controlador de admissão para o Open Policy Agent (OPA), para aplicar aplicações e salvaguardas em escala nos seus clusters de forma centralizada e consistente. |Auditoria, Deficientes |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
 |[Tanto os sistemas operativos como os discos de dados nos clusters de serviço Azure Kubernetes devem ser encriptados por chaves geridas pelo cliente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d7be79c-23ba-4033-84dd-45e2a5ccdd67) |Encriptar os discos de SEGURANÇA e de dados utilizando as chaves geridas pelo cliente proporciona mais controlo e maior flexibilidade na gestão das chaves. Este é um requisito comum em muitas normas regulamentares e de conformidade da indústria. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_CMK_Deny.json) |

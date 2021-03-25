@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: cc5e306aa9677c7370d03dbb26ef3fe69293a630
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180068"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104988228"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -62,11 +62,7 @@ Reconhecer o discurso de um microfone não é **suportado em Node.js**, e só é
 
 ## <a name="recognize-from-file"></a>Reconhecer a partir de arquivo 
 
-Para reconhecer a fala a partir de um ficheiro áudio em Node.js, deve ser utilizado um padrão de design alternativo utilizando um fluxo de pressão, uma vez que o objeto JavaScript `File` não pode ser utilizado num tempo de execução Node.js. O seguinte código:
-
-* Cria um fluxo de impulso usando `createPushStream()`
-* Abre o `.wav` ficheiro criando um fluxo de leitura, e escreve-o para o fluxo de impulso
-* Cria um config de áudio usando o fluxo de impulso
+Para reconhecer a fala a partir de um ficheiro áudio, crie uma `AudioConfig` utilização `fromWavFileInput()` que aceite um `Buffer` objeto. Em seguida, inicialize [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) um, passando o seu `audioConfig` e `speechConfig` .
 
 ```javascript
 const fs = require('fs');
@@ -74,6 +70,31 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
+```
+
+## <a name="recognize-from-in-memory-stream"></a>Reconhecer a partir do fluxo de memória
+
+Para muitos casos de uso, é provável que os seus dados de áudio venham do armazenamento de bolhas, ou de outra forma já estejam na memória como uma [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) estrutura de dados brutos ou similar. O seguinte código:
+
+* Cria um fluxo de pressão utilizando `createPushStream()` .
+* Lê um `.wav` ficheiro que é utilizado para fins de `fs.createReadStream` demonstração, mas se já tiver dados áudio num `ArrayBuffer` , pode saltar diretamente para escrever o conteúdo para o fluxo de entrada.
+* Cria uma config de áudio utilizando o fluxo de impulso.
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+
+function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
 
     fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
@@ -89,7 +110,7 @@ function fromFile() {
         recognizer.close();
     });
 }
-fromFile();
+fromStream();
 ```
 
 A utilização de um fluxo de pressão como entrada pressupõe que os dados de áudio são um PCM cru, por exemplo, saltar quaisquer cabeçalhos.

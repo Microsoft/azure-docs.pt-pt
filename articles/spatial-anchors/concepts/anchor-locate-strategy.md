@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 13aa12be5a336363bbe3bcbf3e3fb354a8fa3074
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102617408"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048481"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Compreender a classe AnchorLocateCriteria
 Neste artigo você vai aprender as diferentes opções que você pode usar ao consultar uma âncora. Vamos passar pela classe AnchorLocateCriteria, as suas opções e combinações de opções válidas.
 
 ## <a name="anchor-locate-criteria"></a>Critérios de localização de âncora
-A [classe AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) ajuda-o a consultar o serviço para âncoras previamente criadas. Um objeto AnchorLocateCriteria pode ser utilizado por observador a qualquer momento. Cada objeto AnchorLocateCriteria deve incluir **exatamente uma das** seguintes propriedades: [Identifiers](#identifiers), [NearAnchor](#nearanchor), ou [NearDevice](#neardevice). Propriedades adicionais como [Estratégia,](#strategy) [BypassCache](#bypasscache)e [Categões Solicitados](#requestedcategories) podem ser definidas se desejar. 
+A [classe AnchorLocateCriteria](/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) ajuda-o a consultar o serviço para âncoras previamente criadas. Um objeto AnchorLocateCriteria pode ser utilizado por observador a qualquer momento. Cada objeto AnchorLocateCriteria deve incluir **exatamente uma das** seguintes propriedades: [Identifiers](#identifiers), [NearAnchor](#nearanchor), ou [NearDevice](#neardevice). Propriedades adicionais como [Estratégia,](#strategy) [BypassCache](#bypasscache)e [Categões Solicitados](#requestedcategories) podem ser definidas se desejar. 
 
 ### <a name="properties"></a>Propriedades
 Defina **exatamente uma das** seguintes propriedades no seu observador:
@@ -37,7 +37,7 @@ Esta propriedade é especificada usando um objeto NearAnchorCriteria.
 #### <a name="neardevice"></a>NearDevice
 *Valor predefinido: não definido*
 
-Utilizando o NearDevice, pode especificar que o AnchorLocateCriteria restringe o conjunto de âncoras solicitadas às que estão perto da localização física do dispositivo. Quaisquer sensores ativados serão utilizados para ajudar a descobrir âncoras em torno do seu dispositivo. Para ter a melhor hipótese de encontrar âncoras, deve configurar sensorCapabilidades para dar acesso à sessão a todos os sensores apropriados. Para obter mais informações sobre a instalação e utilização desta propriedade, consulte [a Relocalização Coarse - Azure Spatial Anchors | Microsoft Docs](https://docs.microsoft.com/azure/spatial-anchors/concepts/coarse-reloc) e *Como criar e localizar âncoras utilizando uma relocalização grosseira* em [C.](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [Objective-C,](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity) [Swift,](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-swift) [Java,](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-java) [C++/NDK,](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-ndk) [C++/WinRT](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-winrt).
+Utilizando o NearDevice, pode especificar que o AnchorLocateCriteria restringe o conjunto de âncoras solicitadas às que estão perto da localização física do dispositivo. Quaisquer sensores ativados serão utilizados para ajudar a descobrir âncoras em torno do seu dispositivo. Para ter a melhor hipótese de encontrar âncoras, deve configurar sensorCapabilidades para dar acesso à sessão a todos os sensores apropriados. Para obter mais informações sobre a instalação e utilização desta propriedade, consulte [a Relocalização Coarse - Azure Spatial Anchors | Microsoft Docs](./coarse-reloc.md) e *Como criar e localizar âncoras utilizando uma relocalização grosseira* em [C.](../how-tos/set-up-coarse-reloc-unity.md), [Objective-C,](../how-tos/set-up-coarse-reloc-unity.md) [Swift,](../how-tos/set-up-coarse-reloc-swift.md) [Java,](../how-tos/set-up-coarse-reloc-java.md) [C++/NDK,](../how-tos/set-up-coarse-reloc-cpp-ndk.md) [C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md).
 Esta propriedade é especificada usando um objeto NearDeviceCriteria.
 
 ### <a name="additional-properties"></a>Propriedades adicionais
@@ -66,7 +66,7 @@ Localizar O Valor Enum daStrategy | Description
 ---------------|------------
 AnyStrategy | Esta estratégia permite ao sistema utilizar combinações de estratégias de Informação Visual e Relacionamento para encontrar âncoras. 
 Informação Visual|Esta estratégia tenta encontrar âncoras combinando informações visuais do ambiente atual com as da pegada visual da âncora. A pegada visual de uma âncora refere-se à informação visual atualmente associada à âncora. Esta informação visual é tipicamente, mas não exclusivamente recolhida durante a criação de âncora. Atualmente, esta estratégia só é permitida em conjunto com as propriedades NearDevice ou Identifiers.
-Relação|Esta estratégia tenta encontrar âncoras utilizando [âncoras existentes.](https://docs.microsoft.com/azure/spatial-anchors/concepts/anchor-relationships-way-finding#connect-anchors) Atualmente, esta estratégia só é permitida em conjunto com as propriedades NearAnchor ou Identifiers. Quando utilizado com a propriedade Identifiers, é necessário que, na mesma sessão, o utilizador tenha previamente localizado uma âncora com relações conjuntivas já estabelecidas com as âncoras cujos IDs estão especificados na matriz de Identificadores. 
+Relação|Esta estratégia tenta encontrar âncoras utilizando [âncoras existentes.](./anchor-relationships-way-finding.md#connect-anchors) Atualmente, esta estratégia só é permitida em conjunto com as propriedades NearAnchor ou Identifiers. Quando utilizado com a propriedade Identifiers, é necessário que, na mesma sessão, o utilizador tenha previamente localizado uma âncora com relações conjuntivas já estabelecidas com as âncoras cujos IDs estão especificados na matriz de Identificadores. 
 
 
 ### <a name="valid-combinations-of-locatestrategy-and-anchorlocatecriteria-properties"></a>Combinações válidas de propriedades LocateStrategy e AnchorLocateCriteria 
@@ -86,4 +86,4 @@ NearDevice  | &check;    |   | &check;
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja [como criar e localizar âncoras usando âncoras espaciais Azure](https://docs.microsoft.com/azure/spatial-anchors/create-locate-anchors-overview) para mais alguns exemplos usando a classe AnchorLocateCriteria.
+Veja [como criar e localizar âncoras usando âncoras espaciais Azure](../create-locate-anchors-overview.md) para mais alguns exemplos usando a classe AnchorLocateCriteria.
