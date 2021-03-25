@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: e9c889dcffe42fde244f8a35ce42032e84d78fff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d36bf92a1b1bdef4e45b22b934728b3e8c46c3da
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488129"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107757"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ ms.locfileid: "103488129"
 ### <a name="creating-the-xcode-project"></a>Criar o projeto Xcode
 
 > [!NOTE]
-> Este documento utiliza a versão 1.0.0-beta.8 da biblioteca do cliente chamador.
+> Este documento utiliza a versão 1.0.0-beta.8 do Call SDK.
 
 No Xcode, crie um novo projeto iOS e selecione o modelo **de Aplicação Single View.** Este quickstart utiliza a [estrutura SwiftUI,](https://developer.apple.com/xcode/swiftui/)por isso deve definir o **Idioma** para **Swift** e a Interface do **Utilizador** para **SwiftUI**. Não vai criar testes de unidade ou testes de UI durante este arranque rápido. Sinta-se livre para desmarcar **Inclua testes de unidade** e também desmarque **inclua testes de UI**.
 
@@ -68,18 +68,18 @@ import AVFoundation
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características dos Serviços de Comunicação Azure Chamando a biblioteca de clientes para iOS.
+As seguintes classes e interfaces lidam com algumas das principais características dos Serviços de Comunicação Azure Chamando SDK para iOS.
 
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | O CallClient é o principal ponto de entrada para a biblioteca do cliente Call.|
+| CallClient | O CallClient é o principal ponto de entrada para o Call SDK.|
 | Callagent | O CallAgent é usado para iniciar e gerir chamadas. |
 | ComunicadoTokenCredential | O CommunicationTokenCredential é usado como credencial simbólica para instantaneaizar o CallAgent.| 
 | Identificador de Comunicação | O ComunicadoIdentifier é utilizado para representar a identidade do utilizador que pode ser uma das seguintes: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 > [!NOTE]
-> Ao implementar delegados de eventos, a aplicação tem de realizar uma forte referência aos objetos que requerem subscrições de eventos. Por exemplo, quando um `RemoteParticipant` objeto é devolvido ao invocar o método e a `call.addParticipant` aplicação define o delegado para `RemoteParticipantDelegate` ouvir, a aplicação deve ter uma forte referência ao `RemoteParticipant` objeto. Caso contrário, se este objeto for recolhido, o delegado lançará uma exceção fatal quando a chamada SDK tentar invocar o objeto.
+> Ao implementar delegados de eventos, a aplicação tem de realizar uma forte referência aos objetos que requerem subscrições de eventos. Por exemplo, quando um `RemoteParticipant` objeto é devolvido ao invocar o método e a `call.addParticipant` aplicação define o delegado para `RemoteParticipantDelegate` ouvir, a aplicação deve ter uma forte referência ao `RemoteParticipant` objeto. Caso contrário, se este objeto for recolhido, o delegado lançará uma exceção fatal quando o Call SDK tentar invocar o objeto.
 
 ## <a name="initialize-the-callagent"></a>Inicializar o CallAgent
 
@@ -131,7 +131,7 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## <a name="place-an-outgoing-call"></a>Fazer uma chamada de saída
 
-Para criar e iniciar uma chamada, precisa de ligar para uma das APIs `CallAgent` e fornecer a Identidade dos Serviços de Comunicação de um utilizador que forneceu utilizando a biblioteca de clientes de Gestão de Serviços de Comunicação.
+Para criar e iniciar uma chamada, precisa de ligar para uma das APIs `CallAgent` e fornecer a Identidade dos Serviços de Comunicação de um utilizador que forneceu utilizando o SDK de Gestão de Serviços de Comunicação.
 
 A criação de chamadas e o início são sincronizados. Receberá uma chamada que lhe permite subscrever todos os eventos da chamada.
 

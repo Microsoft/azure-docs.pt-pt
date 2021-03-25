@@ -1,35 +1,35 @@
 ---
 title: Notificação de manutenção planeada - Base de Dados Azure para MySQL - Servidor Único
 description: Este artigo descreve a funcionalidade de notificação de manutenção planeada na Base de Dados Azure para MySQL - Servidor Único
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c6d1bfbf1592da3a5e632eb875221225630aed3f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94919629"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108677"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificação de manutenção planeada na Base de Dados Azure para MySQL - Servidor Único
 
 Saiba como se preparar para eventos de manutenção planeados na sua Base de Dados Azure para o MySQL.
 
-## <a name="what-is-a-planned-maintenance"></a>O que é uma manutenção planeada?
+## <a name="what-is-a-planned-maintenance"></a>O que é a manutenção planeada?
 
 A Azure Database for MySQL service executa patching automatizado do hardware subjacente, o SISTEMA e o motor da base de dados. O patch inclui novas funcionalidades de serviço, segurança e atualizações de software. Para o motor MySQL, as atualizações de versão menor são automáticas e incluídas como parte do ciclo de remendos. Não é necessária nenhuma ação do utilizador ou configurações para remendar. O patch é testado extensivamente e lançado utilizando práticas de implementação seguras.
 
 Uma manutenção planeada é uma janela de manutenção quando estas atualizações de serviço são implementadas para servidores de uma determinada região de Azure. Durante as manutenções planeadas, é criado um evento de notificação para informar os clientes de quando a atualização do serviço será implementada na região do Azure onde os servidores estão alojados. A duração mínima entre duas manutenção planeadas é de 30 dias. Receberá uma notificação sobre a próxima janela de manutenção com 72 horas de antecedência.
 
-## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planeada - duração e impacto do cliente
+## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planeada – duração e impacto no cliente
 
-Espera-se que uma manutenção planeada para uma determinada região de Azure seja normalmente executada 15 horas. A janela também inclui tempo de tampão para executar um plano de reversão, se necessário. Durante a manutenção planeada, pode haver reinício ou falhas no servidor de base de dados, o que pode levar a uma breve indisponibilidade dos servidores de base de dados para os utilizadores finais. A base de dados Azure para servidores MySQL está a funcionar em contentores para que os recomeçamento do servidor de base de dados sejam normalmente rápidos, esperando-se que completem normalmente em 60-120 segundos. Todo o evento de manutenção planeado, incluindo cada servidor, é cuidadosamente monitorizado pela equipa de engenharia. O tempo de falha do servidor depende do tempo de recuperação da base de dados, o que pode fazer com que a base de dados fique online por mais tempo se tiver uma atividade transacional pesada no servidor no momento da falha. Para evitar um tempo de reinício mais longo, é aconselhável evitar transações de longa duração (cargas a granel) durante os eventos de manutenção planeados.
+Normalmente, as manutenções planeadas para uma determinada região do Azure têm uma duração esperada de 15 horas. A janela também inclui tempo de tampão para executar um plano de reversão, se necessário. Durante a manutenção planeada, pode haver reinício ou falhas no servidor de base de dados, o que pode levar a uma breve indisponibilidade dos servidores de base de dados para os utilizadores finais. A base de dados Azure para servidores MySQL está a funcionar em contentores para que os recomeçamento do servidor de base de dados sejam normalmente rápidos, esperando-se que completem normalmente em 60-120 segundos. Todo o evento de manutenção planeado, incluindo cada servidor, é cuidadosamente monitorizado pela equipa de engenharia. O tempo de falha do servidor depende do tempo de recuperação da base de dados, o que pode fazer com que a base de dados fique online por mais tempo se tiver uma atividade transacional pesada no servidor no momento da falha. Para evitar um tempo de reinício mais longo, é aconselhável evitar transações de longa duração (cargas a granel) durante os eventos de manutenção planeados.
 
 Em resumo, enquanto o evento de manutenção planeado dura 15 horas, o impacto individual do servidor geralmente dura 60 segundos dependendo da atividade transacional no servidor. Uma notificação é enviada 72 horas antes do início da manutenção planeada e outra enquanto a manutenção está em curso para uma determinada região.
 
-## <a name="how-can-i-get-notified-of-planned-maintenance"></a>Como posso ser notificado da manutenção planeada?
+## <a name="how-can-i-get-notified-of-planned-maintenance"></a>Como posso ser notificado sobre a manutenção planeada?
 
 Pode utilizar a funcionalidade de notificações de manutenção planeada para receber alertas para um evento de manutenção planeado. Receberá a notificação sobre a próxima manutenção 72 horas antes do evento e outra enquanto a manutenção está em andamento para uma determinada região.
 
@@ -67,7 +67,7 @@ Para obter etapas detalhadas sobre como criar **alertas** de saúde de serviço,
 
 A manutenção é necessária para manter o seu servidor seguro, estável e atualizado. O evento de manutenção planeado não pode ser cancelado ou adiado. Uma vez que a notificação é enviada para uma determinada região de Azure, as alterações de programa de remendação não podem ser feitas para qualquer servidor individual nessa região. O patch é lançado para toda a região de uma só vez. Azure Database for MySQL - Serviço de servidor único foi concebido para aplicação nativa em nuvem que não requer controlo granular ou personalização do serviço. Se procura ter a capacidade de agendar a manutenção para os seus servidores, recomendamos que considere [servidores flexíveis](./flexible-server/overview.md).
 
-## <a name="are-all-the-azure-regions-patched-at-the-same-time"></a>Todas as regiões de Azure estão remendadas ao mesmo tempo?
+## <a name="are-all-the-azure-regions-patched-at-the-same-time"></a>Os patches são aplicados ao mesmo tempo em todas as regiões do Azure?
 
 Não, todas as regiões de Azure são remendadas durante os tempos de janela sábias de implantação. A janela de implantação geralmente estende-se das 17:00 às 8:00 horas locais no dia seguinte, numa determinada região de Azure. As regiões de Azure geo-emparelhadas são remendadas em dias diferentes. Para uma elevada disponibilidade e continuidade de negócios de servidores de base de dados, recomenda-se a utilização [de réplicas de leitura de região cruzada.](./concepts-read-replicas.md#cross-region-replication)
 

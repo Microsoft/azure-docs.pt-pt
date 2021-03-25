@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99524673"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109017"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -52,6 +52,9 @@ A avaliação contínua do acesso é implementada através da capacitação de s
 
 Este processo permite o cenário em que os utilizadores perdem acesso a ficheiros organizacionais sharePoint Online, e-mail, calendário ou tarefas, e equipas de aplicações de clientes microsoft 365 dentro de mins após um desses eventos críticos. 
 
+> [!NOTE] 
+> As equipas ainda não suportam eventos de risco de utilizador.
+
 ### <a name="conditional-access-policy-evaluation-preview"></a>Avaliação da política de acesso condicional (pré-visualização)
 
 O Exchange e o SharePoint são capazes de sincronizar as principais políticas de Acesso Condicional para que possam ser avaliadas dentro do próprio serviço.
@@ -59,11 +62,11 @@ O Exchange e o SharePoint são capazes de sincronizar as principais políticas d
 Este processo permite o cenário em que os utilizadores perdem acesso a ficheiros organizacionais, e-mail, calendário ou tarefas a partir de aplicações de clientes microsoft 365 ou SharePoint Online imediatamente após alterações na localização da rede.
 
 > [!NOTE]
-> Nem todas as combinações de aplicativos e fornecedores de recursos são suportadas. Veja a tabela abaixo. Office refere-se a Word, Excel e PowerPoint
+> Nem todas as combinações de aplicativos e fornecedores de recursos são suportadas. Veja a tabela abaixo. Office refere-se a Word, Excel e PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Suportado | Suportado | Não suportado | Não suportado | Suportado |
+| **SharePoint Online** | Suportado | Suportado | Suportado | Suportado | Suportado |
 | **Exchange Online** | Suportado | Suportado | Suportado | Suportado | Suportado |
 
 | | Aplicativos web de escritório | Aplicativos Win32 do Office Win32 | Escritório para iOS | Escritório para Android | Escritório para Mac |
@@ -71,23 +74,20 @@ Este processo permite o cenário em que os utilizadores perdem acesso a ficheiro
 | **SharePoint Online** | Não suportado | Suportado | Suportado | Suportado | Suportado |
 | **Exchange Online** | Não suportado | Suportado | Suportado | Suportado | Suportado |
 
+| | Web OneDrive | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Suportado | Suportado | Suportado | Suportado | Suportado |
+
 ### <a name="client-side-claim-challenge"></a>Desafio de reclamação do lado do cliente
 
 Antes da avaliação contínua do acesso, os clientes tentavam sempre reproduzir o token de acesso a partir da sua cache, desde que não expirasse. Com a CAE, estamos a introduzir um novo caso que um fornecedor de recursos pode rejeitar um símbolo mesmo quando não está expirado. A fim de informar os clientes para contornarem a sua cache, mesmo que os tokens em cache não tenham expirado, introduzimos um mecanismo chamado **desafio de reivindicação** para indicar que o token foi rejeitado e que um novo token de acesso deve ser emitido pela Azure AD. O CAE requer uma atualização do cliente para compreender o desafio da reclamação. A versão mais recente das seguintes aplicações abaixo do desafio de reivindicação de suporte:
 
-- Outlook Windows
-- Outlook iOS
-- Outlook Android
-- Outlook Mac
-- Outlook Web App
-- Equipas para Windows (apenas para recursos de equipas)
-- Equipas iOS (Apenas para recursos de equipas)
-- Equipas Android (Apenas para recursos de Equipas)
-- Equipas Mac (Apenas para recursos de equipas)
-- Word/Excel/PowerPoint para Windows
-- Word/Excel/PowerPoint para iOS
-- Word/Excel/PowerPoint para Android
-- Palavra/Excel/PowerPoint para Mac
+| | Web | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Suportado | Suportado | Suportado | Suportado | Suportado |
+| **Teams** | Suportado | Suportado | Suportado | Suportado | Suportado |
+| **Office** | Não suportado | Suportado | Suportado | Suportado | Suportado |
+| **OneDrive** | Suportado | Suportado | Suportado | Suportado | Suportado |
 
 ### <a name="token-lifetime"></a>Vida útil simbólica
 
@@ -165,9 +165,9 @@ Para obter uma explicação dos canais de atualização do office, consulte [a v
 
 ### <a name="policy-change-timing"></a>Tempo de mudança de política
 
-Devido ao potencial de atraso de replicação entre a Azure AD e os fornecedores de recursos, as alterações de política efetuadas pelos administradores podem demorar até 2 horas a ser eficazes para o Exchange Online.
+As alterações de política introduzidas pelos administradores podem levar até um dia a ser eficazes. Foi feita alguma otimização para reduzir o atraso para duas horas. No entanto, ainda não cobre todos os cenários. 
 
-Exemplo: O administrador adiciona uma política para bloquear uma série de endereços IP a partir do acesso ao e-mail às 11:00, um utilizador que tenha vindo dessa gama ip antes poderia possivelmente continuar a aceder ao e-mail até às 13:00.
+Se houver uma emergência e precisar de ter as suas políticas atualizadas para ser aplicada imediatamente a determinados utilizadores, deverá utilizar este [comando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) ou "Revogue a Sessão" na página do perfil do utilizador para revogar a sessão dos utilizadores, o que garantirá que as políticas atualizadas serão aplicadas imediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Coautoria em aplicativos office
 

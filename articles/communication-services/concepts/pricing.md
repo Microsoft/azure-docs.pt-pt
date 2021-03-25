@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc5da3f4ac5bf9a08e16a931d54dfbf6a2fb9f48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ad88a7a6c91128bb863eeb51cc7f26c8d71b9eed
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495798"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107912"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
 
@@ -25,7 +25,7 @@ Os preços dos Serviços de Comunicação Azure baseiam-se geralmente num modelo
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Chamada de voz/vídeo e partilha de ecrã
 
-Os Serviços de Comunicação Azure permitem adicionar chamadas de voz/vídeo e partilha de ecrãs às suas aplicações. Pode incorporar a experiência nas suas aplicações utilizando bibliotecas de clientes JavaScript, Objective-C (Apple), Java (Android) ou .NET. Consulte a nossa [lista completa de bibliotecas de clientes disponíveis.](./sdk-options.md)
+Os Serviços de Comunicação Azure permitem adicionar chamadas de voz/vídeo e partilha de ecrãs às suas aplicações. Pode incorporar a experiência nas suas aplicações utilizando JavaScript, Objective-C (Apple), Java (Android) ou .NET SDKs. Consulte a nossa [lista completa de SDKs disponíveis.](./sdk-options.md)
 
 ### <a name="pricing"></a>Preços
 
@@ -33,9 +33,9 @@ Os serviços de chamada e partilha de ecrãs são cobrados por minuto por minuto
 
 Cada participante da chamada contará na faturação por cada minuto que estiver ligado à chamada. Isto é verdade independentemente de o utilizador estar a chamar por vídeo, a chamar voz ou a partilhar ecrãs.
 
-### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-client-libraries"></a>Exemplo de preços: Chamada de áudio/vídeo em grupo utilizando bibliotecas de clientes JS e iOS
+### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-sdks"></a>Exemplo de preços: Chamada de áudio/vídeo em grupo utilizando SDKs JS e iOS
 
-A Alice fez uma chamada em grupo com os colegas, Bob e Charlie. Alice e Bob usaram as bibliotecas de clientes da JS, bibliotecas de clientes Charlie iOS.
+A Alice fez uma chamada em grupo com os colegas, Bob e Charlie. Alice e Bob usaram os JS SDKs, Charlie iOS SDKs.
 
 - A chamada dura um total de 60 minutos.
 - Alice e Bob participaram durante toda a ligação. Alice ligou o vídeo durante cinco minutos e partilhou o ecrã durante 23 minutos. Bob tinha o vídeo ligado durante toda a chamada (60 minutos) e partilhou o ecrã durante 12 minutos.
@@ -48,9 +48,9 @@ A Alice fez uma chamada em grupo com os colegas, Bob e Charlie. Alice e Bob usar
 
 **Custo total da chamada do grupo**: $0,48 + $0,172 = $0,652
 
-### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Exemplo de preços: Um utilizador da biblioteca de clientes JS dos Serviços de Comunicação junta-se a uma reunião agendada da Microsoft Teams
+### <a name="pricing-example-a-user-of-the-communication-services-javascript-sdk-joins-a-scheduled-microsoft-teams-meeting"></a>Exemplo de preços: Um utilizador dos Serviços de Comunicação JavaScript SDK junta-se a uma reunião agendada da Microsoft Teams
 
-A Alice está a encontrar-se com o paciente, Bob. Alice juntar-se-á à visita da aplicação Teams Desktop. Bob receberá um link para se juntar ao site do prestador de cuidados de saúde, que se conecta à reunião usando a biblioteca de clientes JS dos Serviços de Comunicação. Bob usará o seu telemóvel para entrar na reunião usando um navegador web (iPhone com Safari). O chat estará disponível durante a visita virtual.
+A Alice está a encontrar-se com o paciente, Bob. Alice juntar-se-á à visita da aplicação Teams Desktop. Bob receberá um link para se juntar ao site do prestador de cuidados de saúde, que se conecta à reunião usando os Serviços de Comunicação JavaScript SDK. Bob usará o seu telemóvel para entrar na reunião usando um navegador web (iPhone com Safari). O chat estará disponível durante a visita virtual.
 
 - A chamada dura um total de 30 minutos.
 - Alice e Bob participam de toda a ligação. Alice liga o vídeo cinco minutos depois da chamada começar e partilha o ecrã durante 13 minutos. O Bob tem o vídeo dele ligado para toda a chamada.
@@ -67,13 +67,13 @@ A Alice está a encontrar-se com o paciente, Bob. Alice juntar-se-á à visita d
 *A participação da Alice está coberta pela licença das equipas. A sua fatura Azure mostrará as minutos e mensagens de chat que os utilizadores das Equipas tinham com os Utilizadores dos Serviços de Comunicação para sua conveniência, mas esses minutos e mensagens originárias do cliente das Equipas não custarão.
 
 **Custo total da visita:**
-- Utilização do utilizador através da biblioteca de clientes JS dos Serviços de Comunicação: $0,12 + $0,0024 = $0,1224
+- Unição do utilizador através dos Serviços de Comunicação JavaScript SDK: $0.12 + $0.0024 = $0.1224
 - Adesão do utilizador à aplicação de ambiente de trabalho teams: $0 (coberto pela licença das equipas)
 
 
 ## <a name="chat"></a>Chat
 
-Com os Serviços de Comunicação pode melhorar a sua aplicação com a capacidade de enviar e receber mensagens de chat entre dois ou mais utilizadores. As bibliotecas de clientes chat estão disponíveis para JavaScript, .NET, Python e Java. Consulte [esta página para saber mais sobre bibliotecas de clientes](./sdk-options.md)
+Com os Serviços de Comunicação pode melhorar a sua aplicação com a capacidade de enviar e receber mensagens de chat entre dois ou mais utilizadores. Os Chat SDKs estão disponíveis para JavaScript, .NET, Python e Java. Consulte [esta página para saber sobre SDKs](./sdk-options.md)
 
 ### <a name="price"></a>Preço
 
