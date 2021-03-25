@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 37bbc8c7c2b81c22ffd8704e655805cc63cd9d45
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562336"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044996"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de lançamento: Dispositivos de Fala SDK
 
@@ -25,7 +25,7 @@ As seguintes secções listam alterações nas versões mais recentes.
 
 - Atualizado para o novo Microsoft Audio Stack (MAS) com melhor formação de feixe e redução de ruído para a fala.
 - Reduziu o tamanho binário em até 70% dependendo do alvo.
-- Suporte para [Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) com [lançamento binário](https://aka.ms/sdsdk-download-APAudio).
+- Suporte para [Azure Percept Audio](../../azure-percept/overview-azure-percept-audio.md) com [lançamento binário](https://aka.ms/sdsdk-download-APAudio).
 - Atualize o componente [SDK](./speech-sdk.md) do discurso para a versão 1.15.0. Para mais informações, consulte as suas [notas de lançamento.](./releasenotes.md)
 
 ## <a name="speech-devices-sdk-1110"></a>Dispositivos de fala SDK 1.11.0:

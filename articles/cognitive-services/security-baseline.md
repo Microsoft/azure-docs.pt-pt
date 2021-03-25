@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b243fa18b17fdd15f3c39545b7d81f5796bd8429
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 218810183f547d4e90043364a318615a204df9d8
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699866"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044860"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Linha de segurança Azure para Serviços Cognitivos
 
@@ -32,7 +32,7 @@ Para ver como os Serviços Cognitivos mapeiam completamente o Benchmark de Segur
 
 O suporte de rede virtual e de ponto final de serviço para serviços cognitivos está limitado a um conjunto específico de regiões.
 
-- [Como configurar redes virtuais de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)
+- [Como configurar redes virtuais de Serviços Cognitivos Azure](./cognitive-services-virtual-networks.md?tabs=portal)
 
 - [Visão geral das Redes Virtuais Azure](../virtual-network/virtual-networks-overview.md)
 
@@ -63,7 +63,7 @@ Tenha em mente que os recipientes dos Serviços Cognitivos são obrigados a subm
 
 Note também que deve desativar a inspeção de pacotes profundos para a sua solução de firewall nos canais seguros que os contentores dos Serviços Cognitivos criam para os servidores da Microsoft. Se não o fizer, o recipiente funcione corretamente.
 
-- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Responsabilidade**: Cliente
 
@@ -83,7 +83,7 @@ Se estiver a utilizar serviços cognitivos dentro de um contentor, pode aumentar
 
 - [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
-- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Responsabilidade**: Cliente
 
@@ -112,7 +112,7 @@ Tenha em mente que os recipientes dos Serviços Cognitivos são obrigados a subm
 
 Note também que deve desativar a inspeção de pacotes profundos para a sua solução de firewall nos canais seguros que os contentores dos Serviços Cognitivos criam para os servidores da Microsoft. Se não o fizer, o recipiente funcione corretamente.
 
-- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
@@ -131,7 +131,7 @@ Tenha em mente que os recipientes dos Serviços Cognitivos são obrigados a subm
 
 Note também que deve desativar a inspeção de pacotes profundos para a sua solução de firewall nos canais seguros que os contentores dos Serviços Cognitivos criam para os servidores da Microsoft. Se não o fizer, o recipiente funcione corretamente.
 
-- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+- [Compreenda a segurança do contentor dos Serviços Cognitivos Azure](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Responsabilidade**: Cliente
 
@@ -145,7 +145,7 @@ Também pode utilizar grupos de segurança de aplicações para ajudar a simplif
 
 - [Tags de serviço de rede virtual](../virtual-network/service-tags-overview.md)
 
-- [Grupos de Segurança de Aplicações](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#application-security-groups)
+- [Grupos de Segurança de Aplicações](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Responsabilidade**: Cliente
 
@@ -179,9 +179,9 @@ Também pode usar plantas Azure para simplificar as implementações de Azure em
 
 **Orientação**: Utilize o registo de Atividade Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com o seu contentor de Serviços Cognitivos. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -195,7 +195,7 @@ Também pode usar plantas Azure para simplificar as implementações de Azure em
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho log Analytics, centro de eventos Azure ou conta de armazenamento Azure para o arquivo. Os registos de atividade fornecem informações sobre as operações que foram realizadas no seu contentor de Serviços Cognitivos ao nível do plano de controlo. Utilizando dados de Registo de Atividades Azure, pode determinar o "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) realizadas ao nível do plano de controlo para a sua Cache Azure para instâncias Redis.
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](/azure/azure-monitor/platform/activity-log)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -207,7 +207,7 @@ Também pode usar plantas Azure para simplificar as implementações de Azure em
 
 Adicionalmente, os Serviços Cognitivos enviam eventos de diagnóstico que podem ser recolhidos e utilizados para efeitos de análise, alerta e reporte. Pode configurar as definições de diagnóstico de um recipiente de Serviços Cognitivos através do portal Azure. Pode enviar um ou mais eventos de diagnóstico para uma conta de armazenamento, centro de eventos ou um espaço de trabalho Log Analytics.
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Utilização de configurações de diagnóstico para serviços cognitivos Azure](diagnostic-logging.md)
 
@@ -219,7 +219,7 @@ Adicionalmente, os Serviços Cognitivos enviam eventos de diagnóstico que podem
 
 **Orientação**: Dentro do Azure Monitor, desa um ponto final no período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize as contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-- [Como definir parâmetros de retenção de registos para log analytics workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
@@ -229,9 +229,9 @@ Adicionalmente, os Serviços Cognitivos enviam eventos de diagnóstico que podem
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho do Log Analytics. Estes registos fornecem dados ricos e frequentes sobre o funcionamento de um recurso que são utilizados para identificar e depurar. Realize consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights baseados nos Dados de Registo de Atividade que possam ter sido recolhidos para os Serviços Cognitivos Azure.
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](/azure/azure-monitor/platform/activity-log)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](/azure/azure-monitor/platform/activity-log)
+- [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -245,7 +245,7 @@ Configure as definições de diagnóstico para o seu recipiente de Serviços Cog
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](/azure/azure-monitor/platform/alerts-log)
+- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -259,9 +259,9 @@ Configure as definições de diagnóstico para o seu recipiente de Serviços Cog
 
 **Orientação**: O Azure Ative Directory (Azure AD) tem funções incorporadas que devem ser explicitamente atribuídas e que são consultadas. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Responsabilidade**: Cliente
 
@@ -275,7 +275,7 @@ O acesso de um plano de dados aos Serviços Cognitivos é controlado através de
 
 Não é recomendável que construa senhas padrão na sua aplicação. Em vez disso, pode armazenar as suas palavras-passe no Cofre da Chave Azure e depois utilizar o Azure AD para as recuperar.
 
-- [Como regenerar a Cache Azure para chaves de acesso Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
+- [Como regenerar a Cache Azure para chaves de acesso Redis](../azure-cache-for-redis/cache-configure.md#settings)
 
 **Responsabilidade**: Cliente
 
@@ -365,7 +365,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 Atualmente, apenas a API de Visão De Computador, API facial, API de Análise de Texto, Leitor Imersivo, Reconhecedor de Formulários, Detetor de Anomalias e todos os serviços de Bing, exceto a autenticação de suporte de pesquisa personalizada Bing usando Azure AD.
 
-- [Como autenticar pedidos aos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-azure-active-directory)
+- [Como autenticar pedidos aos Serviços Cognitivos](./authentication.md#authenticate-with-azure-active-directory)
 
 **Responsabilidade**: Cliente
 
@@ -379,7 +379,7 @@ Cliente para manter o inventário das contas de utilizador da API Management, co
 
 - [Como gerir contas de utilizador na Gestão de API do Azure](../api-management/api-management-howto-create-or-invite-developers.md)
 
-- [Como obter a lista de utilizadores da API Management](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-4.8.0&amp;preserve-view=true)
+- [Como obter a lista de utilizadores da API Management](/powershell/module/az.apimanagement/get-azapimanagementuser?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -419,7 +419,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Não disponível para Serviços Cognitivos. O Lockbox do cliente ainda não é suportado para serviços cognitivos.
 
-- [Lista de serviços suportados pelo Cliente Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista de serviços suportados pelo Cliente Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilidade**: Cliente
 
@@ -514,7 +514,7 @@ A Microsoft gere a plataforma subjacente e trata todos os conteúdos do cliente 
 
 Também pode utilizar o Azure Key Vault para armazenar as suas chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves.
 
-- [Lista de serviços que encriptam informação em repouso](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal)
+- [Lista de serviços que encriptam informação em repouso](./encryption/cognitive-services-encryption-keys-portal.md)
 
 **Responsabilidade**: Cliente
 
@@ -524,7 +524,7 @@ Também pode utilizar o Azure Key Vault para armazenar as suas chaves geridas pe
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações em casos de produção de Serviços Cognitivos e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -542,7 +542,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 - [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -604,7 +604,7 @@ Além disso, utilize o Azure Resource Graph para consultar ou descobrir recursos
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -628,7 +628,7 @@ Além disso, utilize o Azure Resource Graph para consultar ou descobrir recursos
 
 **Orientação**: Defina e implemente configurações de segurança padrão para o seu recipiente de Serviços Cognitivos com a Política Azure. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.CognitiveServices" para criar políticas personalizadas para auditar ou impor a configuração da sua Cache Azure para instâncias Redis.
 
-- [Como ver pseudónimos disponíveis da Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -652,9 +652,9 @@ Além disso, utilize o Azure Resource Graph para consultar ou descobrir recursos
 
 **Orientação**: Se estiver a utilizar definições personalizadas de Política Azure ou modelos de Gestor de Recursos Azure para os seus recipientes de Serviços Cognitivos e recursos relacionados, utilize o Azure Repos para armazenar e gerir o seu código de forma segura.
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentação de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação de Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Responsabilidade**: Cliente
 
@@ -686,7 +686,7 @@ Além disso, utilize o Azure Resource Graph para consultar ou descobrir recursos
 
 - [Como integrar-se com identidades geridas aZure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Como criar um Cofre-Chave](/azure/key-vault/quick-create-portal)
+- [Como criar um Cofre-Chave](../key-vault/secrets/quick-create-portal.md)
 
 - [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
 
@@ -760,7 +760,7 @@ Também pode utilizar a funcionalidade de gestão do ciclo de vida para fazer o 
 
 - [Descrição geral do Azure Resource Manager](../azure-resource-manager/management/overview.md)
 
-- [Como criar um recurso de Serviços Cognitivos usando um modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/cognitive-services/resource-manager-template?tabs=portal)
+- [Como criar um recurso de Serviços Cognitivos usando um modelo de Gestor de Recursos Azure](./create-account-resource-manager-template.md?tabs=portal)
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -768,7 +768,7 @@ Também pode utilizar a funcionalidade de gestão do ciclo de vida para fazer o 
 
 - [Introdução à Azure Automation](../automation/automation-intro.md)
 
-- [Como backup chaves chave cofre em Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como backup chaves chave cofre em Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
@@ -780,7 +780,7 @@ Também pode utilizar a funcionalidade de gestão do ciclo de vida para fazer o 
 
 - [Implementar recursos com modelos ARM e portal Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-- [Como restaurar chaves chave do cofre em Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
@@ -792,7 +792,7 @@ Também pode utilizar a funcionalidade de gestão do ciclo de vida para fazer o 
 
 Utilize o controlo de acesso baseado em funções Azure para proteger as chaves geridas pelo cliente. Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. 
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -890,5 +890,5 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

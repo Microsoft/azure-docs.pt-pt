@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 02/05/2021
-  ms.openlocfilehash: 2e50e273841b93d2ecc742f26069c0e3017b3692
-  ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+  ms.openlocfilehash: 368cd62109d1d5d74d26b22d9384cb4bf56a7944
+  ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/07/2021
-  ms.locfileid: "99807789"
+  ms.lasthandoff: 03/24/2021
+  ms.locfileid: "105044690"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -41,7 +41,7 @@ conceptualContent:
     - url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
       itemType: concept
       text: Responsabilidades partilhadas para a computação na cloud
-    - url: ./fundamentals/security-controls.md
+    - url: ./benchmarks/index.yml
       itemType: concept
       text: Controlos de segurança para os serviços do Azure
     footerLink:
@@ -66,7 +66,7 @@ conceptualContent:
     - url: ./benchmarks/introduction.md
       itemType: download
       text: Valor de referência da segurança da cloud do Azure
-    - url: ../security-center/security-center-using-recommendations.md
+    - url: ../security-center/security-center-remediate-recommendations.md
       itemType: overview
       text: Recomendações do Centro de Segurança do Azure
     footerLink:
