@@ -6,12 +6,12 @@ ms.date: 03/23/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.openlocfilehash: 91d27ce0d6f999ac5d13b079c877e49cdf3fcd61
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0a0c63ee54699185bcd02104b1a3f4d0070ea808
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962869"
+ms.locfileid: "105023253"
 ---
 # <a name="connect-azure-functions-to-azure-cosmos-db-using-visual-studio-code"></a>Ligue as funções Azure à Azure Cosmos DB usando o Código do Estúdio Visual
 
@@ -20,11 +20,11 @@ ms.locfileid: "104962869"
 Este artigo mostra-lhe como usar o Código do Estúdio Visual para ligar [a Azure Cosmos DB](../cosmos-db/introduction.md) à função que criou no artigo de arranque rápido anterior. A vinculação de saída que adiciona a esta função escreve dados do pedido HTTP a um documento JSON armazenado num contentor DB Azure Cosmos. 
 
 ::: zone pivot="programming-language-csharp"
-Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-csharp.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.
+Antes de começar, tem de completar o [arranque rápido: Criar uma função C# em Azure utilizando o Código do Estúdio Visual](create-first-function-vs-code-csharp.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-node.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
-::: zone-end   
+Antes de começar, tem de completar o [arranque rápido: Criar uma função JavaScript em Azure utilizando o Código do Estúdio Visual](create-first-function-vs-code-node.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
+::: zone-end
 
 ## <a name="configure-your-environment"></a>Configurar o ambiente
 

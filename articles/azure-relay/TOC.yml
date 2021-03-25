@@ -37,7 +37,7 @@
         - name: Autenticação e autorização
           href: relay-authentication-and-authorization.md
         - name: Controlos de segurança incorporados
-          href: service-bus-relay-security-controls.md
+          href: ../service-bus-messaging/security-baseline.md
         - name: Segurança da rede
           href: network-security.md
     - name: Protocolo das Ligações Híbridas

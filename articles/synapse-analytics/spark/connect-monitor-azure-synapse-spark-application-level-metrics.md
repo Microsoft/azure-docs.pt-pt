@@ -2,19 +2,19 @@
 title: Tutorial - Ligar e monitorizar as métricas do nível de aplicação de faíscas Azure Synapse
 description: Tutorial - Aprenda a integrar o servidor Prometheus existente no local com o espaço de trabalho Azure Synapse para métricas de aplicação Azure Spark em tempo real utilizando o conector Synapse Prometheus.
 services: synapse-analytics
-author: hrasheed-msft
+author: julieMSFT
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: cb27401b2925c800ebde3b554c076f0d8cb747ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 956d2f8f14b224609542783a8b18d3cdee43fff9
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593021"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035630"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Tutorial: Ligar e monitorizar as métricas do nível de aplicação de faíscas Azure Synapse
 
@@ -152,7 +152,7 @@ Você pode usar o fluxo de credenciais do cliente para obter um token de acesso.
 | grant_type    | Verdadeiro     | Especifica o tipo de subvenção solicitado. Num fluxo de concessão de credenciais de cliente, o valor deve ser client_credentials. |
 | client_id     | Verdadeiro     | O ID de aplicação (principal de serviço) da aplicação que registou no portal Azure ou no Azure CLI.        |
 | client_secret | Verdadeiro     | O segredo gerado para a aplicação (diretor de serviço)                                                  |
-| recurso      | Verdadeiro     | Sinapse recursos uri, deve ser https://dev.azuresynapse.net                                                  |
+| recurso      | Verdadeiro     | Synapse recursos uri, deve ser https://dev.azuresynapse.net '                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \

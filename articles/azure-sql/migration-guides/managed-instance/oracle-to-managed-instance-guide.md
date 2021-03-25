@@ -1,5 +1,5 @@
 ---
-title: 'Oráculo para SQL Caso Gerido: Guia de migração'
+title: 'Oráculo para Azure SQL Caso Gerido: Guia de migração'
 description: Este guia ensina-o a migrar os seus esquemas Oráculos para Azure SQL Managed Instance usando o SqL Server Migration Assistant para o Oráculo.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,19 +10,19 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: c54ec2cc6e17d9693e25f1471922da8c7c023e36
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1c2fbc90d3956ab831e6d9fac4e1e2d3540e1c6d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602944"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025429"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Guia de migração: Oráculo para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Este guia ensina-o a migrar os seus esquemas Oráculos para Azure SQL Managed Instance usando o SqL Server Migration Assistant para o Oráculo. 
 
-Para outros cenários, consulte o [Guia de Migração da Base de Dados.](https://datamigration.microsoft.com/)
+Para outros guias de migração, consulte [a Migração da Base de Dados.](https://docs.microsoft.com/data-migration) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,11 +49,11 @@ Para criar uma avaliação, siga estes passos:
 
 1. Abrir [o assistente de migração do servidor SQL para o oráculo](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Selecione **File** e, em seguida, escolha **Novo Projeto**. 
-1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione Azure SQL Managed Instance como o alvo de migração a partir do drop-down. Selecione **OK**.
+1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione Azure SQL Managed Instance como o alvo de migração a partir do drop-down. Selecione **OK**:
 
    ![Novo Projeto](./media/oracle-to-managed-instance-guide/new-project.png)
 
-1. Selecione **Connect to Oracle**. Introduza os valores para os detalhes da ligação Oracle na caixa de diálogo **Connect to Oracle.**
+1. Selecione **Connect to Oracle**. Introduza os valores para os detalhes da ligação Oracle na caixa de diálogo **Connect to Oracle:**
 
    ![Ligar ao Oráculo](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
 
@@ -61,7 +61,7 @@ Para criar uma avaliação, siga estes passos:
 
    ![Escolha o esquema do Oráculo](./media/oracle-to-managed-instance-guide/select-schema.png)
 
-1. Clique com o botão direito no esquema do Oráculo que pretende migrar no **Oracle Metadata Explorer** e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados.
+1. Clique com o botão direito no esquema do Oráculo que pretende migrar no **Oracle Metadata Explorer** e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados:
 
    ![Criar Relatório](./media/oracle-to-managed-instance-guide/create-report.png)
 
@@ -78,7 +78,7 @@ Valide os mapeamentos do tipo de dados predefinidos e altere-os com base nos req
 
 1. Selecione **Ferramentas** do menu. 
 1. Selecione **Definições de projetos**. 
-1. Selecione o **separador de mapeamentos Tipo.** 
+1. Selecione o **separador de mapeamentos Tipo:**
 
    ![Mapeamentos de tipo](./media/oracle-to-managed-instance-guide/type-mappings.png)
 
@@ -91,24 +91,26 @@ Para converter o esquema, siga estes passos:
 1. (Opcional) Adicione consultas dinâmicas ou ad-hoc a declarações. Clique com o botão direito no nó e, em seguida, escolha **Adicionar declarações**.
 1. Selecione **Connect to Azure SQL Managed Instance**. 
     1. Introduza os dados de ligação para ligar a sua base de dados em Azure SQL Managed Instance.
-    1. Escolha a base de dados-alvo a partir do drop-down.
-    1. Selecione **Ligar**.
+    1. Escolha a base de dados-alvo a partir do drop-down ou forneça um novo nome, caso em que uma base de dados será criada no servidor alvo. 
+    1. Forneça detalhes de autenticação. 
+    1. Selecione **Connect**:
 
     ![Ligar à Instância Gerida do SQL](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
 
-1. Clique com o botão direito no esquema do **Oráculo** no Oracle Metadata Explorer e, em seguida, escolha **Converter o Schema**. Em alternativa, pode escolher **converter o Schema** na barra de navegação superior depois de selecionar o seu esquema.
+1. Clique com o botão direito no esquema do **Oráculo** no Oracle Metadata Explorer e, em seguida, escolha **Converter o Schema**. Em alternativa, pode escolher **converter o Schema** na barra de navegação superior depois de selecionar o seu esquema:
 
    ![Converter Schema](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
-1. Após a conversão concluída, compare e reveja os objetos convertidos aos objetos originais para identificar potenciais problemas e abordá-los com base nas recomendações.
+1. Após a conversão concluída, compare e reveja os objetos convertidos aos objetos originais para identificar potenciais problemas e abordá-los com base nas recomendações:
 
    ![Compare recomendações de tabela](./media/oracle-to-managed-instance-guide/table-comparison.png)
 
-   Compare o texto Transact-SQL convertido com os procedimentos armazenados originais e reveja as recomendações: 
+   Compare o texto Transact-SQL convertido com o código original e reveja as recomendações: 
 
    ![Comparar recomendações de procedimento](./media/oracle-to-managed-instance-guide/procedure-comparison.png)
 
-1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.**
+1. Selecione **Os resultados** da Revisão no painel de saída e os erros de revisão no painel **da lista de erros.** 
+1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para SQL Managed Instance.
 
 ## <a name="migrate"></a>Migrate
 
@@ -116,7 +118,7 @@ Depois de ter concluído a avaliação das suas bases de dados e de abordar even
 
 Para publicar o seu esquema e migrar os seus dados, siga estes passos:
 
-1. Publique o esquema: Clique à direita na base de dados a partir do nó **de bases de dados** no **Azure SQL Managed Instance Metadata Explorer** e escolha **Sincronizar com Base de Dados**.
+1. Publique o esquema: Clique com razão no esquema ou objeto que pretende migrar no **Oracle Metadata Explorer** e escolha **dados migratórios**. Em alternativa, pode **selecionar Dados Migratórios** a partir da barra de navegação de primeira linha. Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de dados, expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação:
 
    ![Sincronizar com base de dados](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
 
@@ -129,18 +131,17 @@ Para publicar o seu esquema e migrar os seus dados, siga estes passos:
    ![Dados migratórios](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
 1. Forneça detalhes de conexão tanto para a Oracle como para a Azure SQL.
-1. Consulte o **relatório migração de dados.**
+1. Após a conclusão da migração, consulte o **Relatório de Migração de Dados:**  
 
    ![Relatório de Migração de Dados](./media/oracle-to-managed-instance-guide/data-migration-report.png)
 
-1. Conecte-se ao seu Azure SQL Managed Instance utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas.
+1. Conecte-se ao seu Azure SQL Managed Instance utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas:
 
    ![Validar em SSMA](./media/oracle-to-managed-instance-guide/validate-data.png)
 
 
 Em alternativa, também pode utilizar os Serviços de Integração de Servidores SQL (SSIS) para realizar a migração. Para saber mais, veja: 
 
-- [SqL Server Migration Assistant: Como avaliar e migrar dados de plataformas de dados não Microsoft para SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/11/16/sql-server-migration-assistant-how-to-assess-and-migrate-databases-from-non-microsoft-data-platforms-to-sql-server/)
 - [Começar com serviços de integração de servidores SQL](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 - [Serviços de Integração de Servidores SQL: SSIS para movimento de dados Azure e Híbrido](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
@@ -187,7 +188,7 @@ Para obter assistência adicional para completar este cenário de migração, co
 | [Artefactos de script de inventário de oráculo](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | Este ativo inclui uma consulta PL/SQL que atinge as tabelas do sistema Oracle e fornece uma contagem de objetos por tipo de esquema, tipo de objeto e estado. Também fornece uma estimativa aproximada de 'Dados Brutos' em cada esquema e o dimensionamento de tabelas em cada esquema, com resultados armazenados num formato CSV.                                                                                                               |
 | [Automatizar a coleção de avaliação da SSMA Oracle & Consolidação](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Este conjunto de recursos utiliza um ficheiro .csv como entrada (sources.csv nas pastas do projeto) para produzir os ficheiros xml necessários para executar a avaliação SSMA no modo consola. O source.csv é fornecido pelo cliente com base num inventário dos casos existentes da Oracle. Os ficheiros de saída são AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml e VariableValueFile.xml.|
 | [SSMA para os erros comuns da Oracle e como corrigi-los](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Com a Oracle, pode atribuir uma condição não-escalar na cláusula WHERE. No entanto, o SQL Server não suporta este tipo de condição. Como resultado, o SQL Server Migration Assistant (SSMA) para a Oracle não converte consultas com uma condição não-escalar na cláusula WHERE, em vez de gerar um erro O2SS001. Este livro branco fornece mais detalhes sobre a questão e formas de o resolver.          |
-| [Manual de migração do Oráculo para o SqL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento centra-se nas tarefas associadas à migração de um esquema Oráculo para a versão mais recente da SQL Serverbase. Se a migração exigir alterações nas funcionalidades/funcionalidades, então o possível impacto de cada alteração nas aplicações que utilizam a base de dados deve ser cuidadosamente considerado.                                                     |
+| [Manual de migração do Oráculo para o SqL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento centra-se nas tarefas associadas à migração de um esquema Oráculo para a versão mais recente da base do SQL Server. Se a migração exigir alterações nas funcionalidades/funcionalidades, então o possível impacto de cada alteração nas aplicações que utilizam a base de dados deve ser cuidadosamente considerado.                                                     |
 
 Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é patrocinado pela equipa de engenharia do Azure Data Group. A carta principal do programa Data SQL Ninja é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa Data SQL Ninja, contacte a sua equipa de conta e peça-lhes que apresentem uma nomeação.
 
@@ -196,7 +197,7 @@ Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é
 - Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para o ajudar com vários cenários de migração de dados e dados, bem como tarefas especiais, consulte o serviço de [artigos e ferramentas para a migração de dados.](https://docs.microsoft.com/azure/dms/dms-tools-matrix)
 
 - Para saber mais sobre a Azure SQL Managed Instance, consulte: 
-  - [Uma visão geral do Azure SQL Managed Instance](../../database/sql-database-paas-overview.md)
+  - [Uma visão geral do Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md)
   - [Calculadora Azure Total Cost of Ownership (TCO)](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
 
 

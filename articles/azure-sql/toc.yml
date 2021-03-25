@@ -347,7 +347,7 @@
       items:
         - name: A partir do acesso
           href: migration-guides/database/access-to-sql-database-guide.md
-        - name: A partir do DB2
+        - name: De Db2
           href: migration-guides/database/db2-to-sql-database-guide.md
         - name: De Oráculo
           href: migration-guides/database/oracle-to-sql-database-guide.md
@@ -759,7 +759,7 @@
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
     - name: Guias de migração
       items:
-        - name: A partir do DB2
+        - name: De Db2
           href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
         - name: De Oráculo
           href: migration-guides/managed-instance/oracle-to-managed-instance-guide.md
@@ -1262,7 +1262,7 @@
       items:
         - name: Descrição geral
           href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
-        - name: A partir do DB2
+        - name: De Db2
           href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
         - name: De Oráculo
           href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md

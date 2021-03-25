@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 996159f7014e735c8a4b3e5975c2716ce1ab6910
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cca60ba9948299f4e9557f26097d4a23e4ebea12
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728558"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025344"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Linha de segurança Azure para gestor de recursos Azure
 
@@ -32,9 +32,9 @@ Para ver como o Azure Resource Manager mapeia completamente para o Benchmark de 
 
 - [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Como começar com o Azure Monitor e a integração do SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -50,9 +50,9 @@ Para ver como o Azure Resource Manager mapeia completamente para o Benchmark de 
 
 **Orientação**: O Gestor de Recursos Azure utiliza registos de atividade, que são automaticamente habilitados, para incluir fonte de evento, data, utilizador, timetamp, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Compreenda o registo e diferentes tipos de registo em Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -66,9 +66,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Começando com consultas log analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Começando com consultas log analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilidade**: Partilhada
 
@@ -82,7 +82,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como gerir alertas no Centro de Segurança Azure](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Como alertar os dados do registo do Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Como alertar os dados do registo do Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilidade**: Cliente
 
@@ -119,7 +119,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, pode 
 
 Também pode ativar um acesso Just-In-Time utilizando o Azure Ative Directory (Azure AD) Gestão de Identidade Privilegiada e Gestor de Recursos Azure.
 
-- [Saiba mais sobre Gestão de Identidade Privilegiada](/azure/active-directory/privileged-identity-management/)
+- [Saiba mais sobre Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/index.yml)
 
 - [Como usar a Política Azure](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -205,7 +205,7 @@ Também pode ativar um acesso Just-In-Time utilizando o Azure Ative Directory (A
 
 **Orientação**: O Azure Ative Directory (Azure AD) fornece registos para ajudar a descobrir contas velhas. Além disso, utilize a identidade AZure E access reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os utilizadores certos tenham acesso continuado.
 
-- [Compreenda a Azure AD reportando](/azure/active-directory/reports-monitoring/)
+- [Compreenda a Azure AD reportando](../../active-directory/reports-monitoring/index.yml)
 
 - [Como utilizar as revisões de identidades e acessos do Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
@@ -223,7 +223,7 @@ Também pode ativar um acesso Just-In-Time utilizando o Azure Ative Directory (A
 
 Pode agilizar este processo criando definições de diagnóstico para contas de utilizadores AZure E envio de registos de auditoria e registos de login para um espaço de trabalho do Log Analytics. Pode configurar os alertas desejados dentro do espaço de trabalho do Log Analytics.
 
-- [Como integrar registos de atividades do Azure com o Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar registos de atividades do Azure com o Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidade**: Cliente
 
@@ -275,7 +275,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Para encriptação do lado do servidor em repouso, o Azure Resource Manager suporta as teclas geridas pela Microsoft.
 
-- [Compreender a proteção de dados no Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-security-controls#data-protection)
+- [Compreender a proteção de dados no Azure Resource Manager](#data-protection)
 
 **Responsabilidade**: Cliente
 
@@ -285,7 +285,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas quando ocorrerem alterações para recursos críticos do Azure.
 
-- [Como criar alertas para eventos de registo de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos de registo de atividades do Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -319,7 +319,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Azure 
 
 **Orientação**: Use o nome da política, descrição e categoria para organizar logicamente os ativos de acordo com uma taxonomia.
 
-- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação de recursos e marcação](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação de recursos e marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Responsabilidade**: Cliente
 
@@ -379,7 +379,7 @@ Mais detalhes relacionados são fornecidos abaixo,
 
 - [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -463,7 +463,7 @@ Além disso, como administrador, poderá ser necessário bloquear uma subscriç�
 
 - [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Como usar pseudónimos](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Como usar pseudónimos](../../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilidade**: Cliente
 
@@ -587,5 +587,5 @@ Implementar o Scanner credencial para identificar credenciais dentro do código.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../../security/benchmarks/security-baselines-overview.md)
