@@ -4,12 +4,12 @@ description: Conheça o projeto de candidatura que acabou de criar no Visual Stu
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97760440"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044384"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>A sua aplicação de Tecido de Serviço e os próximos passos
 A sua aplicação Azure Service Fabric foi criada. Este artigo inclui uma série de recursos, mais informações que lhe podem interessar, e potenciais [próximos passos.](#next-steps)
@@ -59,7 +59,7 @@ A sua aplicação pode conter informações sensíveis, tais como cadeias de lig
 Tal como acontece com outras plataformas, uma aplicação de Tecido de Serviço geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implementação, upgrade, manutenção e remoção. [Este artigo](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e como são usadas pelas diferentes funções ao longo das fases do ciclo de vida da aplicação Service Fabric.
 
 ## <a name="learn-about-best-practices"></a>Conheça as melhores práticas
-A Service Fabric tem uma série de artigos que descrevem as [melhores práticas.](./service-fabric-best-practices-overview.md) Aproveite estas informações para ajudar a garantir o seu cluster e aplicação executados o melhor possível.
+A Service Fabric tem uma série de artigos que descrevem as [melhores práticas.](./service-fabric-best-practices-security.md) Aproveite estas informações para ajudar a garantir o seu cluster e aplicação executados o melhor possível.
 Os tópicos abordados incluem:
 * [Segurança](./service-fabric-best-practices-security.md)
 * [Rede](./service-fabric-best-practices-networking.md)

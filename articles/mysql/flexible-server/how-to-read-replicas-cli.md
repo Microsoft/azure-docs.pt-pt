@@ -1,18 +1,18 @@
 ---
 title: Gerir réplicas de leitura na Base de Dados Azure para o MySQL Flexible Server utilizando o Azure CLI.
 description: Saiba como configurar e gerir réplicas de leitura na Base de Dados Azure para o servidor flexível MySQL utilizando o Azure CLI.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a7d63fd76a88430495c9f55200308f63b11c89d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bc95cd3ab471826538a551687c38d1422e4b7163
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96494312"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108660"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para servidor flexível MySQL utilizando o Azure CLI
 

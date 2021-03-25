@@ -1,7 +1,7 @@
 ---
-title: Visão geral da biblioteca do cliente POR SMS para serviços de comunicação Azure
+title: Visão geral da SMS SDK para serviços de comunicação Azure
 titleSuffix: An Azure Communication Services concept document
-description: Fornece uma visão geral da biblioteca do cliente SMS e suas ofertas.
+description: Fornece uma visão geral do SMS SDK e suas ofertas.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,25 +9,25 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11ab634ed4b25c5fd8c0079263094c393e9dcbe6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 25a5befab6ef141b059caaac7b1784d47f2f93cf
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496597"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108116"
 ---
-# <a name="sms-client-library-overview"></a>Descrição geral da biblioteca de cliente de SMS
+# <a name="sms-sdk-overview"></a>Visão geral do SMS SDK
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-As bibliotecas de clientes de serviços de comunicação Azure podem ser usadas para adicionar mensagens SMS às suas aplicações.
+Os SDKs de Serviços de Comunicação Azure podem ser utilizados para adicionar mensagens SMS às suas aplicações.
 
-## <a name="sms-client-library-capabilities"></a>Capacidades de biblioteca de clientes POR SMS
+## <a name="sms-sdk-capabilities"></a>Capacidades SDK de SMS
 
-A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente disponíveis nas bibliotecas dos nossos clientes.
+A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente disponíveis nos nossos SDKs.
 
 | Grupo de funcionalidades | Funcionalidade                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |

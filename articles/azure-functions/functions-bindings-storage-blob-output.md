@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: eaa8a4c600864f636d49813d415621d46130fff7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 78cbf94bfc19757a4264c7884c3e47b230de5e46
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100381665"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044095"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Ligação de saída de armazenamento Azure Blob para funções Azure
 
@@ -431,8 +431,8 @@ Aceda aos dados blob através de um parâmetro que corresponda ao nome designado
 
 Pode declarar os parâmetros de função como os seguintes tipos para escrever para o armazenamento de bolhas:
 
-* Cordas como `func.Out(str)`
-* Riachos como `func.Out(func.InputStream)`
+* Cordas como `func.Out[str]`
+* Riachos como `func.Out[func.InputStream]`
 
 Consulte o [exemplo de saída](#example) para obter mais detalhes.
 

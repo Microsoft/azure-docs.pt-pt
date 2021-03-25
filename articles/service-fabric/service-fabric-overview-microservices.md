@@ -3,12 +3,12 @@ title: Introdução aos microsserviços no Azure
 description: Uma visão geral do porquê de construir aplicações em nuvem com uma abordagem de microserviços é importante para o desenvolvimento moderno de aplicações e como a Azure Service Fabric fornece uma plataforma para o conseguir.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 46d4be7321057bd7a5ee19e0aca136c8c60d43bc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575657"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044435"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Porquê usar uma abordagem de microserviços para a construção de aplicações
 
@@ -194,7 +194,7 @@ O objetivo da Service Fabric é reduzir as complexidades de construir aplicaçõ
 
 * [Microserviços: Uma revolução de aplicações alimentada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 * [Centro de Arquitetura Azure: Construção de microserviços em Azure](/azure/architecture/microservices/)
-* [Melhores práticas para aplicações e clusters do Azure Service Fabric](service-fabric-best-practices-overview.md)
+* [Melhores práticas para aplicações e clusters do Azure Service Fabric](./service-fabric-best-practices-security.md)
 * [Visão geral da terminologia do tecido de serviço](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png

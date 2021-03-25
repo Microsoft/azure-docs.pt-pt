@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5960238893ae1e4dc307db98f9dc73889a2fa5b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487837"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108898"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -30,12 +30,12 @@ ms.locfileid: "103487837"
 > [Esta amostra está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-A amostra de **chat hero do grupo** de serviços de comunicação Azure mostra como a biblioteca de clientes de Chat Web dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo.
+A amostra de **chat hero do grupo de** serviços de comunicação Azure mostra como os serviços de comunicação Chat Web SDK podem ser usados para construir uma experiência de chamada de grupo.
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure.
 
@@ -111,7 +111,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 Para obter mais informações, veja os seguintes artigos:
 
 - Saiba mais [sobre conceitos de chat](../concepts/chat/concepts.md)
-- Familiarize-se com a nossa [biblioteca de clientes de chat](../concepts/chat/sdk-features.md)
+- Familiarize-se com o nosso [Chat SDK](../concepts/chat/sdk-features.md)
 - Reveja a amostra da [App Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Leitura adicional

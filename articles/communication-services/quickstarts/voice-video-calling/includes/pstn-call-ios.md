@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: 1bdbfa0966f274d6c026110d7c50bf73266b1189
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 43e3463a3284f57825073888146b38fa14cbf5d3
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "104729469"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109046"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -23,7 +23,7 @@ ms.locfileid: "104729469"
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 
 - Para visualizar os números de telefone associados ao seu recurso serviços de comunicação, inscreva-se no [portal Azure,](https://portal.azure.com/)localize o seu recurso de Serviços de Comunicação e abra o separador **números** de telefone a partir do painel de navegação à esquerda.
-- Pode construir e executar a sua aplicação com serviços de comunicação Azure Chamando a biblioteca de clientes para iOS:
+- Pode construir e executar a sua aplicação com os Serviços de Comunicação Azure chamando a SDK para iOS:
 
 ## <a name="setting-up"></a>Configuração
 

@@ -8,19 +8,19 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 65a968747e7ed12e6ee03bd5fea4b7b4af7ee10e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a861ed27414ed407d00e8e886f20fb952a8ac95e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729520"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109047"
 ---
 # <a name="quickstart-call-to-phone"></a>Quickstart: Ligue para o telefone
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação chamando a biblioteca do cliente para adicionar a chamada PSTN à sua app.
+Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação Chamando a SDK para adicionar a chamada PSTN à sua app.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
@@ -42,5 +42,5 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 
 Para obter mais informações, veja os seguintes artigos:
 
-- Saiba mais [sobre chamar as capacidades da biblioteca do cliente](./calling-client-samples.md)
+- Saiba mais [sobre as capacidades de chamar sDK](./calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../../concepts/voice-video-calling/about-call-types.md)

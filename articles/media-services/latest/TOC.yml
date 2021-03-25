@@ -341,13 +341,15 @@
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Copiar vídeos sem codificação com REST
           href: how-to-create-copy-video-audio-transform.md
-        - name: Criar tarefas
+        - name: Criar empregos com .NET
           href: cli-create-jobs.md
         - name: Criar uma entrada de tarefa com um ficheiro local e o .NET
           displayName: upload
           href: job-input-from-local-file-how-to.md
         - name: Tarefas com várias saídas de transformação
           href: job-multiple-transform-outputs.md
+        - name: Coser dois ou mais ficheiros de vídeo com .NET
+          href: stitch-howto.md
     - name: Codificar conteúdo
       items:
         - name: HTTPS como entrada da tarefa

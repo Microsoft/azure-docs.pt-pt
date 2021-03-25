@@ -8,18 +8,18 @@ ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: 0de4bb6424fe8fa87d1e6e8628dcfc394c6369c8
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 5f173411726283b86cad7706d10743ef62943e46
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804074"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108486"
 ---
 # <a name="quickstart-add-joining-a-teams-meeting-to-your-app"></a>Quickstart: Adicione a junção de uma reunião de equipas à sua app
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes das Equipas de Serviços de Comunicação para adicionar reuniões de equipas à sua app. 
+Inicie-se com os Serviços de Comunicação Azure utilizando as Equipas de Serviços de Comunicação Embed SDK para adicionar reuniões de equipas à sua app. 
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 

@@ -1,7 +1,7 @@
 ---
-title: Serviços de Comunicação Azure chamando a visão geral da biblioteca do cliente
+title: Serviços de comunicação Azure chamando a visão geral da SDK
 titleSuffix: An Azure Communication Services concept document
-description: Fornece uma visão geral da biblioteca do cliente chamador.
+description: Fornece uma visão geral do Call SDK.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,25 +9,25 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e154e43f9e9378d6cccd23e2e5892f2a8ccf9a1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 39331cb83b233f6b91344e6e299ed81f187fe9d9
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598886"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108403"
 ---
-# <a name="calling-client-library-overview"></a>Descrição geral da biblioteca de cliente de chamadas
+# <a name="calling-sdk-overview"></a>Chamando a visão geral da SDK
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Existem duas famílias separadas de bibliotecas de clientes call, para clientes e *serviços.*  Atualmente, as bibliotecas de clientes disponíveis destinam-se a experiências de utilizador final: websites e aplicações nativas.
+Existem duas famílias separadas de Call SDKs, para clientes e *serviços.*  Os SDKs atualmente disponíveis destinam-se a experiências de utilizador final: websites e aplicações nativas.
 
-As bibliotecas de clientes do Serviço ainda não estão disponíveis e fornecem acesso aos aviões de dados de voz e vídeo brutos, adequados para a integração com bots e outros serviços.
+Os SDKs de serviço ainda não estão disponíveis e fornecem acesso aos aviões de dados de voz e vídeo brutos, adequados para a integração com bots e outros serviços.
 
-## <a name="calling-client-library-capabilities"></a>Chamar capacidades de biblioteca de clientes
+## <a name="calling-sdk-capabilities"></a>Chamando as capacidades do SDK
 
-A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente disponíveis nas bibliotecas de clientes dos Serviços de Comunicação Azure.
+A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente disponíveis nos Serviços de Comunicação Azure Que chamam SDKs.
 
 | Grupo de funcionalidades | Funcionalidade                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
@@ -74,7 +74,7 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 
 
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>JavaScript chamando suporte à biblioteca de clientes por OS e browser
+## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Suporte SDK de chamada javaScript por OS e browser
 
 A tabela seguinte representa o conjunto de navegadores suportados que estão atualmente disponíveis. Apoiamos as três versões mais recentes do navegador, salvo indicação em contrário.
 
@@ -115,8 +115,8 @@ Por exemplo, este iframe permite o acesso tanto à câmara como ao microfone:
 <iframe allow="camera *; microphone *">
 ```
 
-## <a name="calling-client-library-streaming-support"></a>Chamando o suporte de streaming da biblioteca do cliente
-Os Serviços de Comunicação que ligam para a biblioteca de clientes suportam as seguintes configurações de streaming:
+## <a name="calling-sdk-streaming-support"></a>Chamando suporte de streaming SDK
+Os Serviços de Comunicação Que Ligam A SDK suporta as seguintes configurações de streaming:
 
 |           |Web | Android/iOS|
 |-----------|----|------------|

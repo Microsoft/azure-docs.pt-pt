@@ -1,5 +1,5 @@
 ---
-title: Utilize a Firewall Azure para inspecionar o tráfego destinado a um ponto final privado
+title: Utilizar o Azure Firewall para inspecionar o tráfego destinado a um ponto final privado
 titleSuffix: Azure Private Link
 description: Saiba como pode inspecionar o tráfego destinado a um ponto final privado utilizando a Azure Firewall.
 services: private-link
@@ -8,14 +8,14 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4fe43ec7661cfad25c48819183742c3f33951d92
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575127"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108150"
 ---
-# <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utilize a Firewall Azure para inspecionar o tráfego destinado a um ponto final privado
+# <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utilizar o Azure Firewall para inspecionar o tráfego destinado a um ponto final privado
 
 Azure Private Endpoint é o bloco de construção fundamental para a Azure Private Link. Os pontos finais privados permitem que os recursos Azure implantados numa rede virtual comuniquem privadamente com recursos de ligação privada.
 
@@ -25,8 +25,8 @@ Poderá ser necessário inspecionar ou bloquear o tráfego dos clientes para os 
 
 Aplicam-se as seguintes limitações:
 
-* Os grupos de segurança da rede (NSGs) não se aplicam a pontos finais privados
-* As rotas definidas pelo utilizador (UDR) não se aplicam a pontos finais privados
+* Os grupos de segurança da rede (NSG) são ignorados pelo tráfego proveniente de pontos finais privados
+* As rotas definidas pelo utilizador (UDR) são contornadas pelo tráfego proveniente de pontos finais privados
 * Uma única tabela de rotas pode ser anexada a uma sub-rede
 * Uma tabela de rotas suporta até 400 rotas
 
@@ -35,7 +35,8 @@ A Azure Firewall filtra o tráfego utilizando:
 * [FQDN nas regras de rede](../firewall/fqdn-filtering-network-rules.md) para protocolos TCP e UDP
 * [FQDN nas regras de aplicação](../firewall/features.md#application-fqdn-filtering-rules) para HTTP, HTTPS e MSSQL. 
 
-A maioria dos serviços expostos sobre pontos finais privados usam HTTPS. Recomenda-se a utilização de regras de aplicação sobre as regras de rede quando se utiliza o Azure SQL.
+> [!IMPORTANT] 
+> Recomenda-se a utilização de regras de aplicação sobre as regras de rede na inspeção do tráfego destinado a pontos finais privados, a fim de manter a simetria do fluxo. Se forem utilizadas regras de rede ou se for utilizada uma NVA em vez de Azure Firewall, o SNAT deve ser configurado para o tráfego destinado a pontos finais privados.
 
 > [!NOTE]
 > A filtragem SQL FQDN é suportada apenas em [modo proxy](../azure-sql/database/connectivity-architecture.md#connection-policy) (porta 1433). O modo **proxy** pode resultar em mais latência em comparação com *o redirecionamento*. Se pretender continuar a utilizar o modo de redirecionamento, que é o padrão para os clientes que se ligam dentro do Azure, pode filtrar o acesso usando o FQDN nas regras da rede de firewall.
@@ -46,12 +47,9 @@ A maioria dos serviços expostos sobre pontos finais privados usam HTTPS. Recome
 
 Este cenário é a arquitetura mais expansível para ligar privadamente a vários serviços Azure usando pontos finais privados. É criada uma rota que aponta para o espaço de endereço de rede onde os pontos finais privados são implantados. Esta configuração reduz a sobrecarga administrativa e impede que se desacordam no limite de 400 rotas.
 
-As ligações de uma rede virtual do cliente ao Azure Firewall numa rede virtual de hub incorrerão em encargos se as redes virtuais forem espreitadas.
+As ligações de uma rede virtual do cliente ao Azure Firewall numa rede virtual de hub incorrerão em encargos se as redes virtuais forem espreitadas. As ligações do Azure Firewall numa rede virtual de hub a pontos finais privados numa rede virtual esprevada não são carregadas.
 
 Para obter mais informações sobre os encargos relacionados com ligações com redes virtuais espreitadas, consulte a secção faq da página [de preços.](https://azure.microsoft.com/pricing/details/private-link/)
-
->[!NOTE]
-> Este cenário pode ser implementado usando quaisquer regras de rede NVA ou Azure Firewall em vez de regras de aplicação.
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Cenário 2: Hub e arquitetura falada - Rede virtual partilhada para pontos finais privados e máquinas virtuais
 
@@ -69,21 +67,15 @@ A sobrecarga administrativa da manutenção do quadro de rotas aumenta à medida
 
 Dependendo da sua arquitetura geral, é possível encontrar o limite de 400 rotas. Recomenda-se a utilização do cenário 1 sempre que possível.
 
-As ligações de uma rede virtual do cliente ao Azure Firewall numa rede virtual de hub incorrerão em encargos se as redes virtuais forem espreitadas.
+As ligações de uma rede virtual do cliente ao Azure Firewall numa rede virtual de hub incorrerão em encargos se as redes virtuais forem espreitadas. As ligações do Azure Firewall numa rede virtual de hub a pontos finais privados numa rede virtual esprevada não são carregadas.
 
 Para obter mais informações sobre os encargos relacionados com ligações com redes virtuais espreitadas, consulte a secção faq da página [de preços.](https://azure.microsoft.com/pricing/details/private-link/)
-
->[!NOTE]
-> Este cenário pode ser implementado usando quaisquer regras de rede NVA ou Azure Firewall em vez de regras de aplicação.
 
 ## <a name="scenario-3-single-virtual-network"></a>Cenário 3: Rede virtual única
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede virtual única" border="true":::
 
-Há algumas limitações à implementação: uma migração para um centro e arquitetura falada não é possível. Aplicam-se as mesmas considerações que no cenário 2. Neste cenário, os encargos de observação da rede virtual não se aplicam.
-
->[!NOTE]
-> Se pretender implementar este cenário utilizando um NVA ou Azure Firewall de terceiros, as regras de rede em vez de regras de aplicação são necessárias para o tráfego SNAT destinado aos pontos finais privados. Caso contrário, a comunicação entre as máquinas virtuais e os pontos finais privados falhará.
+Use este padrão quando uma migração para um centro e arquitetura falada não é possível. Aplicam-se as mesmas considerações que no cenário 2. Neste cenário, os encargos de observação da rede virtual não se aplicam.
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Cenário 4: Tráfego no local para pontos finais privados
 
@@ -97,9 +89,6 @@ Esta arquitetura pode ser implementada se tiver conectividade configurada com a 
 Se os seus requisitos de segurança exigirem que o tráfego do cliente para serviços expostos através de pontos finais privados seja encaminhado através de um aparelho de segurança, implemente este cenário.
 
 Aplicam-se as mesmas considerações que no cenário 2 suplímos. Neste cenário, não há acusações de observação de redes virtuais. Para obter mais informações sobre como configurar os seus servidores DNS para permitir que as cargas de trabalho no local acedam a pontos finais privados, consulte [as cargas de trabalho no Local utilizando um reencaminhador DNS](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
-
->[!NOTE]
-> Se pretender implementar este cenário utilizando um NVA ou Azure Firewall de terceiros, as regras de rede em vez de regras de aplicação são necessárias para o tráfego SNAT destinado aos pontos finais privados. Caso contrário, a comunicação entre as máquinas virtuais e os pontos finais privados falhará.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

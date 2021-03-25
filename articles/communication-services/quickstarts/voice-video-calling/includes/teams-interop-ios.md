@@ -1,19 +1,19 @@
 ---
 title: Quickstart - Junte-se a uma reunião de equipas a partir de uma aplicação para iOS
-description: Neste tutorial, você aprende a se juntar a uma reunião de equipas usando a biblioteca de clientes Azure Communication Services Call para iOS
+description: Neste tutorial, você aprende a se juntar a uma reunião de equipas usando os Serviços de Comunicação Azure Chamando SDK para iOS
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 68f1abb5335386634874d9696738a8e552ebbe9c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8ff85dc5571f549027e208409db3f4e80c68b205
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488013"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108204"
 ---
-Neste arranque rápido, você vai aprender a se juntar a uma reunião de equipas usando a biblioteca de clientes Azure Communication Services Call para iOS.
+Neste arranque rápido, você vai aprender a se juntar a uma reunião de equipas usando os Serviços de Comunicação Azure chamando SDK para iOS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -178,7 +178,7 @@ struct ContentView_Previews: PreviewProvider {
 ## <a name="get-the-teams-meeting-link"></a>Obtenha o link de reunião das equipas
 
 O link de encontro das equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)
-A biblioteca de clientes de serviços de comunicação aceita um link completo de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade.](/graph/api/resources/onlinemeeting?view=graph-rest-beta) Também pode obter as informações necessárias da reunião do URL do Encontro de **Reuniões** na reunião das Equipas.
+Os Serviços de Comunicação Que Ligam a SDK aceitam uma ligação completa de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade.](/graph/api/resources/onlinemeeting?view=graph-rest-beta) Também pode obter as informações necessárias da reunião do URL do Encontro de **Reuniões** na reunião das Equipas.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>Lance a app e junte-se à reunião de Equipas
 

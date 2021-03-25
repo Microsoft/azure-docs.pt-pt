@@ -3,12 +3,12 @@ title: Ativar os conhecimentos do contentor | Microsoft Docs
 description: Este artigo descreve como ativar e configurar insights do Contentor para que possa entender como o seu recipiente está a funcionar e quais as questões relacionadas com o desempenho que foram identificadas.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708361"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109357"
 ---
 # <a name="enable-container-insights"></a>Ativar insights de contentores
 
@@ -64,6 +64,7 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
 - Para visualizar os dados de monitorização, é necessário ter o papel de [*leitor do Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Do Log Analytics, configurado com insights do Contentor.
 
 - As métricas prometheus não são recolhidas por defeito. Antes [de configurar o agente](container-insights-prometheus-integration.md) para recolher as métricas, é importante rever a [documentação do Prometeu](https://prometheus.io/) para entender que dados podem ser raspados e que métodos são suportados.
+- Um cluster AKS pode ser ligado a um espaço de trabalho Log Analytics numa subscrição Azure diferente no mesmo Azure AD Tenant. Isto não pode ser feito atualmente com o Portal Azure, mas pode ser feito com o modelo Azure CLI ou Gestor de Recursos.
 
 ## <a name="supported-configurations"></a>Configurações suportadas
 

@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: eea54be9d159c6aacbbc24e2fe8edf874f8e2d83
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4ecc7033007361e27908e0881b80091ac660398e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492341"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108398"
 ---
 # <a name="voice-and-video-concepts"></a>Conceitos de voz e vídeo
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Pode utilizar os Serviços de Comunicação Azure para fazer e receber uma a uma ou chamadas de voz e vídeo em grupo. As suas chamadas podem ser feitas para outros dispositivos ligados à Internet e para telefones simples. Pode utilizar as bibliotecas de clientes JavaScript, Android ou iOS para construir aplicações que permitam aos seus utilizadores falar em conversas privadas ou em discussões de grupo. A Azure Communication Services suporta chamadas de e para serviços ou Bots.
+Pode utilizar os Serviços de Comunicação Azure para fazer e receber uma a uma ou chamadas de voz e vídeo em grupo. As suas chamadas podem ser feitas para outros dispositivos ligados à Internet e para telefones simples. Pode utilizar os Serviços de Comunicação JavaScript, Android ou IOS SDKs para construir aplicações que permitam aos seus utilizadores falar uns com os outros em conversas privadas ou em discussões de grupo. A Azure Communication Services suporta chamadas de e para serviços ou Bots.
 
 ## <a name="call-types-in-azure-communication-services"></a>Tipos de chamadas nos Serviços de Comunicação Azure
 
@@ -37,7 +37,7 @@ Sempre que os seus utilizadores interagem com um número de telefone tradicional
 
 ### <a name="one-to-one-call"></a>Uma chamada de um para um
 
-Uma chamada de um para um nos Serviços de Comunicação Azure acontece quando um dos seus utilizadores se conecta a outro utilizador usando uma das bibliotecas dos nossos clientes. A chamada pode ser VoIP ou PSTN.
+Uma chamada de um para um nos Serviços de Comunicação Azure acontece quando um dos seus utilizadores se conecta a outro utilizador usando um dos nossos SDKs. A chamada pode ser VoIP ou PSTN.
 
 ### <a name="group-call"></a>Chamada de grupo
 
@@ -61,4 +61,4 @@ Durante a pré-visualização pode utilizar o ID do grupo para se juntar à mesm
 Para obter mais informações, veja os seguintes artigos:
 - Familiarize-se com fluxos de [chamadas gerais](../call-flows.md)
 - [Tipos de números de telefone](../telephony-sms/plan-solution.md)
-- Saiba mais sobre as [capacidades da biblioteca do cliente chamado](../voice-video-calling/calling-sdk-features.md)
+- Saiba mais sobre as [capacidades call SDK](../voice-video-calling/calling-sdk-features.md)

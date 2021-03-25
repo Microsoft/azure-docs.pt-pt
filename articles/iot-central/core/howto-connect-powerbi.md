@@ -7,16 +7,18 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dd67a4f1a005abc7319723efcc3f2944b18c4f5f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92123342"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109238"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise os seus dados Azure IoT Central num painel power BI
 
 *Este tópico aplica-se aos administradores e desenvolvedores de soluções.*
+
+[!Note] Esta solução utiliza [funcionalidades de exportação de dados antigas.](./howto-export-data-legacy.md) Mantenha-se atento para obter orientações atualizadas sobre como ligar-se ao Power BI utilizando as mais recentes exportações de dados.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Pipeline de solução de BI de potência":::
 
@@ -27,7 +29,7 @@ Utilize a Solução Power BI para O Azure IoT Central V3 para criar um poderoso 
 - Filtrar para baixo para os dados enviados por dispositivos específicos
 - Ver os dados mais recentes da telemetria numa tabela
 
-Esta solução configura um pipeline que lê dados da sua conta de armazenamento [Desporte Desporte Azure](./howto-export-data.md) Blob. O oleoduto utiliza funções Azure, Azure Data Factory e Azure SQL Database para processar e transformar os dados. pode visualizar e analisar os dados num relatório Power BI que descarrega como um ficheiro PBIX. Todos os recursos são criados na sua subscrição Azure, para que possa personalizar cada componente de acordo com as suas necessidades.
+Esta solução configura um pipeline que lê dados da sua conta de armazenamento [Desporte Desporte Azure](./howto-export-data-legacy.md) Blob. O oleoduto utiliza funções Azure, Azure Data Factory e Azure SQL Database para processar e transformar os dados. pode visualizar e analisar os dados num relatório Power BI que descarrega como um ficheiro PBIX. Todos os recursos são criados na sua subscrição Azure, para que possa personalizar cada componente de acordo com as suas necessidades.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

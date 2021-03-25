@@ -147,6 +147,8 @@
       href: /azure/templates/microsoft.netapp/allversions
     - name: Ferramenta de Instantâneo Consistente da Aplicação Azure (AzAcSnap)
       items:
+        - name: Notas de lançamento para AzAcSnap
+          href: azacsnap-release-notes.md
         - name: Introdução ao AzAcSnap
           href: azacsnap-get-started.md
         - name: Instalar o AzAcSnap
