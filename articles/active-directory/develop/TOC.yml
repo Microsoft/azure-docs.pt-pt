@@ -551,6 +551,8 @@
           href: vs-active-directory-error.md
     - name: Remover o registo de uma aplicação
       href: quickstart-remove-app.md
+    - name: Restaurar ou remover um registo de aplicações eliminado
+      href: quickstart-restore-app.md
 - name: Referência
   items:
     - name: Glossário

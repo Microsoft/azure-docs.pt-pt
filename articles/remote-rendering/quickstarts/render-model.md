@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5b3e9c944aece3b3e22ee7a5a6144751725ddf67
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3f565f456dde1d802a82faffb4a23f7a6e54d950
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729968"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031550"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Renderiza um modelo com Unidade
 
@@ -37,10 +37,7 @@ Deve ser instalado o seguinte software:
   * **Desenvolvimento de desktop com C++**
   * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * GIT [(download)](https://git-scm.com/downloads)
-* Unidade 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-  * Instale estes módulos na Unidade:
-    * **UWP** - Suporte universal de construção de plataformas windows
-    * **IL2CPP** - Suporte à Construção de Janelas (IL2CPP)
+* Unidade (ver [requisitos do sistema](../overview/system-requirements.md#unity) para versões suportadas)
 
 ## <a name="clone-the-sample-app"></a>Clonar a aplicação de exemplo
 
