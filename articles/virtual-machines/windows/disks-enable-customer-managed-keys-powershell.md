@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 63a2e40236e03b9877f4fabac6d0489a87a41ede
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 37d248fd61cd8fb99259e3776447a719ae365ab9
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550591"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042888"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - Ativar as chaves geridas pelo cliente com encriptação do lado do servidor - discos geridos
 
@@ -155,6 +155,30 @@ $diskEncryptionSetName = "yourDiskEncryptionSetName"
 $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $diskEncryptionSetName
  
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+```
+
+### <a name="encrypt-an-existing-virtual-machine-scale-set-with-sse-and-customer-managed-keys"></a>Criptografe um conjunto de escala de máquina virtual existente com chaves SSE e geridas pelo cliente 
+
+Copie o script, substitua todos os valores de exemplo pelos seus próprios parâmetros e, em seguida, execute-o:
+
+```powershell
+#set variables 
+$vmssname = "name of the vmss that is already created"
+$diskencryptionsetname = "name of the diskencryptionset already created"
+$vmssrgname = "vmss resourcegroup name"
+$diskencryptionsetrgname = "diskencryptionset resourcegroup name"
+
+#get vmss object and create diskencryptionset object attach to vmss os disk
+$ssevmss = get-azvmss -ResourceGroupName $vmssrgname -VMScaleSetName $vmssname
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.DiskEncryptionSetParameters
+
+#get diskencryption object and retrieve the resource id
+$des = Get-AzDiskEncryptionSet -ResourceGroupName $diskencryptionsetrgname -Name $diskencryptionsetname
+write-host "the diskencryptionset resource id is:" $des.Id
+
+#associate DES resource id to os disk and update vmss 
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet.id = $des.Id
+$ssevmss | update-azvmss
 ```
 
 ### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Crie um conjunto de escala de máquina virtual utilizando uma imagem do Marketplace, encriptando o SISTEMA e os discos de dados com teclas geridas pelo cliente

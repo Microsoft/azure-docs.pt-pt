@@ -3,14 +3,14 @@ title: Perguntas mais frequentes
 description: Respostas para perguntas frequentes relacionadas com o serviço de Registo de Contentores Azure
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8d5e161a0a663542142081c61bf1ad08be1be484
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97606288"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026245"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -260,11 +260,23 @@ A quarentena de imagem é atualmente uma característica de pré-visualização 
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Como posso permitir o acesso anónimo?
 
-A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Se tiver algum [mapa de âmbito (utilizador) ou recursos simbólicos](./container-registry-repository-scoped-permissions.md) no seu registo, por favor, apague-os antes de levantar um bilhete de apoio (os mapas de âmbito do sistema podem ser ignorados). Para permitir o acesso ao público, abra um bilhete de apoio em https://aka.ms/acr/support/create-ticket . Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+A criação de um registo de contentores Azure para acesso anónimo (não autenticado) é atualmente uma funcionalidade de pré-visualização, disponível nos [níveis](container-registry-skus.md)de serviço Standard e Premium . 
+
+Para ativar o acesso anónimo, atualize um registo utilizando o CLI Azure (versão 2.21.0 ou posterior) e passe o `--anonymous-pull-enabled` parâmetro para o comando de [atualização az acr:](/cli/azure/acr#az_acr_update)
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+Vocês desativam o acesso anónimo a qualquer momento, definindo `--anonymous-pull-enabled` para `false` .
 
 > [!NOTE]
-> * Apenas as APIs necessárias para retirar uma imagem conhecida podem ser acedidas anonimamente. Nenhuma outra APIs para operações como lista de tags ou lista de repositórios está acessível anonimamente.
 > * Antes de tentar uma operação de atração anónima, corra `docker logout` para garantir que limpe as credenciais existentes do Docker.
+> * Apenas as operações de data-plane estão disponíveis para clientes não autenticados.
+> * O registo pode acelerar uma elevada taxa de pedidos não autenticados.
+
+> [!WARNING]
+> O acesso anónimo aplica-se atualmente a todos os repositórios do registo. Se gerir o acesso ao [repositório utilizando fichas com âmbito de repositório,](container-registry-repository-scoped-permissions.md)esteja ciente de que todos os utilizadores podem retirar desses repositórios num registo habilitado para a atração anónima. Recomendamos a eliminação de fichas quando o acesso anónimo estiver ativado.
 
 ### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Como empurro camadas não distribuíveis para um registo?
 

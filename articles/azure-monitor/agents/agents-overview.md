@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4d1dd358c03d051be4be5733d9e729d1d7ef5b0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102551475"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026177"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -97,7 +97,7 @@ Utilize a extensão de diagnóstico Azure se for necessário:
 - Envie dados para o Azure Storage para arquivar ou analisá-los com ferramentas como [o Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 - Envie dados para [a Azure Monitor Metrics](../essentials/data-platform-metrics.md) para analisá-lo com o explorador de [métricas](../essentials/metrics-getting-started.md) e para tirar partido de funcionalidades como [alertas métricos próximos](../alerts/alerts-metric-overview.md) em tempo real e [autoescalação](../autoscale/autoscale-overview.md) (apenas Windows).
 - Enviar dados para ferramentas de terceiros utilizando [hubs de eventos Azure](./diagnostics-extension-stream-event-hubs.md).
-- Colete [o Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md) para investigar problemas de arranque VM.
+- Colete [o Boot Diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics) para investigar problemas de arranque VM.
 
 As limitações da extensão de diagnósticos Azure incluem:
 

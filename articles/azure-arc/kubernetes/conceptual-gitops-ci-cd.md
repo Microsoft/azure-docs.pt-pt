@@ -8,12 +8,12 @@ author: tcare
 ms.author: tcare
 description: Este artigo fornece uma visão geral conceptual de um fluxo de trabalho CI/CD usando GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contentores, CI, CD, Azure DevOps
-ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121784"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025871"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Fluxo de trabalho CI/CD usando GitOps - Azure Arc habilitado Kubernetes
 
@@ -30,7 +30,7 @@ Considere uma aplicação implantada num ou mais ambientes Kubernetes.
 ### <a name="application-repo"></a>Repo de aplicação
 O repo de aplicação contém o código de aplicação em que os desenvolvedores trabalham durante o seu loop interno. Os modelos de implementação da aplicação vivem neste repo de uma forma genérica, como Helm ou Kustomize. Valores específicos do ambiente não são armazenados. As alterações a este repo invocam um pipeline de Relações Públicas ou CI que inicia o processo de implantação.
 ### <a name="container-registry"></a>Container Registry
-O registo do contentor contém todas as imagens de primeira e de terceiros utilizadas nos ambientes de Kubernetes. Marque imagens de aplicação de primeira parte com tags legíveis humanas e o git compromete-se usado para construir a imagem. Cache imagens de terceiros para segurança, velocidade e resiliência. Desajei um plano para testes atempadamente e integração de atualizações de segurança. Para mais informações, consulte o [ACR Consume e mantenha](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) o guia de conteúdos públicos como exemplo.
+O registo do contentor contém todas as imagens de primeira e de terceiros utilizadas nos ambientes de Kubernetes. Marque imagens de aplicação de primeira parte com tags legíveis humanas e o git compromete-se usado para construir a imagem. Cache imagens de terceiros para segurança, velocidade e resiliência. Desajei um plano para testes atempadamente e integração de atualizações de segurança. Para mais informações, consulte o [ACR Consume e mantenha](../../container-registry/tasks-consume-public-content.md) o guia de conteúdos públicos como exemplo.
 ### <a name="pr-pipeline"></a>Oleoduto PR
 Os pRs para o repo de aplicação são fechados numa execução bem sucedida do gasoduto de RP. Este gasoduto executa os portões de qualidade básica, tais como o linco e os testes unitários no código de aplicação. O pipeline testa a aplicação e os modelos Dockerfiles e Helm utilizados para a implantação num ambiente kubernetes. As imagens do estivador devem ser construídas e testadas, mas não empurradas. Mantenha a duração do gasoduto relativamente curta para permitir uma iteração rápida.
 ### <a name="ci-pipeline"></a>Gasoduto CI

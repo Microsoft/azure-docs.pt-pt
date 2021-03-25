@@ -96,9 +96,11 @@
           href: tutorial-events-log-analytics.md
 - name: Amostras
   items:
+    - name: Descrição geral de exemplos
+      href: samples-overview.md
     - name: Exemplos dos Serviços de Multimédia v3
       displayName: '.NET, Java'
-      href: /samples/browse/?products=azure-media-services
+      href: 'https://github.com/Azure-Samples?q=media-services&type=&language=&sort='
     - name: Exemplos de REST dos Serviços de Multimédia v3
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Conceitos

@@ -3,18 +3,18 @@ title: Tutorial – Criar e gerir dados exportados do Azure Cost Management
 description: Este artigo mostra como pode criar e gerir dados exportados do Azure Cost Management para os utilizar em sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/7/2020
+ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e3c1fa071cd23b871f754e89d6f17eb2cc44b394
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: a386b214c4372c9d8de729a8b6bed4aac9edd9f3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400357"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043466"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir dados exportados
 
@@ -80,6 +80,8 @@ A nova exportação é apresentada na lista de exportações. Por predefinição
 Inicialmente, a execução da exportação pode demorar entre 12 e 24 horas. No entanto, a apresentação dos dados nos ficheiros exportados pode demorar mais tempo.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Quando criar uma exportação programática, deve registar manualmente o `Microsoft.CostManagementExports` fornecedor de recursos com a subscrição onde reside a conta de armazenamento. O registo ocorre automaticamente quando cria a exportação utilizando o portal Azure. Para obter mais informações sobre como registar fornecedores de recursos, consulte [o fornecedor de recursos Do Registo.](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
 Comece por preparar o seu ambiente para a CLI do Azure:
 
@@ -148,6 +150,8 @@ az costmanagement export delete --name DemoExport --scope "subscriptions/0000000
 ```
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Quando criar uma exportação programática, deve registar manualmente o `Microsoft.CostManagementExports` fornecedor de recursos com a subscrição onde reside a conta de armazenamento. O registo ocorre automaticamente quando cria a exportação utilizando o portal Azure. Para obter mais informações sobre como registar fornecedores de recursos, consulte [o fornecedor de recursos Do Registo.](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
 Comece por preparar o seu ambiente para o Azure PowerShell:
 

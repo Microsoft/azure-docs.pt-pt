@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 5d1b52ed0f862b544d4b90d466ddc1d2a231ca44
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 86e9b13ce56e1924b0e24a7f4971da18620617de
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023423"
+ms.locfileid: "105043636"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
 
@@ -57,6 +57,8 @@ Para criar um certificado, pode utilizar [o Azure Key Vault,](../key-vault/certi
 - **Objeto:**`CN=<yourapiname>.<tenantname>.onmicrosoft.com`
 - **Tipo de conteúdo:**`PKCS #12`
 - **Tipo de Atoon vitalício**: `Email all contacts at a given percentage lifetime` ou `Email all contacts a given number of days before expiry`
+- **Tipo de chave:**`RSA`
+- **Tamanho da chave:**`2048`
 - **Chave privada exportável**: `Yes` (a fim de poder exportar ficheiro pfx)
 
 Em seguida, pode [exportar o certificado.](../key-vault/certificates/how-to-export-certificate.md) Em alternativa, pode utilizar o [cmdlet New-SelfSignedCertificate da PowerShell](../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) para gerar um certificado auto-assinado.

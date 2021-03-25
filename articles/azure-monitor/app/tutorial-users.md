@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 4f6eeb5265d99a17ed18ace91fa5f2d2f744dbb2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: db63d763da8cfe13a07cab15f7f18ad6e2e73eb7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100628070"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026296"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
 
@@ -38,7 +38,7 @@ Para concluir este tutorial:
 - Transfira e instale o [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../app/asp-net.md). 
 - [Envie telemetria da aplicação](../app/usage-overview.md#send-telemetry-from-your-app) para adicionar eventos personalizados/visualizações de páginas
-- Envie [contexto do utilizador](../app/usage-send-user-context.md) para acompanhar o que um determinado utilizador faz ao longo do tempo e utilizar ao máximo as funcionalidades de utilização.
+- Envie [contexto do utilizador](./usage-overview.md) para acompanhar o que um determinado utilizador faz ao longo do tempo e utilizar ao máximo as funcionalidades de utilização.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com) .
@@ -165,4 +165,3 @@ Agora que já aprendeu a analisar os seus utilizadores, avance para o tutorial s
 
 > [!div class="nextstepaction"]
 > [Criar dashboards personalizados](./tutorial-app-dashboards.md)
-

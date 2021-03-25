@@ -246,6 +246,8 @@
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
             - name: Ligar à consola VM
               href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+            - name: Gerir interfaces de rede
+              href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
         - name: Gerir certificados
           items:
             - name: Requisitos

@@ -1,6 +1,6 @@
 ---
-title: 'DB2 para SQL Server em VMs Azure: Guia de migração'
-description: Este guia ensina-o a migrar a sua base de dados DB2 para o SQL Server em VMs Azure utilizando o SqL Server Migration Assistant para dB2.
+title: 'Db2 para SQL Server em VMs Azure: Guia de migração'
+description: Este guia ensina-o a migrar a sua base de dados Db2 para o SQL Server em VMs Azure utilizando o SqL Server Migration Assistant para db2.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -10,28 +10,29 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: aadfd2d96e2ed610ee1e3eaaec9276212e912b0d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c461c7c5b25d3972cf5f870a13e1d618dc57e159
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562234"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026058"
 ---
-# <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guia de migração: DB2 para SQL Server em VMs Azure
+# <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guia de migração: Db2 para SQL Server em VMs Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
-Este guia de migração ensina-o a migrar as bases de dados dos seus utilizadores de DB2 para SQL Server em VMs Azure utilizando o SqL Server Migration Assistant para DB2. 
+Este guia de migração ensina-o a migrar as bases de dados dos seus utilizadores de Db2 para SQL Server em VMs Azure utilizando o SqL Server Migration Assistant para Db2. 
 
-Para outros guias de migração, consulte [a Migração da Base de Dados.](https://datamigration.microsoft.com/) 
+Para outros guias de migração, consulte [a Migração da Base de Dados.](https://docs.microsoft.com/data-migration) 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para migrar a sua base de dados DB2 para o SQL Server, precisa de:
+Para migrar a sua base de dados Db2 para o SQL Server, precisa de:
 
-- para verificar se o seu ambiente de origem é suportado.
-- [Sql Server Migration Assistant (SSMA) para DB2](https://www.microsoft.com/download/details.aspx?id=54254).
+- para verificar se o ambiente [de origem é suportado](/sql/ssma/db2/installing-ssma-for-Db2-client-Db2tosql#prerequisites).
+- [Sql Server Migration Assistant (SSMA) para Db2](https://www.microsoft.com/download/details.aspx?id=54254).
 - [Conectividade](../../virtual-machines/windows/ways-to-connect-to-sql.md) entre o seu ambiente de origem e o seu SQL Server VM em Azure. 
+- Um [servidor SQL alvo em Azure VM](../../virtual-machines/windows/create-sql-vm-portal.md). 
 
 
 
@@ -39,31 +40,32 @@ Para migrar a sua base de dados DB2 para o SQL Server, precisa de:
 
 Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua migração. 
 
+
 ### <a name="assess"></a>Avaliação 
 
-Crie uma avaliação utilizando o Sql Server Migration Assistant (SSMA). 
+Utilize o SqL Server Migration Assistant (SSMA) para o DB2 para analisar objetos e dados de base de dados e avaliar bases de dados para migração. 
 
 Para criar uma avaliação, siga estes passos:
 
-1. Abrir o Sql Server Migration Assistant (SSMA) para DB2. 
+1. Abrir [o Assistente de Migração do Servidor SQL (SSMA) para Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
 1. Selecione **File** e, em seguida, escolha **Novo Projeto**. 
-1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione um alvo de migração sql Server a partir do drop-down. Selecione **OK**. 
+1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione um alvo de migração sql Server a partir do drop-down. Selecione **OK**:
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/new-project.png" alt-text="Forneça detalhes do projeto e selecione OK para guardar.":::
 
 
-1. Introduza os valores para os detalhes da ligação DB2 na caixa de diálogo **'Ligar a DB2'.** 
+1. Introduza os valores para os detalhes da ligação Db2 na caixa de diálogo **'Ligar a Db2':**
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/connect-to-db2.png" alt-text="Ligue-se à sua instância DB2":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/connect-to-Db2.png" alt-text="Ligue-se à sua instância Db2":::
 
 
-1. Clique com o botão direito no esquema DB2 que pretende migrar e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar o esquema. 
+1. Clique com o botão direito no esquema Db2 que pretende migrar e, em seguida, escolha **Criar relatório**. Isto gerará um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar o esquema:
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/create-report.png" alt-text="Clique com o botão direito no esquema e escolha criar relatório":::
 
-1. Reveja o relatório HTML para compreender as estatísticas de conversão e quaisquer erros ou avisos. Também pode abrir o relatório no Excel para obter um inventário de objetos DB2 e o esforço necessário para realizar conversões de esquemas. A localização predefinição do relatório está na pasta do relatório dentro dos Projetos SSMA.
+1. Reveja o relatório HTML para compreender as estatísticas de conversão e quaisquer erros ou avisos. Também pode abrir o relatório no Excel para obter um inventário de objetos Db2 e o esforço necessário para realizar conversões de esquemas. A localização predefinição do relatório está na pasta do relatório dentro dos Projetos SSMA.
 
-   Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyDb2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/report.png" alt-text="Reveja o relatório para identificar quaisquer erros ou avisos":::
 
@@ -74,11 +76,11 @@ Valide os mapeamentos do tipo de dados predefinidos e altere-os com base nos req
 
 1. Selecione **Ferramentas** do menu. 
 1. Selecione **Definições de projetos**. 
-1. Selecione o **separador de mapeamentos Tipo.** 
+1. Selecione o **separador de mapeamentos Tipo:**
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/type-mapping.png" alt-text="Selecione o esquema e, em seguida, o mapeamento do tipo":::
 
-1. Pode alterar o mapeamento do tipo para cada tabela selecionando a tabela no **explorador de metadados DB2**. 
+1. Pode alterar o mapeamento do tipo para cada tabela selecionando a tabela no **explorador de metadados Db2**. 
 
 ### <a name="convert-schema"></a>Converter esquema 
 
@@ -88,20 +90,21 @@ Para converter o esquema, siga estes passos:
 1. Selecione **Connect to SQL Server**. 
     1. Introduza os detalhes da ligação para ligar à sua instância SQL Server no seu Azure VM. 
     1. Opte por ligar-se a uma base de dados existente no servidor alvo ou fornecer um novo nome para criar uma nova base de dados no servidor alvo. 
-    1. Selecione **Ligar**. 
+    1. Forneça detalhes de autenticação. 
+    1. Selecione **Connect**:
 
     :::image type="content" source="../../../../includes/media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png" alt-text="Ligue ao seu Servidor SQL em Azure VM":::
 
-
-1. Clique com o botão direito no esquema e, em seguida, escolha **Converter o Esquema**. Em alternativa, pode escolher **converter o Schema** na barra de navegação superior depois de selecionar o seu esquema. 
+1. Clique com o botão direito no esquema e, em seguida, escolha **Converter o Esquema**. Em alternativa, pode escolher **converter o Schema** na barra de navegação superior depois de selecionar o seu esquema:
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/convert-schema.png" alt-text="Clique com o botão direito no esquema e escolha converter o esquema":::
 
-1. Após a conversão concluída, compare e reveja a estrutura do esquema para identificar potenciais problemas e resolvê-los com base nas recomendações. 
+1. Após a conversão concluída, compare e reveja a estrutura do esquema para identificar potenciais problemas e resolvê-los com base nas recomendações: 
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/compare-review-schema-structure.png" alt-text="Compare e reveja a estrutura do esquema para identificar potenciais problemas e resolvê-los com base em recomendações.":::
 
-1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** 
+1. Selecione **Os resultados** da Revisão no painel de saída e os erros de revisão no painel **da lista de erros.** 
+1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para o SQL Server no Azure VM.
 
 
 ## <a name="migrate"></a>Migrate
@@ -110,20 +113,20 @@ Depois de ter concluído a avaliação das suas bases de dados e de abordar even
 
 Para publicar o seu esquema e migrar os seus dados, siga estes passos:
 
-1. Publique o esquema: Clique à direita na base de dados a partir do nó **de bases de dados** no **SqL Server Metadata Explorer** e escolha **Sincronizar com Base de Dados**.
+1. Publique o esquema: Clique à direita na base de dados a partir do nó de bases de dados no **SqL Server Metadata Explorer** e escolha **Sincronizar com Base de Dados:** 
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/synchronize-with-database.png" alt-text="Clique com o botão direito na base de dados e escolha sincronizar com base de dados":::
 
-1. Migrar os dados: Clique no esquema à direita do **DB2 Metadata Explorer** e escolha **Dados Migratórios**. 
+1. Migrar os dados: Clique na base de dados ou no objeto que pretende migrar no **Db2 Metadata Explorer** e escolha **dados migratórios**. Em alternativa, pode **selecionar Dados Migratórios** a partir da barra de navegação de primeira linha. Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de dados, expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação:
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/migrate-data.png" alt-text="Clique com o botão direito no esquema e escolha dados migratórios":::
 
-1. Forneça detalhes de ligação tanto para as instâncias do DB2 como do SQL Server. 
-1. Consulte o **relatório migração de dados.** 
+1. Forneça detalhes de ligação tanto para as instâncias do Db2 como do SQL Server. 
+1. Após a conclusão da migração, consulte o **Relatório de Migração de Dados:**  
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/data-migration-report.png" alt-text="Reveja o relatório de migração de dados":::
 
-1. Conecte-se à sua instância SQL Server utilizando o SQL Server Management Studio e valide a migração através da revisão dos dados e esquemas. 
+1.  Ligue ao seu SQL Server no exemplo Azure VM utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas:
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/compare-schema-in-ssms.png" alt-text="Compare o esquema em SSMS":::
 
@@ -152,9 +155,9 @@ Para assistência adicional, consulte os seguintes recursos, que foram desenvolv
 |Recurso  |Description  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo.|
-|[Pacote de descoberta e avaliação de ativos de dados DB2 zOS](https://github.com/Microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Depois de executar o script SQL numa base de dados, pode exportar os resultados para um ficheiro no sistema de ficheiros. Vários formatos de ficheiros são suportados, incluindo *.csv, para que possa capturar os resultados em ferramentas externas, tais como folhas de cálculo. Este método pode ser útil se quiser partilhar facilmente resultados com equipas que não tenham a bancada de trabalho instalada.|
-|[Scripts e artefactos de inventário IBM DB2 LUW](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Este ativo inclui uma consulta SQL que atinge as tabelas do sistema IBM DB2 LUW versão 11.1 e fornece uma contagem de objetos por esquema e tipo de objeto, uma estimativa aproximada de 'Dados Brutos' em cada esquema, e o dimensionamento de tabelas em cada esquema, com resultados armazenados num formato CSV.|
-|[DB2 LUW escala pura em Azure - guia de configuração](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/DB2%20PureScale%20on%20Azure.pdf)|Este guia serve de ponto de partida para um plano de implementação DB2. Embora os requisitos empresariais diferam, o mesmo padrão básico se aplica. Este padrão arquitetónico também pode ser usado para aplicações OLAP em Azure.|
+|[Pacote de descoberta e avaliação de ativos de dados DB2 zOS](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Depois de executar o script SQL numa base de dados, pode exportar os resultados para um ficheiro no sistema de ficheiros. Vários formatos de ficheiros são suportados, incluindo *.csv, para que possa capturar os resultados em ferramentas externas, tais como folhas de cálculo. Este método pode ser útil se quiser partilhar facilmente resultados com equipas que não tenham a bancada de trabalho instalada.|
+|[Scripts e artefactos de inventário IBM Db2 LUW](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Este ativo inclui uma consulta SQL que atinge as tabelas do sistema IBM Db2 LUW versão 11.1 e fornece uma contagem de objetos por esquema e tipo de objeto, uma estimativa aproximada de 'Dados Brutos' em cada esquema, e o dimensionamento de tabelas em cada esquema, com resultados armazenados num formato CSV.|
+|[Db2 LUW escala pura em Azure - guia de configuração](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/db2%20PureScale%20on%20Azure.pdf)|Este guia serve de ponto de partida para um plano de implementação Db2. Embora os requisitos empresariais diferam, o mesmo padrão básico se aplica. Este padrão arquitetónico também pode ser usado para aplicações OLAP em Azure.|
 
 Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é patrocinado pela equipa de engenharia do Azure Data Group. A carta principal do programa Data SQL Ninja é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa Data SQL Ninja, contacte a sua equipa de conta e peça-lhes que apresentem uma nomeação.
 

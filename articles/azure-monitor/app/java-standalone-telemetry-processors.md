@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 991e52c13a5730b83552abb6b922d4d7a57c5429
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734575"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024120"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (pré-visualização) - Azure Monitor Application Insights for Java
 
@@ -21,10 +21,13 @@ ms.locfileid: "101734575"
 O agente Java 3.0 para Insights de Aplicação pode processar dados de telemetria antes de os dados serem exportados.
 
 Aqui estão alguns casos de utilização para processadores de telemetria:
- * Criar dados sensíveis.
+ * Mascarar dados sensíveis.
  * Adicione sem condições as dimensões personalizadas.
  * Atualize o nome de intervalo, que é usado para agregar telemetria semelhante no portal Azure.
- * Largar atributos de intervalo para controlar os custos de ingestão.
+ * Deixe cair os atributos de envergadura específicos para controlar os custos de ingestão.
+
+> [!NOTE]
+> Se pretende renunciar a períodos específicos (inteiros) para controlar o custo de ingestão, consulte [sobreposições de amostragem](./java-standalone-sampling-overrides.md).
 
 ## <a name="terminology"></a>Terminologia
 

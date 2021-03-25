@@ -1,5 +1,5 @@
 ---
-title: Regras de avaliação do SQL Server para a migração de instâncias geridas sql
+title: Regras de avaliação do sql server para a migração de instâncias geridas Azure SQL
 description: Regras de avaliação para identificar problemas com a origem SQL Server que deve ser abordada antes de migrar para Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: 760a6496ff297ae6328810589f780b430d55b18a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc8959d44fbacd90916a045d23db4bee872c4670
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054725"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026041"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-managed-instance-migration"></a>Regras de avaliação do SQL Server para a migração de instâncias geridas sql
+# <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Regras de avaliação do sql server para a migração de instâncias geridas Azure SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 As ferramentas de migração validam a sua origem SQL Server, executando uma série de regras de avaliação para identificar problemas que devem ser abordados antes de migrar a sua base de dados do SQL Server para Azure SQL Managed Instance. 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c320c8497506a0269e65cd79e18aea1972354729
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 349aef1bb9382eec19d9ad9c7f6d4579c82b62de
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589527"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043942"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
@@ -43,7 +43,7 @@ Certifique-se de que existem os seguintes pré-requisitos:
     >As versões AZURE AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização da hash da palavra-passe. Se _não_ pretender utilizar a sincronização de hash de palavra-passe em conjunto com a Autenticação Pass-through, leia as notas de lançamento do [Azure AD Connect](./reference-connect-version-history.md) para saber mais.
     
     >[!NOTE]
-    >Se tiver um representante HTTP de saída, certifique-se de que este URL, autologon.microsoftazuread-sso.com, está na lista branca . Deve especificar este URL explicitamente, uma vez que o wildcard não pode ser aceite. 
+    >Se tiver um representante HTTP de saída, certifique-se de que este URL, autologon.microsoftazuread-sso.com, está na lista permitida. Deve especificar este URL explicitamente, uma vez que o wildcard não pode ser aceite. 
 
 * **Utilize uma topologia suportada do Azure AD Connect**: Certifique-se de que está a utilizar uma das topologias suportadas do Azure AD Connect [descritas aqui](plan-connect-topologies.md).
 
