@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 87792b8469c78e20a8716bd925d71933f9d97c5e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426965"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560493"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições de pedido para um pacote de acesso na gestão de direitos Azure AD
 
@@ -85,7 +85,7 @@ Siga estes passos se pretender permitir que os utilizadores do seu diretório po
 
 1. Selecione uma das seguintes opções:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Utilizadores e grupos específicos** | Escolha esta opção se quiser apenas os utilizadores e grupos no seu diretório que especifique para poder solicitar este pacote de acesso. |
     | **Todos os membros (excluindo convidados)** | Escolha esta opção se quiser que todos os utilizadores membros do seu diretório possam solicitar este pacote de acesso. Esta opção não inclui quaisquer utilizadores convidados que possa ter convidado para o seu diretório. |
@@ -122,7 +122,7 @@ Siga estes passos se pretender permitir que os utilizadores que não estão no s
 
 1. Selecione uma das seguintes opções:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Organizações conectadas específicas** | Escolha esta opção se quiser selecionar a partir de uma lista de organizações que o seu administrador anteriormente acrescentou. Todos os utilizadores das organizações selecionadas podem solicitar este pacote de acesso. |
     | **Todas as organizações conectadas configuradas** | Escolha esta opção se todos os utilizadores de todas as suas organizações conectadas configuradas puderem solicitar este pacote de acesso. Apenas os utilizadores de organizações conectadas configuradas podem solicitar pacotes de acesso que sejam mostrados aos utilizadores de todas as organizações configuradas. |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9916ad6d3b6cb1a63d34004915666226b7836490
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e8bb4cf715c6cb8d0729399c1985376de18687b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740359"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561292"
 ---
 # <a name="azure-security-baseline-for-azure-policy"></a>Linha de segurança Azure para a Política Azure
 
@@ -30,9 +30,9 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 
 **Orientação**: A Política azul usa registos de atividade, que são automaticamente habilitados, para incluir fonte de evento, data, utilizador, timetamp, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Compreenda o registo e diferentes tipos de registo em Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -48,7 +48,7 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 
 **Responsabilidade**: Cliente
 
-**Monitorização do Centro de Segurança Azure**: O [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa política padrão do Centro de Segurança e é a base para as [recomendações do Centro de Segurança.](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md) As definições da Política Azure relacionadas com este controlo são ativadas automaticamente pelo Centro de Segurança. Os alertas relacionados com este controlo podem requerer um plano [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitorização do Centro de Segurança Azure**: O [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa política padrão do Centro de Segurança e é a base para as [recomendações do Centro de Segurança.](/azure/security-center/security-center-recommendations) As definições da Política Azure relacionadas com este controlo são ativadas automaticamente pelo Centro de Segurança. Os alertas relacionados com este controlo podem requerer um plano [Azure Defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Definições incorporadas da Azure Policy - Microsoft.GuestConfiguration**:
 
@@ -74,7 +74,7 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 
 **Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso à Política Azure.
 
-- [Permissões do Azure RBAC na Política Azure](https://docs.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy)
+- [Permissões do Azure RBAC na Política Azure](../overview.md#azure-rbac-permissions-in-azure-policy)
 
 - [Como configurar o Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
@@ -86,7 +86,7 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 
 **Orientação**: Utilize o Monitor Azure com registos de atividade para criar alertas para quando as alterações ocorrem na Política Azure.
 
-- [Como criar alertas para eventos de registo de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos de registo de atividades do Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -128,5 +128,5 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../../../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../../../security/benchmarks/security-baselines-overview.md)

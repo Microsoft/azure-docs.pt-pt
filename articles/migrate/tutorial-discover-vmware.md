@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: 1a0ad751a216e8da772fd5fdc96a0dc67cb27d01
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 9f433815838cc4d8dd41f3b95fc1bd6fe0acc955
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109862"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562737"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descubra servidores em execução em ambiente VMware com Azure Migrate: Descoberta e avaliação
 
@@ -106,7 +106,7 @@ No vSphere Web Client, crie uma conta da seguinte forma:
 
 Precisa de uma conta de utilizador com os privilégios necessários nos servidores para realizar a descoberta de aplicações instaladas, análise de dependência de agentes e descoberta de instâncias e bases de dados do SQL Server. Pode fornecer a conta de utilizador no gestor de configuração do aparelho. O aparelho não instala quaisquer agentes nos servidores.
 
-1. Para servidores windows, crie uma conta (local ou domínio) com permissões administrativas nos servidores. Para descobrir as instâncias e bases de dados do SQL Server, é necessário que a conta do Servidor Windows ou SQL seja membro da função do servidor Sysadmin. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) sobre como atribuir a função necessária à conta de utilizador.
+1. Para servidores windows, crie uma conta (local ou domínio) com permissões administrativas nos servidores. Para descobrir as instâncias e bases de dados do SQL Server, é necessário que a conta do Servidor Windows ou SQL seja membro da função do servidor Sysadmin. [Saiba mais](/sql/relational-databases/security/authentication-access/server-level-roles) sobre como atribuir a função necessária à conta de utilizador.
 2. Para os servidores Linux, crie uma conta com privilégios Root. Em alternativa, pode criar uma conta com estas permissões em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 
 > [!NOTE]
@@ -292,8 +292,8 @@ Se pretender utilizar estas funcionalidades, pode fornecer credenciais de servid
 1. Durante o inventário do software, as credenciais de servidores adicionados serão iteradas contra servidores e validadas para análise de dependência de agente. Pode ativar a análise de dependência de agentes para servidores a partir do portal. Apenas os servidores onde a validação é bem sucedida podem ser selecionados para permitir a análise da dependência de agentes.
 
 > [!Note]
->A Azure Migrate encriptará a comunicação entre o aparelho Azure Migrate e as instâncias do SQL Server de origem (com a propriedade de ligação encriptada definida para TRUE). Estas ligações são encriptadas com [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido para TRUE); a camada de transporte utilizará o SSL para encriptar o canal e contornar a cadeia de certificados para validar a confiança. O servidor do aparelho deve ser criado para [**confiar na autoridade principal do certificado**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Se não tiver sido fornectado nenhum certificado no servidor quando este começa, o SQL Server gera um certificado auto-assinado que é utilizado para encriptar pacotes de login. [**Saiba mais**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>A Azure Migrate encriptará a comunicação entre o aparelho Azure Migrate e as instâncias do SQL Server de origem (com a propriedade de ligação encriptada definida para TRUE). Estas ligações são encriptadas com [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido para TRUE); a camada de transporte utilizará o SSL para encriptar o canal e contornar a cadeia de certificados para validar a confiança. O servidor do aparelho deve ser criado para [**confiar na autoridade principal do certificado**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Se não tiver sido fornectado nenhum certificado no servidor quando este começa, o SQL Server gera um certificado auto-assinado que é utilizado para encriptar pacotes de login. [**Saiba mais**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 A descoberta funciona da seguinte forma:
 
