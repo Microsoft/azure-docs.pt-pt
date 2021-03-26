@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94543090"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034525"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitações na Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -89,8 +89,12 @@ Os seguintes não são suportados:
 - Com a restauração pontual, novos servidores são criados com as mesmas configurações de computação e armazenamento que o servidor de origem em que se baseia. A computação do servidor recentemente restaurada pode ser reduzida após a criação do servidor.
 - Restaurar um servidor apagado não é suportado.
 
+## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>Funcionalidades disponíveis no Servidor Único mas ainda não suportadas no Servidor Flexível 
+Nem todas as funcionalidades disponíveis na Base de Dados Azure para o MySQL - Servidor Único ainda estão disponíveis no Servidor Flexível. Para obter uma lista completa de comparação de funcionalidades entre servidor único e servidor flexível, consulte [a escolha da opção correta do Servidor MySQL na documentação Azure.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Compreenda [o que está disponível para opções de computação e armazenamento](concepts-compute-storage.md)
+- Aprenda [a escolher a opção certa do Servidor MySQL na documentação do Azure](../select-right-deployment-type.md)
+- Compreenda [o que está disponível para opções de computação e armazenamento em servidor flexível](concepts-compute-storage.md)
 - Saiba mais sobre [versões MySQL suportadas](concepts-supported-versions.md)
-- [Reveja como fazer o back up e restaurar um servidor usando o portal Azure](how-to-restore-server-portal.md)
+- Quickstart: [Use o portal Azure para criar uma Base de Dados Azure para servidor flexível MySQL](quickstart-create-server-portal.md)

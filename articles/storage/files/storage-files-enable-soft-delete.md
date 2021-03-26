@@ -4,16 +4,16 @@ description: Saiba como permitir a eliminação suave das ações de ficheiros A
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 77381700f4257006b50e56ab7ffc037ef99d297c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 13e6668337b82ea4be86eadcbc6f7797a72771c6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218558"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023488"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Permitir a eliminação suave nas ações de ficheiros Azure
 
@@ -26,16 +26,16 @@ As seguintes secções mostram como ativar e utilizar a eliminação suave para 
 ## <a name="getting-started"></a>Introdução
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. Navegue para a sua conta de armazenamento e selecione **Soft delete** in **File service**.
-1. Selecione **Ativado** para **apagar suavemente a partilha de ficheiros**.
+1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros** no **serviço De ficheiro.**
+1. Selecione **Ativado** para **eliminar suavemente para todas as ações de ficheiros**.
 1. Selecione **O período de retenção de partilha** de ficheiros em dias e introduza uma série de escolhas.
 1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de partilhas de ficheiros, ativar alternar, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de exclusão suave das partilhas de ficheiros, ativar o alternamento, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Os cmdlets soft delete estão disponíveis na versão 2.1.3 e mais recentes do [módulo Azure CLI](/cli/azure/install-azure-cli).
+Os cmdlets soft delete estão disponíveis na versão 2.1.3 e mais recentes do [módulo Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="getting-started-with-cli"></a>Começar com o CLI
 
@@ -125,12 +125,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>Desativar a eliminação suave
 
-Se desejar parar de usar exclusão suave ou eliminar permanentemente uma partilha de ficheiros, siga estas instruções:
+Se desejar parar de utilizar a exclusão suave, siga estas instruções. Para eliminar permanentemente uma partilha de ficheiros que tenha sido apagada suavemente, deve desativá-la, desativar a exclusão suave e, em seguida, eliminá-la novamente. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Navegue na sua conta de armazenamento e selecione **Soft Delete** em **Definições**.
-1. Em **'Ações de Ficheiro'** selecione **Disabled** for **Soft delete for file shares**.
+1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros** no **serviço De ficheiro.**
+1. Selecione **Desativado** para **eliminar suavemente para todas as ações de ficheiros**.
 1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="A desativação de uma eliminação suave permitir-lhe-á eliminar imediatamente e permanentemente todas as ações de ficheiros da sua conta de armazenamento a seu bel-prazer.":::

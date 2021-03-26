@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589181"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048209"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de resolução de problemas para problemas comuns do Serviço Azure SignalR
 
@@ -348,7 +348,7 @@ Para ASP.NET SignalR, um problema conhecido foi corrigido em SDK 1.6.0. Atualize
 
 ## <a name="thread-pool-starvation"></a>Fome de piscina de fio
 
-Se o seu servidor estiver esfomeado, isso significa que não há fios a trabalhar no processamento de mensagens. Todos os fios estão pendurados num determinado método.
+Se o seu servidor estiver esfomeado, isso significa que não há fios a trabalhar no processamento de mensagens. Todos os fios não respondem num determinado método.
 
 Normalmente, este cenário é causado por async sobre sincronização ou por `Task.Result` / `Task.Wait()` métodos async.
 

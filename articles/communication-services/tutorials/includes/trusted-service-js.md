@@ -8,12 +8,12 @@ ms.author: ddematheu2
 ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: bb70f799a308282a20a5b76ea841c3a1ae5e8b49
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5b71a0581bf4f9d8239171e6abc56f87e7ae8183
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612152"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152795"
 ---
 ## <a name="download-code"></a>Código de Descarregamento
 
@@ -27,7 +27,7 @@ Encontre o código finalizado para este arranque rápido no [GitHub](https://git
 - A [extensão das Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para o Visual Studio Code.
 - Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Criar um recurso de Serviços de Comunicação.](../../quickstarts/create-communication-resource.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 :::image type="content" source="../media/trusted-service-architecture.png" alt-text="Diagrama para arquitetura de serviço de confiança":::
 
@@ -76,7 +76,7 @@ Vamos agora proceder à instalação de bibliotecas dos Serviços de Comunicaç�
 
 Usaremos a `Identity` biblioteca para `User Access Tokens` gerar.
 
-Utilize o `npm install` comando para instalar a biblioteca de clientes de identidade de serviços de comunicação Azure para o JavaScript.
+Utilize o `npm install` comando para instalar o SDK de Identidade de Serviços de Comunicação Azure para JavaScript.
 
 ```console
 

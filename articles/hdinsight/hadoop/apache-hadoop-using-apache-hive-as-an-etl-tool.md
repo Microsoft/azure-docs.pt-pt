@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e2b76fbc2afaad465773860ff45f18261edad138
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bcf2f39423f033ccd5bfdb6bf51ebc89e254f802
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933432"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867819"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Use a Colmeia Apache como uma ferramenta de extrato, transformação e carga (ETL)
 
@@ -20,7 +20,7 @@ Normalmente, é necessário limpar e transformar dados de entrada antes de os ca
 
 A seguinte figura mostra uma visão geral da caixa de utilização e do modelo para a automatização ETL. Os dados de entrada são transformados para gerar a saída adequada.  Durante essa transformação, os dados mudam de forma, tipo de dados e até mesmo linguagem.  Os processos ETL podem converter o Imperial em métrica, alterar fusos horários e melhorar a precisão para se alinharem adequadamente com os dados existentes no destino. Os processos ETL também podem combinar novos dados com dados existentes para continuar a reportar atualizado, ou para fornecer informações adicionais sobre os dados existentes. Aplicações como ferramentas e serviços de reporte podem então consumir estes dados no formato procurado.
 
-![Colmeia Apache como arquitetura ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
+:::image type="content" source="./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png" alt-text="Colmeia Apache como arquitetura ETL" border="false":::
 
 Hadoop é normalmente usado em processos ETL que importam um número maciço de ficheiros de texto (como CSVs). Ou um número menor, mas frequentemente alterado, de ficheiros de texto, ou ambos.  A Colmeia é uma ótima ferramenta para preparar os dados antes de os colocar no destino dos dados.  A Colmeia permite-lhe criar um esquema sobre o CSV e usar uma linguagem semelhante ao SQL para gerar programas MapReduce que interagem com os dados.
 

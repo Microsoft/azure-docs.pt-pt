@@ -4,16 +4,16 @@ description: Compreenda o planeamento de uma implantação de Ficheiros Azure. P
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879852"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023525"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -65,7 +65,7 @@ Embora do ponto de vista técnico seja consideravelmente mais fácil montar as s
 
 - **Fazer túneis de rede utilizando expressRoute, Site-to-Site ou VPN ponto-a-local**: Fazer túneis numa rede virtual permite aceder a partilhas de ficheiros Azure a partir do local, mesmo que a porta 445 esteja bloqueada.
 - **Pontos finais privados**: Os pontos finais privados dão à sua conta de armazenamento um endereço IP dedicado a partir do espaço de endereço da rede virtual. Isto permite a escavação de rede sem necessidade de abrir redes no local até todas as gamas de endereços IP detidas pelos clusters de armazenamento Azure. 
-- **DNS reencaminhamento**: Configure o seu DNS no local para resolver o nome da sua conta de armazenamento (isto é, `storageaccount.file.core.windows.net` para as regiões de nuvem pública) para resolver o endereço IP dos seus pontos finais privados.
+- **DNS reencaminha :** Configure o SEU DNS no local para resolver o nome da sua conta de armazenamento `storageaccount.file.core.windows.net` (para as regiões de nuvem pública) para resolver o endereço IP dos seus pontos finais privados.
 
 Para planear a rede associada à implementação de uma partilha de ficheiros Azure, consulte [considerações de networking de ficheiros Azure Files](storage-files-networking-overview.md).
 
@@ -94,7 +94,7 @@ A Azure Files tem uma abordagem em várias camadas para garantir que os seus dad
 ### <a name="soft-delete"></a>Eliminação recuperável
 A eliminação suave para ações de ficheiros (pré-visualização) é uma definição de nível de conta de armazenamento que lhe permite recuperar a sua parte do ficheiro quando esta é acidentalmente eliminada. Quando uma partilha de ficheiros é eliminada, passa para um estado apagado suave em vez de ser permanentemente apagada. Pode configurar a quantidade de tempo que os dados suaves eliminados são recuperáveis antes de serem permanentemente eliminados, e desembolsar a parte a qualquer momento durante este período de retenção. 
 
-Recomendamos que se apale a exclusão suave para a maioria das ações de ficheiros. Se tiver um fluxo de trabalho em que a eliminação de ações é comum e esperada, pode decidir ter um período de retenção muito curto ou não ter uma eliminação suave ativada.
+Recomendamos que se apale a exclusão suave para a maioria das ações de ficheiros. Se tiver um fluxo de trabalho em que a eliminação de ações é comum e esperada, pode decidir ter um curto período de retenção ou não ter uma eliminação suave ativada.
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](./storage-files-prevent-file-share-deletion.md).
 
@@ -107,10 +107,10 @@ Pode executar restauros de nível de item e de nível de partilha no portal Azur
 
 Para obter mais informações sobre a cópia de segurança, consulte [a cópia de segurança do ficheiro Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="advanced-threat-protection-for-azure-files-preview"></a>Proteção Avançada de Ameaças para Ficheiros Azure (pré-visualização)
-Advanced Threat Protection (ATP) for Azure Storage fornece uma camada adicional de inteligência de segurança que fornece alertas quando deteta atividade anómala na sua conta de armazenamento, por exemplo, tentativas incomuns de acesso à conta de armazenamento. O ATP também executa a análise de reputação de malware e irá alertar para malware conhecido. Pode configurar ATP num nível de subscrição ou conta de armazenamento através do Azure Security Center. 
+### <a name="azure-defender-for-azure-files"></a>Azure Defender para Ficheiros Azure 
+O Azure Defender for Azure Storage (anteriormente Advanced Threat Protection for Azure Storage) fornece uma camada adicional de inteligência de segurança que fornece alertas quando deteta atividade anómala na sua conta de armazenamento, por exemplo tentativas de acesso incomuns. Também executa análises de reputação de malware e irá alertar sobre malware conhecido. Pode configurar o Azure Defender num nível de subscrição ou conta de armazenamento através do Azure Security Center. 
 
-Para obter mais informações, consulte [a proteção contra ameaças avançadas para o armazenamento Azure](../common/azure-defender-storage-configure.md).
+Para obter mais informações, consulte [Introdução ao Azure Defender para armazenamento](../../security-center/defender-for-storage-introduction.md).
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

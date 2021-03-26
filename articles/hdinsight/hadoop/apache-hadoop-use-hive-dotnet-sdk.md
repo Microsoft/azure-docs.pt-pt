@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: 17264fc2a7d0a51de545e329ccf12ad45ad49d46
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 032c070a9485fc4720ae7966a0991bc0c5ae3921
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98927244"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867853"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas de Hive Apache usando HDInsight .NET SDK
 
@@ -135,7 +135,7 @@ O HDInsight .NET SDK fornece bibliotecas de clientes .NET, o que facilita o trab
 
 A saída da aplicação deve ser semelhante:
 
-![Saída de trabalho da DDInsight Hadoop Hive](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png" alt-text="Saída de trabalho da DDInsight Hadoop Hive" border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

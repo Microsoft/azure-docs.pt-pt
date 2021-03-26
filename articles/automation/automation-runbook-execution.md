@@ -3,14 +3,14 @@ title: Execução de runbooks na Automatização do Azure
 description: Este artigo fornece uma visão geral do processamento de livros de execução na Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100586046"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954348"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
@@ -34,7 +34,8 @@ O diagrama seguinte mostra o ciclo de vida de um trabalho de runbook para [os li
 
 Os runbooks na Azure Automation podem funcionar numa caixa de areia Azure ou num [Trabalhador De Runbook Híbrido.](automation-hybrid-runbook-worker.md) 
 
-Quando os runbooks são projetados para autenticar e correr contra recursos em Azure, eles funcionam numa caixa de areia Azure, que é um ambiente compartilhado que vários empregos podem usar. Os postos de trabalho que utilizam a mesma caixa de areia estão vinculados às limitações de recursos da caixa de areia. O ambiente da caixa de areia Azure não suporta operações interativas. Impede o acesso a todos os servidores COM fora do processo. Também requer a utilização de ficheiros MOF locais para runbooks que esjodem chamadas Win32.
+Quando os runbooks são projetados para autenticar e correr contra recursos em Azure, eles funcionam numa caixa de areia Azure, que é um ambiente compartilhado que vários empregos podem usar. Os postos de trabalho que utilizam a mesma caixa de areia estão vinculados às limitações de recursos da caixa de areia. O ambiente da caixa de areia Azure não suporta operações interativas. Impede o acesso a todos os servidores COM fora do processo e não suporta fazer [chamadas de WMI](/windows/win32/wmisdk/wmi-architecture) para o fornecedor Win32 no seu runbook.  Estes cenários só são suportados através da execução do runbook num Trabalhador de Runbook Híbrido do Windows.
+
 
 Também pode utilizar um [Trabalhador De Runbook Híbrido](automation-hybrid-runbook-worker.md) para executar livros de corrida diretamente no computador que hospeda o papel e contra recursos locais no ambiente. A Azure Automation armazena e gere os runbooks e depois entrega-os a um ou mais computadores atribuídos.
 

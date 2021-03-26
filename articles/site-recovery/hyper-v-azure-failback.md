@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87416235"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110258"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma reativação pós-falha para VMs Hyper-V
 
@@ -26,7 +26,7 @@ Este artigo descreve como falhar os VMs Azure que foram criados após a falha de
 ## <a name="before-you-start"></a>Antes de começar
 
 1. [Reveja os tipos de falha](failover-failback-overview.md#hyper-v-reprotectionfailback) que pode usar - recuperação original da localização e recuperação de localização alternativa.
-2. Certifique-se de que os VMs Azure estão a utilizar uma conta de armazenamento e não discos geridos. O failback dos VMs Hiper-V replicados usando discos geridos não é suportado.
+2. Certifique-se de que os VMs Azure estão a utilizar uma conta de armazenamento e não discos geridos. O recuo das máquinas virtuais Hyper-V, que falhou nas máquinas Azure usando discos geridos, não é suportado.
 3. Verifique se o anfitrião Hiper-V no local (ou servidor VMM do System Center se estiver a utilizar com a Recuperação do Site) está a funcionar e ligado ao Azure. 
 4. Certifique-se de que o failover e o compromisso estão completos para os VMs. Não precisa de configurar componentes específicos de Recuperação do Local para falha de Hiper-VMs da Azure.
 5. O tempo necessário para completar a sincronização de dados e iniciar o VM no local dependerá de uma série de fatores. Para acelerar o download de dados, pode configurar o agente dos Serviços de Recuperação da Microsoft para utilizar mais linhas para paralelizar o download. [Saiba mais](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
