@@ -4,15 +4,15 @@ description: Conheça vários dos requisitos de integração para o mercado come
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 760e7210d054e44dfec6d6a6e480baecd04d6807
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88606798"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044129"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento de SaaS
 
@@ -40,7 +40,10 @@ Ao subscrever a oferta SaaS, o utilizador concordou em pagar o consumo do servi�
 
 Depois de subscrever uma oferta, o utilizador Azure pode descobrir e gerir todas as suas ofertas em Azure. Por defeito, o estado de uma oferta saaS recentemente subscrita é mostrado como **Provisioning, cumprimento pendente**. Neste estado, o utilizador do Azure será solicitado com uma ação à **Conta Configure,** de forma a navegar pela sua experiência de gestão de subscrição SaaS no portal Azure.
 
-Quando o utilizador seleciona **a Conta Configure,** são redirecionados para o website do serviço SaaS. A editora configura o URL no momento da publicação da oferta. Esta página é referida como a página de aterragem do editor. Os utilizadores do Azure insinam-se na página de aterragem do SaaS com base nas credenciais de AAD existentes em Azure.
+Quando o utilizador seleciona **a Conta Configure,** são redirecionados para o website do serviço SaaS. A editora configura o URL no momento da publicação da oferta. Esta página é referida como a página de aterragem do editor. Os utilizadores do Azure insinam-se na página de aterragem do SaaS com base nas suas credenciais existentes no Azure Ative Directory (Azure AD) em Azure.
+
+> [!IMPORTANT]
+> Tem de assinar no utilizador de compra utilizando o Azure Ative Directory, Single Sign On (Azure AD SSO) conforme indicado pela [política](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). A `mail` propriedade sobre o recurso do utilizador recuperado a partir da Microsoft Graph API dá-lhe as informações de contacto para o caso do Azure AD e `userPrincipalName` para a MSA. É possível que o campo "mail" esteja vazio para Azure AD, e o utilizador pode não ter um e-mail gravado. Se for esse o caso, recomendamos que detete isso e peça um e-mail de contacto. Esta é a sua única oportunidade de obter um e-mail de contacto para contactar um cliente durante ou após o processo de embarque do cliente.
 
 Quando o utilizador Azure é redirecionado para a página de aterragem, um sinal é adicionado ao URL de consulta. Este símbolo é de curta duração e válido por um período de tempo de 24 horas. Em seguida, pode detetar a presença deste token e ligar para a API da Microsoft para obter mais contexto associado ao token.
 

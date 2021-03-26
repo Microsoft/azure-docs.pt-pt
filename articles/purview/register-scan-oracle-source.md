@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010481"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045506"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registar e scan o oráculo (pré-visualização)
 
@@ -25,7 +25,7 @@ A fonte da Oracle suporta a **verificação completa** para extrair metadados de
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1.  Configurar o último [tempo de integração auto-hospedado.](https://www.microsoft.com/download/details.aspx?id=39717)
-    Para obter mais informações, consulte [Criar e configurar um tempo de integração auto-organizado.](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+    Para obter mais informações, consulte [Criar e configurar um tempo de integração auto-organizado.](../data-factory/create-self-hosted-integration-runtime.md)
 
 2.  Certifique-se de que [o JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado na sua máquina virtual onde está instalado o tempo de funcionação da integração auto-hospedada.
 
@@ -105,7 +105,7 @@ No ecrã **'Oráculo' das fontes de registo,** faça o seguinte:
 
 Para criar e executar uma nova digitalização, faça o seguinte:
 
-1.  No Centro de Gestão, clique nos tempos de integração. Certifique-se de que é configurado um tempo de integração auto-hospedado. Se não for configurado, utilize os passos [aqui](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) mencionados para criar um tempo de integração auto-hospedado.
+1.  No Centro de Gestão, clique nos tempos de integração. Certifique-se de que é configurado um tempo de integração auto-hospedado. Se não for configurado, utilize os passos [aqui](./manage-integration-runtimes.md) mencionados para criar um tempo de integração auto-hospedado.
 
 2.  Navegar para **fontes**.
 

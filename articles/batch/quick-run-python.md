@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88511019"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046815"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Quickstart: Use a Python API para executar um trabalho no Azure Batch
 
@@ -28,7 +28,7 @@ Depois de completar este quickstart, você entenderá os conceitos-chave do serv
 
 - Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md).
 
-- [Versão python](https://python.org/downloads) 2.7 ou 3.3 ou mais tarde, incluindo o gestor de [pacotes pip](https://pip.pypa.io/en/stable/installing/)
+- [Versão python](https://python.org/downloads) 2.7 ou 3.6, incluindo o gestor de [pacotes pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

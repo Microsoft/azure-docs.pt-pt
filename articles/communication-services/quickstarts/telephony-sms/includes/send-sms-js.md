@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: 0d142c477e1de2a2a34a8abfd948800cc0b607ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b0a173d605da859830e288aebf355117b928090a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622098"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110377"
 ---
-Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes SMS javaScript dos Serviços de Comunicação para enviar mensagens SMS.
+Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação JavaScript SMS SDK para enviar mensagens SMS.
 
 Completar este quickstart incorre num pequeno custo de alguns usd ou menos na sua conta Azure.
 
@@ -57,7 +57,7 @@ Use um editor de texto para criar um ficheiro chamado **send-sms.js** no diretó
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-Utilize o `npm install` comando para instalar a biblioteca de clientes Azure Communication Services SMS para o JavaScript.
+Utilize o `npm install` comando para instalar o SDK dos Serviços de Comunicação Azure para o JavaScript.
 
 ```console
 npm install @azure/communication-sms --save
@@ -67,7 +67,7 @@ A `--save` opção lista a biblioteca como uma dependência do seu **package.jsa
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características da biblioteca de clientes dos Serviços de Comunicação Azure para Node.js.
+As seguintes classes e interfaces lidam com algumas das principais características do Azure Communication Services SMS SDK para Node.js.
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -78,7 +78,7 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Importe o **SmsClient** da biblioteca do cliente e o instantie com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
+Importe o **SmsClient** do SDK e o instantie com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
 
 Adicione o seguinte código à **send-sms.js:**
 

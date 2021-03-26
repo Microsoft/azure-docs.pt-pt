@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3200dc6ad7756f77dc0d74df83a33c7e89d4bedb
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581835"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044571"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação pass-through do Azure Ative Directory: Quickstart
 
@@ -73,7 +73,7 @@ Certifique-se de que existem os seguintes pré-requisitos.
      
      Se a firewall impuser regras de acordo com os utilizadores de origem, abra estas portas para o tráfego dos serviços Windows que são executados com um serviço de rede.
    - Se a sua firewall ou proxy permitir que adicione entradas DNS a uma lista de admissões, adicione ligações a **\* .msappproxy.net** e **\* .servicebus.windows.net**. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
-   - Se tiver um representante HTTP de saída, certifique-se de que este URL, autologon.microsoftazuread-sso.com, está na lista branca . Deve especificar este URL explicitamente, uma vez que o wildcard não pode ser aceite. 
+   - Se tiver um representante HTTP de saída, certifique-se de que este URL, autologon.microsoftazuread-sso.com, está na lista permitida. Deve especificar este URL explicitamente, uma vez que o wildcard não pode ser aceite. 
    - Os seus Agentes de Autenticação precisam de acesso a **login.windows.net** e **login.microsoftonline.com** para inscrição inicial. Abra a firewall para os URLs também.
     - Para validação de certificados, desbloqueie os seguintes URLs: **crl3.digicert.com:80,** **crl4.digicert.com:80,** **ocsp.digicert.com:80,** **www \. d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80,** **crl.microsoft.com:80,** **oneocsp.microsoft.com:80** e **ocsp.msocsp.com:80**. Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
 

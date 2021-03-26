@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027185"
+ms.locfileid: "105046218"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é a loja analítica Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -112,8 +112,8 @@ Os seguintes constrangimentos são aplicáveis nos dados operacionais da Azure C
 
 * Espere um comportamento diferente em relação a `null` valores explícitos:
   * As piscinas de faíscas em Azure Synapse lerão estes valores como `0` (zero).
-  * Piscinas sem servidor SQL em Azure Synapse lerão estes valores como `NULL` se o primeiro documento da coleção tivesse, para a mesma propriedade, um valor com um tipo de dados diferente de `integer` .
-  * As piscinas sem servidor SQL em Azure Synapse lerão estes valores como `0` (zero) se o primeiro documento da coleção tiver, para a mesma propriedade, um valor que é um `integer` .
+  * Piscinas sem servidor SQL em Azure Synapse lerão estes valores como `NULL` se o primeiro documento da coleção tivesse, para a mesma propriedade, um valor com um tipo de `non-numeric` dados.
+  * As piscinas sem servidor SQL em Azure Synapse lerão estes valores como `0` (zero) se o primeiro documento da coleção tiver, para a mesma propriedade, um valor com um tipo de `numeric` dados.
 
 * Espere um comportamento diferente no que diz respeito às colunas em falta:
   * As piscinas de faíscas em Azure Synapse representarão estas colunas como `undefined` .

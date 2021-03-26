@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616121"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954678"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestão dos dados da Automatização do Azure
 
@@ -56,7 +56,7 @@ O quadro que se segue resume a política de retenção de diferentes recursos.
 | Relatórios de Nó |Um relatório de nó é permanentemente removido 90 dias após a criação de um novo relatório para esse nó. |
 | Runbooks |Um livro de execuções é permanentemente removido 30 dias após um utilizador apagar o recurso, ou 30 dias após um utilizador apagar a conta que detém o recurso<sup>1</sup>. |
 
-<sup>1</sup> O livro pode ser recuperado dentro da janela de 30 dias, apresentando um incidente de suporte Azure com o Microsoft Azure Support. Vá ao [site de suporte do Azure](/support/options) e selecione Enviar por pedido de **apoio.**
+<sup>1</sup> O livro pode ser recuperado dentro da janela de 30 dias, apresentando um incidente de suporte Azure com o Microsoft Azure Support. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Enviar por pedido de **apoio.**
 
 ## <a name="data-backup"></a>Backup de dados
 

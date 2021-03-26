@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101746313"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046356"
 ---
 # <a name="manage-the-datadog-resource"></a>Gerir o recurso Datadog
 
@@ -61,7 +61,7 @@ Pode filtrar a lista de recursos por tipo de recurso, nome do grupo de recursos,
 Os **registos da** coluna para Datadog indicam se o recurso está a enviar registos para o Datadog. Se o recurso não estiver a enviar registos, este campo indica porque é que os registos não estão a ser enviados para o Datadog. As razões podem ser:
 
 - O recurso não suporta o envio de registos. Apenas tipos de recursos com categorias de registo de monitorização podem ser configurados para enviar registos para Datadog.
-- Limite de cinco configurações de diagnóstico alcançadas. Cada recurso Azure pode ter um máximo de cinco configurações de diagnóstico. Para obter mais informações, consulte [as definições de diagnóstico](../../azure-monitor/platform/diagnostic-settings.md).
+- Limite de cinco configurações de diagnóstico alcançadas. Cada recurso Azure pode ter um máximo de cinco configurações de diagnóstico. Para obter mais informações, consulte [as definições de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md).
 - Error. O recurso está configurado para enviar registos para Datadog, mas está bloqueado por um erro.
 - Registos não configurados. Apenas os recursos Azure que têm as etiquetas de recursos apropriadas são configurados para enviar registos para Datadog.
 - Região não apoiada. O recurso Azure está numa região que não suporta atualmente o envio de registos para o Datadog.

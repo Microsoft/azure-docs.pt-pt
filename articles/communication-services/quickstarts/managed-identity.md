@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ffda88da451e25b79112a7adf85026158bd27acc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e4b71cc889615fd4784f11c9edd77b44ef421d9e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492358"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110767"
 ---
 # <a name="use-managed-identities"></a>Utilizar identidades geridas
-Começa com os Serviços de Comunicação Azure utilizando identidades geridas. As bibliotecas de serviços de comunicação identidade e SMS apoiam a autenticação do Azure Ative Directory (Azure AD) com [identidades geridas para recursos Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
+Começa com os Serviços de Comunicação Azure utilizando identidades geridas. Os Serviços de Comunicação Identidade e SMS SDKs apoiam a autenticação do Azure Ative Directory (Azure AD) com [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Este quickstart mostra-lhe como autorizar o acesso às bibliotecas de clientes Identidade e SMS a partir de um ambiente Azure que suporta identidades geridas. Também descreve como testar o seu código num ambiente de desenvolvimento.
+Este quickstart mostra-lhe como autorizar o acesso aos SDKs de Identidade e SMS a partir de um ambiente Azure que suporta identidades geridas. Também descreve como testar o seu código num ambiente de desenvolvimento.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity-net.md)]
