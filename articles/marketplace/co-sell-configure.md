@@ -8,16 +8,16 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e8019a30d4f5bf24814d88fc749cefd6b529b73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609653"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563400"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configure co-venda para uma oferta de mercado comercial
 
-Este artigo descreve como configurar o **Co-sell com** o separador Microsoft para uma oferta de mercado comercial. Fornecer informações sobre este separador é totalmente opcional, mas é necessário obter [o estado de Co-venda de Co-venda.](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status) As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua oferta ao avaliar o seu ajuste às necessidades dos clientes. Esta informação não está disponível diretamente para os clientes. Para obter mais informações sobre co-venda, consulte [Co-vender com os vendedores e parceiros da Microsoft](marketplace-co-sell.md) e [co-vender com a Microsoft.](https://partner.microsoft.com/membership/co-sell-with-microsoft)
+Este artigo descreve como configurar o **Co-sell com** o separador Microsoft para uma oferta de mercado comercial. Fornecer informações sobre este separador é totalmente opcional, mas é necessário obter [o estado de Co-venda de Co-venda.](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status) As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua oferta ao avaliar o seu ajuste às necessidades dos clientes. Esta informação não está disponível diretamente para os clientes. Para obter mais informações sobre co-venda, consulte [Co-vender com os vendedores e parceiros da Microsoft](marketplace-co-sell.md) e [co-vender com a Microsoft.](https://partner.microsoft.com/membership/co-sell-with-microsoft)
 
 A opção Co-venda está disponível para os seguintes tipos de oferta.
 

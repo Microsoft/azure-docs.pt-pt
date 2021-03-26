@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 9ee0e8d8fa660313cb007d53c2bbbfc9b19feec9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 43a8004b6cdfe2e074304569b83360101784a87e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889778"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568006"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Deep learning e ia frameworks para o Azure Data Science VM
 Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
@@ -129,14 +129,14 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 | Como é configurado / instalado no DSVM?  | Instalado em Python 3.5 em [Linux](dsvm-tools-languages.md#python-linux-edition) e Python 3.6 no [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | Como executá-lo      | Terminal: Ative o ambiente correto e, em seguida, executar Python. <br/> * Jupyter: Ligue-se ao [Jupyter](provision-vm.md) ou [ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o diretório tensorFlow para amostras.   |
 
-## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
 
 | Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 1.12 |
 | Edições DSVM suportadas      | Ubuntu 16.04 |
 | Como é configurado / instalado no DSVM?  | tensorflow_model_server está disponível no terminal. |
-| Como executá-lo      |  As amostras estão disponíveis [online.](https://www.tensorflow.org/serving/)   |
+| Como executá-lo      |  As amostras estão disponíveis [online.](https://www.tensorflow.org/tfx/guide/serving)   |
 
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)

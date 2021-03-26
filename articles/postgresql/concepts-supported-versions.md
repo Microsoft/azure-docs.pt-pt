@@ -1,18 +1,18 @@
 ---
 title: Versões suportadas - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Descreve as versões pósgresas suportadas e pequenas na Base de Dados Azure para PostgreSQL - Single Server.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 41662c5e4cc0ed9458f8b1b1279e2753daed789f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b372c9d8be31ab6f51d737cd00c692ac9242e4db
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100518458"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605277"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versões principais pós-SQL suportadas
 

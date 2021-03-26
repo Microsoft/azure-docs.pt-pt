@@ -1,18 +1,18 @@
 ---
 title: Reiniciar servidor - Azure CLI - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve como pode reiniciar uma Base de Dados Azure para PostgreSQL - Servidor Único utilizando o Azure CLI
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e812b7872dd4d41d9a6cb87d75403524106c5981
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: af870c495ae707dd8319645eca979f0906234b4f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97706869"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608396"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Reinicie a base de dados de Azure para postgreSQL - Servidor Único utilizando o Azure CLI
 Este tópico descreve como pode reiniciar uma Base de Dados Azure para servidor PostgreSQL. Pode ser necessário reiniciar o servidor por razões de manutenção, o que provoca uma falha curta à medida que o servidor executa a operação.

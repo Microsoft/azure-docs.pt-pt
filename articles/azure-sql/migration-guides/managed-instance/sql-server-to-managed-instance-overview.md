@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 1c187ae83ce87c9d4d8da4aa1a5dc38163261b52
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 529bc5468c74ac9d50f64decad29fd070a7bda83
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024902"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566936"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Visão geral da migração: SQL Server para Azure SQL Gestd Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,7 +90,7 @@ O quadro que se segue lista as ferramentas de migração recomendadas:
 
 |Tecnologia | Descrição|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | O Azure Migrate for Azure SQL permite-lhe descobrir e avaliar a sua propriedade de dados SQL em escala quando em VMware, fornecendo recomendações de implantação do Azure SQL, tamanho alvo e estimativas mensais. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | O Azure Migrate for Azure SQL permite-lhe descobrir e avaliar a sua propriedade de dados SQL em escala quando em VMware, fornecendo recomendações de implantação do Azure SQL, tamanho alvo e estimativas mensais. | 
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Primeiro serviço Azure que suporta a migração no modo offline para aplicações que podem pagar tempo de inatividade durante o processo de migração. Ao contrário da migração contínua no modo on-line, a migração em modo offline executa uma única vez a restauração de uma cópia de segurança completa da base de dados da fonte para o alvo. | 
 |[Backup nativo e restauro](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance suporta o RESTORE de backups nativos da base de dados do SQL Server (.bak ficheiros), tornando-se a opção de migração mais fácil para clientes que podem fornecer cópias de dados completas para armazenamento Azure. Cópias de segurança completas e diferenciais também são apoiadas e documentadas na [secção de ativos de migração](#migration-assets) mais tarde neste artigo.| 
 |[Serviço de reprodução de registo (LRs)](../../managed-instance/log-replay-service-migrate.md) | Este é um serviço de nuvem ativado para Instância Gerida com base na tecnologia de envio de registos SQL Server, tornando-o uma opção de migração para clientes que podem fornecer cópias de segurança completas, diferenciais e de base de dados de registo para armazenamento Azure. O LRS é utilizado para restaurar ficheiros de backup do Azure Blob Storage para SQL Managed Instance.| 
@@ -212,7 +212,7 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-Para saber mais sobre as tecnologias de memória, consulte [o desempenho otimizar utilizando tecnologias de memória na Base de Dados Azure SQL e na Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
+Para saber mais sobre as tecnologias de memória, consulte [o desempenho otimizar utilizando tecnologias de memória na Base de Dados Azure SQL e na Azure SQL Managed Instance](../../in-memory-oltp-overview.md)
 
 ## <a name="leverage-advanced-features"></a>Alavancar recursos avançados 
 

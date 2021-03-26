@@ -7,12 +7,12 @@ ms.reviewer: ''
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: 825204fe40125a65e8e6f27c6973417813700a9e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4a0258d5e448c59baa1cd63e98058fe7116a8485
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101746360"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566120"
 ---
 # <a name="migrate-default-hive-metastore-db-to-external-metastore-db"></a>Migrar metasteiro-metadeiro de Colmeia DB para DB de metástaria externa
 
@@ -46,7 +46,7 @@ A ação é semelhante à substituição de symlinks por todos os seus caminhos.
 
 Um cluster HDInsight criado apenas após 2020-10-15 suporta a SQL Export/Import para a metastria padrão da Colmeia DB através da utilização `sqlpackage` .
 
-1. Instale [a embalagem de sql para](https://docs.microsoft.com/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) o cluster.
+1. Instale [a embalagem de sql para](/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) o cluster.
 
 2. Exporte o ficheiro DB de metastagem predefinido para o ficheiro BACPAC executando o seguinte comando.
 

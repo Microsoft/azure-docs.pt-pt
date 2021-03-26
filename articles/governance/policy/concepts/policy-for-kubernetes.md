@@ -3,12 +3,12 @@ title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
 ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4a6ca7fb5086401cab58d4bfb6a412089c11ef05
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868159"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564310"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -27,7 +27,7 @@ A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 > [!IMPORTANT]
 > Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização**. A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para ativar e utilizar a Política Azure com o seu cluster Kubernetes, tome as seguintes ações:
 
@@ -61,7 +61,7 @@ As seguintes limitações gerais aplicam-se ao Add-on de Política Azure para os
 
 As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a AKS:
 
-- [A política de segurança AKS Pod](../../../aks/use-pod-security-policies.md) e o Add-on de Política Azure para a AKS não podem ser ambos ativados. Para obter mais informações, consulte [a limitação de segurança da cápsula AKS](../../../aks/use-pod-security-on-azure-policy.md#limitations).
+- [A política de segurança AKS Pod](../../../aks/use-pod-security-policies.md) e o Add-on de Política Azure para a AKS não podem ser ambos ativados. Para obter mais informações, consulte [a limitação de segurança da cápsula AKS](../../../aks/use-azure-policy.md).
 - Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_ e _aks-periscope_.
 
 ## <a name="recommendations"></a>Recomendações
@@ -201,7 +201,7 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
 
 1. Instalar [o Leme 3](https://v3.helm.sh/docs/intro/install/).
 
-1. O seu cluster Kubernetes habilitado para o Arco Azure. Para mais informações, consulte [a bordo de um cluster Kubernetes para O Arco de Azure.](../../../azure-arc/kubernetes/connect-cluster.md)
+1. O seu cluster Kubernetes habilitado para o Arco Azure. Para mais informações, consulte [a bordo de um cluster Kubernetes para O Arco de Azure.](../../../azure-arc/kubernetes/quickstart-connect-cluster.md)
 
 1. Ter o ID de Recursos Azure totalmente qualificado do Arco Azure habilitado para o cluster Kubernetes.
 

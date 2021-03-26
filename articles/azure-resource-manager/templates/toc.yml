@@ -504,7 +504,7 @@
         - name: JobSizeExceeded
           href: error-job-size-exceeded.md
         - name: Problemas de implementação do Linux
-          href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
+          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
         - name: NoRegisteredProviderFound
           href: error-register-resource-provider.md
         - name: NotFound
@@ -512,9 +512,9 @@
         - name: ParentResourceNotFound
           href: error-parent-resource.md
         - name: Problemas de aprovisionamento e de alocação do Linux
-          href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md
+          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
         - name: Problemas de aprovisionamento e de alocação do Windows
-          href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md
+          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
         - name: RequestDisallowedByPolicy
           href: error-policy-requestdisallowedbypolicy.md
         - name: ReservedResourceName
@@ -524,7 +524,7 @@
         - name: SkuNotAvailable
           href: error-sku-not-available.md
         - name: Problemas de implementação do Windows
-          href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md
+          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: Referência
   items:
     - name: Referência de modelo

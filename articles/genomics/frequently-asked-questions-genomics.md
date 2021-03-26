@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96018329"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608617"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas comuns
 
@@ -58,6 +58,10 @@ Precisa de duas teclas de acesso para o caso de pretender atualizá-las (regener
 
 ## <a name="do-you-save-my-storage-account-keys"></a>Guarda as chaves da minha conta de armazenamento?
 A sua chave de conta de armazenamento é utilizada para criar fichas de acesso a curto prazo para o serviço Microsoft Genomics para ler os seus ficheiros de entrada e escrever os ficheiros de saída. A duração do token predefinido é de 48 horas. A duração do token pode ser alterada com a `-sas/--sas-duration` opção do comando de submissão; o valor é em horas.
+
+## <a name="does-microsoft-genomics-store-customer-data"></a>A Microsoft Genomics armazena os dados dos clientes?
+
+N.º A Microsoft Genomics não armazena quaisquer dados do cliente.
 
 ## <a name="what-genome-references-can-i-use"></a>Que referências ao genoma posso usar?
 

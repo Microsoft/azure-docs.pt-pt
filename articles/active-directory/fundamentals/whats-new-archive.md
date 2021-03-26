@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e820194d36d2b80fcd28de7972dd5abe8a746345
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 40dafe13dc0e8866c99e56879bed419808a0487c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592954"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560187"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -1481,7 +1481,7 @@ Os espaços de trabalho, os administradores de filtros podem configurar para org
 **Categoria de serviço:** B2C - Gestão da Identidade do Consumidor  
 **Capacidade do produto:** B2B/B2C
  
-Com a inscrição e a inscrição no número de telefone, os desenvolvedores e empresas podem permitir que os seus clientes se inscrevam e se inscrevam através de uma senha única enviada para o número de telefone do utilizador através de SMS. Esta funcionalidade também permite que o cliente altere o seu número de telefone se perder o acesso ao seu telemóvel. Com o poder de políticas personalizadas e inscrição de telefone e inscrição, permite que os desenvolvedores e empresas comuniquem a sua marca através da personalização da página. Descubra como [configurar a inscrição no telefone e iniciar sôm-se com as políticas personalizadas em Azure AD B2C](../../active-directory-b2c/phone-authentication.md).
+Com a inscrição e a inscrição no número de telefone, os desenvolvedores e empresas podem permitir que os seus clientes se inscrevam e se inscrevam através de uma senha única enviada para o número de telefone do utilizador através de SMS. Esta funcionalidade também permite que o cliente altere o seu número de telefone se perder o acesso ao seu telemóvel. Com o poder de políticas personalizadas e inscrição de telefone e inscrição, permite que os desenvolvedores e empresas comuniquem a sua marca através da personalização da página. Descubra como [configurar a inscrição no telefone e iniciar sôm-se com as políticas personalizadas em Azure AD B2C](../../active-directory-b2c/phone-authentication-user-flows.md).
  
 ---
  

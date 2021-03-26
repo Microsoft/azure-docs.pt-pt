@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702458"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567955"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Lacunas de características entre a Azure Media Services V2 e v3
 
@@ -48,6 +48,6 @@ A API V3 tem as seguintes lacunas de características com a API V2. Algumas das 
 
 - A encriptação de armazenamento do lado do cliente para proteção dos ativos em repouso foi removida na API V3 e substituída pela encriptação do serviço de armazenamento para dados em repouso. As APIs V3 continuam a trabalhar com os ativos encriptados de armazenamento existentes, mas não permitem a criação de novos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="terminology-and-entity-changes"></a>Terminologia e alterações de entidades
 
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+Consulte terminologia e alterações [de entidades](migrate-v-2-v-3-differences-terminology.md) para alterações adicionais à API.

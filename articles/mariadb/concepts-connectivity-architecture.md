@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 50aaae9e71ac9de366ee4db1981e633491094946
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2ea671a6d44d12b3b37d5d06fa9405b7c589cdf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199962"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559422"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade na Base de Dados Azure para MariaDB
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MariaDB, bem como como o tráfego é direcionado para a sua Base de Dados Azure para exemplos MariaDB de clientes dentro e fora de Azure.
@@ -111,7 +111,7 @@ Só os nós gateway serão desativados. Quando os utilizadores se ligam aos seus
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Como pode validar se as suas ligações vão para os velhos nós de gateway ou novos nós de gateway?
 Ping fQDN do seu servidor, por  ``ping xxx.mariadb.database.azure.com`` exemplo. Se o endereço IP devolvido for um dos IPs listados nos endereços IP gateway (desmantelamento) no documento acima, significa que a sua ligação está a passar pelo antigo portal. Contrariamente, se o endereço Ip devolvido for um dos IPs listados nos endereços IP gateway, significa que a sua ligação está a passar pelo novo portal.
 
-Pode também testar por [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) ou TCPPing o servidor de base de dados da sua aplicação de cliente com a porta 3306 e garantir que o endereço IP de devolução não é um dos endereços IP de desmantelamento
+Pode também testar por [PSPing](/sysinternals/downloads/psping) ou TCPPing o servidor de base de dados da sua aplicação de cliente com a porta 3306 e garantir que o endereço IP de devolução não é um dos endereços IP de desmantelamento
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Como é que eu sei quando a manutenção acaba e receberei outra notificação quando os antigos endereços IP forem desativados?
 Receberá um e-mail para informá-lo quando iniciaremos os trabalhos de manutenção. A manutenção pode demorar até um mês, dependendo do número de servidores que precisamos para migrar em regiões al. Por favor, prepare o seu cliente para se ligar ao servidor de base de dados usando o FQDN ou utilizando o novo endereço IP a partir da tabela acima. 

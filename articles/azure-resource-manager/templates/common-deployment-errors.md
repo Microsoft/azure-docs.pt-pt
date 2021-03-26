@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns quando implementa recursos para
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 6cb2b611e694c6b72e063f3d8ab05b7667a34e29
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 40e6317a1d879704ef00e928a971ae08fc9e0f72
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888860"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564352"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -23,7 +23,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga as restrições de nomeação para contas de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md) |
 | ContaPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [armazenamento Contas](/azure/templates/microsoft.storage/storageaccounts) |
-| AtribuiçãoFailada | O cluster ou região não tem recursos disponíveis ou não pode suportar o tamanho de VM solicitado. Reda o pedido mais tarde, ou solicite um tamanho VM diferente. | [Questões de provisionamento e atribuição de problemas de linux,](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md) [provisionamento e atribuição de](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) falhas na atribuição de janelas e [resolução de problemas](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AtribuiçãoFailada | O cluster ou região não tem recursos disponíveis ou não pode suportar o tamanho de VM solicitado. Reda o pedido mais tarde, ou solicite um tamanho VM diferente. | [Questões de provisionamento e atribuição de problemas de linux,](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux) [provisionamento e atribuição de](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) falhas na atribuição de janelas e [resolução de problemas](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | Outra OperaçãoInProgress | Aguarde que a operação simultânea esteja concluída. | |
 | Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
 | BadRequest | Enviaste valores de implantação que não correspondem ao esperado pelo Gestor de Recursos. Verifique a mensagem de estado interior para obter ajuda com a resolução de problemas. | [Referência do modelo](/azure/templates/) e [locais suportados](resource-location.md) |

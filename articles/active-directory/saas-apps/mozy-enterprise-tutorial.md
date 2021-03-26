@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 97294bdd088f50a46786c3568f4230706f750c4c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92520953"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a Mozy Enterprise
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD com a Mozy Enterprise, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de apoio ao Cliente da Mozy Enterprise](https://support.mozy.com/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de apoio ao Cliente da Mozy Enterprise](https://www.safenames.net/about-us/contact-us) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 

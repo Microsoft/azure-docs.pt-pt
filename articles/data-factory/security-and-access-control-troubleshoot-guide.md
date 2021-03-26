@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706194"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568040"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Resolução de problemas Azure Data Factory questões de segurança e controlo de acessos
 
@@ -182,7 +182,7 @@ Por exemplo: A pia Azure Blob Storage estava a utilizar o Azure IR (público, n�
 
 #### <a name="cause"></a>Causa
 
-A ADF pode ainda utilizar o Managed VNet IR, mas pode encontrar tal erro porque o ponto final público do Azure Blob Storage em Managed VNet não é fiável com base no resultado dos testes, e o Azure Blob Storage e a Azure Data Lake Gen2 não são suportados para serem conectados através de um ponto final público da ADF Managed Virtual Network de acordo com a [rede virtual gerida & pontos finais privados geridos](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+A ADF pode ainda utilizar o Managed VNet IR, mas pode encontrar tal erro porque o ponto final público do Azure Blob Storage em Managed VNet não é fiável com base no resultado dos testes, e o Azure Blob Storage e a Azure Data Lake Gen2 não são suportados para serem conectados através de um ponto final público da ADF Managed Virtual Network de acordo com a [rede virtual gerida & pontos finais privados geridos](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
 
 #### <a name="solution"></a>Solução
 

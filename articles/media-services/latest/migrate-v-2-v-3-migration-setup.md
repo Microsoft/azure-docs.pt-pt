@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 792f4f81d84b61f0f78c53e62168921221b4f330
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 648003c042d4c8118af566a6c985d2fd6e26b04e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503169"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563043"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Passo 3 - Configurar para migrar para a V3 REST API ou cliente SDK
 
@@ -143,7 +143,3 @@ Leia o artigo [Ligue-se ao Azure Media Services v3 API - Node.js](configure-conn
 Descarregue o [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media) SDK.
 
 ---
-
-## <a name="next-steps"></a>Passos seguintes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

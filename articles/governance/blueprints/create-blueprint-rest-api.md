@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta com REST API'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando a API REST.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915646"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558980"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Definir e Atribuir uma Planta Azure com REST API
 
@@ -329,7 +329,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 - `{YourMG}` - Substitua pelo ID do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
-1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático , `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` mas o ID principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza [a Azure Ative Directory Graph API,](../../active-directory/develop/active-directory-graph-api.md)que tem uma autorização diferente.
+1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático , `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` mas o ID principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza [a Azure Ative Directory Graph API,](/graph/migrate-azure-ad-graph-planning-checklist)que tem uma autorização diferente.
 
    - URI da API REST
 
@@ -337,7 +337,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os parâmetros **contributors** e **owners** exigem que seja concedida a atribuição de função a uma matriz de objectIds dos principais, utilize a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para recolher os objectIds para utilizar no **Corpo do Pedido** para os seus próprios utilizadores, grupos ou principais de serviço.
+1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os parâmetros **contributors** e **owners** exigem que seja concedida a atribuição de função a uma matriz de objectIds dos principais, utilize a [Graph API do Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) para recolher os objectIds para utilizar no **Corpo do Pedido** para os seus próprios utilizadores, grupos ou principais de serviço.
 
    - URI da API REST
 

@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único - Azure CLI'
 description: Este tutorial mostra como criar, configurar e consultar a sua primeira Base de Dados Azure para PostgreSQL - Servidor Único utilizando o Azure CLI.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 019e6e738ea312b7e6a16c44354c7dcd54e24f2f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 478fc175304a24536d28807915f4a4ec05a7158e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93331901"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605880"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único usando Azure CLI 
 Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:

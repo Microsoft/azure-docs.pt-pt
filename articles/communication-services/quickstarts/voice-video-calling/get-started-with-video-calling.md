@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e7f74298b8bf8209a6b1473880b33d64bd17cfd9
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 5b7fd8e8cd5bd3ab0f15115365ed057fc67f1204
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108099"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604435"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>QuickStart: Adicione 1:1 chamada de vídeo para a sua aplicação (JavaScript)
 
@@ -221,7 +221,7 @@ function subscribeToParticipantVideoStreams(remoteParticipant) {
 Tem de subscrever um `isAvailableChanged` evento para tornar o `remoteVideoStream` . Se a `isAvailable` propriedade mudar `true` para, um participante remoto está enviando um fluxo. Sempre que a disponibilidade de um fluxo remoto for alterada, pode optar por destruir o todo `Renderer` , um específico ou `RendererView` mantê-los, mas isso resultará na exibição de uma moldura de vídeo em branco.
 ```JavaScript
 function handleVideoStream(remoteVideoStream) {
-    remoteVideoStream.on('availabilityChanged', async () => {
+    remoteVideoStream.on('isAvailableChanged', async () => {
         if (remoteVideoStream.isAvailable) {
             remoteVideoView(remoteVideoStream);
         } else {

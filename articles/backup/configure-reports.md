@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509374"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562329"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -148,7 +148,7 @@ Existem dois tipos de pontos de vista de adesão à política disponíveis:
 
 * **Adesão de Política por Período de Tempo**: Utilizando esta vista, pode identificar quantos itens tiveram pelo menos uma cópia de segurança bem sucedida num determinado dia e quantos não tiveram uma cópia de segurança bem sucedida nesse dia. Pode clicar em uma linha para ver detalhes de todos os trabalhos de backup que foram desencadeados no dia selecionado. Note que se aumentar o intervalo de tempo para um valor maior, como nos últimos 60 dias, a grelha é renderizada semanalmente e exibe a contagem de todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida em todos os dias da semana dada. Da mesma forma, existe uma visão mensal para maiores intervalos de tempo.
 
-No caso de itens apoiados semanalmente, esta grelha ajuda-o a identificar todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida na semana dada. Para um intervalo de tempo maior, como os últimos 120 dias, a grelha é renderizada em vista mensal, e exibe a contagem de todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida em cada semana no mês dado. Consulte [as Convenções utilizadas nos Relatórios de Backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) para obter mais detalhes sobre as vistas diárias, semanais e mensais.
+No caso de itens apoiados semanalmente, esta grelha ajuda-o a identificar todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida na semana dada. Para um intervalo de tempo maior, como os últimos 120 dias, a grelha é renderizada em vista mensal, e exibe a contagem de todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida em cada semana no mês dado. Consulte [as Convenções utilizadas nos Relatórios de Backup](#conventions-used-in-backup-reports) para obter mais detalhes sobre as vistas diárias, semanais e mensais.
 
 ![Adesão política por período de tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -166,7 +166,7 @@ Uma vez criada a aplicação lógica, terá de autorizar ligações aos Registos
 
 Os Relatórios de Cópia de Segurança utilizam [funções do sistema nos registos do Monitor Azure](backup-reports-system-functions.md). Estas funções funcionam com dados nas tabelas de backup Azure em LA e devolvem dados formatados que o ajudam a recuperar facilmente informações de todas as suas entidades relacionadas com backup, utilizando consultas simples. 
 
-Para criar os seus próprios livros de relatórios utilizando relatórios de backup como base, pode navegar para Relatórios de Backup, clicar em **Editar** no topo do relatório e visualizar/editar as consultas que estão a ser utilizadas nos relatórios. Consulte a [documentação dos livros de Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) para saber mais sobre como criar relatórios personalizados. 
+Para criar os seus próprios livros de relatórios utilizando relatórios de backup como base, pode navegar para Relatórios de Backup, clicar em **Editar** no topo do relatório e visualizar/editar as consultas que estão a ser utilizadas nos relatórios. Consulte a [documentação dos livros de Azure](../azure-monitor/visualize/workbooks-overview.md) para saber mais sobre como criar relatórios personalizados. 
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
 

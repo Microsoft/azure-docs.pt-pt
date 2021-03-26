@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 785567685b77183df0f212897b923d911ac045f6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962285"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567312"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Resolução de problemas problemas comuns problemas do Serviço de Migração de Bases de Dados de Azure
 
@@ -102,7 +102,7 @@ Quando tenta ligar à origem no assistente de projeto do serviço de Migração 
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Ao utilizar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o Serviço de Migração da Base de [Dados](./tutorial-sql-server-azure-sql-online.md) Azure requer a prestação de três pontos finais de serviço na sub-rede de Rede Virtual associada ao serviço:<br> -- Ponto final do autocarro de serviço<br> -- Ponto final de armazenamento<br> -- Ponto final da base de dados-alvo (por exemplo.SQL ponto final, ponto final cosmos DB)<br><br><br><br><br> | [Ativar](./tutorial-sql-server-azure-sql-online.md) os pontos finais de serviço necessários para a conectividade ExpressRoute entre a fonte e o Serviço de Migração da Base de Dados Azure. <br><br><br><br><br><br><br><br> |
+| Ao utilizar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o Serviço de Migração da Base de [Dados](./tutorial-sql-server-to-azure-sql.md) Azure requer a prestação de três pontos finais de serviço na sub-rede de Rede Virtual associada ao serviço:<br> -- Ponto final do autocarro de serviço<br> -- Ponto final de armazenamento<br> -- Ponto final da base de dados-alvo (por exemplo.SQL ponto final, ponto final cosmos DB)<br><br><br><br><br> | [Ativar](./tutorial-sql-server-to-azure-sql.md) os pontos finais de serviço necessários para a conectividade ExpressRoute entre a fonte e o Serviço de Migração da Base de Dados Azure. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Bloqueie o erro de tempo de espera ao migrar uma base de dados MySQL para Azure DB para o MySQL
 
@@ -126,7 +126,7 @@ Quando tenta ligar o Serviço de Migração da Base de Dados Azure à fonte do S
 
 ## <a name="additional-known-issues"></a>Questões adicionais conhecidas
 
-* [Questões conhecidas/limitações de migração com migrações online para Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Questões conhecidas/limitações de migração com migrações online para Azure SQL Database](./index.yml)
 * [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 

@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: c952fe33b434aac972be6a1eb03b63698eb64fc6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995914fab0e7112327ebf6ab8e32fb67181f481e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782321"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608923"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -260,6 +260,34 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 | 10007: Incapaz de processar os metadados descobertos. | Erro ocorreu ao tentar deserizar o JSON. | Contacte o Microsoft Support para obter uma resolução. |
 | 10008: Não é possível criar um ficheiro no servidor. | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução. |
 | 10009: Não é possível escrever metadados descobertos num ficheiro no servidor. | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução. |
+
+## <a name="common-sql-server-instances-and-database-discovery-errors"></a>Casos comuns do Servidor SQL e erros de descoberta de bases de dados
+
+A Azure Migrate suporta a descoberta de instâncias e bases de dados do SQL Server em funcionamento em máquinas no local, utilizando Azure Migrate: Discovery e assessment. A descoberta SQL é atualmente suportada apenas para VMware. Consulte o tutorial da [Discovery](tutorial-discover-vmware.md) para começar.
+
+Erros típicos de descoberta sql são resumidos na tabela.
+
+| **Erro** | **Motivo** | **Ação** |
+|--|--|--|
+|30000: As credenciais associadas a este SQL Server não funcionaram.|As credenciais associadas manualmente são inválidas ou as credenciais associadas a automóveis já não podem aceder ao SQL Server.|Adicione credenciais para o SQL Server no aparelho e aguarde até ao próximo ciclo de descoberta sql ou atualização de força.|
+|30001: Não é possível ligar ao SQL Server a partir do aparelho.|1. O aparelho não tem linha de visão de rede para o SQL Server.<br/>2. Ligação de bloqueio de firewall entre o SQL Server e o aparelho.|1. Tornar o SQL Server acessível a partir do aparelho.<br/>2. Permitir a entrada de ligações do aparelho ao SQL Server.|
+|30003: O certificado não é de confiança.|Um certificado de confiança não é instalado no computador que executa o SQL Server.|Por favor, crie um certificado de confiança no servidor. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153616)|
+|30004: Permissões insuficientes.|Este erro pode ocorrer devido à falta de permissões necessárias para digitalizar as instâncias do SQL Server. |Conceder papel sysadmin às credenciais/conta fornecidas no aparelho para descobrir instâncias e bases de dados do SQL Server. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153511)|
+|30005: O login do SQL Server não conseguiu ligar-se devido a um problema com a sua base de dados principal padrão.|Ou a base de dados em si é inválida ou o login carece de permissão CONNECT na base de dados.|Utilize o ALTER LOGIN para definir a base de dados predefinida para a base de dados principal.<br/>Conceder papel sysadmin às credenciais/conta fornecidas no aparelho para descobrir instâncias e bases de dados do SQL Server. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153615)|
+|30006: O login do SQL Server não pode ser utilizado com autenticação do Windows.|1. O login pode ser um login do SQL Server, mas o servidor apenas aceita a autenticação do Windows.<br/>2. Está a tentar ligar-se através da autenticação do servidor SQL, mas o login utilizado não existe no SQL Server.<br/>3. O login pode utilizar a Autenticação do Windows, mas o login é um principal do Windows não reconhecido. Um principal do Windows não reconhecido significa que o login não pode ser verificado pelo Windows. Isto pode ser porque o login do Windows é de um domínio não fidedquipeso.|Se estiver a tentar ligar-se através da autenticação do servidor SQL, verifique se o SQL Server está configurado no Modo de Autenticação Mista e que o login do SQL Server existe.<br/>Se estiver a tentar ligar-se através da Autenticação do Windows, verifique se está corretamente registado no domínio correto. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153421)|
+|30007: A palavra-passe expirou.|A senha da conta expirou.|A palavra-passe de login do SQL Server pode ter expirado, re-definir a palavra-passe e/ou prolongar a data de validade da palavra-passe. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153419)|
+|30008: A palavra-passe tem de ser alterada.|A palavra-passe da conta deve ser alterada.|Altere a palavra-passe da credencial fornecida para a descoberta do SQL Server. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153318)|
+|30009: Ocorreu um erro interno.|Erro interno ocorreu ao descobrir casos e bases de dados do SQL Server. |Contacte o suporte da Microsoft se o problema persistir.|
+|30010: Não foram encontradas bases de dados.|Não é possível encontrar bases de dados a partir da instância do servidor selecionada.|Conceder papel de sysadmin às credenciais/conta fornecidas no aparelho para a descoberta de bases de dados SQL.|
+|30011: Ocorreu um erro interno durante a avaliação de uma instância ou base de dados SQL.|Erro interno ocorreu durante a avaliação.|Contacte o suporte da Microsoft se o problema persistir.|
+|30012: A ligação SQL falhou.|1. A firewall do servidor recusou a ligação.<br/>2. O serviço sql server browser (sqlbrowser) não foi iniciado.<br/>3.SQL O Servidor não respondeu ao pedido do cliente porque o servidor provavelmente não foi iniciado.<br/>4. O cliente SQL Server não pode ligar-se ao servidor. Este erro pode ocorrer porque o servidor não está configurado para aceitar ligações remotas.<br/>5. O cliente SQL Server não pode ligar-se ao servidor. O erro pode ocorrer porque ou o cliente não consegue resolver o nome do servidor ou o nome do servidor está incorreto.<br/>6. Os protocolos TCP ou tubos nomeados não estão ativados.<br/>7. O nome de instância do servidor SQL especificado não é válido.|Utilize [este](https://go.microsoft.com/fwlink/?linkid=2153317) guia de utilizador interativo para resolver problemas de conectividade. Por favor, aguarde 24 horas depois de seguir o guia para que os dados atualização no serviço. Se o problema persistir, contacte o suporte da Microsoft.|
+|30013: Ocorreu um erro ao estabelecer uma ligação à instância do servidor SQL.|1.SQL O nome do Servidor não pode ser resolvido a partir do aparelho.<br/>2.SQL O Servidor não permite ligações remotas.|Se conseguir extrair o servidor SQL do aparelho, aguarde 24 horas para verificar se este problema se resolve automaticamente. Caso não o faça, contacte o suporte da Microsoft. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153316)|
+|30014: O nome de utilizador ou a palavra-passe são inválidos.| Este erro pode ocorrer devido a uma falha de autenticação que envolve uma má palavra-passe ou nome de utilizador.|Forneça uma credencial com um nome de utilizador válido e senha. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153315)|
+|30015: Ocorreu um erro interno ao descobrir a ocorrência SQL.|Ocorreu um erro interno ao descobrir a ocorrência do SQL.|Contacte o suporte da Microsoft se o problema persistir.|
+|30016: A ligação à instância '%instância', falhou devido a um intervalo.| Isto pode ocorrer se a firewall do servidor recusar a ligação.|Verifique se a firewall no SQL Server está configurada para aceitar ligações. Se o erro persistir, contacte o suporte da Microsoft. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2153611)|
+|30017: Ocorreu um erro interno.|Exceção sem manipulação.|Contacte o suporte da Microsoft se o problema persistir.|
+|30018: Ocorreu um erro interno.|Ocorreu um erro interno durante a recolha de dados como o tamanho do DB temp, tamanho do ficheiro, etc. da instância SQL.|Por favor, aguarde 24 horas e contacte o suporte da Microsoft se o problema persistir.|
+|30019: Ocorreu um erro interno.|Ocorreu um erro interno durante a recolha de métricas de desempenho, tais como utilização da memória, etc. de uma base de dados ou de um caso.|Por favor, aguarde 24 horas e contacte o suporte da Microsoft se o problema persistir.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

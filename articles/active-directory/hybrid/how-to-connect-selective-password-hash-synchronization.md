@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103603106"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604673"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuração seletiva de sincronização de hash de palavra-passe para Azure AD Connect
 
@@ -36,6 +36,9 @@ Para reduzir o esforço administrativo de configuração, deve primeiro consider
 
 > [!Important]
 > Com a opção de configuração escolhida, uma sincronização inicial necessária (Full Sync) para aplicar as alterações, será executada automaticamente durante o ciclo de sincronização seguinte.
+
+> [!Important]
+> Configurar a sincronização seletiva de hash de palavra-passe influencia diretamente a gravação de passwords. Alterações de palavra-passe ou resets de palavra-passe que são iniciados no Azure Ative Directory recíprote para o Ative Directory apenas se o utilizador estiver no âmbito da sincronização de hash de palavra-passe. 
 
 ### <a name="the-admindescription-attribute"></a>O atributo dedmindescrição
 Ambos os cenários dependem da definição do atributo dedmindesscription dos utilizadores a um valor específico.  Isto permite que as regras sejam aplicadas e é o que faz o PHS seletivo funcionar.
@@ -134,6 +137,9 @@ Uma vez concluídas todas as configurações, é necessário editar o **adminssc
    
   ![Editar atributo](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+Também pode utilizar o seguinte comando PowerShell para editar o atributo de **admindDDddscription** de um utilizador:
+
+```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## <a name="excluded-users-is-larger-than-included-users"></a>Os utilizadores excluídos são maiores do que os utilizadores incluídos
 A secção seguinte descreve como permitir a sincronização seletiva de haxixe de palavra-passe quando o número de utilizadores a **excluir** é **maior** do que o número de utilizadores a **incluir**.
@@ -202,7 +208,9 @@ Uma vez concluídas todas as configurações, é necessário editar o **admindsc
 
   ![Editar atributos](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ Também pode utilizar o seguinte comando PowerShell para editar o atributo de **admindDDddscription** de um utilizador:
+
+ ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [O que é a sincronização de hash de palavra-passe?](whatis-phs.md)

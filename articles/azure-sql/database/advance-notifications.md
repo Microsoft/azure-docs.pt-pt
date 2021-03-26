@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 895b9081ba7eb6d7e8b5d3304d37168e4064ed39
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101690894"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560051"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>Notificações antecipadas para eventos de manutenção planeados (Pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -89,5 +89,5 @@ O quadro que se segue apresenta notificações adicionais que podem ser enviadas
 
 - [Janela de manutenção](maintenance-window.md)
 - [FaQ da janela de manutenção](maintenance-window-faq.yml)
-- [Descrição geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-- [Enviar e-mail a Função do Azure Resource Manager](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)
+- [Descrição geral dos alertas no Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+- [Enviar e-mail a Função do Azure Resource Manager](../../azure-monitor/alerts/action-groups.md#email-azure-resource-manager-role)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 37bbc8c7c2b81c22ffd8704e655805cc63cd9d45
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f9215469b1436ce9dc95c140e6969366d80d1ced
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044996"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607138"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de lançamento: Dispositivos de Fala SDK
 
@@ -107,7 +107,7 @@ As seguintes secções listam alterações nas versões mais recentes.
 **Alterações interruptivas**
 
 - Com este lançamento são introduzidas várias alterações de rutura. Por favor, consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes relativos às APIs.
-- Os ficheiros do modelo KWS não são compatíveis com dispositivos de fala SDK 1.0.1. Os ficheiros de palavras-chave existentes serão eliminados após a escrita dos novos ficheiros de palavras-chave para o dispositivo.
+- Os ficheiros de modelos de reconhecimento de palavras-chave não são compatíveis com dispositivos de fala SDK 1.0.1. Os ficheiros de palavras-chave existentes serão eliminados após a escrita dos novos ficheiros de palavras-chave para o dispositivo.
 
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>Dispositivos de fala SDK 0.5.0: Lançamento 2018-agosto
 

@@ -7,12 +7,12 @@ ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597390"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565984"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para a Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM utilizando a Azure Data Factory
 
@@ -370,7 +370,7 @@ A combinação ideal de **writeBatchSize** e **parallelCopies** depende do esque
 
 Para obter dados a partir de pontos de vista dynamics, você precisa obter a consulta guardada da vista, e usar a consulta para obter os dados.
 
-Existem duas entidades que armazenam diferentes tipos de visualização: a visualização do sistema de lojas "save-questionry" e a visão do utilizador das lojas "user-questionry". Para obter a informação dos pontos de vista, consulte a seguinte consulta FetchXML e substitua a "TARGETENTITY" com `savedquery` ou `userquery` . Cada tipo de entidade tem mais atributos disponíveis que pode adicionar à consulta com base na sua necessidade. Saiba mais sobre [a entidade savequery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) e [a entidade userquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+Existem duas entidades que armazenam diferentes tipos de visualização: a visualização do sistema de lojas "save-questionry" e a visão do utilizador das lojas "user-questionry". Para obter a informação dos pontos de vista, consulte a seguinte consulta FetchXML e substitua a "TARGETENTITY" com `savedquery` ou `userquery` . Cada tipo de entidade tem mais atributos disponíveis que pode adicionar à consulta com base na sua necessidade. Saiba mais sobre [a entidade savequery](/dynamics365/customer-engagement/web-api/savedquery) e [a entidade userquery](/dynamics365/customer-engagement/web-api/userquery).
 
 ```xml
 <fetch top="5000" >

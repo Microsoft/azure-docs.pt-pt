@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 8437d12075a148a3e8062f62e195bc019d89a85b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "70881020"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606968"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Segurança física dedicada a Azure HSM
 
@@ -25,7 +25,7 @@ O Azure Dedicado HSM ajuda-o a cumprir os requisitos avançados de segurança pa
 
 ## <a name="security-through-procurement"></a>Segurança através de aquisições
 
-A Microsoft segue um processo de aquisição seguro. Gerimos a cadeia de custódia e garantimos que o dispositivo específico encomendado e enviado é o dispositivo que chega aos nossos centros de dados. Os dispositivos estão nas costas de plástico adulterada. São armazenados numa área de armazenamento segura até serem encomendados na galeria de dados do centro de dados.  Os racks que contêm os dispositivos HSM são considerados de alto impacto comercial (HBI). Os dispositivos estão sempre bloqueados e sob videovigilância à frente e atrás.
+A Microsoft segue um processo de aquisição seguro. Gerimos a cadeia de custódia e garantimos que o dispositivo específico encomendado e enviado é o dispositivo que chega aos nossos centros de dados. Os dispositivos estão em sacos e recipientes de plástico de eventos de adulteração serializados. São armazenados numa área de armazenamento segura até serem encomendados na galeria de dados do centro de dados.  Os racks que contêm os dispositivos HSM são considerados de alto impacto comercial (HBI). Os dispositivos estão sempre bloqueados e sob videovigilância à frente e atrás.
 
 ## <a name="security-through-deployment"></a>Segurança através da implantação
 
@@ -49,7 +49,7 @@ Se um engenheiro da Microsoft tiver de aceder à cremalheira utilizada por dispo
 
 ## <a name="logical-level-security-considerations"></a>Considerações lógicas de segurança de nível
 
-Os HSMs são a provisionados a uma rede virtual criada pelo cliente. Este é o espaço de endereço privado iup de um cliente.  Esta configuração proporciona um valioso isolamento lógico ao nível da rede e garante o acesso apenas pelo cliente. Isto implica que todos os controlos de segurança de nível lógico são da responsabilidade do cliente.
+Os HSMs são a provisionados a uma rede virtual criada pelo cliente dentro do espaço privado ip address do cliente.  Esta configuração proporciona um valioso isolamento lógico ao nível da rede e garante o acesso apenas pelo cliente. Isto implica que todos os controlos de segurança de nível lógico são da responsabilidade do cliente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
