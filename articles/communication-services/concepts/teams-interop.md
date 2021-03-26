@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b7d992961fc165ce643bd0d6aba4d8a9bda1d38e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b641ec37d134303ae6b31c092cd3c50811477a7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495594"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108422"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidade com o Teams
 
@@ -29,7 +29,7 @@ A interoperabilidade das equipas permite criar aplicações personalizadas que l
 1. Os detalhes da reunião são partilhados com utilizadores externos através da sua aplicação personalizada.
    * **Usando API de gráfico** A sua aplicação de Serviços de Comunicação personalizada utiliza as APIs do Microsoft Graph para aceder aos detalhes da reunião a partilhar. 
    * **Usando outras opções** Por exemplo, o seu link de reunião pode ser copiado do seu calendário em Equipas microsoft.
-1. Os utilizadores externos utilizam a sua aplicação personalizada para se juntarem à reunião das Equipas (através das bibliotecas de clientes de serviços de comunicação e chat)
+1. Os utilizadores externos utilizam a sua aplicação personalizada para se juntarem à reunião das Equipas (através dos Serviços de Comunicação Que Ligam e Chat SDKs)
 
 A arquitetura de alto nível para este caso de uso é assim: 
 
@@ -37,7 +37,7 @@ A arquitetura de alto nível para este caso de uso é assim:
 
 Enquanto certas funcionalidades de reunião de equipas, como a mão levantada, o modo em conjunto e as salas de fuga só estarão disponíveis para os utilizadores das Equipas, a sua aplicação personalizada terá acesso às capacidades de áudio, vídeo, chat e partilha de ecrãs da reunião. O chat de reuniões será acessível ao utilizador de aplicações personalizadas enquanto estiverem na chamada. Não poderão enviar ou receber mensagens antes de se juntarem ou depois de deixarem a chamada. 
 
-Quando um utilizador dos Serviços de Comunicação se juntar à reunião de Equipas, o nome de exibição fornecido através da biblioteca do cliente Call será mostrado aos utilizadores das Equipas. O utilizador dos Serviços de Comunicação será tratado como um utilizador anónimo em Equipas.  A sua aplicação personalizada deve considerar a autenticação do utilizador e outras medidas de segurança para proteger as reuniões das Equipas. Esteja atento às implicações de segurança de permitir que utilizadores anónimos se juntem às reuniões e utilize o [guia de segurança das Equipas](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar as capacidades disponíveis para utilizadores anónimos.
+Quando um utilizador dos Serviços de Comunicação se juntar à reunião de Equipas, o nome de exibição fornecido através do Call SDK será mostrado aos utilizadores das Equipas. O utilizador dos Serviços de Comunicação será tratado como um utilizador anónimo em Equipas.  A sua aplicação personalizada deve considerar a autenticação do utilizador e outras medidas de segurança para proteger as reuniões das Equipas. Esteja atento às implicações de segurança de permitir que utilizadores anónimos se juntem às reuniões e utilize o [guia de segurança das Equipas](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar as capacidades disponíveis para utilizadores anónimos.
 
 Equipas de Serviços de Comunicação Interop está atualmente em pré-visualização privada. Quando geralmente disponíveis, os utilizadores dos Serviços de Comunicação serão tratados como "utilizadores de acesso externo". Saiba mais sobre o acesso externo em [Call, chat e colabore com pessoas fora da sua organização em Microsoft Teams.](/microsoftteams/communicate-with-users-from-other-organizations)
 

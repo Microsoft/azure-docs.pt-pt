@@ -3,12 +3,12 @@ title: Windows Server Failover Cluster em Azure VMware Solution vSAN com discos 
 description: Configurar o Windows Server Failover Cluster (WSFC) na Solução VMware Azure e tirar partido de soluções que requerem capacidade WSFC.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8cb2fdd8d519c665840390a41c95121218750a95
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518998"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025973"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Windows Server Failover Cluster em Azure VMware Solution vSAN com discos partilhados nativos
 
@@ -49,10 +49,10 @@ O diagrama seguinte ilustra a arquitetura dos nós virtuais WSFC numa nuvem priv
 
 Atualmente, as seguintes configurações são suportadas:
 
-- Microsoft Windows Server 2012 ou mais tarde.
-- Até cinco nós de agrupamento de failover por cluster.
-- Até quatro adaptadores PVSCSI por VM.
-- Até 64 discos por adaptador PVSCSI.
+- Microsoft Windows Server 2012 ou mais tarde
+- Até cinco nódoas de agrupamento de failover por cluster
+- Até quatro adaptadores PVSCSI por VM
+- Até 64 discos por adaptador PVSCSI
 
 ## <a name="virtual-machine-configuration-requirements"></a>Requisitos de configuração da Máquina Virtual
 

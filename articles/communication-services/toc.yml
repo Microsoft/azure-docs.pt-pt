@@ -42,7 +42,7 @@
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
         - name: Adicione chamada de vídeo à sua aplicação (JavaScript)
           href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-        - name: Utilizar a biblioteca de cliente de chamadas
+        - name: Use o Chamando SDK
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Associe a sua aplicação de chamadas a uma reunião do Teams
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -70,13 +70,13 @@
   items:
     - name: Chat
       items:
-        - name: Descrição geral da biblioteca de cliente de chat
+        - name: Visão geral do Chat SDK
           href: concepts/chat/sdk-features.md
         - name: Conceitos de chat
           href: concepts/chat/concepts.md
     - name: Telefonia e SMS
       items:
-        - name: Descrição geral da biblioteca de cliente de SMS
+        - name: Visão geral do SMS SDK
           href: concepts/telephony-sms/sdk-features.md
         - name: Conceitos de SMS
           href: concepts/telephony-sms/concepts.md
@@ -88,7 +88,7 @@
           href: concepts/telephony-sms/sip-interface-infrastructure.md
     - name: Chamadas de voz e vídeo
       items:
-        - name: Descrição geral da biblioteca de cliente de chamadas
+        - name: Chamando a visão geral da SDK
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Conceitos de voz e vídeo
           href: concepts/voice-video-calling/about-call-types.md

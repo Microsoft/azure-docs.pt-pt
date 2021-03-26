@@ -4,12 +4,12 @@ description: Saiba como configurar um recipiente personalizado no Azure App Serv
 ms.topic: article
 ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1d1a1292bc7583e4934ac176c34d2768700d11c5
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704876"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036769"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contentor personalizado para o Serviço de Aplicações do Azure
 
@@ -112,6 +112,8 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 ```
 
 Quando a sua aplicação é executado, as definições da aplicação do Serviço de Aplicações são injetadas no processo como variáveis de ambiente automaticamente. Pode verificar variáveis ambientais de contentores com o URL `https://<app-name>.scm.azurewebsites.net/Env)` .
+
+Se a sua aplicação utilizar imagens de um registo privado ou de Docker Hub, as credenciais de acesso ao repositório são guardadas em variáveis ambientais: `DOCKER_REGISTRY_SERVER_URL` e `DOCKER_REGISTRY_SERVER_USERNAME` . `DOCKER_REGISTRY_SERVER_PASSWORD` . Devido aos riscos de segurança, nenhum destes nomes variáveis reservados está exposto à aplicação.
 
 ::: zone pivot="container-windows"
 Para recipientes baseados em IIS ou .NET Framework (4.0 ou superior), são injetados automaticamente nas `System.ConfigurationManager` definições de aplicações .NET e cadeias de ligação pelo Serviço de Aplicações. Para todas as outras línguas ou enquadramento, são fornecidas como variáveis ambientais para o processo, com um dos seguintes prefixos correspondentes:

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 51f938743d8da3c9a1dea546320662701e2b88c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ce49488124f07f05b8df2d9f4eae41e041aa0aa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583523"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026194"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com Insights de Aplicação
 
@@ -86,5 +86,4 @@ A forma como o Impacto é calculado varia em termos de base no facto de estarmos
     - [Retenção](usage-retention.md)
     - [Fluxos de Utilizador](usage-flows.md)
     - [Livros](../visualize/workbooks-overview.md)
-    - [Adicionar contexto de utilizador](usage-send-user-context.md)
-
+    - [Adicionar contexto de utilizador](./usage-overview.md)

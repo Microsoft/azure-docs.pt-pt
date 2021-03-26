@@ -4,12 +4,12 @@ description: Saiba como migrar cargas de trabalho apache Kafka em HDInsight 3.6 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 3967a5d96c35e4bac88dcd9a6c1fa95b78a6b2b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e15ebb13aee0e5dd814688ae77edaded667d54ac
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939117"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864130"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrar cargas de carga Apache Kafka para Azure HDInsight 4.0
 
@@ -24,7 +24,7 @@ HDInsight 3.6 suporta duas versões de Kafka: 1.0.0 e 1.1.0. HDInsight 4.0 supor
 * **Executar HDInsight na versão mais recente, reter a versão Kafka**: Migrar uma aplicação HDInsight 3.6 e Kafka 1.1.0 para HDInsight 4.0 com Kafka 1.1.0 (caminho C abaixo).
 * **Executar Kafka numa versão mais recente, reter a versão HDInsight**: Migrar uma aplicação Kafka 1.0.0 para 1.1.0 e permanecer no HDInsight 3.6 (caminho A abaixo). Note que esta opção ainda requer a implantação de um novo cluster. A atualização da versão Kafka num cluster existente não é suportada. Depois de criar um cluster com a versão que pretende, migrar os seus clientes Kafka para utilizar o novo cluster.
 
-![Upgrade de caminhos para Apache Kafka em 3.6](./media/upgrade-threesix-to-four/apache-kafka-upgrade-path.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-upgrade-path.png" alt-text="Upgrade de caminhos para Apache Kafka em 3.6" border="false":::
 
 ## <a name="apache-kafka-versions"></a>Versões Apache Kafka
 
@@ -53,7 +53,7 @@ Para obter uma lista completa de atualizações, consulte as notas de [lançamen
 
 Os novos corretores Kafka apoiam clientes mais velhos. [KIP-35 - A versão do protocolo de recuperação](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introduziu um mecanismo para determinar dinamicamente a funcionalidade de um corretor Kafka e [KIP-97: A Política de Compatibilidade do Cliente de Kafka RPC introduziu](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) uma nova política de compatibilidade e garantias para o cliente Java. Anteriormente, um cliente kafka teve de interagir com um corretor da mesma versão ou uma versão mais recente. Agora, versões mais recentes dos clientes Java e outros clientes que suportam o KIP-35, como `librdkafka` podem recair em tipos de pedidos mais antigos ou lançar erros apropriados se a funcionalidade não estiver disponível.
 
-![Atualizar compatibilidade do cliente kafka](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png" alt-text="Atualizar compatibilidade do cliente kafka" border="false":::
 
 Note que não significa que o cliente suporte corretores mais velhos.  Para mais informações, consulte [a Matriz de Compatibilidade.](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix)
 
@@ -61,21 +61,21 @@ Note que não significa que o cliente suporte corretores mais velhos.  Para mais
 
 A seguinte orientação de migração pressupõe um aglomerado Apache Kafka 1.0.0 ou 1.1.0 implantado no HDInsight 3.6 numa única rede virtual. O corretor existente tem alguns tópicos e está a ser ativamente utilizado por produtores e consumidores.
 
-![Ambiente presumido de Kafka atual](./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png" alt-text="Ambiente presumido de Kafka atual" border="false":::
 
 Para completar a migração, faça os seguintes passos:
 
 1. **Implementar um novo cluster HDInsight 4.0 e clientes para teste.** Implementar um novo cluster HDInsight 4.0 Kafka. Se várias versões de cluster Kafka puderem ser selecionadas, é aconselhável selecionar a versão mais recente. Após a implementação, desaprote alguns parâmetros conforme necessário e crie um tópico com o mesmo nome que o ambiente existente. Além disso, desa parte para a encriptação TLS e bring-your-your-key (BYOK) conforme necessário. Em seguida, verifique se funciona corretamente com o novo cluster.
 
-    ![Implementar novos clusters HDInsight 4.0](./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png" alt-text="Implementar novos clusters HDInsight 4.0" border="false":::
 
 1. **Troque o cluster para a aplicação do produtor e aguarde até que todos os dados da fila são consumidos pelos consumidores atuais.** Quando o novo cluster HDInsight 4.0 Kafka estiver pronto, mude o destino de produtor existente para o novo cluster. Deixe-o como está até que a app consumer existente tenha consumido todos os dados do cluster existente.
 
-    ![Mude o cluster para app de produtor](./media/upgrade-threesix-to-four/switch-cluster-producer-app.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/switch-cluster-producer-app.png" alt-text="Mude o cluster para app de produtor" border="false":::
 
 1. **Mude o cluster na aplicação do consumidor.** Depois de confirmar que a aplicação de consumo existente terminou de consumir todos os dados do cluster existente, altere a ligação para o novo cluster.
 
-    ![Mude o cluster na app do consumidor](./media/upgrade-threesix-to-four/switch-cluster-consumer-app.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/switch-cluster-consumer-app.png" alt-text="Mude o cluster na app do consumidor" border="false":::
 
 1. **Retire o aglomerado antigo e as aplicações de teste conforme necessário.** Uma vez que o interruptor esteja completo e funcionando corretamente, remova o antigo cluster HDInsight 3.6 Kafka e os produtores e consumidores utilizados no teste, conforme necessário.
 

@@ -1,14 +1,14 @@
 ---
 title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
-ms.date: 12/01/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100577099"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868159"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -68,9 +68,9 @@ As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a 
 
 Seguem-se recomendações gerais relativas à utilização do Complemento político Azure:
 
-- O Add-on de Política Azure requer 3 componentes gatekeeper para executar: 1 cápsula de auditoria e 2 réplicas de pod webhook. Estes componentes consomem mais recursos à medida que a contagem de recursos da Kubernetes e atribuições de políticas aumenta no cluster, o que requer operações de auditoria e execução.
+- O Add-on de política Azure requer três componentes gatekeeper para executar: 1 cápsula de auditoria e 2 réplicas de pod webhook. Estes componentes consomem mais recursos à medida que a contagem de recursos da Kubernetes e atribuições de políticas aumenta no cluster, o que requer operações de auditoria e execução.
 
-  - Por menos de 500 cápsulas num único cluster com um máximo de 20 restrições: 2 vCPUs e 350 MB de memória por componente.
+  - Para menos de 500 cápsulas num único cluster com um máximo de 20 restrições: 2 vCPUs e 350 MB de memória por componente.
   - Para mais de 500 cápsulas num único cluster com um máximo de 40 restrições: 3 vCPUs e 600 MB de memória por componente.
 
 - As cápsulas windows [não suportam contextos de segurança.](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods)
@@ -85,7 +85,7 @@ A seguinte recomendação aplica-se apenas à AKS e ao Addon da Política Azure:
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Instale add-on de política Azure para AKS
 
-Antes de instalar o Add-on de Política Azure ou permitir qualquer uma das funcionalidades de serviço, a sua subscrição deve ativar os fornecedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights.**
+Antes de instalar o Add-on de Política Azure ou ativar qualquer uma das funcionalidades do serviço, a sua subscrição deve ativar os fornecedores de recursos **Microsoft.PolicyInsights.**
 
 1. Precisa da versão Azure CLI 2.12.0 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -93,15 +93,12 @@ Antes de instalar o Add-on de Política Azure ou permitir qualquer uma das funci
 
    - Portal Azure:
 
-     Registe-se os fornecedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights.** Para obter etapas, consulte [fornecedores e tipos de recursos.](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
+     Registe-se os fornecedores de recursos **Microsoft.PolicyInsights.** Para obter etapas, consulte [fornecedores e tipos de recursos.](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
 
    - Azure CLI:
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -446,8 +443,7 @@ Outras considerações:
 
 ## <a name="logging"></a>Registo
 
-Como controlador/contentor Kubernetes, tanto as cápsulas _de política_ azul como de _gatekeeper_ mantêm registos no cluster Kubernetes. Os registos podem ser expostos na página **Insights** do cluster Kubernetes.
-Para obter mais informações, consulte [o desempenho do seu cluster Kubernetes com o Azure Monitor para obter recipientes](../../../azure-monitor/containers/container-insights-analyze.md).
+Como controlador/contentor Kubernetes, tanto as cápsulas _de política azul_ como de _gatekeeper_ mantêm registos no cluster Kubernetes. Os registos podem ser expostos na página **Insights** do cluster Kubernetes. Para obter mais informações, consulte [o desempenho do seu cluster Kubernetes com o Azure Monitor para obter recipientes](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Para visualizar os registos adicionais, `kubectl` utilize:
 

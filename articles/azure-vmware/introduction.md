@@ -2,13 +2,13 @@
 title: Introdução
 description: Aprenda as funcionalidades e benefícios da Azure VMware Solution para implementar e gerir cargas de trabalho baseadas em VMware em Azure.
 ms.topic: overview
-ms.date: 11/11/2020
-ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a75c04cf6b51068ef9867e3f9438b2820da703fe
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579285"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048821"
 ---
 # <a name="what-is-azure-vmware-solution"></a>O que é o Azure VMware Solution?
 
@@ -19,6 +19,11 @@ A Azure VMware Solution é uma solução validada pela VMware com validação e 
 O diagrama mostra a adjacência entre nuvens privadas e VNets em Azure, serviços Azure e ambientes no local. O acesso à rede de nuvens privadas a serviços Azure ou VNets proporciona integração orientada pelo SLA dos pontos finais do serviço Azure. O ExpressRoute Global Reach liga o seu ambiente no local à sua nuvem privada Azure VMware Solution. 
 
 ![Imagem de Azure VMware Solution adjacência de nuvem privada para Azure e no local](./media/adjacency-overview-drawing-final.png)
+
+## <a name="customer-communication"></a>Comunicação ao cliente
+Problemas de serviço, manutenção planeada, avisos de saúde, notificações de avisos de segurança são publicados através do **Service Health** no portal Azure. Pode tomar ações oportunas quando configurar alertas de registo de atividade para estas notificações. Para obter mais informações, consulte [Criar alertas de saúde de serviço utilizando o portal Azure.](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal)
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot das notificações de saúde de serviço":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Anfitriões, aglomerados e nuvens privadas
 

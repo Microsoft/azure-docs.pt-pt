@@ -1,16 +1,14 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais na aka.ms/skyeye/meta.
-título: Transforms and Jobs in Media Services : Descrição do Azure Media Services: Saiba como criar uma Transforms para descrever as regras de processamento dos seus vídeos nos Serviços Azure Media.
-serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
-
-ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 03/17/2021 ms.author: inhenkel
+título: Transforms and Jobs in Media Services : Descrição do Azure Media Services: Transforms descrevem as regras para o processamento dos seus vídeos nos Serviços Azure Media.
+serviços: autor de serviços de media: IngridAtMicrosoft manager: femila ms.service: media-services ms.topic: conceptual ms.date: 03/22/2021 ms.author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e Empregos em Serviços de Media
 
 Este tópico dá detalhes sobre [Transforms](/rest/api/media/transforms) e [Jobs](/rest/api/media/jobs) e explica a relação entre estas entidades.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 ### <a name="transformsjobs-workflow"></a>Fluxo de trabalho transformado/emprego
 
@@ -90,12 +88,6 @@ O diagrama seguinte mostra o objeto **Job** e os objetos que refere, incluindo a
 Clique na imagem para visualizá-lo tamanho completo.  
 
 [![Diagrama mostrando o objeto De Trabalho e os objetos que refere, incluindo as relações de derivação de classe entre os objetos.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
-
-## <a name="configure-media-reserved-units"></a>Configure unidades reservadas para meios de comunicação
-
-Para os Trabalhos de Análise de Áudio e Análise de Vídeo que são desencadeados pelos Media Services v3 ou Por Video Indexer, é altamente recomendado a provisionar a sua conta com 10 Unidades Reservadas para Os Meios de Comunicação Social (MRUs). Se precisar de mais de 10 MRUs S3, abra um bilhete de apoio utilizando o [portal Azure](https://portal.azure.com/).
-
-Para mais informações, consulte [o processamento de mídia scale com CLI](media-reserved-units-cli-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 

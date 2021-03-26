@@ -5,20 +5,20 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd183e9088f24aa8b94955bc8ed2a68b4a7eb27c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496185"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106803"
 ---
 ## <a name="joining-the-meeting-chat"></a>Juntando-se ao chat da reunião 
 
-Uma vez ativada a interoperabilidade das Equipas, um utilizador dos Serviços de Comunicação pode juntar-se à chamada das Equipas como utilizador externo utilizando a biblioteca do cliente chamador. Juntando-se à chamada irá adicioná-los como participantes no chat de reunião também, onde podem enviar e receber mensagens com outros utilizadores na chamada. O utilizador não terá acesso a mensagens de chat que foram enviadas antes de se juntarem à chamada. Para se juntar à reunião e começar a conversar, pode seguir os próximos passos.
+Uma vez ativada a interoperabilidade das Equipas, um utilizador dos Serviços de Comunicação pode juntar-se à chamada teams como utilizador externo utilizando o Call SDK. Juntando-se à chamada irá adicioná-los como participantes no chat de reunião também, onde podem enviar e receber mensagens com outros utilizadores na chamada. O utilizador não terá acesso a mensagens de chat que foram enviadas antes de se juntarem à chamada. Para se juntar à reunião e começar a conversar, pode seguir os próximos passos.
 
 ## <a name="install-the-chat-packages"></a>Instale os pacotes de chat
 
-Utilize o `npm install` comando para instalar as bibliotecas de clientes dos Serviços de Comunicação necessários para o JavaScript.
+Utilize o `npm install` comando para instalar os SDKs de serviços de comunicação necessários para o JavaScript.
 
 ```console
 npm install @azure/communication-common --save

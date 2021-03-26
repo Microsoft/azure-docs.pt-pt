@@ -3,19 +3,14 @@ title: Restaurar Discos Geridos Azure
 description: Saiba como restaurar os Discos Geridos Azure a partir do portal Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94adc8512987b50a8df07d295215ffcff873162f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101703754"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108592"
 ---
-# <a name="restore-azure-managed-disks-in-preview"></a>Restaurar Discos Geridos Azure (na pré-visualização)
-
->[!IMPORTANT]
->A Azure Disk Backup está em pré-visualização sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para disponibilidade da região, consulte a [matriz de suporte.](disk-backup-support-matrix.md)
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever para a pré-visualização.
+# <a name="restore-azure-managed-disks"></a>Restaurar Discos Geridos Azure
 
 Este artigo explica como restaurar os [Discos Geridos Azure](../virtual-machines/managed-disks-overview.md) a partir de um ponto de restauração criado pela Azure Backup.
 

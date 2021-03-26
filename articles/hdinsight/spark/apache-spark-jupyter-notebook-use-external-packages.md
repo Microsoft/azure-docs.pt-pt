@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: a3d787059345b5971d99ebd7a1e26a9135b61bed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3ddfdfdfe10d5b6ea7c2d5cd99d325564163c0dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930344"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866017"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Use pacotes externos com cadernos Jupyter em aglomerados Apache Spark em HDInsight
 
@@ -34,11 +34,11 @@ Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.mave
 
 1. Crie um novo bloco de notas. Selecione **Novo** e, em seguida, selecione **Spark**.
 
-    ![Criar um novo Caderno Spark Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Criar um novo Caderno Jupyter")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png " alt-text="Criar um novo Caderno Spark Jupyter" border="true":::
 
 1. É criado e aberto um novo bloco de notas com o nome Untitled.pynb. Selecione o nome do portátil na parte superior e introduza um nome amigável.
 
-    ![Fornecer um nome para o bloco de notas](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Fornecer um nome para o bloco de notas")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png " alt-text="Fornecer um nome para o bloco de notas" border="true":::
 
 1. Vais usar a `%%configure` magia para configurar o caderno para usar um pacote externo. Em cadernos que usam pacotes externos, certifique-se de chamar a `%%configure` magia na primeira célula de código. Isto garante que o núcleo está configurado para utilizar a embalagem antes do início da sessão.
 
@@ -56,7 +56,7 @@ Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.mave
 
     b. A partir do repositório, reúna os valores para **GroupId,** **ArtifactId** e **Versão**. Certifique-se de que os valores que recolhe correspondem ao seu cluster. Neste caso, estamos a usar um pacote Scala 2.11 e Spark 1.5.0, mas poderá ter de selecionar diferentes versões para a versão adequada de Scala ou Spark no seu cluster. Você pode descobrir a versão Scala no seu cluster executando `scala.util.Properties.versionString` no kernel Spark Jupyter ou em Spark submit. Você pode descobrir a versão Spark no seu cluster correndo `sc.version` em Cadernos Jupyter.
 
-    ![Use pacotes externos com Caderno Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use pacotes externos com Caderno Jupyter")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png " alt-text="Use pacotes externos com Caderno Jupyter" border="true":::
 
     c. Concatenar os três valores, separados por um cólon **.**
 

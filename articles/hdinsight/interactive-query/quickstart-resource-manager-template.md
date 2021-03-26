@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 4872dd29442a1503e04672a7c42fd7b49a0c506c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 59209bd1b3b6026a229527c1fb0d4b6346a5f3f1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945245"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869689"
 ---
 # <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>Quickstart: Criar cluster de consulta interativa em Azure HDInsight usando o modelo ARM
 
@@ -20,7 +20,7 @@ Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo 
 
 Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
-[![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure" border="true":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Dois recursos Azure são definidos no modelo:
 
 1. Selecione o botão **'Implementar para azul'** abaixo para iniciar súb9 no Azure e abrir o modelo ARM.
 
-    [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
+    [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar no Azure" border="true":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
 
 1. Introduza ou selecione os seguintes valores:
 
@@ -56,7 +56,7 @@ Dois recursos Azure são definidos no modelo:
     |Nome do utilizador Ssh|Forneça o nome de utilizador, o padrão é sshuser|
     |Ssh Password|Forneça a senha.|
 
-    ![Implementar o modelo do gestor de recursos HBase](./media/quickstart-resource-manager-template/resource-manager-template-hive.png)
+    :::image type="content" source="./media/quickstart-resource-manager-template/resource-manager-template-hive.png" alt-text="Implementar o modelo do gestor de recursos HBase" border="true":::
 
 1. Para mais **uma análise dos termos e condições.** Em seguida, **selecione Eu concordo com os termos e condições acima indicados,** em seguida, **Comprar**. Receberá uma notificação de que a sua implantação está em andamento. A criação de um cluster demora cerca de 20 minutos.
 
