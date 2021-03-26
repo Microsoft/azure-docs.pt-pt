@@ -3,12 +3,12 @@ title: Tutorial - Ambientes de peer on-in para uma nuvem privada
 description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 08a461ab7d441eb813d435086dfcea121ef4a7f1
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786911"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564505"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 
@@ -71,7 +71,7 @@ Agora que criou uma chave de autorização para o circuito expressRoute em nuvem
 Aumentámos os [comandos do CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) com detalhes e exemplos específicos para o ajudar a configurar o ExpressRoute Global Reach a espreitar entre ambientes no local para uma nuvem privada Azure VMware Solution.
 
 >[!TIP]
->Para a brevidade na saída do comando Azure CLI, estas instruções podem usar um [ `–query` argumento](https://docs.microsoft.com/cli/azure/query-azure-cli) para executar uma consulta JMESPath apenas para mostrar os resultados necessários.
+>Para a brevidade na saída do comando Azure CLI, estas instruções podem usar um [ `–query` argumento](/cli/azure/query-azure-cli) para executar uma consulta JMESPath apenas para mostrar os resultados necessários.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando a mesma subscrição que o circuito ExpressRoute no local. 
 

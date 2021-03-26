@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fe49f44e157708c3083e2c73757988877fbfcb5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596744"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563468"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -88,7 +88,7 @@ A versão 3 fornece:
 
 #### <a name="action-required"></a>Ação Necessária
 
-Para minimizar a perturbação das suas cargas de trabalho, reveja o guia de [migração](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) para transitar o seu código da versão 2 API e SDKs para a versão 3 API e SDK antes de 29 de fevereiro de 2024.
+Para minimizar a perturbação das suas cargas de trabalho, reveja o guia de [migração](./migrate-v-2-v-3-migration-introduction.md) para transitar o seu código da versão 2 API e SDKs para a versão 3 API e SDK antes de 29 de fevereiro de 2024.
 **Depois de 29 de fevereiro de 2024,** a Azure Media Services deixará de aceitar o tráfego na versão 2 REST API, na versão API de gestão de conta ARM 2015-10-01, ou na versão 2 .NET client SDKs. Isto inclui qualquer cliente de código aberto de 3ª parte SDKS que pode ligar para a versão 2 API.  
 
 Veja o anúncio oficial do [Azure Updates](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
@@ -134,7 +134,7 @@ Veja as últimas amostras nos **[media-services-v3-node-tutorials](https://githu
 
 Live Events agora suporta um modo de faturação mais baixo para "stand-by". Isto permite que os clientes pré-aloquem Eventos Ao Vivo a um custo mais baixo para a criação de "piscinas quentes". Os clientes podem então usar os eventos de stand-by ao vivo para a transição para o estado de Corrida mais rapidamente do que começar do frio na criação.  Isto reduz o tempo para iniciar o canal de forma significativa e permite a atribuição rápida de máquinas que executam em modo de preço mais baixo.
 Veja [aqui](https://azure.microsoft.com/pricing/details/media-services)os últimos detalhes dos preços.
-Para obter mais informações sobre o estado de StandBy e os outros estados de Eventos Ao Vivo consulte o artigo - [Estados de evento ao vivo e faturação.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
+Para obter mais informações sobre o estado de StandBy e os outros estados de Eventos Ao Vivo consulte o artigo - [Estados de evento ao vivo e faturação.](./live-event-states-billing.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103225552"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564471"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -40,7 +40,7 @@ A tabela a seguir descreve as características dos cofres dos Serviços de Recup
 **Mover dados entre abóbadas** | Mover dados de apoio entre cofres não é suportado.
 **Modificar o tipo de armazenamento do cofre** | Pode modificar o tipo de replicação de armazenamento (armazenamento geo-redundante ou armazenamento localmente redundante) para um cofre antes de serem armazenadas cópias de segurança. Depois de começarem as cópias de segurança no cofre, o tipo de replicação não pode ser modificado.
 **Armazenamento com redundância entre zonas (ZRS)** | Disponível nas regiões do Reino Unido Sul (UKS) e Sudeste Asiático (SEA).
-**Pontos finais privados** | Consulte [esta secção](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) para obter requisitos para criar pontos finais privados para um cofre de serviço de recuperação.  
+**Pontos finais privados** | Consulte [esta secção](./private-endpoints.md#before-you-start) para obter requisitos para criar pontos finais privados para um cofre de serviço de recuperação.  
 
 ## <a name="on-premises-backup-support"></a>Suporte de reserva no local
 

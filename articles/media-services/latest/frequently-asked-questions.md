@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b9a4c15c0942a0a5dffe2cfdb30dbea4184057ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871406"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565593"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -31,7 +31,7 @@ Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3
 - Os clientes anexam as suas próprias contas de armazenamento à sua conta Azure Media Services.  Todos os dados do ativo são armazenados nestas contas de armazenamento associadas e o cliente controla o tipo de localização e replicação deste armazenamento.
 - Os dados adicionais associados à conta de Serviços de Comunicação (incluindo Chaves de Encriptação de Conteúdo, chaves de verificação de fichas, urls JobInputHttp e outros metadados de entidade) são armazenados no armazenamento da Microsoft na região selecionada para a conta de Media Services.
     - Devido aos [requisitos de residência](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) de dados no Brasil Sul e Sudeste Asiático, os dados adicionais da conta são armazenados de forma redundante e estão contidos numa única região. Para o Sudeste Asiático, todos os dados adicionais da conta são armazenados em Singapura e para o Brasil Sul, os dados são armazenados no Brasil.
-    - Em regiões que não o Brasil Sul e Sudeste Asiático, os dados adicionais da conta também podem ser armazenados em armazenamento da Microsoft na [região emparelhada.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+    - Em regiões que não o Brasil Sul e Sudeste Asiático, os dados adicionais da conta também podem ser armazenados em armazenamento da Microsoft na [região emparelhada.](../../best-practices-availability-paired-regions.md)
 - O Azure Media Services é um serviço regional e não fornece [elevada disponibilidade](media-services-high-availability-encoding.md) ou replicação de dados. Os clientes que precisam destas funcionalidades são altamente encorajados a construir uma solução usando contas de Media Services em várias regiões.  Uma amostra que mostra como construir uma solução para alta disponibilidade com media services video on demand está disponível como um guia.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quais são as limitações do portal Azure para os Serviços de Comunicação Social v3?

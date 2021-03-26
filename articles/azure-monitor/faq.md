@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa91644eab9d28ffb20de8ec8c0fe00488922b67
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606961"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563383"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -80,7 +80,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como recupero dados de registo?
 Todos os dados são obtidos a partir de um espaço de trabalho Log Analytics utilizando uma consulta de log escrita usando a Linguagem de Consulta de Kusto (KQL). Pode escrever as suas próprias consultas ou utilizar soluções e insights que incluam consultas de registo para uma determinada aplicação ou serviço. Consulte [a visão geral das consultas de registo no Azure Monitor](logs/log-query-overview.md).
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Posso eliminar dados de um espaço de trabalho do Log Analytics?
 Os dados são removidos de um espaço de trabalho de acordo com o seu [período de retenção.](logs/manage-cost-storage.md#change-the-data-retention-period) Pode eliminar dados específicos por razões de privacidade ou conformidade. Ver [Como exportar e apagar dados privados](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) para obter mais informações.
 
@@ -828,26 +828,27 @@ Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e
 ## <a name="sql-insights-preview"></a>Insights SQL (pré-visualização)
 
 ### <a name="what-versions-of-sql-server-are-supported"></a>Que versões do SQL Server são suportadas?
-Consulte [versões suportadas](insights/sql-insights-overview.md#supported-versions) para versões suportadas de SQL.
+Suportamos o SQL Server 2012 e todas as versões mais recentes. Consulte [as versões suportadas](insights/sql-insights-overview.md#supported-versions) para mais detalhes.
 
 ### <a name="what-sql-resource-types-are-supported"></a>Que tipos de recursos SQL são suportados?
+- Base de Dados SQL do Azure
+- Instância Gerida do Azure SQL
+- SQL Server em Azure Virtual Machines (SQL Server em execução em máquinas virtuais registadas com o fornecedor [de máquinas virtuais SQL)](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)
+- Azure VMs (SQL Server em execução em máquinas virtuais não registadas com o fornecedor [de máquinas virtuais SQL)](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)
 
-- Base de Dados SQL do Azure. Apenas uma base de dados única, não bases de dados numa Piscina Elástica.
-- Instância Gerida do Azure SQL 
-- Máquinas virtuais Azure SQL[(Windows,](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) [Linux)](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)e Azure em que o SQL Server está instalado.
+Consulte [versões suportadas](insights/sql-insights-overview.md#supported-versions) para obter mais detalhes e para mais detalhes sobre cenários sem suporte ou suporte limitado.
 
-### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>Quais os sistemas operativos para a máquina que funciona o SQL Server?
-Qualquer SISTEMA que suporte a versão suportada em execução de SQL.
+### <a name="what-operating-systems-for-the-virtual-machine-running-sql-server-are-supported"></a>Quais os sistemas operativos para a máquina virtual que executa o SQL Server?
+Suportamos todos os sistemas operativos especificados pela documentação do [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) e [Do Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) para O Servidor SQL em Máquinas Virtuais Azure.
 
-### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>Que sistema operativo para o servidor de monitorização remota é suportado?
+### <a name="what-operating-system-for-the-monitoring-virtual-machine-are-supported"></a>Que sistema operativo para a máquina virtual de monitorização é suportado?
+O Ubuntu 18.04 é atualmente o único sistema operativo suportado para a máquina virtual de monitorização.
 
-Ubuntu 18.04 é atualmente o único sistema operativo suportado.
-
-### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>Onde os dados de monitorização serão armazenados no Log Analytics 
-Todos os dados de monitorização são armazenados na tabela **InsightsMetrics.** A coluna **Origin** tem o valor *solutions.azm.ms/telegraf/SqlInsights*. A coluna **Namespace** tem valores que começam com *sqlserver_*.
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>Onde serão armazenados os dados de monitorização no Log Analytics?
+Todos os dados de monitorização são armazenados na tabela **InsightsMetrics.** A coluna **Origin** tem o `solutions.azm.ms/telegraf/SqlInsights` valor. A coluna **Namespace** tem valores que começam com `sqlserver_` .
 
 ### <a name="how-often-is-data-collected"></a>Com que frequência são recolhidos dados? 
-Consulte [os Dados recolhidos por insights SQL](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) para obter detalhes sobre a frequência que diferentes dados são recolhidos.
+A frequência da recolha de dados é personalizável. Consulte [os Dados recolhidos por insights SQL](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) para obter detalhes sobre as frequências predefinidos e consulte [o perfil de monitorização do SQL](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) para obter instruções sobre a personalização de frequências. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.

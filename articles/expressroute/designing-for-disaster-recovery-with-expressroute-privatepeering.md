@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 8b1691dc7358c03b924d710684ecd73841b4832d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 3da044057784763df8d071af6c101f7baffbefc6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044605"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562312"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Desenho para recuperação de desastres com o espreitamento privado ExpressRoute
 
@@ -43,11 +43,11 @@ No entanto, se carregar o tráfego de equilíbrio através de caminhos paralelos
 
 ### <a name="same-metro"></a>Mesmo metro
 
-Ao utilizar o mesmo metrô, deve utilizar a localização secundária para o segundo caminho para que esta configuração funcione. Um exemplo do mesmo metro seria *Amesterdão* e *Amesterdão2.* A vantagem de selecionar o mesmo metro é quando a falha da aplicação acontece, a latência de ponta a ponta entre as aplicações no local e a Microsoft permanece a mesma. No entanto, se houver uma catástrofe natural, a conectividade para ambos os caminhos pode deixar de estar disponível. 
+[Muitos metros](expressroute-locations-providers.md#global-commercial-azure) têm duas localizações ExpressRoute. Um exemplo seria *Amesterdão* e *Amesterdão2.* Ao projetar redundância, você poderia construir dois caminhos paralelos para Azure com ambas as localizações no mesmo metro. A vantagem deste design é quando a falha da aplicação acontece, a latência de ponta a ponta entre as aplicações no local e a Microsoft permanece aproximadamente a mesma. No entanto, se houver uma catástrofe natural, como um terramoto, a conectividade para ambos os caminhos pode deixar de estar disponível.
 
 ### <a name="different-metros"></a>Metros diferentes
 
-Ao utilizar diferentes metros para circuitos Standard SKU, a localização secundária deve ser na mesma [região geopolítica.](expressroute-locations-providers.md#locations) Para escolher uma localização fora da região geopolítica, você precisará usar Premium SKU para ambos os circuitos nos caminhos paralelos. A vantagem desta configuração é que as hipóteses de um desastre natural causar uma interrupção em ambas as ligações são muito mais baixas, mas à custa do aumento da latência de ponta a ponta.
+Ao utilizar diferentes metros para redundância, a localização secundária deve ser na mesma [região geopolítica.](expressroute-locations-providers.md#locations) Para escolher uma localização fora da região geopolítica, você precisará usar Premium SKU para ambos os circuitos nos caminhos paralelos. A vantagem desta configuração é que as hipóteses de um desastre natural causar uma interrupção em ambas as ligações são muito mais baixas, mas à custa do aumento da latência de ponta a ponta.
 
 Neste artigo, vamos discutir como enfrentar os desafios que pode enfrentar ao configurar caminhos geo-redundantes.
 

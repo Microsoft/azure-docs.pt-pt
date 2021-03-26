@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ca689df97e7268a5c0f7c0479e6514b98ffda9f2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 74709d970f624f2d4cefaab77e8466361e4102cc
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443459"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563434"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Atualização do dispositivo para tutorial Azure IoT Hub usando a imagem de referência Raspberry Pi 3 B+
 
@@ -30,10 +30,8 @@ Neste tutorial, vai aprender a:
 > * Implementar uma atualização de imagem
 > * Monitorize a implementação da atualização
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
-* Acesso a um hub IoT. Recomenda-se que utilize um nível S1 (Standard) ou superior.
+* Se ainda não o fez, crie uma [conta e exemplo de Atualização de Dispositivos](create-device-update-account.md), incluindo configurar um Hub IoT.
 
 ## <a name="download-image"></a>Baixar imagem
 

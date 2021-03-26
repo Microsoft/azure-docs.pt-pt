@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 93ac6ae3c8aed61557a239bb9c84d3587dce1daa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cffa8d9a0647ff5fe970801d5da98e23be0b2aaf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962336"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567330"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Resolver problemas de erros do DMS ao ligar às bases de dados de origem
 
@@ -74,8 +74,8 @@ Os potenciais problemas associados à ligação a uma base de dados do Servidor 
 | **Erro 53** - A ligação SQL falhou. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não estava acessível. Verifique se o nome da instância está correto e que o SQL Server está configurado para permitir ligações remotas. (fornecedor: Fornecedor de tubos nomeado, erro: 40 - Não foi possível abrir uma ligação ao SQL Server | Este erro ocorre se o serviço não conseguir ligar-se ao servidor de origem. Para resolver o problema, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente. |
 | **Erro 18456** - O início de sessão falhou. O login falhou para o utilizador '{user}' | Este erro ocorre se o serviço não conseguir ligar à base de dados de origem com as credenciais T-SQL fornecidas. Para resolver o problema, verifique as credenciais inscritas. Também pode consultar [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou os documentos de resolução de problemas listados na nota abaixo desta tabela, e tentar novamente. |
 | **Erro 87** - A cadeia de ligação não é válida. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível. Verifique se o nome da instância está correto e que o SQL Server está configurado para permitir ligações remotas. (fornecedor: SQL Network Interfaces, erro: 25 - Cadeia de ligação não é válida) | Este erro ocorre se o serviço não conseguir ligar-se ao servidor de origem devido a uma cadeia de ligação inválida. Para resolver o problema, verifique a cadeia de ligação fornecida. Se a questão persistir, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e tente novamente. |
-| **Erro - Certificado de servidor não confiável.** Uma ligação foi estabelecida com sucesso com o servidor, mas então ocorreu um erro durante o processo de login. (prestador: Fornecedor SSL, erro: 0 - A cadeia de certificados foi emitida por uma autoridade que não é de confiança.) | Este erro ocorre se o certificado utilizado não for de confiança. Para resolver o problema, precisa de encontrar um certificado de confiança e, em seguida, adiá-lo no servidor. Em alternativa, pode selecionar a opção Certificado Fiduciário durante a ligação. Tome esta ação apenas se estiver familiarizado com o certificado usado e confiar nele. <br> As ligações TLS que são encriptadas usando um certificado auto-assinado não fornecem uma segurança forte. Não confie no TLS utilizando certificados auto-assinados num ambiente de produção ou em servidores ligados à internet. <br> Para obter mais informações, consulte a [utilização do SSL com um Microsoft SQL Server DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) ou [Tutorial: Migrar o Servidor RDS SQL para Azure utilizando o DMS](./tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md#prerequisites). |
-| **Erro 300** - O utilizador não tem permissões necessárias. VER SERVIDOR STATE permissão foi negada no objeto '{server}', base de dados '{database}' | Este erro ocorre se o utilizador não tiver permissão para realizar a migração. Para resolver o problema, consulte [permissões do servidor GRANT - Transact-SQL](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) ou [Tutorial: Migrar o Servidor RDS SQL para Azure utilizando o DMS](./tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md#prerequisites) para obter mais detalhes. |
+| **Erro - Certificado de servidor não confiável.** Uma ligação foi estabelecida com sucesso com o servidor, mas então ocorreu um erro durante o processo de login. (prestador: Fornecedor SSL, erro: 0 - A cadeia de certificados foi emitida por uma autoridade que não é de confiança.) | Este erro ocorre se o certificado utilizado não for de confiança. Para resolver o problema, precisa de encontrar um certificado de confiança e, em seguida, adiá-lo no servidor. Em alternativa, pode selecionar a opção Certificado Fiduciário durante a ligação. Tome esta ação apenas se estiver familiarizado com o certificado usado e confiar nele. <br> As ligações TLS que são encriptadas usando um certificado auto-assinado não fornecem uma segurança forte. Não confie no TLS utilizando certificados auto-assinados num ambiente de produção ou em servidores ligados à internet. <br> Para obter mais informações, consulte a [utilização do SSL com um Microsoft SQL Server DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) ou [Tutorial: Migrar o Servidor RDS SQL para Azure utilizando o DMS](./index.yml). |
+| **Erro 300** - O utilizador não tem permissões necessárias. VER SERVIDOR STATE permissão foi negada no objeto '{server}', base de dados '{database}' | Este erro ocorre se o utilizador não tiver permissão para realizar a migração. Para resolver o problema, consulte [permissões do servidor GRANT - Transact-SQL](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) ou [Tutorial: Migrar o Servidor RDS SQL para Azure utilizando o DMS](./index.yml) para obter mais detalhes. |
 
 > [!NOTE]
 > Para obter mais informações sobre problemas relacionados com a ligação a um servidor AWS RDS SQL de origem, consulte os seguintes recursos:
@@ -85,7 +85,7 @@ Os potenciais problemas associados à ligação a uma base de dados do Servidor 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* [Questões conhecidas/limitações de migração com migrações online para Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Questões conhecidas/limitações de migração com migrações online para Azure SQL Database](./index.yml)
 * [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 

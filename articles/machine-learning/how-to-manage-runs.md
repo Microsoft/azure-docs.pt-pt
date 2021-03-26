@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110275"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566290"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Iniciar, monitorizar e rastrear o histórico 
 
@@ -211,7 +211,7 @@ Vai precisar dos seguintes itens:
     1. Nos **detalhes** do Destino , selecione o **espaço de trabalho Enviar para Registar Analytics**  e especificar o espaço de trabalho **subscrição** e **log analytics**. 
 
     > [!NOTE]
-    > O **Espaço de Trabalho Azure Log Analytics** é um tipo diferente de Recurso Azure do que o espaço de trabalho do serviço de **aprendizagem automática Azure.** Se não houver opções nessa lista, pode [criar um espaço de trabalho log analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    > O **Espaço de Trabalho Azure Log Analytics** é um tipo diferente de Recurso Azure do que o espaço de trabalho do serviço de **aprendizagem automática Azure.** Se não houver opções nessa lista, pode [criar um espaço de trabalho log analytics](../azure-monitor/logs/quick-create-workspace.md). 
     
     ![Onde guardar a notificação de e-mail](./media/how-to-manage-runs/log-location.png)
 
@@ -219,7 +219,7 @@ Vai precisar dos seguintes itens:
 
     ![Nova regra de alerta](./media/how-to-manage-runs/new-alert-rule.png)
 
-1. Veja [como criar e gerir alertas de registo utilizando o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+1. Veja [como criar e gerir alertas de registo utilizando o Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="run-description"></a>Executar descrição 
 

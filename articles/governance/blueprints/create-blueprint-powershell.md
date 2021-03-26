@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta com PowerShell'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o PowerShell.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 002ba6fcf20b10bcc44fb486a85bc24bfdd12ae3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918284"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559048"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Quickstart: Definir e atribuir uma planta Azure com PowerShell
 
@@ -307,7 +307,7 @@ O valor para `{BlueprintVersion}` é uma cadeia de letras, números e hífenes (
 
 Uma vez que uma planta é publicada usando PowerShell, é atribuível a uma subscrição. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se a planta for guardada para uma subscrição, só pode ser atribuída a essa subscrição. O parâmetro **Blueprint** especifica a planta a atribuir. Para fornecer o nome, a localização, a identidade, a fechadura e os parâmetros de plantação, utilize os parâmetros PowerShell correspondentes no `New-AzBlueprintAssignment` cmdlet ou forneça-os no ficheiro JSON do parâmetro **De atribuiçãoFile.**
 
-1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os **parâmetros dos contribuintes** e **proprietários** requerem uma série de objectIds dos principais para ser concedido a atribuição de funções, use [a Azure Ative Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) para recolher os objectIds para uso no **AssignmentFile** para os seus próprios utilizadores, grupos ou principais de serviço.
+1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os **parâmetros dos contribuintes** e **proprietários** requerem uma série de objectIds dos principais para ser concedido a atribuição de funções, use [a Azure Ative Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist) para recolher os objectIds para uso no **AssignmentFile** para os seus próprios utilizadores, grupos ou principais de serviço.
 
    - Ficheiro JSON - blueprintAssignment.jsem
 

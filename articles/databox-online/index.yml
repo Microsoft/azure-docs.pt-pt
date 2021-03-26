@@ -12,12 +12,12 @@ metadata:
   author: alkohli
   ms.author: alkohli
   ms.date: 10/27/2020
-  ms.openlocfilehash: 5ec423338b913bfab56212dcb801fa4097557d8b
-  ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+  ms.openlocfilehash: 1105230626de91b23a6e32a7632644382eb8267e
+  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/11/2021
-  ms.locfileid: "102630321"
+  ms.lasthandoff: 03/26/2021
+  ms.locfileid: "105564335"
 landingContent:
 - title: Acerca do Azure Stack Edge
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
     - text: O que é o Azure Stack Edge Pro FPGA?
       url: azure-stack-edge-overview.md
     - text: O que é o Azure Stack Edge R?
-      url: azure-stack-edge-j-series-overview.md
+      url: ./azure-stack-edge-pro-r-overview.md
     - text: O que é o Azure Stack Edge Mini R?
       url: azure-stack-edge-mini-r-overview.md
   - linkListType: architecture

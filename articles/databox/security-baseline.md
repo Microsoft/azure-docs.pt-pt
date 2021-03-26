@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0a05a4692bb4a09213532ed29b2501f6b8056857
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63b99cdeb7606798caa1b1d997dbb9f609c033b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721995"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562193"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Linha de segurança Azure para Azure Data Box
 
@@ -88,7 +88,7 @@ Pode controlar quem pode aceder à sua encomenda quando a encomenda é criada pe
 
 - [Como configurar o Azure RBAC para livros](../sentinel/quickstart-get-visibility.md)
 
-- [Entenda como configurar o controlo de acesso na ordem](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Entenda como configurar o controlo de acesso na ordem](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsabilidade**: Cliente
 
@@ -172,7 +172,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 Para o aparelho Data Box, este não é suportado em tempo real. Pode rever os registos no final do trabalho.
 
-- [Compreenda a Azure AD reportando](/azure/active-directory/reports-monitoring/)
+- [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
 - [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -190,7 +190,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 Os registos de serviço da Caixa de Dados Azure não estão escritos no espaço de trabalho do Log Analytics.
 
-- [Como integrar os Registos de Atividades do Azure no Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -216,7 +216,7 @@ Os registos de serviço da Caixa de Dados Azure não estão escritos no espaço 
 
 **Orientação**: Em breve estará disponível; O Lockbox do cliente ainda não está suportado para a Caixa de Dados Azure. 
 
-- [Lista de serviços suportados pelo Cliente Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista de serviços suportados pelo Cliente Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilidade**: Cliente
 
@@ -254,7 +254,7 @@ Os registos de serviço da Caixa de Dados Azure não estão escritos no espaço 
 
 - [Entenda como começar com a Azure Data Box](data-box-quickstart-portal.md)
 
-- [Compreender como configurar o controlo de acessos](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Compreender como configurar o controlo de acessos](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsabilidade**: Cliente
 
@@ -281,7 +281,7 @@ Além disso, a Azure Data Box protege a chave de desbloqueio do dispositivo (tam
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade Azure para criar alertas para quando ocorrerem alterações na Caixa de Dados Azure, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -459,5 +459,5 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

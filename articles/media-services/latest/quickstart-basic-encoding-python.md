@@ -9,12 +9,12 @@ ms.workload: ''
 ms.topic: quickstart
 ms.date: 2/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: ed6bad4e81a1af654357912f6fe0cd03a3fcd62e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: adaf18e4cbeed18bcf33a8d3ce191abca78b3ca6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500840"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567887"
 ---
 # <a name="media-services-basic-encoding-with-python"></a>Codificação básica dos Serviços de Media com Python
 
@@ -229,4 +229,4 @@ Quando terminar com o quickstart, elimine os recursos criados no grupo de recurs
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Conheça os [Serviços de Media Python SDK](https://docs.microsoft.com/python/api/azure-mgmt-media/)
+Conheça os [Serviços de Media Python SDK](/python/api/azure-mgmt-media/)

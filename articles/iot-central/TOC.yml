@@ -124,7 +124,7 @@
             - name: Criar uma aplicação de monitorização contínua do paciente
               href: healthcare/tutorial-continuous-patient-monitoring.md
             - name: Criar um dashboard de triagem de dados de saúde
-              href: healthcare/howto-health-data-triage.md
+              href: ./healthcare/tutorial-health-data-triage.md
 - name: Conceitos
   items:
     - name: Arquitetura

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: b13e8e088eff95071247a53ad1a4a18879f94053
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43d616bc82c608918f5e7ee51481a393dd55a284
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742199"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566075"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0
 
@@ -71,7 +71,7 @@ Este passo utiliza o [`Hive Schema Tool`](https://cwiki.apache.org/confluence/di
     > [!NOTE]
     > Este utilitário utiliza o cliente `beeline` para executar scripts SQL em `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql` .
     >
-    > A sintaxe SQL nestes scripts não é necessariamente compatível com outras ferramentas do cliente. Por exemplo, [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [Editor de Consulta no Portal Azure](../../azure-sql/database/connect-query-portal.md) requerem palavra-chave após cada `GO` comando.
+    > A sintaxe SQL nestes scripts não é necessariamente compatível com outras ferramentas do cliente. Por exemplo, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) e [Editor de Consulta no Portal Azure](../../azure-sql/database/connect-query-portal.md) requerem palavra-chave após cada `GO` comando.
     >
     > Se algum script falhar devido à capacidade de recursos ou intervalos de transação, dimensione a Base de Dados SQL.
 

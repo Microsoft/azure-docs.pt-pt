@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: 330131ea7e9a364a31d25a6f3f0a75b1adbeb27a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f7d1e3bebf2fbdea3075d97e3829e38a3930909b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799892"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566137"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -191,6 +191,10 @@ O tamanho do volume reportado pelo cliente SMB é o tamanho máximo que o volume
 ### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Estou a ter problemas em ligar-me à minha parte da SMB. O que devo fazer?
 
 Como melhor prática, desloque a tolerância máxima para a sincronização do relógio do computador para cinco minutos. Para obter mais informações, consulte [a tolerância máxima para a sincronização do relógio do computador](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
+
+### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Como posso obter o endereço IP de um volume SMB através do portal?
+
+Utilize o link **JSON View** no painel de visão geral do volume e procure o identificador **startIp** em **propriedades**  ->  **mountTargets**.
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes de gestão da capacidade
 

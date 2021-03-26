@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 5066264777c66369205489fb27a6f9206c5da521
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708004"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567295"
 ---
 # <a name="azure-monitor-logs-overview"></a>Descrição geral dos Registos do Azure Monitor
 Azure Monitor Logs é uma característica do Azure Monitor que recolhe e organiza dados de registo e desempenho a partir de [recursos monitorizados.](../monitor-reference.md) Dados de diferentes fontes, como [registos](../essentials/platform-logs-overview.md) de plataformas a partir de serviços Azure, dados de registo e desempenho de [agentes de máquinas virtuais,](../agents/agents-overview.md)e dados de utilização e desempenho de aplicações podem ser consolidados num único espaço de trabalho para que possam ser [analisados](../app/app-insights-overview.md) em conjunto usando uma linguagem de consulta sofisticada que é capaz de analisar rapidamente milhões de registos. Pode realizar uma consulta simples que apenas recupera um conjunto específico de registos ou realiza análises de dados sofisticadas para identificar padrões críticos nos seus dados de monitorização. Trabalhe com consultas de registo e seus resultados interativamente usando Log Analytics, use-os em regras de alerta para ser notificado proativamente de problemas, ou visualizar os seus resultados em um livro ou painel de instrumentos.
@@ -23,7 +23,7 @@ Azure Monitor Logs é uma característica do Azure Monitor que recolhe e organiz
 ## <a name="what-can-you-do-with-azure-monitor-logs"></a>O que pode fazer com os registos do Monitor Azure?
 A tabela a seguir descreve algumas das diferentes formas de utilização de Registos no Monitor Azure:
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Análise** | Use [o Log Analytics](./log-analytics-tutorial.md) no portal Azure para escrever consultas de [registo](./log-query-overview.md) e analise interativamente dados de registo usando um poderoso motor de análise |
 | **Alerta** | Configure uma [regra de alerta de registo](../alerts/alerts-log.md) que envia uma notificação ou toma [medidas automatizadas](../alerts/action-groups.md) quando os resultados da consulta correspondem a um resultado específico. |

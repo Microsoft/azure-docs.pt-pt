@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471755"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562227"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -56,9 +56,9 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (Atualização de fevereiro)
 + **Novas funcionalidades**
-  + [Terminal Nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Os utilizadores passarão a ter acesso a um terminal integrado, bem como a uma operação git através do terminal integrado.
+  + [Terminal Nativo (GA)](./how-to-access-terminal.md). Os utilizadores passarão a ter acesso a um terminal integrado, bem como a uma operação git através do terminal integrado.
   + [Snippets de portátil (pré-visualização)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Excertos de código Azure ML comuns estão agora disponíveis na ponta dos dedos. Navegue para o painel de cortes de código, acessível através da barra de ferramentas, ou ative o menu de snippets in-code utilizando ctrl + Espaço.  
-  + [Atalhos de teclado](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Paridade total com atalhos de teclado disponíveis no Jupyter. 
+  + [Atalhos de teclado](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Paridade total com atalhos de teclado disponíveis no Jupyter. 
   + Indicar parâmetros celulares. Mostra aos utilizadores quais as células num bloco de notas são células de parâmetros e podem executar cadernos parametrizados via [Papermill](https://github.com/nteract/papermill) na Instância de Computação.
   + Terminal e Kernel: Os utilizadores poderão gerir todos os núcleos e sessões terminais em execução no seu cálculo.
   + Botão de partilha. Os utilizadores podem agora partilhar qualquer ficheiro no explorador de ficheiros Do Notebook clicando corretamente no ficheiro e utilizando o botão de partilha.
@@ -68,7 +68,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
   + Tempos de carga de página melhorados
   + Desempenho melhorado 
   + Melhoria da velocidade e da fiabilidade do núcleo
-  + Auss adicionando roda giratória para mostrar progresso para todas as operações em curso [da Instância computacional](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
+  + Auss adicionando roda giratória para mostrar progresso para todas as operações em curso [da Instância computacional](./how-to-run-jupyter-notebooks.md#status-indicators).
   + Clique à direita no Explorador de Ficheiros. Clicar à direita em qualquer ficheiro abrirá agora as operações de ficheiro. 
 
 
@@ -79,7 +79,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
   + **azureml-core**
     + [Recurso experimental] Adicione suporte para ligar o espaço de trabalho da sinapse à AML como um serviço ligado
     + [Recurso experimental] Adicione suporte para anexar a piscina de faíscas sinapse em AML como um cálculo
-    + [Recurso experimental] Adicione suporte para acesso de dados baseados na identidade. Os utilizadores podem registar datastore ou conjuntos de dados sem fornecer credenciais. Nesse caso, o token AAD ou a identidade gerida do alvo do computação serão utilizados para a autenticação. Saiba mais [aqui.](https://aka.ms/data-access)
+    + [Recurso experimental] Adicione suporte para acesso de dados baseados na identidade. Os utilizadores podem registar datastore ou conjuntos de dados sem fornecer credenciais. Nesse caso, o token AAD ou a identidade gerida do alvo do computação serão utilizados para a autenticação. Saiba mais [aqui.](./how-to-identity-based-data-access.md)
   + **azureml-pipeline-steps**
     + [Recurso experimental] Adicionar suporte para [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

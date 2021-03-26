@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 302f53bd218a2e01a039be4780a0e2ff5974e7b4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215957"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565576"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografe os discos de dados e os discos de dados anexados num conjunto de escala de máquina virtual com o Azure CLI
 
@@ -61,7 +61,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 O Azure Key Vault pode armazenar chaves, segredos ou senhas que lhe permitam implementá-las de forma segura nas suas aplicações e serviços. As chaves criptográficas são armazenadas no Cofre da Chave Azure utilizando proteção de software, ou pode importar ou gerar as suas chaves em Módulos de Segurança de Hardware (HSMs) certificadas para normas fips 140-2 de nível 2. Estas chaves criptográficas são usadas para encriptar e desencriptar discos virtuais ligados ao seu VM. Mantém o controlo destas chaves criptográficas e pode auditar o seu uso.
 
-Defina o seu próprio *keyvault_name* único. Em seguida, crie um KeyVault com [keyvault az criar](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) na mesma subscrição e região que o conjunto de escala, e definir a política de acesso à *encriptação de disco-activada.*
+Defina o seu próprio *keyvault_name* único. Em seguida, crie um KeyVault com [keyvault az criar](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-create) na mesma subscrição e região que o conjunto de escala, e definir a política de acesso à *encriptação de disco-activada.*
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -75,7 +75,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 Este passo só é necessário se tiver um Cofre de Chaves existente que deseja utilizar com encriptação de disco. Salte este passo se tiver criado um Cofre-Chave na secção anterior.
 
-Defina o seu próprio *keyvault_name* único. Em seguida, atualize o seu KeyVault com [a atualização do keyvault az](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) e desave a política de acesso à *encriptação ativada para o disco.*
+Defina o seu próprio *keyvault_name* único. Em seguida, atualize o seu KeyVault com [a atualização do keyvault az](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-update) e desave a política de acesso à *encriptação ativada para o disco.*
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Ativar a encriptação
 
-Para encriptar as instâncias VM num conjunto de escala, primeiro obtenha algumas informações sobre o ID de recurso key Vault com [o show de keyvault az](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Estas variáveis são usadas para iniciar o processo de encriptação com [az vmss encriptação ativar](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Para encriptar as instâncias VM num conjunto de escala, primeiro obtenha algumas informações sobre o ID de recurso key Vault com [o show de keyvault az](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Estas variáveis são usadas para iniciar o processo de encriptação com [az vmss encriptação ativar](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault

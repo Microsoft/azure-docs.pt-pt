@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94654988"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566031"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Utilizar o Azure Firewall para proteger as implementações do Windows Virtual Desktop
 
@@ -54,7 +54,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 - Criar uma coleção de regras de rede adicione as seguintes regras:
 
    - Permitir DNS – permitir o tráfego do seu endereço IP privado ADDS para * para as portas TCP e UDP 53.
-   - Permitir KMS – permitir o tráfego das máquinas virtuais do Windows Desktop para a porta TCP 1688 do Windows Activation Service. Para obter mais informações sobre os endereços IP de destino, consulte [a ativação do Windows falha no cenário de túneis forçados](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Permitir KMS – permitir o tráfego das máquinas virtuais do Windows Desktop para a porta TCP 1688 do Windows Activation Service. Para obter mais informações sobre os endereços IP de destino, consulte [a ativação do Windows falha no cenário de túneis forçados](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution).
 
 > [!NOTE]
 > Algumas implementações podem não precisar de regras DNS, por exemplo, os controladores de domínio do Azure Ative Directory encaminham as consultas dns para Azure DNS em 168.63.129.16.
