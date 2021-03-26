@@ -4,12 +4,12 @@ description: Saiba como navegar nas melhores práticas para executar consultas d
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 549eab1547b75eb9461b23df2c157290943b4ed9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933110"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869791"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Gateway mergulho profundo e boas práticas para a Colmeia Apache em Azure HDInsight
 
@@ -21,7 +21,7 @@ O gateway HDInsight é a única parte de um cluster HDInsight que é acessível 
 
 O diagrama seguinte fornece uma ilustração áspera de como o Gateway fornece uma abstração em frente a todas as diferentes possibilidades de resolução do anfitrião dentro do HDInsight.
 
-![Diagrama de Resolução de Anfitriões](./media/gateway-best-practices/host-resolution-diagram.png "Diagrama de Resolução de Anfitriões")
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Diagrama de Resolução de Anfitriões" border="true":::
 
 ## <a name="motivation"></a>Motivação
 
@@ -39,7 +39,7 @@ A degradação do desempenho do Gateway em torno de consultas de grande dimensã
 
 O diagrama seguinte ilustra os passos envolvidos numa consulta SELECT.
 
-![Diagrama de resultados](./media/gateway-best-practices/result-retrieval-diagram.png "Diagrama de resultados")
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Diagrama de resultados" border="true":::
 
 Apache Hive é uma abstração relacional em cima de um sistema de ficheiros compatível com HDFS. Esta abstração significa que as declarações **SELECT** na Hive correspondem às operações **de READ** no sistema de ficheiros. As operações **DE LER** são traduzidas para o esquema apropriado antes de comunicação ao utilizador. A latência deste processo aumenta com o tamanho dos dados e o lúpulo total necessário para chegar ao utilizador final.
 

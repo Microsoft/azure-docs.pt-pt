@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 2a9f0a8c943f539166f18a1e41a36136fbb63a6f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584302"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868652"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Como utilizar o Apache Spark (alimentado pela Azure Synapse Analytics) no seu pipeline de aprendizagem automática (pré-visualização)
 
@@ -92,6 +92,8 @@ O primeiro passo é configurar o `SynapseCompute` . O `linked_service` argumento
 Uma vez criada a configuração, cria-se uma aprendizagem automática `ComputeTarget` passando no , e o nome pelo qual gostaria de se referir ao cálculo dentro do espaço de trabalho de machine `Workspace` `ComputeTargetAttachConfiguration` learning. A chamada `ComputeTarget.attach()` é assíncronea, por isso a amostra bloqueia até que a chamada termine.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Criar um `SynapseSparkStep` que use a piscina Apache Spark ligada
+
+O trabalho de amostra de [prossódutão Spark na piscina de faíscas Apache](https://github.com/azure/machinelearningnotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) define um simples oleoduto de aprendizagem automática. Em primeiro lugar, o caderno define um passo de preparação de dados alimentado pelo `synapse_compute` definido no passo anterior. Em seguida, o caderno define um passo de treino alimentado por um alvo de computação mais adequado para o treino. O caderno de amostras utiliza a base de dados de sobrevivência do Titanic para demonstrar a entrada e saída de dados; na verdade, não limpa os dados ou faz um modelo preditivo. Como não há formação real nesta amostra, o passo de treino usa um recurso computacional barato baseado em CPU.
 
 Os dados fluem para um pipeline de aprendizagem automática através de `DatasetConsumptionConfig` objetos, que podem conter dados tabulares ou conjuntos de ficheiros. Os dados vêm frequentemente de ficheiros no armazenamento de bolhas na loja de dados de um espaço de trabalho. O código que se segue mostra algum código típico para criar entrada para um pipeline de aprendizagem automática:
 

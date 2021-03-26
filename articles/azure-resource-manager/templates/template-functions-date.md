@@ -3,12 +3,12 @@ title: Funções do modelo - data
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com datas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: abff5b86ad1e10042596b11f613cdb594e307209
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96920502"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889931"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
 
@@ -27,10 +27,10 @@ Adiciona uma duração de tempo a um valor base. Espera-se o formato ISO 8601.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base | Yes | string | O valor da data inicial para a adição. Utilize [o formato iso 8601 timetamp](https://en.wikipedia.org/wiki/ISO_8601). |
-| duration | Yes | string | O valor do tempo a adicionar à base. Pode ser um valor negativo. Utilize [o formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| base | Sim | string | O valor da data inicial para a adição. Utilize [o formato iso 8601 timetamp](https://en.wikipedia.org/wiki/ISO_8601). |
+| duration | Sim | string | O valor do tempo a adicionar à base. Pode ser um valor negativo. Utilize [o formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | formato | No | string | O formato de saída para o resultado da hora da data. Se não for fornecido, o formato do valor base é utilizado. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Valor devolvido
@@ -186,7 +186,7 @@ Devolve o valor atual (UTC) da data no formato especificado. Se não for forneci
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | formato |No |string |O valor codificado uri para converter-se a uma corda. Utilize [cordas de formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
@@ -287,7 +287,7 @@ O exemplo seguinte mostra como utilizar um valor da função ao definir um valor
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {
@@ -311,7 +311,7 @@ O exemplo seguinte mostra como utilizar um valor da função ao definir um valor
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2018-05-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   name: rgName
   location: 'westeurope'
   tags: {

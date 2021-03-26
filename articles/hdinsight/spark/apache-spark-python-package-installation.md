@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929813"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868720"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
 
@@ -104,7 +104,7 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
 
     1. Abra a UI Ambari, vá à página Spark2, separador Configs.
 
-        ![Change Spark e Livy config através de Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png" alt-text="Change Spark e Livy config através de Ambari" border="true":::
 
     2. Expanda o livy2-env avançado, adicione abaixo as declarações no fundo. Se instalou o ambiente virtual com um prefixo diferente, altere o caminho correspondentemente.
 
@@ -113,7 +113,7 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Mude livy config através de Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-livy-config.png" alt-text="Mude livy config através de Ambari" border="true":::
 
     3. Expandir a spark2-env avançada, substituir a declaração de PYSPARK_PYTHON de exportação existente no fundo. Se instalou o ambiente virtual com um prefixo diferente, altere o caminho correspondentemente.
 
@@ -121,11 +121,11 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Change Spark config através de Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-config.png" alt-text="Change Spark config através de Ambari" border="true":::
 
     4. Guarde as alterações e reinicie os serviços afetados. Estas alterações precisam de um reinício do serviço Spark2. A Ambari UI irá solicitar um lembrete de reinício necessário, clique em Reiniciar para reiniciar todos os serviços afetados.
 
-        ![Reiniciar serviços](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="Reiniciar serviços" border="true":::
 
     5. Desaperte duas propriedades na sessão Spark para garantir que o trabalho aponta para a configuração atualizada da faísca: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` e `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
 
@@ -153,7 +153,7 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
 
     Pode confirmar duas vezes o ambiente python no Jupyter Notebook, correndo abaixo do código:
 
-    ![Verifique a versão Python no Caderno Jupyter](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Verifique a versão Python no Caderno Jupyter" border="true":::
 
 ## <a name="known-issue"></a>Problema conhecido
 

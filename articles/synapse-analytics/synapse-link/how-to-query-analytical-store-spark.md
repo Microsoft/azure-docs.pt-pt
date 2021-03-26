@@ -9,12 +9,13 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 615998de45c4a9993899065a4aef7a15332a59c8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: cosmos-db
+ms.openlocfilehash: d862fa15a655fd9b4ab16dfeaefe45cf8c57fc0d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720411"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868499"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interaja com a Azure Cosmos DB usando Apache Spark in Azure Synapse Link
 

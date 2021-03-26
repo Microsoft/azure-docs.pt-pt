@@ -9,19 +9,19 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 81956a16142f314f54afd9d5a1b9055a559e906c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fd03ebc87a1c0ef0a55b0e6ac0be6d841fee4b0a
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565338"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027300"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guia de migração: SAP ASE para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Este guia ensina-o a migrar as suas bases de dados SAP ASE para Azure SQL Database utilizando o SqL Server Migration Assistant for SAP Adapter Server Enterprise.
 
-Para outros guias de migração, consulte [a Migração da Base de Dados.](https://datamigration.microsoft.com/) 
+Para outros guias de migração, consulte [a Migração da Base de Dados.](https://docs.microsoft.com/data-migration) 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -29,6 +29,8 @@ Para migrar a sua base de dados SAP SE para a Base de Dados Azure SQL, precisa d
 
 - para verificar se o seu ambiente de origem é suportado. 
 - [Sql Server Migration Assistant for SAP Adaptive Server Enterprise (anteriormente SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256). 
+- Conectividade e permissões suficientes para aceder tanto à fonte como ao alvo. 
+
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -44,10 +46,10 @@ Para criar uma avaliação, siga estes passos:
 1. Selecione **File** e, em seguida, escolha **Novo Projeto**. 
 1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione Azure SQL Database como o alvo de migração a partir do drop-down. Selecione **OK**.
 1. Introduza os valores para os detalhes da ligação SAP na caixa de diálogo **'Ligar à Sybase'.** 
-1. Clique com o botão direito na base de dados SAP que pretende migrar e, em seguida, escolha **Criar relatório**. Isto gera um relatório HTML.
-1. Reveja o relatório HTML para compreender as estatísticas de conversão e quaisquer erros ou avisos. Também pode abrir o relatório no Excel para obter um inventário de objetos DB2 e o esforço necessário para realizar conversões de esquemas. A localização predefinição do relatório está na pasta do relatório dentro dos Projetos SSMA.
+1. Clique com o botão direito na base de dados SAP que pretende migrar e, em seguida, escolha **Criar relatório**. Isto gera um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados:
+1. Reveja o relatório HTML para compreender as estatísticas de conversão e quaisquer erros ou avisos. Também pode abrir o relatório no Excel para obter um inventário de objetos SAP ASE e o esforço necessário para realizar conversões de esquemas. A localização predefinição do relatório está na pasta do relatório dentro dos Projetos SSMA.
 
-   Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Por exemplo: `drive:\<username>\Documents\SSMAProjects\MySAPMigration\report\report_<date>`. 
 
 
 ### <a name="validate-type-mappings"></a>Validar mapeamentos de tipo
@@ -66,19 +68,19 @@ Para converter o esquema, siga estes passos:
 
    Após a conversão do esquema, pode guardar este projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para a Base de Dados Azure SQL.
 
-Para saber mais, consulte [converter o esquema](/sql/ssma/sybase/converting-sybase-ase-database-objects-sybasetosql)
-
+1. Selecione **Os resultados** da Revisão no painel de saída e os erros de revisão no painel **da lista de erros.** 
+1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para a Base de Dados SQL.
 
 ## <a name="migrate"></a>Migrate 
 
 Depois de ter os pré-requisitos necessários e ter concluído as tarefas associadas à fase **de pré-migração,** está pronto para executar o esquema e a migração de dados.
 
-Para publicar o esquema e migrar os dados, siga estes passos: 
+Para publicar o seu esquema e migrar os dados, siga estes passos: 
 
-1. Clique com o botão direito na base de dados **do Azure SQL Database Metadata Explorer** e escolha **Sincronizar com Base de Dados**.  Esta ação publica o esquema SAP ASE para a instância da Base de Dados Azure SQL.
-1. Clique com o botão direito no esquema SAP ASE no **SAP ASE Metadata Explorer** e escolha **Dados Migratórios**.  Em alternativa, pode **selecionar Dados Migratórios** a partir da barra de navegação de primeira linha.  
+1. Publique o esquema: Clique à direita na base de dados **Azure SQL Base de Dados Metadata Explorer** e escolha **Sincronizar com base de dados**.  Esta ação publica o esquema SAP ASE para a instância da Base de Dados Azure SQL.
+1. Migrar os dados: Clique à direita na base de dados ou objeto que pretende migrar no **SAP ASE Metadata Explorer**, e escolha **dados migratórios**. Em alternativa, pode **selecionar Dados Migratórios** a partir da barra de navegação de primeira linha. Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de dados, expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação: 
 1. Após a conclusão da migração, consulte o **Relatório de Migração de Dados:** 
-1. Validar a migração através da revisão dos dados e esquemas na instância Azure SQL Database, utilizando o Azure SQL Database Management Studio (SSMS).
+1. Conecte-se à sua Base de Dados Azure SQL utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas. 
 
 
 ## <a name="post-migration"></a>Pós-migração 

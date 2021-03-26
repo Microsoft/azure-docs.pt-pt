@@ -1,30 +1,27 @@
 ---
 title: Descubra as instâncias do SQL Server num projeto existente da Azure Migrate
 description: Saiba como descobrir as instâncias do SQL Server num projeto existente da Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 11/23/2020
-ms.openlocfilehash: ca0052eebd8d3c8e80943ca8c0e0346216436800
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: 8caac0a111c3a1bdd88e0d5f43a4629ad4221496
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452769"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888945"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Descubra as instâncias do SQL Server num projeto existente 
 
 Este artigo descreve como descobrir instâncias e bases de dados do SQL Server num projeto [Azure Migrate](./migrate-services-overview.md) que foi criado antes da pré-visualização da funcionalidade de avaliação do Azure SQL.
 
-Descobrir instâncias e bases de dados do SQL Server em funcionamento em máquinas no local ajuda a identificar e adaptar um caminho de migração para Azure SQL. O aparelho Azure Migrate executa esta descoberta utilizando as credenciais de autenticação do Domínio ou as credenciais de autenticação do SQL Server que têm acesso às instâncias e bases de dados do SQL Server em execução nos servidores direcionados. Este processo de descoberta é sem agente, ou seja, nada está instalado nos servidores-alvo.
-
-> [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou os [**pré-requisitos**](how-to-discover-sql-existing-project.md) deste artigo.
+Descobrir instâncias e bases de dados do SQL Server em funcionamento em máquinas no local ajuda a identificar e adaptar um caminho de migração para Azure SQL. O aparelho Azure Migrate executa esta descoberta utilizando as credenciais de autenticação do Domínio ou as credenciais de autenticação do SQL Server que têm acesso às instâncias e bases de dados do SQL Server em execução nos servidores direcionados. Este processo de descoberta é sem agente, ou seja, nada está instalado nos servidores alvo.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Certifique-se de que: 
+- Certifique-se de que:
     - Criei um [projeto Azure Migrate](./create-manage-projects.md) antes do anúncio do recurso de avaliação SQL para a sua região
     - Acrescentou o [Azure Migrate: Descoberta e](./how-to-assess.md) ferramenta de avaliação a um projeto
 - Reveja [o suporte e requisitos de descoberta de aplicações.](./migrate-support-matrix-vmware.md#vmware-requirements)
@@ -41,18 +38,18 @@ Descobrir instâncias e bases de dados do SQL Server em funcionamento em máquin
 2. No Discover SQL Server as instâncias e bases de dados seguem os passos implicados:
     - Selecione **Upgrade**, para criar o recurso necessário.
         :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-upgrade-appliance.png" alt-text="Botão para atualizar o aparelho Azure Migrate":::
-    - Valide que os serviços em funcionamento no aparelho são atualizados para as versões mais recentes. Para tal, lance o gestor de configuração do aparelho a partir do seu servidor de aparelhos e selecione os serviços de visualização do aparelho a partir do painel de pré-requisitos set.
+    - Valide que os serviços em funcionamento no aparelho são atualizados para as versões mais recentes. Para tal, lance o gestor de configuração do aparelho a partir do servidor do seu aparelho e selecione os serviços de visualização do aparelho a partir do painel de pré-requisitos de configuração.
         - Aparelho e seus componentes são automaticamente atualizados :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Verifique a versão do aparelho":::
-    - No painel de credenciais e fontes de descoberta do gestor de configuração do aparelho, adicione credenciais de autenticação de servidor de domínio ou SQL que tenham acesso Sysadmin na instância e bases de dados do SQL Server a serem descobertas. 
-    Pode aproveitar a função de mapeamento de credencial automática do aparelho ou mapear manualmente as credenciais para o respetivo servidor, conforme [aqui](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery)destacado.
-        
+    - No painel de credenciais e fontes de descoberta do gestor de configuração do aparelho, adicione credenciais de autenticação de servidor de domínio ou SQL que tenham acesso Sysadmin na instância e bases de dados do SQL Server a serem descobertas.
+    Pode aproveitar a função automática de mapeamento de credenciais do aparelho ou mapear manualmente as credenciais para o respetivo servidor, conforme [aqui](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery)destacado .
+
     Alguns pontos a notar:
     - Certifique-se de que o inventário de software já está ativado ou forneça credenciais de domínio ou não domínio para ativar o mesmo. O inventário de software deve ser realizado para descobrir as instâncias do SQL Server.
-    - O aparelho tentará validar as credenciais de domínio com AD, tal como são adicionadas. Certifique-se de que o servidor do aparelho tem linha de visão de rede para o servidor AD associado às credenciais. As credenciais associadas à autenticação do servidor SQL não são validadas. 
+    - O aparelho tentará validar as credenciais de domínio com AD, tal como são adicionadas. Certifique-se de que o servidor do aparelho tem linha de visão de rede para o servidor AD associado às credenciais. As credenciais associadas à autenticação do servidor SQL não são validadas.
 
-3. Assim que as credenciais desejadas forem adicionadas, por favor, selecione Iniciar a Descoberta, para iniciar a digitalização.
+3. Uma vez adicionadas as credenciais desejadas, selecione Iniciar a Descoberta, para iniciar a verificação.
 
-> [!Note] 
+> [!Note]
 >Por favor, permita que a descoberta SQL corra por algum tempo antes de criar avaliações para Azure SQL. Se a descoberta de instâncias e bases de dados do SQL Server não for concluída, as respetivas instâncias são marcadas como **Desconhecidas** no relatório de avaliação.
 
 ## <a name="next-steps"></a>Passos seguintes

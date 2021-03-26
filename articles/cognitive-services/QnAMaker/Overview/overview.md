@@ -7,18 +7,20 @@ ms.topic: overview
 ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: fabricante de qna, bots de chat de código baixo, conversas multi-turn
-ms.openlocfilehash: a75b5939e8848ca898d7279b55ab2c4faa4ed72a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 8df9daa213156fc38ed08bced44ea919da95e6a4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919566"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869213"
 ---
 # <a name="what-is-qna-maker"></a>O que é o Criador de FAQ?
 
 O QnA Maker é um serviço de processamento de linguagem natural (NLP) baseado na nuvem que lhe permite criar uma camada de conversação natural sobre os seus dados. É usado para encontrar a resposta mais adequada para qualquer entrada da sua base de conhecimento personalizado (KB) de informação.
 
 O QnA Maker é comumente usado para construir aplicações de clientes conversais, que incluem aplicações de redes sociais, chat bots e aplicações de desktop ativadas por discursos.
+
+A QnA Maker não armazena os dados dos clientes. Todos os dados do cliente (respostas de perguntas e chatlogs) são armazenados na região em que o cliente implementa as instâncias de serviço dependentes. Para mais detalhes sobre serviços dependentes consulte [aqui.](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/plan?tabs=v1)
 
 ## <a name="when-to-use-qna-maker"></a>Quando usar o Fabricante QnA
 
@@ -86,7 +88,7 @@ Oferecemos quickstarts nas linguagens de programação mais populares, cada uma 
 * [Começa com a biblioteca de clientes da QnA Maker](../quickstarts/quickstart-sdk.md)
 * [Começa com o portal QnA Maker](../quickstarts/create-publish-knowledge-base.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 O QnA Maker fornece tudo o que precisa para construir, gerir e implementar a sua base de conhecimentos personalizados.
 
 > [!div class="nextstepaction"]

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8aba6f13957d37f843114572f001029baf41ded6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095668"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889353"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selecione um domínio para um projeto de Visão Personalizada
 
@@ -25,12 +25,17 @@ A partir do separador de definições do seu projeto Visão Personalizada, pode 
 
 |Domínio|Objetivo|
 |---|---|
-|__Geral__| Otimizado para uma ampla gama de tarefas de classificação de imagem. Se nenhum dos outros domínios for apropriado, ou se não tiver a certeza de qual domínio escolher, selecione o domínio Geral. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Geral__| Otimizado para uma ampla gama de tarefas de classificação de imagem. Se nenhum dos outros domínios específicos for apropriado, ou se não tiver a certeza de qual domínio escolher, selecione um dos domínios gerais. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
 |__General [A1]__| Otimizado para uma maior precisão com tempo de inferência comparável como domínio geral. Recomendado para conjuntos de dados maiores ou cenários de utilizador mais difíceis. Este domínio requer mais tempo de treino. ID: `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
+|__General [A2]__| Otimizado para uma melhor precisão com tempo de inferência mais rápido do que os domínios Geral[A1] e Geral. Recomendado para a maioria dos conjuntos de dados. Este domínio requer menos tempo de treino do que os domínios Geral e Geral [A1]. ID: `2e37d7fb-3a54-486a-b4d6-cfc369af0018` |
 |__Comida__|Otimizado para fotografias de pratos como você os veria no menu de um restaurante. Se quiser classificar fotografias de frutas ou vegetais individuais, utilize o domínio Food. ID: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Pontos de referência__|Otimizado para marcos reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o marco é claramente visível na fotografia. Este domínio funciona mesmo que o marco seja ligeiramente obstruído por pessoas à sua frente. ID: `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Retail__|Otimizado para imagens que são encontradas em um catálogo de compras ou site de compras. Se quiser classificar de alta precisão entre vestidos, calças e camisas, use este domínio. ID: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Domínios compactos__| Otimizado para os constrangimentos da classificação em tempo real em dispositivos de borda.|
+
+
+> [!NOTE]
+> Os domínios General[A1] e General[A2] podem ser utilizados para um conjunto alargado de cenários e otimizados para uma precisão. Utilize o modelo General[A2] para uma melhor velocidade de inferência e um tempo de treino mais curto. Para conjuntos de dados maiores, pode querer utilizar o General[A1] para obter uma maior precisão do que o General[A2], embora requeira mais tempo de treino e inferência. O modelo geral requer mais tempo de inferência do que o General[A1] e o General[A2].
 
 ## <a name="object-detection"></a>Deteção de Objetos
 

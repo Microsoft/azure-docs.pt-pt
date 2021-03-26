@@ -1,22 +1,22 @@
 ---
 title: Quickstart - Adicionar chamadas a uma aplicação iOS usando os Serviços de Comunicação Azure
-description: Neste arranque rápido, aprende-se a usar a biblioteca de clientes Azure Communication Services Call para iOS.
+description: Neste arranque rápido, aprende-se a usar os Serviços de Comunicação Azure chamando sDK para iOS.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 6cdd38f1e849efc416d62f22bd85ed7efb2e6349
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d3a282d108d197ea0c5c616e9ee84fb7b952026
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719724"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108304"
 ---
-Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para iOS.
+Neste arranque rápido, você vai aprender a iniciar uma chamada usando os Serviços de Comunicação Azure chamando SDK para iOS.
 
 > [!NOTE]
-> Este documento utiliza a versão 1.0.0-beta.8 da biblioteca do cliente chamador.
+> Este documento utiliza a versão 1.0.0-beta.8 do Call SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -119,11 +119,11 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características da biblioteca de clientes Azure Communication Services Call:
+As seguintes classes e interfaces lidam com algumas das principais características dos Serviços de Comunicação Azure Chamando SDK:
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | O CallClient é o principal ponto de entrada para a biblioteca do cliente Call.|
+| CallClient | O CallClient é o principal ponto de entrada para o Call SDK.|
 | Callagent | O CallAgent é usado para iniciar e gerir chamadas. |
 | ComunicadoTokenCredential | O CommunicationTokenCredential é usado como credencial simbólica para instantaneaizar o CallAgent.| 
 | ComunicadoUserIdentifier | O CommunicationUserIdentifier é utilizado para representar a identidade do utilizador que pode ser uma das seguintes: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |

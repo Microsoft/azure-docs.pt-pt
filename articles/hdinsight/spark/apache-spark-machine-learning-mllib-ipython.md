@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: d2054058bb00b0801aa1c3694c73b6a2edb46c80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 224ebae58a5688f81d1b64b4a9c81d5abd8a9690
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930054"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868856"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use Apache Spark MLlib para construir uma aplicação de machine learning e analisar um conjunto de dados
 
@@ -175,7 +175,7 @@ Vamos começar a ter uma noção do que o conjunto de dados contém.
 
     O resultado é:
 
-    ![Saída de consulta SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Saída de consulta SQL")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="Saída de consulta SQL" border="true":::
 
 3. Também pode usar Matplotlib, uma biblioteca usada para construir a visualização de dados, para criar um enredo. Como o enredo deve ser criado a partir do conjunto de **dados de Contagem Localmente** PersistidoRes, o corte de código deve começar com a `%%local` magia. Esta ação garante que o código é executado localmente no servidor Jupyter.
 
@@ -348,7 +348,7 @@ Pode agora construir uma visualização final para ajudá-lo a raciocinar sobre 
 
     Deverá ver o seguinte resultado:
 
-    ![Produção de aplicação de aprendizagem de máquinas de faísca - percentagens de gráfico de tortas de inspeções alimentares falhadas.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Saída de resultado de aprendizagem de máquina de faísca")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png " alt-text="Produção de aplicação de aprendizagem de máquinas de faísca - percentagens de gráfico de tortas de inspeções alimentares falhadas." border="true":::
 
     Neste gráfico, um resultado "positivo" refere-se à inspeção alimentar falhada, enquanto um resultado negativo refere-se a uma inspeção aprovada.
 

@@ -4,12 +4,12 @@ description: As diferenças e o fluxo migratório para a migração das cargas d
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b8b054d06c9c0987508abfdf03bbcf9470572bd1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944793"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868771"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
 
@@ -25,8 +25,7 @@ Se quiser migrar da Tempestade Apache em HDInsight 3.6 tem várias opções:
 
 Este documento fornece um guia para migrar da Tempestade Apache para o Streaming de Faíscas e O Streaming Estruturado de Faíscas.
 
-> [!div class="mx-imgBorder"]
-> ![Caminho de migração da tempestade HDInsight](./media/migrate-storm-to-spark/storm-migration-path.png)
+:::image type="content" source="./media/migrate-storm-to-spark/storm-migration-path.png" alt-text="Caminho de migração da tempestade HDInsight" border="false":::
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Comparação entre Tempestade Apache e Streaming de Faíscas, Streaming Estruturado de Faíscas
 
@@ -47,8 +46,7 @@ O Streaming Estruturado de Faísca está a substituir o Streaming spark (DStream
 
 A tempestade fornece um modelo que processa cada evento. Isto significa que todos os registos de entrada serão processados assim que chegarem. As aplicações spark streaming devem esperar uma fração de segundo para recolher cada micro-lote de eventos antes de enviar esse lote para processamento. Em contraste, uma aplicação orientada para o evento processa cada evento imediatamente. A latência do streaming de faíscas é normalmente em poucos segundos. Os benefícios da abordagem do micro-lote são o processamento de dados mais eficiente e cálculos agregados mais simples.
 
-> [!div class="mx-imgBorder"]
-> ![processamento de streaming e micro-lotes](./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png)
+:::image type="content" source="./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png" alt-text="processamento de streaming e micro-lotes" border="false":::
 
 ## <a name="storm-architecture-and-components"></a>Arquitetura de tempestade e componentes
 
@@ -59,19 +57,17 @@ As topologias do Storm são compostas por múltiplos componentes que são dispos
 |Bico|Traz dados para uma topologia. Emitem um ou mais fluxos para a topologia.|
 |Parafuso|Consome riachos emitidos a partir de bicos ou outros parafusos. Opcionalmente, os bolts podem emitir fluxos para a topologia. Os bolts também são responsáveis pela escrita de dados em serviços externos ou armazenamento, como o HDFS, Kafka ou HBase.|
 
-> [!div class="mx-imgBorder"]
-> ![interação dos componentes da tempestade](./media/migrate-storm-to-spark/apache-storm-components.png)
+:::image type="content" source="./media/migrate-storm-to-spark/apache-storm-components.png" alt-text="interação dos componentes da tempestade" border="false":::
 
 A tempestade consiste nos seguintes três daemons, que mantêm o aglomerado de tempestades funcionando.
 
-|Rio Daemon |Description |
+|Rio Daemon |Descrição |
 |---|---|
 |Nimbus|Semelhante ao Hadoop JobTracker, é responsável por distribuir código em torno do cluster e atribuir tarefas a máquinas e monitorização de falhas.|
 |Zookeeper|Usado para coordenação de agrupamentos.|
 |Supervisor|Ouve o trabalho atribuído à sua máquina e inicia e para os processos dos trabalhadores com base em diretivas da Nimbus. Cada processo de trabalho executa um subconjunto de uma topologia. A lógica de aplicação do utilizador (Bicos e Parafusos) é executada aqui.|
 
-> [!div class="mx-imgBorder"]
-> ![nimbus, zookeeper, e daemons supervisor](./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png)
+:::image type="content" source="./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png" alt-text="nimbus, zookeeper, e daemons supervisor" border="false":::
 
 ## <a name="spark-streaming-architecture-and-components"></a>Arquitetura e componentes de streaming de faíscas
 
@@ -83,15 +79,13 @@ Os seguintes passos resumem como os componentes funcionam em conjunto no Streami
 * Os blocos de dados são replicados a outros executores.
 * Os dados processados são então armazenados na loja de dados-alvo.
 
-> [!div class="mx-imgBorder"]
-> ![caminho de streaming de faísca para a saída](./media/migrate-storm-to-spark/spark-streaming-to-output.png)
+:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-to-output.png" alt-text="caminho de streaming de faísca para a saída" border="false":::
 
 ## <a name="spark-streaming-dstream-workflow"></a>Fluxo de trabalho de streaming de faíscas (DStream)
 
 À medida que cada intervalo de lote decorre, é produzido um novo RDD que contém todos os dados desse intervalo. Os conjuntos contínuos de RDDs são recolhidos num DStream. Por exemplo, se o intervalo do lote tiver um segundo de comprimento, o seu DStream emite um lote a cada segundo contendo um RDD que contém todos os dados ingeridos durante esse segundo. Ao processar o DStream, o evento de temperatura aparece num destes lotes. Uma aplicação Spark Streaming processa os lotes que contêm os eventos e, em última análise, atua nos dados armazenados em cada RDD.
 
-> [!div class="mx-imgBorder"]
-> ![lotes de processamento de streaming de faíscas](./media/migrate-storm-to-spark/spark-streaming-batches.png)
+:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-batches.png" alt-text="lotes de processamento de streaming de faíscas" border="false":::
 
 Para mais detalhes sobre as diferentes transformações disponíveis com o Spark Streaming, consulte [Transformações em DStreams](https://spark.apache.org/docs/latest/streaming-programming-guide.html#transformations-on-dstreams).
 
@@ -105,11 +99,9 @@ A produção de consulta produz uma *tabela de resultados,* que contém os resul
 
 O tempo de quando os dados são tratados a partir da tabela de entrada é controlado pelo intervalo do gatilho. Por predefinição, o intervalo do gatilho é zero, pelo que o Streaming Estruturado tenta processar os dados assim que chega. Na prática, isto significa que assim que o Streaming Estruturado é feito o processamento da execução da consulta anterior, inicia outra execução de processamento contra quaisquer dados recém-recebidos. Pode configurar o gatilho para ser executado num intervalo, de modo a que os dados de streaming são processados em lotes baseados no tempo.
 
-> [!div class="mx-imgBorder"]
-> ![tratamento de dados em streaming estruturado](./media/migrate-storm-to-spark/structured-streaming-data-processing.png)
+:::image type="content" source="./media/migrate-storm-to-spark/structured-streaming-data-processing.png" alt-text="tratamento de dados em streaming estruturado" border="false":::
 
-> [!div class="mx-imgBorder"]
-> ![modelo de programação para streaming estruturado](./media/migrate-storm-to-spark/structured-streaming-model.png)
+:::image type="content" source="./media/migrate-storm-to-spark/structured-streaming-model.png" alt-text="modelo de programação para streaming estruturado" border="false":::
 
 ## <a name="general-migration-flow"></a>Fluxo migratório geral
 
@@ -119,30 +111,25 @@ O fluxo de migração recomendado de Tempestade a Faísca pressupõe a seguinte 
 * Kafka e Storm são implantados na mesma rede virtual
 * Os dados processados por Storm são escritos para um sumidouro de dados, como O Azure Storage ou Azure Data Lake Storage Gen2.
 
-    > [!div class="mx-imgBorder"]
-    > ![diagrama do ambiente presumível](./media/migrate-storm-to-spark/presumed-current-environment.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/presumed-current-environment.png" alt-text="diagrama do ambiente presumível"  border="false":::
 
 Para migrar a sua aplicação de Storm para uma das APIs de streaming spark, faça o seguinte:
 
 1. **Implementar um novo aglomerado.** Implemente um novo cluster HDInsight 4.0 Spark na mesma rede virtual e implemente a sua aplicação spark streaming ou spark Structured Streaming nele e teste-o cuidadosamente.
 
-    > [!div class="mx-imgBorder"]
-    > ![nova implantação de faíscas em HDInsight](./media/migrate-storm-to-spark/new-spark-deployment.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/new-spark-deployment.png" alt-text="nova implantação de faíscas em HDInsight" border="false":::
 
 1. **Pare de consumir no velho aglomerado de tempestades.** Na tempestade existente, pare de consumir dados da fonte de dados de streaming e espere que os dados terminem de escrever para o afundanço alvo.
 
-    > [!div class="mx-imgBorder"]
-    > ![parar de consumir no cluster atual](./media/migrate-storm-to-spark/stop-consuming-current-cluster.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/stop-consuming-current-cluster.png" alt-text="parar de consumir no cluster atual" border="false":::
 
 1. **Comece a consumir no novo cluster Spark.** Inicie o streaming de dados a partir de um cluster HDInsight 4.0 Spark recentemente implantado. Neste momento, o processo é assumido consumindo a partir da mais recente compensação kafka.
 
-    > [!div class="mx-imgBorder"]
-    > ![começar a consumir em novo cluster](./media/migrate-storm-to-spark/start-consuming-new-cluster.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/start-consuming-new-cluster.png" alt-text="começar a consumir em novo cluster" border="false":::
 
 1. **Retire o aglomerado antigo conforme necessário.** Uma vez que o interruptor esteja completo e funcionando corretamente, remova o antigo cluster de tempestade HDInsight 3.6, conforme necessário.
 
-    > [!div class="mx-imgBorder"]
-    > ![remover clusters HDInsight antigos, conforme necessário](./media/migrate-storm-to-spark/remove-old-clusters1.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/remove-old-clusters1.png" alt-text="remover clusters HDInsight antigos, conforme necessário" border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

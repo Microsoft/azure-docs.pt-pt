@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99053589"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953855"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Resolução de problemas Iniciar/Parar VMs durante problemas fora de horas
 
@@ -149,7 +149,7 @@ Reveja a seguinte lista para potenciais resoluções:
   ```
 
 * Para iniciar e parar os VMs, a conta Run As para a conta Automação deve ter permissões apropriadas para o VM. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de aplicação para o principal serviço utilizado pela conta Run As. Pode recuperar este valor indo para a sua conta Automation no portal Azure. Selecione **Executar como contas** em **Definições de Conta** e selecione a conta Run As apropriada.
-* Se o VM estiver com problemas de partida ou de negociação, pode haver um problema no próprio VM. Exemplos são uma atualização que está a ser aplicada quando o VM está a tentar desligar, um serviço que está pendurado, e muito mais. Vá ao seu recurso VM e verifique **registos de atividade para** ver se há algum erro nos registos. Também pode tentar iniciar sessão no VM para ver se existem erros nos registos do evento. Para saber mais sobre a resolução de problemas do seu VM, consulte [máquinas virtuais Azure de resolução de problemas.](../../virtual-machines/troubleshooting/index.yml)
+* Se o VM estiver com problemas de partida ou de negociação, pode haver um problema no próprio VM. Exemplos são uma atualização que está a ser aplicada quando o VM está a tentar desligar, um serviço que está pendurado, e muito mais. Vá ao seu recurso VM e verifique **registos de atividade para** ver se há algum erro nos registos. Também pode tentar iniciar sessão no VM para ver se existem erros nos registos do evento. Para saber mais sobre a resolução de problemas do seu VM, consulte [máquinas virtuais Azure de resolução de problemas.](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 * Verifique os [fluxos de trabalho](../automation-runbook-execution.md#job-statuses) para procurar quaisquer erros. No portal, aceda à sua conta de Automação e selecione **Jobs** under **Process Automation**.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Cenário: O meu livro personalizado não começa ou para os meus VMs

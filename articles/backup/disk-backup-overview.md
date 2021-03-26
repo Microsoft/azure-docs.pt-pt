@@ -3,19 +3,14 @@ title: Visão geral da cópia de segurança do disco Azure
 description: Saiba mais sobre a solução de backup do Disco Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9449fdc57909cb143d381ae074913c79d24c8893
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915513"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107300"
 ---
-# <a name="overview-of-azure-disk-backup-in-preview"></a>Visão geral da cópia de segurança do disco Azure (na pré-visualização)
-
->[!IMPORTANT]
->A Azure Disk Backup está em pré-visualização sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para disponibilidade da região, consulte a [matriz de suporte.](disk-backup-support-matrix.md)
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever para a pré-visualização.
+# <a name="overview-of-azure-disk-backup"></a>Visão geral da cópia de segurança do disco Azure
 
 A Azure Disk Backup é uma solução de backup baseada na nuvem nativa que protege os seus dados em discos geridos. É uma solução simples, segura e económica que lhe permite configurar a proteção para discos geridos em alguns passos. Garante que pode recuperar os seus dados num cenário de desastre.
 

@@ -3,12 +3,12 @@ title: Modos de implementação
 description: Descreve como especificar se deve utilizar um modo de implementação completo ou incremental com o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 45eee255cec06925095ed0696c669b5c205f8b56
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f1f74c0495e0d43671712281a35a7e74fd7d821
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97724413"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888843"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
@@ -114,7 +114,7 @@ O exemplo a seguir mostra um modelo ligado definido para o modo de implementaç�
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2017-05-10",
+    "apiVersion": "2020-10-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
