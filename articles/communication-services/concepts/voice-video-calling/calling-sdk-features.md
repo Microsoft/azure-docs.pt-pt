@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 240bdaee9073ab18e175e2911ac1c23ae49b3d7e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 31b8e2e9a8e69fd730edb2c826005104f5f82bdc
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562414"
+ms.locfileid: "105609195"
 ---
 # <a name="calling-sdk-overview"></a>Chamando a visão geral da SDK
 
@@ -72,17 +72,17 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                   | Definir / atualizar o modo de escala                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Renderizar fluxo de vídeo remoto                                                                                          | ✔️   | ✔️            | ✔️
 
-## <a name="calling-client-library-streaming-support"></a>Chamando o suporte de streaming da biblioteca do cliente
-A biblioteca de clientes de serviços de comunicação suporta as seguintes configurações de streaming:
+## <a name="calling-sdk-streaming-support"></a>Chamando suporte de streaming SDK
+Os Serviços de Comunicação Que Ligam A SDK suporta as seguintes configurações de streaming:
 
 | Limite          |Web | Android/iOS|
 |-----------|----|------------|
 |**# de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 partilha de ecrã | 1 vídeo + 1 partilha de ecrã|
 |**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 partilha de ecrã| 6 vídeo + 1 partilha de ecrã |
 
-## <a name="calling-client-library-timeouts"></a>Chamar os intervalos da biblioteca do cliente
+## <a name="calling-sdk-timeouts"></a>Chamando os intervalos da SDK
 
-Os seguintes intervalos aplicam-se às bibliotecas de clientes dos Serviços de Comunicação:
+Aplicam-se os seguintes intervalos de tempo aos Serviços de Comunicação que chamam os SDKs:
 
 | Ação           | Tempo limite em segundos |
 | -------------- | ---------- |
